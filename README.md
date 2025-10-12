@@ -154,13 +154,17 @@ As with most programming tutorials, let’s start by printing **“Hello World!�
 In your `Mod.cs` file, add a `ConsoleWindow` to the class:
 
 ```csharp
+using Game.Debug;
+using System;
+
 namespace mod
 {
     public class Mod : IMod
     {
-        public ConsoleWindow console;
-        public static ILog log = LogManager.GetLogger($"{nameof(mod)}.{nameof(Mod)}").SetShowsErrorsInUI(false);
 
+        private ConsoleWindow console;
+
+        public static ILog log = LogManager.GetLogger($"{nameof(mod2)}.{nameof(Mod)}").SetShowsErrorsInUI(false);
         private Setting m_Setting;
         public static ProxyAction m_ButtonAction;
         public static ProxyAction m_AxisAction;
