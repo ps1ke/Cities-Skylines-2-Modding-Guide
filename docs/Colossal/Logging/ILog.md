@@ -1,0 +1,313 @@
+﻿# Colossal.Logging.ILog
+
+**Assembly:** `Colossal.Logging`  
+**Namespace:** `Colossal.Logging`  
+
+**Type:** interface abstract public  
+
+**Implements:** `System.IDisposable`  
+
+## Properties
+
+- `public Colossal.Indent indent { get; set }`  
+- `public System.String name { get }`  
+- `public System.String logPath { get }`  
+- `public System.Boolean showsErrorsInUI { get; set }`  
+- `public Colossal.Logging.Level showsStackTraceAboveLevels { get; set }`  
+- `public System.Boolean isDebugEnabled { get }`  
+- `public System.Boolean isTraceEnabled { get }`  
+- `public System.Boolean isVerboseEnabled { get }`  
+- `public System.Boolean isInfoEnabled { get }`  
+- `public System.Boolean isWarnEnabled { get }`  
+- `public System.Boolean isErrorEnabled { get }`  
+- `public System.Boolean isFatalEnabled { get }`  
+- `public System.Boolean disableBacktrace { get; set }`  
+- `public System.Boolean keepStreamOpen { get; set }`  
+- `public System.Boolean redirectToDefault { get; set }`  
+- `public Colossal.Logging.ILog+StackTraceScope stackTraceScoped { get }`  
+- `public Colossal.Logging.Level effectivenessLevel { get; set }`  
+- `public System.Boolean logStackTrace { get; set }`  
+
+## Methods
+
+- `public abstract Copy() : Colossal.Logging.ILog`  
+- `public abstract Critical(System.Exception exception) : System.Void`  
+- `public abstract Critical(System.Object message) : System.Void`  
+- `public abstract Critical(System.Exception exception, System.Object message) : System.Void`  
+- `public abstract Critical(UnityEngine.Object context, System.Object message) : System.Void`  
+- `public abstract Critical(UnityEngine.Object context, System.Exception exception) : System.Void`  
+- `public abstract Critical(UnityEngine.Object context, System.Exception exception, System.Object message) : System.Void`  
+- `public abstract CriticalFormat(System.String format, System.Object p1) : System.Void`  
+- `public abstract CriticalFormat(System.String format, System.Object p1, System.Object p2) : System.Void`  
+- `public abstract CriticalFormat(System.String format, System.Object p1, System.Object p2, System.Object p3) : System.Void`  
+- `public abstract CriticalFormat(System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4) : System.Void`  
+- `public abstract CriticalFormat(System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4, System.Object p5) : System.Void`  
+- `public abstract CriticalFormat(System.String format, System.Object[] p) : System.Void`  
+- `public abstract CriticalFormat(System.Exception exception, System.String format, System.Object p1) : System.Void`  
+- `public abstract CriticalFormat(System.Exception exception, System.String format, System.Object p1, System.Object p2) : System.Void`  
+- `public abstract CriticalFormat(System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3) : System.Void`  
+- `public abstract CriticalFormat(System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4) : System.Void`  
+- `public abstract CriticalFormat(System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4, System.Object p5) : System.Void`  
+- `public abstract CriticalFormat(System.Exception exception, System.String format, System.Object[] p) : System.Void`  
+- `public abstract CriticalFormat(UnityEngine.Object context, System.String format, System.Object p1) : System.Void`  
+- `public abstract CriticalFormat(UnityEngine.Object context, System.String format, System.Object p1, System.Object p2) : System.Void`  
+- `public abstract CriticalFormat(UnityEngine.Object context, System.String format, System.Object p1, System.Object p2, System.Object p3) : System.Void`  
+- `public abstract CriticalFormat(UnityEngine.Object context, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4) : System.Void`  
+- `public abstract CriticalFormat(UnityEngine.Object context, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4, System.Object p5) : System.Void`  
+- `public abstract CriticalFormat(UnityEngine.Object context, System.String format, System.Object[] p) : System.Void`  
+- `public abstract CriticalFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object p1) : System.Void`  
+- `public abstract CriticalFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object p1, System.Object p2) : System.Void`  
+- `public abstract CriticalFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3) : System.Void`  
+- `public abstract CriticalFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4) : System.Void`  
+- `public abstract CriticalFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4, System.Object p5) : System.Void`  
+- `public abstract CriticalFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object[] p) : System.Void`  
+- `public abstract Debug(System.Exception exception) : System.Void`  
+- `public abstract Debug(System.Object message) : System.Void`  
+- `public abstract Debug(System.Exception exception, System.Object message) : System.Void`  
+- `public abstract Debug(UnityEngine.Object context, System.Object message) : System.Void`  
+- `public abstract Debug(UnityEngine.Object context, System.Exception exception) : System.Void`  
+- `public abstract Debug(UnityEngine.Object context, System.Exception exception, System.Object message) : System.Void`  
+- `public abstract DebugFormat(System.String format, System.Object p1) : System.Void`  
+- `public abstract DebugFormat(System.String format, System.Object p1, System.Object p2) : System.Void`  
+- `public abstract DebugFormat(System.String format, System.Object p1, System.Object p2, System.Object p3) : System.Void`  
+- `public abstract DebugFormat(System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4) : System.Void`  
+- `public abstract DebugFormat(System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4, System.Object p5) : System.Void`  
+- `public abstract DebugFormat(System.String format, System.Object[] p) : System.Void`  
+- `public abstract DebugFormat(System.Exception exception, System.String format, System.Object p1) : System.Void`  
+- `public abstract DebugFormat(System.Exception exception, System.String format, System.Object p1, System.Object p2) : System.Void`  
+- `public abstract DebugFormat(System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3) : System.Void`  
+- `public abstract DebugFormat(System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4) : System.Void`  
+- `public abstract DebugFormat(System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4, System.Object p5) : System.Void`  
+- `public abstract DebugFormat(System.Exception exception, System.String format, System.Object[] p) : System.Void`  
+- `public abstract DebugFormat(UnityEngine.Object context, System.String format, System.Object p1) : System.Void`  
+- `public abstract DebugFormat(UnityEngine.Object context, System.String format, System.Object p1, System.Object p2) : System.Void`  
+- `public abstract DebugFormat(UnityEngine.Object context, System.String format, System.Object p1, System.Object p2, System.Object p3) : System.Void`  
+- `public abstract DebugFormat(UnityEngine.Object context, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4) : System.Void`  
+- `public abstract DebugFormat(UnityEngine.Object context, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4, System.Object p5) : System.Void`  
+- `public abstract DebugFormat(UnityEngine.Object context, System.String format, System.Object[] p) : System.Void`  
+- `public abstract DebugFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object p1) : System.Void`  
+- `public abstract DebugFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object p1, System.Object p2) : System.Void`  
+- `public abstract DebugFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3) : System.Void`  
+- `public abstract DebugFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4) : System.Void`  
+- `public abstract DebugFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4, System.Object p5) : System.Void`  
+- `public abstract DebugFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object[] p) : System.Void`  
+- `public abstract Emergency(System.Exception exception) : System.Void`  
+- `public abstract Emergency(System.Object message) : System.Void`  
+- `public abstract Emergency(System.Exception exception, System.Object message) : System.Void`  
+- `public abstract Emergency(UnityEngine.Object context, System.Object message) : System.Void`  
+- `public abstract Emergency(UnityEngine.Object context, System.Exception exception) : System.Void`  
+- `public abstract Emergency(UnityEngine.Object context, System.Exception exception, System.Object message) : System.Void`  
+- `public abstract EmergencyFormat(System.String format, System.Object[] p) : System.Void`  
+- `public abstract EmergencyFormat(System.Exception exception, System.String format, System.Object p1) : System.Void`  
+- `public abstract EmergencyFormat(System.Exception exception, System.String format, System.Object p1, System.Object p2) : System.Void`  
+- `public abstract EmergencyFormat(System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3) : System.Void`  
+- `public abstract EmergencyFormat(System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4) : System.Void`  
+- `public abstract EmergencyFormat(System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4, System.Object p5) : System.Void`  
+- `public abstract EmergencyFormat(System.Exception exception, System.String format, System.Object[] p) : System.Void`  
+- `public abstract EmergencyFormat(UnityEngine.Object context, System.String format, System.Object p1) : System.Void`  
+- `public abstract EmergencyFormat(UnityEngine.Object context, System.String format, System.Object p1, System.Object p2) : System.Void`  
+- `public abstract EmergencyFormat(UnityEngine.Object context, System.String format, System.Object p1, System.Object p2, System.Object p3) : System.Void`  
+- `public abstract EmergencyFormat(UnityEngine.Object context, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4) : System.Void`  
+- `public abstract EmergencyFormat(UnityEngine.Object context, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4, System.Object p5) : System.Void`  
+- `public abstract EmergencyFormat(UnityEngine.Object context, System.String format, System.Object[] p) : System.Void`  
+- `public abstract EmergencyFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object p1) : System.Void`  
+- `public abstract EmergencyFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object p1, System.Object p2) : System.Void`  
+- `public abstract EmergencyFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3) : System.Void`  
+- `public abstract EmergencyFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4) : System.Void`  
+- `public abstract EmergencyFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4, System.Object p5) : System.Void`  
+- `public abstract EmergencyFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object[] p) : System.Void`  
+- `public abstract Error(System.Exception exception) : System.Void`  
+- `public abstract Error(System.Object message) : System.Void`  
+- `public abstract Error(System.Exception exception, System.Object message) : System.Void`  
+- `public abstract Error(UnityEngine.Object context, System.Object message) : System.Void`  
+- `public abstract Error(UnityEngine.Object context, System.Exception exception) : System.Void`  
+- `public abstract Error(UnityEngine.Object context, System.Exception exception, System.Object message) : System.Void`  
+- `public abstract ErrorFormat(System.String format, System.Object p1) : System.Void`  
+- `public abstract ErrorFormat(System.String format, System.Object p1, System.Object p2) : System.Void`  
+- `public abstract ErrorFormat(System.String format, System.Object p1, System.Object p2, System.Object p3) : System.Void`  
+- `public abstract ErrorFormat(System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4) : System.Void`  
+- `public abstract ErrorFormat(System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4, System.Object p5) : System.Void`  
+- `public abstract ErrorFormat(System.String format, System.Object[] p) : System.Void`  
+- `public abstract ErrorFormat(System.Exception exception, System.String format, System.Object p1) : System.Void`  
+- `public abstract ErrorFormat(System.Exception exception, System.String format, System.Object p1, System.Object p2) : System.Void`  
+- `public abstract ErrorFormat(System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3) : System.Void`  
+- `public abstract ErrorFormat(System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4) : System.Void`  
+- `public abstract ErrorFormat(System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4, System.Object p5) : System.Void`  
+- `public abstract ErrorFormat(System.Exception exception, System.String format, System.Object[] p) : System.Void`  
+- `public abstract ErrorFormat(UnityEngine.Object context, System.String format, System.Object p1) : System.Void`  
+- `public abstract ErrorFormat(UnityEngine.Object context, System.String format, System.Object p1, System.Object p2) : System.Void`  
+- `public abstract ErrorFormat(UnityEngine.Object context, System.String format, System.Object p1, System.Object p2, System.Object p3) : System.Void`  
+- `public abstract ErrorFormat(UnityEngine.Object context, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4) : System.Void`  
+- `public abstract ErrorFormat(UnityEngine.Object context, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4, System.Object p5) : System.Void`  
+- `public abstract ErrorFormat(UnityEngine.Object context, System.String format, System.Object[] p) : System.Void`  
+- `public abstract ErrorFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object p1) : System.Void`  
+- `public abstract ErrorFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object p1, System.Object p2) : System.Void`  
+- `public abstract ErrorFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3) : System.Void`  
+- `public abstract ErrorFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4) : System.Void`  
+- `public abstract ErrorFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4, System.Object p5) : System.Void`  
+- `public abstract ErrorFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object[] p) : System.Void`  
+- `public abstract Fatal(System.Exception exception) : System.Void`  
+- `public abstract Fatal(System.Object message) : System.Void`  
+- `public abstract Fatal(System.Exception exception, System.Object message) : System.Void`  
+- `public abstract Fatal(UnityEngine.Object context, System.Object message) : System.Void`  
+- `public abstract Fatal(UnityEngine.Object context, System.Exception exception) : System.Void`  
+- `public abstract Fatal(UnityEngine.Object context, System.Exception exception, System.Object message) : System.Void`  
+- `public abstract FatalFormat(System.String format, System.Object p1) : System.Void`  
+- `public abstract FatalFormat(System.String format, System.Object p1, System.Object p2) : System.Void`  
+- `public abstract FatalFormat(System.String format, System.Object p1, System.Object p2, System.Object p3) : System.Void`  
+- `public abstract FatalFormat(System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4) : System.Void`  
+- `public abstract FatalFormat(System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4, System.Object p5) : System.Void`  
+- `public abstract FatalFormat(System.String format, System.Object[] p) : System.Void`  
+- `public abstract FatalFormat(System.Exception exception, System.String format, System.Object p1) : System.Void`  
+- `public abstract FatalFormat(System.Exception exception, System.String format, System.Object p1, System.Object p2) : System.Void`  
+- `public abstract FatalFormat(System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3) : System.Void`  
+- `public abstract FatalFormat(System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4) : System.Void`  
+- `public abstract FatalFormat(System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4, System.Object p5) : System.Void`  
+- `public abstract FatalFormat(System.Exception exception, System.String format, System.Object[] p) : System.Void`  
+- `public abstract FatalFormat(UnityEngine.Object context, System.String format, System.Object p1) : System.Void`  
+- `public abstract FatalFormat(UnityEngine.Object context, System.String format, System.Object p1, System.Object p2) : System.Void`  
+- `public abstract FatalFormat(UnityEngine.Object context, System.String format, System.Object p1, System.Object p2, System.Object p3) : System.Void`  
+- `public abstract FatalFormat(UnityEngine.Object context, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4) : System.Void`  
+- `public abstract FatalFormat(UnityEngine.Object context, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4, System.Object p5) : System.Void`  
+- `public abstract FatalFormat(UnityEngine.Object context, System.String format, System.Object[] p) : System.Void`  
+- `public abstract FatalFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object p1) : System.Void`  
+- `public abstract FatalFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object p1, System.Object p2) : System.Void`  
+- `public abstract FatalFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3) : System.Void`  
+- `public abstract FatalFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4) : System.Void`  
+- `public abstract FatalFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4, System.Object p5) : System.Void`  
+- `public abstract FatalFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object[] p) : System.Void`  
+- `public abstract Info(System.Exception exception) : System.Void`  
+- `public abstract Info(System.Object message) : System.Void`  
+- `public abstract Info(System.Exception exception, System.Object message) : System.Void`  
+- `public abstract Info(UnityEngine.Object context, System.Object message) : System.Void`  
+- `public abstract Info(UnityEngine.Object context, System.Exception exception) : System.Void`  
+- `public abstract Info(UnityEngine.Object context, System.Exception exception, System.Object message) : System.Void`  
+- `public abstract InfoFormat(System.String format, System.Object p1) : System.Void`  
+- `public abstract InfoFormat(System.String format, System.Object p1, System.Object p2) : System.Void`  
+- `public abstract InfoFormat(System.String format, System.Object p1, System.Object p2, System.Object p3) : System.Void`  
+- `public abstract InfoFormat(System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4) : System.Void`  
+- `public abstract InfoFormat(System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4, System.Object p5) : System.Void`  
+- `public abstract InfoFormat(System.String format, System.Object[] p) : System.Void`  
+- `public abstract InfoFormat(System.Exception exception, System.String format, System.Object p1) : System.Void`  
+- `public abstract InfoFormat(System.Exception exception, System.String format, System.Object p1, System.Object p2) : System.Void`  
+- `public abstract InfoFormat(System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3) : System.Void`  
+- `public abstract InfoFormat(System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4) : System.Void`  
+- `public abstract InfoFormat(System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4, System.Object p5) : System.Void`  
+- `public abstract InfoFormat(System.Exception exception, System.String format, System.Object[] p) : System.Void`  
+- `public abstract InfoFormat(UnityEngine.Object context, System.String format, System.Object p1) : System.Void`  
+- `public abstract InfoFormat(UnityEngine.Object context, System.String format, System.Object p1, System.Object p2) : System.Void`  
+- `public abstract InfoFormat(UnityEngine.Object context, System.String format, System.Object p1, System.Object p2, System.Object p3) : System.Void`  
+- `public abstract InfoFormat(UnityEngine.Object context, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4) : System.Void`  
+- `public abstract InfoFormat(UnityEngine.Object context, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4, System.Object p5) : System.Void`  
+- `public abstract InfoFormat(UnityEngine.Object context, System.String format, System.Object[] p) : System.Void`  
+- `public abstract InfoFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object p1) : System.Void`  
+- `public abstract InfoFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object p1, System.Object p2) : System.Void`  
+- `public abstract InfoFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3) : System.Void`  
+- `public abstract InfoFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4) : System.Void`  
+- `public abstract InfoFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4, System.Object p5) : System.Void`  
+- `public abstract InfoFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object[] p) : System.Void`  
+- `public abstract Internal_WriteStream(UnityEngine.Object context, Colossal.Logging.Level level, System.String format, System.Exception exception, System.IO.TextWriter stdStream) : System.Void`  
+- `public abstract isLevelEnabled(Colossal.Logging.Level level) : System.Boolean`  
+- `public abstract Log(Colossal.Logging.Level level, System.String message, System.Exception exception) : System.Void`  
+- `public abstract ReadSettings(Colossal.Logging.ILogSettingsProvider provider) : System.Void`  
+- `public virtual SetBacktraceEnabled(System.Boolean backtraceEnabled) : Colossal.Logging.ILog`  
+- `public virtual SetEffectiveness(Colossal.Logging.Level effectivenessLevel) : Colossal.Logging.ILog`  
+- `public virtual SetLogStackTrace(System.Boolean logStackTrace) : Colossal.Logging.ILog`  
+- `public virtual SetRedirectToDefault(System.Boolean redirectToDefault) : Colossal.Logging.ILog`  
+- `public virtual SetShowsErrorsInUI(System.Boolean showsErrorsInUI) : Colossal.Logging.ILog`  
+- `public virtual SetShowsStackTraceAboveLevels(Colossal.Logging.Level showsStackTraceAboveLevels) : Colossal.Logging.ILog`  
+- `public abstract Trace(System.Exception exception) : System.Void`  
+- `public abstract Trace(System.Object message) : System.Void`  
+- `public abstract Trace(System.Exception exception, System.Object message) : System.Void`  
+- `public abstract Trace(UnityEngine.Object context, System.Object message) : System.Void`  
+- `public abstract Trace(UnityEngine.Object context, System.Exception exception) : System.Void`  
+- `public abstract Trace(UnityEngine.Object context, System.Exception exception, System.Object message) : System.Void`  
+- `public abstract TraceFormat(System.String format, System.Object p1) : System.Void`  
+- `public abstract TraceFormat(System.String format, System.Object p1, System.Object p2) : System.Void`  
+- `public abstract TraceFormat(System.String format, System.Object p1, System.Object p2, System.Object p3) : System.Void`  
+- `public abstract TraceFormat(System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4) : System.Void`  
+- `public abstract TraceFormat(System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4, System.Object p5) : System.Void`  
+- `public abstract TraceFormat(System.String format, System.Object[] p) : System.Void`  
+- `public abstract TraceFormat(System.Exception exception, System.String format, System.Object p1) : System.Void`  
+- `public abstract TraceFormat(System.Exception exception, System.String format, System.Object p1, System.Object p2) : System.Void`  
+- `public abstract TraceFormat(System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3) : System.Void`  
+- `public abstract TraceFormat(System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4) : System.Void`  
+- `public abstract TraceFormat(System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4, System.Object p5) : System.Void`  
+- `public abstract TraceFormat(System.Exception exception, System.String format, System.Object[] p) : System.Void`  
+- `public abstract TraceFormat(UnityEngine.Object context, System.String format, System.Object p1) : System.Void`  
+- `public abstract TraceFormat(UnityEngine.Object context, System.String format, System.Object p1, System.Object p2) : System.Void`  
+- `public abstract TraceFormat(UnityEngine.Object context, System.String format, System.Object p1, System.Object p2, System.Object p3) : System.Void`  
+- `public abstract TraceFormat(UnityEngine.Object context, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4) : System.Void`  
+- `public abstract TraceFormat(UnityEngine.Object context, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4, System.Object p5) : System.Void`  
+- `public abstract TraceFormat(UnityEngine.Object context, System.String format, System.Object[] p) : System.Void`  
+- `public abstract TraceFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object p1) : System.Void`  
+- `public abstract TraceFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object p1, System.Object p2) : System.Void`  
+- `public abstract TraceFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3) : System.Void`  
+- `public abstract TraceFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4) : System.Void`  
+- `public abstract TraceFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4, System.Object p5) : System.Void`  
+- `public abstract TraceFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object[] p) : System.Void`  
+- `public abstract Verbose(System.Exception exception) : System.Void`  
+- `public abstract Verbose(System.Object message) : System.Void`  
+- `public abstract Verbose(System.Exception exception, System.Object message) : System.Void`  
+- `public abstract Verbose(UnityEngine.Object context, System.Object message) : System.Void`  
+- `public abstract Verbose(UnityEngine.Object context, System.Exception exception) : System.Void`  
+- `public abstract Verbose(UnityEngine.Object context, System.Exception exception, System.Object message) : System.Void`  
+- `public abstract VerboseFormat(System.String format, System.Object p1) : System.Void`  
+- `public abstract VerboseFormat(System.String format, System.Object p1, System.Object p2) : System.Void`  
+- `public abstract VerboseFormat(System.String format, System.Object p1, System.Object p2, System.Object p3) : System.Void`  
+- `public abstract VerboseFormat(System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4) : System.Void`  
+- `public abstract VerboseFormat(System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4, System.Object p5) : System.Void`  
+- `public abstract VerboseFormat(System.String format, System.Object[] p) : System.Void`  
+- `public abstract VerboseFormat(System.Exception exception, System.String format, System.Object p1) : System.Void`  
+- `public abstract VerboseFormat(System.Exception exception, System.String format, System.Object p1, System.Object p2) : System.Void`  
+- `public abstract VerboseFormat(System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3) : System.Void`  
+- `public abstract VerboseFormat(System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4) : System.Void`  
+- `public abstract VerboseFormat(System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4, System.Object p5) : System.Void`  
+- `public abstract VerboseFormat(System.Exception exception, System.String format, System.Object[] p) : System.Void`  
+- `public abstract VerboseFormat(UnityEngine.Object context, System.String format, System.Object p1) : System.Void`  
+- `public abstract VerboseFormat(UnityEngine.Object context, System.String format, System.Object p1, System.Object p2) : System.Void`  
+- `public abstract VerboseFormat(UnityEngine.Object context, System.String format, System.Object p1, System.Object p2, System.Object p3) : System.Void`  
+- `public abstract VerboseFormat(UnityEngine.Object context, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4) : System.Void`  
+- `public abstract VerboseFormat(UnityEngine.Object context, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4, System.Object p5) : System.Void`  
+- `public abstract VerboseFormat(UnityEngine.Object context, System.String format, System.Object[] p) : System.Void`  
+- `public abstract VerboseFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object p1) : System.Void`  
+- `public abstract VerboseFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object p1, System.Object p2) : System.Void`  
+- `public abstract VerboseFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3) : System.Void`  
+- `public abstract VerboseFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4) : System.Void`  
+- `public abstract VerboseFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4, System.Object p5) : System.Void`  
+- `public abstract VerboseFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object[] p) : System.Void`  
+- `public abstract Warn(System.Exception exception) : System.Void`  
+- `public abstract Warn(System.Object message) : System.Void`  
+- `public abstract Warn(System.Exception exception, System.Object message) : System.Void`  
+- `public abstract Warn(UnityEngine.Object context, System.Object message) : System.Void`  
+- `public abstract Warn(UnityEngine.Object context, System.Exception exception) : System.Void`  
+- `public abstract Warn(UnityEngine.Object context, System.Exception exception, System.Object message) : System.Void`  
+- `public abstract WarnFormat(System.String format, System.Object p1) : System.Void`  
+- `public abstract WarnFormat(System.String format, System.Object p1, System.Object p2) : System.Void`  
+- `public abstract WarnFormat(System.String format, System.Object p1, System.Object p2, System.Object p3) : System.Void`  
+- `public abstract WarnFormat(System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4) : System.Void`  
+- `public abstract WarnFormat(System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4, System.Object p5) : System.Void`  
+- `public abstract WarnFormat(System.String format, System.Object[] p) : System.Void`  
+- `public abstract WarnFormat(System.Exception exception, System.String format, System.Object p1) : System.Void`  
+- `public abstract WarnFormat(System.Exception exception, System.String format, System.Object p1, System.Object p2) : System.Void`  
+- `public abstract WarnFormat(System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3) : System.Void`  
+- `public abstract WarnFormat(System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4) : System.Void`  
+- `public abstract WarnFormat(System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4, System.Object p5) : System.Void`  
+- `public abstract WarnFormat(System.Exception exception, System.String format, System.Object[] p) : System.Void`  
+- `public abstract WarnFormat(UnityEngine.Object context, System.String format, System.Object p1) : System.Void`  
+- `public abstract WarnFormat(UnityEngine.Object context, System.String format, System.Object p1, System.Object p2) : System.Void`  
+- `public abstract WarnFormat(UnityEngine.Object context, System.String format, System.Object p1, System.Object p2, System.Object p3) : System.Void`  
+- `public abstract WarnFormat(UnityEngine.Object context, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4) : System.Void`  
+- `public abstract WarnFormat(UnityEngine.Object context, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4, System.Object p5) : System.Void`  
+- `public abstract WarnFormat(UnityEngine.Object context, System.String format, System.Object[] p) : System.Void`  
+- `public abstract WarnFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object p1) : System.Void`  
+- `public abstract WarnFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object p1, System.Object p2) : System.Void`  
+- `public abstract WarnFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3) : System.Void`  
+- `public abstract WarnFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4) : System.Void`  
+- `public abstract WarnFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4, System.Object p5) : System.Void`  
+- `public abstract WarnFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object[] p) : System.Void`  
+
+## Nested types
+
+- `Colossal.Logging.ILog+StackTraceScope`  
+

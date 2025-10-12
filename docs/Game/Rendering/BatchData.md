@@ -1,0 +1,25 @@
+﻿# Game.Rendering.BatchData
+
+**Assembly:** `Game`  
+**Namespace:** `Game.Rendering`  
+
+**Type:** struct sealed public  
+
+**Base:** `System.ValueType`  
+
+## Fields
+
+- `public Unity.Entities.Entity m_LodMesh`  
+- `public System.Int32 m_VTIndex0`  
+- `public System.Int32 m_VTIndex1`  
+- `public System.Single m_VTSizeFactor`  
+- `public Game.Rendering.BatchRenderFlags m_RenderFlags`  
+- `public System.Byte m_ShadowCastingMode`  
+- `public System.Byte m_Layer`  
+- `public System.Byte m_SubMeshIndex`  
+- `public System.Byte m_MinLod`  
+- `public System.Byte m_ShadowLod`  
+- `public System.Byte m_LodIndex`  
+- `public System.Single m_ShadowArea`  
+- `public System.Single m_ShadowHeight`  
+

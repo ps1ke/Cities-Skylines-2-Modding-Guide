@@ -1,0 +1,351 @@
+﻿# Colossal.Logging.UnityLogger
+
+**Assembly:** `Colossal.Logging`  
+**Namespace:** `Colossal.Logging`  
+
+**Type:** class sealed public  
+
+**Base:** `System.Object`  
+**Implements:** `Colossal.Logging.ILog`, `System.IDisposable`  
+
+## Fields
+
+- `private System.Boolean m_NeedsAppend`  
+- `private UnityEngine.ILogger unityLogger`  
+- `private System.IO.FileStream m_Stream`  
+- `private Colossal.Logging.UnityLogger+MultiStream m_StreamWriter`  
+- `private Colossal.Logging.DateTimeFormatter m_DateTimeFormatter`  
+- `private Colossal.Logging.Level m_Effectivenesslevel`  
+- `private System.Boolean <showsErrorsInUI>k__BackingField`  
+- `private Colossal.Logging.Level <showsStackTraceAboveLevels>k__BackingField`  
+- `private System.String <logPath>k__BackingField`  
+- `private System.String <name>k__BackingField`  
+- `private System.Boolean <logStackTrace>k__BackingField`  
+- `private System.Boolean <keepStreamOpen>k__BackingField`  
+- `private System.Boolean <redirectToDefault>k__BackingField`  
+- `private System.Boolean <disableBacktrace>k__BackingField`  
+- `private Colossal.Indent <indent>k__BackingField`  
+- `private static readonly Colossal.Logging.CustomLogHandler kCustomLogHandler`  
+- `private static readonly System.Object _syncObject`  
+
+## Properties
+
+- `public System.Boolean showsErrorsInUI { get; set }`  
+- `public Colossal.Logging.Level showsStackTraceAboveLevels { get; set }`  
+- `public System.String logPath { get; private set }`  
+- `public System.String name { get; private set }`  
+- `public System.Boolean logStackTrace { get; set }`  
+- `public System.Boolean keepStreamOpen { get; set }`  
+- `public System.Boolean redirectToDefault { get; set }`  
+- `public System.Boolean disableBacktrace { get; set }`  
+- `public static System.Boolean backtraceEnabled { get; set }`  
+- `public Colossal.Indent indent { get; set }`  
+- `public Colossal.Logging.Level effectivenessLevel { get; set }`  
+- `public System.Boolean isDebugEnabled { get }`  
+- `public System.Boolean isTraceEnabled { get }`  
+- `public System.Boolean isVerboseEnabled { get }`  
+- `public System.Boolean isInfoEnabled { get }`  
+- `public System.Boolean isWarnEnabled { get }`  
+- `public System.Boolean isErrorEnabled { get }`  
+- `public System.Boolean isFatalEnabled { get }`  
+- `public System.Boolean isValid { get }`  
+- `public System.Boolean isOpen { get }`  
+
+## Constructors
+
+- `public UnityLogger(System.String name)`  
+
+## Methods
+
+- `private Close() : System.Void`  
+- `private static ConvertLevel(Colossal.Logging.Level level) : UnityEngine.LogType`  
+- `public Copy() : Colossal.Logging.ILog`  
+- `public Critical(System.Exception exception) : System.Void`  
+- `public Critical(System.Object message) : System.Void`  
+- `public Critical(System.Exception exception, System.Object message) : System.Void`  
+- `public Critical(UnityEngine.Object context, System.Object message) : System.Void`  
+- `public Critical(UnityEngine.Object context, System.Exception exception) : System.Void`  
+- `public Critical(UnityEngine.Object context, System.Exception exception, System.Object message) : System.Void`  
+- `public CriticalFormat(System.String format, System.Object p1) : System.Void`  
+- `public CriticalFormat(System.String format, System.Object p1, System.Object p2) : System.Void`  
+- `public CriticalFormat(System.String format, System.Object p1, System.Object p2, System.Object p3) : System.Void`  
+- `public CriticalFormat(System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4) : System.Void`  
+- `public CriticalFormat(System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4, System.Object p5) : System.Void`  
+- `public CriticalFormat(System.String format, System.Object[] p) : System.Void`  
+- `public CriticalFormat(System.Exception exception, System.String format, System.Object p1) : System.Void`  
+- `public CriticalFormat(System.Exception exception, System.String format, System.Object p1, System.Object p2) : System.Void`  
+- `public CriticalFormat(System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3) : System.Void`  
+- `public CriticalFormat(System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4) : System.Void`  
+- `public CriticalFormat(System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4, System.Object p5) : System.Void`  
+- `public CriticalFormat(System.Exception exception, System.String format, System.Object[] p) : System.Void`  
+- `public CriticalFormat(UnityEngine.Object context, System.String format, System.Object p1) : System.Void`  
+- `public CriticalFormat(UnityEngine.Object context, System.String format, System.Object p1, System.Object p2) : System.Void`  
+- `public CriticalFormat(UnityEngine.Object context, System.String format, System.Object p1, System.Object p2, System.Object p3) : System.Void`  
+- `public CriticalFormat(UnityEngine.Object context, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4) : System.Void`  
+- `public CriticalFormat(UnityEngine.Object context, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4, System.Object p5) : System.Void`  
+- `public CriticalFormat(UnityEngine.Object context, System.String format, System.Object[] p) : System.Void`  
+- `public CriticalFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object p1) : System.Void`  
+- `public CriticalFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object p1, System.Object p2) : System.Void`  
+- `public CriticalFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3) : System.Void`  
+- `public CriticalFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4) : System.Void`  
+- `public CriticalFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4, System.Object p5) : System.Void`  
+- `public CriticalFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object[] p) : System.Void`  
+- `public Debug(System.Exception exception) : System.Void`  
+- `public Debug(System.Object message) : System.Void`  
+- `public Debug(System.Exception exception, System.Object message) : System.Void`  
+- `public Debug(UnityEngine.Object context, System.Object message) : System.Void`  
+- `public Debug(UnityEngine.Object context, System.Exception exception) : System.Void`  
+- `public Debug(UnityEngine.Object context, System.Exception exception, System.Object message) : System.Void`  
+- `public DebugFormat(System.String format, System.Object p1) : System.Void`  
+- `public DebugFormat(System.String format, System.Object p1, System.Object p2) : System.Void`  
+- `public DebugFormat(System.String format, System.Object p1, System.Object p2, System.Object p3) : System.Void`  
+- `public DebugFormat(System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4) : System.Void`  
+- `public DebugFormat(System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4, System.Object p5) : System.Void`  
+- `public DebugFormat(System.String format, System.Object[] p) : System.Void`  
+- `public DebugFormat(System.Exception exception, System.String format, System.Object p1) : System.Void`  
+- `public DebugFormat(System.Exception exception, System.String format, System.Object p1, System.Object p2) : System.Void`  
+- `public DebugFormat(System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3) : System.Void`  
+- `public DebugFormat(System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4) : System.Void`  
+- `public DebugFormat(System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4, System.Object p5) : System.Void`  
+- `public DebugFormat(System.Exception exception, System.String format, System.Object[] p) : System.Void`  
+- `public DebugFormat(UnityEngine.Object context, System.String format, System.Object p1) : System.Void`  
+- `public DebugFormat(UnityEngine.Object context, System.String format, System.Object p1, System.Object p2) : System.Void`  
+- `public DebugFormat(UnityEngine.Object context, System.String format, System.Object p1, System.Object p2, System.Object p3) : System.Void`  
+- `public DebugFormat(UnityEngine.Object context, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4) : System.Void`  
+- `public DebugFormat(UnityEngine.Object context, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4, System.Object p5) : System.Void`  
+- `public DebugFormat(UnityEngine.Object context, System.String format, System.Object[] p) : System.Void`  
+- `public DebugFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object p1) : System.Void`  
+- `public DebugFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object p1, System.Object p2) : System.Void`  
+- `public DebugFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3) : System.Void`  
+- `public DebugFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4) : System.Void`  
+- `public DebugFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4, System.Object p5) : System.Void`  
+- `public DebugFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object[] p) : System.Void`  
+- `public Dispose() : System.Void`  
+- `public Emergency(System.Exception exception) : System.Void`  
+- `public Emergency(System.Object message) : System.Void`  
+- `public Emergency(System.Exception exception, System.Object message) : System.Void`  
+- `public Emergency(UnityEngine.Object context, System.Object message) : System.Void`  
+- `public Emergency(UnityEngine.Object context, System.Exception exception) : System.Void`  
+- `public Emergency(UnityEngine.Object context, System.Exception exception, System.Object message) : System.Void`  
+- `public EmergencyFormat(System.String format, System.Object p1) : System.Void`  
+- `public EmergencyFormat(System.String format, System.Object p1, System.Object p2) : System.Void`  
+- `public EmergencyFormat(System.String format, System.Object p1, System.Object p2, System.Object p3) : System.Void`  
+- `public EmergencyFormat(System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4) : System.Void`  
+- `public EmergencyFormat(System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4, System.Object p5) : System.Void`  
+- `public EmergencyFormat(System.String format, System.Object[] p) : System.Void`  
+- `public EmergencyFormat(System.Exception exception, System.String format, System.Object p1) : System.Void`  
+- `public EmergencyFormat(System.Exception exception, System.String format, System.Object p1, System.Object p2) : System.Void`  
+- `public EmergencyFormat(System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3) : System.Void`  
+- `public EmergencyFormat(System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4) : System.Void`  
+- `public EmergencyFormat(System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4, System.Object p5) : System.Void`  
+- `public EmergencyFormat(System.Exception exception, System.String format, System.Object[] p) : System.Void`  
+- `public EmergencyFormat(UnityEngine.Object context, System.String format, System.Object p1) : System.Void`  
+- `public EmergencyFormat(UnityEngine.Object context, System.String format, System.Object p1, System.Object p2) : System.Void`  
+- `public EmergencyFormat(UnityEngine.Object context, System.String format, System.Object p1, System.Object p2, System.Object p3) : System.Void`  
+- `public EmergencyFormat(UnityEngine.Object context, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4) : System.Void`  
+- `public EmergencyFormat(UnityEngine.Object context, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4, System.Object p5) : System.Void`  
+- `public EmergencyFormat(UnityEngine.Object context, System.String format, System.Object[] p) : System.Void`  
+- `public EmergencyFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object p1) : System.Void`  
+- `public EmergencyFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object p1, System.Object p2) : System.Void`  
+- `public EmergencyFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3) : System.Void`  
+- `public EmergencyFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4) : System.Void`  
+- `public EmergencyFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4, System.Object p5) : System.Void`  
+- `public EmergencyFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object[] p) : System.Void`  
+- `public Error(System.Exception exception) : System.Void`  
+- `public Error(System.Object message) : System.Void`  
+- `public Error(System.Exception exception, System.Object message) : System.Void`  
+- `public Error(UnityEngine.Object context, System.Object message) : System.Void`  
+- `public Error(UnityEngine.Object context, System.Exception exception) : System.Void`  
+- `public Error(UnityEngine.Object context, System.Exception exception, System.Object message) : System.Void`  
+- `public ErrorFormat(System.String format, System.Object p1) : System.Void`  
+- `public ErrorFormat(System.String format, System.Object p1, System.Object p2) : System.Void`  
+- `public ErrorFormat(System.String format, System.Object p1, System.Object p2, System.Object p3) : System.Void`  
+- `public ErrorFormat(System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4) : System.Void`  
+- `public ErrorFormat(System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4, System.Object p5) : System.Void`  
+- `public ErrorFormat(System.String format, System.Object[] p) : System.Void`  
+- `public ErrorFormat(System.Exception exception, System.String format, System.Object p1) : System.Void`  
+- `public ErrorFormat(System.Exception exception, System.String format, System.Object p1, System.Object p2) : System.Void`  
+- `public ErrorFormat(System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3) : System.Void`  
+- `public ErrorFormat(System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4) : System.Void`  
+- `public ErrorFormat(System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4, System.Object p5) : System.Void`  
+- `public ErrorFormat(System.Exception exception, System.String format, System.Object[] p) : System.Void`  
+- `public ErrorFormat(UnityEngine.Object context, System.String format, System.Object p1) : System.Void`  
+- `public ErrorFormat(UnityEngine.Object context, System.String format, System.Object p1, System.Object p2) : System.Void`  
+- `public ErrorFormat(UnityEngine.Object context, System.String format, System.Object p1, System.Object p2, System.Object p3) : System.Void`  
+- `public ErrorFormat(UnityEngine.Object context, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4) : System.Void`  
+- `public ErrorFormat(UnityEngine.Object context, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4, System.Object p5) : System.Void`  
+- `public ErrorFormat(UnityEngine.Object context, System.String format, System.Object[] p) : System.Void`  
+- `public ErrorFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object p1) : System.Void`  
+- `public ErrorFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object p1, System.Object p2) : System.Void`  
+- `public ErrorFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3) : System.Void`  
+- `public ErrorFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4) : System.Void`  
+- `public ErrorFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4, System.Object p5) : System.Void`  
+- `public ErrorFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object[] p) : System.Void`  
+- `public Fatal(System.Exception exception) : System.Void`  
+- `public Fatal(System.Object message) : System.Void`  
+- `public Fatal(System.Exception exception, System.Object message) : System.Void`  
+- `public Fatal(UnityEngine.Object context, System.Object message) : System.Void`  
+- `public Fatal(UnityEngine.Object context, System.Exception exception) : System.Void`  
+- `public Fatal(UnityEngine.Object context, System.Exception exception, System.Object message) : System.Void`  
+- `public FatalFormat(System.String format, System.Object p1) : System.Void`  
+- `public FatalFormat(System.String format, System.Object p1, System.Object p2) : System.Void`  
+- `public FatalFormat(System.String format, System.Object p1, System.Object p2, System.Object p3) : System.Void`  
+- `public FatalFormat(System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4) : System.Void`  
+- `public FatalFormat(System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4, System.Object p5) : System.Void`  
+- `public FatalFormat(System.String format, System.Object[] p) : System.Void`  
+- `public FatalFormat(System.Exception exception, System.String format, System.Object p1) : System.Void`  
+- `public FatalFormat(System.Exception exception, System.String format, System.Object p1, System.Object p2) : System.Void`  
+- `public FatalFormat(System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3) : System.Void`  
+- `public FatalFormat(System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4) : System.Void`  
+- `public FatalFormat(System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4, System.Object p5) : System.Void`  
+- `public FatalFormat(System.Exception exception, System.String format, System.Object[] p) : System.Void`  
+- `public FatalFormat(UnityEngine.Object context, System.String format, System.Object p1) : System.Void`  
+- `public FatalFormat(UnityEngine.Object context, System.String format, System.Object p1, System.Object p2) : System.Void`  
+- `public FatalFormat(UnityEngine.Object context, System.String format, System.Object p1, System.Object p2, System.Object p3) : System.Void`  
+- `public FatalFormat(UnityEngine.Object context, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4) : System.Void`  
+- `public FatalFormat(UnityEngine.Object context, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4, System.Object p5) : System.Void`  
+- `public FatalFormat(UnityEngine.Object context, System.String format, System.Object[] p) : System.Void`  
+- `public FatalFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object p1) : System.Void`  
+- `public FatalFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object p1, System.Object p2) : System.Void`  
+- `public FatalFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3) : System.Void`  
+- `public FatalFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4) : System.Void`  
+- `public FatalFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4, System.Object p5) : System.Void`  
+- `public FatalFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object[] p) : System.Void`  
+- `public Info(System.Exception exception) : System.Void`  
+- `public Info(System.Object message) : System.Void`  
+- `public Info(System.Exception exception, System.Object message) : System.Void`  
+- `public Info(UnityEngine.Object context, System.Object message) : System.Void`  
+- `public Info(UnityEngine.Object context, System.Exception exception) : System.Void`  
+- `public Info(UnityEngine.Object context, System.Exception exception, System.Object message) : System.Void`  
+- `public InfoFormat(System.String format, System.Object p1) : System.Void`  
+- `public InfoFormat(System.String format, System.Object p1, System.Object p2) : System.Void`  
+- `public InfoFormat(System.String format, System.Object p1, System.Object p2, System.Object p3) : System.Void`  
+- `public InfoFormat(System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4) : System.Void`  
+- `public InfoFormat(System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4, System.Object p5) : System.Void`  
+- `public InfoFormat(System.String format, System.Object[] p) : System.Void`  
+- `public InfoFormat(System.Exception exception, System.String format, System.Object p1) : System.Void`  
+- `public InfoFormat(System.Exception exception, System.String format, System.Object p1, System.Object p2) : System.Void`  
+- `public InfoFormat(System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3) : System.Void`  
+- `public InfoFormat(System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4) : System.Void`  
+- `public InfoFormat(System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4, System.Object p5) : System.Void`  
+- `public InfoFormat(System.Exception exception, System.String format, System.Object[] p) : System.Void`  
+- `public InfoFormat(UnityEngine.Object context, System.String format, System.Object p1) : System.Void`  
+- `public InfoFormat(UnityEngine.Object context, System.String format, System.Object p1, System.Object p2) : System.Void`  
+- `public InfoFormat(UnityEngine.Object context, System.String format, System.Object p1, System.Object p2, System.Object p3) : System.Void`  
+- `public InfoFormat(UnityEngine.Object context, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4) : System.Void`  
+- `public InfoFormat(UnityEngine.Object context, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4, System.Object p5) : System.Void`  
+- `public InfoFormat(UnityEngine.Object context, System.String format, System.Object[] p) : System.Void`  
+- `public InfoFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object p1) : System.Void`  
+- `public InfoFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object p1, System.Object p2) : System.Void`  
+- `public InfoFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3) : System.Void`  
+- `public InfoFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4) : System.Void`  
+- `public InfoFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4, System.Object p5) : System.Void`  
+- `public InfoFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object[] p) : System.Void`  
+- `public Internal_WriteStream(UnityEngine.Object context, Colossal.Logging.Level level, System.String format, System.Exception exception, System.IO.TextWriter stdStream) : System.Void`  
+- `public isLevelEnabled(Colossal.Logging.Level level) : System.Boolean`  
+- `public Log(Colossal.Logging.Level level, System.String message, System.Exception exception) : System.Void`  
+- `private Log(Colossal.Logging.Level level, System.String message, System.Exception exception, UnityEngine.Object context) : System.Void`  
+- `private Open() : System.Void`  
+- `public ReadSettings(Colossal.Logging.ILogSettingsProvider settingsProvider) : System.Void`  
+- `public Trace(System.Exception exception) : System.Void`  
+- `public Trace(System.Object message) : System.Void`  
+- `public Trace(System.Exception exception, System.Object message) : System.Void`  
+- `public Trace(UnityEngine.Object context, System.Object message) : System.Void`  
+- `public Trace(UnityEngine.Object context, System.Exception exception) : System.Void`  
+- `public Trace(UnityEngine.Object context, System.Exception exception, System.Object message) : System.Void`  
+- `public TraceFormat(System.String format, System.Object p1) : System.Void`  
+- `public TraceFormat(System.String format, System.Object p1, System.Object p2) : System.Void`  
+- `public TraceFormat(System.String format, System.Object p1, System.Object p2, System.Object p3) : System.Void`  
+- `public TraceFormat(System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4) : System.Void`  
+- `public TraceFormat(System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4, System.Object p5) : System.Void`  
+- `public TraceFormat(System.String format, System.Object[] p) : System.Void`  
+- `public TraceFormat(System.Exception exception, System.String format, System.Object p1) : System.Void`  
+- `public TraceFormat(System.Exception exception, System.String format, System.Object p1, System.Object p2) : System.Void`  
+- `public TraceFormat(System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3) : System.Void`  
+- `public TraceFormat(System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4) : System.Void`  
+- `public TraceFormat(System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4, System.Object p5) : System.Void`  
+- `public TraceFormat(System.Exception exception, System.String format, System.Object[] p) : System.Void`  
+- `public TraceFormat(UnityEngine.Object context, System.String format, System.Object p1) : System.Void`  
+- `public TraceFormat(UnityEngine.Object context, System.String format, System.Object p1, System.Object p2) : System.Void`  
+- `public TraceFormat(UnityEngine.Object context, System.String format, System.Object p1, System.Object p2, System.Object p3) : System.Void`  
+- `public TraceFormat(UnityEngine.Object context, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4) : System.Void`  
+- `public TraceFormat(UnityEngine.Object context, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4, System.Object p5) : System.Void`  
+- `public TraceFormat(UnityEngine.Object context, System.String format, System.Object[] p) : System.Void`  
+- `public TraceFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object p1) : System.Void`  
+- `public TraceFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object p1, System.Object p2) : System.Void`  
+- `public TraceFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3) : System.Void`  
+- `public TraceFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4) : System.Void`  
+- `public TraceFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4, System.Object p5) : System.Void`  
+- `public TraceFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object[] p) : System.Void`  
+- `public Verbose(System.Exception exception) : System.Void`  
+- `public Verbose(System.Object message) : System.Void`  
+- `public Verbose(System.Exception exception, System.Object message) : System.Void`  
+- `public Verbose(UnityEngine.Object context, System.Object message) : System.Void`  
+- `public Verbose(UnityEngine.Object context, System.Exception exception) : System.Void`  
+- `public Verbose(UnityEngine.Object context, System.Exception exception, System.Object message) : System.Void`  
+- `public VerboseFormat(System.String format, System.Object p1) : System.Void`  
+- `public VerboseFormat(System.String format, System.Object p1, System.Object p2) : System.Void`  
+- `public VerboseFormat(System.String format, System.Object p1, System.Object p2, System.Object p3) : System.Void`  
+- `public VerboseFormat(System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4) : System.Void`  
+- `public VerboseFormat(System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4, System.Object p5) : System.Void`  
+- `public VerboseFormat(System.String format, System.Object[] p) : System.Void`  
+- `public VerboseFormat(System.Exception exception, System.String format, System.Object p1) : System.Void`  
+- `public VerboseFormat(System.Exception exception, System.String format, System.Object p1, System.Object p2) : System.Void`  
+- `public VerboseFormat(System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3) : System.Void`  
+- `public VerboseFormat(System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4) : System.Void`  
+- `public VerboseFormat(System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4, System.Object p5) : System.Void`  
+- `public VerboseFormat(System.Exception exception, System.String format, System.Object[] p) : System.Void`  
+- `public VerboseFormat(UnityEngine.Object context, System.String format, System.Object p1) : System.Void`  
+- `public VerboseFormat(UnityEngine.Object context, System.String format, System.Object p1, System.Object p2) : System.Void`  
+- `public VerboseFormat(UnityEngine.Object context, System.String format, System.Object p1, System.Object p2, System.Object p3) : System.Void`  
+- `public VerboseFormat(UnityEngine.Object context, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4) : System.Void`  
+- `public VerboseFormat(UnityEngine.Object context, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4, System.Object p5) : System.Void`  
+- `public VerboseFormat(UnityEngine.Object context, System.String format, System.Object[] p) : System.Void`  
+- `public VerboseFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object p1) : System.Void`  
+- `public VerboseFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object p1, System.Object p2) : System.Void`  
+- `public VerboseFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3) : System.Void`  
+- `public VerboseFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4) : System.Void`  
+- `public VerboseFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4, System.Object p5) : System.Void`  
+- `public VerboseFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object[] p) : System.Void`  
+- `public Warn(System.Exception exception) : System.Void`  
+- `public Warn(System.Object message) : System.Void`  
+- `public Warn(System.Exception exception, System.Object message) : System.Void`  
+- `public Warn(UnityEngine.Object context, System.Object message) : System.Void`  
+- `public Warn(UnityEngine.Object context, System.Exception exception) : System.Void`  
+- `public Warn(UnityEngine.Object context, System.Exception exception, System.Object message) : System.Void`  
+- `public WarnFormat(System.String format, System.Object p1) : System.Void`  
+- `public WarnFormat(System.String format, System.Object p1, System.Object p2) : System.Void`  
+- `public WarnFormat(System.String format, System.Object p1, System.Object p2, System.Object p3) : System.Void`  
+- `public WarnFormat(System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4) : System.Void`  
+- `public WarnFormat(System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4, System.Object p5) : System.Void`  
+- `public WarnFormat(System.String format, System.Object[] p) : System.Void`  
+- `public WarnFormat(System.Exception exception, System.String format, System.Object p1) : System.Void`  
+- `public WarnFormat(System.Exception exception, System.String format, System.Object p1, System.Object p2) : System.Void`  
+- `public WarnFormat(System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3) : System.Void`  
+- `public WarnFormat(System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4) : System.Void`  
+- `public WarnFormat(System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4, System.Object p5) : System.Void`  
+- `public WarnFormat(System.Exception exception, System.String format, System.Object[] p) : System.Void`  
+- `public WarnFormat(UnityEngine.Object context, System.String format, System.Object p1) : System.Void`  
+- `public WarnFormat(UnityEngine.Object context, System.String format, System.Object p1, System.Object p2) : System.Void`  
+- `public WarnFormat(UnityEngine.Object context, System.String format, System.Object p1, System.Object p2, System.Object p3) : System.Void`  
+- `public WarnFormat(UnityEngine.Object context, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4) : System.Void`  
+- `public WarnFormat(UnityEngine.Object context, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4, System.Object p5) : System.Void`  
+- `public WarnFormat(UnityEngine.Object context, System.String format, System.Object[] p) : System.Void`  
+- `public WarnFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object p1) : System.Void`  
+- `public WarnFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object p1, System.Object p2) : System.Void`  
+- `public WarnFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3) : System.Void`  
+- `public WarnFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4) : System.Void`  
+- `public WarnFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object p1, System.Object p2, System.Object p3, System.Object p4, System.Object p5) : System.Void`  
+- `public WarnFormat(UnityEngine.Object context, System.Exception exception, System.String format, System.Object[] p) : System.Void`  
+
+## Events
+
+- `OnException` : `System.Action<System.Exception, UnityEngine.Object>`  
+- `OnMessage` : `System.Action<Colossal.Logging.ILog, Colossal.Logging.Level, System.String, System.Exception, UnityEngine.Object>`  
+- `OnErrorOrHigher` : `System.Action<Colossal.Logging.ILog, Colossal.Logging.Level, System.String, System.Exception, UnityEngine.Object>`  
+- `OnWarnOrHigher` : `System.Action<Colossal.Logging.ILog, Colossal.Logging.Level, System.String, System.Exception, UnityEngine.Object>`  
+
+## Nested types
+
+- `Colossal.Logging.UnityLogger+MultiStream`  
+

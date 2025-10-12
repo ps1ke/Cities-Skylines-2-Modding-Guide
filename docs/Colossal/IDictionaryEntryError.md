@@ -1,0 +1,8 @@
+﻿# Colossal.IDictionaryEntryError
+
+**Assembly:** `Colossal.Core`  
+**Namespace:** `Colossal`  
+
+**Type:** interface abstract public  
+
+

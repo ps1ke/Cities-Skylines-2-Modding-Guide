@@ -1,0 +1,270 @@
+﻿# Game.UI.InGame.DeveloperInfoUISystem
+
+**Assembly:** `Game`  
+**Namespace:** `Game.UI.InGame`  
+
+**Type:** class public  
+
+**Base:** `Game.UI.UISystemBase`  
+
+**Attributes:** `CompilerGenerated`  
+
+## Fields
+
+- `protected Game.Simulation.CitySystem m_CitySystem`  
+- `protected Game.UI.NameSystem m_NameSystem`  
+- `protected Game.Prefabs.PrefabSystem m_PrefabSystem`  
+- `protected Game.Prefabs.ResourceSystem m_ResourceSystem`  
+- `protected Game.Simulation.SimulationSystem m_SimulationSystem`  
+- `protected Game.UI.InGame.SelectedInfoUISystem m_InfoUISystem`  
+- `protected Game.Simulation.GroundPollutionSystem m_GroundPollutionSystem`  
+- `protected Game.Simulation.AirPollutionSystem m_AirPollutionSystem`  
+- `protected Game.Simulation.NoisePollutionSystem m_NoisePollutionSystem`  
+- `protected Game.Simulation.TelecomCoverageSystem m_TelecomCoverageSystem`  
+- `protected Game.Simulation.TaxSystem m_TaxSystem`  
+- `protected Game.Rendering.BatchManagerSystem m_BatchManagerSystem`  
+- `protected Unity.Entities.EntityQuery m_CitizenHappinessParameterQuery`  
+- `protected Unity.Entities.EntityQuery m_HealthcareParameterQuery`  
+- `protected Unity.Entities.EntityQuery m_ParkParameterQuery`  
+- `protected Unity.Entities.EntityQuery m_EducationParameterQuery`  
+- `protected Unity.Entities.EntityQuery m_TelecomParameterQuery`  
+- `protected Unity.Entities.EntityQuery m_HappinessFactorParameterQuery`  
+- `protected Unity.Entities.EntityQuery m_EconomyParameterQuery`  
+- `protected Unity.Entities.EntityQuery m_ProcessQuery`  
+- `protected Unity.Entities.EntityQuery m_TimeDataQuery`  
+- `protected Unity.Entities.EntityQuery m_GarbageParameterQuery`  
+- `private Game.UI.InGame.DeveloperInfoUISystem+TypeHandle __TypeHandle`  
+- `private Unity.Entities.EntityQuery __query_746694604_0`  
+- `private Unity.Entities.EntityQuery __query_746694604_1`  
+- `private Unity.Entities.EntityQuery __query_746694604_2`  
+- `private Unity.Entities.EntityQuery __query_746694604_3`  
+- `private Unity.Entities.EntityQuery __query_746694604_4`  
+- `private Unity.Entities.EntityQuery __query_746694604_5`  
+- `private Unity.Entities.EntityQuery __query_746694604_6`  
+
+## Constructors
+
+- `public DeveloperInfoUISystem()`  
+
+## Methods
+
+- `private __AssignQueries(Unity.Entities.SystemState& state) : System.Void`  
+- `private AddResources(Unity.Entities.DynamicBuffer<Game.Economy.Resources> source, Unity.Collections.NativeList<Game.Economy.Resources> target) : System.Void`  
+- `protected AddUpgradeData<T>(Unity.Entities.Entity entity, T& data) : System.Void`  
+- `private CheckParkingLanes(Unity.Entities.DynamicBuffer<Game.Objects.SubObject> subObjects, System.Int32& slotCapacity, System.Int32& parkedCars, System.Int32& parkingFee, System.Int32& laneCount, Unity.Collections.NativeList`1[[Unity.Entities.Entity, Unity.Entities, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]& parkedCarList) : System.Void`  
+- `private CheckParkingLanes(Unity.Entities.DynamicBuffer<Game.Net.SubNet> subNets, System.Int32& slotCapacity, System.Int32& parkedCars, System.Int32& parkingFee, System.Int32& laneCount, Unity.Collections.NativeList`1[[Unity.Entities.Entity, Unity.Entities, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]& parkedCarList) : System.Void`  
+- `private CheckParkingLanes(Unity.Entities.DynamicBuffer<Game.Net.SubLane> subLanes, System.Int32& slotCapacity, System.Int32& parkedCars, System.Int32& parkingFee, System.Int32& laneCount, Unity.Collections.NativeList`1[[Unity.Entities.Entity, Unity.Entities, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]& parkedCarList) : System.Void`  
+- `private static ConsumptionToString(System.Int32 dailyConsumption, System.Int32 citizens, Game.Prefabs.CitizenHappinessParameterData happinessParameters) : System.String`  
+- `private GetAgeString(Unity.Entities.Entity entity) : System.String`  
+- `private GetEducationString(System.Int32 education) : System.String`  
+- `private GetGarbageStatus(System.Int32 accumulation, System.Int32 garbage, System.Int32 homeless, System.Int32 homelessProduce) : System.String`  
+- `private static GetLevelupTime(System.Int32 condition, System.Int32 levelup, System.Int32 changePerDay) : System.String`  
+- `private GetPassengerWaiting(Unity.Entities.Entity vehicleEntity) : Unity.Entities.Entity`  
+- `private GetPassengerWaiting2(Unity.Entities.Entity vehicleEntity) : Unity.Entities.Entity`  
+- `private GetPurposeText(Game.Citizens.TravelPurpose purpose, System.Boolean tourist, Game.Citizens.Criminal criminal, Unity.Entities.Entity& entity) : System.String`  
+- `private GetRoutePosition(Unity.Entities.Entity transportVehicle, System.Int32& nextWaypointIndex, System.Single& segmentPosition) : System.Boolean`  
+- `private GetTimeString(System.Single time) : System.String`  
+- `private HasAccidentSiteInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasAddressInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasAmbulanceInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasAnimalInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasAreaInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasBatchInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasBatteriesInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasBoardingVehicleInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasCargoTransportInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasCitizenInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasCompany(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Unity.Entities.Entity& company) : System.Boolean`  
+- `private HasCompanyEconomyInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasCompanyInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasCompanyProfitInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasContentPrerequisite(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasControllerInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasCreatureInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasCrimeInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasDamagedInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasDeathcareInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasDeliveryTruckInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasDestroyedBuildingInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasDestroyedInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasEfficiencyInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasElectricityConsumeInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasElectricityProductionInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasEmployeesInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasEntityInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasEventInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasExtractorCompanyInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasFacingWeatherInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasFireEngineInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasFloodedInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasGarbageInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasGarbageProcessingInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasGarbageTruckInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasGroupLeaderInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasGroupMemberInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasHearseInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasHomelessInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasHouseholdInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasHouseholdPetsInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasHouseholdsInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasInDangerInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasInvolvedInAccidentInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasKeeperInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasLandValueInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasMailBoxInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasMailInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasMailProcessingSpeedInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasMailSenderInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasMaintenanceVehicleInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasMeshGroupInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasMeshPrefabInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasMovingInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasNetworkCapacityInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasNotificationInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasOnFireInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasOwnerInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasParkInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasParkingInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasPassengerInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasPatientsInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasPersonalCarInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasPoliceCarInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasPoliceInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasPollutionInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasPostVanInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasPrisonInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasProcessingCompanyInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasPublicTransportInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasRentInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasResidentsInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasResourceProductionInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasSendReceiveMailInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasServiceCompanyInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasShelterInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasSpectatorSiteInfo(Unity.Entities.Entity entity, Unity.Entities.Entity _) : System.Boolean`  
+- `private HasStorageInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasStoredGarbageInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasStoredMailInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasStoredResourcesInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasStudentsInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasTelecomRangeInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasTradeCostInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasTradePartnerInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasTransferRequestInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasTreeInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasVehicleInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasVehicleModelInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasWaitingPassengerInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasWarehouseInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasWaterConsumeInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasZoneHappinessInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasZoneInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private HasZoneLevelInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
+- `private static HealthToString(System.Int32 wellbeing) : System.String`  
+- `protected virtual OnCreate() : System.Void`  
+- `protected virtual OnCreateForCompiler() : System.Void`  
+- `protected virtual OnUpdate() : System.Void`  
+- `private ServicesToString(System.Int32 services, System.Int32 maxServices) : System.String`  
+- `private UpdateAccidentSiteInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.GenericInfo info) : System.Void`  
+- `private UpdateAddressInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.GenericInfo info) : System.Void`  
+- `private UpdateAmbulanceInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.InfoList info) : System.Void`  
+- `private UpdateAnimalInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.GenericInfo info) : System.Void`  
+- `private UpdateAreaInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.InfoList info) : System.Void`  
+- `private UpdateBatchInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.InfoList info) : System.Void`  
+- `private UpdateBatteriesInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.GenericInfo info) : System.Void`  
+- `private UpdateBoardingVehicleInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.GenericInfo info) : System.Void`  
+- `private UpdateCargoTransportInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.InfoList info) : System.Void`  
+- `private UpdateCitizenInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.InfoList info) : System.Void`  
+- `private UpdateCompanyEconomyInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.GenericInfo info) : System.Void`  
+- `private UpdateCompanyInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.GenericInfo info) : System.Void`  
+- `private UpdateCompanyProfitInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.InfoList info) : System.Void`  
+- `private UpdateContentPrerequisite(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.InfoList info) : System.Void`  
+- `private UpdateControllerInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.GenericInfo info) : System.Void`  
+- `private UpdateCreatureInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.InfoList info) : System.Void`  
+- `private UpdateCrimeInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.GenericInfo info) : System.Void`  
+- `private UpdateDamagedInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.InfoList info) : System.Void`  
+- `private UpdateDeathcareInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.CapacityInfo info) : System.Void`  
+- `private UpdateDeliveryTruckInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.InfoList info) : System.Void`  
+- `private UpdateDestroyedBuildingInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.CapacityInfo info) : System.Void`  
+- `private UpdateDestroyedInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.GenericInfo info) : System.Void`  
+- `private UpdateEfficiencyInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.GenericInfo info) : System.Void`  
+- `private UpdateElectricityConsumeInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.GenericInfo info) : System.Void`  
+- `private UpdateElectricityProductionInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.GenericInfo info) : System.Void`  
+- `private UpdateEmployeesInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.InfoList info) : System.Void`  
+- `private UpdateEntityInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.GenericInfo info) : System.Void`  
+- `private UpdateEventInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.InfoList info) : System.Void`  
+- `private UpdateExtractorCompanyInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.InfoList info) : System.Void`  
+- `private UpdateFacingWeatherInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.GenericInfo info) : System.Void`  
+- `private UpdateFireEngineInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.InfoList info) : System.Void`  
+- `private UpdateFloodedInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.InfoList info) : System.Void`  
+- `private UpdateGarbageInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.GenericInfo info) : System.Void`  
+- `private UpdateGarbageProcessingInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.GenericInfo info) : System.Void`  
+- `private UpdateGarbageTruckInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.InfoList info) : System.Void`  
+- `private UpdateGroupLeaderInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.InfoList info) : System.Void`  
+- `private UpdateGroupMemberInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.GenericInfo info) : System.Void`  
+- `private UpdateHearseInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.InfoList info) : System.Void`  
+- `private UpdateHomelessInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.InfoList info) : System.Void`  
+- `private UpdateHouseholdInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.InfoList info) : System.Void`  
+- `private UpdateHouseholdPetsInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.InfoList info) : System.Void`  
+- `private UpdateHouseholdsInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.InfoList info) : System.Void`  
+- `private UpdateInDangerInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.GenericInfo info) : System.Void`  
+- `private UpdateInvolvedInAccidentInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.GenericInfo info) : System.Void`  
+- `private UpdateKeeperInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.GenericInfo info) : System.Void`  
+- `private UpdateLandValueInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.GenericInfo info) : System.Void`  
+- `private UpdateMailBoxInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.CapacityInfo info) : System.Void`  
+- `private UpdateMailInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.GenericInfo info) : System.Void`  
+- `private UpdateMailProcessingSpeedInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.GenericInfo info) : System.Void`  
+- `private UpdateMailSenderInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.CapacityInfo info) : System.Void`  
+- `private UpdateMaintenanceVehicleInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.InfoList info) : System.Void`  
+- `private UpdateMeshGroupInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.InfoList info) : System.Void`  
+- `private UpdateMeshPrefabInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.InfoList info) : System.Void`  
+- `private UpdateMovingInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.CapacityInfo info) : System.Void`  
+- `private UpdateNetworkCapacityInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.CapacityInfo info) : System.Void`  
+- `private UpdateNotificationInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.InfoList info) : System.Void`  
+- `private UpdateOnFireInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.InfoList info) : System.Void`  
+- `private UpdateOwnerInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.GenericInfo info) : System.Void`  
+- `private UpdateParkInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.GenericInfo info) : System.Void`  
+- `private UpdateParkingInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.InfoList info) : System.Void`  
+- `private UpdatePassengerInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.CapacityInfo info) : System.Void`  
+- `private UpdatePatientsInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.InfoList info) : System.Void`  
+- `private UpdatePersonalCarInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.InfoList info) : System.Void`  
+- `private UpdatePoliceCarInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.InfoList info) : System.Void`  
+- `private UpdatePoliceInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.CapacityInfo info) : System.Void`  
+- `private UpdatePollutionInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.GenericInfo info) : System.Void`  
+- `private UpdatePostVanInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.InfoList info) : System.Void`  
+- `private UpdatePrisonInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.InfoList info) : System.Void`  
+- `private UpdateProcessingCompanyInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.InfoList info) : System.Void`  
+- `private UpdatePublicTransportInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.InfoList info) : System.Void`  
+- `private UpdateRentInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.GenericInfo info) : System.Void`  
+- `private UpdateResidentInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.InfoList info) : System.Void`  
+- `private UpdateResourceProductionInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.InfoList info) : System.Void`  
+- `private UpdateSendReceiveMailInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.GenericInfo info) : System.Void`  
+- `private UpdateServiceCompanyInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.InfoList info) : System.Void`  
+- `private UpdateShelterInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.CapacityInfo info) : System.Void`  
+- `private UpdateSpectatorSiteInfo(Unity.Entities.Entity entity, Unity.Entities.Entity _, Game.UI.InGame.GenericInfo info) : System.Void`  
+- `private UpdateStorageInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.InfoList info) : System.Void`  
+- `private UpdateStoredGarbageInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.CapacityInfo info) : System.Void`  
+- `private UpdateStoredMailInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.CapacityInfo info) : System.Void`  
+- `private UpdateStoredResourcesInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.InfoList info) : System.Void`  
+- `private UpdateStudentsInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.InfoList info) : System.Void`  
+- `private UpdateTelecomRangeInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.GenericInfo info) : System.Void`  
+- `private UpdateTradeCostInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.InfoList infos) : System.Void`  
+- `private UpdateTradePartnerInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.GenericInfo info) : System.Void`  
+- `private UpdateTransferRequestInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.InfoList info) : System.Void`  
+- `private UpdateTreeInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.CapacityInfo info) : System.Void`  
+- `private UpdateVehicleInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.InfoList info) : System.Void`  
+- `private UpdateVehicleModelInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.InfoList info) : System.Void`  
+- `private UpdateWaitingPassengerInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.InfoList info) : System.Void`  
+- `private UpdateWarehouseInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.GenericInfo info) : System.Void`  
+- `private UpdateWaterConsumeInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.GenericInfo info) : System.Void`  
+- `private UpdateZoneHappinessInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.GenericInfo info) : System.Void`  
+- `private UpdateZoneInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.GenericInfo info) : System.Void`  
+- `private UpdateZoneLevelInfo(Unity.Entities.Entity entity, Unity.Entities.Entity prefab, Game.UI.InGame.CapacityInfo info) : System.Void`  
+- `private static WellbeingToString(System.Int32 wellbeing) : System.String`  
+- `private WorthToString(System.Int32 worth) : System.String`  
+
+## Nested types
+
+- `Game.UI.InGame.DeveloperInfoUISystem+BuildingHappinessFactorValue`  
+- `Game.UI.InGame.DeveloperInfoUISystem+TypeHandle`  
+

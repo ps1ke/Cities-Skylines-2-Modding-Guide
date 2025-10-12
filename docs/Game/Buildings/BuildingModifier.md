@@ -1,0 +1,21 @@
+﻿# Game.Buildings.BuildingModifier
+
+**Assembly:** `Game`  
+**Namespace:** `Game.Buildings`  
+
+**Type:** struct sealed public  
+
+**Base:** `System.ValueType`  
+**Implements:** `Unity.Entities.IBufferElementData`, `Colossal.Serialization.Entities.ISerializable`  
+
+**Attributes:** `InternalBufferCapacity`  
+
+## Fields
+
+- `public Unity.Mathematics.float2 m_Delta`  
+
+## Methods
+
+- `public Deserialize<TReader>(TReader reader) : System.Void`  
+- `public Serialize<TWriter>(TWriter writer) : System.Void`  
+

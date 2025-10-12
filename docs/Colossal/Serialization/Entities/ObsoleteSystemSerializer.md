@@ -1,0 +1,25 @@
+﻿# Colossal.Serialization.Entities.ObsoleteSystemSerializer
+
+**Assembly:** `Colossal.Core`  
+**Namespace:** `Colossal.Serialization.Entities`  
+
+**Type:** class public  
+
+**Base:** `Colossal.Serialization.Entities.SystemSerializer`  
+
+## Fields
+
+- `private System.Int32* m_SizePtr`  
+
+## Constructors
+
+- `public ObsoleteSystemSerializer()`  
+
+## Methods
+
+- `public virtual DeserializeSystem<TReader>(Colossal.Serialization.Entities.EntityReaderData readerData, Unity.Jobs.JobHandle inputDeps) : Unity.Jobs.JobHandle`  
+- `public virtual GetSystemType() : System.Type`  
+- `public virtual Initialize(Unity.Collections.NativeArray<System.Int32> dataSizes, System.Int32 sizeIndex) : System.Void`  
+- `public virtual SerializeSystem<TWriter>(Colossal.Serialization.Entities.EntityWriterData writerData, Unity.Jobs.JobHandle inputDeps) : Unity.Jobs.JobHandle`  
+- `public virtual SetDefaults(Colossal.Serialization.Entities.Context context, Unity.Jobs.JobHandle inputDeps) : Unity.Jobs.JobHandle`  
+

@@ -1,0 +1,342 @@
+﻿# Colossal.Mathematics.MathUtils
+
+**Assembly:** `Colossal.Mathematics`  
+**Namespace:** `Colossal.Mathematics`  
+
+**Type:** class static public  
+
+**Base:** `System.Object`  
+
+## Methods
+
+- `public static Acceleration(Colossal.Mathematics.Bezier4x1 curve, System.Single t) : System.Single`  
+- `public static Acceleration(Colossal.Mathematics.Bezier4x2 curve, System.Single t) : Unity.Mathematics.float2`  
+- `public static Acceleration(Colossal.Mathematics.Bezier4x3 curve, System.Single t) : Unity.Mathematics.float3`  
+- `public static Area(Colossal.Mathematics.Bounds2 bounds) : System.Single`  
+- `public static Area(Colossal.Mathematics.Bounds3 bounds) : System.Single`  
+- `public static Area(Colossal.Mathematics.Triangle2 triangle) : System.Single`  
+- `public static Area(Colossal.Mathematics.Triangle3 triangle) : System.Single`  
+- `public static AxisAngle(Unity.Mathematics.quaternion q, Unity.Mathematics.float3& axis, System.Single& angle) : System.Void`  
+- `public static Bounds(Colossal.Mathematics.Bezier4x1 curve) : Colossal.Mathematics.Bounds1`  
+- `public static Bounds(Colossal.Mathematics.Bezier4x2 curve) : Colossal.Mathematics.Bounds2`  
+- `public static Bounds(Colossal.Mathematics.Bezier4x3 curve) : Colossal.Mathematics.Bounds3`  
+- `public static Bounds(System.Single a, System.Single b) : Colossal.Mathematics.Bounds1`  
+- `public static Bounds(Unity.Mathematics.float2 positions) : Colossal.Mathematics.Bounds1`  
+- `public static Bounds(Colossal.Mathematics.Line1+Segment line) : Colossal.Mathematics.Bounds1`  
+- `public static Bounds(Unity.Mathematics.float2 a, Unity.Mathematics.float2 b) : Colossal.Mathematics.Bounds2`  
+- `public static Bounds(Colossal.Mathematics.Line2+Segment line) : Colossal.Mathematics.Bounds2`  
+- `public static Bounds(Unity.Mathematics.float3 a, Unity.Mathematics.float3 b) : Colossal.Mathematics.Bounds3`  
+- `public static Bounds(Colossal.Mathematics.Line3+Segment line) : Colossal.Mathematics.Bounds3`  
+- `public static Bounds(Colossal.Mathematics.Box3 box) : Colossal.Mathematics.Bounds3`  
+- `public static Bounds(Colossal.Mathematics.Circle2 circle) : Colossal.Mathematics.Bounds2`  
+- `public static Bounds(Colossal.Mathematics.Quad2 quad) : Colossal.Mathematics.Bounds2`  
+- `public static Bounds(Colossal.Mathematics.Quad3 quad) : Colossal.Mathematics.Bounds3`  
+- `public static Bounds(Colossal.Mathematics.Sphere3 sphere) : Colossal.Mathematics.Bounds3`  
+- `public static Bounds(Colossal.Mathematics.Tetrahedron3 tetrahedron) : Colossal.Mathematics.Bounds3`  
+- `public static Bounds(Colossal.Mathematics.Triangle1 triangle) : Colossal.Mathematics.Bounds1`  
+- `public static Bounds(Colossal.Mathematics.Triangle2 triangle) : Colossal.Mathematics.Bounds2`  
+- `public static Bounds(Colossal.Mathematics.Triangle3 triangle) : Colossal.Mathematics.Bounds3`  
+- `public static Bounds(Colossal.Mathematics.TrigonalTrapezohedron3 trapezohedron) : Colossal.Mathematics.Bounds3`  
+- `public static Box(Colossal.Mathematics.Bounds3 bounds, Unity.Mathematics.quaternion rotation, Unity.Mathematics.float3 position) : Colossal.Mathematics.Box3`  
+- `private static BoxIntersectHelper(Colossal.Mathematics.Bounds3 bounds1, Colossal.Mathematics.Bounds3 bounds2, Unity.Mathematics.quaternion rotate2to1, Colossal.Mathematics.Bounds3& intersection1, Colossal.Mathematics.Bounds3& intersection2) : System.Boolean`  
+- `private static BoxIntersectHelper(Colossal.Mathematics.Bounds3 bounds1, Unity.Mathematics.float3 a1, Unity.Mathematics.float3 b1, Unity.Mathematics.float3 a2, Unity.Mathematics.float3 b2, Colossal.Mathematics.Bounds3& intersection1, Colossal.Mathematics.Bounds3& intersection2) : System.Boolean`  
+- `public static Center(Colossal.Mathematics.Bounds1 bounds) : System.Single`  
+- `public static Center(Colossal.Mathematics.Bounds2 bounds) : Unity.Mathematics.float2`  
+- `public static Center(Colossal.Mathematics.Bounds3 bounds) : Unity.Mathematics.float3`  
+- `public static Center(Colossal.Mathematics.Quad2 quad) : Unity.Mathematics.float2`  
+- `public static Clamp(System.Single position, Colossal.Mathematics.Bounds1 bounds) : System.Single`  
+- `public static Clamp(Unity.Mathematics.float2 position, Colossal.Mathematics.Bounds2 bounds) : Unity.Mathematics.float2`  
+- `public static Clamp(Unity.Mathematics.float3 position, Colossal.Mathematics.Bounds3 bounds) : Unity.Mathematics.float3`  
+- `public static ClampLength(Colossal.Mathematics.Bezier4x1 curve, Colossal.Mathematics.Bounds1& t, System.Single length) : System.Boolean`  
+- `public static ClampLength(Colossal.Mathematics.Bezier4x1 curve, Colossal.Mathematics.Bounds1& t, System.Single& length) : System.Boolean`  
+- `public static ClampLength(Colossal.Mathematics.Bezier4x2 curve, Colossal.Mathematics.Bounds1& t, System.Single length) : System.Boolean`  
+- `public static ClampLength(Colossal.Mathematics.Bezier4x2 curve, Colossal.Mathematics.Bounds1& t, System.Single& length) : System.Boolean`  
+- `public static ClampLength(Colossal.Mathematics.Bezier4x3 curve, Colossal.Mathematics.Bounds1& t, System.Single length) : System.Boolean`  
+- `public static ClampLength(Colossal.Mathematics.Bezier4x3 curve, Colossal.Mathematics.Bounds1& t, System.Single& length) : System.Boolean`  
+- `public static ClampLength(Unity.Mathematics.float2 value, System.Single maxLength) : Unity.Mathematics.float2`  
+- `public static ClampLength(Unity.Mathematics.float3 value, System.Single maxLength) : Unity.Mathematics.float3`  
+- `public static ClampLengthInverse(Colossal.Mathematics.Bezier4x1 curve, Colossal.Mathematics.Bounds1& t, System.Single length) : System.Boolean`  
+- `public static ClampLengthInverse(Colossal.Mathematics.Bezier4x1 curve, Colossal.Mathematics.Bounds1& t, System.Single& length) : System.Boolean`  
+- `public static ClampLengthInverse(Colossal.Mathematics.Bezier4x2 curve, Colossal.Mathematics.Bounds1& t, System.Single length) : System.Boolean`  
+- `public static ClampLengthInverse(Colossal.Mathematics.Bezier4x2 curve, Colossal.Mathematics.Bounds1& t, System.Single& length) : System.Boolean`  
+- `public static ClampLengthInverse(Colossal.Mathematics.Bezier4x3 curve, Colossal.Mathematics.Bounds1& t, System.Single length) : System.Boolean`  
+- `public static ClampLengthInverse(Colossal.Mathematics.Bezier4x3 curve, Colossal.Mathematics.Bounds1& t, System.Single& length) : System.Boolean`  
+- `public static Clockwise(Colossal.Mathematics.Triangle2 triangle) : Colossal.Mathematics.Triangle2`  
+- `public static Curvature(Colossal.Mathematics.Bezier4x2 curve, System.Single t) : System.Single`  
+- `public static Cut(Colossal.Mathematics.Bezier4x1 curve, Unity.Mathematics.float2 t) : Colossal.Mathematics.Bezier4x1`  
+- `public static Cut(Colossal.Mathematics.Bezier4x2 curve, Unity.Mathematics.float2 t) : Colossal.Mathematics.Bezier4x2`  
+- `public static Cut(Colossal.Mathematics.Bezier4x3 curve, Unity.Mathematics.float2 t) : Colossal.Mathematics.Bezier4x3`  
+- `public static Cut(Colossal.Mathematics.Bezier4x3 curve, Colossal.Mathematics.Bounds1 bounds) : Colossal.Mathematics.Bezier4x3`  
+- `public static Cut(Colossal.Mathematics.Line1 line, Unity.Mathematics.float2 t) : Colossal.Mathematics.Line1+Segment`  
+- `public static Cut(Colossal.Mathematics.Line1+Segment line, Unity.Mathematics.float2 t) : Colossal.Mathematics.Line1+Segment`  
+- `public static Cut(Colossal.Mathematics.Line2 line, Unity.Mathematics.float2 t) : Colossal.Mathematics.Line2+Segment`  
+- `public static Cut(Colossal.Mathematics.Line2+Segment line, Unity.Mathematics.float2 t) : Colossal.Mathematics.Line2+Segment`  
+- `public static Cut(Colossal.Mathematics.Line3 line, Unity.Mathematics.float2 t) : Colossal.Mathematics.Line3+Segment`  
+- `public static Cut(Colossal.Mathematics.Line3+Segment line, Unity.Mathematics.float2 t) : Colossal.Mathematics.Line3+Segment`  
+- `private static CylinderBoxIntersectHelper(Colossal.Mathematics.Bounds3 rectBounds, Colossal.Mathematics.Bounds1 cylinderHeight, Colossal.Mathematics.Circle2 cylinderCircle, Unity.Mathematics.quaternion rotateBtoC, Colossal.Mathematics.Bounds3& cylinderIntersection, Colossal.Mathematics.Bounds3& boxIntersection) : System.Boolean`  
+- `private static CylinderBoxIntersectHelper(Colossal.Mathematics.Bounds1 height, Colossal.Mathematics.Circle2 circle, Unity.Mathematics.float3 a1, Unity.Mathematics.float3 b1, Unity.Mathematics.float3 a2, Unity.Mathematics.float3 b2, Colossal.Mathematics.Bounds3& cylinderIntersection, Colossal.Mathematics.Bounds3& boxIntersection) : System.Boolean`  
+- `private static CylinderBoxIntersectHelper(System.Single height, Colossal.Mathematics.Circle2 circle, Unity.Mathematics.float3 a1, Unity.Mathematics.float3 b1, Unity.Mathematics.float3 c1, Unity.Mathematics.float3 d1, Unity.Mathematics.float3 a2, Unity.Mathematics.float3 b2, Unity.Mathematics.float3 c2, Unity.Mathematics.float3 d2, Colossal.Mathematics.Bounds3& cylinderIntersection, Colossal.Mathematics.Bounds3& boxIntersection) : System.Boolean`  
+- `private static CylinderBoxIntersectHelper2(Colossal.Mathematics.Bounds3 boxBounds, Colossal.Mathematics.Bounds1 cylinderHeight, Colossal.Mathematics.Circle2 cylinderCircle, Unity.Mathematics.quaternion rotateCtoB, Colossal.Mathematics.Bounds3& cylinderIntersection, Colossal.Mathematics.Bounds3& boxIntersection) : System.Boolean`  
+- `public static Determinant(Unity.Mathematics.float2 a, Unity.Mathematics.float2 b) : System.Single`  
+- `public static Determinant(Unity.Mathematics.float3 a, Unity.Mathematics.float3 b, Unity.Mathematics.float3 c) : System.Single`  
+- `private static DifferentSide(Colossal.Mathematics.Triangle2 triangle, Unity.Mathematics.float2 position, Colossal.Mathematics.Line2 line) : System.Boolean`  
+- `public static Distance(Colossal.Mathematics.Bezier4x2 curve, Unity.Mathematics.float2 position, System.Single& t) : System.Single`  
+- `public static Distance(Colossal.Mathematics.Bezier4x3 curve, Unity.Mathematics.float3 position, System.Single& t) : System.Single`  
+- `public static Distance(Colossal.Mathematics.Bezier4x3 curve, Unity.Mathematics.float3 position, Unity.Mathematics.float2 range, System.Single& t) : System.Single`  
+- `public static Distance(Colossal.Mathematics.Bezier4x3 curve, Colossal.Mathematics.Line3+Segment line, Unity.Mathematics.float2& t) : System.Single`  
+- `public static Distance(Colossal.Mathematics.Bounds1 bounds, System.Single position) : System.Single`  
+- `public static Distance(Colossal.Mathematics.Bounds2 bounds, Unity.Mathematics.float2 position) : System.Single`  
+- `public static Distance(Colossal.Mathematics.Bounds2 bounds1, Colossal.Mathematics.Bounds2 bounds2) : System.Single`  
+- `public static Distance(Colossal.Mathematics.Bounds3 bounds, Unity.Mathematics.float3 position) : System.Single`  
+- `public static Distance(Colossal.Mathematics.Line2 line, Unity.Mathematics.float2 position, System.Single& t) : System.Single`  
+- `public static Distance(Colossal.Mathematics.Line2+Segment line, Unity.Mathematics.float2 position, System.Single& t) : System.Single`  
+- `public static Distance(Colossal.Mathematics.Line2+Segment line1, Colossal.Mathematics.Line2+Segment line2, Unity.Mathematics.float2& t) : System.Single`  
+- `public static Distance(Colossal.Mathematics.Line3 line, Unity.Mathematics.float3 position, System.Single& t) : System.Single`  
+- `public static Distance(Colossal.Mathematics.Line3+Segment line, Unity.Mathematics.float3 position, System.Single& t) : System.Single`  
+- `public static Distance(Colossal.Mathematics.Line3+Segment line1, Colossal.Mathematics.Line3+Segment line2, Unity.Mathematics.float2& t) : System.Single`  
+- `public static Distance(Colossal.Mathematics.Line3 line1, Colossal.Mathematics.Line3 line2, Unity.Mathematics.float2& t) : System.Single`  
+- `public static Distance(Colossal.Mathematics.Triangle2 triangle, Unity.Mathematics.float2 position, Unity.Mathematics.float2& t) : System.Single`  
+- `public static Distance(Colossal.Mathematics.Triangle3 triangle, Unity.Mathematics.float3 position, Unity.Mathematics.float2& t) : System.Single`  
+- `public static DistanceSquared(Colossal.Mathematics.Bezier4x3 curve, Unity.Mathematics.float3 position, System.Single& t) : System.Single`  
+- `public static DistanceSquared(Colossal.Mathematics.Bezier4x3 curve, Unity.Mathematics.float3 position, Unity.Mathematics.float2 range, System.Single& t) : System.Single`  
+- `public static DistanceSquared(Colossal.Mathematics.Bounds2 bounds, Unity.Mathematics.float2 position) : System.Single`  
+- `public static DistanceSquared(Colossal.Mathematics.Bounds2 bounds1, Colossal.Mathematics.Bounds2 bounds2) : System.Single`  
+- `public static DistanceSquared(Colossal.Mathematics.Bounds3 bounds, Unity.Mathematics.float3 position) : System.Single`  
+- `public static DistanceSquared(Colossal.Mathematics.Line2+Segment line, Unity.Mathematics.float2 position, System.Single& t) : System.Single`  
+- `public static DistanceSquared(Colossal.Mathematics.Line3+Segment line, Unity.Mathematics.float3 position, System.Single& t) : System.Single`  
+- `public static Divide(Colossal.Mathematics.Bezier4x1 input, Colossal.Mathematics.Bezier4x1& output1, Colossal.Mathematics.Bezier4x1& output2, System.Single t) : System.Void`  
+- `public static Divide(Colossal.Mathematics.Bezier4x2 input, Colossal.Mathematics.Bezier4x2& output1, Colossal.Mathematics.Bezier4x2& output2, System.Single t) : System.Void`  
+- `public static Divide(Colossal.Mathematics.Bezier4x3 input, Colossal.Mathematics.Bezier4x3& output1, Colossal.Mathematics.Bezier4x3& output2, System.Single t) : System.Void`  
+- `public static EncodeOctahedral(Unity.Mathematics.float3 n) : Unity.Mathematics.float2`  
+- `public static EndReflect(Colossal.Mathematics.Bezier4x3 curve) : Colossal.Mathematics.Bezier4x3`  
+- `public static EndTangent(Colossal.Mathematics.Bezier4x1 curve) : System.Single`  
+- `public static EndTangent(Colossal.Mathematics.Bezier4x2 curve) : Unity.Mathematics.float2`  
+- `public static EndTangent(Colossal.Mathematics.Bezier4x3 curve) : Unity.Mathematics.float3`  
+- `public static Expand(Colossal.Mathematics.Bounds1 bounds, System.Single range) : Colossal.Mathematics.Bounds1`  
+- `public static Expand(Colossal.Mathematics.Bounds2 bounds, Unity.Mathematics.float2 range) : Colossal.Mathematics.Bounds2`  
+- `public static Expand(Colossal.Mathematics.Bounds3 bounds, Unity.Mathematics.float3 range) : Colossal.Mathematics.Bounds3`  
+- `public static Expand(Colossal.Mathematics.Quad2 quad, System.Single t) : Colossal.Mathematics.Quad2`  
+- `public static Extents(Colossal.Mathematics.Bounds1 bounds) : System.Single`  
+- `public static Extents(Colossal.Mathematics.Bounds2 bounds) : Unity.Mathematics.float2`  
+- `public static Extents(Colossal.Mathematics.Bounds3 bounds) : Unity.Mathematics.float3`  
+- `public static Incenter(Colossal.Mathematics.Triangle1 triangle, System.Single& radius) : System.Single`  
+- `public static Incenter(Colossal.Mathematics.Triangle2 triangle, System.Single& radius) : Unity.Mathematics.float2`  
+- `public static Incenter(Colossal.Mathematics.Triangle3 triangle, System.Single& radius) : Unity.Mathematics.float3`  
+- `public static Intersect(Colossal.Mathematics.Bezier4x1 curve, System.Single position, System.Single& t, System.Int32 iterations) : System.Boolean`  
+- `public static Intersect(Colossal.Mathematics.Bezier4x2 curve1, Colossal.Mathematics.Bezier4x2 curve2, Unity.Mathematics.float2& t, System.Int32 iterations) : System.Boolean`  
+- `public static Intersect(Colossal.Mathematics.Bezier4x2 curve, Colossal.Mathematics.Line2+Segment line, Unity.Mathematics.float2& t, System.Int32 iterations) : System.Boolean`  
+- `public static Intersect(Colossal.Mathematics.Bounds1 bounds1, Colossal.Mathematics.Bounds1 bounds2) : System.Boolean`  
+- `public static Intersect(Colossal.Mathematics.Bounds1 bounds1, Colossal.Mathematics.Bounds1 bounds2, Colossal.Mathematics.Bounds1& intersection) : System.Boolean`  
+- `public static Intersect(Colossal.Mathematics.Bounds1 bounds, System.Single position) : System.Boolean`  
+- `public static Intersect(Colossal.Mathematics.Bounds2 bounds1, Colossal.Mathematics.Bounds2 bounds2) : System.Boolean`  
+- `public static Intersect(Colossal.Mathematics.Bounds2 bounds1, Colossal.Mathematics.Bounds2 bounds2, Colossal.Mathematics.Bounds2& intersection) : System.Boolean`  
+- `public static Intersect(Colossal.Mathematics.Bounds2 bounds, Unity.Mathematics.float2 position) : System.Boolean`  
+- `public static Intersect(Colossal.Mathematics.Bounds2 bounds, Colossal.Mathematics.Circle2 circle) : System.Boolean`  
+- `public static Intersect(Colossal.Mathematics.Bounds3 bounds1, Colossal.Mathematics.Bounds3 bounds2) : System.Boolean`  
+- `public static Intersect(Colossal.Mathematics.Bounds3 bounds1, Colossal.Mathematics.Bounds3 bounds2, Colossal.Mathematics.Bounds3& intersection) : System.Boolean`  
+- `public static Intersect(Colossal.Mathematics.Bounds3 bounds, Unity.Mathematics.float3 position) : System.Boolean`  
+- `public static Intersect(Colossal.Mathematics.Box3 box1, Colossal.Mathematics.Box3 box2, Colossal.Mathematics.Bounds3& intersection1, Colossal.Mathematics.Bounds3& intersection2) : System.Boolean`  
+- `public static Intersect(Colossal.Mathematics.Circle2 circle, Unity.Mathematics.float2 position) : System.Boolean`  
+- `public static Intersect(Colossal.Mathematics.Circle2 circle1, Colossal.Mathematics.Circle2 circle2) : System.Boolean`  
+- `public static Intersect(Colossal.Mathematics.Circle2 circle, Colossal.Mathematics.Line2 line, Unity.Mathematics.float2& t) : System.Boolean`  
+- `public static Intersect(Colossal.Mathematics.Circle2 circle, Colossal.Mathematics.Line2+Segment line, Unity.Mathematics.float2& t) : System.Boolean`  
+- `public static Intersect(Colossal.Mathematics.Cylinder3 cylinder, Colossal.Mathematics.Box3 box, Colossal.Mathematics.Bounds3& cylinderIntersection, Colossal.Mathematics.Bounds3& boxIntersection) : System.Boolean`  
+- `public static Intersect(Colossal.Mathematics.Line1 line, System.Single position, System.Single& t) : System.Boolean`  
+- `public static Intersect(Colossal.Mathematics.Line1+Segment line, System.Single position, System.Single& t) : System.Boolean`  
+- `public static Intersect(Colossal.Mathematics.Bounds1 bounds, Colossal.Mathematics.Line1+Segment line, Unity.Mathematics.float2& t) : System.Boolean`  
+- `public static Intersect(Colossal.Mathematics.Line2 line1, Colossal.Mathematics.Line2 line2, Unity.Mathematics.float2& t) : System.Boolean`  
+- `public static Intersect(Colossal.Mathematics.Line2+Segment line1, Colossal.Mathematics.Line2+Segment line2, Unity.Mathematics.float2& t) : System.Boolean`  
+- `public static Intersect(Colossal.Mathematics.Line2+Segment line1, Colossal.Mathematics.Line2 line2, Unity.Mathematics.float2& t) : System.Boolean`  
+- `public static Intersect(Colossal.Mathematics.Bounds2 bounds, Colossal.Mathematics.Line2+Segment line, Unity.Mathematics.float2& t) : System.Boolean`  
+- `public static Intersect(Colossal.Mathematics.Bounds2 bounds, Colossal.Mathematics.Line2 line, Unity.Mathematics.float2& t) : System.Boolean`  
+- `public static Intersect(Colossal.Mathematics.Bounds3 bounds, Colossal.Mathematics.Line3+Segment line, Unity.Mathematics.float2& t) : System.Boolean`  
+- `public static Intersect(Colossal.Mathematics.Quad2 quad, Unity.Mathematics.float2 position) : System.Boolean`  
+- `public static Intersect(Colossal.Mathematics.Bounds2 bounds, Colossal.Mathematics.Quad2 quad) : System.Boolean`  
+- `public static Intersect(Colossal.Mathematics.Quad2 quad, Colossal.Mathematics.Line2 line, Unity.Mathematics.float2& t) : System.Boolean`  
+- `public static Intersect(Colossal.Mathematics.Quad2 quad, Colossal.Mathematics.Line2+Segment line, Unity.Mathematics.float2& t) : System.Boolean`  
+- `public static Intersect(Colossal.Mathematics.Quad2 quad1, Colossal.Mathematics.Quad2 quad2) : System.Boolean`  
+- `public static Intersect(Colossal.Mathematics.Quad2 quad1, Colossal.Mathematics.Quad2 quad2, Colossal.Mathematics.Bounds2& intersection) : System.Boolean`  
+- `public static Intersect(Colossal.Mathematics.Quad2 quad, Colossal.Mathematics.Triangle2 triangle) : System.Boolean`  
+- `public static Intersect(Colossal.Mathematics.Quad2 quad, Colossal.Mathematics.Circle2 circle) : System.Boolean`  
+- `public static Intersect(Colossal.Mathematics.Quad2 quad, Colossal.Mathematics.Circle2 circle, Colossal.Mathematics.Bounds2& intersection) : System.Boolean`  
+- `public static Intersect(Colossal.Mathematics.Bounds2 bounds, Colossal.Mathematics.Quad2 quad, System.Single& area) : System.Boolean`  
+- `public static Intersect(Colossal.Mathematics.Quad3 quad, Colossal.Mathematics.Line3 line, System.Single& t) : System.Boolean`  
+- `public static Intersect(Colossal.Mathematics.Quad3 quad, Colossal.Mathematics.Line3+Segment line, System.Single& t) : System.Boolean`  
+- `public static Intersect(Colossal.Mathematics.Sphere3 sphere, Unity.Mathematics.float3 position) : System.Boolean`  
+- `public static Intersect(Colossal.Mathematics.Sphere3 sphere1, Colossal.Mathematics.Sphere3 sphere2) : System.Boolean`  
+- `public static Intersect(Colossal.Mathematics.Sphere3 sphere, Colossal.Mathematics.Line3 line, Unity.Mathematics.float2& t) : System.Boolean`  
+- `public static Intersect(Colossal.Mathematics.Sphere3 sphere, Colossal.Mathematics.Line3+Segment line, Unity.Mathematics.float2& t) : System.Boolean`  
+- `public static Intersect(Colossal.Mathematics.Tetrahedron3 tetrahedron, Unity.Mathematics.float3 position, Unity.Mathematics.float3& t) : System.Boolean`  
+- `public static Intersect(Colossal.Mathematics.Bounds2 bounds, Colossal.Mathematics.Triangle2 triangle) : System.Boolean`  
+- `public static Intersect(Colossal.Mathematics.Bounds2 bounds, Colossal.Mathematics.Triangle2 triangle, System.Single& area) : System.Boolean`  
+- `public static Intersect(Colossal.Mathematics.Triangle2 triangle, Unity.Mathematics.float2 position, Unity.Mathematics.float2& t) : System.Boolean`  
+- `public static Intersect(Colossal.Mathematics.Triangle2 triangle, Unity.Mathematics.float2 position) : System.Boolean`  
+- `public static Intersect(Colossal.Mathematics.Triangle2 triangle, Colossal.Mathematics.Line2 line, Unity.Mathematics.float2& t) : System.Boolean`  
+- `public static Intersect(Colossal.Mathematics.Triangle2 triangle, Colossal.Mathematics.Line2+Segment line, Unity.Mathematics.float2& t) : System.Boolean`  
+- `public static Intersect(Colossal.Mathematics.Triangle2 triangle1, Colossal.Mathematics.Triangle2 triangle2) : System.Boolean`  
+- `public static Intersect(Colossal.Mathematics.Triangle2 triangle, Colossal.Mathematics.Circle2 circle) : System.Boolean`  
+- `public static Intersect(Colossal.Mathematics.Triangle3 triangle, Colossal.Mathematics.Line3 line, Unity.Mathematics.float3& t) : System.Boolean`  
+- `public static Intersect(Colossal.Mathematics.Triangle3 triangle, Colossal.Mathematics.Line3+Segment line, Unity.Mathematics.float3& t) : System.Boolean`  
+- `public static Intersect(Colossal.Mathematics.TrigonalTrapezohedron3 trapezohedron, Colossal.Mathematics.Box3 box2, Colossal.Mathematics.Bounds3& intersection1, Colossal.Mathematics.Bounds3& intersection2) : System.Boolean`  
+- `public static IntPow(System.Int32 b, System.Int32 exp) : System.Int32`  
+- `public static InverseSmoothStep(System.Single a, System.Single b, System.Single x) : System.Single`  
+- `public static InverseSmoothStep(Unity.Mathematics.float2 a, Unity.Mathematics.float2 b, Unity.Mathematics.float2 x) : Unity.Mathematics.float2`  
+- `public static InverseSmoothStep(Unity.Mathematics.float3 a, Unity.Mathematics.float3 b, Unity.Mathematics.float3 x) : Unity.Mathematics.float3`  
+- `public static InverseSmoothStep(Unity.Mathematics.float4 a, Unity.Mathematics.float4 b, Unity.Mathematics.float4 x) : Unity.Mathematics.float4`  
+- `public static Invert(Colossal.Mathematics.Bezier4x1 curve) : Colossal.Mathematics.Bezier4x1`  
+- `public static Invert(Colossal.Mathematics.Bezier4x2 curve) : Colossal.Mathematics.Bezier4x2`  
+- `public static Invert(Colossal.Mathematics.Bezier4x3 curve) : Colossal.Mathematics.Bezier4x3`  
+- `public static Invert(Colossal.Mathematics.Bounds1 bounds) : Colossal.Mathematics.Bounds1`  
+- `public static Invert(Colossal.Mathematics.Line1 line) : Colossal.Mathematics.Line1`  
+- `public static Invert(Colossal.Mathematics.Line1+Segment line) : Colossal.Mathematics.Line1+Segment`  
+- `public static Invert(Colossal.Mathematics.Line2 line) : Colossal.Mathematics.Line2`  
+- `public static Invert(Colossal.Mathematics.Line2+Segment line) : Colossal.Mathematics.Line2+Segment`  
+- `public static Invert(Colossal.Mathematics.Line3 line) : Colossal.Mathematics.Line3`  
+- `public static Invert(Colossal.Mathematics.Line3+Segment line) : Colossal.Mathematics.Line3+Segment`  
+- `public static IsClockwise(Colossal.Mathematics.Triangle2 triangle) : System.Boolean`  
+- `public static IsPowOf2(System.Int32 val) : System.Boolean`  
+- `public static Join(Colossal.Mathematics.Bezier4x3 input1, Colossal.Mathematics.Bezier4x3 input2) : Colossal.Mathematics.Bezier4x3`  
+- `public static Left(Unity.Mathematics.float2 forward) : Unity.Mathematics.float2`  
+- `public static Length(Colossal.Mathematics.Bezier4x1 curve) : System.Single`  
+- `public static Length(Colossal.Mathematics.Bezier4x1 curve, Colossal.Mathematics.Bounds1 t) : System.Single`  
+- `public static Length(Colossal.Mathematics.Bezier4x2 curve) : System.Single`  
+- `public static Length(Colossal.Mathematics.Bezier4x2 curve, Colossal.Mathematics.Bounds1 t) : System.Single`  
+- `public static Length(Colossal.Mathematics.Bezier4x3 curve) : System.Single`  
+- `public static Length(Colossal.Mathematics.Bezier4x3 curve, Colossal.Mathematics.Bounds1 t) : System.Single`  
+- `public static Length(Colossal.Mathematics.Line1+Segment line) : System.Single`  
+- `public static Length(Colossal.Mathematics.Line2+Segment line) : System.Single`  
+- `public static Length(Colossal.Mathematics.Line3+Segment line) : System.Single`  
+- `public static LengthSquared(Colossal.Mathematics.Line1+Segment line) : System.Single`  
+- `public static LengthSquared(Colossal.Mathematics.Line2+Segment line) : System.Single`  
+- `public static LengthSquared(Colossal.Mathematics.Line3+Segment line) : System.Single`  
+- `public static Lerp(Colossal.Mathematics.Bezier4x1 curve1, Colossal.Mathematics.Bezier4x1 curve2, System.Single t) : Colossal.Mathematics.Bezier4x1`  
+- `public static Lerp(Colossal.Mathematics.Bezier4x2 curve1, Colossal.Mathematics.Bezier4x2 curve2, System.Single t) : Colossal.Mathematics.Bezier4x2`  
+- `public static Lerp(Colossal.Mathematics.Bezier4x3 curve1, Colossal.Mathematics.Bezier4x3 curve2, System.Single t) : Colossal.Mathematics.Bezier4x3`  
+- `public static Lerp(Colossal.Mathematics.Bezier4x3 curve1, Colossal.Mathematics.Bezier4x3 curve2, Colossal.Mathematics.Bezier4x1 t) : Colossal.Mathematics.Bezier4x3`  
+- `public static Lerp(Colossal.Mathematics.Bounds1 bounds1, Colossal.Mathematics.Bounds1 bounds2, System.Single t) : Colossal.Mathematics.Bounds1`  
+- `public static Lerp(Colossal.Mathematics.Bounds3 bounds1, Colossal.Mathematics.Bounds3 bounds2, System.Single t) : Colossal.Mathematics.Bounds3`  
+- `public static Lerp(Colossal.Mathematics.Box3 box1, Colossal.Mathematics.Box3 box2, System.Single t) : Colossal.Mathematics.Box3`  
+- `public static Lerp(Colossal.Mathematics.Line1 line1, Colossal.Mathematics.Line1 line2, System.Single t) : Colossal.Mathematics.Line1`  
+- `public static Lerp(Colossal.Mathematics.Line1+Segment line1, Colossal.Mathematics.Line1+Segment line2, System.Single t) : Colossal.Mathematics.Line1+Segment`  
+- `public static Lerp(Colossal.Mathematics.Line2 line1, Colossal.Mathematics.Line2 line2, System.Single t) : Colossal.Mathematics.Line2`  
+- `public static Lerp(Colossal.Mathematics.Line2+Segment line1, Colossal.Mathematics.Line2+Segment line2, System.Single t) : Colossal.Mathematics.Line2+Segment`  
+- `public static Lerp(Colossal.Mathematics.Line3 line1, Colossal.Mathematics.Line3 line2, System.Single t) : Colossal.Mathematics.Line3`  
+- `public static Lerp(Colossal.Mathematics.Line3+Segment line1, Colossal.Mathematics.Line3+Segment line2, System.Single t) : Colossal.Mathematics.Line3+Segment`  
+- `public static Line(Colossal.Mathematics.Bezier4x3 curve, Unity.Mathematics.float2 t) : Colossal.Mathematics.Line3+Segment`  
+- `public static Line(Colossal.Mathematics.Bezier4x3 curve) : Colossal.Mathematics.Line3+Segment`  
+- `public static Log2(System.Int32 val) : System.Int32`  
+- `public static Logistic(System.Single a, System.Single c, System.Single k, System.Single x) : System.Single`  
+- `public static Max(Colossal.Mathematics.Bezier4x1 curve) : System.Single`  
+- `public static Max(Colossal.Mathematics.Bezier4x2 curve) : Unity.Mathematics.float2`  
+- `public static Max(Colossal.Mathematics.Bezier4x3 curve) : Unity.Mathematics.float3`  
+- `public static Max(Colossal.Mathematics.Circle2 circle) : Unity.Mathematics.float2`  
+- `public static Max(Colossal.Mathematics.Line1+Segment line) : System.Single`  
+- `public static Max(Colossal.Mathematics.Line2+Segment line) : Unity.Mathematics.float2`  
+- `public static Max(Colossal.Mathematics.Line3+Segment line) : Unity.Mathematics.float3`  
+- `public static Max(Unity.Mathematics.float2 value) : System.Single`  
+- `public static Max(Unity.Mathematics.float3 value) : System.Single`  
+- `public static Max(Unity.Mathematics.float4 value) : System.Single`  
+- `public static Max(Colossal.Mathematics.Quad2 quad) : Unity.Mathematics.float2`  
+- `public static Max(Colossal.Mathematics.Quad3 quad) : Unity.Mathematics.float3`  
+- `public static Max(Colossal.Mathematics.Sphere3 sphere) : Unity.Mathematics.float3`  
+- `public static Max(Colossal.Mathematics.Tetrahedron3 tetrahedron) : Unity.Mathematics.float3`  
+- `public static Max(Colossal.Mathematics.Triangle1 triangle) : System.Single`  
+- `public static Max(Colossal.Mathematics.Triangle2 triangle) : Unity.Mathematics.float2`  
+- `public static Max(Colossal.Mathematics.Triangle3 triangle) : Unity.Mathematics.float3`  
+- `public static Max(Colossal.Mathematics.TrigonalTrapezohedron3 trapezohedron) : Unity.Mathematics.float3`  
+- `public static MaxAbs(Unity.Mathematics.float2 a, Unity.Mathematics.float2 b) : Unity.Mathematics.float2`  
+- `public static MaxDot(Colossal.Mathematics.Bezier4x2 curve, Unity.Mathematics.float2 direction, System.Single& t) : System.Single`  
+- `public static Min(Colossal.Mathematics.Bezier4x1 curve) : System.Single`  
+- `public static Min(Colossal.Mathematics.Bezier4x2 curve) : Unity.Mathematics.float2`  
+- `public static Min(Colossal.Mathematics.Bezier4x3 curve) : Unity.Mathematics.float3`  
+- `public static Min(Colossal.Mathematics.Circle2 circle) : Unity.Mathematics.float2`  
+- `public static Min(Colossal.Mathematics.Line1+Segment line) : System.Single`  
+- `public static Min(Colossal.Mathematics.Line2+Segment line) : Unity.Mathematics.float2`  
+- `public static Min(Colossal.Mathematics.Line3+Segment line) : Unity.Mathematics.float3`  
+- `public static Min(Unity.Mathematics.float2 value) : System.Single`  
+- `public static Min(Unity.Mathematics.float3 value) : System.Single`  
+- `public static Min(Unity.Mathematics.float4 value) : System.Single`  
+- `public static Min(Colossal.Mathematics.Quad2 quad) : Unity.Mathematics.float2`  
+- `public static Min(Colossal.Mathematics.Quad3 quad) : Unity.Mathematics.float3`  
+- `public static Min(Colossal.Mathematics.Sphere3 sphere) : Unity.Mathematics.float3`  
+- `public static Min(Colossal.Mathematics.Tetrahedron3 tetrahedron) : Unity.Mathematics.float3`  
+- `public static Min(Colossal.Mathematics.Triangle1 triangle) : System.Single`  
+- `public static Min(Colossal.Mathematics.Triangle2 triangle) : Unity.Mathematics.float2`  
+- `public static Min(Colossal.Mathematics.Triangle3 triangle) : Unity.Mathematics.float3`  
+- `public static Min(Colossal.Mathematics.TrigonalTrapezohedron3 trapezohedron) : Unity.Mathematics.float3`  
+- `public static NormalCCW(Colossal.Mathematics.Triangle3 triangle) : Unity.Mathematics.float3`  
+- `public static NormalCW(Colossal.Mathematics.Triangle3 triangle) : Unity.Mathematics.float3`  
+- `public static Normalize(Unity.Mathematics.float3 value1, Unity.Mathematics.float2 value2) : Unity.Mathematics.float3`  
+- `public static NormalToOctahedral(Unity.Mathematics.float3 n) : System.UInt32`  
+- `public static Perimeter(Colossal.Mathematics.Triangle2 triangle) : System.Single`  
+- `public static Perimeter(Colossal.Mathematics.Triangle3 triangle) : System.Single`  
+- `public static Position(Colossal.Mathematics.Bezier4x1 curve, System.Single t) : System.Single`  
+- `public static Position(Colossal.Mathematics.Bezier4x2 curve, System.Single t) : Unity.Mathematics.float2`  
+- `public static Position(Colossal.Mathematics.Bezier4x3 curve, System.Single t) : Unity.Mathematics.float3`  
+- `public static Position(Colossal.Mathematics.Line1 line, System.Single t) : System.Single`  
+- `public static Position(Colossal.Mathematics.Line1+Segment line, System.Single t) : System.Single`  
+- `public static Position(Colossal.Mathematics.Line2 line, System.Single t) : Unity.Mathematics.float2`  
+- `public static Position(Colossal.Mathematics.Line2+Segment line, System.Single t) : Unity.Mathematics.float2`  
+- `public static Position(Colossal.Mathematics.Line3 line, System.Single t) : Unity.Mathematics.float3`  
+- `public static Position(Colossal.Mathematics.Line3+Segment line, System.Single t) : Unity.Mathematics.float3`  
+- `public static Position(Colossal.Mathematics.Tetrahedron3 tetrahedron, Unity.Mathematics.float3 t) : Unity.Mathematics.float3`  
+- `public static Position(Colossal.Mathematics.Triangle1 triangle, Unity.Mathematics.float2 t) : System.Single`  
+- `public static Position(Colossal.Mathematics.Triangle2 triangle, Unity.Mathematics.float2 t) : Unity.Mathematics.float2`  
+- `public static Position(Colossal.Mathematics.Triangle3 triangle, Unity.Mathematics.float2 t) : Unity.Mathematics.float3`  
+- `private static QuadIntersectHelper(Colossal.Mathematics.Quad2 quad, Colossal.Mathematics.Line2+Segment line, Unity.Mathematics.float2& t) : System.Boolean`  
+- `private static QuadIntersectHelper(Unity.Mathematics.float4 x, Unity.Mathematics.float4 y, Unity.Mathematics.float2 position) : System.Boolean`  
+- `private static QuadIntersectHelper(Unity.Mathematics.float4 x, Unity.Mathematics.float4 y, Unity.Mathematics.float2 p, Unity.Mathematics.float2 a, Unity.Mathematics.float2 b) : System.Boolean`  
+- `public static Quantize(Unity.Mathematics.float3 v, Unity.Mathematics.float3 quant) : Unity.Mathematics.float3`  
+- `private static QuantizeSnorm(System.Single v, System.Int32 N) : System.Int32`  
+- `public static Right(Unity.Mathematics.float2 forward) : Unity.Mathematics.float2`  
+- `public static RotateLeft(Unity.Mathematics.float2 vector, System.Single angle) : Unity.Mathematics.float2`  
+- `public static RotateRight(Unity.Mathematics.float2 vector, System.Single angle) : Unity.Mathematics.float2`  
+- `public static RotationAngle(Unity.Mathematics.float2 vector1, Unity.Mathematics.float2 vector2) : System.Single`  
+- `public static RotationAngle(Unity.Mathematics.quaternion a, Unity.Mathematics.quaternion b) : System.Single`  
+- `public static RotationAngle(System.Single fromAngle, System.Single toAngle) : System.Single`  
+- `public static RotationAngleLeft(Unity.Mathematics.float2 fromVector, Unity.Mathematics.float2 toVector) : System.Single`  
+- `public static RotationAngleRight(Unity.Mathematics.float2 fromVector, Unity.Mathematics.float2 toVector) : System.Single`  
+- `public static RotationAngleSignedLeft(Unity.Mathematics.float2 fromVector, Unity.Mathematics.float2 toVector) : System.Single`  
+- `public static RotationAngleSignedRight(Unity.Mathematics.float2 fromVector, Unity.Mathematics.float2 toVector) : System.Single`  
+- `public static RoundToIntRandom(Unity.Mathematics.Random& random, System.Single value) : System.Int32`  
+- `public static RoundToIntRandom(Unity.Mathematics.Random& random, Unity.Mathematics.float4 value) : Unity.Mathematics.int4`  
+- `public static Size(Colossal.Mathematics.Bounds1 bounds) : System.Single`  
+- `public static Size(Colossal.Mathematics.Bounds2 bounds) : Unity.Mathematics.float2`  
+- `public static Size(Colossal.Mathematics.Bounds3 bounds) : Unity.Mathematics.float3`  
+- `public static SmoothDamp(System.Single current, System.Single target, System.Single& currentVelocity, System.Single smoothTime, System.Single maxSpeed, System.Single deltaTime) : System.Single`  
+- `public static Snap(System.Single value, System.Single interval) : System.Single`  
+- `public static Snap(Unity.Mathematics.float2 value, Unity.Mathematics.float2 interval) : Unity.Mathematics.float2`  
+- `public static Snap(System.Single value, System.Single interval, System.Single offset) : System.Single`  
+- `public static Snap(Unity.Mathematics.float2 value, Unity.Mathematics.float2 interval, Unity.Mathematics.float2 offset) : Unity.Mathematics.float2`  
+- `public static Sphere(Colossal.Mathematics.Sphere3 sphere1, Colossal.Mathematics.Sphere3 sphere2) : Colossal.Mathematics.Sphere3`  
+- `public static StartReflect(Colossal.Mathematics.Bezier4x3 curve) : Colossal.Mathematics.Bezier4x3`  
+- `public static StartTangent(Colossal.Mathematics.Bezier4x1 curve) : System.Single`  
+- `public static StartTangent(Colossal.Mathematics.Bezier4x2 curve) : Unity.Mathematics.float2`  
+- `public static StartTangent(Colossal.Mathematics.Bezier4x3 curve) : Unity.Mathematics.float3`  
+- `public static Tangent(Colossal.Mathematics.Bezier4x1 curve, System.Single t) : System.Single`  
+- `public static Tangent(Colossal.Mathematics.Bezier4x2 curve, System.Single t) : Unity.Mathematics.float2`  
+- `public static Tangent(Colossal.Mathematics.Bezier4x3 curve, System.Single t) : Unity.Mathematics.float3`  
+- `public static Tangent(Colossal.Mathematics.Line1 line) : System.Single`  
+- `public static Tangent(Colossal.Mathematics.Line1+Segment line) : System.Single`  
+- `public static Tangent(Colossal.Mathematics.Line2 line) : Unity.Mathematics.float2`  
+- `public static Tangent(Colossal.Mathematics.Line2+Segment line) : Unity.Mathematics.float2`  
+- `public static Tangent(Colossal.Mathematics.Line3 line) : Unity.Mathematics.float3`  
+- `public static Tangent(Colossal.Mathematics.Line3+Segment line) : Unity.Mathematics.float3`  
+- `public static TangentToOctahedral(Unity.Mathematics.float4 t) : System.UInt32`  
+- `public static TightBounds(Colossal.Mathematics.Bezier4x2 curve) : Colossal.Mathematics.Bounds2`  
+- `public static TightBounds(Colossal.Mathematics.Bezier4x3 curve) : Colossal.Mathematics.Bounds3`  
+- `private static TrapezohedronBoxIntersectHelper(Colossal.Mathematics.TrigonalTrapezohedron3 trapezohedron1, Colossal.Mathematics.Box3 box2, Colossal.Mathematics.Bounds3& intersection1, Colossal.Mathematics.Bounds3& intersection2) : System.Boolean`  
+- `private static TrapezohedronBoxIntersectHelper(Colossal.Mathematics.Box3 box1, Colossal.Mathematics.TrigonalTrapezohedron3 trapezohedron2, Colossal.Mathematics.Bounds3& intersection1, Colossal.Mathematics.Bounds3& intersection2) : System.Boolean`  
+- `private static TrapezohedronBoxIntersectHelper(Colossal.Mathematics.TrigonalTrapezohedron3 trapezohedron1, Colossal.Mathematics.Bounds3 bounds1, Unity.Mathematics.float3 pos1, Unity.Mathematics.float3 pos2, Colossal.Mathematics.Bounds3& intersection1, Colossal.Mathematics.Bounds3& intersection2) : System.Boolean`  
+- `private static TrapezohedronBoxIntersectHelper(Colossal.Mathematics.Tetrahedron3 tetrahedron1, Unity.Mathematics.float3 pos1, Unity.Mathematics.float3 pos2, Colossal.Mathematics.Bounds3& intersection1, Colossal.Mathematics.Bounds3& intersection2) : System.Boolean`  
+- `private static TrapezohedronBoxIntersectHelper(Colossal.Mathematics.TrigonalTrapezohedron3 trapezohedron1, Colossal.Mathematics.Bounds3 bounds1, Unity.Mathematics.float3 a1, Unity.Mathematics.float3 b1, Unity.Mathematics.float3 a2, Unity.Mathematics.float3 b2, Colossal.Mathematics.Bounds3& intersection1, Colossal.Mathematics.Bounds3& intersection2) : System.Boolean`  
+- `private static TrapezohedronBoxIntersectHelper(Colossal.Mathematics.Triangle3 triangle1, Colossal.Mathematics.Line3+Segment line1, Colossal.Mathematics.Line3+Segment line2, Colossal.Mathematics.Bounds3& intersection1, Colossal.Mathematics.Bounds3& intersection2) : System.Boolean`  
+- `private static TriangleIntersectAddFirstEdge(Colossal.Mathematics.Triangle2& buffer, Unity.Mathematics.int2& sides, Unity.Mathematics.float2 a, Unity.Mathematics.float2 b, System.Single startT, System.Single endT, Colossal.Mathematics.Bounds2 bounds) : System.Void`  
+- `private static TriangleIntersectAddNextEdge(Colossal.Mathematics.Triangle2& buffer, Unity.Mathematics.int2& sides, Unity.Mathematics.float2 a, Unity.Mathematics.float2 b, System.Single startT, System.Single endT, Colossal.Mathematics.Bounds2 bounds, System.Single& area) : System.Void`  
+- `private static TriangleIntersectCheckLastEdge(Colossal.Mathematics.Triangle2& buffer, Unity.Mathematics.int2& sides, Colossal.Mathematics.Bounds2 bounds, System.Single& area) : System.Void`  
+- `private static TriangleIntersectHelper(Unity.Mathematics.float3 x, Unity.Mathematics.float3 y, Unity.Mathematics.float2 position) : System.Boolean`  
+- `public static TryNormalize(Unity.Mathematics.float2& value) : System.Boolean`  
+- `public static TryNormalize(Unity.Mathematics.float3& value) : System.Boolean`  
+- `public static TryNormalize(Unity.Mathematics.float2& value, System.Single newLength) : System.Boolean`  
+- `public static TryNormalize(Unity.Mathematics.float3& value, System.Single newLength) : System.Boolean`  
+

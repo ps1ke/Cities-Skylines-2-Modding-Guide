@@ -1,0 +1,14 @@
+﻿# Colossal.PSI.Common.IModsUploadSupport+ModInfo+ModDependency
+
+**Assembly:** `Colossal.PSI.Common`  
+**Namespace:** `Colossal.PSI.Common`  
+
+**Type:** struct sealed public  
+
+**Base:** `System.ValueType`  
+
+## Fields
+
+- `public System.Int32 m_Id`  
+- `public System.String m_Version`  
+

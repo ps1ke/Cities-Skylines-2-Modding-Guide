@@ -1,0 +1,12 @@
+﻿# Colossal.UI.Binding.IJsonWritable
+
+**Assembly:** `Colossal.UI.Binding`  
+**Namespace:** `Colossal.UI.Binding`  
+
+**Type:** interface abstract public  
+
+
+## Methods
+
+- `public abstract Write(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
+

@@ -1,0 +1,323 @@
+﻿# Colossal.PSI.PdxSdk.PdxSdkPlatform
+
+**Assembly:** `Colossal.PSI.PdxSdk`  
+**Namespace:** `Colossal.PSI.PdxSdk`  
+
+**Type:** class public  
+
+**Base:** `System.Object`  
+**Implements:** `Colossal.PSI.Common.IPlatformSupport<Colossal.PSI.PdxSdk.PdxSdkConfiguration>`, `Colossal.PSI.Common.IPlatformSupport`, `Colossal.PSI.Common.IPlatformServiceIntegration`, `Colossal.PSI.Common.IDisposableAsync`, `Colossal.PSI.Common.IDlcSupport`, `Colossal.PSI.Common.IModSupport`, `Colossal.PSI.Common.IModsUploadSupport`, `Colossal.PSI.Common.IRemoteStorageSupport`, `Colossal.PSI.Common.ITelemetrySupport`, `Colossal.PSI.Common.ITransferSupport`, `Colossal.PSI.PdxSdk.IModsUISupport`  
+
+## Fields
+
+- `private Colossal.PSI.PdxSdk.OnLoggedInEventHandler onLoggedIn`  
+- `private Colossal.PSI.PdxSdk.OnLoggedOutEventHandler onLoggedOut`  
+- `private System.Action onNoLogin`  
+- `private Colossal.PSI.PdxSdk.OnLegalDocumentStatusChangedEventHandler onLegalDocumentStatusChanged`  
+- `private System.Collections.Generic.List<Colossal.PSI.PdxSdk.LegalDocument> m_RequiredExtraDocuments`  
+- `private System.String m_SessionToken`  
+- `private System.String m_AccountUserId`  
+- `private Colossal.PSI.PdxSdk.OnAccountLinkChangeEventHandler onAccountLinkChanged`  
+- `private Colossal.PSI.Common.AccountLinkState m_AccountLinkState`  
+- `private Colossal.PSI.Common.AccountLinkMismatch m_AccountLinkMismatch`  
+- `private Colossal.PSI.Common.OnStatusChangedEventHandler onStatusChanged`  
+- `private Colossal.PSI.PdxSdk.PdxSdkConfiguration m_Configuration`  
+- `private System.Boolean m_IsInitialized`  
+- `private System.Boolean m_RegisteredForEvents`  
+- `private PDX.SDK.Contracts.IContext m_SDKContext`  
+- `private readonly System.Collections.Concurrent.ConcurrentQueue<System.Action> m_MainThreadActionQueue`  
+- `private System.Func<System.String, System.String> <translationHandler>k__BackingField`  
+- `private Colossal.PSI.PdxSdk.ContentUnlockedEventHandler onContentUnlocked`  
+- `private readonly System.Collections.Generic.Dictionary<Colossal.PSI.Common.DlcId, Colossal.PSI.PdxSdk.ParadoxDlc> m_DlcMap`  
+- `private Colossal.PSI.Common.ModSubscriptionEventHandler onModSubscriptionChanged`  
+- `private Colossal.PSI.Common.ModEventHandler onModDownloadStarted`  
+- `private Colossal.PSI.Common.ModEventHandler onModDownloadCompleted`  
+- `private Colossal.PSI.Common.ModEventHandler onModDownloadFailed`  
+- `private Colossal.PSI.Common.ModSyncEventHandler onModSyncCompleted`  
+- `private Colossal.PSI.Common.ModInstallProgressEventHandler onModInstallProgress`  
+- `private System.Action onDataSyncConflict`  
+- `private System.Action<Colossal.PSI.Common.Mod, System.Boolean> onModStatusChanged`  
+- `private System.Action onActivePlaysetChanged`  
+- `private System.Guid m_DownloadStartedSubscription`  
+- `private System.Guid m_DownloadCompleteSubscription`  
+- `private System.Guid m_ModSubscribedSubscription`  
+- `private System.Guid m_ModUnsubscribedSubscription`  
+- `private System.Guid m_TransferStatusUpdatedSubscription`  
+- `private System.Guid m_InstallProgressSubscription`  
+- `private System.Guid m_ModDownloadFailedSubscription`  
+- `private System.Guid m_ModSyncStatusChangedSubscription`  
+- `private System.Guid m_LoadStatusChangedSubscription`  
+- `private System.Boolean m_SyncOngoing`  
+- `private System.Boolean m_ReloadMods`  
+- `private System.Boolean m_IsTelemetryConsentPresentable`  
+- `private System.Boolean m_TelemetryConsentChoice`  
+- `private Colossal.PSI.Common.TransferEventHandler onTransferOnGoing`  
+- `private System.Boolean m_IsRunning`  
+- `private System.Collections.Generic.HashSet<System.String> m_CompletedTransfers`  
+- `private PDX.ModsUI.ModsUIView m_ModsUIView`  
+- `private Colossal.PSI.PdxSdk.IPdxModsUI m_PdxModsUI`  
+- `private System.Boolean m_OnGoingPleaseWait`  
+- `private System.Action onModsUIOpened`  
+- `private System.Action onModsUIClosed`  
+- `public static Colossal.Logging.ILog log`  
+- `private static const System.String kWrongUserNameOrPassword`  
+- `private static const System.String kDlcPDXAccountText`  
+- `private static const System.Int32 kPollingInterval`  
+
+## Properties
+
+- `public System.Boolean hasEverLoggedIn { get; private set }`  
+- `public System.Boolean hasSessionToken { get }`  
+- `public System.Boolean cachedLoggedIn { get }`  
+- `public Colossal.PSI.Common.AccountLinkState accountLinkState { get; set }`  
+- `public Colossal.PSI.Common.AccountLinkMismatch AccountLinkMismatch { get }`  
+- `public Colossal.PSI.Common.AccountLinkProvider accountLinkProvider { get }`  
+- `private PDX.SDK.Contracts.Credential.ICredential thirdPartyCredentials { private get }`  
+- `public System.String name { get }`  
+- `public System.Boolean isInitialized { get }`  
+- `private System.Func<System.String, System.String> translationHandler { private get; set }`  
+- `public System.Int32 dlcCount { get }`  
+- `public System.String modsRootPath { get }`  
+- `public System.Collections.Generic.KeyValuePair<System.String, System.Collections.Generic.HashSet<System.String>> uiHost { get }`  
+- `public System.Boolean isExternallyControlled { get }`  
+- `public System.Boolean isModsUIActive { get }`  
+- `private System.Boolean onGoingPleaseWait { private get; private set }`  
+
+## Constructors
+
+- `public PdxSdkPlatform(Colossal.PSI.PdxSdk.PdxSdkConfiguration configuration)`  
+
+## Methods
+
+- `private <Configure>b__84_0(System.String option) : System.Void`  
+- `private <CreateModsUI>b__244_0(System.Object e, System.EventArgs a) : System.Void`  
+- `private <CreateModsUI>b__244_1(System.Object e, System.EventArgs a) : System.Void`  
+- `private <CreateModsUI>b__244_2(System.Object e, System.EventArgs a) : System.Void`  
+- `private <InitializeTelemetryConsent>b__216_0(System.String _, System.String _, System.String _, Colossal.PSI.Common.AccountLinkState _, System.Boolean _) : System.Void`  
+- `private <InitializeTelemetryConsent>b__216_1(System.String _) : System.Void`  
+- `private <InitializeTelemetryConsent>b__216_2(Colossal.PSI.PdxSdk.LegalDocument _, System.Int32 _) : System.Void`  
+- `private <ListUnviewedDocuments>b__30_0(PDX.SDK.Contracts.Service.Legal.Models.Document doc) : System.Boolean`  
+- `private <RemapDLCs>b__108_0(Colossal.PSI.Common.DlcId id, Colossal.PSI.Common.DlcAttribute attribute, System.String[] metadata) : System.Void`  
+- `private <set_onGoingPleaseWait>b__233_0() : System.Boolean`  
+- `private AfterLogout() : System.Void`  
+- `public ChangeLanguage(System.String localeId) : System.Void`  
+- `public ChangeModsUILanguage(System.String localeId) : System.Void`  
+- `private CheckAccountLinkStatus(PDX.SDK.Contracts.Service.Account.Result.ThirdPartyResult thirdParty) : System.Void`  
+- `private CheckEntitlements(System.Boolean firstLogin) : System.Threading.Tasks.Task`  
+- `public Configure(Colossal.PSI.PdxSdk.PdxSdkConfiguration configuration) : System.Void`  
+- `private CreateMod(PDX.SDK.Contracts.Service.Mods.Models.IMod mod) : Colossal.PSI.Common.Mod`  
+- `public CreateModsUI() : System.Void`  
+- `public CreateParadoxAccount(System.String username, System.String password, PDX.SDK.Contracts.Enums.Language language, PDX.SDK.Contracts.Enums.Country country, System.DateTime dateOfBirth, System.Boolean marketingPermissions) : System.Threading.Tasks.Task<Colossal.PSI.PdxSdk.PdxSdkPlatform+RequestReport>`  
+- `public DeactivateActivePlayset() : System.Void`  
+- `public Delete(System.String containerName, System.String fileName) : System.Boolean`  
+- `public DeleteRemote(System.String remotePath) : System.Threading.Tasks.Task`  
+- `public DestroyModsUI() : System.Void`  
+- `public DisableSharing() : System.Void`  
+- `public Dispose(System.Boolean disposeEvents, System.Threading.CancellationToken token) : System.Threading.Tasks.Task`  
+- `public Download(System.String relativePath, System.String remotePath) : System.Threading.Tasks.Task<System.ValueTuple<System.String, System.String>>`  
+- `public EnableModInActivePlayset(System.Int32 modId, System.Boolean enable) : System.Threading.Tasks.Task<System.Boolean>`  
+- `public EnableSharing() : System.Void`  
+- `public EnumerateDLCs() : System.Collections.Generic.IEnumerable<Colossal.PSI.Common.IDlc>`  
+- `public Exists(System.String containerName, System.String fileName) : System.Boolean`  
+- `private GetAccountDetailsAndNotifyLoggedIn() : System.Threading.Tasks.Task<PDX.SDK.Contracts.Service.Account.Result.GetDetailsResult>`  
+- `private GetAccountLinkProvider() : PDX.SDK.Contracts.Service.ThirdParty.Enums.Provider`  
+- `private GetConfirmLabel(PDX.SDK.Contracts.Service.Legal.Models.Document document) : System.String`  
+- `public GetCreatorProfile() : System.Threading.Tasks.Task<PDX.SDK.Contracts.Service.Mods.Models.ModCreator>`  
+- `public GetData() : System.Threading.Tasks.Task<System.Collections.Generic.List<PDX.SDK.Contracts.Service.DataStorage.CloudSave.Models.Entry>>`  
+- `public GetDetails(Colossal.PSI.Common.IModsUploadSupport+ModInfo modInfo) : System.Threading.Tasks.Task<Colossal.PSI.Common.IModsUploadSupport+ModInfo>`  
+- `public GetDlcName(Colossal.PSI.Common.DlcId dlc) : System.String`  
+- `public GetDlcPaths() : System.Collections.Generic.List<System.ValueTuple<System.String, System.String>>`  
+- `public GetLocalData(System.Int32 id) : System.Threading.Tasks.Task<System.ValueTuple<System.Boolean, Colossal.PSI.Common.IModsUploadSupport+ModLocalData>>`  
+- `private GetModPlatform() : PDX.SDK.Contracts.Service.Mods.Enums.ModPlatform`  
+- `public GetModsInActivePlayset() : System.Threading.Tasks.Task<System.Collections.Generic.HashSet<Colossal.PSI.Common.Mod>>`  
+- `public GetPersistentQuota(System.String path, System.Int64& total, System.Int64& available) : System.Void`  
+- `public GetQuota() : System.ValueTuple<System.Int64, System.Int64>`  
+- `public GetSocialProfile() : System.Threading.Tasks.Task<Colossal.PSI.Common.IModsUploadSupport+SocialProfile>`  
+- `public GetTags() : System.Threading.Tasks.Task<System.ValueTuple<Colossal.PSI.Common.IModsUploadSupport+ModTag[], Colossal.PSI.Common.IModsUploadSupport+DLCTag[]>>`  
+- `public GetTelemetryConsentChoice() : System.Boolean`  
+- `public HasLocalChanges() : System.Boolean`  
+- `public HidePleaseWait() : System.Void`  
+- `public Initialize(System.Threading.CancellationToken token) : System.Threading.Tasks.Task<System.Boolean>`  
+- `private InitializeTelemetryConsent() : System.Void`  
+- `public IsCloudSupported() : System.Boolean`  
+- `public IsDlcOwned(Colossal.PSI.Common.DlcId dlc) : System.Boolean`  
+- `private IsExtraDocumentViewed(System.String title, System.String type) : System.Boolean`  
+- `private IsLoggedIn() : System.Threading.Tasks.Task<System.Boolean>`  
+- `public IsTelemetryConsentPresentable() : System.Boolean`  
+- `public LinkAccount() : System.Threading.Tasks.Task<Colossal.PSI.PdxSdk.PdxSdkPlatform+RequestReport>`  
+- `private LinkAccount(PDX.SDK.Contracts.Service.ThirdParty.Enums.Provider accountLinkProvider) : System.Threading.Tasks.Task<PDX.SDK.Contracts.Result>`  
+- `public ListAllModsByMe(System.String[] filterTags = null, System.Int32 pageSize = 20) : System.Threading.Tasks.Task<System.Collections.Generic.List<Colossal.PSI.Common.IModsUploadSupport+ModInfo>>`  
+- `public ListMods() : System.Threading.Tasks.Task<System.Collections.Generic.List<Colossal.PSI.Common.IModsUploadSupport+ModInfo>>`  
+- `public ListUnviewedDocuments() : System.Threading.Tasks.Task<System.Collections.Generic.List<PDX.SDK.Contracts.Service.Legal.Models.Document>>`  
+- `private Login(System.Threading.CancellationToken cancellationToken) : System.Threading.Tasks.Task`  
+- `public Login(System.String username, System.String password, System.Threading.CancellationToken cancellationToken) : System.Threading.Tasks.Task<Colossal.PSI.PdxSdk.PdxSdkPlatform+RequestReport>`  
+- `private LoginViaToken(System.String token, System.Threading.CancellationToken cancellationToken) : System.Threading.Tasks.Task<Colossal.PSI.PdxSdk.PdxSdkPlatform+RequestReport>`  
+- `public Logout() : System.Threading.Tasks.Task`  
+- `public LogVersion(System.Text.StringBuilder b) : System.Void`  
+- `public MarkLegalDocumentAsViewed(Colossal.PSI.PdxSdk.LegalDocument document) : System.Threading.Tasks.Task<System.Boolean>`  
+- `public MarkLegalDocumentAsViewed(System.String title, System.String type) : System.Threading.Tasks.Task<System.Boolean>`  
+- `private OnConnectivityStatusChanged(System.Boolean connected) : System.Void`  
+- `private OnDownloadComplete(PDX.SDK.Contracts.Events.Mods.IModDownloadCompleted args) : System.Void`  
+- `private OnDownloadStarted(PDX.SDK.Contracts.Events.Mods.IModDownloadStarted args) : System.Void`  
+- `private OnInstallProgress(PDX.SDK.Contracts.Events.Download.IInstallProgressEvent args) : System.Void`  
+- `private OnLoadStatusChanged(PDX.SDK.Contracts.Events.Mods.IModLoadStatusChanged args) : System.Void`  
+- `private OnModDownloadFailed(PDX.SDK.Contracts.Events.Mods.IModDownloadFailed args) : System.Void`  
+- `private OnModSubscribe(PDX.SDK.Contracts.Events.Mods.IModSubscribed args) : System.Void`  
+- `private OnModSyncStatusChanged(PDX.SDK.Contracts.Events.Mods.IModSyncStatusChanged args) : System.Void`  
+- `private OnModUnsubscribe(PDX.SDK.Contracts.Events.Mods.IModUnsubscribed args) : System.Void`  
+- `private OnPrincipalPlatformUserChanged(Colossal.PSI.Common.IPlatformServiceIntegration psi, Colossal.PSI.Common.UserChangedFlags change) : System.Void`  
+- `private OnShowLegalDocument(System.Collections.Generic.List<PDX.SDK.Contracts.Service.Legal.Models.Document> documents) : System.Void`  
+- `private OnTransferUpdated(PDX.SDK.Contracts.Events.Download.ITransferStatusUpdated args) : System.Void`  
+- `public OverwriteAccountLinks() : System.Threading.Tasks.Task<Colossal.PSI.PdxSdk.PdxSdkPlatform+RequestReport>`  
+- `private PollTransfersAsync() : System.Void`  
+- `public Publish(Colossal.PSI.Common.IModsUploadSupport+ModInfo mod) : System.Threading.Tasks.Task<Colossal.PSI.Common.IModsUploadSupport+ModOperationResult>`  
+- `public PublishWIP(Colossal.PSI.Common.IModsUploadSupport+ModInfo mod) : System.Threading.Tasks.Task<Colossal.PSI.Common.IModsUploadSupport+ModOperationResult>`  
+- `public Read(System.String containerName, System.String fileName, System.Byte[]& data) : System.Int32`  
+- `public RegisterExistingWIP(Colossal.PSI.Common.IModsUploadSupport+ModInfo mod) : System.Threading.Tasks.Task<Colossal.PSI.Common.IModsUploadSupport+ModOperationResult>`  
+- `private RegisterModsCallbacks() : System.Void`  
+- `public RegisterWIP(Colossal.PSI.Common.IModsUploadSupport+ModInfo mod) : System.Threading.Tasks.Task<Colossal.PSI.Common.IModsUploadSupport+ModOperationResult>`  
+- `private ReleaseModsCallbacks() : System.Void`  
+- `private RemapDLCs() : System.Threading.Tasks.Task<System.Boolean>`  
+- `public ResetPassword(System.String email) : System.Threading.Tasks.Task<Colossal.PSI.PdxSdk.PdxSdkPlatform+RequestReport>`  
+- `private static SanitizeExternalLinks(System.Collections.Generic.List<Colossal.PSI.Common.IModsUploadSupport+ExternalLinkData> links) : System.Collections.Generic.List<PDX.SDK.Contracts.Service.Mods.Models.ExternalLink>`  
+- `private static SanitizeForumLink(System.String forumLink) : System.Collections.Generic.List<System.String>`  
+- `private static SanitizeUserModVersion(System.String userModVersion) : System.String`  
+- `public SendTelemetry<T>(System.String evtName, T evt) : System.Void`  
+- `private SetExtraDocumentViewed(System.String title, System.String type) : System.Void`  
+- `public SetPdxModsUI(Colossal.PSI.PdxSdk.IPdxModsUI pdxModsUI) : System.Void`  
+- `public SetTelemetryConsentChoice(System.Boolean allowed) : System.Threading.Tasks.Task<System.Boolean>`  
+- `public SetThirdPartyAutoLoginAccepted(System.Boolean value, System.Threading.CancellationToken token) : System.Threading.Tasks.Task`  
+- `private ShowLegalDocuments() : System.Threading.Tasks.Task`  
+- `public ShowModDetail(System.Int32 id) : System.Void`  
+- `public ShowModsUI() : System.Void`  
+- `private ShowModsUI(System.Action<PDX.ModsUI.ModsUIView> showAction) : System.Void`  
+- `public ShowModsUIProfilePage() : System.Void`  
+- `public ShowPleaseWait(System.String title = , System.String message = ) : System.Void`  
+- `public ShowPrivacyPolicy() : System.Threading.Tasks.Task<Colossal.PSI.PdxSdk.LegalDocument>`  
+- `public ShowTermsOfUse() : System.Threading.Tasks.Task<Colossal.PSI.PdxSdk.LegalDocument>`  
+- `public SignOut() : System.Threading.Tasks.Task`  
+- `private StartPollingTransfers() : System.Void`  
+- `private StopPollingTransfers() : System.Void`  
+- `public SyncModConflict(PDX.SDK.Contracts.Service.Mods.Enums.SyncDirection direction) : System.Threading.Tasks.Task<System.Boolean>`  
+- `public SyncMods(PDX.SDK.Contracts.Service.Mods.Enums.SyncDirection syncDirection = Default) : System.Threading.Tasks.Task`  
+- `public SyncTelemetryConsentChoice() : System.Void`  
+- `private static ToDependencies(Colossal.PSI.Common.IModsUploadSupport+ModInfo+ModDependency[] dependencies) : System.Collections.Generic.IEnumerable<PDX.SDK.Contracts.Service.Mods.Models.ModDependency>`  
+- `private static ToDependencies(System.String[] internalNames) : System.Collections.Generic.IEnumerable<PDX.SDK.Contracts.Service.Mods.Models.ModDependency>`  
+- `private ToModInfo(PDX.SDK.Contracts.Service.Mods.Models.Mod mod) : Colossal.PSI.Common.IModsUploadSupport+ModInfo`  
+- `private static ToModPlatform(Colossal.Platform platform) : PDX.SDK.Contracts.Service.Mods.Enums.ModPlatform`  
+- `private static ToPublishData(Colossal.PSI.Common.IModsUploadSupport+ModInfo mod) : PDX.SDK.Contracts.Service.Mods.Models.PublishWipData`  
+- `private static ToPublishUpdateData(Colossal.PSI.Common.IModsUploadSupport+ModInfo mod) : PDX.SDK.Contracts.Service.Mods.Models.PublishUpdateData`  
+- `private static ToWIPData(Colossal.PSI.Common.IModsUploadSupport+ModInfo mod) : PDX.SDK.Contracts.Service.Mods.Models.UpdateWipData`  
+- `public UnlinkThirdPartyAccount() : System.Threading.Tasks.Task<Colossal.PSI.PdxSdk.PdxSdkPlatform+RequestReport>`  
+- `private UnlinkThirdPartyAccount(PDX.SDK.Contracts.Service.ThirdParty.Enums.Provider accountLinkProvider) : System.Threading.Tasks.Task<PDX.SDK.Contracts.Result>`  
+- `public UnregisterWIP(Colossal.PSI.Common.IModsUploadSupport+ModInfo mod) : System.Threading.Tasks.Task<Colossal.PSI.Common.IModsUploadSupport+ModOperationResult>`  
+- `public Update() : System.Void`  
+- `public UpdateExisting(Colossal.PSI.Common.IModsUploadSupport+ModInfo mod) : System.Threading.Tasks.Task<Colossal.PSI.Common.IModsUploadSupport+ModOperationResult>`  
+- `public UpdateInputMode() : System.Void`  
+- `public UpdateWIP(Colossal.PSI.Common.IModsUploadSupport+ModInfo mod) : System.Threading.Tasks.Task<Colossal.PSI.Common.IModsUploadSupport+ModOperationResult>`  
+- `public Upload(System.String relativePath, System.String remotePath) : System.Threading.Tasks.Task<System.String>`  
+- `public Wipe() : System.Void`  
+- `public Write(System.String containerName, System.String fileName, System.Byte[] data) : System.Boolean`  
+
+## Events
+
+- `onLoggedIn` : `Colossal.PSI.PdxSdk.OnLoggedInEventHandler`  
+- `onLoggedOut` : `Colossal.PSI.PdxSdk.OnLoggedOutEventHandler`  
+- `onNoLogin` : `System.Action`  
+- `onLegalDocumentStatusChanged` : `Colossal.PSI.PdxSdk.OnLegalDocumentStatusChangedEventHandler`  
+- `onAccountLinkChanged` : `Colossal.PSI.PdxSdk.OnAccountLinkChangeEventHandler`  
+- `onStatusChanged` : `Colossal.PSI.Common.OnStatusChangedEventHandler`  
+- `onContentUnlocked` : `Colossal.PSI.PdxSdk.ContentUnlockedEventHandler`  
+- `onModSubscriptionChanged` : `Colossal.PSI.Common.ModSubscriptionEventHandler`  
+- `onModDownloadStarted` : `Colossal.PSI.Common.ModEventHandler`  
+- `onModDownloadCompleted` : `Colossal.PSI.Common.ModEventHandler`  
+- `onModDownloadFailed` : `Colossal.PSI.Common.ModEventHandler`  
+- `onModSyncCompleted` : `Colossal.PSI.Common.ModSyncEventHandler`  
+- `onModInstallProgress` : `Colossal.PSI.Common.ModInstallProgressEventHandler`  
+- `onDataSyncConflict` : `System.Action`  
+- `onModStatusChanged` : `System.Action<Colossal.PSI.Common.Mod, System.Boolean>`  
+- `onActivePlaysetChanged` : `System.Action`  
+- `onTransferOnGoing` : `Colossal.PSI.Common.TransferEventHandler`  
+- `onModsUIOpened` : `System.Action`  
+- `onModsUIClosed` : `System.Action`  
+
+## Nested types
+
+- `Colossal.PSI.PdxSdk.PdxSdkPlatform+RequestReport`  
+- `Colossal.PSI.PdxSdk.PdxSdkPlatform+Logger`  
+- `Colossal.PSI.PdxSdk.PdxSdkPlatform+ActiveModsResult`  
+- `Colossal.PSI.PdxSdk.PdxSdkPlatform+DLCTagHelper`  
+- `Colossal.PSI.PdxSdk.PdxSdkPlatform+<>c`  
+- `Colossal.PSI.PdxSdk.PdxSdkPlatform+<>c__DisplayClass107_0`  
+- `Colossal.PSI.PdxSdk.PdxSdkPlatform+<>c__DisplayClass151_0`  
+- `Colossal.PSI.PdxSdk.PdxSdkPlatform+<>c__DisplayClass152_0`  
+- `Colossal.PSI.PdxSdk.PdxSdkPlatform+<>c__DisplayClass153_0`  
+- `Colossal.PSI.PdxSdk.PdxSdkPlatform+<>c__DisplayClass154_0`  
+- `Colossal.PSI.PdxSdk.PdxSdkPlatform+<>c__DisplayClass155_0`  
+- `Colossal.PSI.PdxSdk.PdxSdkPlatform+<>c__DisplayClass163_0`  
+- `Colossal.PSI.PdxSdk.PdxSdkPlatform+<>c__DisplayClass179_0`  
+- `Colossal.PSI.PdxSdk.PdxSdkPlatform+<>c__DisplayClass184_0`  
+- `Colossal.PSI.PdxSdk.PdxSdkPlatform+<>c__DisplayClass242_0`  
+- `Colossal.PSI.PdxSdk.PdxSdkPlatform+<>c__DisplayClass26_0`  
+- `Colossal.PSI.PdxSdk.PdxSdkPlatform+<>c__DisplayClass27_0`  
+- `Colossal.PSI.PdxSdk.PdxSdkPlatform+<>c__DisplayClass29_0`  
+- `Colossal.PSI.PdxSdk.PdxSdkPlatform+<>c__DisplayClass59_0`  
+- `Colossal.PSI.PdxSdk.PdxSdkPlatform+<ChangeLanguage>d__88`  
+- `Colossal.PSI.PdxSdk.PdxSdkPlatform+<CheckEntitlements>d__107`  
+- `Colossal.PSI.PdxSdk.PdxSdkPlatform+<CreateParadoxAccount>d__42`  
+- `Colossal.PSI.PdxSdk.PdxSdkPlatform+<DeactivateActivePlayset>d__165`  
+- `Colossal.PSI.PdxSdk.PdxSdkPlatform+<DeleteRemote>d__208`  
+- `Colossal.PSI.PdxSdk.PdxSdkPlatform+<Dispose>d__91`  
+- `Colossal.PSI.PdxSdk.PdxSdkPlatform+<Download>d__207`  
+- `Colossal.PSI.PdxSdk.PdxSdkPlatform+<EnableModInActivePlayset>d__166`  
+- `Colossal.PSI.PdxSdk.PdxSdkPlatform+<GetAccountDetailsAndNotifyLoggedIn>d__37`  
+- `Colossal.PSI.PdxSdk.PdxSdkPlatform+<GetCreatorProfile>d__167`  
+- `Colossal.PSI.PdxSdk.PdxSdkPlatform+<GetData>d__205`  
+- `Colossal.PSI.PdxSdk.PdxSdkPlatform+<GetDetails>d__183`  
+- `Colossal.PSI.PdxSdk.PdxSdkPlatform+<GetLocalData>d__184`  
+- `Colossal.PSI.PdxSdk.PdxSdkPlatform+<GetModsInActivePlayset>d__164`  
+- `Colossal.PSI.PdxSdk.PdxSdkPlatform+<GetSocialProfile>d__180`  
+- `Colossal.PSI.PdxSdk.PdxSdkPlatform+<GetTags>d__178`  
+- `Colossal.PSI.PdxSdk.PdxSdkPlatform+<Initialize>d__89`  
+- `Colossal.PSI.PdxSdk.PdxSdkPlatform+<IsLoggedIn>d__58`  
+- `Colossal.PSI.PdxSdk.PdxSdkPlatform+<LinkAccount>d__60`  
+- `Colossal.PSI.PdxSdk.PdxSdkPlatform+<LinkAccount>d__61`  
+- `Colossal.PSI.PdxSdk.PdxSdkPlatform+<ListAllModsByMe>d__179`  
+- `Colossal.PSI.PdxSdk.PdxSdkPlatform+<ListMods>d__182`  
+- `Colossal.PSI.PdxSdk.PdxSdkPlatform+<ListUnviewedDocuments>d__30`  
+- `Colossal.PSI.PdxSdk.PdxSdkPlatform+<Login>d__34`  
+- `Colossal.PSI.PdxSdk.PdxSdkPlatform+<Login>d__36`  
+- `Colossal.PSI.PdxSdk.PdxSdkPlatform+<LoginViaToken>d__35`  
+- `Colossal.PSI.PdxSdk.PdxSdkPlatform+<Logout>d__38`  
+- `Colossal.PSI.PdxSdk.PdxSdkPlatform+<MarkLegalDocumentAsViewed>d__28`  
+- `Colossal.PSI.PdxSdk.PdxSdkPlatform+<MarkLegalDocumentAsViewed>d__29`  
+- `Colossal.PSI.PdxSdk.PdxSdkPlatform+<OnDownloadComplete>d__154`  
+- `Colossal.PSI.PdxSdk.PdxSdkPlatform+<OnDownloadStarted>d__153`  
+- `Colossal.PSI.PdxSdk.PdxSdkPlatform+<OnModDownloadFailed>d__155`  
+- `Colossal.PSI.PdxSdk.PdxSdkPlatform+<OnModSubscribe>d__151`  
+- `Colossal.PSI.PdxSdk.PdxSdkPlatform+<OnModUnsubscribe>d__152`  
+- `Colossal.PSI.PdxSdk.PdxSdkPlatform+<OverwriteAccountLinks>d__64`  
+- `Colossal.PSI.PdxSdk.PdxSdkPlatform+<PollTransfersAsync>d__225`  
+- `Colossal.PSI.PdxSdk.PdxSdkPlatform+<Publish>d__172`  
+- `Colossal.PSI.PdxSdk.PdxSdkPlatform+<PublishWIP>d__176`  
+- `Colossal.PSI.PdxSdk.PdxSdkPlatform+<RegisterExistingWIP>d__175`  
+- `Colossal.PSI.PdxSdk.PdxSdkPlatform+<RegisterWIP>d__174`  
+- `Colossal.PSI.PdxSdk.PdxSdkPlatform+<RemapDLCs>d__108`  
+- `Colossal.PSI.PdxSdk.PdxSdkPlatform+<ResetPassword>d__40`  
+- `Colossal.PSI.PdxSdk.PdxSdkPlatform+<SendTelemetry>d__211<T>`  
+- `Colossal.PSI.PdxSdk.PdxSdkPlatform+<SetTelemetryConsentChoice>d__214`  
+- `Colossal.PSI.PdxSdk.PdxSdkPlatform+<ShowLegalDocuments>d__25`  
+- `Colossal.PSI.PdxSdk.PdxSdkPlatform+<ShowPrivacyPolicy>d__31`  
+- `Colossal.PSI.PdxSdk.PdxSdkPlatform+<ShowTermsOfUse>d__32`  
+- `Colossal.PSI.PdxSdk.PdxSdkPlatform+<SignOut>d__90`  
+- `Colossal.PSI.PdxSdk.PdxSdkPlatform+<SyncModConflict>d__160`  
+- `Colossal.PSI.PdxSdk.PdxSdkPlatform+<SyncMods>d__159`  
+- `Colossal.PSI.PdxSdk.PdxSdkPlatform+<SyncTelemetryConsentChoice>d__215`  
+- `Colossal.PSI.PdxSdk.PdxSdkPlatform+<ToDependencies>d__192`  
+- `Colossal.PSI.PdxSdk.PdxSdkPlatform+<UnlinkThirdPartyAccount>d__62`  
+- `Colossal.PSI.PdxSdk.PdxSdkPlatform+<UnlinkThirdPartyAccount>d__63`  
+- `Colossal.PSI.PdxSdk.PdxSdkPlatform+<UnregisterWIP>d__181`  
+- `Colossal.PSI.PdxSdk.PdxSdkPlatform+<UpdateExisting>d__173`  
+- `Colossal.PSI.PdxSdk.PdxSdkPlatform+<UpdateWIP>d__177`  
+- `Colossal.PSI.PdxSdk.PdxSdkPlatform+<Upload>d__206`  
+

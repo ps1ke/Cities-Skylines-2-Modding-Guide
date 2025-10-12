@@ -1,0 +1,17 @@
+﻿# Game.Prefabs.SubArea
+
+**Assembly:** `Game`  
+**Namespace:** `Game.Prefabs`  
+
+**Type:** struct sealed public  
+
+**Base:** `System.ValueType`  
+**Implements:** `Unity.Entities.IBufferElementData`  
+
+**Attributes:** `InternalBufferCapacity`  
+
+## Fields
+
+- `public Unity.Entities.Entity m_Prefab`  
+- `public Unity.Mathematics.int2 m_NodeRange`  
+
