@@ -19,7 +19,7 @@ A minimal setup (without Visual Studio) will be covered in a future section of t
 -   [Writing Your First Lines of Code](#writing-your-first-lines-of-code)
     
 -   [Attaching the Unity Debugger](#attaching-the-unity-debugger)
--   
+  
 -   [Launching the game with Developer Mode](#launching-the-game-with-developer-mode)
     
 -   [Setting Up a UI Mod](#setting-up-a-ui-mod)
