@@ -76,9 +76,8 @@ When installing, select these **workloads**:
 -   ✅ **.NET Desktop Development** (mandatory)
     
 -   ✅ **Game Development with Unity** (needed for debugging)
-    
--   ✅ **Node.js Development** (needed for UI mods)
-    
+
+<img width="889" height="604" alt="{F11E90D4-75F7-4125-A638-2ADEB193099C}" src="https://github.com/user-attachments/assets/f70d400b-cf4d-4e3d-906d-3541d266e54c" />
 
 > ⚠️ The *Cities: Skylines II Mod Project Template* only appears **after** installing `.NET Desktop Development`.
 
