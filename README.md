@@ -19,6 +19,8 @@ A minimal setup (without Visual Studio) will be covered in a future section of t
 -   [Writing Your First Lines of Code](#writing-your-first-lines-of-code)
     
 -   [Attaching the Unity Debugger](#attaching-the-unity-debugger)
+-   
+-   [Launching the game with Developer Mode](#launching-the-game-with-developer-mode)
     
 -   [Setting Up a UI Mod](#setting-up-a-ui-mod)
     
@@ -77,7 +79,7 @@ When installing, select these **workloads**:
     
 -   ✅ **Game Development with Unity** (needed for debugging)
 
-<img width="889" height="604" alt="{F11E90D4-75F7-4125-A638-2ADEB193099C}" src="https://github.com/user-attachments/assets/f70d400b-cf4d-4e3d-906d-3541d266e54c" />
+<img width="589" height="604" alt="{F11E90D4-75F7-4125-A638-2ADEB193099C}" src="https://github.com/user-attachments/assets/f70d400b-cf4d-4e3d-906d-3541d266e54c" />
 
 > ⚠️ The *Cities: Skylines II Mod Project Template* only appears **after** installing `.NET Desktop Development`.
 
@@ -219,6 +221,18 @@ Then in Visual Studio:
 > `Debug → Attach Unity Debugger`
 
 Select the *Cities: Skylines II* process. You can now add breakpoints and inspect your mod live.
+
+---
+
+## Launching the game with Developer Mode
+
+To start the game with Developer Mode, the following [wiki page](https://cs2.paradoxwikis.com/Developer_mode) should be enough.
+
+In my case (using XBox Game pass), instead of creating a shortcut of the game executable I had to make from the launcher, and that was not the same listed in the wiki page but instead `gamelaunchhelper.exe` inside `Cities- Skylines II - PC Edition\Content` folder.
+Also, not yet managed to use `-uiDeveloperMode`.
+
+<img width="150" height="529" alt="image" src="https://github.com/user-attachments/assets/3d4088e4-1871-4a97-9cc5-c2285693627c" />
+
 
 ---
 
