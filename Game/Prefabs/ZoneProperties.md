@@ -109,43 +109,91 @@ public ZoneProperties();
 - `public virtual GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetArchetypeComponents(HashSet<ComponentType> components)
+	{
+	}
 ```
 
 - `public GetBuildingArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components, Game.Prefabs.BuildingPrefab buildingPrefab, System.Byte level) : System.Void`  
 
 ```csharp
-public System.Void GetBuildingArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components, Game.Prefabs.BuildingPrefab buildingPrefab, System.Byte level);
+public void GetBuildingArchetypeComponents(HashSet<ComponentType> components, BuildingPrefab buildingPrefab, byte level)
+	{
+		if (!buildingPrefab.Has<BuildingProperties>())
+		{
+			BuildingPropertyData buildingPropertyData = GetBuildingPropertyData(buildingPrefab, level);
+			BuildingProperties.AddArchetypeComponents(components, buildingPropertyData);
+		}
+	}
 ```
 
 - `public GetBuildingPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components, Game.Prefabs.BuildingPrefab buildingPrefab, System.Byte level) : System.Void`  
 
 ```csharp
-public System.Void GetBuildingPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components, Game.Prefabs.BuildingPrefab buildingPrefab, System.Byte level);
+public void GetBuildingPrefabComponents(HashSet<ComponentType> components, BuildingPrefab buildingPrefab, byte level)
+	{
+		components.Add(ComponentType.ReadWrite<BuildingPropertyData>());
+	}
 ```
 
 - `private GetBuildingPropertyData(Game.Prefabs.BuildingPrefab buildingPrefab, System.Byte level) : Game.Prefabs.BuildingPropertyData`  
 
 ```csharp
-private Game.Prefabs.BuildingPropertyData GetBuildingPropertyData(Game.Prefabs.BuildingPrefab buildingPrefab, System.Byte level);
+private BuildingPropertyData GetBuildingPropertyData(BuildingPrefab buildingPrefab, byte level)
+	{
+		float num = (m_ScaleResidentials ? ((1f + 0.25f * (float)(level - 1)) * (float)buildingPrefab.lotSize) : 1f);
+		return new BuildingPropertyData
+		{
+			m_ResidentialProperties = (int)math.round(num * m_ResidentialProperties),
+			m_AllowedSold = EconomyUtils.GetResources(m_AllowedSold, Resource.NoResource),
+			m_AllowedInput = EconomyUtils.GetResources(m_AllowedInput, EconomyUtils.GetAllResources()),
+			m_AllowedManufactured = EconomyUtils.GetResources(m_AllowedManufactured, Resource.NoResource),
+			m_AllowedStored = EconomyUtils.GetResources(m_AllowedStored, Resource.NoResource),
+			m_SpaceMultiplier = m_SpaceMultiplier
+		};
+	}
 ```
 
 - `public virtual GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetPrefabComponents(HashSet<ComponentType> components)
+	{
+		components.Add(ComponentType.ReadWrite<ZonePropertiesData>());
+	}
 ```
 
 - `public virtual Initialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity) : System.Void`  
 
 ```csharp
-public virtual System.Void Initialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity);
+public override void Initialize(EntityManager entityManager, Entity entity)
+	{
+		base.Initialize(entityManager, entity);
+		entityManager.SetComponentData(entity, new ZonePropertiesData
+		{
+			m_ScaleResidentials = m_ScaleResidentials,
+			m_ResidentialProperties = m_ResidentialProperties,
+			m_SpaceMultiplier = m_SpaceMultiplier,
+			m_FireHazardMultiplier = m_FireHazardMultiplier,
+			m_IgnoreLandValue = m_IgnoreLandValue,
+			m_AllowedSold = EconomyUtils.GetResources(m_AllowedSold, Resource.NoResource),
+			m_AllowedManufactured = EconomyUtils.GetResources(m_AllowedManufactured, Resource.NoResource),
+			m_AllowedStored = EconomyUtils.GetResources(m_AllowedStored, Resource.NoResource)
+		});
+	}
 ```
 
 - `public InitializeBuilding(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity, Game.Prefabs.BuildingPrefab buildingPrefab, System.Byte level) : System.Void`  
 
 ```csharp
-public System.Void InitializeBuilding(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity, Game.Prefabs.BuildingPrefab buildingPrefab, System.Byte level);
+public void InitializeBuilding(EntityManager entityManager, Entity entity, BuildingPrefab buildingPrefab, byte level)
+	{
+		if (!buildingPrefab.Has<BuildingProperties>())
+		{
+			BuildingPropertyData buildingPropertyData = GetBuildingPropertyData(buildingPrefab, level);
+			entityManager.SetComponentData(entity, buildingPropertyData);
+		}
+	}
 ```
 
 

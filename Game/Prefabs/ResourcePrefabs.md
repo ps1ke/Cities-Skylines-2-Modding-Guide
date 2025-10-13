@@ -47,7 +47,10 @@ public Unity.Entities.Entity Item { get; }
 - `public ResourcePrefabs(Unity.Collections.NativeArray<Unity.Entities.Entity> resourcePrefabs)`  
 
 ```csharp
-public ResourcePrefabs(Unity.Collections.NativeArray<Unity.Entities.Entity> resourcePrefabs);
+public ResourcePrefabs(NativeArray<Entity> resourcePrefabs)
+	{
+		m_ResourcePrefabs = resourcePrefabs;
+	}
 ```
 
 

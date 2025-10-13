@@ -53,7 +53,10 @@ protected System.Boolean phaseCanDeactivate { protected get; }
 - `protected TutorialDeactivationSystemBase()`  
 
 ```csharp
-protected TutorialDeactivationSystemBase();
+[Preserve]
+	protected TutorialDeactivationSystemBase()
+	{
+	}
 ```
 
 
@@ -62,7 +65,13 @@ protected TutorialDeactivationSystemBase();
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_BarrierSystem = base.World.GetOrCreateSystemManaged<ModificationBarrier3>();
+		m_ActivePhaseQuery = GetEntityQuery(ComponentType.ReadOnly<TutorialPhaseData>(), ComponentType.ReadOnly<TutorialPhaseActive>(), ComponentType.ReadOnly<TutorialPhaseCanDeactivate>());
+	}
 ```
 
 

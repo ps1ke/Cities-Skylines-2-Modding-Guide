@@ -78,25 +78,52 @@ public Workplace();
 - `public virtual GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetArchetypeComponents(HashSet<ComponentType> components)
+	{
+		if (GetComponent<ServiceUpgrade>() == null && m_Workplaces > 0)
+		{
+			components.Add(ComponentType.ReadWrite<WorkProvider>());
+			components.Add(ComponentType.ReadWrite<Employee>());
+		}
+	}
 ```
 
 - `public virtual GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetPrefabComponents(HashSet<ComponentType> components)
+	{
+		components.Add(ComponentType.ReadWrite<WorkplaceData>());
+	}
 ```
 
 - `public GetUpgradeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public System.Void GetUpgradeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public void GetUpgradeComponents(HashSet<ComponentType> components)
+	{
+		if (m_Workplaces > 0)
+		{
+			components.Add(ComponentType.ReadWrite<WorkProvider>());
+			components.Add(ComponentType.ReadWrite<Employee>());
+		}
+	}
 ```
 
 - `public virtual Initialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity) : System.Void`  
 
 ```csharp
-public virtual System.Void Initialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity);
+public override void Initialize(EntityManager entityManager, Entity entity)
+	{
+		entityManager.SetComponentData(entity, new WorkplaceData
+		{
+			m_MaxWorkers = m_Workplaces,
+			m_MinimumWorkersLimit = m_MinimumWorkersLimit,
+			m_Complexity = m_Complexity,
+			m_EveningShiftProbability = m_EveningShiftProbability,
+			m_NightShiftProbability = m_NightShiftProbability
+		});
+	}
 ```
 
 

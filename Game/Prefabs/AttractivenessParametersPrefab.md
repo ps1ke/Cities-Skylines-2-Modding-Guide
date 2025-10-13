@@ -119,19 +119,43 @@ public AttractivenessParametersPrefab();
 - `public virtual GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetArchetypeComponents(HashSet<ComponentType> components)
+	{
+		base.GetArchetypeComponents(components);
+	}
 ```
 
 - `public virtual GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetPrefabComponents(HashSet<ComponentType> components)
+	{
+		base.GetPrefabComponents(components);
+		components.Add(ComponentType.ReadWrite<AttractivenessParameterData>());
+	}
 ```
 
 - `public virtual LateInitialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity) : System.Void`  
 
 ```csharp
-public virtual System.Void LateInitialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity);
+public override void LateInitialize(EntityManager entityManager, Entity entity)
+	{
+		base.LateInitialize(entityManager, entity);
+		entityManager.SetComponentData(entity, new AttractivenessParameterData
+		{
+			m_ForestDistance = m_ForestDistance,
+			m_ForestEffect = m_ForestEffect,
+			m_ShoreDistance = m_ShoreDistance,
+			m_ShoreEffect = m_ShoreEffect,
+			m_HeightBonus = m_HeightBonus,
+			m_AttractiveTemperature = m_AttractiveTemperature,
+			m_ExtremeTemperature = m_ExtremeTemperature,
+			m_TemperatureAffect = m_TemperatureAffect,
+			m_RainEffectRange = m_RainEffectRange,
+			m_SnowEffectRange = m_SnowEffectRange,
+			m_SnowRainExtremeAffect = m_SnowRainExtremeAffect
+		});
+	}
 ```
 
 

@@ -91,19 +91,40 @@ public TaxParameterPrefab();
 - `public virtual GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetArchetypeComponents(HashSet<ComponentType> components)
+	{
+		base.GetArchetypeComponents(components);
+	}
 ```
 
 - `public virtual GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetPrefabComponents(HashSet<ComponentType> components)
+	{
+		base.GetPrefabComponents(components);
+		components.Add(ComponentType.ReadWrite<TaxParameterData>());
+	}
 ```
 
 - `public virtual LateInitialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity) : System.Void`  
 
 ```csharp
-public virtual System.Void LateInitialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity);
+public override void LateInitialize(EntityManager entityManager, Entity entity)
+	{
+		base.LateInitialize(entityManager, entity);
+		entityManager.World.GetOrCreateSystemManaged<PrefabSystem>();
+		entityManager.SetComponentData(entity, new TaxParameterData
+		{
+			m_TotalTaxLimits = m_TotalTaxLimits,
+			m_ResidentialTaxLimits = m_ResidentialTaxLimits,
+			m_CommercialTaxLimits = m_CommercialTaxLimits,
+			m_IndustrialTaxLimits = m_IndustrialTaxLimits,
+			m_OfficeTaxLimits = m_OfficeTaxLimits,
+			m_JobLevelTaxLimits = m_JobLevelTaxLimits,
+			m_ResourceTaxLimits = m_ResourceTaxLimits
+		});
+	}
 ```
 
 

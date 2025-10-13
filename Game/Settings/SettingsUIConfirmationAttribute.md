@@ -41,7 +41,11 @@ public readonly System.String confirmMessageId;
 - `public SettingsUIConfirmationAttribute(System.String overrideConfirmMessageId = null, System.String overrideConfirmMessageValue = null)`  
 
 ```csharp
-public SettingsUIConfirmationAttribute(System.String overrideConfirmMessageId, System.String overrideConfirmMessageValue);
+public SettingsUIConfirmationAttribute(string overrideConfirmMessageId = null, string overrideConfirmMessageValue = null)
+	{
+		confirmMessageValue = overrideConfirmMessageValue;
+		confirmMessageId = overrideConfirmMessageId;
+	}
 ```
 
 

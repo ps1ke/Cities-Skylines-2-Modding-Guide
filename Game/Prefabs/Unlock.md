@@ -35,7 +35,10 @@ public Unity.Entities.Entity m_Prefab;
 - `public Unlock(Unity.Entities.Entity prefab)`  
 
 ```csharp
-public Unlock(Unity.Entities.Entity prefab);
+public Unlock(Entity prefab)
+	{
+		m_Prefab = prefab;
+	}
 ```
 
 

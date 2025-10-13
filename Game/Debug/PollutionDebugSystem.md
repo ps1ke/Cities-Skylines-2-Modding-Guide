@@ -85,7 +85,10 @@ private Game.Debug.BaseDebugSystem+Option m_NoiseOption;
 - `public PollutionDebugSystem()`  
 
 ```csharp
-public PollutionDebugSystem();
+[Preserve]
+	public PollutionDebugSystem()
+	{
+	}
 ```
 
 
@@ -94,13 +97,49 @@ public PollutionDebugSystem();
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_GizmosSystem = base.World.GetOrCreateSystemManaged<GizmosSystem>();
+		m_GroundPollutionSystem = base.World.GetOrCreateSystemManaged<GroundPollutionSystem>();
+		m_AirPollutionSystem = base.World.GetOrCreateSystemManaged<AirPollutionSystem>();
+		m_NoisePollutionSystem = base.World.GetOrCreateSystemManaged<NoisePollutionSystem>();
+		m_ClimateSystem = base.World.GetOrCreateSystemManaged<ClimateSystem>();
+		m_GroundOption = AddOption("Ground pollution", defaultEnabled: true);
+		m_AirOption = AddOption("Air pollution", defaultEnabled: true);
+		m_NoiseOption = AddOption("Noise pollution", defaultEnabled: true);
+		base.Enabled = false;
+	}
 ```
 
 - `protected virtual OnUpdate(Unity.Jobs.JobHandle inputDeps) : Unity.Jobs.JobHandle`  
 
 ```csharp
-protected virtual Unity.Jobs.JobHandle OnUpdate(Unity.Jobs.JobHandle inputDeps);
+[Preserve]
+	protected override JobHandle OnUpdate(JobHandle inputDeps)
+	{
+		JobHandle dependencies;
+		JobHandle dependencies2;
+		JobHandle dependencies3;
+		JobHandle dependencies4;
+		JobHandle jobHandle = new PollutionGizmoJob
+		{
+			m_PollutionMap = m_GroundPollutionSystem.GetMap(readOnly: true, out dependencies),
+			m_AirPollutionMap = m_AirPollutionSystem.GetMap(readOnly: true, out dependencies2),
+			m_NoisePollutionMap = m_NoisePollutionSystem.GetMap(readOnly: true, out dependencies3),
+			m_GizmoBatcher = m_GizmosSystem.GetGizmosBatcher(out dependencies4),
+			m_AirOption = m_AirOption.enabled,
+			m_GroundOption = m_GroundOption.enabled,
+			m_NoiseOption = m_NoiseOption.enabled,
+			m_BaseHeight = m_ClimateSystem.temperatureBaseHeight
+		}.Schedule(JobHandle.CombineDependencies(dependencies2, dependencies3, JobHandle.CombineDependencies(inputDeps, dependencies4, dependencies)));
+		m_GizmosSystem.AddGizmosBatcherWriter(jobHandle);
+		m_GroundPollutionSystem.AddReader(jobHandle);
+		m_AirPollutionSystem.AddReader(jobHandle);
+		m_NoisePollutionSystem.AddReader(jobHandle);
+		return jobHandle;
+	}
 ```
 
 

@@ -54,7 +54,13 @@ public WhiteBalanceProperties();
 - `protected virtual OnBindVolumeProperties(UnityEngine.Rendering.Volume volume) : System.Void`  
 
 ```csharp
-protected virtual System.Void OnBindVolumeProperties(UnityEngine.Rendering.Volume volume);
+protected override void OnBindVolumeProperties(Volume volume)
+	{
+		WhiteBalance component = null;
+		VolumeHelper.GetOrCreateVolumeComponent(volume, ref component);
+		m_Temperature = component.temperature;
+		m_Tint = component.tint;
+	}
 ```
 
 

@@ -68,13 +68,19 @@ public UIInputActionPart();
 - `public GetProxyAction() : Game.Input.ProxyAction`  
 
 ```csharp
-public Game.Input.ProxyAction GetProxyAction();
+public ProxyAction GetProxyAction()
+	{
+		return InputManager.instance.FindAction(m_Action.action);
+	}
 ```
 
 - `public TryGetProxyAction(Game.Input.ProxyAction& action) : System.Boolean`  
 
 ```csharp
-public System.Boolean TryGetProxyAction(Game.Input.ProxyAction& action);
+public bool TryGetProxyAction(out ProxyAction action)
+	{
+		return InputManager.instance.TryFindAction(m_Action.action, out action);
+	}
 ```
 
 

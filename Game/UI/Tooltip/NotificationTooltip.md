@@ -85,13 +85,33 @@ public NotificationTooltip();
 - `public static GetColor(Game.Notifications.IconPriority iconPriority) : Game.UI.Tooltip.TooltipColor`  
 
 ```csharp
-public static Game.UI.Tooltip.TooltipColor GetColor(Game.Notifications.IconPriority iconPriority);
+public static TooltipColor GetColor(IconPriority iconPriority)
+	{
+		if ((int)iconPriority >= 200)
+		{
+			return TooltipColor.Error;
+		}
+		if ((int)iconPriority >= 50)
+		{
+			return TooltipColor.Warning;
+		}
+		return TooltipColor.Info;
+	}
 ```
 
 - `protected virtual WriteProperties(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-protected virtual System.Void WriteProperties(Colossal.UI.Binding.IJsonWriter writer);
+protected override void WriteProperties(IJsonWriter writer)
+	{
+		base.WriteProperties(writer);
+		writer.PropertyName("name");
+		writer.Write(name);
+		writer.PropertyName("color");
+		writer.Write((int)color);
+		writer.PropertyName("verbose");
+		writer.Write(verbose);
+	}
 ```
 
 

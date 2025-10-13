@@ -51,7 +51,12 @@ private static const System.String kBridgesAndPorts;
 - `public GdkDlcsMapping()`  
 
 ```csharp
-public GdkDlcsMapping();
+public GdkDlcsMapping()
+	{
+		Map(Dlc.LandmarkBuildings, "9PM19MNT8GXH");
+		Map(Dlc.SanFranciscoSet, "9NLWRT4D535J");
+		Map(Dlc.BridgesAndPorts, "9NFGBRJQFNB3");
+	}
 ```
 
 

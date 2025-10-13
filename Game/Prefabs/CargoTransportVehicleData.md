@@ -58,7 +58,13 @@ public System.Single m_MaintenanceRange;
 - `public CargoTransportVehicleData(Game.Economy.Resource resources, System.Int32 cargoCapacity, System.Int32 maxResourceCount, System.Single maintenanceRange)`  
 
 ```csharp
-public CargoTransportVehicleData(Game.Economy.Resource resources, System.Int32 cargoCapacity, System.Int32 maxResourceCount, System.Single maintenanceRange);
+public CargoTransportVehicleData(Resource resources, int cargoCapacity, int maxResourceCount, float maintenanceRange)
+	{
+		m_Resources = resources;
+		m_CargoCapacity = cargoCapacity;
+		m_MaxResourceCount = maxResourceCount;
+		m_MaintenanceRange = maintenanceRange;
+	}
 ```
 
 

@@ -73,7 +73,17 @@ public RiderDependency();
 - `protected virtual GetIDEVersion(System.Threading.CancellationToken token) : System.Threading.Tasks.Task<System.String>`  
 
 ```csharp
-protected virtual System.Threading.Tasks.Task<System.String> GetIDEVersion(System.Threading.CancellationToken token);
+protected override Task<string> GetIDEVersion(CancellationToken token)
+	{
+		RiderPathLocator.RiderInfo[] array = (from a in RiderPathLocator.GetAllRiderPaths()
+			orderby a.BuildNumber descending
+			select a).ToArray();
+		if (array.Length != 0)
+		{
+			return Task.FromResult(array.First().ProductInfo.version);
+		}
+		return Task.FromResult(string.Empty);
+	}
 ```
 
 

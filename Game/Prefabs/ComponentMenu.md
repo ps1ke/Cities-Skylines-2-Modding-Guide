@@ -44,13 +44,19 @@ public readonly System.Type[] requiredPrefab;
 - `public ComponentMenu(System.Type[] requiredPrefab)`  
 
 ```csharp
-public ComponentMenu(System.Type[] requiredPrefab);
+public ComponentMenu(params Type[] requiredPrefab)
+	{
+		this.requiredPrefab = requiredPrefab;
+	}
 ```
 
 - `public ComponentMenu(System.String menu, System.Type[] requiredPrefab)`  
 
 ```csharp
-public ComponentMenu(System.String menu, System.Type[] requiredPrefab);
+public ComponentMenu(params Type[] requiredPrefab)
+	{
+		this.requiredPrefab = requiredPrefab;
+	}
 ```
 
 

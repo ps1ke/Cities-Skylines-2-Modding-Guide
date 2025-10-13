@@ -24,7 +24,10 @@ public class DeserializationBarrier : Game.SafeCommandBufferSystem
 - `public DeserializationBarrier()`  
 
 ```csharp
-public DeserializationBarrier();
+[Preserve]
+	public DeserializationBarrier()
+	{
+	}
 ```
 
 
@@ -33,7 +36,11 @@ public DeserializationBarrier();
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		base.OnUpdate();
+	}
 ```
 
 

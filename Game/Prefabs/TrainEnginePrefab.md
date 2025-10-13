@@ -76,13 +76,29 @@ public TrainEnginePrefab();
 - `public virtual GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetPrefabComponents(HashSet<ComponentType> components)
+	{
+		base.GetPrefabComponents(components);
+		components.Add(ComponentType.ReadWrite<TrainEngineData>());
+		components.Add(ComponentType.ReadWrite<VehicleCarriageElement>());
+	}
 ```
 
 - `public virtual LateInitialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity) : System.Void`  
 
 ```csharp
-public virtual System.Void LateInitialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity);
+public override void LateInitialize(EntityManager entityManager, Entity entity)
+	{
+		base.LateInitialize(entityManager, entity);
+		entityManager.SetComponentData(entity, new TrainEngineData(m_MinEngineCount, m_MaxEngineCount));
+		DynamicBuffer<VehicleCarriageElement> buffer = entityManager.GetBuffer<VehicleCarriageElement>(entity);
+		if (m_Tender != null)
+		{
+			Entity entity2 = entityManager.World.GetExistingSystemManaged<PrefabSystem>().GetEntity(m_Tender);
+			buffer.Add(new VehicleCarriageElement(entity2, 1, 1, VehicleCarriageDirection.Default));
+		}
+		buffer.Add(new VehicleCarriageElement(Entity.Null, m_MinCarriagesPerEngine, m_MaxCarriagesPerEngine, VehicleCarriageDirection.Random));
+	}
 ```
 
 

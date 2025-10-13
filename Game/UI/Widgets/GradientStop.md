@@ -43,7 +43,11 @@ public UnityEngine.Color32 color;
 - `public GradientStop(System.Single offset, UnityEngine.Color32 color)`  
 
 ```csharp
-public GradientStop(System.Single offset, UnityEngine.Color32 color);
+public GradientStop(float offset, Color32 color)
+	{
+		this.offset = offset;
+		this.color = color;
+	}
 ```
 
 
@@ -52,7 +56,15 @@ public GradientStop(System.Single offset, UnityEngine.Color32 color);
 - `public Write(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-public System.Void Write(Colossal.UI.Binding.IJsonWriter writer);
+public void Write(IJsonWriter writer)
+	{
+		writer.TypeBegin(GetType().FullName);
+		writer.PropertyName("offset");
+		writer.Write(offset);
+		writer.PropertyName("color");
+		writer.Write(color);
+		writer.TypeEnd();
+	}
 ```
 
 

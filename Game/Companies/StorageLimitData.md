@@ -37,7 +37,10 @@ public System.Int32 m_Limit;
 - `public Combine(Game.Companies.StorageLimitData otherData) : System.Void`  
 
 ```csharp
-public System.Void Combine(Game.Companies.StorageLimitData otherData);
+public void Combine(StorageLimitData otherData)
+	{
+		m_Limit += otherData.m_Limit;
+	}
 ```
 
 - `public Deserialize<TReader>(TReader reader) : System.Void`  
@@ -49,7 +52,10 @@ public System.Void Deserialize<TReader>(TReader reader);
 - `public GetAdjustedLimitForWarehouse(Game.Prefabs.SpawnableBuildingData spawnable, Game.Prefabs.BuildingData building) : System.Int32`  
 
 ```csharp
-public System.Int32 GetAdjustedLimitForWarehouse(Game.Prefabs.SpawnableBuildingData spawnable, Game.Prefabs.BuildingData building);
+public int GetAdjustedLimitForWarehouse(SpawnableBuildingData spawnable, BuildingData building)
+	{
+		return m_Limit * spawnable.m_Level * building.m_LotSize.x * building.m_LotSize.y;
+	}
 ```
 
 - `public Serialize<TWriter>(TWriter writer) : System.Void`  

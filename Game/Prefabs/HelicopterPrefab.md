@@ -96,25 +96,47 @@ private System.Collections.Generic.IEnumerable<System.String> <>n__0();
 - `public virtual GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetArchetypeComponents(HashSet<ComponentType> components)
+	{
+		base.GetArchetypeComponents(components);
+		components.Add(ComponentType.ReadWrite<Helicopter>());
+	}
 ```
 
 - `protected virtual GetHelicopterType() : Game.Vehicles.HelicopterType`  
 
 ```csharp
-protected virtual Game.Vehicles.HelicopterType GetHelicopterType();
+protected virtual HelicopterType GetHelicopterType()
+	{
+		return HelicopterType.Helicopter;
+	}
 ```
 
 - `public virtual GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetPrefabComponents(HashSet<ComponentType> components)
+	{
+		base.GetPrefabComponents(components);
+		components.Add(ComponentType.ReadWrite<HelicopterData>());
+	}
 ```
 
 - `public virtual Initialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity) : System.Void`  
 
 ```csharp
-public virtual System.Void Initialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity);
+public override void Initialize(EntityManager entityManager, Entity entity)
+	{
+		base.Initialize(entityManager, entity);
+		HelicopterData componentData = default(HelicopterData);
+		componentData.m_HelicopterType = GetHelicopterType();
+		componentData.m_FlyingMaxSpeed = m_FlyingMaxSpeed / 3.6f;
+		componentData.m_FlyingAcceleration = m_FlyingAcceleration;
+		componentData.m_FlyingAngularAcceleration = math.radians(m_FlyingAngularAcceleration);
+		componentData.m_AccelerationSwayFactor = m_AccelerationSwayFactor;
+		componentData.m_VelocitySwayFactor = m_VelocitySwayFactor / componentData.m_FlyingMaxSpeed;
+		entityManager.SetComponentData(entity, componentData);
+	}
 ```
 
 

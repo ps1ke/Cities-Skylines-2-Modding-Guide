@@ -82,7 +82,10 @@ public Unity.Jobs.JobHandle writeDependency { get; }
 - `public WriteSystem()`  
 
 ```csharp
-public WriteSystem();
+[Preserve]
+	public WriteSystem()
+	{
+	}
 ```
 
 
@@ -91,31 +94,125 @@ public WriteSystem();
 - `public AddBuffer(Colossal.Serialization.Entities.BufferFormat format) : Game.Serialization.WriteBuffer`  
 
 ```csharp
-public Game.Serialization.WriteBuffer AddBuffer(Colossal.Serialization.Entities.BufferFormat format);
+public WriteBuffer AddBuffer(BufferFormat format)
+	{
+		int num = 0;
+		for (int i = 0; i < m_Buffers.Count; i++)
+		{
+			var (writeBuffer, format2) = m_Buffers[i];
+			if (!writeBuffer.isCompleted)
+			{
+				break;
+			}
+			WriteBuffer(writeBuffer, format2);
+			num++;
+		}
+		if (num != 0)
+		{
+			m_Buffers.RemoveRange(0, num);
+		}
+		WriteBuffer writeBuffer2 = new WriteBuffer();
+		m_Buffers.Add((writeBuffer2, format));
+		return writeBuffer2;
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_SerializationSystem = base.World.GetOrCreateSystemManaged<SaveGameSystem>();
+		m_SerializerSystem = base.World.GetOrCreateSystemManaged<SerializerSystem>();
+		m_Buffers = new List<(WriteBuffer, BufferFormat)>();
+	}
 ```
 
 - `protected virtual OnDestroy() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnDestroy();
+[Preserve]
+	protected override void OnDestroy()
+	{
+		m_WriteDependency.Complete();
+		for (int i = 0; i < m_Buffers.Count; i++)
+		{
+			m_Buffers[i].Item1.Dispose();
+		}
+		base.OnDestroy();
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		for (int i = 0; i < m_Buffers.Count; i++)
+		{
+			var (buffer, format) = m_Buffers[i];
+			WriteBuffer(buffer, format);
+		}
+		m_Buffers.Clear();
+		if (m_WriterHandle.IsAllocated)
+		{
+			DisposeWriterJob jobData = new DisposeWriterJob
+			{
+				m_WriterHandle = m_WriterHandle
+			};
+			m_WriterHandle = default(GCHandle);
+			m_WriteDependency = jobData.Schedule(m_WriteDependency);
+		}
+	}
 ```
 
 - `private WriteBuffer(Game.Serialization.WriteBuffer buffer, Colossal.Serialization.Entities.BufferFormat format) : System.Void`  
 
 ```csharp
-private System.Void WriteBuffer(Game.Serialization.WriteBuffer buffer, Colossal.Serialization.Entities.BufferFormat format);
+private void WriteBuffer(WriteBuffer buffer, BufferFormat format)
+	{
+		if (!m_WriterHandle.IsAllocated)
+		{
+			StreamBinaryWriter value = new StreamBinaryWriter(m_SerializationSystem.stream);
+			m_WriterHandle = GCHandle.Alloc(value);
+		}
+		buffer.CompleteDependencies();
+		if (format == BufferFormat.Raw)
+		{
+			m_SerializerSystem.totalSize += 4 + buffer.buffer.Length;
+			WriteRawBufferJob jobData = new WriteRawBufferJob
+			{
+				m_Buffer = buffer.buffer,
+				m_WriterHandle = m_WriterHandle
+			};
+			m_WriteDependency = jobData.Schedule(m_WriteDependency);
+			buffer.buffer.Dispose(m_WriteDependency);
+		}
+		else if (format.IsCompressed())
+		{
+			m_SerializerSystem.totalSize += 8 + buffer.buffer.Length;
+			CompressionFormat format2 = SerializationUtils.BufferToCompressionFormat(format);
+			CompressedBytesStorage compressedBytesStorage = new CompressedBytesStorage(format2, buffer.buffer.Length, Allocator.Persistent);
+			int compressionLevel = 3;
+			JobHandle jobHandle = CompressionUtils.Compress(format2, buffer.buffer.AsArray(), compressedBytesStorage, default(JobHandle), compressionLevel);
+			WriteCompressedBufferJob jobData2 = new WriteCompressedBufferJob
+			{
+				m_CompressedData = compressedBytesStorage,
+				m_UncompressedSize = buffer.buffer.Length,
+				m_WriterHandle = m_WriterHandle
+			};
+			buffer.buffer.Dispose(jobHandle);
+			m_WriteDependency = jobData2.Schedule(JobHandle.CombineDependencies(m_WriteDependency, jobHandle));
+			compressedBytesStorage.Dispose(m_WriteDependency);
+		}
+		else
+		{
+			COSystemBase.baseLog.WarnFormat("Unsupported BufferFormat {0}", format);
+		}
+	}
 ```
 
 - `private static WriteData<T>(Colossal.IO.AssetDatabase.StreamBinaryWriter writer, T data) : System.Void`  
@@ -127,13 +224,21 @@ private static System.Void WriteData<T>(Colossal.IO.AssetDatabase.StreamBinaryWr
 - `private static WriteData(Colossal.IO.AssetDatabase.StreamBinaryWriter writer, Unity.Collections.NativeArray<System.Byte> data) : System.Void`  
 
 ```csharp
-private static System.Void WriteData(Colossal.IO.AssetDatabase.StreamBinaryWriter writer, Unity.Collections.NativeArray<System.Byte> data);
+private unsafe static void WriteData(StreamBinaryWriter writer, NativeSlice<byte> data)
+	{
+		void* unsafeReadOnlyPtr = data.GetUnsafeReadOnlyPtr();
+		writer.WriteBytes(unsafeReadOnlyPtr, data.Length);
+	}
 ```
 
 - `private static WriteData(Colossal.IO.AssetDatabase.StreamBinaryWriter writer, Unity.Collections.NativeSlice<System.Byte> data) : System.Void`  
 
 ```csharp
-private static System.Void WriteData(Colossal.IO.AssetDatabase.StreamBinaryWriter writer, Unity.Collections.NativeSlice<System.Byte> data);
+private unsafe static void WriteData(StreamBinaryWriter writer, NativeSlice<byte> data)
+	{
+		void* unsafeReadOnlyPtr = data.GetUnsafeReadOnlyPtr();
+		writer.WriteBytes(unsafeReadOnlyPtr, data.Length);
+	}
 ```
 
 

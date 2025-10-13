@@ -128,7 +128,10 @@ protected System.Boolean Modified { protected get; }
 - `public WorkplacesInfoviewUISystem()`  
 
 ```csharp
-public WorkplacesInfoviewUISystem();
+[Preserve]
+	public WorkplacesInfoviewUISystem()
+	{
+	}
 ```
 
 
@@ -137,61 +140,175 @@ public WorkplacesInfoviewUISystem();
 - `private __AssignQueries(Unity.Entities.SystemState& state) : System.Void`  
 
 ```csharp
-private System.Void __AssignQueries(Unity.Entities.SystemState& state);
+private void __AssignQueries(ref SystemState state)
+	{
+		new EntityQueryBuilder(Allocator.Temp).Dispose();
+	}
 ```
 
 - `private GetEmployeesData() : Game.UI.InGame.EmploymentData`  
 
 ```csharp
-private Game.UI.InGame.EmploymentData GetEmployeesData();
+private EmploymentData GetEmployeesData()
+	{
+		if (!m_EmploymentDataResults.IsCreated || m_EmploymentDataResults.Length != 2)
+		{
+			return default(EmploymentData);
+		}
+		return m_EmploymentDataResults[1];
+	}
 ```
 
 - `private GetWorkers() : System.Int32`  
 
 ```csharp
-private System.Int32 GetWorkers();
+private int GetWorkers()
+	{
+		if (!m_IntResults.IsCreated || m_IntResults.Length != 2)
+		{
+			return 0;
+		}
+		return m_IntResults[1];
+	}
 ```
 
 - `private GetWorkplaces() : System.Int32`  
 
 ```csharp
-private System.Int32 GetWorkplaces();
+private int GetWorkplaces()
+	{
+		if (!m_IntResults.IsCreated || m_IntResults.Length != 2)
+		{
+			return 0;
+		}
+		return m_IntResults[0];
+	}
 ```
 
 - `private GetWorkplacesData() : Game.UI.InGame.EmploymentData`  
 
 ```csharp
-private Game.UI.InGame.EmploymentData GetWorkplacesData();
+private EmploymentData GetWorkplacesData()
+	{
+		if (!m_EmploymentDataResults.IsCreated || m_EmploymentDataResults.Length != 2)
+		{
+			return default(EmploymentData);
+		}
+		return m_EmploymentDataResults[0];
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_WorkplaceQuery = GetEntityQuery(new EntityQueryDesc
+		{
+			All = new ComponentType[3]
+			{
+				ComponentType.ReadOnly<Employee>(),
+				ComponentType.ReadOnly<WorkProvider>(),
+				ComponentType.ReadOnly<PrefabRef>()
+			},
+			Any = new ComponentType[2]
+			{
+				ComponentType.ReadOnly<PropertyRenter>(),
+				ComponentType.ReadOnly<Building>()
+			},
+			None = new ComponentType[2]
+			{
+				ComponentType.ReadOnly<Game.Objects.OutsideConnection>(),
+				ComponentType.ReadOnly<Temp>()
+			}
+		});
+		m_WorkplaceModifiedQuery = GetEntityQuery(new EntityQueryDesc
+		{
+			All = new ComponentType[3]
+			{
+				ComponentType.ReadOnly<Employee>(),
+				ComponentType.ReadOnly<WorkProvider>(),
+				ComponentType.ReadOnly<PrefabRef>()
+			},
+			Any = new ComponentType[3]
+			{
+				ComponentType.ReadOnly<Deleted>(),
+				ComponentType.ReadOnly<Created>(),
+				ComponentType.ReadOnly<Updated>()
+			},
+			None = new ComponentType[1] { ComponentType.ReadOnly<Temp>() }
+		});
+		m_IntResults = new NativeArray<int>(2, Allocator.Persistent);
+		m_EmploymentDataResults = new NativeArray<EmploymentData>(2, Allocator.Persistent);
+		AddBinding(m_WorkplacesData = new GetterValueBinding<EmploymentData>("workplaces", "workplacesData", GetWorkplacesData, new ValueWriter<EmploymentData>()));
+		AddBinding(m_EmployeesData = new GetterValueBinding<EmploymentData>("workplaces", "employeesData", GetEmployeesData, new ValueWriter<EmploymentData>()));
+		AddBinding(m_Workplaces = new GetterValueBinding<int>("workplaces", "workplaces", GetWorkplaces));
+		AddBinding(m_Workers = new GetterValueBinding<int>("workplaces", "employees", GetWorkers));
+	}
 ```
 
 - `protected virtual OnCreateForCompiler() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreateForCompiler();
+protected override void OnCreateForCompiler()
+	{
+		base.OnCreateForCompiler();
+		__AssignQueries(ref base.CheckedStateRef);
+		__TypeHandle.__AssignHandles(ref base.CheckedStateRef);
+	}
 ```
 
 - `protected virtual OnDestroy() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnDestroy();
+[Preserve]
+	protected override void OnDestroy()
+	{
+		m_IntResults.Dispose();
+		m_EmploymentDataResults.Dispose();
+		base.OnDestroy();
+	}
 ```
 
 - `protected virtual PerformUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void PerformUpdate();
+protected override void PerformUpdate()
+	{
+		ResetResults();
+		JobChunkExtensions.Schedule(new CalculateWorkplaceDataJob
+		{
+			m_EntityHandle = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef),
+			m_EmployeeHandle = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Companies_Employee_RO_BufferTypeHandle, ref base.CheckedStateRef),
+			m_WorkProviderHandle = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Companies_WorkProvider_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+			m_PropertyRenterHandle = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Buildings_PropertyRenter_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+			m_PrefabRefHandle = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+			m_PrefabRefFromEntity = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentLookup, ref base.CheckedStateRef),
+			m_WorkplaceDataFromEntity = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_WorkplaceData_RO_ComponentLookup, ref base.CheckedStateRef),
+			m_SpawnableBuildingFromEntity = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_SpawnableBuildingData_RO_ComponentLookup, ref base.CheckedStateRef),
+			m_IntResults = m_IntResults,
+			m_EmploymentDataResults = m_EmploymentDataResults
+		}, m_WorkplaceQuery, base.Dependency).Complete();
+		m_EmployeesData.Update();
+		m_WorkplacesData.Update();
+		m_Workplaces.Update();
+		m_Workers.Update();
+	}
 ```
 
 - `private ResetResults() : System.Void`  
 
 ```csharp
-private System.Void ResetResults();
+private void ResetResults()
+	{
+		for (int i = 0; i < 2; i++)
+		{
+			m_EmploymentDataResults[i] = default(EmploymentData);
+			m_IntResults[i] = 0;
+		}
+	}
 ```
 
 

@@ -151,7 +151,10 @@ protected System.Boolean Active { protected get; }
 - `public WaterInfoviewUISystem()`  
 
 ```csharp
-public WaterInfoviewUISystem();
+[Preserve]
+	public WaterInfoviewUISystem()
+	{
+	}
 ```
 
 
@@ -202,31 +205,76 @@ private System.Int32 <OnCreate>b__14_6();
 - `private GetSewageAvailability() : Game.UI.InGame.IndicatorValue`  
 
 ```csharp
-private Game.UI.InGame.IndicatorValue GetSewageAvailability();
+private IndicatorValue GetSewageAvailability()
+	{
+		return IndicatorValue.Calculate(m_WaterStatisticsSystem.sewageCapacity, m_WaterStatisticsSystem.sewageConsumption);
+	}
 ```
 
 - `private GetWaterAvailability() : Game.UI.InGame.IndicatorValue`  
 
 ```csharp
-private Game.UI.InGame.IndicatorValue GetWaterAvailability();
+private IndicatorValue GetWaterAvailability()
+	{
+		return IndicatorValue.Calculate(m_WaterStatisticsSystem.freshCapacity, m_WaterStatisticsSystem.freshConsumption);
+	}
 ```
 
 - `private GetWaterTrade() : Game.UI.InGame.IndicatorValue`  
 
 ```csharp
-private Game.UI.InGame.IndicatorValue GetWaterTrade();
+private IndicatorValue GetWaterTrade()
+	{
+		if (!m_OutsideTradeParameterGroup.IsEmptyIgnoreFilter)
+		{
+			OutsideTradeParameterData singleton = m_OutsideTradeParameterGroup.GetSingleton<OutsideTradeParameterData>();
+			float num = (float)m_WaterTradeSystem.freshExport * singleton.m_WaterExportPrice - (float)m_WaterTradeSystem.freshImport * singleton.m_WaterImportPrice;
+			float num2 = math.max(0.01f, (float)m_WaterStatisticsSystem.freshConsumption * singleton.m_WaterExportPrice);
+			return new IndicatorValue(-1f, 1f, math.clamp(num / num2, -1f, 1f));
+		}
+		return new IndicatorValue(-1f, 1f, 0f);
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_WaterStatisticsSystem = base.World.GetOrCreateSystemManaged<WaterStatisticsSystem>();
+		m_WaterTradeSystem = base.World.GetOrCreateSystemManaged<WaterTradeSystem>();
+		m_OutsideTradeParameterGroup = GetEntityQuery(ComponentType.ReadOnly<OutsideTradeParameterData>());
+		AddBinding(m_WaterCapacity = new GetterValueBinding<int>("waterInfo", "waterCapacity", () => m_WaterStatisticsSystem.freshCapacity));
+		AddBinding(m_WaterConsumption = new GetterValueBinding<int>("waterInfo", "waterConsumption", () => m_WaterStatisticsSystem.freshConsumption));
+		AddBinding(m_SewageCapacity = new GetterValueBinding<int>("waterInfo", "sewageCapacity", () => m_WaterStatisticsSystem.sewageCapacity));
+		AddBinding(m_SewageConsumption = new GetterValueBinding<int>("waterInfo", "sewageConsumption", () => m_WaterStatisticsSystem.sewageConsumption));
+		AddBinding(m_WaterExport = new GetterValueBinding<int>("waterInfo", "waterExport", () => m_WaterTradeSystem.freshExport));
+		AddBinding(m_WaterImport = new GetterValueBinding<int>("waterInfo", "waterImport", () => m_WaterTradeSystem.freshImport));
+		AddBinding(m_SewageExport = new GetterValueBinding<int>("waterInfo", "sewageExport", () => m_WaterTradeSystem.sewageExport));
+		AddBinding(m_WaterAvailability = new GetterValueBinding<IndicatorValue>("waterInfo", "waterAvailability", GetWaterAvailability, new ValueWriter<IndicatorValue>()));
+		AddBinding(m_SewageAvailability = new GetterValueBinding<IndicatorValue>("waterInfo", "sewageAvailability", GetSewageAvailability, new ValueWriter<IndicatorValue>()));
+		AddBinding(m_WaterTrade = new GetterValueBinding<IndicatorValue>("waterInfo", "waterTrade", GetWaterTrade, new ValueWriter<IndicatorValue>()));
+	}
 ```
 
 - `protected virtual PerformUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void PerformUpdate();
+protected override void PerformUpdate()
+	{
+		m_WaterCapacity.Update();
+		m_WaterConsumption.Update();
+		m_SewageCapacity.Update();
+		m_SewageConsumption.Update();
+		m_WaterExport.Update();
+		m_WaterImport.Update();
+		m_SewageExport.Update();
+		m_WaterAvailability.Update();
+		m_SewageAvailability.Update();
+		m_WaterTrade.Update();
+	}
 ```
 
 

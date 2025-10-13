@@ -36,7 +36,10 @@ private Game.Common.AudioEndBarrier m_AudioEndBarrier;
 - `public AllowAudioEndBarrier()`  
 
 ```csharp
-public AllowAudioEndBarrier();
+[Preserve]
+	public AllowAudioEndBarrier()
+	{
+	}
 ```
 
 
@@ -45,13 +48,22 @@ public AllowAudioEndBarrier();
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_AudioEndBarrier = base.World.GetOrCreateSystemManaged<AudioEndBarrier>();
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		m_AudioEndBarrier.AllowUsage();
+	}
 ```
 
 

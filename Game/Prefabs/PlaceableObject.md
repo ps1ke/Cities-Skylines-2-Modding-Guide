@@ -56,19 +56,36 @@ public PlaceableObject();
 - `public virtual GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetArchetypeComponents(HashSet<ComponentType> components)
+	{
+	}
 ```
 
 - `public virtual GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetPrefabComponents(HashSet<ComponentType> components)
+	{
+		components.Add(ComponentType.ReadWrite<PlaceableObjectData>());
+		components.Add(ComponentType.ReadWrite<PlaceableInfoviewItem>());
+	}
 ```
 
 - `public virtual Initialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity) : System.Void`  
 
 ```csharp
-public virtual System.Void Initialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity);
+public override void Initialize(EntityManager entityManager, Entity entity)
+	{
+		base.Initialize(entityManager, entity);
+		PlaceableObjectData componentData = entityManager.GetComponentData<PlaceableObjectData>(entity);
+		componentData.m_ConstructionCost = m_ConstructionCost;
+		componentData.m_XPReward = m_XPReward;
+		if ((componentData.m_Flags & (PlacementFlags.Shoreline | PlacementFlags.Floating | PlacementFlags.Hovering)) == 0)
+		{
+			componentData.m_Flags |= PlacementFlags.OnGround;
+		}
+		entityManager.SetComponentData(entity, componentData);
+	}
 ```
 
 

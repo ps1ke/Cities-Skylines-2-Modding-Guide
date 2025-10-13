@@ -59,7 +59,10 @@ private static readonly System.String kGroup;
 - `public StandaloneAssetUploadPanelUISystem()`  
 
 ```csharp
-public StandaloneAssetUploadPanelUISystem();
+[Preserve]
+	public StandaloneAssetUploadPanelUISystem()
+	{
+	}
 ```
 
 
@@ -68,25 +71,58 @@ public StandaloneAssetUploadPanelUISystem();
 - `private OnChildrenChange(System.Collections.Generic.IList<Game.UI.Widgets.IWidget> children) : System.Void`  
 
 ```csharp
-private System.Void OnChildrenChange(System.Collections.Generic.IList<Game.UI.Widgets.IWidget> children);
+private void OnChildrenChange(IList<IWidget> children)
+	{
+		m_WidgetBindings.children = children;
+	}
 ```
 
 - `private OnClose() : System.Void`  
 
 ```csharp
-private System.Void OnClose();
+private void OnClose()
+	{
+		if (m_AssetUploadPanelUISystem.Close())
+		{
+			AssetUploadPanelUISystem assetUploadPanelUISystem = m_AssetUploadPanelUISystem;
+			assetUploadPanelUISystem.onChildrenChange = (Action<IList<IWidget>>)Delegate.Remove(assetUploadPanelUISystem.onChildrenChange, new Action<IList<IWidget>>(OnChildrenChange));
+			m_AssetUploadPanelUISystem.Enabled = false;
+			m_WidgetBindings.children = Array.Empty<IWidget>();
+			m_Visible.Update(newValue: false);
+		}
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_AssetUploadPanelUISystem = base.World.GetOrCreateSystemManaged<AssetUploadPanelUISystem>();
+		m_AssetUploadPanelUISystem.Enabled = false;
+		AddUpdateBinding(m_WidgetBindings = new WidgetBindings(kGroup));
+		EditorPanelUISystem.AddEditorWidgetBindings(m_WidgetBindings);
+		AddBinding(m_Visible = new ValueBinding<bool>(kGroup, "visible", initialValue: false));
+		AddBinding(new TriggerBinding(kGroup, "close", OnClose));
+	}
 ```
 
 - `public Show(Colossal.IO.AssetDatabase.AssetData mainAsset, System.Boolean allowManualFileCopy = True) : System.Void`  
 
 ```csharp
-public System.Void Show(Colossal.IO.AssetDatabase.AssetData mainAsset, System.Boolean allowManualFileCopy);
+public void Show(AssetData mainAsset, bool allowManualFileCopy = true)
+	{
+		m_AssetUploadPanelUISystem.Show(mainAsset, allowManualFileCopy);
+		AssetUploadPanelUISystem assetUploadPanelUISystem = m_AssetUploadPanelUISystem;
+		assetUploadPanelUISystem.onChildrenChange = (Action<IList<IWidget>>)Delegate.Remove(assetUploadPanelUISystem.onChildrenChange, new Action<IList<IWidget>>(OnChildrenChange));
+		AssetUploadPanelUISystem assetUploadPanelUISystem2 = m_AssetUploadPanelUISystem;
+		assetUploadPanelUISystem2.onChildrenChange = (Action<IList<IWidget>>)Delegate.Combine(assetUploadPanelUISystem2.onChildrenChange, new Action<IList<IWidget>>(OnChildrenChange));
+		m_AssetUploadPanelUISystem.Enabled = true;
+		m_WidgetBindings.children = m_AssetUploadPanelUISystem.children;
+		m_Visible.Update(newValue: true);
+	}
 ```
 
 

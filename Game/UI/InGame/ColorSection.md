@@ -69,7 +69,10 @@ private UnityEngine.Color32 color { private get; private set; }
 - `public ColorSection()`  
 
 ```csharp
-public ColorSection();
+[Preserve]
+	public ColorSection()
+	{
+	}
 ```
 
 
@@ -78,43 +81,88 @@ public ColorSection();
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		AddBinding(new TriggerBinding<UnityEngine.Color>(group, "setColor", OnSetColor));
+		m_ColorUpdateArchetype = base.EntityManager.CreateArchetype(ComponentType.ReadWrite<Game.Common.Event>(), ComponentType.ReadWrite<ColorUpdated>());
+	}
 ```
 
 - `protected virtual OnProcess() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnProcess();
+protected override void OnProcess()
+	{
+		color = base.EntityManager.GetComponentData<Game.Routes.Color>(selectedEntity).m_Color;
+	}
 ```
 
 - `private OnSetColor(UnityEngine.Color uiColor) : System.Void`  
 
 ```csharp
-private System.Void OnSetColor(UnityEngine.Color uiColor);
+private void OnSetColor(UnityEngine.Color uiColor)
+	{
+		if (!base.EntityManager.HasComponent<Route>(selectedEntity) || !base.EntityManager.HasComponent<TransportLine>(selectedEntity) || !base.EntityManager.HasComponent<RouteWaypoint>(selectedEntity) || !base.EntityManager.HasComponent<Game.Routes.Color>(selectedEntity))
+		{
+			return;
+		}
+		EntityCommandBuffer entityCommandBuffer = m_EndFrameBarrier.CreateCommandBuffer();
+		entityCommandBuffer.SetComponent(selectedEntity, new Game.Routes.Color(uiColor));
+		if (base.EntityManager.TryGetBuffer(selectedEntity, isReadOnly: true, out DynamicBuffer<RouteVehicle> buffer))
+		{
+			for (int i = 0; i < buffer.Length; i++)
+			{
+				entityCommandBuffer.AddComponent(buffer[i].m_Vehicle, new Game.Routes.Color(uiColor));
+			}
+		}
+		Entity e = entityCommandBuffer.CreateEntity(m_ColorUpdateArchetype);
+		entityCommandBuffer.SetComponent(e, new ColorUpdated(selectedEntity));
+		m_InfoUISystem.RequestUpdate();
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		base.visible = Visible();
+	}
 ```
 
 - `public virtual OnWriteProperties(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-public virtual System.Void OnWriteProperties(Colossal.UI.Binding.IJsonWriter writer);
+public override void OnWriteProperties(IJsonWriter writer)
+	{
+		writer.PropertyName("color");
+		writer.Write(color);
+	}
 ```
 
 - `protected virtual Reset() : System.Void`  
 
 ```csharp
-protected virtual System.Void Reset();
+protected override void Reset()
+	{
+		color = default(Color32);
+	}
 ```
 
 - `private Visible() : System.Boolean`  
 
 ```csharp
-private System.Boolean Visible();
+private bool Visible()
+	{
+		if (base.EntityManager.HasComponent<Route>(selectedEntity) && base.EntityManager.HasComponent<TransportLine>(selectedEntity) && base.EntityManager.HasComponent<RouteWaypoint>(selectedEntity))
+		{
+			return base.EntityManager.HasComponent<Game.Routes.Color>(selectedEntity);
+		}
+		return false;
+	}
 ```
 
 

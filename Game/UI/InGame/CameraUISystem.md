@@ -52,7 +52,10 @@ private static const System.String kGroup;
 - `public CameraUISystem()`  
 
 ```csharp
-public CameraUISystem();
+[Preserve]
+	public CameraUISystem()
+	{
+	}
 ```
 
 
@@ -61,25 +64,56 @@ public CameraUISystem();
 - `private FocusEntity(Unity.Entities.Entity entity) : System.Void`  
 
 ```csharp
-private System.Void FocusEntity(Unity.Entities.Entity entity);
+private void FocusEntity(Entity entity)
+	{
+		if (entity != Entity.Null && m_CameraUpdateSystem.orbitCameraController != null && entity != m_CameraUpdateSystem.orbitCameraController.followedEntity)
+		{
+			m_CameraUpdateSystem.orbitCameraController.followedEntity = entity;
+			m_CameraUpdateSystem.orbitCameraController.TryMatchPosition(m_CameraUpdateSystem.activeCameraController);
+			m_CameraUpdateSystem.activeCameraController = m_CameraUpdateSystem.orbitCameraController;
+		}
+		if (entity == Entity.Null && m_CameraUpdateSystem.activeCameraController == m_CameraUpdateSystem.orbitCameraController)
+		{
+			m_CameraUpdateSystem.gamePlayController.TryMatchPosition(m_CameraUpdateSystem.orbitCameraController);
+			m_CameraUpdateSystem.activeCameraController = m_CameraUpdateSystem.gamePlayController;
+		}
+	}
 ```
 
 - `private GetFocusedEntity() : Unity.Entities.Entity`  
 
 ```csharp
-private Unity.Entities.Entity GetFocusedEntity();
+private Entity GetFocusedEntity()
+	{
+		if (!(m_CameraUpdateSystem.orbitCameraController != null))
+		{
+			return Entity.Null;
+		}
+		return m_CameraUpdateSystem.orbitCameraController.followedEntity;
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		AddBinding(m_FocusedEntityBinding = new GetterValueBinding<Entity>("camera", "focusedEntity", GetFocusedEntity));
+		AddBinding(new TriggerBinding<Entity>("camera", "focusEntity", FocusEntity));
+		m_CameraUpdateSystem = base.World.GetOrCreateSystemManaged<CameraUpdateSystem>();
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		m_FocusedEntityBinding.Update();
+	}
 ```
 
 

@@ -65,31 +65,67 @@ public JournalEventComponent();
 - `public virtual GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetArchetypeComponents(HashSet<ComponentType> components)
+	{
+		components.Add(ComponentType.ReadWrite<JournalEvent>());
+	}
 ```
 
 - `public GetDataFlags() : System.Int32`  
 
 ```csharp
-public System.Int32 GetDataFlags();
+public int GetDataFlags()
+	{
+		int num = 0;
+		for (int i = 0; i < m_TrackedData.Length; i++)
+		{
+			if (EventJournalUtils.IsValid(m_TrackedData[i]))
+			{
+				num |= 1 << (int)m_TrackedData[i];
+			}
+		}
+		return num;
+	}
 ```
 
 - `public GetEffectFlags() : System.Int32`  
 
 ```csharp
-public System.Int32 GetEffectFlags();
+public int GetEffectFlags()
+	{
+		int num = 0;
+		for (int i = 0; i < m_TrackedCityEffects.Length; i++)
+		{
+			if (EventJournalUtils.IsValid(m_TrackedCityEffects[i]))
+			{
+				num |= 1 << (int)m_TrackedCityEffects[i];
+			}
+		}
+		return num;
+	}
 ```
 
 - `public virtual GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetPrefabComponents(HashSet<ComponentType> components)
+	{
+		components.Add(ComponentType.ReadWrite<JournalEventPrefabData>());
+	}
 ```
 
 - `public virtual Initialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity) : System.Void`  
 
 ```csharp
-public virtual System.Void Initialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity);
+public override void Initialize(EntityManager entityManager, Entity entity)
+	{
+		base.Initialize(entityManager, entity);
+		entityManager.SetComponentData(entity, new JournalEventPrefabData
+		{
+			m_DataFlags = GetDataFlags(),
+			m_EffectFlags = GetEffectFlags()
+		});
+	}
 ```
 
 

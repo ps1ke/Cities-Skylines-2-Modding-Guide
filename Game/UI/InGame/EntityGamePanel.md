@@ -57,13 +57,29 @@ protected EntityGamePanel();
 - `protected virtual BindProperties(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-protected virtual System.Void BindProperties(Colossal.UI.Binding.IJsonWriter writer);
+protected override void BindProperties(IJsonWriter writer)
+	{
+		base.BindProperties(writer);
+		writer.PropertyName("selectedEntity");
+		writer.Write(selectedEntity);
+	}
 ```
 
 - `public Equals(Game.UI.InGame.EntityGamePanel other) : System.Boolean`  
 
 ```csharp
-public System.Boolean Equals(Game.UI.InGame.EntityGamePanel other);
+public bool Equals(EntityGamePanel other)
+	{
+		if (other == null)
+		{
+			return false;
+		}
+		if (this != other)
+		{
+			return selectedEntity.Equals(other.selectedEntity);
+		}
+		return true;
+	}
 ```
 
 

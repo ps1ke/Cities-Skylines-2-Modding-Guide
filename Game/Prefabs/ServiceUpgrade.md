@@ -79,31 +79,84 @@ public ServiceUpgrade();
 - `public virtual GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetArchetypeComponents(HashSet<ComponentType> components)
+	{
+		components.Add(ComponentType.ReadWrite<Game.Buildings.ServiceUpgrade>());
+	}
 ```
 
 - `public virtual GetDependencies(System.Collections.Generic.List<Game.Prefabs.PrefabBase> prefabs) : System.Void`  
 
 ```csharp
-public virtual System.Void GetDependencies(System.Collections.Generic.List<Game.Prefabs.PrefabBase> prefabs);
+public override void GetDependencies(List<PrefabBase> prefabs)
+	{
+		base.GetDependencies(prefabs);
+		if (m_Buildings != null)
+		{
+			for (int i = 0; i < m_Buildings.Length; i++)
+			{
+				prefabs.Add(m_Buildings[i]);
+			}
+		}
+	}
 ```
 
 - `public virtual GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetPrefabComponents(HashSet<ComponentType> components)
+	{
+		components.Add(ComponentType.ReadWrite<ServiceUpgradeData>());
+		components.Add(ComponentType.ReadWrite<ServiceUpgradeBuilding>());
+		if (GetComponent<BuildingPrefab>() != null)
+		{
+			components.Add(ComponentType.ReadWrite<PlaceableObjectData>());
+			components.Add(ComponentType.ReadWrite<PlaceableInfoviewItem>());
+		}
+		if (base.prefab.TryGet<ServiceConsumption>(out var component) && component.m_Upkeep > 0)
+		{
+			components.Add(ComponentType.ReadWrite<ServiceUpkeepData>());
+		}
+	}
 ```
 
 - `public virtual Initialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity) : System.Void`  
 
 ```csharp
-public virtual System.Void Initialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity);
+public override void Initialize(EntityManager entityManager, Entity entity)
+	{
+		base.Initialize(entityManager, entity);
+		entityManager.SetComponentData(entity, new ServiceUpgradeData
+		{
+			m_UpgradeCost = m_UpgradeCost,
+			m_XPReward = m_XPReward,
+			m_MaxPlacementOffset = m_MaxPlacementOffset,
+			m_MaxPlacementDistance = m_MaxPlacementDistance
+		});
+	}
 ```
 
 - `public virtual LateInitialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity) : System.Void`  
 
 ```csharp
-public virtual System.Void LateInitialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity);
+public override void LateInitialize(EntityManager entityManager, Entity entity)
+	{
+		base.LateInitialize(entityManager, entity);
+		if (m_Buildings == null)
+		{
+			return;
+		}
+		PrefabSystem existingSystemManaged = entityManager.World.GetExistingSystemManaged<PrefabSystem>();
+		for (int i = 0; i < m_Buildings.Length; i++)
+		{
+			BuildingPrefab buildingPrefab = m_Buildings[i];
+			if (!(buildingPrefab == null))
+			{
+				entityManager.GetBuffer<ServiceUpgradeBuilding>(entity).Add(new ServiceUpgradeBuilding(existingSystemManaged.GetEntity(buildingPrefab)));
+				buildingPrefab.AddUpgrade(entityManager, this);
+			}
+		}
+	}
 ```
 
 

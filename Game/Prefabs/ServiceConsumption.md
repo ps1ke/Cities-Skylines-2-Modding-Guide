@@ -79,31 +79,57 @@ public ServiceConsumption();
 - `public virtual GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetArchetypeComponents(HashSet<ComponentType> components)
+	{
+		if (!base.prefab.Has<ServiceUpgrade>())
+		{
+			GetConsumptionData().AddArchetypeComponents(components);
+		}
+	}
 ```
 
 - `private GetConsumptionData() : Game.Prefabs.ConsumptionData`  
 
 ```csharp
-private Game.Prefabs.ConsumptionData GetConsumptionData();
+private ConsumptionData GetConsumptionData()
+	{
+		return new ConsumptionData
+		{
+			m_Upkeep = m_Upkeep,
+			m_ElectricityConsumption = m_ElectricityConsumption,
+			m_WaterConsumption = m_WaterConsumption,
+			m_GarbageAccumulation = m_GarbageAccumulation,
+			m_TelecomNeed = m_TelecomNeed
+		};
+	}
 ```
 
 - `public virtual GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetPrefabComponents(HashSet<ComponentType> components)
+	{
+		components.Add(ComponentType.ReadWrite<ConsumptionData>());
+	}
 ```
 
 - `public GetUpgradeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public System.Void GetUpgradeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public void GetUpgradeComponents(HashSet<ComponentType> components)
+	{
+		GetConsumptionData().AddArchetypeComponents(components);
+	}
 ```
 
 - `public virtual Initialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity) : System.Void`  
 
 ```csharp
-public virtual System.Void Initialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity);
+public override void Initialize(EntityManager entityManager, Entity entity)
+	{
+		base.Initialize(entityManager, entity);
+		entityManager.SetComponentData(entity, GetConsumptionData());
+	}
 ```
 
 

@@ -37,13 +37,17 @@ private readonly Colossal.Localization.LocalizationManager m_LocalizationManager
 - `public UILocalizationManager(Colossal.Localization.LocalizationManager localizationManager)`  
 
 ```csharp
-public UILocalizationManager(Colossal.Localization.LocalizationManager localizationManager);
+private UILocalizationManager()
+	{
+	}
 ```
 
 - `private UILocalizationManager()`  
 
 ```csharp
-private UILocalizationManager();
+private UILocalizationManager()
+	{
+	}
 ```
 
 
@@ -52,7 +56,17 @@ private UILocalizationManager();
 - `public virtual Translate(System.String key, cohtml.Net.ILocalizationManager+TranslationData data) : System.Void`  
 
 ```csharp
-public virtual System.Void Translate(System.String key, cohtml.Net.ILocalizationManager+TranslationData data);
+public override void Translate(string key, TranslationData data)
+	{
+		if (m_LocalizationManager != null && m_LocalizationManager.activeDictionary.TryGetValue(key, out var value))
+		{
+			data.Set(value);
+		}
+		else
+		{
+			data.Set(key);
+		}
+	}
 ```
 
 

@@ -37,7 +37,10 @@ public Unity.Entities.Entity m_Handler;
 - `public Dispatched(Unity.Entities.Entity handler)`  
 
 ```csharp
-public Dispatched(Unity.Entities.Entity handler);
+public Dispatched(Entity handler)
+	{
+		m_Handler = handler;
+	}
 ```
 
 

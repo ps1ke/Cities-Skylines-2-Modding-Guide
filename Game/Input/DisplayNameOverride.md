@@ -139,7 +139,15 @@ public Game.Input.UIBaseInputAction+Transform transform { get; set; }
 - `public DisplayNameOverride(System.String overrideSource, Game.Input.ProxyAction action, System.String displayName = null, System.Int32 priority = -1, Game.Input.UIBaseInputAction+Transform transform = None)`  
 
 ```csharp
-public DisplayNameOverride(System.String overrideSource, Game.Input.ProxyAction action, System.String displayName, System.Int32 priority, Game.Input.UIBaseInputAction+Transform transform);
+public DisplayNameOverride(string overrideSource, ProxyAction action, string displayName = null, int priority = -1, UIBaseInputAction.Transform transform = UIBaseInputAction.Transform.None)
+	{
+		m_Action = action ?? throw new ArgumentNullException("action");
+		m_Source = overrideSource;
+		m_DisplayName = displayName;
+		m_Priority = priority;
+		m_Transform = transform;
+		m_Action.m_DisplayOverrides.Add(this);
+	}
 ```
 
 
@@ -148,13 +156,31 @@ public DisplayNameOverride(System.String overrideSource, Game.Input.ProxyAction 
 - `public Dispose() : System.Void`  
 
 ```csharp
-public System.Void Dispose();
+public void Dispose()
+	{
+		if (!m_Disposed)
+		{
+			m_Disposed = true;
+			m_Action.m_DisplayOverrides.Remove(this);
+		}
+	}
 ```
 
 - `public Equals(Game.Input.DisplayNameOverride other) : System.Boolean`  
 
 ```csharp
-public System.Boolean Equals(Game.Input.DisplayNameOverride other);
+public bool Equals(DisplayNameOverride other)
+	{
+		if (m_Priority != other.m_Priority)
+		{
+			return false;
+		}
+		if (m_DisplayName != other.m_DisplayName)
+		{
+			return false;
+		}
+		return true;
+	}
 ```
 
 

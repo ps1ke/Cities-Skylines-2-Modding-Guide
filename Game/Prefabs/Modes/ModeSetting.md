@@ -172,43 +172,153 @@ public ModeSetting();
 - `public ApplyMode(Unity.Entities.EntityManager entityManager, Game.Prefabs.PrefabSystem prefabSystem, Unity.Jobs.JobHandle deps) : Unity.Jobs.JobHandle`  
 
 ```csharp
-public Unity.Jobs.JobHandle ApplyMode(Unity.Entities.EntityManager entityManager, Game.Prefabs.PrefabSystem prefabSystem, Unity.Jobs.JobHandle deps);
+public JobHandle ApplyMode(EntityManager entityManager, PrefabSystem prefabSystem, JobHandle deps)
+	{
+		Entity singletonEntity = entityManager.CreateEntityQuery(ComponentType.ReadOnly<ModeSettingData>()).GetSingletonEntity();
+		ModeSettingData componentData = new ModeSettingData
+		{
+			m_Enable = m_Enable,
+			m_ResidentialDemandWeightsSelector = m_ResidentialDemandWeightsSelector,
+			m_CommercialTaxEffectDemandOffset = m_CommercialTaxEffectDemandOffset,
+			m_IndustrialOfficeTaxEffectDemandOffset = m_IndustrialOfficeTaxEffectDemandOffset,
+			m_ResourceDemandPerCitizenMultiplier = m_ResourceDemandPerCitizenMultiplier,
+			m_TaxPaidMultiplier = m_TaxPaidMultiplier,
+			m_SupportPoorCitizens = m_SupportPoorCitizens,
+			m_MinimumWealth = m_MinimumWealth,
+			m_EnableGovernmentSubsidies = m_EnableGovernmentSubsidies,
+			m_MoneyCoverThreshold = m_MoneyCoverThreshold,
+			m_MaxMoneyCoverPercentage = m_MaxMoneyCoverPercentage,
+			m_EnableAdjustNaturalResources = m_EnableAdjustNaturalResources,
+			m_InitialNaturalResourceBoostMultiplier = m_InitialNaturalResourceBoostMultiplier,
+			m_PercentOreRefillAmountPerDay = m_PercentOreRefillAmountPerDay,
+			m_PercentOilRefillAmountPerDay = m_PercentOilRefillAmountPerDay
+		};
+		entityManager.SetComponentData(singletonEntity, componentData);
+		for (int i = 0; i < m_LocalModePrefabs.Count; i++)
+		{
+			m_LocalModePrefabs[i].ApplyModeData(entityManager, prefabSystem);
+		}
+		for (int j = 0; j < m_GlobalModePrefabs.Count; j++)
+		{
+			EntityQuery requestedQuery = entityManager.CreateEntityQuery(m_GlobalModePrefabs[j].GetEntityQueryDesc());
+			if (!requestedQuery.IsEmptyIgnoreFilter)
+			{
+				deps = m_GlobalModePrefabs[j].ApplyModeData(entityManager, requestedQuery, deps);
+			}
+		}
+		return deps;
+	}
 ```
 
 - `public virtual GetDependencies(System.Collections.Generic.List<Game.Prefabs.PrefabBase> prefabs) : System.Void`  
 
 ```csharp
-public virtual System.Void GetDependencies(System.Collections.Generic.List<Game.Prefabs.PrefabBase> prefabs);
+public override void GetDependencies(List<PrefabBase> prefabs)
+	{
+		if (m_ModePrefabs != null)
+		{
+			for (int i = 0; i < m_ModePrefabs.Count; i++)
+			{
+				prefabs.Add(m_ModePrefabs[i]);
+			}
+		}
+	}
 ```
 
 - `public virtual GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetPrefabComponents(HashSet<ComponentType> components)
+	{
+		base.GetPrefabComponents(components);
+		components.Add(ComponentType.ReadWrite<GameModeSettingData>());
+	}
 ```
 
 - `public virtual Initialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity) : System.Void`  
 
 ```csharp
-public virtual System.Void Initialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity);
+public override void Initialize(EntityManager entityManager, Entity entity)
+	{
+		base.Initialize(entityManager, entity);
+		m_LocalModePrefabs = new List<LocalModePrefab>();
+		m_GlobalModePrefabs = new List<EntityQueryModePrefab>();
+		if (m_ModePrefabs == null)
+		{
+			return;
+		}
+		for (int i = 0; i < m_ModePrefabs.Count; i++)
+		{
+			if (m_ModePrefabs[i] is LocalModePrefab item)
+			{
+				m_LocalModePrefabs.Add(item);
+			}
+			else if (m_ModePrefabs[i] is EntityQueryModePrefab item2)
+			{
+				m_GlobalModePrefabs.Add(item2);
+			}
+		}
+	}
 ```
 
 - `public virtual RecordChanges(Unity.Entities.EntityManager entityManager, Game.Prefabs.PrefabSystem prefabSystem) : System.Void`  
 
 ```csharp
-public virtual System.Void RecordChanges(Unity.Entities.EntityManager entityManager, Game.Prefabs.PrefabSystem prefabSystem);
+public virtual void RecordChanges(EntityManager entityManager, PrefabSystem prefabSystem)
+	{
+		for (int i = 0; i < m_LocalModePrefabs.Count; i++)
+		{
+		}
+		for (int j = 0; j < m_GlobalModePrefabs.Count; j++)
+		{
+			entityManager.CreateEntityQuery(m_GlobalModePrefabs[j].GetEntityQueryDesc()).ToEntityArray(Allocator.TempJob).Dispose();
+		}
+	}
 ```
 
 - `public RestoreDefaultData(Unity.Entities.EntityManager entityManager, Game.Prefabs.PrefabSystem prefabSystem) : System.Void`  
 
 ```csharp
-public System.Void RestoreDefaultData(Unity.Entities.EntityManager entityManager, Game.Prefabs.PrefabSystem prefabSystem);
+public void RestoreDefaultData(EntityManager entityManager, PrefabSystem prefabSystem)
+	{
+		Entity singletonEntity = entityManager.CreateEntityQuery(ComponentType.ReadOnly<ModeSettingData>()).GetSingletonEntity();
+		entityManager.SetComponentData(singletonEntity, new ModeSettingData
+		{
+			m_Enable = false
+		});
+		for (int i = 0; i < m_LocalModePrefabs.Count; i++)
+		{
+			m_LocalModePrefabs[i].RestoreDefaultData(entityManager, prefabSystem);
+		}
+		for (int j = 0; j < m_GlobalModePrefabs.Count; j++)
+		{
+			EntityQuery entityQuery = entityManager.CreateEntityQuery(m_GlobalModePrefabs[j].GetEntityQueryDesc());
+			if (!entityQuery.IsEmptyIgnoreFilter)
+			{
+				NativeArray<Entity> entities = entityQuery.ToEntityArray(Allocator.TempJob);
+				m_GlobalModePrefabs[j].RestoreDefaultData(entityManager, ref entities, prefabSystem);
+				entities.Dispose();
+			}
+		}
+	}
 ```
 
 - `public StoreDefaultData(Unity.Entities.EntityManager entityManager, Game.Prefabs.PrefabSystem prefabSystem) : System.Void`  
 
 ```csharp
-public System.Void StoreDefaultData(Unity.Entities.EntityManager entityManager, Game.Prefabs.PrefabSystem prefabSystem);
+public void StoreDefaultData(EntityManager entityManager, PrefabSystem prefabSystem)
+	{
+		for (int i = 0; i < m_GlobalModePrefabs.Count; i++)
+		{
+			EntityQuery entityQuery = entityManager.CreateEntityQuery(m_GlobalModePrefabs[i].GetEntityQueryDesc());
+			if (!entityQuery.IsEmptyIgnoreFilter)
+			{
+				NativeArray<Entity> requestedQuery = entityQuery.ToEntityArray(Allocator.TempJob);
+				m_GlobalModePrefabs[i].StoreDefaultData(entityManager, ref requestedQuery, prefabSystem);
+				requestedQuery.Dispose();
+			}
+		}
+	}
 ```
 
 

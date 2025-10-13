@@ -57,31 +57,65 @@ public UISoundCollection();
 - `private OnEnable() : System.Void`  
 
 ```csharp
-private System.Void OnEnable();
+private void OnEnable()
+	{
+		if (m_Sounds == null)
+		{
+			m_Sounds = new SoundInfo[0];
+		}
+		m_SoundsDict = new Dictionary<string, SoundInfo>();
+		RefreshSoundsDict();
+	}
 ```
 
 - `public PlaySound(System.Int32 soundIndex, System.Single volume = 1) : System.Void`  
 
 ```csharp
-public System.Void PlaySound(System.Int32 soundIndex, System.Single volume);
+private void PlaySound([NotNull] AudioClip clip, float volume)
+	{
+		if ((bool)Camera.main)
+		{
+			AudioManager.instance?.PlayUISound(clip, volume);
+		}
+	}
 ```
 
 - `public PlaySound(System.String soundName, System.Single volume = 1) : System.Void`  
 
 ```csharp
-public System.Void PlaySound(System.String soundName, System.Single volume);
+private void PlaySound([NotNull] AudioClip clip, float volume)
+	{
+		if ((bool)Camera.main)
+		{
+			AudioManager.instance?.PlayUISound(clip, volume);
+		}
+	}
 ```
 
 - `private PlaySound(UnityEngine.AudioClip clip, System.Single volume) : System.Void`  
 
 ```csharp
-private System.Void PlaySound(UnityEngine.AudioClip clip, System.Single volume);
+private void PlaySound([NotNull] AudioClip clip, float volume)
+	{
+		if ((bool)Camera.main)
+		{
+			AudioManager.instance?.PlayUISound(clip, volume);
+		}
+	}
 ```
 
 - `public RefreshSoundsDict() : System.Void`  
 
 ```csharp
-public System.Void RefreshSoundsDict();
+public void RefreshSoundsDict()
+	{
+		m_SoundsDict.Clear();
+		SoundInfo[] sounds = m_Sounds;
+		foreach (SoundInfo soundInfo in sounds)
+		{
+			m_SoundsDict[soundInfo.m_Name] = soundInfo;
+		}
+	}
 ```
 
 

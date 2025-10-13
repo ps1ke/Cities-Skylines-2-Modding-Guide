@@ -44,7 +44,11 @@ public Unity.Entities.Entity m_Right;
 - `public BorderDistrict(Unity.Entities.Entity left, Unity.Entities.Entity right)`  
 
 ```csharp
-public BorderDistrict(Unity.Entities.Entity left, Unity.Entities.Entity right);
+public BorderDistrict(Entity left, Entity right)
+	{
+		m_Left = left;
+		m_Right = right;
+	}
 ```
 
 

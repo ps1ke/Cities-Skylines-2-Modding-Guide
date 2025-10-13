@@ -98,19 +98,41 @@ public AirplanePrefab();
 - `public virtual GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetArchetypeComponents(HashSet<ComponentType> components)
+	{
+		base.GetArchetypeComponents(components);
+		components.Add(ComponentType.ReadWrite<Airplane>());
+	}
 ```
 
 - `public virtual GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetPrefabComponents(HashSet<ComponentType> components)
+	{
+		base.GetPrefabComponents(components);
+		components.Add(ComponentType.ReadWrite<AirplaneData>());
+	}
 ```
 
 - `public virtual Initialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity) : System.Void`  
 
 ```csharp
-public virtual System.Void Initialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity);
+public override void Initialize(EntityManager entityManager, Entity entity)
+	{
+		base.Initialize(entityManager, entity);
+		entityManager.SetComponentData(entity, new AirplaneData
+		{
+			m_FlyingSpeed = m_FlyingSpeed / 3.6f,
+			m_FlyingAcceleration = m_FlyingAcceleration,
+			m_FlyingBraking = m_FlyingBraking,
+			m_FlyingTurning = math.radians(m_FlyingTurning),
+			m_FlyingAngularAcceleration = math.radians(m_FlyingAngularAcceleration),
+			m_ClimbAngle = math.radians(m_ClimbAngle),
+			m_SlowPitchAngle = math.radians(m_SlowPitchAngle),
+			m_TurningRollFactor = m_TurningRollFactor
+		});
+	}
 ```
 
 

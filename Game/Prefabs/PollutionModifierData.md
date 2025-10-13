@@ -48,7 +48,12 @@ public System.Single m_NoisePollutionMultiplier;
 - `public Combine(Game.Prefabs.PollutionModifierData otherData) : System.Void`  
 
 ```csharp
-public System.Void Combine(Game.Prefabs.PollutionModifierData otherData);
+public void Combine(PollutionModifierData otherData)
+	{
+		m_GroundPollutionMultiplier += otherData.m_GroundPollutionMultiplier;
+		m_AirPollutionMultiplier += otherData.m_AirPollutionMultiplier;
+		m_NoisePollutionMultiplier += otherData.m_NoisePollutionMultiplier;
+	}
 ```
 
 

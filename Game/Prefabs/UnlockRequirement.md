@@ -47,7 +47,11 @@ public Game.Prefabs.UnlockFlags m_Flags;
 - `public UnlockRequirement(Unity.Entities.Entity prefab, Game.Prefabs.UnlockFlags flags)`  
 
 ```csharp
-public UnlockRequirement(Unity.Entities.Entity prefab, Game.Prefabs.UnlockFlags flags);
+public UnlockRequirement(Entity prefab, UnlockFlags flags)
+	{
+		m_Prefab = prefab;
+		m_Flags = flags;
+	}
 ```
 
 
@@ -56,19 +60,36 @@ public UnlockRequirement(Unity.Entities.Entity prefab, Game.Prefabs.UnlockFlags 
 - `public Equals(Game.Prefabs.UnlockRequirement other) : System.Boolean`  
 
 ```csharp
-public System.Boolean Equals(Game.Prefabs.UnlockRequirement other);
+public override bool Equals(object obj)
+	{
+		if (obj is UnlockRequirement other)
+		{
+			return Equals(other);
+		}
+		return false;
+	}
 ```
 
 - `public virtual Equals(System.Object obj) : System.Boolean`  
 
 ```csharp
-public virtual System.Boolean Equals(System.Object obj);
+public override bool Equals(object obj)
+	{
+		if (obj is UnlockRequirement other)
+		{
+			return Equals(other);
+		}
+		return false;
+	}
 ```
 
 - `public virtual GetHashCode() : System.Int32`  
 
 ```csharp
-public virtual System.Int32 GetHashCode();
+public override int GetHashCode()
+	{
+		return (m_Prefab.GetHashCode() * 397) ^ (int)m_Flags;
+	}
 ```
 
 

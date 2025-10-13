@@ -37,7 +37,10 @@ public System.Byte m_Effect;
 - `public CrimeVictim(System.Byte effect)`  
 
 ```csharp
-public CrimeVictim(System.Byte effect);
+public CrimeVictim(byte effect)
+	{
+		m_Effect = effect;
+	}
 ```
 
 

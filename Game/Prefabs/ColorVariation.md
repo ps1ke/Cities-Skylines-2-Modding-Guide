@@ -153,13 +153,36 @@ public System.Boolean hasAlphaRanges { get; }
 - `public GetExternalChannelIndex(System.Int32 colorIndex) : System.Int32`  
 
 ```csharp
-public System.Int32 GetExternalChannelIndex(System.Int32 colorIndex);
+public int GetExternalChannelIndex(int colorIndex)
+	{
+		return colorIndex switch
+		{
+			0 => m_ExternalChannel0, 
+			1 => m_ExternalChannel1, 
+			2 => m_ExternalChannel2, 
+			_ => -1, 
+		};
+	}
 ```
 
 - `public SetExternalChannelIndex(System.Int32 colorIndex, System.Int32 channelIndex) : System.Void`  
 
 ```csharp
-public System.Void SetExternalChannelIndex(System.Int32 colorIndex, System.Int32 channelIndex);
+public void SetExternalChannelIndex(int colorIndex, int channelIndex)
+	{
+		switch (colorIndex)
+		{
+		case 0:
+			m_ExternalChannel0 = (sbyte)channelIndex;
+			break;
+		case 1:
+			m_ExternalChannel1 = (sbyte)channelIndex;
+			break;
+		case 2:
+			m_ExternalChannel2 = (sbyte)channelIndex;
+			break;
+		}
+	}
 ```
 
 

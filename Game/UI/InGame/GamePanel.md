@@ -67,13 +67,20 @@ protected GamePanel();
 - `protected virtual BindProperties(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-protected virtual System.Void BindProperties(Colossal.UI.Binding.IJsonWriter writer);
+protected virtual void BindProperties(IJsonWriter writer)
+	{
+	}
 ```
 
 - `public Write(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-public System.Void Write(Colossal.UI.Binding.IJsonWriter writer);
+public void Write(IJsonWriter writer)
+	{
+		writer.TypeBegin(GetType().FullName);
+		BindProperties(writer);
+		writer.TypeEnd();
+	}
 ```
 
 

@@ -110,7 +110,16 @@ public System.String[] corruptDataMessages { get; set; }
 - `public OverlayBindings()`  
 
 ```csharp
-public OverlayBindings();
+public OverlayBindings()
+	{
+		AddBinding(m_ActiveScreen = new ValueBinding<OverlayScreen>("overlay", "activeScreen", OverlayScreen.None, new DelegateWriter<OverlayScreen>(delegate(IJsonWriter writer, OverlayScreen value)
+		{
+			writer.Write((int)value);
+		})));
+		AddBinding(m_Progress = new ValueBinding<float[]>("overlay", "progress", new float[3], new ArrayWriter<float>()));
+		AddBinding(m_HintMessages = new ValueBinding<string[]>("overlay", "hintMessages", Array.Empty<string>(), new ArrayWriter<string>()));
+		AddBinding(m_CorruptDataMessages = new ValueBinding<string[]>("overlay", "corruptDataMessages", null, ValueWriters.Nullable(new ArrayWriter<string>())));
+	}
 ```
 
 
@@ -119,49 +128,84 @@ public OverlayBindings();
 - `public ActivateScreen(Game.SceneFlow.OverlayScreen screen) : System.Void`  
 
 ```csharp
-public System.Void ActivateScreen(Game.SceneFlow.OverlayScreen screen);
+public void ActivateScreen(OverlayScreen screen)
+	{
+		m_ActiveScreenList.Add(screen);
+		UpdateScreen();
+	}
 ```
 
 - `public ActivateScreenScoped(Game.SceneFlow.OverlayScreen screen) : Game.SceneFlow.OverlayBindings+ScopedScreen`  
 
 ```csharp
-public Game.SceneFlow.OverlayBindings+ScopedScreen ActivateScreenScoped(Game.SceneFlow.OverlayScreen screen);
+public ScopedScreen ActivateScreenScoped(OverlayScreen screen)
+	{
+		return new ScopedScreen(screen, this);
+	}
 ```
 
 - `public DeactivateAllScreens() : System.Void`  
 
 ```csharp
-public System.Void DeactivateAllScreens();
+public void DeactivateAllScreens()
+	{
+		m_ActiveScreenList.Clear();
+		UpdateScreen();
+	}
 ```
 
 - `public DeactivateScreen(Game.SceneFlow.OverlayScreen screen) : System.Void`  
 
 ```csharp
-public System.Void DeactivateScreen(Game.SceneFlow.OverlayScreen screen);
+public void DeactivateScreen(OverlayScreen screen)
+	{
+		m_ActiveScreenList.Remove(screen);
+		UpdateScreen();
+	}
 ```
 
 - `public GetProgress(Game.SceneFlow.OverlayProgressType type) : System.Single`  
 
 ```csharp
-public System.Single GetProgress(Game.SceneFlow.OverlayProgressType type);
+public float GetProgress(OverlayProgressType type)
+	{
+		return m_Progress.value[(int)type];
+	}
 ```
 
 - `public SetProgress(Game.SceneFlow.OverlayProgressType type, System.Single progress) : System.Void`  
 
 ```csharp
-public System.Void SetProgress(Game.SceneFlow.OverlayProgressType type, System.Single progress);
+public void SetProgress(OverlayProgressType type, float progress)
+	{
+		if (m_Progress.value[(int)type] != progress)
+		{
+			m_Progress.value[(int)type] = progress;
+			m_Progress.TriggerUpdate();
+		}
+	}
 ```
 
 - `public SwapScreen(Game.SceneFlow.OverlayScreen screen1, Game.SceneFlow.OverlayScreen screen2) : System.Void`  
 
 ```csharp
-public System.Void SwapScreen(Game.SceneFlow.OverlayScreen screen1, Game.SceneFlow.OverlayScreen screen2);
+public void SwapScreen(OverlayScreen screen1, OverlayScreen screen2)
+	{
+		DeactivateScreen(screen1);
+		ActivateScreen(screen2);
+	}
 ```
 
 - `private UpdateScreen() : System.Void`  
 
 ```csharp
-private System.Void UpdateScreen();
+private void UpdateScreen()
+	{
+		OverlayScreen overlayScreen = m_ActiveScreenList.FirstOrDefault();
+		m_ActiveScreen.Update(overlayScreen);
+		CompositeBinding.log.DebugFormat("Screen changed to {0}", overlayScreen);
+		this.onScreenActivated?.Invoke(overlayScreen);
+	}
 ```
 
 

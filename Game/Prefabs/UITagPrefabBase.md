@@ -45,7 +45,11 @@ protected UITagPrefabBase();
 - `public virtual GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> prefabComponents) : System.Void`  
 
 ```csharp
-public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> prefabComponents);
+public override void GetPrefabComponents(HashSet<ComponentType> prefabComponents)
+	{
+		base.GetPrefabComponents(prefabComponents);
+		prefabComponents.Add(ComponentType.ReadWrite<UITagPrefabData>());
+	}
 ```
 
 

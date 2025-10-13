@@ -37,7 +37,10 @@ public System.Int32 m_CorpseCapacity;
 - `public HearseData(System.Int32 corpseCapacity)`  
 
 ```csharp
-public HearseData(System.Int32 corpseCapacity);
+public HearseData(int corpseCapacity)
+	{
+		m_CorpseCapacity = corpseCapacity;
+	}
 ```
 
 

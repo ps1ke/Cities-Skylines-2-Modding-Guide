@@ -22,7 +22,14 @@ public static class LocalizationUtils
 - `public static AppendIndex(System.String localeId, Game.Common.RandomLocalizationIndex randomLocalizationIndex) : System.String`  
 
 ```csharp
-public static System.String AppendIndex(System.String localeId, Game.Common.RandomLocalizationIndex randomLocalizationIndex);
+public static string AppendIndex(string localeId, RandomLocalizationIndex randomLocalizationIndex)
+	{
+		if (randomLocalizationIndex.m_Index == -1)
+		{
+			return localeId;
+		}
+		return $"{localeId}:{randomLocalizationIndex.m_Index}";
+	}
 ```
 
 

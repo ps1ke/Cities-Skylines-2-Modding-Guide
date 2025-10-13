@@ -43,7 +43,11 @@ public System.Single m_ProductionPerUnit;
 - `public Combine(Game.Prefabs.GarbagePoweredData otherData) : System.Void`  
 
 ```csharp
-public System.Void Combine(Game.Prefabs.GarbagePoweredData otherData);
+public void Combine(GarbagePoweredData otherData)
+	{
+		m_Capacity += otherData.m_Capacity;
+		m_ProductionPerUnit = math.max(m_ProductionPerUnit, otherData.m_ProductionPerUnit);
+	}
 ```
 
 - `public Deserialize<TReader>(TReader reader) : System.Void`  

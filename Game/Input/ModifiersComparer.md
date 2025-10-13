@@ -23,7 +23,28 @@ public sealed struct ModifiersComparer : System.Collections.Generic.IComparer<Sy
 - `public Compare(System.Single x, System.Single y) : System.Int32`  
 
 ```csharp
-public System.Int32 Compare(System.Single x, System.Single y);
+public int Compare(float x, float y)
+	{
+		if (float.IsNaN(x))
+		{
+			return 1;
+		}
+		if (float.IsNaN(y))
+		{
+			return -1;
+		}
+		float num = Math.Abs(x);
+		float num2 = Math.Abs(y);
+		if (num > num2)
+		{
+			return -1;
+		}
+		if (!(num < num2))
+		{
+			return 0;
+		}
+		return 1;
+	}
 ```
 
 

@@ -97,13 +97,26 @@ public Bridge();
 - `public virtual GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetArchetypeComponents(HashSet<ComponentType> components)
+	{
+		if (m_FixedSegments != null && m_FixedSegments.Length != 0 && components.Contains(ComponentType.ReadWrite<Edge>()))
+		{
+			components.Add(ComponentType.ReadWrite<Fixed>());
+		}
+	}
 ```
 
 - `public virtual GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetPrefabComponents(HashSet<ComponentType> components)
+	{
+		components.Add(ComponentType.ReadWrite<BridgeData>());
+		if (m_FixedSegments != null && m_FixedSegments.Length != 0)
+		{
+			components.Add(ComponentType.ReadWrite<FixedNetElement>());
+		}
+	}
 ```
 
 

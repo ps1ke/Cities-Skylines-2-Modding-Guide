@@ -35,13 +35,19 @@ public System.Int32 m_Index;
 - `public Equals(Game.Pathfind.EdgeID other) : System.Boolean`  
 
 ```csharp
-public System.Boolean Equals(Game.Pathfind.EdgeID other);
+public bool Equals(EdgeID other)
+	{
+		return m_Index == other.m_Index;
+	}
 ```
 
 - `public virtual GetHashCode() : System.Int32`  
 
 ```csharp
-public virtual System.Int32 GetHashCode();
+public override int GetHashCode()
+	{
+		return m_Index;
+	}
 ```
 
 

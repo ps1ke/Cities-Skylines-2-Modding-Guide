@@ -65,7 +65,14 @@ public System.Int32 m_MaterialIndex;
 - `public MeshMaterial(System.Int32 startIndex, System.Int32 indexCount, System.Int32 startVertex, System.Int32 vertexCount, System.Int32 materialIndex)`  
 
 ```csharp
-public MeshMaterial(System.Int32 startIndex, System.Int32 indexCount, System.Int32 startVertex, System.Int32 vertexCount, System.Int32 materialIndex);
+public MeshMaterial(int startIndex, int indexCount, int startVertex, int vertexCount, int materialIndex)
+	{
+		m_StartIndex = startIndex;
+		m_IndexCount = indexCount;
+		m_StartVertex = startVertex;
+		m_VertexCount = vertexCount;
+		m_MaterialIndex = materialIndex;
+	}
 ```
 
 

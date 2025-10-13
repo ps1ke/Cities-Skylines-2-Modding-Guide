@@ -74,7 +74,27 @@ public SecondaryLaneInfo2();
 - `public GetFlags() : Game.Prefabs.SecondaryNetLaneFlags`  
 
 ```csharp
-public Game.Prefabs.SecondaryNetLaneFlags GetFlags();
+public SecondaryNetLaneFlags GetFlags()
+	{
+		SecondaryNetLaneFlags secondaryNetLaneFlags = (SecondaryNetLaneFlags)0;
+		if (m_RequireStop)
+		{
+			secondaryNetLaneFlags |= SecondaryNetLaneFlags.RequireStop;
+		}
+		if (m_RequireYield)
+		{
+			secondaryNetLaneFlags |= SecondaryNetLaneFlags.RequireYield;
+		}
+		if (m_RequirePavement)
+		{
+			secondaryNetLaneFlags |= SecondaryNetLaneFlags.RequirePavement;
+		}
+		if (m_RequireContinue)
+		{
+			secondaryNetLaneFlags |= SecondaryNetLaneFlags.RequireContinue;
+		}
+		return secondaryNetLaneFlags;
+	}
 ```
 
 

@@ -82,7 +82,10 @@ protected System.Boolean Active { protected get; }
 - `public LandValueInfoviewUISystem()`  
 
 ```csharp
-public LandValueInfoviewUISystem();
+[Preserve]
+	public LandValueInfoviewUISystem()
+	{
+	}
 ```
 
 
@@ -91,37 +94,75 @@ public LandValueInfoviewUISystem();
 - `private __AssignQueries(Unity.Entities.SystemState& state) : System.Void`  
 
 ```csharp
-private System.Void __AssignQueries(Unity.Entities.SystemState& state);
+private void __AssignQueries(ref SystemState state)
+	{
+		new EntityQueryBuilder(Allocator.Temp).Dispose();
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_LandValueQuery = GetEntityQuery(ComponentType.ReadOnly<Building>(), ComponentType.ReadOnly<BuildingCondition>(), ComponentType.Exclude<Deleted>(), ComponentType.Exclude<Temp>());
+		AddBinding(m_AverageLandValue = new ValueBinding<float>("landValueInfo", "averageLandValue", 0f));
+		m_Results = new NativeArray<float>(2, Allocator.Persistent);
+	}
 ```
 
 - `protected virtual OnCreateForCompiler() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreateForCompiler();
+protected override void OnCreateForCompiler()
+	{
+		base.OnCreateForCompiler();
+		__AssignQueries(ref base.CheckedStateRef);
+		__TypeHandle.__AssignHandles(ref base.CheckedStateRef);
+	}
 ```
 
 - `protected virtual OnDestroy() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnDestroy();
+[Preserve]
+	protected override void OnDestroy()
+	{
+		base.OnDestroy();
+		m_Results.Dispose();
+	}
 ```
 
 - `protected virtual PerformUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void PerformUpdate();
+protected override void PerformUpdate()
+	{
+		UpdateLandValue();
+	}
 ```
 
 - `private UpdateLandValue() : System.Void`  
 
 ```csharp
-private System.Void UpdateLandValue();
+private void UpdateLandValue()
+	{
+		for (int i = 0; i < m_Results.Length; i++)
+		{
+			m_Results[i] = 0f;
+		}
+		JobChunkExtensions.Schedule(new CalculateAverageLandValueJob
+		{
+			m_BuildingTypeHandle = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Buildings_Building_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+			m_LandValues = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_LandValue_RO_ComponentLookup, ref base.CheckedStateRef),
+			m_Results = m_Results
+		}, m_LandValueQuery, base.Dependency).Complete();
+		float num = m_Results[1];
+		float newValue = ((num > 0f) ? (m_Results[0] / num) : 0f);
+		m_AverageLandValue.Update(newValue);
+	}
 ```
 
 

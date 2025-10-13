@@ -51,7 +51,12 @@ public System.Int32 m_MaintenanceRate;
 - `public MaintenanceVehicleData(Game.Simulation.MaintenanceType maintenanceType, System.Int32 maintenanceCapacity, System.Int32 maintenanceRate)`  
 
 ```csharp
-public MaintenanceVehicleData(Game.Simulation.MaintenanceType maintenanceType, System.Int32 maintenanceCapacity, System.Int32 maintenanceRate);
+public MaintenanceVehicleData(MaintenanceType maintenanceType, int maintenanceCapacity, int maintenanceRate)
+	{
+		m_MaintenanceType = maintenanceType;
+		m_MaintenanceCapacity = maintenanceCapacity;
+		m_MaintenanceRate = maintenanceRate;
+	}
 ```
 
 

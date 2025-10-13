@@ -124,7 +124,10 @@ private Game.Debug.LaneDebugSystem+TypeHandle __TypeHandle;
 - `public LaneDebugSystem()`  
 
 ```csharp
-public LaneDebugSystem();
+[Preserve]
+	public LaneDebugSystem()
+	{
+	}
 ```
 
 
@@ -133,25 +136,85 @@ public LaneDebugSystem();
 - `private __AssignQueries(Unity.Entities.SystemState& state) : System.Void`  
 
 ```csharp
-private System.Void __AssignQueries(Unity.Entities.SystemState& state);
+private void __AssignQueries(ref SystemState state)
+	{
+		new EntityQueryBuilder(Allocator.Temp).Dispose();
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_GizmosSystem = base.World.GetOrCreateSystemManaged<GizmosSystem>();
+		m_LaneQuery = GetEntityQuery(ComponentType.ReadOnly<Lane>(), ComponentType.ReadOnly<Curve>(), ComponentType.Exclude<Deleted>(), ComponentType.Exclude<Hidden>());
+		RequireForUpdate(m_LaneQuery);
+		m_StandaloneOption = AddOption("Standalone Lanes", defaultEnabled: true);
+		m_SlaveOption = AddOption("Slave Lanes", defaultEnabled: true);
+		m_MasterOption = AddOption("Master Lanes", defaultEnabled: false);
+		m_ConnectionOption = AddOption("Connection Lanes", defaultEnabled: false);
+		m_OverlapOption = AddOption("Draw Overlaps", defaultEnabled: false);
+		m_ReservedOption = AddOption("Draw Reserved", defaultEnabled: true);
+		m_BlockageOption = AddOption("Draw Blocked", defaultEnabled: true);
+		m_ConditionOption = AddOption("Draw Condition", defaultEnabled: false);
+		m_SignalsOption = AddOption("Draw Signals", defaultEnabled: false);
+		m_PriorityOption = AddOption("Draw Priorities", defaultEnabled: false);
+		base.Enabled = false;
+	}
 ```
 
 - `protected virtual OnCreateForCompiler() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreateForCompiler();
+protected override void OnCreateForCompiler()
+	{
+		base.OnCreateForCompiler();
+		__AssignQueries(ref base.CheckedStateRef);
+		__TypeHandle.__AssignHandles(ref base.CheckedStateRef);
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		JobHandle dependencies;
+		JobHandle jobHandle = JobChunkExtensions.ScheduleParallel(new LaneGizmoJob
+		{
+			m_StandaloneOption = m_StandaloneOption.enabled,
+			m_SlaveOption = m_SlaveOption.enabled,
+			m_MasterOption = m_MasterOption.enabled,
+			m_ConnectionOption = m_ConnectionOption.enabled,
+			m_OverlapOption = m_OverlapOption.enabled,
+			m_ReservedOption = m_ReservedOption.enabled,
+			m_BlockageOption = m_BlockageOption.enabled,
+			m_ConditionOption = m_ConditionOption.enabled,
+			m_SignalsOption = m_SignalsOption.enabled,
+			m_PriorityOption = m_PriorityOption.enabled,
+			m_CurveType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Net_Curve_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+			m_CarLaneType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Net_CarLane_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+			m_TrackLaneType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Net_TrackLane_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+			m_ParkingLaneType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Net_ParkingLane_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+			m_PedestrianLaneType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Net_PedestrianLane_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+			m_ConnectionLaneType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Net_ConnectionLane_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+			m_MasterLaneType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Net_MasterLane_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+			m_SlaveLaneType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Net_SlaveLane_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+			m_LaneReservationType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Net_LaneReservation_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+			m_LaneConditionType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Net_LaneCondition_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+			m_LaneSignalType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Net_LaneSignal_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+			m_TempType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Tools_Temp_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+			m_LaneObjectType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Net_LaneObject_RO_BufferTypeHandle, ref base.CheckedStateRef),
+			m_LaneOverlapType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Net_LaneOverlap_RO_BufferTypeHandle, ref base.CheckedStateRef),
+			m_GizmoBatcher = m_GizmosSystem.GetGizmosBatcher(out dependencies)
+		}, m_LaneQuery, JobHandle.CombineDependencies(base.Dependency, dependencies));
+		m_GizmosSystem.AddGizmosBatcherWriter(jobHandle);
+		base.Dependency = jobHandle;
+	}
 ```
 
 

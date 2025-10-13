@@ -138,25 +138,56 @@ public GarbagePrefab();
 - `public virtual GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetArchetypeComponents(HashSet<ComponentType> components)
+	{
+		base.GetArchetypeComponents(components);
+	}
 ```
 
 - `public virtual GetDependencies(System.Collections.Generic.List<Game.Prefabs.PrefabBase> prefabs) : System.Void`  
 
 ```csharp
-public virtual System.Void GetDependencies(System.Collections.Generic.List<Game.Prefabs.PrefabBase> prefabs);
+public override void GetDependencies(List<PrefabBase> prefabs)
+	{
+		base.GetDependencies(prefabs);
+		prefabs.Add(m_GarbageServicePrefab);
+		prefabs.Add(m_GarbageNotificationPrefab);
+		prefabs.Add(m_FacilityFullNotificationPrefab);
+	}
 ```
 
 - `public virtual GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetPrefabComponents(HashSet<ComponentType> components)
+	{
+		base.GetPrefabComponents(components);
+		components.Add(ComponentType.ReadWrite<GarbageParameterData>());
+	}
 ```
 
 - `public virtual LateInitialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity) : System.Void`  
 
 ```csharp
-public virtual System.Void LateInitialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity);
+public override void LateInitialize(EntityManager entityManager, Entity entity)
+	{
+		base.LateInitialize(entityManager, entity);
+		PrefabSystem orCreateSystemManaged = entityManager.World.GetOrCreateSystemManaged<PrefabSystem>();
+		GarbageParameterData componentData = default(GarbageParameterData);
+		componentData.m_GarbageServicePrefab = orCreateSystemManaged.GetEntity(m_GarbageServicePrefab);
+		componentData.m_GarbageNotificationPrefab = orCreateSystemManaged.GetEntity(m_GarbageNotificationPrefab);
+		componentData.m_FacilityFullNotificationPrefab = orCreateSystemManaged.GetEntity(m_FacilityFullNotificationPrefab);
+		componentData.m_HomelessGarbageProduce = m_HomelessGarbageProduce;
+		componentData.m_CollectionGarbageLimit = m_CollectionGarbageLimit;
+		componentData.m_RequestGarbageLimit = m_RequestGarbageLimit;
+		componentData.m_WarningGarbageLimit = m_WarningGarbageLimit;
+		componentData.m_MaxGarbageAccumulation = m_MaxGarbageAccumulation;
+		componentData.m_BuildingLevelBalance = m_BuildingLevelBalance;
+		componentData.m_EducationBalance = m_EducationBalance;
+		componentData.m_HappinessEffectBaseline = m_HappinessEffectBaseline;
+		componentData.m_HappinessEffectStep = m_HappinessEffectStep;
+		entityManager.SetComponentData(entity, componentData);
+	}
 ```
 
 

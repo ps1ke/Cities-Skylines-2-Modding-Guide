@@ -69,7 +69,13 @@ public System.Void Serialize<TWriter>(TWriter writer);
 - `public SetDefaults(Colossal.Serialization.Entities.Context context) : System.Void`  
 
 ```csharp
-public System.Void SetDefaults(Colossal.Serialization.Entities.Context context);
+public void SetDefaults(Context context)
+	{
+		m_CurrentTourists = 0;
+		m_AverageTourists = 0;
+		m_Attractiveness = 0;
+		m_Lodging = default(int2);
+	}
 ```
 
 

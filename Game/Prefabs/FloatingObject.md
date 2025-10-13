@@ -63,19 +63,48 @@ public FloatingObject();
 - `public virtual GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetArchetypeComponents(HashSet<ComponentType> components)
+	{
+		if (!m_FixedToBottom && base.prefab is StaticObjectPrefab)
+		{
+			components.Add(ComponentType.ReadWrite<Swaying>());
+			components.Add(ComponentType.ReadWrite<InterpolatedTransform>());
+		}
+	}
 ```
 
 - `public virtual GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetPrefabComponents(HashSet<ComponentType> components)
+	{
+		components.Add(ComponentType.ReadWrite<PlaceableObjectData>());
+	}
 ```
 
 - `public virtual Initialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity) : System.Void`  
 
 ```csharp
-public virtual System.Void Initialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity);
+public override void Initialize(EntityManager entityManager, Entity entity)
+	{
+		base.Initialize(entityManager, entity);
+		PlaceableObjectData componentData = entityManager.GetComponentData<PlaceableObjectData>(entity);
+		componentData.m_PlacementOffset.y = m_FloatingOffset;
+		if (m_AllowDryland)
+		{
+			componentData.m_Flags |= PlacementFlags.OnGround | PlacementFlags.Floating;
+		}
+		else
+		{
+			componentData.m_Flags &= ~PlacementFlags.OnGround;
+			componentData.m_Flags |= PlacementFlags.Floating;
+		}
+		if (!m_FixedToBottom)
+		{
+			componentData.m_Flags |= PlacementFlags.Swaying;
+		}
+		entityManager.SetComponentData(entity, componentData);
+	}
 ```
 
 

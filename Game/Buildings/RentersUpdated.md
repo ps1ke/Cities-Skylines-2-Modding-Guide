@@ -35,7 +35,10 @@ public Unity.Entities.Entity m_Property;
 - `public RentersUpdated(Unity.Entities.Entity property)`  
 
 ```csharp
-public RentersUpdated(Unity.Entities.Entity property);
+public RentersUpdated(Entity property)
+	{
+		m_Property = property;
+	}
 ```
 
 

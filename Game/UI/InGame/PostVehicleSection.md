@@ -40,7 +40,10 @@ protected System.String group { protected get; }
 - `public PostVehicleSection()`  
 
 ```csharp
-public PostVehicleSection();
+[Preserve]
+	public PostVehicleSection()
+	{
+	}
 ```
 
 
@@ -49,19 +52,35 @@ public PostVehicleSection();
 - `protected virtual OnProcess() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnProcess();
+protected override void OnProcess()
+	{
+		PostVan componentData = base.EntityManager.GetComponentData<PostVan>(selectedEntity);
+		base.stateKey = VehicleUIUtils.GetStateKey(selectedEntity, componentData, base.EntityManager);
+		base.OnProcess();
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		base.visible = Visible();
+	}
 ```
 
 - `private Visible() : System.Boolean`  
 
 ```csharp
-private System.Boolean Visible();
+private bool Visible()
+	{
+		if (base.EntityManager.HasComponent<Vehicle>(selectedEntity) && base.EntityManager.HasComponent<PostVan>(selectedEntity))
+		{
+			return base.EntityManager.HasComponent<Owner>(selectedEntity);
+		}
+		return false;
+	}
 ```
 
 

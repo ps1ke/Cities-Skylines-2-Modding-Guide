@@ -57,25 +57,60 @@ public ZoneBlockPrefab();
 - `public virtual GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetArchetypeComponents(HashSet<ComponentType> components)
+	{
+		base.GetArchetypeComponents(components);
+		components.Add(ComponentType.ReadWrite<CurvePosition>());
+		components.Add(ComponentType.ReadWrite<ValidArea>());
+		components.Add(ComponentType.ReadWrite<BuildOrder>());
+		components.Add(ComponentType.ReadWrite<Cell>());
+		components.Add(ComponentType.ReadWrite<CullingInfo>());
+		components.Add(ComponentType.ReadWrite<MeshBatch>());
+	}
 ```
 
 - `public virtual GetDependencies(System.Collections.Generic.List<Game.Prefabs.PrefabBase> prefabs) : System.Void`  
 
 ```csharp
-public virtual System.Void GetDependencies(System.Collections.Generic.List<Game.Prefabs.PrefabBase> prefabs);
+public override void GetDependencies(List<PrefabBase> prefabs)
+	{
+		base.GetDependencies(prefabs);
+		prefabs.Add(m_ZoneType);
+	}
 ```
 
 - `public virtual GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetPrefabComponents(HashSet<ComponentType> components)
+	{
+		base.GetPrefabComponents(components);
+		components.Add(ComponentType.ReadWrite<ZoneBlockData>());
+		components.Add(ComponentType.ReadWrite<BatchGroup>());
+	}
 ```
 
 - `public virtual LateInitialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity) : System.Void`  
 
 ```csharp
-public virtual System.Void LateInitialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity);
+public override void LateInitialize(EntityManager entityManager, Entity entity)
+	{
+		base.LateInitialize(entityManager, entity);
+		List<ComponentBase> list = new List<ComponentBase>();
+		GetComponents(list);
+		HashSet<ComponentType> hashSet = new HashSet<ComponentType>();
+		hashSet.Add(ComponentType.ReadWrite<Block>());
+		for (int i = 0; i < list.Count; i++)
+		{
+			list[i].GetArchetypeComponents(hashSet);
+		}
+		hashSet.Add(ComponentType.ReadWrite<Created>());
+		hashSet.Add(ComponentType.ReadWrite<Updated>());
+		entityManager.SetComponentData(entity, new ZoneBlockData
+		{
+			m_Archetype = entityManager.CreateArchetype(PrefabUtils.ToArray(hashSet))
+		});
+	}
 ```
 
 

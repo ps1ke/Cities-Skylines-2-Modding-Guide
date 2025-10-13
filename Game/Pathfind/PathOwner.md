@@ -45,13 +45,21 @@ public Game.Pathfind.PathFlags m_State;
 - `public PathOwner(Game.Pathfind.PathFlags state)`  
 
 ```csharp
-public PathOwner(Game.Pathfind.PathFlags state);
+public PathOwner(int elementIndex, PathFlags state)
+	{
+		m_ElementIndex = elementIndex;
+		m_State = state;
+	}
 ```
 
 - `public PathOwner(System.Int32 elementIndex, Game.Pathfind.PathFlags state)`  
 
 ```csharp
-public PathOwner(System.Int32 elementIndex, Game.Pathfind.PathFlags state);
+public PathOwner(int elementIndex, PathFlags state)
+	{
+		m_ElementIndex = elementIndex;
+		m_State = state;
+	}
 ```
 
 

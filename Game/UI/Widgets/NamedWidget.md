@@ -100,19 +100,59 @@ protected NamedWidget();
 - `protected virtual Update() : Game.UI.Widgets.WidgetChanges`  
 
 ```csharp
-protected virtual Game.UI.Widgets.WidgetChanges Update();
+protected override WidgetChanges Update()
+	{
+		return base.Update() | UpdateNameAndDescription(setChanged: false);
+	}
 ```
 
 - `public UpdateNameAndDescription(System.Boolean setChanged = True) : Game.UI.Widgets.WidgetChanges`  
 
 ```csharp
-public Game.UI.Widgets.WidgetChanges UpdateNameAndDescription(System.Boolean setChanged);
+public WidgetChanges UpdateNameAndDescription(bool setChanged = true)
+	{
+		WidgetChanges widgetChanges = WidgetChanges.None;
+		if (displayNameAction != null)
+		{
+			LocalizedString localizedString = displayNameAction();
+			if (!localizedString.Equals(m_displayName))
+			{
+				m_displayName = localizedString;
+				widgetChanges |= WidgetChanges.Properties;
+				if (setChanged)
+				{
+					SetPropertiesChanged();
+				}
+			}
+		}
+		if (descriptionAction != null)
+		{
+			LocalizedString localizedString2 = descriptionAction();
+			if (!localizedString2.Equals(m_description))
+			{
+				m_description = localizedString2;
+				widgetChanges |= WidgetChanges.Properties;
+				if (setChanged)
+				{
+					SetPropertiesChanged();
+				}
+			}
+		}
+		return widgetChanges;
+	}
 ```
 
 - `protected virtual WriteProperties(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-protected virtual System.Void WriteProperties(Colossal.UI.Binding.IJsonWriter writer);
+protected override void WriteProperties(IJsonWriter writer)
+	{
+		base.WriteProperties(writer);
+		writer.PropertyName("displayName");
+		writer.Write(displayName);
+		writer.PropertyName("description");
+		writer.Write(description);
+	}
 ```
 
 

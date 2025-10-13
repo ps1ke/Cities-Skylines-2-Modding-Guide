@@ -44,7 +44,42 @@ private Game.UI.Editor.AssetPickerAdapter m_Adapter;
 - `public LoadAssetPanel(Game.UI.Localization.LocalizedString panelTitle, System.Collections.Generic.IEnumerable<Game.UI.Editor.AssetItem> items, Game.UI.Editor.LoadAssetPanel+LoadCallback onConfirm, System.Action onClose)`  
 
 ```csharp
-public LoadAssetPanel(Game.UI.Localization.LocalizedString panelTitle, System.Collections.Generic.IEnumerable<Game.UI.Editor.AssetItem> items, Game.UI.Editor.LoadAssetPanel+LoadCallback onConfirm, System.Action onClose);
+public LoadAssetPanel(LocalizedString panelTitle, IEnumerable<AssetItem> items, LoadCallback onConfirm, Action onClose)
+	{
+		m_ConfirmCallback = onConfirm;
+		m_Adapter = new AssetPickerAdapter(items);
+		base.title = panelTitle;
+		base.children = new IWidget[4]
+		{
+			new SearchField
+			{
+				adapter = m_Adapter
+			},
+			new ItemPicker<AssetItem>
+			{
+				adapter = m_Adapter,
+				hasFavorites = true
+			},
+			new ItemPickerFooter
+			{
+				adapter = m_Adapter
+			},
+			ButtonRow.WithChildren(new Button[2]
+			{
+				new Button
+				{
+					displayName = "Editor.LOAD",
+					disabled = () => m_Adapter.selectedItem == null,
+					action = OnConfirm
+				},
+				new Button
+				{
+					displayName = "Common.CANCEL",
+					action = onClose
+				}
+			})
+		};
+	}
 ```
 
 
@@ -59,7 +94,10 @@ private System.Boolean <.ctor>b__3_0();
 - `private OnConfirm() : System.Void`  
 
 ```csharp
-private System.Void OnConfirm();
+private void OnConfirm()
+	{
+		m_ConfirmCallback(m_Adapter.selectedItem.guid);
+	}
 ```
 
 

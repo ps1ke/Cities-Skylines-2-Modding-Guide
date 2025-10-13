@@ -43,7 +43,11 @@ public readonly System.String checkMethod;
 - `public SettingsUIPageWarningAttribute(System.Type checkType, System.String checkMethod)`  
 
 ```csharp
-public SettingsUIPageWarningAttribute(System.Type checkType, System.String checkMethod);
+public SettingsUIPageWarningAttribute(Type checkType, string checkMethod)
+	{
+		this.checkType = checkType;
+		this.checkMethod = checkMethod;
+	}
 ```
 
 

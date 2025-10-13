@@ -56,7 +56,16 @@ protected ColorInfomodeBasePrefab();
 - `public virtual GetColors(UnityEngine.Color& color0, UnityEngine.Color& color1, UnityEngine.Color& color2, System.Single& steps, System.Single& speed, System.Single& tiling, System.Single& fill) : System.Void`  
 
 ```csharp
-public virtual System.Void GetColors(UnityEngine.Color& color0, UnityEngine.Color& color1, UnityEngine.Color& color2, System.Single& steps, System.Single& speed, System.Single& tiling, System.Single& fill);
+public override void GetColors(out Color color0, out Color color1, out Color color2, out float steps, out float speed, out float tiling, out float fill)
+	{
+		color0 = m_Color;
+		color1 = m_Color;
+		color2 = m_Color;
+		steps = 1f;
+		speed = 0f;
+		tiling = 0f;
+		fill = 0f;
+	}
 ```
 
 

@@ -156,7 +156,10 @@ public System.Int32 sewageExport { get; }
 - `public WaterTradeSystem()`  
 
 ```csharp
-public WaterTradeSystem();
+[Preserve]
+	public WaterTradeSystem()
+	{
+	}
 ```
 
 
@@ -165,7 +168,15 @@ public WaterTradeSystem();
 - `private __AssignQueries(Unity.Entities.SystemState& state) : System.Void`  
 
 ```csharp
-private System.Void __AssignQueries(Unity.Entities.SystemState& state);
+private void __AssignQueries(ref SystemState state)
+	{
+		EntityQueryBuilder entityQueryBuilder = new EntityQueryBuilder(Allocator.Temp);
+		EntityQueryBuilder entityQueryBuilder2 = entityQueryBuilder.WithAll<OutsideTradeParameterData>();
+		entityQueryBuilder2 = entityQueryBuilder2.WithOptions(EntityQueryOptions.IncludeSystems);
+		__query_1457460959_0 = entityQueryBuilder2.Build(ref state);
+		entityQueryBuilder.Reset();
+		entityQueryBuilder.Dispose();
+	}
 ```
 
 - `public Deserialize<TReader>(TReader reader) : System.Void`  
@@ -177,37 +188,110 @@ public System.Void Deserialize<TReader>(TReader reader);
 - `public virtual GetUpdateInterval(Game.SystemUpdatePhase phase) : System.Int32`  
 
 ```csharp
-public virtual System.Int32 GetUpdateInterval(Game.SystemUpdatePhase phase);
+public override int GetUpdateInterval(SystemUpdatePhase phase)
+	{
+		return 128;
+	}
 ```
 
 - `public virtual GetUpdateOffset(Game.SystemUpdatePhase phase) : System.Int32`  
 
 ```csharp
-public virtual System.Int32 GetUpdateOffset(Game.SystemUpdatePhase phase);
+public override int GetUpdateOffset(SystemUpdatePhase phase)
+	{
+		return 62;
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_WaterPipeFlowSystem = base.World.GetOrCreateSystemManaged<WaterPipeFlowSystem>();
+		m_ServiceFeeSystem = base.World.GetOrCreateSystemManaged<ServiceFeeSystem>();
+		m_WaterStatisticsSystem = base.World.GetOrCreateSystemManaged<WaterStatisticsSystem>();
+		m_TradeNodeGroup = GetEntityQuery(ComponentType.ReadOnly<TradeNode>(), ComponentType.ReadOnly<WaterPipeNode>(), ComponentType.ReadOnly<ConnectedFlowEdge>());
+		RequireForUpdate<OutsideTradeParameterData>();
+		m_FreshExport = new NativePerThreadSumInt(Allocator.Persistent);
+		m_PollutedExport = new NativePerThreadSumInt(Allocator.Persistent);
+		m_FreshImport = new NativePerThreadSumInt(Allocator.Persistent);
+		m_SewageExport = new NativePerThreadSumInt(Allocator.Persistent);
+	}
 ```
 
 - `protected virtual OnCreateForCompiler() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreateForCompiler();
+protected override void OnCreateForCompiler()
+	{
+		base.OnCreateForCompiler();
+		__AssignQueries(ref base.CheckedStateRef);
+		__TypeHandle.__AssignHandles(ref base.CheckedStateRef);
+	}
 ```
 
 - `protected virtual OnDestroy() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnDestroy();
+[Preserve]
+	protected override void OnDestroy()
+	{
+		m_FreshExport.Dispose();
+		m_PollutedExport.Dispose();
+		m_FreshImport.Dispose();
+		m_SewageExport.Dispose();
+		base.OnDestroy();
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		m_LastFreshExport = m_FreshExport.Count;
+		m_LastFreshImport = m_FreshImport.Count;
+		m_LastSewageExport = m_SewageExport.Count;
+		int availableWater = m_WaterStatisticsSystem.freshCapacity - m_WaterStatisticsSystem.freshConsumption;
+		m_FreshExport.Count = 0;
+		m_PollutedExport.Count = 0;
+		m_FreshImport.Count = 0;
+		m_SewageExport.Count = 0;
+		if (!m_TradeNodeGroup.IsEmptyIgnoreFilter)
+		{
+			OutsideTradeParameterData singleton = __query_1457460959_0.GetSingleton<OutsideTradeParameterData>();
+			SumJob jobData = new SumJob
+			{
+				m_FlowConnectionType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Simulation_ConnectedFlowEdge_RO_BufferTypeHandle, ref base.CheckedStateRef),
+				m_FlowEdges = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Simulation_WaterPipeEdge_RO_ComponentLookup, ref base.CheckedStateRef),
+				m_FreshExport = m_FreshExport.ToConcurrent(),
+				m_PollutedExport = m_PollutedExport.ToConcurrent(),
+				m_FreshImport = m_FreshImport.ToConcurrent(),
+				m_SewageExport = m_SewageExport.ToConcurrent(),
+				m_OutsideTradeParameters = singleton,
+				m_SourceNode = m_WaterPipeFlowSystem.sourceNode,
+				m_SinkNode = m_WaterPipeFlowSystem.sinkNode
+			};
+			base.Dependency = JobChunkExtensions.ScheduleParallel(jobData, m_TradeNodeGroup, base.Dependency);
+			JobHandle deps;
+			WaterTradeJob jobData2 = new WaterTradeJob
+			{
+				m_AvailableWater = availableWater,
+				m_FreshExport = m_FreshExport,
+				m_PollutedExport = m_PollutedExport,
+				m_FreshImport = m_FreshImport,
+				m_SewageExport = m_SewageExport,
+				m_FeeQueue = m_ServiceFeeSystem.GetFeeQueue(out deps),
+				m_OutsideTradeParameters = singleton
+			};
+			base.Dependency = IJobExtensions.Schedule(jobData2, JobHandle.CombineDependencies(base.Dependency, deps));
+			m_ServiceFeeSystem.AddQueueWriter(base.Dependency);
+		}
+	}
 ```
 
 - `public Serialize<TWriter>(TWriter writer) : System.Void`  
@@ -219,7 +303,12 @@ public System.Void Serialize<TWriter>(TWriter writer);
 - `public SetDefaults(Colossal.Serialization.Entities.Context context) : System.Void`  
 
 ```csharp
-public System.Void SetDefaults(Colossal.Serialization.Entities.Context context);
+public void SetDefaults(Context context)
+	{
+		m_LastFreshExport = 0;
+		m_LastFreshImport = 0;
+		m_LastSewageExport = 0;
+	}
 ```
 
 

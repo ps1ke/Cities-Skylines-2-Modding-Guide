@@ -72,7 +72,15 @@ public System.Single m_Efficiency;
 - `public FireEngine(Game.Vehicles.FireEngineFlags state, System.Int32 requestCount, System.Single extinguishingAmount, System.Single efficiency)`  
 
 ```csharp
-public FireEngine(Game.Vehicles.FireEngineFlags state, System.Int32 requestCount, System.Single extinguishingAmount, System.Single efficiency);
+public FireEngine(FireEngineFlags state, int requestCount, float extinguishingAmount, float efficiency)
+	{
+		m_TargetRequest = Entity.Null;
+		m_State = state;
+		m_RequestCount = requestCount;
+		m_PathElementTime = 0f;
+		m_ExtinguishingAmount = extinguishingAmount;
+		m_Efficiency = efficiency;
+	}
 ```
 
 

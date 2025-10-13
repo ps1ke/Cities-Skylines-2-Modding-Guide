@@ -241,7 +241,92 @@ private Unity.Entities.BufferLookup<Game.Areas.ServiceDistrict> m_ServiceDistric
 - `public PostServicePathfindSetup(Game.Simulation.PathfindSetupSystem system)`  
 
 ```csharp
-public PostServicePathfindSetup(Game.Simulation.PathfindSetupSystem system);
+public PostServicePathfindSetup(PathfindSetupSystem system)
+	{
+		m_PostVanQuery = system.GetSetupQuery(new EntityQueryDesc
+		{
+			Any = new ComponentType[2]
+			{
+				ComponentType.ReadOnly<Game.Buildings.PostFacility>(),
+				ComponentType.ReadOnly<Game.Vehicles.PostVan>()
+			},
+			None = new ComponentType[4]
+			{
+				ComponentType.ReadOnly<Deleted>(),
+				ComponentType.ReadOnly<Destroyed>(),
+				ComponentType.ReadOnly<Game.Buildings.ServiceUpgrade>(),
+				ComponentType.ReadOnly<Temp>()
+			}
+		});
+		m_MailTransferQuery = system.GetSetupQuery(new EntityQueryDesc
+		{
+			All = new ComponentType[3]
+			{
+				ComponentType.ReadOnly<Game.Buildings.PostFacility>(),
+				ComponentType.ReadOnly<ServiceDispatch>(),
+				ComponentType.ReadOnly<PrefabRef>()
+			},
+			None = new ComponentType[3]
+			{
+				ComponentType.ReadOnly<Deleted>(),
+				ComponentType.ReadOnly<Destroyed>(),
+				ComponentType.ReadOnly<Temp>()
+			}
+		}, new EntityQueryDesc
+		{
+			All = new ComponentType[4]
+			{
+				ComponentType.ReadOnly<Game.Companies.StorageCompany>(),
+				ComponentType.ReadOnly<PrefabRef>(),
+				ComponentType.ReadOnly<Resources>(),
+				ComponentType.ReadOnly<TradeCost>()
+			},
+			None = new ComponentType[3]
+			{
+				ComponentType.ReadOnly<Deleted>(),
+				ComponentType.ReadOnly<Destroyed>(),
+				ComponentType.ReadOnly<Temp>()
+			}
+		});
+		m_MailBoxQuery = system.GetSetupQuery(new EntityQueryDesc
+		{
+			All = new ComponentType[1] { ComponentType.ReadOnly<PrefabRef>() },
+			Any = new ComponentType[1] { ComponentType.ReadOnly<Game.Routes.MailBox>() },
+			None = new ComponentType[3]
+			{
+				ComponentType.ReadOnly<Deleted>(),
+				ComponentType.ReadOnly<Destroyed>(),
+				ComponentType.ReadOnly<Temp>()
+			}
+		});
+		m_PostVanRequestQuery = system.GetSetupQuery(ComponentType.ReadOnly<PostVanRequest>(), ComponentType.Exclude<Dispatched>(), ComponentType.Exclude<PathInformation>());
+		m_EntityType = system.GetEntityTypeHandle();
+		m_PathOwnerType = system.GetComponentTypeHandle<PathOwner>(isReadOnly: true);
+		m_OwnerType = system.GetComponentTypeHandle<Owner>(isReadOnly: true);
+		m_OutsideConnectionType = system.GetComponentTypeHandle<Game.Objects.OutsideConnection>(isReadOnly: true);
+		m_ServiceRequestType = system.GetComponentTypeHandle<ServiceRequest>(isReadOnly: true);
+		m_PostVanRequestType = system.GetComponentTypeHandle<PostVanRequest>(isReadOnly: true);
+		m_PostFacilityType = system.GetComponentTypeHandle<Game.Buildings.PostFacility>(isReadOnly: true);
+		m_PostVanType = system.GetComponentTypeHandle<Game.Vehicles.PostVan>(isReadOnly: true);
+		m_MailBoxType = system.GetComponentTypeHandle<Game.Routes.MailBox>(isReadOnly: true);
+		m_TransportStopType = system.GetComponentTypeHandle<Game.Routes.TransportStop>(isReadOnly: true);
+		m_PrefabRefType = system.GetComponentTypeHandle<PrefabRef>(isReadOnly: true);
+		m_PathElementType = system.GetBufferTypeHandle<PathElement>(isReadOnly: true);
+		m_ServiceDispatchType = system.GetBufferTypeHandle<ServiceDispatch>(isReadOnly: true);
+		m_ResourcesType = system.GetBufferTypeHandle<Resources>(isReadOnly: true);
+		m_TradeCostType = system.GetBufferTypeHandle<TradeCost>(isReadOnly: true);
+		m_InstalledUpgradeType = system.GetBufferTypeHandle<InstalledUpgrade>(isReadOnly: true);
+		m_PathInformationData = system.GetComponentLookup<PathInformation>(isReadOnly: true);
+		m_PostVanRequestData = system.GetComponentLookup<PostVanRequest>(isReadOnly: true);
+		m_PostFacilityData = system.GetComponentLookup<Game.Buildings.PostFacility>(isReadOnly: true);
+		m_PostVanData = system.GetComponentLookup<Game.Vehicles.PostVan>(isReadOnly: true);
+		m_CurrentDistrictData = system.GetComponentLookup<CurrentDistrict>(isReadOnly: true);
+		m_StorageLimitData = system.GetComponentLookup<StorageLimitData>(isReadOnly: true);
+		m_StorageCompanyData = system.GetComponentLookup<StorageCompanyData>(isReadOnly: true);
+		m_MailBoxData = system.GetComponentLookup<MailBoxData>(isReadOnly: true);
+		m_PathElements = system.GetBufferLookup<PathElement>(isReadOnly: true);
+		m_ServiceDistricts = system.GetBufferLookup<ServiceDistrict>(isReadOnly: true);
+	}
 ```
 
 
@@ -250,25 +335,115 @@ public PostServicePathfindSetup(Game.Simulation.PathfindSetupSystem system);
 - `public SetupMailBoxes(Game.Simulation.PathfindSetupSystem system, Game.Simulation.PathfindSetupSystem+SetupData setupData, Unity.Jobs.JobHandle inputDeps) : Unity.Jobs.JobHandle`  
 
 ```csharp
-public Unity.Jobs.JobHandle SetupMailBoxes(Game.Simulation.PathfindSetupSystem system, Game.Simulation.PathfindSetupSystem+SetupData setupData, Unity.Jobs.JobHandle inputDeps);
+public JobHandle SetupMailBoxes(PathfindSetupSystem system, PathfindSetupSystem.SetupData setupData, JobHandle inputDeps)
+	{
+		m_EntityType.Update(system);
+		m_PrefabRefType.Update(system);
+		m_MailBoxType.Update(system);
+		m_TransportStopType.Update(system);
+		m_MailBoxData.Update(system);
+		return JobChunkExtensions.ScheduleParallel(new SetupMailBoxesJob
+		{
+			m_EntityType = m_EntityType,
+			m_PrefabRefType = m_PrefabRefType,
+			m_MailBoxType = m_MailBoxType,
+			m_TransportStopType = m_TransportStopType,
+			m_MailBoxData = m_MailBoxData,
+			m_SetupData = setupData
+		}, m_MailBoxQuery, inputDeps);
+	}
 ```
 
 - `public SetupMailTransfer(Game.Simulation.PathfindSetupSystem system, Game.Simulation.PathfindSetupSystem+SetupData setupData, Unity.Jobs.JobHandle inputDeps) : Unity.Jobs.JobHandle`  
 
 ```csharp
-public Unity.Jobs.JobHandle SetupMailTransfer(Game.Simulation.PathfindSetupSystem system, Game.Simulation.PathfindSetupSystem+SetupData setupData, Unity.Jobs.JobHandle inputDeps);
+public JobHandle SetupMailTransfer(PathfindSetupSystem system, PathfindSetupSystem.SetupData setupData, JobHandle inputDeps)
+	{
+		m_EntityType.Update(system);
+		m_PostFacilityType.Update(system);
+		m_PrefabRefType.Update(system);
+		m_OutsideConnectionType.Update(system);
+		m_ResourcesType.Update(system);
+		m_TradeCostType.Update(system);
+		m_InstalledUpgradeType.Update(system);
+		m_StorageCompanyData.Update(system);
+		m_StorageLimitData.Update(system);
+		m_ServiceDistricts.Update(system);
+		return JobChunkExtensions.ScheduleParallel(new SetupMailTransferJob
+		{
+			m_EntityType = m_EntityType,
+			m_PostFacilityType = m_PostFacilityType,
+			m_PrefabRefType = m_PrefabRefType,
+			m_OutsideConnectionType = m_OutsideConnectionType,
+			m_ResourcesType = m_ResourcesType,
+			m_TradeCostType = m_TradeCostType,
+			m_InstalledUpgradeType = m_InstalledUpgradeType,
+			m_StorageCompanyData = m_StorageCompanyData,
+			m_StorageLimitData = m_StorageLimitData,
+			m_ServiceDistricts = m_ServiceDistricts,
+			m_SetupData = setupData
+		}, m_MailTransferQuery, inputDeps);
+	}
 ```
 
 - `public SetupPostVanRequest(Game.Simulation.PathfindSetupSystem system, Game.Simulation.PathfindSetupSystem+SetupData setupData, Unity.Jobs.JobHandle inputDeps) : Unity.Jobs.JobHandle`  
 
 ```csharp
-public Unity.Jobs.JobHandle SetupPostVanRequest(Game.Simulation.PathfindSetupSystem system, Game.Simulation.PathfindSetupSystem+SetupData setupData, Unity.Jobs.JobHandle inputDeps);
+public JobHandle SetupPostVanRequest(PathfindSetupSystem system, PathfindSetupSystem.SetupData setupData, JobHandle inputDeps)
+	{
+		m_EntityType.Update(system);
+		m_ServiceRequestType.Update(system);
+		m_PostVanRequestType.Update(system);
+		m_PostVanRequestData.Update(system);
+		m_CurrentDistrictData.Update(system);
+		m_PostFacilityData.Update(system);
+		m_PostVanData.Update(system);
+		m_ServiceDistricts.Update(system);
+		return JobChunkExtensions.ScheduleParallel(new PostVanRequestsJob
+		{
+			m_EntityType = m_EntityType,
+			m_ServiceRequestType = m_ServiceRequestType,
+			m_PostVanRequestType = m_PostVanRequestType,
+			m_PostVanRequestData = m_PostVanRequestData,
+			m_CurrentDistrictData = m_CurrentDistrictData,
+			m_PostFacilityData = m_PostFacilityData,
+			m_PostVanData = m_PostVanData,
+			m_ServiceDistricts = m_ServiceDistricts,
+			m_SetupData = setupData
+		}, m_PostVanRequestQuery, inputDeps);
+	}
 ```
 
 - `public SetupPostVans(Game.Simulation.PathfindSetupSystem system, Game.Simulation.PathfindSetupSystem+SetupData setupData, Unity.Jobs.JobHandle inputDeps) : Unity.Jobs.JobHandle`  
 
 ```csharp
-public Unity.Jobs.JobHandle SetupPostVans(Game.Simulation.PathfindSetupSystem system, Game.Simulation.PathfindSetupSystem+SetupData setupData, Unity.Jobs.JobHandle inputDeps);
+public JobHandle SetupPostVans(PathfindSetupSystem system, PathfindSetupSystem.SetupData setupData, JobHandle inputDeps)
+	{
+		m_EntityType.Update(system);
+		m_PostFacilityType.Update(system);
+		m_PostVanType.Update(system);
+		m_PathOwnerType.Update(system);
+		m_OwnerType.Update(system);
+		m_PathElementType.Update(system);
+		m_ServiceDispatchType.Update(system);
+		m_PathInformationData.Update(system);
+		m_PathElements.Update(system);
+		m_ServiceDistricts.Update(system);
+		return JobChunkExtensions.ScheduleParallel(new SetupPostVansJob
+		{
+			m_EntityType = m_EntityType,
+			m_PostFacilityType = m_PostFacilityType,
+			m_PostVanType = m_PostVanType,
+			m_PathOwnerType = m_PathOwnerType,
+			m_OwnerType = m_OwnerType,
+			m_PathElementType = m_PathElementType,
+			m_ServiceDispatchType = m_ServiceDispatchType,
+			m_PathInformationData = m_PathInformationData,
+			m_PathElements = m_PathElements,
+			m_ServiceDistricts = m_ServiceDistricts,
+			m_SetupData = setupData
+		}, m_PostVanQuery, inputDeps);
+	}
 ```
 
 

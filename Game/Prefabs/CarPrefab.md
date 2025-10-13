@@ -37,13 +37,38 @@ public CarPrefab();
 - `public virtual GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetArchetypeComponents(HashSet<ComponentType> components)
+	{
+		base.GetArchetypeComponents(components);
+		components.Add(ComponentType.ReadWrite<Car>());
+		components.Add(ComponentType.ReadWrite<BlockedLane>());
+		if (components.Contains(ComponentType.ReadWrite<Stopped>()))
+		{
+			components.Add(ComponentType.ReadWrite<ParkedCar>());
+		}
+		if (components.Contains(ComponentType.ReadWrite<Moving>()))
+		{
+			components.Add(ComponentType.ReadWrite<CarNavigation>());
+			components.Add(ComponentType.ReadWrite<CarNavigationLane>());
+			components.Add(ComponentType.ReadWrite<CarCurrentLane>());
+			components.Add(ComponentType.ReadWrite<PathOwner>());
+			components.Add(ComponentType.ReadWrite<PathElement>());
+			components.Add(ComponentType.ReadWrite<Target>());
+			components.Add(ComponentType.ReadWrite<Blocker>());
+			components.Add(ComponentType.ReadWrite<Swaying>());
+		}
+	}
 ```
 
 - `public virtual GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetPrefabComponents(HashSet<ComponentType> components)
+	{
+		base.GetPrefabComponents(components);
+		components.Add(ComponentType.ReadWrite<CarData>());
+		components.Add(ComponentType.ReadWrite<SwayingData>());
+	}
 ```
 
 

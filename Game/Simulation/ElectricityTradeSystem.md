@@ -121,7 +121,10 @@ public System.Int32 import { get; }
 - `public ElectricityTradeSystem()`  
 
 ```csharp
-public ElectricityTradeSystem();
+[Preserve]
+	public ElectricityTradeSystem()
+	{
+	}
 ```
 
 
@@ -130,7 +133,15 @@ public ElectricityTradeSystem();
 - `private __AssignQueries(Unity.Entities.SystemState& state) : System.Void`  
 
 ```csharp
-private System.Void __AssignQueries(Unity.Entities.SystemState& state);
+private void __AssignQueries(ref SystemState state)
+	{
+		EntityQueryBuilder entityQueryBuilder = new EntityQueryBuilder(Allocator.Temp);
+		EntityQueryBuilder entityQueryBuilder2 = entityQueryBuilder.WithAll<OutsideTradeParameterData>();
+		entityQueryBuilder2 = entityQueryBuilder2.WithOptions(EntityQueryOptions.IncludeSystems);
+		__query_1233563293_0 = entityQueryBuilder2.Build(ref state);
+		entityQueryBuilder.Reset();
+		entityQueryBuilder.Dispose();
+	}
 ```
 
 - `public Deserialize<TReader>(TReader reader) : System.Void`  
@@ -142,37 +153,94 @@ public System.Void Deserialize<TReader>(TReader reader);
 - `public virtual GetUpdateInterval(Game.SystemUpdatePhase phase) : System.Int32`  
 
 ```csharp
-public virtual System.Int32 GetUpdateInterval(Game.SystemUpdatePhase phase);
+public override int GetUpdateInterval(SystemUpdatePhase phase)
+	{
+		return 128;
+	}
 ```
 
 - `public virtual GetUpdateOffset(Game.SystemUpdatePhase phase) : System.Int32`  
 
 ```csharp
-public virtual System.Int32 GetUpdateOffset(Game.SystemUpdatePhase phase);
+public override int GetUpdateOffset(SystemUpdatePhase phase)
+	{
+		return 126;
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_ElectricityFlowSystem = base.World.GetOrCreateSystemManaged<ElectricityFlowSystem>();
+		m_ServiceFeeSystem = base.World.GetOrCreateSystemManaged<ServiceFeeSystem>();
+		m_TradeNodeGroup = GetEntityQuery(ComponentType.ReadOnly<TradeNode>(), ComponentType.ReadOnly<ElectricityFlowNode>(), ComponentType.ReadOnly<ConnectedFlowEdge>());
+		RequireForUpdate<OutsideTradeParameterData>();
+		m_Export = new NativePerThreadSumInt(Allocator.Persistent);
+		m_Import = new NativePerThreadSumInt(Allocator.Persistent);
+	}
 ```
 
 - `protected virtual OnCreateForCompiler() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreateForCompiler();
+protected override void OnCreateForCompiler()
+	{
+		base.OnCreateForCompiler();
+		__AssignQueries(ref base.CheckedStateRef);
+		__TypeHandle.__AssignHandles(ref base.CheckedStateRef);
+	}
 ```
 
 - `protected virtual OnDestroy() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnDestroy();
+[Preserve]
+	protected override void OnDestroy()
+	{
+		m_Export.Dispose();
+		m_Import.Dispose();
+		base.OnDestroy();
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		m_LastExport = m_Export.Count;
+		m_LastImport = m_Import.Count;
+		m_Export.Count = 0;
+		m_Import.Count = 0;
+		if (!m_TradeNodeGroup.IsEmptyIgnoreFilter)
+		{
+			SumJob jobData = new SumJob
+			{
+				m_FlowConnectionType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Simulation_ConnectedFlowEdge_RO_BufferTypeHandle, ref base.CheckedStateRef),
+				m_FlowEdges = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Simulation_ElectricityFlowEdge_RO_ComponentLookup, ref base.CheckedStateRef),
+				m_Export = m_Export.ToConcurrent(),
+				m_Import = m_Import.ToConcurrent(),
+				m_SourceNode = m_ElectricityFlowSystem.sourceNode,
+				m_SinkNode = m_ElectricityFlowSystem.sinkNode
+			};
+			base.Dependency = JobChunkExtensions.ScheduleParallel(jobData, m_TradeNodeGroup, base.Dependency);
+			JobHandle deps;
+			ElectricityTradeJob jobData2 = new ElectricityTradeJob
+			{
+				m_Export = m_Export,
+				m_Import = m_Import,
+				m_FeeQueue = m_ServiceFeeSystem.GetFeeQueue(out deps),
+				m_OutsideTradeParameters = __query_1233563293_0.GetSingleton<OutsideTradeParameterData>()
+			};
+			base.Dependency = IJobExtensions.Schedule(jobData2, JobHandle.CombineDependencies(base.Dependency, deps));
+			m_ServiceFeeSystem.AddQueueWriter(base.Dependency);
+		}
+	}
 ```
 
 - `public Serialize<TWriter>(TWriter writer) : System.Void`  
@@ -184,7 +252,11 @@ public System.Void Serialize<TWriter>(TWriter writer);
 - `public SetDefaults(Colossal.Serialization.Entities.Context context) : System.Void`  
 
 ```csharp
-public System.Void SetDefaults(Colossal.Serialization.Entities.Context context);
+public void SetDefaults(Context context)
+	{
+		m_LastExport = 0;
+		m_LastImport = 0;
+	}
 ```
 
 

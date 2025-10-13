@@ -90,7 +90,10 @@ private Game.Simulation.DestroyAbandonedSystem+TypeHandle __TypeHandle;
 - `public DestroyAbandonedSystem()`  
 
 ```csharp
-public DestroyAbandonedSystem();
+[Preserve]
+	public DestroyAbandonedSystem()
+	{
+	}
 ```
 
 
@@ -99,31 +102,71 @@ public DestroyAbandonedSystem();
 - `private __AssignQueries(Unity.Entities.SystemState& state) : System.Void`  
 
 ```csharp
-private System.Void __AssignQueries(Unity.Entities.SystemState& state);
+private void __AssignQueries(ref SystemState state)
+	{
+		new EntityQueryBuilder(Allocator.Temp).Dispose();
+	}
 ```
 
 - `public virtual GetUpdateInterval(Game.SystemUpdatePhase phase) : System.Int32`  
 
 ```csharp
-public virtual System.Int32 GetUpdateInterval(Game.SystemUpdatePhase phase);
+public override int GetUpdateInterval(SystemUpdatePhase phase)
+	{
+		return 4096;
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_SimulationSystem = base.World.GetOrCreateSystemManaged<SimulationSystem>();
+		m_IconCommandSystem = base.World.GetOrCreateSystemManaged<IconCommandSystem>();
+		m_EndFrameBarrier = base.World.GetOrCreateSystemManaged<EndFrameBarrier>();
+		m_AbandonedQuery = GetEntityQuery(ComponentType.ReadOnly<Building>(), ComponentType.ReadOnly<Abandoned>(), ComponentType.Exclude<Destroyed>());
+		m_DamageEventArchetype = base.EntityManager.CreateArchetype(ComponentType.ReadWrite<Event>(), ComponentType.ReadWrite<Damage>());
+		m_DestroyEventArchetype = base.EntityManager.CreateArchetype(ComponentType.ReadWrite<Event>(), ComponentType.ReadWrite<Destroy>());
+		m_BuildingSettingsQuery = GetEntityQuery(ComponentType.ReadOnly<BuildingConfigurationData>());
+		RequireForUpdate(m_AbandonedQuery);
+	}
 ```
 
 - `protected virtual OnCreateForCompiler() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreateForCompiler();
+protected override void OnCreateForCompiler()
+	{
+		base.OnCreateForCompiler();
+		__AssignQueries(ref base.CheckedStateRef);
+		__TypeHandle.__AssignHandles(ref base.CheckedStateRef);
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		DestroyAbandonedJob jobData = new DestroyAbandonedJob
+		{
+			m_EntityType = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef),
+			m_AbandonedType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Buildings_Abandoned_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+			m_BuildingConfigurationData = m_BuildingSettingsQuery.GetSingleton<BuildingConfigurationData>(),
+			m_DamageEventArchetype = m_DamageEventArchetype,
+			m_DestroyEventArchetype = m_DestroyEventArchetype,
+			m_SimulationFrame = m_SimulationSystem.frameIndex,
+			m_CommandBuffer = m_EndFrameBarrier.CreateCommandBuffer().AsParallelWriter(),
+			m_IconCommandBuffer = m_IconCommandSystem.CreateCommandBuffer()
+		};
+		base.Dependency = JobChunkExtensions.ScheduleParallel(jobData, m_AbandonedQuery, base.Dependency);
+		m_EndFrameBarrier.AddJobHandleForProducer(base.Dependency);
+		m_IconCommandSystem.AddCommandBufferWriter(base.Dependency);
+	}
 ```
 
 

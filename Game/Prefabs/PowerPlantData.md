@@ -36,7 +36,10 @@ public System.Int32 m_ElectricityProduction;
 - `public Combine(Game.Prefabs.PowerPlantData otherData) : System.Void`  
 
 ```csharp
-public System.Void Combine(Game.Prefabs.PowerPlantData otherData);
+public void Combine(PowerPlantData otherData)
+	{
+		m_ElectricityProduction += otherData.m_ElectricityProduction;
+	}
 ```
 
 - `public Deserialize<TReader>(TReader reader) : System.Void`  

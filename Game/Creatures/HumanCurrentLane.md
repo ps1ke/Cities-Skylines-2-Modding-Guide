@@ -74,19 +74,43 @@ public System.Single m_LanePosition;
 - `public HumanCurrentLane(Game.Routes.AccessLane accessLane, Game.Creatures.CreatureLaneFlags flags)`  
 
 ```csharp
-public HumanCurrentLane(Game.Routes.AccessLane accessLane, Game.Creatures.CreatureLaneFlags flags);
+public HumanCurrentLane(CreatureLaneFlags flags)
+	{
+		m_Lane = Entity.Null;
+		m_QueueEntity = Entity.Null;
+		m_QueueArea = default(Sphere3);
+		m_CurvePosition = 0f;
+		m_Flags = flags;
+		m_LanePosition = 0f;
+	}
 ```
 
 - `public HumanCurrentLane(Game.Pathfind.PathElement pathElement, Game.Creatures.CreatureLaneFlags flags)`  
 
 ```csharp
-public HumanCurrentLane(Game.Pathfind.PathElement pathElement, Game.Creatures.CreatureLaneFlags flags);
+public HumanCurrentLane(CreatureLaneFlags flags)
+	{
+		m_Lane = Entity.Null;
+		m_QueueEntity = Entity.Null;
+		m_QueueArea = default(Sphere3);
+		m_CurvePosition = 0f;
+		m_Flags = flags;
+		m_LanePosition = 0f;
+	}
 ```
 
 - `public HumanCurrentLane(Game.Creatures.CreatureLaneFlags flags)`  
 
 ```csharp
-public HumanCurrentLane(Game.Creatures.CreatureLaneFlags flags);
+public HumanCurrentLane(CreatureLaneFlags flags)
+	{
+		m_Lane = Entity.Null;
+		m_QueueEntity = Entity.Null;
+		m_QueueArea = default(Sphere3);
+		m_CurvePosition = 0f;
+		m_Flags = flags;
+		m_LanePosition = 0f;
+	}
 ```
 
 

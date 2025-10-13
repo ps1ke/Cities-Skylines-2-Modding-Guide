@@ -37,7 +37,10 @@ public System.Int32 m_Index;
 - `public Segment(System.Int32 index)`  
 
 ```csharp
-public Segment(System.Int32 index);
+public Segment(int index)
+	{
+		m_Index = index;
+	}
 ```
 
 

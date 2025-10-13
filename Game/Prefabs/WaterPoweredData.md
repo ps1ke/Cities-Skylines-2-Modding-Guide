@@ -43,7 +43,11 @@ public System.Single m_CapacityFactor;
 - `public Combine(Game.Prefabs.WaterPoweredData otherData) : System.Void`  
 
 ```csharp
-public System.Void Combine(Game.Prefabs.WaterPoweredData otherData);
+public void Combine(WaterPoweredData otherData)
+	{
+		m_ProductionFactor += otherData.m_ProductionFactor;
+		m_CapacityFactor += otherData.m_CapacityFactor;
+	}
 ```
 
 - `public Deserialize<TReader>(TReader reader) : System.Void`  

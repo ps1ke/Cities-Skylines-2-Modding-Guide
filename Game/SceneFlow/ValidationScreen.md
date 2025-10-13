@@ -66,7 +66,31 @@ public ValidationScreen();
 - `public virtual Execute(Game.SceneFlow.GameManager manager, System.Threading.CancellationToken token) : System.Threading.Tasks.Task`  
 
 ```csharp
-public virtual System.Threading.Tasks.Task Execute(Game.SceneFlow.GameManager manager, System.Threading.CancellationToken token);
+public override async Task Execute(GameManager manager, CancellationToken token)
+	{
+		using EnabledActionScoped continueAction = new EnabledActionScoped(manager, "Engagement", actionA, HandleScreenChange, continueDisplayProperty, continueDisplayPriority);
+		using EnabledActionScoped cancelAction = new EnabledActionScoped(manager, "Engagement", actionB, HandleScreenChange, cancelDisplayProperty, cancelDisplayPriority);
+		using (Game.Input.InputManager.instance.CreateOverlayBarrier("ValidationScreen"))
+		{
+			OverlayBindings overlayBindings = manager.userInterface.overlayBindings;
+			using (overlayBindings.ActivateScreenScoped(overlayScreen))
+			{
+				Task<(bool ok, InputDevice device)> input = IScreenState.WaitForInput(continueAction, cancelAction, null, token);
+				await input;
+				if (input.IsCompletedSuccessfully)
+				{
+					if (input.Result.ok)
+					{
+						UnityEngine.Debug.Log("OK");
+					}
+					else
+					{
+						UnityEngine.Debug.Log("Cancel");
+					}
+				}
+			}
+		}
+	}
 ```
 
 

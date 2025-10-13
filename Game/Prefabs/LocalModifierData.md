@@ -67,7 +67,14 @@ public Colossal.Mathematics.Bounds1 m_Radius;
 - `public LocalModifierData(Game.Buildings.LocalModifierType type, Game.Prefabs.ModifierValueMode mode, Game.Buildings.ModifierRadiusCombineMode radiusMode, Colossal.Mathematics.Bounds1 delta, Colossal.Mathematics.Bounds1 radius)`  
 
 ```csharp
-public LocalModifierData(Game.Buildings.LocalModifierType type, Game.Prefabs.ModifierValueMode mode, Game.Buildings.ModifierRadiusCombineMode radiusMode, Colossal.Mathematics.Bounds1 delta, Colossal.Mathematics.Bounds1 radius);
+public LocalModifierData(LocalModifierType type, ModifierValueMode mode, ModifierRadiusCombineMode radiusMode, Bounds1 delta, Bounds1 radius)
+	{
+		m_Type = type;
+		m_Mode = mode;
+		m_RadiusCombineMode = radiusMode;
+		m_Delta = delta;
+		m_Radius = radius;
+	}
 ```
 
 

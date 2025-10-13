@@ -61,7 +61,10 @@ private Game.Serialization.DataMigration.LaneDirectionNetObjectSystem+TypeHandle
 - `public LaneDirectionNetObjectSystem()`  
 
 ```csharp
-public LaneDirectionNetObjectSystem();
+[Preserve]
+	public LaneDirectionNetObjectSystem()
+	{
+	}
 ```
 
 
@@ -70,25 +73,55 @@ public LaneDirectionNetObjectSystem();
 - `private __AssignQueries(Unity.Entities.SystemState& state) : System.Void`  
 
 ```csharp
-private System.Void __AssignQueries(Unity.Entities.SystemState& state);
+private void __AssignQueries(ref SystemState state)
+	{
+		new EntityQueryBuilder(Allocator.Temp).Dispose();
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_LoadGameSystem = base.World.GetOrCreateSystemManaged<LoadGameSystem>();
+		m_DeserializationBarrier = base.World.GetOrCreateSystemManaged<DeserializationBarrier>();
+		m_Query = GetEntityQuery(ComponentType.ReadOnly<Object>(), ComponentType.ReadOnly<Static>(), ComponentType.Exclude<Game.Objects.NetObject>(), ComponentType.Exclude<Plant>(), ComponentType.Exclude<Building>());
+	}
 ```
 
 - `protected virtual OnCreateForCompiler() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreateForCompiler();
+protected override void OnCreateForCompiler()
+	{
+		base.OnCreateForCompiler();
+		__AssignQueries(ref base.CheckedStateRef);
+		__TypeHandle.__AssignHandles(ref base.CheckedStateRef);
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		if (!(m_LoadGameSystem.context.version >= Version.laneDirectionNetObject) && !m_Query.IsEmptyIgnoreFilter)
+		{
+			JobHandle jobHandle = JobChunkExtensions.ScheduleParallel(new LaneDirectionNetObjectJob
+			{
+				m_EntityType = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef),
+				m_PrefabRefType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+				m_PrefabLaneDirection = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_LaneDirectionData_RO_ComponentLookup, ref base.CheckedStateRef),
+				m_CommandBuffer = m_DeserializationBarrier.CreateCommandBuffer().AsParallelWriter()
+			}, m_Query, base.Dependency);
+			m_DeserializationBarrier.AddJobHandleForProducer(jobHandle);
+			base.Dependency = jobHandle;
+		}
+	}
 ```
 
 

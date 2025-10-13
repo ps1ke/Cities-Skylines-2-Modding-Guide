@@ -84,19 +84,36 @@ public TrackPathfind();
 - `public virtual GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetArchetypeComponents(HashSet<ComponentType> components)
+	{
+	}
 ```
 
 - `public virtual GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetPrefabComponents(HashSet<ComponentType> components)
+	{
+		components.Add(ComponentType.ReadWrite<PathfindTrackData>());
+	}
 ```
 
 - `public virtual Initialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity) : System.Void`  
 
 ```csharp
-public virtual System.Void Initialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity);
+public override void Initialize(EntityManager entityManager, Entity entity)
+	{
+		base.Initialize(entityManager, entity);
+		entityManager.SetComponentData(entity, new PathfindTrackData
+		{
+			m_DrivingCost = m_DrivingCost.ToPathfindCosts(),
+			m_TwowayCost = m_TwowayCost.ToPathfindCosts(),
+			m_SwitchCost = m_SwitchCost.ToPathfindCosts(),
+			m_DiamondCrossingCost = m_DiamondCrossingCost.ToPathfindCosts(),
+			m_CurveAngleCost = m_CurveAngleCost.ToPathfindCosts(),
+			m_SpawnCost = m_SpawnCost.ToPathfindCosts()
+		});
+	}
 ```
 
 

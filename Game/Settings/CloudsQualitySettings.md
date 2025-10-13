@@ -141,13 +141,25 @@ private static Game.Settings.CloudsQualitySettings disabled { private get; }
 - `public CloudsQualitySettings()`  
 
 ```csharp
-public CloudsQualitySettings();
+public CloudsQualitySettings(Level quality, VolumeProfile profile)
+	{
+		CreateVolumeComponent(profile, ref m_VolumetricClouds);
+		CreateVolumeComponent(profile, ref m_VisualEnvironment);
+		CreateVolumeComponent(profile, ref m_CloudLayer);
+		SetLevel(quality, apply: false);
+	}
 ```
 
 - `public CloudsQualitySettings(Game.Settings.QualitySetting+Level quality, UnityEngine.Rendering.VolumeProfile profile)`  
 
 ```csharp
-public CloudsQualitySettings(Game.Settings.QualitySetting+Level quality, UnityEngine.Rendering.VolumeProfile profile);
+public CloudsQualitySettings(Level quality, VolumeProfile profile)
+	{
+		CreateVolumeComponent(profile, ref m_VolumetricClouds);
+		CreateVolumeComponent(profile, ref m_VisualEnvironment);
+		CreateVolumeComponent(profile, ref m_CloudLayer);
+		SetLevel(quality, apply: false);
+	}
 ```
 
 
@@ -156,7 +168,17 @@ public CloudsQualitySettings(Game.Settings.QualitySetting+Level quality, UnityEn
 - `public virtual Apply() : System.Void`  
 
 ```csharp
-public virtual System.Void Apply();
+public override void Apply()
+	{
+		base.Apply();
+		if (m_VolumetricClouds != null)
+		{
+			ApplyState(m_VolumetricClouds.enable, volumetricCloudsEnabled);
+			ApplyState(m_VolumetricClouds.shadows, volumetricCloudsShadows);
+			ApplyState(m_VisualEnvironment.cloudType, distanceCloudsEnabled ? 1 : 0);
+			ApplyState(m_CloudLayer.layerA.castShadows, distanceCloudsShadows);
+		}
+	}
 ```
 
 

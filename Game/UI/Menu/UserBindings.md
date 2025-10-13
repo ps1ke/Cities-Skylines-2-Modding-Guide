@@ -76,7 +76,37 @@ private static const System.String kGroup;
 - `public UserBindings()`  
 
 ```csharp
-public UserBindings();
+public UserBindings()
+	{
+		GameManager.instance.onGameLoadingComplete += OnMainMenuReached;
+		AddBinding(m_SwitchPromptVisible = new ValueBinding<bool>("user", "switchPromptVisible", !GameManager.instance.configuration.disableUserSection && (PlatformManager.instance.supportsUserSwitching || PlatformManager.instance.supportsUserSection)));
+		string initialValue = string.Format("{0}/UserAvatar#{1}?size={2}", "useravatar://", s_AvatarVersion++, AvatarSize.Auto);
+		AddBinding(m_AvatarBinding = new ValueBinding<string>("user", "avatar", initialValue, ValueWriters.Nullable(new StringWriter())));
+		AddBinding(m_UserIDBinding = new ValueBinding<string>("user", "userID", PlatformManager.instance.userName, ValueWriters.Nullable(new StringWriter())));
+		AddBinding(m_SwitchUserHintOverload = new ValueBinding<string>("user", "switchUserHintOverload", getSwitchUserHintOverload(), ValueWriters.Nullable(new StringWriter())));
+		AddBinding(new TriggerBinding("user", "switchUser", SwitchUser));
+		PlatformManager.instance.onStatusChanged += delegate(IPlatformServiceIntegration psi)
+		{
+			if (PlatformManager.instance.IsPrincipalOverlayIntegration(psi))
+			{
+				m_SwitchPromptVisible.Update(!GameManager.instance.configuration.disableUserSection && (PlatformManager.instance.supportsUserSwitching || PlatformManager.instance.supportsUserSection));
+			}
+		};
+		PlatformManager.instance.onUserUpdated += delegate(IUserSupport psi, UserChangedFlags flags)
+		{
+			if (PlatformManager.instance.IsPrincipalUserIntegration(psi))
+			{
+				if (flags.HasChanged(UserChangedFlags.Name))
+				{
+					m_UserIDBinding.Update(PlatformManager.instance.userName);
+				}
+				if (flags.HasChanged(UserChangedFlags.Avatar))
+				{
+					m_AvatarBinding.Update(string.Format("{0}/UserAvatar#{1}?size={2}", "useravatar://", s_AvatarVersion++, AvatarSize.Auto));
+				}
+			}
+		};
+	}
 ```
 
 
@@ -97,25 +127,55 @@ private System.Void <.ctor>b__6_1(Colossal.PSI.Common.IUserSupport psi, Colossal
 - `public Dispose() : System.Void`  
 
 ```csharp
-public System.Void Dispose();
+public void Dispose()
+	{
+		GameManager.instance.onGameLoadingComplete -= OnMainMenuReached;
+	}
 ```
 
 - `public getSwitchUserHintOverload() : System.String`  
 
 ```csharp
-public System.String getSwitchUserHintOverload();
+public string getSwitchUserHintOverload()
+	{
+		if (PlatformManager.instance.supportsUserSwitching)
+		{
+			return null;
+		}
+		return "Steam Overlay";
+	}
 ```
 
 - `private OnMainMenuReached(Colossal.Serialization.Entities.Purpose purpose, Game.GameMode mode) : System.Void`  
 
 ```csharp
-private System.Void OnMainMenuReached(Colossal.Serialization.Entities.Purpose purpose, Game.GameMode mode);
+private void OnMainMenuReached(Purpose purpose, GameMode mode)
+	{
+		if (mode == GameMode.MainMenu)
+		{
+			m_SwitchPromptVisible.Update(!GameManager.instance.configuration.disableUserSection && (PlatformManager.instance.supportsUserSwitching || PlatformManager.instance.supportsUserSection));
+		}
+	}
 ```
 
 - `private SwitchUser() : System.Void`  
 
 ```csharp
-private System.Void SwitchUser();
+private void SwitchUser()
+	{
+		if (m_SwitchPromptVisible.value)
+		{
+			PlatformManager instance = PlatformManager.instance;
+			if (instance.supportsUserSwitching)
+			{
+				GameManager.instance.SetScreenActive<SwitchUserScreen>();
+			}
+			else if (instance.supportsUserSection)
+			{
+				instance.ShowOverlay(Page.Community);
+			}
+		}
+	}
 ```
 
 

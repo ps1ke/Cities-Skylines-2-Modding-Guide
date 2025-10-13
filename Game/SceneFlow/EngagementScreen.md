@@ -59,7 +59,43 @@ public EngagementScreen();
 - `public virtual Execute(Game.SceneFlow.GameManager manager, System.Threading.CancellationToken token) : System.Threading.Tasks.Task`  
 
 ```csharp
-public virtual System.Threading.Tasks.Task Execute(Game.SceneFlow.GameManager manager, System.Threading.CancellationToken token);
+public override async Task Execute(GameManager manager, CancellationToken token)
+	{
+		using (EnabledActionScoped continueAction = new EnabledActionScoped(manager, "Engagement", actionA, HandleScreenChange, continueDisplayProperty, continueDisplayPriority))
+		{
+			using (Game.Input.InputManager.instance.CreateOverlayBarrier("EngagementScreen"))
+			{
+				OverlayBindings overlayBindings = manager.userInterface.overlayBindings;
+				using (overlayBindings.ActivateScreenScoped(overlayScreen))
+				{
+					while (!m_Done)
+					{
+						Task<(bool ok, InputDevice device)> input = IScreenState.WaitForInput(continueAction, null, m_CompletedEvent, token);
+						await input;
+						if (input.IsCompletedSuccessfully)
+						{
+							if (!PlatformManager.instance.isUserSignedIn)
+							{
+								m_Done = (await PlatformManager.instance.SignIn(SignInOptions.WithUI, UserChangingCallback)).HasFlag(SignInFlags.Success);
+							}
+							else
+							{
+								m_Done = await PlatformManager.instance.AssociateDevice(input.Result.device);
+							}
+						}
+						else
+						{
+							m_Done = true;
+						}
+					}
+				}
+			}
+		}
+		void UserChangingCallback(Task signInTask)
+		{
+			new WaitScreen().Execute(manager, token, signInTask);
+		}
+	}
 ```
 
 

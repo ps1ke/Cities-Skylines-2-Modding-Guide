@@ -41,13 +41,23 @@ private static Unity.Mathematics.Random m_Random;
 - `public GetRandom(System.Int32 index) : Unity.Mathematics.Random`  
 
 ```csharp
-public Unity.Mathematics.Random GetRandom(System.Int32 index);
+public Unity.Mathematics.Random GetRandom(int index)
+	{
+		uint num = m_Seed ^ (uint)(370248451 * index);
+		return new Unity.Mathematics.Random(math.select(num, 1851936439u, num == 0));
+	}
 ```
 
 - `public static Next() : Game.Common.RandomSeed`  
 
 ```csharp
-public static Game.Common.RandomSeed Next();
+public static RandomSeed Next()
+	{
+		return new RandomSeed
+		{
+			m_Seed = m_Random.NextUInt()
+		};
+	}
 ```
 
 

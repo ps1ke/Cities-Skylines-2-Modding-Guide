@@ -91,7 +91,13 @@ public System.Int32 elders { get; }
 - `public AgeData(System.Int32 children, System.Int32 teens, System.Int32 adults, System.Int32 elders)`  
 
 ```csharp
-public AgeData(System.Int32 children, System.Int32 teens, System.Int32 adults, System.Int32 elders);
+public AgeData(int children, int teens, int adults, int elders)
+	{
+		this.children = children;
+		this.teens = teens;
+		this.adults = adults;
+		this.elders = elders;
+	}
 ```
 
 
@@ -100,7 +106,20 @@ public AgeData(System.Int32 children, System.Int32 teens, System.Int32 adults, S
 - `public Write(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-public System.Void Write(Colossal.UI.Binding.IJsonWriter writer);
+public void Write(IJsonWriter writer)
+	{
+		writer.TypeBegin(GetType().FullName);
+		writer.PropertyName("values");
+		writer.ArrayBegin(4u);
+		writer.Write(children);
+		writer.Write(teens);
+		writer.Write(adults);
+		writer.Write(elders);
+		writer.ArrayEnd();
+		writer.PropertyName("total");
+		writer.Write(children + teens + adults + elders);
+		writer.TypeEnd();
+	}
 ```
 
 

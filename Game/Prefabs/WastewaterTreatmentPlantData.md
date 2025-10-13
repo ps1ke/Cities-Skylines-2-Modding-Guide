@@ -43,7 +43,11 @@ public System.Int32 m_WaterStorage;
 - `public Combine(Game.Prefabs.WastewaterTreatmentPlantData otherData) : System.Void`  
 
 ```csharp
-public System.Void Combine(Game.Prefabs.WastewaterTreatmentPlantData otherData);
+public void Combine(WastewaterTreatmentPlantData otherData)
+	{
+		m_Capacity += otherData.m_Capacity;
+		m_WaterStorage += otherData.m_WaterStorage;
+	}
 ```
 
 - `public Deserialize<TReader>(TReader reader) : System.Void`  

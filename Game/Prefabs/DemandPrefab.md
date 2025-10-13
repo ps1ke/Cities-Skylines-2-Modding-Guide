@@ -273,19 +273,66 @@ public DemandPrefab();
 - `public virtual GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetArchetypeComponents(HashSet<ComponentType> components)
+	{
+		base.GetArchetypeComponents(components);
+	}
 ```
 
 - `public virtual GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetPrefabComponents(HashSet<ComponentType> components)
+	{
+		base.GetPrefabComponents(components);
+		components.Add(ComponentType.ReadWrite<DemandParameterData>());
+	}
 ```
 
 - `public virtual LateInitialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity) : System.Void`  
 
 ```csharp
-public virtual System.Void LateInitialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity);
+public override void LateInitialize(EntityManager entityManager, Entity entity)
+	{
+		base.LateInitialize(entityManager, entity);
+		PrefabSystem orCreateSystemManaged = entityManager.World.GetOrCreateSystemManaged<PrefabSystem>();
+		entityManager.SetComponentData(entity, new DemandParameterData
+		{
+			m_ForestryPrefab = orCreateSystemManaged.GetEntity(m_ForestryPrefab),
+			m_OfficePrefab = orCreateSystemManaged.GetEntity(m_OfficePrefab),
+			m_MinimumHappiness = m_MinimumHappiness,
+			m_HappinessEffect = m_HappinessEffect,
+			m_AvailableWorkplaceEffect = m_AvailableWorkplaceEffect,
+			m_HomelessEffect = m_HomelessEffect,
+			m_NeutralHappiness = m_NeutralHappiness,
+			m_NeutralAvailableWorkplacePercentage = m_NeutralAvailableWorkplacePercentage,
+			m_NeutralHomelessness = m_NeutralHomelessness,
+			m_FreeResidentialRequirement = m_FreeResidentialRequirement,
+			m_FreeCommercialProportion = m_FreeCommercialProportion,
+			m_FreeIndustrialProportion = m_FreeIndustrialProportion,
+			m_CommercialStorageMinimum = m_CommercialStorageMinimum,
+			m_CommercialStorageEffect = m_CommercialStorageEffect,
+			m_CommercialBaseDemand = m_CommercialBaseDemand,
+			m_IndustrialStorageMinimum = m_IndustrialStorageMinimum,
+			m_IndustrialStorageEffect = m_IndustrialStorageEffect,
+			m_IndustrialBaseDemand = m_IndustrialBaseDemand,
+			m_ExtractorBaseDemand = m_ExtractorBaseDemand,
+			m_StorageDemandMultiplier = m_StorageDemandMultiplier,
+			m_CommuterWorkerRatioLimit = m_CommuterWorkerRatioLimit,
+			m_CommuterSlowSpawnFactor = m_CommuterSlowSpawnFactor,
+			m_CommuterOCSpawnParameters = m_CommuterOCSpawnParameters,
+			m_TouristOCSpawnParameters = m_TouristOCSpawnParameters,
+			m_CitizenOCSpawnParameters = m_CitizenOCSpawnParameters,
+			m_TeenSpawnPercentage = m_TeenSpawnPercentage,
+			m_FrameIntervalForSpawning = m_FrameIntervalForSpawning,
+			m_NeutralUnemployment = m_NeutralUnemployment,
+			m_TaxEffect = m_TaxEffect,
+			m_StudentEffect = m_StudentEffect,
+			m_HouseholdSpawnSpeedFactor = m_HouseholdSpawnSpeedFactor,
+			m_NewCitizenEducationParameters = m_NewCitizenEducationParameters,
+			m_HotelRoomPercentRequirement = m_HotelRoomPercentRequirement
+		});
+	}
 ```
 
 

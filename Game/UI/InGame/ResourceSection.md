@@ -80,7 +80,10 @@ protected System.Boolean displayForDestroyedObjects { protected get; }
 - `public ResourceSection()`  
 
 ```csharp
-public ResourceSection();
+[Preserve]
+	public ResourceSection()
+	{
+	}
 ```
 
 
@@ -89,25 +92,46 @@ public ResourceSection();
 - `protected virtual OnProcess() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnProcess();
+protected override void OnProcess()
+	{
+		Tree componentData = base.EntityManager.GetComponentData<Tree>(selectedEntity);
+		Plant componentData2 = base.EntityManager.GetComponentData<Plant>(selectedEntity);
+		TreeData componentData3 = base.EntityManager.GetComponentData<TreeData>(selectedPrefab);
+		base.EntityManager.TryGetComponent<Damaged>(selectedEntity, out var component);
+		resourceAmount = math.round(ObjectUtils.CalculateWoodAmount(componentData, componentData2, component, componentData3));
+		resourceKey = ResourceKey.Wood;
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		base.visible = base.EntityManager.HasComponent<Tree>(selectedEntity) && base.EntityManager.TryGetComponent<TreeData>(selectedPrefab, out var component) && component.m_WoodAmount > 0f;
+	}
 ```
 
 - `public virtual OnWriteProperties(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-public virtual System.Void OnWriteProperties(Colossal.UI.Binding.IJsonWriter writer);
+public override void OnWriteProperties(IJsonWriter writer)
+	{
+		writer.PropertyName("resourceAmount");
+		writer.Write(resourceAmount);
+		writer.PropertyName("resourceKey");
+		writer.Write(Enum.GetName(typeof(ResourceKey), resourceKey));
+	}
 ```
 
 - `protected virtual Reset() : System.Void`  
 
 ```csharp
-protected virtual System.Void Reset();
+protected override void Reset()
+	{
+		resourceAmount = 0f;
+	}
 ```
 
 

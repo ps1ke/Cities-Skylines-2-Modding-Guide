@@ -59,13 +59,19 @@ public ListAdapter();
 - `public virtual Clear() : System.Void`  
 
 ```csharp
-public virtual System.Void Clear();
+public override void Clear()
+	{
+		base.accessor.GetTypedValue()?.Clear();
+	}
 ```
 
 - `public virtual DeleteElement(System.Int32 index) : System.Void`  
 
 ```csharp
-public virtual System.Void DeleteElement(System.Int32 index);
+public override void DeleteElement(int index)
+	{
+		base.accessor.GetTypedValue().RemoveAt(index);
+	}
 ```
 
 - `public static FromList<T>(System.Collections.Generic.List<T> list, Game.UI.Widgets.IEditorGenerator generator) : Game.UI.Widgets.ListAdapter`  
@@ -77,7 +83,19 @@ public static Game.UI.Widgets.ListAdapter FromList<T>(System.Collections.Generic
 - `public virtual InsertElement(System.Int32 index) : System.Void`  
 
 ```csharp
-public virtual System.Void InsertElement(System.Int32 index);
+public override void InsertElement(int index)
+	{
+		Assert.IsTrue(index >= 0);
+		Assert.IsTrue(index <= base.length);
+		IList list = base.accessor.GetTypedValue();
+		if (list == null)
+		{
+			list = (IList)ListAdapterBase<IList>.CreateInstance(listType);
+			base.accessor.SetTypedValue(list);
+		}
+		object value = ListAdapterBase<IList>.CreateInstance(base.elementType);
+		list.Insert(index, value);
+	}
 ```
 
 

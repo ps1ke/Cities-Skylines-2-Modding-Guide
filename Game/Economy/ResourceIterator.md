@@ -34,13 +34,23 @@ public Game.Economy.Resource resource;
 - `public static GetIterator() : Game.Economy.ResourceIterator`  
 
 ```csharp
-public static Game.Economy.ResourceIterator GetIterator();
+public static ResourceIterator GetIterator()
+	{
+		return new ResourceIterator
+		{
+			resource = Resource.NoResource
+		};
+	}
 ```
 
 - `public Next() : System.Boolean`  
 
 ```csharp
-public System.Boolean Next();
+public bool Next()
+	{
+		resource = (Resource)Math.Max(1uL, (ulong)resource << 1);
+		return resource != Resource.Last;
+	}
 ```
 
 

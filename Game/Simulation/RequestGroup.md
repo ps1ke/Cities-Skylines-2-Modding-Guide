@@ -35,7 +35,10 @@ public System.UInt32 m_GroupCount;
 - `public RequestGroup(System.UInt32 groupCount)`  
 
 ```csharp
-public RequestGroup(System.UInt32 groupCount);
+public RequestGroup(uint groupCount)
+	{
+		m_GroupCount = groupCount;
+	}
 ```
 
 

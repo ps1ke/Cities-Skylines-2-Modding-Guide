@@ -269,7 +269,10 @@ private System.Single m_OfficeDemandBindingValue { private get; }
 - `public CityInfoUISystem()`  
 
 ```csharp
-public CityInfoUISystem();
+[Preserve]
+	public CityInfoUISystem()
+	{
+	}
 ```
 
 
@@ -278,7 +281,10 @@ public CityInfoUISystem();
 - `private __AssignQueries(Unity.Entities.SystemState& state) : System.Void`  
 
 ```csharp
-private System.Void __AssignQueries(Unity.Entities.SystemState& state);
+private void __AssignQueries(ref SystemState state)
+	{
+		new EntityQueryBuilder(Allocator.Temp).Dispose();
+	}
 ```
 
 - `private <OnCreate>b__35_0() : System.Single`  
@@ -326,7 +332,10 @@ private System.Int32 <OnCreate>b__35_6();
 - `private static AdvanceSmoothDemand(System.Single current, System.Int32 target, System.UInt32 delta) : System.Single`  
 
 ```csharp
-private static System.Single AdvanceSmoothDemand(System.Single current, System.Int32 target, System.UInt32 delta);
+private static float AdvanceSmoothDemand(float current, int target, uint delta)
+	{
+		return math.clamp((float)target / 100f, current - 0.000625f * (float)delta, current + 0.000125f * (float)delta);
+	}
 ```
 
 - `public Deserialize<TReader>(TReader reader) : System.Void`  
@@ -338,31 +347,101 @@ public System.Void Deserialize<TReader>(TReader reader);
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_SimulationSystem = base.World.GetOrCreateSystemManaged<SimulationSystem>();
+		m_ResidentialDemandSystem = base.World.GetOrCreateSystemManaged<ResidentialDemandSystem>();
+		m_CommercialDemandSystem = base.World.GetOrCreateSystemManaged<CommercialDemandSystem>();
+		m_IndustrialDemandSystem = base.World.GetOrCreateSystemManaged<IndustrialDemandSystem>();
+		m_CitySystem = base.World.GetOrCreateSystemManaged<CitySystem>();
+		m_CitizenHappinessSystem = base.World.GetOrCreateSystemManaged<CitizenHappinessSystem>();
+		AddUpdateBinding(new GetterValueBinding<float>("cityInfo", "residentialLowDemand", () => m_ResidentialLowDemandBindingValue));
+		AddUpdateBinding(new GetterValueBinding<float>("cityInfo", "residentialMediumDemand", () => m_ResidentialMediumDemandBindingValue));
+		AddUpdateBinding(new GetterValueBinding<float>("cityInfo", "residentialHighDemand", () => m_ResidentialHighDemandBindingValue));
+		AddUpdateBinding(new GetterValueBinding<float>("cityInfo", "commercialDemand", () => m_CommercialDemandBindingValue));
+		AddUpdateBinding(new GetterValueBinding<float>("cityInfo", "industrialDemand", () => m_IndustrialDemandBindingValue));
+		AddUpdateBinding(new GetterValueBinding<float>("cityInfo", "officeDemand", () => m_OfficeDemandBindingValue));
+		AddUpdateBinding(new GetterValueBinding<int>("cityInfo", "happiness", () => m_AvgHappiness));
+		AddBinding(m_ResidentialLowFactors = new RawValueBinding("cityInfo", "residentialLowFactors", WriteResidentialLowFactors));
+		AddBinding(m_ResidentialMediumFactors = new RawValueBinding("cityInfo", "residentialMediumFactors", WriteResidentialMediumFactors));
+		AddBinding(m_ResidentialHighFactors = new RawValueBinding("cityInfo", "residentialHighFactors", WriteResidentialHighFactors));
+		AddBinding(m_CommercialFactors = new RawValueBinding("cityInfo", "commercialFactors", WriteCommercialFactors));
+		AddBinding(m_IndustrialFactors = new RawValueBinding("cityInfo", "industrialFactors", WriteIndustrialFactors));
+		AddBinding(m_OfficeFactors = new RawValueBinding("cityInfo", "officeFactors", WriteOfficeFactors));
+		AddBinding(m_HappinessFactors = new RawValueBinding("cityInfo", "happinessFactors", WriteHappinessFactors));
+		m_UpdateState = UIUpdateState.Create(base.World, 256);
+	}
 ```
 
 - `protected virtual OnCreateForCompiler() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreateForCompiler();
+protected override void OnCreateForCompiler()
+	{
+		base.OnCreateForCompiler();
+		__AssignQueries(ref base.CheckedStateRef);
+		__TypeHandle.__AssignHandles(ref base.CheckedStateRef);
+	}
 ```
 
 - `protected virtual OnGameLoaded(Colossal.Serialization.Entities.Context serializationContext) : System.Void`  
 
 ```csharp
-protected virtual System.Void OnGameLoaded(Colossal.Serialization.Entities.Context serializationContext);
+protected override void OnGameLoaded(Context serializationContext)
+	{
+		m_UpdateState.ForceUpdate();
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		base.OnUpdate();
+		uint num = m_SimulationSystem.frameIndex - m_LastFrameIndex;
+		if (num != 0)
+		{
+			m_LastFrameIndex = m_SimulationSystem.frameIndex;
+			m_ResidentialLowDemand = AdvanceSmoothDemand(m_ResidentialLowDemand, m_ResidentialDemandSystem.buildingDemand.x, num);
+			m_ResidentialMediumDemand = AdvanceSmoothDemand(m_ResidentialMediumDemand, m_ResidentialDemandSystem.buildingDemand.y, num);
+			m_ResidentialHighDemand = AdvanceSmoothDemand(m_ResidentialHighDemand, m_ResidentialDemandSystem.buildingDemand.z, num);
+			m_CommercialDemand = AdvanceSmoothDemand(m_CommercialDemand, m_CommercialDemandSystem.buildingDemand, num);
+			int target = math.max(m_IndustrialDemandSystem.industrialBuildingDemand, m_IndustrialDemandSystem.storageBuildingDemand);
+			m_IndustrialDemand = AdvanceSmoothDemand(m_IndustrialDemand, target, num);
+			m_OfficeDemand = AdvanceSmoothDemand(m_OfficeDemand, m_IndustrialDemandSystem.officeBuildingDemand, num);
+			if (base.EntityManager.HasComponent<Population>(m_CitySystem.City))
+			{
+				m_AvgHappiness = base.EntityManager.GetComponentData<Population>(m_CitySystem.City).m_AverageHappiness;
+			}
+			else
+			{
+				m_AvgHappiness = 50;
+			}
+		}
+		if (m_UpdateState.Advance())
+		{
+			m_ResidentialLowFactors.Update();
+			m_ResidentialMediumFactors.Update();
+			m_ResidentialHighFactors.Update();
+			m_CommercialFactors.Update();
+			m_IndustrialFactors.Update();
+			m_OfficeFactors.Update();
+			m_HappinessFactors.Update();
+		}
+	}
 ```
 
 - `public RequestUpdate() : System.Void`  
 
 ```csharp
-public System.Void RequestUpdate();
+public void RequestUpdate()
+	{
+		m_UpdateState.ForceUpdate();
+	}
 ```
 
 - `public Serialize<TWriter>(TWriter writer) : System.Void`  
@@ -374,55 +453,146 @@ public System.Void Serialize<TWriter>(TWriter writer);
 - `public SetDefaults(Colossal.Serialization.Entities.Context context) : System.Void`  
 
 ```csharp
-public System.Void SetDefaults(Colossal.Serialization.Entities.Context context);
+public void SetDefaults(Context context)
+	{
+		m_ResidentialLowDemand = 0f;
+		m_ResidentialMediumDemand = 0f;
+		m_ResidentialHighDemand = 0f;
+		m_CommercialDemand = 0f;
+		m_IndustrialDemand = 0f;
+		m_OfficeDemand = 0f;
+		m_LastFrameIndex = 0u;
+	}
 ```
 
 - `private WriteCommercialFactors(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-private System.Void WriteCommercialFactors(Colossal.UI.Binding.IJsonWriter writer);
+private void WriteCommercialFactors(IJsonWriter writer)
+	{
+		JobHandle deps;
+		NativeArray<int> demandFactors = m_CommercialDemandSystem.GetDemandFactors(out deps);
+		WriteDemandFactors(writer, demandFactors, deps);
+	}
 ```
 
 - `private WriteDemandFactors(Colossal.UI.Binding.IJsonWriter writer, Unity.Collections.NativeArray<System.Int32> factors, Unity.Jobs.JobHandle deps) : System.Void`  
 
 ```csharp
-private System.Void WriteDemandFactors(Colossal.UI.Binding.IJsonWriter writer, Unity.Collections.NativeArray<System.Int32> factors, Unity.Jobs.JobHandle deps);
+private void WriteDemandFactors(IJsonWriter writer, NativeArray<int> factors, JobHandle deps)
+	{
+		deps.Complete();
+		NativeList<FactorInfo> list = FactorInfo.FromFactorArray(factors, Allocator.Temp);
+		list.Sort();
+		try
+		{
+			int num = math.min(5, list.Length);
+			writer.ArrayBegin(num);
+			for (int i = 0; i < num; i++)
+			{
+				list[i].WriteDemandFactor(writer);
+			}
+			writer.ArrayEnd();
+		}
+		finally
+		{
+			list.Dispose();
+		}
+	}
 ```
 
 - `private WriteHappinessFactors(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-private System.Void WriteHappinessFactors(Colossal.UI.Binding.IJsonWriter writer);
+private void WriteHappinessFactors(IJsonWriter writer)
+	{
+		NativeList<FactorInfo> list = new NativeList<FactorInfo>(25, Allocator.Temp);
+		EntityQuery entityQuery = GetEntityQuery(ComponentType.ReadOnly<HappinessFactorParameterData>());
+		if (!entityQuery.IsEmptyIgnoreFilter)
+		{
+			Entity singletonEntity = entityQuery.GetSingletonEntity();
+			DynamicBuffer<HappinessFactorParameterData> buffer = base.EntityManager.GetBuffer<HappinessFactorParameterData>(singletonEntity, isReadOnly: true);
+			ComponentLookup<Locked> locked = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_Locked_RO_ComponentLookup, ref base.CheckedStateRef);
+			for (int i = 0; i < 25; i++)
+			{
+				int num = Mathf.RoundToInt(m_CitizenHappinessSystem.GetHappinessFactor((CitizenHappinessSystem.HappinessFactor)i, buffer, ref locked).x);
+				if (num != 0)
+				{
+					list.Add(new FactorInfo(i, num));
+				}
+			}
+		}
+		list.Sort();
+		try
+		{
+			int num2 = math.min(10, list.Length);
+			writer.ArrayBegin(num2);
+			for (int j = 0; j < num2; j++)
+			{
+				list[j].WriteHappinessFactor(writer);
+			}
+			writer.ArrayEnd();
+		}
+		finally
+		{
+			list.Dispose();
+		}
+	}
 ```
 
 - `private WriteIndustrialFactors(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-private System.Void WriteIndustrialFactors(Colossal.UI.Binding.IJsonWriter writer);
+private void WriteIndustrialFactors(IJsonWriter writer)
+	{
+		JobHandle deps;
+		NativeArray<int> industrialDemandFactors = m_IndustrialDemandSystem.GetIndustrialDemandFactors(out deps);
+		WriteDemandFactors(writer, industrialDemandFactors, deps);
+	}
 ```
 
 - `private WriteOfficeFactors(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-private System.Void WriteOfficeFactors(Colossal.UI.Binding.IJsonWriter writer);
+private void WriteOfficeFactors(IJsonWriter writer)
+	{
+		JobHandle deps;
+		NativeArray<int> officeDemandFactors = m_IndustrialDemandSystem.GetOfficeDemandFactors(out deps);
+		WriteDemandFactors(writer, officeDemandFactors, deps);
+	}
 ```
 
 - `private WriteResidentialHighFactors(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-private System.Void WriteResidentialHighFactors(Colossal.UI.Binding.IJsonWriter writer);
+private void WriteResidentialHighFactors(IJsonWriter writer)
+	{
+		JobHandle deps;
+		NativeArray<int> highDensityDemandFactors = m_ResidentialDemandSystem.GetHighDensityDemandFactors(out deps);
+		WriteDemandFactors(writer, highDensityDemandFactors, deps);
+	}
 ```
 
 - `private WriteResidentialLowFactors(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-private System.Void WriteResidentialLowFactors(Colossal.UI.Binding.IJsonWriter writer);
+private void WriteResidentialLowFactors(IJsonWriter writer)
+	{
+		JobHandle deps;
+		NativeArray<int> lowDensityDemandFactors = m_ResidentialDemandSystem.GetLowDensityDemandFactors(out deps);
+		WriteDemandFactors(writer, lowDensityDemandFactors, deps);
+	}
 ```
 
 - `private WriteResidentialMediumFactors(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-private System.Void WriteResidentialMediumFactors(Colossal.UI.Binding.IJsonWriter writer);
+private void WriteResidentialMediumFactors(IJsonWriter writer)
+	{
+		JobHandle deps;
+		NativeArray<int> mediumDensityDemandFactors = m_ResidentialDemandSystem.GetMediumDensityDemandFactors(out deps);
+		WriteDemandFactors(writer, mediumDensityDemandFactors, deps);
+	}
 ```
 
 

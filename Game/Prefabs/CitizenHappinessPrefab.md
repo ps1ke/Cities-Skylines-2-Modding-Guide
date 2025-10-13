@@ -349,13 +349,67 @@ public CitizenHappinessPrefab();
 - `public virtual GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetPrefabComponents(HashSet<ComponentType> components)
+	{
+		base.GetPrefabComponents(components);
+		components.Add(ComponentType.ReadWrite<CitizenHappinessParameterData>());
+	}
 ```
 
 - `public virtual LateInitialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity) : System.Void`  
 
 ```csharp
-public virtual System.Void LateInitialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity);
+public override void LateInitialize(EntityManager entityManager, Entity entity)
+	{
+		base.LateInitialize(entityManager, entity);
+		entityManager.SetComponentData(entity, new CitizenHappinessParameterData
+		{
+			m_WaterPollutionBonusMultiplier = m_WaterPollutionMultiplier,
+			m_PollutionBonusDivisor = m_PollutionDivisor,
+			m_MaxAirAndGroundPollutionBonus = m_MaxAirAndGroundPollution,
+			m_MaxNoisePollutionBonus = m_MaxNoisePollution,
+			m_ElectricityWellbeingPenalty = m_ElectricityWellbeingPenalty,
+			m_ElectricityPenaltyDelay = (int)m_ElectricityPenaltyDelay,
+			m_ElectricityFeeWellbeingEffect = new AnimationCurve1(m_ElectricityFeeWellbeingEffect),
+			m_WaterHealthPenalty = m_WaterHealthPenalty,
+			m_WaterWellbeingPenalty = m_WaterWellbeingPenalty,
+			m_WaterPenaltyDelay = (int)m_WaterPenaltyDelay,
+			m_SewageHealthEffect = m_SewageHealthEffect,
+			m_SewageWellbeingEffect = m_SewageWellbeingEffect,
+			m_SewagePenaltyDelay = (int)m_SewagePenaltyDelay,
+			m_WaterFeeHealthEffect = new AnimationCurve1(m_WaterFeeHealthEffect),
+			m_WaterFeeWellbeingEffect = new AnimationCurve1(m_WaterFeeWellbeingEffect),
+			m_WealthyMoneyAmount = m_WealthyMoneyAmount,
+			m_HealthCareHealthMultiplier = m_HealthCareHealthMultiplier,
+			m_HealthCareWellbeingMultiplier = m_HealthCareWellbeingMultiplier,
+			m_EducationWellbeingMultiplier = m_EducationWellbeingMultiplier,
+			m_NeutralEducation = m_NeutralEducation,
+			m_EntertainmentWellbeingMultiplier = m_EntertainmentWellbeingMultiplier,
+			m_NegligibleCrime = m_NegligibleCrime,
+			m_CrimeMultiplier = m_CrimeMultiplier,
+			m_MaxCrimePenalty = m_MaxCrimePenalty,
+			m_MailMultiplier = m_MailMultiplier,
+			m_NegligibleMail = m_NegligibleMail,
+			m_TelecomBaseline = m_TelecomBaseline,
+			m_TelecomBonusMultiplier = m_TelecomBonusMultiplier,
+			m_TelecomPenaltyMultiplier = m_TelecomPenaltyMultiplier,
+			m_WelfareMultiplier = m_WelfareMultiplier,
+			m_HealthProblemHealthPenalty = m_HealthProblemHealthPenalty,
+			m_DeathHealthPenalty = m_DeathHealthPenalty,
+			m_DeathWellbeingPenalty = m_DeathWellbeingPenalty,
+			m_ConsumptionMultiplier = m_ConsumptionMultiplier,
+			m_LowWellbeing = m_LowWellbeing,
+			m_LowHealth = m_LowHealth,
+			m_TaxUneducatedMultiplier = m_TaxUneducatedMultiplier,
+			m_TaxPoorlyEducatedMultiplier = m_TaxPoorlyEducatedMultiplier,
+			m_TaxEducatedMultiplier = m_TaxEducatedMultiplier,
+			m_TaxWellEducatedMultiplier = m_TaxWellEducatedMultiplier,
+			m_TaxHighlyEducatedMultiplier = m_TaxHighlyEducatedMultiplier,
+			m_PenaltyEffect = m_PenaltyEffect,
+			m_HomelessHealthEffect = m_HomelessHealthEffect,
+			m_HomelessWellbeingEffect = m_HomelessWellbeingEffect
+		});
+	}
 ```
 
 

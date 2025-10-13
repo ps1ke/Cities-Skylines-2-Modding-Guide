@@ -39,25 +39,49 @@ public WelfareOffice();
 - `public virtual GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetArchetypeComponents(HashSet<ComponentType> components)
+	{
+		if (GetComponent<ServiceUpgrade>() == null)
+		{
+			components.Add(ComponentType.ReadWrite<Game.Buildings.WelfareOffice>());
+			if (GetComponent<CityServiceBuilding>() != null)
+			{
+				components.Add(ComponentType.ReadWrite<Efficiency>());
+			}
+			if (GetComponent<UniqueObject>() == null)
+			{
+				components.Add(ComponentType.ReadWrite<ServiceDistrict>());
+			}
+		}
+	}
 ```
 
 - `public virtual GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetPrefabComponents(HashSet<ComponentType> components)
+	{
+		components.Add(ComponentType.ReadWrite<WelfareOfficeData>());
+		components.Add(ComponentType.ReadWrite<UpdateFrameData>());
+	}
 ```
 
 - `public GetUpgradeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public System.Void GetUpgradeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public void GetUpgradeComponents(HashSet<ComponentType> components)
+	{
+		components.Add(ComponentType.ReadWrite<Game.Buildings.WelfareOffice>());
+	}
 ```
 
 - `public virtual Initialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity) : System.Void`  
 
 ```csharp
-public virtual System.Void Initialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity);
+public override void Initialize(EntityManager entityManager, Entity entity)
+	{
+		entityManager.SetComponentData(entity, new UpdateFrameData(5));
+	}
 ```
 
 

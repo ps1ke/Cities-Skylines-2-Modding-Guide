@@ -53,13 +53,21 @@ public ListField();
 - `protected RemoveItem(System.Int32 index) : System.Void`  
 
 ```csharp
-protected System.Void RemoveItem(System.Int32 index);
+protected void RemoveItem(int index)
+	{
+		onItemRemoved?.Invoke(index);
+	}
 ```
 
 - `protected virtual WriteProperties(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-protected virtual System.Void WriteProperties(Colossal.UI.Binding.IJsonWriter writer);
+protected override void WriteProperties(IJsonWriter writer)
+	{
+		base.WriteProperties(writer);
+		writer.PropertyName("items");
+		writer.Write((IList<Item>)m_Items);
+	}
 ```
 
 

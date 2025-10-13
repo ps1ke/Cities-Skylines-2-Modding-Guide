@@ -44,7 +44,17 @@ public WaitScreen();
 - `public Execute(Game.SceneFlow.GameManager manager, System.Threading.CancellationToken token, System.Threading.Tasks.Task taskToWaitFor) : System.Threading.Tasks.Task`  
 
 ```csharp
-public System.Threading.Tasks.Task Execute(Game.SceneFlow.GameManager manager, System.Threading.CancellationToken token, System.Threading.Tasks.Task taskToWaitFor);
+public async Task Execute(GameManager manager, CancellationToken token, Task taskToWaitFor)
+	{
+		using (InputManager.instance.CreateOverlayBarrier("WaitScreen"))
+		{
+			OverlayBindings overlayBindings = manager.userInterface.overlayBindings;
+			using (overlayBindings.ActivateScreenScoped(OverlayScreen.Wait))
+			{
+				await taskToWaitFor;
+			}
+		}
+	}
 ```
 
 

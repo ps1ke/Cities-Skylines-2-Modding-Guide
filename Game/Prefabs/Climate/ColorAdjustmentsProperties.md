@@ -75,7 +75,16 @@ public ColorAdjustmentsProperties();
 - `protected virtual OnBindVolumeProperties(UnityEngine.Rendering.Volume volume) : System.Void`  
 
 ```csharp
-protected virtual System.Void OnBindVolumeProperties(UnityEngine.Rendering.Volume volume);
+protected override void OnBindVolumeProperties(Volume volume)
+	{
+		ColorAdjustments component = null;
+		VolumeHelper.GetOrCreateVolumeComponent(volume, ref component);
+		m_PostExposure = component.postExposure;
+		m_Contrast = component.contrast;
+		m_ColorFilter = component.colorFilter;
+		m_HueShift = component.hueShift;
+		m_Saturation = component.saturation;
+	}
 ```
 
 

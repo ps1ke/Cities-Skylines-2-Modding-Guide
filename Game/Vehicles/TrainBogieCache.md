@@ -53,19 +53,34 @@ public Game.Vehicles.TrainLaneFlags m_LaneFlags;
 - `public TrainBogieCache(Game.Vehicles.TrainBogieLane lane)`  
 
 ```csharp
-public TrainBogieCache(Game.Vehicles.TrainBogieLane lane);
+public TrainBogieCache(Entity lane, float curvePosition)
+	{
+		m_Lane = lane;
+		m_CurvePosition = curvePosition;
+		m_LaneFlags = (TrainLaneFlags)0u;
+	}
 ```
 
 - `public TrainBogieCache(Game.Pathfind.PathElement pathElement)`  
 
 ```csharp
-public TrainBogieCache(Game.Pathfind.PathElement pathElement);
+public TrainBogieCache(Entity lane, float curvePosition)
+	{
+		m_Lane = lane;
+		m_CurvePosition = curvePosition;
+		m_LaneFlags = (TrainLaneFlags)0u;
+	}
 ```
 
 - `public TrainBogieCache(Unity.Entities.Entity lane, System.Single curvePosition)`  
 
 ```csharp
-public TrainBogieCache(Unity.Entities.Entity lane, System.Single curvePosition);
+public TrainBogieCache(Entity lane, float curvePosition)
+	{
+		m_Lane = lane;
+		m_CurvePosition = curvePosition;
+		m_LaneFlags = (TrainLaneFlags)0u;
+	}
 ```
 
 

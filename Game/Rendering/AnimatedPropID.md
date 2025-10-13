@@ -47,7 +47,10 @@ public System.Boolean isValid { get; }
 - `public AnimatedPropID(System.Int32 index)`  
 
 ```csharp
-public AnimatedPropID(System.Int32 index);
+public AnimatedPropID(int index)
+	{
+		m_Index = index;
+	}
 ```
 
 
@@ -56,13 +59,23 @@ public AnimatedPropID(System.Int32 index);
 - `public virtual Equals(System.Object obj) : System.Boolean`  
 
 ```csharp
-public virtual System.Boolean Equals(System.Object obj);
+public override bool Equals(object obj)
+	{
+		if (obj is AnimatedPropID animatedPropID)
+		{
+			return this == animatedPropID;
+		}
+		return false;
+	}
 ```
 
 - `public virtual GetHashCode() : System.Int32`  
 
 ```csharp
-public virtual System.Int32 GetHashCode();
+public override int GetHashCode()
+	{
+		return m_Index.GetHashCode();
+	}
 ```
 
 

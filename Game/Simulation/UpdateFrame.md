@@ -37,7 +37,10 @@ public System.UInt32 m_Index;
 - `public UpdateFrame(System.UInt32 index)`  
 
 ```csharp
-public UpdateFrame(System.UInt32 index);
+public UpdateFrame(uint index)
+	{
+		m_Index = index;
+	}
 ```
 
 

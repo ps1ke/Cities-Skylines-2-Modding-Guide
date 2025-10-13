@@ -61,7 +61,12 @@ public UnityEngine.Color Item { get; set; }
 - `public ColorSet(UnityEngine.Color color)`  
 
 ```csharp
-public ColorSet(UnityEngine.Color color);
+public ColorSet(Color color)
+	{
+		m_Channel0 = color;
+		m_Channel1 = color;
+		m_Channel2 = color;
+	}
 ```
 
 

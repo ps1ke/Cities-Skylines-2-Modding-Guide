@@ -37,7 +37,10 @@ public Game.Areas.AreaFlags m_Flags;
 - `public Area(Game.Areas.AreaFlags flags)`  
 
 ```csharp
-public Area(Game.Areas.AreaFlags flags);
+public Area(AreaFlags flags)
+	{
+		m_Flags = flags;
+	}
 ```
 
 

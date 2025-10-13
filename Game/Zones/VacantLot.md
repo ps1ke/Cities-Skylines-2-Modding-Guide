@@ -62,7 +62,13 @@ public Game.Zones.LotFlags m_Flags;
 - `public VacantLot(Unity.Mathematics.int2 min, Unity.Mathematics.int2 max, Game.Zones.ZoneType type, System.Int32 height, Game.Zones.LotFlags flags)`  
 
 ```csharp
-public VacantLot(Unity.Mathematics.int2 min, Unity.Mathematics.int2 max, Game.Zones.ZoneType type, System.Int32 height, Game.Zones.LotFlags flags);
+public VacantLot(int2 min, int2 max, ZoneType type, int height, LotFlags flags)
+	{
+		m_Area = new int4(min.x, max.x, min.y, max.y);
+		m_Type = type;
+		m_Height = (short)height;
+		m_Flags = flags;
+	}
 ```
 
 
@@ -77,13 +83,19 @@ public System.Void Deserialize<TReader>(TReader reader);
 - `public Equals(Game.Zones.VacantLot other) : System.Boolean`  
 
 ```csharp
-public System.Boolean Equals(Game.Zones.VacantLot other);
+public bool Equals(VacantLot other)
+	{
+		return m_Area.Equals(other.m_Area);
+	}
 ```
 
 - `public virtual GetHashCode() : System.Int32`  
 
 ```csharp
-public virtual System.Int32 GetHashCode();
+public override int GetHashCode()
+	{
+		return (17 * 31 + m_Area.GetHashCode()) * 31 + m_Type.GetHashCode();
+	}
 ```
 
 - `public Serialize<TWriter>(TWriter writer) : System.Void`  

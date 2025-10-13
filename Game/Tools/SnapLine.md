@@ -55,7 +55,13 @@ public System.Single m_HeightWeight;
 - `public SnapLine(Game.Tools.ControlPoint position, Colossal.Mathematics.Bezier4x3 curve, Game.Tools.SnapLineFlags flags, System.Single heightWeight)`  
 
 ```csharp
-public SnapLine(Game.Tools.ControlPoint position, Colossal.Mathematics.Bezier4x3 curve, Game.Tools.SnapLineFlags flags, System.Single heightWeight);
+public SnapLine(ControlPoint position, Bezier4x3 curve, SnapLineFlags flags, float heightWeight)
+	{
+		m_ControlPoint = position;
+		m_Curve = curve;
+		m_Flags = flags;
+		m_HeightWeight = heightWeight;
+	}
 ```
 
 

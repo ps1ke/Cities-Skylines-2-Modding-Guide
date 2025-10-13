@@ -206,7 +206,23 @@ public Game.Settings.UserState userState { get; private set; }
 - `public SharedSettings(Colossal.Localization.LocalizationManager localizationManager)`  
 
 ```csharp
-public SharedSettings(Colossal.Localization.LocalizationManager localizationManager);
+public SharedSettings(LocalizationManager localizationManager)
+	{
+		m_Settings.Add(general = new GeneralSettings());
+		m_Settings.Add(audio = new AudioSettings());
+		m_Settings.Add(gameplay = new GameplaySettings());
+		m_Settings.Add(radio = new RadioSettings());
+		m_Settings.Add(graphics = new GraphicsSettings());
+		m_Settings.Add(editor = new EditorSettings());
+		m_Settings.Add(userInterface = new InterfaceSettings());
+		m_Settings.Add(input = new InputSettings());
+		m_Settings.Add(this.userState = new UserState());
+		m_Settings.Add(keybinding = new KeybindingSettings());
+		m_Settings.Add(modding = new ModdingSettings());
+		LoadSettings();
+		LauncherSettings.LoadSettings(localizationManager, this);
+		localizationManager.SetActiveLocale(userInterface.locale);
+	}
 ```
 
 
@@ -227,31 +243,90 @@ private System.Void <RegisterInOptionsUI>g__OnDeviceChange|48_1(UnityEngine.Inpu
 - `public Apply() : System.Void`  
 
 ```csharp
-public System.Void Apply();
+public void Apply()
+	{
+		foreach (Setting setting in m_Settings)
+		{
+			setting.Apply();
+		}
+	}
 ```
 
 - `public LoadSettings() : System.Void`  
 
 ```csharp
-public System.Void LoadSettings();
+public void LoadSettings()
+	{
+		AssetDatabase.global.LoadSettings("General Settings", general, new GeneralSettings());
+		AssetDatabase.global.LoadSettings("Audio Settings", audio, new AudioSettings());
+		AssetDatabase.global.LoadSettings("Gameplay Settings", gameplay, new GameplaySettings());
+		AssetDatabase.global.LoadSettings("Radio Settings", radio, new RadioSettings());
+		AssetDatabase.global.LoadSettings("Graphics Settings", graphics, new GraphicsSettings());
+		AssetDatabase.global.LoadSettings("Editor Settings", editor, new EditorSettings());
+		AssetDatabase.global.LoadSettings("Interface Settings", userInterface, new InterfaceSettings());
+		AssetDatabase.global.LoadSettings("Input Settings", input, new InputSettings());
+		AssetDatabase.global.LoadSettings("Keybinding Settings", keybinding);
+		AssetDatabase.global.LoadSettings("Modding Settings", modding, new ModdingSettings());
+	}
 ```
 
 - `public LoadUserSettings() : System.Void`  
 
 ```csharp
-public System.Void LoadUserSettings();
+public void LoadUserSettings()
+	{
+		AssetDatabase.global.LoadSettings("User Settings", userState, new UserState());
+	}
 ```
 
 - `public RegisterInOptionsUI() : System.Void`  
 
 ```csharp
-public System.Void RegisterInOptionsUI();
+public void RegisterInOptionsUI()
+	{
+		general.RegisterInOptionsUI("General");
+		graphics.RegisterInOptionsUI("Graphics");
+		gameplay.RegisterInOptionsUI("Gameplay");
+		userInterface.RegisterInOptionsUI("Interface");
+		audio.RegisterInOptionsUI("Audio");
+		input.RegisterInOptionsUI("Input");
+		modding.RegisterInOptionsUI("Modding");
+		if (GameManager.instance.configuration.developerMode)
+		{
+			new About().RegisterInOptionsUI("About");
+			PlatformManager.instance.onStatusChanged += delegate
+			{
+				new About().RegisterInOptionsUI("About");
+			};
+		}
+		InputSystem.onDeviceChange += OnDeviceChange;
+		Game.Input.InputManager.instance.EventControlSchemeChanged += OnControlSchemeChanged;
+		void OnControlSchemeChanged(Game.Input.InputManager.ControlScheme controlScheme)
+		{
+			input.RegisterInOptionsUI("Input");
+		}
+		void OnDeviceChange(InputDevice changedDevice, InputDeviceChange change)
+		{
+			if (change == InputDeviceChange.Added || change == InputDeviceChange.Removed)
+			{
+				input.RegisterInOptionsUI("Input");
+			}
+		}
+	}
 ```
 
 - `public Reset() : System.Void`  
 
 ```csharp
-public System.Void Reset();
+public void Reset()
+	{
+		Launcher.DeleteLastSaveMetadata();
+		foreach (Setting setting in m_Settings)
+		{
+			setting.SetDefaults();
+			setting.ApplyAndSave();
+		}
+	}
 ```
 
 

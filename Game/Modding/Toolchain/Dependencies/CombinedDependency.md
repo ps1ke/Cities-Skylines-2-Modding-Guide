@@ -278,67 +278,301 @@ protected CombinedDependency();
 - `public Download(System.Threading.CancellationToken token) : System.Threading.Tasks.Task`  
 
 ```csharp
-public System.Threading.Tasks.Task Download(System.Threading.CancellationToken token);
+public Task Download(CancellationToken token)
+	{
+		return GetCombinedResult(type, token, (IToolchainDependency d, CancellationToken t) => d.Download(t));
+	}
 ```
 
 - `private GetCombinedResult(System.Threading.CancellationToken token, System.Func<Game.Modding.Toolchain.IToolchainDependency, System.Threading.CancellationToken, System.Threading.Tasks.Task<System.Boolean>> getTaskPredicate) : System.Threading.Tasks.Task<System.Boolean>`  
 
 ```csharp
-private System.Threading.Tasks.Task<System.Boolean> GetCombinedResult(System.Threading.CancellationToken token, System.Func<Game.Modding.Toolchain.IToolchainDependency, System.Threading.CancellationToken, System.Threading.Tasks.Task<System.Boolean>> getTaskPredicate);
+private async Task GetCombinedResult(CombineType combineType, CancellationToken token, Func<IToolchainDependency, CancellationToken, Task> getTaskPredicate)
+	{
+		if (isAsync)
+		{
+			using (CancellationTokenSource anyTokenSource = new CancellationTokenSource())
+			{
+				CancellationTokenSource combinedTokenSource = CancellationTokenSource.CreateLinkedTokenSource(token, anyTokenSource.Token);
+				try
+				{
+					List<Task> tasks = dependencies.Select((IToolchainDependency d) => getTaskPredicate(d, combinedTokenSource.Token)).ToList();
+					switch (combineType)
+					{
+					case CombineType.OR:
+					{
+						List<Exception> errors = new List<Exception>();
+						while (tasks.Count > 0)
+						{
+							Task task2 = await Task.WhenAny(tasks);
+							tasks.Remove(task2);
+							if (task2.IsCompletedSuccessfully)
+							{
+								anyTokenSource.Cancel();
+								return;
+							}
+							if (task2.Exception != null)
+							{
+								errors.AddRange(task2.Exception.InnerExceptions);
+							}
+						}
+						if (errors.Count != 0)
+						{
+							throw new AggregateException(errors);
+						}
+						return;
+					}
+					case CombineType.AND:
+						while (tasks.Count > 0)
+						{
+							Task task = await Task.WhenAny(tasks);
+							tasks.Remove(task);
+							if (task.IsFaulted)
+							{
+								throw task.Exception;
+							}
+						}
+						return;
+					case CombineType.ALL:
+						await Task.WhenAll(tasks);
+						return;
+					}
+				}
+				finally
+				{
+					if (combinedTokenSource != null)
+					{
+						((IDisposable)combinedTokenSource).Dispose();
+					}
+				}
+			}
+			return;
+		}
+		switch (combineType)
+		{
+		case CombineType.OR:
+		{
+			List<Exception> errors = new List<Exception>();
+			foreach (IToolchainDependency dependency in dependencies)
+			{
+				Task task3 = getTaskPredicate(dependency, token);
+				await task3;
+				if (task3.IsCompletedSuccessfully)
+				{
+					return;
+				}
+				if (task3.Exception != null)
+				{
+					errors.AddRange(task3.Exception.InnerExceptions);
+				}
+			}
+			if (errors.Count != 0)
+			{
+				throw new AggregateException(errors);
+			}
+			break;
+		}
+		case CombineType.AND:
+			foreach (IToolchainDependency dependency2 in dependencies)
+			{
+				Task task3 = getTaskPredicate(dependency2, token);
+				await task3;
+				if (task3.IsFaulted)
+				{
+					throw task3.Exception;
+				}
+			}
+			break;
+		case CombineType.ALL:
+			foreach (IToolchainDependency dependency3 in dependencies)
+			{
+				await getTaskPredicate(dependency3, token);
+			}
+			break;
+		}
+	}
 ```
 
 - `private GetCombinedResult(Game.Modding.Toolchain.Dependencies.CombinedDependency+CombineType combineType, System.Threading.CancellationToken token, System.Func<Game.Modding.Toolchain.IToolchainDependency, System.Threading.CancellationToken, System.Threading.Tasks.Task> getTaskPredicate) : System.Threading.Tasks.Task`  
 
 ```csharp
-private System.Threading.Tasks.Task GetCombinedResult(Game.Modding.Toolchain.Dependencies.CombinedDependency+CombineType combineType, System.Threading.CancellationToken token, System.Func<Game.Modding.Toolchain.IToolchainDependency, System.Threading.CancellationToken, System.Threading.Tasks.Task> getTaskPredicate);
+private async Task GetCombinedResult(CombineType combineType, CancellationToken token, Func<IToolchainDependency, CancellationToken, Task> getTaskPredicate)
+	{
+		if (isAsync)
+		{
+			using (CancellationTokenSource anyTokenSource = new CancellationTokenSource())
+			{
+				CancellationTokenSource combinedTokenSource = CancellationTokenSource.CreateLinkedTokenSource(token, anyTokenSource.Token);
+				try
+				{
+					List<Task> tasks = dependencies.Select((IToolchainDependency d) => getTaskPredicate(d, combinedTokenSource.Token)).ToList();
+					switch (combineType)
+					{
+					case CombineType.OR:
+					{
+						List<Exception> errors = new List<Exception>();
+						while (tasks.Count > 0)
+						{
+							Task task2 = await Task.WhenAny(tasks);
+							tasks.Remove(task2);
+							if (task2.IsCompletedSuccessfully)
+							{
+								anyTokenSource.Cancel();
+								return;
+							}
+							if (task2.Exception != null)
+							{
+								errors.AddRange(task2.Exception.InnerExceptions);
+							}
+						}
+						if (errors.Count != 0)
+						{
+							throw new AggregateException(errors);
+						}
+						return;
+					}
+					case CombineType.AND:
+						while (tasks.Count > 0)
+						{
+							Task task = await Task.WhenAny(tasks);
+							tasks.Remove(task);
+							if (task.IsFaulted)
+							{
+								throw task.Exception;
+							}
+						}
+						return;
+					case CombineType.ALL:
+						await Task.WhenAll(tasks);
+						return;
+					}
+				}
+				finally
+				{
+					if (combinedTokenSource != null)
+					{
+						((IDisposable)combinedTokenSource).Dispose();
+					}
+				}
+			}
+			return;
+		}
+		switch (combineType)
+		{
+		case CombineType.OR:
+		{
+			List<Exception> errors = new List<Exception>();
+			foreach (IToolchainDependency dependency in dependencies)
+			{
+				Task task3 = getTaskPredicate(dependency, token);
+				await task3;
+				if (task3.IsCompletedSuccessfully)
+				{
+					return;
+				}
+				if (task3.Exception != null)
+				{
+					errors.AddRange(task3.Exception.InnerExceptions);
+				}
+			}
+			if (errors.Count != 0)
+			{
+				throw new AggregateException(errors);
+			}
+			break;
+		}
+		case CombineType.AND:
+			foreach (IToolchainDependency dependency2 in dependencies)
+			{
+				Task task3 = getTaskPredicate(dependency2, token);
+				await task3;
+				if (task3.IsFaulted)
+				{
+					throw task3.Exception;
+				}
+			}
+			break;
+		case CombineType.ALL:
+			foreach (IToolchainDependency dependency3 in dependencies)
+			{
+				await getTaskPredicate(dependency3, token);
+			}
+			break;
+		}
+	}
 ```
 
 - `public virtual GetLocalizedState(System.Boolean includeProgress) : Game.UI.Localization.LocalizedString`  
 
 ```csharp
-public virtual Game.UI.Localization.LocalizedString GetLocalizedState(System.Boolean includeProgress);
+public virtual LocalizedString GetLocalizedState(bool includeProgress)
+	{
+		return IToolchainDependency.GetLocalizedState(state, includeProgress);
+	}
 ```
 
 - `public GetRequiredDiskSpace(System.Threading.CancellationToken token) : System.Threading.Tasks.Task<System.Collections.Generic.List<Game.Modding.Toolchain.IToolchainDependency+DiskSpaceRequirements>>`  
 
 ```csharp
-public System.Threading.Tasks.Task<System.Collections.Generic.List<Game.Modding.Toolchain.IToolchainDependency+DiskSpaceRequirements>> GetRequiredDiskSpace(System.Threading.CancellationToken token);
+public Task<List<IToolchainDependency.DiskSpaceRequirements>> GetRequiredDiskSpace(CancellationToken token)
+	{
+		return Task.FromResult(new List<IToolchainDependency.DiskSpaceRequirements>());
+	}
 ```
 
 - `public Install(System.Threading.CancellationToken token) : System.Threading.Tasks.Task`  
 
 ```csharp
-public System.Threading.Tasks.Task Install(System.Threading.CancellationToken token);
+public Task Install(CancellationToken token)
+	{
+		return GetCombinedResult(type, token, (IToolchainDependency d, CancellationToken t) => d.Install(t));
+	}
 ```
 
 - `public IsInstalled(System.Threading.CancellationToken token) : System.Threading.Tasks.Task<System.Boolean>`  
 
 ```csharp
-public System.Threading.Tasks.Task<System.Boolean> IsInstalled(System.Threading.CancellationToken token);
+public Task<bool> IsInstalled(CancellationToken token)
+	{
+		return GetCombinedResult(token, (IToolchainDependency d, CancellationToken t) => d.IsInstalled(t));
+	}
 ```
 
 - `public IsUpToDate(System.Threading.CancellationToken token) : System.Threading.Tasks.Task<System.Boolean>`  
 
 ```csharp
-public System.Threading.Tasks.Task<System.Boolean> IsUpToDate(System.Threading.CancellationToken token);
+public Task<bool> IsUpToDate(CancellationToken token)
+	{
+		return GetCombinedResult(token, (IToolchainDependency d, CancellationToken t) => d.IsUpToDate(t));
+	}
 ```
 
 - `public NeedDownload(System.Threading.CancellationToken token) : System.Threading.Tasks.Task<System.Boolean>`  
 
 ```csharp
-public System.Threading.Tasks.Task<System.Boolean> NeedDownload(System.Threading.CancellationToken token);
+public Task<bool> NeedDownload(CancellationToken token)
+	{
+		return GetCombinedResult(token, (IToolchainDependency d, CancellationToken t) => d.NeedDownload(t));
+	}
 ```
 
 - `public virtual Refresh(System.Threading.CancellationToken token) : System.Threading.Tasks.Task`  
 
 ```csharp
-public virtual System.Threading.Tasks.Task Refresh(System.Threading.CancellationToken token);
+public virtual async Task Refresh(CancellationToken token)
+	{
+		await GetCombinedResult(CombineType.ALL, token, (IToolchainDependency d, CancellationToken t) => d.Refresh(t));
+		await IToolchainDependency.Refresh(this, token);
+	}
 ```
 
 - `public Uninstall(System.Threading.CancellationToken token) : System.Threading.Tasks.Task`  
 
 ```csharp
-public System.Threading.Tasks.Task Uninstall(System.Threading.CancellationToken token);
+public Task Uninstall(CancellationToken token)
+	{
+		return GetCombinedResult(type, token, (IToolchainDependency d, CancellationToken t) => d.Download(t));
+	}
 ```
 
 

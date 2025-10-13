@@ -80,13 +80,26 @@ public AssetStampPrefab();
 - `public virtual GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetArchetypeComponents(HashSet<ComponentType> components)
+	{
+		base.GetArchetypeComponents(components);
+		components.Add(ComponentType.ReadWrite<Static>());
+		components.Add(ComponentType.ReadWrite<AssetStamp>());
+		components.Add(ComponentType.ReadWrite<CullingInfo>());
+		components.Add(ComponentType.ReadWrite<PseudoRandomSeed>());
+	}
 ```
 
 - `public virtual GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetPrefabComponents(HashSet<ComponentType> components)
+	{
+		base.GetPrefabComponents(components);
+		components.Add(ComponentType.ReadWrite<ObjectGeometryData>());
+		components.Add(ComponentType.ReadWrite<AssetStampData>());
+		components.Add(ComponentType.ReadWrite<PlaceableObjectData>());
+	}
 ```
 
 

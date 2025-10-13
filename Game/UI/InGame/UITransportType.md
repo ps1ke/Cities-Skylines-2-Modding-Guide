@@ -83,7 +83,13 @@ public System.Boolean locked { get; }
 - `public UITransportType(Unity.Entities.Entity prefab, System.String id, System.String icon, System.Boolean locked)`  
 
 ```csharp
-public UITransportType(Unity.Entities.Entity prefab, System.String id, System.String icon, System.Boolean locked);
+public UITransportType(Entity prefab, string id, string icon, bool locked)
+	{
+		m_Prefab = prefab;
+		this.id = id;
+		this.icon = icon;
+		this.locked = locked;
+	}
 ```
 
 
@@ -92,7 +98,19 @@ public UITransportType(Unity.Entities.Entity prefab, System.String id, System.St
 - `public Write(Game.UI.InGame.PrefabUISystem prefabUISystem, Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-public System.Void Write(Game.UI.InGame.PrefabUISystem prefabUISystem, Colossal.UI.Binding.IJsonWriter writer);
+public void Write(PrefabUISystem prefabUISystem, IJsonWriter writer)
+	{
+		writer.TypeBegin(GetType().FullName);
+		writer.PropertyName("id");
+		writer.Write(id);
+		writer.PropertyName("icon");
+		writer.Write(icon);
+		writer.PropertyName("locked");
+		writer.Write(locked);
+		writer.PropertyName("requirements");
+		prefabUISystem.BindPrefabRequirements(writer, m_Prefab);
+		writer.TypeEnd();
+	}
 ```
 
 

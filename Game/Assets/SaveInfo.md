@@ -365,13 +365,85 @@ public SaveInfo();
 - `public Copy() : Game.Assets.SaveInfo`  
 
 ```csharp
-public Game.Assets.SaveInfo Copy();
+public SaveInfo Copy()
+	{
+		return new SaveInfo
+		{
+			preview = preview,
+			theme = theme,
+			cityName = cityName,
+			population = population,
+			money = money,
+			xp = xp,
+			simulationDate = simulationDate,
+			options = ((options != null) ? new Dictionary<string, bool>(options) : options),
+			contentPrerequisites = ((contentPrerequisites != null) ? ((string[])contentPrerequisites.Clone()) : contentPrerequisites),
+			mapName = mapName,
+			saveGameData = saveGameData,
+			id = id,
+			displayName = displayName,
+			path = path,
+			isReadonly = isReadonly,
+			cloudTarget = cloudTarget,
+			lastModified = lastModified,
+			autoSave = autoSave,
+			metaData = metaData,
+			sessionGuid = sessionGuid,
+			locked = locked,
+			modsEnabled = modsEnabled,
+			gameMode = gameMode
+		};
+	}
 ```
 
 - `public Write(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-public System.Void Write(Colossal.UI.Binding.IJsonWriter writer);
+public void Write(IJsonWriter writer)
+	{
+		writer.TypeBegin(GetType().FullName);
+		writer.PropertyName("id");
+		writer.Write(id);
+		writer.PropertyName("displayName");
+		writer.Write(displayName);
+		writer.PropertyName("path");
+		writer.Write(path);
+		writer.PropertyName("preview");
+		writer.Write(preview.ToUri(MenuHelpers.defaultPreview));
+		writer.PropertyName("theme");
+		writer.Write(theme);
+		writer.PropertyName("cityName");
+		writer.Write(cityName);
+		writer.PropertyName("population");
+		writer.Write(population);
+		writer.PropertyName("money");
+		writer.Write(money);
+		writer.PropertyName("xp");
+		writer.Write(xp);
+		writer.PropertyName("simulationDate");
+		writer.Write(simulationDate);
+		writer.PropertyName("options");
+		writer.Write((IReadOnlyDictionary<string, bool>)options);
+		writer.PropertyName("locked");
+		writer.Write(locked);
+		writer.PropertyName("mapName");
+		writer.Write(mapName);
+		writer.PropertyName("lastModified");
+		writer.Write(lastModified.ToString("o"));
+		writer.PropertyName("isReadonly");
+		writer.Write(isReadonly);
+		writer.PropertyName("cloudTarget");
+		writer.Write(cloudTarget);
+		writer.PropertyName("autoSave");
+		writer.Write(autoSave);
+		writer.PropertyName("modsEnabled");
+		writer.Write(modsEnabled ?? Array.Empty<string>());
+		writer.PropertyName("gameMode");
+		writer.Write(gameMode);
+		writer.PropertyName("contentPrerequisites");
+		writer.Write(contentPrerequisites);
+		writer.TypeEnd();
+	}
 ```
 
 

@@ -44,7 +44,11 @@ public Unity.Mathematics.float3 m_Velocity;
 - `public HotspotFrame(Game.Events.WeatherPhenomenon weatherPhenomenon)`  
 
 ```csharp
-public HotspotFrame(Game.Events.WeatherPhenomenon weatherPhenomenon);
+public HotspotFrame(WeatherPhenomenon weatherPhenomenon)
+	{
+		m_Position = weatherPhenomenon.m_HotspotPosition;
+		m_Velocity = weatherPhenomenon.m_HotspotVelocity;
+	}
 ```
 
 

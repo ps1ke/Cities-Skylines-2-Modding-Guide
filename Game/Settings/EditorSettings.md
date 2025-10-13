@@ -253,7 +253,10 @@ public System.Boolean resetTutorials { set; }
 - `public EditorSettings()`  
 
 ```csharp
-public EditorSettings();
+public EditorSettings()
+	{
+		SetDefaults();
+	}
 ```
 
 
@@ -262,13 +265,35 @@ public EditorSettings();
 - `public ResetTutorials() : System.Void`  
 
 ```csharp
-public System.Void ResetTutorials();
+public void ResetTutorials()
+	{
+		shownTutorials.Clear();
+		ApplyAndSave();
+		World.DefaultGameObjectInjectionWorld.GetExistingSystemManaged<EditorTutorialSystem>().OnResetTutorials();
+	}
 ```
 
 - `public virtual SetDefaults() : System.Void`  
 
 ```csharp
-public virtual System.Void SetDefaults();
+public override void SetDefaults()
+	{
+		prefabPickerColumnCount = 1;
+		prefabPickerFavorites = new string[0];
+		prefabPickerSearchHistory = new string[0];
+		prefabPickerSearchFavorites = new string[0];
+		assetPickerColumnCount = 4;
+		assetPickerFavorites = new string[0];
+		directoryPickerFavorites = new string[0];
+		inspectorWidth = 450;
+		hierarchyWidth = 350;
+		lastSelectedProjectRootDirectory = null;
+		lastSelectedImportDirectory = null;
+		useParallelImport = true;
+		lowQualityTextureCompression = false;
+		showTutorials = false;
+		shownTutorials = new Dictionary<string, bool>();
+	}
 ```
 
 

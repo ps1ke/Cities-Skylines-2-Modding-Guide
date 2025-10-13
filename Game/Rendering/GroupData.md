@@ -111,13 +111,20 @@ public static const System.Int32 MAX_PROPERTY_COUNT;
 - `public GetPropertyIndex(System.Int32 property, System.Int32& index) : System.Boolean`  
 
 ```csharp
-public System.Boolean GetPropertyIndex(System.Int32 property, System.Int32& index);
+public unsafe bool GetPropertyIndex(int property, out int index)
+	{
+		index = m_Properties[property];
+		return index >= 0;
+	}
 ```
 
 - `public SetPropertyIndex(System.Int32 property, System.Int32 index) : System.Void`  
 
 ```csharp
-public System.Void SetPropertyIndex(System.Int32 property, System.Int32 index);
+public unsafe void SetPropertyIndex(int property, int index)
+	{
+		m_Properties[property] = (sbyte)index;
+	}
 ```
 
 

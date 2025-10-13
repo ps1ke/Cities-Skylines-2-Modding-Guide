@@ -55,7 +55,10 @@ public System.Boolean m_Middle;
 - `public CompareTo(Game.Net.EdgeIteratorValueSorted other) : System.Int32`  
 
 ```csharp
-public System.Int32 CompareTo(Game.Net.EdgeIteratorValueSorted other);
+public int CompareTo(EdgeIteratorValueSorted other)
+	{
+		return math.select(0, math.select(1, -1, m_SortIndex < other.m_SortIndex), m_SortIndex != other.m_SortIndex);
+	}
 ```
 
 

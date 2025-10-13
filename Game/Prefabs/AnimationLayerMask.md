@@ -34,7 +34,17 @@ public System.UInt32 m_Mask;
 - `public AnimationLayerMask(Game.Prefabs.AnimationLayer layer)`  
 
 ```csharp
-public AnimationLayerMask(Game.Prefabs.AnimationLayer layer);
+public AnimationLayerMask(AnimationLayer layer)
+	{
+		if (layer == AnimationLayer.None)
+		{
+			m_Mask = 0u;
+		}
+		else
+		{
+			m_Mask = (uint)(1 << (int)(layer - 1));
+		}
+	}
 ```
 
 

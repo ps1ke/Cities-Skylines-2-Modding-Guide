@@ -131,43 +131,133 @@ public RenderPrefabRenderer();
 - `public GetActiveRoot() : UnityEngine.GameObject`  
 
 ```csharp
-public UnityEngine.GameObject GetActiveRoot();
+public GameObject GetActiveRoot()
+	{
+		if (m_Hierarchies != null && m_LODIndex < m_Hierarchies.Count)
+		{
+			return m_Hierarchies[m_LODIndex].root;
+		}
+		return null;
+	}
 ```
 
 - `private OnDisable() : System.Void`  
 
 ```csharp
-private System.Void OnDisable();
+private void OnDisable()
+	{
+		if (m_Hierarchies == null)
+		{
+			return;
+		}
+		foreach (Instance hierarchy in m_Hierarchies)
+		{
+			hierarchy.Dispose();
+		}
+	}
 ```
 
 - `private OnDrawGizmosSelected() : System.Void`  
 
 ```csharp
-private System.Void OnDrawGizmosSelected();
+private void OnDrawGizmosSelected()
+	{
+		Renderer[] componentsInChildren = GetComponentsInChildren<Renderer>();
+		if (componentsInChildren != null && componentsInChildren.Length != 0)
+		{
+			for (int i = 0; i < componentsInChildren.Length; i++)
+			{
+				Bounds bounds = componentsInChildren[i].bounds;
+				UnityEngine.Gizmos.matrix = Matrix4x4.identity;
+				UnityEngine.Gizmos.color = Colossal.ColorUtils.NiceRandomColor(i);
+				UnityEngine.Gizmos.DrawWireCube(bounds.center, bounds.extents * 2f);
+			}
+		}
+	}
 ```
 
 - `private OnEnable() : System.Void`  
 
 ```csharp
-private System.Void OnEnable();
+private void OnEnable()
+	{
+		if (!(m_Prefab != null))
+		{
+			return;
+		}
+		m_MaterialPropertyBlock = new MaterialPropertyBlock();
+		m_Hierarchies = new List<Instance>();
+		m_Hierarchies.Add(new Instance(this, m_Prefab, m_Prefab, !m_NoVT));
+		if (m_Prefab.TryGet<LodProperties>(out var component))
+		{
+			RenderPrefab[] lodMeshes = component.m_LodMeshes;
+			foreach (RenderPrefab prefab in lodMeshes)
+			{
+				Instance instance = new Instance(this, m_Prefab, prefab, !m_NoVT);
+				instance.enabled = false;
+				m_Hierarchies.Add(instance);
+			}
+		}
+	}
 ```
 
 - `private RegisterForAnimation(System.String boneName, UnityEngine.Transform target, Game.Prefabs.ProceduralAnimationProperties+BoneInfo boneInfo) : System.Void`  
 
 ```csharp
-private System.Void RegisterForAnimation(System.String boneName, UnityEngine.Transform target, Game.Prefabs.ProceduralAnimationProperties+BoneInfo boneInfo);
+private void RegisterForAnimation(string boneName, Transform target, ProceduralAnimationProperties.BoneInfo boneInfo)
+	{
+		if (!m_AnimationStates.TryGetValue(boneName, out var value))
+		{
+			value = new List<AnimationState>();
+			m_AnimationStates.Add(boneName, value);
+		}
+		if (value.FindIndex((AnimationState x) => x.target == target) == -1)
+		{
+			value.Add(new AnimationState(target, boneInfo));
+		}
+	}
 ```
 
 - `private Update() : System.Void`  
 
 ```csharp
-private System.Void Update();
+private void Update()
+	{
+		if (m_Animate)
+		{
+			UpdateAnimations();
+		}
+		for (int i = 0; i < m_Hierarchies.Count; i++)
+		{
+			m_MaterialPropertyBlock.Clear();
+			Instance instance = m_Hierarchies[i];
+			instance.Update();
+			instance.SetWindowProperties(m_WindowsLight, ref m_MaterialPropertyBlock);
+			instance.SetColorProperties(m_ColorIndex, ref m_MaterialPropertyBlock);
+			instance.SetDecalProperties(ref m_MaterialPropertyBlock);
+			instance.SetEmissiveProperties(m_EmissiveLight, ref m_MaterialPropertyBlock);
+			instance.SetProceduralAnimationProperties(ref m_MaterialPropertyBlock);
+			instance.SetCharacterProperties(ref m_MaterialPropertyBlock);
+			instance.enabled = i == m_LODIndex;
+		}
+	}
 ```
 
 - `private UpdateAnimations() : System.Void`  
 
 ```csharp
-private System.Void UpdateAnimations();
+private void UpdateAnimations()
+	{
+		foreach (KeyValuePair<string, List<AnimationState>> animationState2 in m_AnimationStates)
+		{
+			AnimationState animationState = animationState2.Value[0];
+			animationState.Animate();
+			for (int i = 1; i < animationState2.Value.Count; i++)
+			{
+				animationState.Transfer(animationState2.Value[i]);
+			}
+		}
+	}
 ```
 
 

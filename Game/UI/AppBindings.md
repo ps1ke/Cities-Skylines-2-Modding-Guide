@@ -175,7 +175,32 @@ public System.String activeUI { get; set; }
 - `public AppBindings()`  
 
 ```csharp
-public AppBindings();
+public AppBindings()
+	{
+		ErrorDialogManager.Initialize();
+		AddUpdateBinding(new GetterValueBinding<bool>("app", "ready", () => ready));
+		AddUpdateBinding(new GetterValueBinding<string>("app", "activeUI", () => activeUI, ValueWriters.Nullable(new StringWriter())));
+		AddBinding(new ValueBinding<string>("app", "bodyClassNames", ""));
+		AddUpdateBinding(new GetterValueBinding<int>("app", "fpsMode", () => (int)(SharedSettings.instance?.general.fpsMode ?? GeneralSettings.FPSMode.Off)));
+		AddUpdateBinding(new GetterValueBinding<FrameTiming>("app", "frameStats", () => m_FrameTiming, new ValueWriter<FrameTiming>()));
+		AddUpdateBinding(new GetterValueBinding<string>("app", "activeLocale", () => GameManager.instance.localizationManager.activeDictionary.localeID));
+		AddUpdateBinding(new GetterValueBinding<ErrorDialog>("app", "currentError", () => ErrorDialogManager.currentErrorDialog, ValueWriters.Nullable(new ValueWriter<ErrorDialog>())));
+		AddBinding(m_BackgroundProcessMessageBinding = new ValueBinding<string>("app", "backgroundProcessMessage", null, ValueWriters.Nullable(new StringWriter())));
+		AddBinding(new TriggerBinding<string>("app", "setClipboard", SetClipboard));
+		AddBinding(new TriggerBinding("app", "exitApplication", ExitApplication));
+		AddBinding(new TriggerBinding("app", "saveBackupAndExitApplication", SaveBackupAndExitApplication));
+		AddBinding(new TriggerBinding("app", "saveBackup", SaveBackup));
+		AddBinding(new TriggerBinding("app", "dismissCurrentError", DismissCurrentError));
+		AddBinding(m_ConfirmationDialogBinding = new EventBinding<ConfirmationDialogBase>("app", "confirmationDialog", new ValueWriter<ConfirmationDialogBase>()));
+		AddBinding(new TriggerBinding<int>("app", "confirmationDialogCallback", OnConfirmationDialogCallback));
+		AddBinding(new TriggerBinding<int, bool>("app", "dismissibleConfirmationDialogCallback", OnDismissibleConfirmationDialogCallback));
+		AddBinding(m_ActiveUIModsLocation = new ValueBinding<HashSet<string>>("app", "activeUIModsLocation", new HashSet<string>(), new CollectionWriter<string>()));
+		AddBinding(new GetterValueBinding<int>("app", "platform", () => (int)Application.platform.ToPlatform()));
+		AddBinding(m_CanContinueBinding = new GetterValueBinding<SaveInfo>("app", "canContinueGame", GetLastSaveInfo, ValueWriters.Nullable(new ValueWriter<SaveInfo>())));
+		AddBinding(m_OwnedPrerequisites = new ValueBinding<string[]>("app", "ownedPrerequisites", null, new NullableWriter<string[]>(new ArrayWriter<string>())));
+		AddBinding(new CallBinding<string[], bool>("app", "arePrerequisitesMet", GameManager.instance.ArePrerequisitesMet, new NullableReader<string[]>(new ArrayReader<string>())));
+		AddBinding(m_CheckContinueGamePrerequisites = new EventBinding("app", "checkContinueGamePrerequisites"));
+	}
 ```
 
 
@@ -196,175 +221,332 @@ private System.String <.ctor>b__30_1();
 - `public AddActiveUIModLocation(System.Collections.Generic.IList<System.String> locations) : System.Void`  
 
 ```csharp
-public System.Void AddActiveUIModLocation(System.Collections.Generic.IList<System.String> locations);
+public void AddActiveUIModLocation(IList<string> locations)
+	{
+		int count = m_ActiveUIModsLocation.value.Count;
+		foreach (string location in locations)
+		{
+			m_ActiveUIModsLocation.value.Add(location);
+		}
+		if (m_ActiveUIModsLocation.value.Count != count)
+		{
+			m_ActiveUIModsLocation.TriggerUpdate();
+		}
+	}
 ```
 
 - `private DismissCurrentError() : System.Void`  
 
 ```csharp
-private System.Void DismissCurrentError();
+private void DismissCurrentError()
+	{
+		ErrorDialogManager.DismissCurrentErrorDialog();
+	}
 ```
 
 - `public Dispose() : System.Void`  
 
 ```csharp
-public System.Void Dispose();
+public void Dispose()
+	{
+		ErrorDialogManager.Dispose();
+		m_FrameTiming.Dispose();
+	}
 ```
 
 - `private ExitApplication() : System.Void`  
 
 ```csharp
-private System.Void ExitApplication();
+private void ExitApplication()
+	{
+		GameManager.QuitGame();
+	}
 ```
 
 - `private GetCPUMainThreadTime() : System.Single`  
 
 ```csharp
-private System.Single GetCPUMainThreadTime();
+private float GetCPUMainThreadTime()
+	{
+		return (HDRenderPipeline.currentPipeline?.debugDisplaySettings?.debugFrameTiming?.m_FrameHistory?.SampleAverage.MainThreadCPUFrameTime).GetValueOrDefault();
+	}
 ```
 
 - `private GetCPURenderThreadTime() : System.Single`  
 
 ```csharp
-private System.Single GetCPURenderThreadTime();
+private float GetCPURenderThreadTime()
+	{
+		return (HDRenderPipeline.currentPipeline?.debugDisplaySettings?.debugFrameTiming?.m_FrameHistory?.SampleAverage.RenderThreadCPUFrameTime).GetValueOrDefault();
+	}
 ```
 
 - `private GetFPS() : System.Single`  
 
 ```csharp
-private System.Single GetFPS();
+private float GetFPS()
+	{
+		GeneralSettings generalSettings = SharedSettings.instance?.general;
+		if (generalSettings != null && generalSettings.fpsMode == GeneralSettings.FPSMode.Precise)
+		{
+			return HDRenderPipeline.currentPipeline?.debugDisplaySettings?.debugFrameTiming?.m_FrameHistory?.SampleAverage.FramesPerSecond ?? (1f / Time.smoothDeltaTime);
+		}
+		return 1f / Time.smoothDeltaTime;
+	}
 ```
 
 - `private GetFullFrameTime() : System.Single`  
 
 ```csharp
-private System.Single GetFullFrameTime();
+private float GetFullFrameTime()
+	{
+		return (HDRenderPipeline.currentPipeline?.debugDisplaySettings?.debugFrameTiming?.m_FrameHistory?.SampleAverage.FullFrameTime).GetValueOrDefault();
+	}
 ```
 
 - `private GetGPUTime() : System.Single`  
 
 ```csharp
-private System.Single GetGPUTime();
+private float GetGPUTime()
+	{
+		return (HDRenderPipeline.currentPipeline?.debugDisplaySettings?.debugFrameTiming?.m_FrameHistory?.SampleAverage.GPUFrameTime).GetValueOrDefault();
+	}
 ```
 
 - `private GetLastSaveInfo() : Game.Assets.SaveInfo`  
 
 ```csharp
-private Game.Assets.SaveInfo GetLastSaveInfo();
+private SaveInfo GetLastSaveInfo()
+	{
+		SaveGameMetadata lastSaveGameMetadata = GameManager.instance.settings.userState.lastSaveGameMetadata;
+		if (lastSaveGameMetadata != null && lastSaveGameMetadata.isValidSaveGame)
+		{
+			return lastSaveGameMetadata.target;
+		}
+		return null;
+	}
 ```
 
 - `internal LauncherContinueGame() : System.Threading.Tasks.Task<System.Boolean>`  
 
 ```csharp
-internal System.Threading.Tasks.Task<System.Boolean> LauncherContinueGame();
+internal Task<bool> LauncherContinueGame()
+	{
+		m_CheckContinueGamePrerequisites.Trigger();
+		return Task.FromResult(result: true);
+	}
 ```
 
 - `private OnConfirmationDialogCallback(System.Int32 msg) : System.Void`  
 
 ```csharp
-private System.Void OnConfirmationDialogCallback(System.Int32 msg);
+private void OnConfirmationDialogCallback(int msg)
+	{
+		if (m_ConfirmationDialogCallback != null)
+		{
+			Action<int> confirmationDialogCallback = m_ConfirmationDialogCallback;
+			m_ConfirmationDialogCallback = null;
+			confirmationDialogCallback(msg);
+		}
+	}
 ```
 
 - `private OnDismissibleConfirmationDialogCallback(System.Int32 msg, System.Boolean dontShowAgain) : System.Void`  
 
 ```csharp
-private System.Void OnDismissibleConfirmationDialogCallback(System.Int32 msg, System.Boolean dontShowAgain);
+private void OnDismissibleConfirmationDialogCallback(int msg, bool dontShowAgain)
+	{
+		if (m_DismissibleConfirmationDialogCallback != null)
+		{
+			Action<int, bool> dismissibleConfirmationDialogCallback = m_DismissibleConfirmationDialogCallback;
+			m_DismissibleConfirmationDialogCallback = null;
+			dismissibleConfirmationDialogCallback(msg, dontShowAgain);
+		}
+	}
 ```
 
 - `public RemoveActiveUIModLocation(System.Collections.Generic.IList<System.String> locations) : System.Void`  
 
 ```csharp
-public System.Void RemoveActiveUIModLocation(System.Collections.Generic.IList<System.String> locations);
+public void RemoveActiveUIModLocation(IList<string> locations)
+	{
+		int count = m_ActiveUIModsLocation.value.Count;
+		foreach (string location in locations)
+		{
+			m_ActiveUIModsLocation.value.Remove(location);
+		}
+		if (m_ActiveUIModsLocation.value.Count != count)
+		{
+			m_ActiveUIModsLocation.TriggerUpdate();
+		}
+	}
 ```
 
 - `private SaveBackup() : System.Void`  
 
 ```csharp
-private System.Void SaveBackup();
+private async void SaveBackup()
+	{
+		await SaveBackupImpl();
+	}
 ```
 
 - `private SaveBackupAndExitApplication() : System.Void`  
 
 ```csharp
-private System.Void SaveBackupAndExitApplication();
+private async void SaveBackupAndExitApplication()
+	{
+		await SaveBackupImpl();
+		GameManager.QuitGame();
+	}
 ```
 
 - `private SaveBackupImpl() : System.Threading.Tasks.Task`  
 
 ```csharp
-private System.Threading.Tasks.Task SaveBackupImpl();
+private async Task SaveBackupImpl()
+	{
+		RenderTexture preview = ScreenCaptureHelper.CreateRenderTarget("PreviewSaveGame-Exit", 680, 383);
+		ScreenCaptureHelper.CaptureScreenshot(Camera.main, preview, new MenuHelpers.SaveGamePreviewSettings());
+		ScreenCaptureHelper.AsyncRequest request = new ScreenCaptureHelper.AsyncRequest(preview);
+		MenuUISystem existingSystemManaged = World.DefaultGameObjectInjectionWorld.GetExistingSystemManaged<MenuUISystem>();
+		string saveName = "SaveRecovery" + DateTime.Now.ToString("dd-MMMM-HH-mm-ss");
+		try
+		{
+			await GameManager.instance.Save(saveName, existingSystemManaged.GetSaveInfo(autoSave: false), AssetDatabase.user, request);
+		}
+		catch (Exception exception)
+		{
+			CompositeBinding.log.Error(exception);
+		}
+		finally
+		{
+			await request.Dispose();
+			CoreUtils.Destroy(preview);
+		}
+	}
 ```
 
 - `private SetClipboard(System.String text) : System.Void`  
 
 ```csharp
-private System.Void SetClipboard(System.String text);
+private void SetClipboard(string text)
+	{
+		GUIUtility.systemCopyBuffer = text;
+	}
 ```
 
 - `public SetEditorActive() : System.Void`  
 
 ```csharp
-public System.Void SetEditorActive();
+public void SetEditorActive()
+	{
+		activeUI = "Editor";
+	}
 ```
 
 - `public SetGameActive() : System.Void`  
 
 ```csharp
-public System.Void SetGameActive();
+public void SetGameActive()
+	{
+		activeUI = "Game";
+	}
 ```
 
 - `public SetMainMenuActive() : System.Void`  
 
 ```csharp
-public System.Void SetMainMenuActive();
+public void SetMainMenuActive()
+	{
+		activeUI = "Menu";
+	}
 ```
 
 - `public SetNoneActive() : System.Void`  
 
 ```csharp
-public System.Void SetNoneActive();
+public void SetNoneActive()
+	{
+		activeUI = null;
+	}
 ```
 
 - `public ShowConfirmationDialog(Game.UI.ConfirmationDialog dialog, System.Action<System.Int32> callback) : System.Void`  
 
 ```csharp
-public System.Void ShowConfirmationDialog(Game.UI.ConfirmationDialog dialog, System.Action<System.Int32> callback);
+public void ShowConfirmationDialog([NotNull] DismissibleConfirmationDialog dialog, [NotNull] Action<int, bool> callback)
+	{
+		m_DismissibleConfirmationDialogCallback = callback;
+		m_ConfirmationDialogBinding.Trigger(dialog);
+	}
 ```
 
 - `public ShowConfirmationDialog(Game.UI.DismissibleConfirmationDialog dialog, System.Action<System.Int32, System.Boolean> callback) : System.Void`  
 
 ```csharp
-public System.Void ShowConfirmationDialog(Game.UI.DismissibleConfirmationDialog dialog, System.Action<System.Int32, System.Boolean> callback);
+public void ShowConfirmationDialog([NotNull] DismissibleConfirmationDialog dialog, [NotNull] Action<int, bool> callback)
+	{
+		m_DismissibleConfirmationDialogCallback = callback;
+		m_ConfirmationDialogBinding.Trigger(dialog);
+	}
 ```
 
 - `public ShowMessageDialog(Game.UI.MessageDialog dialog, System.Action<System.Int32> callback) : System.Void`  
 
 ```csharp
-public System.Void ShowMessageDialog(Game.UI.MessageDialog dialog, System.Action<System.Int32> callback);
+public void ShowMessageDialog([NotNull] MessageDialog dialog, Action<int> callback)
+	{
+		m_ConfirmationDialogCallback = callback;
+		m_ConfirmationDialogBinding.Trigger(dialog);
+	}
 ```
 
 - `public virtual Update() : System.Boolean`  
 
 ```csharp
-public virtual System.Boolean Update();
+public override bool Update()
+	{
+		m_FrameTiming.Update();
+		AdaptiveDynamicResolutionScale instance = AdaptiveDynamicResolutionScale.instance;
+		DebugManager.instance.adaptiveDRSActive = instance.isEnabled && instance.isAdaptive;
+		DebugFrameTiming debugFrameTiming = HDRenderPipeline.currentPipeline?.debugDisplaySettings?.debugFrameTiming;
+		if (debugFrameTiming != null)
+		{
+			FrameTimeSample sample = debugFrameTiming.m_Sample;
+			instance.UpdateDRS(sample.FullFrameTime, sample.MainThreadCPUFrameTime, sample.RenderThreadCPUFrameTime, sample.GPUFrameTime);
+		}
+		return base.Update();
+	}
 ```
 
 - `public UpdateActiveUIModsLocation(System.Collections.Generic.IList<System.String> locations) : System.Void`  
 
 ```csharp
-public System.Void UpdateActiveUIModsLocation(System.Collections.Generic.IList<System.String> locations);
+public void UpdateActiveUIModsLocation(IList<string> locations)
+	{
+		HashSet<string> newValue = new HashSet<string>(locations);
+		m_ActiveUIModsLocation.Update(newValue);
+	}
 ```
 
 - `public UpdateCanContinueBinding() : System.Void`  
 
 ```csharp
-public System.Void UpdateCanContinueBinding();
+public void UpdateCanContinueBinding()
+	{
+		m_CanContinueBinding.Update();
+	}
 ```
 
 - `public UpdateOwnedPrerequisiteBinding() : System.Void`  
 
 ```csharp
-public System.Void UpdateOwnedPrerequisiteBinding();
+public void UpdateOwnedPrerequisiteBinding()
+	{
+		string[] availablePrerequisitesNames = GameManager.instance.GetAvailablePrerequisitesNames();
+		m_OwnedPrerequisites.Update(availablePrerequisitesNames);
+	}
 ```
 
 

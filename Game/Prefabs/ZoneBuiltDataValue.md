@@ -41,7 +41,11 @@ public System.Int32 m_Count;
 - `public ZoneBuiltDataValue(System.Int32 count, System.Int32 squares)`  
 
 ```csharp
-public ZoneBuiltDataValue(System.Int32 count, System.Int32 squares);
+public ZoneBuiltDataValue(int count, int squares)
+	{
+		m_Count = count;
+		m_Squares = squares;
+	}
 ```
 
 

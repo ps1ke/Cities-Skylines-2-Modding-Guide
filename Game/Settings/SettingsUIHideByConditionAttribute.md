@@ -51,13 +51,23 @@ public readonly System.Boolean invert;
 - `public SettingsUIHideByConditionAttribute(System.Type checkType, System.String checkMethod)`  
 
 ```csharp
-public SettingsUIHideByConditionAttribute(System.Type checkType, System.String checkMethod);
+public SettingsUIHideByConditionAttribute(Type checkType, string checkMethod, bool invert)
+	{
+		this.checkType = checkType;
+		this.checkMethod = checkMethod;
+		this.invert = invert;
+	}
 ```
 
 - `public SettingsUIHideByConditionAttribute(System.Type checkType, System.String checkMethod, System.Boolean invert)`  
 
 ```csharp
-public SettingsUIHideByConditionAttribute(System.Type checkType, System.String checkMethod, System.Boolean invert);
+public SettingsUIHideByConditionAttribute(Type checkType, string checkMethod, bool invert)
+	{
+		this.checkType = checkType;
+		this.checkMethod = checkMethod;
+		this.invert = invert;
+	}
 ```
 
 

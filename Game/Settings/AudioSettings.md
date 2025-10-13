@@ -246,7 +246,10 @@ public System.Int32 clipMemoryBudget { get; set; }
 - `public AudioSettings()`  
 
 ```csharp
-public AudioSettings();
+public AudioSettings()
+	{
+		SetDefaults();
+	}
 ```
 
 
@@ -255,13 +258,56 @@ public AudioSettings();
 - `public virtual Apply() : System.Void`  
 
 ```csharp
-public virtual System.Void Apply();
+public override void Apply()
+	{
+		base.Apply();
+		if (m_AudioManager == null)
+		{
+			m_AudioManager = AudioManager.instance;
+		}
+		if (m_Radio == null)
+		{
+			m_Radio = AudioManager.instance.radio;
+		}
+		if (m_AudioManager != null)
+		{
+			m_AudioManager.masterVolume = masterVolume;
+			m_AudioManager.radioVolume = radioVolume;
+			m_AudioManager.uiVolume = uiVolume;
+			m_AudioManager.menuVolume = menuVolume;
+			m_AudioManager.ingameVolume = ingameVolume;
+			m_AudioManager.ambienceVolume = ambienceVolume;
+			m_AudioManager.disastersVolume = disastersVolume;
+			m_AudioManager.worldVolume = worldVolume;
+			m_AudioManager.audioGroupsVolume = audioGroupsVolume;
+			m_AudioManager.serviceBuildingsVolume = serviceBuildingsVolume;
+		}
+		if (m_Radio != null)
+		{
+			m_Radio.isActive = radioActive;
+		}
+		AudioManager.AudioSourcePool.memoryBudget = clipMemoryBudget * 1048576;
+	}
 ```
 
 - `public virtual SetDefaults() : System.Void`  
 
 ```csharp
-public virtual System.Void SetDefaults();
+public override void SetDefaults()
+	{
+		masterVolume = 1f;
+		uiVolume = 1f;
+		menuVolume = 1f;
+		ingameVolume = 1f;
+		radioActive = true;
+		radioVolume = 1f;
+		ambienceVolume = 1f;
+		disastersVolume = 1f;
+		worldVolume = 1f;
+		audioGroupsVolume = 1f;
+		serviceBuildingsVolume = 1f;
+		clipMemoryBudget = 256;
+	}
 ```
 
 

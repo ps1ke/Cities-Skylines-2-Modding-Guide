@@ -57,7 +57,10 @@ private Game.Debug.BaseDebugSystem+Option m_PositionOption;
 - `public LightDebugSystem()`  
 
 ```csharp
-public LightDebugSystem();
+[Preserve]
+	public LightDebugSystem()
+	{
+	}
 ```
 
 
@@ -66,13 +69,40 @@ public LightDebugSystem();
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_GizmosSystem = base.World.GetOrCreateSystemManaged<GizmosSystem>();
+		m_LightEffectPrefabQuery = GetEntityQuery(ComponentType.ReadOnly<LightEffectData>(), ComponentType.ReadOnly<PrefabData>());
+		m_PositionOption = AddOption("Show positions", defaultEnabled: false);
+		m_SpotOption = AddOption("Spot Lights Cones", defaultEnabled: false);
+		base.Enabled = false;
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		HDRPDotsInputs.punctualLightsJobHandle.Complete();
+		if (HDRPDotsInputs.s_punctualLightdata.Length != 0)
+		{
+			JobHandle dependencies;
+			LightGizmoJob jobData = new LightGizmoJob
+			{
+				m_SpotOption = m_SpotOption.enabled,
+				m_PositionOption = m_PositionOption.enabled,
+				m_GizmoBatcher = m_GizmosSystem.GetGizmosBatcher(out dependencies)
+			};
+			jobData.m_punctualLights = new NativeArray<HDRPDotsInputs.PunctualLightData>(HDRPDotsInputs.s_punctualLightdata.AsArray(), Allocator.Persistent);
+			JobHandle jobHandle = IJobExtensions.Schedule(jobData, dependencies);
+			m_GizmosSystem.AddGizmosBatcherWriter(jobHandle);
+			base.Dependency = jobHandle;
+		}
+	}
 ```
 
 

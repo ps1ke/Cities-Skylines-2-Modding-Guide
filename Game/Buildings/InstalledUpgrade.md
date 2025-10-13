@@ -46,7 +46,11 @@ public System.UInt32 m_OptionMask;
 - `public InstalledUpgrade(Unity.Entities.Entity upgrade, System.UInt32 optionMask)`  
 
 ```csharp
-public InstalledUpgrade(Unity.Entities.Entity upgrade, System.UInt32 optionMask);
+public InstalledUpgrade(Entity upgrade, uint optionMask)
+	{
+		m_Upgrade = upgrade;
+		m_OptionMask = optionMask;
+	}
 ```
 
 
@@ -55,13 +59,19 @@ public InstalledUpgrade(Unity.Entities.Entity upgrade, System.UInt32 optionMask)
 - `public Equals(Game.Buildings.InstalledUpgrade other) : System.Boolean`  
 
 ```csharp
-public System.Boolean Equals(Game.Buildings.InstalledUpgrade other);
+public bool Equals(InstalledUpgrade other)
+	{
+		return m_Upgrade.Equals(other.m_Upgrade);
+	}
 ```
 
 - `public virtual GetHashCode() : System.Int32`  
 
 ```csharp
-public virtual System.Int32 GetHashCode();
+public override int GetHashCode()
+	{
+		return m_Upgrade.GetHashCode();
+	}
 ```
 
 

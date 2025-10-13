@@ -86,7 +86,10 @@ private static const System.String kGroup;
 - `public SignatureBuildingUISystem()`  
 
 ```csharp
-public SignatureBuildingUISystem();
+[Preserve]
+	public SignatureBuildingUISystem()
+	{
+	}
 ```
 
 
@@ -95,43 +98,105 @@ public SignatureBuildingUISystem();
 - `public AddUnlockedSignature(Unity.Entities.Entity prefab) : System.Void`  
 
 ```csharp
-public System.Void AddUnlockedSignature(Unity.Entities.Entity prefab);
+public void AddUnlockedSignature(Entity prefab)
+	{
+		if (!m_UnlockSignaturesBinding.value.Contains(prefab))
+		{
+			m_UnlockSignaturesBinding.value.Insert(0, prefab);
+			m_NeedTriggerUpdate = true;
+		}
+	}
 ```
 
 - `public ClearUnlockedSignature() : System.Void`  
 
 ```csharp
-public System.Void ClearUnlockedSignature();
+public void ClearUnlockedSignature()
+	{
+		m_UnlockSignaturesBinding.value.Clear();
+		m_NeedTriggerUpdate = true;
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_CityConfigurationSystem = base.World.GetOrCreateSystemManaged<CityConfigurationSystem>();
+		m_UnlockedSignatureBuildingQuery = GetEntityQuery(ComponentType.ReadOnly<Unlock>());
+		AddBinding(m_UnlockSignaturesBinding = new ValueBinding<List<Entity>>("signatureBuildings", "unlockedSignatures", new List<Entity>(), new ListWriter<Entity>()));
+		AddBinding(new TriggerBinding("signatureBuildings", "removeUnlockedSignature", RemoveUnlockedSignature));
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		if (m_SkipUpdate)
+		{
+			m_SkipUpdate = false;
+		}
+		else
+		{
+			if (!SharedSettings.instance.userInterface.blockingPopupsEnabled || m_CityConfigurationSystem.unlockAll)
+			{
+				return;
+			}
+			if (!m_UnlockedSignatureBuildingQuery.IsEmptyIgnoreFilter)
+			{
+				NativeArray<Unlock> nativeArray = m_UnlockedSignatureBuildingQuery.ToComponentDataArray<Unlock>(Allocator.TempJob);
+				for (int i = 0; i < nativeArray.Length; i++)
+				{
+					if (base.EntityManager.HasComponent<SignatureBuildingData>(nativeArray[i].m_Prefab) && base.EntityManager.HasComponent<UIObjectData>(nativeArray[i].m_Prefab))
+					{
+						AddUnlockedSignature(nativeArray[i].m_Prefab);
+					}
+				}
+				nativeArray.Dispose();
+			}
+			if (m_UnlockSignaturesBinding.value.Count != m_LastListCount || m_NeedTriggerUpdate)
+			{
+				m_UnlockSignaturesBinding.TriggerUpdate();
+				m_LastListCount = m_UnlockSignaturesBinding.value.Count;
+				m_NeedTriggerUpdate = false;
+			}
+		}
+	}
 ```
 
 - `public PreDeserialize(Colossal.Serialization.Entities.Context context) : System.Void`  
 
 ```csharp
-public System.Void PreDeserialize(Colossal.Serialization.Entities.Context context);
+public void PreDeserialize(Context context)
+	{
+		m_UnlockSignaturesBinding.value.Clear();
+		m_SkipUpdate = false;
+	}
 ```
 
 - `private RemoveUnlockedSignature() : System.Void`  
 
 ```csharp
-private System.Void RemoveUnlockedSignature();
+private void RemoveUnlockedSignature()
+	{
+		m_UnlockSignaturesBinding.value.RemoveAt(0);
+		m_NeedTriggerUpdate = true;
+	}
 ```
 
 - `public SkipUpdate() : System.Void`  
 
 ```csharp
-public System.Void SkipUpdate();
+public void SkipUpdate()
+	{
+		m_SkipUpdate = true;
+	}
 ```
 
 

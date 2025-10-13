@@ -37,7 +37,10 @@ public System.UInt16 m_Amount;
 - `public MailSender(System.UInt16 amount)`  
 
 ```csharp
-public MailSender(System.UInt16 amount);
+public MailSender(ushort amount)
+	{
+		m_Amount = amount;
+	}
 ```
 
 

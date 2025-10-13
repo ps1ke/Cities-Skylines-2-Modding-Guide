@@ -60,7 +60,13 @@ public System.Single m_EndCurvePos;
 - `public RouteLane(Unity.Entities.Entity startLane, Unity.Entities.Entity endLane, System.Single startCurvePos, System.Single endCurvePos)`  
 
 ```csharp
-public RouteLane(Unity.Entities.Entity startLane, Unity.Entities.Entity endLane, System.Single startCurvePos, System.Single endCurvePos);
+public RouteLane(Entity startLane, Entity endLane, float startCurvePos, float endCurvePos)
+	{
+		m_StartLane = startLane;
+		m_EndLane = endLane;
+		m_StartCurvePos = startCurvePos;
+		m_EndCurvePos = endCurvePos;
+	}
 ```
 
 
@@ -75,13 +81,23 @@ public System.Void Deserialize<TReader>(TReader reader);
 - `public Equals(Game.Routes.RouteLane other) : System.Boolean`  
 
 ```csharp
-public System.Boolean Equals(Game.Routes.RouteLane other);
+public bool Equals(RouteLane other)
+	{
+		if (m_StartLane.Equals(other.m_StartLane) && m_EndLane.Equals(other.m_EndLane) && m_StartCurvePos.Equals(other.m_StartCurvePos))
+		{
+			return m_EndCurvePos.Equals(other.m_EndCurvePos);
+		}
+		return false;
+	}
 ```
 
 - `public virtual GetHashCode() : System.Int32`  
 
 ```csharp
-public virtual System.Int32 GetHashCode();
+public override int GetHashCode()
+	{
+		return (((17 * 31 + m_StartLane.GetHashCode()) * 31 + m_EndLane.GetHashCode()) * 31 + m_StartCurvePos.GetHashCode()) * 31 + m_EndCurvePos.GetHashCode();
+	}
 ```
 
 - `public Serialize<TWriter>(TWriter writer) : System.Void`  

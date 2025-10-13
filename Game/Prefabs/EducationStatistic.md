@@ -48,13 +48,28 @@ public EducationStatistic();
 - `public virtual GetParameterName(System.Int32 parameter) : System.String`  
 
 ```csharp
-public virtual System.String GetParameterName(System.Int32 parameter);
+public override string GetParameterName(int parameter)
+	{
+		return Enum.GetName(typeof(CitizenEducationLevel), parameter);
+	}
 ```
 
 - `public virtual GetParameters() : System.Collections.Generic.IEnumerable<Game.Prefabs.StatisticParameterData>`  
 
 ```csharp
-public virtual System.Collections.Generic.IEnumerable<Game.Prefabs.StatisticParameterData> GetParameters();
+public override IEnumerable<StatisticParameterData> GetParameters()
+	{
+		if (m_Levels != null)
+		{
+			int i = 0;
+			while (i < m_Levels.Length)
+			{
+				yield return new StatisticParameterData((int)m_Levels[i].m_EducationLevel, m_Levels[i].m_Color);
+				int num = i + 1;
+				i = num;
+			}
+		}
+	}
 ```
 
 

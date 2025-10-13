@@ -59,7 +59,28 @@ public AnimationCurveField();
 - `protected virtual Update() : Game.UI.Widgets.WidgetChanges`  
 
 ```csharp
-protected virtual Game.UI.Widgets.WidgetChanges Update();
+protected override WidgetChanges Update()
+	{
+		WidgetChanges widgetChanges = base.Update();
+		Keyframe[] keys = m_Value.keys;
+		if (!m_Keys.SequenceEqual(keys))
+		{
+			widgetChanges |= WidgetChanges.Properties;
+			m_Keys.Clear();
+			m_Keys.AddRange(keys);
+		}
+		if (m_Value.preWrapMode != m_PreWrapMode)
+		{
+			widgetChanges |= WidgetChanges.Properties;
+			m_PreWrapMode = m_Value.preWrapMode;
+		}
+		if (m_Value.postWrapMode != m_PostWrapMode)
+		{
+			widgetChanges |= WidgetChanges.Properties;
+			m_PostWrapMode = m_Value.postWrapMode;
+		}
+		return widgetChanges;
+	}
 ```
 
 

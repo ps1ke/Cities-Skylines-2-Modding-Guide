@@ -61,7 +61,10 @@ private Game.Events.SubmergeSystem+TypeHandle __TypeHandle;
 - `public SubmergeSystem()`  
 
 ```csharp
-public SubmergeSystem();
+[Preserve]
+	public SubmergeSystem()
+	{
+	}
 ```
 
 
@@ -70,25 +73,60 @@ public SubmergeSystem();
 - `private __AssignQueries(Unity.Entities.SystemState& state) : System.Void`  
 
 ```csharp
-private System.Void __AssignQueries(Unity.Entities.SystemState& state);
+private void __AssignQueries(ref SystemState state)
+	{
+		new EntityQueryBuilder(Allocator.Temp).Dispose();
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_ModificationBarrier = base.World.GetOrCreateSystemManaged<ModificationBarrier4>();
+		m_FaceWeatherQuery = GetEntityQuery(ComponentType.ReadOnly<Submerge>(), ComponentType.ReadOnly<Game.Common.Event>());
+		m_JournalDataArchetype = base.EntityManager.CreateArchetype(ComponentType.ReadWrite<AddEventJournalData>(), ComponentType.ReadWrite<Game.Common.Event>());
+		RequireForUpdate(m_FaceWeatherQuery);
+	}
 ```
 
 - `protected virtual OnCreateForCompiler() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreateForCompiler();
+protected override void OnCreateForCompiler()
+	{
+		base.OnCreateForCompiler();
+		__AssignQueries(ref base.CheckedStateRef);
+		__TypeHandle.__AssignHandles(ref base.CheckedStateRef);
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		JobHandle outJobHandle;
+		NativeList<ArchetypeChunk> chunks = m_FaceWeatherQuery.ToArchetypeChunkListAsync(Allocator.TempJob, out outJobHandle);
+		JobHandle jobHandle = IJobExtensions.Schedule(new SubmergeJob
+		{
+			m_Chunks = chunks,
+			m_SubmergeType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Events_Submerge_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+			m_PrefabRefData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentLookup, ref base.CheckedStateRef),
+			m_BuildingData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Buildings_Building_RO_ComponentLookup, ref base.CheckedStateRef),
+			m_FloodedData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Events_Flooded_RW_ComponentLookup, ref base.CheckedStateRef),
+			m_TargetElements = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Events_TargetElement_RW_BufferLookup, ref base.CheckedStateRef),
+			m_JournalDataArchetype = m_JournalDataArchetype,
+			m_CommandBuffer = m_ModificationBarrier.CreateCommandBuffer()
+		}, JobHandle.CombineDependencies(base.Dependency, outJobHandle));
+		chunks.Dispose(jobHandle);
+		m_ModificationBarrier.AddJobHandleForProducer(jobHandle);
+		base.Dependency = jobHandle;
+	}
 ```
 
 

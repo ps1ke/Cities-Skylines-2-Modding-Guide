@@ -108,7 +108,10 @@ public System.String currentModeName { get; private set; }
 - `public GameModeSystem()`  
 
 ```csharp
-public GameModeSystem();
+[Preserve]
+	public GameModeSystem()
+	{
+	}
 ```
 
 
@@ -123,19 +126,88 @@ public System.Void Deserialize<TReader>(TReader reader);
 - `public GetGameModeInfo() : System.Collections.Generic.List<Game.Prefabs.Modes.GameModeInfo>`  
 
 ```csharp
-public System.Collections.Generic.List<Game.Prefabs.Modes.GameModeInfo> GetGameModeInfo();
+public List<GameModeInfo> GetGameModeInfo()
+	{
+		List<GameModeInfo> list = new List<GameModeInfo>();
+		NativeArray<Entity> nativeArray = m_ModeInfoQuery.ToEntityArray(Allocator.TempJob);
+		for (int i = 0; i < nativeArray.Length; i++)
+		{
+			Entity entity = nativeArray[i];
+			GameModeInfo gameModeInfo = m_PrefabSystem.GetPrefab<GameModeInfoPrefab>(entity).GetGameModeInfo();
+			list.Add(gameModeInfo);
+		}
+		nativeArray.Dispose();
+		return list;
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_PrefabSystem = base.World.GetOrCreateSystemManaged<PrefabSystem>();
+		m_ModeSettingQuery = GetEntityQuery(ComponentType.ReadOnly<GameModeSettingData>());
+		m_ModeInfoQuery = GetEntityQuery(ComponentType.ReadOnly<GameModeInfoData>());
+		currentModeName = string.Empty;
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		if (overrideMode != null)
+		{
+			NativeArray<Entity> nativeArray = m_ModeSettingQuery.ToEntityArray(Allocator.TempJob);
+			for (int i = 0; i < nativeArray.Length; i++)
+			{
+				Entity entity = nativeArray[i];
+				ModeSetting prefab = m_PrefabSystem.GetPrefab<ModeSetting>(entity);
+				if (prefab.prefab.name == overrideMode)
+				{
+					m_NextMode = prefab;
+					break;
+				}
+			}
+			nativeArray.Dispose();
+			overrideMode = null;
+		}
+		if (m_ModeSetting != null)
+		{
+			COSystemBase.baseLog.Debug("Clean up " + m_ModeSetting.prefab.name);
+			m_ModeSetting.RestoreDefaultData(base.EntityManager, m_PrefabSystem);
+			m_ModeSetting = null;
+		}
+		m_ModeSetting = m_NextMode;
+		m_NextMode = null;
+		if (m_ModeSetting == null)
+		{
+			NativeArray<Entity> nativeArray2 = m_ModeSettingQuery.ToEntityArray(Allocator.TempJob);
+			for (int j = 0; j < nativeArray2.Length; j++)
+			{
+				Entity entity2 = nativeArray2[j];
+				ModeSetting prefab2 = m_PrefabSystem.GetPrefab<ModeSetting>(entity2);
+				if (prefab2.prefab.name == "NormalMode")
+				{
+					m_ModeSetting = prefab2;
+					break;
+				}
+			}
+			nativeArray2.Dispose();
+		}
+		if (m_ModeSetting != null)
+		{
+			COSystemBase.baseLog.Debug("Apply " + m_ModeSetting.prefab.name);
+			m_ModeSetting.StoreDefaultData(base.EntityManager, m_PrefabSystem);
+			base.Dependency = m_ModeSetting.ApplyMode(base.EntityManager, m_PrefabSystem, base.Dependency);
+			currentModeName = m_ModeSetting.prefab.name;
+		}
+	}
 ```
 
 - `public Serialize<TWriter>(TWriter writer) : System.Void`  
@@ -147,7 +219,9 @@ public System.Void Serialize<TWriter>(TWriter writer);
 - `public SetDefaults(Colossal.Serialization.Entities.Context context) : System.Void`  
 
 ```csharp
-public System.Void SetDefaults(Colossal.Serialization.Entities.Context context);
+public void SetDefaults(Context context)
+	{
+	}
 ```
 
 

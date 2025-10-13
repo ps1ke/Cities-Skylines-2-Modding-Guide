@@ -422,19 +422,99 @@ public MapInfo();
 - `public CompareTo(Game.Assets.MapInfo other) : System.Int32`  
 
 ```csharp
-public System.Int32 CompareTo(Game.Assets.MapInfo other);
+public int CompareTo(MapInfo other)
+	{
+		return string.Compare(id, other.id, StringComparison.OrdinalIgnoreCase);
+	}
 ```
 
 - `public Copy() : Game.Assets.MapInfo`  
 
 ```csharp
-public Game.Assets.MapInfo Copy();
+public MapInfo Copy()
+	{
+		return new MapInfo
+		{
+			id = id,
+			displayName = displayName,
+			thumbnail = thumbnail,
+			preview = preview,
+			theme = theme,
+			temperatureRange = temperatureRange,
+			cloudiness = cloudiness,
+			precipitation = precipitation,
+			latitude = latitude,
+			longitude = longitude,
+			buildableLand = buildableLand,
+			area = area,
+			surfaceWaterAvailability = surfaceWaterAvailability,
+			resources = resources,
+			connections = connections,
+			contentPrerequisites = contentPrerequisites,
+			nameAsCityName = nameAsCityName,
+			startingYear = startingYear,
+			mapData = mapData,
+			metaData = metaData,
+			sessionGuid = sessionGuid,
+			localeAssets = localeAssets,
+			climate = climate,
+			locked = locked
+		};
+	}
 ```
 
 - `public Write(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-public System.Void Write(Colossal.UI.Binding.IJsonWriter writer);
+public void Write(IJsonWriter writer)
+	{
+		writer.TypeBegin(GetType().FullName);
+		writer.PropertyName("id");
+		writer.Write(id);
+		writer.PropertyName("displayName");
+		writer.Write(displayName);
+		writer.PropertyName("thumbnail");
+		writer.Write(thumbnail.ToUri(MenuHelpers.defaultThumbnail));
+		writer.PropertyName("preview");
+		writer.Write(preview.ToUri(MenuHelpers.defaultPreview));
+		writer.PropertyName("theme");
+		writer.Write(theme);
+		writer.PropertyName("temperatureRange");
+		writer.Write(temperatureRange);
+		writer.PropertyName("cloudiness");
+		writer.Write(cloudiness);
+		writer.PropertyName("precipitation");
+		writer.Write(precipitation);
+		writer.PropertyName("latitude");
+		writer.Write(latitude);
+		writer.PropertyName("longitude");
+		writer.Write(longitude);
+		writer.PropertyName("area");
+		writer.Write(area);
+		writer.PropertyName("buildableLand");
+		writer.Write(buildableLand);
+		writer.PropertyName("surfaceWaterAvailability");
+		writer.Write(surfaceWaterAvailability);
+		writer.PropertyName("groundWaterAvailability");
+		writer.Write(groundWaterAvailability);
+		writer.PropertyName("resources");
+		writer.Write(resources);
+		writer.PropertyName("connections");
+		writer.Write(connections);
+		writer.PropertyName("contentPrerequisites");
+		writer.Write(contentPrerequisites);
+		writer.PropertyName("locked");
+		writer.Write(locked);
+		writer.PropertyName("nameAsCityName");
+		writer.Write(nameAsCityName);
+		writer.PropertyName("startingYear");
+		writer.Write(startingYear);
+		writer.PropertyName("isReadonly");
+		writer.Write(isReadonly);
+		writer.PropertyName("cloudTarget");
+		writer.Write(cloudTarget);
+		writer.TypeEnd();
+	}
 ```
 
 

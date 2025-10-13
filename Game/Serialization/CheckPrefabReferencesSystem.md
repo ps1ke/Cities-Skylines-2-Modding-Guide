@@ -69,7 +69,10 @@ private System.Boolean m_IsLoading;
 - `public CheckPrefabReferencesSystem()`  
 
 ```csharp
-public CheckPrefabReferencesSystem();
+[Preserve]
+	public CheckPrefabReferencesSystem()
+	{
+	}
 ```
 
 
@@ -78,31 +81,62 @@ public CheckPrefabReferencesSystem();
 - `public AddPrefabReferencesUser(Unity.Jobs.JobHandle dependencies) : System.Void`  
 
 ```csharp
-public System.Void AddPrefabReferencesUser(Unity.Jobs.JobHandle dependencies);
+public void AddPrefabReferencesUser(JobHandle dependencies)
+	{
+		m_UserDeps = JobHandle.CombineDependencies(m_UserDeps, dependencies);
+	}
 ```
 
 - `public BeginPrefabCheck(Unity.Collections.NativeArray<Unity.Entities.Entity> array, System.Boolean isLoading, Unity.Jobs.JobHandle dependencies) : System.Void`  
 
 ```csharp
-public System.Void BeginPrefabCheck(Unity.Collections.NativeArray<Unity.Entities.Entity> array, System.Boolean isLoading, Unity.Jobs.JobHandle dependencies);
+public void BeginPrefabCheck(NativeArray<Entity> array, bool isLoading, JobHandle dependencies)
+	{
+		m_PrefabArray = array;
+		m_ReferencedPrefabs = new UnsafeList<bool>(0, Allocator.TempJob);
+		m_ReferencedPrefabs.Resize(array.Length, NativeArrayOptions.ClearMemory);
+		m_DataDeps = dependencies;
+		m_IsLoading = isLoading;
+	}
 ```
 
 - `public EndPrefabCheck(Unity.Jobs.JobHandle& dependencies) : System.Void`  
 
 ```csharp
-public System.Void EndPrefabCheck(Unity.Jobs.JobHandle& dependencies);
+public void EndPrefabCheck(out JobHandle dependencies)
+	{
+		dependencies = JobHandle.CombineDependencies(m_DataDeps, m_UserDeps);
+		m_ReferencedPrefabs.Dispose(dependencies);
+		m_PrefabArray = default(NativeArray<Entity>);
+		m_ReferencedPrefabs = default(UnsafeList<bool>);
+		m_DataDeps = default(JobHandle);
+		m_UserDeps = default(JobHandle);
+	}
 ```
 
 - `public GetPrefabReferences(Unity.Entities.SystemBase system, Unity.Jobs.JobHandle& dependencies) : Game.Serialization.PrefabReferences`  
 
 ```csharp
-public Game.Serialization.PrefabReferences GetPrefabReferences(Unity.Entities.SystemBase system, Unity.Jobs.JobHandle& dependencies);
+public PrefabReferences GetPrefabReferences(SystemBase system, out JobHandle dependencies)
+	{
+		dependencies = m_DataDeps;
+		return new PrefabReferences(m_PrefabArray, m_ReferencedPrefabs, system.GetComponentLookup<PrefabData>(isReadOnly: true), m_IsLoading);
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		base.Dependency = (m_UserDeps = (m_DataDeps = IJobParallelForExtensions.Schedule(new CheckPrefabReferencesJob
+		{
+			m_PrefabArray = m_PrefabArray,
+			m_PrefabData = GetComponentLookup<PrefabData>(),
+			m_ReferencedPrefabs = m_ReferencedPrefabs
+		}, m_PrefabArray.Length, 64, JobHandle.CombineDependencies(m_DataDeps, m_UserDeps, base.Dependency))));
+	}
 ```
 
 

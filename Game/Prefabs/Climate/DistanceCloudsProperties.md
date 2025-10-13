@@ -82,7 +82,17 @@ public DistanceCloudsProperties();
 - `protected virtual OnBindVolumeProperties(UnityEngine.Rendering.Volume volume) : System.Void`  
 
 ```csharp
-protected virtual System.Void OnBindVolumeProperties(UnityEngine.Rendering.Volume volume);
+protected override void OnBindVolumeProperties(Volume volume)
+	{
+		CloudLayer component = null;
+		VolumeHelper.GetOrCreateVolumeComponent(volume, ref component);
+		m_Opacity = component.opacity;
+		m_CumulusStrength = component.layerA.opacityR;
+		m_StratusStrength = component.layerA.opacityG;
+		m_CirrusStrength = component.layerA.opacityB;
+		m_WispyStrength = component.layerA.opacityA;
+		m_Altitude = component.layerA.altitude;
+	}
 ```
 
 

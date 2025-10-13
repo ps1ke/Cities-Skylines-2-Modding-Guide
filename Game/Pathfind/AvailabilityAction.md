@@ -47,7 +47,10 @@ public Game.Pathfind.AvailabilityActionData& data { get; }
 - `public AvailabilityAction(Unity.Collections.Allocator allocator, Game.Pathfind.AvailabilityParameters parameters)`  
 
 ```csharp
-public AvailabilityAction(Unity.Collections.Allocator allocator, Game.Pathfind.AvailabilityParameters parameters);
+public AvailabilityAction(Allocator allocator, AvailabilityParameters parameters)
+	{
+		m_Data = new NativeReference<AvailabilityActionData>(new AvailabilityActionData(allocator, parameters), allocator);
+	}
 ```
 
 
@@ -56,7 +59,11 @@ public AvailabilityAction(Unity.Collections.Allocator allocator, Game.Pathfind.A
 - `public Dispose() : System.Void`  
 
 ```csharp
-public System.Void Dispose();
+public void Dispose()
+	{
+		data.Dispose();
+		m_Data.Dispose();
+	}
 ```
 
 

@@ -44,7 +44,10 @@ public LodParametersSetter();
 - `public Update() : System.Void`  
 
 ```csharp
-public System.Void Update();
+public void Update()
+	{
+		Shader.SetGlobalVector(RenderPrefabRenderer.ShaderIDs._LodParameters, m_LODParameter);
+	}
 ```
 
 

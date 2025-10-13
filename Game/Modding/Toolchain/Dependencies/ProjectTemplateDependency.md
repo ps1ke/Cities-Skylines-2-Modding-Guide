@@ -181,43 +181,241 @@ internal static System.UInt64 <IsUpToDate>g__CalculateCache|25_0(System.String f
 - `public virtual Download(System.Threading.CancellationToken token) : System.Threading.Tasks.Task`  
 
 ```csharp
-public virtual System.Threading.Tasks.Task Download(System.Threading.CancellationToken token);
+public override Task Download(CancellationToken token)
+	{
+		return Task.CompletedTask;
+	}
 ```
 
 - `public virtual GetRequiredDiskSpace(System.Threading.CancellationToken token) : System.Threading.Tasks.Task<System.Collections.Generic.List<Game.Modding.Toolchain.IToolchainDependency+DiskSpaceRequirements>>`  
 
 ```csharp
-public virtual System.Threading.Tasks.Task<System.Collections.Generic.List<Game.Modding.Toolchain.IToolchainDependency+DiskSpaceRequirements>> GetRequiredDiskSpace(System.Threading.CancellationToken token);
+public override Task<List<IToolchainDependency.DiskSpaceRequirements>> GetRequiredDiskSpace(CancellationToken token)
+	{
+		return Task.FromResult(new List<IToolchainDependency.DiskSpaceRequirements>
+		{
+			new IToolchainDependency.DiskSpaceRequirements
+			{
+				m_Path = kPropsFileDeploy,
+				m_Size = new FileInfo(kPropsFileSource).Length
+			},
+			new IToolchainDependency.DiskSpaceRequirements
+			{
+				m_Path = kTargetsFileDeploy,
+				m_Size = new FileInfo(kTargetsFileSource).Length
+			},
+			new IToolchainDependency.DiskSpaceRequirements
+			{
+				m_Path = kTemplatePackageInstallation,
+				m_Size = new FileInfo(kTemplatePackageSource).Length
+			}
+		});
+	}
 ```
 
 - `public virtual Install(System.Threading.CancellationToken token) : System.Threading.Tasks.Task`  
 
 ```csharp
-public virtual System.Threading.Tasks.Task Install(System.Threading.CancellationToken token);
+public override async Task Install(CancellationToken token)
+	{
+		token.ThrowIfCancellationRequested();
+		try
+		{
+			IToolchainDependency.log.DebugFormat("Installing {0}", "C# Mod project template");
+			base.state = new IToolchainDependency.State(DependencyState.Installing, "InstallingModTemplate");
+			IToolchainDependency.log.DebugFormat("Copy mod template properties file '{0}' to '{1}'", kPropsFileSource, kPropsFileDeploy);
+			IOUtils.EnsureDirectory(Path.GetDirectoryName(kPropsFileDeploy));
+			await AsyncUtils.CopyFileAsync(kPropsFileSource, kPropsFileDeploy, overwrite: true, token).ConfigureAwait(continueOnCapturedContext: false);
+			IToolchainDependency.log.DebugFormat("Copy mod template targets file '{0}' to '{1}'", kTargetsFileSource, kTargetsFileDeploy);
+			IOUtils.EnsureDirectory(Path.GetDirectoryName(kTargetsFileDeploy));
+			await AsyncUtils.CopyFileAsync(kTargetsFileSource, kTargetsFileDeploy, overwrite: true, token).ConfigureAwait(continueOnCapturedContext: false);
+			IToolchainDependency.log.DebugFormat("Install mod template package '{0}'", kTemplatePackageSource);
+			System.Version dotnetVersion = await DotNetDependency.GetDotnetVersion(token).ConfigureAwait(continueOnCapturedContext: false);
+			if (dotnetVersion.Major < 6)
+			{
+				throw new ToolchainException(ToolchainError.Install, this, ".net6.0 is required");
+			}
+			List<string> errorText = new List<string>();
+			await Cli.Wrap("dotnet").WithArguments((dotnetVersion.Major == 6) ? "new --uninstall ColossalOrder.ModTemplate" : "new uninstall ColossalOrder.ModTemplate --verbosity q").WithStandardErrorPipe(PipeTarget.ToDelegate(delegate(string l)
+			{
+				errorText.Add(l);
+			}))
+				.WithValidation(CommandResultValidation.None)
+				.ExecuteAsync(token)
+				.ConfigureAwait(continueOnCapturedContext: false);
+			if (errorText.Count > 0)
+			{
+				IToolchainDependency.log.Warn(string.Join('\n', errorText));
+			}
+			errorText.Clear();
+			CommandResult obj = await Cli.Wrap("dotnet").WithArguments((dotnetVersion.Major == 6) ? ("new --install \"" + kTemplatePackageSource + "\" --force") : ("new install \"" + kTemplatePackageSource + "\" --force --verbosity q")).WithStandardErrorPipe(PipeTarget.ToDelegate(delegate(string l)
+			{
+				errorText.Add(l);
+			}))
+				.WithValidation(CommandResultValidation.None)
+				.ExecuteAsync(token)
+				.ConfigureAwait(continueOnCapturedContext: false);
+			if (errorText.Count > 0)
+			{
+				IToolchainDependency.log.Warn(string.Join('\n', errorText));
+			}
+			if (obj.ExitCode != 0)
+			{
+				throw new ToolchainException(ToolchainError.Install, this, "Mod template package not installed: code {result.ExitCode}");
+			}
+		}
+		catch (OperationCanceledException)
+		{
+			throw;
+		}
+		catch (ToolchainException)
+		{
+			throw;
+		}
+		catch (Exception innerException)
+		{
+			throw new ToolchainException(ToolchainError.Install, this, innerException);
+		}
+	}
 ```
 
 - `public virtual IsInstalled(System.Threading.CancellationToken token) : System.Threading.Tasks.Task<System.Boolean>`  
 
 ```csharp
-public virtual System.Threading.Tasks.Task<System.Boolean> IsInstalled(System.Threading.CancellationToken token);
+public override async Task<bool> IsInstalled(CancellationToken token)
+	{
+		_ = 1;
+		try
+		{
+			if (!LongFile.Exists(kPropsFileDeploy) || !LongFile.Exists(kTargetsFileDeploy))
+			{
+				return false;
+			}
+			System.Version version = await DotNetDependency.GetDotnetVersion(token).ConfigureAwait(continueOnCapturedContext: false);
+			if (version.Major < 6)
+			{
+				return false;
+			}
+			List<string> errorText = new List<string>();
+			CommandResult obj = await Cli.Wrap("dotnet").WithArguments((version.Major == 6) ? "new --list csiimod" : "new list csiimod --verbosity q").WithStandardErrorPipe(PipeTarget.ToDelegate(delegate(string l)
+			{
+				errorText.Add(l);
+			}))
+				.WithValidation(CommandResultValidation.None)
+				.ExecuteAsync(token)
+				.ConfigureAwait(continueOnCapturedContext: false);
+			if (errorText.Count > 0)
+			{
+				IToolchainDependency.log.Warn(string.Join('\n', errorText));
+			}
+			if (obj.ExitCode != 0)
+			{
+				return false;
+			}
+			return true;
+		}
+		catch (Exception exception)
+		{
+			IToolchainDependency.log.Error(exception, "Error during mod template check");
+			return false;
+		}
+	}
 ```
 
 - `public virtual IsUpToDate(System.Threading.CancellationToken token) : System.Threading.Tasks.Task<System.Boolean>`  
 
 ```csharp
-public virtual System.Threading.Tasks.Task<System.Boolean> IsUpToDate(System.Threading.CancellationToken token);
+public override Task<bool> IsUpToDate(CancellationToken token)
+	{
+		try
+		{
+			if (CalculateCache(kPropsFileSource) != CalculateCache(kPropsFileDeploy))
+			{
+				return Task.FromResult(result: false);
+			}
+			if (CalculateCache(kTargetsFileSource) != CalculateCache(kTargetsFileDeploy))
+			{
+				return Task.FromResult(result: false);
+			}
+			if (CalculateCache(kTemplatePackageSource) != CalculateCache(kTemplatePackageInstallation))
+			{
+				return Task.FromResult(result: false);
+			}
+			return Task.FromResult(result: true);
+		}
+		catch (Exception exception)
+		{
+			IToolchainDependency.log.Error(exception, "Error during mod template check");
+			return Task.FromResult(result: false);
+		}
+		static ulong CalculateCache(string file)
+		{
+			if (!LongFile.Exists(file))
+			{
+				return 0uL;
+			}
+			byte[] data = LongFile.ReadAllBytes(file);
+			return new Crc(new CrcParameters(64, 4823603603198064275uL, 0uL, 0uL, reflectIn: false, reflectOut: false)).CalculateAsNumeric(data);
+		}
+	}
 ```
 
 - `public virtual NeedDownload(System.Threading.CancellationToken token) : System.Threading.Tasks.Task<System.Boolean>`  
 
 ```csharp
-public virtual System.Threading.Tasks.Task<System.Boolean> NeedDownload(System.Threading.CancellationToken token);
+public override Task<bool> NeedDownload(CancellationToken token)
+	{
+		return Task.FromResult(result: false);
+	}
 ```
 
 - `public virtual Uninstall(System.Threading.CancellationToken token) : System.Threading.Tasks.Task`  
 
 ```csharp
-public virtual System.Threading.Tasks.Task Uninstall(System.Threading.CancellationToken token);
+public override async Task Uninstall(CancellationToken token)
+	{
+		token.ThrowIfCancellationRequested();
+		try
+		{
+			base.state = new IToolchainDependency.State(DependencyState.Removing, "RemovingProjectTemplate");
+			IToolchainDependency.log.DebugFormat("Removing {0}", "C# Mod project template");
+			await AsyncUtils.DeleteFileAsync(kPropsFileDeploy, token).ConfigureAwait(continueOnCapturedContext: false);
+			await AsyncUtils.DeleteFileAsync(kTargetsFileDeploy, token).ConfigureAwait(continueOnCapturedContext: false);
+			System.Version version = await DotNetDependency.GetDotnetVersion(token).ConfigureAwait(continueOnCapturedContext: false);
+			if (version.Major < 6)
+			{
+				throw new ToolchainException(ToolchainError.Uninstall, this, ".net6.0 is required");
+			}
+			List<string> errorText = new List<string>();
+			CommandResult obj = await Cli.Wrap("dotnet").WithArguments((version.Major == 6) ? "new --uninstall ColossalOrder.ModTemplate" : "new uninstall ColossalOrder.ModTemplate").WithStandardErrorPipe(PipeTarget.ToDelegate(delegate(string l)
+			{
+				errorText.Add(l);
+			}))
+				.WithValidation(CommandResultValidation.None)
+				.ExecuteAsync(token)
+				.ConfigureAwait(continueOnCapturedContext: false);
+			if (errorText.Count > 0)
+			{
+				IToolchainDependency.log.Warn(string.Join('\n', errorText));
+			}
+			if (obj.ExitCode != 0)
+			{
+				throw new ToolchainException(ToolchainError.Uninstall, this, "Mod template package not removed: code {result.ExitCode}");
+			}
+		}
+		catch (OperationCanceledException)
+		{
+			throw;
+		}
+		catch (ToolchainException)
+		{
+			throw;
+		}
+		catch (Exception innerException)
+		{
+			throw new ToolchainException(ToolchainError.Uninstall, this, innerException);
+		}
+	}
 ```
 
 

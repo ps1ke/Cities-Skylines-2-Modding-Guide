@@ -24,7 +24,10 @@ public class ModificationEndBarrier : Game.SafeCommandBufferSystem
 - `public ModificationEndBarrier()`  
 
 ```csharp
-public ModificationEndBarrier();
+[Preserve]
+	public ModificationEndBarrier()
+	{
+	}
 ```
 
 
@@ -33,7 +36,11 @@ public ModificationEndBarrier();
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		base.OnUpdate();
+	}
 ```
 
 

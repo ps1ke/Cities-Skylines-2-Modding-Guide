@@ -116,7 +116,10 @@ private Game.UI.InGame.GarbageSection+LoadKey loadKey { private get; private set
 - `public GarbageSection()`  
 
 ```csharp
-public GarbageSection();
+[Preserve]
+	public GarbageSection()
+	{
+	}
 ```
 
 
@@ -125,31 +128,107 @@ public GarbageSection();
 - `protected virtual OnProcess() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnProcess();
+protected override void OnProcess()
+	{
+		if (base.EntityManager.TryGetComponent<Game.Buildings.GarbageFacility>(selectedEntity, out var component))
+		{
+			if (base.EntityManager.TryGetBuffer(selectedEntity, isReadOnly: true, out DynamicBuffer<Resources> buffer))
+			{
+				garbage = EconomyUtils.GetResources(Resource.Garbage, buffer);
+			}
+			if (TryGetComponentWithUpgrades<GarbageFacilityData>(selectedEntity, selectedPrefab, out var data))
+			{
+				garbageCapacity = data.m_GarbageCapacity;
+				processingSpeed = component.m_ProcessingRate;
+				processingCapacity = data.m_ProcessingSpeed;
+				if (data.m_LongTermStorage)
+				{
+					base.tooltipKeys.Add("Landfill");
+				}
+				if (base.EntityManager.HasComponent<Game.Buildings.ResourceProducer>(selectedEntity))
+				{
+					base.tooltipKeys.Add("RecyclingCenter");
+				}
+				if (base.EntityManager.HasComponent<ElectricityProducer>(selectedEntity))
+				{
+					base.tooltipKeys.Add("Incinerator");
+				}
+				if (data.m_IndustrialWasteOnly)
+				{
+					base.tooltipKeys.Add("HazardousWaste");
+					loadKey = LoadKey.IndustrialWaste;
+				}
+			}
+		}
+		if (!base.EntityManager.TryGetBuffer(selectedEntity, isReadOnly: true, out DynamicBuffer<Game.Areas.SubArea> buffer2))
+		{
+			return;
+		}
+		for (int i = 0; i < buffer2.Length; i++)
+		{
+			Entity area = buffer2[i].m_Area;
+			if (base.EntityManager.TryGetComponent<Storage>(area, out var component2))
+			{
+				PrefabRef componentData = base.EntityManager.GetComponentData<PrefabRef>(area);
+				Geometry componentData2 = base.EntityManager.GetComponentData<Geometry>(area);
+				if (base.EntityManager.TryGetComponent<StorageAreaData>(componentData.m_Prefab, out var component3))
+				{
+					garbageCapacity += AreaUtils.CalculateStorageCapacity(componentData2, component3);
+					garbage += component2.m_Amount;
+				}
+			}
+		}
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		base.visible = Visible();
+	}
 ```
 
 - `public virtual OnWriteProperties(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-public virtual System.Void OnWriteProperties(Colossal.UI.Binding.IJsonWriter writer);
+public override void OnWriteProperties(IJsonWriter writer)
+	{
+		writer.PropertyName("garbage");
+		writer.Write(garbage);
+		writer.PropertyName("garbageCapacity");
+		writer.Write(garbageCapacity);
+		writer.PropertyName("processingSpeed");
+		writer.Write(processingSpeed);
+		writer.PropertyName("processingCapacity");
+		writer.Write(processingCapacity);
+		writer.PropertyName("loadKey");
+		writer.Write(Enum.GetName(typeof(LoadKey), loadKey));
+	}
 ```
 
 - `protected virtual Reset() : System.Void`  
 
 ```csharp
-protected virtual System.Void Reset();
+protected override void Reset()
+	{
+		garbage = 0;
+		garbageCapacity = 0;
+		processingSpeed = 0;
+		processingCapacity = 0;
+		loadKey = LoadKey.Garbage;
+	}
 ```
 
 - `private Visible() : System.Boolean`  
 
 ```csharp
-private System.Boolean Visible();
+private bool Visible()
+	{
+		return base.EntityManager.HasComponent<Game.Buildings.GarbageFacility>(selectedEntity);
+	}
 ```
 
 

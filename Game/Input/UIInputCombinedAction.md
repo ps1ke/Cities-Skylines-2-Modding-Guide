@@ -58,13 +58,45 @@ public UIInputCombinedAction();
 - `public virtual GetState(System.String source) : Game.Input.IProxyAction`  
 
 ```csharp
-public virtual Game.Input.IProxyAction GetState(System.String source);
+public override IProxyAction GetState(string source, DisplayGetter displayNameGetter)
+	{
+		if (m_Parts.Length == 1)
+		{
+			ProxyAction proxyAction = m_Parts[0].GetProxyAction();
+			DisplayNameOverride displayName = displayNameGetter(source, proxyAction, m_Parts[0].m_Mask, m_Parts[0].m_Transform);
+			return new UIInputAction.State(source, proxyAction, displayName, m_Parts[0].m_Mask);
+		}
+		UIInputAction.State[] array = new UIInputAction.State[m_Parts.Length];
+		for (int i = 0; i < m_Parts.Length; i++)
+		{
+			ProxyAction proxyAction2 = m_Parts[i].GetProxyAction();
+			DisplayNameOverride displayName2 = displayNameGetter(source, proxyAction2, m_Parts[0].m_Mask, m_Parts[i].m_Transform);
+			array[i] = new UIInputAction.State(source, proxyAction2, displayName2, m_Parts[i].m_Mask);
+		}
+		return new State(array);
+	}
 ```
 
 - `public virtual GetState(System.String source, Game.Input.UIBaseInputAction+DisplayGetter displayNameGetter) : Game.Input.IProxyAction`  
 
 ```csharp
-public virtual Game.Input.IProxyAction GetState(System.String source, Game.Input.UIBaseInputAction+DisplayGetter displayNameGetter);
+public override IProxyAction GetState(string source, DisplayGetter displayNameGetter)
+	{
+		if (m_Parts.Length == 1)
+		{
+			ProxyAction proxyAction = m_Parts[0].GetProxyAction();
+			DisplayNameOverride displayName = displayNameGetter(source, proxyAction, m_Parts[0].m_Mask, m_Parts[0].m_Transform);
+			return new UIInputAction.State(source, proxyAction, displayName, m_Parts[0].m_Mask);
+		}
+		UIInputAction.State[] array = new UIInputAction.State[m_Parts.Length];
+		for (int i = 0; i < m_Parts.Length; i++)
+		{
+			ProxyAction proxyAction2 = m_Parts[i].GetProxyAction();
+			DisplayNameOverride displayName2 = displayNameGetter(source, proxyAction2, m_Parts[0].m_Mask, m_Parts[i].m_Transform);
+			array[i] = new UIInputAction.State(source, proxyAction2, displayName2, m_Parts[i].m_Mask);
+		}
+		return new State(array);
+	}
 ```
 
 

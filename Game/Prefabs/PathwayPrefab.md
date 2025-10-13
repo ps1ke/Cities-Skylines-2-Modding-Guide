@@ -49,19 +49,44 @@ public PathwayPrefab();
 - `public virtual GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetArchetypeComponents(HashSet<ComponentType> components)
+	{
+		base.GetArchetypeComponents(components);
+		if (components.Contains(ComponentType.ReadWrite<Edge>()))
+		{
+			components.Add(ComponentType.ReadWrite<UpdateFrame>());
+			components.Add(ComponentType.ReadWrite<EdgeColor>());
+		}
+		else if (components.Contains(ComponentType.ReadWrite<Node>()))
+		{
+			components.Add(ComponentType.ReadWrite<UpdateFrame>());
+			components.Add(ComponentType.ReadWrite<NodeColor>());
+		}
+		else if (components.Contains(ComponentType.ReadWrite<NetCompositionData>()))
+		{
+			components.Add(ComponentType.ReadWrite<PathwayComposition>());
+		}
+	}
 ```
 
 - `public virtual GetDependencies(System.Collections.Generic.List<Game.Prefabs.PrefabBase> prefabs) : System.Void`  
 
 ```csharp
-public virtual System.Void GetDependencies(System.Collections.Generic.List<Game.Prefabs.PrefabBase> prefabs);
+public override void GetDependencies(List<PrefabBase> prefabs)
+	{
+		base.GetDependencies(prefabs);
+	}
 ```
 
 - `public virtual GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetPrefabComponents(HashSet<ComponentType> components)
+	{
+		base.GetPrefabComponents(components);
+		components.Add(ComponentType.ReadWrite<PathwayData>());
+		components.Add(ComponentType.ReadWrite<LocalConnectData>());
+	}
 ```
 
 

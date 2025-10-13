@@ -58,13 +58,21 @@ public readonly System.String getterMethod;
 - `public SettingsUIDisplayNameAttribute(System.String overrideId = null, System.String overrideValue = null)`  
 
 ```csharp
-public SettingsUIDisplayNameAttribute(System.String overrideId, System.String overrideValue);
+public SettingsUIDisplayNameAttribute(Type getterType, string getterMethod)
+	{
+		this.getterType = getterType;
+		this.getterMethod = getterMethod;
+	}
 ```
 
 - `public SettingsUIDisplayNameAttribute(System.Type getterType, System.String getterMethod)`  
 
 ```csharp
-public SettingsUIDisplayNameAttribute(System.Type getterType, System.String getterMethod);
+public SettingsUIDisplayNameAttribute(Type getterType, string getterMethod)
+	{
+		this.getterType = getterType;
+		this.getterMethod = getterMethod;
+	}
 ```
 
 

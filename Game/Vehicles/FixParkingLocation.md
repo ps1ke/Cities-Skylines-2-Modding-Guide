@@ -42,7 +42,11 @@ public Unity.Entities.Entity m_ResetLocation;
 - `public FixParkingLocation(Unity.Entities.Entity changeLane, Unity.Entities.Entity resetLocation)`  
 
 ```csharp
-public FixParkingLocation(Unity.Entities.Entity changeLane, Unity.Entities.Entity resetLocation);
+public FixParkingLocation(Entity changeLane, Entity resetLocation)
+	{
+		m_ChangeLane = changeLane;
+		m_ResetLocation = resetLocation;
+	}
 ```
 
 

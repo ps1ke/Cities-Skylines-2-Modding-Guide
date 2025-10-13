@@ -335,7 +335,10 @@ public System.Single HomelessnessRate { get; }
 - `public CountHouseholdDataSystem()`  
 
 ```csharp
-public CountHouseholdDataSystem();
+[Preserve]
+	public CountHouseholdDataSystem()
+	{
+	}
 ```
 
 
@@ -344,13 +347,19 @@ public CountHouseholdDataSystem();
 - `private __AssignQueries(Unity.Entities.SystemState& state) : System.Void`  
 
 ```csharp
-private System.Void __AssignQueries(Unity.Entities.SystemState& state);
+private void __AssignQueries(ref SystemState state)
+	{
+		new EntityQueryBuilder(Allocator.Temp).Dispose();
+	}
 ```
 
 - `public AddHouseholdDataReader(Unity.Jobs.JobHandle reader) : System.Void`  
 
 ```csharp
-public System.Void AddHouseholdDataReader(Unity.Jobs.JobHandle reader);
+public void AddHouseholdDataReader(JobHandle reader)
+	{
+		m_HouseholdDataReadDependencies = JobHandle.CombineDependencies(m_HouseholdDataReadDependencies, reader);
+	}
 ```
 
 - `public Deserialize<TReader>(TReader reader) : System.Void`  
@@ -362,55 +371,159 @@ public System.Void Deserialize<TReader>(TReader reader);
 - `public GetEmployables() : Unity.Collections.NativeArray<System.Int32>`  
 
 ```csharp
-public Unity.Collections.NativeArray<System.Int32> GetEmployables();
+public NativeArray<int> GetEmployables()
+	{
+		return m_EmployableByEducation;
+	}
 ```
 
 - `public GetHouseholdCountData() : Game.Simulation.CountHouseholdDataSystem+HouseholdData`  
 
 ```csharp
-public Game.Simulation.CountHouseholdDataSystem+HouseholdData GetHouseholdCountData();
+public HouseholdData GetHouseholdCountData()
+	{
+		return m_LastHouseholdCountData;
+	}
 ```
 
 - `public GetResourceNeeds(Unity.Jobs.JobHandle& deps) : Unity.Collections.NativeArray<System.Int32>`  
 
 ```csharp
-public Unity.Collections.NativeArray<System.Int32> GetResourceNeeds(Unity.Jobs.JobHandle& deps);
+public NativeArray<int> GetResourceNeeds(out JobHandle deps)
+	{
+		deps = m_HouseholdDataWriteDependencies;
+		return m_ResourceNeed;
+	}
 ```
 
 - `public virtual GetUpdateInterval(Game.SystemUpdatePhase phase) : System.Int32`  
 
 ```csharp
-public virtual System.Int32 GetUpdateInterval(Game.SystemUpdatePhase phase);
+public override int GetUpdateInterval(SystemUpdatePhase phase)
+	{
+		return 16;
+	}
 ```
 
 - `public IsCountDataNotReady() : System.Boolean`  
 
 ```csharp
-public System.Boolean IsCountDataNotReady();
+public bool IsCountDataNotReady()
+	{
+		return m_NeedForceCountData;
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_CitySystem = base.World.GetOrCreateSystemManaged<CitySystem>();
+		m_EndFrameBarrier = base.World.GetOrCreateSystemManaged<EndFrameBarrier>();
+		m_HouseholdQuery = GetEntityQuery(new EntityQueryDesc
+		{
+			All = new ComponentType[1] { ComponentType.ReadOnly<Household>() },
+			None = new ComponentType[2]
+			{
+				ComponentType.ReadOnly<Deleted>(),
+				ComponentType.ReadOnly<Temp>()
+			}
+		});
+		m_RequirementQuery = GetEntityQuery(ComponentType.ReadOnly<CitizenRequirementData>(), ComponentType.ReadWrite<UnlockRequirementData>(), ComponentType.ReadOnly<Locked>());
+		m_UnlockEventArchetype = base.EntityManager.CreateArchetype(ComponentType.ReadWrite<Event>(), ComponentType.ReadWrite<Unlock>());
+		m_HouseholdCountData = new NativeAccumulator<HouseholdData>(Allocator.Persistent);
+		m_HouseholdNeedCountData = new NativeAccumulator<HouseholdNeedData>(EconomyUtils.ResourceCount, Allocator.Persistent);
+		m_ResourceNeed = new NativeArray<int>(EconomyUtils.ResourceCount, Allocator.Persistent);
+		m_EmployableByEducation = new NativeArray<int>(5, Allocator.Persistent);
+		RequireForUpdate(m_HouseholdQuery);
+	}
 ```
 
 - `protected virtual OnCreateForCompiler() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreateForCompiler();
+protected override void OnCreateForCompiler()
+	{
+		base.OnCreateForCompiler();
+		__AssignQueries(ref base.CheckedStateRef);
+		__TypeHandle.__AssignHandles(ref base.CheckedStateRef);
+	}
 ```
 
 - `protected virtual OnDestroy() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnDestroy();
+[Preserve]
+	protected override void OnDestroy()
+	{
+		m_HouseholdCountData.Dispose();
+		m_HouseholdNeedCountData.Dispose();
+		m_ResourceNeed.Dispose();
+		m_EmployableByEducation.Dispose();
+		base.OnDestroy();
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		m_LastHouseholdCountData = m_HouseholdCountData.GetResult();
+		m_HouseholdCountData.Clear();
+		m_HouseholdNeedCountData.Clear();
+		CountHouseholdJob jobData = new CountHouseholdJob
+		{
+			m_HouseholdType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Citizens_Household_RW_ComponentTypeHandle, ref base.CheckedStateRef),
+			m_HomelessHouseholdType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Citizens_HomelessHousehold_RW_ComponentTypeHandle, ref base.CheckedStateRef),
+			m_HouseholdNeedType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Citizens_HouseholdNeed_RW_ComponentTypeHandle, ref base.CheckedStateRef),
+			m_PropertyRenterType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Buildings_PropertyRenter_RW_ComponentTypeHandle, ref base.CheckedStateRef),
+			m_ResourcesType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Economy_Resources_RW_BufferTypeHandle, ref base.CheckedStateRef),
+			m_HouseholdCitizenType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Citizens_HouseholdCitizen_RW_BufferTypeHandle, ref base.CheckedStateRef),
+			m_HealthProblems = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Citizens_HealthProblem_RW_ComponentLookup, ref base.CheckedStateRef),
+			m_Parks = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Buildings_Park_RW_ComponentLookup, ref base.CheckedStateRef),
+			m_Abandoneds = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Buildings_Abandoned_RW_ComponentLookup, ref base.CheckedStateRef),
+			m_Citizens = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Citizens_Citizen_RW_ComponentLookup, ref base.CheckedStateRef),
+			m_Students = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Citizens_Student_RW_ComponentLookup, ref base.CheckedStateRef),
+			m_Workers = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Citizens_Worker_RW_ComponentLookup, ref base.CheckedStateRef),
+			m_OutsideConnections = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Objects_OutsideConnection_RW_ComponentLookup, ref base.CheckedStateRef),
+			m_HouseholdCountData = m_HouseholdCountData.AsParallelWriter(),
+			m_HouseholdNeedCountData = m_HouseholdNeedCountData.AsParallelWriter()
+		};
+		base.Dependency = JobChunkExtensions.ScheduleParallel(jobData, m_HouseholdQuery, base.Dependency);
+		ResultJob jobData2 = new ResultJob
+		{
+			m_HouseholdData = m_HouseholdCountData,
+			m_HouseholdNeedData = m_HouseholdNeedCountData,
+			m_Populations = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_City_Population_RW_ComponentLookup, ref base.CheckedStateRef),
+			m_City = m_CitySystem.City,
+			m_ResourceNeed = m_ResourceNeed,
+			m_EmployableByEducation = m_EmployableByEducation
+		};
+		base.Dependency = IJobExtensions.Schedule(jobData2, JobHandle.CombineDependencies(base.Dependency, m_HouseholdDataReadDependencies));
+		m_HouseholdDataWriteDependencies = base.Dependency;
+		if (m_NeedForceCountData)
+		{
+			base.Dependency.Complete();
+			m_NeedForceCountData = false;
+		}
+		CitizenRequirementJob jobData3 = new CitizenRequirementJob
+		{
+			m_UnlockEventArchetype = m_UnlockEventArchetype,
+			m_CommandBuffer = m_EndFrameBarrier.CreateCommandBuffer().AsParallelWriter(),
+			m_EntityType = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef),
+			m_CitizenRequirementType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_CitizenRequirementData_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+			m_UnlockRequirementType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_UnlockRequirementData_RW_ComponentTypeHandle, ref base.CheckedStateRef),
+			m_Populations = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_City_Population_RO_ComponentLookup, ref base.CheckedStateRef),
+			m_City = m_CitySystem.City
+		};
+		base.Dependency = JobChunkExtensions.ScheduleParallel(jobData3, m_RequirementQuery, base.Dependency);
+		m_EndFrameBarrier.AddJobHandleForProducer(base.Dependency);
+	}
 ```
 
 - `public Serialize<TWriter>(TWriter writer) : System.Void`  
@@ -422,7 +535,14 @@ public System.Void Serialize<TWriter>(TWriter writer);
 - `public SetDefaults(Colossal.Serialization.Entities.Context context) : System.Void`  
 
 ```csharp
-public System.Void SetDefaults(Colossal.Serialization.Entities.Context context);
+public void SetDefaults(Context context)
+	{
+		m_LastHouseholdCountData = default(HouseholdData);
+		m_HouseholdCountData.Clear();
+		m_HouseholdNeedCountData.Clear();
+		m_ResourceNeed.Fill(0);
+		m_EmployableByEducation.Fill(0);
+	}
 ```
 
 

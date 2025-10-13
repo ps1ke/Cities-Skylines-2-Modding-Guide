@@ -73,13 +73,29 @@ public System.Single m_Distance;
 - `public CarTrailerLane(Game.Vehicles.ParkedCar parkedCar)`  
 
 ```csharp
-public CarTrailerLane(Game.Vehicles.ParkedCar parkedCar);
+public CarTrailerLane(CarCurrentLane currentLane)
+	{
+		m_Lane = currentLane.m_Lane;
+		m_NextLane = Entity.Null;
+		m_CurvePosition = currentLane.m_CurvePosition.xy;
+		m_NextPosition = 0f;
+		m_Duration = 0f;
+		m_Distance = 0f;
+	}
 ```
 
 - `public CarTrailerLane(Game.Vehicles.CarCurrentLane currentLane)`  
 
 ```csharp
-public CarTrailerLane(Game.Vehicles.CarCurrentLane currentLane);
+public CarTrailerLane(CarCurrentLane currentLane)
+	{
+		m_Lane = currentLane.m_Lane;
+		m_NextLane = Entity.Null;
+		m_CurvePosition = currentLane.m_CurvePosition.xy;
+		m_NextPosition = 0f;
+		m_Duration = 0f;
+		m_Distance = 0f;
+	}
 ```
 
 

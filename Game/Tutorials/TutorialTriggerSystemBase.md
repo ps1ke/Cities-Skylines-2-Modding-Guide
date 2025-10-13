@@ -77,7 +77,10 @@ protected System.Boolean triggersChanged { protected get; private set; }
 - `protected TutorialTriggerSystemBase()`  
 
 ```csharp
-protected TutorialTriggerSystemBase();
+[Preserve]
+	protected TutorialTriggerSystemBase()
+	{
+	}
 ```
 
 
@@ -86,25 +89,53 @@ protected TutorialTriggerSystemBase();
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_BarrierSystem = base.World.GetOrCreateSystemManaged<ModificationBarrier5>();
+		m_TutorialSystem = base.World.GetOrCreateSystemManaged<TutorialSystem>();
+	}
 ```
 
 - `protected virtual OnGameLoaded(Colossal.Serialization.Entities.Context serializationContext) : System.Void`  
 
 ```csharp
-protected virtual System.Void OnGameLoaded(Colossal.Serialization.Entities.Context serializationContext);
+protected override void OnGameLoaded(Context serializationContext)
+	{
+		base.OnGameLoaded(serializationContext);
+		m_LastPhase = Entity.Null;
+	}
 ```
 
 - `protected virtual OnStopRunning() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnStopRunning();
+[Preserve]
+	protected override void OnStopRunning()
+	{
+		base.OnStopRunning();
+		m_LastPhase = Entity.Null;
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		Entity activeTutorialPhase = m_TutorialSystem.activeTutorialPhase;
+		if (activeTutorialPhase != m_LastPhase)
+		{
+			m_LastPhase = activeTutorialPhase;
+			triggersChanged = true;
+		}
+		else
+		{
+			triggersChanged = false;
+		}
+	}
 ```
 
 

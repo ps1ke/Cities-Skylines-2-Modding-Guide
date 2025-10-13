@@ -40,7 +40,10 @@ protected System.String group { protected get; }
 - `public CargoTransportVehicleSection()`  
 
 ```csharp
-public CargoTransportVehicleSection();
+[Preserve]
+	public CargoTransportVehicleSection()
+	{
+	}
 ```
 
 
@@ -49,19 +52,35 @@ public CargoTransportVehicleSection();
 - `protected virtual OnProcess() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnProcess();
+protected override void OnProcess()
+	{
+		CargoTransport componentData = base.EntityManager.GetComponentData<CargoTransport>(selectedEntity);
+		base.stateKey = VehicleUIUtils.GetStateKey(selectedEntity, componentData, base.EntityManager);
+		base.OnProcess();
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		base.visible = Visible();
+	}
 ```
 
 - `private Visible() : System.Boolean`  
 
 ```csharp
-private System.Boolean Visible();
+private bool Visible()
+	{
+		if (base.EntityManager.HasComponent<Vehicle>(selectedEntity) && base.EntityManager.HasComponent<CargoTransport>(selectedEntity))
+		{
+			return base.EntityManager.HasComponent<Owner>(selectedEntity);
+		}
+		return false;
+	}
 ```
 
 

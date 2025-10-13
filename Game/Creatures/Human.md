@@ -37,7 +37,10 @@ public Game.Creatures.HumanFlags m_Flags;
 - `public Human(Game.Creatures.HumanFlags flags)`  
 
 ```csharp
-public Human(Game.Creatures.HumanFlags flags);
+public Human(HumanFlags flags)
+	{
+		m_Flags = flags;
+	}
 ```
 
 

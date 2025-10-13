@@ -82,19 +82,49 @@ public VisualStudioDependency();
 - `protected virtual GetIDEVersion(System.Threading.CancellationToken token) : System.Threading.Tasks.Task<System.String>`  
 
 ```csharp
-protected virtual System.Threading.Tasks.Task<System.String> GetIDEVersion(System.Threading.CancellationToken token);
+private static async Task<string> GetIDEVersion(CancellationToken token, string arguments)
+	{
+		VsWhereResult vsWhereResult = await QueryVsWhere(token, arguments);
+		return vsWhereResult.entries.Any() ? vsWhereResult.entries[0].catalog.buildVersion : string.Empty;
+	}
 ```
 
 - `private static GetIDEVersion(System.Threading.CancellationToken token, System.String arguments) : System.Threading.Tasks.Task<System.String>`  
 
 ```csharp
-private static System.Threading.Tasks.Task<System.String> GetIDEVersion(System.Threading.CancellationToken token, System.String arguments);
+private static async Task<string> GetIDEVersion(CancellationToken token, string arguments)
+	{
+		VsWhereResult vsWhereResult = await QueryVsWhere(token, arguments);
+		return vsWhereResult.entries.Any() ? vsWhereResult.entries[0].catalog.buildVersion : string.Empty;
+	}
 ```
 
 - `private static QueryVsWhere(System.Threading.CancellationToken token, System.String arguments) : System.Threading.Tasks.Task<Game.Modding.Toolchain.Dependencies.VsWhereResult>`  
 
 ```csharp
-private static System.Threading.Tasks.Task<Game.Modding.Toolchain.Dependencies.VsWhereResult> QueryVsWhere(System.Threading.CancellationToken token, System.String arguments);
+private static async Task<VsWhereResult> QueryVsWhere(CancellationToken token, string arguments)
+	{
+		StringBuilder vsWhereResult = new StringBuilder();
+		List<string> errorText = new List<string>();
+		vsWhereResult.AppendLine("{ \"entries\": ");
+		await Cli.Wrap(vsWhere).WithArguments("-prerelease -latest -format json").WithStandardOutputPipe(PipeTarget.ToDelegate(delegate(string l)
+		{
+			vsWhereResult.Append(l);
+		}))
+			.WithStandardErrorPipe(PipeTarget.ToDelegate(delegate(string l)
+			{
+				errorText.Add(l);
+			}))
+			.WithValidation(CommandResultValidation.None)
+			.ExecuteAsync(token)
+			.ConfigureAwait(continueOnCapturedContext: false);
+		vsWhereResult.AppendLine("}");
+		if (errorText.Count > 0)
+		{
+			IToolchainDependency.log.Warn(string.Join('\n', errorText));
+		}
+		return VsWhereResult.FromJson(vsWhereResult.ToString());
+	}
 ```
 
 

@@ -198,7 +198,10 @@ public System.Collections.Generic.IEnumerable<Game.Prefabs.JournalEventComponent
 - `public EventJournalSystem()`  
 
 ```csharp
-public EventJournalSystem();
+[Preserve]
+	public EventJournalSystem()
+	{
+	}
 ```
 
 
@@ -207,61 +210,245 @@ public EventJournalSystem();
 - `private __AssignQueries(Unity.Entities.SystemState& state) : System.Void`  
 
 ```csharp
-private System.Void __AssignQueries(Unity.Entities.SystemState& state);
+private void __AssignQueries(ref SystemState state)
+	{
+		new EntityQueryBuilder(Allocator.Temp).Dispose();
+	}
 ```
 
 - `public GetInfo(Unity.Entities.Entity journalEntity) : Game.Events.EventJournalEntry`  
 
 ```csharp
-public Game.Events.EventJournalEntry GetInfo(Unity.Entities.Entity journalEntity);
+public EventJournalEntry GetInfo(Entity journalEntity)
+	{
+		return base.EntityManager.GetComponentData<EventJournalEntry>(journalEntity);
+	}
 ```
 
 - `public GetPrefab(Unity.Entities.Entity journalEntity) : Unity.Entities.Entity`  
 
 ```csharp
-public Unity.Entities.Entity GetPrefab(Unity.Entities.Entity journalEntity);
+public Entity GetPrefab(Entity journalEntity)
+	{
+		return base.EntityManager.GetComponentData<PrefabRef>(journalEntity).m_Prefab;
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_StartedJournalQuery = GetEntityQuery(new EntityQueryDesc
+		{
+			All = new ComponentType[1] { ComponentType.ReadWrite<EventJournalEntry>() },
+			Any = new ComponentType[2]
+			{
+				ComponentType.ReadOnly<Created>(),
+				ComponentType.ReadOnly<EventJournalPending>()
+			}
+		});
+		m_DeletedEventQuery = GetEntityQuery(ComponentType.ReadOnly<JournalEvent>(), ComponentType.ReadOnly<Deleted>());
+		m_ActiveJournalEffectQuery = GetEntityQuery(ComponentType.ReadWrite<EventJournalCityEffect>(), ComponentType.Exclude<EventJournalPending>(), ComponentType.Exclude<EventJournalCompleted>());
+		m_JournalDataEventQuery = GetEntityQuery(ComponentType.ReadOnly<AddEventJournalData>(), ComponentType.ReadOnly<Game.Common.Event>());
+		m_JournalEventPrefabQuery = GetEntityQuery(ComponentType.ReadOnly<EventPrefab>(), ComponentType.ReadOnly<PrefabData>());
+		m_LoadedJournalQuery = GetEntityQuery(ComponentType.ReadOnly<EventJournalEntry>(), ComponentType.Exclude<EventJournalPending>());
+		m_SimulationSystem = base.World.GetOrCreateSystemManaged<SimulationSystem>();
+		m_CitySystem = base.World.GetOrCreateSystemManaged<CitySystem>();
+		m_BudgetSystem = base.World.GetOrCreateSystemManaged<BudgetSystem>();
+		m_CityServiceBudgetSystem = base.World.GetOrCreateSystemManaged<CityServiceBudgetSystem>();
+		m_ModificationBarrier = base.World.GetOrCreateSystemManaged<ModificationBarrier5>();
+		eventJournal = new NativeList<Entity>(Allocator.Persistent);
+		m_Started = new NativeQueue<Entity>(Allocator.Persistent);
+		m_Changed = new NativeQueue<Entity>(Allocator.Persistent);
+		m_CityEffects = new NativeArray<int>(5, Allocator.Persistent);
+	}
 ```
 
 - `protected virtual OnCreateForCompiler() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreateForCompiler();
+protected override void OnCreateForCompiler()
+	{
+		base.OnCreateForCompiler();
+		__AssignQueries(ref base.CheckedStateRef);
+		__TypeHandle.__AssignHandles(ref base.CheckedStateRef);
+	}
 ```
 
 - `protected virtual OnDestroy() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnDestroy();
+[Preserve]
+	protected override void OnDestroy()
+	{
+		base.OnDestroy();
+		eventJournal.Dispose();
+		m_Changed.Dispose();
+		m_Started.Dispose();
+		m_CityEffects.Dispose();
+	}
 ```
 
 - `protected virtual OnGameLoaded(Colossal.Serialization.Entities.Context serializationContext) : System.Void`  
 
 ```csharp
-protected virtual System.Void OnGameLoaded(Colossal.Serialization.Entities.Context serializationContext);
+protected override void OnGameLoaded(Context serializationContext)
+	{
+		eventJournal.Clear();
+		m_Changed.Clear();
+		m_Started.Clear();
+		if (!m_LoadedJournalQuery.IsEmptyIgnoreFilter)
+		{
+			NativeArray<Entity> nativeArray = m_LoadedJournalQuery.ToEntityArray(Allocator.TempJob);
+			NativeArray<EventJournalEntry> nativeArray2 = m_LoadedJournalQuery.ToComponentDataArray<EventJournalEntry>(Allocator.TempJob);
+			NativeArray<JournalSortingInfo> array = new NativeArray<JournalSortingInfo>(nativeArray.Length, Allocator.TempJob);
+			for (int i = 0; i < nativeArray.Length; i++)
+			{
+				array[i] = new JournalSortingInfo
+				{
+					m_Entity = nativeArray[i],
+					m_StartFrame = nativeArray2[i].m_StartFrame
+				};
+			}
+			nativeArray.Dispose();
+			nativeArray2.Dispose();
+			array.Sort();
+			for (int j = 0; j < array.Length; j++)
+			{
+				NativeList<Entity> nativeList = eventJournal;
+				JournalSortingInfo journalSortingInfo = array[j];
+				nativeList.Add(in journalSortingInfo.m_Entity);
+			}
+			array.Dispose();
+		}
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		bool flag = false;
+		Entity item;
+		while (m_Started.TryDequeue(out item))
+		{
+			eventJournal.Add(in item);
+			flag = true;
+		}
+		if (flag)
+		{
+			eventEntryAdded?.Invoke();
+		}
+		Entity item2;
+		while (m_Changed.TryDequeue(out item2))
+		{
+			eventEventDataChanged?.Invoke(item2);
+		}
+		if ((!m_StartedJournalQuery.IsEmptyIgnoreFilter || !m_ActiveJournalEffectQuery.IsEmptyIgnoreFilter) && base.EntityManager.TryGetComponent<Population>(m_CitySystem.City, out var component) && base.EntityManager.TryGetComponent<Tourism>(m_CitySystem.City, out var component2))
+		{
+			m_CityEffects[0] = 0;
+			m_CityEffects[1] = component.m_AverageHappiness;
+			m_CityEffects[2] = m_CityServiceBudgetSystem.GetTotalTaxIncome();
+			m_CityEffects[3] = m_BudgetSystem.GetTotalTradeWorth();
+			m_CityEffects[4] = component2.m_CurrentTourists;
+		}
+		if (!m_StartedJournalQuery.IsEmptyIgnoreFilter)
+		{
+			StartedEventsJob jobData = new StartedEventsJob
+			{
+				m_EntityType = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef),
+				m_PendingType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Events_EventJournalPending_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+				m_CityEffectType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Events_EventJournalCityEffect_RW_BufferTypeHandle, ref base.CheckedStateRef),
+				m_EntryType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Events_EventJournalEntry_RW_ComponentTypeHandle, ref base.CheckedStateRef),
+				m_SimulationFrame = m_SimulationSystem.frameIndex,
+				m_CityEffects = m_CityEffects,
+				m_Started = m_Started.AsParallelWriter(),
+				m_CommandBuffer = m_ModificationBarrier.CreateCommandBuffer().AsParallelWriter()
+			};
+			base.Dependency = JobChunkExtensions.ScheduleParallel(jobData, m_StartedJournalQuery, base.Dependency);
+			m_ModificationBarrier.AddJobHandleForProducer(base.Dependency);
+		}
+		if (!m_DeletedEventQuery.IsEmptyIgnoreFilter)
+		{
+			DeletedEventsJob jobData2 = new DeletedEventsJob
+			{
+				m_JournalEventType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Events_JournalEvent_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+				m_CompletedData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Events_EventJournalCompleted_RO_ComponentLookup, ref base.CheckedStateRef),
+				m_EntryData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Events_EventJournalEntry_RW_ComponentLookup, ref base.CheckedStateRef),
+				m_CommandBuffer = m_ModificationBarrier.CreateCommandBuffer().AsParallelWriter()
+			};
+			base.Dependency = JobChunkExtensions.ScheduleParallel(jobData2, m_DeletedEventQuery, base.Dependency);
+			m_ModificationBarrier.AddJobHandleForProducer(base.Dependency);
+		}
+		if (!m_ActiveJournalEffectQuery.IsEmptyIgnoreFilter)
+		{
+			CheckJournalTrackingEndJob jobData3 = new CheckJournalTrackingEndJob
+			{
+				m_EntityType = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef),
+				m_EntryType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Events_EventJournalEntry_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+				m_FireData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Events_Fire_RO_ComponentLookup, ref base.CheckedStateRef),
+				m_TargetElementData = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Events_TargetElement_RO_BufferLookup, ref base.CheckedStateRef),
+				m_OnFireData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Events_OnFire_RO_ComponentLookup, ref base.CheckedStateRef),
+				m_CommandBuffer = m_ModificationBarrier.CreateCommandBuffer().AsParallelWriter()
+			};
+			base.Dependency = JobChunkExtensions.ScheduleParallel(jobData3, m_ActiveJournalEffectQuery, base.Dependency);
+			m_ModificationBarrier.AddJobHandleForProducer(base.Dependency);
+			TrackCityEffectsJob jobData4 = new TrackCityEffectsJob
+			{
+				m_EntityType = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef),
+				m_CityEffectType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Events_EventJournalCityEffect_RW_BufferTypeHandle, ref base.CheckedStateRef),
+				m_CityEffects = m_CityEffects,
+				m_Changes = m_Changed.AsParallelWriter()
+			};
+			base.Dependency = JobChunkExtensions.ScheduleParallel(jobData4, m_ActiveJournalEffectQuery, base.Dependency);
+		}
+		if (!m_JournalDataEventQuery.IsEmptyIgnoreFilter)
+		{
+			TrackDataJob jobData5 = new TrackDataJob
+			{
+				m_AddDataType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Events_AddEventJournalData_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+				m_JournalEvents = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Events_JournalEvent_RO_ComponentLookup, ref base.CheckedStateRef),
+				m_EventJournalDatas = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Events_EventJournalData_RW_BufferLookup, ref base.CheckedStateRef),
+				m_Changes = m_Changed
+			};
+			base.Dependency = JobChunkExtensions.Schedule(jobData5, m_JournalDataEventQuery, base.Dependency);
+		}
+	}
 ```
 
 - `public TryGetCityEffects(Unity.Entities.Entity journalEntity, Unity.Entities.DynamicBuffer`1[[Game.Events.EventJournalCityEffect, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]& data) : System.Boolean`  
 
 ```csharp
-public System.Boolean TryGetCityEffects(Unity.Entities.Entity journalEntity, Unity.Entities.DynamicBuffer`1[[Game.Events.EventJournalCityEffect, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]& data);
+public bool TryGetCityEffects(Entity journalEntity, out DynamicBuffer<EventJournalCityEffect> data)
+	{
+		if (base.EntityManager.HasComponent<EventJournalCityEffect>(journalEntity))
+		{
+			data = base.EntityManager.GetBuffer<EventJournalCityEffect>(journalEntity, isReadOnly: true);
+			return true;
+		}
+		data = default(DynamicBuffer<EventJournalCityEffect>);
+		return false;
+	}
 ```
 
 - `public TryGetData(Unity.Entities.Entity journalEntity, Unity.Entities.DynamicBuffer`1[[Game.Events.EventJournalData, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]& data) : System.Boolean`  
 
 ```csharp
-public System.Boolean TryGetData(Unity.Entities.Entity journalEntity, Unity.Entities.DynamicBuffer`1[[Game.Events.EventJournalData, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]& data);
+public bool TryGetData(Entity journalEntity, out DynamicBuffer<EventJournalData> data)
+	{
+		if (base.EntityManager.HasComponent<EventJournalData>(journalEntity))
+		{
+			data = base.EntityManager.GetBuffer<EventJournalData>(journalEntity, isReadOnly: true);
+			return true;
+		}
+		data = default(DynamicBuffer<EventJournalData>);
+		return false;
+	}
 ```
 
 

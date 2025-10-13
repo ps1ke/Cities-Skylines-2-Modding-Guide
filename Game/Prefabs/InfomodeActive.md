@@ -49,7 +49,12 @@ public System.Int32 m_SecondaryIndex;
 - `public InfomodeActive(System.Int32 priority, System.Int32 index, System.Int32 secondaryIndex)`  
 
 ```csharp
-public InfomodeActive(System.Int32 priority, System.Int32 index, System.Int32 secondaryIndex);
+public InfomodeActive(int priority, int index, int secondaryIndex)
+	{
+		m_Priority = priority;
+		m_Index = index;
+		m_SecondaryIndex = secondaryIndex;
+	}
 ```
 
 

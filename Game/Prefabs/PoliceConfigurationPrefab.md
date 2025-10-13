@@ -123,19 +123,45 @@ public PoliceConfigurationPrefab();
 - `public virtual GetDependencies(System.Collections.Generic.List<Game.Prefabs.PrefabBase> prefabs) : System.Void`  
 
 ```csharp
-public virtual System.Void GetDependencies(System.Collections.Generic.List<Game.Prefabs.PrefabBase> prefabs);
+public override void GetDependencies(List<PrefabBase> prefabs)
+	{
+		base.GetDependencies(prefabs);
+		prefabs.Add(m_PoliceServicePrefab);
+		prefabs.Add(m_TrafficAccidentNotificationPrefab);
+		prefabs.Add(m_CrimeSceneNotificationPrefab);
+	}
 ```
 
 - `public virtual GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetPrefabComponents(HashSet<ComponentType> components)
+	{
+		base.GetPrefabComponents(components);
+		components.Add(ComponentType.ReadWrite<PoliceConfigurationData>());
+	}
 ```
 
 - `public virtual LateInitialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity) : System.Void`  
 
 ```csharp
-public virtual System.Void LateInitialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity);
+public override void LateInitialize(EntityManager entityManager, Entity entity)
+	{
+		base.LateInitialize(entityManager, entity);
+		PrefabSystem orCreateSystemManaged = entityManager.World.GetOrCreateSystemManaged<PrefabSystem>();
+		PoliceConfigurationData componentData = default(PoliceConfigurationData);
+		componentData.m_PoliceServicePrefab = orCreateSystemManaged.GetEntity(m_PoliceServicePrefab);
+		componentData.m_TrafficAccidentNotificationPrefab = orCreateSystemManaged.GetEntity(m_TrafficAccidentNotificationPrefab);
+		componentData.m_CrimeSceneNotificationPrefab = orCreateSystemManaged.GetEntity(m_CrimeSceneNotificationPrefab);
+		componentData.m_MaxCrimeAccumulation = m_MaxCrimeAccumulation;
+		componentData.m_CrimeAccumulationTolerance = m_CrimeAccumulationTolerance;
+		componentData.m_HomeCrimeEffect = m_HomeCrimeEffect;
+		componentData.m_WorkplaceCrimeEffect = m_WorkplaceCrimeEffect;
+		componentData.m_WelfareCrimeRecurrenceFactor = m_WelfareCrimeRecurrenceFactor;
+		componentData.m_CrimePoliceCoverageFactor = m_CrimePoliceCoverageFactor;
+		componentData.m_CrimePopulationReduction = m_CrimePopulationReduction;
+		entityManager.SetComponentData(entity, componentData);
+	}
 ```
 
 

@@ -102,7 +102,10 @@ private Game.UI.InGame.UpgradePropertiesSection+UpgradeType type { private get; 
 - `public UpgradePropertiesSection()`  
 
 ```csharp
-public UpgradePropertiesSection();
+[Preserve]
+	public UpgradePropertiesSection()
+	{
+	}
 ```
 
 
@@ -111,31 +114,64 @@ public UpgradePropertiesSection();
 - `protected virtual OnProcess() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnProcess();
+protected override void OnProcess()
+	{
+		upgrade = selectedPrefab;
+		if (base.EntityManager.TryGetComponent<Owner>(selectedEntity, out var component))
+		{
+			mainBuilding = component.m_Owner;
+			if (base.EntityManager.TryGetComponent<Attachment>(mainBuilding, out var component2) && component2.m_Attached != Entity.Null)
+			{
+				mainBuilding = component2.m_Attached;
+			}
+		}
+		type = (base.EntityManager.HasComponent<BuildingExtensionData>(selectedPrefab) ? UpgradeType.Extension : UpgradeType.SubBuilding);
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		base.visible = Visible();
+	}
 ```
 
 - `public virtual OnWriteProperties(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-public virtual System.Void OnWriteProperties(Colossal.UI.Binding.IJsonWriter writer);
+public override void OnWriteProperties(IJsonWriter writer)
+	{
+		writer.PropertyName("mainBuilding");
+		writer.Write(mainBuilding);
+		writer.PropertyName(kMainBuildingName);
+		m_NameSystem.BindName(writer, mainBuilding);
+		writer.PropertyName("upgrade");
+		writer.Write(upgrade);
+		writer.PropertyName("type");
+		writer.Write(type.ToString());
+	}
 ```
 
 - `protected virtual Reset() : System.Void`  
 
 ```csharp
-protected virtual System.Void Reset();
+protected override void Reset()
+	{
+		mainBuilding = Entity.Null;
+		upgrade = Entity.Null;
+	}
 ```
 
 - `private Visible() : System.Boolean`  
 
 ```csharp
-private System.Boolean Visible();
+private bool Visible()
+	{
+		return base.EntityManager.HasComponent<ServiceUpgradeData>(selectedPrefab);
+	}
 ```
 
 

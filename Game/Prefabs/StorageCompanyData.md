@@ -43,7 +43,10 @@ public Unity.Mathematics.int2 m_TransportInterval;
 - `public Combine(Game.Prefabs.StorageCompanyData otherData) : System.Void`  
 
 ```csharp
-public System.Void Combine(Game.Prefabs.StorageCompanyData otherData);
+public void Combine(StorageCompanyData otherData)
+	{
+		m_StoredResources |= otherData.m_StoredResources;
+	}
 ```
 
 - `public Deserialize<TReader>(TReader reader) : System.Void`  

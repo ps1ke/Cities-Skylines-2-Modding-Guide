@@ -102,7 +102,10 @@ private System.Int32 consumableCapacity { private get; private set; }
 - `public ShelterSection()`  
 
 ```csharp
-public ShelterSection();
+[Preserve]
+	public ShelterSection()
+	{
+	}
 ```
 
 
@@ -111,31 +114,59 @@ public ShelterSection();
 - `protected virtual OnProcess() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnProcess();
+protected override void OnProcess()
+	{
+		if (TryGetComponentWithUpgrades<EmergencyShelterData>(selectedEntity, selectedPrefab, out var data))
+		{
+			shelterCapacity = data.m_ShelterCapacity;
+		}
+		if (base.EntityManager.TryGetBuffer(selectedEntity, isReadOnly: true, out DynamicBuffer<Occupant> buffer))
+		{
+			sheltered = buffer.Length;
+		}
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		base.visible = Visible();
+	}
 ```
 
 - `public virtual OnWriteProperties(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-public virtual System.Void OnWriteProperties(Colossal.UI.Binding.IJsonWriter writer);
+public override void OnWriteProperties(IJsonWriter writer)
+	{
+		writer.PropertyName("sheltered");
+		writer.Write(sheltered);
+		writer.PropertyName("shelterCapacity");
+		writer.Write(shelterCapacity);
+	}
 ```
 
 - `protected virtual Reset() : System.Void`  
 
 ```csharp
-protected virtual System.Void Reset();
+protected override void Reset()
+	{
+		sheltered = 0;
+		shelterCapacity = 0;
+		consumables = 0;
+	}
 ```
 
 - `private Visible() : System.Boolean`  
 
 ```csharp
-private System.Boolean Visible();
+private bool Visible()
+	{
+		return base.EntityManager.HasComponent<Game.Buildings.EmergencyShelter>(selectedEntity);
+	}
 ```
 
 

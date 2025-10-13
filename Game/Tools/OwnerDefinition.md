@@ -49,13 +49,23 @@ public Unity.Mathematics.quaternion m_Rotation;
 - `public Equals(Game.Tools.OwnerDefinition other) : System.Boolean`  
 
 ```csharp
-public System.Boolean Equals(Game.Tools.OwnerDefinition other);
+public bool Equals(OwnerDefinition other)
+	{
+		if (m_Prefab.Equals(other.m_Prefab) && m_Position.Equals(other.m_Position))
+		{
+			return m_Rotation.Equals(other.m_Rotation);
+		}
+		return false;
+	}
 ```
 
 - `public virtual GetHashCode() : System.Int32`  
 
 ```csharp
-public virtual System.Int32 GetHashCode();
+public override int GetHashCode()
+	{
+		return ((17 * 31 + m_Prefab.GetHashCode()) * 31 + m_Position.GetHashCode()) * 31 + m_Rotation.GetHashCode();
+	}
 ```
 
 

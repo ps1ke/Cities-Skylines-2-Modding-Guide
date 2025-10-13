@@ -62,7 +62,11 @@ public Unity.Collections.NativeReference<System.Int32> position { get; private s
 - `public ReadBuffer(System.Int32 size)`  
 
 ```csharp
-public ReadBuffer(System.Int32 size);
+public ReadBuffer(int size)
+	{
+		buffer = new NativeArray<byte>(size, Allocator.TempJob);
+		position = new NativeReference<int>(0, Allocator.TempJob);
+	}
 ```
 
 
@@ -71,13 +75,21 @@ public ReadBuffer(System.Int32 size);
 - `public Done(Unity.Jobs.JobHandle handle) : System.Void`  
 
 ```csharp
-public System.Void Done(Unity.Jobs.JobHandle handle);
+public void Done()
+	{
+		buffer.Dispose();
+		position.Dispose();
+	}
 ```
 
 - `public Done() : System.Void`  
 
 ```csharp
-public System.Void Done();
+public void Done()
+	{
+		buffer.Dispose();
+		position.Dispose();
+	}
 ```
 
 

@@ -80,7 +80,10 @@ private Game.Simulation.XPSystem+TypeHandle __TypeHandle;
 - `public XPSystem()`  
 
 ```csharp
-public XPSystem();
+[Preserve]
+	public XPSystem()
+	{
+	}
 ```
 
 
@@ -89,49 +92,102 @@ public XPSystem();
 - `private __AssignQueries(Unity.Entities.SystemState& state) : System.Void`  
 
 ```csharp
-private System.Void __AssignQueries(Unity.Entities.SystemState& state);
+private void __AssignQueries(ref SystemState state)
+	{
+		new EntityQueryBuilder(Allocator.Temp).Dispose();
+	}
 ```
 
 - `public AddQueueWriter(Unity.Jobs.JobHandle handle) : System.Void`  
 
 ```csharp
-public System.Void AddQueueWriter(Unity.Jobs.JobHandle handle);
+public void AddQueueWriter(JobHandle handle)
+	{
+		m_QueueWriters = JobHandle.CombineDependencies(m_QueueWriters, handle);
+	}
 ```
 
 - `public GetQueue(Unity.Jobs.JobHandle& deps) : Unity.Collections.NativeQueue<Game.Simulation.XPGain>`  
 
 ```csharp
-public Unity.Collections.NativeQueue<Game.Simulation.XPGain> GetQueue(Unity.Jobs.JobHandle& deps);
+public NativeQueue<XPGain> GetQueue(out JobHandle deps)
+	{
+		deps = m_QueueWriters;
+		return m_XPQueue;
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_CitySystem = base.World.GetOrCreateSystemManaged<CitySystem>();
+		m_SimulationSystem = base.World.GetOrCreateSystemManaged<SimulationSystem>();
+		m_XPMessages = new NativeQueue<XPMessage>(Allocator.Persistent);
+		m_XPQueue = new NativeQueue<XPGain>(Allocator.Persistent);
+	}
 ```
 
 - `protected virtual OnCreateForCompiler() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreateForCompiler();
+protected override void OnCreateForCompiler()
+	{
+		base.OnCreateForCompiler();
+		__AssignQueries(ref base.CheckedStateRef);
+		__TypeHandle.__AssignHandles(ref base.CheckedStateRef);
+	}
 ```
 
 - `protected virtual OnDestroy() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnDestroy();
+[Preserve]
+	protected override void OnDestroy()
+	{
+		m_XPQueue.Dispose();
+		m_XPMessages.Dispose();
+		base.OnDestroy();
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		if (!(m_CitySystem.City == Entity.Null))
+		{
+			XPQueueProcessJob jobData = new XPQueueProcessJob
+			{
+				m_City = m_CitySystem.City,
+				m_FrameIndex = m_SimulationSystem.frameIndex,
+				m_XPMessages = m_XPMessages,
+				m_XPQueue = m_XPQueue,
+				m_CityXPs = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_City_XP_RW_ComponentLookup, ref base.CheckedStateRef)
+			};
+			base.Dependency = IJobExtensions.Schedule(jobData, JobHandle.CombineDependencies(m_QueueWriters, base.Dependency));
+			m_QueueWriters = base.Dependency;
+		}
+	}
 ```
 
 - `public TransferMessages(Game.Simulation.IXPMessageHandler handler) : System.Void`  
 
 ```csharp
-public System.Void TransferMessages(Game.Simulation.IXPMessageHandler handler);
+public void TransferMessages(IXPMessageHandler handler)
+	{
+		base.Dependency.Complete();
+		while (m_XPMessages.Count > 0)
+		{
+			XPMessage message = m_XPMessages.Dequeue();
+			handler.AddMessage(message);
+		}
+	}
 ```
 
 

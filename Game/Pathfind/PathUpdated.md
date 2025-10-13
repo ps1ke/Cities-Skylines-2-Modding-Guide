@@ -42,7 +42,11 @@ public Game.Pathfind.PathEventData m_Data;
 - `public PathUpdated(Unity.Entities.Entity owner, Game.Pathfind.PathEventData data)`  
 
 ```csharp
-public PathUpdated(Unity.Entities.Entity owner, Game.Pathfind.PathEventData data);
+public PathUpdated(Entity owner, PathEventData data)
+	{
+		m_Owner = owner;
+		m_Data = data;
+	}
 ```
 
 

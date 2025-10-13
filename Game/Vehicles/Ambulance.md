@@ -65,7 +65,14 @@ public System.Single m_PathElementTime;
 - `public Ambulance(Unity.Entities.Entity targetPatient, Unity.Entities.Entity targetLocation, Game.Vehicles.AmbulanceFlags state)`  
 
 ```csharp
-public Ambulance(Unity.Entities.Entity targetPatient, Unity.Entities.Entity targetLocation, Game.Vehicles.AmbulanceFlags state);
+public Ambulance(Entity targetPatient, Entity targetLocation, AmbulanceFlags state)
+	{
+		m_State = state;
+		m_TargetPatient = targetPatient;
+		m_TargetLocation = targetLocation;
+		m_TargetRequest = Entity.Null;
+		m_PathElementTime = 0f;
+	}
 ```
 
 

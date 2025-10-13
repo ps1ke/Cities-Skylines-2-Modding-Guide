@@ -85,13 +85,29 @@ public RangedSliderField();
 - `public virtual ToFieldType(Unity.Mathematics.double4 value) : System.Single`  
 
 ```csharp
-public virtual System.Single ToFieldType(Unity.Mathematics.double4 value);
+public override float ToFieldType(double4 value)
+	{
+		return (float)value.x;
+	}
 ```
 
 - `protected virtual WriteProperties(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-protected virtual System.Void WriteProperties(Colossal.UI.Binding.IJsonWriter writer);
+protected override void WriteProperties(IJsonWriter writer)
+	{
+		base.WriteProperties(writer);
+		writer.PropertyName("ranges");
+		int num = ((ranges != null) ? ranges.Length : 0);
+		writer.ArrayBegin(num);
+		for (int i = 0; i < num; i++)
+		{
+			writer.Write(ranges[i]);
+		}
+		writer.ArrayEnd();
+		writer.PropertyName("iconSrc");
+		writer.Write(iconSrc());
+	}
 ```
 
 

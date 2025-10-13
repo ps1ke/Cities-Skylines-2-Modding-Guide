@@ -34,7 +34,22 @@ public PopupValueFieldBuilders();
 - `public TryCreate(System.Type memberType, System.Object[] attributes) : Game.UI.Widgets.FieldBuilder`  
 
 ```csharp
-public Game.UI.Widgets.FieldBuilder TryCreate(System.Type memberType, System.Object[] attributes);
+public FieldBuilder TryCreate(Type memberType, object[] attributes)
+	{
+		if (typeof(PrefabBase).IsAssignableFrom(memberType))
+		{
+			return delegate(IValueAccessor accessor)
+			{
+				CastAccessor<PrefabBase> accessor2 = new CastAccessor<PrefabBase>(accessor);
+				return new PopupValueField<PrefabBase>
+				{
+					accessor = accessor2,
+					popup = new PrefabPickerPopup(memberType)
+				};
+			};
+		}
+		return null;
+	}
 ```
 
 

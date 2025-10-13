@@ -356,13 +356,68 @@ public ToolUXSoundSettingsPrefab();
 - `public virtual GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetPrefabComponents(HashSet<ComponentType> components)
+	{
+		base.GetPrefabComponents(components);
+		components.Add(ComponentType.ReadWrite<ToolUXSoundSettingsData>());
+	}
 ```
 
 - `public virtual LateInitialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity) : System.Void`  
 
 ```csharp
-public virtual System.Void LateInitialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity);
+public override void LateInitialize(EntityManager entityManager, Entity entity)
+	{
+		base.LateInitialize(entityManager, entity);
+		PrefabSystem orCreateSystemManaged = entityManager.World.GetOrCreateSystemManaged<PrefabSystem>();
+		ToolUXSoundSettingsData componentData = default(ToolUXSoundSettingsData);
+		componentData.m_PolygonToolSelectPointSound = orCreateSystemManaged.GetEntity(m_PolygonToolSelectPointSound);
+		componentData.m_PolygonToolDropPointSound = orCreateSystemManaged.GetEntity(m_PolygonToolDropPointSound);
+		componentData.m_PolygonToolRemovePointSound = orCreateSystemManaged.GetEntity(m_PolygonToolRemovePointSound);
+		componentData.m_PolygonToolDeleteAreaSound = orCreateSystemManaged.GetEntity(m_PolygonToolDeleteAreaSound);
+		componentData.m_PolygonToolFinishAreaSound = orCreateSystemManaged.GetEntity(m_PolygonToolFinishAreaSound);
+		componentData.m_BulldozeSound = orCreateSystemManaged.GetEntity(m_BulldozeSound);
+		componentData.m_PropPlantBulldozeSound = orCreateSystemManaged.GetEntity(m_PropPlantBulldozeSound);
+		componentData.m_TerraformSound = orCreateSystemManaged.GetEntity(m_TerraformSound);
+		componentData.m_PlaceBuildingSound = orCreateSystemManaged.GetEntity(m_PlaceBuildingSound);
+		componentData.m_RelocateBuildingSound = orCreateSystemManaged.GetEntity(m_RelocateBuildingSound);
+		componentData.m_PlaceUpgradeSound = orCreateSystemManaged.GetEntity(m_PlaceUpgradeSound);
+		componentData.m_PlaceBuildingFailSound = orCreateSystemManaged.GetEntity(m_PlaceBuildingFailSound);
+		componentData.m_ZoningFillSound = orCreateSystemManaged.GetEntity(m_ZoningFillSound);
+		componentData.m_ZoningRemoveFillSound = orCreateSystemManaged.GetEntity(m_ZoningRemoveFillSound);
+		componentData.m_ZoningStartPaintSound = orCreateSystemManaged.GetEntity(m_ZoningStartPaintSound);
+		componentData.m_ZoningEndPaintSound = orCreateSystemManaged.GetEntity(m_ZoningEndPaintSound);
+		componentData.m_ZoningStartRemovePaintSound = orCreateSystemManaged.GetEntity(m_ZoningStartRemovePaintSound);
+		componentData.m_ZoningEndRemovePaintSound = orCreateSystemManaged.GetEntity(m_ZoningEndRemovePaintSound);
+		componentData.m_ZoningMarqueeStartSound = orCreateSystemManaged.GetEntity(m_ZoningMarqueeStartSound);
+		componentData.m_ZoningMarqueeEndSound = orCreateSystemManaged.GetEntity(m_ZoningMarqueeEndSound);
+		componentData.m_ZoningMarqueeClearStartSound = orCreateSystemManaged.GetEntity(m_ZoningMarqueeClearStartSound);
+		componentData.m_ZoningMarqueeClearEndSound = orCreateSystemManaged.GetEntity(m_ZoningMarqueeClearEndSound);
+		componentData.m_SelectEntitySound = orCreateSystemManaged.GetEntity(m_SelectEntitySound);
+		componentData.m_SnapSound = orCreateSystemManaged.GetEntity(m_SnapSound);
+		componentData.m_PlacePropSound = orCreateSystemManaged.GetEntity(m_PlacePropSound);
+		componentData.m_NetExpandSound = orCreateSystemManaged.GetEntity(m_NetExpandSound);
+		componentData.m_NetStartSound = orCreateSystemManaged.GetEntity(m_NetStartSound);
+		componentData.m_NetNodeSound = orCreateSystemManaged.GetEntity(m_NetNodeSound);
+		componentData.m_NetBuildSound = orCreateSystemManaged.GetEntity(m_NetBuildSound);
+		componentData.m_NetCancelSound = orCreateSystemManaged.GetEntity(m_NetCancelSound);
+		componentData.m_NetElevationUpSound = orCreateSystemManaged.GetEntity(m_NetElevationUpSound);
+		componentData.m_NetElevationDownSound = orCreateSystemManaged.GetEntity(m_NetElevationDownSound);
+		componentData.m_TransportLineCompleteSound = orCreateSystemManaged.GetEntity(m_TransportLineCompleteSound);
+		componentData.m_TransportLineStartSound = orCreateSystemManaged.GetEntity(m_TransportLineStartSound);
+		componentData.m_TransportLineBuildSound = orCreateSystemManaged.GetEntity(m_TransportLineBuildSound);
+		componentData.m_TransportLineRemoveSound = orCreateSystemManaged.GetEntity(m_TransportLineRemoveSound);
+		componentData.m_AreaMarqueeStartSound = orCreateSystemManaged.GetEntity(m_AreaMarqueeStartSound);
+		componentData.m_AreaMarqueeEndSound = orCreateSystemManaged.GetEntity(m_AreaMarqueeEndSound);
+		componentData.m_AreaMarqueeClearStartSound = orCreateSystemManaged.GetEntity(m_AreaMarqueeClearStartSound);
+		componentData.m_AreaMarqueeClearEndSound = orCreateSystemManaged.GetEntity(m_AreaMarqueeClearEndSound);
+		componentData.m_TutorialStartedSound = orCreateSystemManaged.GetEntity(m_TutorialStartedSound);
+		componentData.m_TutorialCompletedSound = orCreateSystemManaged.GetEntity(m_TutorialCompletedSound);
+		componentData.m_CameraZoomInSound = orCreateSystemManaged.GetEntity(m_CameraZoomInSound);
+		componentData.m_CameraZoomOutSound = orCreateSystemManaged.GetEntity(m_CameraZoomOutSound);
+		componentData.m_DeletetEntitySound = orCreateSystemManaged.GetEntity(m_DeletetEntitySound);
+		entityManager.SetComponentData(entity, componentData);
+	}
 ```
 
 

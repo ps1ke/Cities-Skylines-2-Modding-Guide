@@ -88,31 +88,78 @@ public ExternalLinkField();
 - `private Add() : System.Void`  
 
 ```csharp
-private System.Void Add();
+private void Add()
+	{
+		links.Add(kDefaultLink);
+		SetPropertiesChanged();
+	}
 ```
 
 - `private Remove(System.Int32 index) : System.Void`  
 
 ```csharp
-private System.Void Remove(System.Int32 index);
+private void Remove(int index)
+	{
+		links.RemoveAt(index);
+		SetPropertiesChanged();
+	}
 ```
 
 - `private SetValue(System.Int32 index, System.String type, System.String url) : System.Void`  
 
 ```csharp
-private System.Void SetValue(System.Int32 index, System.String type, System.String url);
+private void SetValue(int index, string type, string url)
+	{
+		IModsUploadSupport.ExternalLinkData value = new IModsUploadSupport.ExternalLinkData
+		{
+			m_Type = type,
+			m_URL = url
+		};
+		if (AssetUploadUtils.LockLinkType(value.m_URL, out var type2))
+		{
+			value.m_Type = type2;
+		}
+		links[index] = value;
+		SetPropertiesChanged();
+	}
 ```
 
 - `private WriteExternalLink(Colossal.UI.Binding.IJsonWriter writer, Colossal.PSI.Common.IModsUploadSupport+ExternalLinkData link) : System.Void`  
 
 ```csharp
-private System.Void WriteExternalLink(Colossal.UI.Binding.IJsonWriter writer, Colossal.PSI.Common.IModsUploadSupport+ExternalLinkData link);
+private void WriteExternalLink(IJsonWriter writer, IModsUploadSupport.ExternalLinkData link)
+	{
+		writer.TypeBegin("ExternalLinkData");
+		writer.PropertyName("type");
+		writer.Write(link.m_Type);
+		writer.PropertyName("url");
+		writer.Write(link.m_URL);
+		writer.PropertyName("error");
+		writer.Write(!AssetUploadUtils.ValidateExternalLink(link));
+		writer.PropertyName("lockType");
+		writer.Write(AssetUploadUtils.LockLinkType(link.m_URL, out var _));
+		writer.TypeEnd();
+	}
 ```
 
 - `protected virtual WriteProperties(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-protected virtual System.Void WriteProperties(Colossal.UI.Binding.IJsonWriter writer);
+protected override void WriteProperties(IJsonWriter writer)
+	{
+		base.WriteProperties(writer);
+		writer.PropertyName("links");
+		writer.ArrayBegin(links.Count);
+		foreach (IModsUploadSupport.ExternalLinkData link in links)
+		{
+			WriteExternalLink(writer, link);
+		}
+		writer.ArrayEnd();
+		writer.PropertyName("acceptedTypes");
+		writer.Write(kAcceptedTypes);
+		writer.PropertyName("maxLinks");
+		writer.Write(maxLinks);
+	}
 ```
 
 

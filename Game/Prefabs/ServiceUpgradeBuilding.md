@@ -37,7 +37,10 @@ public Unity.Entities.Entity m_Building;
 - `public ServiceUpgradeBuilding(Unity.Entities.Entity building)`  
 
 ```csharp
-public ServiceUpgradeBuilding(Unity.Entities.Entity building);
+public ServiceUpgradeBuilding(Entity building)
+	{
+		m_Building = building;
+	}
 ```
 
 

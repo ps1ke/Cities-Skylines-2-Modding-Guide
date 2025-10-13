@@ -89,25 +89,57 @@ private System.Collections.Generic.IEnumerable<System.String> <>n__0();
 - `public virtual GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetArchetypeComponents(HashSet<ComponentType> components)
+	{
+	}
 ```
 
 - `public virtual GetDependencies(System.Collections.Generic.List<Game.Prefabs.PrefabBase> prefabs) : System.Void`  
 
 ```csharp
-public virtual System.Void GetDependencies(System.Collections.Generic.List<Game.Prefabs.PrefabBase> prefabs);
+public override void GetDependencies(List<PrefabBase> prefabs)
+	{
+		base.GetDependencies(prefabs);
+		if (m_Group != null)
+		{
+			prefabs.Add(m_Group);
+		}
+	}
 ```
 
 - `public virtual GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetPrefabComponents(HashSet<ComponentType> components)
+	{
+		if (!m_IsDebugObject || UnityEngine.Debug.isDebugBuild)
+		{
+			components.Add(ComponentType.ReadWrite<UIObjectData>());
+		}
+	}
 ```
 
 - `public virtual LateInitialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity) : System.Void`  
 
 ```csharp
-public virtual System.Void LateInitialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity);
+public override void LateInitialize(EntityManager entityManager, Entity entity)
+	{
+		base.LateInitialize(entityManager, entity);
+		if (!m_IsDebugObject || UnityEngine.Debug.isDebugBuild)
+		{
+			Entity entity2 = Entity.Null;
+			if (m_Group != null)
+			{
+				entity2 = entityManager.World.GetExistingSystemManaged<PrefabSystem>().GetEntity(m_Group);
+				m_Group.AddElement(entityManager, entity);
+			}
+			entityManager.SetComponentData(entity, new UIObjectData
+			{
+				m_Group = entity2,
+				m_Priority = m_Priority
+			});
+		}
+	}
 ```
 
 

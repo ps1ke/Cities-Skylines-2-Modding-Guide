@@ -69,7 +69,10 @@ private static const System.Int32 UPDATES_PER_DAY;
 - `public CalendarEventLaunchSystem()`  
 
 ```csharp
-public CalendarEventLaunchSystem();
+[Preserve]
+	public CalendarEventLaunchSystem()
+	{
+	}
 ```
 
 
@@ -78,31 +81,68 @@ public CalendarEventLaunchSystem();
 - `private __AssignQueries(Unity.Entities.SystemState& state) : System.Void`  
 
 ```csharp
-private System.Void __AssignQueries(Unity.Entities.SystemState& state);
+private void __AssignQueries(ref SystemState state)
+	{
+		new EntityQueryBuilder(Allocator.Temp).Dispose();
+	}
 ```
 
 - `public virtual GetUpdateInterval(Game.SystemUpdatePhase phase) : System.Int32`  
 
 ```csharp
-public virtual System.Int32 GetUpdateInterval(Game.SystemUpdatePhase phase);
+public override int GetUpdateInterval(SystemUpdatePhase phase)
+	{
+		return 65536;
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_TimeSystem = base.World.GetOrCreateSystemManaged<TimeSystem>();
+		m_EndFrameBarrier = base.World.GetOrCreateSystemManaged<EndFrameBarrier>();
+		m_CalendarEventQuery = GetEntityQuery(ComponentType.ReadOnly<CalendarEventData>());
+		GetEntityQuery(ComponentType.ReadOnly<TimeSettingsData>());
+		RequireForUpdate(m_CalendarEventQuery);
+	}
 ```
 
 - `protected virtual OnCreateForCompiler() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreateForCompiler();
+protected override void OnCreateForCompiler()
+	{
+		base.OnCreateForCompiler();
+		__AssignQueries(ref base.CheckedStateRef);
+		__TypeHandle.__AssignHandles(ref base.CheckedStateRef);
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		CalendarEventMonths month = (CalendarEventMonths)(1 << Mathf.FloorToInt(m_TimeSystem.normalizedDate * 12f));
+		CalendarEventTimes time = (CalendarEventTimes)(1 << Mathf.FloorToInt(m_TimeSystem.normalizedTime * 4f));
+		CheckEventLaunchJob jobData = new CheckEventLaunchJob
+		{
+			m_EntityType = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef),
+			m_EventType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_EventData_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+			m_CalendarEventType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_CalendarEventData_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+			m_Month = month,
+			m_Time = time,
+			m_RandomSeed = RandomSeed.Next(),
+			m_CommandBuffer = m_EndFrameBarrier.CreateCommandBuffer().AsParallelWriter()
+		};
+		base.Dependency = JobChunkExtensions.ScheduleParallel(jobData, m_CalendarEventQuery, base.Dependency);
+		m_EndFrameBarrier.AddJobHandleForProducer(base.Dependency);
+	}
 ```
 
 

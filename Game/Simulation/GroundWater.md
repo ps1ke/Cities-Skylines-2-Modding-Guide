@@ -51,7 +51,15 @@ public System.Int16 m_Max;
 - `public Consume(System.Int32 amount) : System.Void`  
 
 ```csharp
-public System.Void Consume(System.Int32 amount);
+public void Consume(int amount)
+	{
+		if (m_Amount > 0)
+		{
+			float num = (float)m_Polluted / (float)m_Amount;
+			m_Amount -= (short)math.clamp(amount, 0, m_Amount);
+			m_Polluted = (short)math.clamp(math.round(num * (float)m_Amount), 0f, m_Amount);
+		}
+	}
 ```
 
 - `public Deserialize<TReader>(TReader reader) : System.Void`  
@@ -63,7 +71,10 @@ public System.Void Deserialize<TReader>(TReader reader);
 - `public GetStride(Colossal.Serialization.Entities.Context context) : System.Int32`  
 
 ```csharp
-public System.Int32 GetStride(Colossal.Serialization.Entities.Context context);
+public int GetStride(Context context)
+	{
+		return 6;
+	}
 ```
 
 - `public Serialize<TWriter>(TWriter writer) : System.Void`  

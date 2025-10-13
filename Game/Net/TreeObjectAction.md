@@ -50,19 +50,34 @@ public Colossal.Mathematics.Bounds3 m_Bounds;
 - `public TreeObjectAction(Unity.Entities.Entity remove)`  
 
 ```csharp
-public TreeObjectAction(Unity.Entities.Entity remove);
+public TreeObjectAction(Entity remove, Entity add, Bounds3 bounds)
+	{
+		m_Remove = remove;
+		m_Add = add;
+		m_Bounds = bounds;
+	}
 ```
 
 - `public TreeObjectAction(Unity.Entities.Entity add, Colossal.Mathematics.Bounds3 bounds)`  
 
 ```csharp
-public TreeObjectAction(Unity.Entities.Entity add, Colossal.Mathematics.Bounds3 bounds);
+public TreeObjectAction(Entity remove, Entity add, Bounds3 bounds)
+	{
+		m_Remove = remove;
+		m_Add = add;
+		m_Bounds = bounds;
+	}
 ```
 
 - `public TreeObjectAction(Unity.Entities.Entity remove, Unity.Entities.Entity add, Colossal.Mathematics.Bounds3 bounds)`  
 
 ```csharp
-public TreeObjectAction(Unity.Entities.Entity remove, Unity.Entities.Entity add, Colossal.Mathematics.Bounds3 bounds);
+public TreeObjectAction(Entity remove, Entity add, Bounds3 bounds)
+	{
+		m_Remove = remove;
+		m_Add = add;
+		m_Bounds = bounds;
+	}
 ```
 
 

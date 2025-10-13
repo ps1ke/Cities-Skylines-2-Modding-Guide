@@ -96,43 +96,112 @@ public EditorGenerator();
 - `public Build(Game.Reflection.IValueAccessor accessor, System.Object[] attributes, System.Int32 level, System.String path) : Game.UI.Widgets.IWidget`  
 
 ```csharp
-public Game.UI.Widgets.IWidget Build(Game.Reflection.IValueAccessor accessor, System.Object[] attributes, System.Int32 level, System.String path);
+public IWidget Build(IValueAccessor accessor, object[] attributes, int level, string path)
+	{
+		if (level > maxLevel)
+		{
+			return new ValueField
+			{
+				accessor = new ObjectAccessor<string>(string.Empty)
+			};
+		}
+		return BuildMemberImpl(accessor, attributes, level, path);
+	}
 ```
 
 - `private BuildMember(Game.Reflection.IValueAccessor parent, System.Reflection.MemberInfo member, System.Int32 level, System.String parentPath) : Game.UI.Widgets.IWidget`  
 
 ```csharp
-private Game.UI.Widgets.IWidget BuildMember(Game.Reflection.IValueAccessor parent, System.Reflection.MemberInfo member, System.Int32 level, System.String parentPath);
+[NotNull]
+	private IWidget BuildMember(IValueAccessor parent, MemberInfo member, int level, string parentPath)
+	{
+		IValueAccessor accessor = ValueAccessorUtils.CreateMemberAccessor(parent, member);
+		IWidget widget = BuildMemberImpl(accessor, member.GetCustomAttributes(inherit: false), level, parentPath + "." + member.Name);
+		if (widget is INamed named)
+		{
+			InspectorNameAttribute attribute = member.GetAttribute<InspectorNameAttribute>();
+			EditorNameAttribute attribute2 = member.GetAttribute<EditorNameAttribute>();
+			string text = ((attribute2 != null) ? attribute2.displayName : ((attribute == null) ? WidgetReflectionUtils.NicifyVariableName(member.Name) : attribute.displayName));
+			named.displayName = LocalizedString.IdWithFallback(text, text);
+		}
+		if (widget is ITooltipTarget tooltipTarget)
+		{
+			tooltipTarget.tooltip = (member.TryGetAttribute<TooltipAttribute>(out var attribute3) ? LocalizedString.IdWithFallback(GetMemberTooltipLocaleId(member), attribute3.tooltip) : LocalizedString.Id(GetMemberTooltipLocaleId(member)));
+		}
+		return widget;
+	}
 ```
 
 - `private BuildMemberImpl(Game.Reflection.IValueAccessor accessor, System.Object[] attributes, System.Int32 level, System.String path) : Game.UI.Widgets.IWidget`  
 
 ```csharp
-private Game.UI.Widgets.IWidget BuildMemberImpl(Game.Reflection.IValueAccessor accessor, System.Object[] attributes, System.Int32 level, System.String path);
+[NotNull]
+	private IWidget BuildMemberImpl(IValueAccessor accessor, object[] attributes, int level, string path)
+	{
+		IWidget widget = TryBuildField(accessor, attributes, path);
+		if (widget == null)
+		{
+			widget = TryBuildList(accessor, level, path, attributes);
+		}
+		if (widget == null)
+		{
+			widget = TryBuildGroup(accessor, level, path);
+		}
+		if (widget == null)
+		{
+			widget = BuildUnknownMember(accessor.valueType);
+		}
+		return widget;
+	}
 ```
 
 - `public BuildMembers(Game.Reflection.IValueAccessor accessor, System.Int32 level, System.String parentPath) : System.Collections.Generic.IEnumerable<Game.UI.Widgets.IWidget>`  
 
 ```csharp
-public System.Collections.Generic.IEnumerable<Game.UI.Widgets.IWidget> BuildMembers(Game.Reflection.IValueAccessor accessor, System.Int32 level, System.String parentPath);
+[NotNull]
+	public IEnumerable<IWidget> BuildMembers(IValueAccessor accessor, int level, string parentPath)
+	{
+		List<MemberInfo> list = new List<MemberInfo>();
+		list.AddRange(GetSpecialMembers(accessor.valueType));
+		list.AddRange(FormatterUtilities.GetSerializableMembers(accessor.valueType, kMemberFilter));
+		return list.Select((MemberInfo member) => BuildMember(accessor, member, level, parentPath));
+	}
 ```
 
 - `private BuildUnknownMember(System.Type memberType) : Game.UI.Widgets.ValueField`  
 
 ```csharp
-private Game.UI.Widgets.ValueField BuildUnknownMember(System.Type memberType);
+private ValueField BuildUnknownMember(Type memberType)
+	{
+		string name = memberType.Name;
+		return new ValueField
+		{
+			accessor = new ObjectAccessor<string>(name)
+		};
+	}
 ```
 
 - `private static GetMemberTooltipLocaleId(System.Reflection.MemberInfo member) : System.String`  
 
 ```csharp
-private static System.String GetMemberTooltipLocaleId(System.Reflection.MemberInfo member);
+private static string GetMemberTooltipLocaleId(MemberInfo member)
+	{
+		string text = ((member.DeclaringType != null) ? (member.DeclaringType.FullName + "." + member.Name) : member.Name);
+		return "Editor.TOOLTIP[" + text + "]";
+	}
 ```
 
 - `private GetSpecialMembers(System.Type type) : System.Reflection.MemberInfo[]`  
 
 ```csharp
-private System.Reflection.MemberInfo[] GetSpecialMembers(System.Type type);
+private MemberInfo[] GetSpecialMembers(Type type)
+	{
+		if (type.InheritsFrom(typeof(PrefabBase)))
+		{
+			return typeof(UnityEngine.Object).GetMember("name", MemberTypes.Property, BindingFlags.Instance | BindingFlags.Public);
+		}
+		return Array.Empty<MemberInfo>();
+	}
 ```
 
 - `public static NamedWidget<T>(T widget, Game.UI.Localization.LocalizedString displayName, Game.UI.Localization.LocalizedString tooltip) : T`  
@@ -144,31 +213,118 @@ public static T NamedWidget<T>(T widget, Game.UI.Localization.LocalizedString di
 - `private TryBuildField(Game.Reflection.IValueAccessor accessor, System.Object[] attributes, System.String path) : Game.UI.Widgets.IWidget`  
 
 ```csharp
-private Game.UI.Widgets.IWidget TryBuildField(Game.Reflection.IValueAccessor accessor, System.Object[] attributes, System.String path);
+[CanBeNull]
+	private IWidget TryBuildField(IValueAccessor accessor, object[] attributes, string path)
+	{
+		FieldBuilder fieldBuilder = TryCreateFieldBuilder(accessor.valueType, attributes);
+		if (fieldBuilder != null)
+		{
+			IWidget widget = fieldBuilder(accessor);
+			widget.path = path;
+			return widget;
+		}
+		return null;
+	}
 ```
 
 - `private TryBuildGroup(Game.Reflection.IValueAccessor accessor, System.Int32 level, System.String path) : Game.UI.Widgets.ExpandableGroup`  
 
 ```csharp
-private Game.UI.Widgets.ExpandableGroup TryBuildGroup(Game.Reflection.IValueAccessor accessor, System.Int32 level, System.String path);
+[CanBeNull]
+	private ExpandableGroup TryBuildGroup(IValueAccessor accessor, int level, string path)
+	{
+		if (accessor.valueType.IsSerializable && !typeof(ComponentBase).IsAssignableFrom(accessor.valueType))
+		{
+			return new ExpandableGroup
+			{
+				path = path,
+				children = BuildMembers(accessor, level, path).ToArray()
+			};
+		}
+		return null;
+	}
 ```
 
 - `public TryBuildList(Game.Reflection.IValueAccessor accessor, System.Int32 level, System.String path, System.Object[] attributes) : Game.UI.Widgets.PagedList`  
 
 ```csharp
-public Game.UI.Widgets.PagedList TryBuildList(Game.Reflection.IValueAccessor accessor, System.Int32 level, System.String path, System.Object[] attributes);
+[CanBeNull]
+	public PagedList TryBuildList(IValueAccessor accessor, int level, string path, object[] attributes)
+	{
+		IListAdapter listAdapter = TryBuildListAdapter(accessor, level, path, attributes);
+		if (listAdapter != null)
+		{
+			return new PagedList
+			{
+				adapter = listAdapter,
+				level = level,
+				path = path
+			};
+		}
+		return null;
+	}
 ```
 
 - `public TryBuildListAdapter(Game.Reflection.IValueAccessor accessor, System.Int32 level, System.String path, System.Object[] attributes) : Game.UI.Widgets.IListAdapter`  
 
 ```csharp
-public Game.UI.Widgets.IListAdapter TryBuildListAdapter(Game.Reflection.IValueAccessor accessor, System.Int32 level, System.String path, System.Object[] attributes);
+public IListAdapter TryBuildListAdapter(IValueAccessor accessor, int level, string path, object[] attributes)
+	{
+		if (WidgetReflectionUtils.IsListType(accessor.valueType))
+		{
+			Type listElementType = WidgetReflectionUtils.GetListElementType(accessor.valueType);
+			if (listElementType != null)
+			{
+				bool flag = attributes.Any((object attr) => attr is FixedLengthAttribute);
+				MemberInfo listElementLabelMember = WidgetReflectionUtils.GetListElementLabelMember(listElementType);
+				if (accessor.valueType.IsArray)
+				{
+					return new ArrayAdapter
+					{
+						accessor = new CastAccessor<Array>(accessor),
+						elementType = listElementType,
+						generator = this,
+						level = level,
+						path = path,
+						resizable = !flag,
+						attributes = attributes,
+						labelMember = listElementLabelMember
+					};
+				}
+				return new ListAdapter
+				{
+					accessor = new CastAccessor<IList>(accessor),
+					listType = accessor.valueType,
+					elementType = listElementType,
+					generator = this,
+					level = level,
+					path = path,
+					resizable = !flag,
+					attributes = attributes,
+					labelMember = listElementLabelMember
+				};
+			}
+		}
+		return null;
+	}
 ```
 
 - `private TryCreateFieldBuilder(System.Type memberType, System.Object[] attributes) : Game.UI.Widgets.FieldBuilder`  
 
 ```csharp
-private Game.UI.Widgets.FieldBuilder TryCreateFieldBuilder(System.Type memberType, System.Object[] attributes);
+[CanBeNull]
+	private FieldBuilder TryCreateFieldBuilder(Type memberType, object[] attributes)
+	{
+		foreach (IFieldBuilderFactory kFactory in kFactories)
+		{
+			FieldBuilder fieldBuilder = kFactory.TryCreate(memberType, attributes);
+			if (fieldBuilder != null)
+			{
+				return fieldBuilder;
+			}
+		}
+		return null;
+	}
 ```
 
 

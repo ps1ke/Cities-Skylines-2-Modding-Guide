@@ -214,7 +214,10 @@ public Game.Net.UtilityTypes utilityTypes { get; private set; }
 - `public UndergroundViewSystem()`  
 
 ```csharp
-public UndergroundViewSystem();
+[Preserve]
+	public UndergroundViewSystem()
+	{
+	}
 ```
 
 
@@ -223,37 +226,218 @@ public UndergroundViewSystem();
 - `private __AssignQueries(Unity.Entities.SystemState& state) : System.Void`  
 
 ```csharp
-private System.Void __AssignQueries(Unity.Entities.SystemState& state);
+private void __AssignQueries(ref SystemState state)
+	{
+		new EntityQueryBuilder(Allocator.Temp).Dispose();
+	}
 ```
 
 - `private GetLoaded() : System.Boolean`  
 
 ```csharp
-private System.Boolean GetLoaded();
+private bool GetLoaded()
+	{
+		if (m_Loaded)
+		{
+			m_Loaded = false;
+			return true;
+		}
+		return false;
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_ToolSystem = base.World.GetOrCreateSystemManaged<ToolSystem>();
+		m_UtilityLodUpdateSystem = base.World.GetOrCreateSystemManaged<UtilityLodUpdateSystem>();
+		m_RenderingSystem = base.World.GetOrCreateSystemManaged<RenderingSystem>();
+		m_InfomodeQuery = GetEntityQuery(new EntityQueryDesc
+		{
+			All = new ComponentType[1] { ComponentType.ReadOnly<InfomodeActive>() },
+			Any = new ComponentType[3]
+			{
+				ComponentType.ReadOnly<InfoviewNetGeometryData>(),
+				ComponentType.ReadOnly<InfoviewNetStatusData>(),
+				ComponentType.ReadOnly<InfoviewCoverageData>()
+			}
+		});
+	}
 ```
 
 - `protected virtual OnCreateForCompiler() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreateForCompiler();
+protected override void OnCreateForCompiler()
+	{
+		base.OnCreateForCompiler();
+		__AssignQueries(ref base.CheckedStateRef);
+		__TypeHandle.__AssignHandles(ref base.CheckedStateRef);
+	}
 ```
 
 - `protected virtual OnGameLoaded(Colossal.Serialization.Entities.Context serializationContext) : System.Void`  
 
 ```csharp
-protected virtual System.Void OnGameLoaded(Colossal.Serialization.Entities.Context serializationContext);
+protected override void OnGameLoaded(Context serializationContext)
+	{
+		m_Loaded = true;
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		bool loaded = GetLoaded();
+		if (m_ToolSystem.activeTool != null)
+		{
+			m_ToolSystem.activeTool.GetAvailableSnapMask(out var onMask, out var offMask);
+			undergroundOn = m_ToolSystem.activeTool.requireUnderground;
+			tunnelsOn = m_ToolSystem.activeTool.requireUnderground || (m_ToolSystem.activeTool.requireNet & (Layer.Road | Layer.TrainTrack | Layer.Pathway | Layer.TramTrack | Layer.SubwayTrack | Layer.PublicTransportRoad)) != 0;
+			subPipelinesOn = (m_ToolSystem.activeTool.requireNet & (Layer.PowerlineLow | Layer.PowerlineHigh | Layer.WaterPipe | Layer.SewagePipe)) != Layer.None || (undergroundOn && (m_ToolSystem.activeTool.requireNet & Layer.ResourceLine) != 0);
+			pipelinesOn = m_ToolSystem.activeTool.requirePipelines || subPipelinesOn || (undergroundOn && tunnelsOn);
+			waterwaysOn = (m_ToolSystem.activeTool.requireNet & Layer.Waterway) != 0;
+			contourLinesOn = (ToolBaseSystem.GetActualSnap(m_ToolSystem.activeTool.selectedSnap, onMask, offMask) & Snap.ContourLines) != 0;
+		}
+		else
+		{
+			undergroundOn = false;
+			tunnelsOn = false;
+			pipelinesOn = false;
+			subPipelinesOn = false;
+			waterwaysOn = false;
+			contourLinesOn = false;
+		}
+		markersOn = !m_RenderingSystem.hideOverlay;
+		utilityTypes = UtilityTypes.None;
+		if (!m_InfomodeQuery.IsEmptyIgnoreFilter)
+		{
+			ComponentTypeHandle<InfoviewNetGeometryData> typeHandle = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_InfoviewNetGeometryData_RO_ComponentTypeHandle, ref base.CheckedStateRef);
+			ComponentTypeHandle<InfoviewNetStatusData> typeHandle2 = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_InfoviewNetStatusData_RO_ComponentTypeHandle, ref base.CheckedStateRef);
+			ComponentTypeHandle<InfoviewCoverageData> typeHandle3 = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_InfoviewCoverageData_RO_ComponentTypeHandle, ref base.CheckedStateRef);
+			NativeArray<ArchetypeChunk> nativeArray = m_InfomodeQuery.ToArchetypeChunkArray(Allocator.TempJob);
+			for (int i = 0; i < nativeArray.Length; i++)
+			{
+				ArchetypeChunk archetypeChunk = nativeArray[i];
+				NativeArray<InfoviewNetGeometryData> nativeArray2 = archetypeChunk.GetNativeArray(ref typeHandle);
+				NativeArray<InfoviewNetStatusData> nativeArray3 = archetypeChunk.GetNativeArray(ref typeHandle2);
+				for (int j = 0; j < nativeArray2.Length; j++)
+				{
+					switch (nativeArray2[j].m_Type)
+					{
+					case NetType.Road:
+						tunnelsOn = true;
+						break;
+					case NetType.TrainTrack:
+						tunnelsOn = true;
+						break;
+					case NetType.TramTrack:
+						tunnelsOn = true;
+						break;
+					case NetType.Waterway:
+						waterwaysOn = true;
+						break;
+					case NetType.SubwayTrack:
+						tunnelsOn = true;
+						break;
+					}
+				}
+				for (int k = 0; k < nativeArray3.Length; k++)
+				{
+					switch (nativeArray3[k].m_Type)
+					{
+					case NetStatusType.Wear:
+						tunnelsOn = true;
+						break;
+					case NetStatusType.TrafficFlow:
+						tunnelsOn = true;
+						break;
+					case NetStatusType.TrafficVolume:
+						tunnelsOn = true;
+						break;
+					case NetStatusType.LowVoltageFlow:
+						pipelinesOn = true;
+						subPipelinesOn = true;
+						utilityTypes |= UtilityTypes.LowVoltageLine;
+						break;
+					case NetStatusType.HighVoltageFlow:
+						pipelinesOn = true;
+						subPipelinesOn = true;
+						utilityTypes |= UtilityTypes.HighVoltageLine;
+						break;
+					case NetStatusType.PipeWaterFlow:
+						pipelinesOn = true;
+						subPipelinesOn = true;
+						utilityTypes |= UtilityTypes.WaterPipe;
+						break;
+					case NetStatusType.PipeSewageFlow:
+						pipelinesOn = true;
+						subPipelinesOn = true;
+						utilityTypes |= UtilityTypes.SewagePipe;
+						break;
+					case NetStatusType.OilFlow:
+						pipelinesOn = true;
+						subPipelinesOn = true;
+						utilityTypes |= UtilityTypes.Resource;
+						break;
+					}
+				}
+				if (archetypeChunk.Has(ref typeHandle3))
+				{
+					tunnelsOn = true;
+				}
+			}
+			nativeArray.Dispose();
+		}
+		if (utilityTypes != m_LastUtilityTypes)
+		{
+			m_LastUtilityTypes = utilityTypes;
+			if (!loaded)
+			{
+				m_UtilityLodUpdateSystem.Update();
+			}
+		}
+		if (waterwaysOn != m_LastWasWaterways)
+		{
+			m_LastWasWaterways = waterwaysOn;
+			Camera main = Camera.main;
+			if (main != null)
+			{
+				if (waterwaysOn)
+				{
+					main.cullingMask |= 1 << LayerMask.NameToLayer("Waterway");
+				}
+				else
+				{
+					main.cullingMask &= ~(1 << LayerMask.NameToLayer("Waterway"));
+				}
+			}
+		}
+		if (markersOn == m_LastWasMarkers)
+		{
+			return;
+		}
+		m_LastWasMarkers = markersOn;
+		Camera main2 = Camera.main;
+		if (main2 != null)
+		{
+			if (markersOn)
+			{
+				main2.cullingMask |= 1 << LayerMask.NameToLayer("Marker");
+			}
+			else
+			{
+				main2.cullingMask &= ~(1 << LayerMask.NameToLayer("Marker"));
+			}
+		}
+	}
 ```
 
 

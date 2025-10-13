@@ -64,13 +64,19 @@ private static Game.Settings.AnimationQualitySettings mediumQuality { private ge
 - `public AnimationQualitySettings()`  
 
 ```csharp
-public AnimationQualitySettings();
+public AnimationQualitySettings(Level quality)
+	{
+		SetLevel(quality, apply: false);
+	}
 ```
 
 - `public AnimationQualitySettings(Game.Settings.QualitySetting+Level quality)`  
 
 ```csharp
-public AnimationQualitySettings(Game.Settings.QualitySetting+Level quality);
+public AnimationQualitySettings(Level quality)
+	{
+		SetLevel(quality, apply: false);
+	}
 ```
 
 
@@ -79,7 +85,18 @@ public AnimationQualitySettings(Game.Settings.QualitySetting+Level quality);
 - `public virtual Apply() : System.Void`  
 
 ```csharp
-public virtual System.Void Apply();
+public override void Apply()
+	{
+		base.Apply();
+		if (maxBoneInfuence == Skinning.FourBones)
+		{
+			Shader.DisableKeyword("TWO_BONES_INFLUENCE");
+		}
+		else if (maxBoneInfuence == Skinning.TwoBones)
+		{
+			Shader.EnableKeyword("TWO_BONES_INFLUENCE");
+		}
+	}
 ```
 
 

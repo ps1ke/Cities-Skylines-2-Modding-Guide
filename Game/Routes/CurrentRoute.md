@@ -37,7 +37,10 @@ public Unity.Entities.Entity m_Route;
 - `public CurrentRoute(Unity.Entities.Entity route)`  
 
 ```csharp
-public CurrentRoute(Unity.Entities.Entity route);
+public CurrentRoute(Entity route)
+	{
+		m_Route = route;
+	}
 ```
 
 

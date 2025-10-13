@@ -44,7 +44,11 @@ public Game.Vehicles.PersonalCarFlags m_State;
 - `public PersonalCar(Unity.Entities.Entity keeper, Game.Vehicles.PersonalCarFlags state)`  
 
 ```csharp
-public PersonalCar(Unity.Entities.Entity keeper, Game.Vehicles.PersonalCarFlags state);
+public PersonalCar(Entity keeper, PersonalCarFlags state)
+	{
+		m_Keeper = keeper;
+		m_State = state;
+	}
 ```
 
 

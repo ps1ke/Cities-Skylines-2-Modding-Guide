@@ -37,7 +37,10 @@ public Game.Vehicles.AircraftFlags m_Flags;
 - `public Aircraft(Game.Vehicles.AircraftFlags flags)`  
 
 ```csharp
-public Aircraft(Game.Vehicles.AircraftFlags flags);
+public Aircraft(AircraftFlags flags)
+	{
+		m_Flags = flags;
+	}
 ```
 
 

@@ -43,7 +43,10 @@ private Game.UpdateSystem m_UpdateSystem;
 - `public ToolOutputSystem()`  
 
 ```csharp
-public ToolOutputSystem();
+[Preserve]
+	public ToolOutputSystem()
+	{
+	}
 ```
 
 
@@ -52,13 +55,31 @@ public ToolOutputSystem();
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_ToolSystem = base.World.GetOrCreateSystemManaged<ToolSystem>();
+		m_UpdateSystem = base.World.GetOrCreateSystemManaged<UpdateSystem>();
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		switch (m_ToolSystem.applyMode)
+		{
+		case ApplyMode.Clear:
+			m_UpdateSystem.Update(SystemUpdatePhase.ClearTool);
+			break;
+		case ApplyMode.Apply:
+			m_UpdateSystem.Update(SystemUpdatePhase.ApplyTool);
+			break;
+		}
+	}
 ```
 
 

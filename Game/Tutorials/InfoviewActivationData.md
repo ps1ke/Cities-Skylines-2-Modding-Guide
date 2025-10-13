@@ -35,7 +35,10 @@ public Unity.Entities.Entity m_Infoview;
 - `public InfoviewActivationData(Unity.Entities.Entity infoview)`  
 
 ```csharp
-public InfoviewActivationData(Unity.Entities.Entity infoview);
+public InfoviewActivationData(Entity infoview)
+	{
+		m_Infoview = infoview;
+	}
 ```
 
 

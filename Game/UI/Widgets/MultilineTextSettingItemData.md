@@ -55,7 +55,18 @@ public MultilineTextSettingItemData(Game.Settings.Setting setting, Game.UI.Menu.
 - `protected virtual GetWidget() : Game.UI.Widgets.IWidget`  
 
 ```csharp
-protected virtual Game.UI.Widgets.IWidget GetWidget();
+protected override IWidget GetWidget()
+	{
+		return new MultilineText
+		{
+			path = base.path,
+			displayName = base.displayName,
+			displayNameAction = base.dispayNameAction,
+			icon = icon,
+			hidden = base.hideAction,
+			disabled = base.disableAction
+		};
+	}
 ```
 
 

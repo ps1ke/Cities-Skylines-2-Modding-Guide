@@ -249,37 +249,153 @@ public AdaptiveDynamicResolutionScale();
 - `public static Dispose() : System.Void`  
 
 ```csharp
-public static System.Void Dispose();
+public static void Dispose()
+	{
+		ResetScale();
+		s_Instance = null;
+	}
 ```
 
 - `private static GetFilterFromUiEnum(Game.Rendering.Utilities.AdaptiveDynamicResolutionScale+DynResUpscaleFilter filter) : UnityEngine.Rendering.DynamicResUpscaleFilter`  
 
 ```csharp
-private static UnityEngine.Rendering.DynamicResUpscaleFilter GetFilterFromUiEnum(Game.Rendering.Utilities.AdaptiveDynamicResolutionScale+DynResUpscaleFilter filter);
+private static DynamicResUpscaleFilter GetFilterFromUiEnum(DynResUpscaleFilter filter)
+	{
+		return filter switch
+		{
+			DynResUpscaleFilter.CatmullRom => DynamicResUpscaleFilter.CatmullRom, 
+			DynResUpscaleFilter.EdgeAdaptiveScaling => DynamicResUpscaleFilter.EdgeAdaptiveScalingUpres, 
+			DynResUpscaleFilter.ContrastAdaptiveSharpen => DynamicResUpscaleFilter.TAAU, 
+			DynResUpscaleFilter.TAAU => DynamicResUpscaleFilter.ContrastAdaptiveSharpen, 
+			_ => throw new NotSupportedException($"{filter} is not a supported upscaler"), 
+		};
+	}
 ```
 
 - `private static IsGpuBottleneck(System.Single fullFrameTime, System.Single mainThreadCpuTime, System.Single renderThreadCpuTime, System.Single gpuTime) : System.Boolean`  
 
 ```csharp
-private static System.Boolean IsGpuBottleneck(System.Single fullFrameTime, System.Single mainThreadCpuTime, System.Single renderThreadCpuTime, System.Single gpuTime);
+private static bool IsGpuBottleneck(float fullFrameTime, float mainThreadCpuTime, float renderThreadCpuTime, float gpuTime)
+	{
+		if (gpuTime == 0f || mainThreadCpuTime == 0f)
+		{
+			return false;
+		}
+		float num = fullFrameTime * 0.8f;
+		if (gpuTime > num && mainThreadCpuTime < num)
+		{
+			return renderThreadCpuTime < num;
+		}
+		return false;
+	}
 ```
 
 - `private static ResetScale() : System.Void`  
 
 ```csharp
-private static System.Void ResetScale();
+private static void ResetScale()
+	{
+		s_CurrentScaleFraction = 1f;
+	}
 ```
 
 - `public SetParams(System.Boolean enabled, System.Boolean adaptive, System.Single minScale, Game.Rendering.Utilities.AdaptiveDynamicResolutionScale+DynResUpscaleFilter filter, UnityEngine.Camera camera) : System.Void`  
 
 ```csharp
-public System.Void SetParams(System.Boolean enabled, System.Boolean adaptive, System.Single minScale, Game.Rendering.Utilities.AdaptiveDynamicResolutionScale+DynResUpscaleFilter filter, UnityEngine.Camera camera);
+public void SetParams(bool enabled, bool adaptive, float minScale, DynResUpscaleFilter filter, Camera camera)
+	{
+		isEnabled = enabled;
+		isAdaptive = adaptive;
+		this.minScale = minScale;
+		upscaleFilter = filter;
+		if (camera != null)
+		{
+			if (!SharedSettings.instance.graphics.isDlssActive && !SharedSettings.instance.graphics.isFsr2Active)
+			{
+				HDAdditionalCameraData component = camera.GetComponent<HDAdditionalCameraData>();
+				component.allowDeepLearningSuperSampling = false;
+				component.allowFidelityFX2SuperResolution = false;
+				DynamicResolutionHandler.SetUpscaleFilter(camera, (!enabled) ? DynamicResUpscaleFilter.CatmullRom : GetFilterFromUiEnum(filter));
+			}
+			else
+			{
+				DynamicResolutionHandler.ClearSelectedCamera();
+			}
+		}
+	}
 ```
 
 - `public UpdateDRS(System.Single fullFrameTime, System.Single mainThreadCpuTime, System.Single renderThreadCpuTime, System.Single gpuTime) : System.Void`  
 
 ```csharp
-public System.Void UpdateDRS(System.Single fullFrameTime, System.Single mainThreadCpuTime, System.Single renderThreadCpuTime, System.Single gpuTime);
+public void UpdateDRS(float fullFrameTime, float mainThreadCpuTime, float renderThreadCpuTime, float gpuTime)
+	{
+		if (!FrameTimingManager.IsFeatureEnabled())
+		{
+			return;
+		}
+		if (!m_Initialized)
+		{
+			if (m_InitialFrameCounter >= 1)
+			{
+				DynamicResolutionHandler.SetDynamicResScaler(() => s_CurrentScaleFraction * 100f, DynamicResScalePolicyType.ReturnsPercentage);
+				m_Initialized = true;
+			}
+			else
+			{
+				m_InitialFrameCounter++;
+			}
+		}
+		if (!m_Initialized)
+		{
+			return;
+		}
+		if (!isEnabled)
+		{
+			s_CurrentScaleFraction = 1f;
+			return;
+		}
+		if (!isAdaptive)
+		{
+			s_CurrentScaleFraction = minScale;
+			return;
+		}
+		m_AccumGPUFrameTime += gpuTime;
+		m_GPULimitedFrames += (IsGpuBottleneck(fullFrameTime, mainThreadCpuTime, renderThreadCpuTime, gpuTime) ? 1 : 0);
+		m_CurrentFrameSlot++;
+		if (m_CurrentFrameSlot != EvaluationFrameCount)
+		{
+			return;
+		}
+		m_AvgGPUTime = m_AccumGPUFrameTime / (float)EvaluationFrameCount;
+		m_AvgGPULimited = m_GPULimitedFrames / (float)EvaluationFrameCount;
+		float defaultTargetFrameRate = DefaultTargetFrameRate;
+		if (1000f / defaultTargetFrameRate - m_AvgGPUTime < 0f && m_AvgGPULimited > 0.3f)
+		{
+			m_ScaleUpCounter = 0u;
+			m_ScaleDownCounter++;
+			if (m_ScaleDownCounter >= ScaleDownDuration)
+			{
+				m_ScaleDownCounter = 0u;
+				s_CurrentScaleFraction -= (1f - minScale) / (float)ScaleDownStepCount;
+				s_CurrentScaleFraction = math.clamp(s_CurrentScaleFraction, minScale, 1f);
+			}
+		}
+		else
+		{
+			m_ScaleDownCounter = 0u;
+			m_ScaleUpCounter++;
+			if (m_ScaleUpCounter >= ScaleUpDuration)
+			{
+				m_ScaleUpCounter = 0u;
+				s_CurrentScaleFraction += (1f - minScale) / (float)ScaleUpStepCount;
+				s_CurrentScaleFraction = math.clamp(s_CurrentScaleFraction, minScale, 1f);
+			}
+		}
+		m_AccumGPUFrameTime = 0f;
+		m_GPULimitedFrames = 0f;
+		m_CurrentFrameSlot = 0;
+	}
 ```
 
 

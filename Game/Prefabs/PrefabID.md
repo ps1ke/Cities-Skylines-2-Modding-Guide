@@ -49,13 +49,21 @@ private System.String m_Name;
 - `public PrefabID(Game.Prefabs.PrefabBase prefab)`  
 
 ```csharp
-public PrefabID(Game.Prefabs.PrefabBase prefab);
+public PrefabID(string type, string name)
+	{
+		m_Type = type;
+		m_Name = name;
+	}
 ```
 
 - `public PrefabID(System.String type, System.String name)`  
 
 ```csharp
-public PrefabID(System.String type, System.String name);
+public PrefabID(string type, string name)
+	{
+		m_Type = type;
+		m_Name = name;
+	}
 ```
 
 
@@ -70,19 +78,32 @@ public System.Void Deserialize<TReader>(TReader reader);
 - `public Equals(Game.Prefabs.PrefabID other) : System.Boolean`  
 
 ```csharp
-public System.Boolean Equals(Game.Prefabs.PrefabID other);
+public bool Equals(PrefabID other)
+	{
+		if (m_Type.Equals(other.m_Type))
+		{
+			return m_Name.Equals(other.m_Name);
+		}
+		return false;
+	}
 ```
 
 - `public virtual GetHashCode() : System.Int32`  
 
 ```csharp
-public virtual System.Int32 GetHashCode();
+public override int GetHashCode()
+	{
+		return m_Name.GetHashCode();
+	}
 ```
 
 - `public GetName() : System.String`  
 
 ```csharp
-public System.String GetName();
+public string GetName()
+	{
+		return m_Name;
+	}
 ```
 
 - `public Serialize<TWriter>(TWriter writer) : System.Void`  
@@ -94,7 +115,10 @@ public System.Void Serialize<TWriter>(TWriter writer);
 - `public virtual ToString() : System.String`  
 
 ```csharp
-public virtual System.String ToString();
+public override string ToString()
+	{
+		return $"{m_Type}:{m_Name}";
+	}
 ```
 
 

@@ -38,7 +38,10 @@ public System.Single m_Population;
 - `public Add(System.Single amount) : System.Void`  
 
 ```csharp
-public System.Void Add(System.Single amount);
+public void Add(float amount)
+	{
+		m_Population += amount;
+	}
 ```
 
 - `public Deserialize<TReader>(TReader reader) : System.Void`  
@@ -50,13 +53,19 @@ public System.Void Deserialize<TReader>(TReader reader);
 - `public Get() : System.Single`  
 
 ```csharp
-public System.Single Get();
+public float Get()
+	{
+		return m_Population;
+	}
 ```
 
 - `public GetStride(Colossal.Serialization.Entities.Context context) : System.Int32`  
 
 ```csharp
-public System.Int32 GetStride(Colossal.Serialization.Entities.Context context);
+public int GetStride(Context context)
+	{
+		return 4;
+	}
 ```
 
 - `public Serialize<TWriter>(TWriter writer) : System.Void`  

@@ -47,7 +47,10 @@ public System.Type Factory { get; set; }
 - `public CustomFieldAttribute(System.Type factory)`  
 
 ```csharp
-public CustomFieldAttribute(System.Type factory);
+public CustomFieldAttribute([NotNull] Type factory)
+	{
+		Factory = factory ?? throw new ArgumentNullException("factory");
+	}
 ```
 
 

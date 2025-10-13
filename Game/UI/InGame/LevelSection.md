@@ -155,7 +155,10 @@ protected System.Boolean displayForUnderConstruction { protected get; }
 - `public LevelSection()`  
 
 ```csharp
-public LevelSection();
+[Preserve]
+	public LevelSection()
+	{
+	}
 ```
 
 
@@ -164,55 +167,157 @@ public LevelSection();
 - `private __AssignQueries(Unity.Entities.SystemState& state) : System.Void`  
 
 ```csharp
-private System.Void __AssignQueries(Unity.Entities.SystemState& state);
+private void __AssignQueries(ref SystemState state)
+	{
+		new EntityQueryBuilder(Allocator.Temp).Dispose();
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_SpawnableBuildingQuery = GetEntityQuery(ComponentType.ReadOnly<BuildingData>(), ComponentType.ReadOnly<SpawnableBuildingData>());
+		m_CityQuery = GetEntityQuery(ComponentType.ReadOnly<CityModifier>());
+		m_Result = new NativeArray<int>(1, Allocator.Persistent);
+	}
 ```
 
 - `protected virtual OnCreateForCompiler() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreateForCompiler();
+protected override void OnCreateForCompiler()
+	{
+		base.OnCreateForCompiler();
+		__AssignQueries(ref base.CheckedStateRef);
+		__TypeHandle.__AssignHandles(ref base.CheckedStateRef);
+	}
 ```
 
 - `protected virtual OnDestroy() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnDestroy();
+[Preserve]
+	protected override void OnDestroy()
+	{
+		base.OnDestroy();
+		m_Result.Dispose();
+	}
 ```
 
 - `protected virtual OnProcess() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnProcess();
+protected override void OnProcess()
+	{
+		SpawnableBuildingData componentData = base.EntityManager.GetComponentData<SpawnableBuildingData>(selectedPrefab);
+		zone = componentData.m_ZonePrefab;
+		ZoneData componentData2 = base.EntityManager.GetComponentData<ZoneData>(zone);
+		if (isUnderConstruction)
+		{
+			base.tooltipKeys.Add("UnderConstruction");
+			m_InfoUISystem.tooltipTags.Add(TooltipTags.UnderConstruction);
+			return;
+		}
+		switch (componentData2.m_AreaType)
+		{
+		case AreaType.Residential:
+			base.tooltipKeys.Add("Residential");
+			break;
+		case AreaType.Commercial:
+			base.tooltipKeys.Add("Commercial");
+			break;
+		case AreaType.Industrial:
+			base.tooltipKeys.Add(((componentData2.m_ZoneFlags & ZoneFlags.Office) != 0) ? "Office" : "Industrial");
+			break;
+		}
+		BuildingPropertyData componentData3 = base.EntityManager.GetComponentData<BuildingPropertyData>(selectedPrefab);
+		level = componentData.m_Level;
+		maxLevel = math.max(m_Result[0], level);
+		progress = 0f;
+		if (componentData.m_Level < maxLevel)
+		{
+			int condition = base.EntityManager.GetComponentData<BuildingCondition>(selectedEntity).m_Condition;
+			int levelingCost = BuildingUtils.GetLevelingCost(componentData2.m_AreaType, componentData3, level, base.EntityManager.GetBuffer<CityModifier>(m_CityQuery.GetSingletonEntity(), isReadOnly: true));
+			progress = ((levelingCost > 0) ? ((float)condition / (float)levelingCost * 100f) : 100f);
+		}
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		base.visible = Visible();
+		if (base.visible)
+		{
+			if (base.EntityManager.TryGetComponent<UnderConstruction>(selectedEntity, out var component) && component.m_NewPrefab == Entity.Null)
+			{
+				isUnderConstruction = true;
+				progress = Math.Min((int)component.m_Progress, 100);
+				return;
+			}
+			BuildingData componentData = base.EntityManager.GetComponentData<BuildingData>(selectedPrefab);
+			SpawnableBuildingData componentData2 = base.EntityManager.GetComponentData<SpawnableBuildingData>(selectedPrefab);
+			JobChunkExtensions.Schedule(new CalculateMaxLevelJob
+			{
+				m_LotSize = componentData.m_LotSize,
+				m_ZonePrefabEntity = componentData2.m_ZonePrefab,
+				m_BuildingDataTypeHandle = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_BuildingData_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+				m_SpawnableBuildingDataTypeHandle = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_SpawnableBuildingData_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+				m_Result = m_Result
+			}, m_SpawnableBuildingQuery, base.Dependency).Complete();
+		}
+	}
 ```
 
 - `public virtual OnWriteProperties(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-public virtual System.Void OnWriteProperties(Colossal.UI.Binding.IJsonWriter writer);
+public override void OnWriteProperties(IJsonWriter writer)
+	{
+		writer.PropertyName("zone");
+		writer.Write(m_PrefabSystem.GetPrefabName(zone));
+		writer.PropertyName("level");
+		writer.Write(level);
+		writer.PropertyName("maxLevel");
+		writer.Write(maxLevel);
+		writer.PropertyName("isUnderConstruction");
+		writer.Write(isUnderConstruction);
+		writer.PropertyName("progress");
+		writer.Write(progress);
+	}
 ```
 
 - `protected virtual Reset() : System.Void`  
 
 ```csharp
-protected virtual System.Void Reset();
+protected override void Reset()
+	{
+		level = 0;
+		maxLevel = 0;
+		isUnderConstruction = false;
+		progress = 0f;
+		zone = Entity.Null;
+	}
 ```
 
 - `private Visible() : System.Boolean`  
 
 ```csharp
-private System.Boolean Visible();
+private bool Visible()
+	{
+		if (!base.EntityManager.HasComponent<SignatureBuildingData>(selectedPrefab) && !base.EntityManager.HasComponent<Abandoned>(selectedEntity) && base.EntityManager.HasComponent<Renter>(selectedEntity) && base.EntityManager.HasComponent<BuildingData>(selectedPrefab))
+		{
+			return base.EntityManager.HasComponent<SpawnableBuildingData>(selectedPrefab);
+		}
+		return false;
+	}
 ```
 
 

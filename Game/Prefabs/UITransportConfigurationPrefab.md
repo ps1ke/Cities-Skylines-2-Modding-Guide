@@ -118,13 +118,34 @@ public UITransportConfigurationPrefab();
 - `public virtual GetDependencies(System.Collections.Generic.List<Game.Prefabs.PrefabBase> prefabs) : System.Void`  
 
 ```csharp
-public virtual System.Void GetDependencies(System.Collections.Generic.List<Game.Prefabs.PrefabBase> prefabs);
+public override void GetDependencies(List<PrefabBase> prefabs)
+	{
+		base.GetDependencies(prefabs);
+		prefabs.Add(m_TransportInfoview);
+		prefabs.Add(m_TicketPricePolicy);
+		prefabs.Add(m_OutOfServicePolicy);
+		prefabs.Add(m_VehicleCountPolicy);
+		prefabs.Add(m_DayRoutePolicy);
+		prefabs.Add(m_NightRoutePolicy);
+		for (int i = 0; i < m_PassengerLineTypes.Length; i++)
+		{
+			prefabs.Add(m_PassengerLineTypes[i].m_Unlockable);
+		}
+		for (int j = 0; j < m_CargoLineTypes.Length; j++)
+		{
+			prefabs.Add(m_CargoLineTypes[j].m_Unlockable);
+		}
+	}
 ```
 
 - `public virtual GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetPrefabComponents(HashSet<ComponentType> components)
+	{
+		base.GetPrefabComponents(components);
+		components.Add(ComponentType.ReadWrite<UITransportConfigurationData>());
+	}
 ```
 
 

@@ -140,19 +140,49 @@ public LandValuePrefab();
 - `public virtual GetDependencies(System.Collections.Generic.List<Game.Prefabs.PrefabBase> prefabs) : System.Void`  
 
 ```csharp
-public virtual System.Void GetDependencies(System.Collections.Generic.List<Game.Prefabs.PrefabBase> prefabs);
+public override void GetDependencies(List<PrefabBase> prefabs)
+	{
+		base.GetDependencies(prefabs);
+		prefabs.Add(m_LandValueInfoViewPrefab);
+	}
 ```
 
 - `public virtual GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetPrefabComponents(HashSet<ComponentType> components)
+	{
+		base.GetPrefabComponents(components);
+		components.Add(ComponentType.ReadWrite<LandValueParameterData>());
+	}
 ```
 
 - `public virtual LateInitialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity) : System.Void`  
 
 ```csharp
-public virtual System.Void LateInitialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity);
+public override void LateInitialize(EntityManager entityManager, Entity entity)
+	{
+		base.LateInitialize(entityManager, entity);
+		PrefabSystem orCreateSystemManaged = entityManager.World.GetOrCreateSystemManaged<PrefabSystem>();
+		LandValueParameterData componentData = new LandValueParameterData
+		{
+			m_LandValueInfoViewPrefab = orCreateSystemManaged.GetEntity(m_LandValueInfoViewPrefab),
+			m_LandValueBaseline = m_LandValueBaseline,
+			m_HealthCoverageBonusMultiplier = m_HealthCoverageBonusMultiplier,
+			m_EducationCoverageBonusMultiplier = m_EducationCoverageBonusMultiplier,
+			m_PoliceCoverageBonusMultiplier = m_PoliceCoverageBonusMultiplier,
+			m_AttractivenessBonusMultiplier = m_AttractivenessBonusMultiplier,
+			m_TelecomCoverageBonusMultiplier = m_TelecomCoverageBonusMultiplier,
+			m_CommercialServiceBonusMultiplier = m_CommercialServiceBonusMultiplier,
+			m_BusBonusMultiplier = m_BusBonusMultiplier,
+			m_TramSubwayBonusMultiplier = m_TramSubwayBonusMultiplier,
+			m_CommonFactorMaxBonus = m_CommonFactorMaxBonus,
+			m_GroundPollutionPenaltyMultiplier = m_GroundPollutionPenaltyMultiplier,
+			m_AirPollutionPenaltyMultiplier = m_AirPollutionPenaltyMultiplier,
+			m_NoisePollutionPenaltyMultiplier = m_NoisePollutionPenaltyMultiplier
+		};
+		entityManager.SetComponentData(entity, componentData);
+	}
 ```
 
 

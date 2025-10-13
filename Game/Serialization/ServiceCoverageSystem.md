@@ -47,7 +47,10 @@ private Game.Serialization.ServiceCoverageSystem+TypeHandle __TypeHandle;
 - `public ServiceCoverageSystem()`  
 
 ```csharp
-public ServiceCoverageSystem();
+[Preserve]
+	public ServiceCoverageSystem()
+	{
+	}
 ```
 
 
@@ -56,25 +59,47 @@ public ServiceCoverageSystem();
 - `private __AssignQueries(Unity.Entities.SystemState& state) : System.Void`  
 
 ```csharp
-private System.Void __AssignQueries(Unity.Entities.SystemState& state);
+private void __AssignQueries(ref SystemState state)
+	{
+		new EntityQueryBuilder(Allocator.Temp).Dispose();
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_Query = GetEntityQuery(ComponentType.ReadOnly<ServiceCoverage>());
+		RequireForUpdate(m_Query);
+	}
 ```
 
 - `protected virtual OnCreateForCompiler() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreateForCompiler();
+protected override void OnCreateForCompiler()
+	{
+		base.OnCreateForCompiler();
+		__AssignQueries(ref base.CheckedStateRef);
+		__TypeHandle.__AssignHandles(ref base.CheckedStateRef);
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		ServiceCoverageJob jobData = new ServiceCoverageJob
+		{
+			m_CoverageType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Net_ServiceCoverage_RW_BufferTypeHandle, ref base.CheckedStateRef)
+		};
+		base.Dependency = JobChunkExtensions.ScheduleParallel(jobData, m_Query, base.Dependency);
+	}
 ```
 
 

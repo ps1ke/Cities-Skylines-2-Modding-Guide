@@ -57,7 +57,13 @@ public System.Single m_VehicleEfficiency;
 - `public Combine(Game.Prefabs.FireStationData otherData) : System.Void`  
 
 ```csharp
-public System.Void Combine(Game.Prefabs.FireStationData otherData);
+public void Combine(FireStationData otherData)
+	{
+		m_FireEngineCapacity += otherData.m_FireEngineCapacity;
+		m_FireHelicopterCapacity += otherData.m_FireHelicopterCapacity;
+		m_DisasterResponseCapacity += otherData.m_DisasterResponseCapacity;
+		m_VehicleEfficiency += otherData.m_VehicleEfficiency;
+	}
 ```
 
 - `public Deserialize<TReader>(TReader reader) : System.Void`  

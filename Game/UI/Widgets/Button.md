@@ -56,7 +56,10 @@ public Button();
 - `public Invoke() : System.Void`  
 
 ```csharp
-public System.Void Invoke();
+public void Invoke()
+	{
+		action();
+	}
 ```
 
 

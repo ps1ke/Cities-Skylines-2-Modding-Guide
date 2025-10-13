@@ -58,7 +58,13 @@ public System.Single m_Comfort;
 - `public PathfindCostInfo(System.Single time, System.Single behaviour, System.Single money, System.Single comfort)`  
 
 ```csharp
-public PathfindCostInfo(System.Single time, System.Single behaviour, System.Single money, System.Single comfort);
+public PathfindCostInfo(float time, float behaviour, float money, float comfort)
+	{
+		m_Time = time;
+		m_Behaviour = behaviour;
+		m_Money = money;
+		m_Comfort = comfort;
+	}
 ```
 
 
@@ -67,7 +73,10 @@ public PathfindCostInfo(System.Single time, System.Single behaviour, System.Sing
 - `public ToPathfindCosts() : Game.Pathfind.PathfindCosts`  
 
 ```csharp
-public Game.Pathfind.PathfindCosts ToPathfindCosts();
+public PathfindCosts ToPathfindCosts()
+	{
+		return new PathfindCosts(m_Time, m_Behaviour, m_Money, m_Comfort);
+	}
 ```
 
 

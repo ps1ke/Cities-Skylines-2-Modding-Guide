@@ -41,7 +41,14 @@ public System.Int32 m_SpeedLimit;
 - `public static GetTypeMask(Game.Prefabs.TrafficSignType type) : System.UInt32`  
 
 ```csharp
-public static System.UInt32 GetTypeMask(Game.Prefabs.TrafficSignType type);
+public static uint GetTypeMask(TrafficSignType type)
+	{
+		if (type == TrafficSignType.None)
+		{
+			return 0u;
+		}
+		return (uint)(1 << (int)(17 - type));
+	}
 ```
 
 

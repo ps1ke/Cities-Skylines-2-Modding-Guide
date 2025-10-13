@@ -84,7 +84,10 @@ public static readonly System.Int32 kUpdatesPerDay;
 - `public ProductionSpecializationSystem()`  
 
 ```csharp
-public ProductionSpecializationSystem();
+[Preserve]
+	public ProductionSpecializationSystem()
+	{
+	}
 ```
 
 
@@ -93,13 +96,19 @@ public ProductionSpecializationSystem();
 - `private __AssignQueries(Unity.Entities.SystemState& state) : System.Void`  
 
 ```csharp
-private System.Void __AssignQueries(Unity.Entities.SystemState& state);
+private void __AssignQueries(ref SystemState state)
+	{
+		new EntityQueryBuilder(Allocator.Temp).Dispose();
+	}
 ```
 
 - `public AddQueueWriter(Unity.Jobs.JobHandle handle) : System.Void`  
 
 ```csharp
-public System.Void AddQueueWriter(Unity.Jobs.JobHandle handle);
+public void AddQueueWriter(JobHandle handle)
+	{
+		m_QueueWriters = JobHandle.CombineDependencies(m_QueueWriters, handle);
+	}
 ```
 
 - `public Deserialize<TReader>(TReader reader) : System.Void`  
@@ -111,43 +120,84 @@ public System.Void Deserialize<TReader>(TReader reader);
 - `public GetQueue(Unity.Jobs.JobHandle& deps) : Unity.Collections.NativeQueue<Game.Simulation.ProductionSpecializationSystem+ProducedResource>`  
 
 ```csharp
-public Unity.Collections.NativeQueue<Game.Simulation.ProductionSpecializationSystem+ProducedResource> GetQueue(Unity.Jobs.JobHandle& deps);
+public NativeQueue<ProducedResource> GetQueue(out JobHandle deps)
+	{
+		deps = m_QueueWriters;
+		return m_ProductionQueue;
+	}
 ```
 
 - `public virtual GetUpdateInterval(Game.SystemUpdatePhase phase) : System.Int32`  
 
 ```csharp
-public virtual System.Int32 GetUpdateInterval(Game.SystemUpdatePhase phase);
+public override int GetUpdateInterval(SystemUpdatePhase phase)
+	{
+		return 262144 / kUpdatesPerDay;
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_CitySystem = base.World.GetOrCreateSystemManaged<CitySystem>();
+		m_BonusQuery = GetEntityQuery(ComponentType.ReadOnly<SpecializationBonus>());
+		m_ProductionQueue = new NativeQueue<ProducedResource>(Allocator.Persistent);
+	}
 ```
 
 - `protected virtual OnCreateForCompiler() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreateForCompiler();
+protected override void OnCreateForCompiler()
+	{
+		base.OnCreateForCompiler();
+		__AssignQueries(ref base.CheckedStateRef);
+		__TypeHandle.__AssignHandles(ref base.CheckedStateRef);
+	}
 ```
 
 - `protected virtual OnDestroy() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnDestroy();
+[Preserve]
+	protected override void OnDestroy()
+	{
+		base.OnDestroy();
+		m_ProductionQueue.Dispose();
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		SpecializationJob jobData = new SpecializationJob
+		{
+			m_Bonuses = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_City_SpecializationBonus_RW_BufferLookup, ref base.CheckedStateRef),
+			m_Queue = m_ProductionQueue,
+			m_City = m_CitySystem.City
+		};
+		base.Dependency = IJobExtensions.Schedule(jobData, JobHandle.CombineDependencies(m_QueueWriters, base.Dependency));
+		m_QueueWriters = base.Dependency;
+	}
 ```
 
 - `public PostDeserialize(Colossal.Serialization.Entities.Context context) : System.Void`  
 
 ```csharp
-public System.Void PostDeserialize(Colossal.Serialization.Entities.Context context);
+public void PostDeserialize(Context context)
+	{
+		if ((context.purpose == Purpose.NewGame || context.purpose == Purpose.LoadGame) && m_BonusQuery.IsEmptyIgnoreFilter)
+		{
+			base.EntityManager.AddBuffer<SpecializationBonus>(m_CitySystem.City);
+		}
+	}
 ```
 
 - `public Serialize<TWriter>(TWriter writer) : System.Void`  
@@ -159,7 +209,10 @@ public System.Void Serialize<TWriter>(TWriter writer);
 - `public SetDefaults(Colossal.Serialization.Entities.Context context) : System.Void`  
 
 ```csharp
-public System.Void SetDefaults(Colossal.Serialization.Entities.Context context);
+public void SetDefaults(Context context)
+	{
+		m_ProductionQueue.Clear();
+	}
 ```
 
 

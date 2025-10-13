@@ -79,7 +79,16 @@ public System.Single m_Efficiency;
 - `public MaintenanceVehicle(Game.Vehicles.MaintenanceVehicleFlags flags, System.Int32 requestCount, System.Single efficiency)`  
 
 ```csharp
-public MaintenanceVehicle(Game.Vehicles.MaintenanceVehicleFlags flags, System.Int32 requestCount, System.Single efficiency);
+public MaintenanceVehicle(MaintenanceVehicleFlags flags, int requestCount, float efficiency)
+	{
+		m_TargetRequest = Entity.Null;
+		m_State = flags;
+		m_Maintained = 0;
+		m_MaintainEstimate = 0;
+		m_RequestCount = requestCount;
+		m_PathElementTime = 0f;
+		m_Efficiency = efficiency;
+	}
 ```
 
 

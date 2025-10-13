@@ -154,7 +154,11 @@ public System.Boolean active { get; set; }
 - `public EditorTool(Unity.Entities.World world)`  
 
 ```csharp
-public EditorTool(Unity.Entities.World world);
+public EditorTool(World world)
+	{
+		m_ToolSystem = world.GetOrCreateSystemManaged<ToolSystem>();
+		m_EditorPanelUISystem = world.GetOrCreateSystemManaged<EditorPanelUISystem>();
+	}
 ```
 
 
@@ -163,19 +167,48 @@ public EditorTool(Unity.Entities.World world);
 - `protected virtual IsActive() : System.Boolean`  
 
 ```csharp
-protected virtual System.Boolean IsActive();
+protected virtual bool IsActive()
+	{
+		if (m_EditorPanelUISystem.activePanel == panel)
+		{
+			if (tool != null)
+			{
+				return m_ToolSystem.activeTool == tool;
+			}
+			return true;
+		}
+		return false;
+	}
 ```
 
 - `protected virtual OnDisable() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnDisable();
+protected virtual void OnDisable()
+	{
+		if (m_EditorPanelUISystem.activePanel == panel)
+		{
+			m_EditorPanelUISystem.activePanel = null;
+		}
+		if (tool != null && m_ToolSystem.activeTool == tool)
+		{
+			m_ToolSystem.ActivatePrefabTool(null);
+		}
+	}
 ```
 
 - `protected virtual OnEnable() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnEnable();
+protected virtual void OnEnable()
+	{
+		m_ToolSystem.selected = Entity.Null;
+		m_EditorPanelUISystem.activePanel = panel;
+		if (tool != null)
+		{
+			m_ToolSystem.activeTool = tool;
+		}
+	}
 ```
 
 

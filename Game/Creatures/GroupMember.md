@@ -37,7 +37,10 @@ public Unity.Entities.Entity m_Leader;
 - `public GroupMember(Unity.Entities.Entity leader)`  
 
 ```csharp
-public GroupMember(Unity.Entities.Entity leader);
+public GroupMember(Entity leader)
+	{
+		m_Leader = leader;
+	}
 ```
 
 

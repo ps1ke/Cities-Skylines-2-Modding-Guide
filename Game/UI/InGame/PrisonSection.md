@@ -74,7 +74,10 @@ private System.Int32 prisonerCapacity { private get; private set; }
 - `public PrisonSection()`  
 
 ```csharp
-public PrisonSection();
+[Preserve]
+	public PrisonSection()
+	{
+	}
 ```
 
 
@@ -83,31 +86,58 @@ public PrisonSection();
 - `protected virtual OnProcess() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnProcess();
+protected override void OnProcess()
+	{
+		if (TryGetComponentWithUpgrades<PrisonData>(selectedEntity, selectedPrefab, out var data))
+		{
+			prisonerCapacity = data.m_PrisonerCapacity;
+		}
+		if (base.EntityManager.TryGetBuffer(selectedEntity, isReadOnly: true, out DynamicBuffer<Occupant> buffer))
+		{
+			prisonerCount = buffer.Length;
+		}
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		base.visible = Visible();
+	}
 ```
 
 - `public virtual OnWriteProperties(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-public virtual System.Void OnWriteProperties(Colossal.UI.Binding.IJsonWriter writer);
+public override void OnWriteProperties(IJsonWriter writer)
+	{
+		writer.PropertyName("prisonerCount");
+		writer.Write(prisonerCount);
+		writer.PropertyName("prisonerCapacity");
+		writer.Write(prisonerCapacity);
+	}
 ```
 
 - `protected virtual Reset() : System.Void`  
 
 ```csharp
-protected virtual System.Void Reset();
+protected override void Reset()
+	{
+		prisonerCount = 0;
+		prisonerCapacity = 0;
+	}
 ```
 
 - `private Visible() : System.Boolean`  
 
 ```csharp
-private System.Boolean Visible();
+private bool Visible()
+	{
+		return base.EntityManager.HasComponent<Game.Buildings.Prison>(selectedEntity);
+	}
 ```
 
 

@@ -78,13 +78,26 @@ public SeasonsField();
 - `protected virtual Update() : Game.UI.Widgets.WidgetChanges`  
 
 ```csharp
-protected virtual Game.UI.Widgets.WidgetChanges Update();
+protected override WidgetChanges Update()
+	{
+		WidgetChanges num = base.Update();
+		m_Seasons = adapter.seasons.ToList();
+		m_SeasonCurves = adapter.curves;
+		return num | WidgetChanges.Properties;
+	}
 ```
 
 - `protected virtual WriteProperties(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-protected virtual System.Void WriteProperties(Colossal.UI.Binding.IJsonWriter writer);
+protected override void WriteProperties(IJsonWriter writer)
+	{
+		base.WriteProperties(writer);
+		writer.PropertyName("seasons");
+		writer.Write((IList<ClimateSystem.SeasonInfo>)m_Seasons);
+		writer.PropertyName("curves");
+		writer.Write(m_SeasonCurves);
+	}
 ```
 
 

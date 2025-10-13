@@ -44,7 +44,11 @@ public Unity.Mathematics.float3 m_Direction;
 - `public TrainBogiePosition(Game.Objects.Transform transform)`  
 
 ```csharp
-public TrainBogiePosition(Game.Objects.Transform transform);
+public TrainBogiePosition(Transform transform)
+	{
+		m_Position = transform.m_Position;
+		m_Direction = math.forward(transform.m_Rotation);
+	}
 ```
 
 

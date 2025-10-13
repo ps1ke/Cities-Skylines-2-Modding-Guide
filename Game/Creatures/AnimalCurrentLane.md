@@ -94,13 +94,35 @@ public System.Single m_LanePosition;
 - `public AnimalCurrentLane(Unity.Entities.Entity lane, System.Single curvePosition, Game.Creatures.CreatureLaneFlags flags)`  
 
 ```csharp
-public AnimalCurrentLane(Unity.Entities.Entity lane, System.Single curvePosition, Game.Creatures.CreatureLaneFlags flags);
+public AnimalCurrentLane(CreatureLaneFlags flags)
+	{
+		m_Lane = Entity.Null;
+		m_NextLane = Entity.Null;
+		m_QueueEntity = Entity.Null;
+		m_QueueArea = default(Sphere3);
+		m_CurvePosition = 0f;
+		m_NextPosition = 0f;
+		m_Flags = flags;
+		m_NextFlags = (CreatureLaneFlags)0u;
+		m_LanePosition = 0f;
+	}
 ```
 
 - `public AnimalCurrentLane(Game.Creatures.CreatureLaneFlags flags)`  
 
 ```csharp
-public AnimalCurrentLane(Game.Creatures.CreatureLaneFlags flags);
+public AnimalCurrentLane(CreatureLaneFlags flags)
+	{
+		m_Lane = Entity.Null;
+		m_NextLane = Entity.Null;
+		m_QueueEntity = Entity.Null;
+		m_QueueArea = default(Sphere3);
+		m_CurvePosition = 0f;
+		m_NextPosition = 0f;
+		m_Flags = flags;
+		m_NextFlags = (CreatureLaneFlags)0u;
+		m_LanePosition = 0f;
+	}
 ```
 
 

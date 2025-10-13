@@ -49,7 +49,10 @@ protected Unity.Entities.Entity lineEntity { protected get; protected set; }
 - `protected VehicleWithLineSection()`  
 
 ```csharp
-protected VehicleWithLineSection();
+[Preserve]
+	protected VehicleWithLineSection()
+	{
+	}
 ```
 
 
@@ -58,19 +61,41 @@ protected VehicleWithLineSection();
 - `protected virtual OnProcess() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnProcess();
+protected override void OnProcess()
+	{
+		lineEntity = (base.EntityManager.TryGetComponent<CurrentRoute>(selectedEntity, out var component) ? component.m_Route : Entity.Null);
+		base.OnProcess();
+	}
 ```
 
 - `public virtual OnWriteProperties(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-public virtual System.Void OnWriteProperties(Colossal.UI.Binding.IJsonWriter writer);
+public override void OnWriteProperties(IJsonWriter writer)
+	{
+		base.OnWriteProperties(writer);
+		writer.PropertyName("line");
+		if (lineEntity == Entity.Null)
+		{
+			writer.WriteNull();
+		}
+		else
+		{
+			m_NameSystem.BindName(writer, lineEntity);
+		}
+		writer.PropertyName("lineEntity");
+		writer.Write(lineEntity);
+	}
 ```
 
 - `protected virtual Reset() : System.Void`  
 
 ```csharp
-protected virtual System.Void Reset();
+protected override void Reset()
+	{
+		base.Reset();
+		lineEntity = Entity.Null;
+	}
 ```
 
 

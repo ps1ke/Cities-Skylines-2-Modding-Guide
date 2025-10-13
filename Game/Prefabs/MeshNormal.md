@@ -39,7 +39,10 @@ public Unity.Mathematics.float3 m_Normal;
 - `public MeshNormal(Unity.Mathematics.float3 normal)`  
 
 ```csharp
-public MeshNormal(Unity.Mathematics.float3 normal);
+public MeshNormal(float3 normal)
+	{
+		m_Normal = normal;
+	}
 ```
 
 
@@ -48,13 +51,55 @@ public MeshNormal(Unity.Mathematics.float3 normal);
 - `public static Unpack(Unity.Collections.NativeSlice<System.Byte> src, Unity.Entities.DynamicBuffer<Game.Prefabs.MeshNormal> dst, System.Int32 count, UnityEngine.Rendering.VertexAttributeFormat format, System.Int32 dimension) : System.Void`  
 
 ```csharp
-public static System.Void Unpack(Unity.Collections.NativeSlice<System.Byte> src, Unity.Entities.DynamicBuffer<Game.Prefabs.MeshNormal> dst, System.Int32 count, UnityEngine.Rendering.VertexAttributeFormat format, System.Int32 dimension);
+public unsafe static void Unpack(NativeSlice<byte> src, NativeArray<MeshNormal> dst, int count, VertexAttributeFormat format, int dimension)
+	{
+		if (format == VertexAttributeFormat.Float32 && dimension == 3)
+		{
+			src.SliceConvert<MeshNormal>().CopyTo(dst);
+			return;
+		}
+		switch (format)
+		{
+		case VertexAttributeFormat.Float16:
+			NativeMath.ArrayHalfToFloat((IntPtr)src.GetUnsafeReadOnlyPtr(), count, dimension, (IntPtr)dst.GetUnsafePtr(), 3);
+			return;
+		case VertexAttributeFormat.SNorm16:
+			if (dimension == 2)
+			{
+				NativeMath.ArrayOctahedralToNormals((IntPtr)src.GetUnsafeReadOnlyPtr(), count, (IntPtr)dst.GetUnsafePtr());
+				return;
+			}
+			break;
+		}
+		throw new Exception($"Unsupported source normals format/dimension in Unpack {format} {dimension}");
+	}
 ```
 
 - `public static Unpack(Unity.Collections.NativeSlice<System.Byte> src, Unity.Collections.NativeArray<Game.Prefabs.MeshNormal> dst, System.Int32 count, UnityEngine.Rendering.VertexAttributeFormat format, System.Int32 dimension) : System.Void`  
 
 ```csharp
-public static System.Void Unpack(Unity.Collections.NativeSlice<System.Byte> src, Unity.Collections.NativeArray<Game.Prefabs.MeshNormal> dst, System.Int32 count, UnityEngine.Rendering.VertexAttributeFormat format, System.Int32 dimension);
+public unsafe static void Unpack(NativeSlice<byte> src, NativeArray<MeshNormal> dst, int count, VertexAttributeFormat format, int dimension)
+	{
+		if (format == VertexAttributeFormat.Float32 && dimension == 3)
+		{
+			src.SliceConvert<MeshNormal>().CopyTo(dst);
+			return;
+		}
+		switch (format)
+		{
+		case VertexAttributeFormat.Float16:
+			NativeMath.ArrayHalfToFloat((IntPtr)src.GetUnsafeReadOnlyPtr(), count, dimension, (IntPtr)dst.GetUnsafePtr(), 3);
+			return;
+		case VertexAttributeFormat.SNorm16:
+			if (dimension == 2)
+			{
+				NativeMath.ArrayOctahedralToNormals((IntPtr)src.GetUnsafeReadOnlyPtr(), count, (IntPtr)dst.GetUnsafePtr());
+				return;
+			}
+			break;
+		}
+		throw new Exception($"Unsupported source normals format/dimension in Unpack {format} {dimension}");
+	}
 ```
 
 

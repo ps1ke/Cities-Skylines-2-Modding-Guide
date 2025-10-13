@@ -196,7 +196,10 @@ protected System.Boolean Modified { protected get; }
 - `public HealthcareInfoviewUISystem()`  
 
 ```csharp
-public HealthcareInfoviewUISystem();
+[Preserve]
+	public HealthcareInfoviewUISystem()
+	{
+	}
 ```
 
 
@@ -205,49 +208,171 @@ public HealthcareInfoviewUISystem();
 - `private __AssignQueries(Unity.Entities.SystemState& state) : System.Void`  
 
 ```csharp
-private System.Void __AssignQueries(Unity.Entities.SystemState& state);
+private void __AssignQueries(ref SystemState state)
+	{
+		new EntityQueryBuilder(Allocator.Temp).Dispose();
+	}
 ```
 
 - `private GetCemeteryAvailability() : Game.UI.InGame.IndicatorValue`  
 
 ```csharp
-private Game.UI.InGame.IndicatorValue GetCemeteryAvailability();
+private IndicatorValue GetCemeteryAvailability()
+	{
+		return IndicatorValue.Calculate(m_CemeteryCapacity.value, m_CemeteryUse.value);
+	}
 ```
 
 - `private GetDeathcareAvailability() : Game.UI.InGame.IndicatorValue`  
 
 ```csharp
-private Game.UI.InGame.IndicatorValue GetDeathcareAvailability();
+private IndicatorValue GetDeathcareAvailability()
+	{
+		return IndicatorValue.Calculate(m_ProcessingRate.value, m_DeathRate.value);
+	}
 ```
 
 - `private GetHealthcareAvailability() : Game.UI.InGame.IndicatorValue`  
 
 ```csharp
-private Game.UI.InGame.IndicatorValue GetHealthcareAvailability();
+private IndicatorValue GetHealthcareAvailability()
+	{
+		return IndicatorValue.Calculate(m_PatientCapacity.value, m_SickCount.value);
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_HouseholdQuery = GetEntityQuery(ComponentType.ReadOnly<Household>(), ComponentType.ReadOnly<HouseholdCitizen>(), ComponentType.ReadOnly<PropertyRenter>(), ComponentType.Exclude<CommuterHousehold>(), ComponentType.Exclude<TouristHousehold>(), ComponentType.Exclude<MovingAway>());
+		m_DeathcareFacilityQuery = GetEntityQuery(ComponentType.ReadOnly<Game.Buildings.DeathcareFacility>(), ComponentType.ReadOnly<Building>(), ComponentType.ReadOnly<ServiceDispatch>(), ComponentType.ReadOnly<PrefabRef>(), ComponentType.ReadOnly<Patient>(), ComponentType.Exclude<Temp>(), ComponentType.Exclude<Deleted>());
+		m_DeathcareFacilityModifiedQuery = GetEntityQuery(new EntityQueryDesc
+		{
+			All = new ComponentType[5]
+			{
+				ComponentType.ReadOnly<Game.Buildings.DeathcareFacility>(),
+				ComponentType.ReadOnly<Building>(),
+				ComponentType.ReadOnly<ServiceDispatch>(),
+				ComponentType.ReadOnly<PrefabRef>(),
+				ComponentType.ReadOnly<Patient>()
+			},
+			Any = new ComponentType[3]
+			{
+				ComponentType.ReadOnly<Deleted>(),
+				ComponentType.ReadOnly<Created>(),
+				ComponentType.ReadOnly<Updated>()
+			},
+			None = new ComponentType[1] { ComponentType.ReadOnly<Temp>() }
+		});
+		m_HealthcareFacilityQuery = GetEntityQuery(ComponentType.ReadOnly<Game.Buildings.Hospital>(), ComponentType.ReadOnly<Building>(), ComponentType.ReadOnly<ServiceDispatch>(), ComponentType.ReadOnly<PrefabRef>(), ComponentType.ReadOnly<Patient>(), ComponentType.Exclude<Temp>(), ComponentType.Exclude<Deleted>());
+		m_HealthcareFacilityModifiedQuery = GetEntityQuery(new EntityQueryDesc
+		{
+			All = new ComponentType[5]
+			{
+				ComponentType.ReadOnly<Game.Buildings.Hospital>(),
+				ComponentType.ReadOnly<Building>(),
+				ComponentType.ReadOnly<ServiceDispatch>(),
+				ComponentType.ReadOnly<PrefabRef>(),
+				ComponentType.ReadOnly<Patient>()
+			},
+			Any = new ComponentType[3]
+			{
+				ComponentType.ReadOnly<Deleted>(),
+				ComponentType.ReadOnly<Created>(),
+				ComponentType.ReadOnly<Updated>()
+			},
+			None = new ComponentType[1] { ComponentType.ReadOnly<Temp>() }
+		});
+		m_CityStatisticsSystem = base.World.GetOrCreateSystemManaged<CityStatisticsSystem>();
+		AddBinding(m_AverageHealth = new ValueBinding<float>("healthcareInfo", "averageHealth", 0f));
+		AddBinding(m_DeathRate = new ValueBinding<float>("healthcareInfo", "deathRate", 0f));
+		AddBinding(m_ProcessingRate = new ValueBinding<float>("healthcareInfo", "processingRate", 0f));
+		AddBinding(m_CemeteryUse = new ValueBinding<int>("healthcareInfo", "cemeteryUse", 0));
+		AddBinding(m_CemeteryCapacity = new ValueBinding<int>("healthcareInfo", "cemeteryCapacity", 0));
+		AddBinding(m_SickCount = new ValueBinding<int>("healthcareInfo", "sickCount", 0));
+		AddBinding(m_PatientCount = new ValueBinding<int>("healthcareInfo", "patientCount", 0));
+		AddBinding(m_PatientCapacity = new ValueBinding<int>("healthcareInfo", "patientCapacity", 0));
+		AddBinding(m_HealthcareAvailability = new GetterValueBinding<IndicatorValue>("healthcareInfo", "healthcareAvailability", GetHealthcareAvailability, new ValueWriter<IndicatorValue>()));
+		AddBinding(m_DeathcareAvailability = new GetterValueBinding<IndicatorValue>("healthcareInfo", "deathcareAvailability", GetDeathcareAvailability, new ValueWriter<IndicatorValue>()));
+		AddBinding(m_CemeteryAvailability = new GetterValueBinding<IndicatorValue>("healthcareInfo", "cemeteryAvailability", GetCemeteryAvailability, new ValueWriter<IndicatorValue>()));
+		m_Results = new NativeArray<float>(8, Allocator.Persistent);
+	}
 ```
 
 - `protected virtual OnCreateForCompiler() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreateForCompiler();
+protected override void OnCreateForCompiler()
+	{
+		base.OnCreateForCompiler();
+		__AssignQueries(ref base.CheckedStateRef);
+		__TypeHandle.__AssignHandles(ref base.CheckedStateRef);
+	}
 ```
 
 - `protected virtual OnDestroy() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnDestroy();
+[Preserve]
+	protected override void OnDestroy()
+	{
+		m_Results.Dispose();
+		base.OnDestroy();
+	}
 ```
 
 - `protected virtual PerformUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void PerformUpdate();
+protected override void PerformUpdate()
+	{
+		m_Results.Fill(0f);
+		JobChunkExtensions.Schedule(new CalculateAverageHealthJob
+		{
+			m_HouseholdType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Citizens_Household_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+			m_HouseholdCitizenType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Citizens_HouseholdCitizen_RO_BufferTypeHandle, ref base.CheckedStateRef),
+			m_Citizens = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Citizens_Citizen_RO_ComponentLookup, ref base.CheckedStateRef),
+			m_HealthProblems = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Citizens_HealthProblem_RO_ComponentLookup, ref base.CheckedStateRef),
+			m_Results = m_Results
+		}, m_HouseholdQuery, base.Dependency).Complete();
+		JobChunkExtensions.Schedule(new UpdateHealthcareJob
+		{
+			m_PrefabRefType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+			m_PatientType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Buildings_Patient_RO_BufferTypeHandle, ref base.CheckedStateRef),
+			m_InstalledUpgradeType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Buildings_InstalledUpgrade_RO_BufferTypeHandle, ref base.CheckedStateRef),
+			m_EfficiencyType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Buildings_Efficiency_RO_BufferTypeHandle, ref base.CheckedStateRef),
+			m_Prefabs = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentLookup, ref base.CheckedStateRef),
+			m_HospitalDatas = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_HospitalData_RO_ComponentLookup, ref base.CheckedStateRef),
+			m_Result = m_Results
+		}, m_HealthcareFacilityQuery, base.Dependency).Complete();
+		JobChunkExtensions.Schedule(new UpdateDeathcareJob
+		{
+			m_DeathcareFacilityType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Buildings_DeathcareFacility_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+			m_EfficiencyType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Buildings_Efficiency_RO_BufferTypeHandle, ref base.CheckedStateRef),
+			m_PrefabRefType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+			m_InstalledUpgradeType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Buildings_InstalledUpgrade_RO_BufferTypeHandle, ref base.CheckedStateRef),
+			m_DeathcareFacilities = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_DeathcareFacilityData_RO_ComponentLookup, ref base.CheckedStateRef),
+			m_Prefabs = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentLookup, ref base.CheckedStateRef),
+			m_Results = m_Results
+		}, m_DeathcareFacilityQuery, base.Dependency).Complete();
+		float num = m_Results[0];
+		float x = m_Results[1];
+		m_AverageHealth.Update(math.round(num / math.max(x, 1f)));
+		m_PatientCount.Update((int)m_Results[3]);
+		m_SickCount.Update((int)m_Results[2]);
+		m_PatientCapacity.Update((int)m_Results[4]);
+		m_DeathRate.Update(m_CityStatisticsSystem.GetStatisticValue(StatisticType.DeathRate));
+		m_ProcessingRate.Update(m_Results[5]);
+		m_CemeteryUse.Update((int)m_Results[6]);
+		m_CemeteryCapacity.Update((int)m_Results[7]);
+		m_DeathcareAvailability.Update();
+		m_CemeteryAvailability.Update();
+		m_HealthcareAvailability.Update();
+	}
 ```
 
 

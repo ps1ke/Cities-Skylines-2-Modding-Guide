@@ -64,7 +64,10 @@ private Game.Prefabs.NetCompositionMeshSystem+TypeHandle __TypeHandle;
 - `public NetCompositionMeshSystem()`  
 
 ```csharp
-public NetCompositionMeshSystem();
+[Preserve]
+	public NetCompositionMeshSystem()
+	{
+	}
 ```
 
 
@@ -73,43 +76,89 @@ public NetCompositionMeshSystem();
 - `private __AssignQueries(Unity.Entities.SystemState& state) : System.Void`  
 
 ```csharp
-private System.Void __AssignQueries(Unity.Entities.SystemState& state);
+private void __AssignQueries(ref SystemState state)
+	{
+		new EntityQueryBuilder(Allocator.Temp).Dispose();
+	}
 ```
 
 - `public AddMeshEntityReader(Unity.Jobs.JobHandle dependencies) : System.Void`  
 
 ```csharp
-public System.Void AddMeshEntityReader(Unity.Jobs.JobHandle dependencies);
+public void AddMeshEntityReader(JobHandle dependencies)
+	{
+		m_Dependencies = dependencies;
+	}
 ```
 
 - `public GetMeshEntities(Unity.Jobs.JobHandle& dependencies) : Unity.Collections.NativeParallelMultiHashMap<System.Int32, Unity.Entities.Entity>`  
 
 ```csharp
-public Unity.Collections.NativeParallelMultiHashMap<System.Int32, Unity.Entities.Entity> GetMeshEntities(Unity.Jobs.JobHandle& dependencies);
+public NativeParallelMultiHashMap<int, Entity> GetMeshEntities(out JobHandle dependencies)
+	{
+		dependencies = m_Dependencies;
+		return m_MeshEntities;
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_MeshQuery = GetEntityQuery(new EntityQueryDesc
+		{
+			All = new ComponentType[1] { ComponentType.ReadOnly<NetCompositionMeshData>() },
+			Any = new ComponentType[2]
+			{
+				ComponentType.ReadOnly<Created>(),
+				ComponentType.ReadOnly<Deleted>()
+			}
+		});
+		m_MeshEntities = new NativeParallelMultiHashMap<int, Entity>(100, Allocator.Persistent);
+		RequireForUpdate(m_MeshQuery);
+	}
 ```
 
 - `protected virtual OnCreateForCompiler() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreateForCompiler();
+protected override void OnCreateForCompiler()
+	{
+		base.OnCreateForCompiler();
+		__AssignQueries(ref base.CheckedStateRef);
+		__TypeHandle.__AssignHandles(ref base.CheckedStateRef);
+	}
 ```
 
 - `protected virtual OnDestroy() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnDestroy();
+[Preserve]
+	protected override void OnDestroy()
+	{
+		m_Dependencies.Complete();
+		m_MeshEntities.Dispose();
+		base.OnDestroy();
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		base.Dependency = (m_Dependencies = JobChunkExtensions.Schedule(new CompositionMeshJob
+		{
+			m_EntityType = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef),
+			m_DeletedType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Common_Deleted_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+			m_NetCompositionMeshDataType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_NetCompositionMeshData_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+			m_MeshEntities = m_MeshEntities
+		}, m_MeshQuery, JobHandle.CombineDependencies(base.Dependency, m_Dependencies)));
+	}
 ```
 
 

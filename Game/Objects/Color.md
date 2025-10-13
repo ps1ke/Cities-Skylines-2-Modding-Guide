@@ -49,7 +49,12 @@ public System.Boolean m_SubColor;
 - `public Color(System.Byte index, System.Byte value, System.Boolean subColor = False)`  
 
 ```csharp
-public Color(System.Byte index, System.Byte value, System.Boolean subColor);
+public Color(byte index, byte value, bool subColor = false)
+	{
+		m_Index = index;
+		m_Value = value;
+		m_SubColor = subColor;
+	}
 ```
 
 

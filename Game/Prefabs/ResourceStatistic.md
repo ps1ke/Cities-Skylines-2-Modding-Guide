@@ -48,13 +48,27 @@ public ResourceStatistic();
 - `public virtual GetParameterName(System.Int32 parameter) : System.String`  
 
 ```csharp
-public virtual System.String GetParameterName(System.Int32 parameter);
+public override string GetParameterName(int parameter)
+	{
+		return Enum.GetName(typeof(Resource), EconomyUtils.GetResource(parameter));
+	}
 ```
 
 - `public virtual GetParameters() : System.Collections.Generic.IEnumerable<Game.Prefabs.StatisticParameterData>`  
 
 ```csharp
-public virtual System.Collections.Generic.IEnumerable<Game.Prefabs.StatisticParameterData> GetParameters();
+public override IEnumerable<StatisticParameterData> GetParameters()
+	{
+		if (m_Resources != null)
+		{
+			ResourcePrefab[] resources = m_Resources;
+			foreach (ResourcePrefab resourcePrefab in resources)
+			{
+				int resourceIndex = EconomyUtils.GetResourceIndex(EconomyUtils.GetResource(resourcePrefab.m_Resource));
+				yield return new StatisticParameterData(resourceIndex, resourcePrefab.m_Color);
+			}
+		}
+	}
 ```
 
 

@@ -39,7 +39,10 @@ public Unity.Entities.Entity m_Citizen;
 - `public HouseholdCitizen(Unity.Entities.Entity citizen)`  
 
 ```csharp
-public HouseholdCitizen(Unity.Entities.Entity citizen);
+public HouseholdCitizen(Entity citizen)
+	{
+		m_Citizen = citizen;
+	}
 ```
 
 
@@ -48,13 +51,19 @@ public HouseholdCitizen(Unity.Entities.Entity citizen);
 - `public Equals(Game.Citizens.HouseholdCitizen other) : System.Boolean`  
 
 ```csharp
-public System.Boolean Equals(Game.Citizens.HouseholdCitizen other);
+public bool Equals(HouseholdCitizen other)
+	{
+		return m_Citizen.Equals(other.m_Citizen);
+	}
 ```
 
 - `public virtual GetHashCode() : System.Int32`  
 
 ```csharp
-public virtual System.Int32 GetHashCode();
+public override int GetHashCode()
+	{
+		return m_Citizen.GetHashCode();
+	}
 ```
 
 

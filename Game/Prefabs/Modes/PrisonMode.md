@@ -49,19 +49,67 @@ public PrisonMode();
 - `public virtual ApplyModeData(Unity.Entities.EntityManager entityManager, Game.Prefabs.PrefabSystem prefabSystem) : System.Void`  
 
 ```csharp
-public virtual System.Void ApplyModeData(Unity.Entities.EntityManager entityManager, Game.Prefabs.PrefabSystem prefabSystem);
+public override void ApplyModeData(EntityManager entityManager, PrefabSystem prefabSystem)
+	{
+		for (int i = 0; i < m_ModeDatas.Length; i++)
+		{
+			ModeData modeData = m_ModeDatas[i];
+			Prison component = modeData.m_Prefab.GetComponent<Prison>();
+			if (component == null)
+			{
+				ComponentBase.baseLog.Critical($"Target not found {this}");
+				continue;
+			}
+			Entity entity = prefabSystem.GetEntity(component.prefab);
+			PrisonData componentData = entityManager.GetComponentData<PrisonData>(entity);
+			componentData.m_PrisonVanCapacity = (int)((float)componentData.m_PrisonVanCapacity * modeData.m_PrisonVanCapacityMultiplier);
+			componentData.m_PrisonerWellbeing = modeData.m_PrisonerWellbeing;
+			componentData.m_PrisonerHealth = modeData.m_PrisonerHealth;
+			entityManager.SetComponentData(entity, componentData);
+		}
+	}
 ```
 
 - `public virtual RecordChanges(Unity.Entities.EntityManager entityManager, Game.Prefabs.PrefabSystem prefabSystem) : System.Void`  
 
 ```csharp
-public virtual System.Void RecordChanges(Unity.Entities.EntityManager entityManager, Game.Prefabs.PrefabSystem prefabSystem);
+public override void RecordChanges(EntityManager entityManager, PrefabSystem prefabSystem)
+	{
+		for (int i = 0; i < m_ModeDatas.Length; i++)
+		{
+			Prison component = m_ModeDatas[i].m_Prefab.GetComponent<Prison>();
+			if (component == null)
+			{
+				ComponentBase.baseLog.Critical($"Target not found {this}");
+				continue;
+			}
+			Entity entity = prefabSystem.GetEntity(component.prefab);
+			entityManager.GetComponentData<PrisonData>(entity);
+		}
+	}
 ```
 
 - `public virtual RestoreDefaultData(Unity.Entities.EntityManager entityManager, Game.Prefabs.PrefabSystem prefabSystem) : System.Void`  
 
 ```csharp
-public virtual System.Void RestoreDefaultData(Unity.Entities.EntityManager entityManager, Game.Prefabs.PrefabSystem prefabSystem);
+public override void RestoreDefaultData(EntityManager entityManager, PrefabSystem prefabSystem)
+	{
+		for (int i = 0; i < m_ModeDatas.Length; i++)
+		{
+			Prison component = m_ModeDatas[i].m_Prefab.GetComponent<Prison>();
+			if (component == null)
+			{
+				ComponentBase.baseLog.Critical($"Target not found {this}");
+				continue;
+			}
+			Entity entity = prefabSystem.GetEntity(component.prefab);
+			PrisonData componentData = entityManager.GetComponentData<PrisonData>(entity);
+			componentData.m_PrisonVanCapacity = component.m_PrisonVanCapacity;
+			componentData.m_PrisonerWellbeing = component.m_PrisonerWellbeing;
+			componentData.m_PrisonerHealth = component.m_PrisonerHealth;
+			entityManager.SetComponentData(entity, componentData);
+		}
+	}
 ```
 
 

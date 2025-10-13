@@ -57,7 +57,13 @@ public System.SByte m_PrisonerHealth;
 - `public Combine(Game.Prefabs.PrisonData otherData) : System.Void`  
 
 ```csharp
-public System.Void Combine(Game.Prefabs.PrisonData otherData);
+public void Combine(PrisonData otherData)
+	{
+		m_PrisonVanCapacity += otherData.m_PrisonVanCapacity;
+		m_PrisonerCapacity += otherData.m_PrisonerCapacity;
+		m_PrisonerWellbeing += otherData.m_PrisonerWellbeing;
+		m_PrisonerHealth += otherData.m_PrisonerHealth;
+	}
 ```
 
 - `public Deserialize<TReader>(TReader reader) : System.Void`  

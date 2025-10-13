@@ -63,13 +63,27 @@ public Game.Pathfind.EdgeFlags m_Flags;
 - `public PathTarget(Unity.Entities.Entity target, Unity.Entities.Entity entity, System.Single delta, System.Single cost)`  
 
 ```csharp
-public PathTarget(Unity.Entities.Entity target, Unity.Entities.Entity entity, System.Single delta, System.Single cost);
+public PathTarget(Entity target, Entity entity, float delta, float cost, EdgeFlags flags)
+	{
+		m_Target = target;
+		m_Entity = entity;
+		m_Delta = delta;
+		m_Cost = cost;
+		m_Flags = flags;
+	}
 ```
 
 - `public PathTarget(Unity.Entities.Entity target, Unity.Entities.Entity entity, System.Single delta, System.Single cost, Game.Pathfind.EdgeFlags flags)`  
 
 ```csharp
-public PathTarget(Unity.Entities.Entity target, Unity.Entities.Entity entity, System.Single delta, System.Single cost, Game.Pathfind.EdgeFlags flags);
+public PathTarget(Entity target, Entity entity, float delta, float cost, EdgeFlags flags)
+	{
+		m_Target = target;
+		m_Entity = entity;
+		m_Delta = delta;
+		m_Cost = cost;
+		m_Flags = flags;
+	}
 ```
 
 

@@ -65,7 +65,10 @@ protected QualitySetting();
 - `internal virtual AddToPageData(Game.UI.Menu.AutomaticSettings+SettingPageData pageData) : System.Void`  
 
 ```csharp
-internal virtual System.Void AddToPageData(Game.UI.Menu.AutomaticSettings+SettingPageData pageData);
+internal virtual void AddToPageData(AutomaticSettings.SettingPageData pageData)
+	{
+		AutomaticSettings.FillSettingsPage(pageData, this);
+	}
 ```
 
 - `public abstract EnumerateAvailableLevels() : System.Collections.Generic.IEnumerable<Game.Settings.QualitySetting+Level>`  
@@ -89,25 +92,52 @@ public abstract System.String GetMockName(Game.Settings.QualitySetting+Level lev
 - `public GetQualityValues() : Game.UI.Widgets.DropdownItem<System.Int32>[]`  
 
 ```csharp
-public Game.UI.Widgets.DropdownItem<System.Int32>[] GetQualityValues();
+public DropdownItem<int>[] GetQualityValues()
+	{
+		Level[] array = EnumerateAvailableLevels().ToArray();
+		List<DropdownItem<int>> list = new List<DropdownItem<int>>(array.Length);
+		Level[] array2 = array;
+		foreach (Level level in array2)
+		{
+			DropdownItem<int> dropdownItem = new DropdownItem<int>();
+			dropdownItem.displayName = "Options." + level.GetType().Name.ToUpperInvariant() + "[" + GetMockName(level) + "]";
+			dropdownItem.value = (int)level;
+			dropdownItem.disabled = level == Level.Custom;
+			DropdownItem<int> item = dropdownItem;
+			list.Add(item);
+		}
+		return list.ToArray();
+	}
 ```
 
 - `public virtual IsOptionFullyDisabled() : System.Boolean`  
 
 ```csharp
-public virtual System.Boolean IsOptionFullyDisabled();
+public virtual bool IsOptionFullyDisabled()
+	{
+		return disableSetting;
+	}
 ```
 
 - `public virtual IsOptionsDisabled() : System.Boolean`  
 
 ```csharp
-public virtual System.Boolean IsOptionsDisabled();
+public virtual bool IsOptionsDisabled()
+	{
+		if (!IsOptionFullyDisabled())
+		{
+			return GetLevel() == Level.Disabled;
+		}
+		return true;
+	}
 ```
 
 - `public virtual SetDefaults() : System.Void`  
 
 ```csharp
-public virtual System.Void SetDefaults();
+public override void SetDefaults()
+	{
+	}
 ```
 
 - `public abstract SetLevel(Game.Settings.QualitySetting+Level quality, System.Boolean apply = True) : System.Void`  

@@ -97,7 +97,19 @@ protected ComponentBase();
 - `public CompareTo(System.Object obj) : System.Int32`  
 
 ```csharp
-public System.Int32 CompareTo(System.Object obj);
+public int CompareTo(object obj)
+	{
+		if (obj == null)
+		{
+			return 1;
+		}
+		ComponentBase componentBase = obj as ComponentBase;
+		if (componentBase != null)
+		{
+			return base.name.CompareTo(componentBase.name);
+		}
+		throw new ArgumentException("Object is not a ComponentBase");
+	}
 ```
 
 - `public abstract GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
@@ -115,7 +127,18 @@ public T GetComponent<T>();
 - `public GetComponentExactly(System.Type type) : Game.Prefabs.ComponentBase`  
 
 ```csharp
-public Game.Prefabs.ComponentBase GetComponentExactly(System.Type type);
+public ComponentBase GetComponentExactly(Type type)
+	{
+		if (prefab == null)
+		{
+			throw new NullReferenceException($"GetComponentExactly<{type}>() -> prefab is null");
+		}
+		if (prefab.TryGetExactly(type, out var component))
+		{
+			return component;
+		}
+		return null;
+	}
 ```
 
 - `public GetComponents<T>(System.Collections.Generic.List<T> list) : System.Boolean`  
@@ -127,13 +150,18 @@ public System.Boolean GetComponents<T>(System.Collections.Generic.List<T> list);
 - `public virtual GetDebugString() : System.String`  
 
 ```csharp
-public virtual System.String GetDebugString();
+public virtual string GetDebugString()
+	{
+		return GetType().Name;
+	}
 ```
 
 - `public virtual GetDependencies(System.Collections.Generic.List<Game.Prefabs.PrefabBase> prefabs) : System.Void`  
 
 ```csharp
-public virtual System.Void GetDependencies(System.Collections.Generic.List<Game.Prefabs.PrefabBase> prefabs);
+public virtual void GetDependencies(List<PrefabBase> prefabs)
+	{
+	}
 ```
 
 - `public abstract GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
@@ -145,25 +173,34 @@ public abstract System.Void GetPrefabComponents(System.Collections.Generic.HashS
 - `public virtual Initialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity) : System.Void`  
 
 ```csharp
-public virtual System.Void Initialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity);
+public virtual void Initialize(EntityManager entityManager, Entity entity)
+	{
+	}
 ```
 
 - `public virtual LateInitialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity) : System.Void`  
 
 ```csharp
-public virtual System.Void LateInitialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity);
+public virtual void LateInitialize(EntityManager entityManager, Entity entity)
+	{
+	}
 ```
 
 - `protected virtual OnDisable() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnDisable();
+protected virtual void OnDisable()
+	{
+	}
 ```
 
 - `protected virtual OnEnable() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnEnable();
+protected virtual void OnEnable()
+	{
+		baseLog = LogManager.GetLogger("SceneFlow");
+	}
 ```
 
 

@@ -172,73 +172,177 @@ public PagedList();
 - `public AddElement() : System.Int32`  
 
 ```csharp
-public System.Int32 AddElement();
+public int AddElement()
+	{
+		int num = adapter.AddElement();
+		ShowElement(num);
+		return num;
+	}
 ```
 
 - `private CalculateChildIndices(System.Int32 pageIndex, System.Int32 length, System.Int32& childStartIndex, System.Int32& childEndIndex) : System.Void`  
 
 ```csharp
-private System.Void CalculateChildIndices(System.Int32 pageIndex, System.Int32 length, System.Int32& childStartIndex, System.Int32& childEndIndex);
+private void CalculateChildIndices(int pageIndex, int length, out int childStartIndex, out int childEndIndex)
+	{
+		childStartIndex = pageIndex * pageSize;
+		childEndIndex = Mathf.Min((pageIndex + 1) * pageSize, length);
+	}
 ```
 
 - `private CalculateIndices(System.Int32 elementIndex, System.Int32 length, System.Int32& pageIndex, System.Int32& childStartIndex, System.Int32& childEndIndex) : System.Void`  
 
 ```csharp
-private System.Void CalculateIndices(System.Int32 elementIndex, System.Int32 length, System.Int32& pageIndex, System.Int32& childStartIndex, System.Int32& childEndIndex);
+private void CalculateIndices(int elementIndex, int length, out int pageIndex, out int childStartIndex, out int childEndIndex)
+	{
+		pageIndex = Mathf.Min(elementIndex / pageSize, Math.Max(0, (length + pageSize - 1) / pageSize - 1));
+		CalculateChildIndices(pageIndex, length, out childStartIndex, out childEndIndex);
+	}
 ```
 
 - `public Clear() : System.Void`  
 
 ```csharp
-public System.Void Clear();
+public void Clear()
+	{
+		adapter.Clear();
+	}
 ```
 
 - `public DeleteElement(System.Int32 index) : System.Void`  
 
 ```csharp
-public System.Void DeleteElement(System.Int32 index);
+public void DeleteElement(int index)
+	{
+		adapter.DeleteElement(index);
+	}
 ```
 
 - `private DisableChildren(Game.UI.Widgets.IWidget child) : System.Void`  
 
 ```csharp
-private System.Void DisableChildren(Game.UI.Widgets.IWidget child);
+private void DisableChildren(IWidget child)
+	{
+		if (child is IDisableCallback disableCallback)
+		{
+			disableCallback.disabled = () => true;
+		}
+		if (!(child is IContainerWidget containerWidget))
+		{
+			return;
+		}
+		foreach (IWidget child2 in containerWidget.children)
+		{
+			DisableChildren(child2);
+		}
+	}
 ```
 
 - `public DuplicateElement(System.Int32 index) : System.Int32`  
 
 ```csharp
-public System.Int32 DuplicateElement(System.Int32 index);
+public int DuplicateElement(int index)
+	{
+		int num = adapter.DuplicateElement(index);
+		ShowElement(num);
+		return num;
+	}
 ```
 
 - `public InsertElement(System.Int32 index) : System.Void`  
 
 ```csharp
-public System.Void InsertElement(System.Int32 index);
+public void InsertElement(int index)
+	{
+		adapter.InsertElement(index);
+	}
 ```
 
 - `public MoveElement(System.Int32 fromIndex, System.Int32 toIndex) : System.Void`  
 
 ```csharp
-public System.Void MoveElement(System.Int32 fromIndex, System.Int32 toIndex);
+public void MoveElement(int fromIndex, int toIndex)
+	{
+		adapter.MoveElement(fromIndex, toIndex);
+	}
 ```
 
 - `private ShowElement(System.Int32 elementIndex) : System.Void`  
 
 ```csharp
-private System.Void ShowElement(System.Int32 elementIndex);
+private void ShowElement(int elementIndex)
+	{
+		if (elementIndex != -1)
+		{
+			CalculateIndices(elementIndex, adapter.length, out m_CurrentPageIndex, out m_ChildStartIndex, out m_ChildEndIndex);
+		}
+	}
 ```
 
 - `protected virtual Update() : Game.UI.Widgets.WidgetChanges`  
 
 ```csharp
-protected virtual Game.UI.Widgets.WidgetChanges Update();
+protected override WidgetChanges Update()
+	{
+		WidgetChanges widgetChanges = base.Update();
+		int length = adapter.length;
+		if (length != m_Length)
+		{
+			widgetChanges |= WidgetChanges.Properties;
+			m_Length = length;
+		}
+		CalculateIndices(m_ChildStartIndex, m_Length, out var pageIndex, out var childStartIndex, out var childEndIndex);
+		if (pageIndex != m_CurrentPageIndex || childStartIndex != m_ChildStartIndex || childEndIndex != m_ChildEndIndex)
+		{
+			widgetChanges |= WidgetChanges.Properties;
+			m_CurrentPageIndex = pageIndex;
+			m_ChildStartIndex = childStartIndex;
+			m_ChildEndIndex = childEndIndex;
+		}
+		if (adapter.UpdateRange(m_ChildStartIndex, m_ChildEndIndex))
+		{
+			if (m_Expanded)
+			{
+				widgetChanges |= WidgetChanges.Children;
+			}
+			m_Children.Clear();
+			m_Children.AddRange(adapter.BuildElementsInRange());
+			Assert.AreEqual(m_ChildEndIndex - m_ChildStartIndex, m_Children.Count);
+			if (m_Disabled)
+			{
+				foreach (IWidget child in m_Children)
+				{
+					DisableChildren(child);
+				}
+			}
+		}
+		return widgetChanges;
+	}
 ```
 
 - `protected virtual WriteProperties(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-protected virtual System.Void WriteProperties(Colossal.UI.Binding.IJsonWriter writer);
+protected override void WriteProperties(IJsonWriter writer)
+	{
+		base.WriteProperties(writer);
+		writer.PropertyName("expanded");
+		writer.Write(expanded);
+		writer.PropertyName("resizable");
+		writer.Write(adapter.resizable);
+		writer.PropertyName("sortable");
+		writer.Write(adapter.sortable);
+		writer.PropertyName("length");
+		writer.Write(m_Length);
+		writer.PropertyName("currentPageIndex");
+		writer.Write(currentPageIndex);
+		writer.PropertyName("pageCount");
+		writer.Write(pageCount);
+		writer.PropertyName("childStartIndex");
+		writer.Write(m_ChildStartIndex);
+		writer.PropertyName("childEndIndex");
+		writer.Write(m_ChildEndIndex);
+	}
 ```
 
 

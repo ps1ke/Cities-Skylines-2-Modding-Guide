@@ -73,7 +73,12 @@ public System.Int32 amount { get; private set; }
 - `public XPMessage(System.UInt32 createdSimFrame, System.Int32 amount, Game.Simulation.XPReason reason)`  
 
 ```csharp
-public XPMessage(System.UInt32 createdSimFrame, System.Int32 amount, Game.Simulation.XPReason reason);
+public XPMessage(uint createdSimFrame, int amount, XPReason reason)
+	{
+		this.createdSimFrame = createdSimFrame;
+		this.amount = amount;
+		this.reason = reason;
+	}
 ```
 
 

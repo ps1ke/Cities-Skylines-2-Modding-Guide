@@ -148,7 +148,10 @@ public static readonly System.Single kAutumnTemperature;
 - `public EffectFlagSystem()`  
 
 ```csharp
-public EffectFlagSystem();
+[Preserve]
+	public EffectFlagSystem()
+	{
+	}
 ```
 
 
@@ -163,31 +166,89 @@ public System.Void Deserialize<TReader>(TReader reader);
 - `public GetData() : Game.Effects.EffectFlagSystem+EffectFlagData`  
 
 ```csharp
-public Game.Effects.EffectFlagSystem+EffectFlagData GetData();
+public EffectFlagData GetData()
+	{
+		return new EffectFlagData
+		{
+			m_IsColdSeason = m_IsColdSeason,
+			m_IsNightTime = m_IsNightTime,
+			m_LastSeasonChange = m_LastSeasonChange,
+			m_LastTimeChange = m_LastTimeChange
+		};
+	}
 ```
 
 - `public virtual GetUpdateInterval(Game.SystemUpdatePhase phase) : System.Int32`  
 
 ```csharp
-public virtual System.Int32 GetUpdateInterval(Game.SystemUpdatePhase phase);
+public override int GetUpdateInterval(SystemUpdatePhase phase)
+	{
+		return 2048;
+	}
 ```
 
 - `public static IsEnabled(Game.Prefabs.EffectConditionFlags flag, Unity.Mathematics.Random random, Game.Effects.EffectFlagSystem+EffectFlagData data, System.UInt32 frame) : System.Boolean`  
 
 ```csharp
-public static System.Boolean IsEnabled(Game.Prefabs.EffectConditionFlags flag, Unity.Mathematics.Random random, Game.Effects.EffectFlagSystem+EffectFlagData data, System.UInt32 frame);
+public static bool IsEnabled(EffectConditionFlags flag, Random random, EffectFlagData data, uint frame)
+	{
+		if ((flag & EffectConditionFlags.Night) != EffectConditionFlags.None)
+		{
+			if (data.m_IsNightTime)
+			{
+				return data.m_LastTimeChange + random.NextUInt(kNightRandomTicks) < frame;
+			}
+			return data.m_LastTimeChange + random.NextUInt(kDayRandomTicks) >= frame;
+		}
+		if ((flag & EffectConditionFlags.Cold) != EffectConditionFlags.None)
+		{
+			if (data.m_IsColdSeason)
+			{
+				return data.m_LastSeasonChange + random.NextUInt(kAutumnRandomTicks) < frame;
+			}
+			return data.m_LastSeasonChange + random.NextUInt(kSpringRandomTicks) >= frame;
+		}
+		return true;
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_SimulationSystem = base.World.GetOrCreateSystemManaged<SimulationSystem>();
+		m_TimeSystem = base.World.GetOrCreateSystemManaged<TimeSystem>();
+		m_ClimateSystem = base.World.GetOrCreateSystemManaged<ClimateSystem>();
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		uint frameIndex = m_SimulationSystem.frameIndex;
+		if (m_CurrentSeason != m_ClimateSystem.currentSeason)
+		{
+			float num = m_ClimateSystem.temperature;
+			if (m_IsColdSeason && num >= kSpringTemperature)
+			{
+				m_IsColdSeason = false;
+				m_LastSeasonChange = frameIndex;
+			}
+			else if (!m_IsColdSeason && num < kAutumnTemperature)
+			{
+				m_IsColdSeason = true;
+				m_LastSeasonChange = frameIndex;
+			}
+		}
+		m_IsNightTime = m_TimeSystem.normalizedTime >= kNightBegin || m_TimeSystem.normalizedTime < kDayBegin;
+		m_CurrentSeason = m_ClimateSystem.currentSeason;
+	}
 ```
 
 - `public Serialize<TWriter>(TWriter writer) : System.Void`  
@@ -199,7 +260,13 @@ public System.Void Serialize<TWriter>(TWriter writer);
 - `public SetDefaults(Colossal.Serialization.Entities.Context context) : System.Void`  
 
 ```csharp
-public System.Void SetDefaults(Colossal.Serialization.Entities.Context context);
+public void SetDefaults(Context context)
+	{
+		m_LastSeasonChange = 0u;
+		m_IsColdSeason = false;
+		m_IsNightTime = false;
+		m_LastTimeChange = 0u;
+	}
 ```
 
 

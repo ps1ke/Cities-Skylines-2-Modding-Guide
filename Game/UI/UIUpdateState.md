@@ -58,7 +58,12 @@ private System.UInt32 m_LastTickIndex;
 - `private UIUpdateState(Unity.Entities.World world, System.Int32 updateInterval)`  
 
 ```csharp
-private UIUpdateState(Unity.Entities.World world, System.Int32 updateInterval);
+private UIUpdateState(World world, int updateInterval)
+	{
+		m_SimulationSystem = world.GetOrCreateSystemManaged<SimulationSystem>();
+		m_UpdateInterval = (uint)updateInterval;
+		m_ForceUpdate = true;
+	}
 ```
 
 
@@ -67,19 +72,35 @@ private UIUpdateState(Unity.Entities.World world, System.Int32 updateInterval);
 - `public Advance() : System.Boolean`  
 
 ```csharp
-public System.Boolean Advance();
+public bool Advance()
+	{
+		uint num = m_SimulationSystem.frameIndex - m_LastTickIndex;
+		if (m_ForceUpdate || num >= m_UpdateInterval)
+		{
+			m_LastTickIndex = m_SimulationSystem.frameIndex;
+			m_ForceUpdate = false;
+			return true;
+		}
+		return false;
+	}
 ```
 
 - `public static Create(Unity.Entities.World world, System.Int32 updateInterval) : Game.UI.UIUpdateState`  
 
 ```csharp
-public static Game.UI.UIUpdateState Create(Unity.Entities.World world, System.Int32 updateInterval);
+public static UIUpdateState Create(World world, int updateInterval)
+	{
+		return new UIUpdateState(world, updateInterval);
+	}
 ```
 
 - `public ForceUpdate() : System.Void`  
 
 ```csharp
-public System.Void ForceUpdate();
+public void ForceUpdate()
+	{
+		m_ForceUpdate = true;
+	}
 ```
 
 

@@ -69,7 +69,10 @@ private static const System.UInt32 UPDATE_INTERVAL;
 - `public SpectatorSiteSystem()`  
 
 ```csharp
-public SpectatorSiteSystem();
+[Preserve]
+	public SpectatorSiteSystem()
+	{
+	}
 ```
 
 
@@ -78,31 +81,65 @@ public SpectatorSiteSystem();
 - `private __AssignQueries(Unity.Entities.SystemState& state) : System.Void`  
 
 ```csharp
-private System.Void __AssignQueries(Unity.Entities.SystemState& state);
+private void __AssignQueries(ref SystemState state)
+	{
+		new EntityQueryBuilder(Allocator.Temp).Dispose();
+	}
 ```
 
 - `public virtual GetUpdateInterval(Game.SystemUpdatePhase phase) : System.Int32`  
 
 ```csharp
-public virtual System.Int32 GetUpdateInterval(Game.SystemUpdatePhase phase);
+public override int GetUpdateInterval(SystemUpdatePhase phase)
+	{
+		return 64;
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_SimulationSystem = base.World.GetOrCreateSystemManaged<SimulationSystem>();
+		m_EndFrameBarrier = base.World.GetOrCreateSystemManaged<EndFrameBarrier>();
+		m_SiteQuery = GetEntityQuery(ComponentType.ReadWrite<SpectatorSite>(), ComponentType.Exclude<Deleted>(), ComponentType.Exclude<Temp>());
+		RequireForUpdate(m_SiteQuery);
+	}
 ```
 
 - `protected virtual OnCreateForCompiler() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreateForCompiler();
+protected override void OnCreateForCompiler()
+	{
+		base.OnCreateForCompiler();
+		__AssignQueries(ref base.CheckedStateRef);
+		__TypeHandle.__AssignHandles(ref base.CheckedStateRef);
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		SpectatorSiteJob jobData = new SpectatorSiteJob
+		{
+			m_SimulationFrame = m_SimulationSystem.frameIndex,
+			m_CommandBuffer = m_EndFrameBarrier.CreateCommandBuffer().AsParallelWriter(),
+			m_EntityType = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef),
+			m_SpectatorSiteType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Events_SpectatorSite_RW_ComponentTypeHandle, ref base.CheckedStateRef),
+			m_DurationData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Events_Duration_RO_ComponentLookup, ref base.CheckedStateRef),
+			m_PrefabRefData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentLookup, ref base.CheckedStateRef),
+			m_SpectatorEventData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_SpectatorEventData_RO_ComponentLookup, ref base.CheckedStateRef)
+		};
+		base.Dependency = JobChunkExtensions.ScheduleParallel(jobData, m_SiteQuery, base.Dependency);
+		m_EndFrameBarrier.AddJobHandleForProducer(base.Dependency);
+	}
 ```
 
 

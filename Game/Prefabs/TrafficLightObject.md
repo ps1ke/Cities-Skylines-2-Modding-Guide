@@ -84,19 +84,52 @@ public TrafficLightObject();
 - `public virtual GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetArchetypeComponents(HashSet<ComponentType> components)
+	{
+		components.Add(ComponentType.ReadWrite<TrafficLight>());
+	}
 ```
 
 - `public virtual GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetPrefabComponents(HashSet<ComponentType> components)
+	{
+		components.Add(ComponentType.ReadWrite<TrafficLightData>());
+	}
 ```
 
 - `public virtual LateInitialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity) : System.Void`  
 
 ```csharp
-public virtual System.Void LateInitialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity);
+public override void LateInitialize(EntityManager entityManager, Entity entity)
+	{
+		base.LateInitialize(entityManager, entity);
+		TrafficLightData componentData = default(TrafficLightData);
+		componentData.m_Type = (TrafficLightType)0;
+		componentData.m_ReachOffset = m_ReachOffset;
+		if (m_VehicleLeft)
+		{
+			componentData.m_Type |= TrafficLightType.VehicleLeft;
+		}
+		if (m_VehicleRight)
+		{
+			componentData.m_Type |= TrafficLightType.VehicleRight;
+		}
+		if (m_CrossingLeft)
+		{
+			componentData.m_Type |= TrafficLightType.CrossingLeft;
+		}
+		if (m_CrossingRight)
+		{
+			componentData.m_Type |= TrafficLightType.CrossingRight;
+		}
+		if (m_AllowFlipped)
+		{
+			componentData.m_Type |= TrafficLightType.AllowFlipped;
+		}
+		entityManager.SetComponentData(entity, componentData);
+	}
 ```
 
 

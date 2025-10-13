@@ -72,25 +72,48 @@ public PresetDescriptor();
 - `public AddOption(System.String optionId) : System.Void`  
 
 ```csharp
-public System.Void AddOption(System.String optionId);
+public void AddOption(string optionId)
+	{
+		m_OptionsId.Add(optionId);
+	}
 ```
 
 - `public AddOptions(System.Collections.Generic.IEnumerable<System.String> optionIds) : System.Void`  
 
 ```csharp
-public System.Void AddOptions(System.Collections.Generic.IEnumerable<System.String> optionIds);
+public void AddOptions(IEnumerable<string> optionIds)
+	{
+		foreach (string optionId in optionIds)
+		{
+			AddOption(optionId);
+		}
+	}
 ```
 
 - `public AddValues(Game.Rendering.CinematicCamera.PhotoModeProperty targetProperty, System.Single[] values) : System.Void`  
 
 ```csharp
-public System.Void AddValues(Game.Rendering.CinematicCamera.PhotoModeProperty targetProperty, System.Single[] values);
+public void AddValues(PhotoModeProperty targetProperty, float[] values)
+	{
+		m_Values.Add(targetProperty, values);
+	}
 ```
 
 - `public Validate() : System.Boolean`  
 
 ```csharp
-public System.Boolean Validate();
+public bool Validate()
+	{
+		int count = m_OptionsId.Count;
+		foreach (KeyValuePair<PhotoModeProperty, float[]> value in m_Values)
+		{
+			if (value.Value.Length != count)
+			{
+				return false;
+			}
+		}
+		return true;
+	}
 ```
 
 

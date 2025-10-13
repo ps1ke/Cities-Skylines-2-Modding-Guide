@@ -68,7 +68,10 @@ private Game.Tutorials.TutorialInfoviewActivationSystem+TypeHandle __TypeHandle;
 - `public TutorialInfoviewActivationSystem()`  
 
 ```csharp
-public TutorialInfoviewActivationSystem();
+[Preserve]
+	public TutorialInfoviewActivationSystem()
+	{
+	}
 ```
 
 
@@ -77,25 +80,56 @@ public TutorialInfoviewActivationSystem();
 - `private __AssignQueries(Unity.Entities.SystemState& state) : System.Void`  
 
 ```csharp
-private System.Void __AssignQueries(Unity.Entities.SystemState& state);
+private void __AssignQueries(ref SystemState state)
+	{
+		new EntityQueryBuilder(Allocator.Temp).Dispose();
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_BarrierSystem = base.World.GetOrCreateSystemManaged<ModificationBarrier4>();
+		m_ToolSystem = base.World.GetOrCreateSystemManaged<ToolSystem>();
+		m_PrefabSystem = base.World.GetOrCreateSystemManaged<PrefabSystem>();
+		m_TutorialQuery = GetEntityQuery(ComponentType.ReadOnly<TutorialData>(), ComponentType.ReadOnly<InfoviewActivationData>(), ComponentType.Exclude<TutorialActivated>(), ComponentType.Exclude<TutorialCompleted>());
+	}
 ```
 
 - `protected virtual OnCreateForCompiler() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreateForCompiler();
+protected override void OnCreateForCompiler()
+	{
+		base.OnCreateForCompiler();
+		__AssignQueries(ref base.CheckedStateRef);
+		__TypeHandle.__AssignHandles(ref base.CheckedStateRef);
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		if (!m_TutorialQuery.IsEmptyIgnoreFilter && m_ToolSystem.activeInfoview != null)
+		{
+			CheckActivationJob jobData = new CheckActivationJob
+			{
+				m_ActivationType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Tutorials_InfoviewActivationData_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+				m_EntityType = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef),
+				m_Infoview = m_PrefabSystem.GetEntity(m_ToolSystem.infoview),
+				m_Writer = m_BarrierSystem.CreateCommandBuffer().AsParallelWriter()
+			};
+			base.Dependency = JobChunkExtensions.ScheduleParallel(jobData, m_TutorialQuery, base.Dependency);
+			m_BarrierSystem.AddJobHandleForProducer(base.Dependency);
+		}
+	}
 ```
 
 

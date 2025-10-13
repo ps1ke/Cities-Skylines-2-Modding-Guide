@@ -111,7 +111,11 @@ public System.Boolean warning { get; set; }
 - `public EnumField()`  
 
 ```csharp
-public EnumField();
+public EnumField()
+	{
+		base.valueWriter = new ULongWriter();
+		base.valueReader = new ULongReader();
+	}
 ```
 
 
@@ -120,13 +124,43 @@ public EnumField();
 - `protected virtual Update() : Game.UI.Widgets.WidgetChanges`  
 
 ```csharp
-protected virtual Game.UI.Widgets.WidgetChanges Update();
+protected override WidgetChanges Update()
+	{
+		WidgetChanges widgetChanges = base.Update();
+		if (itemsAccessor != null)
+		{
+			int num = itemsVersion?.Invoke() ?? 0;
+			if (num != m_ItemsVersion)
+			{
+				widgetChanges |= WidgetChanges.Properties;
+				m_ItemsVersion = num;
+				enumMembers = itemsAccessor.GetTypedValue() ?? Array.Empty<EnumMember>();
+			}
+		}
+		if (warningAction != null)
+		{
+			bool flag = warningAction();
+			if (flag != m_Warning)
+			{
+				m_Warning = flag;
+				widgetChanges |= WidgetChanges.Properties;
+			}
+		}
+		return widgetChanges;
+	}
 ```
 
 - `protected virtual WriteProperties(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-protected virtual System.Void WriteProperties(Colossal.UI.Binding.IJsonWriter writer);
+protected override void WriteProperties(IJsonWriter writer)
+	{
+		base.WriteProperties(writer);
+		writer.PropertyName("enumMembers");
+		writer.Write((IList<EnumMember>)enumMembers);
+		writer.PropertyName("warning");
+		writer.Write(warning);
+	}
 ```
 
 

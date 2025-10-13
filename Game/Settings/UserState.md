@@ -163,7 +163,10 @@ public System.Collections.Generic.List<System.String> seenWhatsNew { get; set; }
 - `public UserState()`  
 
 ```csharp
-public UserState();
+public UserState()
+	{
+		SetDefaults();
+	}
 ```
 
 
@@ -172,19 +175,38 @@ public UserState();
 - `private GetDefaultCloudTarget() : System.String`  
 
 ```csharp
-private System.String GetDefaultCloudTarget();
+private string GetDefaultCloudTarget()
+	{
+		return "Local";
+	}
 ```
 
 - `public ResetTutorials() : System.Void`  
 
 ```csharp
-public System.Void ResetTutorials();
+public void ResetTutorials()
+	{
+		shownTutorials.Clear();
+		ApplyAndSave();
+		World.DefaultGameObjectInjectionWorld.GetExistingSystemManaged<TutorialSystem>().OnResetTutorials();
+	}
 ```
 
 - `public virtual SetDefaults() : System.Void`  
 
 ```csharp
-public virtual System.Void SetDefaults();
+public override void SetDefaults()
+	{
+		shownTutorials = new Dictionary<string, bool>();
+		lastSaveGameMetadata = null;
+		lastCloudTarget = GetDefaultCloudTarget();
+		leftHandTraffic = false;
+		naturalDisasters = true;
+		unlockAll = false;
+		unlimitedMoney = false;
+		unlockMapTiles = false;
+		seenWhatsNew = new List<string>();
+	}
 ```
 
 

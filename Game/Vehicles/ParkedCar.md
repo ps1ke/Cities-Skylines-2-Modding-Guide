@@ -44,7 +44,11 @@ public System.Single m_CurvePosition;
 - `public ParkedCar(Unity.Entities.Entity lane, System.Single curvePosition)`  
 
 ```csharp
-public ParkedCar(Unity.Entities.Entity lane, System.Single curvePosition);
+public ParkedCar(Entity lane, float curvePosition)
+	{
+		m_Lane = lane;
+		m_CurvePosition = curvePosition;
+	}
 ```
 
 

@@ -43,7 +43,11 @@ public System.Int32 m_MaximumGroundWater;
 - `public Combine(Game.Prefabs.GroundWaterPoweredData otherData) : System.Void`  
 
 ```csharp
-public System.Void Combine(Game.Prefabs.GroundWaterPoweredData otherData);
+public void Combine(GroundWaterPoweredData otherData)
+	{
+		m_Production += otherData.m_Production;
+		m_MaximumGroundWater += otherData.m_MaximumGroundWater;
+	}
 ```
 
 - `public Deserialize<TReader>(TReader reader) : System.Void`  

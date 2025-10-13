@@ -51,7 +51,12 @@ public System.Byte m_DispatchIndex;
 - `public PolicePatrolRequest(Unity.Entities.Entity target, System.Single priority)`  
 
 ```csharp
-public PolicePatrolRequest(Unity.Entities.Entity target, System.Single priority);
+public PolicePatrolRequest(Entity target, float priority)
+	{
+		m_Target = target;
+		m_Priority = priority;
+		m_DispatchIndex = 0;
+	}
 ```
 
 

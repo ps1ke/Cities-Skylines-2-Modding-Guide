@@ -108,49 +108,174 @@ internal static System.Void <ResolveConflicts>g__Resolve|19_0(Game.Input.InputCo
 - `public Dispose() : System.Void`  
 
 ```csharp
-public System.Void Dispose();
+public void Dispose()
+	{
+		InputManager.instance.EventActionsChanged -= OnActionsChanged;
+		InputManager.instance.EventPreResolvedActionChanged -= OnPreResolvedActionChanged;
+		InputManager.instance.EventControlSchemeChanged -= OnControlSchemeChanged;
+	}
 ```
 
 - `public Initialize() : System.Void`  
 
 ```csharp
-public System.Void Initialize();
+public void Initialize()
+	{
+		InputManager.instance.EventActionsChanged += OnActionsChanged;
+		InputManager.instance.EventPreResolvedActionChanged += OnPreResolvedActionChanged;
+		InputManager.instance.EventControlSchemeChanged += OnControlSchemeChanged;
+	}
 ```
 
 - `private OnActionsChanged() : System.Void`  
 
 ```csharp
-private System.Void OnActionsChanged();
+private void OnActionsChanged()
+	{
+		if (!m_UpdateInProgress)
+		{
+			m_ActionsDirty = true;
+			m_ConflictsDirty = true;
+		}
+	}
 ```
 
 - `private OnControlSchemeChanged(Game.Input.InputManager+ControlScheme scheme) : System.Void`  
 
 ```csharp
-private System.Void OnControlSchemeChanged(Game.Input.InputManager+ControlScheme scheme);
+private void OnControlSchemeChanged(InputManager.ControlScheme scheme)
+	{
+		if (!m_UpdateInProgress)
+		{
+			m_ConflictsDirty = true;
+		}
+	}
 ```
 
 - `private OnPreResolvedActionChanged() : System.Void`  
 
 ```csharp
-private System.Void OnPreResolvedActionChanged();
+private void OnPreResolvedActionChanged()
+	{
+		if (!m_UpdateInProgress)
+		{
+			m_ConflictsDirty = true;
+		}
+	}
 ```
 
 - `private RefreshActions() : System.Void`  
 
 ```csharp
-private System.Void RefreshActions();
+private void RefreshActions()
+	{
+		m_SystemActions.Clear();
+		m_UIActions.Clear();
+		m_ModActions.Clear();
+		foreach (ProxyAction action in InputManager.instance.actions)
+		{
+			if (!action.isBuiltIn)
+			{
+				m_ModActions.Add(new State(action));
+			}
+			else if (action.isSystemAction)
+			{
+				m_SystemActions.Add(new State(action));
+			}
+			else
+			{
+				m_UIActions.Add(new State(action));
+			}
+		}
+	}
 ```
 
 - `private ResolveConflicts() : System.Void`  
 
 ```csharp
-private System.Void ResolveConflicts();
+private void ResolveConflicts()
+	{
+		foreach (State uIAction in m_UIActions)
+		{
+			uIAction.Reset();
+		}
+		foreach (State modAction in m_ModActions)
+		{
+			modAction.Reset();
+		}
+		foreach (State systemAction in m_SystemActions)
+		{
+			if (!systemAction.enabled)
+			{
+				continue;
+			}
+			foreach (State uIAction2 in m_UIActions)
+			{
+				if (uIAction2.enabled)
+				{
+					Resolve(systemAction, uIAction2);
+				}
+			}
+			foreach (State modAction2 in m_ModActions)
+			{
+				if (modAction2.enabled)
+				{
+					Resolve(systemAction, modAction2);
+				}
+			}
+		}
+		foreach (State uIAction3 in m_UIActions)
+		{
+			if (!uIAction3.enabled)
+			{
+				continue;
+			}
+			foreach (State modAction3 in m_ModActions)
+			{
+				if (modAction3.enabled)
+				{
+					Resolve(uIAction3, modAction3);
+				}
+			}
+		}
+		foreach (State uIAction4 in m_UIActions)
+		{
+			uIAction4.Apply();
+		}
+		foreach (State modAction4 in m_ModActions)
+		{
+			modAction4.Apply();
+		}
+		static void Resolve(State primary, State secondary)
+		{
+			if (InputManager.HasConflicts(primary.m_Action, secondary.m_Action, primary.m_Action.preResolvedMask, secondary.m_Action.preResolvedMask))
+			{
+				secondary.m_HasConflict = true;
+			}
+		}
+	}
 ```
 
 - `public Update() : System.Void`  
 
 ```csharp
-public System.Void Update();
+public void Update()
+	{
+		m_UpdateInProgress = true;
+		if (m_ActionsDirty)
+		{
+			RefreshActions();
+			m_ActionsDirty = false;
+			this.EventActionRefreshed?.Invoke();
+		}
+		if (m_ConflictsDirty)
+		{
+			ResolveConflicts();
+			m_ConflictsDirty = false;
+			this.EventConflictResolved?.Invoke();
+		}
+		m_UpdateInProgress = false;
+	}
 ```
 
 

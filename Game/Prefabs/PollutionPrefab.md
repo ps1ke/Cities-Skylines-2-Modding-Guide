@@ -223,13 +223,50 @@ public PollutionPrefab();
 - `public virtual GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetPrefabComponents(HashSet<ComponentType> components)
+	{
+		base.GetPrefabComponents(components);
+		components.Add(ComponentType.ReadWrite<PollutionParameterData>());
+	}
 ```
 
 - `public virtual LateInitialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity) : System.Void`  
 
 ```csharp
-public virtual System.Void LateInitialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity);
+public override void LateInitialize(EntityManager entityManager, Entity entity)
+	{
+		base.LateInitialize(entityManager, entity);
+		PrefabSystem orCreateSystemManaged = World.DefaultGameObjectInjectionWorld.GetOrCreateSystemManaged<PrefabSystem>();
+		entityManager.SetComponentData(entity, new PollutionParameterData
+		{
+			m_GroundMultiplier = m_GroundMultiplier,
+			m_AirMultiplier = m_AirMultiplier,
+			m_NoiseMultiplier = m_NoiseMultiplier,
+			m_NetAirMultiplier = m_NetAirMultiplier,
+			m_NetNoiseMultiplier = m_NetNoiseMultiplier,
+			m_GroundRadius = m_GroundRadius,
+			m_AirRadius = m_AirRadius,
+			m_NoiseRadius = m_NoiseRadius,
+			m_NetNoiseRadius = m_NetNoiseRadius,
+			m_WindAdvectionSpeed = m_WindAdvectionSpeed,
+			m_AirFade = m_AirFade,
+			m_GroundFade = m_GroundFade,
+			m_PlantAirMultiplier = m_PlantAirMultiplier,
+			m_PlantGroundMultiplier = m_PlantGroundMultiplier,
+			m_PlantFade = m_PlantFade,
+			m_FertilityGroundMultiplier = m_FertilityGroundMultiplier,
+			m_DistanceExponent = m_DistanceExponent,
+			m_AirPollutionNotification = orCreateSystemManaged.GetEntity(m_AirPollutionNotification),
+			m_NoisePollutionNotification = orCreateSystemManaged.GetEntity(m_NoisePollutionNotification),
+			m_GroundPollutionNotification = orCreateSystemManaged.GetEntity(m_GroundPollutionNotification),
+			m_AirPollutionNotificationLimit = m_AirPollutionNotificationLimit,
+			m_NoisePollutionNotificationLimit = m_NoisePollutionNotificationLimit,
+			m_GroundPollutionNotificationLimit = m_GroundPollutionNotificationLimit,
+			m_AbandonedNoisePollutionMultiplier = m_AbandonedNoisePollutionMultiplier,
+			m_HomelessNoisePollution = m_HomelessNoisePollution,
+			m_GroundPollutionLandValueDivisor = m_GroundPollutionLandValueDivisor
+		});
+	}
 ```
 
 

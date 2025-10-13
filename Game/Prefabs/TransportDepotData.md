@@ -78,7 +78,14 @@ public System.Single m_MaintenanceDuration;
 - `public Combine(Game.Prefabs.TransportDepotData otherData) : System.Void`  
 
 ```csharp
-public System.Void Combine(Game.Prefabs.TransportDepotData otherData);
+public void Combine(TransportDepotData otherData)
+	{
+		m_EnergyTypes |= otherData.m_EnergyTypes;
+		m_DispatchCenter |= otherData.m_DispatchCenter;
+		m_VehicleCapacity += otherData.m_VehicleCapacity;
+		m_ProductionDuration += otherData.m_ProductionDuration;
+		m_MaintenanceDuration += otherData.m_MaintenanceDuration;
+	}
 ```
 
 - `public Deserialize<TReader>(TReader reader) : System.Void`  

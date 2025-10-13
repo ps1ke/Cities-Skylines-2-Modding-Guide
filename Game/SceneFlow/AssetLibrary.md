@@ -72,13 +72,39 @@ public AssetLibrary();
 - `private GetCount() : System.Int32`  
 
 ```csharp
-private System.Int32 GetCount();
+private int GetCount()
+	{
+		int num = 0;
+		foreach (AssetCollection collection in m_Collections)
+		{
+			num += collection.Count;
+		}
+		return num;
+	}
 ```
 
 - `public Load(Game.Prefabs.PrefabSystem prefabSystem, System.Threading.CancellationToken token) : System.Void`  
 
 ```csharp
-public System.Void Load(Game.Prefabs.PrefabSystem prefabSystem, System.Threading.CancellationToken token);
+public void Load(PrefabSystem prefabSystem, CancellationToken token)
+	{
+		ILog log = LogManager.GetLogger("SceneFlow");
+		prefabSystem.UpdateAvailabilityCache();
+		m_ProgressCount = 0;
+		m_AssetCount = GetCount();
+		using (PerformanceCounter.Start(delegate(TimeSpan t)
+		{
+			log.InfoFormat("Added {0}/{1} explicitly referenced prefabs in {2}s", m_ProgressCount, m_AssetCount, t.TotalSeconds);
+		}))
+		{
+			foreach (AssetCollection collection in m_Collections)
+			{
+				token.ThrowIfCancellationRequested();
+				m_ProgressCount += collection.Count;
+				collection.AddPrefabsTo(prefabSystem);
+			}
+		}
+	}
 ```
 
 

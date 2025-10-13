@@ -58,31 +58,79 @@ public TutorialObjectPlacementTriggerPrefab();
 - `protected virtual GenerateBlinkTags() : System.Void`  
 
 ```csharp
-protected virtual System.Void GenerateBlinkTags();
+protected override void GenerateBlinkTags()
+	{
+		base.GenerateBlinkTags();
+		ObjectPlacementTarget[] targets = m_Targets;
+		foreach (ObjectPlacementTarget objectPlacementTarget in targets)
+		{
+			if (objectPlacementTarget.m_Target.TryGet<UIObject>(out var component) && component.m_Group is UIAssetCategoryPrefab uIAssetCategoryPrefab && uIAssetCategoryPrefab.m_Menu != null)
+			{
+				AddBlinkTagAtPosition(objectPlacementTarget.m_Target.uiTag, 0);
+				AddBlinkTagAtPosition(uIAssetCategoryPrefab.uiTag, 1);
+				AddBlinkTagAtPosition(uIAssetCategoryPrefab.m_Menu.uiTag, 2);
+			}
+		}
+	}
 ```
 
 - `public virtual GenerateTutorialLinks(Unity.Entities.EntityManager entityManager, Unity.Collections.NativeParallelHashSet<Unity.Entities.Entity> linkedPrefabs) : System.Void`  
 
 ```csharp
-public virtual System.Void GenerateTutorialLinks(Unity.Entities.EntityManager entityManager, Unity.Collections.NativeParallelHashSet<Unity.Entities.Entity> linkedPrefabs);
+public override void GenerateTutorialLinks(EntityManager entityManager, NativeParallelHashSet<Entity> linkedPrefabs)
+	{
+		base.GenerateTutorialLinks(entityManager, linkedPrefabs);
+		PrefabSystem existingSystemManaged = entityManager.World.GetExistingSystemManaged<PrefabSystem>();
+		for (int i = 0; i < m_Targets.Length; i++)
+		{
+			linkedPrefabs.Add(existingSystemManaged.GetEntity(m_Targets[i].m_Target));
+		}
+	}
 ```
 
 - `public virtual GetDependencies(System.Collections.Generic.List<Game.Prefabs.PrefabBase> prefabs) : System.Void`  
 
 ```csharp
-public virtual System.Void GetDependencies(System.Collections.Generic.List<Game.Prefabs.PrefabBase> prefabs);
+public override void GetDependencies(List<PrefabBase> prefabs)
+	{
+		base.GetDependencies(prefabs);
+		ObjectPlacementTarget[] targets = m_Targets;
+		foreach (ObjectPlacementTarget objectPlacementTarget in targets)
+		{
+			prefabs.Add(objectPlacementTarget.m_Target);
+		}
+	}
 ```
 
 - `public virtual GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetPrefabComponents(HashSet<ComponentType> components)
+	{
+		base.GetPrefabComponents(components);
+		components.Add(ComponentType.ReadWrite<ObjectPlacementTriggerData>());
+		components.Add(ComponentType.ReadWrite<ObjectPlacementTriggerCountData>());
+	}
 ```
 
 - `public virtual LateInitialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity) : System.Void`  
 
 ```csharp
-public virtual System.Void LateInitialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity);
+public override void LateInitialize(EntityManager entityManager, Entity entity)
+	{
+		base.LateInitialize(entityManager, entity);
+		DynamicBuffer<ObjectPlacementTriggerData> buffer = entityManager.GetBuffer<ObjectPlacementTriggerData>(entity);
+		PrefabSystem existingSystemManaged = entityManager.World.GetExistingSystemManaged<PrefabSystem>();
+		ObjectPlacementTarget[] targets = m_Targets;
+		foreach (ObjectPlacementTarget objectPlacementTarget in targets)
+		{
+			if (existingSystemManaged.TryGetEntity(objectPlacementTarget.m_Target, out var entity2))
+			{
+				buffer.Add(new ObjectPlacementTriggerData(entity2, objectPlacementTarget.m_Flags));
+			}
+		}
+		entityManager.SetComponentData(entity, new ObjectPlacementTriggerCountData(math.max(m_RequiredCount, 1)));
+	}
 ```
 
 

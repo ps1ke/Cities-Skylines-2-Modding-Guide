@@ -26,7 +26,10 @@ public static class Extensions
 - `public static Fire(System.Action action) : System.Void`  
 
 ```csharp
-public static System.Void Fire(System.Action action);
+public static void Fire(this Action action)
+	{
+		action?.Invoke();
+	}
 ```
 
 - `public static Fire<T>(System.Action<T> action, T arg1) : System.Void`  

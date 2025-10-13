@@ -60,7 +60,13 @@ public Unity.Entities.Entity m_SelectedSound;
 - `public CitizenSelectedSoundData(System.Boolean isSickOrInjured, Game.Citizens.CitizenAge age, Game.Citizens.CitizenHappiness happiness, Unity.Entities.Entity selectedSound)`  
 
 ```csharp
-public CitizenSelectedSoundData(System.Boolean isSickOrInjured, Game.Citizens.CitizenAge age, Game.Citizens.CitizenHappiness happiness, Unity.Entities.Entity selectedSound);
+public CitizenSelectedSoundData(bool isSickOrInjured, CitizenAge age, CitizenHappiness happiness, Entity selectedSound)
+	{
+		m_IsSickOrInjured = isSickOrInjured;
+		m_Age = age;
+		m_Happiness = happiness;
+		m_SelectedSound = selectedSound;
+	}
 ```
 
 
@@ -69,13 +75,27 @@ public CitizenSelectedSoundData(System.Boolean isSickOrInjured, Game.Citizens.Ci
 - `public Equals(Game.Citizens.CitizenSelectedSoundData other) : System.Boolean`  
 
 ```csharp
-public System.Boolean Equals(Game.Citizens.CitizenSelectedSoundData other);
+public bool Equals(CitizenSelectedSoundData other)
+	{
+		if (!m_IsSickOrInjured.Equals(other.m_IsSickOrInjured) || !m_Age.Equals(other.m_Age))
+		{
+			return false;
+		}
+		if (!m_IsSickOrInjured)
+		{
+			return m_Happiness.Equals(other.m_Happiness);
+		}
+		return true;
+	}
 ```
 
 - `public virtual GetHashCode() : System.Int32`  
 
 ```csharp
-public virtual System.Int32 GetHashCode();
+public override int GetHashCode()
+	{
+		return (m_IsSickOrInjured, m_Age, m_Happiness).GetHashCode();
+	}
 ```
 
 

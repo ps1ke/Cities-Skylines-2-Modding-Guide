@@ -44,7 +44,11 @@ public System.Single m_Priority;
 - `public EvacuationRequest(Unity.Entities.Entity target, System.Single priority)`  
 
 ```csharp
-public EvacuationRequest(Unity.Entities.Entity target, System.Single priority);
+public EvacuationRequest(Entity target, float priority)
+	{
+		m_Target = target;
+		m_Priority = priority;
+	}
 ```
 
 

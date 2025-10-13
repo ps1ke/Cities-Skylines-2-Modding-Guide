@@ -71,13 +71,35 @@ public SeasonWheel();
 - `protected virtual Update() : Game.UI.Widgets.WidgetChanges`  
 
 ```csharp
-protected virtual Game.UI.Widgets.WidgetChanges Update();
+protected override WidgetChanges Update()
+	{
+		WidgetChanges widgetChanges = base.Update();
+		if (adapter.selectedSeason != m_SelectedSeason)
+		{
+			widgetChanges |= WidgetChanges.Properties;
+			m_SelectedSeason = adapter.selectedSeason;
+		}
+		if (!m_Seasons.SequenceEqual(adapter.seasons))
+		{
+			widgetChanges |= WidgetChanges.Properties;
+			m_Seasons.Clear();
+			m_Seasons.AddRange(adapter.seasons);
+		}
+		return widgetChanges;
+	}
 ```
 
 - `protected virtual WriteProperties(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-protected virtual System.Void WriteProperties(Colossal.UI.Binding.IJsonWriter writer);
+protected override void WriteProperties(IJsonWriter writer)
+	{
+		base.WriteProperties(writer);
+		writer.PropertyName("selectedSeason");
+		writer.Write(m_SelectedSeason);
+		writer.PropertyName("seasons");
+		writer.Write((IList<Season>)m_Seasons);
+	}
 ```
 
 

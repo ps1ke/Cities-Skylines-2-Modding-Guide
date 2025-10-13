@@ -87,7 +87,17 @@ public Game.UI.Localization.LocalizationBindings+DebugMode debugMode { get; set;
 - `public LocalizationBindings(Colossal.Localization.LocalizationManager localizationManager)`  
 
 ```csharp
-public LocalizationBindings(Colossal.Localization.LocalizationManager localizationManager);
+public LocalizationBindings(LocalizationManager localizationManager)
+	{
+		m_LocalizationManager = localizationManager;
+		AddBinding(m_LocalesBinding = new GetterValueBinding<string[]>("l10n", "locales", () => m_LocalizationManager.GetSupportedLocales(), new ArrayWriter<string>(new StringWriter())));
+		AddBinding(m_DebugModeBinding = new ValueBinding<int>("l10n", "debugMode", 0));
+		AddBinding(m_ActiveDictionaryChangedBinding = new EventBinding("l10n", "activeDictionaryChanged"));
+		AddBinding(m_IndexCountsBinding = new RawMapBinding<string>("l10n", "indexCounts", BindIndexCounts));
+		AddBinding(new TriggerBinding<string>("l10n", "selectLocale", SelectLocale));
+		m_LocalizationManager.onSupportedLocalesChanged += OnSupportedLocalesChanged;
+		m_LocalizationManager.onActiveDictionaryChanged += OnActiveDictionaryChanged;
+	}
 ```
 
 
@@ -102,31 +112,53 @@ private System.String[] <.ctor>b__9_0();
 - `private BindIndexCounts(Colossal.UI.Binding.IJsonWriter binder, System.String key) : System.Void`  
 
 ```csharp
-private System.Void BindIndexCounts(Colossal.UI.Binding.IJsonWriter binder, System.String key);
+private void BindIndexCounts(IJsonWriter binder, string key)
+	{
+		binder.Write(m_LocalizationManager.activeDictionary.indexCounts.TryGetValue(key, out var value) ? value : 0);
+	}
 ```
 
 - `public Dispose() : System.Void`  
 
 ```csharp
-public System.Void Dispose();
+public void Dispose()
+	{
+		m_LocalizationManager.onSupportedLocalesChanged -= OnSupportedLocalesChanged;
+		m_LocalizationManager.onActiveDictionaryChanged -= OnActiveDictionaryChanged;
+	}
 ```
 
 - `private OnActiveDictionaryChanged() : System.Void`  
 
 ```csharp
-private System.Void OnActiveDictionaryChanged();
+private void OnActiveDictionaryChanged()
+	{
+		m_ActiveDictionaryChangedBinding.Trigger();
+		m_IndexCountsBinding.UpdateAll();
+	}
 ```
 
 - `private OnSupportedLocalesChanged() : System.Void`  
 
 ```csharp
-private System.Void OnSupportedLocalesChanged();
+private void OnSupportedLocalesChanged()
+	{
+		m_LocalesBinding.Update();
+	}
 ```
 
 - `private SelectLocale(System.String localeID) : System.Void`  
 
 ```csharp
-private System.Void SelectLocale(System.String localeID);
+private void SelectLocale(string localeID)
+	{
+		m_LocalizationManager?.SetActiveLocale(localeID);
+		InterfaceSettings interfaceSettings = SharedSettings.instance?.userInterface;
+		if (interfaceSettings != null)
+		{
+			interfaceSettings.locale = localeID;
+		}
+	}
 ```
 
 

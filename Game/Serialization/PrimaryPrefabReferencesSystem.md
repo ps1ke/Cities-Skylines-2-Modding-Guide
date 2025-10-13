@@ -152,7 +152,10 @@ private Game.Serialization.PrimaryPrefabReferencesSystem+TypeHandle __TypeHandle
 - `public PrimaryPrefabReferencesSystem()`  
 
 ```csharp
-public PrimaryPrefabReferencesSystem();
+[Preserve]
+	public PrimaryPrefabReferencesSystem()
+	{
+	}
 ```
 
 
@@ -161,25 +164,133 @@ public PrimaryPrefabReferencesSystem();
 - `private __AssignQueries(Unity.Entities.SystemState& state) : System.Void`  
 
 ```csharp
-private System.Void __AssignQueries(Unity.Entities.SystemState& state);
+private void __AssignQueries(ref SystemState state)
+	{
+		new EntityQueryBuilder(Allocator.Temp).Dispose();
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_CheckPrefabReferencesSystem = base.World.GetOrCreateSystemManaged<CheckPrefabReferencesSystem>();
+		m_CityConfigurationSystem = base.World.GetOrCreateSystemManaged<CityConfigurationSystem>();
+		m_ClimateSystem = base.World.GetOrCreateSystemManaged<ClimateSystem>();
+		m_TerrainMaterialSystem = base.World.GetOrCreateSystemManaged<TerrainMaterialSystem>();
+		m_PrefabRefQuery = GetEntityQuery(ComponentType.ReadOnly<PrefabRef>(), ComponentType.Exclude<NetCompositionData>(), ComponentType.Exclude<EffectInstance>(), ComponentType.Exclude<LivePath>(), ComponentType.Exclude<Temp>(), ComponentType.Exclude<Deleted>());
+		m_SetLevelQuery = GetEntityQuery(ComponentType.ReadOnly<UnderConstruction>(), ComponentType.Exclude<Temp>(), ComponentType.Exclude<Deleted>());
+		m_CompanyDataQuery = GetEntityQuery(ComponentType.ReadOnly<CompanyData>(), ComponentType.Exclude<Temp>(), ComponentType.Exclude<Deleted>());
+		m_PolicyQuery = GetEntityQuery(ComponentType.ReadOnly<Policy>(), ComponentType.Exclude<Temp>(), ComponentType.Exclude<Deleted>());
+		m_ServiceBudgetQuery = GetEntityQuery(ComponentType.ReadOnly<ServiceBudgetData>());
+		m_AtmosphereQuery = GetEntityQuery(ComponentType.ReadOnly<AtmosphereData>());
+		m_BiomeQuery = GetEntityQuery(ComponentType.ReadOnly<BiomeData>());
+		m_VehicleModelQuery = GetEntityQuery(ComponentType.ReadOnly<VehicleModel>(), ComponentType.Exclude<Temp>(), ComponentType.Exclude<Deleted>());
+		m_EditorContainerQuery = GetEntityQuery(ComponentType.ReadOnly<Game.Tools.EditorContainer>(), ComponentType.Exclude<Temp>(), ComponentType.Exclude<Deleted>());
+		m_ChirpQuery = GetEntityQuery(ComponentType.ReadOnly<Game.Triggers.Chirp>(), ComponentType.Exclude<Temp>(), ComponentType.Exclude<Deleted>());
+		m_SubReplacementQuery = GetEntityQuery(ComponentType.ReadOnly<SubReplacement>(), ComponentType.Exclude<Temp>(), ComponentType.Exclude<Deleted>());
+	}
 ```
 
 - `protected virtual OnCreateForCompiler() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreateForCompiler();
+protected override void OnCreateForCompiler()
+	{
+		base.OnCreateForCompiler();
+		__AssignQueries(ref base.CheckedStateRef);
+		__TypeHandle.__AssignHandles(ref base.CheckedStateRef);
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		JobHandle dependencies;
+		PrefabReferences references = m_CheckPrefabReferencesSystem.GetPrefabReferences(this, out dependencies);
+		dependencies = JobHandle.CombineDependencies(base.Dependency, dependencies);
+		FixPrefabRefJob jobData = new FixPrefabRefJob
+		{
+			m_PrefabRefType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_PrefabRef_RW_ComponentTypeHandle, ref base.CheckedStateRef),
+			m_PrefabReferences = references
+		};
+		FixUnderConstructionJob jobData2 = new FixUnderConstructionJob
+		{
+			m_UnderConstructionType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Objects_UnderConstruction_RW_ComponentTypeHandle, ref base.CheckedStateRef),
+			m_PrefabReferences = references
+		};
+		FixCompanyDataJob jobData3 = new FixCompanyDataJob
+		{
+			m_CompanyDataType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Companies_CompanyData_RW_ComponentTypeHandle, ref base.CheckedStateRef),
+			m_PrefabReferences = references
+		};
+		FixPolicyJob jobData4 = new FixPolicyJob
+		{
+			m_PolicyType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Policies_Policy_RW_BufferTypeHandle, ref base.CheckedStateRef),
+			m_PrefabReferences = references
+		};
+		FixServiceBudgetJob jobData5 = new FixServiceBudgetJob
+		{
+			m_BudgetType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Simulation_ServiceBudgetData_RW_BufferTypeHandle, ref base.CheckedStateRef),
+			m_PrefabReferences = references
+		};
+		FixAtmosphereJob jobData6 = new FixAtmosphereJob
+		{
+			m_AtmosphereType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Simulation_AtmosphereData_RW_ComponentTypeHandle, ref base.CheckedStateRef),
+			m_PrefabReferences = references
+		};
+		FixBiomeJob jobData7 = new FixBiomeJob
+		{
+			m_BiomeType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Simulation_BiomeData_RW_ComponentTypeHandle, ref base.CheckedStateRef),
+			m_PrefabReferences = references
+		};
+		FixVehicleModelJob jobData8 = new FixVehicleModelJob
+		{
+			m_VehicleModelType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Routes_VehicleModel_RW_ComponentTypeHandle, ref base.CheckedStateRef),
+			m_PrefabReferences = references
+		};
+		FixEditorContainerJob jobData9 = new FixEditorContainerJob
+		{
+			m_EditorContainerType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Tools_EditorContainer_RW_ComponentTypeHandle, ref base.CheckedStateRef),
+			m_PrefabReferences = references
+		};
+		FixChirpJob jobData10 = new FixChirpJob
+		{
+			m_ChirpType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Triggers_Chirp_RW_ComponentTypeHandle, ref base.CheckedStateRef),
+			m_ChirpEntityType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Triggers_ChirpEntity_RW_BufferTypeHandle, ref base.CheckedStateRef),
+			m_PrefabDatas = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_PrefabData_RO_ComponentLookup, ref base.CheckedStateRef),
+			m_PrefabReferences = references
+		};
+		FixSubReplacementJob jobData11 = new FixSubReplacementJob
+		{
+			m_SubReplacementType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Net_SubReplacement_RW_BufferTypeHandle, ref base.CheckedStateRef),
+			m_PrefabReferences = references
+		};
+		JobHandle job = JobChunkExtensions.ScheduleParallel(jobData, m_PrefabRefQuery, dependencies);
+		JobHandle job2 = JobChunkExtensions.ScheduleParallel(jobData2, m_SetLevelQuery, dependencies);
+		JobHandle job3 = JobChunkExtensions.ScheduleParallel(jobData3, m_CompanyDataQuery, dependencies);
+		JobHandle job4 = JobChunkExtensions.ScheduleParallel(jobData4, m_PolicyQuery, dependencies);
+		JobHandle job5 = JobChunkExtensions.ScheduleParallel(jobData5, m_ServiceBudgetQuery, dependencies);
+		JobHandle job6 = JobChunkExtensions.ScheduleParallel(jobData6, m_AtmosphereQuery, dependencies);
+		JobHandle job7 = JobChunkExtensions.ScheduleParallel(jobData7, m_BiomeQuery, dependencies);
+		JobHandle job8 = JobChunkExtensions.ScheduleParallel(jobData8, m_VehicleModelQuery, dependencies);
+		JobHandle job9 = JobChunkExtensions.ScheduleParallel(jobData9, m_EditorContainerQuery, dependencies);
+		JobHandle job10 = JobChunkExtensions.ScheduleParallel(jobData10, m_ChirpQuery, dependencies);
+		JobHandle job11 = JobChunkExtensions.ScheduleParallel(jobData11, m_SubReplacementQuery, dependencies);
+		dependencies.Complete();
+		m_CityConfigurationSystem.PatchReferences(ref references);
+		m_ClimateSystem.PatchReferences(ref references);
+		m_TerrainMaterialSystem.PatchReferences(ref references);
+		dependencies = JobUtils.CombineDependencies(job9, job8, job, job3, job4, job5, job2, job6, job7, job10, job11);
+		m_CheckPrefabReferencesSystem.AddPrefabReferencesUser(dependencies);
+		base.Dependency = dependencies;
+	}
 ```
 
 

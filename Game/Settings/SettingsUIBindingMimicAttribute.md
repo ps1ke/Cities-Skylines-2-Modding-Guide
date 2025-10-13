@@ -43,7 +43,11 @@ public readonly System.String action;
 - `public SettingsUIBindingMimicAttribute(System.String map, System.String action)`  
 
 ```csharp
-public SettingsUIBindingMimicAttribute(System.String map, System.String action);
+public SettingsUIBindingMimicAttribute(string map, string action)
+	{
+		this.map = map;
+		this.action = action;
+	}
 ```
 
 

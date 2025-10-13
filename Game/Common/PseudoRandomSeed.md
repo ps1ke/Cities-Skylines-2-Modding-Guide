@@ -172,13 +172,19 @@ public static readonly System.UInt16 kParkedCars;
 - `public PseudoRandomSeed(System.UInt16 seed)`  
 
 ```csharp
-public PseudoRandomSeed(System.UInt16 seed);
+public PseudoRandomSeed(ref Random random)
+	{
+		m_Seed = (ushort)random.NextUInt(65536u);
+	}
 ```
 
 - `public PseudoRandomSeed(Unity.Mathematics.Random& random)`  
 
 ```csharp
-public PseudoRandomSeed(Unity.Mathematics.Random& random);
+public PseudoRandomSeed(ref Random random)
+	{
+		m_Seed = (ushort)random.NextUInt(65536u);
+	}
 ```
 
 
@@ -193,7 +199,13 @@ public System.Void Deserialize<TReader>(TReader reader);
 - `public GetRandom(System.UInt32 reason) : Unity.Mathematics.Random`  
 
 ```csharp
-public Unity.Mathematics.Random GetRandom(System.UInt32 reason);
+public Random GetRandom(uint reason)
+	{
+		Random result = new Random(math.max(1u, m_Seed ^ reason));
+		result.NextUInt();
+		result.NextUInt();
+		return result;
+	}
 ```
 
 - `public Serialize<TWriter>(TWriter writer) : System.Void`  

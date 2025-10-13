@@ -134,13 +134,19 @@ private static Game.Settings.LevelOfDetailQualitySettings veryLowQuality { priva
 - `public LevelOfDetailQualitySettings()`  
 
 ```csharp
-public LevelOfDetailQualitySettings();
+public LevelOfDetailQualitySettings(Level quality)
+	{
+		SetLevel(quality, apply: false);
+	}
 ```
 
 - `public LevelOfDetailQualitySettings(Game.Settings.QualitySetting+Level quality)`  
 
 ```csharp
-public LevelOfDetailQualitySettings(Game.Settings.QualitySetting+Level quality);
+public LevelOfDetailQualitySettings(Level quality)
+	{
+		SetLevel(quality, apply: false);
+	}
 ```
 
 
@@ -149,7 +155,23 @@ public LevelOfDetailQualitySettings(Game.Settings.QualitySetting+Level quality);
 - `public virtual Apply() : System.Void`  
 
 ```csharp
-public virtual System.Void Apply();
+public override void Apply()
+	{
+		base.Apply();
+		RenderingSystem renderingSystem = World.DefaultGameObjectInjectionWorld?.GetExistingSystemManaged<RenderingSystem>();
+		if (renderingSystem != null)
+		{
+			renderingSystem.levelOfDetail = levelOfDetail;
+			renderingSystem.lodCrossFade = lodCrossFade;
+			renderingSystem.maxLightCount = maxLightCount;
+		}
+		BatchMeshSystem batchMeshSystem = World.DefaultGameObjectInjectionWorld?.GetExistingSystemManaged<BatchMeshSystem>();
+		if (batchMeshSystem != null)
+		{
+			batchMeshSystem.memoryBudget = (ulong)meshMemoryBudget * 1048576uL;
+			batchMeshSystem.strictMemoryBudget = strictMeshMemory;
+		}
+	}
 ```
 
 

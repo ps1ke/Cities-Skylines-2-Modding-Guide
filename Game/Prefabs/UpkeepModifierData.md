@@ -44,7 +44,19 @@ public System.Single m_Multiplier;
 - `public Combine(Unity.Collections.NativeList<Game.Prefabs.UpkeepModifierData> result) : System.Void`  
 
 ```csharp
-public System.Void Combine(Unity.Collections.NativeList<Game.Prefabs.UpkeepModifierData> result);
+public void Combine(NativeList<UpkeepModifierData> result)
+	{
+		for (int i = 0; i < result.Length; i++)
+		{
+			ref UpkeepModifierData reference = ref result.ElementAt(i);
+			if (reference.m_Resource == m_Resource)
+			{
+				reference.m_Multiplier *= m_Multiplier;
+				return;
+			}
+		}
+		result.Add(in this);
+	}
 ```
 
 - `public Deserialize<TReader>(TReader reader) : System.Void`  
@@ -62,7 +74,11 @@ public System.Void Serialize<TWriter>(TWriter writer);
 - `public Transform(System.Single upkeep) : System.Single`  
 
 ```csharp
-public System.Single Transform(System.Single upkeep);
+public float Transform(float upkeep)
+	{
+		upkeep *= m_Multiplier;
+		return upkeep;
+	}
 ```
 
 

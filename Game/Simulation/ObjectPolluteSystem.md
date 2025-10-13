@@ -83,7 +83,10 @@ public static readonly System.Int32 kUpdatesPerDay;
 - `public ObjectPolluteSystem()`  
 
 ```csharp
-public ObjectPolluteSystem();
+[Preserve]
+	public ObjectPolluteSystem()
+	{
+	}
 ```
 
 
@@ -92,31 +95,71 @@ public ObjectPolluteSystem();
 - `private __AssignQueries(Unity.Entities.SystemState& state) : System.Void`  
 
 ```csharp
-private System.Void __AssignQueries(Unity.Entities.SystemState& state);
+private void __AssignQueries(ref SystemState state)
+	{
+		new EntityQueryBuilder(Allocator.Temp).Dispose();
+	}
 ```
 
 - `public virtual GetUpdateInterval(Game.SystemUpdatePhase phase) : System.Int32`  
 
 ```csharp
-public virtual System.Int32 GetUpdateInterval(Game.SystemUpdatePhase phase);
+public override int GetUpdateInterval(SystemUpdatePhase phase)
+	{
+		return 262144 / (kUpdatesPerDay * 16);
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_GroundPollutionSystem = base.World.GetOrCreateSystemManaged<GroundPollutionSystem>();
+		m_AirPollutionSystem = base.World.GetOrCreateSystemManaged<AirPollutionSystem>();
+		m_SimulationSystem = base.World.GetOrCreateSystemManaged<SimulationSystem>();
+		m_PollutionParameterQuery = GetEntityQuery(ComponentType.ReadOnly<PollutionParameterData>());
+		m_PollutableObjectQuery = GetEntityQuery(ComponentType.ReadOnly<Plant>(), ComponentType.ReadOnly<Transform>(), ComponentType.ReadOnly<UpdateFrame>(), ComponentType.Exclude<Deleted>(), ComponentType.Exclude<Temp>());
+	}
 ```
 
 - `protected virtual OnCreateForCompiler() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreateForCompiler();
+protected override void OnCreateForCompiler()
+	{
+		base.OnCreateForCompiler();
+		__AssignQueries(ref base.CheckedStateRef);
+		__TypeHandle.__AssignHandles(ref base.CheckedStateRef);
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		uint updateFrame = SimulationUtils.GetUpdateFrame(m_SimulationSystem.frameIndex, kUpdatesPerDay, 16);
+		m_PollutableObjectQuery.ResetFilter();
+		m_PollutableObjectQuery.SetSharedComponentFilter(new UpdateFrame(updateFrame));
+		JobHandle dependencies;
+		JobHandle dependencies2;
+		JobHandle jobHandle = JobChunkExtensions.ScheduleParallel(new ObjectPolluteJob
+		{
+			m_EntityType = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef),
+			m_PlantType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Objects_Plant_RW_ComponentTypeHandle, ref base.CheckedStateRef),
+			m_TransformType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Objects_Transform_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+			m_GroundPollutionMap = m_GroundPollutionSystem.GetMap(readOnly: true, out dependencies),
+			m_AirPollutionMap = m_AirPollutionSystem.GetMap(readOnly: true, out dependencies2),
+			m_PollutionParameters = m_PollutionParameterQuery.GetSingleton<PollutionParameterData>()
+		}, m_PollutableObjectQuery, JobHandle.CombineDependencies(dependencies2, base.Dependency, dependencies));
+		m_GroundPollutionSystem.AddReader(jobHandle);
+		m_AirPollutionSystem.AddReader(jobHandle);
+		base.Dependency = jobHandle;
+	}
 ```
 
 

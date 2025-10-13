@@ -48,13 +48,28 @@ public AgeStatistic();
 - `public virtual GetParameterName(System.Int32 parameter) : System.String`  
 
 ```csharp
-public virtual System.String GetParameterName(System.Int32 parameter);
+public override string GetParameterName(int parameter)
+	{
+		return Enum.GetName(typeof(CitizenAge), parameter);
+	}
 ```
 
 - `public virtual GetParameters() : System.Collections.Generic.IEnumerable<Game.Prefabs.StatisticParameterData>`  
 
 ```csharp
-public virtual System.Collections.Generic.IEnumerable<Game.Prefabs.StatisticParameterData> GetParameters();
+public override IEnumerable<StatisticParameterData> GetParameters()
+	{
+		if (m_AgeGroups != null)
+		{
+			int i = 0;
+			while (i < m_AgeGroups.Length)
+			{
+				yield return new StatisticParameterData((int)m_AgeGroups[i].m_Group, m_AgeGroups[i].m_Color);
+				int num = i + 1;
+				i = num;
+			}
+		}
+	}
 ```
 
 

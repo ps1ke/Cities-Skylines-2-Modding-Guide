@@ -112,7 +112,20 @@ protected Bounds1Field();
 - `protected virtual WriteProperties(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-protected virtual System.Void WriteProperties(Colossal.UI.Binding.IJsonWriter writer);
+protected override void WriteProperties(IJsonWriter writer)
+	{
+		base.WriteProperties(writer);
+		writer.PropertyName("min");
+		writer.Write(min);
+		writer.PropertyName("max");
+		writer.Write(max);
+		writer.PropertyName("fractionDigits");
+		writer.Write(fractionDigits);
+		writer.PropertyName("step");
+		writer.Write(step);
+		writer.PropertyName("allowMinGreaterMax");
+		writer.Write(allowMinGreaterMax);
+	}
 ```
 
 

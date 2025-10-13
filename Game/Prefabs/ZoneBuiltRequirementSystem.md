@@ -116,7 +116,10 @@ private Game.Prefabs.ZoneBuiltRequirementSystem+TypeHandle __TypeHandle;
 - `public ZoneBuiltRequirementSystem()`  
 
 ```csharp
-public ZoneBuiltRequirementSystem();
+[Preserve]
+	public ZoneBuiltRequirementSystem()
+	{
+	}
 ```
 
 
@@ -125,55 +128,151 @@ public ZoneBuiltRequirementSystem();
 - `private __AssignQueries(Unity.Entities.SystemState& state) : System.Void`  
 
 ```csharp
-private System.Void __AssignQueries(Unity.Entities.SystemState& state);
+private void __AssignQueries(ref SystemState state)
+	{
+		new EntityQueryBuilder(Allocator.Temp).Dispose();
+	}
 ```
 
 - `public AddWriter(Unity.Jobs.JobHandle jobHandle) : System.Void`  
 
 ```csharp
-public System.Void AddWriter(Unity.Jobs.JobHandle jobHandle);
+public void AddWriter(JobHandle jobHandle)
+	{
+		m_QueueWriteDeps = JobHandle.CombineDependencies(jobHandle, m_QueueWriteDeps);
+	}
 ```
 
 - `private GetLoaded() : System.Boolean`  
 
 ```csharp
-private System.Boolean GetLoaded();
+private bool GetLoaded()
+	{
+		if (m_Loaded)
+		{
+			m_Loaded = false;
+			return true;
+		}
+		return false;
+	}
 ```
 
 - `public GetZoneBuiltLevelQueue(Unity.Jobs.JobHandle& deps) : Unity.Collections.NativeQueue<Game.Prefabs.ZoneBuiltLevelUpdate>`  
 
 ```csharp
-public Unity.Collections.NativeQueue<Game.Prefabs.ZoneBuiltLevelUpdate> GetZoneBuiltLevelQueue(Unity.Jobs.JobHandle& deps);
+public NativeQueue<ZoneBuiltLevelUpdate> GetZoneBuiltLevelQueue(out JobHandle deps)
+	{
+		deps = m_QueueWriteDeps;
+		return m_ZoneBuiltLevelQueue;
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_ModificationBarrier = base.World.GetOrCreateSystemManaged<ModificationBarrier5>();
+		m_UpdatedBuildingsQuery = GetEntityQuery(new EntityQueryDesc
+		{
+			All = new ComponentType[1] { ComponentType.ReadOnly<Building>() },
+			Any = new ComponentType[2]
+			{
+				ComponentType.ReadOnly<Created>(),
+				ComponentType.ReadOnly<Deleted>()
+			},
+			None = new ComponentType[1] { ComponentType.ReadOnly<Temp>() }
+		});
+		m_AllBuildingsQuery = GetEntityQuery(ComponentType.ReadOnly<Building>(), ComponentType.Exclude<Temp>());
+		m_RequirementQuery = GetEntityQuery(ComponentType.ReadOnly<ZoneBuiltRequirementData>(), ComponentType.ReadWrite<UnlockRequirementData>(), ComponentType.ReadOnly<Locked>());
+		m_UnlockEventArchetype = base.EntityManager.CreateArchetype(ComponentType.ReadWrite<Event>(), ComponentType.ReadWrite<Unlock>());
+		m_ZoneBuiltData = new NativeParallelHashMap<ZoneBuiltDataKey, ZoneBuiltDataValue>(20, Allocator.Persistent);
+		m_ZoneBuiltLevelQueue = new NativeQueue<ZoneBuiltLevelUpdate>(Allocator.Persistent);
+	}
 ```
 
 - `protected virtual OnCreateForCompiler() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreateForCompiler();
+protected override void OnCreateForCompiler()
+	{
+		base.OnCreateForCompiler();
+		__AssignQueries(ref base.CheckedStateRef);
+		__TypeHandle.__AssignHandles(ref base.CheckedStateRef);
+	}
 ```
 
 - `protected virtual OnDestroy() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnDestroy();
+[Preserve]
+	protected override void OnDestroy()
+	{
+		m_ZoneBuiltData.Dispose();
+		m_ZoneBuiltLevelQueue.Dispose();
+		base.OnDestroy();
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		EntityQuery entityQuery = (GetLoaded() ? m_AllBuildingsQuery : m_UpdatedBuildingsQuery);
+		if (!entityQuery.IsEmptyIgnoreFilter || !m_ZoneBuiltLevelQueue.IsEmpty())
+		{
+			JobHandle outJobHandle;
+			NativeList<ArchetypeChunk> buildingChunks = entityQuery.ToArchetypeChunkListAsync(Allocator.TempJob, out outJobHandle);
+			JobHandle jobHandle = IJobExtensions.Schedule(new UpdateZoneBuiltDataJob
+			{
+				m_BuildingChunks = buildingChunks,
+				m_ZoneBuiltData = m_ZoneBuiltData,
+				m_ZoneBuiltLevelQueue = m_ZoneBuiltLevelQueue,
+				m_DeletedType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Common_Deleted_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+				m_PrefabRefType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+				m_SpawnableBuildingData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_SpawnableBuildingData_RO_ComponentLookup, ref base.CheckedStateRef),
+				m_BuildingData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_BuildingData_RO_ComponentLookup, ref base.CheckedStateRef)
+			}, JobHandle.CombineDependencies(base.Dependency, outJobHandle, m_QueueWriteDeps));
+			buildingChunks.Dispose(jobHandle);
+			m_WriteDeps = jobHandle;
+			if (!m_RequirementQuery.IsEmptyIgnoreFilter)
+			{
+				JobHandle jobHandle2 = JobChunkExtensions.ScheduleParallel(new ZoneBuiltRequirementJob
+				{
+					m_ZoneBuiltData = m_ZoneBuiltData,
+					m_UnlockEventArchetype = m_UnlockEventArchetype,
+					m_CommandBuffer = m_ModificationBarrier.CreateCommandBuffer().AsParallelWriter(),
+					m_EntityType = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef),
+					m_ZoneBuiltRequirementType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_ZoneBuiltRequirementData_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+					m_UnlockRequirementType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_UnlockRequirementData_RW_ComponentTypeHandle, ref base.CheckedStateRef),
+					m_ZoneData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_ZoneData_RO_ComponentLookup, ref base.CheckedStateRef),
+					m_ThemeData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_ThemeData_RO_ComponentLookup, ref base.CheckedStateRef),
+					m_ObjectRequirementElements = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Prefabs_ObjectRequirementElement_RO_BufferLookup, ref base.CheckedStateRef)
+				}, m_RequirementQuery, jobHandle);
+				m_ModificationBarrier.AddJobHandleForProducer(jobHandle2);
+				base.Dependency = jobHandle2;
+			}
+			else
+			{
+				base.Dependency = jobHandle;
+			}
+		}
+	}
 ```
 
 - `public PreDeserialize(Colossal.Serialization.Entities.Context context) : System.Void`  
 
 ```csharp
-public System.Void PreDeserialize(Colossal.Serialization.Entities.Context context);
+public void PreDeserialize(Context context)
+	{
+		m_WriteDeps.Complete();
+		m_ZoneBuiltData.Clear();
+		m_Loaded = true;
+	}
 ```
 
 

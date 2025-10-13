@@ -60,7 +60,10 @@ private System.Int32 comfort { private get; private set; }
 - `public ComfortSection()`  
 
 ```csharp
-public ComfortSection();
+[Preserve]
+	public ComfortSection()
+	{
+	}
 ```
 
 
@@ -69,31 +72,70 @@ public ComfortSection();
 - `protected virtual OnProcess() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnProcess();
+protected override void OnProcess()
+	{
+		float num = 0f;
+		TransportStation component2;
+		ParkingFacility component3;
+		if (base.EntityManager.TryGetComponent<TransportStop>(selectedEntity, out var component))
+		{
+			num = component.m_ComfortFactor;
+			base.tooltipKeys.Add("TransportStop");
+		}
+		else if (base.EntityManager.TryGetComponent<TransportStation>(selectedEntity, out component2))
+		{
+			num = component2.m_ComfortFactor;
+			base.tooltipKeys.Add("TransportStation");
+		}
+		else if (base.EntityManager.TryGetComponent<ParkingFacility>(selectedEntity, out component3))
+		{
+			num = component3.m_ComfortFactor;
+			base.tooltipKeys.Add("Parking");
+		}
+		comfort = (int)math.round(100f * num);
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		base.visible = Visible();
+	}
 ```
 
 - `public virtual OnWriteProperties(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-public virtual System.Void OnWriteProperties(Colossal.UI.Binding.IJsonWriter writer);
+public override void OnWriteProperties(IJsonWriter writer)
+	{
+		writer.PropertyName("comfort");
+		writer.Write(comfort);
+	}
 ```
 
 - `protected virtual Reset() : System.Void`  
 
 ```csharp
-protected virtual System.Void Reset();
+protected override void Reset()
+	{
+		comfort = 0;
+	}
 ```
 
 - `private Visible() : System.Boolean`  
 
 ```csharp
-private System.Boolean Visible();
+private bool Visible()
+	{
+		if ((base.EntityManager.HasComponent<MailBox>(selectedEntity) || !base.EntityManager.HasComponent<TransportStop>(selectedEntity)) && (!base.EntityManager.HasComponent<TransportStation>(selectedEntity) || !base.EntityManager.HasComponent<PublicTransportStation>(selectedEntity)))
+		{
+			return base.EntityManager.HasComponent<ParkingFacility>(selectedEntity);
+		}
+		return true;
+	}
 ```
 
 

@@ -66,7 +66,22 @@ public CinematicCameraAsset();
 - `public Write(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-public System.Void Write(Colossal.UI.Binding.IJsonWriter writer);
+public void Write(IJsonWriter writer)
+	{
+		SourceMeta meta = GetMeta();
+		writer.TypeBegin("CinematicCameraAsset");
+		writer.PropertyName("name");
+		writer.Write(name);
+		writer.PropertyName("guid");
+		writer.Write(base.id.guid.ToString());
+		writer.PropertyName("identifier");
+		writer.Write(base.identifier);
+		writer.PropertyName(kCloudTargetProperty);
+		writer.Write(MenuHelpers.GetSanitizedCloudTarget(meta.remoteStorageSourceName).name);
+		writer.PropertyName(kReadOnlyProperty);
+		writer.Write(!meta.belongsToCurrentUser);
+		writer.TypeEnd();
+	}
 ```
 
 

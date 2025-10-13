@@ -62,13 +62,25 @@ public TerraformingPrefab();
 - `public virtual GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetPrefabComponents(HashSet<ComponentType> components)
+	{
+		base.GetPrefabComponents(components);
+		components.Add(ComponentType.ReadWrite<TerraformingData>());
+		components.Add(ComponentType.ReadWrite<PlaceableInfoviewItem>());
+	}
 ```
 
 - `public virtual Initialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity) : System.Void`  
 
 ```csharp
-public virtual System.Void Initialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity);
+public override void Initialize(EntityManager entityManager, Entity entity)
+	{
+		base.Initialize(entityManager, entity);
+		TerraformingData componentData = default(TerraformingData);
+		componentData.m_Type = m_Type;
+		componentData.m_Target = m_Target;
+		entityManager.SetComponentData(entity, componentData);
+	}
 ```
 
 

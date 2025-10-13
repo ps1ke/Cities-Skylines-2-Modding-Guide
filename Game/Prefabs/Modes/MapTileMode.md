@@ -56,19 +56,64 @@ public MapTileMode();
 - `public virtual ApplyModeData(Unity.Entities.EntityManager entityManager, Game.Prefabs.PrefabSystem prefabSystem) : System.Void`  
 
 ```csharp
-public virtual System.Void ApplyModeData(Unity.Entities.EntityManager entityManager, Game.Prefabs.PrefabSystem prefabSystem);
+public override void ApplyModeData(EntityManager entityManager, PrefabSystem prefabSystem)
+	{
+		MapTilePrefab mapTilePrefab = m_Prefab;
+		if (mapTilePrefab == null)
+		{
+			ComponentBase.baseLog.Critical($"Target not found {this}");
+			return;
+		}
+		Entity entity = prefabSystem.GetEntity(mapTilePrefab);
+		DynamicBuffer<MapFeatureData> buffer = entityManager.GetBuffer<MapFeatureData>(entity);
+		for (int i = 0; i < m_MapFeatures.Length; i++)
+		{
+			MapTilePrefab.FeatureInfo featureInfo = m_MapFeatures[i];
+			buffer[(int)featureInfo.m_MapFeature] = new MapFeatureData(featureInfo.m_Cost);
+		}
+		TilePurchaseCostFactor componentData = new TilePurchaseCostFactor(mapTilePrefab.m_PurchaseCostFactor);
+		entityManager.SetComponentData(entity, componentData);
+	}
 ```
 
 - `public virtual RecordChanges(Unity.Entities.EntityManager entityManager, Game.Prefabs.PrefabSystem prefabSystem) : System.Void`  
 
 ```csharp
-public virtual System.Void RecordChanges(Unity.Entities.EntityManager entityManager, Game.Prefabs.PrefabSystem prefabSystem);
+public override void RecordChanges(EntityManager entityManager, PrefabSystem prefabSystem)
+	{
+		MapTilePrefab mapTilePrefab = m_Prefab;
+		if (mapTilePrefab == null)
+		{
+			ComponentBase.baseLog.Critical($"Target not found {this}");
+			return;
+		}
+		Entity entity = prefabSystem.GetEntity(mapTilePrefab);
+		entityManager.GetComponentData<TilePurchaseCostFactor>(entity);
+		entityManager.GetBuffer<MapFeatureData>(entity);
+	}
 ```
 
 - `public virtual RestoreDefaultData(Unity.Entities.EntityManager entityManager, Game.Prefabs.PrefabSystem prefabSystem) : System.Void`  
 
 ```csharp
-public virtual System.Void RestoreDefaultData(Unity.Entities.EntityManager entityManager, Game.Prefabs.PrefabSystem prefabSystem);
+public override void RestoreDefaultData(EntityManager entityManager, PrefabSystem prefabSystem)
+	{
+		MapTilePrefab mapTilePrefab = m_Prefab;
+		if (mapTilePrefab == null)
+		{
+			ComponentBase.baseLog.Critical($"Target not found {this}");
+			return;
+		}
+		Entity entity = prefabSystem.GetEntity(mapTilePrefab);
+		DynamicBuffer<MapFeatureData> buffer = entityManager.GetBuffer<MapFeatureData>(entity);
+		for (int i = 0; i < mapTilePrefab.m_MapFeatures.Length; i++)
+		{
+			MapTilePrefab.FeatureInfo featureInfo = mapTilePrefab.m_MapFeatures[i];
+			buffer[(int)featureInfo.m_MapFeature] = new MapFeatureData(featureInfo.m_Cost);
+		}
+		TilePurchaseCostFactor componentData = new TilePurchaseCostFactor(mapTilePrefab.m_PurchaseCostFactor);
+		entityManager.SetComponentData(entity, componentData);
+	}
 ```
 
 

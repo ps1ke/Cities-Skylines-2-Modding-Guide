@@ -42,7 +42,11 @@ public System.Byte m_Value;
 - `public NodeColor(System.Byte index, System.Byte value)`  
 
 ```csharp
-public NodeColor(System.Byte index, System.Byte value);
+public NodeColor(byte index, byte value)
+	{
+		m_Index = index;
+		m_Value = value;
+	}
 ```
 
 

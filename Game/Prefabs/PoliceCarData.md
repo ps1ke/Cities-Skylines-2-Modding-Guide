@@ -58,7 +58,13 @@ public Game.Prefabs.PolicePurpose m_PurposeMask;
 - `public PoliceCarData(System.Int32 criminalCapacity, System.Single crimeReductionRate, System.UInt32 shiftDuration, Game.Prefabs.PolicePurpose purposeMask)`  
 
 ```csharp
-public PoliceCarData(System.Int32 criminalCapacity, System.Single crimeReductionRate, System.UInt32 shiftDuration, Game.Prefabs.PolicePurpose purposeMask);
+public PoliceCarData(int criminalCapacity, float crimeReductionRate, uint shiftDuration, PolicePurpose purposeMask)
+	{
+		m_CriminalCapacity = criminalCapacity;
+		m_CrimeReductionRate = crimeReductionRate;
+		m_ShiftDuration = shiftDuration;
+		m_PurposeMask = purposeMask;
+	}
 ```
 
 

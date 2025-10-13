@@ -44,7 +44,11 @@ public Game.Simulation.HealthcareRequestType m_Type;
 - `public HealthcareRequest(Unity.Entities.Entity citizen, Game.Simulation.HealthcareRequestType type)`  
 
 ```csharp
-public HealthcareRequest(Unity.Entities.Entity citizen, Game.Simulation.HealthcareRequestType type);
+public HealthcareRequest(Entity citizen, HealthcareRequestType type)
+	{
+		m_Citizen = citizen;
+		m_Type = type;
+	}
 ```
 
 

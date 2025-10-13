@@ -44,7 +44,11 @@ public System.Single m_MaintenanceRange;
 - `public TaxiData(System.Int32 passengerCapacity, System.Single maintenanceRange)`  
 
 ```csharp
-public TaxiData(System.Int32 passengerCapacity, System.Single maintenanceRange);
+public TaxiData(int passengerCapacity, float maintenanceRange)
+	{
+		m_PassengerCapacity = passengerCapacity;
+		m_MaintenanceRange = maintenanceRange;
+	}
 ```
 
 

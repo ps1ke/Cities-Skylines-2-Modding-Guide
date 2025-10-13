@@ -89,7 +89,10 @@ private Game.Debug.AreaDebugSystem+TypeHandle __TypeHandle;
 - `public AreaDebugSystem()`  
 
 ```csharp
-public AreaDebugSystem();
+[Preserve]
+	public AreaDebugSystem()
+	{
+	}
 ```
 
 
@@ -98,25 +101,71 @@ public AreaDebugSystem();
 - `private __AssignQueries(Unity.Entities.SystemState& state) : System.Void`  
 
 ```csharp
-private System.Void __AssignQueries(Unity.Entities.SystemState& state);
+private void __AssignQueries(ref SystemState state)
+	{
+		new EntityQueryBuilder(Allocator.Temp).Dispose();
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_GizmosSystem = base.World.GetOrCreateSystemManaged<GizmosSystem>();
+		m_AreaGroup = GetEntityQuery(ComponentType.ReadOnly<Area>(), ComponentType.ReadOnly<Node>(), ComponentType.ReadOnly<Triangle>(), ComponentType.Exclude<Deleted>(), ComponentType.Exclude<Hidden>());
+		m_LotOption = AddOption("Lots", defaultEnabled: true);
+		m_DistrictOption = AddOption("Districts", defaultEnabled: true);
+		m_MapTileOption = AddOption("Map Tiles", defaultEnabled: false);
+		m_SpaceOption = AddOption("Spaces", defaultEnabled: true);
+		m_SurfaceOption = AddOption("Surfaces", defaultEnabled: true);
+		RequireForUpdate(m_AreaGroup);
+		base.Enabled = false;
+	}
 ```
 
 - `protected virtual OnCreateForCompiler() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreateForCompiler();
+protected override void OnCreateForCompiler()
+	{
+		base.OnCreateForCompiler();
+		__AssignQueries(ref base.CheckedStateRef);
+		__TypeHandle.__AssignHandles(ref base.CheckedStateRef);
+	}
 ```
 
 - `protected virtual OnUpdate(Unity.Jobs.JobHandle inputDeps) : Unity.Jobs.JobHandle`  
 
 ```csharp
-protected virtual Unity.Jobs.JobHandle OnUpdate(Unity.Jobs.JobHandle inputDeps);
+[Preserve]
+	protected override JobHandle OnUpdate(JobHandle inputDeps)
+	{
+		JobHandle dependencies;
+		JobHandle jobHandle = JobChunkExtensions.ScheduleParallel(new AreaGizmoJob
+		{
+			m_LotOption = m_LotOption.enabled,
+			m_DistrictOption = m_DistrictOption.enabled,
+			m_MapTileOption = m_MapTileOption.enabled,
+			m_SpaceOption = m_SpaceOption.enabled,
+			m_SurfaceOption = m_SurfaceOption.enabled,
+			m_AreaType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Areas_Area_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+			m_LotType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Areas_Lot_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+			m_DistrictType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Areas_District_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+			m_MapTileType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Areas_MapTile_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+			m_SpaceType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Areas_Space_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+			m_SurfaceType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Areas_Surface_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+			m_TempType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Tools_Temp_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+			m_NodeType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Areas_Node_RO_BufferTypeHandle, ref base.CheckedStateRef),
+			m_TriangleType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Areas_Triangle_RO_BufferTypeHandle, ref base.CheckedStateRef),
+			m_ErrorType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Tools_Error_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+			m_GizmoBatcher = m_GizmosSystem.GetGizmosBatcher(out dependencies)
+		}, m_AreaGroup, JobHandle.CombineDependencies(inputDeps, dependencies));
+		m_GizmosSystem.AddGizmosBatcherWriter(jobHandle);
+		return jobHandle;
+	}
 ```
 
 

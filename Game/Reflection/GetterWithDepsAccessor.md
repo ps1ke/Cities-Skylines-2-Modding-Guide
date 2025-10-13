@@ -72,7 +72,13 @@ public System.Type valueType { get; }
 - `public GetterWithDepsAccessor(Game.Reflection.IValueAccessor parent, System.Reflection.MethodInfo getter, System.Object[] parameters = null, System.Int32 depsIndex = -1)`  
 
 ```csharp
-public GetterWithDepsAccessor(Game.Reflection.IValueAccessor parent, System.Reflection.MethodInfo getter, System.Object[] parameters, System.Int32 depsIndex);
+public GetterWithDepsAccessor([NotNull] IValueAccessor parent, [NotNull] MethodInfo getter, [CanBeNull] object[] parameters = null, int depsIndex = -1)
+	{
+		m_Parent = parent ?? throw new ArgumentNullException("parent");
+		m_Getter = getter ?? throw new ArgumentNullException("getter");
+		m_Parameters = parameters;
+		m_DepsIndex = depsIndex;
+	}
 ```
 
 
@@ -81,31 +87,76 @@ public GetterWithDepsAccessor(Game.Reflection.IValueAccessor parent, System.Refl
 - `public Equals(Game.Reflection.GetterWithDepsAccessor other) : System.Boolean`  
 
 ```csharp
-public System.Boolean Equals(Game.Reflection.GetterWithDepsAccessor other);
+public override bool Equals(object obj)
+	{
+		if (obj == null)
+		{
+			return false;
+		}
+		if (this == obj)
+		{
+			return true;
+		}
+		if (obj.GetType() != GetType())
+		{
+			return false;
+		}
+		return Equals((GetterWithDepsAccessor)obj);
+	}
 ```
 
 - `public virtual Equals(System.Object obj) : System.Boolean`  
 
 ```csharp
-public virtual System.Boolean Equals(System.Object obj);
+public override bool Equals(object obj)
+	{
+		if (obj == null)
+		{
+			return false;
+		}
+		if (this == obj)
+		{
+			return true;
+		}
+		if (obj.GetType() != GetType())
+		{
+			return false;
+		}
+		return Equals((GetterWithDepsAccessor)obj);
+	}
 ```
 
 - `public virtual GetHashCode() : System.Int32`  
 
 ```csharp
-public virtual System.Int32 GetHashCode();
+public override int GetHashCode()
+	{
+		return (m_Parent.GetHashCode() * 397) ^ m_Getter.GetHashCode();
+	}
 ```
 
 - `public GetValue() : System.Object`  
 
 ```csharp
-public System.Object GetValue();
+public object GetValue()
+	{
+		object value = m_Parent.GetValue();
+		object result = m_Getter.Invoke(value, m_Parameters);
+		if (m_DepsIndex != -1 && m_Parameters != null)
+		{
+			((JobHandle)m_Parameters[m_DepsIndex]).Complete();
+		}
+		return result;
+	}
 ```
 
 - `public SetValue(System.Object value) : System.Void`  
 
 ```csharp
-public System.Void SetValue(System.Object value);
+public void SetValue(object value)
+	{
+		throw new InvalidOperationException("GetterWithDepsAccessor is readonly");
+	}
 ```
 
 

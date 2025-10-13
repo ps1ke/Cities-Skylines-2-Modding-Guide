@@ -123,7 +123,10 @@ public Game.UI.Editor.IEditorTool activeTool { get; set; }
 - `public EditorToolUISystem()`  
 
 ```csharp
-public EditorToolUISystem();
+[Preserve]
+	public EditorToolUISystem()
+	{
+	}
 ```
 
 
@@ -144,37 +147,112 @@ private System.String <OnCreate>b__17_1();
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_ToolSystem = base.World.GetOrCreateSystemManaged<ToolSystem>();
+		m_EditorPanelUISystem = base.World.GetOrCreateSystemManaged<EditorPanelUISystem>();
+		m_InspectorPanelSystem = base.World.GetOrCreateSystemManaged<InspectorPanelSystem>();
+		tools = new IEditorTool[6]
+		{
+			new EditorAssetImportTool(base.World),
+			new EditorTerrainTool(base.World),
+			new EditorPrefabTool(base.World),
+			new EditorPrefabEditorTool(base.World),
+			new EditorPhotoTool(base.World),
+			new EditorBulldozeTool(base.World)
+		};
+		AddUpdateBinding(m_ToolsBinding = new GetterValueBinding<IEditorTool[]>("editorTool", "tools", () => tools, new ArrayWriter<IEditorTool>(new ValueWriter<IEditorTool>())));
+		AddUpdateBinding(new GetterValueBinding<string>("editorTool", "activeTool", () => activeTool?.id, ValueWriters.Nullable(new StringWriter())));
+		AddBinding(new TriggerBinding<string>("editorTool", "selectTool", SelectTool));
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		base.OnUpdate();
+		if (activeTool != null && !activeTool.active)
+		{
+			activeTool = null;
+		}
+		if (m_ToolSystem.selected != m_LastSelectedEntity)
+		{
+			SelectEntity(m_ToolSystem.selected);
+		}
+		if (UpdateToolState())
+		{
+			m_ToolsBinding.TriggerUpdate();
+		}
+	}
 ```
 
 - `public SelectEntity(Unity.Entities.Entity entity) : System.Void`  
 
 ```csharp
-public System.Void SelectEntity(Unity.Entities.Entity entity);
+public void SelectEntity(Entity entity)
+	{
+		m_LastSelectedEntity = entity;
+		if (m_InspectorPanelSystem.SelectEntity(entity))
+		{
+			activeTool = null;
+			m_EditorPanelUISystem.activePanel = m_InspectorPanelSystem;
+		}
+		else if (m_EditorPanelUISystem.activePanel == m_InspectorPanelSystem)
+		{
+			m_EditorPanelUISystem.activePanel = null;
+		}
+	}
 ```
 
 - `public SelectEntitySubMesh(Unity.Entities.Entity entity, System.Int32 subMeshIndex) : System.Void`  
 
 ```csharp
-public System.Void SelectEntitySubMesh(Unity.Entities.Entity entity, System.Int32 subMeshIndex);
+public void SelectEntitySubMesh(Entity entity, int subMeshIndex)
+	{
+		m_LastSelectedEntity = entity;
+		if (m_InspectorPanelSystem.SelectMesh(entity, subMeshIndex))
+		{
+			activeTool = null;
+			m_EditorPanelUISystem.activePanel = m_InspectorPanelSystem;
+		}
+		else if (m_EditorPanelUISystem.activePanel == m_InspectorPanelSystem)
+		{
+			m_EditorPanelUISystem.activePanel = null;
+		}
+	}
 ```
 
 - `public SelectTool(System.String id) : System.Void`  
 
 ```csharp
-public System.Void SelectTool(System.String id);
+public void SelectTool([CanBeNull] string id)
+	{
+		activeTool = tools.FirstOrDefault((IEditorTool t) => t.id == id);
+	}
 ```
 
 - `private UpdateToolState() : System.Boolean`  
 
 ```csharp
-private System.Boolean UpdateToolState();
+private bool UpdateToolState()
+	{
+		bool result = false;
+		for (int i = 0; i < m_Tools.Length; i++)
+		{
+			bool disabled = m_Tools[i].disabled;
+			if (disabled != m_Disabled[i])
+			{
+				m_Disabled[i] = disabled;
+				result = true;
+			}
+		}
+		return result;
+	}
 ```
 
 

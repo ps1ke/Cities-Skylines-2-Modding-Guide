@@ -69,25 +69,45 @@ public static Game.Input.ProxyModifier+Comparer defaultComparer { get; }
 - `public Equals(Game.Input.ProxyModifier other) : System.Boolean`  
 
 ```csharp
-public System.Boolean Equals(Game.Input.ProxyModifier other);
+public override bool Equals(object obj)
+	{
+		if (obj is ProxyModifier other)
+		{
+			return Equals(other);
+		}
+		return false;
+	}
 ```
 
 - `public virtual Equals(System.Object obj) : System.Boolean`  
 
 ```csharp
-public virtual System.Boolean Equals(System.Object obj);
+public override bool Equals(object obj)
+	{
+		if (obj is ProxyModifier other)
+		{
+			return Equals(other);
+		}
+		return false;
+	}
 ```
 
 - `public virtual GetHashCode() : System.Int32`  
 
 ```csharp
-public virtual System.Int32 GetHashCode();
+public override int GetHashCode()
+	{
+		return Comparer.defaultComparer.GetHashCode(this);
+	}
 ```
 
 - `public virtual ToString() : System.String`  
 
 ```csharp
-public virtual System.String ToString();
+public override string ToString()
+	{
+		return m_Name + " - " + m_Path;
+	}
 ```
 
 

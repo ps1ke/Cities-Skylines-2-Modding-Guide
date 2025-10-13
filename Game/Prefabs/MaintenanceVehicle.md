@@ -63,19 +63,43 @@ public MaintenanceVehicle();
 - `public virtual GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetArchetypeComponents(HashSet<ComponentType> components)
+	{
+		components.Add(ComponentType.ReadWrite<Game.Vehicles.MaintenanceVehicle>());
+		if (components.Contains(ComponentType.ReadWrite<Moving>()))
+		{
+			components.Add(ComponentType.ReadWrite<PathInformation>());
+			components.Add(ComponentType.ReadWrite<ServiceDispatch>());
+		}
+		if ((m_MaintenanceType & MaintenanceType.Park) != MaintenanceType.None)
+		{
+			components.Add(ComponentType.ReadWrite<ParkMaintenanceVehicle>());
+		}
+		if ((m_MaintenanceType & (MaintenanceType.Road | MaintenanceType.Snow | MaintenanceType.Vehicle)) != MaintenanceType.None)
+		{
+			components.Add(ComponentType.ReadWrite<RoadMaintenanceVehicle>());
+		}
+	}
 ```
 
 - `public virtual GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetPrefabComponents(HashSet<ComponentType> components)
+	{
+		components.Add(ComponentType.ReadWrite<MaintenanceVehicleData>());
+		components.Add(ComponentType.ReadWrite<UpdateFrameData>());
+	}
 ```
 
 - `public virtual Initialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity) : System.Void`  
 
 ```csharp
-public virtual System.Void Initialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity);
+public override void Initialize(EntityManager entityManager, Entity entity)
+	{
+		entityManager.SetComponentData(entity, new MaintenanceVehicleData(m_MaintenanceType, m_MaintenanceCapacity, m_MaintenanceRate));
+		entityManager.SetComponentData(entity, new UpdateFrameData(7));
+	}
 ```
 
 

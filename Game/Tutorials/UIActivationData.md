@@ -35,7 +35,10 @@ public System.Boolean m_CanDeactivate;
 - `public UIActivationData(System.Boolean canDeactivate)`  
 
 ```csharp
-public UIActivationData(System.Boolean canDeactivate);
+public UIActivationData(bool canDeactivate)
+	{
+		m_CanDeactivate = canDeactivate;
+	}
 ```
 
 

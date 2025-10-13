@@ -321,7 +321,19 @@ public Unity.Mathematics.float2 m_LoanMinMaxInterestRate;
 - `public GetWage(System.Int32 jobLevel, System.Boolean cityServiceJob = False) : System.Int32`  
 
 ```csharp
-public System.Int32 GetWage(System.Int32 jobLevel, System.Boolean cityServiceJob);
+public int GetWage(int jobLevel, bool cityServiceJob = false)
+	{
+		float num = (cityServiceJob ? m_CityServiceWageAdjustment : 1f);
+		return jobLevel switch
+		{
+			0 => (int)((float)m_Wage0 * num), 
+			1 => (int)((float)m_Wage1 * num), 
+			2 => (int)((float)m_Wage2 * num), 
+			3 => (int)((float)m_Wage3 * num), 
+			4 => (int)((float)m_Wage4 * num), 
+			_ => 0, 
+		};
+	}
 ```
 
 

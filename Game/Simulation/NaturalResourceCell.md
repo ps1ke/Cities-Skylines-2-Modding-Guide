@@ -65,19 +65,28 @@ public System.Void Deserialize<TReader>(TReader reader);
 - `public GetBaseResources() : Unity.Mathematics.float4`  
 
 ```csharp
-public Unity.Mathematics.float4 GetBaseResources();
+public float4 GetBaseResources()
+	{
+		return new float4((int)m_Fertility.m_Base, (int)m_Ore.m_Base, (int)m_Oil.m_Base, (int)m_Fish.m_Base);
+	}
 ```
 
 - `public GetStride(Colossal.Serialization.Entities.Context context) : System.Int32`  
 
 ```csharp
-public System.Int32 GetStride(Colossal.Serialization.Entities.Context context);
+public int GetStride(Context context)
+	{
+		return m_Fertility.GetStride(context) + m_Ore.GetStride(context) + m_Oil.GetStride(context);
+	}
 ```
 
 - `public GetUsedResources() : Unity.Mathematics.float4`  
 
 ```csharp
-public Unity.Mathematics.float4 GetUsedResources();
+public float4 GetUsedResources()
+	{
+		return new float4((int)m_Fertility.m_Used, (int)m_Ore.m_Used, (int)m_Oil.m_Used, (int)m_Oil.m_Used);
+	}
 ```
 
 - `public Serialize<TWriter>(TWriter writer) : System.Void`  

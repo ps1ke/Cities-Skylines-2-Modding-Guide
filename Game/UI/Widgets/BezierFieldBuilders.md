@@ -34,7 +34,14 @@ public BezierFieldBuilders();
 - `public TryCreate(System.Type memberType, System.Object[] attributes) : Game.UI.Widgets.FieldBuilder`  
 
 ```csharp
-public Game.UI.Widgets.FieldBuilder TryCreate(System.Type memberType, System.Object[] attributes);
+public FieldBuilder TryCreate(Type memberType, object[] attributes)
+	{
+		if (memberType == typeof(Bezier4x3))
+		{
+			return WidgetReflectionUtils.CreateFieldBuilder<Bezier4x3Field, Bezier4x3>();
+		}
+		return null;
+	}
 ```
 
 

@@ -78,13 +78,33 @@ public StringInputFieldWithError();
 - `protected virtual Update() : Game.UI.Widgets.WidgetChanges`  
 
 ```csharp
-protected virtual Game.UI.Widgets.WidgetChanges Update();
+protected override WidgetChanges Update()
+	{
+		WidgetChanges widgetChanges = base.Update();
+		if (error != null)
+		{
+			bool flag = error();
+			if (m_Error != flag)
+			{
+				widgetChanges |= WidgetChanges.Properties;
+			}
+			m_Error = flag;
+		}
+		return widgetChanges;
+	}
 ```
 
 - `protected virtual WriteProperties(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-protected virtual System.Void WriteProperties(Colossal.UI.Binding.IJsonWriter writer);
+protected override void WriteProperties(IJsonWriter writer)
+	{
+		base.WriteProperties(writer);
+		writer.PropertyName("error");
+		writer.Write(m_Error);
+		writer.PropertyName("errorMessage");
+		writer.Write(errorMessage);
+	}
 ```
 
 

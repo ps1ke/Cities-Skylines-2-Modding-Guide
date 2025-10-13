@@ -181,13 +181,43 @@ public OutsideTradeParameterPrefab();
 - `public virtual GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetPrefabComponents(HashSet<ComponentType> components)
+	{
+		base.GetPrefabComponents(components);
+		components.Add(ComponentType.ReadWrite<OutsideTradeParameterData>());
+	}
 ```
 
 - `public virtual Initialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity) : System.Void`  
 
 ```csharp
-public virtual System.Void Initialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity);
+public override void Initialize(EntityManager entityManager, Entity entity)
+	{
+		base.Initialize(entityManager, entity);
+		entityManager.SetComponentData(entity, new OutsideTradeParameterData
+		{
+			m_ElectricityImportPrice = m_ElectricityImportPrice,
+			m_ElectricityExportPrice = m_ElectricityExportPrice,
+			m_WaterImportPrice = m_WaterImportPrice,
+			m_WaterExportPrice = m_WaterExportPrice,
+			m_WaterExportPollutionTolerance = m_WaterExportPollutionTolerance,
+			m_SewageExportPrice = m_SewageExportPrice,
+			m_AirDistanceMultiplier = m_AirDistanceMultiplier,
+			m_RoadDistanceMultiplier = m_RoadDistanceMultiplier,
+			m_TrainDistanceMultiplier = m_TrainDistanceMultiplier,
+			m_ShipDistanceMultiplier = m_ShipDistanceMultiplier,
+			m_AirWeightMultiplier = m_AirWeightMultiplier,
+			m_RoadWeightMultiplier = m_RoadWeightMultiplier,
+			m_TrainWeightMultiplier = m_TrainWeightMultiplier,
+			m_ShipWeightMultiplier = m_ShipWeightMultiplier,
+			m_AmbulanceImportServiceFee = m_AmbulanceImportServiceFee,
+			m_HearseImportServiceFee = m_HearseImportServiceFee,
+			m_FireEngineImportServiceFee = m_FireEngineImportServiceFee,
+			m_GarbageImportServiceFee = m_GarbageImportServiceFee,
+			m_PoliceImportServiceFee = m_PoliceImportServiceFee,
+			m_OCServiceTradePopulationRange = m_OCServiceTradePopulationRange
+		});
+	}
 ```
 
 

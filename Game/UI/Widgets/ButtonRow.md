@@ -78,13 +78,27 @@ public ButtonRow();
 - `public virtual UpdateVisibility() : Game.UI.Widgets.WidgetChanges`  
 
 ```csharp
-public virtual Game.UI.Widgets.WidgetChanges UpdateVisibility();
+public override WidgetChanges UpdateVisibility()
+	{
+		WidgetChanges widgetChanges = base.UpdateVisibility();
+		foreach (Widget item in visibleChildren.OfType<Widget>())
+		{
+			widgetChanges |= item.UpdateVisibility();
+		}
+		return widgetChanges;
+	}
 ```
 
 - `public static WithChildren(Game.UI.Widgets.Button[] children) : Game.UI.Widgets.ButtonRow`  
 
 ```csharp
-public static Game.UI.Widgets.ButtonRow WithChildren(Game.UI.Widgets.Button[] children);
+public static ButtonRow WithChildren(Button[] children)
+	{
+		return new ButtonRow
+		{
+			children = children
+		};
+	}
 ```
 
 

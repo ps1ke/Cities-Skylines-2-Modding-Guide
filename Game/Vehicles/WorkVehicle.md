@@ -51,7 +51,12 @@ public System.Single m_DoneAmount;
 - `public WorkVehicle(Game.Vehicles.WorkVehicleFlags flags, System.Single workAmount)`  
 
 ```csharp
-public WorkVehicle(Game.Vehicles.WorkVehicleFlags flags, System.Single workAmount);
+public WorkVehicle(WorkVehicleFlags flags, float workAmount)
+	{
+		m_State = flags;
+		m_WorkAmount = workAmount;
+		m_DoneAmount = 0f;
+	}
 ```
 
 

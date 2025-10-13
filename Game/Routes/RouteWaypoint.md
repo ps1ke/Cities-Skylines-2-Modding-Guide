@@ -37,7 +37,10 @@ public Unity.Entities.Entity m_Waypoint;
 - `public RouteWaypoint(Unity.Entities.Entity waypoint)`  
 
 ```csharp
-public RouteWaypoint(Unity.Entities.Entity waypoint);
+public RouteWaypoint(Entity waypoint)
+	{
+		m_Waypoint = waypoint;
+	}
 ```
 
 

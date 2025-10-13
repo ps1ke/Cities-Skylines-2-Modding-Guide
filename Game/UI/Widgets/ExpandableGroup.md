@@ -77,13 +77,21 @@ public System.Collections.Generic.IList<Game.UI.Widgets.IWidget> visibleChildren
 - `public ExpandableGroup(Game.Reflection.ITypedValueAccessor<System.Boolean> expandedAccessor)`  
 
 ```csharp
-public ExpandableGroup(Game.Reflection.ITypedValueAccessor<System.Boolean> expandedAccessor);
+public ExpandableGroup(bool expanded = false)
+	{
+		m_ExpandedAccessor = new ObjectAccessor<bool>(expanded, readOnly: false);
+		m_Expanded = expanded;
+	}
 ```
 
 - `public ExpandableGroup(System.Boolean expanded = False)`  
 
 ```csharp
-public ExpandableGroup(System.Boolean expanded);
+public ExpandableGroup(bool expanded = false)
+	{
+		m_ExpandedAccessor = new ObjectAccessor<bool>(expanded, readOnly: false);
+		m_Expanded = expanded;
+	}
 ```
 
 
@@ -92,13 +100,28 @@ public ExpandableGroup(System.Boolean expanded);
 - `protected virtual Update() : Game.UI.Widgets.WidgetChanges`  
 
 ```csharp
-protected virtual Game.UI.Widgets.WidgetChanges Update();
+protected override WidgetChanges Update()
+	{
+		WidgetChanges widgetChanges = base.Update();
+		bool typedValue = m_ExpandedAccessor.GetTypedValue();
+		if (typedValue != m_Expanded)
+		{
+			widgetChanges |= WidgetChanges.Properties | WidgetChanges.Children;
+			m_Expanded = typedValue;
+		}
+		return widgetChanges;
+	}
 ```
 
 - `protected virtual WriteProperties(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-protected virtual System.Void WriteProperties(Colossal.UI.Binding.IJsonWriter writer);
+protected override void WriteProperties(IJsonWriter writer)
+	{
+		base.WriteProperties(writer);
+		writer.PropertyName("expanded");
+		writer.Write(expanded);
+	}
 ```
 
 

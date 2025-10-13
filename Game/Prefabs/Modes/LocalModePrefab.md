@@ -42,7 +42,9 @@ public abstract System.Void ApplyModeData(Unity.Entities.EntityManager entityMan
 - `public virtual RecordChanges(Unity.Entities.EntityManager entityManager, Game.Prefabs.PrefabSystem prefabSystem) : System.Void`  
 
 ```csharp
-public virtual System.Void RecordChanges(Unity.Entities.EntityManager entityManager, Game.Prefabs.PrefabSystem prefabSystem);
+public virtual void RecordChanges(EntityManager entityManager, PrefabSystem prefabSystem)
+	{
+	}
 ```
 
 - `public abstract RestoreDefaultData(Unity.Entities.EntityManager entityManager, Game.Prefabs.PrefabSystem prefabSystem) : System.Void`  

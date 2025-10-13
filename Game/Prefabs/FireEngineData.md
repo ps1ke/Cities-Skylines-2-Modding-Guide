@@ -58,7 +58,13 @@ public System.Single m_DestroyedClearDuration;
 - `public FireEngineData(System.Single extinguishingRate, System.Single extinguishingSpread, System.Single extinguishingCapacity, System.Single destroyedClearDuration)`  
 
 ```csharp
-public FireEngineData(System.Single extinguishingRate, System.Single extinguishingSpread, System.Single extinguishingCapacity, System.Single destroyedClearDuration);
+public FireEngineData(float extinguishingRate, float extinguishingSpread, float extinguishingCapacity, float destroyedClearDuration)
+	{
+		m_ExtinguishingRate = extinguishingRate;
+		m_ExtinguishingSpread = extinguishingSpread;
+		m_ExtinguishingCapacity = extinguishingCapacity;
+		m_DestroyedClearDuration = destroyedClearDuration;
+	}
 ```
 
 

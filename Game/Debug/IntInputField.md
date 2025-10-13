@@ -34,7 +34,14 @@ public IntInputField();
 - `public virtual ValidateValue(System.String value) : System.String`  
 
 ```csharp
-public virtual System.String ValidateValue(System.String value);
+public override string ValidateValue(string value)
+	{
+		if (string.IsNullOrEmpty(value) || int.TryParse(value, out var _))
+		{
+			return value;
+		}
+		return base.getter();
+	}
 ```
 
 

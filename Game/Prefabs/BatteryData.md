@@ -54,7 +54,11 @@ public System.Int64 capacityTicks { get; }
 - `public Combine(Game.Prefabs.BatteryData otherData) : System.Void`  
 
 ```csharp
-public System.Void Combine(Game.Prefabs.BatteryData otherData);
+public void Combine(BatteryData otherData)
+	{
+		m_Capacity += otherData.m_Capacity;
+		m_PowerOutput += otherData.m_PowerOutput;
+	}
 ```
 
 - `public Deserialize<TReader>(TReader reader) : System.Void`  

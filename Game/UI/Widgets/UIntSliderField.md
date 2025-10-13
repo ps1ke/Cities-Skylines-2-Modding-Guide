@@ -70,7 +70,14 @@ public UIntSliderField();
 - `protected virtual WriteProperties(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-protected virtual System.Void WriteProperties(Colossal.UI.Binding.IJsonWriter writer);
+protected override void WriteProperties(IJsonWriter writer)
+	{
+		base.WriteProperties(writer);
+		writer.PropertyName("unit");
+		writer.Write(unit);
+		writer.PropertyName("scaleDragVolume");
+		writer.Write(scaleDragVolume);
+	}
 ```
 
 

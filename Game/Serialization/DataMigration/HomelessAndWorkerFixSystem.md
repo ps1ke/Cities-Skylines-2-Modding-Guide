@@ -82,7 +82,10 @@ private Game.Serialization.DataMigration.HomelessAndWorkerFixSystem+TypeHandle _
 - `public HomelessAndWorkerFixSystem()`  
 
 ```csharp
-public HomelessAndWorkerFixSystem();
+[Preserve]
+	public HomelessAndWorkerFixSystem()
+	{
+	}
 ```
 
 
@@ -91,25 +94,87 @@ public HomelessAndWorkerFixSystem();
 - `private __AssignQueries(Unity.Entities.SystemState& state) : System.Void`  
 
 ```csharp
-private System.Void __AssignQueries(Unity.Entities.SystemState& state);
+private void __AssignQueries(ref SystemState state)
+	{
+		new EntityQueryBuilder(Allocator.Temp).Dispose();
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_LoadGameSystem = base.World.GetOrCreateSystemManaged<LoadGameSystem>();
+		m_DeserializationBarrier = base.World.GetOrCreateSystemManaged<DeserializationBarrier>();
+		m_WorkerQuery = GetEntityQuery(ComponentType.ReadOnly<Worker>());
+		m_HomelessQuery = GetEntityQuery(ComponentType.ReadOnly<HomelessHousehold>());
+		m_AbandonedPropertyQuery = GetEntityQuery(ComponentType.ReadOnly<Abandoned>());
+		m_NeedAddPropertySeekerQuery = GetEntityQuery(new EntityQueryDesc
+		{
+			Any = new ComponentType[2]
+			{
+				ComponentType.ReadOnly<Household>(),
+				ComponentType.ReadOnly<CompanyData>()
+			},
+			None = new ComponentType[1] { ComponentType.Exclude<PropertySeeker>() }
+		});
+	}
 ```
 
 - `protected virtual OnCreateForCompiler() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreateForCompiler();
+protected override void OnCreateForCompiler()
+	{
+		base.OnCreateForCompiler();
+		__AssignQueries(ref base.CheckedStateRef);
+		__TypeHandle.__AssignHandles(ref base.CheckedStateRef);
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		if (!m_LoadGameSystem.context.format.Has(FormatTags.HomelessAndWorkerFix))
+		{
+			if (!m_WorkerQuery.IsEmptyIgnoreFilter)
+			{
+				JobHandle jobHandle = JobChunkExtensions.ScheduleParallel(new WorkerFixJob
+				{
+					m_EntityType = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef),
+					m_WorkerType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Citizens_Worker_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+					m_EmployeeBufs = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Companies_Employee_RO_BufferLookup, ref base.CheckedStateRef),
+					m_CommandBuffer = m_DeserializationBarrier.CreateCommandBuffer().AsParallelWriter()
+				}, m_WorkerQuery, base.Dependency);
+				m_DeserializationBarrier.AddJobHandleForProducer(jobHandle);
+				base.Dependency = jobHandle;
+			}
+			if (!m_HomelessQuery.IsEmptyIgnoreFilter)
+			{
+				base.EntityManager.AddComponent<Deleted>(m_HomelessQuery);
+			}
+			if (!m_NeedAddPropertySeekerQuery.IsEmptyIgnoreFilter)
+			{
+				JobHandle jobHandle2 = JobChunkExtensions.ScheduleParallel(new AddPropertySeekerJob
+				{
+					m_EntityType = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef),
+					m_CommandBuffer = m_DeserializationBarrier.CreateCommandBuffer().AsParallelWriter()
+				}, m_NeedAddPropertySeekerQuery, base.Dependency);
+				m_DeserializationBarrier.AddJobHandleForProducer(jobHandle2);
+				base.Dependency = jobHandle2;
+			}
+			if (!m_AbandonedPropertyQuery.IsEmptyIgnoreFilter)
+			{
+				base.EntityManager.RemoveComponent<PropertyOnMarket>(m_AbandonedPropertyQuery);
+			}
+		}
+	}
 ```
 
 

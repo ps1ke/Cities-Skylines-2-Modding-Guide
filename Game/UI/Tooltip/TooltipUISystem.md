@@ -96,7 +96,10 @@ public Game.UI.Tooltip.TooltipGroup mouseGroup { get; private set; }
 - `public TooltipUISystem()`  
 
 ```csharp
-public TooltipUISystem();
+[Preserve]
+	public TooltipUISystem()
+	{
+	}
 ```
 
 
@@ -105,13 +108,51 @@ public TooltipUISystem();
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_UpdateSystem = base.World.GetOrCreateSystemManaged<UpdateSystem>();
+		AddUpdateBinding(m_WidgetBindings = new WidgetBindings("tooltip", "groups"));
+		groups = new List<TooltipGroup>();
+		mouseGroup = new TooltipGroup
+		{
+			path = "mouse",
+			position = default(float2),
+			horizontalAlignment = TooltipGroup.Alignment.Start,
+			verticalAlignment = TooltipGroup.Alignment.Start
+		};
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		if (m_WidgetBindings.active)
+		{
+			m_WidgetBindings.children.Clear();
+			groups.Clear();
+			mouseGroup.children.Clear();
+			if (!InputManager.instance.mouseOverUI)
+			{
+				m_UpdateSystem.Update(SystemUpdatePhase.UITooltip);
+				if (InputManager.instance.mouseOnScreen && mouseGroup.children.Count > 0)
+				{
+					Vector3 mousePosition = InputManager.instance.mousePosition;
+					mouseGroup.position = math.round(new float2(mousePosition.x, (float)Screen.height - mousePosition.y) + kTooltipPointerDistance);
+					m_WidgetBindings.children.Add(mouseGroup);
+				}
+				foreach (TooltipGroup group in groups)
+				{
+					m_WidgetBindings.children.Add(group);
+				}
+			}
+		}
+		base.OnUpdate();
+	}
 ```
 
 

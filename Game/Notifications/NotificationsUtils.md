@@ -33,7 +33,10 @@ public static const System.Single ICON_VISIBLE_THROUGH_DISTANCE;
 - `public static GetIconLayerMask(Game.Notifications.IconClusterLayer layer) : Game.Notifications.IconLayerMask`  
 
 ```csharp
-public static Game.Notifications.IconLayerMask GetIconLayerMask(Game.Notifications.IconClusterLayer layer);
+public static IconLayerMask GetIconLayerMask(IconClusterLayer layer)
+	{
+		return (IconLayerMask)(1 << (int)layer);
+	}
 ```
 
 

@@ -84,19 +84,54 @@ public WaterLevelChangeComponent();
 - `public virtual GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetArchetypeComponents(HashSet<ComponentType> components)
+	{
+		components.Add(ComponentType.ReadWrite<WaterLevelChange>());
+		components.Add(ComponentType.ReadWrite<Duration>());
+		components.Add(ComponentType.ReadWrite<DangerLevel>());
+		components.Add(ComponentType.ReadWrite<TargetElement>());
+		if (m_ChangeType == WaterLevelChangeType.RainControlled)
+		{
+			components.Add(ComponentType.ReadWrite<Flood>());
+		}
+	}
 ```
 
 - `public virtual GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetPrefabComponents(HashSet<ComponentType> components)
+	{
+		components.Add(ComponentType.ReadWrite<WaterLevelChangeData>());
+		if (m_ChangeType == WaterLevelChangeType.RainControlled)
+		{
+			components.Add(ComponentType.ReadWrite<FloodData>());
+		}
+	}
 ```
 
 - `public virtual Initialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity) : System.Void`  
 
 ```csharp
-public virtual System.Void Initialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity);
+public override void Initialize(EntityManager entityManager, Entity entity)
+	{
+		base.Initialize(entityManager, entity);
+		WaterLevelChangeData componentData = default(WaterLevelChangeData);
+		componentData.m_TargetType = m_TargetType;
+		componentData.m_ChangeType = m_ChangeType;
+		componentData.m_EscalationDelay = m_EscalationDelay;
+		componentData.m_DangerFlags = (DangerFlags)0u;
+		if (m_Evacuate)
+		{
+			componentData.m_DangerFlags = DangerFlags.Evacuate;
+		}
+		if (m_StayIndoors)
+		{
+			componentData.m_DangerFlags = DangerFlags.StayIndoors;
+		}
+		componentData.m_DangerLevel = m_DangerLevel;
+		entityManager.SetComponentData(entity, componentData);
+	}
 ```
 
 

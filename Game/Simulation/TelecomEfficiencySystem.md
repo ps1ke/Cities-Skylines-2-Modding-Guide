@@ -83,7 +83,10 @@ private static const System.Int32 kUpdatesPerDay;
 - `public TelecomEfficiencySystem()`  
 
 ```csharp
-public TelecomEfficiencySystem();
+[Preserve]
+	public TelecomEfficiencySystem()
+	{
+	}
 ```
 
 
@@ -92,31 +95,85 @@ public TelecomEfficiencySystem();
 - `private __AssignQueries(Unity.Entities.SystemState& state) : System.Void`  
 
 ```csharp
-private System.Void __AssignQueries(Unity.Entities.SystemState& state);
+private void __AssignQueries(ref SystemState state)
+	{
+		EntityQueryBuilder entityQueryBuilder = new EntityQueryBuilder(Allocator.Temp);
+		EntityQueryBuilder entityQueryBuilder2 = entityQueryBuilder.WithAll<TelecomParameterData>();
+		entityQueryBuilder2 = entityQueryBuilder2.WithOptions(EntityQueryOptions.IncludeSystems);
+		__query_450882671_0 = entityQueryBuilder2.Build(ref state);
+		entityQueryBuilder.Reset();
+		entityQueryBuilder2 = entityQueryBuilder.WithAll<BuildingEfficiencyParameterData>();
+		entityQueryBuilder2 = entityQueryBuilder2.WithOptions(EntityQueryOptions.IncludeSystems);
+		__query_450882671_1 = entityQueryBuilder2.Build(ref state);
+		entityQueryBuilder.Reset();
+		entityQueryBuilder.Dispose();
+	}
 ```
 
 - `public virtual GetUpdateInterval(Game.SystemUpdatePhase phase) : System.Int32`  
 
 ```csharp
-public virtual System.Int32 GetUpdateInterval(Game.SystemUpdatePhase phase);
+public override int GetUpdateInterval(SystemUpdatePhase phase)
+	{
+		return 32;
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_SimulationSystem = base.World.GetOrCreateSystemManaged<SimulationSystem>();
+		m_TelecomCoverageSystem = base.World.GetOrCreateSystemManaged<TelecomCoverageSystem>();
+		m_BuildingQuery = GetEntityQuery(ComponentType.ReadOnly<TelecomConsumer>(), ComponentType.ReadWrite<Efficiency>(), ComponentType.ReadOnly<Building>(), ComponentType.ReadOnly<UpdateFrame>(), ComponentType.ReadOnly<Transform>(), ComponentType.ReadOnly<PrefabRef>(), ComponentType.Exclude<Deleted>(), ComponentType.Exclude<Temp>());
+		RequireForUpdate(m_BuildingQuery);
+		RequireForUpdate<TelecomParameterData>();
+		RequireForUpdate<BuildingEfficiencyParameterData>();
+	}
 ```
 
 - `protected virtual OnCreateForCompiler() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreateForCompiler();
+protected override void OnCreateForCompiler()
+	{
+		base.OnCreateForCompiler();
+		__AssignQueries(ref base.CheckedStateRef);
+		__TypeHandle.__AssignHandles(ref base.CheckedStateRef);
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		TelecomParameterData singleton = __query_450882671_0.GetSingleton<TelecomParameterData>();
+		if (!base.EntityManager.HasEnabledComponent<Locked>(singleton.m_TelecomServicePrefab))
+		{
+			uint updateFrame = SimulationUtils.GetUpdateFrame(m_SimulationSystem.frameIndex, 512, 16);
+			JobHandle dependencies;
+			TelecomEfficiencyJob jobData = new TelecomEfficiencyJob
+			{
+				m_UpdateFrameType = InternalCompilerInterface.GetSharedComponentTypeHandle(ref __TypeHandle.__Game_Simulation_UpdateFrame_SharedComponentTypeHandle, ref base.CheckedStateRef),
+				m_PrefabRefType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+				m_TransformType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Objects_Transform_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+				m_InstalledUpgradeType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Buildings_InstalledUpgrade_RO_BufferTypeHandle, ref base.CheckedStateRef),
+				m_EfficiencyType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Buildings_Efficiency_RW_BufferTypeHandle, ref base.CheckedStateRef),
+				m_Prefabs = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentLookup, ref base.CheckedStateRef),
+				m_ConsumptionDatas = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_ConsumptionData_RO_ComponentLookup, ref base.CheckedStateRef),
+				m_TelecomCoverage = m_TelecomCoverageSystem.GetData(readOnly: true, out dependencies),
+				m_EfficiencyParameters = __query_450882671_1.GetSingleton<BuildingEfficiencyParameterData>(),
+				m_UpdateFrameIndex = updateFrame
+			};
+			base.Dependency = JobChunkExtensions.ScheduleParallel(jobData, m_BuildingQuery, JobHandle.CombineDependencies(base.Dependency, dependencies));
+			m_TelecomCoverageSystem.AddReader(base.Dependency);
+		}
+	}
 ```
 
 

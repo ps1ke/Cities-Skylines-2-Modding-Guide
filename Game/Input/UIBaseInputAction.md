@@ -113,7 +113,14 @@ protected UIBaseInputAction();
 - `public GetDisplayName(Game.Input.UIInputActionPart actionPart, System.String source) : Game.Input.DisplayNameOverride`  
 
 ```csharp
-public Game.Input.DisplayNameOverride GetDisplayName(Game.Input.UIInputActionPart actionPart, System.String source);
+public DisplayNameOverride GetDisplayName(UIInputActionPart actionPart, string source)
+	{
+		if ((actionPart.m_Mask & m_DisplayMask) != InputManager.DeviceType.None)
+		{
+			return new DisplayNameOverride(source, actionPart.GetProxyAction(), m_AliasName, (int)m_DisplayPriority, actionPart.m_Transform);
+		}
+		return null;
+	}
 ```
 
 - `public abstract GetState(System.String source) : Game.Input.IProxyAction`  

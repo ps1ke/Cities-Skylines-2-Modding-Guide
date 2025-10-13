@@ -51,7 +51,12 @@ public Colossal.Mathematics.Bounds1 m_Range;
 - `public RouteModifierData(Game.Routes.RouteModifierType type, Game.Prefabs.ModifierValueMode mode, Colossal.Mathematics.Bounds1 range)`  
 
 ```csharp
-public RouteModifierData(Game.Routes.RouteModifierType type, Game.Prefabs.ModifierValueMode mode, Colossal.Mathematics.Bounds1 range);
+public RouteModifierData(RouteModifierType type, ModifierValueMode mode, Bounds1 range)
+	{
+		m_Type = type;
+		m_Mode = mode;
+		m_Range = range;
+	}
 ```
 
 

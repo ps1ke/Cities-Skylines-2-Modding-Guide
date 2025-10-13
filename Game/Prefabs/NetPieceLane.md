@@ -50,7 +50,10 @@ public Game.Prefabs.LaneFlags m_ExtraFlags;
 - `public CompareTo(Game.Prefabs.NetPieceLane other) : System.Int32`  
 
 ```csharp
-public System.Int32 CompareTo(Game.Prefabs.NetPieceLane other);
+public int CompareTo(NetPieceLane other)
+	{
+		return math.select(0, math.select(-1, 1, m_Position.x > other.m_Position.x), m_Position.x != other.m_Position.x);
+	}
 ```
 
 

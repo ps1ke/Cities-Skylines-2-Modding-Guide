@@ -51,7 +51,12 @@ public System.Single m_CurvePosition;
 - `public Attached(Unity.Entities.Entity parent, Unity.Entities.Entity oldParent, System.Single curvePosition)`  
 
 ```csharp
-public Attached(Unity.Entities.Entity parent, Unity.Entities.Entity oldParent, System.Single curvePosition);
+public Attached(Entity parent, Entity oldParent, float curvePosition)
+	{
+		m_Parent = parent;
+		m_OldParent = oldParent;
+		m_CurvePosition = curvePosition;
+	}
 ```
 
 

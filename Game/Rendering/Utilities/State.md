@@ -63,7 +63,9 @@ public System.String Name { get; set; }
 - `public State()`  
 
 ```csharp
-public State();
+public State()
+	{
+	}
 ```
 
 
@@ -72,25 +74,35 @@ public State();
 - `public virtual LateUpdate() : System.Void`  
 
 ```csharp
-public virtual System.Void LateUpdate();
+public virtual void LateUpdate()
+	{
+	}
 ```
 
 - `public virtual TransitionIn() : System.Void`  
 
 ```csharp
-public virtual System.Void TransitionIn();
+public virtual void TransitionIn()
+	{
+	}
 ```
 
 - `public virtual TransitionOut() : System.Void`  
 
 ```csharp
-public virtual System.Void TransitionOut();
+public virtual void TransitionOut()
+	{
+		_machine = null;
+	}
 ```
 
 - `public virtual Update() : Game.Rendering.Utilities.State+Result`  
 
 ```csharp
-public virtual Game.Rendering.Utilities.State+Result Update();
+public virtual Result Update()
+	{
+		return Result.Continue;
+	}
 ```
 
 

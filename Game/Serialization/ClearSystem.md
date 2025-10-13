@@ -36,7 +36,10 @@ private Unity.Entities.EntityQuery m_ClearQuery;
 - `public ClearSystem()`  
 
 ```csharp
-public ClearSystem();
+[Preserve]
+	public ClearSystem()
+	{
+	}
 ```
 
 
@@ -45,13 +48,53 @@ public ClearSystem();
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_ClearQuery = GetEntityQuery(new EntityQueryDesc
+		{
+			Any = new ComponentType[21]
+			{
+				ComponentType.ReadOnly<PrefabRef>(),
+				ComponentType.ReadOnly<LoadedIndex>(),
+				ComponentType.ReadOnly<ElectricityFlowNode>(),
+				ComponentType.ReadOnly<ElectricityFlowEdge>(),
+				ComponentType.ReadOnly<WaterPipeNode>(),
+				ComponentType.ReadOnly<WaterPipeEdge>(),
+				ComponentType.ReadOnly<ServiceRequest>(),
+				ComponentType.ReadOnly<Game.Simulation.WaterSourceData>(),
+				ComponentType.ReadOnly<Game.City.City>(),
+				ComponentType.ReadOnly<SchoolSeeker>(),
+				ComponentType.ReadOnly<JobSeeker>(),
+				ComponentType.ReadOnly<CityStatistic>(),
+				ComponentType.ReadOnly<ServiceBudgetData>(),
+				ComponentType.ReadOnly<FloodCounterData>(),
+				ComponentType.ReadOnly<CoordinatedMeeting>(),
+				ComponentType.ReadOnly<LookingForPartner>(),
+				ComponentType.ReadOnly<EffectInstance>(),
+				ComponentType.ReadOnly<AtmosphereData>(),
+				ComponentType.ReadOnly<BiomeData>(),
+				ComponentType.ReadOnly<CreationDefinition>(),
+				ComponentType.ReadOnly<TimeData>()
+			},
+			None = new ComponentType[2]
+			{
+				ComponentType.ReadOnly<NetCompositionData>(),
+				ComponentType.ReadOnly<PrefabData>()
+			}
+		});
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		base.EntityManager.DestroyEntity(m_ClearQuery);
+	}
 ```
 
 

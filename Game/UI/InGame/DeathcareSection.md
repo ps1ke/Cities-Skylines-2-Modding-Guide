@@ -102,7 +102,10 @@ private System.Single processingCapacity { private get; private set; }
 - `public DeathcareSection()`  
 
 ```csharp
-public DeathcareSection();
+[Preserve]
+	public DeathcareSection()
+	{
+	}
 ```
 
 
@@ -111,31 +114,75 @@ public DeathcareSection();
 - `protected virtual OnProcess() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnProcess();
+protected override void OnProcess()
+	{
+		if (TryGetComponentWithUpgrades<DeathcareFacilityData>(selectedEntity, selectedPrefab, out var data))
+		{
+			bodyCapacity = data.m_StorageCapacity;
+			base.tooltipKeys.Add(data.m_LongTermStorage ? "Cemetery" : "Crematorium");
+		}
+		if (base.EntityManager.TryGetBuffer(selectedEntity, isReadOnly: true, out DynamicBuffer<Efficiency> buffer))
+		{
+			processingSpeed = data.m_ProcessingRate * BuildingUtils.GetEfficiency(buffer);
+		}
+		bodyCount = base.EntityManager.GetComponentData<Game.Buildings.DeathcareFacility>(selectedEntity).m_LongTermStoredCount;
+		processingCapacity = data.m_ProcessingRate;
+		if (base.EntityManager.TryGetBuffer(selectedEntity, isReadOnly: true, out DynamicBuffer<Patient> buffer2))
+		{
+			bodyCount += buffer2.Length;
+		}
+		if (bodyCount <= 0)
+		{
+			processingSpeed = 0f;
+		}
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		base.visible = Visible();
+	}
 ```
 
 - `public virtual OnWriteProperties(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-public virtual System.Void OnWriteProperties(Colossal.UI.Binding.IJsonWriter writer);
+public override void OnWriteProperties(IJsonWriter writer)
+	{
+		writer.PropertyName("bodyCount");
+		writer.Write(bodyCount);
+		writer.PropertyName("bodyCapacity");
+		writer.Write(bodyCapacity);
+		writer.PropertyName("processingSpeed");
+		writer.Write(processingSpeed);
+		writer.PropertyName("processingCapacity");
+		writer.Write(processingCapacity);
+	}
 ```
 
 - `protected virtual Reset() : System.Void`  
 
 ```csharp
-protected virtual System.Void Reset();
+protected override void Reset()
+	{
+		bodyCount = 0;
+		bodyCapacity = 0;
+		processingSpeed = 0f;
+		processingCapacity = 0f;
+	}
 ```
 
 - `private Visible() : System.Boolean`  
 
 ```csharp
-private System.Boolean Visible();
+private bool Visible()
+	{
+		return base.EntityManager.HasComponent<Game.Buildings.DeathcareFacility>(selectedEntity);
+	}
 ```
 
 

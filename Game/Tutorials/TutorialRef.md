@@ -35,7 +35,10 @@ public Unity.Entities.Entity m_Tutorial;
 - `public TutorialRef(Unity.Entities.Entity tutorial)`  
 
 ```csharp
-public TutorialRef(Unity.Entities.Entity tutorial);
+public TutorialRef(Entity tutorial)
+	{
+		m_Tutorial = tutorial;
+	}
 ```
 
 

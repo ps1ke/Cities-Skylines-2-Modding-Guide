@@ -43,7 +43,11 @@ public System.Int32 m_VehicleCapacity;
 - `public Combine(Game.Prefabs.EmergencyShelterData otherData) : System.Void`  
 
 ```csharp
-public System.Void Combine(Game.Prefabs.EmergencyShelterData otherData);
+public void Combine(EmergencyShelterData otherData)
+	{
+		m_ShelterCapacity += otherData.m_ShelterCapacity;
+		m_VehicleCapacity += otherData.m_VehicleCapacity;
+	}
 ```
 
 - `public Deserialize<TReader>(TReader reader) : System.Void`  

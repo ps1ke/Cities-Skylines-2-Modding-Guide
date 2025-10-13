@@ -100,7 +100,10 @@ public System.Int32 TotalShelterCapacity { get; }
 - `public CountResidentialPropertySystem()`  
 
 ```csharp
-public CountResidentialPropertySystem();
+[Preserve]
+	public CountResidentialPropertySystem()
+	{
+	}
 ```
 
 
@@ -109,7 +112,10 @@ public CountResidentialPropertySystem();
 - `private __AssignQueries(Unity.Entities.SystemState& state) : System.Void`  
 
 ```csharp
-private System.Void __AssignQueries(Unity.Entities.SystemState& state);
+private void __AssignQueries(ref SystemState state)
+	{
+		new EntityQueryBuilder(Allocator.Temp).Dispose();
+	}
 ```
 
 - `public Deserialize<TReader>(TReader reader) : System.Void`  
@@ -121,37 +127,103 @@ public System.Void Deserialize<TReader>(TReader reader);
 - `public GetResidentialPropertyData() : Game.Simulation.CountResidentialPropertySystem+ResidentialPropertyData`  
 
 ```csharp
-public Game.Simulation.CountResidentialPropertySystem+ResidentialPropertyData GetResidentialPropertyData();
+public ResidentialPropertyData GetResidentialPropertyData()
+	{
+		return m_LastResidentialPropertyData;
+	}
 ```
 
 - `public virtual GetUpdateInterval(Game.SystemUpdatePhase phase) : System.Int32`  
 
 ```csharp
-public virtual System.Int32 GetUpdateInterval(Game.SystemUpdatePhase phase);
+public override int GetUpdateInterval(SystemUpdatePhase phase)
+	{
+		return 16;
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_ResidentialPropertyQuery = GetEntityQuery(new EntityQueryDesc
+		{
+			All = new ComponentType[1] { ComponentType.ReadOnly<Building>() },
+			Any = new ComponentType[2]
+			{
+				ComponentType.ReadOnly<Abandoned>(),
+				ComponentType.ReadOnly<Game.Buildings.Park>()
+			},
+			None = new ComponentType[4]
+			{
+				ComponentType.ReadOnly<Condemned>(),
+				ComponentType.ReadOnly<Destroyed>(),
+				ComponentType.ReadOnly<Deleted>(),
+				ComponentType.ReadOnly<Temp>()
+			}
+		}, new EntityQueryDesc
+		{
+			All = new ComponentType[1] { ComponentType.ReadOnly<ResidentialProperty>() },
+			None = new ComponentType[4]
+			{
+				ComponentType.ReadOnly<Condemned>(),
+				ComponentType.ReadOnly<Destroyed>(),
+				ComponentType.ReadOnly<Deleted>(),
+				ComponentType.ReadOnly<Temp>()
+			}
+		});
+		m_ResidentialPropertyData = new NativeAccumulator<ResidentialPropertyData>(Allocator.Persistent);
+		RequireForUpdate(m_ResidentialPropertyQuery);
+	}
 ```
 
 - `protected virtual OnCreateForCompiler() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreateForCompiler();
+protected override void OnCreateForCompiler()
+	{
+		base.OnCreateForCompiler();
+		__AssignQueries(ref base.CheckedStateRef);
+		__TypeHandle.__AssignHandles(ref base.CheckedStateRef);
+	}
 ```
 
 - `protected virtual OnDestroy() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnDestroy();
+[Preserve]
+	protected override void OnDestroy()
+	{
+		m_ResidentialPropertyData.Dispose();
+		base.OnDestroy();
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		m_LastResidentialPropertyData = m_ResidentialPropertyData.GetResult();
+		m_ResidentialPropertyData.Clear();
+		CountResidentialPropertyJob jobData = new CountResidentialPropertyJob
+		{
+			m_PrefabRefType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+			m_RenterType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Buildings_Renter_RO_BufferTypeHandle, ref base.CheckedStateRef),
+			m_SpawnableBuildingDatas = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_SpawnableBuildingData_RO_ComponentLookup, ref base.CheckedStateRef),
+			m_ZonePropertiesDatas = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_ZonePropertiesData_RO_ComponentLookup, ref base.CheckedStateRef),
+			m_ZoneDatas = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_ZoneData_RO_ComponentLookup, ref base.CheckedStateRef),
+			m_BuildingDatas = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_BuildingData_RO_ComponentLookup, ref base.CheckedStateRef),
+			m_BuildingPropertyDatas = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_BuildingPropertyData_RO_ComponentLookup, ref base.CheckedStateRef),
+			m_Households = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Citizens_Household_RO_ComponentLookup, ref base.CheckedStateRef),
+			m_ResidentialPropertyData = m_ResidentialPropertyData.AsParallelWriter()
+		};
+		base.Dependency = JobChunkExtensions.ScheduleParallel(jobData, m_ResidentialPropertyQuery, base.Dependency);
+	}
 ```
 
 - `public Serialize<TWriter>(TWriter writer) : System.Void`  
@@ -163,7 +235,11 @@ public System.Void Serialize<TWriter>(TWriter writer);
 - `public SetDefaults(Colossal.Serialization.Entities.Context context) : System.Void`  
 
 ```csharp
-public System.Void SetDefaults(Colossal.Serialization.Entities.Context context);
+public void SetDefaults(Context context)
+	{
+		m_LastResidentialPropertyData = default(ResidentialPropertyData);
+		m_ResidentialPropertyData.Clear();
+	}
 ```
 
 

@@ -39,7 +39,10 @@ public Unity.Entities.Entity m_SubObject;
 - `public SubObject(Unity.Entities.Entity subObject)`  
 
 ```csharp
-public SubObject(Unity.Entities.Entity subObject);
+public SubObject(Entity subObject)
+	{
+		m_SubObject = subObject;
+	}
 ```
 
 
@@ -48,13 +51,19 @@ public SubObject(Unity.Entities.Entity subObject);
 - `public Equals(Game.Objects.SubObject other) : System.Boolean`  
 
 ```csharp
-public System.Boolean Equals(Game.Objects.SubObject other);
+public bool Equals(SubObject other)
+	{
+		return m_SubObject.Equals(other.m_SubObject);
+	}
 ```
 
 - `public virtual GetHashCode() : System.Int32`  
 
 ```csharp
-public virtual System.Int32 GetHashCode();
+public override int GetHashCode()
+	{
+		return m_SubObject.GetHashCode();
+	}
 ```
 
 

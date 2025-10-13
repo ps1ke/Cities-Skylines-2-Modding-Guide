@@ -125,43 +125,126 @@ private System.Boolean <Install>b__22_0();
 - `public virtual Download(System.Threading.CancellationToken token) : System.Threading.Tasks.Task`  
 
 ```csharp
-public virtual System.Threading.Tasks.Task Download(System.Threading.CancellationToken token);
+public override Task Download(CancellationToken token)
+	{
+		return Task.CompletedTask;
+	}
 ```
 
 - `public virtual GetLocalizedState(System.Boolean includeProgress) : Game.UI.Localization.LocalizedString`  
 
 ```csharp
-public virtual Game.UI.Localization.LocalizedString GetLocalizedState(System.Boolean includeProgress);
+public override LocalizedString GetLocalizedState(bool includeProgress)
+	{
+		return base.state.m_State switch
+		{
+			DependencyState.Installed => LocalizedString.Id("Options.STATE_TOOLCHAIN[Activated]"), 
+			DependencyState.Installing => LocalizedString.Id("Options.STATE_TOOLCHAIN[WaitingForActivation]"), 
+			DependencyState.NotInstalled => LocalizedString.Id("Options.STATE_TOOLCHAIN[NotActivated]"), 
+			DependencyState.Removing => LocalizedString.Id("Options.STATE_TOOLCHAIN[Returning]"), 
+			_ => IToolchainDependency.GetLocalizedState(base.state, includeProgress), 
+		};
+	}
 ```
 
 - `public virtual Install(System.Threading.CancellationToken token) : System.Threading.Tasks.Task`  
 
 ```csharp
-public virtual System.Threading.Tasks.Task Install(System.Threading.CancellationToken token);
+public override async Task Install(CancellationToken token)
+	{
+		token.ThrowIfCancellationRequested();
+		try
+		{
+			IToolchainDependency.log.Debug("Waiting for Unity license");
+			base.state = new IToolchainDependency.State(DependencyState.Installing, "WaitingUnityLicense");
+			Cli.Wrap(UnityDependency.unityExe).WithArguments(new string[3]
+			{
+				"-projectPath",
+				UnityModProjectDependency.kProjectUnzipPath,
+				"-quit"
+			}).WithValidation(CommandResultValidation.None)
+				.ExecuteAsync(token);
+			await AsyncUtils.WaitForAction(() => licenseExists, token).ConfigureAwait(continueOnCapturedContext: false);
+		}
+		catch (OperationCanceledException)
+		{
+			throw;
+		}
+		catch (ToolchainException)
+		{
+			throw;
+		}
+		catch (Exception innerException)
+		{
+			throw new ToolchainException(ToolchainError.Install, this, innerException);
+		}
+	}
 ```
 
 - `public virtual IsInstalled(System.Threading.CancellationToken token) : System.Threading.Tasks.Task<System.Boolean>`  
 
 ```csharp
-public virtual System.Threading.Tasks.Task<System.Boolean> IsInstalled(System.Threading.CancellationToken token);
+public override Task<bool> IsInstalled(CancellationToken token)
+	{
+		return Task.FromResult(licenseExists);
+	}
 ```
 
 - `public virtual IsUpToDate(System.Threading.CancellationToken token) : System.Threading.Tasks.Task<System.Boolean>`  
 
 ```csharp
-public virtual System.Threading.Tasks.Task<System.Boolean> IsUpToDate(System.Threading.CancellationToken token);
+public override Task<bool> IsUpToDate(CancellationToken token)
+	{
+		return Task.FromResult(result: true);
+	}
 ```
 
 - `public virtual NeedDownload(System.Threading.CancellationToken token) : System.Threading.Tasks.Task<System.Boolean>`  
 
 ```csharp
-public virtual System.Threading.Tasks.Task<System.Boolean> NeedDownload(System.Threading.CancellationToken token);
+public override Task<bool> NeedDownload(CancellationToken token)
+	{
+		return Task.FromResult(result: false);
+	}
 ```
 
 - `public virtual Uninstall(System.Threading.CancellationToken token) : System.Threading.Tasks.Task`  
 
 ```csharp
-public virtual System.Threading.Tasks.Task Uninstall(System.Threading.CancellationToken token);
+public override async Task Uninstall(CancellationToken token)
+	{
+		token.ThrowIfCancellationRequested();
+		try
+		{
+			if (LongFile.Exists(kSerialBasedLicenseFile))
+			{
+				IToolchainDependency.log.Debug("Return Unity license");
+				base.state = new IToolchainDependency.State(DependencyState.Removing, "ReturningUnityLicense");
+				await Cli.Wrap(UnityDependency.unityExe).WithArguments(new string[2] { "-returnlicense", "-quit" }).WithStandardOutputPipe(PipeTarget.ToDelegate(delegate(string l)
+				{
+					IToolchainDependency.log.Debug(l);
+				}))
+					.WithStandardErrorPipe(PipeTarget.ToDelegate(delegate(string l)
+					{
+						IToolchainDependency.log.Error(l);
+					}))
+					.ExecuteAsync(token)
+					.ConfigureAwait(continueOnCapturedContext: false);
+			}
+		}
+		catch (OperationCanceledException)
+		{
+			throw;
+		}
+		catch (ToolchainException)
+		{
+			throw;
+		}
+		catch (Exception innerException)
+		{
+			throw new ToolchainException(ToolchainError.Uninstall, this, innerException);
+		}
+	}
 ```
 
 

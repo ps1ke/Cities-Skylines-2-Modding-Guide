@@ -42,13 +42,29 @@ public System.Int32 m_AreaType;
 - `public Read(Colossal.UI.Binding.IJsonReader reader) : System.Void`  
 
 ```csharp
-public System.Void Read(Colossal.UI.Binding.IJsonReader reader);
+public void Read(IJsonReader reader)
+	{
+		reader.ReadMapBegin();
+		reader.ReadProperty("resource");
+		reader.Read(out m_Resource);
+		reader.ReadProperty("area");
+		reader.Read(out m_AreaType);
+		reader.ReadMapEnd();
+	}
 ```
 
 - `public Write(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-public System.Void Write(Colossal.UI.Binding.IJsonWriter writer);
+public void Write(IJsonWriter writer)
+	{
+		writer.TypeBegin(GetType().FullName);
+		writer.PropertyName("resource");
+		writer.Write(m_Resource);
+		writer.PropertyName("area");
+		writer.Write(m_AreaType);
+		writer.TypeEnd();
+	}
 ```
 
 

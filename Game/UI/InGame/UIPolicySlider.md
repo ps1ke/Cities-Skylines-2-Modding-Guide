@@ -81,13 +81,27 @@ public Colossal.Mathematics.Bounds1 range { get; }
 - `public UIPolicySlider(System.Single value, Game.Prefabs.PolicySliderData sliderData)`  
 
 ```csharp
-public UIPolicySlider(System.Single value, Game.Prefabs.PolicySliderData sliderData);
+public UIPolicySlider(PolicySliderData sliderData)
+	{
+		m_Value = sliderData.m_Default;
+		range = sliderData.m_Range;
+		m_Default = sliderData.m_Default;
+		m_Step = sliderData.m_Step;
+		m_Unit = (PolicySliderUnit)sliderData.m_Unit;
+	}
 ```
 
 - `public UIPolicySlider(Game.Prefabs.PolicySliderData sliderData)`  
 
 ```csharp
-public UIPolicySlider(Game.Prefabs.PolicySliderData sliderData);
+public UIPolicySlider(PolicySliderData sliderData)
+	{
+		m_Value = sliderData.m_Default;
+		range = sliderData.m_Range;
+		m_Default = sliderData.m_Default;
+		m_Step = sliderData.m_Step;
+		m_Unit = (PolicySliderUnit)sliderData.m_Unit;
+	}
 ```
 
 
@@ -96,25 +110,76 @@ public UIPolicySlider(Game.Prefabs.PolicySliderData sliderData);
 - `public virtual Equals(System.Object obj) : System.Boolean`  
 
 ```csharp
-public virtual System.Boolean Equals(System.Object obj);
+public bool Equals(UIPolicySlider other)
+	{
+		Bounds1 bounds = range;
+		float value = m_Value;
+		float num = m_Default;
+		float step = m_Step;
+		PolicySliderUnit unit = m_Unit;
+		Bounds1 bounds2 = other.range;
+		float value2 = other.m_Value;
+		float num2 = other.m_Default;
+		float step2 = m_Step;
+		PolicySliderUnit unit2 = m_Unit;
+		if (bounds == bounds2 && value == value2 && num == num2 && step == step2)
+		{
+			return unit == unit2;
+		}
+		return false;
+	}
 ```
 
 - `public Equals(Game.UI.InGame.UIPolicySlider other) : System.Boolean`  
 
 ```csharp
-public System.Boolean Equals(Game.UI.InGame.UIPolicySlider other);
+public bool Equals(UIPolicySlider other)
+	{
+		Bounds1 bounds = range;
+		float value = m_Value;
+		float num = m_Default;
+		float step = m_Step;
+		PolicySliderUnit unit = m_Unit;
+		Bounds1 bounds2 = other.range;
+		float value2 = other.m_Value;
+		float num2 = other.m_Default;
+		float step2 = m_Step;
+		PolicySliderUnit unit2 = m_Unit;
+		if (bounds == bounds2 && value == value2 && num == num2 && step == step2)
+		{
+			return unit == unit2;
+		}
+		return false;
+	}
 ```
 
 - `public virtual GetHashCode() : System.Int32`  
 
 ```csharp
-public virtual System.Int32 GetHashCode();
+public override int GetHashCode()
+	{
+		return (range, m_Value, m_Default, m_Step, m_Unit).GetHashCode();
+	}
 ```
 
 - `public Write(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-public System.Void Write(Colossal.UI.Binding.IJsonWriter writer);
+public void Write(IJsonWriter writer)
+	{
+		writer.TypeBegin(TypeNames.kPolicySlider);
+		writer.PropertyName("range");
+		writer.Write(range);
+		writer.PropertyName("value");
+		writer.Write(m_Value);
+		writer.PropertyName("default");
+		writer.Write(m_Default);
+		writer.PropertyName("step");
+		writer.Write(m_Step);
+		writer.PropertyName("unit");
+		writer.Write(Enum.GetName(typeof(PolicySliderUnit), m_Unit));
+		writer.TypeEnd();
+	}
 ```
 
 

@@ -251,55 +251,190 @@ public LightEffect();
 - `private CalculateLightIntensityPunctual(System.Single intensity) : System.Single`  
 
 ```csharp
-private System.Single CalculateLightIntensityPunctual(System.Single intensity);
+private float CalculateLightIntensityPunctual(float intensity)
+	{
+		switch (m_Type)
+		{
+		case Game.Rendering.LightType.Point:
+			if (m_LightUnit == Game.Rendering.LightUnit.Candela)
+			{
+				return intensity;
+			}
+			return Game.Rendering.LightUtils.ConvertPointLightLumenToCandela(intensity);
+		case Game.Rendering.LightType.Spot:
+			if (m_LightUnit == Game.Rendering.LightUnit.Candela)
+			{
+				return intensity;
+			}
+			if (m_EnableSpotReflector)
+			{
+				if (m_SpotShape == Game.Rendering.SpotLightShape.Cone)
+				{
+					return Game.Rendering.LightUtils.ConvertSpotLightLumenToCandela(intensity, m_SpotAngle * (MathF.PI / 180f), exact: true);
+				}
+				if (m_SpotShape == Game.Rendering.SpotLightShape.Pyramid)
+				{
+					Game.Rendering.LightUtils.CalculateAnglesForPyramid(m_AspectRatio, m_SpotAngle * (MathF.PI / 180f), out var angleA, out var angleB);
+					return Game.Rendering.LightUtils.ConvertFrustrumLightLumenToCandela(intensity, angleA, angleB);
+				}
+				return Game.Rendering.LightUtils.ConvertPointLightLumenToCandela(intensity);
+			}
+			return Game.Rendering.LightUtils.ConvertPointLightLumenToCandela(intensity);
+		default:
+			return intensity;
+		}
+	}
 ```
 
 - `public ComputeLightFinalColor() : UnityEngine.Color`  
 
 ```csharp
-public UnityEngine.Color ComputeLightFinalColor();
+public Color ComputeLightFinalColor()
+	{
+		Color color = m_Color.linear * ComputeLightIntensity();
+		if (m_UseColorTemperature)
+		{
+			color *= Mathf.CorrelatedColorTemperatureToRGB(m_ColorTemperature);
+		}
+		return color * m_LightDimmer;
+	}
 ```
 
 - `private ComputeLightIntensity() : System.Single`  
 
 ```csharp
-private System.Single ComputeLightIntensity();
+private float ComputeLightIntensity()
+	{
+		if (m_LightUnit == Game.Rendering.LightUnit.Lumen)
+		{
+			if (m_Type == Game.Rendering.LightType.Spot || m_Type == Game.Rendering.LightType.Point)
+			{
+				return CalculateLightIntensityPunctual(m_LightIntensity.m_Intensity);
+			}
+			return Game.Rendering.LightUtils.ConvertAreaLightLumenToLuminance(m_AreaShape, m_LightIntensity.m_Intensity, m_ShapeWidth, m_ShapeHeight);
+		}
+		if (m_LightUnit == Game.Rendering.LightUnit.Ev100)
+		{
+			return Game.Rendering.LightUtils.ConvertEvToLuminance(m_LightIntensity.m_Intensity);
+		}
+		if ((m_Type == Game.Rendering.LightType.Spot || m_Type == Game.Rendering.LightType.Point) && m_LightUnit == Game.Rendering.LightUnit.Lux)
+		{
+			if (m_Type == Game.Rendering.LightType.Spot && m_SpotShape == Game.Rendering.SpotLightShape.Box)
+			{
+				return m_LightIntensity.m_Intensity;
+			}
+			return Game.Rendering.LightUtils.ConvertLuxToCandela(m_LightIntensity.m_Intensity, m_LuxAtDistance);
+		}
+		return m_LightIntensity.m_Intensity;
+	}
 ```
 
 - `public virtual GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetArchetypeComponents(HashSet<ComponentType> components)
+	{
+	}
 ```
 
 - `public GetEmissionColor() : UnityEngine.Color`  
 
 ```csharp
-public UnityEngine.Color GetEmissionColor();
+public Color GetEmissionColor()
+	{
+		Color color = m_Color.linear * m_LightIntensity.m_Intensity;
+		if (m_UseColorTemperature)
+		{
+			color *= Mathf.CorrelatedColorTemperatureToRGB(m_ColorTemperature);
+		}
+		return color * m_LightDimmer;
+	}
 ```
 
 - `public GetLightTypeAndShape() : UnityEngine.Rendering.HighDefinition.HDLightTypeAndShape`  
 
 ```csharp
-public UnityEngine.Rendering.HighDefinition.HDLightTypeAndShape GetLightTypeAndShape();
+public HDLightTypeAndShape GetLightTypeAndShape()
+	{
+		return m_Type switch
+		{
+			Game.Rendering.LightType.Spot => m_SpotShape switch
+			{
+				Game.Rendering.SpotLightShape.Cone => HDLightTypeAndShape.ConeSpot, 
+				Game.Rendering.SpotLightShape.Box => HDLightTypeAndShape.BoxSpot, 
+				Game.Rendering.SpotLightShape.Pyramid => HDLightTypeAndShape.PyramidSpot, 
+				_ => throw new NotImplementedException($"Spot shape not implemented {m_SpotShape}"), 
+			}, 
+			Game.Rendering.LightType.Point => HDLightTypeAndShape.Point, 
+			Game.Rendering.LightType.Area => m_AreaShape switch
+			{
+				Game.Rendering.AreaLightShape.Rectangle => HDLightTypeAndShape.RectangleArea, 
+				Game.Rendering.AreaLightShape.Tube => HDLightTypeAndShape.TubeArea, 
+				_ => throw new NotImplementedException($"Area shape not implemented {m_AreaShape}"), 
+			}, 
+			_ => throw new NotImplementedException($"Light type not implemented {m_Type}"), 
+		};
+	}
 ```
 
 - `public virtual GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetPrefabComponents(HashSet<ComponentType> components)
+	{
+		components.Add(ComponentType.ReadWrite<LightEffectData>());
+		components.Add(ComponentType.ReadWrite<EffectColorData>());
+	}
 ```
 
 - `public virtual Initialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity) : System.Void`  
 
 ```csharp
-public virtual System.Void Initialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity);
+public override void Initialize(EntityManager entityManager, Entity entity)
+	{
+		base.Initialize(entityManager, entity);
+		int num = RenderingUtils.CalculateLodLimit(RenderingUtils.GetRenderingSize(new float3(m_Range)), m_LodBias);
+		float num2 = RenderingUtils.CalculateDistanceFactor(num);
+		float invDistanceFactor = 1f / num2;
+		if (m_LightIntensity != null)
+		{
+			if (m_LightUnit != m_LightIntensity.m_LightUnit)
+			{
+				RecalculateIntensity(m_LightUnit, m_LightIntensity.m_LightUnit);
+			}
+			m_Intensity = m_LightIntensity.m_Intensity;
+			m_LightUnit = m_LightIntensity.m_LightUnit;
+		}
+		else
+		{
+			m_LightIntensity = new LightIntensity
+			{
+				m_Intensity = m_Intensity,
+				m_LightUnit = m_LightUnit
+			};
+		}
+		LightEffectData componentData = new LightEffectData
+		{
+			m_Range = m_Range,
+			m_DistanceFactor = num2,
+			m_InvDistanceFactor = invDistanceFactor,
+			m_MinLod = num
+		};
+		entityManager.SetComponentData(entity, componentData);
+		EffectColorData componentData2 = entityManager.GetComponentData<EffectColorData>(entity);
+		componentData2.m_Color = ComputeLightFinalColor();
+		entityManager.SetComponentData(entity, componentData2);
+	}
 ```
 
 - `public RecalculateIntensity(Game.Rendering.LightUnit oldUnit, Game.Rendering.LightUnit newUnit) : System.Void`  
 
 ```csharp
-public System.Void RecalculateIntensity(Game.Rendering.LightUnit oldUnit, Game.Rendering.LightUnit newUnit);
+public void RecalculateIntensity(Game.Rendering.LightUnit oldUnit, Game.Rendering.LightUnit newUnit)
+	{
+		m_Intensity = Game.Rendering.LightUtils.ConvertLightIntensity(oldUnit, newUnit, this, m_Intensity);
+		m_LightIntensity.m_Intensity = m_Intensity;
+	}
 ```
 
 

@@ -44,7 +44,11 @@ private readonly System.Boolean m_DebugConditional;
 - `public SettingsUIPlatformAttribute(Colossal.Platform platforms, System.Boolean debugConditional = False)`  
 
 ```csharp
-public SettingsUIPlatformAttribute(Colossal.Platform platforms, System.Boolean debugConditional);
+public SettingsUIPlatformAttribute(Platform platforms, bool debugConditional = false)
+	{
+		m_Platforms = platforms;
+		m_DebugConditional = debugConditional;
+	}
 ```
 
 
@@ -53,7 +57,10 @@ public SettingsUIPlatformAttribute(Colossal.Platform platforms, System.Boolean d
 - `public IsPlatformSet(UnityEngine.RuntimePlatform platform) : System.Boolean`  
 
 ```csharp
-public System.Boolean IsPlatformSet(UnityEngine.RuntimePlatform platform);
+public bool IsPlatformSet(RuntimePlatform platform)
+	{
+		return m_Platforms.IsPlatformSet(platform, m_DebugConditional);
+	}
 ```
 
 

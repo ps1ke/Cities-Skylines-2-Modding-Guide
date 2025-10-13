@@ -71,7 +71,15 @@ public System.Boolean m_LongTermStorage;
 - `public Combine(Game.Prefabs.GarbageFacilityData otherData) : System.Void`  
 
 ```csharp
-public System.Void Combine(Game.Prefabs.GarbageFacilityData otherData);
+public void Combine(GarbageFacilityData otherData)
+	{
+		m_GarbageCapacity += otherData.m_GarbageCapacity;
+		m_VehicleCapacity += otherData.m_VehicleCapacity;
+		m_TransportCapacity += otherData.m_TransportCapacity;
+		m_ProcessingSpeed += otherData.m_ProcessingSpeed;
+		m_IndustrialWasteOnly |= otherData.m_IndustrialWasteOnly;
+		m_LongTermStorage |= otherData.m_LongTermStorage;
+	}
 ```
 
 - `public Deserialize<TReader>(TReader reader) : System.Void`  

@@ -43,7 +43,12 @@ public System.Single m_Purification;
 - `public Combine(Game.Prefabs.SewageOutletData otherData) : System.Void`  
 
 ```csharp
-public System.Void Combine(Game.Prefabs.SewageOutletData otherData);
+public void Combine(SewageOutletData otherData)
+	{
+		m_Capacity += otherData.m_Capacity;
+		m_Purification += otherData.m_Purification;
+		m_Purification = math.min(1f, m_Purification);
+	}
 ```
 
 - `public Deserialize<TReader>(TReader reader) : System.Void`  

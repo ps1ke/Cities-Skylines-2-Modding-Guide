@@ -61,7 +61,11 @@ public System.Int32 index { get; }
 - `public ToolMode(System.String name, System.Int32 index)`  
 
 ```csharp
-public ToolMode(System.String name, System.Int32 index);
+public ToolMode(string name, int index)
+	{
+		this.name = name;
+		this.index = index;
+	}
 ```
 
 

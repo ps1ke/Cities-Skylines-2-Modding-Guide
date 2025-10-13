@@ -71,7 +71,15 @@ public Game.Vehicles.EnergyTypes m_AircraftRefuelTypes;
 - `public Combine(Game.Prefabs.TransportStationData otherData) : System.Void`  
 
 ```csharp
-public System.Void Combine(Game.Prefabs.TransportStationData otherData);
+public void Combine(TransportStationData otherData)
+	{
+		m_ComfortFactor += otherData.m_ComfortFactor;
+		m_LoadingFactor += otherData.m_LoadingFactor;
+		m_CarRefuelTypes |= otherData.m_CarRefuelTypes;
+		m_TrainRefuelTypes |= otherData.m_TrainRefuelTypes;
+		m_WatercraftRefuelTypes |= otherData.m_WatercraftRefuelTypes;
+		m_AircraftRefuelTypes |= otherData.m_AircraftRefuelTypes;
+	}
 ```
 
 - `public Deserialize<TReader>(TReader reader) : System.Void`  

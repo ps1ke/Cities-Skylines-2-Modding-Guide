@@ -205,7 +205,10 @@ protected System.Boolean Upgrade { protected get; }
 - `protected InfoSectionBase()`  
 
 ```csharp
-protected InfoSectionBase();
+[Preserve]
+	protected InfoSectionBase()
+	{
+	}
 ```
 
 
@@ -214,13 +217,25 @@ protected InfoSectionBase();
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		tooltipKeys = new List<string>();
+		tooltipTags = new List<string>();
+		m_NameSystem = base.World.GetOrCreateSystemManaged<NameSystem>();
+		m_PrefabSystem = base.World.GetOrCreateSystemManaged<PrefabSystem>();
+		m_EndFrameBarrier = base.World.GetOrCreateSystemManaged<EndFrameBarrier>();
+		m_InfoUISystem = base.World.GetOrCreateSystemManaged<SelectedInfoUISystem>();
+	}
 ```
 
 - `protected virtual OnPreUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnPreUpdate();
+protected virtual void OnPreUpdate()
+	{
+	}
 ```
 
 - `protected abstract OnProcess() : System.Void`  
@@ -238,13 +253,31 @@ public abstract System.Void OnWriteProperties(Colossal.UI.Binding.IJsonWriter wr
 - `public PerformUpdate() : System.Void`  
 
 ```csharp
-public System.Void PerformUpdate();
+public void PerformUpdate()
+	{
+		OnPreUpdate();
+		if (m_Dirty)
+		{
+			m_Dirty = false;
+			tooltipKeys.Clear();
+			tooltipTags.Clear();
+			Reset();
+			Update();
+			if (Visible())
+			{
+				OnProcess();
+			}
+		}
+	}
 ```
 
 - `public RequestUpdate() : System.Void`  
 
 ```csharp
-public System.Void RequestUpdate();
+public void RequestUpdate()
+	{
+		m_Dirty = true;
+	}
 ```
 
 - `protected abstract Reset() : System.Void`  
@@ -262,13 +295,52 @@ protected System.Boolean TryGetComponentWithUpgrades<T>(Unity.Entities.Entity en
 - `private Visible() : System.Boolean`  
 
 ```csharp
-private System.Boolean Visible();
+private bool Visible()
+	{
+		if (visible && (!Destroyed || displayForDestroyedObjects) && (!OutsideConnection || displayForOutsideConnections) && (!UnderConstruction || displayForUnderConstruction))
+		{
+			if (Upgrade)
+			{
+				return displayForUpgrades;
+			}
+			return true;
+		}
+		return false;
+	}
 ```
 
 - `public Write(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-public System.Void Write(Colossal.UI.Binding.IJsonWriter writer);
+public void Write(IJsonWriter writer)
+	{
+		if (Visible())
+		{
+			writer.TypeBegin(GetType().FullName);
+			writer.PropertyName("group");
+			writer.Write(group);
+			writer.PropertyName("tooltipKeys");
+			writer.ArrayBegin(tooltipKeys.Count);
+			for (int i = 0; i < tooltipKeys.Count; i++)
+			{
+				writer.Write(tooltipKeys[i]);
+			}
+			writer.ArrayEnd();
+			writer.PropertyName("tooltipTags");
+			writer.ArrayBegin(tooltipTags.Count);
+			for (int j = 0; j < tooltipTags.Count; j++)
+			{
+				writer.Write(tooltipTags[j]);
+			}
+			writer.ArrayEnd();
+			OnWriteProperties(writer);
+			writer.TypeEnd();
+		}
+		else
+		{
+			writer.WriteNull();
+		}
+	}
 ```
 
 

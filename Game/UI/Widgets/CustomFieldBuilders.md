@@ -45,7 +45,38 @@ public CustomFieldBuilders();
 - `public TryCreate(System.Type memberType, System.Object[] attributes) : Game.UI.Widgets.FieldBuilder`  
 
 ```csharp
-public Game.UI.Widgets.FieldBuilder TryCreate(System.Type memberType, System.Object[] attributes);
+public FieldBuilder TryCreate(Type memberType, object[] attributes)
+	{
+		Type customFieldFactory = WidgetAttributeUtils.GetCustomFieldFactory(attributes);
+		if (customFieldFactory != null)
+		{
+			if (!kFactoryCache.TryGetValue(customFieldFactory, out var value))
+			{
+				if (typeof(IFieldBuilderFactory).IsAssignableFrom(customFieldFactory))
+				{
+					try
+					{
+						value = (IFieldBuilderFactory)Activator.CreateInstance(customFieldFactory);
+					}
+					catch (Exception exception)
+					{
+						UnityEngine.Debug.LogException(exception);
+						value = null;
+					}
+					kFactoryCache[customFieldFactory] = value;
+				}
+				else
+				{
+					UnityEngine.Debug.LogError($"{customFieldFactory} is not assignable to IFieldBuilderFactory");
+				}
+			}
+			if (value != null)
+			{
+				return value.TryCreate(memberType, attributes);
+			}
+		}
+		return null;
+	}
 ```
 
 

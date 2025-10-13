@@ -55,7 +55,14 @@ public System.Int32 m_EmergencyFrameDelay;
 - `public Equals(Game.Triggers.RadioTag other) : System.Boolean`  
 
 ```csharp
-public System.Boolean Equals(Game.Triggers.RadioTag other);
+public bool Equals(RadioTag other)
+	{
+		if (m_Event == other.m_Event && m_Target == other.m_Target)
+		{
+			return m_SegmentType == other.m_SegmentType;
+		}
+		return false;
+	}
 ```
 
 

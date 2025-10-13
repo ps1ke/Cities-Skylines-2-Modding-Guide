@@ -64,7 +64,14 @@ public Game.Pathfind.PathfindActionState m_State;
 - `public AvailabilityActionData(Unity.Collections.Allocator allocator, Game.Pathfind.AvailabilityParameters parameters)`  
 
 ```csharp
-public AvailabilityActionData(Unity.Collections.Allocator allocator, Game.Pathfind.AvailabilityParameters parameters);
+public AvailabilityActionData(Allocator allocator, AvailabilityParameters parameters)
+	{
+		m_Sources = new UnsafeQueue<PathTarget>(allocator);
+		m_Providers = new UnsafeQueue<AvailabilityProvider>(allocator);
+		m_Results = new UnsafeList<AvailabilityResult>(100, allocator);
+		m_Parameters = parameters;
+		m_State = PathfindActionState.Pending;
+	}
 ```
 
 
@@ -73,7 +80,12 @@ public AvailabilityActionData(Unity.Collections.Allocator allocator, Game.Pathfi
 - `public Dispose() : System.Void`  
 
 ```csharp
-public System.Void Dispose();
+public void Dispose()
+	{
+		m_Sources.Dispose();
+		m_Providers.Dispose();
+		m_Results.Dispose();
+	}
 ```
 
 

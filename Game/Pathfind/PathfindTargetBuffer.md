@@ -34,7 +34,10 @@ private Unity.Collections.UnsafeQueue<Game.Pathfind.PathTarget> m_Queue;
 - `public Enqueue(Game.Pathfind.PathTarget pathTarget) : System.Void`  
 
 ```csharp
-public System.Void Enqueue(Game.Pathfind.PathTarget pathTarget);
+public void Enqueue(PathTarget pathTarget)
+	{
+		m_Queue.Enqueue(pathTarget);
+	}
 ```
 
 

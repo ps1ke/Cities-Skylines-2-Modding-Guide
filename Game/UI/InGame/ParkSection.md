@@ -60,7 +60,10 @@ private System.Int32 maintenance { private get; private set; }
 - `public ParkSection()`  
 
 ```csharp
-public ParkSection();
+[Preserve]
+	public ParkSection()
+	{
+	}
 ```
 
 
@@ -69,31 +72,51 @@ public ParkSection();
 - `protected virtual OnProcess() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnProcess();
+protected override void OnProcess()
+	{
+		if (TryGetComponentWithUpgrades<ParkData>(selectedEntity, selectedPrefab, out var data))
+		{
+			maintenance = Mathf.CeilToInt(math.select((float)base.EntityManager.GetComponentData<Game.Buildings.Park>(selectedEntity).m_Maintenance / (float)data.m_MaintenancePool, 0f, data.m_MaintenancePool == 0) * 100f);
+		}
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		base.visible = Visible();
+	}
 ```
 
 - `public virtual OnWriteProperties(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-public virtual System.Void OnWriteProperties(Colossal.UI.Binding.IJsonWriter writer);
+public override void OnWriteProperties(IJsonWriter writer)
+	{
+		writer.PropertyName("maintenance");
+		writer.Write(maintenance);
+	}
 ```
 
 - `protected virtual Reset() : System.Void`  
 
 ```csharp
-protected virtual System.Void Reset();
+protected override void Reset()
+	{
+		maintenance = 0;
+	}
 ```
 
 - `private Visible() : System.Boolean`  
 
 ```csharp
-private System.Boolean Visible();
+private bool Visible()
+	{
+		return base.EntityManager.HasComponent<Game.Buildings.Park>(selectedEntity);
+	}
 ```
 
 

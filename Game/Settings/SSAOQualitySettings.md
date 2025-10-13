@@ -128,13 +128,21 @@ private static Game.Settings.SSAOQualitySettings disabled { private get; }
 - `public SSAOQualitySettings()`  
 
 ```csharp
-public SSAOQualitySettings();
+public SSAOQualitySettings(Level quality, VolumeProfile profile)
+	{
+		CreateVolumeComponent(profile, ref m_AOComponent);
+		SetLevel(quality, apply: false);
+	}
 ```
 
 - `public SSAOQualitySettings(Game.Settings.QualitySetting+Level quality, UnityEngine.Rendering.VolumeProfile profile)`  
 
 ```csharp
-public SSAOQualitySettings(Game.Settings.QualitySetting+Level quality, UnityEngine.Rendering.VolumeProfile profile);
+public SSAOQualitySettings(Level quality, VolumeProfile profile)
+	{
+		CreateVolumeComponent(profile, ref m_AOComponent);
+		SetLevel(quality, apply: false);
+	}
 ```
 
 
@@ -143,13 +151,30 @@ public SSAOQualitySettings(Game.Settings.QualitySetting+Level quality, UnityEngi
 - `public virtual Apply() : System.Void`  
 
 ```csharp
-public virtual System.Void Apply();
+public override void Apply()
+	{
+		base.Apply();
+		if (m_AOComponent != null)
+		{
+			ApplyState(m_AOComponent.intensity, 0f, !enabled);
+			ApplyState(m_AOComponent.m_FullResolution, fullscreen);
+			ApplyState(m_AOComponent.m_MaximumRadiusInPixels, maxPixelRadius);
+			ApplyState(m_AOComponent.m_StepCount, stepCount);
+		}
+	}
 ```
 
 - `public virtual IsOptionsDisabled() : System.Boolean`  
 
 ```csharp
-public virtual System.Boolean IsOptionsDisabled();
+public override bool IsOptionsDisabled()
+	{
+		if (!IsOptionFullyDisabled())
+		{
+			return !enabled;
+		}
+		return true;
+	}
 ```
 
 

@@ -56,19 +56,44 @@ public MapTilePrefab();
 - `public virtual GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetArchetypeComponents(HashSet<ComponentType> components)
+	{
+		base.GetArchetypeComponents(components);
+		components.Add(ComponentType.ReadWrite<MapTile>());
+		components.Add(ComponentType.ReadWrite<MapFeatureElement>());
+		components.Add(ComponentType.ReadWrite<Geometry>());
+	}
 ```
 
 - `public virtual GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetPrefabComponents(HashSet<ComponentType> components)
+	{
+		base.GetPrefabComponents(components);
+		components.Add(ComponentType.ReadWrite<MapTileData>());
+		components.Add(ComponentType.ReadWrite<MapFeatureData>());
+		components.Add(ComponentType.ReadWrite<AreaGeometryData>());
+		components.Add(ComponentType.ReadWrite<TilePurchaseCostFactor>());
+	}
 ```
 
 - `public virtual Initialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity) : System.Void`  
 
 ```csharp
-public virtual System.Void Initialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity);
+public override void Initialize(EntityManager entityManager, Entity entity)
+	{
+		base.Initialize(entityManager, entity);
+		DynamicBuffer<MapFeatureData> buffer = entityManager.GetBuffer<MapFeatureData>(entity);
+		CollectionUtils.ResizeInitialized(buffer, 9);
+		for (int i = 0; i < m_MapFeatures.Length; i++)
+		{
+			FeatureInfo featureInfo = m_MapFeatures[i];
+			buffer[(int)featureInfo.m_MapFeature] = new MapFeatureData(featureInfo.m_Cost);
+		}
+		TilePurchaseCostFactor componentData = new TilePurchaseCostFactor(m_PurchaseCostFactor);
+		entityManager.SetComponentData(entity, componentData);
+	}
 ```
 
 

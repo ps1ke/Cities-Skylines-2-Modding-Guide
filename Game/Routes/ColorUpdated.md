@@ -35,7 +35,10 @@ public Unity.Entities.Entity m_Route;
 - `public ColorUpdated(Unity.Entities.Entity route)`  
 
 ```csharp
-public ColorUpdated(Unity.Entities.Entity route);
+public ColorUpdated(Entity route)
+	{
+		m_Route = route;
+	}
 ```
 
 

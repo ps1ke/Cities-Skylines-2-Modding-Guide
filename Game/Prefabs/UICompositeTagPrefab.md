@@ -58,7 +58,17 @@ public UICompositeTagPrefab();
 - `public virtual GetDependencies(System.Collections.Generic.List<Game.Prefabs.PrefabBase> prefabs) : System.Void`  
 
 ```csharp
-public virtual System.Void GetDependencies(System.Collections.Generic.List<Game.Prefabs.PrefabBase> prefabs);
+public override void GetDependencies(List<PrefabBase> prefabs)
+	{
+		base.GetDependencies(prefabs);
+		if (m_UITagProviders != null)
+		{
+			for (int i = 0; i < m_UITagProviders.Length; i++)
+			{
+				prefabs.Add(m_UITagProviders[i]);
+			}
+		}
+	}
 ```
 
 

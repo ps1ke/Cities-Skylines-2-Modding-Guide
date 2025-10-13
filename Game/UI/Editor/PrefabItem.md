@@ -70,7 +70,14 @@ public PrefabItem();
 - `public CompareTo(Game.UI.Editor.PrefabItem other) : System.Int32`  
 
 ```csharp
-public System.Int32 CompareTo(Game.UI.Editor.PrefabItem other);
+public int CompareTo(PrefabItem other)
+	{
+		if (base.favorite == other.favorite)
+		{
+			return string.CompareOrdinal(prefab?.name, other.prefab?.name);
+		}
+		return -base.favorite.CompareTo(other.favorite);
+	}
 ```
 
 

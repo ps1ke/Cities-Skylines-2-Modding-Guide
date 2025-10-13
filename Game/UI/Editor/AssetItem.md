@@ -70,7 +70,14 @@ public AssetItem();
 - `public CompareTo(Game.UI.Editor.AssetItem other) : System.Int32`  
 
 ```csharp
-public System.Int32 CompareTo(Game.UI.Editor.AssetItem other);
+public int CompareTo(AssetItem other)
+	{
+		if (base.favorite == other.favorite)
+		{
+			return string.CompareOrdinal(fileName, other.fileName);
+		}
+		return -base.favorite.CompareTo(other.favorite);
+	}
 ```
 
 

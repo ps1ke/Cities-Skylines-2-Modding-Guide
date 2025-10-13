@@ -47,7 +47,10 @@ private Game.Buildings.ReferencesSystem+TypeHandle __TypeHandle;
 - `public ReferencesSystem()`  
 
 ```csharp
-public ReferencesSystem();
+[Preserve]
+	public ReferencesSystem()
+	{
+	}
 ```
 
 
@@ -56,25 +59,82 @@ public ReferencesSystem();
 - `private __AssignQueries(Unity.Entities.SystemState& state) : System.Void`  
 
 ```csharp
-private System.Void __AssignQueries(Unity.Entities.SystemState& state);
+private void __AssignQueries(ref SystemState state)
+	{
+		new EntityQueryBuilder(Allocator.Temp).Dispose();
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_SpawnLocationQuery = GetEntityQuery(new EntityQueryDesc
+		{
+			All = new ComponentType[2]
+			{
+				ComponentType.ReadOnly<Created>(),
+				ComponentType.ReadOnly<Owner>()
+			},
+			Any = new ComponentType[3]
+			{
+				ComponentType.ReadOnly<SpawnLocation>(),
+				ComponentType.ReadOnly<HangaroundLocation>(),
+				ComponentType.ReadOnly<ParkingLane>()
+			}
+		}, new EntityQueryDesc
+		{
+			All = new ComponentType[2]
+			{
+				ComponentType.ReadOnly<Deleted>(),
+				ComponentType.ReadOnly<Owner>()
+			},
+			Any = new ComponentType[3]
+			{
+				ComponentType.ReadOnly<SpawnLocation>(),
+				ComponentType.ReadOnly<HangaroundLocation>(),
+				ComponentType.ReadOnly<ParkingLane>()
+			}
+		});
+		RequireForUpdate(m_SpawnLocationQuery);
+	}
 ```
 
 - `protected virtual OnCreateForCompiler() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreateForCompiler();
+protected override void OnCreateForCompiler()
+	{
+		base.OnCreateForCompiler();
+		__AssignQueries(ref base.CheckedStateRef);
+		__TypeHandle.__AssignHandles(ref base.CheckedStateRef);
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		UpdateBuildingReferencesJob jobData = new UpdateBuildingReferencesJob
+		{
+			m_EntityType = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef),
+			m_OwnerType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Common_Owner_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+			m_SpawnLocationType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Objects_SpawnLocation_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+			m_HangaroundLocationType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Areas_HangaroundLocation_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+			m_ParkingLaneType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Net_ParkingLane_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+			m_DeletedType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Common_Deleted_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+			m_TempType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Tools_Temp_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+			m_TempData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Tools_Temp_RO_ComponentLookup, ref base.CheckedStateRef),
+			m_OwnerData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Common_Owner_RO_ComponentLookup, ref base.CheckedStateRef),
+			m_SpawnLocations = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Buildings_SpawnLocationElement_RW_BufferLookup, ref base.CheckedStateRef)
+		};
+		base.Dependency = JobChunkExtensions.Schedule(jobData, m_SpawnLocationQuery, base.Dependency);
+	}
 ```
 
 

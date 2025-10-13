@@ -58,7 +58,13 @@ public System.Byte m_Timer;
 - `public HealthProblem(Unity.Entities.Entity _event, Game.Citizens.HealthProblemFlags flags)`  
 
 ```csharp
-public HealthProblem(Unity.Entities.Entity _event, Game.Citizens.HealthProblemFlags flags);
+public HealthProblem(Entity _event, HealthProblemFlags flags)
+	{
+		m_Event = _event;
+		m_HealthcareRequest = Entity.Null;
+		m_Flags = flags;
+		m_Timer = 0;
+	}
 ```
 
 

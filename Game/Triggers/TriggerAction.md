@@ -63,13 +63,27 @@ public System.Single m_Value;
 - `public TriggerAction(Game.Triggers.TriggerType triggerType, Unity.Entities.Entity triggerPrefab, Unity.Entities.Entity primaryTarget, Unity.Entities.Entity secondaryTarget, System.Single value = 0)`  
 
 ```csharp
-public TriggerAction(Game.Triggers.TriggerType triggerType, Unity.Entities.Entity triggerPrefab, Unity.Entities.Entity primaryTarget, Unity.Entities.Entity secondaryTarget, System.Single value);
+public TriggerAction(TriggerType triggerType, Entity triggerPrefab, float value)
+	{
+		m_TriggerType = triggerType;
+		m_TriggerPrefab = triggerPrefab;
+		m_PrimaryTarget = Entity.Null;
+		m_SecondaryTarget = Entity.Null;
+		m_Value = value;
+	}
 ```
 
 - `public TriggerAction(Game.Triggers.TriggerType triggerType, Unity.Entities.Entity triggerPrefab, System.Single value)`  
 
 ```csharp
-public TriggerAction(Game.Triggers.TriggerType triggerType, Unity.Entities.Entity triggerPrefab, System.Single value);
+public TriggerAction(TriggerType triggerType, Entity triggerPrefab, float value)
+	{
+		m_TriggerType = triggerType;
+		m_TriggerPrefab = triggerPrefab;
+		m_PrimaryTarget = Entity.Null;
+		m_SecondaryTarget = Entity.Null;
+		m_Value = value;
+	}
 ```
 
 

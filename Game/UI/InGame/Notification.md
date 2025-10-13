@@ -75,7 +75,12 @@ public Game.Notifications.IconPriority priority { get; }
 - `public Notification(Unity.Entities.Entity entity, Unity.Entities.Entity target, Game.Notifications.IconPriority priority)`  
 
 ```csharp
-public Notification(Unity.Entities.Entity entity, Unity.Entities.Entity target, Game.Notifications.IconPriority priority);
+public Notification(Entity entity, Entity target, IconPriority priority)
+	{
+		this.entity = entity;
+		this.target = target;
+		this.priority = priority;
+	}
 ```
 
 

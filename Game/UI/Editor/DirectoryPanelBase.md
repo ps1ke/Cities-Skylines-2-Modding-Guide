@@ -109,19 +109,51 @@ protected DirectoryPanelBase();
 - `private BuildAdapter(System.String dir) : Game.UI.Editor.DirectoryAdapter`  
 
 ```csharp
-private Game.UI.Editor.DirectoryAdapter BuildAdapter(System.String dir);
+private DirectoryAdapter BuildAdapter(string dir)
+	{
+		return new DirectoryAdapter(this)
+		{
+			directoryPath = dir,
+			items = m_Items.ToList()
+		};
+	}
 ```
 
 - `private BuildPage(Game.UI.Editor.DirectoryAdapter adapter) : Game.UI.Widgets.IWidget`  
 
 ```csharp
-private Game.UI.Widgets.IWidget BuildPage(Game.UI.Editor.DirectoryAdapter adapter);
+private IWidget BuildPage(DirectoryAdapter adapter)
+	{
+		PageLayout pageLayout = new PageLayout();
+		pageLayout.title = ((adapter.directoryPath != null) ? m_Directories[adapter.directoryPath].displayName : m_RootDirName);
+		pageLayout.backAction = ((adapter.directoryPath != null) ? new Action(OnBack) : null);
+		pageLayout.children = new IWidget[1]
+		{
+			new ItemPicker<Item>
+			{
+				adapter = adapter,
+				hasFavorites = true,
+				hasImages = false
+			}
+		};
+		return pageLayout;
+	}
 ```
 
 - `protected virtual OnBack() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnBack();
+protected virtual void OnBack()
+	{
+		if (m_Stack.Count > 1)
+		{
+			m_Stack.RemoveAt(m_Stack.Count - 1);
+			m_Stack.Last().selectedItem = null;
+			m_Pages.RemoveAt(m_Pages.Count - 1);
+			m_PageView.children = m_Pages.ToArray();
+			m_PageView.currentPage = m_Stack.Count - 1;
+		}
+	}
 ```
 
 - `public abstract OnSelect(Game.UI.Editor.Item item) : System.Void`  
@@ -133,7 +165,14 @@ public abstract System.Void OnSelect(Game.UI.Editor.Item item);
 - `protected virtual ShowSubDir(System.String dir) : System.Void`  
 
 ```csharp
-protected virtual System.Void ShowSubDir(System.String dir);
+protected virtual void ShowSubDir(string dir)
+	{
+		DirectoryAdapter directoryAdapter = BuildAdapter(dir);
+		m_Stack.Add(directoryAdapter);
+		m_Pages.Add(BuildPage(directoryAdapter));
+		m_PageView.children = m_Pages.ToArray();
+		m_PageView.currentPage = m_Stack.Count - 1;
+	}
 ```
 
 

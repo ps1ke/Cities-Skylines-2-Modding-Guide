@@ -74,7 +74,10 @@ public GameModeRule();
 - `public GetUnit() : System.String`  
 
 ```csharp
-public System.String GetUnit();
+public string GetUnit()
+	{
+		return kUnitDict[m_ArgUnit];
+	}
 ```
 
 

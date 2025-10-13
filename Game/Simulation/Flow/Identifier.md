@@ -56,7 +56,11 @@ public static Game.Simulation.Flow.Identifier Null { get; }
 - `public Identifier(System.Int32 index, System.Int32 version)`  
 
 ```csharp
-public Identifier(System.Int32 index, System.Int32 version);
+public Identifier(int index, int version)
+	{
+		m_Index = index;
+		m_Version = version;
+	}
 ```
 
 
@@ -65,19 +69,36 @@ public Identifier(System.Int32 index, System.Int32 version);
 - `public Equals(Game.Simulation.Flow.Identifier other) : System.Boolean`  
 
 ```csharp
-public System.Boolean Equals(Game.Simulation.Flow.Identifier other);
+public override bool Equals(object obj)
+	{
+		if (obj is Identifier other)
+		{
+			return Equals(other);
+		}
+		return false;
+	}
 ```
 
 - `public virtual Equals(System.Object obj) : System.Boolean`  
 
 ```csharp
-public virtual System.Boolean Equals(System.Object obj);
+public override bool Equals(object obj)
+	{
+		if (obj is Identifier other)
+		{
+			return Equals(other);
+		}
+		return false;
+	}
 ```
 
 - `public virtual GetHashCode() : System.Int32`  
 
 ```csharp
-public virtual System.Int32 GetHashCode();
+public override int GetHashCode()
+	{
+		return m_Index;
+	}
 ```
 
 

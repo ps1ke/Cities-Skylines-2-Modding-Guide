@@ -60,19 +60,37 @@ public Unity.Mathematics.float2 m_CurvePosition;
 - `public LaneObjectAction(Unity.Entities.Entity lane, Unity.Entities.Entity remove)`  
 
 ```csharp
-public LaneObjectAction(Unity.Entities.Entity lane, Unity.Entities.Entity remove);
+public LaneObjectAction(Entity lane, Entity remove, Entity add, float2 curvePosition)
+	{
+		m_Lane = lane;
+		m_Remove = remove;
+		m_Add = add;
+		m_CurvePosition = curvePosition;
+	}
 ```
 
 - `public LaneObjectAction(Unity.Entities.Entity lane, Unity.Entities.Entity add, Unity.Mathematics.float2 curvePosition)`  
 
 ```csharp
-public LaneObjectAction(Unity.Entities.Entity lane, Unity.Entities.Entity add, Unity.Mathematics.float2 curvePosition);
+public LaneObjectAction(Entity lane, Entity remove, Entity add, float2 curvePosition)
+	{
+		m_Lane = lane;
+		m_Remove = remove;
+		m_Add = add;
+		m_CurvePosition = curvePosition;
+	}
 ```
 
 - `public LaneObjectAction(Unity.Entities.Entity lane, Unity.Entities.Entity remove, Unity.Entities.Entity add, Unity.Mathematics.float2 curvePosition)`  
 
 ```csharp
-public LaneObjectAction(Unity.Entities.Entity lane, Unity.Entities.Entity remove, Unity.Entities.Entity add, Unity.Mathematics.float2 curvePosition);
+public LaneObjectAction(Entity lane, Entity remove, Entity add, float2 curvePosition)
+	{
+		m_Lane = lane;
+		m_Remove = remove;
+		m_Add = add;
+		m_CurvePosition = curvePosition;
+	}
 ```
 
 
@@ -81,13 +99,19 @@ public LaneObjectAction(Unity.Entities.Entity lane, Unity.Entities.Entity remove
 - `public CompareTo(Game.Net.LaneObjectAction other) : System.Int32`  
 
 ```csharp
-public System.Int32 CompareTo(Game.Net.LaneObjectAction other);
+public int CompareTo(LaneObjectAction other)
+	{
+		return m_Lane.Index - other.m_Lane.Index;
+	}
 ```
 
 - `public virtual GetHashCode() : System.Int32`  
 
 ```csharp
-public virtual System.Int32 GetHashCode();
+public override int GetHashCode()
+	{
+		return m_Lane.GetHashCode();
+	}
 ```
 
 

@@ -91,19 +91,42 @@ public WorkProviderParameterPrefab();
 - `public virtual GetDependencies(System.Collections.Generic.List<Game.Prefabs.PrefabBase> prefabs) : System.Void`  
 
 ```csharp
-public virtual System.Void GetDependencies(System.Collections.Generic.List<Game.Prefabs.PrefabBase> prefabs);
+public override void GetDependencies(List<PrefabBase> prefabs)
+	{
+		base.GetDependencies(prefabs);
+		prefabs.Add(m_UneducatedNotificationPrefab);
+		prefabs.Add(m_EducatedNotificationPrefab);
+	}
 ```
 
 - `public virtual GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetPrefabComponents(HashSet<ComponentType> components)
+	{
+		base.GetPrefabComponents(components);
+		components.Add(ComponentType.ReadWrite<WorkProviderParameterData>());
+	}
 ```
 
 - `public virtual LateInitialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity) : System.Void`  
 
 ```csharp
-public virtual System.Void LateInitialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity);
+public override void LateInitialize(EntityManager entityManager, Entity entity)
+	{
+		base.LateInitialize(entityManager, entity);
+		PrefabSystem orCreateSystemManaged = entityManager.World.GetOrCreateSystemManaged<PrefabSystem>();
+		entityManager.SetComponentData(entity, new WorkProviderParameterData
+		{
+			m_EducatedNotificationPrefab = orCreateSystemManaged.GetEntity(m_EducatedNotificationPrefab),
+			m_UneducatedNotificationPrefab = orCreateSystemManaged.GetEntity(m_UneducatedNotificationPrefab),
+			m_EducatedNotificationDelay = m_EducatedNotificationDelay,
+			m_EducatedNotificationLimit = m_EducatedNotificationLimit,
+			m_UneducatedNotificationDelay = m_UneducatedNotificationDelay,
+			m_UneducatedNotificationLimit = m_UneducatedNotificationLimit,
+			m_SeniorEmployeeLevel = m_SeniorEmployeeLevel
+		});
+	}
 ```
 
 

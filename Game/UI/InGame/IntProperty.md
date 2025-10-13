@@ -69,7 +69,23 @@ public System.String valueIcon;
 - `public Write(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-public System.Void Write(Colossal.UI.Binding.IJsonWriter writer);
+public void Write(IJsonWriter writer)
+	{
+		writer.TypeBegin("Game.UI.Common.NumberProperty");
+		writer.PropertyName("labelId");
+		writer.Write(labelId);
+		writer.PropertyName("value");
+		writer.Write(value);
+		writer.PropertyName("unit");
+		writer.Write(unit);
+		writer.PropertyName("signed");
+		writer.Write(signed);
+		writer.PropertyName("icon");
+		writer.Write(icon);
+		writer.PropertyName("valueIcon");
+		writer.Write(valueIcon);
+		writer.TypeEnd();
+	}
 ```
 
 

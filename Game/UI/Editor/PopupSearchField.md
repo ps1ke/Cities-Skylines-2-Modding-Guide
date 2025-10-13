@@ -101,25 +101,68 @@ public PopupSearchField();
 - `public SetValue(Colossal.UI.Binding.IJsonReader reader) : System.Void`  
 
 ```csharp
-public System.Void SetValue(Colossal.UI.Binding.IJsonReader reader);
+public void SetValue(string value)
+	{
+		if (value != m_Value)
+		{
+			adapter.searchQuery = value;
+		}
+	}
 ```
 
 - `public SetValue(System.String value) : System.Void`  
 
 ```csharp
-public System.Void SetValue(System.String value);
+public void SetValue(string value)
+	{
+		if (value != m_Value)
+		{
+			adapter.searchQuery = value;
+		}
+	}
 ```
 
 - `protected virtual Update() : Game.UI.Widgets.WidgetChanges`  
 
 ```csharp
-protected virtual Game.UI.Widgets.WidgetChanges Update();
+protected override WidgetChanges Update()
+	{
+		WidgetChanges widgetChanges = base.Update();
+		if (adapter.searchQuery != m_Value)
+		{
+			widgetChanges |= WidgetChanges.Properties;
+			m_Value = adapter.searchQuery;
+		}
+		if (adapter.searchQueryIsFavorite != m_ValueIsFavorite)
+		{
+			widgetChanges |= WidgetChanges.Properties;
+			m_ValueIsFavorite = adapter.searchQueryIsFavorite;
+		}
+		if (!adapter.searchSuggestions.SequenceEqual(m_Suggestions))
+		{
+			widgetChanges |= WidgetChanges.Properties;
+			m_Suggestions.Clear();
+			m_Suggestions.AddRange(adapter.searchSuggestions);
+		}
+		return widgetChanges;
+	}
 ```
 
 - `protected virtual WriteProperties(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-protected virtual System.Void WriteProperties(Colossal.UI.Binding.IJsonWriter writer);
+protected override void WriteProperties(IJsonWriter writer)
+	{
+		base.WriteProperties(writer);
+		writer.PropertyName("hasFavorites");
+		writer.Write(hasFavorites);
+		writer.PropertyName("value");
+		writer.Write(m_Value ?? string.Empty);
+		writer.PropertyName("valueIsFavorite");
+		writer.Write(m_ValueIsFavorite);
+		writer.PropertyName("suggestions");
+		writer.Write((IList<Suggestion>)m_Suggestions);
+	}
 ```
 
 

@@ -47,7 +47,11 @@ public System.Single m_Elevation;
 - `public Node(Unity.Mathematics.float3 position, System.Single elevation)`  
 
 ```csharp
-public Node(Unity.Mathematics.float3 position, System.Single elevation);
+public Node(float3 position, float elevation)
+	{
+		m_Position = position;
+		m_Elevation = elevation;
+	}
 ```
 
 
@@ -62,7 +66,10 @@ public System.Void Deserialize<TReader>(TReader reader);
 - `public GetStride(Colossal.Serialization.Entities.Context context) : System.Int32`  
 
 ```csharp
-public System.Int32 GetStride(Colossal.Serialization.Entities.Context context);
+public int GetStride(Context context)
+	{
+		return UnsafeUtility.SizeOf<float3>() + 4;
+	}
 ```
 
 - `public Serialize<TWriter>(TWriter writer) : System.Void`  

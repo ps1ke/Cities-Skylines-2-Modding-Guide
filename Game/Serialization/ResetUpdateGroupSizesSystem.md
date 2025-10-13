@@ -61,7 +61,10 @@ private Game.Serialization.ResetUpdateGroupSizesSystem+TypeHandle __TypeHandle;
 - `public ResetUpdateGroupSizesSystem()`  
 
 ```csharp
-public ResetUpdateGroupSizesSystem();
+[Preserve]
+	public ResetUpdateGroupSizesSystem()
+	{
+	}
 ```
 
 
@@ -70,25 +73,55 @@ public ResetUpdateGroupSizesSystem();
 - `private __AssignQueries(Unity.Entities.SystemState& state) : System.Void`  
 
 ```csharp
-private System.Void __AssignQueries(Unity.Entities.SystemState& state);
+private void __AssignQueries(ref SystemState state)
+	{
+		new EntityQueryBuilder(Allocator.Temp).Dispose();
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_UpdateGroupSystem = base.World.GetOrCreateSystemManaged<UpdateGroupSystem>();
+		m_UpdateFrameQuery = GetEntityQuery(ComponentType.ReadOnly<UpdateFrame>());
+		m_UpdateGroupTypes = new UpdateGroupSystem.UpdateGroupTypes(this);
+	}
 ```
 
 - `protected virtual OnCreateForCompiler() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreateForCompiler();
+protected override void OnCreateForCompiler()
+	{
+		base.OnCreateForCompiler();
+		__AssignQueries(ref base.CheckedStateRef);
+		__TypeHandle.__AssignHandles(ref base.CheckedStateRef);
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		JobHandle outJobHandle;
+		NativeList<ArchetypeChunk> chunks = m_UpdateFrameQuery.ToArchetypeChunkListAsync(Allocator.TempJob, out outJobHandle);
+		m_UpdateGroupTypes.Update(this);
+		JobHandle jobHandle = IJobExtensions.Schedule(new ResetUpdateGroupSizesJob
+		{
+			m_Chunks = chunks,
+			m_UpdateFrameType = InternalCompilerInterface.GetSharedComponentTypeHandle(ref __TypeHandle.__Game_Simulation_UpdateFrame_SharedComponentTypeHandle, ref base.CheckedStateRef),
+			m_UpdateGroupTypes = m_UpdateGroupTypes,
+			m_UpdateGroupSizes = m_UpdateGroupSystem.GetUpdateGroupSizes()
+		}, JobHandle.CombineDependencies(base.Dependency, outJobHandle));
+		chunks.Dispose(jobHandle);
+		base.Dependency = jobHandle;
+	}
 ```
 
 

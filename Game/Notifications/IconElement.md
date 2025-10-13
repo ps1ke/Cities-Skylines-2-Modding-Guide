@@ -39,7 +39,10 @@ public Unity.Entities.Entity m_Icon;
 - `public IconElement(Unity.Entities.Entity icon)`  
 
 ```csharp
-public IconElement(Unity.Entities.Entity icon);
+public IconElement(Entity icon)
+	{
+		m_Icon = icon;
+	}
 ```
 
 
@@ -48,13 +51,19 @@ public IconElement(Unity.Entities.Entity icon);
 - `public Equals(Game.Notifications.IconElement other) : System.Boolean`  
 
 ```csharp
-public System.Boolean Equals(Game.Notifications.IconElement other);
+public bool Equals(IconElement other)
+	{
+		return m_Icon.Equals(other.m_Icon);
+	}
 ```
 
 - `public virtual GetHashCode() : System.Int32`  
 
 ```csharp
-public virtual System.Int32 GetHashCode();
+public override int GetHashCode()
+	{
+		return m_Icon.GetHashCode();
+	}
 ```
 
 

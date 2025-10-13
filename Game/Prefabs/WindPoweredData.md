@@ -43,7 +43,18 @@ public System.Int32 m_Production;
 - `public Combine(Game.Prefabs.WindPoweredData otherData) : System.Void`  
 
 ```csharp
-public System.Void Combine(Game.Prefabs.WindPoweredData otherData);
+public void Combine(WindPoweredData otherData)
+	{
+		if (m_Production > 0)
+		{
+			m_MaximumWind = math.min(m_MaximumWind, otherData.m_MaximumWind);
+		}
+		else
+		{
+			m_MaximumWind = otherData.m_MaximumWind;
+		}
+		m_Production += otherData.m_Production;
+	}
 ```
 
 - `public Deserialize<TReader>(TReader reader) : System.Void`  

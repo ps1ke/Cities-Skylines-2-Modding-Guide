@@ -49,19 +49,79 @@ public MailBoxMode();
 - `public virtual ApplyModeData(Unity.Entities.EntityManager entityManager, Game.Prefabs.PrefabSystem prefabSystem) : System.Void`  
 
 ```csharp
-public virtual System.Void ApplyModeData(Unity.Entities.EntityManager entityManager, Game.Prefabs.PrefabSystem prefabSystem);
+public override void ApplyModeData(EntityManager entityManager, PrefabSystem prefabSystem)
+	{
+		for (int i = 0; i < m_ModeDatas.Length; i++)
+		{
+			ModeData modeData = m_ModeDatas[i];
+			MailBox component = modeData.m_Prefab.GetComponent<MailBox>();
+			if (component == null)
+			{
+				ComponentBase.baseLog.Critical($"Target not found {this}");
+				continue;
+			}
+			Entity entity = prefabSystem.GetEntity(component.prefab);
+			MailBoxData componentData = entityManager.GetComponentData<MailBoxData>(entity);
+			componentData.m_MailCapacity = (int)((float)componentData.m_MailCapacity * modeData.m_MailCapacityMultifier);
+			entityManager.SetComponentData(entity, componentData);
+			if (entityManager.HasComponent<TransportStopData>(entity))
+			{
+				TransportStopData componentData2 = entityManager.GetComponentData<TransportStopData>(entity);
+				componentData2.m_ComfortFactor = modeData.m_ComfortFactor;
+				entityManager.SetComponentData(entity, componentData2);
+			}
+		}
+	}
 ```
 
 - `public virtual RecordChanges(Unity.Entities.EntityManager entityManager, Game.Prefabs.PrefabSystem prefabSystem) : System.Void`  
 
 ```csharp
-public virtual System.Void RecordChanges(Unity.Entities.EntityManager entityManager, Game.Prefabs.PrefabSystem prefabSystem);
+public override void RecordChanges(EntityManager entityManager, PrefabSystem prefabSystem)
+	{
+		for (int i = 0; i < m_ModeDatas.Length; i++)
+		{
+			MailBox component = m_ModeDatas[i].m_Prefab.GetComponent<MailBox>();
+			if (component == null)
+			{
+				ComponentBase.baseLog.Critical($"Target not found {this}");
+				continue;
+			}
+			Entity entity = prefabSystem.GetEntity(component.prefab);
+			entityManager.GetComponentData<MailBoxData>(entity);
+			if (entityManager.HasComponent<TransportStopData>(entity))
+			{
+				entityManager.GetComponentData<TransportStopData>(entity);
+			}
+		}
+	}
 ```
 
 - `public virtual RestoreDefaultData(Unity.Entities.EntityManager entityManager, Game.Prefabs.PrefabSystem prefabSystem) : System.Void`  
 
 ```csharp
-public virtual System.Void RestoreDefaultData(Unity.Entities.EntityManager entityManager, Game.Prefabs.PrefabSystem prefabSystem);
+public override void RestoreDefaultData(EntityManager entityManager, PrefabSystem prefabSystem)
+	{
+		for (int i = 0; i < m_ModeDatas.Length; i++)
+		{
+			MailBox component = m_ModeDatas[i].m_Prefab.GetComponent<MailBox>();
+			if (component == null)
+			{
+				ComponentBase.baseLog.Critical($"Target not found {this}");
+				continue;
+			}
+			Entity entity = prefabSystem.GetEntity(component.prefab);
+			MailBoxData componentData = entityManager.GetComponentData<MailBoxData>(entity);
+			componentData.m_MailCapacity = component.m_MailCapacity;
+			entityManager.SetComponentData(entity, componentData);
+			if (entityManager.HasComponent<TransportStopData>(entity))
+			{
+				TransportStopData componentData2 = entityManager.GetComponentData<TransportStopData>(entity);
+				componentData2.m_ComfortFactor = component.m_ComfortFactor;
+				entityManager.SetComponentData(entity, componentData2);
+			}
+		}
+	}
 ```
 
 

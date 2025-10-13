@@ -83,19 +83,46 @@ public System.Byte m_Activity;
 - `public TransformFrame(Game.Objects.Transform transform)`  
 
 ```csharp
-public TransformFrame(Game.Objects.Transform transform);
+public TransformFrame(float3 position, quaternion rotation, float3 velocity)
+	{
+		m_Position = position;
+		m_Velocity = velocity;
+		m_Rotation = rotation;
+		m_Flags = (TransformFlags)0u;
+		m_StateTimer = 0;
+		m_State = TransformState.Default;
+		m_Activity = 0;
+	}
 ```
 
 - `public TransformFrame(Game.Objects.Transform transform, Game.Objects.Moving moving)`  
 
 ```csharp
-public TransformFrame(Game.Objects.Transform transform, Game.Objects.Moving moving);
+public TransformFrame(float3 position, quaternion rotation, float3 velocity)
+	{
+		m_Position = position;
+		m_Velocity = velocity;
+		m_Rotation = rotation;
+		m_Flags = (TransformFlags)0u;
+		m_StateTimer = 0;
+		m_State = TransformState.Default;
+		m_Activity = 0;
+	}
 ```
 
 - `public TransformFrame(Unity.Mathematics.float3 position, Unity.Mathematics.quaternion rotation, Unity.Mathematics.float3 velocity)`  
 
 ```csharp
-public TransformFrame(Unity.Mathematics.float3 position, Unity.Mathematics.quaternion rotation, Unity.Mathematics.float3 velocity);
+public TransformFrame(float3 position, quaternion rotation, float3 velocity)
+	{
+		m_Position = position;
+		m_Velocity = velocity;
+		m_Rotation = rotation;
+		m_Flags = (TransformFlags)0u;
+		m_StateTimer = 0;
+		m_State = TransformState.Default;
+		m_Activity = 0;
+	}
 ```
 
 

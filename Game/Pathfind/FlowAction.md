@@ -36,7 +36,10 @@ public Unity.Collections.NativeQueue<Game.Pathfind.FlowActionData> m_FlowData;
 - `public FlowAction(Unity.Collections.Allocator allocator)`  
 
 ```csharp
-public FlowAction(Unity.Collections.Allocator allocator);
+public FlowAction(Allocator allocator)
+	{
+		m_FlowData = new NativeQueue<FlowActionData>(allocator);
+	}
 ```
 
 
@@ -45,7 +48,10 @@ public FlowAction(Unity.Collections.Allocator allocator);
 - `public Dispose() : System.Void`  
 
 ```csharp
-public System.Void Dispose();
+public void Dispose()
+	{
+		m_FlowData.Dispose();
+	}
 ```
 
 

@@ -35,7 +35,10 @@ public Game.Zones.ZoneType m_ZoneType;
 - `public BuildingSpawnGroupData(Game.Zones.ZoneType type)`  
 
 ```csharp
-public BuildingSpawnGroupData(Game.Zones.ZoneType type);
+public BuildingSpawnGroupData(ZoneType type)
+	{
+		m_ZoneType = type;
+	}
 ```
 
 

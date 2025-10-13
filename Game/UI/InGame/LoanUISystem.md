@@ -78,7 +78,10 @@ private static const System.String kGroup;
 - `public LoanUISystem()`  
 
 ```csharp
-public LoanUISystem();
+[Preserve]
+	public LoanUISystem()
+	{
+	}
 ```
 
 
@@ -105,37 +108,70 @@ private Game.Tools.LoanInfo <OnCreate>b__6_2();
 - `private AcceptLoanOffer() : System.Void`  
 
 ```csharp
-private System.Void AcceptLoanOffer();
+private void AcceptLoanOffer()
+	{
+		m_LoanSystem.ChangeLoan(m_LoanSystem.CurrentLoan.m_Amount + m_RequestedOfferDifference);
+		m_RequestedOfferDifference = 0;
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_LoanSystem = base.World.GetOrCreateSystemManaged<LoanSystem>();
+		AddBinding(m_LoanLimitBinding = new GetterValueBinding<int>("loan", "loanLimit", () => m_LoanSystem.Creditworthiness));
+		AddBinding(m_CurrentLoanBinding = new GetterValueBinding<LoanInfo>("loan", "currentLoan", () => m_LoanSystem.CurrentLoan, new LoanWriter()));
+		AddBinding(m_LoanOfferBinding = new GetterValueBinding<LoanInfo>("loan", "loanOffer", () => m_LoanSystem.RequestLoanOffer(m_LoanSystem.CurrentLoan.m_Amount + m_RequestedOfferDifference), new LoanWriter()));
+		AddBinding(new TriggerBinding<int>("loan", "requestLoanOffer", RequestLoanOffer));
+		AddBinding(new TriggerBinding("loan", "acceptLoanOffer", AcceptLoanOffer));
+		AddBinding(new TriggerBinding("loan", "resetLoanOffer", ResetLoanOffer));
+	}
 ```
 
 - `protected virtual OnGameLoaded(Colossal.Serialization.Entities.Context serializationContext) : System.Void`  
 
 ```csharp
-protected virtual System.Void OnGameLoaded(Colossal.Serialization.Entities.Context serializationContext);
+protected override void OnGameLoaded(Context serializationContext)
+	{
+		base.OnGameLoaded(serializationContext);
+		m_RequestedOfferDifference = 0;
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		m_LoanLimitBinding.Update();
+		m_CurrentLoanBinding.Update();
+		m_LoanOfferBinding.Update();
+	}
 ```
 
 - `private RequestLoanOffer(System.Int32 amount) : System.Void`  
 
 ```csharp
-private System.Void RequestLoanOffer(System.Int32 amount);
+private void RequestLoanOffer(int amount)
+	{
+		LoanInfo loanInfo = m_LoanSystem.RequestLoanOffer(amount);
+		LoanInfo currentLoan = m_LoanSystem.CurrentLoan;
+		m_RequestedOfferDifference = loanInfo.m_Amount - currentLoan.m_Amount;
+	}
 ```
 
 - `private ResetLoanOffer() : System.Void`  
 
 ```csharp
-private System.Void ResetLoanOffer();
+private void ResetLoanOffer()
+	{
+		m_RequestedOfferDifference = 0;
+	}
 ```
 
 

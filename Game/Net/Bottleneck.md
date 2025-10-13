@@ -58,7 +58,13 @@ public System.Byte m_Timer;
 - `public Bottleneck(System.Byte minPos, System.Byte maxPos, System.Byte timer)`  
 
 ```csharp
-public Bottleneck(System.Byte minPos, System.Byte maxPos, System.Byte timer);
+public Bottleneck(byte minPos, byte maxPos, byte timer)
+	{
+		m_Position = (byte)(minPos + maxPos + 1 >> 1);
+		m_MinPos = minPos;
+		m_MaxPos = maxPos;
+		m_Timer = timer;
+	}
 ```
 
 

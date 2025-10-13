@@ -63,7 +63,10 @@ private Game.Tools.OriginalDeletedSystem+TypeHandle __TypeHandle;
 - `public OriginalDeletedSystem()`  
 
 ```csharp
-public OriginalDeletedSystem();
+[Preserve]
+	public OriginalDeletedSystem()
+	{
+	}
 ```
 
 
@@ -72,37 +75,82 @@ public OriginalDeletedSystem();
 - `private __AssignQueries(Unity.Entities.SystemState& state) : System.Void`  
 
 ```csharp
-private System.Void __AssignQueries(Unity.Entities.SystemState& state);
+private void __AssignQueries(ref SystemState state)
+	{
+		new EntityQueryBuilder(Allocator.Temp).Dispose();
+	}
 ```
 
 - `public GetOriginalDeletedResult(System.Int32 delay) : System.Boolean`  
 
 ```csharp
-public System.Boolean GetOriginalDeletedResult(System.Int32 delay);
+public bool GetOriginalDeletedResult(int delay)
+	{
+		m_Dependency.Complete();
+		for (int num = 1 - delay; num >= 0; num--)
+		{
+			if (m_OriginalDeleted[num])
+			{
+				return true;
+			}
+		}
+		return false;
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_TempQuery = GetEntityQuery(ComponentType.ReadOnly<Temp>(), ComponentType.Exclude<Deleted>());
+		m_OriginalDeleted = new NativeArray<bool>(2, Allocator.Persistent);
+	}
 ```
 
 - `protected virtual OnCreateForCompiler() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreateForCompiler();
+protected override void OnCreateForCompiler()
+	{
+		base.OnCreateForCompiler();
+		__AssignQueries(ref base.CheckedStateRef);
+		__TypeHandle.__AssignHandles(ref base.CheckedStateRef);
+	}
 ```
 
 - `protected virtual OnDestroy() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnDestroy();
+[Preserve]
+	protected override void OnDestroy()
+	{
+		m_OriginalDeleted.Dispose();
+		base.OnDestroy();
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		m_OriginalDeleted[0] = m_OriginalDeleted[1];
+		m_OriginalDeleted[1] = false;
+		if (!m_TempQuery.IsEmptyIgnoreFilter)
+		{
+			base.Dependency = (m_Dependency = JobChunkExtensions.ScheduleParallel(new OriginalDeletedJob
+			{
+				m_TempType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Tools_Temp_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+				m_DeletedData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Common_Deleted_RO_ComponentLookup, ref base.CheckedStateRef),
+				m_EntityLookup = InternalCompilerInterface.GetEntityStorageInfoLookup(ref __TypeHandle.__EntityStorageInfoLookup, ref base.CheckedStateRef),
+				m_OriginalDeleted = m_OriginalDeleted
+			}, m_TempQuery, base.Dependency));
+		}
+	}
 ```
 
 

@@ -39,7 +39,10 @@ public Unity.Entities.Entity m_Route;
 - `public SubRoute(Unity.Entities.Entity route)`  
 
 ```csharp
-public SubRoute(Unity.Entities.Entity route);
+public SubRoute(Entity route)
+	{
+		m_Route = route;
+	}
 ```
 
 
@@ -48,13 +51,19 @@ public SubRoute(Unity.Entities.Entity route);
 - `public Equals(Game.Routes.SubRoute other) : System.Boolean`  
 
 ```csharp
-public System.Boolean Equals(Game.Routes.SubRoute other);
+public bool Equals(SubRoute other)
+	{
+		return m_Route.Equals(other.m_Route);
+	}
 ```
 
 - `public virtual GetHashCode() : System.Int32`  
 
 ```csharp
-public virtual System.Int32 GetHashCode();
+public override int GetHashCode()
+	{
+		return m_Route.GetHashCode();
+	}
 ```
 
 

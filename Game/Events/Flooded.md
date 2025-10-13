@@ -44,7 +44,11 @@ public System.Single m_Depth;
 - `public Flooded(Unity.Entities.Entity _event, System.Single depth)`  
 
 ```csharp
-public Flooded(Unity.Entities.Entity _event, System.Single depth);
+public Flooded(Entity _event, float depth)
+	{
+		m_Event = _event;
+		m_Depth = depth;
+	}
 ```
 
 

@@ -56,7 +56,13 @@ public System.Boolean m_PathConsumed;
 - `public HandleRequest(Unity.Entities.Entity request, Unity.Entities.Entity handler, System.Boolean completed, System.Boolean pathConsumed = False)`  
 
 ```csharp
-public HandleRequest(Unity.Entities.Entity request, Unity.Entities.Entity handler, System.Boolean completed, System.Boolean pathConsumed);
+public HandleRequest(Entity request, Entity handler, bool completed, bool pathConsumed = false)
+	{
+		m_Request = request;
+		m_Handler = handler;
+		m_Completed = completed;
+		m_PathConsumed = pathConsumed;
+	}
 ```
 
 

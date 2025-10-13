@@ -182,19 +182,49 @@ public SecondaryLane();
 - `public virtual GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetArchetypeComponents(HashSet<ComponentType> components)
+	{
+		components.Add(ComponentType.ReadWrite<Game.Net.SecondaryLane>());
+	}
 ```
 
 - `public virtual GetDependencies(System.Collections.Generic.List<Game.Prefabs.PrefabBase> prefabs) : System.Void`  
 
 ```csharp
-public virtual System.Void GetDependencies(System.Collections.Generic.List<Game.Prefabs.PrefabBase> prefabs);
+public override void GetDependencies(List<PrefabBase> prefabs)
+	{
+		base.GetDependencies(prefabs);
+		if (m_LeftLanes != null)
+		{
+			for (int i = 0; i < m_LeftLanes.Length; i++)
+			{
+				prefabs.Add(m_LeftLanes[i].m_Lane);
+			}
+		}
+		if (m_RightLanes != null)
+		{
+			for (int j = 0; j < m_RightLanes.Length; j++)
+			{
+				prefabs.Add(m_RightLanes[j].m_Lane);
+			}
+		}
+		if (m_CrossingLanes != null)
+		{
+			for (int k = 0; k < m_CrossingLanes.Length; k++)
+			{
+				prefabs.Add(m_CrossingLanes[k].m_Lane);
+			}
+		}
+	}
 ```
 
 - `public virtual GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetPrefabComponents(HashSet<ComponentType> components)
+	{
+		components.Add(ComponentType.ReadWrite<SecondaryLaneData>());
+	}
 ```
 
 

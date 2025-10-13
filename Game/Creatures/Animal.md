@@ -37,7 +37,10 @@ public Game.Creatures.AnimalFlags m_Flags;
 - `public Animal(Game.Creatures.AnimalFlags flags)`  
 
 ```csharp
-public Animal(Game.Creatures.AnimalFlags flags);
+public Animal(AnimalFlags flags)
+	{
+		m_Flags = flags;
+	}
 ```
 
 

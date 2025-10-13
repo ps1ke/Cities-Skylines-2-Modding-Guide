@@ -228,7 +228,10 @@ public Game.UI.MapMetadataSystem+Connections connections { get; }
 - `public MapMetadataSystem()`  
 
 ```csharp
-public MapMetadataSystem();
+[Preserve]
+	public MapMetadataSystem()
+	{
+	}
 ```
 
 
@@ -237,37 +240,138 @@ public MapMetadataSystem();
 - `private __AssignQueries(Unity.Entities.SystemState& state) : System.Void`  
 
 ```csharp
-private System.Void __AssignQueries(Unity.Entities.SystemState& state);
+private void __AssignQueries(ref SystemState state)
+	{
+		new EntityQueryBuilder(Allocator.Temp).Dispose();
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_PlanetarySystem = base.World.GetOrCreateSystemManaged<PlanetarySystem>();
+		m_CityConfigurationSystem = base.World.GetOrCreateSystemManaged<CityConfigurationSystem>();
+		m_ClimateSystem = base.World.GetOrCreateSystemManaged<ClimateSystem>();
+		m_PrefabSystem = base.World.GetOrCreateSystemManaged<PrefabSystem>();
+		m_MapTileQuery = GetEntityQuery(ComponentType.ReadOnly<MapTile>(), ComponentType.Exclude<Temp>(), ComponentType.Exclude<Deleted>());
+		m_OutsideConnectionQuery = GetEntityQuery(new EntityQueryDesc
+		{
+			Any = new ComponentType[3]
+			{
+				ComponentType.ReadOnly<Game.Objects.OutsideConnection>(),
+				ComponentType.ReadOnly<Game.Objects.ElectricityOutsideConnection>(),
+				ComponentType.ReadOnly<Game.Objects.WaterPipeOutsideConnection>()
+			},
+			None = new ComponentType[2]
+			{
+				ComponentType.ReadOnly<Temp>(),
+				ComponentType.ReadOnly<Deleted>()
+			}
+		});
+	}
 ```
 
 - `protected virtual OnCreateForCompiler() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreateForCompiler();
+protected override void OnCreateForCompiler()
+	{
+		base.OnCreateForCompiler();
+		__AssignQueries(ref base.CheckedStateRef);
+		__TypeHandle.__AssignHandles(ref base.CheckedStateRef);
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		CompleteDependency();
+		UpdateResources();
+		UpdateConnections();
+	}
 ```
 
 - `private UpdateConnections() : System.Void`  
 
 ```csharp
-private System.Void UpdateConnections();
+private void UpdateConnections()
+	{
+		m_Connections = default(Connections);
+		ComponentTypeHandle<Game.Objects.ElectricityOutsideConnection> typeHandle = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Objects_ElectricityOutsideConnection_RO_ComponentTypeHandle, ref base.CheckedStateRef);
+		ComponentTypeHandle<Game.Objects.WaterPipeOutsideConnection> typeHandle2 = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Objects_WaterPipeOutsideConnection_RO_ComponentTypeHandle, ref base.CheckedStateRef);
+		ComponentTypeHandle<PrefabRef> typeHandle3 = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentTypeHandle, ref base.CheckedStateRef);
+		NativeArray<ArchetypeChunk> nativeArray = m_OutsideConnectionQuery.ToArchetypeChunkArray(Allocator.Temp);
+		try
+		{
+			for (int i = 0; i < nativeArray.Length; i++)
+			{
+				ArchetypeChunk archetypeChunk = nativeArray[i];
+				NativeArray<PrefabRef> nativeArray2 = archetypeChunk.GetNativeArray(ref typeHandle3);
+				m_Connections.electricity |= archetypeChunk.Has(ref typeHandle);
+				m_Connections.water |= archetypeChunk.Has(ref typeHandle2);
+				for (int j = 0; j < nativeArray2.Length; j++)
+				{
+					if (base.EntityManager.TryGetComponent<OutsideConnectionData>(nativeArray2[j].m_Prefab, out var component))
+					{
+						m_Connections.road |= (component.m_Type & OutsideConnectionTransferType.Road) != 0;
+						m_Connections.train |= (component.m_Type & OutsideConnectionTransferType.Train) != 0;
+						m_Connections.air |= (component.m_Type & OutsideConnectionTransferType.Air) != 0;
+						m_Connections.ship |= (component.m_Type & OutsideConnectionTransferType.Ship) != 0;
+					}
+				}
+			}
+		}
+		finally
+		{
+			nativeArray.Dispose();
+		}
+	}
 ```
 
 - `private UpdateResources() : System.Void`  
 
 ```csharp
-private System.Void UpdateResources();
+private void UpdateResources()
+	{
+		m_Area = 0f;
+		m_BuildableLand = 0f;
+		m_SurfaceWaterAvailability = 0f;
+		m_GroundWaterAvailability = 0f;
+		m_Resources = default(Resources);
+		BufferTypeHandle<MapFeatureElement> bufferTypeHandle = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Areas_MapFeatureElement_RO_BufferTypeHandle, ref base.CheckedStateRef);
+		NativeArray<ArchetypeChunk> nativeArray = m_MapTileQuery.ToArchetypeChunkArray(Allocator.Temp);
+		try
+		{
+			for (int i = 0; i < nativeArray.Length; i++)
+			{
+				BufferAccessor<MapFeatureElement> bufferAccessor = nativeArray[i].GetBufferAccessor(ref bufferTypeHandle);
+				for (int j = 0; j < bufferAccessor.Length; j++)
+				{
+					DynamicBuffer<MapFeatureElement> dynamicBuffer = bufferAccessor[j];
+					m_Area += dynamicBuffer[0].m_Amount;
+					m_BuildableLand += dynamicBuffer[1].m_Amount;
+					m_SurfaceWaterAvailability += dynamicBuffer[6].m_Amount;
+					m_GroundWaterAvailability += dynamicBuffer[7].m_Amount;
+					m_Resources.fertile += dynamicBuffer[2].m_Amount;
+					m_Resources.forest += dynamicBuffer[3].m_Amount;
+					m_Resources.oil += dynamicBuffer[4].m_Amount;
+					m_Resources.ore += dynamicBuffer[5].m_Amount;
+					m_Resources.fish += dynamicBuffer[8].m_Amount;
+				}
+			}
+		}
+		finally
+		{
+			nativeArray.Dispose();
+		}
+	}
 ```
 
 

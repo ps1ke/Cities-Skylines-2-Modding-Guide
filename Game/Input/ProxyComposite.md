@@ -148,7 +148,16 @@ public Game.Input.Usages usage { get; }
 - `internal ProxyComposite(Game.Input.InputManager+DeviceType device, Game.Input.ActionType type, Game.Input.CompositeInstance source, System.Collections.Generic.IList<Game.Input.ProxyBinding> bindings)`  
 
 ```csharp
-internal ProxyComposite(Game.Input.InputManager+DeviceType device, Game.Input.ActionType type, Game.Input.CompositeInstance source, System.Collections.Generic.IList<Game.Input.ProxyBinding> bindings);
+internal ProxyComposite(InputManager.DeviceType device, ActionType type, CompositeInstance source, IList<ProxyBinding> bindings)
+	{
+		m_Device = device;
+		m_Type = type;
+		m_Source = source;
+		foreach (ProxyBinding binding in bindings)
+		{
+			m_Bindings[binding.component] = binding;
+		}
+	}
 ```
 
 
@@ -157,19 +166,28 @@ internal ProxyComposite(Game.Input.InputManager+DeviceType device, Game.Input.Ac
 - `public virtual ToString() : System.String`  
 
 ```csharp
-public virtual System.String ToString();
+public override string ToString()
+	{
+		return $"{m_Device} ({m_Type})";
+	}
 ```
 
 - `public TryGetBinding(Game.Input.ProxyBinding sampleBinding, Game.Input.ProxyBinding& foundBinding) : System.Boolean`  
 
 ```csharp
-public System.Boolean TryGetBinding(Game.Input.ProxyBinding sampleBinding, Game.Input.ProxyBinding& foundBinding);
+public bool TryGetBinding(ActionComponent component, out ProxyBinding foundBinding)
+	{
+		return m_Bindings.TryGetValue(component, out foundBinding);
+	}
 ```
 
 - `public TryGetBinding(Game.Input.ActionComponent component, Game.Input.ProxyBinding& foundBinding) : System.Boolean`  
 
 ```csharp
-public System.Boolean TryGetBinding(Game.Input.ActionComponent component, Game.Input.ProxyBinding& foundBinding);
+public bool TryGetBinding(ActionComponent component, out ProxyBinding foundBinding)
+	{
+		return m_Bindings.TryGetValue(component, out foundBinding);
+	}
 ```
 
 

@@ -43,7 +43,10 @@ private Unity.Entities.EntityQuery m_EntityQuery;
 - `public LoadSystem()`  
 
 ```csharp
-public LoadSystem();
+[Preserve]
+	public LoadSystem()
+	{
+	}
 ```
 
 
@@ -52,13 +55,27 @@ public LoadSystem();
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_LoadGameSystem = base.World.GetOrCreateSystemManaged<LoadGameSystem>();
+		m_EntityQuery = GetEntityQuery(ComponentType.ReadOnly<Block>());
+		RequireForUpdate(m_EntityQuery);
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		if (m_LoadGameSystem.context.purpose == Purpose.NewGame)
+		{
+			base.EntityManager.AddComponent<Updated>(m_EntityQuery);
+		}
+	}
 ```
 
 

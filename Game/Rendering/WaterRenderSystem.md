@@ -148,7 +148,10 @@ public System.Boolean IsAsync { get; set; }
 - `public WaterRenderSystem()`  
 
 ```csharp
-public WaterRenderSystem();
+[Preserve]
+	public WaterRenderSystem()
+	{
+	}
 ```
 
 
@@ -157,19 +160,104 @@ public WaterRenderSystem();
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_TerrainSystem = base.World.GetOrCreateSystemManaged<TerrainSystem>();
+		m_WaterSystem = base.World.GetOrCreateSystemManaged<WaterSystem>();
+		m_RenderingSystem = base.World.GetOrCreateSystemManaged<RenderingSystem>();
+		foreach (WaterSurface instance in WaterSurface.instances)
+		{
+			if (instance.customMaterial != null)
+			{
+				instance.customMaterial = new Material(instance.customMaterial);
+			}
+		}
+	}
 ```
 
 - `protected virtual OnDestroy() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnDestroy();
+[Preserve]
+	protected override void OnDestroy()
+	{
+		foreach (WaterSurface instance in WaterSurface.instances)
+		{
+			if (instance.customMaterial != null)
+			{
+				CoreUtils.Destroy(instance.customMaterial);
+			}
+		}
+		base.OnDestroy();
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		m_TerrainSystem.GetCascadeInfo(out var _, out var baseLOD, out var areas, out var _, out var _);
+		foreach (WaterSurface instance in WaterSurface.instances)
+		{
+			float timeMultiplier = m_RenderingSystem.frameDelta / math.max(1E-06f, base.CheckedStateRef.WorldUnmanaged.Time.DeltaTime * 60f);
+			instance.timeMultiplier = timeMultiplier;
+			instance.CascadeArea = areas;
+			if (baseLOD == 0)
+			{
+				instance.WaterSimArea = new Vector4(areas.c0.x, areas.c1.x, areas.c2.x - areas.c0.x, areas.c3.x - areas.c1.x);
+			}
+			else
+			{
+				instance.WaterSimArea = new Vector4(areas.c0.y, areas.c1.y, areas.c2.y - areas.c0.y, areas.c3.y - areas.c1.y);
+			}
+			instance.TerrainScaleOffset = m_TerrainSystem.heightScaleOffset;
+			instance.TerrainCascadeTexture = m_TerrainSystem.GetCascadeTexture();
+			if (m_WaterSystem.Loaded)
+			{
+				instance.WaterSimulationTexture = m_WaterSystem.WaterTexture;
+			}
+			else
+			{
+				instance.WaterSimulationTexture = Texture2D.blackTexture;
+			}
+			if (!instance.customMaterial)
+			{
+				continue;
+			}
+			instance.customMaterial.SetVector(TerrainRenderSystem.ShaderID._OverlayArrowMask, overlayArrowMask);
+			instance.customMaterial.SetVector(TerrainRenderSystem.ShaderID._OverlayPollutionMask, overlayPollutionMask);
+			if (overrideOverlaymap != null)
+			{
+				instance.customMaterial.SetTexture(TerrainRenderSystem.ShaderID._BaseColorMap, overrideOverlaymap);
+			}
+			if (overlayExtramap != null)
+			{
+				if (overrideOverlaymap == null)
+				{
+					overrideOverlaymap = Texture2D.whiteTexture;
+				}
+				if (overlayExtramap == flowTexture)
+				{
+					instance.customMaterial.SetFloat(TerrainRenderSystem.ShaderID._OverlayArrowSource, 1f);
+				}
+				else
+				{
+					instance.customMaterial.SetTexture(TerrainRenderSystem.ShaderID._OverlayExtra, overlayExtramap);
+					instance.customMaterial.SetFloat(TerrainRenderSystem.ShaderID._OverlayArrowSource, 0f);
+				}
+				instance.customMaterial.EnableKeyword("OVERRIDE_OVERLAY_EXTRA");
+			}
+			else
+			{
+				instance.customMaterial.DisableKeyword("OVERRIDE_OVERLAY_EXTRA");
+			}
+		}
+		_ = m_WaterSystem.Loaded;
+	}
 ```
 
 

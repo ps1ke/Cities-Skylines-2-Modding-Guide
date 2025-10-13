@@ -117,7 +117,23 @@ public VolumetricCloudsProperties();
 - `protected virtual OnBindVolumeProperties(UnityEngine.Rendering.Volume volume) : System.Void`  
 
 ```csharp
-protected virtual System.Void OnBindVolumeProperties(UnityEngine.Rendering.Volume volume);
+protected override void OnBindVolumeProperties(Volume volume)
+	{
+		VolumetricClouds component = null;
+		VolumeHelper.GetOrCreateVolumeComponent(volume, ref component);
+		m_BottomAltitude = component.bottomAltitude;
+		m_AltitudeRange = component.altitudeRange;
+		m_DensityMultiplier = component.densityMultiplier;
+		m_DensityCurve = component.densityCurve;
+		m_ShapeFactor = component.shapeFactor;
+		m_ShapeOffset = component.shapeOffset;
+		m_ErosionFactor = component.erosionFactor;
+		m_ErosionOcclusion = component.erosionOcclusion;
+		m_ErosionCurve = component.erosionCurve;
+		m_AmbientOcclusionCurve = component.ambientOcclusionCurve;
+		m_MultiScattering = component.multiScattering;
+		component.m_CloudPreset.Override(VolumetricClouds.CloudPresets.Custom);
+	}
 ```
 
 

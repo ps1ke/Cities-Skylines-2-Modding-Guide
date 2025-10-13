@@ -43,7 +43,11 @@ private static const System.String kGroup;
 - `public AudioBindings()`  
 
 ```csharp
-public AudioBindings();
+public AudioBindings()
+	{
+		m_SoundCollection = Resources.Load<UISoundCollection>("Audio/UI Sounds");
+		AddBinding(new TriggerBinding<string, float>("audio", "playSound", PlayUISound));
+	}
 ```
 
 
@@ -52,7 +56,13 @@ public AudioBindings();
 - `private PlayUISound(System.String soundName, System.Single volume) : System.Void`  
 
 ```csharp
-private System.Void PlayUISound(System.String soundName, System.Single volume);
+private void PlayUISound(string soundName, float volume)
+	{
+		if (m_SoundCollection != null)
+		{
+			m_SoundCollection.PlaySound(soundName, volume);
+		}
+	}
 ```
 
 

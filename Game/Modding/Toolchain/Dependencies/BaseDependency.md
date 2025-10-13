@@ -252,79 +252,204 @@ protected BaseDependency();
 - `public virtual Download(System.Threading.CancellationToken token) : System.Threading.Tasks.Task`  
 
 ```csharp
-public virtual System.Threading.Tasks.Task Download(System.Threading.CancellationToken token);
+protected static async Task Download(BaseDependency dependency, CancellationToken token, string url, string pathOnDisk, string detail)
+	{
+		token.ThrowIfCancellationRequested();
+		IToolchainDependency.log.DebugFormat("Downloading {0}", dependency.name);
+		dependency.state = new IToolchainDependency.State(DependencyState.Downloading, detail);
+		try
+		{
+			UnityWebRequest webRequest = UnityWebRequest.Get(url);
+			webRequest.downloadHandler = new DownloadHandlerFile(pathOnDisk)
+			{
+				removeFileOnAbort = true
+			};
+			UnityWebRequest.Result result = await webRequest.SendWebRequest().ConfigureAwait(UpdateProgress, token, 7f);
+			token.ThrowIfCancellationRequested();
+			switch (result)
+			{
+			case UnityWebRequest.Result.ConnectionError:
+				throw new ToolchainException(ToolchainError.Download, dependency, "Connection Error: " + webRequest.error);
+			case UnityWebRequest.Result.DataProcessingError:
+				throw new ToolchainException(ToolchainError.Download, dependency, "Error: " + webRequest.error);
+			case UnityWebRequest.Result.ProtocolError:
+				throw new ToolchainException(ToolchainError.Download, dependency, "HTTP Error: " + webRequest.error);
+			}
+			IToolchainDependency.log.DebugFormat("{0} download finished", dependency.name);
+		}
+		catch (ToolchainException)
+		{
+			throw;
+		}
+		catch (OperationCanceledException)
+		{
+			throw;
+		}
+		catch (Exception innerException)
+		{
+			throw new ToolchainException(ToolchainError.Download, dependency, innerException);
+		}
+		bool UpdateProgress(UnityWebRequestAsyncOperation asyncOperation)
+		{
+			bool isDone = asyncOperation.isDone;
+			if (!isDone)
+			{
+				dependency.state = new IToolchainDependency.State(DependencyState.Downloading, detail, (int)(asyncOperation.progress * 100f));
+			}
+			return isDone;
+		}
+	}
 ```
 
 - `protected static Download(Game.Modding.Toolchain.Dependencies.BaseDependency dependency, System.Threading.CancellationToken token, System.String url, System.String pathOnDisk, System.String detail) : System.Threading.Tasks.Task`  
 
 ```csharp
-protected static System.Threading.Tasks.Task Download(Game.Modding.Toolchain.Dependencies.BaseDependency dependency, System.Threading.CancellationToken token, System.String url, System.String pathOnDisk, System.String detail);
+protected static async Task Download(BaseDependency dependency, CancellationToken token, string url, string pathOnDisk, string detail)
+	{
+		token.ThrowIfCancellationRequested();
+		IToolchainDependency.log.DebugFormat("Downloading {0}", dependency.name);
+		dependency.state = new IToolchainDependency.State(DependencyState.Downloading, detail);
+		try
+		{
+			UnityWebRequest webRequest = UnityWebRequest.Get(url);
+			webRequest.downloadHandler = new DownloadHandlerFile(pathOnDisk)
+			{
+				removeFileOnAbort = true
+			};
+			UnityWebRequest.Result result = await webRequest.SendWebRequest().ConfigureAwait(UpdateProgress, token, 7f);
+			token.ThrowIfCancellationRequested();
+			switch (result)
+			{
+			case UnityWebRequest.Result.ConnectionError:
+				throw new ToolchainException(ToolchainError.Download, dependency, "Connection Error: " + webRequest.error);
+			case UnityWebRequest.Result.DataProcessingError:
+				throw new ToolchainException(ToolchainError.Download, dependency, "Error: " + webRequest.error);
+			case UnityWebRequest.Result.ProtocolError:
+				throw new ToolchainException(ToolchainError.Download, dependency, "HTTP Error: " + webRequest.error);
+			}
+			IToolchainDependency.log.DebugFormat("{0} download finished", dependency.name);
+		}
+		catch (ToolchainException)
+		{
+			throw;
+		}
+		catch (OperationCanceledException)
+		{
+			throw;
+		}
+		catch (Exception innerException)
+		{
+			throw new ToolchainException(ToolchainError.Download, dependency, innerException);
+		}
+		bool UpdateProgress(UnityWebRequestAsyncOperation asyncOperation)
+		{
+			bool isDone = asyncOperation.isDone;
+			if (!isDone)
+			{
+				dependency.state = new IToolchainDependency.State(DependencyState.Downloading, detail, (int)(asyncOperation.progress * 100f));
+			}
+			return isDone;
+		}
+	}
 ```
 
 - `public virtual GetHashCode() : System.Int32`  
 
 ```csharp
-public virtual System.Int32 GetHashCode();
+public override int GetHashCode()
+	{
+		return HashCode.Combine(m_State, ((IToolchainDependency)this).availableActions);
+	}
 ```
 
 - `public virtual GetLocalizedState(System.Boolean includeProgress) : Game.UI.Localization.LocalizedString`  
 
 ```csharp
-public virtual Game.UI.Localization.LocalizedString GetLocalizedState(System.Boolean includeProgress);
+public virtual LocalizedString GetLocalizedState(bool includeProgress)
+	{
+		return IToolchainDependency.GetLocalizedState(state, includeProgress);
+	}
 ```
 
 - `public virtual GetLocalizedVersion() : Game.UI.Localization.LocalizedString`  
 
 ```csharp
-public virtual Game.UI.Localization.LocalizedString GetLocalizedVersion();
+public virtual LocalizedString GetLocalizedVersion()
+	{
+		return LocalizedString.Value(version);
+	}
 ```
 
 - `public virtual GetRequiredDiskSpace(System.Threading.CancellationToken token) : System.Threading.Tasks.Task<System.Collections.Generic.List<Game.Modding.Toolchain.IToolchainDependency+DiskSpaceRequirements>>`  
 
 ```csharp
-public virtual System.Threading.Tasks.Task<System.Collections.Generic.List<Game.Modding.Toolchain.IToolchainDependency+DiskSpaceRequirements>> GetRequiredDiskSpace(System.Threading.CancellationToken token);
+public virtual Task<List<IToolchainDependency.DiskSpaceRequirements>> GetRequiredDiskSpace(CancellationToken token)
+	{
+		return Task.FromResult(new List<IToolchainDependency.DiskSpaceRequirements>());
+	}
 ```
 
 - `public virtual Install(System.Threading.CancellationToken token) : System.Threading.Tasks.Task`  
 
 ```csharp
-public virtual System.Threading.Tasks.Task Install(System.Threading.CancellationToken token);
+public virtual Task Install(CancellationToken token)
+	{
+		return Task.CompletedTask;
+	}
 ```
 
 - `public virtual IsInstalled(System.Threading.CancellationToken token) : System.Threading.Tasks.Task<System.Boolean>`  
 
 ```csharp
-public virtual System.Threading.Tasks.Task<System.Boolean> IsInstalled(System.Threading.CancellationToken token);
+public virtual Task<bool> IsInstalled(CancellationToken token)
+	{
+		return Task.FromResult(result: false);
+	}
 ```
 
 - `public virtual IsUpToDate(System.Threading.CancellationToken token) : System.Threading.Tasks.Task<System.Boolean>`  
 
 ```csharp
-public virtual System.Threading.Tasks.Task<System.Boolean> IsUpToDate(System.Threading.CancellationToken token);
+public virtual Task<bool> IsUpToDate(CancellationToken token)
+	{
+		return Task.FromResult(result: true);
+	}
 ```
 
 - `public virtual NeedDownload(System.Threading.CancellationToken token) : System.Threading.Tasks.Task<System.Boolean>`  
 
 ```csharp
-public virtual System.Threading.Tasks.Task<System.Boolean> NeedDownload(System.Threading.CancellationToken token);
+public virtual Task<bool> NeedDownload(CancellationToken token)
+	{
+		return Task.FromResult(result: false);
+	}
 ```
 
 - `public virtual Refresh(System.Threading.CancellationToken token) : System.Threading.Tasks.Task`  
 
 ```csharp
-public virtual System.Threading.Tasks.Task Refresh(System.Threading.CancellationToken token);
+public virtual Task Refresh(CancellationToken token)
+	{
+		return IToolchainDependency.Refresh(this, token);
+	}
 ```
 
 - `public virtual ToString() : System.String`  
 
 ```csharp
-public virtual System.String ToString();
+public override string ToString()
+	{
+		return name;
+	}
 ```
 
 - `public virtual Uninstall(System.Threading.CancellationToken token) : System.Threading.Tasks.Task`  
 
 ```csharp
-public virtual System.Threading.Tasks.Task Uninstall(System.Threading.CancellationToken token);
+public virtual Task Uninstall(CancellationToken token)
+	{
+		return Task.CompletedTask;
+	}
 ```
 
 

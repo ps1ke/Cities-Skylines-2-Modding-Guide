@@ -58,7 +58,13 @@ public System.Byte m_DispatchIndex;
 - `public GarbageCollectionRequest(Unity.Entities.Entity target, System.Int32 priority, Game.Simulation.GarbageCollectionRequestFlags flags)`  
 
 ```csharp
-public GarbageCollectionRequest(Unity.Entities.Entity target, System.Int32 priority, Game.Simulation.GarbageCollectionRequestFlags flags);
+public GarbageCollectionRequest(Entity target, int priority, GarbageCollectionRequestFlags flags)
+	{
+		m_Target = target;
+		m_Priority = priority;
+		m_Flags = flags;
+		m_DispatchIndex = 0;
+	}
 ```
 
 

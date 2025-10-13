@@ -64,7 +64,10 @@ private Game.UI.InGame.UIHighlightSystem+TypeHandle __TypeHandle;
 - `public UIHighlightSystem()`  
 
 ```csharp
-public UIHighlightSystem();
+[Preserve]
+	public UIHighlightSystem()
+	{
+	}
 ```
 
 
@@ -73,37 +76,84 @@ public UIHighlightSystem();
 - `private __AssignQueries(Unity.Entities.SystemState& state) : System.Void`  
 
 ```csharp
-private System.Void __AssignQueries(Unity.Entities.SystemState& state);
+private void __AssignQueries(ref SystemState state)
+	{
+		new EntityQueryBuilder(Allocator.Temp).Dispose();
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		m_EndFrameBarrier = base.World.GetOrCreateSystemManaged<EndFrameBarrier>();
+		m_UnlockedPrefabQuery = GetEntityQuery(ComponentType.ReadOnly<Unlock>());
+		RequireForUpdate(m_UnlockedPrefabQuery);
+	}
 ```
 
 - `protected virtual OnCreateForCompiler() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreateForCompiler();
+protected override void OnCreateForCompiler()
+	{
+		base.OnCreateForCompiler();
+		__AssignQueries(ref base.CheckedStateRef);
+		__TypeHandle.__AssignHandles(ref base.CheckedStateRef);
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		if (m_SkipUpdate)
+		{
+			m_SkipUpdate = false;
+			return;
+		}
+		HighlightJob jobData = new HighlightJob
+		{
+			m_UnlockType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_Unlock_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+			m_ObjectDatas = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_UIObjectData_RO_ComponentLookup, ref base.CheckedStateRef),
+			m_AssetCategories = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_UIAssetCategoryData_RO_ComponentLookup, ref base.CheckedStateRef),
+			m_ToolbarGroups = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_UIToolbarGroupData_RO_ComponentLookup, ref base.CheckedStateRef),
+			m_CommandBuffer = m_EndFrameBarrier.CreateCommandBuffer()
+		};
+		base.Dependency = JobChunkExtensions.Schedule(jobData, m_UnlockedPrefabQuery, base.Dependency);
+		m_EndFrameBarrier.AddJobHandleForProducer(base.Dependency);
+	}
 ```
 
 - `public PreDeserialize(Colossal.Serialization.Entities.Context context) : System.Void`  
 
 ```csharp
-public System.Void PreDeserialize(Colossal.Serialization.Entities.Context context);
+public void PreDeserialize(Context context)
+	{
+		EntityQuery entityQuery = base.EntityManager.CreateEntityQuery(ComponentType.ReadOnly<UIHighlight>());
+		try
+		{
+			base.EntityManager.RemoveComponent<UIHighlight>(entityQuery);
+		}
+		finally
+		{
+			entityQuery.Dispose();
+		}
+		m_SkipUpdate = true;
+	}
 ```
 
 - `public SkipUpdate() : System.Void`  
 
 ```csharp
-public System.Void SkipUpdate();
+public void SkipUpdate()
+	{
+		m_SkipUpdate = true;
+	}
 ```
 
 

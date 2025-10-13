@@ -82,7 +82,10 @@ public static readonly System.Int32 kUpdatesPerDay;
 - `public CountConsumptionSystem()`  
 
 ```csharp
-public CountConsumptionSystem();
+[Preserve]
+	public CountConsumptionSystem()
+	{
+	}
 ```
 
 
@@ -91,13 +94,19 @@ public CountConsumptionSystem();
 - `public AddConsumptionReader(Unity.Jobs.JobHandle deps) : System.Void`  
 
 ```csharp
-public System.Void AddConsumptionReader(Unity.Jobs.JobHandle deps);
+public void AddConsumptionReader(JobHandle deps)
+	{
+		m_ReadDeps = JobHandle.CombineDependencies(m_ReadDeps, deps);
+	}
 ```
 
 - `public AddConsumptionWriter(Unity.Jobs.JobHandle deps) : System.Void`  
 
 ```csharp
-public System.Void AddConsumptionWriter(Unity.Jobs.JobHandle deps);
+public void AddConsumptionWriter(JobHandle deps)
+	{
+		m_WriteDeps = JobHandle.CombineDependencies(m_WriteDeps, deps);
+	}
 ```
 
 - `public Deserialize<TReader>(TReader reader) : System.Void`  
@@ -109,43 +118,81 @@ public System.Void Deserialize<TReader>(TReader reader);
 - `public GetConsumptionAccumulator(Unity.Jobs.JobHandle& deps) : Unity.Collections.NativeArray<System.Int32>`  
 
 ```csharp
-public Unity.Collections.NativeArray<System.Int32> GetConsumptionAccumulator(Unity.Jobs.JobHandle& deps);
+public NativeArray<int> GetConsumptionAccumulator(out JobHandle deps)
+	{
+		deps = m_WriteDeps;
+		return m_ConsumptionAccumulator;
+	}
 ```
 
 - `public GetConsumptions(Unity.Jobs.JobHandle& deps) : Unity.Collections.NativeArray<System.Int32>`  
 
 ```csharp
-public Unity.Collections.NativeArray<System.Int32> GetConsumptions(Unity.Jobs.JobHandle& deps);
+public NativeArray<int> GetConsumptions(out JobHandle deps)
+	{
+		deps = m_CopyDeps;
+		return m_Consumptions;
+	}
 ```
 
 - `public virtual GetUpdateInterval(Game.SystemUpdatePhase phase) : System.Int32`  
 
 ```csharp
-public virtual System.Int32 GetUpdateInterval(Game.SystemUpdatePhase phase);
+public override int GetUpdateInterval(SystemUpdatePhase phase)
+	{
+		return 262144 / kUpdatesPerDay;
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_Consumptions = new NativeArray<int>(EconomyUtils.ResourceCount, Allocator.Persistent);
+		m_ConsumptionAccumulator = new NativeArray<int>(EconomyUtils.ResourceCount, Allocator.Persistent);
+	}
 ```
 
 - `protected virtual OnDestroy() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnDestroy();
+[Preserve]
+	protected override void OnDestroy()
+	{
+		m_ConsumptionAccumulator.Dispose();
+		m_Consumptions.Dispose();
+		base.OnDestroy();
+	}
 ```
 
 - `protected virtual OnStopRunning() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnStopRunning();
+[Preserve]
+	protected override void OnStopRunning()
+	{
+		base.OnStopRunning();
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		CopyConsumptionJob jobData = new CopyConsumptionJob
+		{
+			m_Accumulator = m_ConsumptionAccumulator,
+			m_Consumptions = m_Consumptions
+		};
+		base.Dependency = jobData.Schedule(JobHandle.CombineDependencies(m_ReadDeps, m_WriteDeps));
+		m_CopyDeps = base.Dependency;
+		m_WriteDeps = base.Dependency;
+	}
 ```
 
 - `public Serialize<TWriter>(TWriter writer) : System.Void`  
@@ -157,7 +204,14 @@ public System.Void Serialize<TWriter>(TWriter writer);
 - `public SetDefaults(Colossal.Serialization.Entities.Context context) : System.Void`  
 
 ```csharp
-public System.Void SetDefaults(Colossal.Serialization.Entities.Context context);
+public void SetDefaults(Context context)
+	{
+		for (int i = 0; i < m_ConsumptionAccumulator.Length; i++)
+		{
+			m_ConsumptionAccumulator[i] = 0;
+			m_Consumptions[i] = 0;
+		}
+	}
 ```
 
 

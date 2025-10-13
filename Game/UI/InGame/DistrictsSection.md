@@ -144,7 +144,10 @@ private System.Boolean districtMissing { private get; private set; }
 - `public DistrictsSection()`  
 
 ```csharp
-public DistrictsSection();
+[Preserve]
+	public DistrictsSection()
+	{
+	}
 ```
 
 
@@ -153,73 +156,199 @@ public DistrictsSection();
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_ToolSystem = base.World.GetOrCreateSystemManaged<ToolSystem>();
+		m_AreaToolSystem = base.World.GetOrCreateSystemManaged<AreaToolSystem>();
+		m_DefaultToolSystem = base.World.GetOrCreateSystemManaged<DefaultToolSystem>();
+		m_SelectionToolSystem = base.World.GetOrCreateSystemManaged<SelectionToolSystem>();
+		ToolSystem toolSystem = m_ToolSystem;
+		toolSystem.EventToolChanged = (Action<ToolBaseSystem>)Delegate.Combine(toolSystem.EventToolChanged, new Action<ToolBaseSystem>(OnToolChanged));
+		districts = new NativeList<Entity>(Allocator.Persistent);
+		m_ConfigQuery = GetEntityQuery(ComponentType.ReadOnly<AreasConfigurationData>());
+		m_DistrictQuery = GetEntityQuery(ComponentType.ReadOnly<District>(), ComponentType.Exclude<Temp>());
+		m_DistrictPrefabQuery = GetEntityQuery(ComponentType.ReadOnly<DistrictData>(), ComponentType.Exclude<Locked>());
+		m_DistrictModifiedQuery = GetEntityQuery(new EntityQueryDesc
+		{
+			All = new ComponentType[1] { ComponentType.ReadOnly<District>() },
+			Any = new ComponentType[2]
+			{
+				ComponentType.ReadOnly<Created>(),
+				ComponentType.ReadOnly<Deleted>()
+			},
+			None = new ComponentType[1] { ComponentType.ReadOnly<Temp>() }
+		});
+		AddBinding(new TriggerBinding<Entity>(group, "removeDistrict", RemoveServiceDistrict));
+		AddBinding(new TriggerBinding(group, "toggleSelectionTool", ToggleSelectionTool));
+		AddBinding(new TriggerBinding(group, "toggleDistrictTool", ToggleDistrictTool));
+		AddBinding(m_Selecting = new ValueBinding<bool>(group, "selecting", initialValue: false));
+	}
 ```
 
 - `protected virtual OnDestroy() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnDestroy();
+[Preserve]
+	protected override void OnDestroy()
+	{
+		districts.Dispose();
+		base.OnDestroy();
+	}
 ```
 
 - `protected virtual OnPreUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnPreUpdate();
+protected override void OnPreUpdate()
+	{
+		base.OnPreUpdate();
+		if (!m_DistrictModifiedQuery.IsEmptyIgnoreFilter)
+		{
+			RequestUpdate();
+		}
+	}
 ```
 
 - `protected virtual OnProcess() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnProcess();
+protected override void OnProcess()
+	{
+		DynamicBuffer<ServiceDistrict> buffer = base.EntityManager.GetBuffer<ServiceDistrict>(selectedEntity, isReadOnly: true);
+		for (int i = 0; i < buffer.Length; i++)
+		{
+			NativeList<Entity> nativeList = districts;
+			ServiceDistrict serviceDistrict = buffer[i];
+			nativeList.Add(in serviceDistrict.m_District);
+		}
+	}
 ```
 
 - `private OnToolChanged(Game.Tools.ToolBaseSystem tool) : System.Void`  
 
 ```csharp
-private System.Void OnToolChanged(Game.Tools.ToolBaseSystem tool);
+private void OnToolChanged(ToolBaseSystem tool)
+	{
+		bool flag = tool == m_SelectionToolSystem && m_SelectionToolSystem.selectionType == SelectionType.ServiceDistrict;
+		if (m_Selecting.value && !flag)
+		{
+			m_SelectionToolSystem.selectionOwner = Entity.Null;
+			m_SelectionToolSystem.selectionType = SelectionType.None;
+		}
+		m_Selecting.Update(flag);
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		base.visible = Visible();
+		districtMissing = m_DistrictQuery.IsEmptyIgnoreFilter;
+	}
 ```
 
 - `public virtual OnWriteProperties(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-public virtual System.Void OnWriteProperties(Colossal.UI.Binding.IJsonWriter writer);
+public override void OnWriteProperties(IJsonWriter writer)
+	{
+		writer.PropertyName("districtMissing");
+		writer.Write(districtMissing);
+		writer.PropertyName("districts");
+		writer.ArrayBegin(districts.Length);
+		for (int i = 0; i < districts.Length; i++)
+		{
+			Entity entity = districts[i];
+			writer.TypeBegin("selectedInfo.District");
+			writer.PropertyName("name");
+			m_NameSystem.BindName(writer, entity);
+			writer.PropertyName("entity");
+			writer.Write(entity);
+			writer.TypeEnd();
+		}
+		writer.ArrayEnd();
+	}
 ```
 
 - `public RemoveServiceDistrict(Unity.Entities.Entity district) : System.Void`  
 
 ```csharp
-public System.Void RemoveServiceDistrict(Unity.Entities.Entity district);
+public void RemoveServiceDistrict(Entity district)
+	{
+		DynamicBuffer<ServiceDistrict> buffer = base.EntityManager.GetBuffer<ServiceDistrict>(selectedEntity);
+		bool flag = false;
+		for (int i = 0; i < buffer.Length; i++)
+		{
+			if (buffer[i].m_District == district)
+			{
+				buffer.RemoveAt(i);
+				flag = true;
+			}
+		}
+		if (flag)
+		{
+			m_InfoUISystem.RequestUpdate();
+		}
+	}
 ```
 
 - `protected virtual Reset() : System.Void`  
 
 ```csharp
-protected virtual System.Void Reset();
+protected override void Reset()
+	{
+		districts.Clear();
+	}
 ```
 
 - `private ToggleDistrictTool() : System.Void`  
 
 ```csharp
-private System.Void ToggleDistrictTool();
+private void ToggleDistrictTool()
+	{
+		if (m_ToolSystem.activeTool == m_AreaToolSystem)
+		{
+			m_ToolSystem.activeTool = m_DefaultToolSystem;
+			return;
+		}
+		AreasConfigurationPrefab prefab = m_PrefabSystem.GetPrefab<AreasConfigurationPrefab>(m_ConfigQuery.GetSingletonEntity());
+		m_AreaToolSystem.prefab = prefab.m_DefaultDistrictPrefab;
+		m_ToolSystem.activeTool = m_AreaToolSystem;
+	}
 ```
 
 - `private ToggleSelectionTool() : System.Void`  
 
 ```csharp
-private System.Void ToggleSelectionTool();
+private void ToggleSelectionTool()
+	{
+		if (m_ToolSystem.activeTool == m_SelectionToolSystem)
+		{
+			m_ToolSystem.activeTool = m_DefaultToolSystem;
+			return;
+		}
+		m_SelectionToolSystem.selectionType = SelectionType.ServiceDistrict;
+		m_SelectionToolSystem.selectionOwner = selectedEntity;
+		m_ToolSystem.activeTool = m_SelectionToolSystem;
+	}
 ```
 
 - `private Visible() : System.Boolean`  
 
 ```csharp
-private System.Boolean Visible();
+private bool Visible()
+	{
+		if (base.EntityManager.HasComponent<ServiceDistrict>(selectedEntity))
+		{
+			return !m_DistrictPrefabQuery.IsEmpty;
+		}
+		return false;
+	}
 ```
 
 

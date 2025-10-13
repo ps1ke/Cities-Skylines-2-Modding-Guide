@@ -127,7 +127,10 @@ public System.Single equalizerSidesPadding { get; set; }
 - `public RadioSettings()`  
 
 ```csharp
-public RadioSettings();
+public RadioSettings()
+	{
+		SetDefaults();
+	}
 ```
 
 
@@ -136,13 +139,32 @@ public RadioSettings();
 - `public virtual Apply() : System.Void`  
 
 ```csharp
-public virtual System.Void Apply();
+public override void Apply()
+	{
+		base.Apply();
+		if (m_Radio == null)
+		{
+			m_Radio = AudioManager.instance.radio;
+		}
+		if (m_Radio != null)
+		{
+			m_Radio.SetSpectrumSettings(enableSpectrum, spectrumNumSamples, fftWindowType, bandType, equalizerBarSpacing, equalizerSidesPadding);
+		}
+	}
 ```
 
 - `public virtual SetDefaults() : System.Void`  
 
 ```csharp
-public virtual System.Void SetDefaults();
+public override void SetDefaults()
+	{
+		spectrumNumSamples = 1024;
+		enableSpectrum = false;
+		fftWindowType = FFTWindow.BlackmanHarris;
+		bandType = Radio.Spectrum.BandType.TenBand;
+		equalizerBarSpacing = 10.2f;
+		equalizerSidesPadding = 4f;
+	}
 ```
 
 

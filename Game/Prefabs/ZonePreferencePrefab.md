@@ -154,19 +154,48 @@ public ZonePreferencePrefab();
 - `public virtual GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetArchetypeComponents(HashSet<ComponentType> components)
+	{
+		base.GetArchetypeComponents(components);
+	}
 ```
 
 - `public virtual GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetPrefabComponents(HashSet<ComponentType> components)
+	{
+		base.GetPrefabComponents(components);
+		components.Add(ComponentType.ReadWrite<ZonePreferenceData>());
+	}
 ```
 
 - `public virtual LateInitialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity) : System.Void`  
 
 ```csharp
-public virtual System.Void LateInitialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity);
+public override void LateInitialize(EntityManager entityManager, Entity entity)
+	{
+		base.LateInitialize(entityManager, entity);
+		entityManager.SetComponentData(entity, new ZonePreferenceData
+		{
+			m_ResidentialSignificanceServices = m_ResidentialSignificanceServices,
+			m_ResidentialSignificanceWorkplaces = m_ResidentialSignificanceWorkplaces,
+			m_ResidentialSignificanceLandValue = m_ResidentialSignificanceLandValue,
+			m_ResidentialSignificancePollution = m_ResidentialSignificancePollution,
+			m_ResidentialNeutralLandValue = m_ResidentialNeutralLandValue,
+			m_CommercialSignificanceCompetitors = m_CommercialSignificanceCompetitors,
+			m_CommercialSignificanceConsumers = m_CommercialSignificanceConsumers,
+			m_CommercialSignificanceWorkplaces = m_CommercialSignificanceWorkplaces,
+			m_CommercialSignificanceLandValue = m_CommercialSignificanceLandValue,
+			m_CommercialNeutralLandValue = m_CommercialNeutralLandValue,
+			m_IndustrialSignificanceInput = m_IndustrialSignificanceInput,
+			m_IndustrialSignificanceLandValue = m_IndustrialSignificanceLandValue,
+			m_IndustrialSignificanceOutside = m_IndustrialSignificanceOutside,
+			m_IndustrialNeutralLandValue = m_IndustrialNeutralLandValue,
+			m_OfficeSignificanceEmployees = m_OfficeSignificanceEmployees,
+			m_OfficeSignificanceServices = m_OfficeSignificanceServices
+		});
+	}
 ```
 
 

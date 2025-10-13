@@ -48,13 +48,30 @@ public ActivityLocationPrefab();
 - `public virtual GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetPrefabComponents(HashSet<ComponentType> components)
+	{
+		base.GetPrefabComponents(components);
+		components.Add(ComponentType.ReadWrite<ActivityLocationData>());
+	}
 ```
 
 - `public virtual Initialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity) : System.Void`  
 
 ```csharp
-public virtual System.Void Initialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity);
+public override void Initialize(EntityManager entityManager, Entity entity)
+	{
+		base.Initialize(entityManager, entity);
+		ActivityLocationData componentData = default(ActivityLocationData);
+		componentData.m_ActivityMask = default(ActivityMask);
+		if (m_Activities != null)
+		{
+			for (int i = 0; i < m_Activities.Length; i++)
+			{
+				componentData.m_ActivityMask.m_Mask |= new ActivityMask(m_Activities[i]).m_Mask;
+			}
+		}
+		entityManager.SetComponentData(entity, componentData);
+	}
 ```
 
 

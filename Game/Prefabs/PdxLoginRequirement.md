@@ -39,25 +39,35 @@ public PdxLoginRequirement();
 - `public virtual CheckRequirement() : System.Boolean`  
 
 ```csharp
-public virtual System.Boolean CheckRequirement();
+public override bool CheckRequirement()
+	{
+		return PlatformManager.instance.GetPSI<PdxSdkPlatform>("PdxSdk")?.hasEverLoggedIn ?? false;
+	}
 ```
 
 - `public virtual GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetArchetypeComponents(HashSet<ComponentType> components)
+	{
+	}
 ```
 
 - `public virtual GetDebugString() : System.String`  
 
 ```csharp
-public virtual System.String GetDebugString();
+public override string GetDebugString()
+	{
+		return "Paradox Account Login";
+	}
 ```
 
 - `public virtual GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetPrefabComponents(HashSet<ComponentType> components)
+	{
+	}
 ```
 
 

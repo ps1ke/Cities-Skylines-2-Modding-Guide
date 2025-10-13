@@ -86,13 +86,23 @@ public UIInputAction();
 - `public virtual GetState(System.String source) : Game.Input.IProxyAction`  
 
 ```csharp
-public virtual Game.Input.IProxyAction GetState(System.String source);
+public override IProxyAction GetState(string source, DisplayGetter displayNameGetter)
+	{
+		ProxyAction action = InputManager.instance.FindAction(m_Action.action);
+		DisplayNameOverride displayName = displayNameGetter(source, action, m_Mask, m_Transform);
+		return new State(source, action, displayName, m_Mask);
+	}
 ```
 
 - `public virtual GetState(System.String source, Game.Input.UIBaseInputAction+DisplayGetter displayNameGetter) : Game.Input.IProxyAction`  
 
 ```csharp
-public virtual Game.Input.IProxyAction GetState(System.String source, Game.Input.UIBaseInputAction+DisplayGetter displayNameGetter);
+public override IProxyAction GetState(string source, DisplayGetter displayNameGetter)
+	{
+		ProxyAction action = InputManager.instance.FindAction(m_Action.action);
+		DisplayNameOverride displayName = displayNameGetter(source, action, m_Mask, m_Transform);
+		return new State(source, action, displayName, m_Mask);
+	}
 ```
 
 

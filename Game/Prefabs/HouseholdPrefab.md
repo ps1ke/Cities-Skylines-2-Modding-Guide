@@ -126,19 +126,53 @@ public HouseholdPrefab();
 - `public virtual GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetArchetypeComponents(HashSet<ComponentType> components)
+	{
+		base.GetArchetypeComponents(components);
+		components.Add(ComponentType.ReadWrite<Household>());
+		components.Add(ComponentType.ReadWrite<HouseholdNeed>());
+		components.Add(ComponentType.ReadWrite<HouseholdCitizen>());
+		components.Add(ComponentType.ReadWrite<TaxPayer>());
+		components.Add(ComponentType.ReadWrite<Game.Economy.Resources>());
+		components.Add(ComponentType.ReadWrite<PropertySeeker>());
+		components.Add(ComponentType.ReadWrite<UpdateFrame>());
+	}
 ```
 
 - `public virtual GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetPrefabComponents(HashSet<ComponentType> components)
+	{
+		base.GetPrefabComponents(components);
+		components.Add(ComponentType.ReadWrite<HouseholdData>());
+		if (m_DynamicHousehold)
+		{
+			components.Add(ComponentType.ReadWrite<DynamicHousehold>());
+		}
+	}
 ```
 
 - `public virtual Initialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity) : System.Void`  
 
 ```csharp
-public virtual System.Void Initialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity);
+public override void Initialize(EntityManager entityManager, Entity entity)
+	{
+		base.Initialize(entityManager, entity);
+		entityManager.SetComponentData(entity, new HouseholdData
+		{
+			m_InitialCarProbability = m_InitialCarProbability,
+			m_InitialWealthOffset = m_InitialWealthOffset,
+			m_InitialWealthRange = m_InitialWealthRange,
+			m_ChildCount = m_ChildCount,
+			m_AdultCount = m_AdultCount,
+			m_ElderCount = m_ElderlyCount,
+			m_StudentCount = m_StudentCount,
+			m_FirstPetProbability = m_FirstPetProbability,
+			m_NextPetProbability = m_NextPetProbability,
+			m_Weight = m_Weight
+		});
+	}
 ```
 
 

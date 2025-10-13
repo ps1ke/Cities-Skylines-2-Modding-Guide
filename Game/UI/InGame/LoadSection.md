@@ -99,7 +99,10 @@ protected Unity.Entities.Entity selectedPrefab { protected get; }
 - `public LoadSection()`  
 
 ```csharp
-public LoadSection();
+[Preserve]
+	public LoadSection()
+	{
+	}
 ```
 
 
@@ -108,25 +111,76 @@ public LoadSection();
 - `protected virtual OnProcess() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnProcess();
+protected override void OnProcess()
+	{
+		Game.Vehicles.GarbageTruck component2;
+		Game.Vehicles.PostVan component3;
+		if (base.EntityManager.TryGetComponent<Game.Vehicles.FireEngine>(selectedEntity, out var component))
+		{
+			load = component.m_ExtinguishingAmount;
+			loadKey = LoadKey.Water;
+		}
+		else if (base.EntityManager.TryGetComponent<Game.Vehicles.GarbageTruck>(selectedEntity, out component2))
+		{
+			load = component2.m_Garbage;
+			loadKey = (((component2.m_State & GarbageTruckFlags.IndustrialWasteOnly) != 0) ? LoadKey.IndustrialWaste : LoadKey.Garbage);
+		}
+		else if (base.EntityManager.TryGetComponent<Game.Vehicles.PostVan>(selectedEntity, out component3))
+		{
+			load = component3.m_DeliveringMail + component3.m_CollectedMail;
+			loadKey = LoadKey.Mail;
+		}
+		base.tooltipKeys.Add(loadKey.ToString());
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		GarbageTruckData component2;
+		PostVanData component3;
+		if (base.EntityManager.TryGetComponent<FireEngineData>(selectedPrefab, out var component))
+		{
+			capacity = component.m_ExtinguishingCapacity;
+		}
+		else if (base.EntityManager.TryGetComponent<GarbageTruckData>(selectedPrefab, out component2))
+		{
+			capacity = component2.m_GarbageCapacity;
+		}
+		else if (base.EntityManager.TryGetComponent<PostVanData>(selectedPrefab, out component3))
+		{
+			capacity = component3.m_MailCapacity;
+		}
+		base.visible = capacity > 0f;
+	}
 ```
 
 - `public virtual OnWriteProperties(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-public virtual System.Void OnWriteProperties(Colossal.UI.Binding.IJsonWriter writer);
+public override void OnWriteProperties(IJsonWriter writer)
+	{
+		writer.PropertyName("load");
+		writer.Write(load);
+		writer.PropertyName("capacity");
+		writer.Write(capacity);
+		writer.PropertyName("loadKey");
+		writer.Write(Enum.GetName(typeof(LoadKey), loadKey));
+	}
 ```
 
 - `protected virtual Reset() : System.Void`  
 
 ```csharp
-protected virtual System.Void Reset();
+protected override void Reset()
+	{
+		loadKey = LoadKey.None;
+		load = 0f;
+		capacity = 0f;
+	}
 ```
 
 

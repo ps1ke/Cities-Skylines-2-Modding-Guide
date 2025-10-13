@@ -34,7 +34,10 @@ public ValueField();
 - `public virtual GetValue() : System.String`  
 
 ```csharp
-public virtual System.String GetValue();
+public override string GetValue()
+	{
+		return base.GetValue() ?? string.Empty;
+	}
 ```
 
 

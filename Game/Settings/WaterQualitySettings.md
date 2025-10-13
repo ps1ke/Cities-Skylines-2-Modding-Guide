@@ -120,13 +120,21 @@ private static Game.Settings.WaterQualitySettings lowQuality { private get; }
 - `public WaterQualitySettings()`  
 
 ```csharp
-public WaterQualitySettings();
+public WaterQualitySettings(Level quality, VolumeProfile profile)
+	{
+		CreateVolumeComponent(profile, ref m_WaterRenderingComponent);
+		SetLevel(quality, apply: false);
+	}
 ```
 
 - `public WaterQualitySettings(Game.Settings.QualitySetting+Level quality, UnityEngine.Rendering.VolumeProfile profile)`  
 
 ```csharp
-public WaterQualitySettings(Game.Settings.QualitySetting+Level quality, UnityEngine.Rendering.VolumeProfile profile);
+public WaterQualitySettings(Level quality, VolumeProfile profile)
+	{
+		CreateVolumeComponent(profile, ref m_WaterRenderingComponent);
+		SetLevel(quality, apply: false);
+	}
 ```
 
 
@@ -135,7 +143,20 @@ public WaterQualitySettings(Game.Settings.QualitySetting+Level quality, UnityEng
 - `public virtual Apply() : System.Void`  
 
 ```csharp
-public virtual System.Void Apply();
+public override void Apply()
+	{
+		base.Apply();
+		if (m_WaterRenderingComponent != null)
+		{
+			ApplyState(m_WaterRenderingComponent.maxTessellationFactor, maxTessellationFactor);
+			ApplyState(m_WaterRenderingComponent.tessellationFactorFadeStart, tessellationFactorFadeStart);
+			ApplyState(m_WaterRenderingComponent.tessellationFactorFadeRange, tessellationFactorFadeRange);
+		}
+		foreach (WaterSurface instance in WaterSurface.instances)
+		{
+			instance.waterFlow = waterflow;
+		}
+	}
 ```
 
 

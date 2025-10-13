@@ -41,7 +41,10 @@ public Unity.Entities.Entity m_District;
 - `public ServiceDistrict(Unity.Entities.Entity district)`  
 
 ```csharp
-public ServiceDistrict(Unity.Entities.Entity district);
+public ServiceDistrict(Entity district)
+	{
+		m_District = district;
+	}
 ```
 
 
@@ -56,13 +59,19 @@ public System.Void Deserialize<TReader>(TReader reader);
 - `public Equals(Game.Areas.ServiceDistrict other) : System.Boolean`  
 
 ```csharp
-public System.Boolean Equals(Game.Areas.ServiceDistrict other);
+public bool Equals(ServiceDistrict other)
+	{
+		return m_District.Equals(other.m_District);
+	}
 ```
 
 - `public virtual GetHashCode() : System.Int32`  
 
 ```csharp
-public virtual System.Int32 GetHashCode();
+public override int GetHashCode()
+	{
+		return m_District.GetHashCode();
+	}
 ```
 
 - `public Serialize<TWriter>(TWriter writer) : System.Void`  

@@ -63,7 +63,10 @@ public System.String propertiesTypeName { get; }
 - `public IntInputField(Game.Debug.IntInputField debugWidget)`  
 
 ```csharp
-public IntInputField(Game.Debug.IntInputField debugWidget);
+public IntInputField(Game.Debug.IntInputField debugWidget)
+	{
+		m_DebugWidget = debugWidget;
+	}
 ```
 
 
@@ -72,19 +75,34 @@ public IntInputField(Game.Debug.IntInputField debugWidget);
 - `public virtual GetValue() : System.Int32`  
 
 ```csharp
-public virtual System.Int32 GetValue();
+public override int GetValue()
+	{
+		return m_IntValue;
+	}
 ```
 
 - `public virtual SetValue(System.Int32 value) : System.Void`  
 
 ```csharp
-public virtual System.Void SetValue(System.Int32 value);
+public override void SetValue(int value)
+	{
+		m_DebugWidget.SetValue(value.ToString());
+	}
 ```
 
 - `protected virtual Update() : Game.UI.Widgets.WidgetChanges`  
 
 ```csharp
-protected virtual Game.UI.Widgets.WidgetChanges Update();
+protected override WidgetChanges Update()
+	{
+		string value = m_DebugWidget.GetValue();
+		if (!string.Equals(m_StringValue, value))
+		{
+			m_StringValue = value;
+			int.TryParse(value, out m_IntValue);
+		}
+		return base.Update();
+	}
 ```
 
 

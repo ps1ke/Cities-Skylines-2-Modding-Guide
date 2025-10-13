@@ -37,7 +37,10 @@ public Unity.Entities.Entity m_Target;
 - `public Target(Unity.Entities.Entity target)`  
 
 ```csharp
-public Target(Unity.Entities.Entity target);
+public Target(Entity target)
+	{
+		m_Target = target;
+	}
 ```
 
 

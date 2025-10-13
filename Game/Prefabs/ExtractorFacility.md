@@ -70,19 +70,44 @@ public ExtractorFacility();
 - `public virtual GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetArchetypeComponents(HashSet<ComponentType> components)
+	{
+		components.Add(ComponentType.ReadWrite<Game.Buildings.ExtractorFacility>());
+		components.Add(ComponentType.ReadWrite<PointOfInterest>());
+	}
 ```
 
 - `public virtual GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetPrefabComponents(HashSet<ComponentType> components)
+	{
+		components.Add(ComponentType.ReadWrite<ExtractorFacilityData>());
+		components.Add(ComponentType.ReadWrite<UpdateFrameData>());
+	}
 ```
 
 - `public virtual Initialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity) : System.Void`  
 
 ```csharp
-public virtual System.Void Initialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity);
+public override void Initialize(EntityManager entityManager, Entity entity)
+	{
+		ExtractorFacilityData componentData = default(ExtractorFacilityData);
+		componentData.m_RotationRange.min = math.radians(m_RotationRange.min);
+		componentData.m_RotationRange.max = math.radians(m_RotationRange.max);
+		componentData.m_HeightOffset = m_HeightOffset;
+		componentData.m_Requirements = ExtractorRequirementFlags.None;
+		if (m_RouteNeeded)
+		{
+			componentData.m_Requirements |= ExtractorRequirementFlags.RouteConnect;
+		}
+		if (m_NetNeeded)
+		{
+			componentData.m_Requirements |= ExtractorRequirementFlags.NetConnect;
+		}
+		entityManager.SetComponentData(entity, componentData);
+		entityManager.SetComponentData(entity, new UpdateFrameData(14));
+	}
 ```
 
 

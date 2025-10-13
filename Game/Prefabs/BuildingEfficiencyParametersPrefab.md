@@ -174,13 +174,42 @@ public BuildingEfficiencyParametersPrefab();
 - `public virtual GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetPrefabComponents(HashSet<ComponentType> components)
+	{
+		base.GetPrefabComponents(components);
+		components.Add(ComponentType.ReadWrite<BuildingEfficiencyParameterData>());
+	}
 ```
 
 - `public virtual LateInitialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity) : System.Void`  
 
 ```csharp
-public virtual System.Void LateInitialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity);
+public override void LateInitialize(EntityManager entityManager, Entity entity)
+	{
+		base.LateInitialize(entityManager, entity);
+		entityManager.SetComponentData(entity, new BuildingEfficiencyParameterData
+		{
+			m_ServiceBudgetEfficiencyFactor = new AnimationCurve1(m_ServiceBudgetEfficiencyFactor),
+			m_LowEfficiencyThreshold = m_LowEfficiencyThreshold,
+			m_ElectricityPenalty = m_ElectricityPenalty,
+			m_ElectricityPenaltyDelay = m_ElectricityPenaltyDelay,
+			m_ElectricityFeeFactor = new AnimationCurve1(m_ElectricityFeeFactor),
+			m_WaterPenalty = m_WaterPenalty,
+			m_WaterPenaltyDelay = (int)m_WaterPenaltyDelay,
+			m_WaterPollutionPenalty = m_WaterPollutionPenalty,
+			m_SewagePenalty = m_SewagePenalty,
+			m_SewagePenaltyDelay = (int)m_SewagePenaltyDelay,
+			m_WaterFeeFactor = new AnimationCurve1(m_WaterFeeFactor),
+			m_GarbagePenalty = m_GarbagePenalty,
+			m_NegligibleMail = m_NegligibleMail,
+			m_MailEfficiencyPenalty = m_MailEfficiencyPenalty,
+			m_TelecomBaseline = m_TelecomBaseline,
+			m_MissingEmployeesEfficiencyPenalty = m_MissingEmployeesEfficiencyPenalty,
+			m_MissingEmployeesEfficiencyDelay = m_MissingEmployeesEfficiencyDelay,
+			m_ServiceBuildingEfficiencyGracePeriod = m_ServiceBuildingEfficiencyGracePeriod,
+			m_SickEmployeesEfficiencyPenalty = m_SickEmployeesEfficiencyPenalty
+		});
+	}
 ```
 
 

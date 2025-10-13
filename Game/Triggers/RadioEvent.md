@@ -37,7 +37,10 @@ public Unity.Entities.Entity m_Entity;
 - `public RadioEvent(Unity.Entities.Entity entity)`  
 
 ```csharp
-public RadioEvent(Unity.Entities.Entity entity);
+public RadioEvent(Entity entity)
+	{
+		m_Entity = entity;
+	}
 ```
 
 

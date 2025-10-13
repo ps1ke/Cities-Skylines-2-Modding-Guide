@@ -91,7 +91,10 @@ private Unity.Entities.Entity destinationEntity { private get; private set; }
 - `public AnimalSection()`  
 
 ```csharp
-public AnimalSection();
+[Preserve]
+	public AnimalSection()
+	{
+	}
 ```
 
 
@@ -100,49 +103,152 @@ public AnimalSection();
 - `private GetDestination() : Unity.Entities.Entity`  
 
 ```csharp
-private Unity.Entities.Entity GetDestination();
+private Entity GetDestination()
+	{
+		if (base.EntityManager.TryGetComponent<CurrentTransport>(selectedEntity, out var component))
+		{
+			Entity entity = Entity.Null;
+			if (base.EntityManager.TryGetComponent<Target>(component.m_CurrentTransport, out var component2))
+			{
+				entity = component2.m_Target;
+			}
+			if (base.EntityManager.HasComponent<OutsideConnection>(entity))
+			{
+				return entity;
+			}
+			if (base.EntityManager.TryGetComponent<Owner>(entity, out var component3))
+			{
+				return component3.m_Owner;
+			}
+			if (base.EntityManager.Exists(entity))
+			{
+				return entity;
+			}
+		}
+		return Entity.Null;
+	}
 ```
 
 - `private GetTypeKey() : Game.UI.InGame.AnimalSection+TypeKey`  
 
 ```csharp
-private Game.UI.InGame.AnimalSection+TypeKey GetTypeKey();
+private TypeKey GetTypeKey()
+	{
+		if (base.EntityManager.HasComponent<HouseholdPet>(selectedEntity))
+		{
+			return TypeKey.Pet;
+		}
+		if (base.EntityManager.HasComponent<Wildlife>(selectedEntity))
+		{
+			return TypeKey.Wildlife;
+		}
+		return TypeKey.Livestock;
+	}
 ```
 
 - `private GetTypeKeyString(Game.UI.InGame.AnimalSection+TypeKey typeKey) : System.String`  
 
 ```csharp
-private System.String GetTypeKeyString(Game.UI.InGame.AnimalSection+TypeKey typeKey);
+private string GetTypeKeyString(TypeKey typeKey)
+	{
+		return typeKey switch
+		{
+			TypeKey.Pet => "Pet", 
+			TypeKey.Livestock => "Livestock", 
+			_ => "Wildlife", 
+		};
+	}
 ```
 
 - `protected virtual OnProcess() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnProcess();
+protected override void OnProcess()
+	{
+		typeKey = GetTypeKey();
+		ownerEntity = (base.EntityManager.TryGetComponent<HouseholdPet>(selectedEntity, out var component) ? component.m_Household : Entity.Null);
+		destinationEntity = GetDestination();
+		base.tooltipKeys.Add(GetTypeKeyString(typeKey));
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		base.visible = Visible();
+	}
 ```
 
 - `public virtual OnWriteProperties(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-public virtual System.Void OnWriteProperties(Colossal.UI.Binding.IJsonWriter writer);
+public override void OnWriteProperties(IJsonWriter writer)
+	{
+		writer.PropertyName("typeKey");
+		writer.Write(Enum.GetName(typeof(TypeKey), typeKey));
+		writer.PropertyName("owner");
+		if (ownerEntity == Entity.Null)
+		{
+			writer.WriteNull();
+		}
+		else
+		{
+			m_NameSystem.BindName(writer, ownerEntity);
+		}
+		writer.PropertyName("ownerEntity");
+		if (ownerEntity == Entity.Null)
+		{
+			writer.WriteNull();
+		}
+		else
+		{
+			writer.Write(ownerEntity);
+		}
+		writer.PropertyName("destination");
+		if (destinationEntity == Entity.Null)
+		{
+			writer.WriteNull();
+		}
+		else
+		{
+			m_NameSystem.BindName(writer, destinationEntity);
+		}
+		writer.PropertyName("destinationEntity");
+		if (destinationEntity == Entity.Null)
+		{
+			writer.WriteNull();
+		}
+		else
+		{
+			writer.Write(destinationEntity);
+		}
+	}
 ```
 
 - `protected virtual Reset() : System.Void`  
 
 ```csharp
-protected virtual System.Void Reset();
+protected override void Reset()
+	{
+		ownerEntity = Entity.Null;
+		destinationEntity = Entity.Null;
+	}
 ```
 
 - `private Visible() : System.Boolean`  
 
 ```csharp
-private System.Boolean Visible();
+private bool Visible()
+	{
+		if (!base.EntityManager.HasComponent<HouseholdPet>(selectedEntity))
+		{
+			return base.EntityManager.HasComponent<Wildlife>(selectedEntity);
+		}
+		return true;
+	}
 ```
 
 

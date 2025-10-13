@@ -44,7 +44,11 @@ public System.Int32 m_Distance;
 - `public LabelHeapData(System.Int32 nodeIndex, System.Int32 distance)`  
 
 ```csharp
-public LabelHeapData(System.Int32 nodeIndex, System.Int32 distance);
+public LabelHeapData(int nodeIndex, int distance)
+	{
+		m_NodeIndex = nodeIndex;
+		m_Distance = distance;
+	}
 ```
 
 
@@ -53,13 +57,19 @@ public LabelHeapData(System.Int32 nodeIndex, System.Int32 distance);
 - `public LessThan(Game.Simulation.Flow.LabelHeapData other) : System.Boolean`  
 
 ```csharp
-public System.Boolean LessThan(Game.Simulation.Flow.LabelHeapData other);
+public bool LessThan(LabelHeapData other)
+	{
+		return m_Distance < other.m_Distance;
+	}
 ```
 
 - `public virtual ToString() : System.String`  
 
 ```csharp
-public virtual System.String ToString();
+public override string ToString()
+	{
+		return string.Format("{0}: {1}, {2}: {3}", "m_NodeIndex", m_NodeIndex, "m_Distance", m_Distance);
+	}
 ```
 
 

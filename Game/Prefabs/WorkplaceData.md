@@ -64,7 +64,14 @@ public System.Int32 m_MinimumWorkersLimit;
 - `public Combine(Game.Prefabs.WorkplaceData other) : System.Void`  
 
 ```csharp
-public System.Void Combine(Game.Prefabs.WorkplaceData other);
+public void Combine(WorkplaceData other)
+	{
+		int maxWorkers = m_MaxWorkers;
+		m_MaxWorkers += other.m_MaxWorkers;
+		m_MinimumWorkersLimit += m_MinimumWorkersLimit;
+		m_EveningShiftProbability = math.lerp(other.m_EveningShiftProbability, m_EveningShiftProbability, maxWorkers / m_MaxWorkers);
+		m_NightShiftProbability = math.lerp(other.m_NightShiftProbability, m_NightShiftProbability, maxWorkers / m_MaxWorkers);
+	}
 ```
 
 - `public Deserialize<TReader>(TReader reader) : System.Void`  

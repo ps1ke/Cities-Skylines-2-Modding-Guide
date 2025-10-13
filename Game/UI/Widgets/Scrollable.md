@@ -48,7 +48,10 @@ public Game.UI.Widgets.Direction direction { get; set; }
 - `public Scrollable()`  
 
 ```csharp
-public Scrollable();
+public Scrollable()
+	{
+		base.flex = FlexLayout.Fill;
+	}
 ```
 
 
@@ -57,13 +60,24 @@ public Scrollable();
 - `public static WithChildren(System.Collections.Generic.IList<Game.UI.Widgets.IWidget> children) : Game.UI.Widgets.Scrollable`  
 
 ```csharp
-public static Game.UI.Widgets.Scrollable WithChildren(System.Collections.Generic.IList<Game.UI.Widgets.IWidget> children);
+public static Scrollable WithChildren(IList<IWidget> children)
+	{
+		return new Scrollable
+		{
+			children = children
+		};
+	}
 ```
 
 - `protected virtual WriteProperties(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-protected virtual System.Void WriteProperties(Colossal.UI.Binding.IJsonWriter writer);
+protected override void WriteProperties(IJsonWriter writer)
+	{
+		base.WriteProperties(writer);
+		writer.PropertyName("direction");
+		writer.Write((int)direction);
+	}
 ```
 
 

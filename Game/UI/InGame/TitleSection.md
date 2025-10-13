@@ -97,7 +97,10 @@ private System.String icon { private get; private set; }
 - `public TitleSection()`  
 
 ```csharp
-public TitleSection();
+[Preserve]
+	public TitleSection()
+	{
+	}
 ```
 
 
@@ -106,43 +109,115 @@ public TitleSection();
 - `public static GetVirtualKeyboardLocaleKey(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity) : System.String`  
 
 ```csharp
-public static System.String GetVirtualKeyboardLocaleKey(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity);
+public static string GetVirtualKeyboardLocaleKey(EntityManager entityManager, Entity entity)
+	{
+		if (entityManager.HasComponent<Building>(entity))
+		{
+			return "BuildingName";
+		}
+		if (entityManager.HasComponent<Tree>(entity))
+		{
+			return "PlantName";
+		}
+		if (entityManager.HasComponent<Citizen>(entity))
+		{
+			return "CitizenName";
+		}
+		if (entityManager.HasComponent<Vehicle>(entity))
+		{
+			return "VehicleName";
+		}
+		if (entityManager.HasComponent<Animal>(entity))
+		{
+			return "AnimalName";
+		}
+		if (entityManager.HasComponent<TransportLine>(entity))
+		{
+			return "LineName";
+		}
+		if (entityManager.HasComponent<Aggregate>(entity))
+		{
+			return "RoadName";
+		}
+		if (entityManager.HasComponent<District>(entity))
+		{
+			return "DistrictName";
+		}
+		return "ObjectName";
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_ImageSystem = base.World.GetOrCreateSystemManaged<ImageSystem>();
+		AddBinding(new TriggerBinding<string>(group, "renameEntity", OnRename));
+	}
 ```
 
 - `protected virtual OnProcess() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnProcess();
+protected override void OnProcess()
+	{
+		icon = m_ImageSystem.GetInstanceIcon(selectedEntity, selectedPrefab);
+	}
 ```
 
 - `private OnRename(System.String newName) : System.Void`  
 
 ```csharp
-private System.Void OnRename(System.String newName);
+private void OnRename(string newName)
+	{
+		m_NameSystem.SetCustomName(selectedEntity, newName);
+		m_InfoUISystem.RequestUpdate();
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		base.visible = selectedEntity != Entity.Null;
+	}
 ```
 
 - `public virtual OnWriteProperties(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-public virtual System.Void OnWriteProperties(Colossal.UI.Binding.IJsonWriter writer);
+public override void OnWriteProperties(IJsonWriter writer)
+	{
+		writer.PropertyName("name");
+		m_NameSystem.BindName(writer, selectedEntity);
+		writer.PropertyName("vkName");
+		m_NameSystem.BindNameForVirtualKeyboard(writer, selectedEntity);
+		writer.PropertyName("vkLocaleKey");
+		writer.Write(GetVirtualKeyboardLocaleKey(base.EntityManager, selectedEntity));
+		writer.PropertyName("icon");
+		if (icon == null)
+		{
+			writer.WriteNull();
+		}
+		else
+		{
+			writer.Write(icon);
+		}
+	}
 ```
 
 - `protected virtual Reset() : System.Void`  
 
 ```csharp
-protected virtual System.Void Reset();
+protected override void Reset()
+	{
+		icon = null;
+	}
 ```
 
 

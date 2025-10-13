@@ -78,31 +78,70 @@ public UICursorCollection();
 - `private OnEnable() : System.Void`  
 
 ```csharp
-private System.Void OnEnable();
+private void OnEnable()
+	{
+		if (m_NamedCursors == null)
+		{
+			m_NamedCursors = new NamedCursorInfo[0];
+		}
+		m_NamedCursorsDict = new Dictionary<string, CursorInfo>();
+		RefreshNamedCursorsDict();
+	}
 ```
 
 - `private RefreshNamedCursorsDict() : System.Void`  
 
 ```csharp
-private System.Void RefreshNamedCursorsDict();
+private void RefreshNamedCursorsDict()
+	{
+		m_NamedCursorsDict.Clear();
+		NamedCursorInfo[] namedCursors = m_NamedCursors;
+		foreach (NamedCursorInfo namedCursorInfo in namedCursors)
+		{
+			m_NamedCursorsDict["cursor://" + namedCursorInfo.m_Name] = namedCursorInfo;
+		}
+	}
 ```
 
 - `public static ResetCursor() : System.Void`  
 
 ```csharp
-public static System.Void ResetCursor();
+public static void ResetCursor()
+	{
+		Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+	}
 ```
 
 - `public SetCursor(cohtml.Net.Cursors cursor) : System.Void`  
 
 ```csharp
-public System.Void SetCursor(cohtml.Net.Cursors cursor);
+public void SetCursor(string cursorName)
+	{
+		if (m_NamedCursorsDict.TryGetValue(cursorName, out var value))
+		{
+			value.Apply();
+		}
+		else
+		{
+			ResetCursor();
+		}
+	}
 ```
 
 - `public SetCursor(System.String cursorName) : System.Void`  
 
 ```csharp
-public System.Void SetCursor(System.String cursorName);
+public void SetCursor(string cursorName)
+	{
+		if (m_NamedCursorsDict.TryGetValue(cursorName, out var value))
+		{
+			value.Apply();
+		}
+		else
+		{
+			ResetCursor();
+		}
+	}
 ```
 
 

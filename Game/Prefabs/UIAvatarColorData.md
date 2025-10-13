@@ -35,7 +35,10 @@ public UnityEngine.Color32 m_Color;
 - `public UIAvatarColorData(UnityEngine.Color32 color)`  
 
 ```csharp
-public UIAvatarColorData(UnityEngine.Color32 color);
+public UIAvatarColorData(Color32 color)
+	{
+		m_Color = color;
+	}
 ```
 
 

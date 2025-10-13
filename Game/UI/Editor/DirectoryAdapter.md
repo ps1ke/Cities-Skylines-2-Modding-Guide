@@ -126,7 +126,10 @@ private System.String Game.UI.Editor.SearchField.IAdapter.searchQuery { private 
 - `public DirectoryAdapter(Game.UI.Editor.DirectoryPanelBase panel)`  
 
 ```csharp
-public DirectoryAdapter(Game.UI.Editor.DirectoryPanelBase panel);
+public DirectoryAdapter(DirectoryPanelBase panel)
+	{
+		m_Panel = panel;
+	}
 ```
 
 

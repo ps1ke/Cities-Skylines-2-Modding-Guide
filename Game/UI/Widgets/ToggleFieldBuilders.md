@@ -34,7 +34,14 @@ public ToggleFieldBuilders();
 - `public TryCreate(System.Type memberType, System.Object[] attributes) : Game.UI.Widgets.FieldBuilder`  
 
 ```csharp
-public Game.UI.Widgets.FieldBuilder TryCreate(System.Type memberType, System.Object[] attributes);
+public FieldBuilder TryCreate(Type memberType, object[] attributes)
+	{
+		if (memberType == typeof(bool))
+		{
+			return WidgetReflectionUtils.CreateFieldBuilder<ToggleField, bool>();
+		}
+		return null;
+	}
 ```
 
 

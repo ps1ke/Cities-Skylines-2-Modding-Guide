@@ -58,7 +58,13 @@ private static const System.String kInputHint;
 - `public InputHintTooltip(Game.Input.ProxyAction action, Game.Input.InputManager+DeviceType device)`  
 
 ```csharp
-public InputHintTooltip(Game.Input.ProxyAction action, Game.Input.InputManager+DeviceType device);
+public InputHintTooltip(ProxyAction action, InputManager.DeviceType device)
+	{
+		m_Action = action;
+		m_Device = device;
+		base.path = action.title + m_Device;
+		Refresh();
+	}
 ```
 
 
@@ -67,13 +73,26 @@ public InputHintTooltip(Game.Input.ProxyAction action, Game.Input.InputManager+D
 - `public Refresh() : System.Void`  
 
 ```csharp
-public System.Void Refresh();
+public void Refresh()
+	{
+		if (m_Hint == null || m_Hint.name != (m_Action.displayOverride?.displayName ?? m_Action.title))
+		{
+			m_Hint = InputHintBindings.InputHint.Create(m_Action);
+			InputHintBindings.CollectHintItems(m_Hint, m_Action, m_Device, m_Action.displayOverride?.transform ?? UIBaseInputAction.Transform.None);
+			SetPropertiesChanged();
+		}
+	}
 ```
 
 - `protected virtual WriteProperties(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-protected virtual System.Void WriteProperties(Colossal.UI.Binding.IJsonWriter writer);
+protected override void WriteProperties(IJsonWriter writer)
+	{
+		base.WriteProperties(writer);
+		writer.PropertyName("hint");
+		writer.Write(m_Hint);
+	}
 ```
 
 

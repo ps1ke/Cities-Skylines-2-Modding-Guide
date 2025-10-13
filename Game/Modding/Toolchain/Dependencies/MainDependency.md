@@ -282,61 +282,91 @@ public MainDependency();
 - `public Download(System.Threading.CancellationToken token) : System.Threading.Tasks.Task`  
 
 ```csharp
-public System.Threading.Tasks.Task Download(System.Threading.CancellationToken token);
+public Task Download(CancellationToken token)
+	{
+		throw new NotSupportedException();
+	}
 ```
 
 - `public virtual GetHashCode() : System.Int32`  
 
 ```csharp
-public virtual System.Int32 GetHashCode();
+public override int GetHashCode()
+	{
+		return ToolchainDeployment.dependencyManager.cachedState.GetHashCode();
+	}
 ```
 
 - `public GetLocalizedState(System.Boolean includeProgress) : Game.UI.Localization.LocalizedString`  
 
 ```csharp
-public Game.UI.Localization.LocalizedString GetLocalizedState(System.Boolean includeProgress);
+public LocalizedString GetLocalizedState(bool includeProgress)
+	{
+		return ToolchainDeployment.dependencyManager.cachedState.GetLocalizedState(includeProgress);
+	}
 ```
 
 - `public GetRequiredDiskSpace(System.Threading.CancellationToken token) : System.Threading.Tasks.Task<System.Collections.Generic.List<Game.Modding.Toolchain.IToolchainDependency+DiskSpaceRequirements>>`  
 
 ```csharp
-public System.Threading.Tasks.Task<System.Collections.Generic.List<Game.Modding.Toolchain.IToolchainDependency+DiskSpaceRequirements>> GetRequiredDiskSpace(System.Threading.CancellationToken token);
+public Task<List<IToolchainDependency.DiskSpaceRequirements>> GetRequiredDiskSpace(CancellationToken token)
+	{
+		throw new NotSupportedException();
+	}
 ```
 
 - `public Install(System.Threading.CancellationToken token) : System.Threading.Tasks.Task`  
 
 ```csharp
-public System.Threading.Tasks.Task Install(System.Threading.CancellationToken token);
+public Task Install(CancellationToken token)
+	{
+		throw new NotSupportedException();
+	}
 ```
 
 - `public IsInstalled(System.Threading.CancellationToken token) : System.Threading.Tasks.Task<System.Boolean>`  
 
 ```csharp
-public System.Threading.Tasks.Task<System.Boolean> IsInstalled(System.Threading.CancellationToken token);
+public Task<bool> IsInstalled(CancellationToken token)
+	{
+		throw new NotSupportedException();
+	}
 ```
 
 - `public IsUpToDate(System.Threading.CancellationToken token) : System.Threading.Tasks.Task<System.Boolean>`  
 
 ```csharp
-public System.Threading.Tasks.Task<System.Boolean> IsUpToDate(System.Threading.CancellationToken token);
+public Task<bool> IsUpToDate(CancellationToken token)
+	{
+		throw new NotSupportedException();
+	}
 ```
 
 - `public NeedDownload(System.Threading.CancellationToken token) : System.Threading.Tasks.Task<System.Boolean>`  
 
 ```csharp
-public System.Threading.Tasks.Task<System.Boolean> NeedDownload(System.Threading.CancellationToken token);
+public Task<bool> NeedDownload(CancellationToken token)
+	{
+		throw new NotSupportedException();
+	}
 ```
 
 - `public Refresh(System.Threading.CancellationToken token) : System.Threading.Tasks.Task`  
 
 ```csharp
-public System.Threading.Tasks.Task Refresh(System.Threading.CancellationToken token);
+public Task Refresh(CancellationToken token)
+	{
+		throw new NotSupportedException();
+	}
 ```
 
 - `public Uninstall(System.Threading.CancellationToken token) : System.Threading.Tasks.Task`  
 
 ```csharp
-public System.Threading.Tasks.Task Uninstall(System.Threading.CancellationToken token);
+public Task Uninstall(CancellationToken token)
+	{
+		throw new NotSupportedException();
+	}
 ```
 
 

@@ -69,7 +69,10 @@ private Game.Simulation.GarbageTransferDispatchSystem+TypeHandle __TypeHandle;
 - `public GarbageTransferDispatchSystem()`  
 
 ```csharp
-public GarbageTransferDispatchSystem();
+[Preserve]
+	public GarbageTransferDispatchSystem()
+	{
+	}
 ```
 
 
@@ -78,31 +81,92 @@ public GarbageTransferDispatchSystem();
 - `private __AssignQueries(Unity.Entities.SystemState& state) : System.Void`  
 
 ```csharp
-private System.Void __AssignQueries(Unity.Entities.SystemState& state);
+private void __AssignQueries(ref SystemState state)
+	{
+		new EntityQueryBuilder(Allocator.Temp).Dispose();
+	}
 ```
 
 - `public virtual GetUpdateInterval(Game.SystemUpdatePhase phase) : System.Int32`  
 
 ```csharp
-public virtual System.Int32 GetUpdateInterval(Game.SystemUpdatePhase phase);
+public override int GetUpdateInterval(SystemUpdatePhase phase)
+	{
+		return 16;
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_EndFrameBarrier = base.World.GetOrCreateSystemManaged<EndFrameBarrier>();
+		m_SimulationSystem = base.World.GetOrCreateSystemManaged<SimulationSystem>();
+		m_PathfindSetupSystem = base.World.GetOrCreateSystemManaged<PathfindSetupSystem>();
+		m_RequestQuery = GetEntityQuery(ComponentType.ReadOnly<GarbageTransferRequest>(), ComponentType.ReadOnly<UpdateFrame>());
+		RequireForUpdate(m_RequestQuery);
+	}
 ```
 
 - `protected virtual OnCreateForCompiler() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreateForCompiler();
+protected override void OnCreateForCompiler()
+	{
+		base.OnCreateForCompiler();
+		__AssignQueries(ref base.CheckedStateRef);
+		__TypeHandle.__AssignHandles(ref base.CheckedStateRef);
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		uint num = (m_SimulationSystem.frameIndex >> 4) & 7;
+		uint nextUpdateFrameIndex = (num + 4) & 7;
+		NativeQueue<DispatchAction> dispatchActions = new NativeQueue<DispatchAction>(Allocator.TempJob);
+		GarbageTransferDispatchJob jobData = new GarbageTransferDispatchJob
+		{
+			m_EntityType = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef),
+			m_GarbageTransferRequestType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Simulation_GarbageTransferRequest_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+			m_DispatchedType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Simulation_Dispatched_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+			m_PathInformationType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Pathfind_PathInformation_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+			m_UpdateFrameType = InternalCompilerInterface.GetSharedComponentTypeHandle(ref __TypeHandle.__Game_Simulation_UpdateFrame_SharedComponentTypeHandle, ref base.CheckedStateRef),
+			m_ServiceRequestType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Simulation_ServiceRequest_RW_ComponentTypeHandle, ref base.CheckedStateRef),
+			m_GarbageTransferRequestData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Simulation_GarbageTransferRequest_RO_ComponentLookup, ref base.CheckedStateRef),
+			m_GarbageFacilityData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Buildings_GarbageFacility_RO_ComponentLookup, ref base.CheckedStateRef),
+			m_ServiceDispatches = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Simulation_ServiceDispatch_RO_BufferLookup, ref base.CheckedStateRef),
+			m_TripNeededs = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Citizens_TripNeeded_RO_BufferLookup, ref base.CheckedStateRef),
+			m_UpdateFrameIndex = num,
+			m_NextUpdateFrameIndex = nextUpdateFrameIndex,
+			m_CommandBuffer = m_EndFrameBarrier.CreateCommandBuffer().AsParallelWriter(),
+			m_DispatchActions = dispatchActions.AsParallelWriter(),
+			m_PathfindQueue = m_PathfindSetupSystem.GetQueue(this, 64).AsParallelWriter()
+		};
+		DispatchActionJob jobData2 = new DispatchActionJob
+		{
+			m_RequestData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Simulation_GarbageTransferRequest_RO_ComponentLookup, ref base.CheckedStateRef),
+			m_OutsideConnectionData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Objects_OutsideConnection_RO_ComponentLookup, ref base.CheckedStateRef),
+			m_GarbageFacilityData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Buildings_GarbageFacility_RW_ComponentLookup, ref base.CheckedStateRef),
+			m_ServiceDispatches = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Simulation_ServiceDispatch_RW_BufferLookup, ref base.CheckedStateRef),
+			m_TripNeededs = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Citizens_TripNeeded_RW_BufferLookup, ref base.CheckedStateRef),
+			m_Resources = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Economy_Resources_RW_BufferLookup, ref base.CheckedStateRef),
+			m_DispatchActions = dispatchActions,
+			m_CommandBuffer = m_EndFrameBarrier.CreateCommandBuffer()
+		};
+		JobHandle jobHandle = JobChunkExtensions.ScheduleParallel(jobData, m_RequestQuery, base.Dependency);
+		JobHandle jobHandle2 = IJobExtensions.Schedule(jobData2, jobHandle);
+		dispatchActions.Dispose(jobHandle2);
+		m_PathfindSetupSystem.AddQueueWriter(jobHandle);
+		m_EndFrameBarrier.AddJobHandleForProducer(jobHandle2);
+		base.Dependency = jobHandle2;
+	}
 ```
 
 

@@ -42,7 +42,11 @@ public Game.Tutorials.AreaTriggerFlags m_Flags;
 - `public AreaTriggerData(Unity.Entities.Entity prefab, Game.Tutorials.AreaTriggerFlags flags)`  
 
 ```csharp
-public AreaTriggerData(Unity.Entities.Entity prefab, Game.Tutorials.AreaTriggerFlags flags);
+public AreaTriggerData(Entity prefab, AreaTriggerFlags flags)
+	{
+		m_Prefab = prefab;
+		m_Flags = flags;
+	}
 ```
 
 

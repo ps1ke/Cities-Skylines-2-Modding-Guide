@@ -102,13 +102,35 @@ public Game.Input.Usages usages { get; }
 - `protected SettingsUIInputActionAttribute(System.String name, Game.Input.InputManager+DeviceType device, Game.Input.ActionType type, System.Boolean allowModifiers, System.Boolean developerOnly, Game.Input.Mode mode, System.String[] customUsages, System.String[] interactions, System.String[] processors)`  
 
 ```csharp
-protected SettingsUIInputActionAttribute(System.String name, Game.Input.InputManager+DeviceType device, Game.Input.ActionType type, System.Boolean allowModifiers, System.Boolean developerOnly, Game.Input.Mode mode, System.String[] customUsages, System.String[] interactions, System.String[] processors);
+protected SettingsUIInputActionAttribute(string name, InputManager.DeviceType device, ActionType type, bool allowModifiers, bool developerOnly, Mode mode, string[] customUsages, string[] interactions, string[] processors)
+	{
+		this.name = name;
+		this.device = device;
+		this.type = type;
+		this.allowModifiers = allowModifiers;
+		this.developerOnly = developerOnly;
+		this.mode = mode;
+		this.interactions = new ReadOnlyCollection<string>(interactions ?? Array.Empty<string>());
+		this.processors = new ReadOnlyCollection<string>(processors ?? Array.Empty<string>());
+		this.customUsages = customUsages ?? Array.Empty<string>();
+	}
 ```
 
 - `protected SettingsUIInputActionAttribute(System.String name, Game.Input.InputManager+DeviceType device, Game.Input.ActionType type, Game.Input.Mode mode, System.String[] customUsages)`  
 
 ```csharp
-protected SettingsUIInputActionAttribute(System.String name, Game.Input.InputManager+DeviceType device, Game.Input.ActionType type, Game.Input.Mode mode, System.String[] customUsages);
+protected SettingsUIInputActionAttribute(string name, InputManager.DeviceType device, ActionType type, bool allowModifiers, bool developerOnly, Mode mode, string[] customUsages, string[] interactions, string[] processors)
+	{
+		this.name = name;
+		this.device = device;
+		this.type = type;
+		this.allowModifiers = allowModifiers;
+		this.developerOnly = developerOnly;
+		this.mode = mode;
+		this.interactions = new ReadOnlyCollection<string>(interactions ?? Array.Empty<string>());
+		this.processors = new ReadOnlyCollection<string>(processors ?? Array.Empty<string>());
+		this.customUsages = customUsages ?? Array.Empty<string>();
+	}
 ```
 
 

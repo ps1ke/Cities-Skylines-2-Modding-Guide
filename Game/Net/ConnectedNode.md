@@ -48,7 +48,11 @@ public System.Single m_CurvePosition;
 - `public ConnectedNode(Unity.Entities.Entity node, System.Single curvePosition)`  
 
 ```csharp
-public ConnectedNode(Unity.Entities.Entity node, System.Single curvePosition);
+public ConnectedNode(Entity node, float curvePosition)
+	{
+		m_Node = node;
+		m_CurvePosition = curvePosition;
+	}
 ```
 
 
@@ -63,13 +67,19 @@ public System.Void Deserialize<TReader>(TReader reader);
 - `public Equals(Game.Net.ConnectedNode other) : System.Boolean`  
 
 ```csharp
-public System.Boolean Equals(Game.Net.ConnectedNode other);
+public bool Equals(ConnectedNode other)
+	{
+		return m_Node.Equals(other.m_Node);
+	}
 ```
 
 - `public virtual GetHashCode() : System.Int32`  
 
 ```csharp
-public virtual System.Int32 GetHashCode();
+public override int GetHashCode()
+	{
+		return (17 * 31 + m_Node.GetHashCode()) * 31 + m_CurvePosition.GetHashCode();
+	}
 ```
 
 - `public Serialize<TWriter>(TWriter writer) : System.Void`  

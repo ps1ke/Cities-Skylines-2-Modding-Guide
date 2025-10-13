@@ -51,7 +51,12 @@ public Game.Simulation.ServiceRequestFlags m_Flags;
 - `public ServiceRequest(System.Boolean reversed)`  
 
 ```csharp
-public ServiceRequest(System.Boolean reversed);
+public ServiceRequest(bool reversed)
+	{
+		m_FailCount = 0;
+		m_Cooldown = 0;
+		m_Flags = (reversed ? ServiceRequestFlags.Reversed : ((ServiceRequestFlags)0));
+	}
 ```
 
 

@@ -36,7 +36,10 @@ public Unity.Collections.NativeArray<Game.Pathfind.UpdateActionData> m_UpdateDat
 - `public UpdateAction(System.Int32 size, Unity.Collections.Allocator allocator)`  
 
 ```csharp
-public UpdateAction(System.Int32 size, Unity.Collections.Allocator allocator);
+public UpdateAction(int size, Allocator allocator)
+	{
+		m_UpdateData = new NativeArray<UpdateActionData>(size, allocator);
+	}
 ```
 
 
@@ -45,7 +48,10 @@ public UpdateAction(System.Int32 size, Unity.Collections.Allocator allocator);
 - `public Dispose() : System.Void`  
 
 ```csharp
-public System.Void Dispose();
+public void Dispose()
+	{
+		m_UpdateData.Dispose();
+	}
 ```
 
 

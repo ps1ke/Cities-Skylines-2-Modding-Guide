@@ -85,7 +85,10 @@ private Game.Rendering.OverlayInfomodeSystem m_OverlayInfomodeSystem;
 - `public CompleteRenderingSystem()`  
 
 ```csharp
-public CompleteRenderingSystem();
+[Preserve]
+	public CompleteRenderingSystem()
+	{
+	}
 ```
 
 
@@ -94,13 +97,40 @@ public CompleteRenderingSystem();
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_BatchManagerSystem = base.World.GetOrCreateSystemManaged<BatchManagerSystem>();
+		m_ManagedBatchSystem = base.World.GetOrCreateSystemManaged<ManagedBatchSystem>();
+		m_ProceduralSkeletonSystem = base.World.GetOrCreateSystemManaged<ProceduralSkeletonSystem>();
+		m_ProceduralEmissiveSystem = base.World.GetOrCreateSystemManaged<ProceduralEmissiveSystem>();
+		m_WindTextureSystem = base.World.GetOrCreateSystemManaged<WindTextureSystem>();
+		m_BatchMeshSystem = base.World.GetOrCreateSystemManaged<BatchMeshSystem>();
+		m_UpdateSystem = base.World.GetOrCreateSystemManaged<UpdateSystem>();
+		m_OverlayInfomodeSystem = base.World.GetOrCreateSystemManaged<OverlayInfomodeSystem>();
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		JobHandle dependencies;
+		NativeBatchInstances<CullingData, GroupData, BatchData, InstanceData> nativeBatchInstances = m_BatchManagerSystem.GetNativeBatchInstances(readOnly: false, out dependencies);
+		ManagedBatches<OptionalProperties> managedBatches = m_BatchManagerSystem.GetManagedBatches();
+		dependencies.Complete();
+		managedBatches.EndUpload(nativeBatchInstances);
+		m_ProceduralSkeletonSystem.CompleteUpload();
+		m_ProceduralEmissiveSystem.CompleteUpload();
+		m_WindTextureSystem.CompleteUpdate();
+		m_ManagedBatchSystem.CompleteVTRequests();
+		m_BatchMeshSystem.CompleteMeshes();
+		m_OverlayInfomodeSystem.ApplyOverlay();
+		m_UpdateSystem.Update(SystemUpdatePhase.CompleteRendering);
+	}
 ```
 
 

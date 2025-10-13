@@ -70,7 +70,10 @@ private Game.Net.NetComponentsSystem+TypeHandle __TypeHandle;
 - `public NetComponentsSystem()`  
 
 ```csharp
-public NetComponentsSystem();
+[Preserve]
+	public NetComponentsSystem()
+	{
+	}
 ```
 
 
@@ -79,37 +82,104 @@ public NetComponentsSystem();
 - `private __AssignQueries(Unity.Entities.SystemState& state) : System.Void`  
 
 ```csharp
-private System.Void __AssignQueries(Unity.Entities.SystemState& state);
+private void __AssignQueries(ref SystemState state)
+	{
+		new EntityQueryBuilder(Allocator.Temp).Dispose();
+	}
 ```
 
 - `private GetLoaded() : System.Boolean`  
 
 ```csharp
-private System.Boolean GetLoaded();
+private bool GetLoaded()
+	{
+		if (m_Loaded)
+		{
+			m_Loaded = false;
+			return true;
+		}
+		return false;
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_ModificationBarrier = base.World.GetOrCreateSystemManaged<ModificationBarrier4>();
+		m_UpdatedNetQuery = GetEntityQuery(new EntityQueryDesc
+		{
+			All = new ComponentType[1] { ComponentType.ReadOnly<Updated>() },
+			Any = new ComponentType[2]
+			{
+				ComponentType.ReadOnly<Node>(),
+				ComponentType.ReadOnly<Edge>()
+			}
+		});
+		m_AllNetQuery = GetEntityQuery(new EntityQueryDesc
+		{
+			Any = new ComponentType[2]
+			{
+				ComponentType.ReadOnly<Node>(),
+				ComponentType.ReadOnly<Edge>()
+			}
+		});
+	}
 ```
 
 - `protected virtual OnCreateForCompiler() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreateForCompiler();
+protected override void OnCreateForCompiler()
+	{
+		base.OnCreateForCompiler();
+		__AssignQueries(ref base.CheckedStateRef);
+		__TypeHandle.__AssignHandles(ref base.CheckedStateRef);
+	}
 ```
 
 - `protected virtual OnGameLoaded(Colossal.Serialization.Entities.Context serializationContext) : System.Void`  
 
 ```csharp
-protected virtual System.Void OnGameLoaded(Colossal.Serialization.Entities.Context serializationContext);
+protected override void OnGameLoaded(Context serializationContext)
+	{
+		m_Loaded = true;
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		EntityQuery query = (GetLoaded() ? m_AllNetQuery : m_UpdatedNetQuery);
+		if (!query.IsEmptyIgnoreFilter)
+		{
+			JobHandle jobHandle = JobChunkExtensions.ScheduleParallel(new CheckNodeComponentsJob
+			{
+				m_EntityType = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef),
+				m_OwnerType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Common_Owner_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+				m_TrafficLightsType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Net_TrafficLights_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+				m_CompositionType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Net_Composition_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+				m_ConnectedEdgeType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Net_ConnectedEdge_RO_BufferTypeHandle, ref base.CheckedStateRef),
+				m_RoundaboutType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Net_Roundabout_RW_ComponentTypeHandle, ref base.CheckedStateRef),
+				m_GateType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Net_Gate_RW_ComponentTypeHandle, ref base.CheckedStateRef),
+				m_OwnerData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Common_Owner_RO_ComponentLookup, ref base.CheckedStateRef),
+				m_EdgeData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_Edge_RO_ComponentLookup, ref base.CheckedStateRef),
+				m_CompositionData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_Composition_RO_ComponentLookup, ref base.CheckedStateRef),
+				m_StartNodeGeometryData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_StartNodeGeometry_RO_ComponentLookup, ref base.CheckedStateRef),
+				m_EndNodeGeometryData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_EndNodeGeometry_RO_ComponentLookup, ref base.CheckedStateRef),
+				m_PrefabCompositionData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_NetCompositionData_RO_ComponentLookup, ref base.CheckedStateRef),
+				m_CommandBuffer = m_ModificationBarrier.CreateCommandBuffer().AsParallelWriter()
+			}, query, base.Dependency);
+			m_ModificationBarrier.AddJobHandleForProducer(jobHandle);
+			base.Dependency = jobHandle;
+		}
+	}
 ```
 
 

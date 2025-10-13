@@ -37,7 +37,10 @@ public Unity.Mathematics.float2 m_Elevation;
 - `public Elevation(Unity.Mathematics.float2 elevation)`  
 
 ```csharp
-public Elevation(Unity.Mathematics.float2 elevation);
+public Elevation(float2 elevation)
+	{
+		m_Elevation = elevation;
+	}
 ```
 
 

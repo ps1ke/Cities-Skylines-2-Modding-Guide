@@ -37,7 +37,10 @@ public Unity.Mathematics.float3 m_Position;
 - `public Position(Unity.Mathematics.float3 position)`  
 
 ```csharp
-public Position(Unity.Mathematics.float3 position);
+public Position(float3 position)
+	{
+		m_Position = position;
+	}
 ```
 
 

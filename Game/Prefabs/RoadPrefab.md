@@ -95,19 +95,68 @@ private System.Collections.Generic.IEnumerable<System.String> <>n__0();
 - `public virtual GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetArchetypeComponents(HashSet<ComponentType> components)
+	{
+		base.GetArchetypeComponents(components);
+		if (components.Contains(ComponentType.ReadWrite<Edge>()))
+		{
+			components.Add(ComponentType.ReadWrite<Road>());
+			components.Add(ComponentType.ReadWrite<UpdateFrame>());
+			components.Add(ComponentType.ReadWrite<LandValue>());
+			components.Add(ComponentType.ReadWrite<EdgeColor>());
+			components.Add(ComponentType.ReadWrite<NetCondition>());
+			components.Add(ComponentType.ReadWrite<MaintenanceConsumer>());
+			components.Add(ComponentType.ReadWrite<BorderDistrict>());
+			if (m_ZoneBlock != null)
+			{
+				components.Add(ComponentType.ReadWrite<SubBlock>());
+				components.Add(ComponentType.ReadWrite<ConnectedBuilding>());
+				components.Add(ComponentType.ReadWrite<Game.Net.ServiceCoverage>());
+				components.Add(ComponentType.ReadWrite<ResourceAvailability>());
+				components.Add(ComponentType.ReadWrite<Density>());
+			}
+			else if (!m_HighwayRules)
+			{
+				components.Add(ComponentType.ReadWrite<ConnectedBuilding>());
+			}
+		}
+		else if (components.Contains(ComponentType.ReadWrite<Game.Net.Node>()))
+		{
+			components.Add(ComponentType.ReadWrite<Road>());
+			components.Add(ComponentType.ReadWrite<UpdateFrame>());
+			components.Add(ComponentType.ReadWrite<LandValue>());
+			components.Add(ComponentType.ReadWrite<NodeColor>());
+			components.Add(ComponentType.ReadWrite<NetCondition>());
+			components.Add(ComponentType.ReadWrite<Game.Objects.Surface>());
+		}
+		else if (components.Contains(ComponentType.ReadWrite<NetCompositionData>()))
+		{
+			components.Add(ComponentType.ReadWrite<RoadComposition>());
+		}
+	}
 ```
 
 - `public virtual GetDependencies(System.Collections.Generic.List<Game.Prefabs.PrefabBase> prefabs) : System.Void`  
 
 ```csharp
-public virtual System.Void GetDependencies(System.Collections.Generic.List<Game.Prefabs.PrefabBase> prefabs);
+public override void GetDependencies(List<PrefabBase> prefabs)
+	{
+		base.GetDependencies(prefabs);
+		if (m_ZoneBlock != null)
+		{
+			prefabs.Add(m_ZoneBlock);
+		}
+	}
 ```
 
 - `public virtual GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetPrefabComponents(HashSet<ComponentType> components)
+	{
+		base.GetPrefabComponents(components);
+		components.Add(ComponentType.ReadWrite<RoadData>());
+	}
 ```
 
 

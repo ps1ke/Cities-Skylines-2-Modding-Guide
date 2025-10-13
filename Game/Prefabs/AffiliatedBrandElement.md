@@ -36,7 +36,10 @@ public Unity.Entities.Entity m_Brand;
 - `public CompareTo(Game.Prefabs.AffiliatedBrandElement other) : System.Int32`  
 
 ```csharp
-public System.Int32 CompareTo(Game.Prefabs.AffiliatedBrandElement other);
+public int CompareTo(AffiliatedBrandElement other)
+	{
+		return m_Brand.Index - other.m_Brand.Index;
+	}
 ```
 
 

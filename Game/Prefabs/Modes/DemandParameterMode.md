@@ -211,25 +211,93 @@ public DemandParameterMode();
 - `public virtual ApplyModeData(Unity.Entities.EntityManager entityManager, Unity.Entities.EntityQuery requestedQuery, Unity.Jobs.JobHandle deps) : Unity.Jobs.JobHandle`  
 
 ```csharp
-public virtual Unity.Jobs.JobHandle ApplyModeData(Unity.Entities.EntityManager entityManager, Unity.Entities.EntityQuery requestedQuery, Unity.Jobs.JobHandle deps);
+public override JobHandle ApplyModeData(EntityManager entityManager, EntityQuery requestedQuery, JobHandle deps)
+	{
+		Entity singletonEntity = requestedQuery.GetSingletonEntity();
+		DemandParameterData componentData = entityManager.GetComponentData<DemandParameterData>(singletonEntity);
+		componentData.m_MinimumHappiness = m_MinimumHappiness;
+		componentData.m_HappinessEffect = m_HappinessEffect;
+		componentData.m_TaxEffect = m_TaxEffect;
+		componentData.m_StudentEffect = m_StudentEffect;
+		componentData.m_AvailableWorkplaceEffect = m_AvailableWorkplaceEffect;
+		componentData.m_HomelessEffect = m_HomelessEffect;
+		componentData.m_NeutralHappiness = m_NeutralHappiness;
+		componentData.m_NeutralUnemployment = m_NeutralUnemployment;
+		componentData.m_NeutralAvailableWorkplacePercentage = m_NeutralAvailableWorkplacePercentage;
+		componentData.m_NeutralHomelessness = m_NeutralHomelessness;
+		componentData.m_FreeResidentialRequirement = m_FreeResidentialRequirement;
+		componentData.m_CommercialBaseDemand = m_CommercialBaseDemand;
+		componentData.m_IndustrialBaseDemand = m_IndustrialBaseDemand;
+		componentData.m_ExtractorBaseDemand = m_ExtractorBaseDemand;
+		componentData.m_CommuterWorkerRatioLimit = m_CommuterWorkerRatioLimit;
+		componentData.m_CommuterSlowSpawnFactor = m_CommuterSlowSpawnFactor;
+		componentData.m_CommuterOCSpawnParameters = m_CommuterOCSpawnParameters;
+		componentData.m_TouristOCSpawnParameters = m_TouristOCSpawnParameters;
+		componentData.m_CitizenOCSpawnParameters = m_CitizenOCSpawnParameters;
+		componentData.m_TeenSpawnPercentage = m_TeenSpawnPercentage;
+		componentData.m_FrameIntervalForSpawning = m_FrameIntervalForSpawning;
+		componentData.m_HouseholdSpawnSpeedFactor = m_HouseholdSpawnSpeedFactor;
+		componentData.m_HotelRoomPercentRequirement = m_HotelRoomPercentRequirement;
+		componentData.m_NewCitizenEducationParameters = m_NewCitizenEducationParameters;
+		entityManager.SetComponentData(singletonEntity, componentData);
+		return deps;
+	}
 ```
 
 - `public virtual GetEntityQueryDesc() : Unity.Entities.EntityQueryDesc`  
 
 ```csharp
-public virtual Unity.Entities.EntityQueryDesc GetEntityQueryDesc();
+public override EntityQueryDesc GetEntityQueryDesc()
+	{
+		EntityQueryDesc entityQueryDesc = new EntityQueryDesc();
+		entityQueryDesc.All = new ComponentType[1] { ComponentType.ReadOnly<DemandParameterData>() };
+		return entityQueryDesc;
+	}
 ```
 
 - `protected virtual RecordChanges(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity) : System.Void`  
 
 ```csharp
-protected virtual System.Void RecordChanges(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity);
+protected override void RecordChanges(EntityManager entityManager, Entity entity)
+	{
+		entityManager.GetComponentData<DemandParameterData>(entity);
+	}
 ```
 
 - `public virtual RestoreDefaultData(Unity.Entities.EntityManager entityManager, Unity.Collections.NativeArray`1[[Unity.Entities.Entity, Unity.Entities, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]& entities, Game.Prefabs.PrefabSystem prefabSystem) : System.Void`  
 
 ```csharp
-public virtual System.Void RestoreDefaultData(Unity.Entities.EntityManager entityManager, Unity.Collections.NativeArray`1[[Unity.Entities.Entity, Unity.Entities, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]& entities, Game.Prefabs.PrefabSystem prefabSystem);
+public override void RestoreDefaultData(EntityManager entityManager, ref NativeArray<Entity> entities, PrefabSystem prefabSystem)
+	{
+		Entity entity = entities[0];
+		DemandPrefab demandPrefab = prefabSystem.GetPrefab<DemandPrefab>(entity);
+		DemandParameterData componentData = entityManager.GetComponentData<DemandParameterData>(entity);
+		componentData.m_MinimumHappiness = demandPrefab.m_MinimumHappiness;
+		componentData.m_HappinessEffect = demandPrefab.m_HappinessEffect;
+		componentData.m_TaxEffect = demandPrefab.m_TaxEffect;
+		componentData.m_StudentEffect = demandPrefab.m_StudentEffect;
+		componentData.m_AvailableWorkplaceEffect = demandPrefab.m_AvailableWorkplaceEffect;
+		componentData.m_HomelessEffect = demandPrefab.m_HomelessEffect;
+		componentData.m_NeutralHappiness = demandPrefab.m_NeutralHappiness;
+		componentData.m_NeutralUnemployment = demandPrefab.m_NeutralUnemployment;
+		componentData.m_NeutralAvailableWorkplacePercentage = demandPrefab.m_NeutralAvailableWorkplacePercentage;
+		componentData.m_NeutralHomelessness = demandPrefab.m_NeutralHomelessness;
+		componentData.m_FreeResidentialRequirement = demandPrefab.m_FreeResidentialRequirement;
+		componentData.m_CommercialBaseDemand = demandPrefab.m_CommercialBaseDemand;
+		componentData.m_IndustrialBaseDemand = demandPrefab.m_IndustrialBaseDemand;
+		componentData.m_ExtractorBaseDemand = demandPrefab.m_ExtractorBaseDemand;
+		componentData.m_CommuterWorkerRatioLimit = demandPrefab.m_CommuterWorkerRatioLimit;
+		componentData.m_CommuterSlowSpawnFactor = demandPrefab.m_CommuterSlowSpawnFactor;
+		componentData.m_CommuterOCSpawnParameters = demandPrefab.m_CommuterOCSpawnParameters;
+		componentData.m_TouristOCSpawnParameters = demandPrefab.m_TouristOCSpawnParameters;
+		componentData.m_CitizenOCSpawnParameters = demandPrefab.m_CitizenOCSpawnParameters;
+		componentData.m_TeenSpawnPercentage = demandPrefab.m_TeenSpawnPercentage;
+		componentData.m_FrameIntervalForSpawning = demandPrefab.m_FrameIntervalForSpawning;
+		componentData.m_HouseholdSpawnSpeedFactor = demandPrefab.m_HouseholdSpawnSpeedFactor;
+		componentData.m_HotelRoomPercentRequirement = demandPrefab.m_HotelRoomPercentRequirement;
+		componentData.m_NewCitizenEducationParameters = demandPrefab.m_NewCitizenEducationParameters;
+		entityManager.SetComponentData(entity, componentData);
+	}
 ```
 
 

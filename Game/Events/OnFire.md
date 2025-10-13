@@ -58,7 +58,13 @@ public System.UInt32 m_RequestFrame;
 - `public OnFire(Unity.Entities.Entity _event, System.Single intensity, System.UInt32 requestFrame = 0)`  
 
 ```csharp
-public OnFire(Unity.Entities.Entity _event, System.Single intensity, System.UInt32 requestFrame);
+public OnFire(Entity _event, float intensity, uint requestFrame = 0u)
+	{
+		m_Event = _event;
+		m_RescueRequest = Entity.Null;
+		m_Intensity = intensity;
+		m_RequestFrame = requestFrame;
+	}
 ```
 
 

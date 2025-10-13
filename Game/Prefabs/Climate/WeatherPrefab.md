@@ -80,13 +80,23 @@ public WeatherPrefab();
 - `public virtual GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetPrefabComponents(HashSet<ComponentType> components)
+	{
+		base.GetPrefabComponents(components);
+		components.Add(ComponentType.ReadWrite<WeatherData>());
+	}
 ```
 
 - `protected virtual OnEnable() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnEnable();
+protected override void OnEnable()
+	{
+		base.OnEnable();
+		List<OverrideablePropertiesComponent> list = new List<OverrideablePropertiesComponent>();
+		GetComponents(list);
+		overrideableProperties = list.AsReadOnly();
+	}
 ```
 
 

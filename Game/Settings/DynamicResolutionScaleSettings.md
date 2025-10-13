@@ -122,13 +122,19 @@ private static Game.Settings.DynamicResolutionScaleSettings disabledQuality { pr
 - `public DynamicResolutionScaleSettings()`  
 
 ```csharp
-public DynamicResolutionScaleSettings();
+public DynamicResolutionScaleSettings(Level quality)
+	{
+		SetLevel(quality, apply: false);
+	}
 ```
 
 - `public DynamicResolutionScaleSettings(Game.Settings.QualitySetting+Level quality)`  
 
 ```csharp
-public DynamicResolutionScaleSettings(Game.Settings.QualitySetting+Level quality);
+public DynamicResolutionScaleSettings(Level quality)
+	{
+		SetLevel(quality, apply: false);
+	}
 ```
 
 
@@ -137,19 +143,40 @@ public DynamicResolutionScaleSettings(Game.Settings.QualitySetting+Level quality
 - `public virtual Apply() : System.Void`  
 
 ```csharp
-public virtual System.Void Apply();
+public override void Apply()
+	{
+		base.Apply();
+		if (TryGetGameplayCamera(ref m_Camera))
+		{
+			AdaptiveDynamicResolutionScale.instance.SetParams(enabled, isAdaptive, minScale, upscaleFilter, m_Camera);
+		}
+	}
 ```
 
 - `public virtual IsOptionFullyDisabled() : System.Boolean`  
 
 ```csharp
-public virtual System.Boolean IsOptionFullyDisabled();
+public override bool IsOptionFullyDisabled()
+	{
+		if (!base.IsOptionFullyDisabled() && !SharedSettings.instance.graphics.isDlssActive)
+		{
+			return SharedSettings.instance.graphics.isFsr2Active;
+		}
+		return true;
+	}
 ```
 
 - `public virtual IsOptionsDisabled() : System.Boolean`  
 
 ```csharp
-public virtual System.Boolean IsOptionsDisabled();
+public override bool IsOptionsDisabled()
+	{
+		if (enabled)
+		{
+			return IsOptionFullyDisabled();
+		}
+		return true;
+	}
 ```
 
 

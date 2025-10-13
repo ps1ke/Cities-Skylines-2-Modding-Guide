@@ -94,7 +94,13 @@ public System.Boolean isCreated { get; }
 - `public WaterSurfaceData(Unity.Collections.NativeArray<Game.Simulation.SurfaceWater> _depths, Unity.Mathematics.int3 _resolution, Unity.Mathematics.float3 _scale, Unity.Mathematics.float3 _offset)`  
 
 ```csharp
-public WaterSurfaceData(Unity.Collections.NativeArray<Game.Simulation.SurfaceWater> _depths, Unity.Mathematics.int3 _resolution, Unity.Mathematics.float3 _scale, Unity.Mathematics.float3 _offset);
+public WaterSurfaceData(NativeArray<SurfaceWater> _depths, int3 _resolution, float3 _scale, float3 _offset)
+	{
+		depths = _depths;
+		resolution = _resolution;
+		scale = _scale;
+		offset = _offset;
+	}
 ```
 
 

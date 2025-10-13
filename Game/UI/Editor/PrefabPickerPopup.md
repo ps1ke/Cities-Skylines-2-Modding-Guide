@@ -93,7 +93,33 @@ public System.Collections.Generic.IList<Game.UI.Widgets.IWidget> children { get;
 - `public PrefabPickerPopup(System.Type prefabType, System.Func<Game.Prefabs.PrefabBase, System.Boolean> filter = null)`  
 
 ```csharp
-public PrefabPickerPopup(System.Type prefabType, System.Func<Game.Prefabs.PrefabBase, System.Boolean> filter);
+public PrefabPickerPopup(Type prefabType, Func<PrefabBase, bool> filter = null)
+	{
+		m_PrefabType = prefabType;
+		m_Filter = filter;
+		m_Adapter = new PrefabPickerAdapter();
+		PrefabPickerAdapter adapter = m_Adapter;
+		adapter.EventPrefabSelected = (Action<PrefabBase>)Delegate.Combine(adapter.EventPrefabSelected, new Action<PrefabBase>(OnPrefabSelected));
+		children = new IWidget[3]
+		{
+			new PopupSearchField
+			{
+				adapter = m_Adapter,
+				hasFavorites = true
+			},
+			new ItemPicker<PrefabItem>
+			{
+				adapter = m_Adapter,
+				hasFavorites = true,
+				hasImages = true
+			},
+			new ItemPickerFooter
+			{
+				adapter = m_Adapter
+			}
+		};
+		ContainerExtensions.SetDefaults(children);
+	}
 ```
 
 
@@ -102,31 +128,67 @@ public PrefabPickerPopup(System.Type prefabType, System.Func<Game.Prefabs.Prefab
 - `public Attach(Game.Reflection.ITypedValueAccessor<Game.Prefabs.PrefabBase> accessor) : System.Void`  
 
 ```csharp
-public System.Void Attach(Game.Reflection.ITypedValueAccessor<Game.Prefabs.PrefabBase> accessor);
+public void Attach(ITypedValueAccessor<PrefabBase> accessor)
+	{
+		m_Accessor = accessor;
+		List<PrefabBase> list = new List<PrefabBase>();
+		if (nullable)
+		{
+			list.Add(null);
+		}
+		PrefabSystem prefabSystem = World.DefaultGameObjectInjectionWorld?.GetExistingSystemManaged<PrefabSystem>();
+		if (prefabSystem != null)
+		{
+			foreach (PrefabBase prefab in prefabSystem.prefabs)
+			{
+				if (m_PrefabType.IsInstanceOfType(prefab) && (m_Filter == null || m_Filter(prefab)))
+				{
+					list.Add(prefab);
+				}
+			}
+		}
+		m_Adapter.SetPrefabs(list);
+		m_Adapter.LoadSettings();
+	}
 ```
 
 - `public Detach() : System.Void`  
 
 ```csharp
-public System.Void Detach();
+public void Detach()
+	{
+		m_Adapter.searchQuery = string.Empty;
+		m_Adapter.SetPrefabs(Array.Empty<PrefabBase>());
+	}
 ```
 
 - `public GetDisplayValue(Game.Prefabs.PrefabBase value) : Game.UI.Localization.LocalizedString`  
 
 ```csharp
-public Game.UI.Localization.LocalizedString GetDisplayValue(Game.Prefabs.PrefabBase value);
+public LocalizedString GetDisplayValue(PrefabBase value)
+	{
+		return EditorPrefabUtils.GetPrefabLabel(value);
+	}
 ```
 
 - `private OnPrefabSelected(Game.Prefabs.PrefabBase prefab) : System.Void`  
 
 ```csharp
-private System.Void OnPrefabSelected(Game.Prefabs.PrefabBase prefab);
+private void OnPrefabSelected(PrefabBase prefab)
+	{
+		m_Accessor.SetTypedValue(prefab);
+	}
 ```
 
 - `public Update() : System.Boolean`  
 
 ```csharp
-public System.Boolean Update();
+public bool Update()
+	{
+		m_Adapter.selectedPrefab = m_Accessor.GetTypedValue();
+		m_Adapter.Update();
+		return false;
+	}
 ```
 
 

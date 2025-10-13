@@ -100,13 +100,21 @@ private static Game.Settings.MotionBlurQualitySettings disabled { private get; }
 - `public MotionBlurQualitySettings()`  
 
 ```csharp
-public MotionBlurQualitySettings();
+public MotionBlurQualitySettings(Level quality, VolumeProfile profile)
+	{
+		CreateVolumeComponent(profile, ref m_MotionBlurComponent);
+		SetLevel(quality, apply: false);
+	}
 ```
 
 - `public MotionBlurQualitySettings(Game.Settings.QualitySetting+Level quality, UnityEngine.Rendering.VolumeProfile profile)`  
 
 ```csharp
-public MotionBlurQualitySettings(Game.Settings.QualitySetting+Level quality, UnityEngine.Rendering.VolumeProfile profile);
+public MotionBlurQualitySettings(Level quality, VolumeProfile profile)
+	{
+		CreateVolumeComponent(profile, ref m_MotionBlurComponent);
+		SetLevel(quality, apply: false);
+	}
 ```
 
 
@@ -115,13 +123,28 @@ public MotionBlurQualitySettings(Game.Settings.QualitySetting+Level quality, Uni
 - `public virtual Apply() : System.Void`  
 
 ```csharp
-public virtual System.Void Apply();
+public override void Apply()
+	{
+		base.Apply();
+		if (m_MotionBlurComponent != null)
+		{
+			ApplyState(m_MotionBlurComponent.intensity, 0f, !enabled);
+			ApplyState(m_MotionBlurComponent.m_SampleCount, sampleCount);
+		}
+	}
 ```
 
 - `public virtual IsOptionsDisabled() : System.Boolean`  
 
 ```csharp
-public virtual System.Boolean IsOptionsDisabled();
+public override bool IsOptionsDisabled()
+	{
+		if (!IsOptionFullyDisabled())
+		{
+			return !enabled;
+		}
+		return true;
+	}
 ```
 
 

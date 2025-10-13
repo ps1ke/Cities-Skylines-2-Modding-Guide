@@ -57,7 +57,13 @@ public Game.Pathfind.PathfindActionState m_State;
 - `public CoverageActionData(Unity.Collections.Allocator allocator)`  
 
 ```csharp
-public CoverageActionData(Unity.Collections.Allocator allocator);
+public CoverageActionData(Allocator allocator)
+	{
+		m_Sources = new UnsafeQueue<PathTarget>(allocator);
+		m_Results = new UnsafeList<CoverageResult>(100, allocator);
+		m_Parameters = default(CoverageParameters);
+		m_State = PathfindActionState.Pending;
+	}
 ```
 
 
@@ -66,7 +72,11 @@ public CoverageActionData(Unity.Collections.Allocator allocator);
 - `public Dispose() : System.Void`  
 
 ```csharp
-public System.Void Dispose();
+public void Dispose()
+	{
+		m_Sources.Dispose();
+		m_Results.Dispose();
+	}
 ```
 
 

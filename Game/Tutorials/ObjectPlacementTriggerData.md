@@ -42,7 +42,11 @@ public Game.Tutorials.ObjectPlacementTriggerFlags m_Flags;
 - `public ObjectPlacementTriggerData(Unity.Entities.Entity obj, Game.Tutorials.ObjectPlacementTriggerFlags flags)`  
 
 ```csharp
-public ObjectPlacementTriggerData(Unity.Entities.Entity obj, Game.Tutorials.ObjectPlacementTriggerFlags flags);
+public ObjectPlacementTriggerData(Entity obj, ObjectPlacementTriggerFlags flags)
+	{
+		m_Object = obj;
+		m_Flags = flags;
+	}
 ```
 
 

@@ -58,7 +58,13 @@ public System.Single m_MaintenanceRange;
 - `public PublicTransportVehicleData(Game.Prefabs.TransportType type, System.Int32 passengerCapacity, Game.Prefabs.PublicTransportPurpose purposeMask, System.Single maintenanceRange)`  
 
 ```csharp
-public PublicTransportVehicleData(Game.Prefabs.TransportType type, System.Int32 passengerCapacity, Game.Prefabs.PublicTransportPurpose purposeMask, System.Single maintenanceRange);
+public PublicTransportVehicleData(TransportType type, int passengerCapacity, PublicTransportPurpose purposeMask, float maintenanceRange)
+	{
+		m_TransportType = type;
+		m_PassengerCapacity = passengerCapacity;
+		m_PurposeMask = purposeMask;
+		m_MaintenanceRange = maintenanceRange;
+	}
 ```
 
 

@@ -74,7 +74,10 @@ private System.Int32 production { private get; private set; }
 - `public ElectricitySection()`  
 
 ```csharp
-public ElectricitySection();
+[Preserve]
+	public ElectricitySection()
+	{
+	}
 ```
 
 
@@ -83,31 +86,69 @@ public ElectricitySection();
 - `protected virtual OnProcess() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnProcess();
+protected override void OnProcess()
+	{
+		ElectricityProducer componentData = base.EntityManager.GetComponentData<ElectricityProducer>(selectedEntity);
+		capacity = componentData.m_Capacity;
+		production = componentData.m_LastProduction;
+		if (TryGetComponentWithUpgrades<SolarPoweredData>(selectedEntity, selectedPrefab, out var _))
+		{
+			base.tooltipKeys.Add("Solar");
+		}
+		if (TryGetComponentWithUpgrades<WindPoweredData>(selectedEntity, selectedPrefab, out var _))
+		{
+			base.tooltipKeys.Add("Wind");
+		}
+		if (TryGetComponentWithUpgrades<GarbagePoweredData>(selectedEntity, selectedPrefab, out var _))
+		{
+			base.tooltipKeys.Add("Garbage");
+		}
+		if (base.EntityManager.HasComponent<Game.Buildings.WaterPowered>(selectedEntity))
+		{
+			base.tooltipKeys.Add("Water");
+		}
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		base.visible = Visible();
+	}
 ```
 
 - `public virtual OnWriteProperties(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-public virtual System.Void OnWriteProperties(Colossal.UI.Binding.IJsonWriter writer);
+public override void OnWriteProperties(IJsonWriter writer)
+	{
+		writer.PropertyName("capacity");
+		writer.Write(capacity);
+		writer.PropertyName("production");
+		writer.Write(production);
+	}
 ```
 
 - `protected virtual Reset() : System.Void`  
 
 ```csharp
-protected virtual System.Void Reset();
+protected override void Reset()
+	{
+		capacity = 0;
+		production = 0;
+	}
 ```
 
 - `private Visible() : System.Boolean`  
 
 ```csharp
-private System.Boolean Visible();
+private bool Visible()
+	{
+		return base.EntityManager.HasComponent<ElectricityProducer>(selectedEntity);
+	}
 ```
 
 

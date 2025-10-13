@@ -44,7 +44,11 @@ public System.Int32 m_Element;
 - `public RouteSearchItem(Unity.Entities.Entity entity, System.Int32 element)`  
 
 ```csharp
-public RouteSearchItem(Unity.Entities.Entity entity, System.Int32 element);
+public RouteSearchItem(Entity entity, int element)
+	{
+		m_Entity = entity;
+		m_Element = element;
+	}
 ```
 
 
@@ -53,13 +57,19 @@ public RouteSearchItem(Unity.Entities.Entity entity, System.Int32 element);
 - `public Equals(Game.Routes.RouteSearchItem other) : System.Boolean`  
 
 ```csharp
-public System.Boolean Equals(Game.Routes.RouteSearchItem other);
+public bool Equals(RouteSearchItem other)
+	{
+		return m_Entity.Equals(other.m_Entity) & m_Element.Equals(other.m_Element);
+	}
 ```
 
 - `public virtual GetHashCode() : System.Int32`  
 
 ```csharp
-public virtual System.Int32 GetHashCode();
+public override int GetHashCode()
+	{
+		return (17 * 31 + m_Entity.GetHashCode()) * 31 + m_Element.GetHashCode();
+	}
 ```
 
 

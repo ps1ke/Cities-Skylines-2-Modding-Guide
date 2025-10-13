@@ -126,19 +126,51 @@ public BuildingTerraformOverride();
 - `public virtual GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetArchetypeComponents(HashSet<ComponentType> components)
+	{
+		if (base.prefab is BuildingExtensionPrefab)
+		{
+			components.Add(ComponentType.ReadWrite<Lot>());
+		}
+	}
 ```
 
 - `public virtual GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetPrefabComponents(HashSet<ComponentType> components)
+	{
+		components.Add(ComponentType.ReadWrite<BuildingTerraformData>());
+		if (m_AdditionalSmoothAreas != null && m_AdditionalSmoothAreas.Length != 0)
+		{
+			components.Add(ComponentType.ReadWrite<AdditionalBuildingTerraformElement>());
+		}
+	}
 ```
 
 - `public virtual Initialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity) : System.Void`  
 
 ```csharp
-public virtual System.Void Initialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity);
+public override void Initialize(EntityManager entityManager, Entity entity)
+	{
+		if (m_AdditionalSmoothAreas != null && m_AdditionalSmoothAreas.Length != 0)
+		{
+			DynamicBuffer<AdditionalBuildingTerraformElement> buffer = entityManager.GetBuffer<AdditionalBuildingTerraformElement>(entity);
+			buffer.ResizeUninitialized(m_AdditionalSmoothAreas.Length);
+			for (int i = 0; i < m_AdditionalSmoothAreas.Length; i++)
+			{
+				SubLot subLot = m_AdditionalSmoothAreas[i];
+				buffer[i] = new AdditionalBuildingTerraformElement
+				{
+					m_Area = subLot.m_Area,
+					m_HeightOffset = subLot.m_HeightOffset,
+					m_Circular = subLot.m_Circular,
+					m_DontRaise = subLot.m_DontRaise,
+					m_DontLower = subLot.m_DontLower
+				};
+			}
+		}
+	}
 ```
 
 

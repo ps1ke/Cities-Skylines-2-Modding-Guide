@@ -86,7 +86,17 @@ public System.Single m_LanePosition;
 - `public WatercraftCurrentLane(Game.Pathfind.PathElement pathElement, Game.Vehicles.WatercraftLaneFlags flags)`  
 
 ```csharp
-public WatercraftCurrentLane(Game.Pathfind.PathElement pathElement, Game.Vehicles.WatercraftLaneFlags flags);
+public WatercraftCurrentLane(PathElement pathElement, WatercraftLaneFlags flags)
+	{
+		m_Lane = pathElement.m_Target;
+		m_ChangeLane = Entity.Null;
+		m_CurvePosition = pathElement.m_TargetDelta.xxx;
+		m_LaneFlags = flags;
+		m_ChangeProgress = 0f;
+		m_Duration = 0f;
+		m_Distance = 0f;
+		m_LanePosition = 0f;
+	}
 ```
 
 

@@ -53,13 +53,21 @@ public EditorPrefabTool(Unity.Entities.World world);
 - `protected virtual OnDisable() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnDisable();
+protected override void OnDisable()
+	{
+		m_LastSelectedPrefab = m_ToolSystem.activePrefab;
+		base.OnDisable();
+	}
 ```
 
 - `protected virtual OnEnable() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnEnable();
+protected override void OnEnable()
+	{
+		base.OnEnable();
+		m_ToolSystem.ActivatePrefabTool(m_LastSelectedPrefab);
+	}
 ```
 
 

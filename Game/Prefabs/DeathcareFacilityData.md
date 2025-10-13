@@ -57,7 +57,13 @@ public System.Boolean m_LongTermStorage;
 - `public Combine(Game.Prefabs.DeathcareFacilityData otherData) : System.Void`  
 
 ```csharp
-public System.Void Combine(Game.Prefabs.DeathcareFacilityData otherData);
+public void Combine(DeathcareFacilityData otherData)
+	{
+		m_HearseCapacity += otherData.m_HearseCapacity;
+		m_StorageCapacity += otherData.m_StorageCapacity;
+		m_ProcessingRate += otherData.m_ProcessingRate;
+		m_LongTermStorage |= otherData.m_LongTermStorage;
+	}
 ```
 
 - `public Deserialize<TReader>(TReader reader) : System.Void`  

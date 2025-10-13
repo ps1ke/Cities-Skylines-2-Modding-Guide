@@ -49,19 +49,67 @@ public TransportDepotMode();
 - `public virtual ApplyModeData(Unity.Entities.EntityManager entityManager, Game.Prefabs.PrefabSystem prefabSystem) : System.Void`  
 
 ```csharp
-public virtual System.Void ApplyModeData(Unity.Entities.EntityManager entityManager, Game.Prefabs.PrefabSystem prefabSystem);
+public override void ApplyModeData(EntityManager entityManager, PrefabSystem prefabSystem)
+	{
+		for (int i = 0; i < m_ModeDatas.Length; i++)
+		{
+			ModeData modeData = m_ModeDatas[i];
+			TransportDepot component = modeData.m_Prefab.GetComponent<TransportDepot>();
+			if (component == null)
+			{
+				ComponentBase.baseLog.Critical($"Target not found {this}");
+				continue;
+			}
+			Entity entity = prefabSystem.GetEntity(component.prefab);
+			TransportDepotData componentData = entityManager.GetComponentData<TransportDepotData>(entity);
+			componentData.m_VehicleCapacity = modeData.m_VehicleCapacity;
+			componentData.m_ProductionDuration = modeData.m_ProductionDuration;
+			componentData.m_MaintenanceDuration = modeData.m_MaintenanceDuration;
+			entityManager.SetComponentData(entity, componentData);
+		}
+	}
 ```
 
 - `public virtual RecordChanges(Unity.Entities.EntityManager entityManager, Game.Prefabs.PrefabSystem prefabSystem) : System.Void`  
 
 ```csharp
-public virtual System.Void RecordChanges(Unity.Entities.EntityManager entityManager, Game.Prefabs.PrefabSystem prefabSystem);
+public override void RecordChanges(EntityManager entityManager, PrefabSystem prefabSystem)
+	{
+		for (int i = 0; i < m_ModeDatas.Length; i++)
+		{
+			TransportDepot component = m_ModeDatas[i].m_Prefab.GetComponent<TransportDepot>();
+			if (component == null)
+			{
+				ComponentBase.baseLog.Critical($"Target not found {this}");
+				continue;
+			}
+			Entity entity = prefabSystem.GetEntity(component.prefab);
+			entityManager.GetComponentData<TransportDepotData>(entity);
+		}
+	}
 ```
 
 - `public virtual RestoreDefaultData(Unity.Entities.EntityManager entityManager, Game.Prefabs.PrefabSystem prefabSystem) : System.Void`  
 
 ```csharp
-public virtual System.Void RestoreDefaultData(Unity.Entities.EntityManager entityManager, Game.Prefabs.PrefabSystem prefabSystem);
+public override void RestoreDefaultData(EntityManager entityManager, PrefabSystem prefabSystem)
+	{
+		for (int i = 0; i < m_ModeDatas.Length; i++)
+		{
+			TransportDepot component = m_ModeDatas[i].m_Prefab.GetComponent<TransportDepot>();
+			if (component == null)
+			{
+				ComponentBase.baseLog.Critical($"Target not found {this}");
+				continue;
+			}
+			Entity entity = prefabSystem.GetEntity(component.prefab);
+			TransportDepotData componentData = entityManager.GetComponentData<TransportDepotData>(entity);
+			componentData.m_VehicleCapacity = component.m_VehicleCapacity;
+			componentData.m_ProductionDuration = component.m_ProductionDuration;
+			componentData.m_MaintenanceDuration = component.m_MaintenanceDuration;
+			entityManager.SetComponentData(entity, componentData);
+		}
+	}
 ```
 
 

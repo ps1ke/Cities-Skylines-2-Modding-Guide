@@ -46,7 +46,11 @@ public Unity.Mathematics.quaternion m_Rotation;
 - `public Transform(Unity.Mathematics.float3 position, Unity.Mathematics.quaternion rotation)`  
 
 ```csharp
-public Transform(Unity.Mathematics.float3 position, Unity.Mathematics.quaternion rotation);
+public Transform(float3 position, quaternion rotation)
+	{
+		m_Position = position;
+		m_Rotation = rotation;
+	}
 ```
 
 
@@ -61,13 +65,23 @@ public System.Void Deserialize<TReader>(TReader reader);
 - `public Equals(Game.Objects.Transform other) : System.Boolean`  
 
 ```csharp
-public System.Boolean Equals(Game.Objects.Transform other);
+public bool Equals(Transform other)
+	{
+		if (m_Position.Equals(other.m_Position))
+		{
+			return m_Rotation.Equals(other.m_Rotation);
+		}
+		return false;
+	}
 ```
 
 - `public virtual GetHashCode() : System.Int32`  
 
 ```csharp
-public virtual System.Int32 GetHashCode();
+public override int GetHashCode()
+	{
+		return (17 * 31 + m_Position.GetHashCode()) * 31 + m_Rotation.GetHashCode();
+	}
 ```
 
 - `public Serialize<TWriter>(TWriter writer) : System.Void`  

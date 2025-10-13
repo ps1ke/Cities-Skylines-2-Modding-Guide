@@ -102,7 +102,10 @@ private System.Single remainingTime { private get; private set; }
 - `public BatterySection()`  
 
 ```csharp
-public BatterySection();
+[Preserve]
+	public BatterySection()
+	{
+	}
 ```
 
 
@@ -111,31 +114,77 @@ public BatterySection();
 - `protected virtual OnProcess() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnProcess();
+protected override void OnProcess()
+	{
+		if (TryGetComponentWithUpgrades<BatteryData>(selectedEntity, selectedPrefab, out var data))
+		{
+			Game.Buildings.Battery componentData = base.EntityManager.GetComponentData<Game.Buildings.Battery>(selectedEntity);
+			batteryCharge = componentData.storedEnergyHours;
+			batteryCapacity = data.m_Capacity;
+			flow = componentData.m_LastFlow;
+			if (flow > 0)
+			{
+				long num = (data.capacityTicks - componentData.m_StoredEnergy) / flow;
+				remainingTime = math.min((float)num / 2048f, 12f);
+			}
+			else if (flow < 0)
+			{
+				long num2 = componentData.m_StoredEnergy / -flow;
+				remainingTime = math.min((float)num2 / 2048f, 12f);
+			}
+			else
+			{
+				remainingTime = 0f;
+			}
+		}
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		base.visible = Visible();
+	}
 ```
 
 - `public virtual OnWriteProperties(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-public virtual System.Void OnWriteProperties(Colossal.UI.Binding.IJsonWriter writer);
+public override void OnWriteProperties(IJsonWriter writer)
+	{
+		writer.PropertyName("batteryCharge");
+		writer.Write(batteryCharge);
+		writer.PropertyName("batteryCapacity");
+		writer.Write(batteryCapacity);
+		writer.PropertyName("flow");
+		writer.Write(flow);
+		writer.PropertyName("remainingTime");
+		writer.Write(remainingTime);
+	}
 ```
 
 - `protected virtual Reset() : System.Void`  
 
 ```csharp
-protected virtual System.Void Reset();
+protected override void Reset()
+	{
+		batteryCharge = 0;
+		batteryCapacity = 0;
+		flow = 0;
+		remainingTime = 0f;
+	}
 ```
 
 - `private Visible() : System.Boolean`  
 
 ```csharp
-private System.Boolean Visible();
+private bool Visible()
+	{
+		return base.EntityManager.HasComponent<Game.Buildings.Battery>(selectedEntity);
+	}
 ```
 
 

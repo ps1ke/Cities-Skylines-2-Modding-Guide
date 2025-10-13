@@ -65,7 +65,14 @@ public System.UInt16 m_TicketPrice;
 - `public TransportLine(Game.Prefabs.TransportLineData transportLineData)`  
 
 ```csharp
-public TransportLine(Game.Prefabs.TransportLineData transportLineData);
+public TransportLine(TransportLineData transportLineData)
+	{
+		m_VehicleRequest = Entity.Null;
+		m_VehicleInterval = transportLineData.m_DefaultVehicleInterval;
+		m_UnbunchingFactor = transportLineData.m_DefaultUnbunchingFactor;
+		m_Flags = (TransportLineFlags)0;
+		m_TicketPrice = 0;
+	}
 ```
 
 

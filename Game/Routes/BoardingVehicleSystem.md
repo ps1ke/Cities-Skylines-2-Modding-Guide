@@ -63,7 +63,10 @@ private Game.Routes.BoardingVehicleSystem+TypeHandle __TypeHandle;
 - `public BoardingVehicleSystem()`  
 
 ```csharp
-public BoardingVehicleSystem();
+[Preserve]
+	public BoardingVehicleSystem()
+	{
+	}
 ```
 
 
@@ -72,37 +75,85 @@ public BoardingVehicleSystem();
 - `private __AssignQueries(Unity.Entities.SystemState& state) : System.Void`  
 
 ```csharp
-private System.Void __AssignQueries(Unity.Entities.SystemState& state);
+private void __AssignQueries(ref SystemState state)
+	{
+		new EntityQueryBuilder(Allocator.Temp).Dispose();
+	}
 ```
 
 - `private GetLoaded() : System.Boolean`  
 
 ```csharp
-private System.Boolean GetLoaded();
+private bool GetLoaded()
+	{
+		if (m_Loaded)
+		{
+			m_Loaded = false;
+			return true;
+		}
+		return false;
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_WaypointQuery = GetEntityQuery(new EntityQueryDesc
+		{
+			All = new ComponentType[1] { ComponentType.ReadOnly<Waypoint>() },
+			Any = new ComponentType[2]
+			{
+				ComponentType.ReadOnly<Updated>(),
+				ComponentType.ReadOnly<Deleted>()
+			}
+		});
+		m_BoardingQuery = GetEntityQuery(ComponentType.ReadWrite<BoardingVehicle>());
+		RequireForUpdate(m_BoardingQuery);
+	}
 ```
 
 - `protected virtual OnCreateForCompiler() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreateForCompiler();
+protected override void OnCreateForCompiler()
+	{
+		base.OnCreateForCompiler();
+		__AssignQueries(ref base.CheckedStateRef);
+		__TypeHandle.__AssignHandles(ref base.CheckedStateRef);
+	}
 ```
 
 - `protected virtual OnGameLoaded(Colossal.Serialization.Entities.Context serializationContext) : System.Void`  
 
 ```csharp
-protected virtual System.Void OnGameLoaded(Colossal.Serialization.Entities.Context serializationContext);
+protected override void OnGameLoaded(Context serializationContext)
+	{
+		m_Loaded = true;
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		if (GetLoaded() || !m_WaypointQuery.IsEmptyIgnoreFilter)
+		{
+			JobHandle dependency = JobChunkExtensions.ScheduleParallel(new BoardingVehicleJob
+			{
+				m_EntityType = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef),
+				m_BoardingVehicleType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Routes_BoardingVehicle_RW_ComponentTypeHandle, ref base.CheckedStateRef),
+				m_TargetData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Common_Target_RO_ComponentLookup, ref base.CheckedStateRef),
+				m_ConnectedData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Routes_Connected_RO_ComponentLookup, ref base.CheckedStateRef)
+			}, m_BoardingQuery, base.Dependency);
+			base.Dependency = dependency;
+		}
+	}
 ```
 
 

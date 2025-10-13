@@ -80,7 +80,10 @@ private Game.Debug.TradeCostDebugSystem+TypeHandle __TypeHandle;
 - `public TradeCostDebugSystem()`  
 
 ```csharp
-public TradeCostDebugSystem();
+[Preserve]
+	public TradeCostDebugSystem()
+	{
+	}
 ```
 
 
@@ -89,7 +92,10 @@ public TradeCostDebugSystem();
 - `private __AssignQueries(Unity.Entities.SystemState& state) : System.Void`  
 
 ```csharp
-private System.Void __AssignQueries(Unity.Entities.SystemState& state);
+private void __AssignQueries(ref SystemState state)
+	{
+		new EntityQueryBuilder(Allocator.Temp).Dispose();
+	}
 ```
 
 - `private <OnEnabled>b__6_0() : System.Int32`  
@@ -119,25 +125,80 @@ private System.Void <OnEnabled>b__6_3(System.Int32 value);
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_StorageOption = AddOption("Warehouses", defaultEnabled: true);
+		m_CompanyOption = AddOption("Companies", defaultEnabled: false);
+		m_GizmosSystem = base.World.GetOrCreateSystemManaged<GizmosSystem>();
+		m_StorageGroup = GetEntityQuery(ComponentType.ReadOnly<TradeCost>(), ComponentType.Exclude<Deleted>(), ComponentType.Exclude<Temp>(), ComponentType.Exclude<Hidden>());
+		base.Enabled = false;
+		m_SelectedResource = Resource.Grain;
+	}
 ```
 
 - `protected virtual OnCreateForCompiler() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreateForCompiler();
+protected override void OnCreateForCompiler()
+	{
+		base.OnCreateForCompiler();
+		__AssignQueries(ref base.CheckedStateRef);
+		__TypeHandle.__AssignHandles(ref base.CheckedStateRef);
+	}
 ```
 
 - `public virtual OnEnabled(UnityEngine.Rendering.DebugUI+Container container) : System.Void`  
 
 ```csharp
-public virtual System.Void OnEnabled(UnityEngine.Rendering.DebugUI+Container container);
+public override void OnEnabled(DebugUI.Container container)
+	{
+		container.children.Add(new DebugUI.EnumField
+		{
+			displayName = "Resource",
+			getter = () => EconomyUtils.GetResourceIndex(m_SelectedResource) + 1,
+			setter = delegate(int value)
+			{
+				m_SelectedResource = EconomyUtils.GetResource(value - 1);
+			},
+			autoEnum = typeof(ResourceInEditor),
+			getIndex = () => EconomyUtils.GetResourceIndex(m_SelectedResource) + 1,
+			setIndex = delegate(int value)
+			{
+				m_SelectedResource = EconomyUtils.GetResource(value - 1);
+			}
+		});
+	}
 ```
 
 - `protected virtual OnUpdate(Unity.Jobs.JobHandle inputDeps) : Unity.Jobs.JobHandle`  
 
 ```csharp
-protected virtual Unity.Jobs.JobHandle OnUpdate(Unity.Jobs.JobHandle inputDeps);
+[Preserve]
+	protected override JobHandle OnUpdate(JobHandle inputDeps)
+	{
+		if (m_StorageGroup.IsEmptyIgnoreFilter)
+		{
+			return inputDeps;
+		}
+		JobHandle dependencies;
+		JobHandle jobHandle = JobChunkExtensions.ScheduleParallel(new TradeCostGizmoJob
+		{
+			m_EntityType = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef),
+			m_TradeCostType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Companies_TradeCost_RO_BufferTypeHandle, ref base.CheckedStateRef),
+			m_RenterType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Buildings_PropertyRenter_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+			m_PrefabType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+			m_Transforms = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Objects_Transform_RO_ComponentLookup, ref base.CheckedStateRef),
+			m_StorageCompanyDatas = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_StorageCompanyData_RO_ComponentLookup, ref base.CheckedStateRef),
+			m_GizmoBatcher = m_GizmosSystem.GetGizmosBatcher(out dependencies),
+			m_Resource = m_SelectedResource,
+			m_StorageOption = m_StorageOption.enabled,
+			m_CompanyOption = m_CompanyOption.enabled
+		}, m_StorageGroup, JobHandle.CombineDependencies(inputDeps, dependencies));
+		m_GizmosSystem.AddGizmosBatcherWriter(jobHandle);
+		return jobHandle;
+	}
 ```
 
 

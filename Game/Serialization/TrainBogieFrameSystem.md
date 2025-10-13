@@ -47,7 +47,10 @@ private Game.Serialization.TrainBogieFrameSystem+TypeHandle __TypeHandle;
 - `public TrainBogieFrameSystem()`  
 
 ```csharp
-public TrainBogieFrameSystem();
+[Preserve]
+	public TrainBogieFrameSystem()
+	{
+	}
 ```
 
 
@@ -56,25 +59,49 @@ public TrainBogieFrameSystem();
 - `private __AssignQueries(Unity.Entities.SystemState& state) : System.Void`  
 
 ```csharp
-private System.Void __AssignQueries(Unity.Entities.SystemState& state);
+private void __AssignQueries(ref SystemState state)
+	{
+		new EntityQueryBuilder(Allocator.Temp).Dispose();
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_Query = GetEntityQuery(ComponentType.ReadWrite<TrainBogieFrame>(), ComponentType.ReadOnly<TrainCurrentLane>());
+		RequireForUpdate(m_Query);
+	}
 ```
 
 - `protected virtual OnCreateForCompiler() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreateForCompiler();
+protected override void OnCreateForCompiler()
+	{
+		base.OnCreateForCompiler();
+		__AssignQueries(ref base.CheckedStateRef);
+		__TypeHandle.__AssignHandles(ref base.CheckedStateRef);
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		BogieFrameJob jobData = new BogieFrameJob
+		{
+			m_UpdateFrameType = InternalCompilerInterface.GetSharedComponentTypeHandle(ref __TypeHandle.__Game_Simulation_UpdateFrame_SharedComponentTypeHandle, ref base.CheckedStateRef),
+			m_TrainCurrentLaneType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Vehicles_TrainCurrentLane_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+			m_TrainBogieFrameType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Vehicles_TrainBogieFrame_RW_BufferTypeHandle, ref base.CheckedStateRef)
+		};
+		base.Dependency = JobChunkExtensions.ScheduleParallel(jobData, m_Query, base.Dependency);
+	}
 ```
 
 

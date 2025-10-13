@@ -112,7 +112,10 @@ protected System.Boolean Modified { protected get; }
 - `public TelecomInfoviewUISystem()`  
 
 ```csharp
-public TelecomInfoviewUISystem();
+[Preserve]
+	public TelecomInfoviewUISystem()
+	{
+	}
 ```
 
 
@@ -121,19 +124,80 @@ public TelecomInfoviewUISystem();
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_TerrainSystem = base.World.GetOrCreateSystemManaged<TerrainSystem>();
+		m_CitySystem = base.World.GetOrCreateSystemManaged<CitySystem>();
+		m_TelecomQuery = GetEntityQuery(new EntityQueryDesc
+		{
+			All = new ComponentType[3]
+			{
+				ComponentType.ReadOnly<Building>(),
+				ComponentType.ReadOnly<Game.Buildings.TelecomFacility>(),
+				ComponentType.ReadOnly<PrefabRef>()
+			},
+			None = new ComponentType[3]
+			{
+				ComponentType.ReadOnly<Deleted>(),
+				ComponentType.ReadOnly<Temp>(),
+				ComponentType.ReadOnly<Game.Buildings.ServiceUpgrade>()
+			}
+		});
+		m_TelecomModifiedQuery = GetEntityQuery(new EntityQueryDesc
+		{
+			All = new ComponentType[3]
+			{
+				ComponentType.ReadOnly<Building>(),
+				ComponentType.ReadOnly<Game.Buildings.TelecomFacility>(),
+				ComponentType.ReadOnly<PrefabRef>()
+			},
+			Any = new ComponentType[3]
+			{
+				ComponentType.ReadOnly<Created>(),
+				ComponentType.ReadOnly<Deleted>(),
+				ComponentType.ReadOnly<Updated>()
+			},
+			None = new ComponentType[1] { ComponentType.ReadOnly<Temp>() }
+		});
+		m_DensityQuery = GetEntityQuery(new EntityQueryDesc
+		{
+			Any = new ComponentType[2]
+			{
+				ComponentType.ReadOnly<HouseholdCitizen>(),
+				ComponentType.ReadOnly<Employee>()
+			},
+			None = new ComponentType[2]
+			{
+				ComponentType.ReadOnly<Temp>(),
+				ComponentType.ReadOnly<Deleted>()
+			}
+		});
+		AddBinding(m_NetworkAvailability = new ValueBinding<IndicatorValue>("telecomInfo", "networkAvailability", default(IndicatorValue), new ValueWriter<IndicatorValue>()));
+		m_Coverage = new NativeArray<TelecomCoverage>(0, Allocator.Persistent);
+		m_Status = new NativeArray<TelecomStatus>(1, Allocator.Persistent);
+	}
 ```
 
 - `protected virtual OnDestroy() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnDestroy();
+[Preserve]
+	protected override void OnDestroy()
+	{
+		m_Coverage.Dispose();
+		m_Status.Dispose();
+		base.OnDestroy();
+	}
 ```
 
 - `protected virtual PerformUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void PerformUpdate();
+protected override void PerformUpdate()
+	{
+	}
 ```
 
 

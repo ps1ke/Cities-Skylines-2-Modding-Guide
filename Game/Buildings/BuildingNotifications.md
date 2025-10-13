@@ -42,7 +42,10 @@ public System.Void Deserialize<TReader>(TReader reader);
 - `public HasNotification(Game.Buildings.BuildingNotification notification) : System.Boolean`  
 
 ```csharp
-public System.Boolean HasNotification(Game.Buildings.BuildingNotification notification);
+public bool HasNotification(BuildingNotification notification)
+	{
+		return (m_Notifications & notification) != 0;
+	}
 ```
 
 - `public Serialize<TWriter>(TWriter writer) : System.Void`  

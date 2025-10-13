@@ -37,7 +37,10 @@ public Unity.Entities.Entity m_AtmospherePrefab;
 - `public AtmosphereData(Unity.Entities.Entity prefab)`  
 
 ```csharp
-public AtmosphereData(Unity.Entities.Entity prefab);
+public AtmosphereData(Entity prefab)
+	{
+		m_AtmospherePrefab = prefab;
+	}
 ```
 
 

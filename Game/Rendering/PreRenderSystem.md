@@ -43,7 +43,10 @@ private Game.UpdateSystem m_UpdateSystem;
 - `public PreRenderSystem()`  
 
 ```csharp
-public PreRenderSystem();
+[Preserve]
+	public PreRenderSystem()
+	{
+	}
 ```
 
 
@@ -52,13 +55,24 @@ public PreRenderSystem();
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_RenderingSystem = base.World.GetOrCreateSystemManaged<RenderingSystem>();
+		m_UpdateSystem = base.World.GetOrCreateSystemManaged<UpdateSystem>();
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		m_RenderingSystem.PrepareRendering();
+		m_UpdateSystem.Update(SystemUpdatePhase.PreCulling);
+	}
 ```
 
 

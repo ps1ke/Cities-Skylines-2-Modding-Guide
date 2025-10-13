@@ -77,7 +77,10 @@ public System.Single currentElapsedTime { get; }
 - `public EndFrameBarrier()`  
 
 ```csharp
-public EndFrameBarrier();
+[Preserve]
+	public EndFrameBarrier()
+	{
+	}
 ```
 
 
@@ -86,25 +89,48 @@ public EndFrameBarrier();
 - `public AddJobHandleForProducer(Unity.Jobs.JobHandle producerJob) : System.Void`  
 
 ```csharp
-public System.Void AddJobHandleForProducer(Unity.Jobs.JobHandle producerJob);
+public new void AddJobHandleForProducer(JobHandle producerJob)
+	{
+		producerHandle = JobHandle.CombineDependencies(producerHandle, producerJob);
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_Stopwatch = new Stopwatch();
+	}
 ```
 
 - `protected virtual OnDestroy() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnDestroy();
+[Preserve]
+	protected override void OnDestroy()
+	{
+		m_Stopwatch.Stop();
+		base.OnDestroy();
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		m_Stopwatch.Stop();
+		lastElapsedTime = (float)m_Stopwatch.ElapsedTicks / (float)Stopwatch.Frequency;
+		m_Stopwatch.Reset();
+		producerHandle.Complete();
+		producerHandle = default(JobHandle);
+		m_Stopwatch.Start();
+		base.OnUpdate();
+	}
 ```
 
 

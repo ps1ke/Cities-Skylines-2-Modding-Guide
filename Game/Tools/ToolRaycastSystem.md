@@ -196,7 +196,10 @@ public Unity.Mathematics.float3 rayOffset { get; set; }
 - `public ToolRaycastSystem()`  
 
 ```csharp
-public ToolRaycastSystem();
+[Preserve]
+	public ToolRaycastSystem()
+	{
+	}
 ```
 
 
@@ -205,25 +208,92 @@ public ToolRaycastSystem();
 - `public static CalculateRaycastLine(UnityEngine.Camera mainCamera) : Colossal.Mathematics.Line3+Segment`  
 
 ```csharp
-public static Colossal.Mathematics.Line3+Segment CalculateRaycastLine(UnityEngine.Camera mainCamera);
+public static Line3.Segment CalculateRaycastLine(Camera mainCamera)
+	{
+		Ray ray = mainCamera.ScreenPointToRay(InputManager.instance.mousePosition);
+		float3 @float = ray.direction;
+		float3 y = mainCamera.transform.forward;
+		Line3.Segment result = default(Line3.Segment);
+		result.a = ray.origin;
+		result.b = result.a + @float * (mainCamera.farClipPlane / math.clamp(math.dot(@float, y), 0.25f, 1f));
+		return result;
+	}
 ```
 
 - `public GetRaycastResult(Game.Common.RaycastResult& result) : System.Boolean`  
 
 ```csharp
-public System.Boolean GetRaycastResult(Game.Common.RaycastResult& result);
+public bool GetRaycastResult(out RaycastResult result)
+	{
+		NativeArray<RaycastResult> result2 = m_RaycastSystem.GetResult(this);
+		if (result2.Length != 0)
+		{
+			result = result2[0];
+			return result.m_Owner != Entity.Null;
+		}
+		result = default(RaycastResult);
+		return false;
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_ToolSystem = base.World.GetOrCreateSystemManaged<ToolSystem>();
+		m_RaycastSystem = base.World.GetOrCreateSystemManaged<RaycastSystem>();
+		m_CameraUpdateSystem = base.World.GetOrCreateSystemManaged<CameraUpdateSystem>();
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		if (m_ToolSystem.activeTool != null)
+		{
+			m_ToolSystem.activeTool.InitializeRaycast();
+		}
+		if (m_CameraUpdateSystem.TryGetViewer(out var viewer))
+		{
+			if (m_ToolSystem.fullUpdateRequired)
+			{
+				raycastFlags |= RaycastFlags.ToolDisable;
+			}
+			else
+			{
+				raycastFlags &= ~RaycastFlags.ToolDisable;
+			}
+			if (InputManager.instance.controlOverWorld)
+			{
+				raycastFlags &= ~RaycastFlags.UIDisable;
+			}
+			else
+			{
+				raycastFlags |= RaycastFlags.UIDisable;
+			}
+			RaycastInput input = new RaycastInput
+			{
+				m_Line = CalculateRaycastLine(viewer.camera),
+				m_Offset = rayOffset,
+				m_TypeMask = typeMask,
+				m_Flags = raycastFlags,
+				m_CollisionMask = collisionMask,
+				m_NetLayerMask = netLayerMask,
+				m_AreaTypeMask = areaTypeMask,
+				m_RouteType = routeType,
+				m_TransportType = transportType,
+				m_IconLayerMask = iconLayerMask,
+				m_UtilityTypeMask = utilityTypeMask
+			};
+			m_RaycastSystem.AddInput(this, input);
+		}
+	}
 ```
 
 

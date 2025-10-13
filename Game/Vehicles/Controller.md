@@ -35,7 +35,10 @@ public Unity.Entities.Entity m_Controller;
 - `public Controller(Unity.Entities.Entity controller)`  
 
 ```csharp
-public Controller(Unity.Entities.Entity controller);
+public Controller(Entity controller)
+	{
+		m_Controller = controller;
+	}
 ```
 
 

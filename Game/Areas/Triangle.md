@@ -51,7 +51,12 @@ public System.Int32 m_MinLod;
 - `public Triangle(System.Int32 a, System.Int32 b, System.Int32 c)`  
 
 ```csharp
-public Triangle(System.Int32 a, System.Int32 b, System.Int32 c);
+public Triangle(int a, int b, int c)
+	{
+		m_Indices = new int3(a, b, c);
+		m_HeightRange = default(Bounds1);
+		m_MinLod = 0;
+	}
 ```
 
 

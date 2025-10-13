@@ -44,7 +44,11 @@ public System.Single m_Cleared;
 - `public Destroyed(Unity.Entities.Entity _event)`  
 
 ```csharp
-public Destroyed(Unity.Entities.Entity _event);
+public Destroyed(Entity _event)
+	{
+		m_Event = _event;
+		m_Cleared = 0f;
+	}
 ```
 
 

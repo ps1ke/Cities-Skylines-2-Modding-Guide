@@ -46,7 +46,11 @@ public System.Single m_RenewalRate;
 - `public MapFeatureElement(System.Single amount, System.Single regenerationRate)`  
 
 ```csharp
-public MapFeatureElement(System.Single amount, System.Single regenerationRate);
+public MapFeatureElement(float amount, float regenerationRate)
+	{
+		m_Amount = amount;
+		m_RenewalRate = regenerationRate;
+	}
 ```
 
 

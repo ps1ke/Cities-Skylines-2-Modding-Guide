@@ -57,7 +57,13 @@ public System.Int32 m_SortingRate;
 - `public Combine(Game.Prefabs.PostFacilityData otherData) : System.Void`  
 
 ```csharp
-public System.Void Combine(Game.Prefabs.PostFacilityData otherData);
+public void Combine(PostFacilityData otherData)
+	{
+		m_PostVanCapacity += otherData.m_PostVanCapacity;
+		m_PostTruckCapacity += otherData.m_PostTruckCapacity;
+		m_MailCapacity += otherData.m_MailCapacity;
+		m_SortingRate += otherData.m_SortingRate;
+	}
 ```
 
 - `public Deserialize<TReader>(TReader reader) : System.Void`  

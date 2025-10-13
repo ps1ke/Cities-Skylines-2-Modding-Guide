@@ -36,7 +36,10 @@ private Game.UpdateSystem m_UpdateSystem;
 - `public ModificationSystem()`  
 
 ```csharp
-public ModificationSystem();
+[Preserve]
+	public ModificationSystem()
+	{
+	}
 ```
 
 
@@ -45,13 +48,29 @@ public ModificationSystem();
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_UpdateSystem = base.World.GetOrCreateSystemManaged<UpdateSystem>();
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		m_UpdateSystem.Update(SystemUpdatePhase.Modification1);
+		m_UpdateSystem.Update(SystemUpdatePhase.Modification2);
+		m_UpdateSystem.Update(SystemUpdatePhase.Modification2B);
+		m_UpdateSystem.Update(SystemUpdatePhase.Modification3);
+		m_UpdateSystem.Update(SystemUpdatePhase.Modification4);
+		m_UpdateSystem.Update(SystemUpdatePhase.Modification4B);
+		m_UpdateSystem.Update(SystemUpdatePhase.Modification5);
+		m_UpdateSystem.Update(SystemUpdatePhase.ModificationEnd);
+	}
 ```
 
 

@@ -74,7 +74,10 @@ private Unity.Entities.EntityArchetype m_UnlockEventArchetype;
 - `public UnlockAllSystem()`  
 
 ```csharp
-public UnlockAllSystem();
+[Preserve]
+	public UnlockAllSystem()
+	{
+	}
 ```
 
 
@@ -83,19 +86,50 @@ public UnlockAllSystem();
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_MilestoneSystem = base.World.GetOrCreateSystemManaged<MilestoneSystem>();
+		m_ModificationBarrier = base.World.GetOrCreateSystemManaged<ModificationBarrier1>();
+		m_UIHighlightSystem = base.World.GetOrCreateSystemManaged<UIHighlightSystem>();
+		m_SignatureBuildingUISystem = base.World.GetOrCreateSystemManaged<SignatureBuildingUISystem>();
+		m_LockedQuery = GetEntityQuery(ComponentType.ReadOnly<Locked>(), ComponentType.Exclude<MilestoneData>());
+		m_UnlockEventArchetype = base.EntityManager.CreateArchetype(ComponentType.ReadWrite<Event>(), ComponentType.ReadWrite<Unlock>());
+		RequireForUpdate(m_LockedQuery);
+		base.Enabled = false;
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		UnlockAllImpl();
+		base.Enabled = false;
+	}
 ```
 
 - `private UnlockAllImpl() : System.Void`  
 
 ```csharp
-private System.Void UnlockAllImpl();
+private void UnlockAllImpl()
+	{
+		EntityCommandBuffer entityCommandBuffer = m_ModificationBarrier.CreateCommandBuffer();
+		NativeArray<Entity> nativeArray = m_LockedQuery.ToEntityArray(Allocator.TempJob);
+		for (int i = 0; i < nativeArray.Length; i++)
+		{
+			Entity prefab = nativeArray[i];
+			Entity e = entityCommandBuffer.CreateEntity(m_UnlockEventArchetype);
+			entityCommandBuffer.SetComponent(e, new Unlock(prefab));
+		}
+		nativeArray.Dispose();
+		m_MilestoneSystem.UnlockAllMilestones();
+		m_UIHighlightSystem.SkipUpdate();
+		m_SignatureBuildingUISystem.SkipUpdate();
+	}
 ```
 
 

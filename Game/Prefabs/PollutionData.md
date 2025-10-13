@@ -59,13 +59,20 @@ public System.Boolean m_ScaleWithRenters;
 - `public AddArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public System.Void AddArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public void AddArchetypeComponents(HashSet<ComponentType> components)
+	{
+	}
 ```
 
 - `public Combine(Game.Prefabs.PollutionData otherData) : System.Void`  
 
 ```csharp
-public System.Void Combine(Game.Prefabs.PollutionData otherData);
+public void Combine(PollutionData otherData)
+	{
+		m_GroundPollution += otherData.m_GroundPollution;
+		m_AirPollution += otherData.m_AirPollution;
+		m_NoisePollution += otherData.m_NoisePollution;
+	}
 ```
 
 - `public Deserialize<TReader>(TReader reader) : System.Void`  
@@ -77,7 +84,16 @@ public System.Void Deserialize<TReader>(TReader reader);
 - `public GetValue(Game.Prefabs.BuildingStatusType statusType) : System.Single`  
 
 ```csharp
-public System.Single GetValue(Game.Prefabs.BuildingStatusType statusType);
+public float GetValue(BuildingStatusType statusType)
+	{
+		return statusType switch
+		{
+			BuildingStatusType.GroundPollutionSource => m_GroundPollution, 
+			BuildingStatusType.AirPollutionSource => m_AirPollution, 
+			BuildingStatusType.NoisePollutionSource => m_NoisePollution, 
+			_ => 0f, 
+		};
+	}
 ```
 
 - `public Serialize<TWriter>(TWriter writer) : System.Void`  

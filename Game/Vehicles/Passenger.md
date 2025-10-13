@@ -39,7 +39,10 @@ public Unity.Entities.Entity m_Passenger;
 - `public Passenger(Unity.Entities.Entity passenger)`  
 
 ```csharp
-public Passenger(Unity.Entities.Entity passenger);
+public Passenger(Entity passenger)
+	{
+		m_Passenger = passenger;
+	}
 ```
 
 
@@ -48,13 +51,19 @@ public Passenger(Unity.Entities.Entity passenger);
 - `public Equals(Game.Vehicles.Passenger other) : System.Boolean`  
 
 ```csharp
-public System.Boolean Equals(Game.Vehicles.Passenger other);
+public bool Equals(Passenger other)
+	{
+		return m_Passenger.Equals(other.m_Passenger);
+	}
 ```
 
 - `public virtual GetHashCode() : System.Int32`  
 
 ```csharp
-public virtual System.Int32 GetHashCode();
+public override int GetHashCode()
+	{
+		return m_Passenger.GetHashCode();
+	}
 ```
 
 

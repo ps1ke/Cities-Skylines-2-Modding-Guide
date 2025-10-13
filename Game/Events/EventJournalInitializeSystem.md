@@ -61,7 +61,10 @@ private Game.Events.EventJournalInitializeSystem+TypeHandle __TypeHandle;
 - `public EventJournalInitializeSystem()`  
 
 ```csharp
-public EventJournalInitializeSystem();
+[Preserve]
+	public EventJournalInitializeSystem()
+	{
+	}
 ```
 
 
@@ -70,25 +73,55 @@ public EventJournalInitializeSystem();
 - `private __AssignQueries(Unity.Entities.SystemState& state) : System.Void`  
 
 ```csharp
-private System.Void __AssignQueries(Unity.Entities.SystemState& state);
+private void __AssignQueries(ref SystemState state)
+	{
+		new EntityQueryBuilder(Allocator.Temp).Dispose();
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_CreatedEventQuery = GetEntityQuery(ComponentType.ReadOnly<Event>(), ComponentType.ReadOnly<Created>(), ComponentType.ReadOnly<PrefabRef>(), ComponentType.ReadOnly<JournalEvent>(), ComponentType.Exclude<Deleted>(), ComponentType.Exclude<Temp>());
+		m_EventJournalArchetype = base.EntityManager.CreateArchetype(ComponentType.ReadWrite<EventJournalEntry>(), ComponentType.ReadWrite<Created>(), ComponentType.ReadWrite<PrefabRef>());
+		m_ModificationBarrier = base.World.GetOrCreateSystemManaged<ModificationBarrier4>();
+		RequireForUpdate(m_CreatedEventQuery);
+	}
 ```
 
 - `protected virtual OnCreateForCompiler() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreateForCompiler();
+protected override void OnCreateForCompiler()
+	{
+		base.OnCreateForCompiler();
+		__AssignQueries(ref base.CheckedStateRef);
+		__TypeHandle.__AssignHandles(ref base.CheckedStateRef);
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		InitEventJournalEntriesJob jobData = new InitEventJournalEntriesJob
+		{
+			m_EntityType = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef),
+			m_PrefabRefType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+			m_DurationType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Events_Duration_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+			m_JournalEventPrefabDatas = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_JournalEventPrefabData_RO_ComponentLookup, ref base.CheckedStateRef),
+			m_JournalArchetype = m_EventJournalArchetype,
+			m_CommandBuffer = m_ModificationBarrier.CreateCommandBuffer().AsParallelWriter()
+		};
+		base.Dependency = JobChunkExtensions.ScheduleParallel(jobData, m_CreatedEventQuery, base.Dependency);
+		m_ModificationBarrier.AddJobHandleForProducer(base.Dependency);
+	}
 ```
 
 

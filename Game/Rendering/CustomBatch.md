@@ -183,13 +183,26 @@ public CustomBatch(System.Int32 groupIndex, System.Int32 batchIndex, Colossal.IO
 - `public virtual Dispose() : System.Void`  
 
 ```csharp
-public virtual System.Void Dispose();
+public override void Dispose()
+	{
+		base.Dispose();
+	}
 ```
 
 - `public ReplaceMesh(Unity.Entities.Entity oldMesh, Unity.Entities.Entity newMesh) : System.Void`  
 
 ```csharp
-public System.Void ReplaceMesh(Unity.Entities.Entity oldMesh, Unity.Entities.Entity newMesh);
+public void ReplaceMesh(Entity oldMesh, Entity newMesh)
+	{
+		if (sourceMeshEntity == oldMesh)
+		{
+			sourceMeshEntity = newMesh;
+		}
+		if (sharedMeshEntity == oldMesh)
+		{
+			sharedMeshEntity = newMesh;
+		}
+	}
 ```
 
 

@@ -78,19 +78,31 @@ public Game.Rendering.Legacy.Plane flipped { get; }
 - `public Plane(Unity.Mathematics.float3 inNormal, Unity.Mathematics.float3 inPoint)`  
 
 ```csharp
-public Plane(Unity.Mathematics.float3 inNormal, Unity.Mathematics.float3 inPoint);
+public Plane(float3 a, float3 b, float3 c)
+	{
+		m_Normal = math.normalize(math.cross(b - a, c - a));
+		m_Distance = 0f - math.dot(m_Normal, a);
+	}
 ```
 
 - `public Plane(Unity.Mathematics.float3 inNormal, System.Single d)`  
 
 ```csharp
-public Plane(Unity.Mathematics.float3 inNormal, System.Single d);
+public Plane(float3 a, float3 b, float3 c)
+	{
+		m_Normal = math.normalize(math.cross(b - a, c - a));
+		m_Distance = 0f - math.dot(m_Normal, a);
+	}
 ```
 
 - `public Plane(Unity.Mathematics.float3 a, Unity.Mathematics.float3 b, Unity.Mathematics.float3 c)`  
 
 ```csharp
-public Plane(Unity.Mathematics.float3 a, Unity.Mathematics.float3 b, Unity.Mathematics.float3 c);
+public Plane(float3 a, float3 b, float3 c)
+	{
+		m_Normal = math.normalize(math.cross(b - a, c - a));
+		m_Distance = 0f - math.dot(m_Normal, a);
+	}
 ```
 
 
@@ -99,61 +111,105 @@ public Plane(Unity.Mathematics.float3 a, Unity.Mathematics.float3 b, Unity.Mathe
 - `public ClosestPointOnPlane(Unity.Mathematics.float3 point) : Unity.Mathematics.float3`  
 
 ```csharp
-public Unity.Mathematics.float3 ClosestPointOnPlane(Unity.Mathematics.float3 point);
+public float3 ClosestPointOnPlane(float3 point)
+	{
+		float num = math.dot(m_Normal, point) + m_Distance;
+		return point - m_Normal * num;
+	}
 ```
 
 - `public Flip() : System.Void`  
 
 ```csharp
-public System.Void Flip();
+public void Flip()
+	{
+		m_Normal = -m_Normal;
+		m_Distance = 0f - m_Distance;
+	}
 ```
 
 - `public GetDistanceToPoint(Unity.Mathematics.float3 point) : System.Single`  
 
 ```csharp
-public System.Single GetDistanceToPoint(Unity.Mathematics.float3 point);
+public float GetDistanceToPoint(float3 point)
+	{
+		return math.dot(m_Normal, point) + m_Distance;
+	}
 ```
 
 - `public GetSide(Unity.Mathematics.float3 point) : System.Boolean`  
 
 ```csharp
-public System.Boolean GetSide(Unity.Mathematics.float3 point);
+public bool GetSide(float3 point)
+	{
+		return math.dot(m_Normal, point) + m_Distance > 0f;
+	}
 ```
 
 - `public SameSide(Unity.Mathematics.float3 inPt0, Unity.Mathematics.float3 inPt1) : System.Boolean`  
 
 ```csharp
-public System.Boolean SameSide(Unity.Mathematics.float3 inPt0, Unity.Mathematics.float3 inPt1);
+public bool SameSide(float3 inPt0, float3 inPt1)
+	{
+		float distanceToPoint = GetDistanceToPoint(inPt0);
+		float distanceToPoint2 = GetDistanceToPoint(inPt1);
+		if (!(distanceToPoint > 0f) || !(distanceToPoint2 > 0f))
+		{
+			if (distanceToPoint <= 0f)
+			{
+				return distanceToPoint2 <= 0f;
+			}
+			return false;
+		}
+		return true;
+	}
 ```
 
 - `public Set3Points(Unity.Mathematics.float3 a, Unity.Mathematics.float3 b, Unity.Mathematics.float3 c) : System.Void`  
 
 ```csharp
-public System.Void Set3Points(Unity.Mathematics.float3 a, Unity.Mathematics.float3 b, Unity.Mathematics.float3 c);
+public void Set3Points(float3 a, float3 b, float3 c)
+	{
+		m_Normal = math.normalize(math.cross(b - a, c - a));
+		m_Distance = 0f - math.dot(m_Normal, a);
+	}
 ```
 
 - `public SetNormalAndPosition(Unity.Mathematics.float3 inNormal, Unity.Mathematics.float3 inPoint) : System.Void`  
 
 ```csharp
-public System.Void SetNormalAndPosition(Unity.Mathematics.float3 inNormal, Unity.Mathematics.float3 inPoint);
+public void SetNormalAndPosition(float3 inNormal, float3 inPoint)
+	{
+		m_Normal = math.normalize(inNormal);
+		m_Distance = 0f - math.dot(inNormal, inPoint);
+	}
 ```
 
 - `public virtual ToString() : System.String`  
 
 ```csharp
-public virtual System.String ToString();
+public override string ToString()
+	{
+		return $"(normal:({m_Normal.x:F1}, {m_Normal.y:F1}, {m_Normal.z:F1}), distance:{m_Distance:F1})";
+	}
 ```
 
 - `public Translate(Unity.Mathematics.float3 translation) : System.Void`  
 
 ```csharp
-public System.Void Translate(Unity.Mathematics.float3 translation);
+public static Plane Translate(Plane plane, float3 translation)
+	{
+		return new Plane(plane.m_Normal, plane.m_Distance += math.dot(plane.m_Normal, translation));
+	}
 ```
 
 - `public static Translate(Game.Rendering.Legacy.Plane plane, Unity.Mathematics.float3 translation) : Game.Rendering.Legacy.Plane`  
 
 ```csharp
-public static Game.Rendering.Legacy.Plane Translate(Game.Rendering.Legacy.Plane plane, Unity.Mathematics.float3 translation);
+public static Plane Translate(Plane plane, float3 translation)
+	{
+		return new Plane(plane.m_Normal, plane.m_Distance += math.dot(plane.m_Normal, translation));
+	}
 ```
 
 

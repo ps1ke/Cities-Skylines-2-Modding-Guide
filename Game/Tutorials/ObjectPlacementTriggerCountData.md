@@ -42,7 +42,11 @@ public System.Int32 m_Count;
 - `public ObjectPlacementTriggerCountData(System.Int32 requiredCount)`  
 
 ```csharp
-public ObjectPlacementTriggerCountData(System.Int32 requiredCount);
+public ObjectPlacementTriggerCountData(int requiredCount)
+	{
+		m_RequiredCount = requiredCount;
+		m_Count = 0;
+	}
 ```
 
 

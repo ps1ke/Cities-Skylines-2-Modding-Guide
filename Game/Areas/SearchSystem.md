@@ -97,7 +97,10 @@ private Game.Areas.SearchSystem+TypeHandle __TypeHandle;
 - `public SearchSystem()`  
 
 ```csharp
-public SearchSystem();
+[Preserve]
+	public SearchSystem()
+	{
+	}
 ```
 
 
@@ -106,67 +109,160 @@ public SearchSystem();
 - `private __AssignQueries(Unity.Entities.SystemState& state) : System.Void`  
 
 ```csharp
-private System.Void __AssignQueries(Unity.Entities.SystemState& state);
+private void __AssignQueries(ref SystemState state)
+	{
+		new EntityQueryBuilder(Allocator.Temp).Dispose();
+	}
 ```
 
 - `public AddSearchTreeReader(Unity.Jobs.JobHandle jobHandle) : System.Void`  
 
 ```csharp
-public System.Void AddSearchTreeReader(Unity.Jobs.JobHandle jobHandle);
+public void AddSearchTreeReader(JobHandle jobHandle)
+	{
+		m_ReadDependencies = JobHandle.CombineDependencies(m_ReadDependencies, jobHandle);
+	}
 ```
 
 - `public AddSearchTreeWriter(Unity.Jobs.JobHandle jobHandle) : System.Void`  
 
 ```csharp
-public System.Void AddSearchTreeWriter(Unity.Jobs.JobHandle jobHandle);
+public void AddSearchTreeWriter(JobHandle jobHandle)
+	{
+		m_WriteDependencies = JobHandle.CombineDependencies(m_WriteDependencies, jobHandle);
+	}
 ```
 
 - `private GetLoaded() : System.Boolean`  
 
 ```csharp
-private System.Boolean GetLoaded();
+private bool GetLoaded()
+	{
+		if (m_Loaded)
+		{
+			m_Loaded = false;
+			return true;
+		}
+		return false;
+	}
 ```
 
 - `public GetSearchTree(System.Boolean readOnly, Unity.Jobs.JobHandle& dependencies) : Colossal.Collections.NativeQuadTree<Game.Areas.AreaSearchItem, Game.Common.QuadTreeBoundsXZ>`  
 
 ```csharp
-public Colossal.Collections.NativeQuadTree<Game.Areas.AreaSearchItem, Game.Common.QuadTreeBoundsXZ> GetSearchTree(System.Boolean readOnly, Unity.Jobs.JobHandle& dependencies);
+public NativeQuadTree<AreaSearchItem, QuadTreeBoundsXZ> GetSearchTree(bool readOnly, out JobHandle dependencies, out NativeParallelHashMap<Entity, int> triangleCount)
+	{
+		dependencies = (readOnly ? m_WriteDependencies : JobHandle.CombineDependencies(m_ReadDependencies, m_WriteDependencies));
+		triangleCount = m_TriangleCount;
+		return m_SearchTree;
+	}
 ```
 
 - `public GetSearchTree(System.Boolean readOnly, Unity.Jobs.JobHandle& dependencies, Unity.Collections.NativeParallelHashMap`2[[Unity.Entities.Entity, Unity.Entities, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null],[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]& triangleCount) : Colossal.Collections.NativeQuadTree<Game.Areas.AreaSearchItem, Game.Common.QuadTreeBoundsXZ>`  
 
 ```csharp
-public Colossal.Collections.NativeQuadTree<Game.Areas.AreaSearchItem, Game.Common.QuadTreeBoundsXZ> GetSearchTree(System.Boolean readOnly, Unity.Jobs.JobHandle& dependencies, Unity.Collections.NativeParallelHashMap`2[[Unity.Entities.Entity, Unity.Entities, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null],[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]& triangleCount);
+public NativeQuadTree<AreaSearchItem, QuadTreeBoundsXZ> GetSearchTree(bool readOnly, out JobHandle dependencies, out NativeParallelHashMap<Entity, int> triangleCount)
+	{
+		dependencies = (readOnly ? m_WriteDependencies : JobHandle.CombineDependencies(m_ReadDependencies, m_WriteDependencies));
+		triangleCount = m_TriangleCount;
+		return m_SearchTree;
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_UpdatedAreasQuery = GetEntityQuery(new EntityQueryDesc
+		{
+			All = new ComponentType[3]
+			{
+				ComponentType.ReadOnly<Area>(),
+				ComponentType.ReadOnly<Node>(),
+				ComponentType.ReadOnly<Triangle>()
+			},
+			Any = new ComponentType[2]
+			{
+				ComponentType.ReadOnly<Updated>(),
+				ComponentType.ReadOnly<Deleted>()
+			},
+			None = new ComponentType[1] { ComponentType.ReadOnly<Temp>() }
+		});
+		m_AllAreasQuery = GetEntityQuery(ComponentType.ReadOnly<Area>(), ComponentType.ReadOnly<Node>(), ComponentType.ReadOnly<Triangle>(), ComponentType.Exclude<Temp>());
+		m_SearchTree = new NativeQuadTree<AreaSearchItem, QuadTreeBoundsXZ>(1f, Allocator.Persistent);
+		m_TriangleCount = new NativeParallelHashMap<Entity, int>(100, Allocator.Persistent);
+	}
 ```
 
 - `protected virtual OnCreateForCompiler() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreateForCompiler();
+protected override void OnCreateForCompiler()
+	{
+		base.OnCreateForCompiler();
+		__AssignQueries(ref base.CheckedStateRef);
+		__TypeHandle.__AssignHandles(ref base.CheckedStateRef);
+	}
 ```
 
 - `protected virtual OnDestroy() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnDestroy();
+[Preserve]
+	protected override void OnDestroy()
+	{
+		m_SearchTree.Dispose();
+		m_TriangleCount.Dispose();
+		base.OnDestroy();
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		bool loaded = GetLoaded();
+		EntityQuery query = (loaded ? m_AllAreasQuery : m_UpdatedAreasQuery);
+		if (!query.IsEmptyIgnoreFilter)
+		{
+			JobHandle dependencies;
+			NativeParallelHashMap<Entity, int> triangleCount;
+			UpdateSearchTreeJob jobData = new UpdateSearchTreeJob
+			{
+				m_EntityType = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef),
+				m_NodeType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Areas_Node_RO_BufferTypeHandle, ref base.CheckedStateRef),
+				m_TriangleType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Areas_Triangle_RO_BufferTypeHandle, ref base.CheckedStateRef),
+				m_CreatedType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Common_Created_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+				m_DeletedType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Common_Deleted_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+				m_BatchType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Areas_Batch_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+				m_PrefabRefType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+				m_PrefabAreaGeometryData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_AreaGeometryData_RO_ComponentLookup, ref base.CheckedStateRef),
+				m_Loaded = loaded,
+				m_SearchTree = GetSearchTree(readOnly: false, out dependencies, out triangleCount),
+				m_TriangleCount = triangleCount
+			};
+			base.Dependency = JobChunkExtensions.Schedule(jobData, query, JobHandle.CombineDependencies(base.Dependency, dependencies));
+			AddSearchTreeWriter(base.Dependency);
+		}
+	}
 ```
 
 - `public PreDeserialize(Colossal.Serialization.Entities.Context context) : System.Void`  
 
 ```csharp
-public System.Void PreDeserialize(Colossal.Serialization.Entities.Context context);
+public void PreDeserialize(Context context)
+	{
+		JobHandle dependencies;
+		NativeQuadTree<AreaSearchItem, QuadTreeBoundsXZ> searchTree = GetSearchTree(readOnly: false, out dependencies);
+		dependencies.Complete();
+		searchTree.Clear();
+		m_Loaded = true;
+	}
 ```
 
 

@@ -94,7 +94,13 @@ public System.Boolean isCreated { get; }
 - `public TerrainHeightData(Unity.Collections.NativeArray<System.UInt16> _heights, Unity.Mathematics.int3 _resolution, Unity.Mathematics.float3 _scale, Unity.Mathematics.float3 _offset)`  
 
 ```csharp
-public TerrainHeightData(Unity.Collections.NativeArray<System.UInt16> _heights, Unity.Mathematics.int3 _resolution, Unity.Mathematics.float3 _scale, Unity.Mathematics.float3 _offset);
+public TerrainHeightData(NativeArray<ushort> _heights, int3 _resolution, float3 _scale, float3 _offset)
+	{
+		heights = _heights;
+		resolution = _resolution;
+		scale = _scale;
+		offset = _offset;
+	}
 ```
 
 

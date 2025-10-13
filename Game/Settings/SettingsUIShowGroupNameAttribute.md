@@ -44,13 +44,19 @@ public readonly System.Collections.ObjectModel.ReadOnlyCollection<System.String>
 - `public SettingsUIShowGroupNameAttribute()`  
 
 ```csharp
-public SettingsUIShowGroupNameAttribute();
+public SettingsUIShowGroupNameAttribute(params string[] groups)
+	{
+		this.groups = new ReadOnlyCollection<string>(groups);
+	}
 ```
 
 - `public SettingsUIShowGroupNameAttribute(System.String[] groups)`  
 
 ```csharp
-public SettingsUIShowGroupNameAttribute(System.String[] groups);
+public SettingsUIShowGroupNameAttribute(params string[] groups)
+	{
+		this.groups = new ReadOnlyCollection<string>(groups);
+	}
 ```
 
 

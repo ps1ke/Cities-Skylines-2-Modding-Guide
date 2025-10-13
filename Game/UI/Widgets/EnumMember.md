@@ -75,7 +75,12 @@ public System.Boolean disabled { get; set; }
 - `public EnumMember(System.UInt64 value, Game.UI.Localization.LocalizedString displayName, System.Boolean disabled = False)`  
 
 ```csharp
-public EnumMember(System.UInt64 value, Game.UI.Localization.LocalizedString displayName, System.Boolean disabled);
+public EnumMember(ulong value, LocalizedString displayName, bool disabled = false)
+	{
+		this.value = value;
+		this.displayName = displayName;
+		this.disabled = disabled;
+	}
 ```
 
 
@@ -84,7 +89,17 @@ public EnumMember(System.UInt64 value, Game.UI.Localization.LocalizedString disp
 - `public Write(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-public System.Void Write(Colossal.UI.Binding.IJsonWriter writer);
+public void Write(IJsonWriter writer)
+	{
+		writer.TypeBegin(GetType().FullName);
+		writer.PropertyName("value");
+		ULongWriter.WriteAsArray(writer, value);
+		writer.PropertyName("displayName");
+		writer.Write(displayName);
+		writer.PropertyName("disabled");
+		writer.Write(disabled);
+		writer.TypeEnd();
+	}
 ```
 
 

@@ -47,7 +47,11 @@ public System.Single m_Efficiency;
 - `public Efficiency(Game.Buildings.EfficiencyFactor factor, System.Single efficiency)`  
 
 ```csharp
-public Efficiency(Game.Buildings.EfficiencyFactor factor, System.Single efficiency);
+public Efficiency(EfficiencyFactor factor, float efficiency)
+	{
+		m_Factor = factor;
+		m_Efficiency = efficiency;
+	}
 ```
 
 
@@ -56,7 +60,15 @@ public Efficiency(Game.Buildings.EfficiencyFactor factor, System.Single efficien
 - `public CompareTo(Game.Buildings.Efficiency other) : System.Int32`  
 
 ```csharp
-public System.Int32 CompareTo(Game.Buildings.Efficiency other);
+public int CompareTo(Efficiency other)
+	{
+		int num = other.m_Efficiency.CompareTo(m_Efficiency);
+		if (num != 0)
+		{
+			return num;
+		}
+		return m_Factor.CompareTo(other.m_Factor);
+	}
 ```
 
 - `public Deserialize<TReader>(TReader reader) : System.Void`  

@@ -50,13 +50,19 @@ public System.Void Deserialize<TReader>(TReader reader);
 - `public GetConsumerNode(Unity.Entities.ComponentLookup`1[[Game.Simulation.WaterPipeEdge, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]& flowEdges) : Unity.Entities.Entity`  
 
 ```csharp
-public Unity.Entities.Entity GetConsumerNode(Unity.Entities.ComponentLookup`1[[Game.Simulation.WaterPipeEdge, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]& flowEdges);
+public Entity GetConsumerNode(ref ComponentLookup<WaterPipeEdge> flowEdges)
+	{
+		return flowEdges[m_ConsumerEdge].m_Start;
+	}
 ```
 
 - `public GetProducerNode(Unity.Entities.ComponentLookup`1[[Game.Simulation.WaterPipeEdge, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]& flowEdges) : Unity.Entities.Entity`  
 
 ```csharp
-public Unity.Entities.Entity GetProducerNode(Unity.Entities.ComponentLookup`1[[Game.Simulation.WaterPipeEdge, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]& flowEdges);
+public Entity GetProducerNode(ref ComponentLookup<WaterPipeEdge> flowEdges)
+	{
+		return flowEdges[m_ProducerEdge].m_End;
+	}
 ```
 
 - `public Serialize<TWriter>(TWriter writer) : System.Void`  

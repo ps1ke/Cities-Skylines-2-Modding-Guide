@@ -217,7 +217,10 @@ public Unity.Mathematics.int3 buildingDemand { get; }
 - `public ResidentialDemandSystem()`  
 
 ```csharp
-public ResidentialDemandSystem();
+[Preserve]
+	public ResidentialDemandSystem()
+	{
+	}
 ```
 
 
@@ -226,13 +229,19 @@ public ResidentialDemandSystem();
 - `private __AssignQueries(Unity.Entities.SystemState& state) : System.Void`  
 
 ```csharp
-private System.Void __AssignQueries(Unity.Entities.SystemState& state);
+private void __AssignQueries(ref SystemState state)
+	{
+		new EntityQueryBuilder(Allocator.Temp).Dispose();
+	}
 ```
 
 - `public AddReader(Unity.Jobs.JobHandle reader) : System.Void`  
 
 ```csharp
-public System.Void AddReader(Unity.Jobs.JobHandle reader);
+public void AddReader(JobHandle reader)
+	{
+		m_ReadDependencies = JobHandle.CombineDependencies(m_ReadDependencies, reader);
+	}
 ```
 
 - `public Deserialize<TReader>(TReader reader) : System.Void`  
@@ -244,61 +253,169 @@ public System.Void Deserialize<TReader>(TReader reader);
 - `public GetHighDensityDemandFactors(Unity.Jobs.JobHandle& deps) : Unity.Collections.NativeArray<System.Int32>`  
 
 ```csharp
-public Unity.Collections.NativeArray<System.Int32> GetHighDensityDemandFactors(Unity.Jobs.JobHandle& deps);
+public NativeArray<int> GetHighDensityDemandFactors(out JobHandle deps)
+	{
+		deps = m_WriteDependencies;
+		return m_HighDemandFactors;
+	}
 ```
 
 - `public GetLowDensityDemandFactors(Unity.Jobs.JobHandle& deps) : Unity.Collections.NativeArray<System.Int32>`  
 
 ```csharp
-public Unity.Collections.NativeArray<System.Int32> GetLowDensityDemandFactors(Unity.Jobs.JobHandle& deps);
+public NativeArray<int> GetLowDensityDemandFactors(out JobHandle deps)
+	{
+		deps = m_WriteDependencies;
+		return m_LowDemandFactors;
+	}
 ```
 
 - `public GetMediumDensityDemandFactors(Unity.Jobs.JobHandle& deps) : Unity.Collections.NativeArray<System.Int32>`  
 
 ```csharp
-public Unity.Collections.NativeArray<System.Int32> GetMediumDensityDemandFactors(Unity.Jobs.JobHandle& deps);
+public NativeArray<int> GetMediumDensityDemandFactors(out JobHandle deps)
+	{
+		deps = m_WriteDependencies;
+		return m_MediumDemandFactors;
+	}
 ```
 
 - `public virtual GetUpdateInterval(Game.SystemUpdatePhase phase) : System.Int32`  
 
 ```csharp
-public virtual System.Int32 GetUpdateInterval(Game.SystemUpdatePhase phase);
+public override int GetUpdateInterval(SystemUpdatePhase phase)
+	{
+		return 16;
+	}
 ```
 
 - `public virtual GetUpdateOffset(Game.SystemUpdatePhase phase) : System.Int32`  
 
 ```csharp
-public virtual System.Int32 GetUpdateOffset(Game.SystemUpdatePhase phase);
+public override int GetUpdateOffset(SystemUpdatePhase phase)
+	{
+		return 10;
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_DemandParameterGroup = GetEntityQuery(ComponentType.ReadOnly<DemandParameterData>());
+		m_UnlockedZonePrefabQuery = GetEntityQuery(ComponentType.ReadOnly<ZoneData>(), ComponentType.ReadOnly<ZonePropertiesData>(), ComponentType.Exclude<Locked>());
+		m_GameModeSettingQuery = GetEntityQuery(ComponentType.ReadOnly<ModeSettingData>());
+		m_CitySystem = base.World.GetOrCreateSystemManaged<CitySystem>();
+		m_TaxSystem = base.World.GetOrCreateSystemManaged<TaxSystem>();
+		m_CountStudyPositionsSystem = base.World.GetOrCreateSystemManaged<CountStudyPositionsSystem>();
+		m_CountWorkplacesSystem = base.World.GetOrCreateSystemManaged<CountWorkplacesSystem>();
+		m_CountHouseholdDataSystem = base.World.GetOrCreateSystemManaged<CountHouseholdDataSystem>();
+		m_CountResidentialPropertySystem = base.World.GetOrCreateSystemManaged<CountResidentialPropertySystem>();
+		m_TriggerSystem = base.World.GetOrCreateSystemManaged<TriggerSystem>();
+		m_HouseholdDemand = new NativeValue<int>(Allocator.Persistent);
+		m_BuildingDemand = new NativeValue<int3>(Allocator.Persistent);
+		m_LowDemandFactors = new NativeArray<int>(18, Allocator.Persistent);
+		m_MediumDemandFactors = new NativeArray<int>(18, Allocator.Persistent);
+		m_HighDemandFactors = new NativeArray<int>(18, Allocator.Persistent);
+		m_ResidentialDemandWeightsSelector = new float2(1f, 1f);
+	}
 ```
 
 - `protected virtual OnCreateForCompiler() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreateForCompiler();
+protected override void OnCreateForCompiler()
+	{
+		base.OnCreateForCompiler();
+		__AssignQueries(ref base.CheckedStateRef);
+		__TypeHandle.__AssignHandles(ref base.CheckedStateRef);
+	}
 ```
 
 - `protected virtual OnDestroy() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnDestroy();
+[Preserve]
+	protected override void OnDestroy()
+	{
+		m_HouseholdDemand.Dispose();
+		m_BuildingDemand.Dispose();
+		m_LowDemandFactors.Dispose();
+		m_MediumDemandFactors.Dispose();
+		m_HighDemandFactors.Dispose();
+		base.OnDestroy();
+	}
 ```
 
 - `protected virtual OnGameLoaded(Colossal.Serialization.Entities.Context serializationContext) : System.Void`  
 
 ```csharp
-protected virtual System.Void OnGameLoaded(Colossal.Serialization.Entities.Context serializationContext);
+protected override void OnGameLoaded(Context serializationContext)
+	{
+		base.OnGameLoaded(serializationContext);
+		if (m_GameModeSettingQuery.IsEmptyIgnoreFilter)
+		{
+			m_ResidentialDemandWeightsSelector = new float2(1f, 1f);
+			return;
+		}
+		ModeSettingData singleton = m_GameModeSettingQuery.GetSingleton<ModeSettingData>();
+		if (singleton.m_Enable)
+		{
+			m_ResidentialDemandWeightsSelector = singleton.m_ResidentialDemandWeightsSelector;
+		}
+		else
+		{
+			m_ResidentialDemandWeightsSelector = new float2(1f, 1f);
+		}
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		if (!m_DemandParameterGroup.IsEmptyIgnoreFilter)
+		{
+			m_LastHouseholdDemand = m_HouseholdDemand.value;
+			m_LastBuildingDemand = m_BuildingDemand.value;
+			JobHandle outJobHandle;
+			JobHandle outJobHandle2;
+			JobHandle deps;
+			UpdateResidentialDemandJob jobData = new UpdateResidentialDemandJob
+			{
+				m_UnlockedZonePrefabs = m_UnlockedZonePrefabQuery.ToEntityListAsync(base.World.UpdateAllocator.ToAllocator, out outJobHandle),
+				m_Populations = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_City_Population_RO_ComponentLookup, ref base.CheckedStateRef),
+				m_ZoneDatas = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_ZoneData_RO_ComponentLookup, ref base.CheckedStateRef),
+				m_ZonePropertiesDatas = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_ZonePropertiesData_RO_ComponentLookup, ref base.CheckedStateRef),
+				m_DemandParameters = m_DemandParameterGroup.ToComponentDataListAsync<DemandParameterData>(base.World.UpdateAllocator.ToAllocator, out outJobHandle2),
+				m_StudyPositions = m_CountStudyPositionsSystem.GetStudyPositionsByEducation(out deps),
+				m_FreeWorkplaces = m_CountWorkplacesSystem.GetFreeWorkplaces(),
+				m_TotalWorkplaces = m_CountWorkplacesSystem.GetTotalWorkplaces(),
+				m_HouseholdCountData = m_CountHouseholdDataSystem.GetHouseholdCountData(),
+				m_ResidentialPropertyData = m_CountResidentialPropertySystem.GetResidentialPropertyData(),
+				m_TaxRates = m_TaxSystem.GetTaxRates(),
+				m_City = m_CitySystem.City,
+				m_HouseholdDemand = m_HouseholdDemand,
+				m_BuildingDemand = m_BuildingDemand,
+				m_LowDemandFactors = m_LowDemandFactors,
+				m_MediumDemandFactors = m_MediumDemandFactors,
+				m_HighDemandFactors = m_HighDemandFactors,
+				m_UnemploymentRate = m_CountHouseholdDataSystem.UnemploymentRate,
+				m_ResidentialDemandWeightsSelector = m_ResidentialDemandWeightsSelector,
+				m_TriggerQueue = m_TriggerSystem.CreateActionBuffer()
+			};
+			base.Dependency = IJobExtensions.Schedule(jobData, JobUtils.CombineDependencies(base.Dependency, m_ReadDependencies, outJobHandle2, deps, outJobHandle));
+			m_WriteDependencies = base.Dependency;
+			m_CountStudyPositionsSystem.AddReader(base.Dependency);
+			m_TaxSystem.AddReader(base.Dependency);
+			m_TriggerSystem.AddActionBufferWriter(base.Dependency);
+		}
+	}
 ```
 
 - `public Serialize<TWriter>(TWriter writer) : System.Void`  
@@ -310,7 +427,16 @@ public System.Void Serialize<TWriter>(TWriter writer);
 - `public SetDefaults(Colossal.Serialization.Entities.Context context) : System.Void`  
 
 ```csharp
-public System.Void SetDefaults(Colossal.Serialization.Entities.Context context);
+public void SetDefaults(Context context)
+	{
+		m_HouseholdDemand.value = 0;
+		m_BuildingDemand.value = default(int3);
+		m_LowDemandFactors.Fill(0);
+		m_MediumDemandFactors.Fill(0);
+		m_HighDemandFactors.Fill(0);
+		m_LastHouseholdDemand = 0;
+		m_LastBuildingDemand = default(int3);
+	}
 ```
 
 

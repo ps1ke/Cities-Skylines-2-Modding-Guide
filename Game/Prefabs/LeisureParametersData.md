@@ -69,7 +69,16 @@ public System.Int32 m_TouristServiceConsumePerDay;
 - `public GetPrefab(Game.Agents.LeisureType type) : Unity.Entities.Entity`  
 
 ```csharp
-public Unity.Entities.Entity GetPrefab(Game.Agents.LeisureType type);
+public Entity GetPrefab(LeisureType type)
+	{
+		return type switch
+		{
+			LeisureType.Travel => m_TravelingPrefab, 
+			LeisureType.Attractions => m_AttractionPrefab, 
+			LeisureType.Sightseeing => m_SightseeingPrefab, 
+			_ => default(Entity), 
+		};
+	}
 ```
 
 

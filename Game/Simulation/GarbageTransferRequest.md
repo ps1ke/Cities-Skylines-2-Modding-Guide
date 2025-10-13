@@ -58,7 +58,13 @@ public System.Int32 m_Amount;
 - `public GarbageTransferRequest(Unity.Entities.Entity facility, Game.Simulation.GarbageTransferRequestFlags flags, System.Single priority, System.Int32 amount)`  
 
 ```csharp
-public GarbageTransferRequest(Unity.Entities.Entity facility, Game.Simulation.GarbageTransferRequestFlags flags, System.Single priority, System.Int32 amount);
+public GarbageTransferRequest(Entity facility, GarbageTransferRequestFlags flags, float priority, int amount)
+	{
+		m_Facility = facility;
+		m_Flags = flags;
+		m_Priority = priority;
+		m_Amount = amount;
+	}
 ```
 
 

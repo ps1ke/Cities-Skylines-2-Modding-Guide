@@ -73,7 +73,10 @@ private System.Int32 patientCapacity { private get; private set; }
 - `public HealthcareSection()`  
 
 ```csharp
-public HealthcareSection();
+[Preserve]
+	public HealthcareSection()
+	{
+	}
 ```
 
 
@@ -82,25 +85,49 @@ public HealthcareSection();
 - `protected virtual OnProcess() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnProcess();
+protected override void OnProcess()
+	{
+		if (base.EntityManager.TryGetBuffer(selectedEntity, isReadOnly: true, out DynamicBuffer<Patient> buffer))
+		{
+			patientCount = buffer.Length;
+		}
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		if (base.EntityManager.HasComponent<Game.Buildings.Hospital>(selectedEntity) && TryGetComponentWithUpgrades<HospitalData>(selectedEntity, selectedPrefab, out var data))
+		{
+			patientCapacity = data.m_PatientCapacity;
+		}
+		base.visible = patientCapacity > 0;
+	}
 ```
 
 - `public virtual OnWriteProperties(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-public virtual System.Void OnWriteProperties(Colossal.UI.Binding.IJsonWriter writer);
+public override void OnWriteProperties(IJsonWriter writer)
+	{
+		writer.PropertyName("patientCount");
+		writer.Write(patientCount);
+		writer.PropertyName("patientCapacity");
+		writer.Write(patientCapacity);
+	}
 ```
 
 - `protected virtual Reset() : System.Void`  
 
 ```csharp
-protected virtual System.Void Reset();
+protected override void Reset()
+	{
+		patientCount = 0;
+		patientCapacity = 0;
+	}
 ```
 
 

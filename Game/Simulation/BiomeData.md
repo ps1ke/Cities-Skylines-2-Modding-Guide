@@ -37,7 +37,10 @@ public Unity.Entities.Entity m_BiomePrefab;
 - `public BiomeData(Unity.Entities.Entity prefab)`  
 
 ```csharp
-public BiomeData(Unity.Entities.Entity prefab);
+public BiomeData(Entity prefab)
+	{
+		m_BiomePrefab = prefab;
+	}
 ```
 
 

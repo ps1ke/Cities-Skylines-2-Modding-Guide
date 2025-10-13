@@ -77,7 +77,10 @@ public System.Void Deserialize<TReader>(TReader reader);
 - `public IsOffice() : System.Boolean`  
 
 ```csharp
-public System.Boolean IsOffice();
+public bool IsOffice()
+	{
+		return (m_ZoneFlags & ZoneFlags.Office) != 0;
+	}
 ```
 
 - `public Serialize<TWriter>(TWriter writer) : System.Void`  

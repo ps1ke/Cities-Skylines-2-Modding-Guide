@@ -91,7 +91,11 @@ public System.Int32 max { get; set; }
 - `public CapacityInfo(System.Func<Unity.Entities.Entity, Unity.Entities.Entity, System.Boolean> shouldDisplay, System.Action<Unity.Entities.Entity, Unity.Entities.Entity, Game.UI.InGame.CapacityInfo> onUpdate)`  
 
 ```csharp
-public CapacityInfo(System.Func<Unity.Entities.Entity, Unity.Entities.Entity, System.Boolean> shouldDisplay, System.Action<Unity.Entities.Entity, Unity.Entities.Entity, Game.UI.InGame.CapacityInfo> onUpdate);
+public CapacityInfo(Func<Entity, Entity, bool> shouldDisplay, Action<Entity, Entity, CapacityInfo> onUpdate)
+	{
+		m_ShouldDisplay = shouldDisplay;
+		m_OnUpdate = onUpdate;
+	}
 ```
 
 
@@ -100,19 +104,35 @@ public CapacityInfo(System.Func<Unity.Entities.Entity, Unity.Entities.Entity, Sy
 - `public DisplayFor(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
 
 ```csharp
-public System.Boolean DisplayFor(Unity.Entities.Entity entity, Unity.Entities.Entity prefab);
+public bool DisplayFor(Entity entity, Entity prefab)
+	{
+		return m_ShouldDisplay(entity, prefab);
+	}
 ```
 
 - `public OnRequestUpdate(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Void`  
 
 ```csharp
-public System.Void OnRequestUpdate(Unity.Entities.Entity entity, Unity.Entities.Entity prefab);
+public void OnRequestUpdate(Entity entity, Entity prefab)
+	{
+		m_OnUpdate(entity, prefab, this);
+	}
 ```
 
 - `public Write(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-public System.Void Write(Colossal.UI.Binding.IJsonWriter writer);
+public void Write(IJsonWriter writer)
+	{
+		writer.TypeBegin(GetType().FullName);
+		writer.PropertyName("label");
+		writer.Write(label);
+		writer.PropertyName("value");
+		writer.Write(value);
+		writer.PropertyName("max");
+		writer.Write(max);
+		writer.TypeEnd();
+	}
 ```
 
 

@@ -71,13 +71,21 @@ private static Game.Settings.FogQualitySettings disabled { private get; }
 - `public FogQualitySettings()`  
 
 ```csharp
-public FogQualitySettings();
+public FogQualitySettings(Level quality, VolumeProfile profile)
+	{
+		CreateVolumeComponent(profile, ref m_FogComponent);
+		SetLevel(quality, apply: false);
+	}
 ```
 
 - `public FogQualitySettings(Game.Settings.QualitySetting+Level quality, UnityEngine.Rendering.VolumeProfile profile)`  
 
 ```csharp
-public FogQualitySettings(Game.Settings.QualitySetting+Level quality, UnityEngine.Rendering.VolumeProfile profile);
+public FogQualitySettings(Level quality, VolumeProfile profile)
+	{
+		CreateVolumeComponent(profile, ref m_FogComponent);
+		SetLevel(quality, apply: false);
+	}
 ```
 
 
@@ -86,7 +94,20 @@ public FogQualitySettings(Game.Settings.QualitySetting+Level quality, UnityEngin
 - `public virtual Apply() : System.Void`  
 
 ```csharp
-public virtual System.Void Apply();
+public override void Apply()
+	{
+		base.Apply();
+		if (m_FogComponent != null)
+		{
+			ApplyState(m_FogComponent.enabled, enabled);
+			VolumetricsQualitySettings qualitySetting = SharedSettings.instance.graphics.GetQualitySetting<VolumetricsQualitySettings>();
+			qualitySetting.disableSetting = !enabled;
+			if (!enabled)
+			{
+				qualitySetting.enabled = enabled;
+			}
+		}
+	}
 ```
 
 

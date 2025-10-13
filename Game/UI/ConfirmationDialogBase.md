@@ -110,7 +110,16 @@ protected System.Boolean dismissible { protected get; }
 - `protected ConfirmationDialogBase(System.Nullable<Game.UI.Localization.LocalizedString> title, Game.UI.Localization.LocalizedString message, System.Nullable<Game.UI.Localization.LocalizedString> details, System.Boolean copyButton, Game.UI.Localization.LocalizedString confirmAction, System.Nullable<Game.UI.Localization.LocalizedString> cancelAction, Game.UI.Localization.LocalizedString[] otherActions)`  
 
 ```csharp
-protected ConfirmationDialogBase(System.Nullable<Game.UI.Localization.LocalizedString> title, Game.UI.Localization.LocalizedString message, System.Nullable<Game.UI.Localization.LocalizedString> details, System.Boolean copyButton, Game.UI.Localization.LocalizedString confirmAction, System.Nullable<Game.UI.Localization.LocalizedString> cancelAction, Game.UI.Localization.LocalizedString[] otherActions);
+protected ConfirmationDialogBase(LocalizedString? title, LocalizedString message, LocalizedString? details, bool copyButton, LocalizedString confirmAction, LocalizedString? cancelAction, [CanBeNull] params LocalizedString[] otherActions)
+	{
+		this.title = title;
+		this.message = message;
+		this.confirmAction = confirmAction;
+		this.cancelAction = cancelAction;
+		this.otherActions = otherActions;
+		this.details = details;
+		this.copyButton = copyButton;
+	}
 ```
 
 
@@ -119,7 +128,41 @@ protected ConfirmationDialogBase(System.Nullable<Game.UI.Localization.LocalizedS
 - `public Write(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-public System.Void Write(Colossal.UI.Binding.IJsonWriter writer);
+public void Write(IJsonWriter writer)
+	{
+		writer.TypeBegin(GetType().FullName);
+		writer.PropertyName("dismissible");
+		writer.Write(dismissible);
+		writer.PropertyName("skin");
+		writer.Write(skin);
+		writer.PropertyName("title");
+		writer.Write(title);
+		writer.PropertyName("message");
+		writer.Write(message);
+		writer.PropertyName("confirmAction");
+		writer.Write(confirmAction);
+		writer.PropertyName("cancelAction");
+		writer.Write(cancelAction);
+		writer.PropertyName("otherActions");
+		if (otherActions != null)
+		{
+			writer.ArrayBegin(otherActions.Length);
+			for (int i = 0; i < otherActions.Length; i++)
+			{
+				writer.Write(otherActions[i]);
+			}
+			writer.ArrayEnd();
+		}
+		else
+		{
+			writer.WriteEmptyArray();
+		}
+		writer.PropertyName("details");
+		writer.Write(details);
+		writer.PropertyName("copyButton");
+		writer.Write(copyButton);
+		writer.TypeEnd();
+	}
 ```
 
 

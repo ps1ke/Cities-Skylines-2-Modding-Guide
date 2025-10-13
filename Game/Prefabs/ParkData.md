@@ -43,7 +43,10 @@ public System.Boolean m_AllowHomeless;
 - `public Combine(Game.Prefabs.ParkData otherData) : System.Void`  
 
 ```csharp
-public System.Void Combine(Game.Prefabs.ParkData otherData);
+public void Combine(ParkData otherData)
+	{
+		m_MaintenancePool += otherData.m_MaintenancePool;
+	}
 ```
 
 - `public Deserialize<TReader>(TReader reader) : System.Void`  

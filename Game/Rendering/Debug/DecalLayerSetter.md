@@ -52,13 +52,19 @@ public DecalLayerSetter();
 - `private Awake() : System.Void`  
 
 ```csharp
-private System.Void Awake();
+private void Awake()
+	{
+		m_MeshRenderer = GetComponent<MeshRenderer>();
+	}
 ```
 
 - `public Update() : System.Void`  
 
 ```csharp
-public System.Void Update();
+public void Update()
+	{
+		m_MeshRenderer.sharedMaterial.SetFloat(RenderPrefabRenderer.ShaderIDs._DecalLayerMask, math.asfloat((int)m_LayerMask));
+	}
 ```
 
 

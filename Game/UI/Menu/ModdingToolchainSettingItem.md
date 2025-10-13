@@ -62,7 +62,25 @@ private Game.Modding.Toolchain.IToolchainDependency <GetWidget>b__4_0();
 - `protected virtual GetWidget() : Game.UI.Widgets.IWidget`  
 
 ```csharp
-protected virtual Game.UI.Widgets.IWidget GetWidget();
+protected override IWidget GetWidget()
+	{
+		return new ModdingToolchainDependency
+		{
+			path = base.path,
+			displayName = base.displayName,
+			description = base.description,
+			displayNameAction = base.dispayNameAction,
+			descriptionAction = base.descriptionAction,
+			accessor = new DelegateAccessor<IToolchainDependency>(() => (IToolchainDependency)base.property.GetValue(base.setting)),
+			valueVersion = base.valueVersionAction,
+			disabled = base.disableAction,
+			hidden = base.hideAction,
+			children = (from c in children
+				select c.widget into w
+				where w != null
+				select w).ToArray()
+		};
+	}
 ```
 
 

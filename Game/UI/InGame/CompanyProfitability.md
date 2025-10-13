@@ -57,13 +57,19 @@ private Game.UI.InGame.CompanyProfitabilityKey key { private get; }
 - `public CompanyProfitability(System.Int32 profit)`  
 
 ```csharp
-public CompanyProfitability(System.Int32 profit);
+public CompanyProfitability(CompanyProfitabilityKey key)
+	{
+		this.key = key;
+	}
 ```
 
 - `public CompanyProfitability(Game.UI.InGame.CompanyProfitabilityKey key)`  
 
 ```csharp
-public CompanyProfitability(Game.UI.InGame.CompanyProfitabilityKey key);
+public CompanyProfitability(CompanyProfitabilityKey key)
+	{
+		this.key = key;
+	}
 ```
 
 
@@ -72,7 +78,15 @@ public CompanyProfitability(Game.UI.InGame.CompanyProfitabilityKey key);
 - `public Write(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-public System.Void Write(Colossal.UI.Binding.IJsonWriter writer);
+public void Write(IJsonWriter writer)
+	{
+		writer.TypeBegin(typeof(CompanyProfitability).FullName);
+		writer.PropertyName("key");
+		writer.Write(Enum.GetName(typeof(CompanyProfitabilityKey), key));
+		writer.PropertyName("iconPath");
+		writer.Write(kHappinessPaths[(int)key]);
+		writer.TypeEnd();
+	}
 ```
 
 

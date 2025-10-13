@@ -54,7 +54,12 @@ public System.Int32 m_StorageCapacity;
 - `public ResourceProductionData(Game.Economy.Resource type, System.Int32 productionRate, System.Int32 storageCapacity)`  
 
 ```csharp
-public ResourceProductionData(Game.Economy.Resource type, System.Int32 productionRate, System.Int32 storageCapacity);
+public ResourceProductionData(Resource type, int productionRate, int storageCapacity)
+	{
+		m_Type = type;
+		m_ProductionRate = productionRate;
+		m_StorageCapacity = storageCapacity;
+	}
 ```
 
 
@@ -63,7 +68,32 @@ public ResourceProductionData(Game.Economy.Resource type, System.Int32 productio
 - `public static Combine(Unity.Collections.NativeList<Game.Prefabs.ResourceProductionData> resources, Unity.Entities.DynamicBuffer<Game.Prefabs.ResourceProductionData> others) : System.Void`  
 
 ```csharp
-public static System.Void Combine(Unity.Collections.NativeList<Game.Prefabs.ResourceProductionData> resources, Unity.Entities.DynamicBuffer<Game.Prefabs.ResourceProductionData> others);
+public static void Combine(NativeList<ResourceProductionData> resources, DynamicBuffer<ResourceProductionData> others)
+	{
+		for (int i = 0; i < others.Length; i++)
+		{
+			ResourceProductionData value = others[i];
+			int num = 0;
+			while (true)
+			{
+				if (num < resources.Length)
+				{
+					ResourceProductionData value2 = resources[num];
+					if (value2.m_Type == value.m_Type)
+					{
+						value2.m_ProductionRate += value.m_ProductionRate;
+						value2.m_StorageCapacity += value.m_StorageCapacity;
+						resources[num] = value2;
+						break;
+					}
+					num++;
+					continue;
+				}
+				resources.Add(in value);
+				break;
+			}
+		}
+	}
 ```
 
 - `public Deserialize<TReader>(TReader reader) : System.Void`  

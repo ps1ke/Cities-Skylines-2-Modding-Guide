@@ -48,7 +48,12 @@ public System.Single m_Cost;
 - `public AvailabilityProvider(Unity.Entities.Entity provider, System.Single capacity, System.Single cost)`  
 
 ```csharp
-public AvailabilityProvider(Unity.Entities.Entity provider, System.Single capacity, System.Single cost);
+public AvailabilityProvider(Entity provider, float capacity, float cost)
+	{
+		m_Provider = provider;
+		m_Capacity = capacity;
+		m_Cost = cost;
+	}
 ```
 
 

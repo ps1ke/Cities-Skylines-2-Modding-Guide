@@ -341,7 +341,14 @@ internal static System.Void <UpdateProcessEnvVarPathValue>g__Add|75_0(System.Env
 - `public static CheckEnvVariables(Game.Modding.Toolchain.IToolchainDependency dependency, System.Boolean checkValue = False) : System.Boolean`  
 
 ```csharp
-public static System.Boolean CheckEnvVariables(Game.Modding.Toolchain.IToolchainDependency dependency, System.Boolean checkValue);
+static bool CheckEnvVariables(IToolchainDependency dependency, bool checkValue = false)
+	{
+		return dependency.envVariables.All(delegate(string envVariable)
+		{
+			string environmentVariable = Environment.GetEnvironmentVariable(envVariable, EnvironmentVariableTarget.User);
+			return (envVariable == "CSII_PATHSET" || checkValue) ? (envVars[envVariable] == environmentVariable) : (environmentVariable != null);
+		});
+	}
 ```
 
 - `public abstract Download(System.Threading.CancellationToken token) : System.Threading.Tasks.Task`  
@@ -353,25 +360,131 @@ public abstract System.Threading.Tasks.Task Download(System.Threading.Cancellati
 - `public static GetDownloadSizeAsync(System.String url, System.Threading.CancellationToken token, System.Int32 timeout = 3000) : System.Threading.Tasks.Task<System.Int64>`  
 
 ```csharp
-public static System.Threading.Tasks.Task<System.Int64> GetDownloadSizeAsync(System.String url, System.Threading.CancellationToken token, System.Int32 timeout);
+static async Task<long> GetDownloadSizeAsync(string url, CancellationToken token, int timeout = 3000)
+	{
+		using CancellationTokenSource timeoutTokenSource = new CancellationTokenSource(timeout);
+		using CancellationTokenSource combinedTokenSource = CancellationTokenSource.CreateLinkedTokenSource(token, timeoutTokenSource.Token);
+		try
+		{
+			using HttpClient client = new HttpClient();
+			HttpResponseMessage httpResponseMessage = await client.SendAsync(new HttpRequestMessage(HttpMethod.Head, url), combinedTokenSource.Token).ConfigureAwait(continueOnCapturedContext: false);
+			if (httpResponseMessage.IsSuccessStatusCode && httpResponseMessage.Content.Headers.ContentLength.HasValue)
+			{
+				return httpResponseMessage.Content.Headers.ContentLength.Value;
+			}
+			return -1L;
+		}
+		catch (OperationCanceledException)
+		{
+			if (timeoutTokenSource.IsCancellationRequested)
+			{
+				log.Error("Get download size request timeout: " + url);
+			}
+			return -1L;
+		}
+		catch (Exception exception)
+		{
+			log.Error(exception, "Get download size error: " + url);
+			return -1L;
+		}
+	}
 ```
 
 - `public virtual GetLocalizedState(System.Boolean includeProgress) : Game.UI.Localization.LocalizedString`  
 
 ```csharp
-public virtual Game.UI.Localization.LocalizedString GetLocalizedState(System.Boolean includeProgress);
+static LocalizedString GetLocalizedState(State state, bool includeProgress)
+	{
+		switch (state.m_State)
+		{
+		case DependencyState.Downloading:
+			if (!state.m_Progress.HasValue)
+			{
+				break;
+			}
+			goto IL_0051;
+		case DependencyState.Installing:
+			if (!state.m_Progress.HasValue)
+			{
+				break;
+			}
+			goto IL_0051;
+		case DependencyState.Removing:
+			{
+				if (!state.m_Progress.HasValue)
+				{
+					break;
+				}
+				goto IL_0051;
+			}
+			IL_0051:
+			return new LocalizedString(null, includeProgress ? "{STATE} {PROGRESS}%" : "{STATE}", new Dictionary<string, ILocElement>
+			{
+				{
+					"STATE",
+					LocalizedString.Id($"Options.STATE_TOOLCHAIN[{state.m_State}]")
+				},
+				{
+					"PROGRESS",
+					LocalizedString.Value(state.m_Progress.ToString())
+				}
+			});
+		}
+		return LocalizedString.Id($"Options.STATE_TOOLCHAIN[{state.m_State}]");
+	}
 ```
 
 - `public static GetLocalizedState(Game.Modding.Toolchain.IToolchainDependency+State state, System.Boolean includeProgress) : Game.UI.Localization.LocalizedString`  
 
 ```csharp
-public static Game.UI.Localization.LocalizedString GetLocalizedState(Game.Modding.Toolchain.IToolchainDependency+State state, System.Boolean includeProgress);
+static LocalizedString GetLocalizedState(State state, bool includeProgress)
+	{
+		switch (state.m_State)
+		{
+		case DependencyState.Downloading:
+			if (!state.m_Progress.HasValue)
+			{
+				break;
+			}
+			goto IL_0051;
+		case DependencyState.Installing:
+			if (!state.m_Progress.HasValue)
+			{
+				break;
+			}
+			goto IL_0051;
+		case DependencyState.Removing:
+			{
+				if (!state.m_Progress.HasValue)
+				{
+					break;
+				}
+				goto IL_0051;
+			}
+			IL_0051:
+			return new LocalizedString(null, includeProgress ? "{STATE} {PROGRESS}%" : "{STATE}", new Dictionary<string, ILocElement>
+			{
+				{
+					"STATE",
+					LocalizedString.Id($"Options.STATE_TOOLCHAIN[{state.m_State}]")
+				},
+				{
+					"PROGRESS",
+					LocalizedString.Value(state.m_Progress.ToString())
+				}
+			});
+		}
+		return LocalizedString.Id($"Options.STATE_TOOLCHAIN[{state.m_State}]");
+	}
 ```
 
 - `public virtual GetLocalizedVersion() : Game.UI.Localization.LocalizedString`  
 
 ```csharp
-public virtual Game.UI.Localization.LocalizedString GetLocalizedVersion();
+LocalizedString GetLocalizedVersion()
+	{
+		return LocalizedString.Value(version);
+	}
 ```
 
 - `public abstract GetRequiredDiskSpace(System.Threading.CancellationToken token) : System.Threading.Tasks.Task<System.Collections.Generic.List<Game.Modding.Toolchain.IToolchainDependency+DiskSpaceRequirements>>`  
@@ -383,13 +496,77 @@ public abstract System.Threading.Tasks.Task<System.Collections.Generic.List<Game
 - `public static GetUninstaller(System.Collections.Generic.Dictionary<System.String, System.String> check, System.String& keyName) : Microsoft.Win32.RegistryKey`  
 
 ```csharp
-public static Microsoft.Win32.RegistryKey GetUninstaller(System.Collections.Generic.Dictionary<System.String, System.String> check, System.String& keyName);
+static RegistryKey GetUninstaller(string uninstallKeyName, Dictionary<string, string> check, out string keyName)
+	{
+		keyName = null;
+		RegistryKey registryKey = Registry.LocalMachine.OpenSubKey(uninstallKeyName);
+		if (registryKey == null)
+		{
+			return null;
+		}
+		string[] subKeyNames = registryKey.GetSubKeyNames();
+		foreach (string text in subKeyNames)
+		{
+			RegistryKey registryKey2 = registryKey.OpenSubKey(text);
+			if (registryKey2 == null)
+			{
+				continue;
+			}
+			bool flag = false;
+			foreach (KeyValuePair<string, string> item in check)
+			{
+				if (registryKey2.GetValue(item.Key) as string != item.Value)
+				{
+					flag = true;
+					break;
+				}
+			}
+			if (!flag)
+			{
+				keyName = text;
+				return registryKey2;
+			}
+		}
+		return null;
+	}
 ```
 
 - `public static GetUninstaller(System.String uninstallKeyName, System.Collections.Generic.Dictionary<System.String, System.String> check, System.String& keyName) : Microsoft.Win32.RegistryKey`  
 
 ```csharp
-public static Microsoft.Win32.RegistryKey GetUninstaller(System.String uninstallKeyName, System.Collections.Generic.Dictionary<System.String, System.String> check, System.String& keyName);
+static RegistryKey GetUninstaller(string uninstallKeyName, Dictionary<string, string> check, out string keyName)
+	{
+		keyName = null;
+		RegistryKey registryKey = Registry.LocalMachine.OpenSubKey(uninstallKeyName);
+		if (registryKey == null)
+		{
+			return null;
+		}
+		string[] subKeyNames = registryKey.GetSubKeyNames();
+		foreach (string text in subKeyNames)
+		{
+			RegistryKey registryKey2 = registryKey.OpenSubKey(text);
+			if (registryKey2 == null)
+			{
+				continue;
+			}
+			bool flag = false;
+			foreach (KeyValuePair<string, string> item in check)
+			{
+				if (registryKey2.GetValue(item.Key) as string != item.Value)
+				{
+					flag = true;
+					break;
+				}
+			}
+			if (!flag)
+			{
+				keyName = text;
+				return registryKey2;
+			}
+		}
+		return null;
+	}
 ```
 
 - `public abstract Install(System.Threading.CancellationToken token) : System.Threading.Tasks.Task`  
@@ -401,7 +578,18 @@ public abstract System.Threading.Tasks.Task Install(System.Threading.Cancellatio
 - `public static InstallSorting(Game.Modding.Toolchain.IToolchainDependency x, Game.Modding.Toolchain.IToolchainDependency y) : System.Int32`  
 
 ```csharp
-public static System.Int32 InstallSorting(Game.Modding.Toolchain.IToolchainDependency x, Game.Modding.Toolchain.IToolchainDependency y);
+static int InstallSorting(IToolchainDependency x, IToolchainDependency y)
+	{
+		if (x.dependsOnInstallation.Contains(y.GetType()))
+		{
+			return 1;
+		}
+		if (y.dependsOnInstallation.Contains(x.GetType()))
+		{
+			return -1;
+		}
+		return 0;
+	}
 ```
 
 - `public abstract IsInstalled(System.Threading.CancellationToken token) : System.Threading.Tasks.Task<System.Boolean>`  
@@ -425,13 +613,75 @@ public abstract System.Threading.Tasks.Task<System.Boolean> NeedDownload(System.
 - `public abstract Refresh(System.Threading.CancellationToken token) : System.Threading.Tasks.Task`  
 
 ```csharp
-public abstract System.Threading.Tasks.Task Refresh(System.Threading.CancellationToken token);
+static async Task Refresh(IToolchainDependency dependency, CancellationToken token)
+	{
+		dependency.version = null;
+		if (!(await dependency.IsInstalled(token)))
+		{
+			dependency.state = (State)DependencyState.NotInstalled;
+		}
+		else if (!(await dependency.IsUpToDate(token)))
+		{
+			dependency.state = (State)DependencyState.Outdated;
+		}
+		else if (!CheckEnvVariables(dependency))
+		{
+			dependency.state = (State)DependencyState.Outdated;
+		}
+		else
+		{
+			dependency.state = (State)DependencyState.Installed;
+		}
+		if ((DependencyState)dependency.state != DependencyState.Installed)
+		{
+			IToolchainDependency toolchainDependency = dependency;
+			toolchainDependency.needDownload = await dependency.NeedDownload(token);
+			toolchainDependency = dependency;
+			toolchainDependency.spaceRequirements = await dependency.GetRequiredDiskSpace(token);
+		}
+		else
+		{
+			dependency.needDownload = false;
+			dependency.spaceRequirements = new List<DiskSpaceRequirements>();
+		}
+	}
 ```
 
 - `public static Refresh(Game.Modding.Toolchain.IToolchainDependency dependency, System.Threading.CancellationToken token) : System.Threading.Tasks.Task`  
 
 ```csharp
-public static System.Threading.Tasks.Task Refresh(Game.Modding.Toolchain.IToolchainDependency dependency, System.Threading.CancellationToken token);
+static async Task Refresh(IToolchainDependency dependency, CancellationToken token)
+	{
+		dependency.version = null;
+		if (!(await dependency.IsInstalled(token)))
+		{
+			dependency.state = (State)DependencyState.NotInstalled;
+		}
+		else if (!(await dependency.IsUpToDate(token)))
+		{
+			dependency.state = (State)DependencyState.Outdated;
+		}
+		else if (!CheckEnvVariables(dependency))
+		{
+			dependency.state = (State)DependencyState.Outdated;
+		}
+		else
+		{
+			dependency.state = (State)DependencyState.Installed;
+		}
+		if ((DependencyState)dependency.state != DependencyState.Installed)
+		{
+			IToolchainDependency toolchainDependency = dependency;
+			toolchainDependency.needDownload = await dependency.NeedDownload(token);
+			toolchainDependency = dependency;
+			toolchainDependency.spaceRequirements = await dependency.GetRequiredDiskSpace(token);
+		}
+		else
+		{
+			dependency.needDownload = false;
+			dependency.spaceRequirements = new List<DiskSpaceRequirements>();
+		}
+	}
 ```
 
 - `public abstract Uninstall(System.Threading.CancellationToken token) : System.Threading.Tasks.Task`  
@@ -443,13 +693,44 @@ public abstract System.Threading.Tasks.Task Uninstall(System.Threading.Cancellat
 - `public static UninstallSorting(Game.Modding.Toolchain.IToolchainDependency x, Game.Modding.Toolchain.IToolchainDependency y) : System.Int32`  
 
 ```csharp
-public static System.Int32 UninstallSorting(Game.Modding.Toolchain.IToolchainDependency x, Game.Modding.Toolchain.IToolchainDependency y);
+static int UninstallSorting(IToolchainDependency x, IToolchainDependency y)
+	{
+		if (x.dependsOnUninstallation.Contains(y.GetType()))
+		{
+			return -1;
+		}
+		if (y.dependsOnUninstallation.Contains(x.GetType()))
+		{
+			return 1;
+		}
+		return 0;
+	}
 ```
 
 - `public static UpdateProcessEnvVarPathValue() : System.Void`  
 
 ```csharp
-public static System.Void UpdateProcessEnvVarPathValue();
+static void UpdateProcessEnvVarPathValue()
+	{
+		HashSet<string> allVars = new HashSet<string>();
+		Add(EnvironmentVariableTarget.Process);
+		Add(EnvironmentVariableTarget.User);
+		Add(EnvironmentVariableTarget.Machine);
+		string value = string.Join(';', allVars);
+		Environment.SetEnvironmentVariable("PATH", value, EnvironmentVariableTarget.Process);
+		internal void Add(EnvironmentVariableTarget target)
+		{
+			string environmentVariable = Environment.GetEnvironmentVariable("PATH", target);
+			if (environmentVariable != null)
+			{
+				string[] array = environmentVariable.Split(';', StringSplitOptions.RemoveEmptyEntries);
+				foreach (string item in array)
+				{
+					allVars.Add(item);
+				}
+			}
+		}
+	}
 ```
 
 

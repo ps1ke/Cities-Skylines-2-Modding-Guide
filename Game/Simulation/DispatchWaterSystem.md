@@ -130,7 +130,10 @@ public System.Boolean sewageConsumptionDisabled { get; set; }
 - `public DispatchWaterSystem()`  
 
 ```csharp
-public DispatchWaterSystem();
+[Preserve]
+	public DispatchWaterSystem()
+	{
+	}
 ```
 
 
@@ -139,37 +142,96 @@ public DispatchWaterSystem();
 - `private __AssignQueries(Unity.Entities.SystemState& state) : System.Void`  
 
 ```csharp
-private System.Void __AssignQueries(Unity.Entities.SystemState& state);
+private void __AssignQueries(ref SystemState state)
+	{
+		EntityQueryBuilder entityQueryBuilder = new EntityQueryBuilder(Allocator.Temp);
+		EntityQueryBuilder entityQueryBuilder2 = entityQueryBuilder.WithAll<WaterPipeParameterData>();
+		entityQueryBuilder2 = entityQueryBuilder2.WithOptions(EntityQueryOptions.IncludeSystems);
+		__query_1010455350_0 = entityQueryBuilder2.Build(ref state);
+		entityQueryBuilder.Reset();
+		entityQueryBuilder2 = entityQueryBuilder.WithAll<BuildingEfficiencyParameterData>();
+		entityQueryBuilder2 = entityQueryBuilder2.WithOptions(EntityQueryOptions.IncludeSystems);
+		__query_1010455350_1 = entityQueryBuilder2.Build(ref state);
+		entityQueryBuilder.Reset();
+		entityQueryBuilder.Dispose();
+	}
 ```
 
 - `public virtual GetUpdateInterval(Game.SystemUpdatePhase phase) : System.Int32`  
 
 ```csharp
-public virtual System.Int32 GetUpdateInterval(Game.SystemUpdatePhase phase);
+public override int GetUpdateInterval(SystemUpdatePhase phase)
+	{
+		return 128;
+	}
 ```
 
 - `public virtual GetUpdateOffset(Game.SystemUpdatePhase phase) : System.Int32`  
 
 ```csharp
-public virtual System.Int32 GetUpdateOffset(Game.SystemUpdatePhase phase);
+public override int GetUpdateOffset(SystemUpdatePhase phase)
+	{
+		return 62;
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_WaterPipeFlowSystem = base.World.GetOrCreateSystemManaged<WaterPipeFlowSystem>();
+		m_IconCommandSystem = base.World.GetOrCreateSystemManaged<IconCommandSystem>();
+		m_ConsumerQuery = GetEntityQuery(ComponentType.ReadOnly<Building>(), ComponentType.ReadWrite<WaterConsumer>(), ComponentType.Exclude<Destroyed>(), ComponentType.Exclude<Deleted>(), ComponentType.Exclude<Temp>());
+		RequireForUpdate(m_ConsumerQuery);
+		RequireForUpdate<WaterPipeParameterData>();
+		RequireForUpdate<BuildingEfficiencyParameterData>();
+	}
 ```
 
 - `protected virtual OnCreateForCompiler() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreateForCompiler();
+protected override void OnCreateForCompiler()
+	{
+		base.OnCreateForCompiler();
+		__AssignQueries(ref base.CheckedStateRef);
+		__TypeHandle.__AssignHandles(ref base.CheckedStateRef);
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		if (m_WaterPipeFlowSystem.ready)
+		{
+			DispatchWaterJob jobData = new DispatchWaterJob
+			{
+				m_EntityType = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef),
+				m_BuildingType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Buildings_Building_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+				m_BuildingConnectionType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Simulation_WaterPipeBuildingConnection_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+				m_ConsumerType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Buildings_WaterConsumer_RW_ComponentTypeHandle, ref base.CheckedStateRef),
+				m_EfficiencyType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Buildings_Efficiency_RW_BufferTypeHandle, ref base.CheckedStateRef),
+				m_NodeConnections = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Simulation_WaterPipeNodeConnection_RO_ComponentLookup, ref base.CheckedStateRef),
+				m_FlowEdges = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Simulation_WaterPipeEdge_RO_ComponentLookup, ref base.CheckedStateRef),
+				m_FlowConnections = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Simulation_ConnectedFlowEdge_RO_BufferLookup, ref base.CheckedStateRef),
+				m_IconCommandBuffer = m_IconCommandSystem.CreateCommandBuffer(),
+				m_Parameters = __query_1010455350_0.GetSingleton<WaterPipeParameterData>(),
+				m_EfficiencyParameters = __query_1010455350_1.GetSingleton<BuildingEfficiencyParameterData>(),
+				m_SinkNode = m_WaterPipeFlowSystem.sinkNode,
+				m_RandomSeed = RandomSeed.Next(),
+				m_FreshConsumptionDisabled = freshConsumptionDisabled,
+				m_SewageConsumptionDisabled = sewageConsumptionDisabled
+			};
+			base.Dependency = JobChunkExtensions.ScheduleParallel(jobData, m_ConsumerQuery, base.Dependency);
+			m_IconCommandSystem.AddCommandBufferWriter(base.Dependency);
+		}
+	}
 ```
 
 

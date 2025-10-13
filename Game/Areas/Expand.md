@@ -37,7 +37,10 @@ public Unity.Mathematics.float2 m_Offset;
 - `public Expand(Unity.Mathematics.float2 offset)`  
 
 ```csharp
-public Expand(Unity.Mathematics.float2 offset);
+public Expand(float2 offset)
+	{
+		m_Offset = offset;
+	}
 ```
 
 

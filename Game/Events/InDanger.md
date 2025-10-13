@@ -58,7 +58,13 @@ public System.UInt32 m_EndFrame;
 - `public InDanger(Unity.Entities.Entity _event, Unity.Entities.Entity evacuationRequest, Game.Events.DangerFlags flags, System.UInt32 endFrame)`  
 
 ```csharp
-public InDanger(Unity.Entities.Entity _event, Unity.Entities.Entity evacuationRequest, Game.Events.DangerFlags flags, System.UInt32 endFrame);
+public InDanger(Entity _event, Entity evacuationRequest, DangerFlags flags, uint endFrame)
+	{
+		m_Event = _event;
+		m_EvacuationRequest = evacuationRequest;
+		m_Flags = flags;
+		m_EndFrame = endFrame;
+	}
 ```
 
 

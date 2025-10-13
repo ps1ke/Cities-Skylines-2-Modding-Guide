@@ -35,7 +35,10 @@ public Game.Input.InputManager+ControlScheme m_ControlScheme;
 - `public ControlSchemeActivationData(Game.Input.InputManager+ControlScheme controlScheme)`  
 
 ```csharp
-public ControlSchemeActivationData(Game.Input.InputManager+ControlScheme controlScheme);
+public ControlSchemeActivationData(InputManager.ControlScheme controlScheme)
+	{
+		m_ControlScheme = controlScheme;
+	}
 ```
 
 

@@ -33,7 +33,10 @@ public ScrollSensitivityProcessor();
 - `public virtual Process(System.Single value, UnityEngine.InputSystem.InputControl control) : System.Single`  
 
 ```csharp
-public virtual System.Single Process(System.Single value, UnityEngine.InputSystem.InputControl control);
+public override float Process(float value, InputControl control)
+	{
+		return value * SharedSettings.instance.input.finalScrollSensitivity;
+	}
 ```
 
 

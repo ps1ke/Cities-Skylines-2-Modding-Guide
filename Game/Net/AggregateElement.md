@@ -41,7 +41,10 @@ public Unity.Entities.Entity m_Edge;
 - `public AggregateElement(Unity.Entities.Entity edge)`  
 
 ```csharp
-public AggregateElement(Unity.Entities.Entity edge);
+public AggregateElement(Entity edge)
+	{
+		m_Edge = edge;
+	}
 ```
 
 
@@ -56,13 +59,19 @@ public System.Void Deserialize<TReader>(TReader reader);
 - `public Equals(Game.Net.AggregateElement other) : System.Boolean`  
 
 ```csharp
-public System.Boolean Equals(Game.Net.AggregateElement other);
+public bool Equals(AggregateElement other)
+	{
+		return m_Edge.Equals(other.m_Edge);
+	}
 ```
 
 - `public virtual GetHashCode() : System.Int32`  
 
 ```csharp
-public virtual System.Int32 GetHashCode();
+public override int GetHashCode()
+	{
+		return m_Edge.GetHashCode();
+	}
 ```
 
 - `public Serialize<TWriter>(TWriter writer) : System.Void`  

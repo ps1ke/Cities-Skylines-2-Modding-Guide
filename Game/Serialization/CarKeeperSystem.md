@@ -54,7 +54,10 @@ private Game.Serialization.CarKeeperSystem+TypeHandle __TypeHandle;
 - `public CarKeeperSystem()`  
 
 ```csharp
-public CarKeeperSystem();
+[Preserve]
+	public CarKeeperSystem()
+	{
+	}
 ```
 
 
@@ -63,25 +66,56 @@ public CarKeeperSystem();
 - `private __AssignQueries(Unity.Entities.SystemState& state) : System.Void`  
 
 ```csharp
-private System.Void __AssignQueries(Unity.Entities.SystemState& state);
+private void __AssignQueries(ref SystemState state)
+	{
+		new EntityQueryBuilder(Allocator.Temp).Dispose();
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_Query = GetEntityQuery(ComponentType.ReadOnly<PersonalCar>());
+		m_KeeperQuery = GetEntityQuery(ComponentType.ReadOnly<CarKeeper>());
+		RequireForUpdate(m_Query);
+	}
 ```
 
 - `protected virtual OnCreateForCompiler() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreateForCompiler();
+protected override void OnCreateForCompiler()
+	{
+		base.OnCreateForCompiler();
+		__AssignQueries(ref base.CheckedStateRef);
+		__TypeHandle.__AssignHandles(ref base.CheckedStateRef);
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		JobHandle dependsOn = JobChunkExtensions.Schedule(new CarKeeperJob
+		{
+			m_EntityType = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef),
+			m_PersonalCarType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Vehicles_PersonalCar_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+			m_CarKeeperData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Citizens_CarKeeper_RW_ComponentLookup, ref base.CheckedStateRef)
+		}, m_Query, base.Dependency);
+		NoCarJob jobData = new NoCarJob
+		{
+			m_EntityType = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef),
+			m_CarKeeperType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Citizens_CarKeeper_RW_ComponentTypeHandle, ref base.CheckedStateRef),
+			m_PersonalCars = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Vehicles_PersonalCar_RO_ComponentLookup, ref base.CheckedStateRef)
+		};
+		base.Dependency = JobChunkExtensions.Schedule(jobData, m_KeeperQuery, dependsOn);
+	}
 ```
 
 

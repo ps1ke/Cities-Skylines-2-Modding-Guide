@@ -50,7 +50,10 @@ private Colossal.GizmosSystem m_GizmosSystem;
 - `public WindDebugSystem()`  
 
 ```csharp
-public WindDebugSystem();
+[Preserve]
+	public WindDebugSystem()
+	{
+	}
 ```
 
 
@@ -59,13 +62,37 @@ public WindDebugSystem();
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_GizmosSystem = base.World.GetOrCreateSystemManaged<GizmosSystem>();
+		m_WindSimulationSystem = base.World.GetOrCreateSystemManaged<WindSimulationSystem>();
+		m_TerrainSystem = base.World.GetOrCreateSystemManaged<TerrainSystem>();
+		base.Enabled = false;
+	}
 ```
 
 - `protected virtual OnUpdate(Unity.Jobs.JobHandle inputDeps) : Unity.Jobs.JobHandle`  
 
 ```csharp
-protected virtual Unity.Jobs.JobHandle OnUpdate(Unity.Jobs.JobHandle inputDeps);
+[Preserve]
+	protected override JobHandle OnUpdate(JobHandle inputDeps)
+	{
+		TerrainHeightData data = m_TerrainSystem.GetHeightData();
+		float2 terrainRange = new float2(TerrainUtils.ToWorldSpace(ref data, 0f), TerrainUtils.ToWorldSpace(ref data, 65535f));
+		JobHandle deps;
+		JobHandle dependencies;
+		JobHandle jobHandle = new WindGizmoJob
+		{
+			m_WindMap = m_WindSimulationSystem.GetCells(out deps),
+			m_GizmoBatcher = m_GizmosSystem.GetGizmosBatcher(out dependencies),
+			m_TerrainRange = terrainRange
+		}.Schedule(JobHandle.CombineDependencies(inputDeps, dependencies, deps));
+		m_WindSimulationSystem.AddReader(jobHandle);
+		m_GizmosSystem.AddGizmosBatcherWriter(jobHandle);
+		return jobHandle;
+	}
 ```
 
 

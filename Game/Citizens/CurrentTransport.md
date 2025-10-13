@@ -37,7 +37,10 @@ public Unity.Entities.Entity m_CurrentTransport;
 - `public CurrentTransport(Unity.Entities.Entity transport)`  
 
 ```csharp
-public CurrentTransport(Unity.Entities.Entity transport);
+public CurrentTransport(Entity transport)
+	{
+		m_CurrentTransport = transport;
+	}
 ```
 
 

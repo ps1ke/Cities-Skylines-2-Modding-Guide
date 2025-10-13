@@ -51,7 +51,25 @@ public CameraMoveProcessor();
 - `public virtual Process(UnityEngine.Vector2 value, UnityEngine.InputSystem.InputControl control) : UnityEngine.Vector2`  
 
 ```csharp
-public virtual UnityEngine.Vector2 Process(UnityEngine.Vector2 value, UnityEngine.InputSystem.InputControl control);
+public override Vector2 Process(Vector2 value, InputControl control)
+	{
+		if (!base.needProcess)
+		{
+			return value;
+		}
+		Game.Settings.InputSettings input = SharedSettings.instance.input;
+		value.x *= m_ScaleX;
+		value.y *= m_ScaleY;
+		Vector2 vector = value;
+		value = vector * m_DeviceType switch
+		{
+			ProcessorDeviceType.Mouse => input.mouseMoveSensitivity, 
+			ProcessorDeviceType.Keyboard => input.keyboardMoveSensitivity, 
+			ProcessorDeviceType.Gamepad => input.gamepadMoveSensitivity, 
+			_ => 1f, 
+		};
+		return value;
+	}
 ```
 
 

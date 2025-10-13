@@ -84,19 +84,37 @@ public Fire();
 - `public virtual GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetArchetypeComponents(HashSet<ComponentType> components)
+	{
+		components.Add(ComponentType.ReadWrite<Game.Events.Fire>());
+		components.Add(ComponentType.ReadWrite<TargetElement>());
+	}
 ```
 
 - `public virtual GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetPrefabComponents(HashSet<ComponentType> components)
+	{
+		components.Add(ComponentType.ReadWrite<FireData>());
+	}
 ```
 
 - `public virtual Initialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity) : System.Void`  
 
 ```csharp
-public virtual System.Void Initialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity);
+public override void Initialize(EntityManager entityManager, Entity entity)
+	{
+		base.Initialize(entityManager, entity);
+		FireData componentData = default(FireData);
+		componentData.m_RandomTargetType = m_RandomTargetType;
+		componentData.m_StartProbability = m_StartProbability;
+		componentData.m_StartIntensity = m_StartIntensity;
+		componentData.m_EscalationRate = m_EscalationRate;
+		componentData.m_SpreadProbability = m_SpreadProbability;
+		componentData.m_SpreadRange = m_SpreadRange;
+		entityManager.SetComponentData(entity, componentData);
+	}
 ```
 
 

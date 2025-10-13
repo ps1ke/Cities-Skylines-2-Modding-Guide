@@ -79,7 +79,16 @@ public Game.Prefabs.PolicePurpose m_PurposeMask;
 - `public PoliceCar(Game.Vehicles.PoliceCarFlags flags, System.Int32 requestCount, Game.Prefabs.PolicePurpose purposeMask)`  
 
 ```csharp
-public PoliceCar(Game.Vehicles.PoliceCarFlags flags, System.Int32 requestCount, Game.Prefabs.PolicePurpose purposeMask);
+public PoliceCar(PoliceCarFlags flags, int requestCount, PolicePurpose purposeMask)
+	{
+		m_TargetRequest = Entity.Null;
+		m_State = flags;
+		m_RequestCount = requestCount;
+		m_PathElementTime = 0f;
+		m_ShiftTime = 0u;
+		m_EstimatedShift = 0u;
+		m_PurposeMask = purposeMask;
+	}
 ```
 
 

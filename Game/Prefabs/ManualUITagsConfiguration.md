@@ -1049,13 +1049,161 @@ public ManualUITagsConfiguration();
 - `public virtual GetDependencies(System.Collections.Generic.List<Game.Prefabs.PrefabBase> prefabs) : System.Void`  
 
 ```csharp
-public virtual System.Void GetDependencies(System.Collections.Generic.List<Game.Prefabs.PrefabBase> prefabs);
+public override void GetDependencies(List<PrefabBase> prefabs)
+	{
+		base.GetDependencies(prefabs);
+		prefabs.Add(m_ChirperPanel);
+		prefabs.Add(m_ChirperPanelButton);
+		prefabs.Add(m_ChirperPanelChirps);
+		prefabs.Add(m_CityInfoPanel);
+		prefabs.Add(m_CityInfoPanelButton);
+		prefabs.Add(m_CityInfoPanelDemandPage);
+		prefabs.Add(m_CityInfoPanelDemandTab);
+		prefabs.Add(m_CityInfoPanelPoliciesPage);
+		prefabs.Add(m_CityInfoPanelPoliciesTab);
+		prefabs.Add(m_EconomyPanelBudgetBalance);
+		prefabs.Add(m_EconomyPanelBudgetExpenses);
+		prefabs.Add(m_EconomyPanelBudgetPage);
+		prefabs.Add(m_EconomyPanelBudgetRevenue);
+		prefabs.Add(m_EconomyPanelBudgetTab);
+		prefabs.Add(m_EconomyPanelButton);
+		prefabs.Add(m_EconomyPanelLoansAccept);
+		prefabs.Add(m_EconomyPanelLoansPage);
+		prefabs.Add(m_EconomyPanelLoansSlider);
+		prefabs.Add(m_EconomyPanelLoansTab);
+		prefabs.Add(m_EconomyPanelProductionPage);
+		prefabs.Add(m_EconomyPanelProductionResources);
+		prefabs.Add(m_EconomyPanelProductionTab);
+		prefabs.Add(m_EconomyPanelServicesBudget);
+		prefabs.Add(m_EconomyPanelServicesList);
+		prefabs.Add(m_EconomyPanelServicesPage);
+		prefabs.Add(m_EconomyPanelServicesTab);
+		prefabs.Add(m_EconomyPanelTaxationEstimate);
+		prefabs.Add(m_EconomyPanelTaxationPage);
+		prefabs.Add(m_EconomyPanelTaxationRate);
+		prefabs.Add(m_EconomyPanelTaxationTab);
+		prefabs.Add(m_EconomyPanelTaxationType);
+		prefabs.Add(m_EventJournalPanel);
+		prefabs.Add(m_EventJournalPanelButton);
+		prefabs.Add(m_InfoviewsButton);
+		prefabs.Add(m_InfoviewsMenu);
+		prefabs.Add(m_InfoviewsPanel);
+		prefabs.Add(m_InfoviewsFireHazard);
+		prefabs.Add(m_LifePathPanel);
+		prefabs.Add(m_LifePathPanelBackButton);
+		prefabs.Add(m_LifePathPanelButton);
+		prefabs.Add(m_LifePathPanelChirps);
+		prefabs.Add(m_LifePathPanelDetails);
+		prefabs.Add(m_MapTilePanel);
+		prefabs.Add(m_MapTilePanelButton);
+		prefabs.Add(m_MapTilePanelResources);
+		prefabs.Add(m_MapTilePanelPurchase);
+		prefabs.Add(m_PhotoModePanel);
+		prefabs.Add(m_PhotoModePanelButton);
+		prefabs.Add(m_PhotoModePanelHideUI);
+		prefabs.Add(m_PhotoModePanelTakePicture);
+		prefabs.Add(m_PhotoModeTab);
+		prefabs.Add(m_PhotoModePanelTitle);
+		prefabs.Add(m_PhotoModeCinematicCameraToggle);
+		prefabs.Add(m_CinematicCameraPanel);
+		prefabs.Add(m_CinematicCameraPanelCaptureKey);
+		prefabs.Add(m_CinematicCameraPanelPlay);
+		prefabs.Add(m_CinematicCameraPanelStop);
+		prefabs.Add(m_CinematicCameraPanelHideUI);
+		prefabs.Add(m_CinematicCameraPanelSaveLoad);
+		prefabs.Add(m_CinematicCameraPanelReset);
+		prefabs.Add(m_CinematicCameraPanelTimelineSlider);
+		prefabs.Add(m_CinematicCameraPanelTransformCurves);
+		prefabs.Add(m_CinematicCameraPanelPropertyCurves);
+		prefabs.Add(m_ProgressionPanel);
+		prefabs.Add(m_ProgressionPanelButton);
+		prefabs.Add(m_ProgressionPanelDevelopmentNode);
+		prefabs.Add(m_ProgressionPanelDevelopmentPage);
+		prefabs.Add(m_ProgressionPanelDevelopmentService);
+		prefabs.Add(m_ProgressionPanelDevelopmentTab);
+		prefabs.Add(m_ProgressionPanelDevelopmentUnlockableNode);
+		prefabs.Add(m_ProgressionPanelDevelopmentUnlockNode);
+		prefabs.Add(m_ProgressionPanelMilestoneRewards);
+		prefabs.Add(m_ProgressionPanelMilestoneRewardsMoney);
+		prefabs.Add(m_ProgressionPanelMilestoneRewardsDevPoints);
+		prefabs.Add(m_ProgressionPanelMilestoneRewardsMapTiles);
+		prefabs.Add(m_ProgressionPanelMilestonesList);
+		prefabs.Add(m_ProgressionPanelMilestonesPage);
+		prefabs.Add(m_ProgressionPanelMilestonesTab);
+		prefabs.Add(m_ProgressionPanelMilestoneXP);
+		prefabs.Add(m_RadioPanel);
+		prefabs.Add(m_RadioPanelAdsToggle);
+		prefabs.Add(m_RadioPanelButton);
+		prefabs.Add(m_RadioPanelNetworks);
+		prefabs.Add(m_RadioPanelStations);
+		prefabs.Add(m_RadioPanelVolumeSlider);
+		prefabs.Add(m_StatisticsPanel);
+		prefabs.Add(m_StatisticsPanelButton);
+		prefabs.Add(m_StatisticsPanelMenu);
+		prefabs.Add(m_StatisticsPanelTimeScale);
+		prefabs.Add(m_ToolbarBulldozerBar);
+		prefabs.Add(m_ToolbarDemand);
+		prefabs.Add(m_ToolbarSimulationDateTime);
+		prefabs.Add(m_ToolbarSimulationSpeed);
+		prefabs.Add(m_ToolbarSimulationToggle);
+		prefabs.Add(m_ToolbarUnderground);
+		prefabs.Add(m_ToolOptions);
+		prefabs.Add(m_ToolOptionsBrushSize);
+		prefabs.Add(m_ToolOptionsBrushStrength);
+		prefabs.Add(m_ToolOptionsElevation);
+		prefabs.Add(m_ToolOptionsElevationDecrease);
+		prefabs.Add(m_ToolOptionsElevationIncrease);
+		prefabs.Add(m_ToolOptionsElevationStep);
+		prefabs.Add(m_ToolOptionsModes);
+		prefabs.Add(m_ToolOptionsModesComplexCurve);
+		prefabs.Add(m_ToolOptionsModesContinuous);
+		prefabs.Add(m_ToolOptionsModesGrid);
+		prefabs.Add(m_ToolOptionsModesReplace);
+		prefabs.Add(m_ToolOptionsModesSimpleCurve);
+		prefabs.Add(m_ToolOptionsModesStraight);
+		prefabs.Add(m_ToolOptionsParallelMode);
+		prefabs.Add(m_ToolOptionsParallelModeOffset);
+		prefabs.Add(m_ToolOptionsParallelModeOffsetDecrease);
+		prefabs.Add(m_ToolOptionsParallelModeOffsetIncrease);
+		prefabs.Add(m_ToolOptionsSnapping);
+		prefabs.Add(m_ToolOptionsThemes);
+		prefabs.Add(m_ToolOptionsAssetPacks);
+		prefabs.Add(m_ToolOptionsUnderground);
+		prefabs.Add(m_TransportationOverviewPanel);
+		prefabs.Add(m_TransportationOverviewPanelButton);
+		prefabs.Add(m_TransportationOverviewPanelLegend);
+		prefabs.Add(m_TransportationOverviewPanelLines);
+		prefabs.Add(m_TransportationOverviewPanelTabCargo);
+		prefabs.Add(m_TransportationOverviewPanelTabPublicTransport);
+		prefabs.Add(m_TransportationOverviewPanelTransportTypes);
+		prefabs.Add(m_SelectedInfoPanel);
+		prefabs.Add(m_SelectedInfoPanelTitle);
+		prefabs.Add(m_PauseMenuButton);
+		prefabs.Add(m_UpgradeGrid);
+		prefabs.Add(m_AssetGrid);
+		prefabs.Add(m_ActionHints);
+		prefabs.Add(m_AssetImportButton);
+		prefabs.Add(m_EditorInfoViewsPanel);
+		prefabs.Add(m_ResetTODButton);
+		prefabs.Add(m_SimulationPlayButton);
+		prefabs.Add(m_TutorialsToggle);
+		prefabs.Add(m_WorkspaceTitleBar);
+		prefabs.Add(m_SelectProjectRoot);
+		prefabs.Add(m_SelectAssets);
+		prefabs.Add(m_SelectTemplate);
+		prefabs.Add(m_ImportButton);
+		prefabs.Add(m_ModifyTerrainButton);
+	}
 ```
 
 - `public virtual GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetPrefabComponents(HashSet<ComponentType> components)
+	{
+		base.GetPrefabComponents(components);
+		components.Add(ComponentType.ReadWrite<ManualUITagsConfigurationData>());
+	}
 ```
 
 

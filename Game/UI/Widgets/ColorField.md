@@ -70,7 +70,14 @@ public ColorField();
 - `protected virtual WriteProperties(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-protected virtual System.Void WriteProperties(Colossal.UI.Binding.IJsonWriter writer);
+protected override void WriteProperties(IJsonWriter writer)
+	{
+		base.WriteProperties(writer);
+		writer.PropertyName("hdr");
+		writer.Write(hdr);
+		writer.PropertyName("showAlpha");
+		writer.Write(showAlpha);
+	}
 ```
 
 

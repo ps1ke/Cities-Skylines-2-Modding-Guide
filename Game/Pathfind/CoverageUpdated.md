@@ -42,7 +42,11 @@ public Game.Pathfind.PathEventData m_Data;
 - `public CoverageUpdated(Unity.Entities.Entity owner, Game.Pathfind.PathEventData data)`  
 
 ```csharp
-public CoverageUpdated(Unity.Entities.Entity owner, Game.Pathfind.PathEventData data);
+public CoverageUpdated(Entity owner, PathEventData data)
+	{
+		m_Owner = owner;
+		m_Data = data;
+	}
 ```
 
 

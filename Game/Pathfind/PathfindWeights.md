@@ -52,7 +52,10 @@ public System.Single money { get; }
 - `public PathfindWeights(System.Single time, System.Single behaviour, System.Single money, System.Single comfort)`  
 
 ```csharp
-public PathfindWeights(System.Single time, System.Single behaviour, System.Single money, System.Single comfort);
+public PathfindWeights(float time, float behaviour, float money, float comfort)
+	{
+		m_Value = new float4(time, behaviour, money, comfort);
+	}
 ```
 
 

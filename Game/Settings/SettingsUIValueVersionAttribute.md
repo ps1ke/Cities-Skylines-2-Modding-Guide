@@ -43,7 +43,11 @@ public readonly System.String versionGetterMethod;
 - `public SettingsUIValueVersionAttribute(System.Type versionGetterType, System.String versionGetterMethod)`  
 
 ```csharp
-public SettingsUIValueVersionAttribute(System.Type versionGetterType, System.String versionGetterMethod);
+public SettingsUIValueVersionAttribute(Type versionGetterType, string versionGetterMethod)
+	{
+		this.versionGetterType = versionGetterType;
+		this.versionGetterMethod = versionGetterMethod;
+	}
 ```
 
 

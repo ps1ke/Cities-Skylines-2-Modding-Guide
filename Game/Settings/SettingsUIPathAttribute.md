@@ -36,7 +36,10 @@ public readonly System.String path;
 - `public SettingsUIPathAttribute(System.String overridePath)`  
 
 ```csharp
-public SettingsUIPathAttribute(System.String overridePath);
+public SettingsUIPathAttribute(string overridePath)
+	{
+		path = overridePath;
+	}
 ```
 
 

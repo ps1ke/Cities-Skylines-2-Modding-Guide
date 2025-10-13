@@ -38,7 +38,10 @@ private Game.UI.Tooltip.TooltipUISystem m_TooltipUISystem;
 - `protected TooltipSystemBase()`  
 
 ```csharp
-protected TooltipSystemBase();
+[Preserve]
+	protected TooltipSystemBase()
+	{
+	}
 ```
 
 
@@ -47,25 +50,56 @@ protected TooltipSystemBase();
 - `protected AddGroup(Game.UI.Tooltip.TooltipGroup group) : System.Void`  
 
 ```csharp
-protected System.Void AddGroup(Game.UI.Tooltip.TooltipGroup group);
+protected void AddGroup(TooltipGroup group)
+	{
+		if (group.path != PathSegment.Empty && m_TooltipUISystem.groups.Any((TooltipGroup g) => g.path == group.path))
+		{
+			UnityEngine.Debug.LogError($"Trying to add tooltip group with duplicate path '{group.path}'");
+		}
+		else
+		{
+			m_TooltipUISystem.groups.Add(group);
+		}
+	}
 ```
 
 - `protected AddMouseTooltip(Game.UI.Widgets.IWidget tooltip) : System.Void`  
 
 ```csharp
-protected System.Void AddMouseTooltip(Game.UI.Widgets.IWidget tooltip);
+protected void AddMouseTooltip(IWidget tooltip)
+	{
+		if (tooltip.path != PathSegment.Empty && m_TooltipUISystem.mouseGroup.children.Any((IWidget t) => t.path == tooltip.path))
+		{
+			UnityEngine.Debug.LogError($"Trying to add mouse tooltip with duplicate path '{tooltip.path}'");
+		}
+		else
+		{
+			m_TooltipUISystem.mouseGroup.children.Add(tooltip);
+		}
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_TooltipUISystem = base.World.GetOrCreateSystemManaged<TooltipUISystem>();
+	}
 ```
 
 - `protected static WorldToTooltipPos(UnityEngine.Vector3 worldPos, System.Boolean& onScreen) : Unity.Mathematics.float2`  
 
 ```csharp
-protected static Unity.Mathematics.float2 WorldToTooltipPos(UnityEngine.Vector3 worldPos, System.Boolean& onScreen);
+protected static float2 WorldToTooltipPos(Vector3 worldPos, out bool onScreen)
+	{
+		float2 xy = ((float3)Camera.main.WorldToScreenPoint(worldPos)).xy;
+		xy.y = (float)Screen.height - xy.y;
+		onScreen = xy.x >= 0f && xy.y >= 0f && xy.x <= (float)Screen.width && xy.y <= (float)Screen.height;
+		return xy;
+	}
 ```
 
 

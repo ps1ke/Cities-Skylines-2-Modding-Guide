@@ -58,7 +58,10 @@ private Colossal.IO.AssetDatabase.StreamBinaryReader m_Reader;
 - `public ReadSystem()`  
 
 ```csharp
-public ReadSystem();
+[Preserve]
+	public ReadSystem()
+	{
+	}
 ```
 
 
@@ -67,37 +70,139 @@ public ReadSystem();
 - `private Clear() : System.Void`  
 
 ```csharp
-private System.Void Clear();
+private void Clear()
+	{
+		if (m_Reader != null)
+		{
+			m_Reader.Dispose();
+			m_Reader = null;
+		}
+	}
 ```
 
 - `public GetBuffer(Colossal.Serialization.Entities.BufferFormat format) : Game.Serialization.ReadBuffer`  
 
 ```csharp
-public Game.Serialization.ReadBuffer GetBuffer(Colossal.Serialization.Entities.BufferFormat format);
+public unsafe ReadBuffer GetBuffer(BufferFormat format, out JobHandle dependency)
+	{
+		dependency = default(JobHandle);
+		if (m_DeserializationSystem.dataDescriptor == AsyncReadDescriptor.Invalid)
+		{
+			return null;
+		}
+		if (m_Reader == null)
+		{
+			m_Reader = new StreamBinaryReader(m_DeserializationSystem.dataDescriptor, 65536L);
+		}
+		BufferHeader data = default(BufferHeader);
+		if (format.IsCompressed())
+		{
+			ReadData(m_Reader, out data);
+			m_SerializerSystem.totalSize += sizeof(BufferHeader);
+		}
+		else
+		{
+			ReadData(m_Reader, out data.size);
+			m_SerializerSystem.totalSize += 4;
+		}
+		ReadBuffer readBuffer = new ReadBuffer(data.size);
+		m_SerializerSystem.totalSize += data.size;
+		if (format.IsCompressed())
+		{
+			NativeArray<byte> nativeArray = new NativeArray<byte>(data.compressedSize, Allocator.Persistent);
+			ReadData(m_Reader, nativeArray, out dependency);
+			dependency = CompressionUtils.Decompress(SerializationUtils.BufferToCompressionFormat(format), nativeArray, readBuffer.buffer, dependency);
+			nativeArray.Dispose(dependency);
+		}
+		else if (format == BufferFormat.Raw)
+		{
+			ReadData(m_Reader, readBuffer.buffer, out dependency);
+		}
+		else
+		{
+			COSystemBase.baseLog.WarnFormat("Unsupported BufferFormat {0}", format);
+		}
+		return readBuffer;
+	}
 ```
 
 - `public GetBuffer(Colossal.Serialization.Entities.BufferFormat format, Unity.Jobs.JobHandle& dependency) : Game.Serialization.ReadBuffer`  
 
 ```csharp
-public Game.Serialization.ReadBuffer GetBuffer(Colossal.Serialization.Entities.BufferFormat format, Unity.Jobs.JobHandle& dependency);
+public unsafe ReadBuffer GetBuffer(BufferFormat format, out JobHandle dependency)
+	{
+		dependency = default(JobHandle);
+		if (m_DeserializationSystem.dataDescriptor == AsyncReadDescriptor.Invalid)
+		{
+			return null;
+		}
+		if (m_Reader == null)
+		{
+			m_Reader = new StreamBinaryReader(m_DeserializationSystem.dataDescriptor, 65536L);
+		}
+		BufferHeader data = default(BufferHeader);
+		if (format.IsCompressed())
+		{
+			ReadData(m_Reader, out data);
+			m_SerializerSystem.totalSize += sizeof(BufferHeader);
+		}
+		else
+		{
+			ReadData(m_Reader, out data.size);
+			m_SerializerSystem.totalSize += 4;
+		}
+		ReadBuffer readBuffer = new ReadBuffer(data.size);
+		m_SerializerSystem.totalSize += data.size;
+		if (format.IsCompressed())
+		{
+			NativeArray<byte> nativeArray = new NativeArray<byte>(data.compressedSize, Allocator.Persistent);
+			ReadData(m_Reader, nativeArray, out dependency);
+			dependency = CompressionUtils.Decompress(SerializationUtils.BufferToCompressionFormat(format), nativeArray, readBuffer.buffer, dependency);
+			nativeArray.Dispose(dependency);
+		}
+		else if (format == BufferFormat.Raw)
+		{
+			ReadData(m_Reader, readBuffer.buffer, out dependency);
+		}
+		else
+		{
+			COSystemBase.baseLog.WarnFormat("Unsupported BufferFormat {0}", format);
+		}
+		return readBuffer;
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_DeserializationSystem = base.World.GetOrCreateSystemManaged<LoadGameSystem>();
+		m_SerializerSystem = base.World.GetOrCreateSystemManaged<SerializerSystem>();
+	}
 ```
 
 - `protected virtual OnDestroy() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnDestroy();
+[Preserve]
+	protected override void OnDestroy()
+	{
+		Clear();
+		base.OnDestroy();
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		Clear();
+	}
 ```
 
 - `private static ReadData<T>(Colossal.IO.AssetDatabase.StreamBinaryReader reader, T& data) : System.Void`  
@@ -109,13 +214,21 @@ private static System.Void ReadData<T>(Colossal.IO.AssetDatabase.StreamBinaryRea
 - `private static ReadData(Colossal.IO.AssetDatabase.StreamBinaryReader reader, Unity.Collections.NativeArray<System.Byte> data) : System.Void`  
 
 ```csharp
-private static System.Void ReadData(Colossal.IO.AssetDatabase.StreamBinaryReader reader, Unity.Collections.NativeArray<System.Byte> data);
+private unsafe static void ReadData(StreamBinaryReader reader, NativeArray<byte> data, out JobHandle dependency)
+	{
+		void* unsafePtr = data.GetUnsafePtr();
+		reader.ReadBytes(unsafePtr, data.Length, out dependency);
+	}
 ```
 
 - `private static ReadData(Colossal.IO.AssetDatabase.StreamBinaryReader reader, Unity.Collections.NativeArray<System.Byte> data, Unity.Jobs.JobHandle& dependency) : System.Void`  
 
 ```csharp
-private static System.Void ReadData(Colossal.IO.AssetDatabase.StreamBinaryReader reader, Unity.Collections.NativeArray<System.Byte> data, Unity.Jobs.JobHandle& dependency);
+private unsafe static void ReadData(StreamBinaryReader reader, NativeArray<byte> data, out JobHandle dependency)
+	{
+		void* unsafePtr = data.GetUnsafePtr();
+		reader.ReadBytes(unsafePtr, data.Length, out dependency);
+	}
 ```
 
 

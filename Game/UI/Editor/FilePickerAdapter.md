@@ -128,7 +128,13 @@ public System.Int32 columnCount { get; set; }
 - `public FilePickerAdapter(System.Collections.Generic.IEnumerable<Game.UI.Editor.FileItem> items)`  
 
 ```csharp
-public FilePickerAdapter(System.Collections.Generic.IEnumerable<Game.UI.Editor.FileItem> items);
+public FilePickerAdapter(IEnumerable<FileItem> items)
+	{
+		m_Items = items.ToList();
+		m_Items.Sort();
+		m_FilteredItems = new List<FileItem>(m_Items);
+		m_ColumnCount = (SharedSettings.instance?.editor)?.assetPickerColumnCount ?? 4;
+	}
 ```
 
 
@@ -155,13 +161,33 @@ private System.Boolean Game.UI.Editor.ItemPicker<Game.UI.Editor.FileItem>.IAdapt
 - `public SelectItemByName(System.String name, System.StringComparison comparisonType) : Game.UI.Editor.FileItem`  
 
 ```csharp
-public Game.UI.Editor.FileItem SelectItemByName(System.String name, System.StringComparison comparisonType);
+public FileItem SelectItemByName(string name, StringComparison comparisonType)
+	{
+		m_SelectedItem = m_Items.FirstOrDefault((FileItem item) => item.path.Equals(name, comparisonType));
+		return m_SelectedItem;
+	}
 ```
 
 - `private UpdateFilteredItems() : System.Void`  
 
 ```csharp
-private System.Void UpdateFilteredItems();
+private void UpdateFilteredItems()
+	{
+		m_FilteredItems.Clear();
+		List<FileItem> filteredItems = m_FilteredItems;
+		IEnumerable<FileItem> collection;
+		if (string.IsNullOrEmpty(m_SearchQuery))
+		{
+			IEnumerable<FileItem> items = m_Items;
+			collection = items;
+		}
+		else
+		{
+			collection = m_Items.Where((FileItem item) => item.path.IndexOf(m_SearchQuery, StringComparison.OrdinalIgnoreCase) != -1);
+		}
+		filteredItems.AddRange(collection);
+		m_FilteredItemsChanged = true;
+	}
 ```
 
 

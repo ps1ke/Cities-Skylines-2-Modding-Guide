@@ -58,7 +58,15 @@ private readonly System.Func<Game.SceneFlow.OverlayScreen, System.Boolean> m_Sho
 - `public EnabledActionScoped(Game.SceneFlow.GameManager manager, System.String actionMapName, System.String actionName, System.Func<Game.SceneFlow.OverlayScreen, System.Boolean> shouldBeEnabled = null, System.String displayProperty = null, System.Int32 displayPriority = 20)`  
 
 ```csharp
-public EnabledActionScoped(Game.SceneFlow.GameManager manager, System.String actionMapName, System.String actionName, System.Func<Game.SceneFlow.OverlayScreen, System.Boolean> shouldBeEnabled, System.String displayProperty, System.Int32 displayPriority);
+public EnabledActionScoped(GameManager manager, string actionMapName, string actionName, Func<OverlayScreen, bool> shouldBeEnabled = null, string displayProperty = null, int displayPriority = 20)
+	{
+		m_Proxy = Game.Input.InputManager.instance.FindAction(actionMapName, actionName);
+		m_Bindings = manager.userInterface.overlayBindings;
+		m_NameOverride = new DisplayNameOverride("EnabledActionScoped", m_Proxy, displayProperty, displayPriority);
+		Assert.IsNotNull(m_Proxy);
+		m_ShouldBeEnabled = shouldBeEnabled;
+		m_Bindings.onScreenActivated += HandleScreenChange;
+	}
 ```
 
 
@@ -67,13 +75,23 @@ public EnabledActionScoped(Game.SceneFlow.GameManager manager, System.String act
 - `public Dispose() : System.Void`  
 
 ```csharp
-public System.Void Dispose();
+public void Dispose()
+	{
+		m_Bindings.onScreenActivated -= HandleScreenChange;
+		m_Proxy.enabled = false;
+		m_NameOverride.Dispose();
+	}
 ```
 
 - `private HandleScreenChange(Game.SceneFlow.OverlayScreen screen) : System.Void`  
 
 ```csharp
-private System.Void HandleScreenChange(Game.SceneFlow.OverlayScreen screen);
+private void HandleScreenChange(OverlayScreen screen)
+	{
+		bool flag = m_ShouldBeEnabled == null || m_ShouldBeEnabled(screen);
+		m_Proxy.enabled = flag;
+		m_NameOverride.active = flag;
+	}
 ```
 
 

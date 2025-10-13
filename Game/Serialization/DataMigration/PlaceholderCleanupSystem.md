@@ -68,7 +68,10 @@ private Game.Serialization.DataMigration.PlaceholderCleanupSystem+TypeHandle __T
 - `public PlaceholderCleanupSystem()`  
 
 ```csharp
-public PlaceholderCleanupSystem();
+[Preserve]
+	public PlaceholderCleanupSystem()
+	{
+	}
 ```
 
 
@@ -77,25 +80,65 @@ public PlaceholderCleanupSystem();
 - `private __AssignQueries(Unity.Entities.SystemState& state) : System.Void`  
 
 ```csharp
-private System.Void __AssignQueries(Unity.Entities.SystemState& state);
+private void __AssignQueries(ref SystemState state)
+	{
+		new EntityQueryBuilder(Allocator.Temp).Dispose();
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_LoadGameSystem = base.World.GetOrCreateSystemManaged<LoadGameSystem>();
+		m_DeserializationBarrier = base.World.GetOrCreateSystemManaged<DeserializationBarrier>();
+		m_Query = GetEntityQuery(ComponentType.ReadOnly<Placeholder>(), ComponentType.ReadOnly<Building>(), ComponentType.ReadOnly<Renter>());
+		m_ComponentSet = new ComponentTypeSet(new ComponentType[7]
+		{
+			ComponentType.ReadWrite<Renter>(),
+			ComponentType.ReadWrite<PropertyToBeOnMarket>(),
+			ComponentType.ReadWrite<PropertyOnMarket>(),
+			ComponentType.ReadWrite<ElectricityConsumer>(),
+			ComponentType.ReadWrite<WaterConsumer>(),
+			ComponentType.ReadWrite<GarbageProducer>(),
+			ComponentType.ReadWrite<TelecomConsumer>()
+		});
+	}
 ```
 
 - `protected virtual OnCreateForCompiler() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreateForCompiler();
+protected override void OnCreateForCompiler()
+	{
+		base.OnCreateForCompiler();
+		__AssignQueries(ref base.CheckedStateRef);
+		__TypeHandle.__AssignHandles(ref base.CheckedStateRef);
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		if (!(m_LoadGameSystem.context.version >= Version.placeholderCleanup) && !m_Query.IsEmptyIgnoreFilter)
+		{
+			JobHandle jobHandle = JobChunkExtensions.ScheduleParallel(new PlaceholderCleanupJob
+			{
+				m_EntityType = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef),
+				m_IconElementType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Notifications_IconElement_RO_BufferTypeHandle, ref base.CheckedStateRef),
+				m_ComponentSet = m_ComponentSet,
+				m_CommandBuffer = m_DeserializationBarrier.CreateCommandBuffer().AsParallelWriter()
+			}, m_Query, base.Dependency);
+			m_DeserializationBarrier.AddJobHandleForProducer(jobHandle);
+			base.Dependency = jobHandle;
+		}
+	}
 ```
 
 

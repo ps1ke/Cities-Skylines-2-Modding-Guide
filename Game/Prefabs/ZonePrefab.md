@@ -89,25 +89,68 @@ private System.Collections.Generic.IEnumerable<System.String> <>n__0();
 - `public GetBuildingArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components, Game.Prefabs.BuildingPrefab buildingPrefab, System.Byte level) : System.Void`  
 
 ```csharp
-public System.Void GetBuildingArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components, Game.Prefabs.BuildingPrefab buildingPrefab, System.Byte level);
+public void GetBuildingArchetypeComponents(HashSet<ComponentType> components, BuildingPrefab buildingPrefab, byte level)
+	{
+		List<IZoneBuildingComponent> list = new List<IZoneBuildingComponent>();
+		if (!base.prefab.TryGet(list))
+		{
+			return;
+		}
+		foreach (IZoneBuildingComponent item in list)
+		{
+			item.GetBuildingArchetypeComponents(components, buildingPrefab, level);
+		}
+	}
 ```
 
 - `public GetBuildingPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components, Game.Prefabs.BuildingPrefab buildingPrefab, System.Byte level) : System.Void`  
 
 ```csharp
-public System.Void GetBuildingPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components, Game.Prefabs.BuildingPrefab buildingPrefab, System.Byte level);
+public void GetBuildingPrefabComponents(HashSet<ComponentType> components, BuildingPrefab buildingPrefab, byte level)
+	{
+		if (m_Office)
+		{
+			components.Add(ComponentType.ReadWrite<OfficeBuilding>());
+		}
+		List<IZoneBuildingComponent> list = new List<IZoneBuildingComponent>();
+		if (!base.prefab.TryGet(list))
+		{
+			return;
+		}
+		foreach (IZoneBuildingComponent item in list)
+		{
+			item.GetBuildingPrefabComponents(components, buildingPrefab, level);
+		}
+	}
 ```
 
 - `public virtual GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetPrefabComponents(HashSet<ComponentType> components)
+	{
+		base.GetPrefabComponents(components);
+		components.Add(ComponentType.ReadWrite<ZoneData>());
+		components.Add(ComponentType.ReadWrite<PlaceableInfoviewItem>());
+		components.Add(ComponentType.ReadWrite<ProcessEstimate>());
+	}
 ```
 
 - `public InitializeBuilding(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity, Game.Prefabs.BuildingPrefab buildingPrefab, System.Byte level) : System.Void`  
 
 ```csharp
-public System.Void InitializeBuilding(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity, Game.Prefabs.BuildingPrefab buildingPrefab, System.Byte level);
+public void InitializeBuilding(EntityManager entityManager, Entity entity, BuildingPrefab buildingPrefab, byte level)
+	{
+		List<IZoneBuildingComponent> list = new List<IZoneBuildingComponent>();
+		if (!base.prefab.TryGet(list))
+		{
+			return;
+		}
+		foreach (IZoneBuildingComponent item in list)
+		{
+			item.InitializeBuilding(entityManager, entity, buildingPrefab, level);
+		}
+	}
 ```
 
 

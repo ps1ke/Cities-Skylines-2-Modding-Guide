@@ -90,7 +90,13 @@ public System.Int32 count { get; }
 - `public NotificationInfo(Game.UI.InGame.Notification notification)`  
 
 ```csharp
-public NotificationInfo(Game.UI.InGame.Notification notification);
+public NotificationInfo(Notification notification)
+	{
+		entity = notification.entity;
+		target = notification.target;
+		priority = (int)notification.priority;
+		m_Targets = new List<Entity>(10) { notification.target };
+	}
 ```
 
 
@@ -99,13 +105,22 @@ public NotificationInfo(Game.UI.InGame.Notification notification);
 - `public AddTarget(Unity.Entities.Entity otherTarget) : System.Void`  
 
 ```csharp
-public System.Void AddTarget(Unity.Entities.Entity otherTarget);
+public void AddTarget(Entity otherTarget)
+	{
+		if (!m_Targets.Contains(otherTarget))
+		{
+			m_Targets.Add(otherTarget);
+		}
+	}
 ```
 
 - `public CompareTo(Game.UI.InGame.NotificationInfo other) : System.Int32`  
 
 ```csharp
-public System.Int32 CompareTo(Game.UI.InGame.NotificationInfo other);
+public int CompareTo(NotificationInfo other)
+	{
+		return priority - other.priority;
+	}
 ```
 
 

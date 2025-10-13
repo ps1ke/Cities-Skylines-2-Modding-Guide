@@ -53,13 +53,38 @@ public CharacterGroup();
 - `public virtual GetDependencies(System.Collections.Generic.List<Game.Prefabs.PrefabBase> prefabs) : System.Void`  
 
 ```csharp
-public virtual System.Void GetDependencies(System.Collections.Generic.List<Game.Prefabs.PrefabBase> prefabs);
+public override void GetDependencies(List<PrefabBase> prefabs)
+	{
+		base.GetDependencies(prefabs);
+		Character[] characters = m_Characters;
+		foreach (Character character in characters)
+		{
+			prefabs.Add(character.m_Style);
+			RenderPrefab[] meshPrefabs = character.m_MeshPrefabs;
+			foreach (RenderPrefab item in meshPrefabs)
+			{
+				prefabs.Add(item);
+			}
+		}
+		if (m_Overrides != null)
+		{
+			OverrideInfo[] overrides = m_Overrides;
+			foreach (OverrideInfo overrideInfo in overrides)
+			{
+				prefabs.Add(overrideInfo.m_Group);
+			}
+		}
+	}
 ```
 
 - `public virtual GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetPrefabComponents(HashSet<ComponentType> components)
+	{
+		base.GetPrefabComponents(components);
+		components.Add(ComponentType.ReadWrite<CharacterGroupData>());
+	}
 ```
 
 

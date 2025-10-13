@@ -156,7 +156,16 @@ protected GradientInfomodeBasePrefab();
 - `public virtual GetColors(UnityEngine.Color& color0, UnityEngine.Color& color1, UnityEngine.Color& color2, System.Single& steps, System.Single& speed, System.Single& tiling, System.Single& fill) : System.Void`  
 
 ```csharp
-public virtual System.Void GetColors(UnityEngine.Color& color0, UnityEngine.Color& color1, UnityEngine.Color& color2, System.Single& steps, System.Single& speed, System.Single& tiling, System.Single& fill);
+public override void GetColors(out Color color0, out Color color1, out Color color2, out float steps, out float speed, out float tiling, out float fill)
+	{
+		color0 = m_Low;
+		color1 = m_Medium;
+		color2 = m_High;
+		steps = m_Steps;
+		speed = 0f;
+		tiling = 0f;
+		fill = 0f;
+	}
 ```
 
 - `private static GetLabel(System.String id) : System.Nullable<Game.UI.Localization.LocalizedString>`  
@@ -168,7 +177,11 @@ private static System.Nullable<Game.UI.Localization.LocalizedString> GetLabel(Sy
 - `private static Opaque(UnityEngine.Color color) : UnityEngine.Color`  
 
 ```csharp
-private static UnityEngine.Color Opaque(UnityEngine.Color color);
+private static Color Opaque(Color color)
+	{
+		color.a = 1f;
+		return color;
+	}
 ```
 
 

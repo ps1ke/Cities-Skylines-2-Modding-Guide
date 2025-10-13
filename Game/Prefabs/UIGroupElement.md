@@ -37,7 +37,10 @@ public Unity.Entities.Entity m_Prefab;
 - `public UIGroupElement(Unity.Entities.Entity prefab)`  
 
 ```csharp
-public UIGroupElement(Unity.Entities.Entity prefab);
+public UIGroupElement(Entity prefab)
+	{
+		m_Prefab = prefab;
+	}
 ```
 
 

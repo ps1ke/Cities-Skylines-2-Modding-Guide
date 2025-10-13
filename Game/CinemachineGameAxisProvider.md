@@ -53,13 +53,26 @@ public CinemachineGameAxisProvider();
 - `private Awake() : System.Void`  
 
 ```csharp
-private System.Void Awake();
+private void Awake()
+	{
+		m_RotateAction = InputManager.instance.FindAction("Camera", "Rotate");
+		m_ZoomAction = InputManager.instance.FindAction("Camera", "Zoom");
+	}
 ```
 
 - `public GetAxisValue(System.Int32 axis) : System.Single`  
 
 ```csharp
-public System.Single GetAxisValue(System.Int32 axis);
+public float GetAxisValue(int axis)
+	{
+		return axis switch
+		{
+			0 => m_RotateAction.ReadRawValue<Vector2>(disableAll: false).x, 
+			1 => m_RotateAction.ReadRawValue<Vector2>(disableAll: false).y, 
+			2 => m_ZoomAction.ReadRawValue<float>(disableAll: false), 
+			_ => 0f, 
+		};
+	}
 ```
 
 

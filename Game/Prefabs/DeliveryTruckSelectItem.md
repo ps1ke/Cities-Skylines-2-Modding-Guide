@@ -76,7 +76,10 @@ public Unity.Entities.Entity m_Prefab4;
 - `public CompareTo(Game.Prefabs.DeliveryTruckSelectItem other) : System.Int32`  
 
 ```csharp
-public System.Int32 CompareTo(Game.Prefabs.DeliveryTruckSelectItem other);
+public int CompareTo(DeliveryTruckSelectItem other)
+	{
+		return m_Capacity - other.m_Capacity;
+	}
 ```
 
 

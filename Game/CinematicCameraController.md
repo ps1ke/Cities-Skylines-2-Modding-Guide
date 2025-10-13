@@ -228,31 +228,101 @@ public CinematicCameraController();
 - `private Awake() : System.Void`  
 
 ```csharp
-private System.Void Awake();
+private async void Awake()
+	{
+		if (await GameManager.instance.WaitForReadyState())
+		{
+			m_Anchor = new GameObject("CinematicCameraControllerAnchor").transform;
+			m_VCam = GetComponent<CinemachineVirtualCamera>();
+			m_VCam.Follow = m_Anchor;
+			m_RestrictToTerrain = GetComponent<CinemachineRestrictToTerrain>();
+			m_CameraInput = GetComponent<CameraInput>();
+			if (m_CameraInput != null)
+			{
+				m_CameraInput.Initialize();
+			}
+			m_CameraUpdateSystem = World.DefaultGameObjectInjectionWorld.GetOrCreateSystemManaged<CameraUpdateSystem>();
+			m_CameraUpdateSystem.cinematicCameraController = this;
+			base.gameObject.SetActive(value: false);
+		}
+	}
 ```
 
 - `private OnDestroy() : System.Void`  
 
 ```csharp
-private System.Void OnDestroy();
+private void OnDestroy()
+	{
+		if (m_Anchor != null)
+		{
+			UnityEngine.Object.Destroy(m_Anchor.gameObject);
+		}
+		if (m_CameraUpdateSystem != null)
+		{
+			m_CameraUpdateSystem.cinematicCameraController = null;
+		}
+	}
 ```
 
 - `public TryMatchPosition(Game.Rendering.IGameCameraController other) : System.Void`  
 
 ```csharp
-public System.Void TryMatchPosition(Game.Rendering.IGameCameraController other);
+public void TryMatchPosition(IGameCameraController other)
+	{
+		position = other.position;
+		rotation = other.rotation;
+	}
 ```
 
 - `public UpdateCamera() : System.Void`  
 
 ```csharp
-public System.Void UpdateCamera();
+public void UpdateCamera()
+	{
+		if (m_CameraInput != null)
+		{
+			m_CameraInput.Refresh();
+			if (m_CameraInput.any)
+			{
+				eventCameraMove?.Invoke();
+			}
+			if (inputEnabled)
+			{
+				UpdateController(m_CameraInput);
+			}
+		}
+		AudioManager.instance?.UpdateAudioListener(base.transform.position, base.transform.rotation);
+	}
 ```
 
 - `private UpdateController(Game.CameraInput input) : System.Void`  
 
 ```csharp
-private System.Void UpdateController(Game.CameraInput input);
+private void UpdateController(CameraInput input)
+	{
+		m_RestrictToTerrain.Refresh();
+		Vector3 vector = m_Anchor.position;
+		m_RestrictToTerrain.ClampToTerrain(vector, restrictToMapArea: true, out var terrainHeight);
+		float t = Mathf.Min(vector.y - terrainHeight, m_MaxMovementSpeedHeight) / m_MaxMovementSpeedHeight;
+		Vector2 move = input.move;
+		move *= Mathf.Lerp(m_MinMoveSpeed, m_MaxMoveSpeed, t);
+		Vector2 vector2 = input.rotate * m_RotateSpeed;
+		float num = input.zoom * Mathf.Lerp(m_MinZoomSpeed, m_MaxZoomSpeed, t);
+		Vector3 eulerAngles = m_Anchor.rotation.eulerAngles;
+		vector += Quaternion.AngleAxis(eulerAngles.y, Vector3.up) * new Vector3(move.x, 0f - num, move.y);
+		vector = m_RestrictToTerrain.ClampToTerrain(vector, restrictToMapArea: true, out var terrainHeight2);
+		vector.y = Mathf.Min(vector.y, terrainHeight2 + m_MaxHeight);
+		Quaternion quaternion = Quaternion.Euler(Mathf.Clamp((eulerAngles.x + 90f) % 360f - vector2.y, 0f, 180f) - 90f, eulerAngles.y + vector2.x, 0f);
+		if (m_RestrictToTerrain.enableObjectCollisions && m_RestrictToTerrain.CheckForCollision(vector, m_RestrictToTerrain.previousPosition, quaternion, out var vector3))
+		{
+			m_Anchor.position = vector3;
+		}
+		else
+		{
+			m_Anchor.position = vector;
+		}
+		m_Anchor.rotation = quaternion;
+	}
 ```
 
 

@@ -85,13 +85,44 @@ public ProgressIndicator();
 - `protected virtual Update() : Game.UI.Widgets.WidgetChanges`  
 
 ```csharp
-protected virtual Game.UI.Widgets.WidgetChanges Update();
+protected override WidgetChanges Update()
+	{
+		WidgetChanges widgetChanges = base.Update();
+		if (this.state != null)
+		{
+			State state = this.state();
+			if (state != m_State)
+			{
+				m_State = state;
+				widgetChanges |= WidgetChanges.Properties;
+			}
+		}
+		if (progress != null)
+		{
+			float a = progress();
+			if (!Mathf.Approximately(a, m_Progress))
+			{
+				m_Progress = a;
+				widgetChanges |= WidgetChanges.Properties;
+			}
+		}
+		return widgetChanges;
+	}
 ```
 
 - `protected virtual WriteProperties(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-protected virtual System.Void WriteProperties(Colossal.UI.Binding.IJsonWriter writer);
+protected override void WriteProperties(IJsonWriter writer)
+	{
+		base.WriteProperties(writer);
+		writer.PropertyName("state");
+		writer.Write((int)m_State);
+		writer.PropertyName("progress");
+		writer.Write(m_Progress);
+		writer.PropertyName("indeterminate");
+		writer.Write(progress == null);
+	}
 ```
 
 

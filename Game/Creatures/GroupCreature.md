@@ -35,7 +35,10 @@ public Unity.Entities.Entity m_Creature;
 - `public GroupCreature(Unity.Entities.Entity creature)`  
 
 ```csharp
-public GroupCreature(Unity.Entities.Entity creature);
+public GroupCreature(Entity creature)
+	{
+		m_Creature = creature;
+	}
 ```
 
 

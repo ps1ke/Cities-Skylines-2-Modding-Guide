@@ -37,7 +37,10 @@ public Game.Vehicles.CarFlags m_Flags;
 - `public Car(Game.Vehicles.CarFlags flags)`  
 
 ```csharp
-public Car(Game.Vehicles.CarFlags flags);
+public Car(CarFlags flags)
+	{
+		m_Flags = flags;
+	}
 ```
 
 

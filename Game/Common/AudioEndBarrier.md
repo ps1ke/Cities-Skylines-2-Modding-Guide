@@ -24,7 +24,10 @@ public class AudioEndBarrier : Game.SafeCommandBufferSystem
 - `public AudioEndBarrier()`  
 
 ```csharp
-public AudioEndBarrier();
+[Preserve]
+	public AudioEndBarrier()
+	{
+	}
 ```
 
 
@@ -33,7 +36,11 @@ public AudioEndBarrier();
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		base.OnUpdate();
+	}
 ```
 
 

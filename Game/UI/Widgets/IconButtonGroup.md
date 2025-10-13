@@ -63,7 +63,13 @@ public IconButtonGroup();
 - `public static WithChildren(Game.UI.Widgets.IconButton[] children) : Game.UI.Widgets.IconButtonGroup`  
 
 ```csharp
-public static Game.UI.Widgets.IconButtonGroup WithChildren(Game.UI.Widgets.IconButton[] children);
+public static IconButtonGroup WithChildren(IconButton[] children)
+	{
+		return new IconButtonGroup
+		{
+			children = children
+		};
+	}
 ```
 
 

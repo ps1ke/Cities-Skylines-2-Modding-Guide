@@ -65,7 +65,14 @@ public Game.Simulation.TaxiRequestType m_Type;
 - `public TaxiRequest(Unity.Entities.Entity seeker, Unity.Entities.Entity district1, Unity.Entities.Entity district2, Game.Simulation.TaxiRequestType type, System.Int32 priority)`  
 
 ```csharp
-public TaxiRequest(Unity.Entities.Entity seeker, Unity.Entities.Entity district1, Unity.Entities.Entity district2, Game.Simulation.TaxiRequestType type, System.Int32 priority);
+public TaxiRequest(Entity seeker, Entity district1, Entity district2, TaxiRequestType type, int priority)
+	{
+		m_Seeker = seeker;
+		m_District1 = district1;
+		m_District2 = district2;
+		m_Priority = priority;
+		m_Type = type;
+	}
 ```
 
 

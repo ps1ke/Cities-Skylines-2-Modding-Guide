@@ -113,13 +113,45 @@ public EditorSection();
 - `protected virtual Update() : Game.UI.Widgets.WidgetChanges`  
 
 ```csharp
-protected virtual Game.UI.Widgets.WidgetChanges Update();
+protected override WidgetChanges Update()
+	{
+		WidgetChanges widgetChanges = base.Update();
+		bool flag = active?.GetTypedValue() ?? true;
+		if (flag != m_Active)
+		{
+			widgetChanges |= WidgetChanges.Properties;
+			m_Active = flag;
+		}
+		return widgetChanges;
+	}
 ```
 
 - `protected virtual WriteProperties(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-protected virtual System.Void WriteProperties(Colossal.UI.Binding.IJsonWriter writer);
+protected override void WriteProperties(IJsonWriter writer)
+	{
+		base.WriteProperties(writer);
+		writer.PropertyName("expandable");
+		writer.Write(base.children.Count != 0);
+		writer.PropertyName("deletable");
+		writer.Write(onDelete != null);
+		writer.PropertyName("activatable");
+		writer.Write(active != null);
+		writer.PropertyName("active");
+		writer.Write(m_Active);
+		writer.PropertyName("primary");
+		writer.Write(primary);
+		writer.PropertyName("color");
+		if (color.HasValue)
+		{
+			writer.Write(color.Value);
+		}
+		else
+		{
+			writer.WriteNull();
+		}
+	}
 ```
 
 

@@ -98,7 +98,19 @@ public GameModeInfo();
 - `public Write(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-public System.Void Write(Colossal.UI.Binding.IJsonWriter writer);
+public void Write(IJsonWriter writer)
+	{
+		writer.TypeBegin(typeof(GameModeInfo).FullName);
+		writer.PropertyName("id");
+		writer.Write(id);
+		writer.PropertyName("image");
+		writer.Write(image);
+		writer.PropertyName("decorateImage");
+		writer.Write(decorateImage);
+		writer.PropertyName("descriptions");
+		writer.Write((IList<LocalizedString>)descriptions);
+		writer.TypeEnd();
+	}
 ```
 
 

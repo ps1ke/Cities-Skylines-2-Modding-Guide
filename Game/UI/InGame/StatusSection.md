@@ -104,7 +104,10 @@ private Game.UI.InGame.CitizenHappiness happiness { private get; private set; }
 - `public StatusSection()`  
 
 ```csharp
-public StatusSection();
+[Preserve]
+	public StatusSection()
+	{
+	}
 ```
 
 
@@ -113,43 +116,124 @@ public StatusSection();
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		conditions = new NativeList<CitizenCondition>(Allocator.Persistent);
+		notifications = new NativeList<Notification>(Allocator.Persistent);
+		m_ImageSystem = base.World.GetOrCreateSystemManaged<ImageSystem>();
+	}
 ```
 
 - `protected virtual OnDestroy() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnDestroy();
+[Preserve]
+	protected override void OnDestroy()
+	{
+		conditions.Dispose();
+		notifications.Dispose();
+		base.OnDestroy();
+	}
 ```
 
 - `protected virtual OnProcess() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnProcess();
+protected override void OnProcess()
+	{
+		Citizen componentData = base.EntityManager.GetComponentData<Citizen>(selectedEntity);
+		HouseholdMember componentData2 = base.EntityManager.GetComponentData<HouseholdMember>(selectedEntity);
+		happiness = CitizenUIUtils.GetCitizenHappiness(componentData);
+		conditions = CitizenUIUtils.GetCitizenConditions(base.EntityManager, selectedEntity, componentData, componentData2, conditions);
+		notifications = NotificationsSection.GetNotifications(base.EntityManager, selectedEntity, notifications);
+		if (base.EntityManager.TryGetComponent<CurrentTransport>(selectedEntity, out var component))
+		{
+			notifications = NotificationsSection.GetNotifications(base.EntityManager, component.m_CurrentTransport, notifications);
+		}
+		m_Dead = CitizenUtils.IsDead(base.EntityManager, selectedEntity);
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		base.visible = Visible();
+	}
 ```
 
 - `public virtual OnWriteProperties(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-public virtual System.Void OnWriteProperties(Colossal.UI.Binding.IJsonWriter writer);
+public override void OnWriteProperties(IJsonWriter writer)
+	{
+		writer.PropertyName("happiness");
+		if (m_Dead)
+		{
+			writer.WriteNull();
+		}
+		else
+		{
+			writer.Write(happiness);
+		}
+		writer.PropertyName("conditions");
+		if (m_Dead)
+		{
+			writer.WriteEmptyArray();
+		}
+		else
+		{
+			writer.ArrayBegin(conditions.Length);
+			for (int i = 0; i < conditions.Length; i++)
+			{
+				writer.Write(conditions[i]);
+			}
+			writer.ArrayEnd();
+		}
+		writer.PropertyName("notifications");
+		writer.ArrayBegin(notifications.Length);
+		for (int j = 0; j < notifications.Length; j++)
+		{
+			Entity entity = notifications[j].entity;
+			NotificationIconPrefab prefab = m_PrefabSystem.GetPrefab<NotificationIconPrefab>(entity);
+			writer.TypeBegin("selectedInfo.NotificationData");
+			writer.PropertyName("key");
+			writer.Write(prefab.name);
+			writer.PropertyName("iconPath");
+			writer.Write(ImageSystem.GetIcon(prefab) ?? m_ImageSystem.placeholderIcon);
+			writer.TypeEnd();
+		}
+		writer.ArrayEnd();
+	}
 ```
 
 - `protected virtual Reset() : System.Void`  
 
 ```csharp
-protected virtual System.Void Reset();
+protected override void Reset()
+	{
+		conditions.Clear();
+		notifications.Clear();
+		happiness = default(CitizenHappiness);
+		m_Dead = false;
+	}
 ```
 
 - `private Visible() : System.Boolean`  
 
 ```csharp
-private System.Boolean Visible();
+private bool Visible()
+	{
+		if (base.EntityManager.HasComponent<Citizen>(selectedEntity))
+		{
+			return base.EntityManager.HasComponent<HouseholdMember>(selectedEntity);
+		}
+		return false;
+	}
 ```
 
 

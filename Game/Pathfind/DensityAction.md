@@ -36,7 +36,10 @@ public Unity.Collections.NativeQueue<Game.Pathfind.DensityActionData> m_DensityD
 - `public DensityAction(Unity.Collections.Allocator allocator)`  
 
 ```csharp
-public DensityAction(Unity.Collections.Allocator allocator);
+public DensityAction(Allocator allocator)
+	{
+		m_DensityData = new NativeQueue<DensityActionData>(allocator);
+	}
 ```
 
 
@@ -45,7 +48,10 @@ public DensityAction(Unity.Collections.Allocator allocator);
 - `public Dispose() : System.Void`  
 
 ```csharp
-public System.Void Dispose();
+public void Dispose()
+	{
+		m_DensityData.Dispose();
+	}
 ```
 
 

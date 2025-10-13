@@ -200,61 +200,135 @@ public RenderPrefab();
 - `public virtual GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetPrefabComponents(HashSet<ComponentType> components)
+	{
+		base.GetPrefabComponents(components);
+		components.Add(ComponentType.ReadWrite<MeshData>());
+		components.Add(ComponentType.ReadWrite<SharedMeshData>());
+		components.Add(ComponentType.ReadWrite<BatchGroup>());
+		if (isImpostor)
+		{
+			components.Add(ComponentType.ReadWrite<ImpostorData>());
+		}
+	}
 ```
 
 - `public GetSurfaceAsset(System.Int32 index) : Colossal.IO.AssetDatabase.SurfaceAsset`  
 
 ```csharp
-public Colossal.IO.AssetDatabase.SurfaceAsset GetSurfaceAsset(System.Int32 index);
+public SurfaceAsset GetSurfaceAsset(int index)
+	{
+		return m_SurfaceAssets[index];
+	}
 ```
 
 - `public ObtainMaterial(System.Int32 i, System.Boolean useVT = True) : UnityEngine.Material`  
 
 ```csharp
-public UnityEngine.Material ObtainMaterial(System.Int32 i, System.Boolean useVT);
+public Material ObtainMaterial(int i, bool useVT = true)
+	{
+		Material[] array = ObtainMaterials(useVT);
+		if (i < 0 || i >= array.Length)
+		{
+			throw new IndexOutOfRangeException($"i {i} is out of material range (length: {array.Length}) in {base.name}");
+		}
+		return array[i];
+	}
 ```
 
 - `public ObtainMaterials(System.Boolean useVT = True) : UnityEngine.Material[]`  
 
 ```csharp
-public UnityEngine.Material[] ObtainMaterials(System.Boolean useVT);
+public Material[] ObtainMaterials(bool useVT = true)
+	{
+		ComponentBase.baseLog.TraceFormat(this, "ObtainMaterials {0}", base.name);
+		if (m_MaterialsContainer == null || m_MaterialsContainer.Length != materialCount)
+		{
+			m_MaterialsContainer = new Material[materialCount];
+		}
+		for (int i = 0; i < materialCount; i++)
+		{
+			SurfaceAsset surfaceAsset = m_SurfaceAssets[i];
+			m_MaterialsContainer[i] = surfaceAsset.Load(-1, loadTextures: true, TextureAsset.KeepOnCPU.Dont, useVT);
+		}
+		return m_MaterialsContainer;
+	}
 ```
 
 - `public ObtainMesh(System.Int32 materialIndex, System.Int32& subMeshIndex) : UnityEngine.Mesh`  
 
 ```csharp
-public UnityEngine.Mesh ObtainMesh(System.Int32 materialIndex, System.Int32& subMeshIndex);
+public Mesh ObtainMesh(int materialIndex, out int subMeshIndex)
+	{
+		ComponentBase.baseLog.TraceFormat(this, "ObtainMesh {0}", base.name);
+		subMeshIndex = materialIndex;
+		if (hasGeometryAsset)
+		{
+			Mesh[] array = geometryAsset?.ObtainMeshes();
+			if (array != null)
+			{
+				Mesh[] array2 = array;
+				foreach (Mesh mesh in array2)
+				{
+					if (materialIndex < mesh.subMeshCount)
+					{
+						subMeshIndex = materialIndex;
+						return mesh;
+					}
+					materialIndex -= mesh.subMeshCount;
+				}
+			}
+		}
+		return null;
+	}
 ```
 
 - `public ObtainMeshes() : UnityEngine.Mesh[]`  
 
 ```csharp
-public UnityEngine.Mesh[] ObtainMeshes();
+public Mesh[] ObtainMeshes()
+	{
+		ComponentBase.baseLog.TraceFormat(this, "ObtainMeshes {0}", base.name);
+		return geometryAsset?.ObtainMeshes();
+	}
 ```
 
 - `public Release() : System.Void`  
 
 ```csharp
-public System.Void Release();
+public void Release()
+	{
+		ReleaseMeshes();
+		ReleaseMaterials();
+	}
 ```
 
 - `public ReleaseMaterials() : System.Void`  
 
 ```csharp
-public System.Void ReleaseMaterials();
+public void ReleaseMaterials()
+	{
+		ComponentBase.baseLog.TraceFormat(this, "ReleaseMaterials {0}", base.name);
+	}
 ```
 
 - `public ReleaseMeshes() : System.Void`  
 
 ```csharp
-public System.Void ReleaseMeshes();
+public void ReleaseMeshes()
+	{
+		ComponentBase.baseLog.TraceFormat(this, "ReleaseMeshes {0}", base.name);
+		geometryAsset?.ReleaseMeshes();
+	}
 ```
 
 - `public SetSurfaceAsset(System.Int32 index, Colossal.IO.AssetDatabase.SurfaceAsset value) : System.Void`  
 
 ```csharp
-public System.Void SetSurfaceAsset(System.Int32 index, Colossal.IO.AssetDatabase.SurfaceAsset value);
+public void SetSurfaceAsset(int index, SurfaceAsset value)
+	{
+		m_SurfaceAssets[index] = value;
+	}
 ```
 
 

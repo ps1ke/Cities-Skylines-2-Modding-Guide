@@ -87,7 +87,10 @@ public System.Boolean isStarted { get; }
 - `public StateMachine(System.String name = null)`  
 
 ```csharp
-public StateMachine(System.String name);
+public StateMachine(string name = null)
+	{
+		m_name = name;
+	}
 ```
 
 
@@ -96,7 +99,18 @@ public StateMachine(System.String name);
 - `public GetCurrentStateName() : System.String`  
 
 ```csharp
-public System.String GetCurrentStateName();
+public string GetCurrentStateName()
+	{
+		if (_currentState != null)
+		{
+			if (!string.IsNullOrEmpty(_currentState.Name))
+			{
+				return _currentState.Name;
+			}
+			return _currentState.ToString();
+		}
+		return "none";
+	}
 ```
 
 - `public IsIn<T>() : System.Boolean`  
@@ -108,31 +122,82 @@ public System.Boolean IsIn<T>();
 - `public LateUpdate() : System.Void`  
 
 ```csharp
-public System.Void LateUpdate();
+public void LateUpdate()
+	{
+		if (isStarted)
+		{
+			_currentState.LateUpdate();
+		}
+	}
 ```
 
 - `public virtual Start(Game.Rendering.Utilities.State initialState) : System.Void`  
 
 ```csharp
-public virtual System.Void Start(Game.Rendering.Utilities.State initialState);
+public virtual void Start(State initialState)
+	{
+		if (!isStarted && initialState != null)
+		{
+			TransitionTo(initialState);
+			onStarted.Fire();
+			return;
+		}
+		throw new Exception("already started");
+	}
 ```
 
 - `public virtual Stop() : System.Void`  
 
 ```csharp
-public virtual System.Void Stop();
+public virtual void Stop()
+	{
+		if (isStarted)
+		{
+			if (_currentState != null)
+			{
+				_currentState.TransitionOut();
+				_currentState = null;
+			}
+			onStopped.Fire();
+		}
+	}
 ```
 
 - `private TransitionTo(Game.Rendering.Utilities.State state) : System.Void`  
 
 ```csharp
-private System.Void TransitionTo(Game.Rendering.Utilities.State state);
+private void TransitionTo(State state)
+	{
+		_currentState?.TransitionOut();
+		_currentState = state;
+		_currentState.machine = this;
+		_currentState.TransitionIn();
+		onTransitioned.Fire(_currentState);
+		Update();
+	}
 ```
 
 - `public Update() : System.Void`  
 
 ```csharp
-public System.Void Update();
+public void Update()
+	{
+		if (isStarted)
+		{
+			State.Result result = _currentState.Update();
+			switch (result.type)
+			{
+			case State.ResultType.Stop:
+				Stop();
+				break;
+			case State.ResultType.Transition:
+				TransitionTo(result.next);
+				break;
+			case State.ResultType.Continue:
+				break;
+			}
+		}
+	}
 ```
 
 

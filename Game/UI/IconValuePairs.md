@@ -35,7 +35,10 @@ private Game.UI.IconValuePairs+IconValuePair[] iconValuePairArray;
 - `public IconValuePairs(Game.UI.IconValuePairs+IconValuePair[] iconValuePairArray)`  
 
 ```csharp
-public IconValuePairs(Game.UI.IconValuePairs+IconValuePair[] iconValuePairArray);
+public IconValuePairs(IconValuePair[] iconValuePairArray)
+	{
+		this.iconValuePairArray = iconValuePairArray;
+	}
 ```
 
 
@@ -44,7 +47,23 @@ public IconValuePairs(Game.UI.IconValuePairs+IconValuePair[] iconValuePairArray)
 - `public GetIconFromValue(System.Single value) : System.String`  
 
 ```csharp
-public System.String GetIconFromValue(System.Single value);
+public string GetIconFromValue(float value)
+	{
+		if (iconValuePairArray == null || iconValuePairArray.Length == 0)
+		{
+			return string.Empty;
+		}
+		IconValuePair[] array = iconValuePairArray;
+		for (int i = 0; i < array.Length; i++)
+		{
+			IconValuePair iconValuePair = array[i];
+			if (value <= iconValuePair.stop)
+			{
+				return iconValuePair.icon;
+			}
+		}
+		return iconValuePairArray[^1].icon;
+	}
 ```
 
 

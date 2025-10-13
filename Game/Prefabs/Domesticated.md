@@ -63,19 +63,35 @@ public Domesticated();
 - `public virtual GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetArchetypeComponents(HashSet<ComponentType> components)
+	{
+		components.Add(ComponentType.ReadWrite<Game.Creatures.Domesticated>());
+	}
 ```
 
 - `public virtual GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetPrefabComponents(HashSet<ComponentType> components)
+	{
+		components.Add(ComponentType.ReadWrite<DomesticatedData>());
+		components.Add(ComponentType.ReadWrite<UpdateFrameData>());
+	}
 ```
 
 - `public virtual Initialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity) : System.Void`  
 
 ```csharp
-public virtual System.Void Initialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity);
+public override void Initialize(EntityManager entityManager, Entity entity)
+	{
+		base.Initialize(entityManager, entity);
+		DomesticatedData componentData = default(DomesticatedData);
+		componentData.m_IdleTime = m_IdleTime;
+		componentData.m_GroupMemberCount.x = m_MinGroupMemberCount;
+		componentData.m_GroupMemberCount.y = m_MaxGroupMemberCount;
+		entityManager.SetComponentData(entity, componentData);
+		entityManager.SetComponentData(entity, new UpdateFrameData(9));
+	}
 ```
 
 

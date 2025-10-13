@@ -336,19 +336,74 @@ public EconomyPrefab();
 - `public virtual GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetArchetypeComponents(HashSet<ComponentType> components)
+	{
+		base.GetArchetypeComponents(components);
+	}
 ```
 
 - `public virtual GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetPrefabComponents(HashSet<ComponentType> components)
+	{
+		base.GetPrefabComponents(components);
+		components.Add(ComponentType.ReadWrite<EconomyParameterData>());
+	}
 ```
 
 - `public virtual LateInitialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity) : System.Void`  
 
 ```csharp
-public virtual System.Void LateInitialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity);
+public override void LateInitialize(EntityManager entityManager, Entity entity)
+	{
+		base.LateInitialize(entityManager, entity);
+		entityManager.SetComponentData(entity, new EconomyParameterData
+		{
+			m_ExtractorCompanyExportMultiplier = m_ExtractorCompanyExportMultiplier,
+			m_Wage0 = m_Wage0,
+			m_Wage1 = m_Wage1,
+			m_Wage2 = m_Wage2,
+			m_Wage3 = m_Wage3,
+			m_Wage4 = m_Wage4,
+			m_CommuterWageMultiplier = m_CommuterWageMultiplier,
+			m_CompanyBankruptcyLimit = m_CompanyBankruptcyLimit,
+			m_ResidentialMinimumEarnings = m_ResidentialMinimumEarnings,
+			m_UnemploymentBenefit = m_UnemploymentBenefit,
+			m_Pension = m_Pension,
+			m_FamilyAllowance = m_FamilyAllowance,
+			m_ResourceConsumptionMultiplier = m_ResourceConsumptionMultiplier,
+			m_ResourceConsumptionPerCitizen = m_ResourceConsumptionPerCitizen,
+			m_TouristConsumptionMultiplier = m_TouristConsumptionMultiplier,
+			m_WorkDayStart = m_WorkDayStart,
+			m_WorkDayEnd = m_WorkDayEnd,
+			m_CommercialEfficiency = m_CommercialEfficiency,
+			m_IndustrialEfficiency = m_IndustrialEfficiency,
+			m_ExtractorProductionEfficiency = m_ExtractorEfficiency,
+			m_TrafficReduction = m_TrafficReduction,
+			m_MaxCitySpecializationBonus = m_MaxCitySpecializationBonus,
+			m_ResourceProductionCoefficient = m_ResourceProductionCoefficient,
+			m_LandValueModifier = m_LandValueModifier,
+			m_RentPriceBuildingZoneTypeBase = m_RentPriceBuildingZoneTypeBase,
+			m_MixedBuildingCompanyRentPercentage = m_MixedBuildingCompanyRentPercentage,
+			m_ResidentialUpkeepLevelExponent = m_ResidentialUpkeepLevelExponent,
+			m_CommercialUpkeepLevelExponent = m_CommercialUpkeepLevelExponent,
+			m_IndustrialUpkeepLevelExponent = m_IndustrialUpkeepLevelExponent,
+			m_PerOfficeResourceNeededForIndustrial = m_PerOfficeResourceNeededForIndustrial,
+			m_UnemploymentAllowanceMaxDays = m_UnemploymentAllowanceMaxDays,
+			m_ShopPossibilityIncreaseDivider = m_ShopPossibilityIncreaseDivider,
+			m_CityServiceWageAdjustment = m_CityServiceWageAdjustment,
+			m_PlayerStartMoney = m_PlayerStartMoney,
+			m_BuildRefundPercentage = m_BuildRefundPercentage,
+			m_BuildRefundTimeRange = m_BuildRefundTimeRange,
+			m_RelocationCostMultiplier = m_RelocationCostMultiplier,
+			m_RoadRefundPercentage = m_RoadRefundPercentage,
+			m_RoadRefundTimeRange = m_RoadRefundTimeRange,
+			m_TreeCostMultipliers = m_TreeCostMultipliers,
+			m_MapTileUpkeepCostMultiplier = new AnimationCurve1(m_MapTileUpkeepCostMultiplier),
+			m_LoanMinMaxInterestRate = m_LoanMinMaxInterestRate
+		});
+	}
 ```
 
 

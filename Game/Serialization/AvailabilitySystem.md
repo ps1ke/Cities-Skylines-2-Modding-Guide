@@ -47,7 +47,10 @@ private Game.Serialization.AvailabilitySystem+TypeHandle __TypeHandle;
 - `public AvailabilitySystem()`  
 
 ```csharp
-public AvailabilitySystem();
+[Preserve]
+	public AvailabilitySystem()
+	{
+	}
 ```
 
 
@@ -56,25 +59,47 @@ public AvailabilitySystem();
 - `private __AssignQueries(Unity.Entities.SystemState& state) : System.Void`  
 
 ```csharp
-private System.Void __AssignQueries(Unity.Entities.SystemState& state);
+private void __AssignQueries(ref SystemState state)
+	{
+		new EntityQueryBuilder(Allocator.Temp).Dispose();
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_Query = GetEntityQuery(ComponentType.ReadOnly<ResourceAvailability>());
+		RequireForUpdate(m_Query);
+	}
 ```
 
 - `protected virtual OnCreateForCompiler() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreateForCompiler();
+protected override void OnCreateForCompiler()
+	{
+		base.OnCreateForCompiler();
+		__AssignQueries(ref base.CheckedStateRef);
+		__TypeHandle.__AssignHandles(ref base.CheckedStateRef);
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		AvailabilityJob jobData = new AvailabilityJob
+		{
+			m_AvailabilityType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Net_ResourceAvailability_RW_BufferTypeHandle, ref base.CheckedStateRef)
+		};
+		base.Dependency = JobChunkExtensions.ScheduleParallel(jobData, m_Query, base.Dependency);
+	}
 ```
 
 

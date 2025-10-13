@@ -177,7 +177,10 @@ protected System.Boolean Modified { protected get; }
 - `public PopulationInfoviewUISystem()`  
 
 ```csharp
-public PopulationInfoviewUISystem();
+[Preserve]
+	public PopulationInfoviewUISystem()
+	{
+	}
 ```
 
 
@@ -186,31 +189,85 @@ public PopulationInfoviewUISystem();
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_CityStatisticsSystem = base.World.GetOrCreateSystemManaged<CityStatisticsSystem>();
+		m_CitySystem = base.World.GetOrCreateSystemManaged<CitySystem>();
+		m_CountWorkplacesSystem = base.World.GetOrCreateSystemManaged<CountWorkplacesSystem>();
+		m_CountHouseholdDataSystem = base.World.GetOrCreateSystemManaged<CountHouseholdDataSystem>();
+		m_WorkProviderModifiedQuery = GetEntityQuery(ComponentType.ReadOnly<WorkProvider>(), ComponentType.ReadOnly<Created>(), ComponentType.ReadOnly<Deleted>(), ComponentType.ReadOnly<Updated>(), ComponentType.Exclude<Temp>());
+		m_PopulationModifiedQuery = GetEntityQuery(ComponentType.ReadOnly<Population>(), ComponentType.ReadOnly<Created>(), ComponentType.ReadOnly<Deleted>(), ComponentType.ReadOnly<Updated>(), ComponentType.Exclude<Temp>());
+		AddBinding(m_Population = new ValueBinding<int>("populationInfo", "population", 0));
+		AddBinding(m_Employed = new ValueBinding<int>("populationInfo", "employed", 0));
+		AddBinding(m_Jobs = new ValueBinding<int>("populationInfo", "jobs", 0));
+		AddBinding(m_Unemployment = new ValueBinding<float>("populationInfo", "unemployment", 0f));
+		AddBinding(m_BirthRate = new ValueBinding<int>("populationInfo", "birthRate", 0));
+		AddBinding(m_DeathRate = new ValueBinding<int>("populationInfo", "deathRate", 0));
+		AddBinding(m_MovedIn = new ValueBinding<int>("populationInfo", "movedIn", 0));
+		AddBinding(m_MovedAway = new ValueBinding<int>("populationInfo", "movedAway", 0));
+		AddBinding(m_Homeless = new ValueBinding<int>("populationInfo", "homeless", 0));
+		AddBinding(m_Homelessness = new ValueBinding<float>("populationInfo", "homelessness", 0f));
+		AddBinding(m_AgeData = new RawValueBinding("populationInfo", "ageData", UpdateAgeData));
+	}
 ```
 
 - `protected virtual PerformUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void PerformUpdate();
+protected override void PerformUpdate()
+	{
+		UpdateBindings();
+	}
 ```
 
 - `private UpdateAgeData(Colossal.UI.Binding.IJsonWriter binder) : System.Void`  
 
 ```csharp
-private System.Void UpdateAgeData(Colossal.UI.Binding.IJsonWriter binder);
+private void UpdateAgeData(IJsonWriter binder)
+	{
+		binder.TypeBegin("infoviews.ChartData");
+		binder.PropertyName("values");
+		binder.ArrayBegin(4u);
+		binder.Write(m_CountHouseholdDataSystem.ChildrenCount);
+		binder.Write(m_CountHouseholdDataSystem.TeenCount);
+		binder.Write(m_CountHouseholdDataSystem.AdultCount);
+		binder.Write(m_CountHouseholdDataSystem.SeniorCount);
+		binder.ArrayEnd();
+		binder.PropertyName("total");
+		binder.Write(m_CountHouseholdDataSystem.MovedInCitizenCount);
+		binder.TypeEnd();
+	}
 ```
 
 - `private UpdateBindings() : System.Void`  
 
 ```csharp
-private System.Void UpdateBindings();
+private void UpdateBindings()
+	{
+		m_Jobs.Update(m_CountWorkplacesSystem.GetTotalWorkplaces().TotalCount);
+		m_Employed.Update(m_CountHouseholdDataSystem.CityWorkerCount);
+		m_Unemployment.Update(m_CountHouseholdDataSystem.UnemploymentRate);
+		m_Homelessness.Update(m_CountHouseholdDataSystem.HomelessnessRate);
+		m_Homeless.Update(m_CountHouseholdDataSystem.HomelessCitizenCount);
+		Population componentData = base.EntityManager.GetComponentData<Population>(m_CitySystem.City);
+		m_Population.Update(componentData.m_Population);
+		m_AgeData.Update();
+		UpdateStatistics();
+	}
 ```
 
 - `private UpdateStatistics() : System.Void`  
 
 ```csharp
-private System.Void UpdateStatistics();
+private void UpdateStatistics()
+	{
+		m_BirthRate.Update(m_CityStatisticsSystem.GetStatisticValue(StatisticType.BirthRate));
+		m_DeathRate.Update(m_CityStatisticsSystem.GetStatisticValue(StatisticType.DeathRate));
+		m_MovedIn.Update(m_CityStatisticsSystem.GetStatisticValue(StatisticType.CitizensMovedIn));
+		m_MovedAway.Update(m_CityStatisticsSystem.GetStatisticValue(StatisticType.CitizensMovedAway));
+	}
 ```
 
 

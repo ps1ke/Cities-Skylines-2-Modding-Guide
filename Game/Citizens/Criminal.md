@@ -51,7 +51,12 @@ public Game.Citizens.CriminalFlags m_Flags;
 - `public Criminal(Unity.Entities.Entity _event, Game.Citizens.CriminalFlags flags)`  
 
 ```csharp
-public Criminal(Unity.Entities.Entity _event, Game.Citizens.CriminalFlags flags);
+public Criminal(Entity _event, CriminalFlags flags)
+	{
+		m_Event = _event;
+		m_JailTime = 0;
+		m_Flags = flags;
+	}
 ```
 
 

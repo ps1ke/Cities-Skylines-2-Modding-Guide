@@ -45,7 +45,17 @@ public SwitchUserScreen();
 - `public virtual Execute(Game.SceneFlow.GameManager manager, System.Threading.CancellationToken token) : System.Threading.Tasks.Task`  
 
 ```csharp
-public virtual System.Threading.Tasks.Task Execute(Game.SceneFlow.GameManager manager, System.Threading.CancellationToken token);
+public override async Task Execute(GameManager manager, CancellationToken token)
+	{
+		using (InputManager.instance.CreateOverlayBarrier("SwitchUserScreen"))
+		{
+			OverlayBindings overlayBindings = manager.userInterface.overlayBindings;
+			using (overlayBindings.ActivateScreenScoped(overlayScreen))
+			{
+				await PlatformManager.instance.SignIn(SignInOptions.None, null);
+			}
+		}
+	}
 ```
 
 

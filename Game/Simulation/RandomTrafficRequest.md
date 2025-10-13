@@ -72,7 +72,15 @@ public Game.Simulation.RandomTrafficRequestFlags m_Flags;
 - `public RandomTrafficRequest(Unity.Entities.Entity target, Game.Net.RoadTypes roadType, Game.Net.TrackTypes trackType, Game.Vehicles.EnergyTypes energyTypes, Game.Vehicles.SizeClass sizeClass, Game.Simulation.RandomTrafficRequestFlags flags)`  
 
 ```csharp
-public RandomTrafficRequest(Unity.Entities.Entity target, Game.Net.RoadTypes roadType, Game.Net.TrackTypes trackType, Game.Vehicles.EnergyTypes energyTypes, Game.Vehicles.SizeClass sizeClass, Game.Simulation.RandomTrafficRequestFlags flags);
+public RandomTrafficRequest(Entity target, RoadTypes roadType, TrackTypes trackType, EnergyTypes energyTypes, SizeClass sizeClass, RandomTrafficRequestFlags flags)
+	{
+		m_Target = target;
+		m_RoadType = roadType;
+		m_TrackType = trackType;
+		m_EnergyTypes = energyTypes;
+		m_SizeClass = sizeClass;
+		m_Flags = flags;
+	}
 ```
 
 

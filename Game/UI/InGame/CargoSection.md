@@ -154,7 +154,10 @@ protected Unity.Entities.Entity selectedPrefab { protected get; }
 - `public CargoSection()`  
 
 ```csharp
-public CargoSection();
+[Preserve]
+	public CargoSection()
+	{
+	}
 ```
 
 
@@ -163,49 +166,227 @@ public CargoSection();
 - `private AddResources(Unity.Entities.DynamicBuffer<Game.Economy.Resources> source, Unity.Collections.NativeList<Game.Economy.Resources> target) : System.Void`  
 
 ```csharp
-private System.Void AddResources(Unity.Entities.DynamicBuffer<Game.Economy.Resources> source, Unity.Collections.NativeList<Game.Economy.Resources> target);
+private void AddResources(DynamicBuffer<Resources> source, NativeList<Resources> target)
+	{
+		for (int i = 0; i < source.Length; i++)
+		{
+			Resources value = source[i];
+			if (value.m_Amount == 0)
+			{
+				continue;
+			}
+			int num = 0;
+			while (true)
+			{
+				if (num < target.Length)
+				{
+					Resources value2 = target[num];
+					if (value2.m_Resource == value.m_Resource)
+					{
+						value2.m_Amount += value.m_Amount;
+						target[num] = value2;
+						break;
+					}
+					num++;
+					continue;
+				}
+				target.Add(in value);
+				break;
+			}
+		}
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		rawMaterials = new NativeList<UIResource>(Allocator.Persistent);
+		processedGoods = new NativeList<UIResource>(Allocator.Persistent);
+		mail = new NativeList<UIResource>(Allocator.Persistent);
+		m_ResourcePrefabs = base.World.GetOrCreateSystemManaged<ResourceSystem>().GetPrefabs();
+	}
 ```
 
 - `protected virtual OnDestroy() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnDestroy();
+[Preserve]
+	protected override void OnDestroy()
+	{
+		rawMaterials.Dispose();
+		processedGoods.Dispose();
+		mail.Dispose();
+		base.OnDestroy();
+	}
 ```
 
 - `protected virtual OnProcess() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnProcess();
+protected override void OnProcess()
+	{
+		cargoKey = CargoKey.Cargo;
+		if (base.EntityManager.TryGetComponent<Game.Vehicles.DeliveryTruck>(selectedEntity, out var component))
+		{
+			Resource resource = Resource.NoResource;
+			if (base.EntityManager.TryGetBuffer(selectedEntity, isReadOnly: true, out DynamicBuffer<LayoutElement> buffer) && buffer.Length != 0)
+			{
+				int num = 0;
+				for (int i = 0; i < buffer.Length; i++)
+				{
+					Entity vehicle = buffer[i].m_Vehicle;
+					if (base.EntityManager.TryGetComponent<Game.Vehicles.DeliveryTruck>(vehicle, out var component2))
+					{
+						resource |= component2.m_Resource;
+						if ((component2.m_State & DeliveryTruckFlags.Loaded) != 0)
+						{
+							num += component2.m_Amount;
+						}
+					}
+				}
+				cargo = num;
+			}
+			else
+			{
+				resource = component.m_Resource;
+				cargo = (((component.m_State & DeliveryTruckFlags.Loaded) != 0) ? component.m_Amount : 0);
+			}
+			UIResource.CategorizeResources(resource, cargo, rawMaterials, processedGoods, mail, base.EntityManager, m_ResourcePrefabs);
+			return;
+		}
+		NativeList<Resources> target = new NativeList<Resources>(32, Allocator.Temp);
+		DynamicBuffer<Resources> buffer4;
+		if (base.EntityManager.TryGetBuffer(selectedEntity, isReadOnly: true, out DynamicBuffer<LayoutElement> buffer2))
+		{
+			for (int j = 0; j < buffer2.Length; j++)
+			{
+				Entity vehicle2 = buffer2[j].m_Vehicle;
+				if (base.EntityManager.TryGetBuffer(vehicle2, isReadOnly: true, out DynamicBuffer<Resources> buffer3))
+				{
+					AddResources(buffer3, target);
+				}
+			}
+		}
+		else if (base.EntityManager.TryGetBuffer(selectedEntity, isReadOnly: true, out buffer4))
+		{
+			AddResources(buffer4, target);
+		}
+		for (int k = 0; k < target.Length; k++)
+		{
+			Resources resources = target[k];
+			UIResource.CategorizeResources(resources.m_Resource, resources.m_Amount, rawMaterials, processedGoods, mail, base.EntityManager, m_ResourcePrefabs);
+			cargo += resources.m_Amount;
+		}
+		target.Dispose();
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		base.visible = Visible();
+	}
 ```
 
 - `public virtual OnWriteProperties(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-public virtual System.Void OnWriteProperties(Colossal.UI.Binding.IJsonWriter writer);
+public override void OnWriteProperties(IJsonWriter writer)
+	{
+		writer.PropertyName("cargo");
+		writer.Write(cargo);
+		writer.PropertyName("capacity");
+		writer.Write(capacity);
+		rawMaterials.Sort();
+		writer.PropertyName("rawMaterials");
+		writer.ArrayBegin(rawMaterials.Length);
+		for (int i = 0; i < rawMaterials.Length; i++)
+		{
+			writer.Write(rawMaterials[i]);
+		}
+		writer.ArrayEnd();
+		processedGoods.Sort();
+		writer.PropertyName("processedGoods");
+		writer.ArrayBegin(processedGoods.Length);
+		for (int j = 0; j < processedGoods.Length; j++)
+		{
+			writer.Write(processedGoods[j]);
+		}
+		writer.ArrayEnd();
+		mail.Sort();
+		writer.PropertyName("mail");
+		writer.ArrayBegin(mail.Length);
+		for (int k = 0; k < mail.Length; k++)
+		{
+			writer.Write(mail[k]);
+		}
+		writer.ArrayEnd();
+		writer.PropertyName("cargoKey");
+		writer.Write(Enum.GetName(typeof(CargoKey), cargoKey));
+	}
 ```
 
 - `protected virtual Reset() : System.Void`  
 
 ```csharp
-protected virtual System.Void Reset();
+protected override void Reset()
+	{
+		rawMaterials.Clear();
+		processedGoods.Clear();
+		mail.Clear();
+		cargo = 0;
+		capacity = 0;
+		cargoKey = CargoKey.Cargo;
+	}
 ```
 
 - `private Visible() : System.Boolean`  
 
 ```csharp
-private System.Boolean Visible();
+private bool Visible()
+	{
+		if (!base.EntityManager.HasComponent<Vehicle>(selectedEntity))
+		{
+			return false;
+		}
+		DeliveryTruckData component4;
+		CargoTransportVehicleData component5;
+		if (base.EntityManager.TryGetBuffer(selectedEntity, isReadOnly: true, out DynamicBuffer<LayoutElement> buffer) && buffer.Length != 0)
+		{
+			for (int i = 0; i < buffer.Length; i++)
+			{
+				Entity vehicle = buffer[i].m_Vehicle;
+				if (base.EntityManager.TryGetComponent<PrefabRef>(vehicle, out var component))
+				{
+					CargoTransportVehicleData component3;
+					if (base.EntityManager.TryGetComponent<DeliveryTruckData>(component.m_Prefab, out var component2))
+					{
+						capacity += component2.m_CargoCapacity;
+					}
+					else if (base.EntityManager.TryGetComponent<CargoTransportVehicleData>(component.m_Prefab, out component3))
+					{
+						capacity += component3.m_CargoCapacity;
+					}
+				}
+			}
+		}
+		else if (base.EntityManager.TryGetComponent<DeliveryTruckData>(selectedPrefab, out component4))
+		{
+			capacity = component4.m_CargoCapacity;
+		}
+		else if (base.EntityManager.TryGetComponent<CargoTransportVehicleData>(selectedPrefab, out component5))
+		{
+			capacity = component5.m_CargoCapacity;
+		}
+		return capacity > 0;
+	}
 ```
 
 

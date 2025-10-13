@@ -35,7 +35,10 @@ public Unity.Entities.Entity m_Owner;
 - `public SubObjectsUpdated(Unity.Entities.Entity owner)`  
 
 ```csharp
-public SubObjectsUpdated(Unity.Entities.Entity owner);
+public SubObjectsUpdated(Entity owner)
+	{
+		m_Owner = owner;
+	}
 ```
 
 

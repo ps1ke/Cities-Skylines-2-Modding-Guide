@@ -43,7 +43,11 @@ public readonly System.Int32 priority;
 - `public DebugTabAttribute(System.String name, System.Int32 priority = 0)`  
 
 ```csharp
-public DebugTabAttribute(System.String name, System.Int32 priority);
+public DebugTabAttribute(string name, int priority = 0)
+	{
+		this.name = name;
+		this.priority = priority;
+	}
 ```
 
 

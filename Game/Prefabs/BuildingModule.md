@@ -35,7 +35,10 @@ public Unity.Entities.Entity m_Module;
 - `public BuildingModule(Unity.Entities.Entity module)`  
 
 ```csharp
-public BuildingModule(Unity.Entities.Entity module);
+public BuildingModule(Entity module)
+	{
+		m_Module = module;
+	}
 ```
 
 

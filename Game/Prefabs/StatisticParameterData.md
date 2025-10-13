@@ -42,7 +42,11 @@ public UnityEngine.Color m_Color;
 - `public StatisticParameterData(System.Int32 value, UnityEngine.Color color)`  
 
 ```csharp
-public StatisticParameterData(System.Int32 value, UnityEngine.Color color);
+public StatisticParameterData(int value, Color color)
+	{
+		m_Value = value;
+		m_Color = color;
+	}
 ```
 
 

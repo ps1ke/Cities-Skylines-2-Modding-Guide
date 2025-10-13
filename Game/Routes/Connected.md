@@ -37,7 +37,10 @@ public Unity.Entities.Entity m_Connected;
 - `public Connected(Unity.Entities.Entity connected)`  
 
 ```csharp
-public Connected(Unity.Entities.Entity connected);
+public Connected(Entity connected)
+	{
+		m_Connected = connected;
+	}
 ```
 
 

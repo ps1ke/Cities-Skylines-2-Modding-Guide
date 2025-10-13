@@ -35,7 +35,10 @@ public Unity.Mathematics.int2 m_Count;
 - `public TrainEngineData(System.Int32 minCount, System.Int32 maxCount)`  
 
 ```csharp
-public TrainEngineData(System.Int32 minCount, System.Int32 maxCount);
+public TrainEngineData(int minCount, int maxCount)
+	{
+		m_Count = new int2(minCount, maxCount);
+	}
 ```
 
 

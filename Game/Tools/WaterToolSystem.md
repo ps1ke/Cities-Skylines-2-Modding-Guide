@@ -142,7 +142,10 @@ public Game.Tools.WaterToolSystem+Attribute attribute { get; private set; }
 - `public WaterToolSystem()`  
 
 ```csharp
-public WaterToolSystem();
+[Preserve]
+	public WaterToolSystem()
+	{
+	}
 ```
 
 
@@ -151,103 +154,371 @@ public WaterToolSystem();
 - `private __AssignQueries(Unity.Entities.SystemState& state) : System.Void`  
 
 ```csharp
-private System.Void __AssignQueries(Unity.Entities.SystemState& state);
+private void __AssignQueries(ref SystemState state)
+	{
+		new EntityQueryBuilder(Allocator.Temp).Dispose();
+	}
 ```
 
 - `private Apply(Unity.Jobs.JobHandle inputDeps, System.Boolean singleFrameOnly = False) : Unity.Jobs.JobHandle`  
 
 ```csharp
-private Unity.Jobs.JobHandle Apply(Unity.Jobs.JobHandle inputDeps, System.Boolean singleFrameOnly);
+private JobHandle Apply(JobHandle inputDeps, bool singleFrameOnly = false)
+	{
+		switch (m_State)
+		{
+		case State.Default:
+			if (m_RaycastPoint.m_OriginalEntity != Entity.Null && !singleFrameOnly)
+			{
+				m_State = State.MouseDown;
+				m_StartPoint = m_RaycastPoint;
+			}
+			base.applyMode = ApplyMode.None;
+			return inputDeps;
+		case State.MouseDown:
+			m_State = State.Default;
+			base.applyMode = ApplyMode.Clear;
+			return inputDeps;
+		case State.Dragging:
+			m_State = State.Default;
+			base.applyMode = (GetAllowApply() ? ApplyMode.Apply : ApplyMode.Clear);
+			return inputDeps;
+		default:
+			return Update(inputDeps);
+		}
+	}
 ```
 
 - `private Cancel(Unity.Jobs.JobHandle inputDeps, System.Boolean singleFrameOnly = False) : Unity.Jobs.JobHandle`  
 
 ```csharp
-private Unity.Jobs.JobHandle Cancel(Unity.Jobs.JobHandle inputDeps, System.Boolean singleFrameOnly);
+private JobHandle Cancel(JobHandle inputDeps, bool singleFrameOnly = false)
+	{
+		switch (m_State)
+		{
+		case State.Default:
+			base.applyMode = ApplyMode.None;
+			return inputDeps;
+		case State.MouseDown:
+			m_State = State.Default;
+			base.applyMode = ApplyMode.Clear;
+			return inputDeps;
+		case State.Dragging:
+			m_State = State.Default;
+			base.applyMode = ApplyMode.Clear;
+			return inputDeps;
+		default:
+			return Update(inputDeps);
+		}
+	}
 ```
 
 - `private Clear(Unity.Jobs.JobHandle inputDeps) : Unity.Jobs.JobHandle`  
 
 ```csharp
-private Unity.Jobs.JobHandle Clear(Unity.Jobs.JobHandle inputDeps);
+private JobHandle Clear(JobHandle inputDeps)
+	{
+		base.applyMode = ApplyMode.Clear;
+		return inputDeps;
+	}
 ```
 
 - `private GetAttribute(Game.Tools.ControlPoint controlPoint) : Game.Tools.WaterToolSystem+Attribute`  
 
 ```csharp
-private Game.Tools.WaterToolSystem+Attribute GetAttribute(Game.Tools.ControlPoint controlPoint);
+private Attribute GetAttribute(ControlPoint controlPoint)
+	{
+		if (base.EntityManager.TryGetComponent<Game.Simulation.WaterSourceData>(controlPoint.m_OriginalEntity, out var component) && m_CameraUpdateSystem.TryGetViewer(out var viewer))
+		{
+			float2 @float = controlPoint.m_HitPosition.xz - controlPoint.m_Position.xz;
+			if (math.length(@float) < component.m_Radius * 0.9f)
+			{
+				return Attribute.Location;
+			}
+			float2 xz = viewer.right.xz;
+			float2 x = MathUtils.Left(xz);
+			if (math.abs(math.dot(xz, @float)) > math.abs(math.dot(x, @float)))
+			{
+				return Attribute.Radius;
+			}
+			if (component.m_ConstantDepth != 0)
+			{
+				return Attribute.Height;
+			}
+			return Attribute.Rate;
+		}
+		return Attribute.None;
+	}
 ```
 
 - `public virtual GetAvailableSnapMask(Game.Tools.Snap& onMask, Game.Tools.Snap& offMask) : System.Void`  
 
 ```csharp
-public virtual System.Void GetAvailableSnapMask(Game.Tools.Snap& onMask, Game.Tools.Snap& offMask);
+public override void GetAvailableSnapMask(out Snap onMask, out Snap offMask)
+	{
+		base.GetAvailableSnapMask(out onMask, out offMask);
+		onMask |= Snap.ContourLines;
+		offMask |= Snap.ContourLines;
+	}
 ```
 
 - `public virtual GetPrefab() : Game.Prefabs.PrefabBase`  
 
 ```csharp
-public virtual Game.Prefabs.PrefabBase GetPrefab();
+public override PrefabBase GetPrefab()
+	{
+		return null;
+	}
 ```
 
 - `protected virtual GetRaycastResult(Game.Tools.ControlPoint& controlPoint) : System.Boolean`  
 
 ```csharp
-protected virtual System.Boolean GetRaycastResult(Game.Tools.ControlPoint& controlPoint);
+protected override bool GetRaycastResult(out ControlPoint controlPoint)
+	{
+		if (m_State == State.Dragging && attribute != Attribute.None && attribute != Attribute.Location && base.EntityManager.TryGetComponent<Game.Simulation.WaterSourceData>(m_StartPoint.m_OriginalEntity, out var component) && m_CameraUpdateSystem.TryGetViewer(out var viewer))
+		{
+			TerrainHeightData data = m_TerrainSystem.GetHeightData();
+			Line3.Segment line = ToolRaycastSystem.CalculateRaycastLine(viewer.camera);
+			controlPoint = m_StartPoint;
+			float2 t2;
+			if (attribute == Attribute.Radius)
+			{
+				float3 position = m_StartPoint.m_Position;
+				if (component.m_ConstantDepth > 0)
+				{
+					position.y = m_TerrainSystem.positionOffset.y + component.m_Amount;
+				}
+				else
+				{
+					position.y = TerrainUtils.SampleHeight(ref data, position) + component.m_Amount;
+				}
+				if (MathUtils.Intersect(line.y, position.y, out var t))
+				{
+					controlPoint.m_HitPosition = MathUtils.Position(line, t);
+				}
+			}
+			else if (MathUtils.Intersect(new Circle2(component.m_Radius, m_StartPoint.m_Position.xz), line.xz, out t2))
+			{
+				float3 hitPosition = MathUtils.Position(line, t2.x);
+				float3 hitPosition2 = MathUtils.Position(line, t2.y);
+				if (math.distancesq(hitPosition.xz, m_StartPoint.m_HitPosition.xz) <= math.distancesq(hitPosition2.xz, m_StartPoint.m_HitPosition.xz))
+				{
+					controlPoint.m_HitPosition = hitPosition;
+				}
+				else
+				{
+					controlPoint.m_HitPosition = hitPosition2;
+				}
+			}
+			return true;
+		}
+		return base.GetRaycastResult(out controlPoint);
+	}
 ```
 
 - `public virtual InitializeRaycast() : System.Void`  
 
 ```csharp
-public virtual System.Void InitializeRaycast();
+public override void InitializeRaycast()
+	{
+		base.InitializeRaycast();
+		if (m_State == State.Dragging)
+		{
+			if (attribute != Attribute.Location)
+			{
+				return;
+			}
+			m_ToolRaycastSystem.typeMask = TypeMask.Terrain;
+			m_ToolRaycastSystem.raycastFlags |= RaycastFlags.Outside;
+			if (base.EntityManager.TryGetComponent<Game.Simulation.WaterSourceData>(m_StartPoint.m_OriginalEntity, out var component))
+			{
+				float num = component.m_Amount;
+				if (component.m_ConstantDepth > 0)
+				{
+					TerrainHeightData data = m_TerrainSystem.GetHeightData();
+					num += m_TerrainSystem.positionOffset.y - TerrainUtils.SampleHeight(ref data, m_StartPoint.m_Position);
+				}
+				m_ToolRaycastSystem.rayOffset = new float3(0f, 0f - num, 0f);
+			}
+		}
+		else
+		{
+			m_ToolRaycastSystem.typeMask = TypeMask.WaterSources;
+		}
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_TerrainSystem = base.World.GetOrCreateSystemManaged<TerrainSystem>();
+		m_WaterSystem = base.World.GetOrCreateSystemManaged<WaterSystem>();
+		m_CameraUpdateSystem = base.World.GetOrCreateSystemManaged<CameraUpdateSystem>();
+		m_ToolOutputBarrier = base.World.GetOrCreateSystemManaged<ToolOutputBarrier>();
+		m_DefinitionQuery = GetDefinitionQuery();
+	}
 ```
 
 - `protected virtual OnCreateForCompiler() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreateForCompiler();
+protected override void OnCreateForCompiler()
+	{
+		base.OnCreateForCompiler();
+		__AssignQueries(ref base.CheckedStateRef);
+		__TypeHandle.__AssignHandles(ref base.CheckedStateRef);
+	}
 ```
 
 - `protected virtual OnStartRunning() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnStartRunning();
+[Preserve]
+	protected override void OnStartRunning()
+	{
+		base.OnStartRunning();
+		m_RaycastPoint = default(ControlPoint);
+		m_State = State.Default;
+		attribute = Attribute.None;
+	}
 ```
 
 - `protected virtual OnUpdate(Unity.Jobs.JobHandle inputDeps) : Unity.Jobs.JobHandle`  
 
 ```csharp
-protected virtual Unity.Jobs.JobHandle OnUpdate(Unity.Jobs.JobHandle inputDeps);
+[Preserve]
+	protected override JobHandle OnUpdate(JobHandle inputDeps)
+	{
+		UpdateInfoview(Entity.Null);
+		GetAvailableSnapMask(out m_SnapOnMask, out m_SnapOffMask);
+		if ((m_ToolRaycastSystem.raycastFlags & (RaycastFlags.DebugDisable | RaycastFlags.UIDisable)) == 0)
+		{
+			if (m_State != State.Default)
+			{
+				if (base.applyAction.WasPressedThisFrame() || base.applyAction.WasReleasedThisFrame())
+				{
+					return Apply(inputDeps);
+				}
+				if (base.secondaryApplyAction.WasPressedThisFrame() || base.secondaryApplyAction.WasReleasedThisFrame())
+				{
+					return Cancel(inputDeps);
+				}
+				return Update(inputDeps);
+			}
+			if (base.secondaryApplyAction.WasPressedThisFrame())
+			{
+				return Cancel(inputDeps, base.secondaryApplyAction.WasReleasedThisFrame());
+			}
+			if (base.applyAction.WasPressedThisFrame())
+			{
+				return Apply(inputDeps, base.applyAction.WasReleasedThisFrame());
+			}
+			return Update(inputDeps);
+		}
+		return Clear(inputDeps);
+	}
 ```
 
 - `public virtual TrySetPrefab(Game.Prefabs.PrefabBase prefab) : System.Boolean`  
 
 ```csharp
-public virtual System.Boolean TrySetPrefab(Game.Prefabs.PrefabBase prefab);
+public override bool TrySetPrefab(PrefabBase prefab)
+	{
+		return false;
+	}
 ```
 
 - `private Update(Unity.Jobs.JobHandle inputDeps) : Unity.Jobs.JobHandle`  
 
 ```csharp
-private Unity.Jobs.JobHandle Update(Unity.Jobs.JobHandle inputDeps);
+private JobHandle Update(JobHandle inputDeps)
+	{
+		if (GetRaycastResult(out var controlPoint))
+		{
+			if (m_RaycastPoint.Equals(controlPoint))
+			{
+				base.applyMode = ApplyMode.None;
+				return inputDeps;
+			}
+			if (m_State == State.Default)
+			{
+				attribute = GetAttribute(controlPoint);
+			}
+			base.applyMode = ApplyMode.Clear;
+			m_RaycastPoint = controlPoint;
+			if (m_State == State.MouseDown && math.distance(controlPoint.m_HitPosition, m_StartPoint.m_HitPosition) >= 1f)
+			{
+				inputDeps = UpdateDefinitions(inputDeps);
+				m_State = State.Dragging;
+			}
+			else
+			{
+				inputDeps = UpdateDefinitions(inputDeps);
+			}
+			return inputDeps;
+		}
+		if (m_RaycastPoint.Equals(default(ControlPoint)))
+		{
+			base.applyMode = ApplyMode.None;
+			return inputDeps;
+		}
+		base.applyMode = ApplyMode.Clear;
+		m_RaycastPoint = default(ControlPoint);
+		if (m_State == State.MouseDown)
+		{
+			inputDeps = UpdateDefinitions(inputDeps);
+			m_State = State.Dragging;
+		}
+		else
+		{
+			if (m_State == State.Default)
+			{
+				attribute = Attribute.None;
+			}
+			inputDeps = UpdateDefinitions(inputDeps);
+		}
+		return inputDeps;
+	}
 ```
 
 - `private virtual UpdateActions() : System.Void`  
 
 ```csharp
-private virtual System.Void UpdateActions();
+private protected override void UpdateActions()
+	{
+		base.applyAction.enabled = base.actionsEnabled;
+		base.secondaryApplyAction.enabled = base.actionsEnabled;
+	}
 ```
 
 - `private UpdateDefinitions(Unity.Jobs.JobHandle inputDeps) : Unity.Jobs.JobHandle`  
 
 ```csharp
-private Unity.Jobs.JobHandle UpdateDefinitions(Unity.Jobs.JobHandle inputDeps);
+private JobHandle UpdateDefinitions(JobHandle inputDeps)
+	{
+		JobHandle jobHandle = DestroyDefinitions(m_DefinitionQuery, m_ToolOutputBarrier, inputDeps);
+		if (m_RaycastPoint.m_OriginalEntity != Entity.Null)
+		{
+			JobHandle jobHandle2 = IJobExtensions.Schedule(new CreateDefinitionsJob
+			{
+				m_StartPoint = m_StartPoint,
+				m_RaycastPoint = m_RaycastPoint,
+				m_State = m_State,
+				m_Attribute = attribute,
+				m_WaterSourceData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Simulation_WaterSourceData_RO_ComponentLookup, ref base.CheckedStateRef),
+				m_PositionOffset = m_TerrainSystem.positionOffset,
+				m_CommandBuffer = m_ToolOutputBarrier.CreateCommandBuffer()
+			}, inputDeps);
+			m_ToolOutputBarrier.AddJobHandleForProducer(jobHandle2);
+			jobHandle = JobHandle.CombineDependencies(jobHandle, jobHandle2);
+		}
+		return jobHandle;
+	}
 ```
 
 

@@ -67,7 +67,10 @@ protected System.Boolean displayForDestroyedObjects { protected get; }
 - `public DestroyedTreeSection()`  
 
 ```csharp
-public DestroyedTreeSection();
+[Preserve]
+	public DestroyedTreeSection()
+	{
+	}
 ```
 
 
@@ -76,31 +79,63 @@ public DestroyedTreeSection();
 - `protected virtual OnProcess() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnProcess();
+protected override void OnProcess()
+	{
+		Destroyed componentData = base.EntityManager.GetComponentData<Destroyed>(selectedEntity);
+		base.EntityManager.TryGetComponent<PrefabRef>(componentData.m_Event, out var component);
+		destroyer = component.m_Prefab;
+		m_InfoUISystem.tooltipTags.Add(TooltipTags.Destroyed);
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		base.visible = Visible();
+	}
 ```
 
 - `public virtual OnWriteProperties(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-public virtual System.Void OnWriteProperties(Colossal.UI.Binding.IJsonWriter writer);
+public override void OnWriteProperties(IJsonWriter writer)
+	{
+		writer.PropertyName("destroyer");
+		if (destroyer != Entity.Null)
+		{
+			PrefabBase prefab = m_PrefabSystem.GetPrefab<PrefabBase>(destroyer);
+			writer.Write(prefab.name);
+		}
+		else
+		{
+			writer.WriteNull();
+		}
+	}
 ```
 
 - `protected virtual Reset() : System.Void`  
 
 ```csharp
-protected virtual System.Void Reset();
+protected override void Reset()
+	{
+		destroyer = Entity.Null;
+	}
 ```
 
 - `private Visible() : System.Boolean`  
 
 ```csharp
-private System.Boolean Visible();
+private bool Visible()
+	{
+		if (base.Destroyed)
+		{
+			return base.EntityManager.HasComponent<Tree>(selectedEntity);
+		}
+		return false;
+	}
 ```
 
 

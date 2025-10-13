@@ -52,7 +52,10 @@ private Unity.Entities.ComponentSystemBase m_LastPreviewSystem;
 - `public HeatmapPreviewSystem()`  
 
 ```csharp
-public HeatmapPreviewSystem();
+[Preserve]
+	public HeatmapPreviewSystem()
+	{
+	}
 ```
 
 
@@ -61,25 +64,82 @@ public HeatmapPreviewSystem();
 - `private GetPreviewSystem() : Unity.Entities.ComponentSystemBase`  
 
 ```csharp
-private Unity.Entities.ComponentSystemBase GetPreviewSystem();
+private ComponentSystemBase GetPreviewSystem()
+	{
+		if (m_InfomodeQuery.IsEmptyIgnoreFilter)
+		{
+			return null;
+		}
+		NativeArray<InfoviewHeatmapData> nativeArray = m_InfomodeQuery.ToComponentDataArray<InfoviewHeatmapData>(Allocator.TempJob);
+		try
+		{
+			for (int i = 0; i < nativeArray.Length; i++)
+			{
+				if (nativeArray[i].m_Type == HeatmapData.TelecomCoverage)
+				{
+					return m_TelecomPreviewSystem;
+				}
+			}
+		}
+		finally
+		{
+			nativeArray.Dispose();
+		}
+		return null;
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_TelecomPreviewSystem = base.World.GetOrCreateSystemManaged<TelecomPreviewSystem>();
+		m_InfomodeQuery = GetEntityQuery(ComponentType.ReadOnly<InfomodeActive>(), ComponentType.ReadOnly<InfoviewHeatmapData>());
+		RequireForUpdate(m_InfomodeQuery);
+	}
 ```
 
 - `protected virtual OnStopRunning() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnStopRunning();
+[Preserve]
+	protected override void OnStopRunning()
+	{
+		if (m_LastPreviewSystem != null)
+		{
+			m_LastPreviewSystem.Enabled = false;
+			m_LastPreviewSystem.Update();
+			m_LastPreviewSystem = null;
+		}
+		base.OnStopRunning();
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		ComponentSystemBase previewSystem = GetPreviewSystem();
+		if (previewSystem != m_LastPreviewSystem)
+		{
+			if (m_LastPreviewSystem != null)
+			{
+				m_LastPreviewSystem.Enabled = false;
+				m_LastPreviewSystem.Update();
+			}
+			m_LastPreviewSystem = previewSystem;
+			if (m_LastPreviewSystem != null)
+			{
+				m_LastPreviewSystem.Enabled = true;
+			}
+		}
+		previewSystem?.Update();
+	}
 ```
 
 

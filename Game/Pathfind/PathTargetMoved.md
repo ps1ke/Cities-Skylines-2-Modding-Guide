@@ -49,7 +49,12 @@ public Unity.Mathematics.float3 m_NewLocation;
 - `public PathTargetMoved(Unity.Entities.Entity target, Unity.Mathematics.float3 oldLocation, Unity.Mathematics.float3 newLocation)`  
 
 ```csharp
-public PathTargetMoved(Unity.Entities.Entity target, Unity.Mathematics.float3 oldLocation, Unity.Mathematics.float3 newLocation);
+public PathTargetMoved(Entity target, float3 oldLocation, float3 newLocation)
+	{
+		m_Target = target;
+		m_OldLocation = oldLocation;
+		m_NewLocation = newLocation;
+	}
 ```
 
 

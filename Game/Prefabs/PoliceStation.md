@@ -71,25 +71,67 @@ public PoliceStation();
 - `public virtual GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetArchetypeComponents(HashSet<ComponentType> components)
+	{
+		components.Add(ComponentType.ReadWrite<Game.Buildings.PoliceStation>());
+		if (GetComponent<ServiceUpgrade>() == null)
+		{
+			if (GetComponent<CityServiceBuilding>() != null)
+			{
+				components.Add(ComponentType.ReadWrite<Efficiency>());
+			}
+			components.Add(ComponentType.ReadWrite<ServiceDispatch>());
+			components.Add(ComponentType.ReadWrite<OwnedVehicle>());
+			if (GetComponent<UniqueObject>() == null)
+			{
+				components.Add(ComponentType.ReadWrite<ServiceDistrict>());
+			}
+			if (m_JailCapacity != 0)
+			{
+				components.Add(ComponentType.ReadWrite<Occupant>());
+			}
+		}
+	}
 ```
 
 - `public virtual GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetPrefabComponents(HashSet<ComponentType> components)
+	{
+		components.Add(ComponentType.ReadWrite<PoliceStationData>());
+		components.Add(ComponentType.ReadWrite<UpdateFrameData>());
+	}
 ```
 
 - `public GetUpgradeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public System.Void GetUpgradeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public void GetUpgradeComponents(HashSet<ComponentType> components)
+	{
+		components.Add(ComponentType.ReadWrite<Game.Buildings.PoliceStation>());
+		components.Add(ComponentType.ReadWrite<ServiceDispatch>());
+		components.Add(ComponentType.ReadWrite<OwnedVehicle>());
+		if (m_JailCapacity != 0)
+		{
+			components.Add(ComponentType.ReadWrite<Occupant>());
+		}
+	}
 ```
 
 - `public virtual Initialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity) : System.Void`  
 
 ```csharp
-public virtual System.Void Initialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity);
+public override void Initialize(EntityManager entityManager, Entity entity)
+	{
+		PoliceStationData componentData = default(PoliceStationData);
+		componentData.m_PatrolCarCapacity = m_PatrolCarCapacity;
+		componentData.m_PoliceHelicopterCapacity = m_PoliceHelicopterCapacity;
+		componentData.m_JailCapacity = m_JailCapacity;
+		componentData.m_PurposeMask = m_Purposes;
+		entityManager.SetComponentData(entity, componentData);
+		entityManager.SetComponentData(entity, new UpdateFrameData(8));
+	}
 ```
 
 

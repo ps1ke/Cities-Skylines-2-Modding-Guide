@@ -44,7 +44,11 @@ public System.Single m_Priority;
 - `public TransportVehicleRequest(Unity.Entities.Entity route, System.Single priority)`  
 
 ```csharp
-public TransportVehicleRequest(Unity.Entities.Entity route, System.Single priority);
+public TransportVehicleRequest(Entity route, float priority)
+	{
+		m_Route = route;
+		m_Priority = priority;
+	}
 ```
 
 

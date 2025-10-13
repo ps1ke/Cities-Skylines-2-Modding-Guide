@@ -47,7 +47,10 @@ public Unity.Entities.Entity Item { get; }
 - `public ZonePrefabs(Unity.Collections.NativeArray<Unity.Entities.Entity> zonePrefabs)`  
 
 ```csharp
-public ZonePrefabs(Unity.Collections.NativeArray<Unity.Entities.Entity> zonePrefabs);
+public ZonePrefabs(NativeArray<Entity> zonePrefabs)
+	{
+		m_ZonePrefabs = zonePrefabs;
+	}
 ```
 
 

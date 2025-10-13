@@ -61,7 +61,10 @@ private Game.Serialization.EndPrefabSerializationSystem+TypeHandle __TypeHandle;
 - `public EndPrefabSerializationSystem()`  
 
 ```csharp
-public EndPrefabSerializationSystem();
+[Preserve]
+	public EndPrefabSerializationSystem()
+	{
+	}
 ```
 
 
@@ -70,25 +73,53 @@ public EndPrefabSerializationSystem();
 - `private __AssignQueries(Unity.Entities.SystemState& state) : System.Void`  
 
 ```csharp
-private System.Void __AssignQueries(Unity.Entities.SystemState& state);
+private void __AssignQueries(ref SystemState state)
+	{
+		new EntityQueryBuilder(Allocator.Temp).Dispose();
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_SaveGameSystem = base.World.GetOrCreateSystemManaged<SaveGameSystem>();
+		m_LoadedPrefabsQuery = GetEntityQuery(ComponentType.ReadOnly<LoadedIndex>());
+		m_ContentPrefabQuery = GetEntityQuery(ComponentType.ReadOnly<ContentData>(), ComponentType.ReadOnly<PrefabData>());
+	}
 ```
 
 - `protected virtual OnCreateForCompiler() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreateForCompiler();
+protected override void OnCreateForCompiler()
+	{
+		base.OnCreateForCompiler();
+		__AssignQueries(ref base.CheckedStateRef);
+		__TypeHandle.__AssignHandles(ref base.CheckedStateRef);
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		if (m_SaveGameSystem.referencedContent.IsCreated)
+		{
+			m_SaveGameSystem.referencedContent.Dispose();
+		}
+		m_SaveGameSystem.referencedContent = m_ContentPrefabQuery.ToEntityArray(Allocator.Persistent);
+		JobChunkExtensions.ScheduleParallel(new EndPrefabSerializationJob
+		{
+			m_LoadedIndexType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Prefabs_LoadedIndex_RO_BufferTypeHandle, ref base.CheckedStateRef),
+			m_PrefabDataType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_PrefabData_RW_ComponentTypeHandle, ref base.CheckedStateRef)
+		}, m_LoadedPrefabsQuery, base.Dependency).Complete();
+	}
 ```
 
 

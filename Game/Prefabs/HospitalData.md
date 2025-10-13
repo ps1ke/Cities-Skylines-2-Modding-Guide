@@ -78,7 +78,17 @@ public System.Boolean m_TreatInjuries;
 - `public Combine(Game.Prefabs.HospitalData otherData) : System.Void`  
 
 ```csharp
-public System.Void Combine(Game.Prefabs.HospitalData otherData);
+public void Combine(HospitalData otherData)
+	{
+		m_AmbulanceCapacity += otherData.m_AmbulanceCapacity;
+		m_MedicalHelicopterCapacity += otherData.m_MedicalHelicopterCapacity;
+		m_PatientCapacity += otherData.m_PatientCapacity;
+		m_TreatmentBonus += otherData.m_TreatmentBonus;
+		m_HealthRange.x = math.min(m_HealthRange.x, otherData.m_HealthRange.x);
+		m_HealthRange.y = math.max(m_HealthRange.y, otherData.m_HealthRange.y);
+		m_TreatDiseases |= otherData.m_TreatDiseases;
+		m_TreatInjuries |= otherData.m_TreatInjuries;
+	}
 ```
 
 - `public Deserialize<TReader>(TReader reader) : System.Void`  

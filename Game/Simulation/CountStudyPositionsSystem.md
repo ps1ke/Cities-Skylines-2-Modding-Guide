@@ -76,7 +76,10 @@ private Game.Simulation.CountStudyPositionsSystem+TypeHandle __TypeHandle;
 - `public CountStudyPositionsSystem()`  
 
 ```csharp
-public CountStudyPositionsSystem();
+[Preserve]
+	public CountStudyPositionsSystem()
+	{
+	}
 ```
 
 
@@ -85,13 +88,19 @@ public CountStudyPositionsSystem();
 - `private __AssignQueries(Unity.Entities.SystemState& state) : System.Void`  
 
 ```csharp
-private System.Void __AssignQueries(Unity.Entities.SystemState& state);
+private void __AssignQueries(ref SystemState state)
+	{
+		new EntityQueryBuilder(Allocator.Temp).Dispose();
+	}
 ```
 
 - `public AddReader(Unity.Jobs.JobHandle reader) : System.Void`  
 
 ```csharp
-public System.Void AddReader(Unity.Jobs.JobHandle reader);
+public void AddReader(JobHandle reader)
+	{
+		m_ReadDependencies = JobHandle.CombineDependencies(m_ReadDependencies, reader);
+	}
 ```
 
 - `public Deserialize<TReader>(TReader reader) : System.Void`  
@@ -103,37 +112,77 @@ public System.Void Deserialize<TReader>(TReader reader);
 - `public GetStudyPositionsByEducation(Unity.Jobs.JobHandle& deps) : Unity.Collections.NativeArray<System.Int32>`  
 
 ```csharp
-public Unity.Collections.NativeArray<System.Int32> GetStudyPositionsByEducation(Unity.Jobs.JobHandle& deps);
+public NativeArray<int> GetStudyPositionsByEducation(out JobHandle deps)
+	{
+		deps = m_WriteDependencies;
+		return m_StudyPositionByEducation;
+	}
 ```
 
 - `public virtual GetUpdateInterval(Game.SystemUpdatePhase phase) : System.Int32`  
 
 ```csharp
-public virtual System.Int32 GetUpdateInterval(Game.SystemUpdatePhase phase);
+public override int GetUpdateInterval(SystemUpdatePhase phase)
+	{
+		return 16;
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_SchoolQuery = GetEntityQuery(ComponentType.ReadOnly<Building>(), ComponentType.ReadOnly<Game.Buildings.School>(), ComponentType.ReadOnly<Student>(), ComponentType.ReadOnly<PrefabRef>(), ComponentType.Exclude<Game.Objects.OutsideConnection>(), ComponentType.Exclude<Temp>(), ComponentType.Exclude<Destroyed>(), ComponentType.Exclude<Deleted>());
+		m_StudyPositionByEducation = new NativeArray<int>(5, Allocator.Persistent);
+	}
 ```
 
 - `protected virtual OnCreateForCompiler() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreateForCompiler();
+protected override void OnCreateForCompiler()
+	{
+		base.OnCreateForCompiler();
+		__AssignQueries(ref base.CheckedStateRef);
+		__TypeHandle.__AssignHandles(ref base.CheckedStateRef);
+	}
 ```
 
 - `protected virtual OnDestroy() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnDestroy();
+[Preserve]
+	protected override void OnDestroy()
+	{
+		m_StudyPositionByEducation.Dispose();
+		base.OnDestroy();
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		JobHandle outJobHandle;
+		CountStudyPositionsJob jobData = new CountStudyPositionsJob
+		{
+			m_SchoolChunks = m_SchoolQuery.ToArchetypeChunkListAsync(base.World.UpdateAllocator.ToAllocator, out outJobHandle),
+			m_PrefabType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+			m_UpgradeType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Buildings_InstalledUpgrade_RO_BufferTypeHandle, ref base.CheckedStateRef),
+			m_StudentType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Buildings_Student_RO_BufferTypeHandle, ref base.CheckedStateRef),
+			m_OutsideConnectionDatas = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_OutsideConnectionData_RO_ComponentLookup, ref base.CheckedStateRef),
+			m_PrefabDatas = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentLookup, ref base.CheckedStateRef),
+			m_SchoolDatas = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_SchoolData_RO_ComponentLookup, ref base.CheckedStateRef),
+			m_StudyPositionByEducation = m_StudyPositionByEducation
+		};
+		base.Dependency = IJobExtensions.Schedule(jobData, JobHandle.CombineDependencies(base.Dependency, m_ReadDependencies, outJobHandle));
+		m_WriteDependencies = base.Dependency;
+	}
 ```
 
 - `public Serialize<TWriter>(TWriter writer) : System.Void`  
@@ -145,7 +194,13 @@ public System.Void Serialize<TWriter>(TWriter writer);
 - `public SetDefaults(Colossal.Serialization.Entities.Context context) : System.Void`  
 
 ```csharp
-public System.Void SetDefaults(Colossal.Serialization.Entities.Context context);
+public void SetDefaults(Context context)
+	{
+		for (int i = 0; i < 5; i++)
+		{
+			m_StudyPositionByEducation[i] = 0;
+		}
+	}
 ```
 
 

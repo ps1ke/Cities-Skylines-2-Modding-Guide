@@ -48,7 +48,14 @@ public System.Int32 m_DailyPayment;
 - `public Equals(Game.Tools.LoanInfo other) : System.Boolean`  
 
 ```csharp
-public System.Boolean Equals(Game.Tools.LoanInfo other);
+public bool Equals(LoanInfo other)
+	{
+		if (m_Amount == other.m_Amount && m_DailyInterestRate.Equals(other.m_DailyInterestRate))
+		{
+			return m_DailyPayment == other.m_DailyPayment;
+		}
+		return false;
+	}
 ```
 
 

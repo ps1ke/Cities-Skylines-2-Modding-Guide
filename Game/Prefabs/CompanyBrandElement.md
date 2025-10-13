@@ -37,7 +37,10 @@ public Unity.Entities.Entity m_Brand;
 - `public CompanyBrandElement(Unity.Entities.Entity brand)`  
 
 ```csharp
-public CompanyBrandElement(Unity.Entities.Entity brand);
+public CompanyBrandElement(Entity brand)
+	{
+		m_Brand = brand;
+	}
 ```
 
 

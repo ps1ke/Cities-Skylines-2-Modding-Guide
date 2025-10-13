@@ -84,19 +84,53 @@ public ZoneBuiltRequirementPrefab();
 - `public virtual GetDependencies(System.Collections.Generic.List<Game.Prefabs.PrefabBase> prefabs) : System.Void`  
 
 ```csharp
-public virtual System.Void GetDependencies(System.Collections.Generic.List<Game.Prefabs.PrefabBase> prefabs);
+public override void GetDependencies(List<PrefabBase> prefabs)
+	{
+		base.GetDependencies(prefabs);
+		if (m_RequiredTheme != null)
+		{
+			prefabs.Add(m_RequiredTheme);
+		}
+		if (m_RequiredZone != null)
+		{
+			prefabs.Add(m_RequiredZone);
+		}
+	}
 ```
 
 - `public virtual GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetPrefabComponents(HashSet<ComponentType> components)
+	{
+		base.GetPrefabComponents(components);
+		components.Add(ComponentType.ReadWrite<ZoneBuiltRequirementData>());
+	}
 ```
 
 - `public virtual LateInitialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity) : System.Void`  
 
 ```csharp
-public virtual System.Void LateInitialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity);
+public override void LateInitialize(EntityManager entityManager, Entity entity)
+	{
+		base.LateInitialize(entityManager, entity);
+		PrefabSystem existingSystemManaged = entityManager.World.GetExistingSystemManaged<PrefabSystem>();
+		entityManager.GetBuffer<UnlockRequirement>(entity).Add(new UnlockRequirement(entity, UnlockFlags.RequireAll));
+		ZoneBuiltRequirementData componentData = default(ZoneBuiltRequirementData);
+		if (m_RequiredTheme != null)
+		{
+			componentData.m_RequiredTheme = existingSystemManaged.GetEntity(m_RequiredTheme);
+		}
+		if (m_RequiredZone != null)
+		{
+			componentData.m_RequiredZone = existingSystemManaged.GetEntity(m_RequiredZone);
+		}
+		componentData.m_RequiredType = m_RequiredType;
+		componentData.m_MinimumSquares = m_MinimumSquares;
+		componentData.m_MinimumCount = m_MinimumCount;
+		componentData.m_MinimumLevel = (byte)m_MinimumLevel;
+		entityManager.SetComponentData(entity, componentData);
+	}
 ```
 
 

@@ -25,7 +25,10 @@ public class BulldozeToolPanel : Game.UI.Editor.EditorPanelSystemBase, Game.UI.E
 - `public BulldozeToolPanel()`  
 
 ```csharp
-public BulldozeToolPanel();
+[Preserve]
+	public BulldozeToolPanel()
+	{
+	}
 ```
 
 
@@ -34,7 +37,13 @@ public BulldozeToolPanel();
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		children = Array.Empty<IWidget>();
+		title = "Editor.TOOL[BulldozeTool]";
+	}
 ```
 
 

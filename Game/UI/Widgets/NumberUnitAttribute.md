@@ -47,7 +47,10 @@ public System.String Unit { get; set; }
 - `public NumberUnitAttribute(System.String unit)`  
 
 ```csharp
-public NumberUnitAttribute(System.String unit);
+public NumberUnitAttribute(string unit)
+	{
+		Unit = unit;
+	}
 ```
 
 

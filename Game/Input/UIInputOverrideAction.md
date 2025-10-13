@@ -72,13 +72,19 @@ private Game.Input.DisplayNameOverride <GetState>b__2_0(System.String source, Ga
 - `public virtual GetState(System.String source) : Game.Input.IProxyAction`  
 
 ```csharp
-public virtual Game.Input.IProxyAction GetState(System.String source);
+public override IProxyAction GetState(string source, DisplayGetter displayNameGetter)
+	{
+		return m_Source.GetState(source, displayNameGetter);
+	}
 ```
 
 - `public virtual GetState(System.String source, Game.Input.UIBaseInputAction+DisplayGetter displayNameGetter) : Game.Input.IProxyAction`  
 
 ```csharp
-public virtual Game.Input.IProxyAction GetState(System.String source, Game.Input.UIBaseInputAction+DisplayGetter displayNameGetter);
+public override IProxyAction GetState(string source, DisplayGetter displayNameGetter)
+	{
+		return m_Source.GetState(source, displayNameGetter);
+	}
 ```
 
 

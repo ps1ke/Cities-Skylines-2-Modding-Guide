@@ -92,13 +92,19 @@ private static Game.Settings.TextureQualitySettings veryLowQuality { private get
 - `public TextureQualitySettings()`  
 
 ```csharp
-public TextureQualitySettings();
+public TextureQualitySettings(Level quality)
+	{
+		SetLevel(quality, apply: false);
+	}
 ```
 
 - `public TextureQualitySettings(Game.Settings.QualitySetting+Level quality)`  
 
 ```csharp
-public TextureQualitySettings(Game.Settings.QualitySetting+Level quality);
+public TextureQualitySettings(Level quality)
+	{
+		SetLevel(quality, apply: false);
+	}
 ```
 
 
@@ -107,7 +113,11 @@ public TextureQualitySettings(Game.Settings.QualitySetting+Level quality);
 - `public virtual Apply() : System.Void`  
 
 ```csharp
-public virtual System.Void Apply();
+public override void Apply()
+	{
+		base.Apply();
+		(World.DefaultGameObjectInjectionWorld?.GetExistingSystemManaged<ManagedBatchSystem>())?.ResetVT(mipbias, filterMode);
+	}
 ```
 
 

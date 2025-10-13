@@ -37,7 +37,10 @@ public System.Single m_LandValue;
 - `public Add(System.Single amount) : System.Void`  
 
 ```csharp
-public System.Void Add(System.Single amount);
+public void Add(float amount)
+	{
+		m_LandValue += amount;
+	}
 ```
 
 - `public Deserialize<TReader>(TReader reader) : System.Void`  
@@ -49,7 +52,10 @@ public System.Void Deserialize<TReader>(TReader reader);
 - `public GetStride(Colossal.Serialization.Entities.Context context) : System.Int32`  
 
 ```csharp
-public System.Int32 GetStride(Colossal.Serialization.Entities.Context context);
+public int GetStride(Context context)
+	{
+		return 4;
+	}
 ```
 
 - `public Serialize<TWriter>(TWriter writer) : System.Void`  

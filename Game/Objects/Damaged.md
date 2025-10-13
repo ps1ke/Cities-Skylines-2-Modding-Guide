@@ -37,7 +37,10 @@ public Unity.Mathematics.float3 m_Damage;
 - `public Damaged(Unity.Mathematics.float3 damage)`  
 
 ```csharp
-public Damaged(Unity.Mathematics.float3 damage);
+public Damaged(float3 damage)
+	{
+		m_Damage = damage;
+	}
 ```
 
 

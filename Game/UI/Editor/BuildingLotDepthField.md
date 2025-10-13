@@ -34,7 +34,10 @@ public BuildingLotDepthField();
 - `public virtual TryCreate(System.Type memberType, System.Object[] attributes) : Game.UI.Widgets.FieldBuilder`  
 
 ```csharp
-public virtual Game.UI.Widgets.FieldBuilder TryCreate(System.Type memberType, System.Object[] attributes);
+public override FieldBuilder TryCreate(Type memberType, object[] attributes)
+	{
+		return TryCreate(memberType, attributes, horizontal: false);
+	}
 ```
 
 

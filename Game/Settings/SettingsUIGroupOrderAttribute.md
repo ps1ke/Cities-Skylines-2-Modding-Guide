@@ -51,13 +51,21 @@ public readonly System.String checkMethod;
 - `public SettingsUIGroupOrderAttribute(System.String[] groups)`  
 
 ```csharp
-public SettingsUIGroupOrderAttribute(System.String[] groups);
+public SettingsUIGroupOrderAttribute(Type checkType, string checkMethod)
+	{
+		this.checkType = checkType;
+		this.checkMethod = checkMethod;
+	}
 ```
 
 - `public SettingsUIGroupOrderAttribute(System.Type checkType, System.String checkMethod)`  
 
 ```csharp
-public SettingsUIGroupOrderAttribute(System.Type checkType, System.String checkMethod);
+public SettingsUIGroupOrderAttribute(Type checkType, string checkMethod)
+	{
+		this.checkType = checkType;
+		this.checkMethod = checkMethod;
+	}
 ```
 
 

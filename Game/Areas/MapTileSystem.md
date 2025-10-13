@@ -98,7 +98,10 @@ private static const System.Single LEGACY_CELL_SIZE;
 - `public MapTileSystem()`  
 
 ```csharp
-public MapTileSystem();
+[Preserve]
+	public MapTileSystem()
+	{
+	}
 ```
 
 
@@ -107,13 +110,21 @@ public MapTileSystem();
 - `private __AssignQueries(Unity.Entities.SystemState& state) : System.Void`  
 
 ```csharp
-private System.Void __AssignQueries(Unity.Entities.SystemState& state);
+private void __AssignQueries(ref SystemState state)
+	{
+		new EntityQueryBuilder(Allocator.Temp).Dispose();
+	}
 ```
 
 - `private AddOwner(Unity.Mathematics.int2 tile, Unity.Collections.NativeArray<Unity.Entities.Entity> entities) : System.Void`  
 
 ```csharp
-private System.Void AddOwner(Unity.Mathematics.int2 tile, Unity.Collections.NativeArray<Unity.Entities.Entity> entities);
+private void AddOwner(int2 tile, NativeArray<Entity> entities)
+	{
+		int index = tile.y * 23 + tile.x;
+		base.EntityManager.RemoveComponent<Native>(entities[index]);
+		m_StartTiles.Add(entities[index]);
+	}
 ```
 
 - `public Deserialize<TReader>(TReader reader) : System.Void`  
@@ -125,43 +136,147 @@ public System.Void Deserialize<TReader>(TReader reader);
 - `public GetStartTiles() : Unity.Collections.NativeList<Unity.Entities.Entity>`  
 
 ```csharp
-public Unity.Collections.NativeList<Unity.Entities.Entity> GetStartTiles();
+public NativeList<Entity> GetStartTiles()
+	{
+		return m_StartTiles;
+	}
 ```
 
 - `private LegacyGenerateMapTiles(System.Boolean editorMode) : System.Void`  
 
 ```csharp
-private System.Void LegacyGenerateMapTiles(System.Boolean editorMode);
+private void LegacyGenerateMapTiles(bool editorMode)
+	{
+		if (!m_MapTileQuery.IsEmptyIgnoreFilter)
+		{
+			base.EntityManager.DestroyEntity(m_MapTileQuery);
+		}
+		m_StartTiles.Clear();
+		NativeArray<Entity> nativeArray = m_PrefabQuery.ToEntityArray(Allocator.TempJob);
+		try
+		{
+			Entity entity = nativeArray[0];
+			AreaData componentData = base.EntityManager.GetComponentData<AreaData>(entity);
+			int entityCount = 529;
+			NativeArray<Entity> entities = base.EntityManager.CreateEntity(componentData.m_Archetype, entityCount, Allocator.TempJob);
+			if (!editorMode)
+			{
+				base.EntityManager.AddComponent<Native>(entities);
+			}
+			AddOwner(new int2(10, 10), entities);
+			AddOwner(new int2(11, 10), entities);
+			AddOwner(new int2(12, 10), entities);
+			AddOwner(new int2(10, 11), entities);
+			AddOwner(new int2(11, 11), entities);
+			AddOwner(new int2(12, 11), entities);
+			AddOwner(new int2(10, 12), entities);
+			AddOwner(new int2(11, 12), entities);
+			AddOwner(new int2(12, 12), entities);
+			IJobParallelForExtensions.Schedule(new GenerateMapTilesJob
+			{
+				m_Entities = entities,
+				m_Prefab = entity,
+				m_PrefabRefData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_PrefabRef_RW_ComponentLookup, ref base.CheckedStateRef),
+				m_AreaData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Areas_Area_RW_ComponentLookup, ref base.CheckedStateRef),
+				m_NodeData = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Areas_Node_RW_BufferLookup, ref base.CheckedStateRef)
+			}, entities.Length, 4).Complete();
+		}
+		finally
+		{
+			nativeArray.Dispose();
+		}
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_PrefabQuery = GetEntityQuery(ComponentType.ReadOnly<MapTileData>(), ComponentType.ReadOnly<AreaData>(), ComponentType.ReadOnly<PrefabData>(), ComponentType.Exclude<Locked>());
+		m_MapTileQuery = GetEntityQuery(ComponentType.ReadOnly<MapTile>(), ComponentType.Exclude<Temp>(), ComponentType.Exclude<Deleted>());
+		m_DeletedMapTileQuery = GetEntityQuery(ComponentType.ReadOnly<MapTile>(), ComponentType.ReadOnly<Deleted>(), ComponentType.Exclude<Temp>());
+		m_StartTiles = new NativeList<Entity>(Allocator.Persistent);
+	}
 ```
 
 - `protected virtual OnCreateForCompiler() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreateForCompiler();
+protected override void OnCreateForCompiler()
+	{
+		base.OnCreateForCompiler();
+		__AssignQueries(ref base.CheckedStateRef);
+		__TypeHandle.__AssignHandles(ref base.CheckedStateRef);
+	}
 ```
 
 - `protected virtual OnDestroy() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnDestroy();
+[Preserve]
+	protected override void OnDestroy()
+	{
+		m_StartTiles.Dispose();
+		base.OnDestroy();
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		if (m_DeletedMapTileQuery.IsEmptyIgnoreFilter)
+		{
+			return;
+		}
+		base.Dependency.Complete();
+		foreach (Entity item in m_DeletedMapTileQuery.ToEntityArray(Allocator.Temp))
+		{
+			int num = m_StartTiles.IndexOf(item);
+			if (num >= 0)
+			{
+				m_StartTiles.RemoveAtSwapBack(num);
+			}
+		}
+	}
 ```
 
 - `public PostDeserialize(Colossal.Serialization.Entities.Context context) : System.Void`  
 
 ```csharp
-public System.Void PostDeserialize(Colossal.Serialization.Entities.Context context);
+public void PostDeserialize(Context context)
+	{
+		if (context.purpose == Purpose.NewGame)
+		{
+			if (context.version >= Version.editorMapTiles)
+			{
+				for (int i = 0; i < m_StartTiles.Length; i++)
+				{
+					if (m_StartTiles[i] == Entity.Null)
+					{
+						m_StartTiles.RemoveAtSwapBack(i);
+					}
+				}
+				if (m_StartTiles.Length != 0)
+				{
+					base.EntityManager.RemoveComponent<Native>(m_StartTiles.AsArray());
+				}
+			}
+			else
+			{
+				LegacyGenerateMapTiles(editorMode: false);
+			}
+		}
+		else if (context.purpose == Purpose.NewMap)
+		{
+			LegacyGenerateMapTiles(editorMode: true);
+		}
+	}
 ```
 
 - `public Serialize<TWriter>(TWriter writer) : System.Void`  
@@ -173,7 +288,10 @@ public System.Void Serialize<TWriter>(TWriter writer);
 - `public SetDefaults(Colossal.Serialization.Entities.Context context) : System.Void`  
 
 ```csharp
-public System.Void SetDefaults(Colossal.Serialization.Entities.Context context);
+public void SetDefaults(Context context)
+	{
+		m_StartTiles.Clear();
+	}
 ```
 
 

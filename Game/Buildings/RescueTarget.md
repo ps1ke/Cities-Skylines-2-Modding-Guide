@@ -37,7 +37,10 @@ public Unity.Entities.Entity m_Request;
 - `public RescueTarget(Unity.Entities.Entity request)`  
 
 ```csharp
-public RescueTarget(Unity.Entities.Entity request);
+public RescueTarget(Entity request)
+	{
+		m_Request = request;
+	}
 ```
 
 

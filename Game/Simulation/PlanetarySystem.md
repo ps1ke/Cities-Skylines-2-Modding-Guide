@@ -460,7 +460,10 @@ public System.Single moonSurfaceRoughness { get; set; }
 - `public PlanetarySystem()`  
 
 ```csharp
-public PlanetarySystem();
+[Preserve]
+	public PlanetarySystem()
+	{
+	}
 ```
 
 
@@ -469,13 +472,35 @@ public PlanetarySystem();
 - `private __AssignQueries(Unity.Entities.SystemState& state) : System.Void`  
 
 ```csharp
-private System.Void __AssignQueries(Unity.Entities.SystemState& state);
+private void __AssignQueries(ref SystemState state)
+	{
+		EntityQueryBuilder entityQueryBuilder = new EntityQueryBuilder(Allocator.Temp);
+		EntityQueryBuilder entityQueryBuilder2 = entityQueryBuilder.WithAll<TimeSettingsData>();
+		entityQueryBuilder2 = entityQueryBuilder2.WithOptions(EntityQueryOptions.IncludeSystems);
+		__query_1383560598_0 = entityQueryBuilder2.Build(ref state);
+		entityQueryBuilder.Reset();
+		entityQueryBuilder2 = entityQueryBuilder.WithAll<TimeData>();
+		entityQueryBuilder2 = entityQueryBuilder2.WithOptions(EntityQueryOptions.IncludeSystems);
+		__query_1383560598_1 = entityQueryBuilder2.Build(ref state);
+		entityQueryBuilder.Reset();
+		entityQueryBuilder2 = entityQueryBuilder.WithAll<AtmosphereData>();
+		entityQueryBuilder2 = entityQueryBuilder2.WithOptions(EntityQueryOptions.IncludeSystems);
+		__query_1383560598_2 = entityQueryBuilder2.Build(ref state);
+		entityQueryBuilder.Reset();
+		entityQueryBuilder.Dispose();
+	}
 ```
 
 - `private static CreateDateTime(System.Int32 year, System.Int32 day, System.Int32 hour, System.Int32 minute, System.Single second, System.Single longitude) : System.DateTime`  
 
 ```csharp
-private static System.DateTime CreateDateTime(System.Int32 year, System.Int32 day, System.Int32 hour, System.Int32 minute, System.Single second, System.Single longitude);
+private static DateTime CreateDateTime(int year, int day, int hour, int minute, float second, float longitude)
+	{
+		return new DateTime(0L, DateTimeKind.Utc).AddYears(year - 1).AddDays(day - 1).AddHours(hour)
+			.AddMinutes(minute)
+			.AddSeconds(second)
+			.AddSeconds(-43200f * longitude / 180f);
+	}
 ```
 
 - `public Deserialize<TReader>(TReader reader) : System.Void`  
@@ -487,43 +512,180 @@ public System.Void Deserialize<TReader>(TReader reader);
 - `public GetMoonPosition(System.DateTime date, System.Double latitude, System.Double longitude) : Colossal.Atmosphere.MoonCoordinate`  
 
 ```csharp
-public Colossal.Atmosphere.MoonCoordinate GetMoonPosition(System.DateTime date, System.Double latitude, System.Double longitude);
+public MoonCoordinate GetMoonPosition(DateTime date, double latitude, double longitude)
+	{
+		return m_SunMoonData.GetMoonPosition(date, latitude, longitude);
+	}
 ```
 
 - `public GetSunPosition(System.DateTime date, System.Double latitude, System.Double longitude) : Colossal.Atmosphere.TopocentricCoordinates`  
 
 ```csharp
-public Colossal.Atmosphere.TopocentricCoordinates GetSunPosition(System.DateTime date, System.Double latitude, System.Double longitude);
+public TopocentricCoordinates GetSunPosition(DateTime date, double latitude, double longitude)
+	{
+		return m_SunMoonData.GetSunPosition(date, latitude, longitude);
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_PrefabSystem = base.World.GetOrCreateSystemManaged<PrefabSystem>();
+		m_CameraUpdateSystem = base.World.GetOrCreateSystemManaged<CameraUpdateSystem>();
+		m_MoonTexture = new RenderTexture(512, 512, 0, RenderTextureFormat.ARGB32)
+		{
+			name = "MoonTexture",
+			hideFlags = HideFlags.DontSave
+		};
+		m_MoonMaterial = CoreUtils.CreateEngineMaterial(Shader.Find("Hidden/Satellites"));
+		m_ClearPass = m_MoonMaterial.FindPass("Clear");
+		m_LitPass = m_MoonMaterial.FindPass("LitSatellite");
+		m_TimeSystem = base.World.GetOrCreateSystemManaged<TimeSystem>();
+		m_RenderingSystem = base.World.GetOrCreateSystemManaged<RenderingSystem>();
+		m_SunLight = new LightData("SunLight");
+		m_MoonLight = new LightData("MoonLight");
+		m_NightLight = new LightData("NightLight");
+		m_SunMoonData = default(SunMoonData);
+	}
 ```
 
 - `protected virtual OnCreateForCompiler() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreateForCompiler();
+protected override void OnCreateForCompiler()
+	{
+		base.OnCreateForCompiler();
+		__AssignQueries(ref base.CheckedStateRef);
+		__TypeHandle.__AssignHandles(ref base.CheckedStateRef);
+	}
 ```
 
 - `protected virtual OnDestroy() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnDestroy();
+[Preserve]
+	protected override void OnDestroy()
+	{
+		base.OnDestroy();
+		CoreUtils.Destroy(m_MoonTexture);
+		CoreUtils.Destroy(m_MoonMaterial);
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		float num = latitude;
+		float num2 = longitude;
+		TimeSettingsData value3;
+		TimeData value4;
+		if (GameManager.instance.gameMode == GameMode.Game)
+		{
+			bool flag = overrideTime;
+			GameplaySettings gameplaySettings = SharedSettings.instance?.gameplay;
+			if (gameplaySettings != null && !overrideTime && !gameplaySettings.dayNightVisual)
+			{
+				num = 51.2277f;
+				num2 = 6.7735f;
+				time = 14.5f;
+				day = 177;
+				year = 2020;
+				flag = true;
+			}
+			if (!flag && __query_1383560598_0.TryGetSingleton<TimeSettingsData>(out var value) && __query_1383560598_1.TryGetSingleton<TimeData>(out var value2))
+			{
+				double renderingFrame = (float)(m_RenderingSystem.frameIndex - value2.m_FirstFrame) + m_RenderingSystem.frameTime;
+				float timeOfYear = m_TimeSystem.GetTimeOfYear(value, value2, renderingFrame);
+				float num3 = m_TimeSystem.GetTimeOfDay(value, value2, renderingFrame) * debugTimeMultiplier;
+				int num4 = m_TimeSystem.GetYear(value, value2);
+				UpdateTime(timeOfYear, num3, num4);
+			}
+		}
+		else if (GameManager.instance.gameMode == GameMode.Editor && !overrideTime && __query_1383560598_0.TryGetSingleton<TimeSettingsData>(out value3) && __query_1383560598_1.TryGetSingleton<TimeData>(out value4))
+		{
+			double renderingFrame2 = (float)(m_RenderingSystem.frameIndex - value4.m_FirstFrame) + m_RenderingSystem.frameTime;
+			float timeOfYear2 = m_TimeSystem.GetTimeOfYear(value3, value4, renderingFrame2);
+			float num5 = m_TimeSystem.GetTimeOfDay(value3, value4, renderingFrame2) * debugTimeMultiplier;
+			int num6 = m_TimeSystem.GetYear(value3, value4);
+			UpdateTime(timeOfYear2, num5, num6);
+		}
+		if (m_SunLight.isValid)
+		{
+			JulianDateTime date = CreateDateTime(year, day, hour, minute, second, num2);
+			float planetTime;
+			float3 @float = m_SunMoonData.GetSunPosition(date, num, num2).ToLocalCoordinates(out planetTime);
+			float4x4 float4x = float4x4.LookAt(@float, float3.zero, new float3(0f, 1f, 0f));
+			float3 float2 = math.rotate(float4x, new float3(0f, 0f, 1f));
+			m_SunLight.transform.position = @float;
+			m_SunLight.transform.rotation = new quaternion(float4x);
+			m_SunLight.additionalData.intensity = m_SunLight.initialIntensity * math.smoothstep(0f, 0.3f, math.abs(math.min(0f, float2.y)));
+		}
+		if (m_MoonLight.isValid)
+		{
+			JulianDateTime date2 = CreateDateTime(year, moonDay, hour, minute, second, num2);
+			MoonCoordinate moonPosition = m_SunMoonData.GetMoonPosition(date2, num, num2);
+			float planetTime2;
+			float3 float3 = moonPosition.topoCoords.ToLocalCoordinates(out planetTime2);
+			float4x4 float4x2 = float4x4.LookAt(float3, float3.zero, new float3(0f, 1f, 0f));
+			math.rotate(float4x2, new float3(0f, 0f, 1f));
+			m_MoonLight.transform.position = float3;
+			m_MoonLight.transform.rotation = new quaternion(float4x2);
+			m_MoonLight.additionalData.distance = (float)moonPosition.distance;
+			if (m_SunLight.isValid)
+			{
+				RenderMoon();
+			}
+		}
+		if (m_NightLight.isValid && m_MoonLight.isValid)
+		{
+			float3 float4 = m_MoonLight.transform.position;
+			float4.y = math.max(float4.y, 0.3f);
+			float4x4 m = float4x4.LookAt(float4, float3.zero, new float3(0f, 1f, 0f));
+			m_NightLight.transform.position = float4;
+			m_NightLight.transform.rotation = new quaternion(m);
+		}
+	}
 ```
 
 - `private RenderMoon() : System.Void`  
 
 ```csharp
-private System.Void RenderMoon();
+private void RenderMoon()
+	{
+		if (m_MoonTexture != null && m_MoonMaterial != null && m_CameraUpdateSystem.activeCamera != null)
+		{
+			moonSurfaceRoughness = 0.8f;
+			Camera activeCamera = m_CameraUpdateSystem.activeCamera;
+			float num = Mathf.Tan(0.5f * activeCamera.fieldOfView * MathF.PI / 180f);
+			Vector4 value = new Vector4(activeCamera.aspect * num, num, activeCamera.nearClipPlane, activeCamera.farClipPlane);
+			m_MoonMaterial.SetMatrix(ShaderIDs._Camera2World, activeCamera.cameraToWorldMatrix);
+			m_MoonMaterial.SetVector(ShaderIDs._CameraData, value);
+			m_MoonMaterial.SetVector(ShaderIDs._SunDirection, m_SunLight.transform.forward);
+			m_MoonMaterial.SetVector(ShaderIDs._Direction, m_MoonLight.transform.forward);
+			m_MoonMaterial.SetVector(ShaderIDs._Tangent, m_MoonLight.transform.right);
+			m_MoonMaterial.SetVector(ShaderIDs._BiTangent, m_MoonLight.transform.up);
+			m_MoonMaterial.SetColor(ShaderIDs._Albedo, new Color(1f, 1f, 1f, 1f));
+			m_MoonMaterial.SetVector(ShaderIDs._Corners, new Vector4(0f, 0f, 1f, 1f));
+			m_MoonMaterial.SetVector(ShaderIDs._OrenNayarCoefficients, m_OrenNayarCoefficients);
+			m_MoonMaterial.SetFloat(ShaderIDs._Luminance, 10f);
+			if (__query_1383560598_2.TryGetSingleton<AtmosphereData>(out var value2) && m_PrefabSystem.TryGetPrefab<AtmospherePrefab>(value2.m_AtmospherePrefab, out var prefab))
+			{
+				m_MoonMaterial.SetTexture(ShaderIDs._TexDiffuse, prefab.m_MoonAlbedo);
+				m_MoonMaterial.SetTexture(ShaderIDs._TexNormal, prefab.m_MoonNormal);
+			}
+			Graphics.Blit(null, m_MoonTexture, m_MoonMaterial, m_ClearPass);
+			Graphics.Blit(null, m_MoonTexture, m_MoonMaterial, m_LitPass);
+			m_MoonTexture.IncrementUpdateCount();
+			m_MoonLight.additionalData.surfaceTexture = m_MoonTexture;
+		}
+	}
 ```
 
 - `public Serialize<TWriter>(TWriter writer) : System.Void`  
@@ -535,13 +697,22 @@ public System.Void Serialize<TWriter>(TWriter writer);
 - `public SetDefaults(Colossal.Serialization.Entities.Context context) : System.Void`  
 
 ```csharp
-public System.Void SetDefaults(Colossal.Serialization.Entities.Context context);
+public void SetDefaults(Context context)
+	{
+		m_Latitude = kDefaultLatitude;
+		m_Longitude = kDefaultLongitude;
+	}
 ```
 
 - `private UpdateTime(System.Single date, System.Single time, System.Int32 year) : System.Void`  
 
 ```csharp
-private System.Void UpdateTime(System.Single date, System.Single time, System.Int32 year);
+private void UpdateTime(float date, float time, int year)
+	{
+		normalizedDayOfYear = date;
+		normalizedTime = time;
+		m_Year = year;
+	}
 ```
 
 

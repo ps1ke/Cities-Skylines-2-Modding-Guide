@@ -51,7 +51,12 @@ public System.Byte m_DispatchIndex;
 - `public MaintenanceRequest(Unity.Entities.Entity target, System.Int32 priority)`  
 
 ```csharp
-public MaintenanceRequest(Unity.Entities.Entity target, System.Int32 priority);
+public MaintenanceRequest(Entity target, int priority)
+	{
+		m_Target = target;
+		m_Priority = priority;
+		m_DispatchIndex = 0;
+	}
 ```
 
 

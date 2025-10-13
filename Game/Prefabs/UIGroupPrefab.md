@@ -38,19 +38,34 @@ protected UIGroupPrefab();
 - `public AddElement(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity) : System.Void`  
 
 ```csharp
-public System.Void AddElement(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity);
+public void AddElement(EntityManager entityManager, Entity entity)
+	{
+		Entity entity2 = entityManager.World.GetExistingSystemManaged<PrefabSystem>().GetEntity(this);
+		entityManager.GetBuffer<UIGroupElement>(entity2).Add(new UIGroupElement(entity));
+		entityManager.GetBuffer<UnlockRequirement>(entity2).Add(new UnlockRequirement(entity, UnlockFlags.RequireAny));
+	}
 ```
 
 - `public virtual GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetPrefabComponents(HashSet<ComponentType> components)
+	{
+		base.GetPrefabComponents(components);
+		components.Add(ComponentType.ReadWrite<UIGroupElement>());
+		components.Add(ComponentType.ReadWrite<UnlockRequirement>());
+		components.Add(ComponentType.ReadWrite<Locked>());
+	}
 ```
 
 - `public virtual LateInitialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity) : System.Void`  
 
 ```csharp
-public virtual System.Void LateInitialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity);
+public override void LateInitialize(EntityManager entityManager, Entity entity)
+	{
+		entityManager.GetBuffer<UnlockRequirement>(entity).Add(new UnlockRequirement(entity, UnlockFlags.RequireAny));
+		base.LateInitialize(entityManager, entity);
+	}
 ```
 
 

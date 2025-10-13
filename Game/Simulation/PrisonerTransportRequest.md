@@ -44,7 +44,11 @@ public System.Int32 m_Priority;
 - `public PrisonerTransportRequest(Unity.Entities.Entity target, System.Int32 priority)`  
 
 ```csharp
-public PrisonerTransportRequest(Unity.Entities.Entity target, System.Int32 priority);
+public PrisonerTransportRequest(Entity target, int priority)
+	{
+		m_Target = target;
+		m_Priority = priority;
+	}
 ```
 
 

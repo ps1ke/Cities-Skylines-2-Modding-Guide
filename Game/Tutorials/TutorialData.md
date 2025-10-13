@@ -35,7 +35,10 @@ public System.Int32 m_Priority;
 - `public TutorialData(System.Int32 priority)`  
 
 ```csharp
-public TutorialData(System.Int32 priority);
+public TutorialData(int priority)
+	{
+		m_Priority = priority;
+	}
 ```
 
 

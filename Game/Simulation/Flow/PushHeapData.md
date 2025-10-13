@@ -44,7 +44,11 @@ public System.Int32 m_Height;
 - `public PushHeapData(System.Int32 nodeIndex, System.Int32 height)`  
 
 ```csharp
-public PushHeapData(System.Int32 nodeIndex, System.Int32 height);
+public PushHeapData(int nodeIndex, int height)
+	{
+		m_NodeIndex = nodeIndex;
+		m_Height = height;
+	}
 ```
 
 
@@ -53,13 +57,19 @@ public PushHeapData(System.Int32 nodeIndex, System.Int32 height);
 - `public LessThan(Game.Simulation.Flow.PushHeapData other) : System.Boolean`  
 
 ```csharp
-public System.Boolean LessThan(Game.Simulation.Flow.PushHeapData other);
+public bool LessThan(PushHeapData other)
+	{
+		return m_Height > other.m_Height;
+	}
 ```
 
 - `public virtual ToString() : System.String`  
 
 ```csharp
-public virtual System.String ToString();
+public override string ToString()
+	{
+		return string.Format("{0}: {1}, {2}: {3}", "m_NodeIndex", m_NodeIndex, "m_Height", m_Height);
+	}
 ```
 
 

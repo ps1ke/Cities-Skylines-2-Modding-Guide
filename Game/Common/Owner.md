@@ -37,7 +37,10 @@ public Unity.Entities.Entity m_Owner;
 - `public Owner(Unity.Entities.Entity owner)`  
 
 ```csharp
-public Owner(Unity.Entities.Entity owner);
+public Owner(Entity owner)
+	{
+		m_Owner = owner;
+	}
 ```
 
 

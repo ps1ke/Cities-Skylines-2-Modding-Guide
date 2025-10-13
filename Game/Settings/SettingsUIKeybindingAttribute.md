@@ -73,7 +73,13 @@ public System.Collections.Generic.IEnumerable<System.String> modifierControls { 
 - `protected SettingsUIKeybindingAttribute(System.String actionName, Game.Input.InputManager+DeviceType device, Game.Input.ActionType type, Game.Input.ActionComponent component)`  
 
 ```csharp
-protected SettingsUIKeybindingAttribute(System.String actionName, Game.Input.InputManager+DeviceType device, Game.Input.ActionType type, Game.Input.ActionComponent component);
+protected SettingsUIKeybindingAttribute(string actionName, InputManager.DeviceType device, ActionType type, ActionComponent component)
+	{
+		this.actionName = actionName;
+		this.device = device;
+		this.type = type;
+		this.component = component;
+	}
 ```
 
 

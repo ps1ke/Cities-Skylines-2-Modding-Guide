@@ -60,7 +60,10 @@ private Unity.Entities.Entity deadEntity { private get; private set; }
 - `public DeathcareVehicleSection()`  
 
 ```csharp
-public DeathcareVehicleSection();
+[Preserve]
+	public DeathcareVehicleSection()
+	{
+	}
 ```
 
 
@@ -69,31 +72,73 @@ public DeathcareVehicleSection();
 - `protected virtual OnProcess() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnProcess();
+protected override void OnProcess()
+	{
+		Hearse componentData = base.EntityManager.GetComponentData<Hearse>(selectedEntity);
+		base.stateKey = VehicleUIUtils.GetStateKey(selectedEntity, componentData, base.EntityManager);
+		deadEntity = ((base.stateKey == VehicleStateLocaleKey.Conveying) ? componentData.m_TargetCorpse : Entity.Null);
+		base.OnProcess();
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		base.visible = Visible();
+	}
 ```
 
 - `public virtual OnWriteProperties(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-public virtual System.Void OnWriteProperties(Colossal.UI.Binding.IJsonWriter writer);
+public override void OnWriteProperties(IJsonWriter writer)
+	{
+		base.OnWriteProperties(writer);
+		writer.PropertyName("dead");
+		if (deadEntity == Entity.Null)
+		{
+			writer.WriteNull();
+		}
+		else
+		{
+			m_NameSystem.BindName(writer, deadEntity);
+		}
+		writer.PropertyName("deadEntity");
+		if (deadEntity == Entity.Null)
+		{
+			writer.WriteNull();
+		}
+		else
+		{
+			writer.Write(deadEntity);
+		}
+	}
 ```
 
 - `protected virtual Reset() : System.Void`  
 
 ```csharp
-protected virtual System.Void Reset();
+protected override void Reset()
+	{
+		base.Reset();
+		deadEntity = Entity.Null;
+	}
 ```
 
 - `private Visible() : System.Boolean`  
 
 ```csharp
-private System.Boolean Visible();
+private bool Visible()
+	{
+		if (base.EntityManager.HasComponent<Vehicle>(selectedEntity) && base.EntityManager.HasComponent<Hearse>(selectedEntity))
+		{
+			return base.EntityManager.HasComponent<Owner>(selectedEntity);
+		}
+		return false;
+	}
 ```
 
 

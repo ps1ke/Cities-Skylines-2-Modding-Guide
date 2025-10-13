@@ -39,7 +39,10 @@ public Unity.Entities.Entity m_Vehicle;
 - `public OwnedVehicle(Unity.Entities.Entity vehicle)`  
 
 ```csharp
-public OwnedVehicle(Unity.Entities.Entity vehicle);
+public OwnedVehicle(Entity vehicle)
+	{
+		m_Vehicle = vehicle;
+	}
 ```
 
 
@@ -48,13 +51,19 @@ public OwnedVehicle(Unity.Entities.Entity vehicle);
 - `public Equals(Game.Vehicles.OwnedVehicle other) : System.Boolean`  
 
 ```csharp
-public System.Boolean Equals(Game.Vehicles.OwnedVehicle other);
+public bool Equals(OwnedVehicle other)
+	{
+		return m_Vehicle.Equals(other.m_Vehicle);
+	}
 ```
 
 - `public virtual GetHashCode() : System.Int32`  
 
 ```csharp
-public virtual System.Int32 GetHashCode();
+public override int GetHashCode()
+	{
+		return m_Vehicle.GetHashCode();
+	}
 ```
 
 

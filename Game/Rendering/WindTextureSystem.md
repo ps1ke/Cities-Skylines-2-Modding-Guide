@@ -77,7 +77,10 @@ public UnityEngine.Texture2D WindTexture { get; }
 - `public WindTextureSystem()`  
 
 ```csharp
-public WindTextureSystem();
+[Preserve]
+	public WindTextureSystem()
+	{
+	}
 ```
 
 
@@ -86,25 +89,62 @@ public WindTextureSystem();
 - `public CompleteUpdate() : System.Void`  
 
 ```csharp
-public System.Void CompleteUpdate();
+public void CompleteUpdate()
+	{
+		if (m_RequireApply)
+		{
+			m_RequireApply = false;
+			m_UpdateHandle.Complete();
+			m_WindTexture.Apply();
+		}
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_WindSystem = base.World.GetOrCreateSystemManaged<WindSystem>();
+		m_WindTexture = new Texture2D(WindSystem.kTextureSize, WindSystem.kTextureSize, TextureFormat.RGFloat, mipChain: false, linear: true)
+		{
+			name = "WindTexture",
+			hideFlags = HideFlags.HideAndDontSave
+		};
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		if (m_RequireUpdate)
+		{
+			m_RequireUpdate = false;
+			m_RequireApply = true;
+			JobHandle dependencies;
+			WindTextureJob jobData = new WindTextureJob
+			{
+				m_WindMap = m_WindSystem.GetMap(readOnly: true, out dependencies),
+				m_WindTexture = m_WindTexture.GetRawTextureData<float2>()
+			};
+			m_UpdateHandle = jobData.Schedule(WindSystem.kTextureSize * WindSystem.kTextureSize, dependencies);
+			m_WindSystem.AddReader(m_UpdateHandle);
+		}
+	}
 ```
 
 - `public RequireUpdate() : System.Void`  
 
 ```csharp
-public System.Void RequireUpdate();
+public void RequireUpdate()
+	{
+		m_RequireUpdate = true;
+	}
 ```
 
 

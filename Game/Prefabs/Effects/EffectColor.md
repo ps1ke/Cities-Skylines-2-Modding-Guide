@@ -70,19 +70,33 @@ public EffectColor();
 - `public virtual GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetArchetypeComponents(HashSet<ComponentType> components)
+	{
+	}
 ```
 
 - `public virtual GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetPrefabComponents(HashSet<ComponentType> components)
+	{
+		components.Add(ComponentType.ReadWrite<EffectColorData>());
+	}
 ```
 
 - `public virtual Initialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity) : System.Void`  
 
 ```csharp
-public virtual System.Void Initialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity);
+public override void Initialize(EntityManager entityManager, Entity entity)
+	{
+		base.Initialize(entityManager, entity);
+		EffectColorData componentData = entityManager.GetComponentData<EffectColorData>(entity);
+		componentData.m_Source = m_Source;
+		componentData.m_VaritationRanges.x = m_HueRandomness * 0.01f;
+		componentData.m_VaritationRanges.y = m_SaturationRandomness * 0.01f;
+		componentData.m_VaritationRanges.z = m_BrightnessRandomness * 0.01f;
+		entityManager.SetComponentData(entity, componentData);
+	}
 ```
 
 

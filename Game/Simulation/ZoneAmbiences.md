@@ -157,7 +157,70 @@ public System.Single m_SeagullAmbience;
 - `public AddAmbience(Game.Simulation.GroupAmbienceType type, System.Single value) : System.Void`  
 
 ```csharp
-public System.Void AddAmbience(Game.Simulation.GroupAmbienceType type, System.Single value);
+public void AddAmbience(GroupAmbienceType type, float value)
+	{
+		switch (type)
+		{
+		case GroupAmbienceType.ResidentialLow:
+			m_ResidentialLow += value;
+			break;
+		case GroupAmbienceType.CommercialLow:
+			m_CommercialLow += value;
+			break;
+		case GroupAmbienceType.Industrial:
+			m_Industrial += value;
+			break;
+		case GroupAmbienceType.Agriculture:
+			m_Agriculture += value;
+			break;
+		case GroupAmbienceType.Forestry:
+			m_Forestry += value;
+			break;
+		case GroupAmbienceType.Oil:
+			m_Oil += value;
+			break;
+		case GroupAmbienceType.Ore:
+			m_Ore += value;
+			break;
+		case GroupAmbienceType.OfficeLow:
+			m_OfficeLow += value;
+			break;
+		case GroupAmbienceType.OfficeHigh:
+			m_OfficeHigh += value;
+			break;
+		case GroupAmbienceType.ResidentialMedium:
+			m_ResidentialMedium += value;
+			break;
+		case GroupAmbienceType.ResidentialHigh:
+			m_ResidentialHigh += value;
+			break;
+		case GroupAmbienceType.ResidentialMixed:
+			m_ResidentialMixed += value;
+			break;
+		case GroupAmbienceType.CommercialHigh:
+			m_CommercialHigh += value;
+			break;
+		case GroupAmbienceType.ResidentialLowRent:
+			m_ResidentialLowRent += value;
+			break;
+		case GroupAmbienceType.Forest:
+			m_Forest += value;
+			break;
+		case GroupAmbienceType.WaterfrontLow:
+			m_WaterfrontLow += value;
+			break;
+		case GroupAmbienceType.AquacultureLand:
+			m_AquacultureLand += value;
+			break;
+		case GroupAmbienceType.SeagullAmbience:
+			m_SeagullAmbience += value;
+			break;
+		case GroupAmbienceType.Traffic:
+		case GroupAmbienceType.Rain:
+		case GroupAmbienceType.NightForest:
+			break;
+		}
+	}
 ```
 
 - `public Deserialize<TReader>(TReader reader) : System.Void`  
@@ -169,13 +232,40 @@ public System.Void Deserialize<TReader>(TReader reader);
 - `public GetAmbience(Game.Simulation.GroupAmbienceType type) : System.Single`  
 
 ```csharp
-public System.Single GetAmbience(Game.Simulation.GroupAmbienceType type);
+public float GetAmbience(GroupAmbienceType type)
+	{
+		return type switch
+		{
+			GroupAmbienceType.ResidentialLow => m_ResidentialLow, 
+			GroupAmbienceType.CommercialLow => m_CommercialLow, 
+			GroupAmbienceType.Industrial => m_Industrial, 
+			GroupAmbienceType.Agriculture => m_Agriculture, 
+			GroupAmbienceType.Forestry => m_Forestry, 
+			GroupAmbienceType.Oil => m_Oil, 
+			GroupAmbienceType.Ore => m_Ore, 
+			GroupAmbienceType.OfficeLow => m_OfficeLow, 
+			GroupAmbienceType.OfficeHigh => m_OfficeHigh, 
+			GroupAmbienceType.ResidentialMedium => m_ResidentialMedium, 
+			GroupAmbienceType.ResidentialHigh => m_ResidentialHigh, 
+			GroupAmbienceType.ResidentialMixed => m_ResidentialMixed, 
+			GroupAmbienceType.CommercialHigh => m_CommercialHigh, 
+			GroupAmbienceType.ResidentialLowRent => m_ResidentialLowRent, 
+			GroupAmbienceType.Forest => m_Forest, 
+			GroupAmbienceType.WaterfrontLow => m_WaterfrontLow, 
+			GroupAmbienceType.AquacultureLand => m_AquacultureLand, 
+			GroupAmbienceType.SeagullAmbience => m_SeagullAmbience, 
+			_ => 0f, 
+		};
+	}
 ```
 
 - `public GetStride(Colossal.Serialization.Entities.Context context) : System.Int32`  
 
 ```csharp
-public System.Int32 GetStride(Colossal.Serialization.Entities.Context context);
+public int GetStride(Context context)
+	{
+		return 72;
+	}
 ```
 
 - `public Serialize<TWriter>(TWriter writer) : System.Void`  

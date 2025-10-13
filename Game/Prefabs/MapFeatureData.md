@@ -37,7 +37,10 @@ public System.Single m_Cost;
 - `public MapFeatureData(System.Single cost)`  
 
 ```csharp
-public MapFeatureData(System.Single cost);
+public MapFeatureData(float cost)
+	{
+		m_Cost = cost;
+	}
 ```
 
 

@@ -35,7 +35,10 @@ public Unity.Entities.Entity m_Menu;
 - `public UIAssetCategoryData(Unity.Entities.Entity menu)`  
 
 ```csharp
-public UIAssetCategoryData(Unity.Entities.Entity menu);
+public UIAssetCategoryData(Entity menu)
+	{
+		m_Menu = menu;
+	}
 ```
 
 

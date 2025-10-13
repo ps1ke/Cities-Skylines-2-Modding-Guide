@@ -51,7 +51,12 @@ public Game.Notifications.AnimationType m_Type;
 - `public Animation(Game.Notifications.AnimationType type, System.Single timer, System.Single duration)`  
 
 ```csharp
-public Animation(Game.Notifications.AnimationType type, System.Single timer, System.Single duration);
+public Animation(AnimationType type, float timer, float duration)
+	{
+		m_Timer = timer;
+		m_Duration = duration;
+		m_Type = type;
+	}
 ```
 
 

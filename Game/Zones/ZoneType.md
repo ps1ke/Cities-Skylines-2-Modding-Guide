@@ -54,13 +54,19 @@ public System.Void Deserialize<TReader>(TReader reader);
 - `public Equals(Game.Zones.ZoneType other) : System.Boolean`  
 
 ```csharp
-public System.Boolean Equals(Game.Zones.ZoneType other);
+public bool Equals(ZoneType other)
+	{
+		return m_Index.Equals(other.m_Index);
+	}
 ```
 
 - `public GetStride(Colossal.Serialization.Entities.Context context) : System.Int32`  
 
 ```csharp
-public System.Int32 GetStride(Colossal.Serialization.Entities.Context context);
+public int GetStride(Context context)
+	{
+		return 2;
+	}
 ```
 
 - `public Serialize<TWriter>(TWriter writer) : System.Void`  

@@ -51,13 +51,17 @@ public abstract Unity.Entities.EntityQueryDesc GetEntityQueryDesc();
 - `public RecordChanges(Unity.Entities.EntityManager entityManager, Unity.Collections.NativeArray`1[[Unity.Entities.Entity, Unity.Entities, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]& entities) : System.Void`  
 
 ```csharp
-public System.Void RecordChanges(Unity.Entities.EntityManager entityManager, Unity.Collections.NativeArray`1[[Unity.Entities.Entity, Unity.Entities, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]& entities);
+protected virtual void RecordChanges(EntityManager entityManager, Entity entity)
+	{
+	}
 ```
 
 - `protected virtual RecordChanges(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity) : System.Void`  
 
 ```csharp
-protected virtual System.Void RecordChanges(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity);
+protected virtual void RecordChanges(EntityManager entityManager, Entity entity)
+	{
+	}
 ```
 
 - `public abstract RestoreDefaultData(Unity.Entities.EntityManager entityManager, Unity.Collections.NativeArray`1[[Unity.Entities.Entity, Unity.Entities, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]& entities, Game.Prefabs.PrefabSystem prefabSystem) : System.Void`  
@@ -69,7 +73,9 @@ public abstract System.Void RestoreDefaultData(Unity.Entities.EntityManager enti
 - `public virtual StoreDefaultData(Unity.Entities.EntityManager entityManager, Unity.Collections.NativeArray`1[[Unity.Entities.Entity, Unity.Entities, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]& requestedQuery, Game.Prefabs.PrefabSystem prefabSystem) : System.Void`  
 
 ```csharp
-public virtual System.Void StoreDefaultData(Unity.Entities.EntityManager entityManager, Unity.Collections.NativeArray`1[[Unity.Entities.Entity, Unity.Entities, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]& requestedQuery, Game.Prefabs.PrefabSystem prefabSystem);
+public virtual void StoreDefaultData(EntityManager entityManager, ref NativeArray<Entity> requestedQuery, PrefabSystem prefabSystem)
+	{
+	}
 ```
 
 

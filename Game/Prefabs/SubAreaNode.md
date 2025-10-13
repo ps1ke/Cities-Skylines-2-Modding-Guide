@@ -44,7 +44,11 @@ public System.Int32 m_ParentMesh;
 - `public SubAreaNode(Unity.Mathematics.float3 position, System.Int32 parentMesh)`  
 
 ```csharp
-public SubAreaNode(Unity.Mathematics.float3 position, System.Int32 parentMesh);
+public SubAreaNode(float3 position, int parentMesh)
+	{
+		m_Position = position;
+		m_ParentMesh = parentMesh;
+	}
 ```
 
 

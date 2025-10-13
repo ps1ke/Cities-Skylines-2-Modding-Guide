@@ -98,19 +98,46 @@ public DisasterConfigurationPrefab();
 - `public virtual GetDependencies(System.Collections.Generic.List<Game.Prefabs.PrefabBase> prefabs) : System.Void`  
 
 ```csharp
-public virtual System.Void GetDependencies(System.Collections.Generic.List<Game.Prefabs.PrefabBase> prefabs);
+public override void GetDependencies(List<PrefabBase> prefabs)
+	{
+		base.GetDependencies(prefabs);
+		prefabs.Add(m_WeatherDamageNotificationPrefab);
+		prefabs.Add(m_WeatherDestroyedNotificationPrefab);
+		prefabs.Add(m_WaterDamageNotificationPrefab);
+		prefabs.Add(m_WaterDestroyedNotificationPrefab);
+		prefabs.Add(m_DestroyedNotificationPrefab);
+	}
 ```
 
 - `public virtual GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetPrefabComponents(HashSet<ComponentType> components)
+	{
+		base.GetPrefabComponents(components);
+		components.Add(ComponentType.ReadWrite<DisasterConfigurationData>());
+	}
 ```
 
 - `public virtual LateInitialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity) : System.Void`  
 
 ```csharp
-public virtual System.Void LateInitialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity);
+public override void LateInitialize(EntityManager entityManager, Entity entity)
+	{
+		base.LateInitialize(entityManager, entity);
+		PrefabSystem existingSystemManaged = entityManager.World.GetExistingSystemManaged<PrefabSystem>();
+		entityManager.SetComponentData(entity, new DisasterConfigurationData
+		{
+			m_WeatherDamageNotificationPrefab = existingSystemManaged.GetEntity(m_WeatherDamageNotificationPrefab),
+			m_WeatherDestroyedNotificationPrefab = existingSystemManaged.GetEntity(m_WeatherDestroyedNotificationPrefab),
+			m_WaterDamageNotificationPrefab = existingSystemManaged.GetEntity(m_WaterDamageNotificationPrefab),
+			m_WaterDestroyedNotificationPrefab = existingSystemManaged.GetEntity(m_WaterDestroyedNotificationPrefab),
+			m_DestroyedNotificationPrefab = existingSystemManaged.GetEntity(m_DestroyedNotificationPrefab),
+			m_FloodDamageRate = m_FloodDamageRate,
+			m_EmergencyShelterDangerLevelExitProbability = new AnimationCurve1(m_EmergencyShelterDangerLevelExitProbability),
+			m_InoperableEmergencyShelterExitProbability = m_InoperableEmergencyShelterExitProbability
+		});
+	}
 ```
 
 

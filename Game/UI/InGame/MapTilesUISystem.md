@@ -186,7 +186,10 @@ public static System.Boolean mapTileViewActive { get; private set; }
 - `public MapTilesUISystem()`  
 
 ```csharp
-public MapTilesUISystem();
+[Preserve]
+	public MapTilesUISystem()
+	{
+	}
 ```
 
 
@@ -231,43 +234,133 @@ private System.Int32 <OnCreate>b__22_6();
 - `private BindResources(Colossal.UI.Binding.IJsonWriter binder) : System.Void`  
 
 ```csharp
-private System.Void BindResources(Colossal.UI.Binding.IJsonWriter binder);
+private void BindResources(IJsonWriter binder)
+	{
+		binder.ArrayBegin(5u);
+		binder.Write(GetResource(MapFeature.FertileLand));
+		binder.Write(GetResource(MapFeature.Forest));
+		binder.Write(GetResource(MapFeature.Oil));
+		binder.Write(GetResource(MapFeature.Ore));
+		binder.Write(GetResource(MapFeature.Fish));
+		binder.ArrayEnd();
+	}
 ```
 
 - `private GetResource(Game.Areas.MapFeature feature) : Game.UI.InGame.MapTilesUISystem+UIMapTileResource`  
 
 ```csharp
-private Game.UI.InGame.MapTilesUISystem+UIMapTileResource GetResource(Game.Areas.MapFeature feature);
+private UIMapTileResource GetResource(MapFeature feature)
+	{
+		return feature switch
+		{
+			MapFeature.BuildableLand => new UIMapTileResource("BuildableLand", "Media/Game/Icons/MapTile.svg", m_MapTileSystem.GetFeatureAmount(MapFeature.BuildableLand), "area"), 
+			MapFeature.FertileLand => new UIMapTileResource("FertileLand", "Media/Game/Icons/Fertility.svg", m_MapTileSystem.GetFeatureAmount(MapFeature.FertileLand), "area"), 
+			MapFeature.Forest => new UIMapTileResource("Forest", "Media/Game/Icons/Forest.svg", m_MapTileSystem.GetFeatureAmount(MapFeature.Forest), "weight"), 
+			MapFeature.Oil => new UIMapTileResource("Oil", "Media/Game/Icons/Oil.svg", m_MapTileSystem.GetFeatureAmount(MapFeature.Oil), "weight"), 
+			MapFeature.Ore => new UIMapTileResource("Ore", "Media/Game/Icons/Coal.svg", m_MapTileSystem.GetFeatureAmount(MapFeature.Ore), "weight"), 
+			MapFeature.Fish => new UIMapTileResource("Fish", "Media/Game/Resources/Fish.svg", m_MapTileSystem.GetFeatureAmount(MapFeature.Fish), "weight"), 
+			_ => new UIMapTileResource("Water", "Media/Game/Icons/Water.svg", m_MapTileSystem.GetFeatureAmount(MapFeature.GroundWater), "volume"), 
+		};
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_MapTileSystem = base.World.GetOrCreateSystemManaged<MapTilePurchaseSystem>();
+		m_CityConfigurationSystem = base.World.GetOrCreateSystemManaged<CityConfigurationSystem>();
+		m_AudioManager = base.World.GetOrCreateSystemManaged<AudioManager>();
+		m_GameScreenUISystem = base.World.GetOrCreateSystemManaged<GameScreenUISystem>();
+		AddBinding(m_MapTilesPanelVisibleBinding = new GetterValueBinding<bool>("mapTiles", "mapTilePanelVisible", () => mapTileViewActive && !m_CityConfigurationSystem.unlockMapTiles));
+		AddBinding(m_MapTilesViewActiveBinding = new GetterValueBinding<bool>("mapTiles", "mapTileViewActive", () => mapTileViewActive));
+		AddBinding(m_BuildableLandBinding = new ValueBinding<UIMapTileResource>("mapTiles", "buildableLand", GetResource(MapFeature.BuildableLand), new ValueWriter<UIMapTileResource>()));
+		AddBinding(m_WaterBinding = new ValueBinding<UIMapTileResource>("mapTiles", "water", GetResource(MapFeature.GroundWater), new ValueWriter<UIMapTileResource>()));
+		AddBinding(m_PurchasePriceBinding = new GetterValueBinding<int>("mapTiles", "purchasePrice", () => m_MapTileSystem.cost));
+		AddBinding(m_PurchaseUpkeepBinding = new GetterValueBinding<int>("mapTiles", "purchaseUpkeep", () => m_MapTileSystem.upkeep));
+		AddBinding(m_PurchaseFlagsBinding = new GetterValueBinding<int>("mapTiles", "purchaseFlags", () => (int)m_MapTileSystem.status));
+		AddBinding(m_ExpansionPermitsBinding = new GetterValueBinding<int>("mapTiles", "expansionPermits", () => m_MapTileSystem.GetAvailableTiles()));
+		AddBinding(m_ExpansionPermitCostBinding = new GetterValueBinding<int>("mapTiles", "expansionPermitCost", () => m_MapTileSystem.GetSelectedTileCount()));
+		AddBinding(m_ResourcesBinding = new RawValueBinding("mapTiles", "resources", BindResources));
+		AddBinding(new TriggerBinding<bool>("mapTiles", "setMapTileViewActive", SetMapTileViewActive));
+		AddBinding(new TriggerBinding("mapTiles", "purchaseMapTiles", PurchaseMapTiles));
+		m_SoundQuery = GetEntityQuery(ComponentType.ReadOnly<ToolUXSoundSettingsData>());
+		m_IsLastTimeZoomOut = false;
+	}
 ```
 
 - `protected virtual OnGamePreload(Colossal.Serialization.Entities.Purpose purpose, Game.GameMode mode) : System.Void`  
 
 ```csharp
-protected virtual System.Void OnGamePreload(Colossal.Serialization.Entities.Purpose purpose, Game.GameMode mode);
+protected override void OnGamePreload(Purpose purpose, GameMode mode)
+	{
+		base.OnGamePreload(purpose, mode);
+		mapTileViewActive = false;
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		m_MapTilesViewActiveBinding.Update();
+		m_MapTilesPanelVisibleBinding.Update();
+		m_ExpansionPermitsBinding.Update();
+		if (!mapTileViewActive)
+		{
+			return;
+		}
+		m_MapTileSystem.Update();
+		if (m_MapTileSystem.selecting)
+		{
+			m_PurchaseFlagsBinding.Update();
+			int selectedTileCount = m_MapTileSystem.GetSelectedTileCount();
+			if (m_LastSelected != selectedTileCount)
+			{
+				m_LastSelected = selectedTileCount;
+				m_PurchasePriceBinding.Update();
+				m_PurchaseUpkeepBinding.Update();
+				m_ExpansionPermitCostBinding.Update();
+				m_ResourcesBinding.Update();
+				m_BuildableLandBinding.Update(GetResource(MapFeature.BuildableLand));
+				m_WaterBinding.Update(GetResource(MapFeature.GroundWater));
+			}
+		}
+	}
 ```
 
 - `private PurchaseMapTiles() : System.Void`  
 
 ```csharp
-private System.Void PurchaseMapTiles();
+private void PurchaseMapTiles()
+	{
+		m_MapTileSystem.PurchaseSelection();
+	}
 ```
 
 - `private SetMapTileViewActive(System.Boolean enabled) : System.Void`  
 
 ```csharp
-private System.Void SetMapTileViewActive(System.Boolean enabled);
+private void SetMapTileViewActive(bool enabled)
+	{
+		if (enabled && m_GameScreenUISystem.activeScreen != GameScreenUISystem.GameScreen.Main)
+		{
+			m_GameScreenUISystem.SetScreen(GameScreenUISystem.GameScreen.Main);
+		}
+		mapTileViewActive = enabled;
+		m_MapTileSystem.selecting = enabled && !m_CityConfigurationSystem.unlockMapTiles;
+		if (m_IsLastTimeZoomOut != enabled && !GameManager.instance.isGameLoading)
+		{
+			Entity clipEntity = (enabled ? m_SoundQuery.GetSingleton<ToolUXSoundSettingsData>().m_CameraZoomInSound : m_SoundQuery.GetSingleton<ToolUXSoundSettingsData>().m_CameraZoomOutSound);
+			m_AudioManager.PlayUISound(clipEntity);
+		}
+		m_IsLastTimeZoomOut = enabled;
+	}
 ```
 
 

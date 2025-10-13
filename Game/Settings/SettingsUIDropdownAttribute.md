@@ -43,7 +43,11 @@ public readonly System.String itemsGetterMethod;
 - `public SettingsUIDropdownAttribute(System.Type itemsGetterType, System.String itemsGetterMethod)`  
 
 ```csharp
-public SettingsUIDropdownAttribute(System.Type itemsGetterType, System.String itemsGetterMethod);
+public SettingsUIDropdownAttribute(Type itemsGetterType, string itemsGetterMethod)
+	{
+		this.itemsGetterType = itemsGetterType;
+		this.itemsGetterMethod = itemsGetterMethod;
+	}
 ```
 
 

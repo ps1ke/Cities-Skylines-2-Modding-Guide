@@ -37,7 +37,10 @@ public Colossal.Mathematics.Bounds2 m_Bounds;
 - `public LabelExtents(Unity.Mathematics.float2 min, Unity.Mathematics.float2 max)`  
 
 ```csharp
-public LabelExtents(Unity.Mathematics.float2 min, Unity.Mathematics.float2 max);
+public LabelExtents(float2 min, float2 max)
+	{
+		m_Bounds = new Bounds2(min, max);
+	}
 ```
 
 

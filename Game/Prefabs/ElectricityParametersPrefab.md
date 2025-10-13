@@ -133,19 +133,56 @@ public ElectricityParametersPrefab();
 - `public virtual GetDependencies(System.Collections.Generic.List<Game.Prefabs.PrefabBase> prefabs) : System.Void`  
 
 ```csharp
-public virtual System.Void GetDependencies(System.Collections.Generic.List<Game.Prefabs.PrefabBase> prefabs);
+public override void GetDependencies(List<PrefabBase> prefabs)
+	{
+		base.GetDependencies(prefabs);
+		prefabs.Add(m_ElectricityServicePrefab);
+		prefabs.Add(m_ElectricityNotificationPrefab);
+		prefabs.Add(m_LowVoltageNotConnectedPrefab);
+		prefabs.Add(m_HighVoltageNotConnectedPrefab);
+		prefabs.Add(m_BottleneckNotificationPrefab);
+		prefabs.Add(m_BuildingBottleneckNotificationPrefab);
+		prefabs.Add(m_NotEnoughProductionNotificationPrefab);
+		prefabs.Add(m_TransformerNotificationPrefab);
+		prefabs.Add(m_NotEnoughConnectedNotificationPrefab);
+		prefabs.Add(m_BatteryEmptyNotificationPrefab);
+	}
 ```
 
 - `public virtual GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetPrefabComponents(HashSet<ComponentType> components)
+	{
+		base.GetPrefabComponents(components);
+		components.Add(ComponentType.ReadWrite<ElectricityParameterData>());
+	}
 ```
 
 - `public virtual LateInitialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity) : System.Void`  
 
 ```csharp
-public virtual System.Void LateInitialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity);
+public override void LateInitialize(EntityManager entityManager, Entity entity)
+	{
+		base.LateInitialize(entityManager, entity);
+		PrefabSystem orCreateSystemManaged = entityManager.World.GetOrCreateSystemManaged<PrefabSystem>();
+		entityManager.SetComponentData(entity, new ElectricityParameterData
+		{
+			m_InitialBatteryCharge = m_InitialBatteryCharge,
+			m_TemperatureConsumptionMultiplier = new AnimationCurve1(m_TemperatureConsumptionMultiplier),
+			m_CloudinessSolarPenalty = m_CloudinessSolarPenalty,
+			m_ElectricityServicePrefab = orCreateSystemManaged.GetEntity(m_ElectricityServicePrefab),
+			m_ElectricityNotificationPrefab = orCreateSystemManaged.GetEntity(m_ElectricityNotificationPrefab),
+			m_LowVoltageNotConnectedPrefab = orCreateSystemManaged.GetEntity(m_LowVoltageNotConnectedPrefab),
+			m_HighVoltageNotConnectedPrefab = orCreateSystemManaged.GetEntity(m_HighVoltageNotConnectedPrefab),
+			m_BottleneckNotificationPrefab = orCreateSystemManaged.GetEntity(m_BottleneckNotificationPrefab),
+			m_BuildingBottleneckNotificationPrefab = orCreateSystemManaged.GetEntity(m_BuildingBottleneckNotificationPrefab),
+			m_NotEnoughProductionNotificationPrefab = orCreateSystemManaged.GetEntity(m_NotEnoughProductionNotificationPrefab),
+			m_TransformerNotificationPrefab = orCreateSystemManaged.GetEntity(m_TransformerNotificationPrefab),
+			m_NotEnoughConnectedNotificationPrefab = orCreateSystemManaged.GetEntity(m_NotEnoughConnectedNotificationPrefab),
+			m_BatteryEmptyNotificationPrefab = orCreateSystemManaged.GetEntity(m_BatteryEmptyNotificationPrefab)
+		});
+	}
 ```
 
 

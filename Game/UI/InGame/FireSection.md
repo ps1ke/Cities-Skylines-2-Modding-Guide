@@ -74,7 +74,10 @@ private System.Boolean disasterResponder { private get; private set; }
 - `public FireSection()`  
 
 ```csharp
-public FireSection();
+[Preserve]
+	public FireSection()
+	{
+	}
 ```
 
 
@@ -83,31 +86,56 @@ public FireSection();
 - `protected virtual OnProcess() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnProcess();
+protected override void OnProcess()
+	{
+		if (TryGetComponentWithUpgrades<FireStationData>(selectedEntity, selectedPrefab, out var data) && base.EntityManager.TryGetBuffer(selectedEntity, isReadOnly: true, out DynamicBuffer<Efficiency> buffer))
+		{
+			disasterResponder = data.m_DisasterResponseCapacity > 0;
+			float efficiency = BuildingUtils.GetEfficiency(buffer);
+			vehicleEfficiency = data.m_VehicleEfficiency * (0.5f + efficiency * 0.5f) * 100f;
+		}
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		base.visible = Visible();
+	}
 ```
 
 - `public virtual OnWriteProperties(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-public virtual System.Void OnWriteProperties(Colossal.UI.Binding.IJsonWriter writer);
+public override void OnWriteProperties(IJsonWriter writer)
+	{
+		writer.PropertyName("vehicleEfficiency");
+		writer.Write(vehicleEfficiency);
+		writer.PropertyName("disasterResponder");
+		writer.Write(disasterResponder);
+	}
 ```
 
 - `protected virtual Reset() : System.Void`  
 
 ```csharp
-protected virtual System.Void Reset();
+protected override void Reset()
+	{
+		vehicleEfficiency = 0f;
+		disasterResponder = false;
+	}
 ```
 
 - `private Visible() : System.Boolean`  
 
 ```csharp
-private System.Boolean Visible();
+private bool Visible()
+	{
+		return base.EntityManager.HasComponent<Game.Buildings.FireStation>(selectedEntity);
+	}
 ```
 
 

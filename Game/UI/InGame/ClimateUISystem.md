@@ -108,7 +108,10 @@ private System.Single m_TemperatureBindingValue { private get; }
 - `public ClimateUISystem()`  
 
 ```csharp
-public ClimateUISystem();
+[Preserve]
+	public ClimateUISystem()
+	{
+	}
 ```
 
 
@@ -123,37 +126,88 @@ private System.Single <OnCreate>b__11_0();
 - `private static FromWeatherClassification(Game.Simulation.ClimateSystem+WeatherClassification classification) : Game.UI.InGame.WeatherType`  
 
 ```csharp
-private static Game.UI.InGame.WeatherType FromWeatherClassification(Game.Simulation.ClimateSystem+WeatherClassification classification);
+private static WeatherType FromWeatherClassification(ClimateSystem.WeatherClassification classification)
+	{
+		return classification switch
+		{
+			ClimateSystem.WeatherClassification.Clear => WeatherType.Clear, 
+			ClimateSystem.WeatherClassification.Few => WeatherType.Few, 
+			ClimateSystem.WeatherClassification.Scattered => WeatherType.Scattered, 
+			ClimateSystem.WeatherClassification.Broken => WeatherType.Broken, 
+			ClimateSystem.WeatherClassification.Overcast => WeatherType.Overcast, 
+			ClimateSystem.WeatherClassification.Stormy => WeatherType.Storm, 
+			_ => WeatherType.Clear, 
+		};
+	}
 ```
 
 - `private GetCurrentSeasonNameID() : System.String`  
 
 ```csharp
-private System.String GetCurrentSeasonNameID();
+private string GetCurrentSeasonNameID()
+	{
+		return m_ClimateSystem.currentSeasonNameID;
+	}
 ```
 
 - `public GetWeather() : Game.UI.InGame.WeatherType`  
 
 ```csharp
-public Game.UI.InGame.WeatherType GetWeather();
+public WeatherType GetWeather()
+	{
+		if (m_ClimateSystem.isPrecipitating)
+		{
+			if (m_ClimateSystem.isRaining)
+			{
+				return WeatherType.Rain;
+			}
+			if (m_ClimateSystem.isSnowing)
+			{
+				return WeatherType.Snow;
+			}
+			return WeatherType.Clear;
+		}
+		return FromWeatherClassification(m_ClimateSystem.classification);
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_ClimateSystem = base.World.GetOrCreateSystemManaged<ClimateSystem>();
+		AddBinding(m_TemperatureBinding = new GetterValueBinding<float>("climate", "temperature", () => m_TemperatureBindingValue));
+		AddBinding(m_WeatherBinding = new GetterValueBinding<WeatherType>("climate", "weather", GetWeather, new DelegateWriter<WeatherType>(WriteWeatherType)));
+		AddBinding(m_SeasonBinding = new GetterValueBinding<string>("climate", "seasonNameId", GetCurrentSeasonNameID, ValueWriters.Nullable(new StringWriter())));
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		m_TemperatureBinding.Update();
+		m_WeatherBinding.Update();
+		if (!m_SeasonBinding.Update() && m_CurrentSeason != m_ClimateSystem.currentSeason)
+		{
+			m_SeasonBinding.TriggerUpdate();
+		}
+		m_CurrentSeason = m_ClimateSystem.currentSeason;
+	}
 ```
 
 - `private static WriteWeatherType(Colossal.UI.Binding.IJsonWriter writer, Game.UI.InGame.WeatherType type) : System.Void`  
 
 ```csharp
-private static System.Void WriteWeatherType(Colossal.UI.Binding.IJsonWriter writer, Game.UI.InGame.WeatherType type);
+private static void WriteWeatherType(IJsonWriter writer, WeatherType type)
+	{
+		writer.Write((int)type);
+	}
 ```
 
 

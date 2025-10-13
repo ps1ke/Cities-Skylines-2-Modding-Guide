@@ -75,7 +75,12 @@ public System.Boolean IsBuiltin { get; protected set; }
 - `public MaterialPropertyAttribute(System.String shaderPropertyName, System.Type dataType, System.Boolean isBuiltin = False)`  
 
 ```csharp
-public MaterialPropertyAttribute(System.String shaderPropertyName, System.Type dataType, System.Boolean isBuiltin);
+public MaterialPropertyAttribute(string shaderPropertyName, Type dataType, bool isBuiltin = false)
+	{
+		ShaderPropertyName = shaderPropertyName;
+		DataType = dataType;
+		IsBuiltin = isBuiltin;
+	}
 ```
 
 

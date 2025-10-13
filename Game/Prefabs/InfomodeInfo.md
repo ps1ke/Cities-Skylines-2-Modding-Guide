@@ -68,7 +68,10 @@ public InfomodeInfo();
 - `public CompareTo(Game.Prefabs.InfomodeInfo other) : System.Int32`  
 
 ```csharp
-public System.Int32 CompareTo(Game.Prefabs.InfomodeInfo other);
+public int CompareTo(InfomodeInfo other)
+	{
+		return m_Priority - other.m_Priority;
+	}
 ```
 
 

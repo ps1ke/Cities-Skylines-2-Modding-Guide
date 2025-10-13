@@ -103,7 +103,10 @@ private System.Single purification { private get; private set; }
 - `public SewageSection()`  
 
 ```csharp
-public SewageSection();
+[Preserve]
+	public SewageSection()
+	{
+	}
 ```
 
 
@@ -112,37 +115,96 @@ public SewageSection();
 - `private HasWaterSource() : System.Boolean`  
 
 ```csharp
-private System.Boolean HasWaterSource();
+private bool HasWaterSource()
+	{
+		if (base.EntityManager.TryGetBuffer(selectedEntity, isReadOnly: true, out DynamicBuffer<Game.Objects.SubObject> buffer))
+		{
+			for (int i = 0; i < buffer.Length; i++)
+			{
+				Entity subObject = buffer[i].m_SubObject;
+				if (base.EntityManager.HasComponent<Game.Simulation.WaterSourceData>(subObject))
+				{
+					return true;
+				}
+			}
+		}
+		return false;
+	}
 ```
 
 - `protected virtual OnProcess() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnProcess();
+protected override void OnProcess()
+	{
+		Game.Buildings.SewageOutlet componentData = base.EntityManager.GetComponentData<Game.Buildings.SewageOutlet>(selectedEntity);
+		capacity = componentData.m_Capacity;
+		lastProcessed = componentData.m_LastProcessed;
+		lastPurified = componentData.m_LastPurified;
+		if (TryGetComponentWithUpgrades<SewageOutletData>(selectedEntity, selectedPrefab, out var data))
+		{
+			purification = data.m_Purification;
+		}
+		base.tooltipKeys.Add(HasWaterSource() ? "Outlet" : "Treatment");
+		if (purification > 0f)
+		{
+			if (base.EntityManager.HasComponent<Game.Buildings.WaterPumpingStation>(selectedEntity))
+			{
+				base.tooltipKeys.Add("TreatmentPurification");
+			}
+			else
+			{
+				base.tooltipKeys.Add("OutletPurification");
+			}
+		}
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		base.visible = Visible();
+	}
 ```
 
 - `public virtual OnWriteProperties(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-public virtual System.Void OnWriteProperties(Colossal.UI.Binding.IJsonWriter writer);
+public override void OnWriteProperties(IJsonWriter writer)
+	{
+		writer.PropertyName("capacity");
+		writer.Write(capacity);
+		writer.PropertyName("lastProcessed");
+		writer.Write(lastProcessed);
+		writer.PropertyName("lastPurified");
+		writer.Write(lastPurified);
+		writer.PropertyName("purification");
+		writer.Write(purification);
+	}
 ```
 
 - `protected virtual Reset() : System.Void`  
 
 ```csharp
-protected virtual System.Void Reset();
+protected override void Reset()
+	{
+		capacity = 0f;
+		lastProcessed = 0f;
+		lastPurified = 0f;
+		purification = 0f;
+	}
 ```
 
 - `private Visible() : System.Boolean`  
 
 ```csharp
-private System.Boolean Visible();
+private bool Visible()
+	{
+		return base.EntityManager.HasComponent<Game.Buildings.SewageOutlet>(selectedEntity);
+	}
 ```
 
 

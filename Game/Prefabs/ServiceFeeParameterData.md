@@ -113,19 +113,52 @@ public Game.Prefabs.FeeParameters m_PoliceFee;
 - `public GetDefaultFees() : System.Collections.Generic.IEnumerable<Game.City.ServiceFee>`  
 
 ```csharp
-public System.Collections.Generic.IEnumerable<Game.City.ServiceFee> GetDefaultFees();
+public IEnumerable<ServiceFee> GetDefaultFees()
+	{
+		yield return GetDefaultServiceFee(PlayerResource.Healthcare);
+		yield return GetDefaultServiceFee(PlayerResource.Electricity);
+		yield return GetDefaultServiceFee(PlayerResource.BasicEducation);
+		yield return GetDefaultServiceFee(PlayerResource.HigherEducation);
+		yield return GetDefaultServiceFee(PlayerResource.SecondaryEducation);
+		yield return GetDefaultServiceFee(PlayerResource.Garbage);
+		yield return GetDefaultServiceFee(PlayerResource.Water);
+		yield return GetDefaultServiceFee(PlayerResource.FireResponse);
+		yield return GetDefaultServiceFee(PlayerResource.Police);
+	}
 ```
 
 - `private GetDefaultServiceFee(Game.City.PlayerResource resource) : Game.City.ServiceFee`  
 
 ```csharp
-private Game.City.ServiceFee GetDefaultServiceFee(Game.City.PlayerResource resource);
+private ServiceFee GetDefaultServiceFee(PlayerResource resource)
+	{
+		return new ServiceFee
+		{
+			m_Resource = resource,
+			m_Fee = GetFeeParameters(resource).m_Default
+		};
+	}
 ```
 
 - `public GetFeeParameters(Game.City.PlayerResource resource) : Game.Prefabs.FeeParameters`  
 
 ```csharp
-public Game.Prefabs.FeeParameters GetFeeParameters(Game.City.PlayerResource resource);
+public FeeParameters GetFeeParameters(PlayerResource resource)
+	{
+		return resource switch
+		{
+			PlayerResource.Healthcare => m_HealthcareFee, 
+			PlayerResource.Electricity => m_ElectricityFee, 
+			PlayerResource.BasicEducation => m_BasicEducationFee, 
+			PlayerResource.HigherEducation => m_HigherEducationFee, 
+			PlayerResource.SecondaryEducation => m_SecondaryEducationFee, 
+			PlayerResource.Garbage => m_GarbageFee, 
+			PlayerResource.Water => m_WaterFee, 
+			PlayerResource.FireResponse => m_FireResponseFee, 
+			PlayerResource.Police => m_PoliceFee, 
+			_ => default(FeeParameters), 
+		};
+	}
 ```
 
 

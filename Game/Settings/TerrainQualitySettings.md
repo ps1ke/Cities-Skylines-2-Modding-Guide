@@ -92,13 +92,21 @@ private static Game.Settings.TerrainQualitySettings lowQuality { private get; }
 - `public TerrainQualitySettings()`  
 
 ```csharp
-public TerrainQualitySettings();
+public TerrainQualitySettings(Level quality, VolumeProfile profile)
+	{
+		CreateVolumeComponent(profile, ref m_TerrainRenderingComponent);
+		SetLevel(quality, apply: false);
+	}
 ```
 
 - `public TerrainQualitySettings(Game.Settings.QualitySetting+Level quality, UnityEngine.Rendering.VolumeProfile profile)`  
 
 ```csharp
-public TerrainQualitySettings(Game.Settings.QualitySetting+Level quality, UnityEngine.Rendering.VolumeProfile profile);
+public TerrainQualitySettings(Level quality, VolumeProfile profile)
+	{
+		CreateVolumeComponent(profile, ref m_TerrainRenderingComponent);
+		SetLevel(quality, apply: false);
+	}
 ```
 
 
@@ -107,7 +115,15 @@ public TerrainQualitySettings(Game.Settings.QualitySetting+Level quality, UnityE
 - `public virtual Apply() : System.Void`  
 
 ```csharp
-public virtual System.Void Apply();
+public override void Apply()
+	{
+		base.Apply();
+		if (m_TerrainRenderingComponent != null)
+		{
+			ApplyState(m_TerrainRenderingComponent.finalTessellation, finalTessellation);
+			ApplyState(m_TerrainRenderingComponent.targetPatchSize, targetPatchSize);
+		}
+	}
 ```
 
 

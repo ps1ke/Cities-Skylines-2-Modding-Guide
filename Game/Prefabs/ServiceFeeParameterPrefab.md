@@ -125,13 +125,36 @@ public ServiceFeeParameterPrefab();
 - `public virtual GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetPrefabComponents(HashSet<ComponentType> components)
+	{
+		base.GetPrefabComponents(components);
+		components.Add(ComponentType.ReadWrite<ServiceFeeParameterData>());
+	}
 ```
 
 - `public virtual LateInitialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity) : System.Void`  
 
 ```csharp
-public virtual System.Void LateInitialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity);
+public override void LateInitialize(EntityManager entityManager, Entity entity)
+	{
+		base.LateInitialize(entityManager, entity);
+		ServiceFeeParameterData componentData = new ServiceFeeParameterData
+		{
+			m_ElectricityFee = m_ElectricityFee,
+			m_ElectricityFeeConsumptionMultiplier = new AnimationCurve1(m_ElectricityFeeConsumptionMultiplier),
+			m_HealthcareFee = m_HealthcareFee,
+			m_BasicEducationFee = m_BasicEducationFee,
+			m_HigherEducationFee = m_HigherEducationFee,
+			m_SecondaryEducationFee = m_SecondaryEducationFee,
+			m_GarbageFee = m_GarbageFee,
+			m_GarbageFeeRCIO = m_GarbageFeeRCIO,
+			m_WaterFee = m_WaterFee,
+			m_WaterFeeConsumptionMultiplier = new AnimationCurve1(m_WaterFeeConsumptionMultiplier),
+			m_FireResponseFee = m_FireResponseFee,
+			m_PoliceFee = m_PoliceFee
+		};
+		entityManager.SetComponentData(entity, componentData);
+	}
 ```
 
 

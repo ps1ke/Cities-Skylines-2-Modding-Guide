@@ -72,7 +72,15 @@ public System.Single m_PathElementTime;
 - `public GarbageTruck(Game.Vehicles.GarbageTruckFlags flags, System.Int32 requestCount)`  
 
 ```csharp
-public GarbageTruck(Game.Vehicles.GarbageTruckFlags flags, System.Int32 requestCount);
+public GarbageTruck(GarbageTruckFlags flags, int requestCount)
+	{
+		m_TargetRequest = Entity.Null;
+		m_State = flags;
+		m_RequestCount = requestCount;
+		m_Garbage = 0;
+		m_EstimatedGarbage = 0;
+		m_PathElementTime = 0f;
+	}
 ```
 
 

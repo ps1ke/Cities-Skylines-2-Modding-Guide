@@ -49,19 +49,63 @@ public TrafficAccidentMode();
 - `public virtual ApplyModeData(Unity.Entities.EntityManager entityManager, Game.Prefabs.PrefabSystem prefabSystem) : System.Void`  
 
 ```csharp
-public virtual System.Void ApplyModeData(Unity.Entities.EntityManager entityManager, Game.Prefabs.PrefabSystem prefabSystem);
+public override void ApplyModeData(EntityManager entityManager, PrefabSystem prefabSystem)
+	{
+		for (int i = 0; i < m_ModeDatas.Length; i++)
+		{
+			ModeData modeData = m_ModeDatas[i];
+			TrafficAccident component = modeData.m_Prefab.GetComponent<TrafficAccident>();
+			if (component == null)
+			{
+				ComponentBase.baseLog.Critical($"Target not found {this}");
+				continue;
+			}
+			Entity entity = prefabSystem.GetEntity(component.prefab);
+			TrafficAccidentData componentData = entityManager.GetComponentData<TrafficAccidentData>(entity);
+			componentData.m_OccurenceProbability = modeData.m_OccurrenceProbability;
+			entityManager.SetComponentData(entity, componentData);
+		}
+	}
 ```
 
 - `public virtual RecordChanges(Unity.Entities.EntityManager entityManager, Game.Prefabs.PrefabSystem prefabSystem) : System.Void`  
 
 ```csharp
-public virtual System.Void RecordChanges(Unity.Entities.EntityManager entityManager, Game.Prefabs.PrefabSystem prefabSystem);
+public override void RecordChanges(EntityManager entityManager, PrefabSystem prefabSystem)
+	{
+		for (int i = 0; i < m_ModeDatas.Length; i++)
+		{
+			TrafficAccident component = m_ModeDatas[i].m_Prefab.GetComponent<TrafficAccident>();
+			if (component == null)
+			{
+				ComponentBase.baseLog.Critical($"Target not found {this}");
+				continue;
+			}
+			Entity entity = prefabSystem.GetEntity(component.prefab);
+			entityManager.GetComponentData<TrafficAccidentData>(entity);
+		}
+	}
 ```
 
 - `public virtual RestoreDefaultData(Unity.Entities.EntityManager entityManager, Game.Prefabs.PrefabSystem prefabSystem) : System.Void`  
 
 ```csharp
-public virtual System.Void RestoreDefaultData(Unity.Entities.EntityManager entityManager, Game.Prefabs.PrefabSystem prefabSystem);
+public override void RestoreDefaultData(EntityManager entityManager, PrefabSystem prefabSystem)
+	{
+		for (int i = 0; i < m_ModeDatas.Length; i++)
+		{
+			TrafficAccident component = m_ModeDatas[i].m_Prefab.GetComponent<TrafficAccident>();
+			if (component == null)
+			{
+				ComponentBase.baseLog.Critical($"Target not found {this}");
+				continue;
+			}
+			Entity entity = prefabSystem.GetEntity(component.prefab);
+			TrafficAccidentData componentData = entityManager.GetComponentData<TrafficAccidentData>(entity);
+			componentData.m_OccurenceProbability = component.m_OccurrenceProbability;
+			entityManager.SetComponentData(entity, componentData);
+		}
+	}
 ```
 
 

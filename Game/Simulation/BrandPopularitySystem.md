@@ -73,7 +73,10 @@ public static const System.Int32 kUpdatesPerDay;
 - `public BrandPopularitySystem()`  
 
 ```csharp
-public BrandPopularitySystem();
+[Preserve]
+	public BrandPopularitySystem()
+	{
+	}
 ```
 
 
@@ -82,49 +85,107 @@ public BrandPopularitySystem();
 - `private __AssignQueries(Unity.Entities.SystemState& state) : System.Void`  
 
 ```csharp
-private System.Void __AssignQueries(Unity.Entities.SystemState& state);
+private void __AssignQueries(ref SystemState state)
+	{
+		new EntityQueryBuilder(Allocator.Temp).Dispose();
+	}
 ```
 
 - `public virtual GetUpdateInterval(Game.SystemUpdatePhase phase) : System.Int32`  
 
 ```csharp
-public virtual System.Int32 GetUpdateInterval(Game.SystemUpdatePhase phase);
+public override int GetUpdateInterval(SystemUpdatePhase phase)
+	{
+		return 2048;
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_ModifiedQuery = GetEntityQuery(new EntityQueryDesc
+		{
+			All = new ComponentType[2]
+			{
+				ComponentType.ReadOnly<CompanyData>(),
+				ComponentType.ReadOnly<PropertyRenter>()
+			},
+			None = new ComponentType[2]
+			{
+				ComponentType.ReadOnly<Deleted>(),
+				ComponentType.ReadOnly<Temp>()
+			}
+		});
+		m_BrandPopularity = new NativeList<BrandPopularity>(Allocator.Persistent);
+		RequireForUpdate(m_ModifiedQuery);
+	}
 ```
 
 - `protected virtual OnCreateForCompiler() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreateForCompiler();
+protected override void OnCreateForCompiler()
+	{
+		base.OnCreateForCompiler();
+		__AssignQueries(ref base.CheckedStateRef);
+		__TypeHandle.__AssignHandles(ref base.CheckedStateRef);
+	}
 ```
 
 - `protected virtual OnDestroy() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnDestroy();
+[Preserve]
+	protected override void OnDestroy()
+	{
+		m_BrandPopularity.Dispose();
+		base.OnDestroy();
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		JobHandle outJobHandle;
+		NativeList<ArchetypeChunk> companyChunks = m_ModifiedQuery.ToArchetypeChunkListAsync(Allocator.TempJob, out outJobHandle);
+		JobHandle jobHandle = IJobExtensions.Schedule(new UpdateBrandPopularityJob
+		{
+			m_CompanyChunks = companyChunks,
+			m_CompanyDataType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Companies_CompanyData_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+			m_CompanyRentPropertyType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Buildings_PropertyRenter_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+			m_UnderConstructions = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Objects_UnderConstruction_RO_ComponentLookup, ref base.CheckedStateRef),
+			m_BrandPopularity = m_BrandPopularity
+		}, JobHandle.CombineDependencies(base.Dependency, outJobHandle, m_Readers));
+		companyChunks.Dispose(jobHandle);
+		base.Dependency = jobHandle;
+		m_Readers = default(JobHandle);
+	}
 ```
 
 - `public PreDeserialize(Colossal.Serialization.Entities.Context context) : System.Void`  
 
 ```csharp
-public System.Void PreDeserialize(Colossal.Serialization.Entities.Context context);
+public void PreDeserialize(Context context)
+	{
+		m_BrandPopularity.Clear();
+	}
 ```
 
 - `public ReadBrandPopularity(Unity.Jobs.JobHandle& dependency) : Unity.Collections.NativeList<Game.Simulation.BrandPopularitySystem+BrandPopularity>`  
 
 ```csharp
-public Unity.Collections.NativeList<Game.Simulation.BrandPopularitySystem+BrandPopularity> ReadBrandPopularity(Unity.Jobs.JobHandle& dependency);
+public NativeList<BrandPopularity> ReadBrandPopularity(out JobHandle dependency)
+	{
+		dependency = base.Dependency;
+		return m_BrandPopularity;
+	}
 ```
 
 

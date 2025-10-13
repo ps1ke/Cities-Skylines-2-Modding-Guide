@@ -86,7 +86,11 @@ public System.Boolean IsEnabled { get; }
 - `public DebugWatchDistribution(System.Boolean persistent = False, System.Boolean relative = False)`  
 
 ```csharp
-public DebugWatchDistribution(System.Boolean persistent, System.Boolean relative);
+public DebugWatchDistribution(bool persistent = false, bool relative = false)
+	{
+		m_Persistent = persistent;
+		m_Relative = relative;
+	}
 ```
 
 
@@ -95,31 +99,71 @@ public DebugWatchDistribution(System.Boolean persistent, System.Boolean relative
 - `public AddWriter(Unity.Jobs.JobHandle handle) : System.Void`  
 
 ```csharp
-public System.Void AddWriter(Unity.Jobs.JobHandle handle);
+public void AddWriter(JobHandle handle)
+	{
+		if (!IsEnabled)
+		{
+			throw new Exception("cannot add writer to disabled DebugWatchDistribution");
+		}
+		m_Deps = JobHandle.CombineDependencies(m_Deps, handle);
+	}
 ```
 
 - `public Disable() : System.Void`  
 
 ```csharp
-public System.Void Disable();
+public void Disable()
+	{
+		if (IsEnabled)
+		{
+			m_Deps.Complete();
+			m_RawData.Dispose();
+		}
+	}
 ```
 
 - `public Dispose() : System.Void`  
 
 ```csharp
-public System.Void Dispose();
+public void Dispose()
+	{
+		Disable();
+	}
 ```
 
 - `public Enable() : System.Void`  
 
 ```csharp
-public System.Void Enable();
+public void Enable()
+	{
+		if (!IsEnabled)
+		{
+			m_RawData = new NativeQueue<int>(Allocator.Persistent);
+			m_Deps = default(JobHandle);
+		}
+	}
 ```
 
 - `public GetQueue(System.Boolean clear, Unity.Jobs.JobHandle& deps) : Unity.Collections.NativeQueue<System.Int32>`  
 
 ```csharp
-public Unity.Collections.NativeQueue<System.Int32> GetQueue(System.Boolean clear, Unity.Jobs.JobHandle& deps);
+public NativeQueue<int> GetQueue(bool clear, out JobHandle deps)
+	{
+		if (!IsEnabled)
+		{
+			throw new Exception("cannot get data queue from disabled DebugWatchDistribution");
+		}
+		if (clear)
+		{
+			ClearJob jobData = new ClearJob
+			{
+				m_RawData = m_RawData
+			};
+			m_Deps = jobData.Schedule(m_Deps);
+		}
+		deps = m_Deps;
+		return m_RawData;
+	}
 ```
 
 

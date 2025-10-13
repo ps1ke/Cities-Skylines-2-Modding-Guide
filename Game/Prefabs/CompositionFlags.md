@@ -100,7 +100,12 @@ public static Game.Prefabs.CompositionFlags optionMask { get; }
 - `public CompositionFlags(Game.Prefabs.CompositionFlags+General general, Game.Prefabs.CompositionFlags+Side left, Game.Prefabs.CompositionFlags+Side right)`  
 
 ```csharp
-public CompositionFlags(Game.Prefabs.CompositionFlags+General general, Game.Prefabs.CompositionFlags+Side left, Game.Prefabs.CompositionFlags+Side right);
+public CompositionFlags(General general, Side left, Side right)
+	{
+		m_General = general;
+		m_Left = left;
+		m_Right = right;
+	}
 ```
 
 
@@ -115,19 +120,41 @@ public System.Void Deserialize<TReader>(TReader reader);
 - `public Equals(Game.Prefabs.CompositionFlags other) : System.Boolean`  
 
 ```csharp
-public System.Boolean Equals(Game.Prefabs.CompositionFlags other);
+public override bool Equals(object obj)
+	{
+		if (obj is CompositionFlags other)
+		{
+			return Equals(other);
+		}
+		return false;
+	}
 ```
 
 - `public virtual Equals(System.Object obj) : System.Boolean`  
 
 ```csharp
-public virtual System.Boolean Equals(System.Object obj);
+public override bool Equals(object obj)
+	{
+		if (obj is CompositionFlags other)
+		{
+			return Equals(other);
+		}
+		return false;
+	}
 ```
 
 - `public virtual GetHashCode() : System.Int32`  
 
 ```csharp
-public virtual System.Int32 GetHashCode();
+public override int GetHashCode()
+	{
+		uint general = (uint)m_General;
+		int num = general.GetHashCode() * 31;
+		general = (uint)m_Left;
+		int num2 = (num + general.GetHashCode()) * 31;
+		general = (uint)m_Right;
+		return num2 + general.GetHashCode();
+	}
 ```
 
 - `public Serialize<TWriter>(TWriter writer) : System.Void`  

@@ -36,7 +36,10 @@ private Game.UpdateSystem m_UpdateSystem;
 - `public UIUpdateSystem()`  
 
 ```csharp
-public UIUpdateSystem();
+[Preserve]
+	public UIUpdateSystem()
+	{
+	}
 ```
 
 
@@ -45,13 +48,22 @@ public UIUpdateSystem();
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_UpdateSystem = base.World.GetOrCreateSystemManaged<UpdateSystem>();
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		m_UpdateSystem.Update(SystemUpdatePhase.UIUpdate);
+	}
 ```
 
 

@@ -186,7 +186,10 @@ private Game.UI.InGame.MailSection+Type type { private get; private set; }
 - `public MailSection()`  
 
 ```csharp
-public MailSection();
+[Preserve]
+	public MailSection()
+	{
+	}
 ```
 
 
@@ -195,31 +198,120 @@ public MailSection();
 - `protected virtual OnProcess() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnProcess();
+protected override void OnProcess()
+	{
+		Game.Routes.MailBox component2;
+		MailBoxData component3;
+		if (TryGetComponentWithUpgrades<PostFacilityData>(selectedEntity, selectedPrefab, out var data))
+		{
+			type = Type.PostFacility;
+			Game.Buildings.PostFacility componentData = base.EntityManager.GetComponentData<Game.Buildings.PostFacility>(selectedEntity);
+			sortingRate = (data.m_SortingRate * componentData.m_ProcessingFactor + 50) / 100;
+			sortingCapacity = data.m_SortingRate;
+			DynamicBuffer<Resources> buffer = base.EntityManager.GetBuffer<Resources>(selectedEntity, isReadOnly: true);
+			unsortedAmount = EconomyUtils.GetResources(Resource.UnsortedMail, buffer);
+			localAmount = EconomyUtils.GetResources(Resource.LocalMail, buffer);
+			outgoingAmount = EconomyUtils.GetResources(Resource.OutgoingMail, buffer);
+			if (base.EntityManager.TryGetComponent<Game.Routes.MailBox>(selectedEntity, out var component))
+			{
+				unsortedAmount += component.m_MailAmount;
+			}
+			localKey = ((data.m_PostVanCapacity <= 0) ? MailKey.Local : MailKey.ToDeliver);
+			unsortedKey = ((data.m_PostVanCapacity > 0) ? MailKey.Collected : MailKey.Unsorted);
+			storedAmount = unsortedAmount + localAmount + outgoingAmount;
+			storageCapacity = data.m_MailCapacity;
+			base.tooltipKeys.Add(localKey.ToString());
+			if (sortingCapacity > 0 || outgoingAmount > 0)
+			{
+				base.tooltipKeys.Add("Outgoing");
+			}
+			base.tooltipKeys.Add(unsortedKey.ToString());
+			if (sortingCapacity > 0)
+			{
+				base.tooltipKeys.Add("Sorting");
+			}
+			if (storageCapacity > 0)
+			{
+				base.tooltipKeys.Add("Storage");
+			}
+		}
+		else if (base.EntityManager.TryGetComponent<Game.Routes.MailBox>(selectedEntity, out component2) && base.EntityManager.TryGetComponent<MailBoxData>(selectedPrefab, out component3))
+		{
+			type = Type.MailBox;
+			storageCapacity = component3.m_MailCapacity;
+			storedAmount = component2.m_MailAmount;
+		}
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		base.visible = Visible();
+	}
 ```
 
 - `public virtual OnWriteProperties(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-public virtual System.Void OnWriteProperties(Colossal.UI.Binding.IJsonWriter writer);
+public override void OnWriteProperties(IJsonWriter writer)
+	{
+		writer.PropertyName("sortingRate");
+		writer.Write(sortingRate);
+		writer.PropertyName("sortingCapacity");
+		writer.Write(sortingCapacity);
+		writer.PropertyName("localAmount");
+		writer.Write(localAmount);
+		writer.PropertyName("unsortedAmount");
+		writer.Write(unsortedAmount);
+		writer.PropertyName("outgoingAmount");
+		writer.Write(outgoingAmount);
+		writer.PropertyName("storedAmount");
+		writer.Write(storedAmount);
+		writer.PropertyName("storageCapacity");
+		writer.Write(storageCapacity);
+		writer.PropertyName("localKey");
+		writer.Write(Enum.GetName(typeof(MailKey), localKey));
+		writer.PropertyName("unsortedKey");
+		writer.Write(Enum.GetName(typeof(MailKey), unsortedKey));
+		writer.PropertyName("type");
+		writer.Write((int)type);
+	}
 ```
 
 - `protected virtual Reset() : System.Void`  
 
 ```csharp
-protected virtual System.Void Reset();
+protected override void Reset()
+	{
+		sortingRate = 0;
+		sortingCapacity = 0;
+		localAmount = 0;
+		unsortedAmount = 0;
+		outgoingAmount = 0;
+		storedAmount = 0;
+		storageCapacity = 0;
+	}
 ```
 
 - `private Visible() : System.Boolean`  
 
 ```csharp
-private System.Boolean Visible();
+private bool Visible()
+	{
+		if (!base.EntityManager.HasComponent<Game.Buildings.PostFacility>(selectedEntity))
+		{
+			if (base.EntityManager.HasComponent<Game.Routes.MailBox>(selectedEntity))
+			{
+				return base.EntityManager.HasComponent<MailBoxData>(selectedPrefab);
+			}
+			return false;
+		}
+		return true;
+	}
 ```
 
 

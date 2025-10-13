@@ -39,7 +39,10 @@ public Unity.Entities.Entity m_Occupant;
 - `public Occupant(Unity.Entities.Entity occupant)`  
 
 ```csharp
-public Occupant(Unity.Entities.Entity occupant);
+public Occupant(Entity occupant)
+	{
+		m_Occupant = occupant;
+	}
 ```
 
 
@@ -54,13 +57,19 @@ public System.Void Deserialize<TReader>(TReader reader);
 - `public Equals(Game.Buildings.Occupant other) : System.Boolean`  
 
 ```csharp
-public System.Boolean Equals(Game.Buildings.Occupant other);
+public bool Equals(Occupant other)
+	{
+		return m_Occupant.Equals(other.m_Occupant);
+	}
 ```
 
 - `public virtual GetHashCode() : System.Int32`  
 
 ```csharp
-public virtual System.Int32 GetHashCode();
+public override int GetHashCode()
+	{
+		return m_Occupant.GetHashCode();
+	}
 ```
 
 - `public Serialize<TWriter>(TWriter writer) : System.Void`  

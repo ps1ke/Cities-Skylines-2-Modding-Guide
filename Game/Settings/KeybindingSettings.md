@@ -49,7 +49,10 @@ public System.Collections.Generic.List<Game.Input.ProxyBinding> bindings { get; 
 - `public KeybindingSettings(System.Boolean isDefault = False)`  
 
 ```csharp
-public KeybindingSettings(System.Boolean isDefault);
+public KeybindingSettings(bool isDefault = false)
+	{
+		m_IsDefault = isDefault;
+	}
 ```
 
 
@@ -58,7 +61,9 @@ public KeybindingSettings(System.Boolean isDefault);
 - `public virtual SetDefaults() : System.Void`  
 
 ```csharp
-public virtual System.Void SetDefaults();
+public override void SetDefaults()
+	{
+	}
 ```
 
 

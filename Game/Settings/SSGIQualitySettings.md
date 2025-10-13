@@ -170,13 +170,21 @@ private static Game.Settings.SSGIQualitySettings disabled { private get; }
 - `public SSGIQualitySettings()`  
 
 ```csharp
-public SSGIQualitySettings();
+public SSGIQualitySettings(Level quality, VolumeProfile profile)
+	{
+		CreateVolumeComponent(profile, ref m_SSGIComponent);
+		SetLevel(quality, apply: false);
+	}
 ```
 
 - `public SSGIQualitySettings(Game.Settings.QualitySetting+Level quality, UnityEngine.Rendering.VolumeProfile profile)`  
 
 ```csharp
-public SSGIQualitySettings(Game.Settings.QualitySetting+Level quality, UnityEngine.Rendering.VolumeProfile profile);
+public SSGIQualitySettings(Level quality, VolumeProfile profile)
+	{
+		CreateVolumeComponent(profile, ref m_SSGIComponent);
+		SetLevel(quality, apply: false);
+	}
 ```
 
 
@@ -185,13 +193,33 @@ public SSGIQualitySettings(Game.Settings.QualitySetting+Level quality, UnityEngi
 - `public virtual Apply() : System.Void`  
 
 ```csharp
-public virtual System.Void Apply();
+public override void Apply()
+	{
+		base.Apply();
+		if (m_SSGIComponent != null)
+		{
+			ApplyState(m_SSGIComponent.enable, enabled);
+			ApplyState(m_SSGIComponent.fullResolutionSS, fullscreen);
+			ApplyState(m_SSGIComponent.m_MaxRaySteps, raySteps);
+			ApplyState(m_SSGIComponent.m_DenoiserRadiusSS, denoiserRadius);
+			ApplyState(m_SSGIComponent.depthBufferThickness, depthBufferThickness);
+			ApplyState(m_SSGIComponent.m_HalfResolutionDenoiserSS, halfResolutionPass);
+			ApplyState(m_SSGIComponent.m_SecondDenoiserPassSS, secondDenoiserPass);
+		}
+	}
 ```
 
 - `public virtual IsOptionsDisabled() : System.Boolean`  
 
 ```csharp
-public virtual System.Boolean IsOptionsDisabled();
+public override bool IsOptionsDisabled()
+	{
+		if (!base.disableSetting)
+		{
+			return !enabled;
+		}
+		return true;
+	}
 ```
 
 

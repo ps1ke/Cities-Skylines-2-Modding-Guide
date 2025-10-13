@@ -94,7 +94,10 @@ private Game.Prefabs.PrefabSystem m_PrefabSystem;
 - `public TerrainInitializeSystem()`  
 
 ```csharp
-public TerrainInitializeSystem();
+[Preserve]
+	public TerrainInitializeSystem()
+	{
+	}
 ```
 
 
@@ -103,13 +106,33 @@ public TerrainInitializeSystem();
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_PrefabSystem = base.World.GetOrCreateSystemManaged<PrefabSystem>();
+		m_TerrainSystem = base.World.GetOrCreateSystemManaged<TerrainSystem>();
+		m_TerrainMaterialSystem = base.World.GetOrCreateSystemManaged<TerrainMaterialSystem>();
+		m_TerrainRenderSystem = base.World.GetOrCreateSystemManaged<TerrainRenderSystem>();
+		m_WaterSystem = base.World.GetOrCreateSystemManaged<WaterSystem>();
+		m_WaterRenderSystem = base.World.GetOrCreateSystemManaged<WaterRenderSystem>();
+		m_SnowSystem = base.World.GetOrCreateSystemManaged<SnowSystem>();
+		m_TerrainPropertiesQuery = GetEntityQuery(ComponentType.ReadOnly<Created>(), ComponentType.ReadOnly<TerrainPropertiesData>());
+		m_TerrainMaterialPropertiesQuery = GetEntityQuery(ComponentType.ReadOnly<Created>(), ComponentType.ReadOnly<TerrainMaterialPropertiesData>());
+		RequireForUpdate(m_TerrainPropertiesQuery);
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		Entity singletonEntity = m_TerrainPropertiesQuery.GetSingletonEntity();
+		TerrainPropertiesPrefab prefab = m_PrefabSystem.GetPrefab<TerrainPropertiesPrefab>(singletonEntity);
+		m_WaterSystem.MaxSpeed = prefab.m_WaterMaxSpeed;
+	}
 ```
 
 

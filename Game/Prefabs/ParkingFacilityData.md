@@ -43,7 +43,11 @@ public System.Int32 m_GarageMarkerCapacity;
 - `public Combine(Game.Prefabs.ParkingFacilityData otherData) : System.Void`  
 
 ```csharp
-public System.Void Combine(Game.Prefabs.ParkingFacilityData otherData);
+public void Combine(ParkingFacilityData otherData)
+	{
+		m_ComfortFactor += otherData.m_ComfortFactor;
+		m_GarageMarkerCapacity += otherData.m_GarageMarkerCapacity;
+	}
 ```
 
 - `public Deserialize<TReader>(TReader reader) : System.Void`  

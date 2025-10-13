@@ -47,7 +47,10 @@ public Game.Pathfind.CoverageActionData& data { get; }
 - `public CoverageAction(Unity.Collections.Allocator allocator)`  
 
 ```csharp
-public CoverageAction(Unity.Collections.Allocator allocator);
+public CoverageAction(Allocator allocator)
+	{
+		m_Data = new NativeReference<CoverageActionData>(new CoverageActionData(allocator), allocator);
+	}
 ```
 
 
@@ -56,7 +59,11 @@ public CoverageAction(Unity.Collections.Allocator allocator);
 - `public Dispose() : System.Void`  
 
 ```csharp
-public System.Void Dispose();
+public void Dispose()
+	{
+		data.Dispose();
+		m_Data.Dispose();
+	}
 ```
 
 

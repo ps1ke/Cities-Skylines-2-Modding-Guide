@@ -34,13 +34,22 @@ private Unity.Collections.NativeArray<System.Single> m_Buffer;
 - `public Dispose() : System.Void`  
 
 ```csharp
-public System.Void Dispose();
+public void Dispose()
+	{
+	}
 ```
 
 - `public Ensure() : Unity.Collections.NativeArray<System.Single>`  
 
 ```csharp
-public Unity.Collections.NativeArray<System.Single> Ensure();
+public NativeArray<float> Ensure()
+	{
+		if (!m_Buffer.IsCreated)
+		{
+			m_Buffer = new NativeArray<float>(64, Allocator.Temp, NativeArrayOptions.UninitializedMemory);
+		}
+		return m_Buffer;
+	}
 ```
 
 

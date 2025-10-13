@@ -58,7 +58,13 @@ public System.UInt16 m_Priority;
 - `public PostVanRequest(Unity.Entities.Entity target, Game.Simulation.PostVanRequestFlags flags, System.UInt16 priority)`  
 
 ```csharp
-public PostVanRequest(Unity.Entities.Entity target, Game.Simulation.PostVanRequestFlags flags, System.UInt16 priority);
+public PostVanRequest(Entity target, PostVanRequestFlags flags, ushort priority)
+	{
+		m_Target = target;
+		m_Flags = flags;
+		m_Priority = priority;
+		m_DispatchIndex = 0;
+	}
 ```
 
 

@@ -48,13 +48,26 @@ public LevelStatistic();
 - `public virtual GetParameterName(System.Int32 parameter) : System.String`  
 
 ```csharp
-public virtual System.String GetParameterName(System.Int32 parameter);
+public override string GetParameterName(int parameter)
+	{
+		return parameter.ToString();
+	}
 ```
 
 - `public virtual GetParameters() : System.Collections.Generic.IEnumerable<Game.Prefabs.StatisticParameterData>`  
 
 ```csharp
-public virtual System.Collections.Generic.IEnumerable<Game.Prefabs.StatisticParameterData> GetParameters();
+public override IEnumerable<StatisticParameterData> GetParameters()
+	{
+		if (m_Levels != null)
+		{
+			LevelInfo[] levels = m_Levels;
+			foreach (LevelInfo levelInfo in levels)
+			{
+				yield return new StatisticParameterData(levelInfo.m_Value, Color.black);
+			}
+		}
+	}
 ```
 
 

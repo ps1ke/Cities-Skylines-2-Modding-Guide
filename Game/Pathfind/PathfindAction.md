@@ -54,7 +54,10 @@ public Game.Pathfind.PathfindActionData readOnlyData { get; }
 - `public PathfindAction(System.Int32 startCount, System.Int32 endCount, Unity.Collections.Allocator allocator, Game.Pathfind.PathfindParameters parameters, Game.Pathfind.SetupTargetType originType, Game.Pathfind.SetupTargetType destinationType)`  
 
 ```csharp
-public PathfindAction(System.Int32 startCount, System.Int32 endCount, Unity.Collections.Allocator allocator, Game.Pathfind.PathfindParameters parameters, Game.Pathfind.SetupTargetType originType, Game.Pathfind.SetupTargetType destinationType);
+public PathfindAction(int startCount, int endCount, Allocator allocator, PathfindParameters parameters, SetupTargetType originType, SetupTargetType destinationType)
+	{
+		m_Data = new NativeReference<PathfindActionData>(new PathfindActionData(startCount, endCount, allocator, parameters, originType, destinationType), allocator);
+	}
 ```
 
 
@@ -63,7 +66,11 @@ public PathfindAction(System.Int32 startCount, System.Int32 endCount, Unity.Coll
 - `public Dispose() : System.Void`  
 
 ```csharp
-public System.Void Dispose();
+public void Dispose()
+	{
+		data.Dispose();
+		m_Data.Dispose();
+	}
 ```
 
 

@@ -104,7 +104,10 @@ public static const System.Int32 TICK_SPEED_DEAD;
 - `public TreeGrowthSystem()`  
 
 ```csharp
-public TreeGrowthSystem();
+[Preserve]
+	public TreeGrowthSystem()
+	{
+	}
 ```
 
 
@@ -113,31 +116,67 @@ public TreeGrowthSystem();
 - `private __AssignQueries(Unity.Entities.SystemState& state) : System.Void`  
 
 ```csharp
-private System.Void __AssignQueries(Unity.Entities.SystemState& state);
+private void __AssignQueries(ref SystemState state)
+	{
+		new EntityQueryBuilder(Allocator.Temp).Dispose();
+	}
 ```
 
 - `public virtual GetUpdateInterval(Game.SystemUpdatePhase phase) : System.Int32`  
 
 ```csharp
-public virtual System.Int32 GetUpdateInterval(Game.SystemUpdatePhase phase);
+public override int GetUpdateInterval(SystemUpdatePhase phase)
+	{
+		return 512;
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_SimulationSystem = base.World.GetOrCreateSystemManaged<SimulationSystem>();
+		m_EndFrameBarrier = base.World.GetOrCreateSystemManaged<EndFrameBarrier>();
+		m_TreeQuery = GetEntityQuery(ComponentType.ReadWrite<Tree>(), ComponentType.ReadOnly<UpdateFrame>(), ComponentType.Exclude<Deleted>(), ComponentType.Exclude<Overridden>(), ComponentType.Exclude<Temp>());
+		RequireForUpdate(m_TreeQuery);
+	}
 ```
 
 - `protected virtual OnCreateForCompiler() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreateForCompiler();
+protected override void OnCreateForCompiler()
+	{
+		base.OnCreateForCompiler();
+		__AssignQueries(ref base.CheckedStateRef);
+		__TypeHandle.__AssignHandles(ref base.CheckedStateRef);
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		uint updateFrame = SimulationUtils.GetUpdateFrame(m_SimulationSystem.frameIndex, 32, 16);
+		m_TreeQuery.ResetFilter();
+		m_TreeQuery.SetSharedComponentFilter(new UpdateFrame(updateFrame));
+		JobHandle jobHandle = JobChunkExtensions.ScheduleParallel(new TreeGrowthJob
+		{
+			m_EntityType = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef),
+			m_TreeType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Objects_Tree_RW_ComponentTypeHandle, ref base.CheckedStateRef),
+			m_DestroyedType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Common_Destroyed_RW_ComponentTypeHandle, ref base.CheckedStateRef),
+			m_DamagedType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Objects_Damaged_RW_ComponentTypeHandle, ref base.CheckedStateRef),
+			m_RandomSeed = RandomSeed.Next(),
+			m_CommandBuffer = m_EndFrameBarrier.CreateCommandBuffer().AsParallelWriter()
+		}, m_TreeQuery, base.Dependency);
+		m_EndFrameBarrier.AddJobHandleForProducer(jobHandle);
+		base.Dependency = jobHandle;
+	}
 ```
 
 

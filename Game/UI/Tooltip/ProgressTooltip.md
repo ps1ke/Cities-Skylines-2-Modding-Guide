@@ -106,13 +106,38 @@ public ProgressTooltip();
 - `public static SetCapacityColor(Game.UI.Tooltip.ProgressTooltip tooltip) : System.Void`  
 
 ```csharp
-public static System.Void SetCapacityColor(Game.UI.Tooltip.ProgressTooltip tooltip);
+public static void SetCapacityColor(ProgressTooltip tooltip)
+	{
+		if (tooltip.value >= tooltip.max * 0.75f)
+		{
+			tooltip.color = TooltipColor.Info;
+		}
+		else if (tooltip.value > 0f)
+		{
+			tooltip.color = TooltipColor.Warning;
+		}
+		else
+		{
+			tooltip.color = TooltipColor.Error;
+		}
+	}
 ```
 
 - `protected virtual WriteProperties(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-protected virtual System.Void WriteProperties(Colossal.UI.Binding.IJsonWriter writer);
+protected override void WriteProperties(IJsonWriter writer)
+	{
+		base.WriteProperties(writer);
+		writer.PropertyName("value");
+		writer.Write(value);
+		writer.PropertyName("max");
+		writer.Write(max);
+		writer.PropertyName("unit");
+		writer.Write(unit);
+		writer.PropertyName("omitMax");
+		writer.Write(omitMax);
+	}
 ```
 
 

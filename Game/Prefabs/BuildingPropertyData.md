@@ -72,13 +72,19 @@ public System.Single m_SpaceMultiplier;
 - `public CountProperties(Game.Zones.AreaType areaType) : System.Int32`  
 
 ```csharp
-public System.Int32 CountProperties(Game.Zones.AreaType areaType);
+public int CountProperties()
+	{
+		return CountProperties(AreaType.Residential) + CountProperties(AreaType.Commercial) + CountProperties(AreaType.Industrial);
+	}
 ```
 
 - `public CountProperties() : System.Int32`  
 
 ```csharp
-public System.Int32 CountProperties();
+public int CountProperties()
+	{
+		return CountProperties(AreaType.Residential) + CountProperties(AreaType.Commercial) + CountProperties(AreaType.Industrial);
+	}
 ```
 
 - `public Deserialize<TReader>(TReader reader) : System.Void`  

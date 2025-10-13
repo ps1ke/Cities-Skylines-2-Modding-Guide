@@ -82,7 +82,18 @@ public VignetteProperties();
 - `protected virtual OnBindVolumeProperties(UnityEngine.Rendering.Volume volume) : System.Void`  
 
 ```csharp
-protected virtual System.Void OnBindVolumeProperties(UnityEngine.Rendering.Volume volume);
+protected override void OnBindVolumeProperties(Volume volume)
+	{
+		Vignette component = null;
+		VolumeHelper.GetOrCreateVolumeComponent(volume, ref component);
+		m_Color = component.color;
+		m_Center = component.center;
+		m_Intensity = component.intensity;
+		m_Smoothness = component.smoothness;
+		m_Roundness = component.roundness;
+		m_Rounded = component.rounded;
+		component.mode.Override(VignetteMode.Procedural);
+	}
 ```
 
 

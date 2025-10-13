@@ -36,7 +36,11 @@ public FogProperties();
 - `protected virtual OnBindVolumeProperties(UnityEngine.Rendering.Volume volume) : System.Void`  
 
 ```csharp
-protected virtual System.Void OnBindVolumeProperties(UnityEngine.Rendering.Volume volume);
+protected override void OnBindVolumeProperties(Volume volume)
+	{
+		Fog component = null;
+		VolumeHelper.GetOrCreateVolumeComponent(volume, ref component);
+	}
 ```
 
 

@@ -51,13 +51,21 @@ public readonly System.String checkMethod;
 - `public SettingsUITabOrderAttribute(System.String[] tabs)`  
 
 ```csharp
-public SettingsUITabOrderAttribute(System.String[] tabs);
+public SettingsUITabOrderAttribute(Type checkType, string checkMethod)
+	{
+		this.checkType = checkType;
+		this.checkMethod = checkMethod;
+	}
 ```
 
 - `public SettingsUITabOrderAttribute(System.Type checkType, System.String checkMethod)`  
 
 ```csharp
-public SettingsUITabOrderAttribute(System.Type checkType, System.String checkMethod);
+public SettingsUITabOrderAttribute(Type checkType, string checkMethod)
+	{
+		this.checkType = checkType;
+		this.checkMethod = checkMethod;
+	}
 ```
 
 

@@ -57,25 +57,63 @@ public EmergencyShelter();
 - `public virtual GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetArchetypeComponents(HashSet<ComponentType> components)
+	{
+		components.Add(ComponentType.ReadWrite<Game.Buildings.EmergencyShelter>());
+		if (GetComponent<ServiceUpgrade>() == null)
+		{
+			if (GetComponent<CityServiceBuilding>() != null)
+			{
+				components.Add(ComponentType.ReadWrite<Efficiency>());
+				components.Add(ComponentType.ReadWrite<ServiceUsage>());
+			}
+			components.Add(ComponentType.ReadWrite<Occupant>());
+			components.Add(ComponentType.ReadWrite<ServiceDispatch>());
+			components.Add(ComponentType.ReadWrite<OwnedVehicle>());
+			components.Add(ComponentType.ReadWrite<Resources>());
+			if (GetComponent<UniqueObject>() == null)
+			{
+				components.Add(ComponentType.ReadWrite<ServiceDistrict>());
+			}
+		}
+	}
 ```
 
 - `public virtual GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetPrefabComponents(HashSet<ComponentType> components)
+	{
+		components.Add(ComponentType.ReadWrite<EmergencyShelterData>());
+		components.Add(ComponentType.ReadWrite<UpdateFrameData>());
+	}
 ```
 
 - `public GetUpgradeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public System.Void GetUpgradeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public void GetUpgradeComponents(HashSet<ComponentType> components)
+	{
+		components.Add(ComponentType.ReadWrite<Game.Buildings.EmergencyShelter>());
+		components.Add(ComponentType.ReadWrite<Occupant>());
+		components.Add(ComponentType.ReadWrite<ServiceDispatch>());
+		components.Add(ComponentType.ReadWrite<OwnedVehicle>());
+		components.Add(ComponentType.ReadWrite<Resources>());
+		components.Add(ComponentType.ReadWrite<ServiceUsage>());
+	}
 ```
 
 - `public virtual Initialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity) : System.Void`  
 
 ```csharp
-public virtual System.Void Initialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity);
+public override void Initialize(EntityManager entityManager, Entity entity)
+	{
+		EmergencyShelterData componentData = default(EmergencyShelterData);
+		componentData.m_ShelterCapacity = m_ShelterCapacity;
+		componentData.m_VehicleCapacity = m_VehicleCapacity;
+		entityManager.SetComponentData(entity, componentData);
+		entityManager.SetComponentData(entity, new UpdateFrameData(15));
+	}
 ```
 
 

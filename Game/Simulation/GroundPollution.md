@@ -37,7 +37,10 @@ public System.Int16 m_Pollution;
 - `public Add(System.Int16 amount) : System.Void`  
 
 ```csharp
-public System.Void Add(System.Int16 amount);
+public void Add(short amount)
+	{
+		m_Pollution = (short)math.min(32767, m_Pollution + amount);
+	}
 ```
 
 - `public Deserialize<TReader>(TReader reader) : System.Void`  
@@ -49,7 +52,14 @@ public System.Void Deserialize<TReader>(TReader reader);
 - `public GetStride(Colossal.Serialization.Entities.Context context) : System.Int32`  
 
 ```csharp
-public System.Int32 GetStride(Colossal.Serialization.Entities.Context context);
+public int GetStride(Context context)
+	{
+		if (context.version < Version.removeGroundPollutionDelta)
+		{
+			return 4;
+		}
+		return 2;
+	}
 ```
 
 - `public Serialize<TWriter>(TWriter writer) : System.Void`  

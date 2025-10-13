@@ -71,13 +71,31 @@ public ToggleField();
 - `protected virtual Update() : Game.UI.Widgets.WidgetChanges`  
 
 ```csharp
-protected virtual Game.UI.Widgets.WidgetChanges Update();
+protected override WidgetChanges Update()
+	{
+		WidgetChanges widgetChanges = base.Update();
+		if (warningAction != null)
+		{
+			bool flag = warningAction();
+			if (flag != m_Warning)
+			{
+				m_Warning = flag;
+				widgetChanges |= WidgetChanges.Properties;
+			}
+		}
+		return widgetChanges;
+	}
 ```
 
 - `protected virtual WriteProperties(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-protected virtual System.Void WriteProperties(Colossal.UI.Binding.IJsonWriter writer);
+protected override void WriteProperties(IJsonWriter writer)
+	{
+		base.WriteProperties(writer);
+		writer.PropertyName("warning");
+		writer.Write(warning);
+	}
 ```
 
 

@@ -73,7 +73,44 @@ public VSCodeDependency();
 - `protected virtual GetIDEVersion(System.Threading.CancellationToken token) : System.Threading.Tasks.Task<System.String>`  
 
 ```csharp
-protected virtual System.Threading.Tasks.Task<System.String> GetIDEVersion(System.Threading.CancellationToken token);
+protected override async Task<string> GetIDEVersion(CancellationToken token)
+	{
+		string installedVersion = string.Empty;
+		List<string> errorText = new List<string>();
+		try
+		{
+			await Cli.Wrap("code").WithArguments("--version").WithStandardOutputPipe(PipeTarget.ToDelegate(delegate(string l)
+			{
+				if (string.IsNullOrEmpty(installedVersion))
+				{
+					installedVersion = l;
+				}
+			}))
+				.WithStandardErrorPipe(PipeTarget.ToDelegate(delegate(string l)
+				{
+					errorText.Add(l);
+				}))
+				.WithValidation(CommandResultValidation.None)
+				.ExecuteAsync(token)
+				.ConfigureAwait(continueOnCapturedContext: false);
+		}
+		catch (Win32Exception ex)
+		{
+			if (ex.ErrorCode != -2147467259)
+			{
+				ToolchainDependencyManager.log.Error(ex, "Failed to get VSCode version");
+			}
+		}
+		catch (Exception exception)
+		{
+			ToolchainDependencyManager.log.Error(exception, "Failed to get VSCode version");
+		}
+		if (errorText.Count > 0)
+		{
+			IToolchainDependency.log.Warn(string.Join('\n', errorText));
+		}
+		return installedVersion;
+	}
 ```
 
 

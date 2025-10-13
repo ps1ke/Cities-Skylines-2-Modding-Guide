@@ -63,19 +63,67 @@ public TriggerPrefab();
 - `public virtual GetDependencies(System.Collections.Generic.List<Game.Prefabs.PrefabBase> prefabs) : System.Void`  
 
 ```csharp
-public virtual System.Void GetDependencies(System.Collections.Generic.List<Game.Prefabs.PrefabBase> prefabs);
+public override void GetDependencies(List<PrefabBase> prefabs)
+	{
+		base.GetDependencies(prefabs);
+		if (m_TriggerPrefabs == null)
+		{
+			return;
+		}
+		PrefabBase[] triggerPrefabs = m_TriggerPrefabs;
+		foreach (PrefabBase prefabBase in triggerPrefabs)
+		{
+			if (prefabBase != null)
+			{
+				prefabs.Add(prefabBase);
+			}
+		}
+	}
 ```
 
 - `public virtual GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetPrefabComponents(HashSet<ComponentType> components)
+	{
+		base.GetPrefabComponents(components);
+		components.Add(ComponentType.ReadWrite<TriggerData>());
+	}
 ```
 
 - `public virtual LateInitialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity) : System.Void`  
 
 ```csharp
-public virtual System.Void LateInitialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity);
+public override void LateInitialize(EntityManager entityManager, Entity entity)
+	{
+		base.LateInitialize(entityManager, entity);
+		PrefabSystem existingSystemManaged = entityManager.World.GetExistingSystemManaged<PrefabSystem>();
+		DynamicBuffer<TriggerData> buffer = entityManager.GetBuffer<TriggerData>(entity);
+		if (m_TriggerPrefabs != null && m_TriggerPrefabs.Length != 0)
+		{
+			PrefabBase[] triggerPrefabs = m_TriggerPrefabs;
+			foreach (PrefabBase prefabBase in triggerPrefabs)
+			{
+				if (prefabBase != null)
+				{
+					buffer.Add(new TriggerData
+					{
+						m_TriggerType = m_TriggerType,
+						m_TargetTypes = m_TargetTypes,
+						m_TriggerPrefab = existingSystemManaged.GetEntity(prefabBase)
+					});
+				}
+			}
+		}
+		else
+		{
+			buffer.Add(new TriggerData
+			{
+				m_TriggerType = m_TriggerType,
+				m_TargetTypes = m_TargetTypes
+			});
+		}
+	}
 ```
 
 

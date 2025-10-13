@@ -34,13 +34,20 @@ public TestScenarioHelperUnhandledException();
 - `private CoThrowUnhandledException() : System.Collections.IEnumerator`  
 
 ```csharp
-private System.Collections.IEnumerator CoThrowUnhandledException();
+private IEnumerator CoThrowUnhandledException()
+	{
+		yield return new WaitForSeconds(5f);
+		throw new Exception("TestScenarioHelperUnhandledException");
+	}
 ```
 
 - `private Start() : System.Void`  
 
 ```csharp
-private System.Void Start();
+private void Start()
+	{
+		StartCoroutine(CoThrowUnhandledException());
+	}
 ```
 
 

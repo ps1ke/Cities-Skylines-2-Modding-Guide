@@ -212,25 +212,41 @@ public UnityEngine.InputSystem.Utilities.NameAndParameters parameters { get; set
 - `public Usages(System.Int32 length = 0, System.Boolean readOnly = True)`  
 
 ```csharp
-public Usages(System.Int32 length, System.Boolean readOnly);
+public Usages(int length = 0, bool readOnly = true)
+	{
+		m_Value = ((length == 0) ? Array.Empty<ulong>() : new ulong[length]);
+		m_ReadOnly = readOnly;
+	}
 ```
 
 - `public Usages(System.Boolean readOnly = True, System.Int32[] values)`  
 
 ```csharp
-public Usages(System.Boolean readOnly, System.Int32[] values);
+public Usages(int length = 0, bool readOnly = true)
+	{
+		m_Value = ((length == 0) ? Array.Empty<ulong>() : new ulong[length]);
+		m_ReadOnly = readOnly;
+	}
 ```
 
 - `public Usages(Game.Input.BuiltInUsages usages, System.Boolean readOnly = True)`  
 
 ```csharp
-public Usages(Game.Input.BuiltInUsages usages, System.Boolean readOnly);
+public Usages(int length = 0, bool readOnly = true)
+	{
+		m_Value = ((length == 0) ? Array.Empty<ulong>() : new ulong[length]);
+		m_ReadOnly = readOnly;
+	}
 ```
 
 - `internal Usages(System.Boolean readOnly = True, System.String[] customUsages)`  
 
 ```csharp
-internal Usages(System.Boolean readOnly, System.String[] customUsages);
+public Usages(int length = 0, bool readOnly = true)
+	{
+		m_Value = ((length == 0) ? Array.Empty<ulong>() : new ulong[length]);
+		m_ReadOnly = readOnly;
+	}
 ```
 
 
@@ -239,85 +255,204 @@ internal Usages(System.Boolean readOnly, System.String[] customUsages);
 - `internal static AddOrGetUsage(System.String usageName) : System.Int32`  
 
 ```csharp
-internal static System.Int32 AddOrGetUsage(System.String usageName);
+internal static int AddOrGetUsage(string usageName)
+	{
+		if (!usagesMap.TryGetValue(usageName, out var value))
+		{
+			value = usagesMap.Count;
+			usagesMap[usageName] = value;
+		}
+		return value;
+	}
 ```
 
 - `public static Combine(Game.Input.Usages usages1, Game.Input.Usages usages2, System.Boolean readOnly = True) : Game.Input.Usages`  
 
 ```csharp
-public static Game.Input.Usages Combine(Game.Input.Usages usages1, Game.Input.Usages usages2, System.Boolean readOnly);
+public static Usages Combine(Usages usages1, Usages usages2, bool readOnly = true)
+	{
+		ulong[] array = usages1.m_Value ?? Array.Empty<ulong>();
+		ulong[] array2 = usages2.m_Value ?? Array.Empty<ulong>();
+		int num = Math.Max(array.Length, array2.Length);
+		Usages result = new Usages(num, readOnly);
+		for (int i = 0; i < num; i++)
+		{
+			result.m_Value[i] = ((i < array.Length) ? array[i] : 0) | ((i < array2.Length) ? array2[i] : 0);
+		}
+		return result;
+	}
 ```
 
 - `public Copy(System.Boolean readOnly = True) : Game.Input.Usages`  
 
 ```csharp
-public Game.Input.Usages Copy(System.Boolean readOnly);
+public Usages Copy(bool readOnly = true)
+	{
+		if (m_ReadOnly && readOnly)
+		{
+			return this;
+		}
+		Usages result = new Usages(m_Value.Length, readOnly);
+		Array.Copy(m_Value, result.m_Value, m_Value.Length);
+		return result;
+	}
 ```
 
 - `private Enumerate() : System.Collections.Generic.IEnumerable<System.Int32>`  
 
 ```csharp
-private System.Collections.Generic.IEnumerable<System.Int32> Enumerate();
+private IEnumerable<int> Enumerate()
+	{
+		if (m_Value == null)
+		{
+			yield break;
+		}
+		for (int i = 0; i < m_Value.Length; i++)
+		{
+			for (int j = 0; j < 64; j++)
+			{
+				if ((m_Value[i] & (ulong)(1L << j)) != 0L)
+				{
+					yield return (i << 6) + j;
+				}
+			}
+		}
+	}
 ```
 
 - `public Equals(Game.Input.Usages other) : System.Boolean`  
 
 ```csharp
-public System.Boolean Equals(Game.Input.Usages other);
+public bool Equals(Usages other)
+	{
+		return Comparer.defaultComparer.Equals(this, other);
+	}
 ```
 
 - `public GetEnumerator() : System.Collections.IEnumerator`  
 
 ```csharp
-public System.Collections.IEnumerator GetEnumerator();
+public IEnumerator GetEnumerator()
+	{
+		return Enumerate().GetEnumerator();
+	}
 ```
 
 - `public static Intersect(Game.Input.Usages usages1, Game.Input.Usages usages2, System.Boolean readOnly = True) : Game.Input.Usages`  
 
 ```csharp
-public static Game.Input.Usages Intersect(Game.Input.Usages usages1, Game.Input.Usages usages2, System.Boolean readOnly);
+public static Usages Intersect(Usages usages1, Usages usages2, bool readOnly = true)
+	{
+		ulong[] array = usages1.m_Value ?? Array.Empty<ulong>();
+		ulong[] array2 = usages2.m_Value ?? Array.Empty<ulong>();
+		int num = Math.Max(array.Length, array2.Length);
+		Usages result = new Usages(num, readOnly);
+		for (int i = 0; i < num; i++)
+		{
+			result.m_Value[i] = ((i < array.Length) ? array[i] : 0) & ((i < array2.Length) ? array2[i] : 0);
+		}
+		return result;
+	}
 ```
 
 - `internal MakeEditable() : System.Void`  
 
 ```csharp
-internal System.Void MakeEditable();
+internal void MakeEditable()
+	{
+		m_ReadOnly = false;
+	}
 ```
 
 - `internal MakeReadOnly() : System.Void`  
 
 ```csharp
-internal System.Void MakeReadOnly();
+internal void MakeReadOnly()
+	{
+		m_ReadOnly = true;
+	}
 ```
 
 - `public SetFrom(Game.Input.Usages source) : System.Void`  
 
 ```csharp
-public System.Void SetFrom(Game.Input.Usages source);
+public void SetFrom(Usages source)
+	{
+		if (m_ReadOnly)
+		{
+			throw new InvalidOperationException("Value is readonly");
+		}
+		if (m_Value == null)
+		{
+			if (source.m_Value == null || source.m_Value.Length == 0)
+			{
+				m_Value = Array.Empty<ulong>();
+				return;
+			}
+			Array.Resize(ref m_Value, source.m_Value.Length);
+		}
+		Array.Copy(source.m_Value, m_Value, m_Value.Length);
+	}
 ```
 
 - `private System.Collections.Generic.IEnumerable<System.Int32>.GetEnumerator() : System.Collections.Generic.IEnumerator<System.Int32>`  
 
 ```csharp
-private System.Collections.Generic.IEnumerator<System.Int32> System.Collections.Generic.IEnumerable<System.Int32>.GetEnumerator();
+public IEnumerator GetEnumerator()
+	{
+		return Enumerate().GetEnumerator();
+	}
 ```
 
 - `public static TestAll(Game.Input.Usages usages1, Game.Input.Usages usages2) : System.Boolean`  
 
 ```csharp
-public static System.Boolean TestAll(Game.Input.Usages usages1, Game.Input.Usages usages2);
+public static bool TestAll(Usages usages1, Usages usages2)
+	{
+		ulong[] array = usages1.m_Value ?? Array.Empty<ulong>();
+		ulong[] array2 = usages2.m_Value ?? Array.Empty<ulong>();
+		int num = Math.Max(array.Length, array2.Length);
+		for (int i = 0; i < num; i++)
+		{
+			if (((i < array.Length) ? array[i] : 0) != ((i < array2.Length) ? array2[i] : 0))
+			{
+				return false;
+			}
+		}
+		return true;
+	}
 ```
 
 - `public static TestAny(Game.Input.Usages usages1, Game.Input.Usages usages2) : System.Boolean`  
 
 ```csharp
-public static System.Boolean TestAny(Game.Input.Usages usages1, Game.Input.Usages usages2);
+public static bool TestAny(Usages usages1, Usages usages2)
+	{
+		ulong[] array = usages1.m_Value ?? Array.Empty<ulong>();
+		ulong[] array2 = usages2.m_Value ?? Array.Empty<ulong>();
+		int num = Math.Max(array.Length, array2.Length);
+		for (int i = 0; i < num; i++)
+		{
+			if ((((i < array.Length) ? array[i] : 0) & ((i < array2.Length) ? array2[i] : 0)) != 0L)
+			{
+				return true;
+			}
+		}
+		return false;
+	}
 ```
 
 - `public virtual ToString() : System.String`  
 
 ```csharp
-public virtual System.String ToString();
+public override string ToString()
+	{
+		if (m_Value != null)
+		{
+			return string.Join('|', this);
+		}
+		return "Empty";
+	}
 ```
 
 

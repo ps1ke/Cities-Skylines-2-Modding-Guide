@@ -209,7 +209,28 @@ public static const System.UInt16 BACKGROUND_INTENSITY;
 - `public ConsoleWindow(System.String title, System.Boolean attachConsole = False)`  
 
 ```csharp
-public ConsoleWindow(System.String title, System.Boolean attachConsole);
+public ConsoleWindow(string title, bool attachConsole = false)
+	{
+		bool flag = true;
+		if (attachConsole)
+		{
+			if (!AttachConsole(uint.MaxValue) && (long)Marshal.GetLastWin32Error() != 5)
+			{
+				flag = AllocConsole();
+			}
+			if (flag)
+			{
+				SetTitle(title);
+				DeleteMenu(GetSystemMenu(GetConsoleWindow(), bRevert: false), 61536u, 0u);
+			}
+		}
+		if (flag)
+		{
+			m_OldOutput = Console.Out;
+			m_OldError = Console.Error;
+			EnableVirtualTerminal(InitializeOutStream());
+		}
+	}
 ```
 
 
@@ -230,7 +251,15 @@ private static System.Boolean AttachConsole(System.UInt32 dwProcessId);
 - `private static CreateFileStream(System.String name, System.UInt32 win32DesiredAccess, System.UInt32 win32ShareMode, System.IO.FileAccess dotNetFileAccess) : System.IO.FileStream`  
 
 ```csharp
-private static System.IO.FileStream CreateFileStream(System.String name, System.UInt32 win32DesiredAccess, System.UInt32 win32ShareMode, System.IO.FileAccess dotNetFileAccess);
+private static FileStream CreateFileStream(string name, uint win32DesiredAccess, uint win32ShareMode, FileAccess dotNetFileAccess)
+	{
+		SafeFileHandle safeFileHandle = new SafeFileHandle(CreateFileW(name, win32DesiredAccess, win32ShareMode, IntPtr.Zero, 3u, 128u, IntPtr.Zero), ownsHandle: true);
+		if (!safeFileHandle.IsInvalid)
+		{
+			return new FileStream(safeFileHandle, dotNetFileAccess);
+		}
+		return null;
+	}
 ```
 
 - `private static CreateFileW(System.String lpFileName, System.UInt32 dwDesiredAccess, System.UInt32 dwShareMode, System.IntPtr lpSecurityAttributes, System.UInt32 dwCreationDisposition, System.UInt32 dwFlagsAndAttributes, System.IntPtr hTemplateFile) : System.IntPtr`  
@@ -248,19 +277,37 @@ private static System.Boolean DeleteMenu(System.IntPtr hMenu, System.UInt32 uPos
 - `public Dispose() : System.Void`  
 
 ```csharp
-public System.Void Dispose();
+public void Dispose()
+	{
+		Console.SetOut(m_OldOutput);
+		Console.SetError(m_OldError);
+		m_Writer.Dispose();
+		FreeConsole();
+	}
 ```
 
 - `private static EnableVirtualTerminal() : System.Void`  
 
 ```csharp
-private static System.Void EnableVirtualTerminal();
+private static void EnableVirtualTerminal(IntPtr handle)
+	{
+		if (handle != IntPtr.Zero && GetConsoleMode(handle, out var lpMode))
+		{
+			SetConsoleMode(handle, lpMode | 4);
+		}
+	}
 ```
 
 - `private static EnableVirtualTerminal(System.IntPtr handle) : System.Void`  
 
 ```csharp
-private static System.Void EnableVirtualTerminal(System.IntPtr handle);
+private static void EnableVirtualTerminal(IntPtr handle)
+	{
+		if (handle != IntPtr.Zero && GetConsoleMode(handle, out var lpMode))
+		{
+			SetConsoleMode(handle, lpMode | 4);
+		}
+	}
 ```
 
 - `private static FreeConsole() : System.Boolean`  
@@ -296,19 +343,43 @@ private static System.IntPtr GetSystemMenu(System.IntPtr hWnd, System.Boolean bR
 - `private InitializeInStream() : System.Void`  
 
 ```csharp
-private System.Void InitializeInStream();
+private void InitializeInStream()
+	{
+		FileStream fileStream = CreateFileStream("CONIN$", 2147483648u, 1u, FileAccess.Read);
+		if (fileStream != null)
+		{
+			Console.SetIn(new StreamReader(fileStream));
+		}
+	}
 ```
 
 - `private InitializeOutStream() : System.IntPtr`  
 
 ```csharp
-private System.IntPtr InitializeOutStream();
+private IntPtr InitializeOutStream()
+	{
+		FileStream fileStream = CreateFileStream("CONOUT$", 3221225472u, 2u, FileAccess.Write);
+		if (fileStream != null)
+		{
+			m_Writer = new StreamWriter(fileStream)
+			{
+				AutoFlush = true
+			};
+			Console.SetOut(m_Writer);
+			Console.SetError(m_Writer);
+			return fileStream.SafeFileHandle.DangerousGetHandle();
+		}
+		return IntPtr.Zero;
+	}
 ```
 
 - `public static SetColor(System.UInt16 color) : System.Void`  
 
 ```csharp
-public static System.Void SetColor(System.UInt16 color);
+public static void SetColor(ushort color)
+	{
+		SetConsoleTextAttribute(GetStdHandle(4294967285u), color);
+	}
 ```
 
 - `private static SetConsoleMode(System.IntPtr hConsoleHandle, System.UInt32 dwMode) : System.Boolean`  
@@ -338,7 +409,10 @@ private static System.Void SetStdHandle(System.UInt32 nStdHandle, System.IntPtr 
 - `public SetTitle(System.String strName) : System.Void`  
 
 ```csharp
-public System.Void SetTitle(System.String strName);
+public void SetTitle(string strName)
+	{
+		SetConsoleTitle(strName);
+	}
 ```
 
 

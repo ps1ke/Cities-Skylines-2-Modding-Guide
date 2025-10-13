@@ -39,7 +39,10 @@ public Unity.Entities.Entity m_Waypoint;
 - `public ConnectedRoute(Unity.Entities.Entity waypoint)`  
 
 ```csharp
-public ConnectedRoute(Unity.Entities.Entity waypoint);
+public ConnectedRoute(Entity waypoint)
+	{
+		m_Waypoint = waypoint;
+	}
 ```
 
 
@@ -48,13 +51,19 @@ public ConnectedRoute(Unity.Entities.Entity waypoint);
 - `public Equals(Game.Routes.ConnectedRoute other) : System.Boolean`  
 
 ```csharp
-public System.Boolean Equals(Game.Routes.ConnectedRoute other);
+public bool Equals(ConnectedRoute other)
+	{
+		return m_Waypoint.Equals(other.m_Waypoint);
+	}
 ```
 
 - `public virtual GetHashCode() : System.Int32`  
 
 ```csharp
-public virtual System.Int32 GetHashCode();
+public override int GetHashCode()
+	{
+		return m_Waypoint.GetHashCode();
+	}
 ```
 
 

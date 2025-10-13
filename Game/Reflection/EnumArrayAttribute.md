@@ -47,7 +47,10 @@ public System.Type type { get; set; }
 - `public EnumArrayAttribute(System.Type type)`  
 
 ```csharp
-public EnumArrayAttribute(System.Type type);
+public EnumArrayAttribute(Type type)
+	{
+		this.type = type;
+	}
 ```
 
 

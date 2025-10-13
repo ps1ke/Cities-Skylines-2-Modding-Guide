@@ -89,7 +89,12 @@ public System.Int32 basis { get; set; }
 - `public FlexLayout(System.Single grow, System.Single shrink, System.Int32 basis)`  
 
 ```csharp
-public FlexLayout(System.Single grow, System.Single shrink, System.Int32 basis);
+public FlexLayout(float grow, float shrink, int basis)
+	{
+		this.grow = grow;
+		this.shrink = shrink;
+		this.basis = basis;
+	}
 ```
 
 
@@ -98,7 +103,17 @@ public FlexLayout(System.Single grow, System.Single shrink, System.Int32 basis);
 - `public Write(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-public System.Void Write(Colossal.UI.Binding.IJsonWriter writer);
+public void Write(IJsonWriter writer)
+	{
+		writer.TypeBegin(GetType().FullName);
+		writer.PropertyName("grow");
+		writer.Write(grow);
+		writer.PropertyName("shrink");
+		writer.Write(shrink);
+		writer.PropertyName("basis");
+		writer.Write(basis);
+		writer.TypeEnd();
+	}
 ```
 
 

@@ -46,7 +46,11 @@ public Game.Pathfind.PathMethod m_PathMethods;
 - `public SubLane(Unity.Entities.Entity lane, Game.Pathfind.PathMethod pathMethods)`  
 
 ```csharp
-public SubLane(Unity.Entities.Entity lane, Game.Pathfind.PathMethod pathMethods);
+public SubLane(Entity lane, PathMethod pathMethods)
+	{
+		m_SubLane = lane;
+		m_PathMethods = pathMethods;
+	}
 ```
 
 
@@ -55,13 +59,19 @@ public SubLane(Unity.Entities.Entity lane, Game.Pathfind.PathMethod pathMethods)
 - `public Equals(Game.Net.SubLane other) : System.Boolean`  
 
 ```csharp
-public System.Boolean Equals(Game.Net.SubLane other);
+public bool Equals(SubLane other)
+	{
+		return m_SubLane.Equals(other.m_SubLane);
+	}
 ```
 
 - `public virtual GetHashCode() : System.Int32`  
 
 ```csharp
-public virtual System.Int32 GetHashCode();
+public override int GetHashCode()
+	{
+		return m_SubLane.GetHashCode();
+	}
 ```
 
 

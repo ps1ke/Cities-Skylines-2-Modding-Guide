@@ -100,25 +100,101 @@ public Game.Input.InputManager+DeviceType mask { get; set; }
 - `public InputActivator(System.String activatorName, Game.Input.ProxyAction action, Game.Input.InputManager+DeviceType mask = All, System.Boolean enabled = False)`  
 
 ```csharp
-public InputActivator(System.String activatorName, Game.Input.ProxyAction action, Game.Input.InputManager+DeviceType mask, System.Boolean enabled);
+internal InputActivator(bool ignoreIsBuiltIn, string activatorName, IList<ProxyAction> actions, InputManager.DeviceType mask = InputManager.DeviceType.All, bool enabled = false)
+	{
+		if (actions == null)
+		{
+			throw new ArgumentNullException("actions");
+		}
+		m_Actions = actions.Where((ProxyAction a) => a != null).Distinct().ToArray();
+		if (!ignoreIsBuiltIn && m_Actions.Any((ProxyAction a) => a.isBuiltIn))
+		{
+			throw new ArgumentException("Activator can not be created for built-in action");
+		}
+		m_Name = activatorName ?? "InputActivator";
+		m_Mask = mask;
+		ProxyAction[] array = m_Actions;
+		for (int num = 0; num < array.Length; num++)
+		{
+			array[num].m_Activators.Add(this);
+		}
+		this.enabled = enabled;
+	}
 ```
 
 - `internal InputActivator(System.Boolean ignoreIsBuiltIn, System.String activatorName, Game.Input.ProxyAction action, Game.Input.InputManager+DeviceType mask = All, System.Boolean enabled = False)`  
 
 ```csharp
-internal InputActivator(System.Boolean ignoreIsBuiltIn, System.String activatorName, Game.Input.ProxyAction action, Game.Input.InputManager+DeviceType mask, System.Boolean enabled);
+internal InputActivator(bool ignoreIsBuiltIn, string activatorName, IList<ProxyAction> actions, InputManager.DeviceType mask = InputManager.DeviceType.All, bool enabled = false)
+	{
+		if (actions == null)
+		{
+			throw new ArgumentNullException("actions");
+		}
+		m_Actions = actions.Where((ProxyAction a) => a != null).Distinct().ToArray();
+		if (!ignoreIsBuiltIn && m_Actions.Any((ProxyAction a) => a.isBuiltIn))
+		{
+			throw new ArgumentException("Activator can not be created for built-in action");
+		}
+		m_Name = activatorName ?? "InputActivator";
+		m_Mask = mask;
+		ProxyAction[] array = m_Actions;
+		for (int num = 0; num < array.Length; num++)
+		{
+			array[num].m_Activators.Add(this);
+		}
+		this.enabled = enabled;
+	}
 ```
 
 - `public InputActivator(System.String activatorName, System.Collections.Generic.IList<Game.Input.ProxyAction> actions, Game.Input.InputManager+DeviceType mask = All, System.Boolean enabled = False)`  
 
 ```csharp
-public InputActivator(System.String activatorName, System.Collections.Generic.IList<Game.Input.ProxyAction> actions, Game.Input.InputManager+DeviceType mask, System.Boolean enabled);
+internal InputActivator(bool ignoreIsBuiltIn, string activatorName, IList<ProxyAction> actions, InputManager.DeviceType mask = InputManager.DeviceType.All, bool enabled = false)
+	{
+		if (actions == null)
+		{
+			throw new ArgumentNullException("actions");
+		}
+		m_Actions = actions.Where((ProxyAction a) => a != null).Distinct().ToArray();
+		if (!ignoreIsBuiltIn && m_Actions.Any((ProxyAction a) => a.isBuiltIn))
+		{
+			throw new ArgumentException("Activator can not be created for built-in action");
+		}
+		m_Name = activatorName ?? "InputActivator";
+		m_Mask = mask;
+		ProxyAction[] array = m_Actions;
+		for (int num = 0; num < array.Length; num++)
+		{
+			array[num].m_Activators.Add(this);
+		}
+		this.enabled = enabled;
+	}
 ```
 
 - `internal InputActivator(System.Boolean ignoreIsBuiltIn, System.String activatorName, System.Collections.Generic.IList<Game.Input.ProxyAction> actions, Game.Input.InputManager+DeviceType mask = All, System.Boolean enabled = False)`  
 
 ```csharp
-internal InputActivator(System.Boolean ignoreIsBuiltIn, System.String activatorName, System.Collections.Generic.IList<Game.Input.ProxyAction> actions, Game.Input.InputManager+DeviceType mask, System.Boolean enabled);
+internal InputActivator(bool ignoreIsBuiltIn, string activatorName, IList<ProxyAction> actions, InputManager.DeviceType mask = InputManager.DeviceType.All, bool enabled = false)
+	{
+		if (actions == null)
+		{
+			throw new ArgumentNullException("actions");
+		}
+		m_Actions = actions.Where((ProxyAction a) => a != null).Distinct().ToArray();
+		if (!ignoreIsBuiltIn && m_Actions.Any((ProxyAction a) => a.isBuiltIn))
+		{
+			throw new ArgumentException("Activator can not be created for built-in action");
+		}
+		m_Name = activatorName ?? "InputActivator";
+		m_Mask = mask;
+		ProxyAction[] array = m_Actions;
+		for (int num = 0; num < array.Length; num++)
+		{
+			array[num].m_Activators.Add(this);
+		}
+		this.enabled = enabled;
+	}
 ```
 
 
@@ -127,13 +203,32 @@ internal InputActivator(System.Boolean ignoreIsBuiltIn, System.String activatorN
 - `public Dispose() : System.Void`  
 
 ```csharp
-public System.Void Dispose();
+public void Dispose()
+	{
+		if (!m_Disposed)
+		{
+			m_Disposed = true;
+			ProxyAction[] array = m_Actions;
+			foreach (ProxyAction obj in array)
+			{
+				obj.m_Activators.Remove(this);
+				obj.UpdateState();
+			}
+		}
+	}
 ```
 
 - `private Update() : System.Void`  
 
 ```csharp
-private System.Void Update();
+private void Update()
+	{
+		ProxyAction[] array = m_Actions;
+		for (int i = 0; i < array.Length; i++)
+		{
+			array[i].UpdateState();
+		}
+	}
 ```
 
 

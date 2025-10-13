@@ -34,7 +34,17 @@ public static const System.String kSaveLoadTaskName;
 - `public static DeleteSaveGame(Game.Assets.SaveGameMetadata saveGameMetadata) : System.Void`  
 
 ```csharp
-public static System.Void DeleteSaveGame(Game.Assets.SaveGameMetadata saveGameMetadata);
+public static void DeleteSaveGame(SaveGameMetadata saveGameMetadata)
+	{
+		UserState userState = GameManager.instance.settings.userState;
+		if (userState.lastSaveGameMetadata == saveGameMetadata)
+		{
+			userState.lastSaveGameMetadata = null;
+			userState.ApplyAndSave();
+			Launcher.DeleteLastSaveMetadata();
+		}
+		AssetDatabase.global.DeleteAsset(saveGameMetadata);
+	}
 ```
 
 - `public static GetAssetDataPath<T>(Colossal.IO.AssetDatabase.ILocalAssetDatabase database, System.String saveName) : Colossal.IO.AssetDatabase.AssetDataPath`  

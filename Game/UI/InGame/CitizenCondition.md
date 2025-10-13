@@ -57,7 +57,10 @@ private Game.UI.InGame.CitizenConditionKey key { private get; }
 - `public CitizenCondition(Game.UI.InGame.CitizenConditionKey key)`  
 
 ```csharp
-public CitizenCondition(Game.UI.InGame.CitizenConditionKey key);
+public CitizenCondition(CitizenConditionKey key)
+	{
+		this.key = key;
+	}
 ```
 
 
@@ -66,13 +69,24 @@ public CitizenCondition(Game.UI.InGame.CitizenConditionKey key);
 - `public CompareTo(Game.UI.InGame.CitizenCondition other) : System.Int32`  
 
 ```csharp
-public System.Int32 CompareTo(Game.UI.InGame.CitizenCondition other);
+public int CompareTo(CitizenCondition other)
+	{
+		return key.CompareTo(other.key);
+	}
 ```
 
 - `public Write(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-public System.Void Write(Colossal.UI.Binding.IJsonWriter writer);
+public void Write(IJsonWriter writer)
+	{
+		writer.TypeBegin(typeof(CitizenCondition).FullName);
+		writer.PropertyName("key");
+		writer.Write(Enum.GetName(typeof(CitizenConditionKey), key));
+		writer.PropertyName("iconPath");
+		writer.Write(kConditionPaths[(int)key]);
+		writer.TypeEnd();
+	}
 ```
 
 

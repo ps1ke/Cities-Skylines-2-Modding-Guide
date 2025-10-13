@@ -500,7 +500,10 @@ public System.Boolean IsAsync { get; set; }
 - `public SnowSystem()`  
 
 ```csharp
-public SnowSystem();
+[Preserve]
+	public SnowSystem()
+	{
+	}
 ```
 
 
@@ -509,19 +512,58 @@ public SnowSystem();
 - `private AddSnow(UnityEngine.Rendering.CommandBuffer cmd) : System.Void`  
 
 ```csharp
-private System.Void AddSnow(UnityEngine.Rendering.CommandBuffer cmd);
+private void AddSnow(CommandBuffer cmd)
+	{
+		using (new ProfilingScope(cmd, ProfilingSampler.Get(ProfileId.AddSnow)))
+		{
+			cmd.SetComputeFloatParam(m_SnowUpdateShader, m_ID_Timestep, 0.2f);
+			cmd.SetComputeFloatParam(m_SnowUpdateShader, m_ID_AddMultiplier, 1E-05f);
+			cmd.SetComputeFloatParam(m_SnowUpdateShader, m_ID_MeltMultiplier, 0.00012f);
+			cmd.SetComputeFloatParam(m_SnowUpdateShader, m_ID_AddWaterMultiplier, 0.1f);
+			cmd.SetComputeFloatParam(m_SnowUpdateShader, m_ID_ElapseWaterMultiplier, 0.05f);
+			cmd.SetComputeFloatParam(m_SnowUpdateShader, m_ID_Temperature, m_ClimateSystem.temperature);
+			cmd.SetComputeFloatParam(m_SnowUpdateShader, m_ID_Rain, m_ClimateSystem.precipitation);
+			cmd.SetComputeVectorParam(m_SnowUpdateShader, m_ID_Wind, new float4(m_WindSimulationSystem.constantWind, 0f, 0f));
+			cmd.SetComputeVectorParam(m_SnowUpdateShader, m_ID_SnowScale, SnowScaleVector);
+			cmd.SetComputeFloatParam(m_SnowUpdateShader, m_ID_Time, m_TimeSystem.normalizedTime);
+			cmd.SetComputeTextureParam(m_SnowUpdateShader, m_AddKernel, "_Terrain", m_TerrainSystem.heightmap);
+			cmd.SetComputeVectorParam(m_SnowUpdateShader, "_HeightScale", new float4(m_TerrainSystem.heightScaleOffset, m_ClimateSystem.temperatureBaseHeight, m_ClimateSystem.snowTemperatureHeightScale));
+			cmd.SetComputeTextureParam(m_SnowUpdateShader, m_AddKernel, m_ID_OldSnowDepth, m_SnowHeights[Read]);
+			cmd.SetComputeTextureParam(m_SnowUpdateShader, m_AddKernel, m_ID_SnowDepth, m_SnowHeights[Write]);
+			cmd.SetComputeTextureParam(m_SnowUpdateShader, m_AddKernel, "_Water", m_WaterSystem.WaterTexture);
+			cmd.SetComputeBufferParam(m_SnowUpdateShader, m_AddKernel, m_ID_MinHeights, m_MinHeights);
+			cmd.DispatchCompute(m_SnowUpdateShader, m_AddKernel, 64, 64, 1);
+		}
+		FlipSnow();
+	}
 ```
 
 - `private CreateTexture(System.String name) : UnityEngine.RenderTexture`  
 
 ```csharp
-private UnityEngine.RenderTexture CreateTexture(System.String name);
+private RenderTexture CreateTexture(string name)
+	{
+		RenderTexture renderTexture = new RenderTexture(1024, 1024, 0, GraphicsFormat.R16G16_UNorm);
+		renderTexture.name = name;
+		renderTexture.hideFlags = HideFlags.DontSave;
+		renderTexture.enableRandomWrite = true;
+		renderTexture.wrapMode = TextureWrapMode.Clamp;
+		renderTexture.filterMode = FilterMode.Bilinear;
+		renderTexture.Create();
+		return renderTexture;
+	}
 ```
 
 - `public DebugReset() : System.Void`  
 
 ```csharp
-public System.Void DebugReset();
+public void DebugReset()
+	{
+		m_SnowUpdateShader.SetTexture(m_ResetKernel, "_Result", m_SnowHeights[Write]);
+		m_SnowUpdateShader.Dispatch(m_ResetKernel, 64, 64, 1);
+		m_SnowUpdateShader.SetTexture(m_ResetKernel, "_Result", m_SnowHeights[Read]);
+		m_SnowUpdateShader.Dispatch(m_ResetKernel, 64, 64, 1);
+	}
 ```
 
 - `public Deserialize<TReader>(TReader reader) : System.Void`  
@@ -533,55 +575,158 @@ public System.Void Deserialize<TReader>(TReader reader);
 - `private FlipSnow() : System.Void`  
 
 ```csharp
-private System.Void FlipSnow();
+private void FlipSnow()
+	{
+		Write = 1 - Write;
+	}
 ```
 
 - `private GetSnowiness() : System.Single`  
 
 ```csharp
-private System.Single GetSnowiness();
+private float GetSnowiness()
+	{
+		return Mathf.Sin(MathF.PI * 40f * m_TimeSystem.normalizedDate);
+	}
 ```
 
 - `public virtual GetUpdateInterval(Game.SystemUpdatePhase phase) : System.Int32`  
 
 ```csharp
-public virtual System.Int32 GetUpdateInterval(Game.SystemUpdatePhase phase);
+public override int GetUpdateInterval(SystemUpdatePhase phase)
+	{
+		return 4;
+	}
 ```
 
 - `private InitShader() : System.Void`  
 
 ```csharp
-private System.Void InitShader();
+private void InitShader()
+	{
+		m_SnowUpdateShader = AssetDatabase.global.resources.shaders.snowUpdate;
+		m_ResetKernel = m_SnowUpdateShader.FindKernel("Reset");
+		m_LoadKernel = m_SnowUpdateShader.FindKernel("Load");
+		m_LoadOldFormatKernel = m_SnowUpdateShader.FindKernel("LoadOldFormat");
+		m_AddKernel = m_SnowUpdateShader.FindKernel("Add");
+		m_TransferKernel = m_SnowUpdateShader.FindKernel("Transfer");
+		m_UpdateBackdropSnowHeightTextureKernel = m_SnowUpdateShader.FindKernel("UpdateBackdropSnowHeightTexture");
+		m_ClearBackdropSnowHeightTextureKernel = m_SnowUpdateShader.FindKernel("ClearBackdropSnowHeightTexture");
+		m_FinalizeBackdropSnowHeightTextureKernel = m_SnowUpdateShader.FindKernel("FinalizeBackdropSnowHeightTexture");
+	}
 ```
 
 - `private InitTextures() : System.Void`  
 
 ```csharp
-private System.Void InitTextures();
+private void InitTextures()
+	{
+		m_SnowHeights = new RenderTexture[2];
+		m_SnowHeights[0] = CreateTexture("SnowRT0");
+		m_SnowHeights[1] = CreateTexture("SnowRT1");
+		m_MinHeights = new ComputeBuffer(4096, UnsafeUtility.SizeOf<float2>(), ComputeBufferType.Default);
+		m_snowBackdropBuffer = new ComputeBuffer(1024, UnsafeUtility.SizeOf<uint2>(), ComputeBufferType.Default);
+		m_snowHeightBackdropTextureFinal = new RenderTexture(1024, 1, 0, GraphicsFormat.R32_SFloat)
+		{
+			name = "SnowBackdropHeightTextureFinal",
+			hideFlags = HideFlags.DontSave,
+			enableRandomWrite = true,
+			wrapMode = TextureWrapMode.Clamp,
+			filterMode = FilterMode.Bilinear
+		};
+		m_snowHeightBackdropTextureFinal.Create();
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		InitShader();
+		m_TerrainSystem = base.World.GetOrCreateSystemManaged<TerrainSystem>();
+		m_SimulationSystem = base.World.GetOrCreateSystemManaged<SimulationSystem>();
+		m_TimeSystem = base.World.GetOrCreateSystemManaged<TimeSystem>();
+		m_ClimateSystem = base.World.GetOrCreateSystemManaged<ClimateSystem>();
+		m_WaterSystem = base.World.GetOrCreateSystemManaged<WaterSystem>();
+		m_WindSimulationSystem = base.World.GetOrCreateSystemManaged<WindSimulationSystem>();
+		InitTextures();
+		m_ID_SnowDepth = Shader.PropertyToID("_Result");
+		m_ID_OldSnowDepth = Shader.PropertyToID("_Previous");
+		m_ID_Timestep = Shader.PropertyToID("_Timestep");
+		m_ID_AddMultiplier = Shader.PropertyToID("_AddMultiplier");
+		m_ID_MeltMultiplier = Shader.PropertyToID("_MeltMultiplier");
+		m_ID_AddWaterMultiplier = Shader.PropertyToID("_AddWaterMultiplier");
+		m_ID_ElapseWaterMultiplier = Shader.PropertyToID("_ElapseWaterMultiplier");
+		m_ID_Temperature = Shader.PropertyToID("_Temperature");
+		m_ID_Rain = Shader.PropertyToID("_Rain");
+		m_ID_Time = Shader.PropertyToID("_SimTime");
+		m_ID_Wind = Shader.PropertyToID("_Wind");
+		m_ID_SnowScale = Shader.PropertyToID("_SnowScale");
+		m_ID_MinHeights = Shader.PropertyToID("_MinHeights");
+		m_ID_SnowHeightBackdropBuffer = Shader.PropertyToID("_SnowHeightBackdropBuffer");
+		m_ID_SnowHeightBackdropFinal = Shader.PropertyToID("_SnowHeightBackdropTextureFinal");
+		m_ID_SnowBackdropUpdateLerpFactor = Shader.PropertyToID("_SnowBackdropUpdateLerpFactor");
+		m_ID_SnowHeightBackdropBufferSize = Shader.PropertyToID("_SnowHeightBackdropBufferSize");
+		RequireForUpdate<TerrainPropertiesData>();
+		m_CommandBuffer = new CommandBuffer();
+		m_CommandBuffer.name = "Snowsystem";
+		SnowSimSpeed = 1;
+	}
 ```
 
 - `protected virtual OnDestroy() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnDestroy();
+[Preserve]
+	protected override void OnDestroy()
+	{
+		m_CommandBuffer.Dispose();
+		CoreUtils.Destroy(m_SnowHeights[0]);
+		CoreUtils.Destroy(m_SnowHeights[1]);
+		m_MinHeights.Release();
+		m_snowBackdropBuffer.Release();
+		CoreUtils.Destroy(m_snowHeightBackdropTextureFinal);
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		if (m_WaterSystem.Loaded)
+		{
+			m_CommandBuffer.Clear();
+			for (int i = 0; i < SnowSimSpeed; i++)
+			{
+				AddSnow(m_CommandBuffer);
+				SnowTransfer(m_CommandBuffer);
+			}
+			UpdateSnowBackdropTexture(m_CommandBuffer, 0.1f);
+			Shader.SetGlobalTexture("_SnowMap", SnowDepth);
+			Graphics.ExecuteCommandBuffer(m_CommandBuffer);
+		}
+	}
 ```
 
 - `public PostDeserialize(Colossal.Serialization.Entities.Context context) : System.Void`  
 
 ```csharp
-public System.Void PostDeserialize(Colossal.Serialization.Entities.Context context);
+public void PostDeserialize(Context context)
+	{
+		if (context.version < Version.snow)
+		{
+			m_SnowUpdateShader.SetTexture(m_ResetKernel, "_Result", m_SnowHeights[Write]);
+			m_SnowUpdateShader.Dispatch(m_ResetKernel, 64, 64, 1);
+			m_SnowUpdateShader.SetTexture(m_ResetKernel, "_Result", m_SnowHeights[Read]);
+			m_SnowUpdateShader.Dispatch(m_ResetKernel, 64, 64, 1);
+		}
+		Shader.SetGlobalTexture("_SnowMap", SnowDepth);
+	}
 ```
 
 - `public Serialize<TWriter>(TWriter writer) : System.Void`  
@@ -593,25 +738,66 @@ public System.Void Serialize<TWriter>(TWriter writer);
 - `public SetDefaults(Colossal.Serialization.Entities.Context context) : System.Void`  
 
 ```csharp
-public System.Void SetDefaults(Colossal.Serialization.Entities.Context context);
+public void SetDefaults(Context context)
+	{
+		m_SnowUpdateShader.SetTexture(m_ResetKernel, "_Result", m_SnowHeights[Write]);
+		m_SnowUpdateShader.Dispatch(m_ResetKernel, 64, 64, 1);
+		m_SnowUpdateShader.SetTexture(m_ResetKernel, "_Result", m_SnowHeights[Read]);
+		m_SnowUpdateShader.Dispatch(m_ResetKernel, 64, 64, 1);
+		Shader.SetGlobalTexture("_SnowMap", SnowDepth);
+	}
 ```
 
 - `private SnowTransfer(UnityEngine.Rendering.CommandBuffer cmd) : System.Void`  
 
 ```csharp
-private System.Void SnowTransfer(UnityEngine.Rendering.CommandBuffer cmd);
+private void SnowTransfer(CommandBuffer cmd)
+	{
+		using (new ProfilingScope(cmd, ProfilingSampler.Get(ProfileId.TransferSnow)))
+		{
+			if ((float)m_ClimateSystem.precipitation < 0.1f || (float)m_ClimateSystem.temperature - 0.01f * (m_TerrainSystem.heightScaleOffset.x - m_ClimateSystem.temperatureBaseHeight) > 0f)
+			{
+				return;
+			}
+			cmd.SetComputeVectorParam(m_SnowUpdateShader, m_ID_SnowScale, SnowScaleVector);
+			cmd.SetComputeVectorParam(m_SnowUpdateShader, "_HeightScale", new float4(m_TerrainSystem.heightScaleOffset, m_ClimateSystem.temperatureBaseHeight, 0f));
+			cmd.SetComputeTextureParam(m_SnowUpdateShader, m_TransferKernel, m_ID_OldSnowDepth, m_SnowHeights[Read]);
+			cmd.SetComputeTextureParam(m_SnowUpdateShader, m_TransferKernel, m_ID_SnowDepth, m_SnowHeights[Write]);
+			cmd.SetComputeTextureParam(m_SnowUpdateShader, m_TransferKernel, "_Terrain", m_TerrainSystem.heightmap);
+			cmd.SetComputeVectorParam(m_SnowUpdateShader, m_ID_Wind, new float4(m_WindSimulationSystem.constantWind, 0f, 0f));
+			cmd.DispatchCompute(m_SnowUpdateShader, m_TransferKernel, 64, 64, 1);
+		}
+		FlipSnow();
+	}
 ```
 
 - `public UpdateDynamicHeights() : System.Void`  
 
 ```csharp
-public System.Void UpdateDynamicHeights();
+public void UpdateDynamicHeights()
+	{
+	}
 ```
 
 - `private UpdateSnowBackdropTexture(UnityEngine.Rendering.CommandBuffer cmd, System.Single lerpFactor) : System.Void`  
 
 ```csharp
-private System.Void UpdateSnowBackdropTexture(UnityEngine.Rendering.CommandBuffer cmd, System.Single lerpFactor);
+private void UpdateSnowBackdropTexture(CommandBuffer cmd, float lerpFactor)
+	{
+		using (new ProfilingScope(m_CommandBuffer, ProfilingSampler.Get(ProfileId.UpdateSnowHeightBackdrop)))
+		{
+			cmd.SetComputeBufferParam(m_SnowUpdateShader, m_ClearBackdropSnowHeightTextureKernel, m_ID_SnowHeightBackdropBuffer, m_snowBackdropBuffer);
+			cmd.DispatchCompute(m_SnowUpdateShader, m_ClearBackdropSnowHeightTextureKernel, 64, 1, 1);
+			cmd.SetComputeBufferParam(m_SnowUpdateShader, m_UpdateBackdropSnowHeightTextureKernel, m_ID_SnowHeightBackdropBuffer, m_snowBackdropBuffer);
+			cmd.SetComputeBufferParam(m_SnowUpdateShader, m_UpdateBackdropSnowHeightTextureKernel, m_ID_MinHeights, m_MinHeights);
+			cmd.SetComputeIntParam(m_SnowUpdateShader, m_ID_SnowHeightBackdropBufferSize, 1024);
+			cmd.DispatchCompute(m_SnowUpdateShader, m_UpdateBackdropSnowHeightTextureKernel, 256, 1, 1);
+			cmd.SetComputeBufferParam(m_SnowUpdateShader, m_FinalizeBackdropSnowHeightTextureKernel, m_ID_SnowHeightBackdropBuffer, m_snowBackdropBuffer);
+			cmd.SetComputeTextureParam(m_SnowUpdateShader, m_FinalizeBackdropSnowHeightTextureKernel, m_ID_SnowHeightBackdropFinal, m_snowHeightBackdropTextureFinal);
+			cmd.SetComputeFloatParam(m_SnowUpdateShader, m_ID_SnowBackdropUpdateLerpFactor, lerpFactor);
+			cmd.DispatchCompute(m_SnowUpdateShader, m_FinalizeBackdropSnowHeightTextureKernel, 1, 1, 1);
+		}
+	}
 ```
 
 

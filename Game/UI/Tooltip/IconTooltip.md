@@ -70,7 +70,14 @@ protected IconTooltip();
 - `protected virtual WriteProperties(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-protected virtual System.Void WriteProperties(Colossal.UI.Binding.IJsonWriter writer);
+protected override void WriteProperties(IJsonWriter writer)
+	{
+		base.WriteProperties(writer);
+		writer.PropertyName("icon");
+		writer.Write(icon);
+		writer.PropertyName("color");
+		writer.Write((int)color);
+	}
 ```
 
 

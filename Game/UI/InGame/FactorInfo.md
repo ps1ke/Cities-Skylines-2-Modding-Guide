@@ -67,7 +67,11 @@ public System.Int32 weight { get; }
 - `public FactorInfo(System.Int32 factor, System.Int32 weight)`  
 
 ```csharp
-public FactorInfo(System.Int32 factor, System.Int32 weight);
+public FactorInfo(int factor, int weight)
+	{
+		this.factor = factor;
+		this.weight = weight;
+	}
 ```
 
 
@@ -76,31 +80,75 @@ public FactorInfo(System.Int32 factor, System.Int32 weight);
 - `public CompareTo(Game.UI.InGame.FactorInfo other) : System.Int32`  
 
 ```csharp
-public System.Int32 CompareTo(Game.UI.InGame.FactorInfo other);
+public int CompareTo(FactorInfo other)
+	{
+		int num = math.abs(other.weight).CompareTo(math.abs(weight));
+		if (num == 0)
+		{
+			return other.factor.CompareTo(factor);
+		}
+		return num;
+	}
 ```
 
 - `public static FromFactorArray(Unity.Collections.NativeArray<System.Int32> factors, Unity.Collections.Allocator allocator) : Unity.Collections.NativeList<Game.UI.InGame.FactorInfo>`  
 
 ```csharp
-public static Unity.Collections.NativeList<Game.UI.InGame.FactorInfo> FromFactorArray(Unity.Collections.NativeArray<System.Int32> factors, Unity.Collections.Allocator allocator);
+public static NativeList<FactorInfo> FromFactorArray(NativeArray<int> factors, Allocator allocator)
+	{
+		NativeList<FactorInfo> nativeList = new NativeList<FactorInfo>(factors.Length, allocator);
+		for (int i = 0; i < factors.Length; i++)
+		{
+			if (factors[i] != 0)
+			{
+				nativeList.Add(new FactorInfo(i, factors[i]));
+			}
+		}
+		nativeList.Sort();
+		return nativeList;
+	}
 ```
 
 - `public WriteBuildingHappinessFactor(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-public System.Void WriteBuildingHappinessFactor(Colossal.UI.Binding.IJsonWriter writer);
+public void WriteBuildingHappinessFactor(IJsonWriter writer)
+	{
+		writer.TypeBegin(GetType().FullName);
+		writer.PropertyName("factor");
+		writer.Write(Enum.GetName(typeof(BuildingHappinessFactor), factor));
+		writer.PropertyName("weight");
+		writer.Write(weight);
+		writer.TypeEnd();
+	}
 ```
 
 - `public WriteDemandFactor(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-public System.Void WriteDemandFactor(Colossal.UI.Binding.IJsonWriter writer);
+public void WriteDemandFactor(IJsonWriter writer)
+	{
+		writer.TypeBegin(GetType().FullName);
+		writer.PropertyName("factor");
+		writer.Write(Enum.GetName(typeof(DemandFactor), factor));
+		writer.PropertyName("weight");
+		writer.Write(weight);
+		writer.TypeEnd();
+	}
 ```
 
 - `public WriteHappinessFactor(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-public System.Void WriteHappinessFactor(Colossal.UI.Binding.IJsonWriter writer);
+public void WriteHappinessFactor(IJsonWriter writer)
+	{
+		writer.TypeBegin(GetType().FullName);
+		writer.PropertyName("factor");
+		writer.Write(Enum.GetName(typeof(CitizenHappinessSystem.HappinessFactor), factor));
+		writer.PropertyName("weight");
+		writer.Write(weight);
+		writer.TypeEnd();
+	}
 ```
 
 

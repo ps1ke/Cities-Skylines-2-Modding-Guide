@@ -99,25 +99,54 @@ public HealthcarePrefab();
 - `public virtual GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetArchetypeComponents(HashSet<ComponentType> components)
+	{
+		base.GetArchetypeComponents(components);
+	}
 ```
 
 - `public virtual GetDependencies(System.Collections.Generic.List<Game.Prefabs.PrefabBase> prefabs) : System.Void`  
 
 ```csharp
-public virtual System.Void GetDependencies(System.Collections.Generic.List<Game.Prefabs.PrefabBase> prefabs);
+public override void GetDependencies(List<PrefabBase> prefabs)
+	{
+		base.GetDependencies(prefabs);
+		prefabs.Add(m_HealthcareServicePrefab);
+		prefabs.Add(m_AmbulanceNotificationPrefab);
+		prefabs.Add(m_HearseNotificationPrefab);
+		prefabs.Add(m_FacilityFullNotificationPrefab);
+	}
 ```
 
 - `public virtual GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetPrefabComponents(HashSet<ComponentType> components)
+	{
+		base.GetPrefabComponents(components);
+		components.Add(ComponentType.ReadWrite<HealthcareParameterData>());
+	}
 ```
 
 - `public virtual LateInitialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity) : System.Void`  
 
 ```csharp
-public virtual System.Void LateInitialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity);
+public override void LateInitialize(EntityManager entityManager, Entity entity)
+	{
+		base.LateInitialize(entityManager, entity);
+		PrefabSystem orCreateSystemManaged = entityManager.World.GetOrCreateSystemManaged<PrefabSystem>();
+		entityManager.SetComponentData(entity, new HealthcareParameterData
+		{
+			m_HealthcareServicePrefab = orCreateSystemManaged.GetEntity(m_HealthcareServicePrefab),
+			m_AmbulanceNotificationPrefab = orCreateSystemManaged.GetEntity(m_AmbulanceNotificationPrefab),
+			m_HearseNotificationPrefab = orCreateSystemManaged.GetEntity(m_HearseNotificationPrefab),
+			m_FacilityFullNotificationPrefab = orCreateSystemManaged.GetEntity(m_FacilityFullNotificationPrefab),
+			m_TransportWarningTime = m_TransportWarningTime,
+			m_NoResourceTreatmentPenalty = m_NoResourceTreatmentPenalty,
+			m_BuildingDestoryDeathRate = m_BuildingDestoryDeathRate,
+			m_DeathRate = new AnimationCurve1(m_DeathRate)
+		});
+	}
 ```
 
 

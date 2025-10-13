@@ -62,25 +62,41 @@ public Unity.Mathematics.float4 max { get; private set; }
 - `public RangeNAttribute(System.Single min, System.Single max, System.Boolean componentExpansion = True)`  
 
 ```csharp
-public RangeNAttribute(System.Single min, System.Single max, System.Boolean componentExpansion);
+public RangeNAttribute(float4 min, float4 max)
+	{
+		this.min = min;
+		this.max = max;
+	}
 ```
 
 - `public RangeNAttribute(Unity.Mathematics.float2 min, Unity.Mathematics.float2 max)`  
 
 ```csharp
-public RangeNAttribute(Unity.Mathematics.float2 min, Unity.Mathematics.float2 max);
+public RangeNAttribute(float4 min, float4 max)
+	{
+		this.min = min;
+		this.max = max;
+	}
 ```
 
 - `public RangeNAttribute(Unity.Mathematics.float3 min, Unity.Mathematics.float3 max)`  
 
 ```csharp
-public RangeNAttribute(Unity.Mathematics.float3 min, Unity.Mathematics.float3 max);
+public RangeNAttribute(float4 min, float4 max)
+	{
+		this.min = min;
+		this.max = max;
+	}
 ```
 
 - `public RangeNAttribute(Unity.Mathematics.float4 min, Unity.Mathematics.float4 max)`  
 
 ```csharp
-public RangeNAttribute(Unity.Mathematics.float4 min, Unity.Mathematics.float4 max);
+public RangeNAttribute(float4 min, float4 max)
+	{
+		this.min = min;
+		this.max = max;
+	}
 ```
 
 

@@ -110,25 +110,65 @@ public EmissiveProperties();
 - `public virtual GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetArchetypeComponents(HashSet<ComponentType> components)
+	{
+	}
 ```
 
 - `public virtual GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetPrefabComponents(HashSet<ComponentType> components)
+	{
+		components.Add(ComponentType.ReadWrite<ProceduralLight>());
+		if ((m_AnimationCurves != null && m_AnimationCurves.Count != 0) || (m_SignalGroupAnimations != null && m_SignalGroupAnimations.Count != 0))
+		{
+			components.Add(ComponentType.ReadWrite<LightAnimation>());
+		}
+	}
 ```
 
 - `public GetSingleLightOffset(System.Int32 materialId) : System.Int32`  
 
 ```csharp
-public System.Int32 GetSingleLightOffset(System.Int32 materialId);
+public int GetSingleLightOffset(int materialId)
+	{
+		int num = 1;
+		if (hasMultiLights)
+		{
+			num += m_MultiLights.Count;
+		}
+		if (hasSingleLights)
+		{
+			for (int i = 0; i < m_SingleLights.Count; i++)
+			{
+				if (m_SingleLights[i].materialId == materialId)
+				{
+					return num + i;
+				}
+			}
+		}
+		return 0;
+	}
 ```
 
 - `public IsSingleLightMaterialId(System.Int32 materialId) : System.Boolean`  
 
 ```csharp
-public System.Boolean IsSingleLightMaterialId(System.Int32 materialId);
+public bool IsSingleLightMaterialId(int materialId)
+	{
+		if (hasSingleLights)
+		{
+			foreach (SingleLightMapping singleLight in m_SingleLights)
+			{
+				if (singleLight.materialId == materialId)
+				{
+					return true;
+				}
+			}
+		}
+		return false;
+	}
 ```
 
 

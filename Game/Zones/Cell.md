@@ -58,7 +58,14 @@ public System.Void Deserialize<TReader>(TReader reader);
 - `public GetStride(Colossal.Serialization.Entities.Context context) : System.Int32`  
 
 ```csharp
-public System.Int32 GetStride(Colossal.Serialization.Entities.Context context);
+public int GetStride(Context context)
+	{
+		if (context.version >= Version.zoneHeightLimit)
+		{
+			return 4 + m_Zone.GetStride(context);
+		}
+		return 2 + m_Zone.GetStride(context);
+	}
 ```
 
 - `public Serialize<TWriter>(TWriter writer) : System.Void`  

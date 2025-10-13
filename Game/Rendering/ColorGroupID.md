@@ -36,7 +36,10 @@ private System.Int32 m_Index;
 - `public ColorGroupID(System.Int32 index)`  
 
 ```csharp
-public ColorGroupID(System.Int32 index);
+public ColorGroupID(int index)
+	{
+		m_Index = index;
+	}
 ```
 
 
@@ -45,13 +48,23 @@ public ColorGroupID(System.Int32 index);
 - `public virtual Equals(System.Object obj) : System.Boolean`  
 
 ```csharp
-public virtual System.Boolean Equals(System.Object obj);
+public override bool Equals(object obj)
+	{
+		if (obj is ColorGroupID colorGroupID)
+		{
+			return this == colorGroupID;
+		}
+		return false;
+	}
 ```
 
 - `public virtual GetHashCode() : System.Int32`  
 
 ```csharp
-public virtual System.Int32 GetHashCode();
+public override int GetHashCode()
+	{
+		return m_Index.GetHashCode();
+	}
 ```
 
 

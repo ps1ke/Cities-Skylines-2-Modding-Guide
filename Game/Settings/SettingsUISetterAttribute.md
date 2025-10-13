@@ -43,7 +43,11 @@ public readonly System.String setterMethod;
 - `public SettingsUISetterAttribute(System.Type setterType, System.String setterMethod)`  
 
 ```csharp
-public SettingsUISetterAttribute(System.Type setterType, System.String setterMethod);
+public SettingsUISetterAttribute(Type setterType, string setterMethod)
+	{
+		this.setterType = setterType;
+		this.setterMethod = setterMethod;
+	}
 ```
 
 

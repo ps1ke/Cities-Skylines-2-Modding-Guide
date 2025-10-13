@@ -119,7 +119,15 @@ public System.Int32 total { get; }
 - `public EducationData(System.Int32 uneducated, System.Int32 poorlyEducated, System.Int32 educated, System.Int32 wellEducated, System.Int32 highlyEducated)`  
 
 ```csharp
-public EducationData(System.Int32 uneducated, System.Int32 poorlyEducated, System.Int32 educated, System.Int32 wellEducated, System.Int32 highlyEducated);
+public EducationData(int uneducated, int poorlyEducated, int educated, int wellEducated, int highlyEducated)
+	{
+		this.uneducated = uneducated;
+		this.poorlyEducated = poorlyEducated;
+		this.educated = educated;
+		this.wellEducated = wellEducated;
+		this.highlyEducated = highlyEducated;
+		total = uneducated + poorlyEducated + educated + wellEducated + highlyEducated;
+	}
 ```
 
 
@@ -128,7 +136,21 @@ public EducationData(System.Int32 uneducated, System.Int32 poorlyEducated, Syste
 - `public Write(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-public System.Void Write(Colossal.UI.Binding.IJsonWriter writer);
+public void Write(IJsonWriter writer)
+	{
+		writer.TypeBegin("selectedInfo.ChartData");
+		writer.PropertyName("values");
+		writer.ArrayBegin(5u);
+		writer.Write(uneducated);
+		writer.Write(poorlyEducated);
+		writer.Write(educated);
+		writer.Write(wellEducated);
+		writer.Write(highlyEducated);
+		writer.ArrayEnd();
+		writer.PropertyName("total");
+		writer.Write(total);
+		writer.TypeEnd();
+	}
 ```
 
 

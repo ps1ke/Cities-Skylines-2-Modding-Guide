@@ -65,7 +65,14 @@ public System.UInt32 m_SecuredFrame;
 - `public AccidentSite(Unity.Entities.Entity _event, Game.Events.AccidentSiteFlags flags, System.UInt32 currentFrame)`  
 
 ```csharp
-public AccidentSite(Unity.Entities.Entity _event, Game.Events.AccidentSiteFlags flags, System.UInt32 currentFrame);
+public AccidentSite(Entity _event, AccidentSiteFlags flags, uint currentFrame)
+	{
+		m_Event = _event;
+		m_PoliceRequest = Entity.Null;
+		m_Flags = flags;
+		m_CreationFrame = currentFrame;
+		m_SecuredFrame = 0u;
+	}
 ```
 
 

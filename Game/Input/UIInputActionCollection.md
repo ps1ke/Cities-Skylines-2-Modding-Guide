@@ -46,7 +46,15 @@ public UIInputActionCollection();
 - `public GetActionState(System.String actionName, System.String source) : Game.Input.IProxyAction`  
 
 ```csharp
-public Game.Input.IProxyAction GetActionState(System.String actionName, System.String source);
+public IProxyAction GetActionState(string actionName, string source)
+	{
+		UIBaseInputAction uIBaseInputAction = m_InputActions.FirstOrDefault((UIBaseInputAction a) => a.aliasName == actionName);
+		if (!(uIBaseInputAction != null))
+		{
+			return null;
+		}
+		return uIBaseInputAction.GetState(actionName + " (" + source + ")");
+	}
 ```
 
 

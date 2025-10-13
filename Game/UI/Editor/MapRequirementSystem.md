@@ -194,7 +194,10 @@ public System.Boolean electricityConnection { get; private set; }
 - `public MapRequirementSystem()`  
 
 ```csharp
-public MapRequirementSystem();
+[Preserve]
+	public MapRequirementSystem()
+	{
+	}
 ```
 
 
@@ -203,43 +206,198 @@ public MapRequirementSystem();
 - `private __AssignQueries(Unity.Entities.SystemState& state) : System.Void`  
 
 ```csharp
-private System.Void __AssignQueries(Unity.Entities.SystemState& state);
+private void __AssignQueries(ref SystemState state)
+	{
+		new EntityQueryBuilder(Allocator.Temp).Dispose();
+	}
 ```
 
 - `public MapHasResource(Game.Areas.MapFeature feature) : System.Boolean`  
 
 ```csharp
-public System.Boolean MapHasResource(Game.Areas.MapFeature feature);
+public bool MapHasResource(MapFeature feature)
+	{
+		m_ResultDependency.Complete();
+		if (feature > MapFeature.None && feature < MapFeature.Count)
+		{
+			return m_MapResources[(int)feature];
+		}
+		return false;
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_MapTileSystem = base.World.GetOrCreateSystemManaged<MapTileSystem>();
+		m_WaterSystem = base.World.GetOrCreateSystemManaged<WaterSystem>();
+		m_TileQuery = GetEntityQuery(new EntityQueryDesc
+		{
+			All = new ComponentType[3]
+			{
+				ComponentType.ReadOnly<MapTile>(),
+				ComponentType.ReadOnly<Geometry>(),
+				ComponentType.ReadOnly<MapFeatureElement>()
+			},
+			None = new ComponentType[2]
+			{
+				ComponentType.ReadOnly<Temp>(),
+				ComponentType.ReadOnly<Deleted>()
+			}
+		});
+		m_OutsideRoadNodeQuery = GetEntityQuery(new EntityQueryDesc
+		{
+			All = new ComponentType[3]
+			{
+				ComponentType.ReadOnly<Game.Net.Node>(),
+				ComponentType.ReadOnly<Road>(),
+				ComponentType.ReadOnly<Game.Net.OutsideConnection>()
+			},
+			None = new ComponentType[2]
+			{
+				ComponentType.ReadOnly<Temp>(),
+				ComponentType.ReadOnly<Deleted>()
+			}
+		});
+		m_OutsideTrainNodeQuery = GetEntityQuery(new EntityQueryDesc
+		{
+			All = new ComponentType[3]
+			{
+				ComponentType.ReadOnly<Game.Net.Node>(),
+				ComponentType.ReadOnly<TrainTrack>(),
+				ComponentType.ReadOnly<Game.Net.OutsideConnection>()
+			},
+			None = new ComponentType[2]
+			{
+				ComponentType.ReadOnly<Temp>(),
+				ComponentType.ReadOnly<Deleted>()
+			}
+		});
+		m_OutsideAirNodeQuery = GetEntityQuery(new EntityQueryDesc
+		{
+			All = new ComponentType[2]
+			{
+				ComponentType.ReadOnly<AirplaneStop>(),
+				ComponentType.ReadOnly<Game.Objects.OutsideConnection>()
+			},
+			None = new ComponentType[2]
+			{
+				ComponentType.ReadOnly<Temp>(),
+				ComponentType.ReadOnly<Deleted>()
+			}
+		});
+		m_OutsideElectricityConnectionQuery = GetEntityQuery(new EntityQueryDesc
+		{
+			All = new ComponentType[1] { ComponentType.ReadOnly<ElectricityOutsideConnection>() },
+			None = new ComponentType[2]
+			{
+				ComponentType.ReadOnly<Temp>(),
+				ComponentType.ReadOnly<Deleted>()
+			}
+		});
+		m_WaterResult = new NativeValue<bool>(Allocator.Persistent);
+		m_StartingAreaResources = new NativeArray<bool>(9, Allocator.Persistent);
+		m_MapResources = new NativeArray<bool>(9, Allocator.Persistent);
+	}
 ```
 
 - `protected virtual OnCreateForCompiler() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreateForCompiler();
+protected override void OnCreateForCompiler()
+	{
+		base.OnCreateForCompiler();
+		__AssignQueries(ref base.CheckedStateRef);
+		__TypeHandle.__AssignHandles(ref base.CheckedStateRef);
+	}
 ```
 
 - `protected virtual OnDestroy() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnDestroy();
+[Preserve]
+	protected override void OnDestroy()
+	{
+		base.OnDestroy();
+		m_WaterResult.Dispose();
+		m_StartingAreaResources.Dispose();
+		m_MapResources.Dispose();
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		m_ResultDependency.Complete();
+		NativeArray<Entity> startingTiles = m_MapTileSystem.GetStartTiles().ToArray(Allocator.TempJob);
+		hasStartingArea = startingTiles.Length != 0;
+		roadConnection = !m_OutsideRoadNodeQuery.IsEmptyIgnoreFilter;
+		trainConnection = !m_OutsideTrainNodeQuery.IsEmptyIgnoreFilter;
+		airConnection = !m_OutsideAirNodeQuery.IsEmptyIgnoreFilter;
+		electricityConnection = !m_OutsideElectricityConnectionQuery.IsEmptyIgnoreFilter;
+		JobHandle deps;
+		CheckWaterJob jobData = new CheckWaterJob
+		{
+			m_Result = m_WaterResult,
+			m_SurfaceData = m_WaterSystem.GetSurfaceData(out deps),
+			m_StartingTiles = startingTiles,
+			m_GeometryData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Areas_Geometry_RO_ComponentLookup, ref base.CheckedStateRef)
+		};
+		base.Dependency = IJobExtensions.Schedule(jobData, JobHandle.CombineDependencies(base.Dependency, deps));
+		m_WaterSystem.AddSurfaceReader(base.Dependency);
+		CollectStartingResourcesJob jobData2 = new CollectStartingResourcesJob
+		{
+			m_StartingTiles = startingTiles,
+			m_MapFeatureElements = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Areas_MapFeatureElement_RO_BufferLookup, ref base.CheckedStateRef),
+			m_Results = m_StartingAreaResources
+		};
+		base.Dependency = IJobExtensions.Schedule(jobData2, base.Dependency);
+		startingTiles.Dispose(base.Dependency);
+		CollectResourcesJob jobData3 = new CollectResourcesJob
+		{
+			m_AreaChunks = m_TileQuery.ToArchetypeChunkArray(Allocator.TempJob),
+			m_MapFeatureElementType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Areas_MapFeatureElement_RO_BufferTypeHandle, ref base.CheckedStateRef),
+			m_Results = m_MapResources
+		};
+		base.Dependency = IJobExtensions.Schedule(jobData3, base.Dependency);
+		m_ResultDependency = base.Dependency;
+	}
 ```
 
 - `public StartingAreaHasResource(Game.Areas.MapFeature feature) : System.Boolean`  
 
 ```csharp
-public System.Boolean StartingAreaHasResource(Game.Areas.MapFeature feature);
+public bool StartingAreaHasResource(MapFeature feature)
+	{
+		m_ResultDependency.Complete();
+		switch (feature)
+		{
+		case MapFeature.SurfaceWater:
+			if (!m_StartingAreaResources[(int)feature])
+			{
+				return m_WaterResult.value;
+			}
+			return true;
+		case MapFeature.Area:
+		case MapFeature.BuildableLand:
+		case MapFeature.FertileLand:
+		case MapFeature.Forest:
+		case MapFeature.Oil:
+		case MapFeature.Ore:
+		case MapFeature.GroundWater:
+		case MapFeature.Fish:
+			return m_StartingAreaResources[(int)feature];
+		default:
+			return false;
+		}
+	}
 ```
 
 

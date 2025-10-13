@@ -37,7 +37,10 @@ public Game.Vehicles.WatercraftFlags m_Flags;
 - `public Watercraft(Game.Vehicles.WatercraftFlags flags)`  
 
 ```csharp
-public Watercraft(Game.Vehicles.WatercraftFlags flags);
+public Watercraft(WatercraftFlags flags)
+	{
+		m_Flags = flags;
+	}
 ```
 
 

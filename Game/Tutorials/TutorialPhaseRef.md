@@ -35,7 +35,10 @@ public Unity.Entities.Entity m_Phase;
 - `public TutorialPhaseRef(Unity.Entities.Entity phase)`  
 
 ```csharp
-public TutorialPhaseRef(Unity.Entities.Entity phase);
+public TutorialPhaseRef(Entity phase)
+	{
+		m_Phase = phase;
+	}
 ```
 
 

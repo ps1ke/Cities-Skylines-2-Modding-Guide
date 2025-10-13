@@ -97,13 +97,34 @@ public NetPiecePrefab();
 - `public virtual GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetPrefabComponents(HashSet<ComponentType> components)
+	{
+		base.GetPrefabComponents(components);
+		components.Add(ComponentType.ReadWrite<NetPieceData>());
+		components.Add(ComponentType.ReadWrite<MeshMaterial>());
+	}
 ```
 
 - `public virtual LateInitialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity) : System.Void`  
 
 ```csharp
-public virtual System.Void LateInitialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity);
+public override void LateInitialize(EntityManager entityManager, Entity entity)
+	{
+		base.LateInitialize(entityManager, entity);
+		if (!TryGet<LodProperties>(out var component) || component.m_LodMeshes == null)
+		{
+			return;
+		}
+		PrefabSystem orCreateSystemManaged = entityManager.World.GetOrCreateSystemManaged<PrefabSystem>();
+		for (int i = 0; i < component.m_LodMeshes.Length; i++)
+		{
+			Entity entity2 = orCreateSystemManaged.GetEntity(component.m_LodMeshes[i]);
+			if (!entityManager.HasBuffer<MeshMaterial>(entity2))
+			{
+				entityManager.AddComponent<MeshMaterial>(entity2);
+			}
+		}
+	}
 ```
 
 

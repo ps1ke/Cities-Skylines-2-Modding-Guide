@@ -50,7 +50,10 @@ private Unity.Entities.EntityQuery m_NativeQuery;
 - `public NativeSystem()`  
 
 ```csharp
-public NativeSystem();
+[Preserve]
+	public NativeSystem()
+	{
+	}
 ```
 
 
@@ -59,13 +62,42 @@ public NativeSystem();
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_LoadGameSystem = base.World.GetOrCreateSystemManaged<LoadGameSystem>();
+		m_EntityQuery = GetEntityQuery(new EntityQueryDesc
+		{
+			Any = new ComponentType[4]
+			{
+				ComponentType.ReadOnly<Edge>(),
+				ComponentType.ReadOnly<Game.Net.Node>(),
+				ComponentType.ReadOnly<Object>(),
+				ComponentType.ReadOnly<Area>()
+			},
+			None = new ComponentType[1] { ComponentType.ReadOnly<Native>() }
+		});
+		m_NativeQuery = GetEntityQuery(ComponentType.ReadOnly<Native>());
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		switch (m_LoadGameSystem.context.purpose)
+		{
+		case Purpose.NewGame:
+			base.EntityManager.AddComponent<Native>(m_EntityQuery);
+			break;
+		case Purpose.LoadMap:
+			base.EntityManager.RemoveComponent<Native>(m_NativeQuery);
+			break;
+		}
+	}
 ```
 
 

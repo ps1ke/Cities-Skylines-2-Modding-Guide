@@ -53,7 +53,12 @@ public System.Single m_Adjustment;
 - `public Policy(Unity.Entities.Entity policy, Game.Policies.PolicyFlags flags, System.Single adjustment)`  
 
 ```csharp
-public Policy(Unity.Entities.Entity policy, Game.Policies.PolicyFlags flags, System.Single adjustment);
+public Policy(Entity policy, PolicyFlags flags, float adjustment)
+	{
+		m_Policy = policy;
+		m_Flags = flags;
+		m_Adjustment = adjustment;
+	}
 ```
 
 

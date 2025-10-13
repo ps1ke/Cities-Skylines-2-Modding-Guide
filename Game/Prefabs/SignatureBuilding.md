@@ -72,31 +72,82 @@ public SignatureBuilding();
 - `public virtual GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetArchetypeComponents(HashSet<ComponentType> components)
+	{
+		components.Add(ComponentType.ReadWrite<BuildingCondition>());
+		components.Add(ComponentType.ReadWrite<Signature>());
+		components.Add(ComponentType.ReadWrite<Game.Objects.UniqueObject>());
+		if (m_ZoneType != null)
+		{
+			m_ZoneType.GetBuildingArchetypeComponents(components, (BuildingPrefab)base.prefab, 5);
+		}
+	}
 ```
 
 - `public virtual GetDependencies(System.Collections.Generic.List<Game.Prefabs.PrefabBase> prefabs) : System.Void`  
 
 ```csharp
-public virtual System.Void GetDependencies(System.Collections.Generic.List<Game.Prefabs.PrefabBase> prefabs);
+public override void GetDependencies(List<PrefabBase> prefabs)
+	{
+		base.GetDependencies(prefabs);
+		prefabs.Add(m_ZoneType);
+	}
 ```
 
 - `public virtual GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetPrefabComponents(HashSet<ComponentType> components)
+	{
+		components.Add(ComponentType.ReadWrite<SignatureBuildingData>());
+		components.Add(ComponentType.ReadWrite<SpawnableBuildingData>());
+		components.Add(ComponentType.ReadWrite<PlaceableObjectData>());
+		components.Add(ComponentType.ReadWrite<PlaceableInfoviewItem>());
+		if (m_ZoneType != null)
+		{
+			m_ZoneType.GetBuildingPrefabComponents(components, (BuildingPrefab)base.prefab, 5);
+		}
+	}
 ```
 
 - `public virtual Initialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity) : System.Void`  
 
 ```csharp
-public virtual System.Void Initialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity);
+public override void Initialize(EntityManager entityManager, Entity entity)
+	{
+		base.Initialize(entityManager, entity);
+		PlaceableObjectData componentData = entityManager.GetComponentData<PlaceableObjectData>(entity);
+		componentData.m_XPReward = m_XPReward;
+		if ((componentData.m_Flags & (PlacementFlags.Shoreline | PlacementFlags.Floating | PlacementFlags.Hovering)) == 0)
+		{
+			componentData.m_Flags |= PlacementFlags.OnGround;
+		}
+		componentData.m_Flags |= PlacementFlags.Unique;
+		entityManager.SetComponentData(entity, componentData);
+		if (m_ZoneType != null)
+		{
+			m_ZoneType.InitializeBuilding(entityManager, entity, (BuildingPrefab)base.prefab, 5);
+		}
+	}
 ```
 
 - `public virtual LateInitialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity) : System.Void`  
 
 ```csharp
-public virtual System.Void LateInitialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity);
+public override void LateInitialize(EntityManager entityManager, Entity entity)
+	{
+		base.LateInitialize(entityManager, entity);
+		PrefabSystem existingSystemManaged = entityManager.World.GetExistingSystemManaged<PrefabSystem>();
+		SpawnableBuildingData componentData = new SpawnableBuildingData
+		{
+			m_Level = 5
+		};
+		if (m_ZoneType != null)
+		{
+			componentData.m_ZonePrefab = existingSystemManaged.GetEntity(m_ZoneType);
+		}
+		entityManager.SetComponentData(entity, componentData);
+	}
 ```
 
 

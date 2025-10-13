@@ -65,7 +65,11 @@ public Game.Reflection.IValueAccessor parent { get; }
 - `public FieldAccessor(Game.Reflection.IValueAccessor parent, System.Reflection.FieldInfo field)`  
 
 ```csharp
-public FieldAccessor(Game.Reflection.IValueAccessor parent, System.Reflection.FieldInfo field);
+public FieldAccessor([NotNull] IValueAccessor parent, [NotNull] FieldInfo field)
+	{
+		m_Parent = parent ?? throw new ArgumentNullException("parent");
+		m_Field = field ?? throw new ArgumentNullException("field");
+	}
 ```
 
 
@@ -74,31 +78,76 @@ public FieldAccessor(Game.Reflection.IValueAccessor parent, System.Reflection.Fi
 - `public Equals(Game.Reflection.FieldAccessor other) : System.Boolean`  
 
 ```csharp
-public System.Boolean Equals(Game.Reflection.FieldAccessor other);
+public override bool Equals(object obj)
+	{
+		if (obj == null)
+		{
+			return false;
+		}
+		if (this == obj)
+		{
+			return true;
+		}
+		if (obj.GetType() != GetType())
+		{
+			return false;
+		}
+		return Equals((FieldAccessor)obj);
+	}
 ```
 
 - `public virtual Equals(System.Object obj) : System.Boolean`  
 
 ```csharp
-public virtual System.Boolean Equals(System.Object obj);
+public override bool Equals(object obj)
+	{
+		if (obj == null)
+		{
+			return false;
+		}
+		if (this == obj)
+		{
+			return true;
+		}
+		if (obj.GetType() != GetType())
+		{
+			return false;
+		}
+		return Equals((FieldAccessor)obj);
+	}
 ```
 
 - `public virtual GetHashCode() : System.Int32`  
 
 ```csharp
-public virtual System.Int32 GetHashCode();
+public override int GetHashCode()
+	{
+		return (m_Parent.GetHashCode() * 397) ^ m_Field.GetHashCode();
+	}
 ```
 
 - `public GetValue() : System.Object`  
 
 ```csharp
-public System.Object GetValue();
+public object GetValue()
+	{
+		object value = m_Parent.GetValue();
+		return m_Field.GetValue(value);
+	}
 ```
 
 - `public SetValue(System.Object value) : System.Void`  
 
 ```csharp
-public System.Void SetValue(System.Object value);
+public void SetValue(object value)
+	{
+		object value2 = m_Parent.GetValue();
+		m_Field.SetValue(value2, value);
+		if (m_Parent.valueType.IsValueType)
+		{
+			m_Parent.SetValue(value2);
+		}
+	}
 ```
 
 

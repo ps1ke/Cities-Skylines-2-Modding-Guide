@@ -63,7 +63,10 @@ private System.Single pressPointOrDefault { private get; }
 - `public UIButtonInteraction()`  
 
 ```csharp
-public UIButtonInteraction();
+static UIButtonInteraction()
+	{
+		InputSystem.RegisterInteraction<UIButtonInteraction>();
+	}
 ```
 
 
@@ -72,19 +75,47 @@ public UIButtonInteraction();
 - `private static Init() : System.Void`  
 
 ```csharp
-private static System.Void Init();
+private static void Init()
+	{
+	}
 ```
 
 - `public Process(UnityEngine.InputSystem.InputInteractionContext& context) : System.Void`  
 
 ```csharp
-public System.Void Process(UnityEngine.InputSystem.InputInteractionContext& context);
+public void Process(ref InputInteractionContext context)
+	{
+		switch (context.phase)
+		{
+		case InputActionPhase.Waiting:
+			if (context.ControlIsActuated(pressPointOrDefault))
+			{
+				context.Started();
+				context.PerformedAndStayStarted();
+				context.SetTimeout(repeatDelay);
+			}
+			break;
+		case InputActionPhase.Started:
+			if (context.timerHasExpired)
+			{
+				context.PerformedAndStayStarted();
+				context.SetTimeout(repeatRate);
+			}
+			else if (!context.ControlIsActuated(pressPointOrDefault))
+			{
+				context.Canceled();
+			}
+			break;
+		}
+	}
 ```
 
 - `public Reset() : System.Void`  
 
 ```csharp
-public System.Void Reset();
+public void Reset()
+	{
+	}
 ```
 
 

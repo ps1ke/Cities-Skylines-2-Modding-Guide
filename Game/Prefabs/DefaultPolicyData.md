@@ -37,7 +37,10 @@ public Unity.Entities.Entity m_Policy;
 - `public DefaultPolicyData(Unity.Entities.Entity policy)`  
 
 ```csharp
-public DefaultPolicyData(Unity.Entities.Entity policy);
+public DefaultPolicyData(Entity policy)
+	{
+		m_Policy = policy;
+	}
 ```
 
 

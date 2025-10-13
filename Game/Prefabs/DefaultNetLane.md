@@ -72,7 +72,15 @@ public System.Byte m_Index;
 - `public DefaultNetLane(Game.Prefabs.NetCompositionLane source)`  
 
 ```csharp
-public DefaultNetLane(Game.Prefabs.NetCompositionLane source);
+public DefaultNetLane(NetCompositionLane source)
+	{
+		m_Lane = source.m_Lane;
+		m_Position = source.m_Position;
+		m_Flags = source.m_Flags;
+		m_Carriageway = source.m_Carriageway;
+		m_Group = source.m_Group;
+		m_Index = source.m_Index;
+	}
 ```
 
 

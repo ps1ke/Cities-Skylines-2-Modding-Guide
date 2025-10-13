@@ -88,7 +88,10 @@ private System.Int32 lastProduction { private get; private set; }
 - `public WaterSection()`  
 
 ```csharp
-public WaterSection();
+[Preserve]
+	public WaterSection()
+	{
+	}
 ```
 
 
@@ -97,31 +100,67 @@ public WaterSection();
 - `protected virtual OnProcess() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnProcess();
+protected override void OnProcess()
+	{
+		if (base.EntityManager.TryGetComponent<Game.Buildings.WaterPumpingStation>(selectedEntity, out var component))
+		{
+			pollution = component.m_Pollution;
+			capacity = component.m_Capacity;
+			lastProduction = component.m_LastProduction;
+		}
+		if (TryGetComponentWithUpgrades<WaterPumpingStationData>(selectedEntity, selectedPrefab, out var data) && data.m_Capacity > 0 && data.m_Types != AllowedWaterTypes.None)
+		{
+			base.tooltipKeys.Add("Pumping");
+		}
+		if ((double)pollution > 0.01)
+		{
+			base.tooltipKeys.Add("Pollution");
+		}
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		base.visible = Visible();
+	}
 ```
 
 - `public virtual OnWriteProperties(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-public virtual System.Void OnWriteProperties(Colossal.UI.Binding.IJsonWriter writer);
+public override void OnWriteProperties(IJsonWriter writer)
+	{
+		writer.PropertyName("pollution");
+		writer.Write(pollution);
+		writer.PropertyName("capacity");
+		writer.Write(capacity);
+		writer.PropertyName("lastProduction");
+		writer.Write(lastProduction);
+	}
 ```
 
 - `protected virtual Reset() : System.Void`  
 
 ```csharp
-protected virtual System.Void Reset();
+protected override void Reset()
+	{
+		pollution = 0f;
+		capacity = 0;
+		lastProduction = 0;
+	}
 ```
 
 - `private Visible() : System.Boolean`  
 
 ```csharp
-private System.Boolean Visible();
+private bool Visible()
+	{
+		return base.EntityManager.HasComponent<Game.Buildings.WaterPumpingStation>(selectedEntity);
+	}
 ```
 
 

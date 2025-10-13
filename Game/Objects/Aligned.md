@@ -37,7 +37,10 @@ public System.UInt16 m_SubObjectIndex;
 - `public Aligned(System.UInt16 subObjectIndex)`  
 
 ```csharp
-public Aligned(System.UInt16 subObjectIndex);
+public Aligned(ushort subObjectIndex)
+	{
+		m_SubObjectIndex = subObjectIndex;
+	}
 ```
 
 

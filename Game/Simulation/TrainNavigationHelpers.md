@@ -23,13 +23,33 @@ public static class TrainNavigationHelpers
 - `public static GetCurvePositions(Game.Vehicles.TrainCurrentLane& currentLane, Unity.Mathematics.float2& pos1, Unity.Mathematics.float2& pos2) : System.Void`  
 
 ```csharp
-public static System.Void GetCurvePositions(Game.Vehicles.TrainCurrentLane& currentLane, Unity.Mathematics.float2& pos1, Unity.Mathematics.float2& pos2);
+public static void GetCurvePositions(ref ParkedTrain parkedTrain, out float2 pos1, out float2 pos2)
+	{
+		pos1 = parkedTrain.m_CurvePosition.x;
+		pos2 = parkedTrain.m_CurvePosition.y;
+		if (parkedTrain.m_FrontLane == parkedTrain.m_RearLane)
+		{
+			pos1.x = math.min(pos1.x, pos2.x);
+			pos1.y = math.max(pos1.y, pos2.y);
+			pos2 = pos1;
+		}
+	}
 ```
 
 - `public static GetCurvePositions(Game.Vehicles.ParkedTrain& parkedTrain, Unity.Mathematics.float2& pos1, Unity.Mathematics.float2& pos2) : System.Void`  
 
 ```csharp
-public static System.Void GetCurvePositions(Game.Vehicles.ParkedTrain& parkedTrain, Unity.Mathematics.float2& pos1, Unity.Mathematics.float2& pos2);
+public static void GetCurvePositions(ref ParkedTrain parkedTrain, out float2 pos1, out float2 pos2)
+	{
+		pos1 = parkedTrain.m_CurvePosition.x;
+		pos2 = parkedTrain.m_CurvePosition.y;
+		if (parkedTrain.m_FrontLane == parkedTrain.m_RearLane)
+		{
+			pos1.x = math.min(pos1.x, pos2.x);
+			pos1.y = math.max(pos1.y, pos2.y);
+			pos2 = pos1;
+		}
+	}
 ```
 
 

@@ -47,7 +47,10 @@ public System.Single Step { get; set; }
 - `public NumberStepAttribute(System.Single step)`  
 
 ```csharp
-public NumberStepAttribute(System.Single step);
+public NumberStepAttribute(float step)
+	{
+		Step = step;
+	}
 ```
 
 

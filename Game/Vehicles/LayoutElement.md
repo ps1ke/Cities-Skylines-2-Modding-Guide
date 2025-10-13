@@ -41,7 +41,10 @@ public Unity.Entities.Entity m_Vehicle;
 - `public LayoutElement(Unity.Entities.Entity vehicle)`  
 
 ```csharp
-public LayoutElement(Unity.Entities.Entity vehicle);
+public LayoutElement(Entity vehicle)
+	{
+		m_Vehicle = vehicle;
+	}
 ```
 
 
@@ -56,13 +59,19 @@ public System.Void Deserialize<TReader>(TReader reader);
 - `public Equals(Game.Vehicles.LayoutElement other) : System.Boolean`  
 
 ```csharp
-public System.Boolean Equals(Game.Vehicles.LayoutElement other);
+public bool Equals(LayoutElement other)
+	{
+		return m_Vehicle.Equals(other.m_Vehicle);
+	}
 ```
 
 - `public virtual GetHashCode() : System.Int32`  
 
 ```csharp
-public virtual System.Int32 GetHashCode();
+public override int GetHashCode()
+	{
+		return m_Vehicle.GetHashCode();
+	}
 ```
 
 - `public Serialize<TWriter>(TWriter writer) : System.Void`  

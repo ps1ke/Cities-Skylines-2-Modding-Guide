@@ -63,7 +63,14 @@ public Game.Tools.TempFlags m_Flags;
 - `public Temp(Unity.Entities.Entity original, Game.Tools.TempFlags flags)`  
 
 ```csharp
-public Temp(Unity.Entities.Entity original, Game.Tools.TempFlags flags);
+public Temp(Entity original, TempFlags flags)
+	{
+		m_Original = original;
+		m_CurvePosition = 0f;
+		m_Value = 0;
+		m_Cost = 0;
+		m_Flags = flags;
+	}
 ```
 
 

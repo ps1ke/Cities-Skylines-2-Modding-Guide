@@ -64,7 +64,11 @@ public System.Int32 money { get; }
 - `public PlayerMoney(System.Int32 amount)`  
 
 ```csharp
-public PlayerMoney(System.Int32 amount);
+public PlayerMoney(int amount)
+	{
+		m_Money = math.clamp(amount, -2000000000, 2000000000);
+		m_Unlimited = false;
+	}
 ```
 
 
@@ -73,7 +77,10 @@ public PlayerMoney(System.Int32 amount);
 - `public Add(System.Int32 value) : System.Void`  
 
 ```csharp
-public System.Void Add(System.Int32 value);
+public void Add(int value)
+	{
+		m_Money = math.clamp(m_Money + value, -2000000000, 2000000000);
+	}
 ```
 
 - `public Deserialize<TReader>(TReader reader) : System.Void`  
@@ -91,7 +98,10 @@ public System.Void Serialize<TWriter>(TWriter writer);
 - `public Subtract(System.Int32 amount) : System.Void`  
 
 ```csharp
-public System.Void Subtract(System.Int32 amount);
+public void Subtract(int amount)
+	{
+		Add(-amount);
+	}
 ```
 
 

@@ -39,7 +39,10 @@ public Unity.Entities.Entity m_Request;
 - `public ServiceDispatch(Unity.Entities.Entity request)`  
 
 ```csharp
-public ServiceDispatch(Unity.Entities.Entity request);
+public ServiceDispatch(Entity request)
+	{
+		m_Request = request;
+	}
 ```
 
 

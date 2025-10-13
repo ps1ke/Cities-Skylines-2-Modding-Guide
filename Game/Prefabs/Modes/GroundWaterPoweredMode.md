@@ -49,19 +49,65 @@ public GroundWaterPoweredMode();
 - `public virtual ApplyModeData(Unity.Entities.EntityManager entityManager, Game.Prefabs.PrefabSystem prefabSystem) : System.Void`  
 
 ```csharp
-public virtual System.Void ApplyModeData(Unity.Entities.EntityManager entityManager, Game.Prefabs.PrefabSystem prefabSystem);
+public override void ApplyModeData(EntityManager entityManager, PrefabSystem prefabSystem)
+	{
+		for (int i = 0; i < m_ModeDatas.Length; i++)
+		{
+			ModeData modeData = m_ModeDatas[i];
+			GroundWaterPowered component = modeData.m_Prefab.GetComponent<GroundWaterPowered>();
+			if (component == null)
+			{
+				ComponentBase.baseLog.Critical($"Target not found {this}");
+				continue;
+			}
+			Entity entity = prefabSystem.GetEntity(component.prefab);
+			GroundWaterPoweredData componentData = entityManager.GetComponentData<GroundWaterPoweredData>(entity);
+			componentData.m_MaximumGroundWater = (int)((float)componentData.m_MaximumGroundWater * modeData.m_MaximumGroundWaterMultiplier);
+			componentData.m_Production = (int)((float)componentData.m_Production * modeData.m_ProductionMultiplier);
+			entityManager.SetComponentData(entity, componentData);
+		}
+	}
 ```
 
 - `public virtual RecordChanges(Unity.Entities.EntityManager entityManager, Game.Prefabs.PrefabSystem prefabSystem) : System.Void`  
 
 ```csharp
-public virtual System.Void RecordChanges(Unity.Entities.EntityManager entityManager, Game.Prefabs.PrefabSystem prefabSystem);
+public override void RecordChanges(EntityManager entityManager, PrefabSystem prefabSystem)
+	{
+		for (int i = 0; i < m_ModeDatas.Length; i++)
+		{
+			GroundWaterPowered component = m_ModeDatas[i].m_Prefab.GetComponent<GroundWaterPowered>();
+			if (component == null)
+			{
+				ComponentBase.baseLog.Critical($"Target not found {this}");
+				continue;
+			}
+			Entity entity = prefabSystem.GetEntity(component.prefab);
+			entityManager.GetComponentData<GroundWaterPoweredData>(entity);
+		}
+	}
 ```
 
 - `public virtual RestoreDefaultData(Unity.Entities.EntityManager entityManager, Game.Prefabs.PrefabSystem prefabSystem) : System.Void`  
 
 ```csharp
-public virtual System.Void RestoreDefaultData(Unity.Entities.EntityManager entityManager, Game.Prefabs.PrefabSystem prefabSystem);
+public override void RestoreDefaultData(EntityManager entityManager, PrefabSystem prefabSystem)
+	{
+		for (int i = 0; i < m_ModeDatas.Length; i++)
+		{
+			GroundWaterPowered component = m_ModeDatas[i].m_Prefab.GetComponent<GroundWaterPowered>();
+			if (component == null)
+			{
+				ComponentBase.baseLog.Critical($"Target not found {this}");
+				continue;
+			}
+			Entity entity = prefabSystem.GetEntity(component.prefab);
+			GroundWaterPoweredData componentData = entityManager.GetComponentData<GroundWaterPoweredData>(entity);
+			componentData.m_MaximumGroundWater = component.m_MaximumGroundWater;
+			componentData.m_Production = component.m_Production;
+			entityManager.SetComponentData(entity, componentData);
+		}
+	}
 ```
 
 

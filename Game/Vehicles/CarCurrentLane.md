@@ -87,13 +87,33 @@ public System.Single m_LanePosition;
 - `public CarCurrentLane(Game.Vehicles.ParkedCar parkedCar, Game.Vehicles.CarLaneFlags flags)`  
 
 ```csharp
-public CarCurrentLane(Game.Vehicles.ParkedCar parkedCar, Game.Vehicles.CarLaneFlags flags);
+public CarCurrentLane(PathElement pathElement, CarLaneFlags flags)
+	{
+		m_Lane = pathElement.m_Target;
+		m_ChangeLane = Entity.Null;
+		m_CurvePosition = pathElement.m_TargetDelta.xxx;
+		m_LaneFlags = flags;
+		m_ChangeProgress = 0f;
+		m_Duration = 0f;
+		m_Distance = 0f;
+		m_LanePosition = 0f;
+	}
 ```
 
 - `public CarCurrentLane(Game.Pathfind.PathElement pathElement, Game.Vehicles.CarLaneFlags flags)`  
 
 ```csharp
-public CarCurrentLane(Game.Pathfind.PathElement pathElement, Game.Vehicles.CarLaneFlags flags);
+public CarCurrentLane(PathElement pathElement, CarLaneFlags flags)
+	{
+		m_Lane = pathElement.m_Target;
+		m_ChangeLane = Entity.Null;
+		m_CurvePosition = pathElement.m_TargetDelta.xxx;
+		m_LaneFlags = flags;
+		m_ChangeProgress = 0f;
+		m_Duration = 0f;
+		m_Distance = 0f;
+		m_LanePosition = 0f;
+	}
 ```
 
 

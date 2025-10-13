@@ -72,13 +72,30 @@ public AssetCollection();
 - `public AddPrefabsTo(Game.Prefabs.PrefabSystem prefabSystem) : System.Void`  
 
 ```csharp
-public System.Void AddPrefabsTo(Game.Prefabs.PrefabSystem prefabSystem);
+public void AddPrefabsTo(PrefabSystem prefabSystem)
+	{
+		if (!isActive)
+		{
+			return;
+		}
+		foreach (PrefabBase prefab in m_Prefabs)
+		{
+			prefabSystem.AddPrefab(prefab, base.name);
+		}
+		foreach (AssetCollection collection in m_Collections)
+		{
+			collection.AddPrefabsTo(prefabSystem);
+		}
+	}
 ```
 
 - `public SortAssets() : System.Void`  
 
 ```csharp
-public System.Void SortAssets();
+public void SortAssets()
+	{
+		m_Prefabs.Sort((PrefabBase a, PrefabBase b) => string.Compare(a.name, b.name, StringComparison.Ordinal));
+	}
 ```
 
 

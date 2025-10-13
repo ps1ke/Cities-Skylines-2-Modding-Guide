@@ -73,13 +73,29 @@ public System.Single m_Distance;
 - `public TrainCurrentLane(Game.Pathfind.PathElement pathElement)`  
 
 ```csharp
-public TrainCurrentLane(Game.Pathfind.PathElement pathElement);
+public TrainCurrentLane(ParkedTrain parkedTrain)
+	{
+		m_Front = new TrainBogieLane(parkedTrain.m_FrontLane, parkedTrain.m_CurvePosition.x);
+		m_Rear = new TrainBogieLane(parkedTrain.m_RearLane, parkedTrain.m_CurvePosition.y);
+		m_FrontCache = new TrainBogieCache(parkedTrain.m_FrontLane, parkedTrain.m_CurvePosition.x);
+		m_RearCache = new TrainBogieCache(parkedTrain.m_RearLane, parkedTrain.m_CurvePosition.y);
+		m_Duration = 0f;
+		m_Distance = 0f;
+	}
 ```
 
 - `public TrainCurrentLane(Game.Vehicles.ParkedTrain parkedTrain)`  
 
 ```csharp
-public TrainCurrentLane(Game.Vehicles.ParkedTrain parkedTrain);
+public TrainCurrentLane(ParkedTrain parkedTrain)
+	{
+		m_Front = new TrainBogieLane(parkedTrain.m_FrontLane, parkedTrain.m_CurvePosition.x);
+		m_Rear = new TrainBogieLane(parkedTrain.m_RearLane, parkedTrain.m_CurvePosition.y);
+		m_FrontCache = new TrainBogieCache(parkedTrain.m_FrontLane, parkedTrain.m_CurvePosition.x);
+		m_RearCache = new TrainBogieCache(parkedTrain.m_RearLane, parkedTrain.m_CurvePosition.y);
+		m_Duration = 0f;
+		m_Distance = 0f;
+	}
 ```
 
 

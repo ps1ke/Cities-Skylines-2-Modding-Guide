@@ -26,7 +26,11 @@ public static class ContainerExtensions
 - `public static FindChild(Game.UI.Widgets.IWidget widget, Game.UI.Widgets.PathSegment path) : Game.UI.Widgets.IWidget`  
 
 ```csharp
-public static Game.UI.Widgets.IWidget FindChild(Game.UI.Widgets.IWidget widget, Game.UI.Widgets.PathSegment path);
+[CanBeNull]
+	public static IWidget FindChild(this IWidget widget, PathSegment path)
+	{
+		return FindChild(widget.visibleChildren, path);
+	}
 ```
 
 - `public static FindChild<T>(System.Collections.Generic.IEnumerable<T> children, Game.UI.Widgets.PathSegment path) : T`  

@@ -37,7 +37,10 @@ public Unity.Entities.Entity m_BlockPrefab;
 - `public NetZoneData(Unity.Entities.Entity blockPrefab)`  
 
 ```csharp
-public NetZoneData(Unity.Entities.Entity blockPrefab);
+public NetZoneData(Entity blockPrefab)
+	{
+		m_BlockPrefab = blockPrefab;
+	}
 ```
 
 

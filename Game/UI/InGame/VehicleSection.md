@@ -107,7 +107,10 @@ protected Unity.Entities.Entity selectedPrefab { protected get; }
 - `protected VehicleSection()`  
 
 ```csharp
-protected VehicleSection();
+[Preserve]
+	protected VehicleSection()
+	{
+	}
 ```
 
 
@@ -116,19 +119,45 @@ protected VehicleSection();
 - `protected virtual OnProcess() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnProcess();
+protected override void OnProcess()
+	{
+		Entity entity = base.EntityManager.GetComponentData<Owner>(selectedEntity).m_Owner;
+		owner = new VehicleUIUtils.EntityWrapper(entity);
+		fromOutside = base.EntityManager.HasComponent<Game.Objects.OutsideConnection>(entity);
+		VehicleStateLocaleKey vehicleStateLocaleKey = stateKey;
+		if (vehicleStateLocaleKey != VehicleStateLocaleKey.Returning && vehicleStateLocaleKey != VehicleStateLocaleKey.Patrolling && vehicleStateLocaleKey != VehicleStateLocaleKey.Collecting && vehicleStateLocaleKey != VehicleStateLocaleKey.Working)
+		{
+			nextStop = new VehicleUIUtils.EntityWrapper(VehicleUIUtils.GetDestination(base.EntityManager, selectedEntity));
+		}
+	}
 ```
 
 - `public virtual OnWriteProperties(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-public virtual System.Void OnWriteProperties(Colossal.UI.Binding.IJsonWriter writer);
+public override void OnWriteProperties(IJsonWriter writer)
+	{
+		writer.PropertyName("stateKey");
+		writer.Write(Enum.GetName(typeof(VehicleStateLocaleKey), stateKey));
+		writer.PropertyName("owner");
+		owner.Write(writer, m_NameSystem);
+		writer.PropertyName("fromOutside");
+		writer.Write(fromOutside);
+		writer.PropertyName("nextStop");
+		nextStop.Write(writer, m_NameSystem);
+	}
 ```
 
 - `protected virtual Reset() : System.Void`  
 
 ```csharp
-protected virtual System.Void Reset();
+protected override void Reset()
+	{
+		stateKey = VehicleStateLocaleKey.Unknown;
+		owner = new VehicleUIUtils.EntityWrapper(Entity.Null);
+		fromOutside = false;
+		nextStop = new VehicleUIUtils.EntityWrapper(Entity.Null);
+	}
 ```
 
 

@@ -24,7 +24,15 @@ public static class GraphicsSettingsExtensions
 - `public static ToUnityCursorMode(Game.Settings.GraphicsSettings+CursorMode mode) : UnityEngine.CursorLockMode`  
 
 ```csharp
-public static UnityEngine.CursorLockMode ToUnityCursorMode(Game.Settings.GraphicsSettings+CursorMode mode);
+public static CursorLockMode ToUnityCursorMode(this GraphicsSettings.CursorMode mode)
+	{
+		return mode switch
+		{
+			GraphicsSettings.CursorMode.Free => CursorLockMode.None, 
+			GraphicsSettings.CursorMode.ConfinedToWindow => CursorLockMode.Confined, 
+			_ => throw new ArgumentException($"Unsupported cursor mode: {mode}", "mode"), 
+		};
+	}
 ```
 
 

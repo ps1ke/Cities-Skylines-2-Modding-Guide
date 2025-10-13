@@ -50,7 +50,12 @@ public System.Boolean m_PenetrateTerrain;
 - `public Combine(Game.Prefabs.TelecomFacilityData otherData) : System.Void`  
 
 ```csharp
-public System.Void Combine(Game.Prefabs.TelecomFacilityData otherData);
+public void Combine(TelecomFacilityData otherData)
+	{
+		m_Range += otherData.m_Range;
+		m_NetworkCapacity += otherData.m_NetworkCapacity;
+		m_PenetrateTerrain |= otherData.m_PenetrateTerrain;
+	}
 ```
 
 - `public Deserialize<TReader>(TReader reader) : System.Void`  

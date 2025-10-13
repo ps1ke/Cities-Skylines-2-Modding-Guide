@@ -127,7 +127,10 @@ public System.Boolean resetTutorials { set; }
 - `public GameplaySettings()`  
 
 ```csharp
-public GameplaySettings();
+public GameplaySettings()
+	{
+		SetDefaults();
+	}
 ```
 
 
@@ -136,13 +139,32 @@ public GameplaySettings();
 - `public virtual Apply() : System.Void`  
 
 ```csharp
-public virtual System.Void Apply();
+public override void Apply()
+	{
+		base.Apply();
+		if (m_CameraController == null)
+		{
+			TryGetGameplayCameraController(ref m_CameraController);
+		}
+		if (m_CameraController != null)
+		{
+			m_CameraController.edgeScrolling = edgeScrolling;
+			m_CameraController.edgeScrollingSensitivity = edgeScrollingSensitivity;
+		}
+	}
 ```
 
 - `public virtual SetDefaults() : System.Void`  
 
 ```csharp
-public virtual System.Void SetDefaults();
+public override void SetDefaults()
+	{
+		edgeScrolling = true;
+		edgeScrollingSensitivity = 1f;
+		dayNightVisual = true;
+		pausedAfterLoading = false;
+		showTutorials = true;
+	}
 ```
 
 

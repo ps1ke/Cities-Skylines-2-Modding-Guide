@@ -147,19 +147,47 @@ public FireConfigurationPrefab();
 - `public virtual GetDependencies(System.Collections.Generic.List<Game.Prefabs.PrefabBase> prefabs) : System.Void`  
 
 ```csharp
-public virtual System.Void GetDependencies(System.Collections.Generic.List<Game.Prefabs.PrefabBase> prefabs);
+public override void GetDependencies(List<PrefabBase> prefabs)
+	{
+		base.GetDependencies(prefabs);
+		prefabs.Add(m_FireNotificationPrefab);
+		prefabs.Add(m_BurnedDownNotificationPrefab);
+	}
 ```
 
 - `public virtual GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetPrefabComponents(HashSet<ComponentType> components)
+	{
+		base.GetPrefabComponents(components);
+		components.Add(ComponentType.ReadWrite<FireConfigurationData>());
+	}
 ```
 
 - `public virtual LateInitialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity) : System.Void`  
 
 ```csharp
-public virtual System.Void LateInitialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity);
+public override void LateInitialize(EntityManager entityManager, Entity entity)
+	{
+		base.LateInitialize(entityManager, entity);
+		PrefabSystem existingSystemManaged = entityManager.World.GetExistingSystemManaged<PrefabSystem>();
+		FireConfigurationData componentData = default(FireConfigurationData);
+		componentData.m_FireNotificationPrefab = existingSystemManaged.GetEntity(m_FireNotificationPrefab);
+		componentData.m_BurnedDownNotificationPrefab = existingSystemManaged.GetEntity(m_BurnedDownNotificationPrefab);
+		componentData.m_DefaultStructuralIntegrity = m_DefaultStructuralIntegrity;
+		componentData.m_BuildingStructuralIntegrity = m_BuildingStructuralIntegrity;
+		componentData.m_StructuralIntegrityLevel1 = m_StructuralIntegrityLevel1;
+		componentData.m_StructuralIntegrityLevel2 = m_StructuralIntegrityLevel2;
+		componentData.m_StructuralIntegrityLevel3 = m_StructuralIntegrityLevel3;
+		componentData.m_StructuralIntegrityLevel4 = m_StructuralIntegrityLevel4;
+		componentData.m_StructuralIntegrityLevel5 = m_StructuralIntegrityLevel5;
+		componentData.m_ResponseTimeRange = m_ResponseTimeRange;
+		componentData.m_TelecomResponseTimeModifier = m_TelecomResponseTimeModifier;
+		componentData.m_DarknessResponseTimeModifier = m_DarknessResponseTimeModifier;
+		componentData.m_DeathRateOfFireAccident = m_DeathRateOfFireAccident;
+		entityManager.SetComponentData(entity, componentData);
+	}
 ```
 
 

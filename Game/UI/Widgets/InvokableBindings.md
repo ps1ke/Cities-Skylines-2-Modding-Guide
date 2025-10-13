@@ -34,7 +34,20 @@ public InvokableBindings();
 - `public CreateBindings(System.String group, Colossal.UI.Binding.IReader<Game.UI.Widgets.IWidget> pathResolver, Game.UI.Widgets.ValueChangedCallback onValueChanged) : System.Collections.Generic.IEnumerable<Colossal.UI.Binding.IBinding>`  
 
 ```csharp
-public System.Collections.Generic.IEnumerable<Colossal.UI.Binding.IBinding> CreateBindings(System.String group, Colossal.UI.Binding.IReader<Game.UI.Widgets.IWidget> pathResolver, Game.UI.Widgets.ValueChangedCallback onValueChanged);
+public IEnumerable<IBinding> CreateBindings(string group, IReader<IWidget> pathResolver, ValueChangedCallback onValueChanged)
+	{
+		yield return new TriggerBinding<IWidget>(group, "invoke", delegate(IWidget widget)
+		{
+			if (widget is IInvokable invokable)
+			{
+				invokable.Invoke();
+			}
+			else
+			{
+				UnityEngine.Debug.LogError((widget != null) ? "Widget does not implement IInvokable" : "Invalid widget path");
+			}
+		}, pathResolver);
+	}
 ```
 
 

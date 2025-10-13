@@ -127,13 +127,35 @@ public TooltipGroup();
 - `protected virtual Update() : Game.UI.Widgets.WidgetChanges`  
 
 ```csharp
-protected virtual Game.UI.Widgets.WidgetChanges Update();
+protected override WidgetChanges Update()
+	{
+		WidgetChanges widgetChanges = base.Update();
+		if (!m_LastChildren.SequenceEqual(children))
+		{
+			widgetChanges |= WidgetChanges.Children;
+			m_LastChildren.Clear();
+			m_LastChildren.AddRange(children);
+			ContainerExtensions.SetDefaults(m_LastChildren);
+		}
+		return widgetChanges;
+	}
 ```
 
 - `protected virtual WriteProperties(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-protected virtual System.Void WriteProperties(Colossal.UI.Binding.IJsonWriter writer);
+protected override void WriteProperties(IJsonWriter writer)
+	{
+		base.WriteProperties(writer);
+		writer.PropertyName("position");
+		writer.Write(position);
+		writer.PropertyName("horizontalAlignment");
+		writer.Write((int)horizontalAlignment);
+		writer.PropertyName("verticalAlignment");
+		writer.Write((int)verticalAlignment);
+		writer.PropertyName("category");
+		writer.Write((int)category);
+	}
 ```
 
 

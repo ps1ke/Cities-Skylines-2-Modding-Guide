@@ -66,13 +66,27 @@ public System.UInt16 m_RandomSeed;
 - `public SubMesh(Unity.Entities.Entity mesh, Game.Prefabs.SubMeshFlags flags, System.UInt16 randomSeed)`  
 
 ```csharp
-public SubMesh(Unity.Entities.Entity mesh, Game.Prefabs.SubMeshFlags flags, System.UInt16 randomSeed);
+public SubMesh(Entity mesh, float3 position, quaternion rotation, SubMeshFlags flags, ushort randomSeed)
+	{
+		m_SubMesh = mesh;
+		m_Position = position;
+		m_Rotation = rotation;
+		m_Flags = flags;
+		m_RandomSeed = randomSeed;
+	}
 ```
 
 - `public SubMesh(Unity.Entities.Entity mesh, Unity.Mathematics.float3 position, Unity.Mathematics.quaternion rotation, Game.Prefabs.SubMeshFlags flags, System.UInt16 randomSeed)`  
 
 ```csharp
-public SubMesh(Unity.Entities.Entity mesh, Unity.Mathematics.float3 position, Unity.Mathematics.quaternion rotation, Game.Prefabs.SubMeshFlags flags, System.UInt16 randomSeed);
+public SubMesh(Entity mesh, float3 position, quaternion rotation, SubMeshFlags flags, ushort randomSeed)
+	{
+		m_SubMesh = mesh;
+		m_Position = position;
+		m_Rotation = rotation;
+		m_Flags = flags;
+		m_RandomSeed = randomSeed;
+	}
 ```
 
 

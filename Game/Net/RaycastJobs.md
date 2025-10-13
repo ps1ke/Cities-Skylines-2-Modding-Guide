@@ -22,7 +22,10 @@ public static class RaycastJobs
 - `public static GetMinLaneRadius(System.Single fovTan, System.Single cameraDistance) : System.Single`  
 
 ```csharp
-public static System.Single GetMinLaneRadius(System.Single fovTan, System.Single cameraDistance);
+public static float GetMinLaneRadius(float fovTan, float cameraDistance)
+	{
+		return cameraDistance * fovTan * 0.01f;
+	}
 ```
 
 

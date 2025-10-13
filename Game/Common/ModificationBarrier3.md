@@ -24,7 +24,10 @@ public class ModificationBarrier3 : Game.SafeCommandBufferSystem
 - `public ModificationBarrier3()`  
 
 ```csharp
-public ModificationBarrier3();
+[Preserve]
+	public ModificationBarrier3()
+	{
+	}
 ```
 
 
@@ -33,7 +36,11 @@ public ModificationBarrier3();
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		base.OnUpdate();
+	}
 ```
 
 

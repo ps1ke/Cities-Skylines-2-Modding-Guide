@@ -89,7 +89,10 @@ private Game.Prefabs.InstanceCountSystem+TypeHandle __TypeHandle;
 - `public InstanceCountSystem()`  
 
 ```csharp
-public InstanceCountSystem();
+[Preserve]
+	public InstanceCountSystem()
+	{
+	}
 ```
 
 
@@ -98,61 +101,131 @@ public InstanceCountSystem();
 - `private __AssignQueries(Unity.Entities.SystemState& state) : System.Void`  
 
 ```csharp
-private System.Void __AssignQueries(Unity.Entities.SystemState& state);
+private void __AssignQueries(ref SystemState state)
+	{
+		new EntityQueryBuilder(Allocator.Temp).Dispose();
+	}
 ```
 
 - `public AddCountReader(Unity.Jobs.JobHandle jobHandle) : System.Void`  
 
 ```csharp
-public System.Void AddCountReader(Unity.Jobs.JobHandle jobHandle);
+public void AddCountReader(JobHandle jobHandle)
+	{
+		m_ReadDependencies = JobHandle.CombineDependencies(m_ReadDependencies, jobHandle);
+	}
 ```
 
 - `public AddCountWriter(Unity.Jobs.JobHandle jobHandle) : System.Void`  
 
 ```csharp
-public System.Void AddCountWriter(Unity.Jobs.JobHandle jobHandle);
+public void AddCountWriter(JobHandle jobHandle)
+	{
+		m_WriteDependencies = JobHandle.CombineDependencies(m_WriteDependencies, jobHandle);
+	}
 ```
 
 - `public GetInstanceCounts(System.Boolean readOnly, Unity.Jobs.JobHandle& dependencies) : Unity.Collections.NativeParallelHashMap<Unity.Entities.Entity, System.Int32>`  
 
 ```csharp
-public Unity.Collections.NativeParallelHashMap<Unity.Entities.Entity, System.Int32> GetInstanceCounts(System.Boolean readOnly, Unity.Jobs.JobHandle& dependencies);
+public NativeParallelHashMap<Entity, int> GetInstanceCounts(bool readOnly, out JobHandle dependencies)
+	{
+		dependencies = (readOnly ? m_WriteDependencies : JobHandle.CombineDependencies(m_ReadDependencies, m_WriteDependencies));
+		return m_InstanceCounts;
+	}
 ```
 
 - `private GetLoaded() : System.Boolean`  
 
 ```csharp
-private System.Boolean GetLoaded();
+private bool GetLoaded()
+	{
+		if (m_Loaded)
+		{
+			m_Loaded = false;
+			return true;
+		}
+		return false;
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_UpdatedInstancesQuery = GetEntityQuery(new EntityQueryDesc
+		{
+			All = new ComponentType[1] { ComponentType.ReadOnly<PrefabRef>() },
+			Any = new ComponentType[2]
+			{
+				ComponentType.ReadOnly<Created>(),
+				ComponentType.ReadOnly<Deleted>()
+			},
+			None = new ComponentType[1] { ComponentType.ReadOnly<Temp>() }
+		});
+		m_AllInstancesQuery = GetEntityQuery(ComponentType.ReadOnly<PrefabRef>(), ComponentType.Exclude<Temp>());
+		m_InstanceCounts = new NativeParallelHashMap<Entity, int>(100, Allocator.Persistent);
+	}
 ```
 
 - `protected virtual OnCreateForCompiler() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreateForCompiler();
+protected override void OnCreateForCompiler()
+	{
+		base.OnCreateForCompiler();
+		__AssignQueries(ref base.CheckedStateRef);
+		__TypeHandle.__AssignHandles(ref base.CheckedStateRef);
+	}
 ```
 
 - `protected virtual OnDestroy() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnDestroy();
+[Preserve]
+	protected override void OnDestroy()
+	{
+		m_InstanceCounts.Dispose();
+		base.OnDestroy();
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		EntityQuery query = (GetLoaded() ? m_AllInstancesQuery : m_UpdatedInstancesQuery);
+		if (!query.IsEmptyIgnoreFilter)
+		{
+			JobHandle dependencies;
+			JobHandle jobHandle = JobChunkExtensions.Schedule(new UpdateCountsJob
+			{
+				m_PrefabRefType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+				m_DeletedType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Common_Deleted_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+				m_InstanceCounts = GetInstanceCounts(readOnly: false, out dependencies)
+			}, query, JobHandle.CombineDependencies(base.Dependency, dependencies));
+			AddCountWriter(jobHandle);
+			base.Dependency = jobHandle;
+		}
+	}
 ```
 
 - `public PreDeserialize(Colossal.Serialization.Entities.Context context) : System.Void`  
 
 ```csharp
-public System.Void PreDeserialize(Colossal.Serialization.Entities.Context context);
+public void PreDeserialize(Context context)
+	{
+		JobHandle dependencies;
+		NativeParallelHashMap<Entity, int> instanceCounts = GetInstanceCounts(readOnly: false, out dependencies);
+		dependencies.Complete();
+		instanceCounts.Clear();
+		m_Loaded = true;
+	}
 ```
 
 

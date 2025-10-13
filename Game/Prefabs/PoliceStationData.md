@@ -57,7 +57,13 @@ public Game.Prefabs.PolicePurpose m_PurposeMask;
 - `public Combine(Game.Prefabs.PoliceStationData otherData) : System.Void`  
 
 ```csharp
-public System.Void Combine(Game.Prefabs.PoliceStationData otherData);
+public void Combine(PoliceStationData otherData)
+	{
+		m_PatrolCarCapacity += otherData.m_PatrolCarCapacity;
+		m_PoliceHelicopterCapacity += otherData.m_PoliceHelicopterCapacity;
+		m_JailCapacity += otherData.m_JailCapacity;
+		m_PurposeMask |= otherData.m_PurposeMask;
+	}
 ```
 
 - `public Deserialize<TReader>(TReader reader) : System.Void`  

@@ -37,7 +37,10 @@ public Game.Vehicles.TrainFlags m_Flags;
 - `public Train(Game.Vehicles.TrainFlags flags)`  
 
 ```csharp
-public Train(Game.Vehicles.TrainFlags flags);
+public Train(TrainFlags flags)
+	{
+		m_Flags = flags;
+	}
 ```
 
 

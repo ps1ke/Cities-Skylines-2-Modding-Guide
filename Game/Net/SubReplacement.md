@@ -65,7 +65,14 @@ public System.Void Deserialize<TReader>(TReader reader);
 - `public Equals(Game.Net.SubReplacement other) : System.Boolean`  
 
 ```csharp
-public System.Boolean Equals(Game.Net.SubReplacement other);
+public bool Equals(SubReplacement other)
+	{
+		if (m_Prefab == other.m_Prefab && m_Type == other.m_Type && m_Side == other.m_Side)
+		{
+			return m_AgeMask == other.m_AgeMask;
+		}
+		return false;
+	}
 ```
 
 - `public Serialize<TWriter>(TWriter writer) : System.Void`  

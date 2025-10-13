@@ -35,7 +35,10 @@ public Unity.Entities.Entity m_Attached;
 - `public Attachment(Unity.Entities.Entity attached)`  
 
 ```csharp
-public Attachment(Unity.Entities.Entity attached);
+public Attachment(Entity attached)
+	{
+		m_Attached = attached;
+	}
 ```
 
 

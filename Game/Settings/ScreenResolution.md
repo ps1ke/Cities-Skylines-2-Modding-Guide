@@ -76,7 +76,12 @@ public System.Boolean isValid { get; }
 - `public ScreenResolution(UnityEngine.Resolution resolution)`  
 
 ```csharp
-public ScreenResolution(UnityEngine.Resolution resolution);
+public ScreenResolution(Resolution resolution)
+	{
+		width = resolution.width;
+		height = resolution.height;
+		refreshRate = resolution.refreshRateRatio;
+	}
 ```
 
 
@@ -85,55 +90,122 @@ public ScreenResolution(UnityEngine.Resolution resolution);
 - `public CompareTo(Game.Settings.ScreenResolution other) : System.Int32`  
 
 ```csharp
-public System.Int32 CompareTo(Game.Settings.ScreenResolution other);
+public int CompareTo(ScreenResolution other)
+	{
+		int num = width.CompareTo(other.width);
+		if (num != 0)
+		{
+			return num;
+		}
+		int num2 = height.CompareTo(other.height);
+		if (num2 != 0)
+		{
+			return num2;
+		}
+		return refreshRate.value.CompareTo(other.refreshRate.value);
+	}
 ```
 
 - `public Equals(Game.Settings.ScreenResolution other) : System.Boolean`  
 
 ```csharp
-public System.Boolean Equals(Game.Settings.ScreenResolution other);
+public override bool Equals(object obj)
+	{
+		if (obj is ScreenResolution other)
+		{
+			return Equals(other);
+		}
+		return false;
+	}
 ```
 
 - `public virtual Equals(System.Object obj) : System.Boolean`  
 
 ```csharp
-public virtual System.Boolean Equals(System.Object obj);
+public override bool Equals(object obj)
+	{
+		if (obj is ScreenResolution other)
+		{
+			return Equals(other);
+		}
+		return false;
+	}
 ```
 
 - `public virtual GetHashCode() : System.Int32`  
 
 ```csharp
-public virtual System.Int32 GetHashCode();
+public override int GetHashCode()
+	{
+		return (width, height, refreshRate).GetHashCode();
+	}
 ```
 
 - `public Read(Colossal.UI.Binding.IJsonReader reader) : System.Void`  
 
 ```csharp
-public System.Void Read(Colossal.UI.Binding.IJsonReader reader);
+public void Read(IJsonReader reader)
+	{
+		reader.ReadMapBegin();
+		reader.ReadProperty("width");
+		reader.Read(out width);
+		reader.ReadProperty("height");
+		reader.Read(out height);
+		reader.ReadProperty("numerator");
+		reader.Read(out refreshRate.numerator);
+		reader.ReadProperty("denominator");
+		reader.Read(out refreshRate.denominator);
+		reader.ReadMapEnd();
+	}
 ```
 
 - `public Sanitize() : System.Void`  
 
 ```csharp
-public System.Void Sanitize();
+public void Sanitize()
+	{
+		if (refreshRate.numerator == 0 || refreshRate.denominator == 0 || double.IsNaN(refreshRate.value))
+		{
+			refreshRate = Screen.currentResolution.refreshRateRatio;
+		}
+	}
 ```
 
 - `private static SupportValueTypesForAOT() : System.Void`  
 
 ```csharp
-private static System.Void SupportValueTypesForAOT();
+private static void SupportValueTypesForAOT()
+	{
+		JSON.SupportTypeForAOT<ScreenResolution>();
+		JSON.SupportTypeForAOT<RefreshRate>();
+	}
 ```
 
 - `public virtual ToString() : System.String`  
 
 ```csharp
-public virtual System.String ToString();
+public override string ToString()
+	{
+		return $"{width}x{height}x{refreshRate.value}Hz";
+	}
 ```
 
 - `public Write(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-public System.Void Write(Colossal.UI.Binding.IJsonWriter writer);
+public void Write(IJsonWriter writer)
+	{
+		writer.TypeBegin(typeof(ScreenResolution).FullName);
+		writer.PropertyName("width");
+		writer.Write(width);
+		writer.PropertyName("height");
+		writer.Write(height);
+		writer.PropertyName("numerator");
+		writer.Write(refreshRate.numerator);
+		writer.PropertyName("denominator");
+		writer.Write(refreshRate.denominator);
+		writer.TypeEnd();
+	}
 ```
 
 

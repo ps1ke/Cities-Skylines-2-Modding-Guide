@@ -42,7 +42,11 @@ public System.Int32 m_Index;
 - `public MilestoneReachedEvent(Unity.Entities.Entity milestone, System.Int32 index)`  
 
 ```csharp
-public MilestoneReachedEvent(Unity.Entities.Entity milestone, System.Int32 index);
+public MilestoneReachedEvent(Entity milestone, int index)
+	{
+		m_Milestone = milestone;
+		m_Index = index;
+	}
 ```
 
 

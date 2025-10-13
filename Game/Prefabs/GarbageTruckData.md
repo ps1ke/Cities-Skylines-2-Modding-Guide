@@ -44,7 +44,11 @@ public System.Int32 m_UnloadRate;
 - `public GarbageTruckData(System.Int32 garbageCapacity, System.Int32 unloadRate)`  
 
 ```csharp
-public GarbageTruckData(System.Int32 garbageCapacity, System.Int32 unloadRate);
+public GarbageTruckData(int garbageCapacity, int unloadRate)
+	{
+		m_GarbageCapacity = garbageCapacity;
+		m_UnloadRate = unloadRate;
+	}
 ```
 
 

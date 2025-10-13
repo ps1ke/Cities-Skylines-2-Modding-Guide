@@ -89,7 +89,18 @@ public ShadowsMidtonesHighlightsProperties();
 - `protected virtual OnBindVolumeProperties(UnityEngine.Rendering.Volume volume) : System.Void`  
 
 ```csharp
-protected virtual System.Void OnBindVolumeProperties(UnityEngine.Rendering.Volume volume);
+protected override void OnBindVolumeProperties(Volume volume)
+	{
+		ShadowsMidtonesHighlights component = null;
+		VolumeHelper.GetOrCreateVolumeComponent(volume, ref component);
+		m_Shadows = component.shadows;
+		m_Midtones = component.midtones;
+		m_Highlights = component.highlights;
+		m_ShadowsStart = component.shadowsStart;
+		m_ShadowsEnd = component.shadowsEnd;
+		m_HighlightsStart = component.highlightsStart;
+		m_HighlightsEnd = component.highlightsEnd;
+	}
 ```
 
 

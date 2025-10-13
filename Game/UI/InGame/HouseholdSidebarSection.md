@@ -228,7 +228,10 @@ private System.Boolean residenceIsHomelessShelter { private get; private set; }
 - `public HouseholdSidebarSection()`  
 
 ```csharp
-public HouseholdSidebarSection();
+[Preserve]
+	public HouseholdSidebarSection()
+	{
+	}
 ```
 
 
@@ -237,73 +240,248 @@ public HouseholdSidebarSection();
 - `private __AssignQueries(Unity.Entities.SystemState& state) : System.Void`  
 
 ```csharp
-private System.Void __AssignQueries(Unity.Entities.SystemState& state);
+private void __AssignQueries(ref SystemState state)
+	{
+		new EntityQueryBuilder(Allocator.Temp).Dispose();
+	}
 ```
 
 - `private BindHousehold(Colossal.UI.Binding.IJsonWriter writer, System.Int32 index) : System.Void`  
 
 ```csharp
-private System.Void BindHousehold(Colossal.UI.Binding.IJsonWriter writer, System.Int32 index);
+private void BindHousehold(IJsonWriter writer, int index)
+	{
+		Entity entity = m_HouseholdsResult[index].m_Entity;
+		WriteItem(writer, entity, "Media/Game/Icons/Household.svg", base.EntityManager.GetBuffer<HouseholdCitizen>(entity).Length);
+	}
 ```
 
 - `private BindPet(Colossal.UI.Binding.IJsonWriter writer, System.Int32 index) : System.Void`  
 
 ```csharp
-private System.Void BindPet(Colossal.UI.Binding.IJsonWriter writer, System.Int32 index);
+private void BindPet(IJsonWriter writer, int index)
+	{
+		Entity entity = m_PetsResult[index];
+		WriteItem(writer, entity, "Media/Game/Icons/Pet.svg");
+	}
 ```
 
 - `private BindResident(Colossal.UI.Binding.IJsonWriter writer, System.Int32 index) : System.Void`  
 
 ```csharp
-private System.Void BindResident(Colossal.UI.Binding.IJsonWriter writer, System.Int32 index);
+private void BindResident(IJsonWriter writer, int index)
+	{
+		Entity entity = m_ResidentsResult[index].m_Entity;
+		WriteItem(writer, entity, null);
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_ResidentsResult = new NativeList<ResidentResult>(Allocator.Persistent);
+		m_PetsResult = new NativeList<Entity>(Allocator.Persistent);
+		m_HouseholdsResult = new NativeList<HouseholdResult>(Allocator.Persistent);
+		m_Results = new NativeArray<int>(3, Allocator.Persistent);
+		m_ResidenceResult = new NativeArray<Entity>(1, Allocator.Persistent);
+		m_HouseholdResult = new NativeArray<HouseholdResult>(1, Allocator.Persistent);
+		AddBinding(m_HouseholdMap = new RawMapBinding<int>(group, "householdMap", BindHousehold));
+		AddBinding(m_ResidentMap = new RawMapBinding<int>(group, "residentMap", BindResident));
+		AddBinding(m_PetMap = new RawMapBinding<int>(group, "petMap", BindPet));
+	}
 ```
 
 - `protected virtual OnCreateForCompiler() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreateForCompiler();
+protected override void OnCreateForCompiler()
+	{
+		base.OnCreateForCompiler();
+		__AssignQueries(ref base.CheckedStateRef);
+		__TypeHandle.__AssignHandles(ref base.CheckedStateRef);
+	}
 ```
 
 - `protected virtual OnDestroy() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnDestroy();
+[Preserve]
+	protected override void OnDestroy()
+	{
+		m_ResidentsResult.Dispose();
+		m_HouseholdResult.Dispose();
+		m_PetsResult.Dispose();
+		m_HouseholdsResult.Dispose();
+		m_Results.Dispose();
+		m_ResidenceResult.Dispose();
+		base.OnDestroy();
+	}
 ```
 
 - `protected virtual OnProcess() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnProcess();
+protected override void OnProcess()
+	{
+		residenceEntity = m_ResidenceResult[0];
+		household = m_HouseholdResult[0];
+		variant = (HouseholdSidebarVariant)m_Results[2];
+		if (!base.EntityManager.Exists(residenceEntity))
+		{
+			residenceEntity = Entity.Null;
+		}
+		if ((base.EntityManager.HasComponent<Game.Buildings.Park>(residenceEntity) || base.EntityManager.HasComponent<Abandoned>(residenceEntity)) && base.EntityManager.TryGetBuffer(residenceEntity, isReadOnly: true, out DynamicBuffer<Renter> buffer) && buffer.Length > 0)
+		{
+			m_InfoUISystem.tooltipTags.Add(TooltipTags.HomelessShelter);
+			base.tooltipTags.Add(TooltipTags.HomelessShelter.ToString());
+			base.tooltipKeys.Add(TooltipTags.HomelessShelter.ToString());
+			residenceIsHomelessShelter = true;
+		}
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		IJobExtensions.Schedule(new CheckVisibilityJob
+		{
+			m_SelectedEntity = selectedEntity,
+			m_SelectedPrefab = selectedPrefab,
+			m_ParkFromLookup = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Buildings_Park_RO_ComponentLookup, ref base.CheckedStateRef),
+			m_BuildingLookup = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Buildings_Building_RO_ComponentLookup, ref base.CheckedStateRef),
+			m_AbandonedLookup = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Buildings_Abandoned_RO_ComponentLookup, ref base.CheckedStateRef),
+			m_HouseholdLookup = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Citizens_Household_RO_ComponentLookup, ref base.CheckedStateRef),
+			m_CitizenLookup = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Citizens_Citizen_RO_ComponentLookup, ref base.CheckedStateRef),
+			m_HouseholdPetLookup = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Citizens_HouseholdPet_RO_ComponentLookup, ref base.CheckedStateRef),
+			m_HealthProblemLookup = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Citizens_HealthProblem_RO_ComponentLookup, ref base.CheckedStateRef),
+			m_TravelPurposeLookup = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Citizens_TravelPurpose_RO_ComponentLookup, ref base.CheckedStateRef),
+			m_PropertyDataLookup = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_BuildingPropertyData_RO_ComponentLookup, ref base.CheckedStateRef),
+			m_HouseholdCitizenLookup = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Citizens_HouseholdCitizen_RO_BufferLookup, ref base.CheckedStateRef),
+			m_RenterLookup = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Buildings_Renter_RO_BufferLookup, ref base.CheckedStateRef),
+			m_Results = m_Results
+		}, base.Dependency).Complete();
+		base.visible = m_Results[0] == 1 && m_Results[1] > 0;
+		if (base.visible)
+		{
+			IJobExtensions.Schedule(new CollectDataJob
+			{
+				m_SelectedEntity = selectedEntity,
+				m_BuildingLookup = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Buildings_Building_RO_ComponentLookup, ref base.CheckedStateRef),
+				m_HomelessHouseholdLookup = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Citizens_HomelessHousehold_RO_ComponentLookup, ref base.CheckedStateRef),
+				m_HouseholdLookup = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Citizens_Household_RO_ComponentLookup, ref base.CheckedStateRef),
+				m_CitizenLookup = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Citizens_Citizen_RO_ComponentLookup, ref base.CheckedStateRef),
+				m_HouseholdMemberLookup = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Citizens_HouseholdMember_RO_ComponentLookup, ref base.CheckedStateRef),
+				m_HouseholdPetLookup = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Citizens_HouseholdPet_RO_ComponentLookup, ref base.CheckedStateRef),
+				m_HealthProblemLookup = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Citizens_HealthProblem_RO_ComponentLookup, ref base.CheckedStateRef),
+				m_TravelPurposeLookup = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Citizens_TravelPurpose_RO_ComponentLookup, ref base.CheckedStateRef),
+				m_PropertyRenterLookup = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Buildings_PropertyRenter_RO_ComponentLookup, ref base.CheckedStateRef),
+				m_HouseholdCitizenLookup = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Citizens_HouseholdCitizen_RO_BufferLookup, ref base.CheckedStateRef),
+				m_ResourcesLookup = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Economy_Resources_RO_BufferLookup, ref base.CheckedStateRef),
+				m_HouseholdAnimalsLookup = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Citizens_HouseholdAnimal_RO_BufferLookup, ref base.CheckedStateRef),
+				m_RenterLookup = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Buildings_Renter_RO_BufferLookup, ref base.CheckedStateRef),
+				m_ResidenceResult = m_ResidenceResult,
+				m_HouseholdResult = m_HouseholdResult,
+				m_HouseholdsResult = m_HouseholdsResult,
+				m_ResidentsResult = m_ResidentsResult,
+				m_PetsResult = m_PetsResult
+			}, base.Dependency).Complete();
+			m_HouseholdsResult.Sort();
+			m_ResidentsResult.Sort();
+			m_PetsResult.Sort();
+			for (int i = 0; i < m_HouseholdsResult.Length; i++)
+			{
+				m_HouseholdMap.Update(i);
+			}
+			for (int j = 0; j < m_ResidentsResult.Length; j++)
+			{
+				m_ResidentMap.Update(j);
+			}
+			for (int k = 0; k < m_PetsResult.Length; k++)
+			{
+				m_PetMap.Update(k);
+			}
+		}
+	}
 ```
 
 - `public virtual OnWriteProperties(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-public virtual System.Void OnWriteProperties(Colossal.UI.Binding.IJsonWriter writer);
+public override void OnWriteProperties(IJsonWriter writer)
+	{
+		writer.PropertyName("variant");
+		writer.Write(variant.ToString());
+		writer.PropertyName("residence");
+		WriteItem(writer, residenceEntity, residenceIsHomelessShelter ? "Media/Glyphs/HomelessShelter.svg" : "Media/Glyphs/Residence.svg");
+		writer.PropertyName("household");
+		WriteItem(writer, household.m_Entity, "Media/Game/Icons/Household.svg", household.m_Members);
+		writer.PropertyName("households");
+		writer.Write(m_HouseholdsResult.Length);
+		writer.PropertyName("residents");
+		writer.Write(m_ResidentsResult.Length);
+		writer.PropertyName("pets");
+		writer.Write(m_PetsResult.Length);
+	}
 ```
 
 - `protected virtual Reset() : System.Void`  
 
 ```csharp
-protected virtual System.Void Reset();
+protected override void Reset()
+	{
+		m_ResidentsResult.Clear();
+		m_PetsResult.Clear();
+		m_HouseholdsResult.Clear();
+		m_ResidenceResult[0] = Entity.Null;
+		m_HouseholdResult[0] = default(HouseholdResult);
+		m_Results[0] = 0;
+		m_Results[1] = 0;
+		m_Results[2] = 0;
+		residenceIsHomelessShelter = false;
+	}
 ```
 
 - `private WriteItem(Colossal.UI.Binding.IJsonWriter writer, Unity.Entities.Entity entity, System.String iconPath, System.Int32 memberCount = 0) : System.Void`  
 
 ```csharp
-private System.Void WriteItem(Colossal.UI.Binding.IJsonWriter writer, Unity.Entities.Entity entity, System.String iconPath, System.Int32 memberCount);
+private void WriteItem(IJsonWriter writer, Entity entity, string iconPath, int memberCount = 0)
+	{
+		writer.TypeBegin("Game.UI.InGame.HouseholdSidebarSection+HouseholdSidebarItem");
+		writer.PropertyName("entity");
+		writer.Write(entity);
+		writer.PropertyName("name");
+		m_NameSystem.BindName(writer, entity);
+		writer.PropertyName("familyName");
+		if (entity == Entity.Null || !base.EntityManager.HasComponent<Household>(entity))
+		{
+			writer.WriteNull();
+		}
+		else
+		{
+			m_NameSystem.BindFamilyName(writer, entity);
+		}
+		writer.PropertyName("icon");
+		writer.Write(iconPath);
+		writer.PropertyName("selected");
+		writer.Write(entity == selectedEntity);
+		writer.PropertyName("count");
+		if (memberCount == 0)
+		{
+			writer.WriteNull();
+		}
+		else
+		{
+			writer.Write(memberCount);
+		}
+		writer.TypeEnd();
+	}
 ```
 
 

@@ -107,19 +107,41 @@ public IconButton();
 - `public Invoke() : System.Void`  
 
 ```csharp
-public System.Void Invoke();
+public void Invoke()
+	{
+		action();
+	}
 ```
 
 - `protected virtual Update() : Game.UI.Widgets.WidgetChanges`  
 
 ```csharp
-protected virtual Game.UI.Widgets.WidgetChanges Update();
+protected override WidgetChanges Update()
+	{
+		WidgetChanges widgetChanges = base.Update();
+		bool flag = selected != null && selected();
+		if (flag != m_Selected)
+		{
+			widgetChanges |= WidgetChanges.Properties;
+			m_Selected = flag;
+		}
+		return widgetChanges;
+	}
 ```
 
 - `protected virtual WriteProperties(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-protected virtual System.Void WriteProperties(Colossal.UI.Binding.IJsonWriter writer);
+protected override void WriteProperties(IJsonWriter writer)
+	{
+		base.WriteProperties(writer);
+		writer.PropertyName("icon");
+		writer.Write(icon);
+		writer.PropertyName("selected");
+		writer.Write(m_Selected);
+		writer.PropertyName("tooltip");
+		writer.Write(tooltip);
+	}
 ```
 
 

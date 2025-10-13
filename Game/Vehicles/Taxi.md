@@ -93,7 +93,18 @@ public System.UInt16 m_CurrentFee;
 - `public Taxi(Game.Vehicles.TaxiFlags flags)`  
 
 ```csharp
-public Taxi(Game.Vehicles.TaxiFlags flags);
+public Taxi(TaxiFlags flags)
+	{
+		m_TargetRequest = Entity.Null;
+		m_State = flags;
+		m_PathElementTime = 0f;
+		m_StartDistance = 0f;
+		m_MaxBoardingDistance = 0f;
+		m_MinWaitingDistance = 0f;
+		m_ExtraPathElementCount = 0;
+		m_NextStartingFee = 0;
+		m_CurrentFee = 0;
+	}
 ```
 
 

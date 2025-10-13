@@ -44,7 +44,24 @@ public CameraZoomProcessor();
 - `public virtual Process(System.Single value, UnityEngine.InputSystem.InputControl control) : System.Single`  
 
 ```csharp
-public virtual System.Single Process(System.Single value, UnityEngine.InputSystem.InputControl control);
+public override float Process(float value, InputControl control)
+	{
+		if (!base.needProcess)
+		{
+			return value;
+		}
+		Game.Settings.InputSettings input = SharedSettings.instance.input;
+		value *= m_Scale;
+		float num = value;
+		value = num * m_DeviceType switch
+		{
+			ProcessorDeviceType.Mouse => input.mouseZoomSensitivity, 
+			ProcessorDeviceType.Keyboard => input.keyboardZoomSensitivity, 
+			ProcessorDeviceType.Gamepad => input.gamepadZoomSensitivity, 
+			_ => 1f, 
+		};
+		return value;
+	}
 ```
 
 

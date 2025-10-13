@@ -37,7 +37,10 @@ public System.Int32 m_MailCapacity;
 - `public PostVanData(System.Int32 mailCapacity)`  
 
 ```csharp
-public PostVanData(System.Int32 mailCapacity);
+public PostVanData(int mailCapacity)
+	{
+		m_MailCapacity = mailCapacity;
+	}
 ```
 
 

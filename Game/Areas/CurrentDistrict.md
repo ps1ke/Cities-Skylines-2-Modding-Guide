@@ -37,7 +37,10 @@ public Unity.Entities.Entity m_District;
 - `public CurrentDistrict(Unity.Entities.Entity district)`  
 
 ```csharp
-public CurrentDistrict(Unity.Entities.Entity district);
+public CurrentDistrict(Entity district)
+	{
+		m_District = district;
+	}
 ```
 
 

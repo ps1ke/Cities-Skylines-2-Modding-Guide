@@ -61,7 +61,10 @@ private Game.Audio.SFXCullingSystem+TypeHandle __TypeHandle;
 - `public SFXCullingSystem()`  
 
 ```csharp
-public SFXCullingSystem();
+[Preserve]
+	public SFXCullingSystem()
+	{
+	}
 ```
 
 
@@ -70,25 +73,85 @@ public SFXCullingSystem();
 - `private __AssignQueries(Unity.Entities.SystemState& state) : System.Void`  
 
 ```csharp
-private System.Void __AssignQueries(Unity.Entities.SystemState& state);
+private void __AssignQueries(ref SystemState state)
+	{
+		new EntityQueryBuilder(Allocator.Temp).Dispose();
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_AudioManager = base.World.GetOrCreateSystemManaged<AudioManager>();
+		m_EffectControlSystem = base.World.GetOrCreateSystemManaged<EffectControlSystem>();
+		m_CullingAudioSettingsQuery = GetEntityQuery(ComponentType.ReadOnly<CullingAudioSettingsData>());
+	}
 ```
 
 - `protected virtual OnCreateForCompiler() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreateForCompiler();
+protected override void OnCreateForCompiler()
+	{
+		base.OnCreateForCompiler();
+		__AssignQueries(ref base.CheckedStateRef);
+		__TypeHandle.__AssignHandles(ref base.CheckedStateRef);
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		Camera main = Camera.main;
+		if (!(main == null))
+		{
+			int num = 4;
+			NativeParallelQueue<CullingGroupItem> nativeParallelQueue = new NativeParallelQueue<CullingGroupItem>(num, Allocator.TempJob);
+			JobHandle dependencies;
+			NativeList<EnabledEffectData> enabledData = m_EffectControlSystem.GetEnabledData(readOnly: false, out dependencies);
+			JobHandle deps;
+			SourceUpdateData sourceUpdateData = m_AudioManager.GetSourceUpdateData(out deps);
+			SFXCullingJob jobData = new SFXCullingJob
+			{
+				m_Prefabs = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentLookup, ref base.CheckedStateRef),
+				m_CullingGroupData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_CullingGroupData_RO_ComponentLookup, ref base.CheckedStateRef),
+				m_AudioSpotData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_AudioSpotData_RO_ComponentLookup, ref base.CheckedStateRef),
+				m_AudioEffectDatas = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_AudioEffectData_RO_ComponentLookup, ref base.CheckedStateRef),
+				m_AudioSourceDatas = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Prefabs_AudioSourceData_RO_BufferLookup, ref base.CheckedStateRef),
+				m_PrefabEffects = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Prefabs_Effect_RO_BufferLookup, ref base.CheckedStateRef),
+				m_CameraPosition = main.transform.position,
+				m_RandomSeed = RandomSeed.Next(),
+				m_DeltaTime = UnityEngine.Time.deltaTime,
+				m_EnabledData = enabledData,
+				m_CullingGroupItems = nativeParallelQueue.AsWriter(),
+				m_SourceUpdateData = sourceUpdateData
+			};
+			base.Dependency = jobData.Schedule(jobData.m_EnabledData, 16, JobHandle.CombineDependencies(dependencies, deps, base.Dependency));
+			JobHandle jobHandle = base.Dependency;
+			if (!m_CullingAudioSettingsQuery.IsEmptyIgnoreFilter)
+			{
+				CullingAudioSettingsData singleton = m_CullingAudioSettingsQuery.GetSingleton<CullingAudioSettingsData>();
+				jobHandle = IJobParallelForExtensions.Schedule(new SFXGroupCullingJob
+				{
+					m_MaxAllowedAmount = singleton.m_PublicTransCullMaxAmount,
+					m_MaxDistance = singleton.m_PublicTransCullMaxDistance,
+					m_CullingGroupItems = nativeParallelQueue.AsReader(),
+					m_EnabledData = enabledData,
+					m_SourceUpdateData = sourceUpdateData
+				}, num, 1, jobHandle);
+			}
+			nativeParallelQueue.Dispose(jobHandle);
+			m_EffectControlSystem.AddEnabledDataWriter(jobHandle);
+			m_AudioManager.AddSourceUpdateWriter(jobHandle);
+		}
+	}
 ```
 
 

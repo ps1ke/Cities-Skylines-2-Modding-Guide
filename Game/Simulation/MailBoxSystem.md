@@ -83,7 +83,10 @@ private static const System.UInt32 UPDATE_INTERVAL;
 - `public MailBoxSystem()`  
 
 ```csharp
-public MailBoxSystem();
+[Preserve]
+	public MailBoxSystem()
+	{
+	}
 ```
 
 
@@ -92,31 +95,67 @@ public MailBoxSystem();
 - `private __AssignQueries(Unity.Entities.SystemState& state) : System.Void`  
 
 ```csharp
-private System.Void __AssignQueries(Unity.Entities.SystemState& state);
+private void __AssignQueries(ref SystemState state)
+	{
+		new EntityQueryBuilder(Allocator.Temp).Dispose();
+	}
 ```
 
 - `public virtual GetUpdateInterval(Game.SystemUpdatePhase phase) : System.Int32`  
 
 ```csharp
-public virtual System.Int32 GetUpdateInterval(Game.SystemUpdatePhase phase);
+public override int GetUpdateInterval(SystemUpdatePhase phase)
+	{
+		return 512;
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_SimulationSystem = base.World.GetOrCreateSystemManaged<SimulationSystem>();
+		m_EndFrameBarrier = base.World.GetOrCreateSystemManaged<EndFrameBarrier>();
+		m_MailBoxQuery = GetEntityQuery(ComponentType.ReadOnly<Game.Routes.MailBox>(), ComponentType.ReadOnly<Game.Routes.TransportStop>(), ComponentType.Exclude<Game.Buildings.PostFacility>(), ComponentType.Exclude<Temp>(), ComponentType.Exclude<Deleted>(), ComponentType.Exclude<Destroyed>());
+		m_PostConfigurationQuery = GetEntityQuery(ComponentType.ReadOnly<PostConfigurationData>());
+		m_PostVanRequestArchetype = base.EntityManager.CreateArchetype(ComponentType.ReadWrite<ServiceRequest>(), ComponentType.ReadWrite<PostVanRequest>(), ComponentType.ReadWrite<RequestGroup>());
+		RequireForUpdate(m_MailBoxQuery);
+		Assert.IsTrue(condition: true);
+	}
 ```
 
 - `protected virtual OnCreateForCompiler() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreateForCompiler();
+protected override void OnCreateForCompiler()
+	{
+		base.OnCreateForCompiler();
+		__AssignQueries(ref base.CheckedStateRef);
+		__TypeHandle.__AssignHandles(ref base.CheckedStateRef);
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		JobHandle jobHandle = JobChunkExtensions.ScheduleParallel(new MailBoxTickJob
+		{
+			m_EntityType = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef),
+			m_MailBoxType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Routes_MailBox_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+			m_PostVanRequestData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Simulation_PostVanRequest_RO_ComponentLookup, ref base.CheckedStateRef),
+			m_PostVanRequestArchetype = m_PostVanRequestArchetype,
+			m_PostConfigurationData = m_PostConfigurationQuery.GetSingleton<PostConfigurationData>(),
+			m_CommandBuffer = m_EndFrameBarrier.CreateCommandBuffer().AsParallelWriter()
+		}, m_MailBoxQuery, base.Dependency);
+		m_EndFrameBarrier.AddJobHandleForProducer(jobHandle);
+		base.Dependency = jobHandle;
+	}
 ```
 
 

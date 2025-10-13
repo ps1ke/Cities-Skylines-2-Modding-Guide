@@ -49,7 +49,10 @@ public System.Void Deserialize<TReader>(TReader reader);
 - `public GetStride(Colossal.Serialization.Entities.Context context) : System.Int32`  
 
 ```csharp
-public System.Int32 GetStride(Colossal.Serialization.Entities.Context context);
+public int GetStride(Context context)
+	{
+		return UnsafeUtility.SizeOf<float3>() + UnsafeUtility.SizeOf<quaternion>();
+	}
 ```
 
 - `public Serialize<TWriter>(TWriter writer) : System.Void`  

@@ -45,13 +45,21 @@ public System.Int32 m_Timer;
 - `public TripSource(Unity.Entities.Entity source)`  
 
 ```csharp
-public TripSource(Unity.Entities.Entity source);
+public TripSource(Entity source, uint delay)
+	{
+		m_Source = source;
+		m_Timer = (int)delay;
+	}
 ```
 
 - `public TripSource(Unity.Entities.Entity source, System.UInt32 delay)`  
 
 ```csharp
-public TripSource(Unity.Entities.Entity source, System.UInt32 delay);
+public TripSource(Entity source, uint delay)
+	{
+		m_Source = source;
+		m_Timer = (int)delay;
+	}
 ```
 
 

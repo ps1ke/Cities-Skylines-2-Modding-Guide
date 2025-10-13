@@ -44,7 +44,11 @@ public System.Int32 m_EffectIndex;
 - `public SourceInfo(Unity.Entities.Entity entity, System.Int32 effectIndex)`  
 
 ```csharp
-public SourceInfo(Unity.Entities.Entity entity, System.Int32 effectIndex);
+public SourceInfo(Entity entity, int effectIndex)
+	{
+		m_Entity = entity;
+		m_EffectIndex = effectIndex;
+	}
 ```
 
 
@@ -53,13 +57,23 @@ public SourceInfo(Unity.Entities.Entity entity, System.Int32 effectIndex);
 - `public Equals(Game.Effects.SourceInfo other) : System.Boolean`  
 
 ```csharp
-public System.Boolean Equals(Game.Effects.SourceInfo other);
+public bool Equals(SourceInfo other)
+	{
+		if (m_Entity == other.m_Entity)
+		{
+			return m_EffectIndex == other.m_EffectIndex;
+		}
+		return false;
+	}
 ```
 
 - `public virtual GetHashCode() : System.Int32`  
 
 ```csharp
-public virtual System.Int32 GetHashCode();
+public override int GetHashCode()
+	{
+		return m_Entity.GetHashCode() ^ m_EffectIndex;
+	}
 ```
 
 

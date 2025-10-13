@@ -51,7 +51,12 @@ public Game.Prefabs.VehicleCarriageDirection m_Direction;
 - `public VehicleCarriageElement(Unity.Entities.Entity carriage, System.Int32 minCount, System.Int32 maxCount, Game.Prefabs.VehicleCarriageDirection direction)`  
 
 ```csharp
-public VehicleCarriageElement(Unity.Entities.Entity carriage, System.Int32 minCount, System.Int32 maxCount, Game.Prefabs.VehicleCarriageDirection direction);
+public VehicleCarriageElement(Entity carriage, int minCount, int maxCount, VehicleCarriageDirection direction)
+	{
+		m_Prefab = carriage;
+		m_Count = new int2(minCount, maxCount);
+		m_Direction = direction;
+	}
 ```
 
 

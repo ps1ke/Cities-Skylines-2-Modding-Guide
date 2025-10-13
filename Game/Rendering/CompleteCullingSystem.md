@@ -47,7 +47,10 @@ private Game.Rendering.CompleteCullingSystem+TypeHandle __TypeHandle;
 - `public CompleteCullingSystem()`  
 
 ```csharp
-public CompleteCullingSystem();
+[Preserve]
+	public CompleteCullingSystem()
+	{
+	}
 ```
 
 
@@ -56,25 +59,49 @@ public CompleteCullingSystem();
 - `private __AssignQueries(Unity.Entities.SystemState& state) : System.Void`  
 
 ```csharp
-private System.Void __AssignQueries(Unity.Entities.SystemState& state);
+private void __AssignQueries(ref SystemState state)
+	{
+		new EntityQueryBuilder(Allocator.Temp).Dispose();
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_CullingSystem = base.World.GetOrCreateSystemManaged<PreCullingSystem>();
+	}
 ```
 
 - `protected virtual OnCreateForCompiler() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreateForCompiler();
+protected override void OnCreateForCompiler()
+	{
+		base.OnCreateForCompiler();
+		__AssignQueries(ref base.CheckedStateRef);
+		__TypeHandle.__AssignHandles(ref base.CheckedStateRef);
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		JobHandle dependencies;
+		JobHandle jobHandle = IJobExtensions.Schedule(new CullingCleanupJob
+		{
+			m_CullingInfo = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Rendering_CullingInfo_RW_ComponentLookup, ref base.CheckedStateRef),
+			m_CullingData = m_CullingSystem.GetCullingData(readOnly: false, out dependencies)
+		}, JobHandle.CombineDependencies(base.Dependency, dependencies));
+		m_CullingSystem.AddCullingDataWriter(jobHandle);
+		base.Dependency = jobHandle;
+	}
 ```
 
 

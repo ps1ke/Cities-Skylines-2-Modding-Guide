@@ -75,7 +75,10 @@ public static const System.String kDisableAchievements;
 - `public static GetId(System.String value) : System.String`  
 
 ```csharp
-public static System.String GetId(System.String value);
+public static string GetId(string value)
+	{
+		return "Common.DIALOG_MESSAGE[" + value + "]";
+	}
 ```
 
 

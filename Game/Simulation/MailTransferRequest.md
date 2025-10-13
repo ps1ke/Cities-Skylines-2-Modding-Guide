@@ -58,7 +58,13 @@ public System.Int32 m_Amount;
 - `public MailTransferRequest(Unity.Entities.Entity facility, Game.Simulation.MailTransferRequestFlags flags, System.Single priority, System.Int32 amount)`  
 
 ```csharp
-public MailTransferRequest(Unity.Entities.Entity facility, Game.Simulation.MailTransferRequestFlags flags, System.Single priority, System.Int32 amount);
+public MailTransferRequest(Entity facility, MailTransferRequestFlags flags, float priority, int amount)
+	{
+		m_Facility = facility;
+		m_Flags = flags;
+		m_Priority = priority;
+		m_Amount = amount;
+	}
 ```
 
 

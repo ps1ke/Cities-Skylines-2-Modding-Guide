@@ -37,7 +37,10 @@ private System.Boolean m_IsAllowed;
 - `public SafeCommandBufferSystem()`  
 
 ```csharp
-public SafeCommandBufferSystem();
+[Preserve]
+	public SafeCommandBufferSystem()
+	{
+	}
 ```
 
 
@@ -46,19 +49,34 @@ public SafeCommandBufferSystem();
 - `public AllowUsage() : System.Void`  
 
 ```csharp
-public System.Void AllowUsage();
+public void AllowUsage()
+	{
+		m_IsAllowed = true;
+	}
 ```
 
 - `public CreateCommandBuffer() : Unity.Entities.EntityCommandBuffer`  
 
 ```csharp
-public Unity.Entities.EntityCommandBuffer CreateCommandBuffer();
+public new EntityCommandBuffer CreateCommandBuffer()
+	{
+		if (m_IsAllowed)
+		{
+			return base.CreateCommandBuffer();
+		}
+		throw new Exception("Trying to create EntityCommandBuffer when it's not allowed!");
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		m_IsAllowed = false;
+		base.OnUpdate();
+	}
 ```
 
 

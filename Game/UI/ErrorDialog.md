@@ -73,7 +73,21 @@ public ErrorDialog();
 - `public Write(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-public System.Void Write(Colossal.UI.Binding.IJsonWriter writer);
+public void Write(IJsonWriter writer)
+	{
+		writer.TypeBegin(GetType().FullName);
+		writer.PropertyName("severity");
+		writer.Write((int)severity);
+		writer.PropertyName("actions");
+		writer.Write((int)actions);
+		writer.PropertyName("localizedTitle");
+		writer.Write(localizedTitle);
+		writer.PropertyName("localizedMessage");
+		writer.Write(localizedMessage);
+		writer.PropertyName("errorDetails");
+		writer.Write(errorDetails);
+		writer.TypeEnd();
+	}
 ```
 
 

@@ -72,7 +72,15 @@ public System.Byte m_TargetActivity;
 - `public AnimalNavigation(Unity.Mathematics.float3 position)`  
 
 ```csharp
-public AnimalNavigation(Unity.Mathematics.float3 position);
+public AnimalNavigation(float3 position)
+	{
+		m_TargetPosition = position;
+		m_TargetDirection = default(float3);
+		m_MaxSpeed = 0f;
+		m_TransformState = TransformState.Default;
+		m_LastActivity = 0;
+		m_TargetActivity = 0;
+	}
 ```
 
 

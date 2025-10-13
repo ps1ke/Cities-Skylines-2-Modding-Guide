@@ -143,7 +143,10 @@ protected System.Boolean Active { protected get; }
 - `public ElectricityInfoviewUISystem()`  
 
 ```csharp
-public ElectricityInfoviewUISystem();
+[Preserve]
+	public ElectricityInfoviewUISystem()
+	{
+	}
 ```
 
 
@@ -182,37 +185,85 @@ private System.Int32 <OnCreate>b__13_4();
 - `private GetBatteryCharge() : Game.UI.InGame.IndicatorValue`  
 
 ```csharp
-private Game.UI.InGame.IndicatorValue GetBatteryCharge();
+private IndicatorValue GetBatteryCharge()
+	{
+		return new IndicatorValue(0f, m_ElectricityStatisticsSystem.batteryCapacity, m_ElectricityStatisticsSystem.batteryCharge);
+	}
 ```
 
 - `private GetElectricityAvailability() : Game.UI.InGame.IndicatorValue`  
 
 ```csharp
-private Game.UI.InGame.IndicatorValue GetElectricityAvailability();
+private IndicatorValue GetElectricityAvailability()
+	{
+		return IndicatorValue.Calculate(m_ElectricityStatisticsSystem.production, m_ElectricityStatisticsSystem.consumption);
+	}
 ```
 
 - `private GetElectricityTrade() : Game.UI.InGame.IndicatorValue`  
 
 ```csharp
-private Game.UI.InGame.IndicatorValue GetElectricityTrade();
+private IndicatorValue GetElectricityTrade()
+	{
+		if (!m_OutsideTradeParameterGroup.IsEmptyIgnoreFilter)
+		{
+			OutsideTradeParameterData singleton = m_OutsideTradeParameterGroup.GetSingleton<OutsideTradeParameterData>();
+			float num = (float)m_ElectricityTradeSystem.export * singleton.m_ElectricityExportPrice - (float)m_ElectricityTradeSystem.import * singleton.m_ElectricityImportPrice;
+			float num2 = math.max(0.01f, (float)m_ElectricityStatisticsSystem.consumption * singleton.m_ElectricityExportPrice);
+			return new IndicatorValue(-1f, 1f, math.clamp(num / num2, -1f, 1f));
+		}
+		return new IndicatorValue(-1f, 1f, 0f);
+	}
 ```
 
 - `private GetElectricityTransmission() : Game.UI.InGame.IndicatorValue`  
 
 ```csharp
-private Game.UI.InGame.IndicatorValue GetElectricityTransmission();
+private IndicatorValue GetElectricityTransmission()
+	{
+		float max = m_ElectricityStatisticsSystem.consumption;
+		float current = m_ElectricityStatisticsSystem.fulfilledConsumption;
+		return new IndicatorValue(0f, max, current);
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_ElectricityStatisticsSystem = base.World.GetOrCreateSystemManaged<ElectricityStatisticsSystem>();
+		m_ElectricityTradeSystem = base.World.GetOrCreateSystemManaged<ElectricityTradeSystem>();
+		m_OutsideTradeParameterGroup = GetEntityQuery(ComponentType.ReadOnly<OutsideTradeParameterData>());
+		AddBinding(m_ElectricityProduction = new GetterValueBinding<int>("electricityInfo", "electricityProduction", () => m_ElectricityStatisticsSystem.production));
+		AddBinding(m_ElectricityConsumption = new GetterValueBinding<int>("electricityInfo", "electricityConsumption", () => m_ElectricityStatisticsSystem.consumption));
+		AddBinding(m_ElectricityTransmitted = new GetterValueBinding<int>("electricityInfo", "electricityTransmitted", () => m_ElectricityStatisticsSystem.fulfilledConsumption));
+		AddBinding(m_ElectricityExport = new GetterValueBinding<int>("electricityInfo", "electricityExport", () => m_ElectricityTradeSystem.export));
+		AddBinding(m_ElectricityImport = new GetterValueBinding<int>("electricityInfo", "electricityImport", () => m_ElectricityTradeSystem.import));
+		AddBinding(m_ElectricityAvailability = new GetterValueBinding<IndicatorValue>("electricityInfo", "electricityAvailability", GetElectricityAvailability, new ValueWriter<IndicatorValue>()));
+		AddBinding(m_ElectricityTransmission = new GetterValueBinding<IndicatorValue>("electricityInfo", "electricityTransmission", GetElectricityTransmission, new ValueWriter<IndicatorValue>()));
+		AddBinding(m_ElectricityTrade = new GetterValueBinding<IndicatorValue>("electricityInfo", "electricityTrade", GetElectricityTrade, new ValueWriter<IndicatorValue>()));
+		AddBinding(m_BatteryCharge = new GetterValueBinding<IndicatorValue>("electricityInfo", "batteryCharge", GetBatteryCharge, new ValueWriter<IndicatorValue>()));
+	}
 ```
 
 - `protected virtual PerformUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void PerformUpdate();
+protected override void PerformUpdate()
+	{
+		m_ElectricityProduction.Update();
+		m_ElectricityConsumption.Update();
+		m_ElectricityTransmitted.Update();
+		m_ElectricityExport.Update();
+		m_ElectricityImport.Update();
+		m_ElectricityAvailability.Update();
+		m_ElectricityTransmission.Update();
+		m_ElectricityTrade.Update();
+		m_BatteryCharge.Update();
+	}
 ```
 
 

@@ -72,7 +72,10 @@ private Unity.Entities.Entity destinationEntity { private get; private set; }
 - `public DummyHumanSection()`  
 
 ```csharp
-public DummyHumanSection();
+[Preserve]
+	public DummyHumanSection()
+	{
+	}
 ```
 
 
@@ -81,31 +84,91 @@ public DummyHumanSection();
 - `protected virtual OnProcess() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnProcess();
+protected override void OnProcess()
+	{
+		if (base.EntityManager.TryGetComponent<CurrentVehicle>(selectedEntity, out var component))
+		{
+			originEntity = base.EntityManager.GetComponentData<Owner>(component.m_Vehicle).m_Owner;
+			destinationEntity = VehicleUIUtils.GetDestination(base.EntityManager, component.m_Vehicle);
+		}
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		base.visible = Visible();
+	}
 ```
 
 - `public virtual OnWriteProperties(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-public virtual System.Void OnWriteProperties(Colossal.UI.Binding.IJsonWriter writer);
+public override void OnWriteProperties(IJsonWriter writer)
+	{
+		writer.PropertyName("origin");
+		if (originEntity == Entity.Null)
+		{
+			writer.WriteNull();
+		}
+		else
+		{
+			m_NameSystem.BindName(writer, originEntity);
+		}
+		writer.PropertyName("originEntity");
+		if (originEntity == Entity.Null)
+		{
+			writer.WriteNull();
+		}
+		else
+		{
+			writer.Write(originEntity);
+		}
+		writer.PropertyName("destination");
+		if (destinationEntity == Entity.Null)
+		{
+			writer.WriteNull();
+		}
+		else
+		{
+			m_NameSystem.BindName(writer, destinationEntity);
+		}
+		writer.PropertyName("destinationEntity");
+		if (destinationEntity == Entity.Null)
+		{
+			writer.WriteNull();
+		}
+		else
+		{
+			writer.Write(destinationEntity);
+		}
+	}
 ```
 
 - `protected virtual Reset() : System.Void`  
 
 ```csharp
-protected virtual System.Void Reset();
+protected override void Reset()
+	{
+		originEntity = Entity.Null;
+		destinationEntity = Entity.Null;
+	}
 ```
 
 - `private Visible() : System.Boolean`  
 
 ```csharp
-private System.Boolean Visible();
+private bool Visible()
+	{
+		if (base.EntityManager.TryGetComponent<Resident>(selectedEntity, out var component))
+		{
+			return component.m_Citizen == Entity.Null;
+		}
+		return false;
+	}
 ```
 
 

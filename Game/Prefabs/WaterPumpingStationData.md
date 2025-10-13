@@ -50,7 +50,12 @@ public System.Single m_Purification;
 - `public Combine(Game.Prefabs.WaterPumpingStationData otherData) : System.Void`  
 
 ```csharp
-public System.Void Combine(Game.Prefabs.WaterPumpingStationData otherData);
+public void Combine(WaterPumpingStationData otherData)
+	{
+		m_Types |= otherData.m_Types;
+		m_Capacity += otherData.m_Capacity;
+		m_Purification = 1f - (1f - m_Purification) * (1f - otherData.m_Purification);
+	}
 ```
 
 - `public Deserialize<TReader>(TReader reader) : System.Void`  

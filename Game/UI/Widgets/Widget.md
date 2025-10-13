@@ -190,85 +190,219 @@ protected Widget();
 - `private Game.UI.Widgets.IWidget.Update() : Game.UI.Widgets.WidgetChanges`  
 
 ```csharp
-private Game.UI.Widgets.WidgetChanges Game.UI.Widgets.IWidget.Update();
+protected virtual WidgetChanges Update()
+	{
+		return WidgetChanges.None;
+	}
 ```
 
 - `private Game.UI.Widgets.IWidget.WriteProperties(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-private System.Void Game.UI.Widgets.IWidget.WriteProperties(Colossal.UI.Binding.IJsonWriter writer);
+protected virtual void WriteProperties(IJsonWriter writer)
+	{
+		writer.PropertyName("tutorialTag");
+		writer.Write(tutorialTag);
+	}
 ```
 
 - `public static PatchWidget(Colossal.UI.Binding.RawValueBinding binding, System.Collections.Generic.IList<System.Int32> path, Game.UI.Widgets.IWidget widget, Game.UI.Widgets.WidgetChanges changes) : System.Void`  
 
 ```csharp
-public static System.Void PatchWidget(Colossal.UI.Binding.RawValueBinding binding, System.Collections.Generic.IList<System.Int32> path, Game.UI.Widgets.IWidget widget, Game.UI.Widgets.WidgetChanges changes);
+public static void PatchWidget(RawValueBinding binding, IList<int> path, IWidget widget, WidgetChanges changes)
+	{
+		IJsonWriter jsonWriter = binding.PatchBegin();
+		if (changes == WidgetChanges.Path)
+		{
+			WritePatchPath(jsonWriter, path, "path");
+			jsonWriter.Write(widget.path);
+		}
+		else if ((changes & WidgetChanges.TotalProperties) != WidgetChanges.None && (changes & ~WidgetChanges.TotalProperties) == 0)
+		{
+			WritePatchPath(jsonWriter, path, "props");
+			jsonWriter.TypeBegin(widget.propertiesTypeName);
+			widget.WriteProperties(jsonWriter);
+			jsonWriter.TypeEnd();
+		}
+		else if (changes == WidgetChanges.Children)
+		{
+			WritePatchPath(jsonWriter, path, "children");
+			jsonWriter.Write(widget.visibleChildren);
+		}
+		else
+		{
+			WritePatchPath(jsonWriter, path);
+			jsonWriter.Write(widget);
+		}
+		binding.PatchEnd();
+	}
 ```
 
 - `public SetChildrenChanged() : System.Void`  
 
 ```csharp
-public System.Void SetChildrenChanged();
+public void SetChildrenChanged()
+	{
+		m_Changes |= WidgetChanges.Children;
+	}
 ```
 
 - `public SetPropertiesChanged() : System.Void`  
 
 ```csharp
-public System.Void SetPropertiesChanged();
+public void SetPropertiesChanged()
+	{
+		m_Changes |= WidgetChanges.Properties;
+	}
 ```
 
 - `protected virtual Update() : Game.UI.Widgets.WidgetChanges`  
 
 ```csharp
-protected virtual Game.UI.Widgets.WidgetChanges Update();
+protected virtual WidgetChanges Update()
+	{
+		return WidgetChanges.None;
+	}
 ```
 
 - `private UpdateBase() : Game.UI.Widgets.WidgetChanges`  
 
 ```csharp
-private Game.UI.Widgets.WidgetChanges UpdateBase();
+private WidgetChanges UpdateBase()
+	{
+		UpdateVisibility();
+		WidgetChanges widgetChanges = m_Changes;
+		m_Changes = WidgetChanges.None;
+		if (m_Hidden && !m_IsInitialUpdate)
+		{
+			return widgetChanges;
+		}
+		m_IsInitialUpdate = false;
+		bool flag = disabled != null && disabled();
+		if (flag != m_Disabled)
+		{
+			widgetChanges |= WidgetChanges.Activity;
+			m_Disabled = flag;
+		}
+		return widgetChanges | Update();
+	}
 ```
 
 - `public virtual UpdateVisibility() : Game.UI.Widgets.WidgetChanges`  
 
 ```csharp
-public virtual Game.UI.Widgets.WidgetChanges UpdateVisibility();
+public virtual WidgetChanges UpdateVisibility()
+	{
+		bool flag = hidden != null && hidden();
+		if (flag != m_Hidden)
+		{
+			m_Hidden = flag;
+			m_Changes |= WidgetChanges.Visibility;
+			return WidgetChanges.Visibility;
+		}
+		return WidgetChanges.None;
+	}
 ```
 
 - `public Write(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-public System.Void Write(Colossal.UI.Binding.IJsonWriter writer);
+public void Write(IJsonWriter writer)
+	{
+		writer.TypeBegin(typeof(Widget).FullName);
+		writer.PropertyName("path");
+		writer.Write(path);
+		writer.PropertyName("props");
+		writer.TypeBegin(propertiesTypeName);
+		WriteBaseProperties(writer);
+		writer.TypeEnd();
+		writer.PropertyName("children");
+		writer.Write(visibleChildren);
+		writer.TypeEnd();
+	}
 ```
 
 - `private WriteBaseProperties(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-private System.Void WriteBaseProperties(Colossal.UI.Binding.IJsonWriter writer);
+private void WriteBaseProperties(IJsonWriter writer)
+	{
+		writer.PropertyName("disabled");
+		writer.Write(m_Disabled);
+		writer.PropertyName("hidden");
+		writer.Write(m_Hidden);
+		WriteProperties(writer);
+	}
 ```
 
 - `public static WritePatchPath(Colossal.UI.Binding.IJsonWriter writer, System.Collections.Generic.IList<System.Int32> path) : System.Void`  
 
 ```csharp
-public static System.Void WritePatchPath(Colossal.UI.Binding.IJsonWriter writer, System.Collections.Generic.IList<System.Int32> path);
+public static void WritePatchPath(IJsonWriter writer, IList<int> path, string propertyName1, string propertyName2, string propertyName3, int propertyName4)
+	{
+		writer.ArrayBegin(2 * path.Count + 3);
+		for (int i = 0; i < path.Count - 1; i++)
+		{
+			writer.Write(path[i]);
+			writer.Write("children");
+		}
+		writer.Write(path[path.Count - 1]);
+		writer.Write(propertyName1);
+		writer.Write(propertyName2);
+		writer.Write(propertyName3);
+		writer.Write(propertyName4);
+		writer.ArrayEnd();
+	}
 ```
 
 - `public static WritePatchPath(Colossal.UI.Binding.IJsonWriter writer, System.Collections.Generic.IList<System.Int32> path, System.String propertyName) : System.Void`  
 
 ```csharp
-public static System.Void WritePatchPath(Colossal.UI.Binding.IJsonWriter writer, System.Collections.Generic.IList<System.Int32> path, System.String propertyName);
+public static void WritePatchPath(IJsonWriter writer, IList<int> path, string propertyName1, string propertyName2, string propertyName3, int propertyName4)
+	{
+		writer.ArrayBegin(2 * path.Count + 3);
+		for (int i = 0; i < path.Count - 1; i++)
+		{
+			writer.Write(path[i]);
+			writer.Write("children");
+		}
+		writer.Write(path[path.Count - 1]);
+		writer.Write(propertyName1);
+		writer.Write(propertyName2);
+		writer.Write(propertyName3);
+		writer.Write(propertyName4);
+		writer.ArrayEnd();
+	}
 ```
 
 - `public static WritePatchPath(Colossal.UI.Binding.IJsonWriter writer, System.Collections.Generic.IList<System.Int32> path, System.String propertyName1, System.String propertyName2, System.String propertyName3, System.Int32 propertyName4) : System.Void`  
 
 ```csharp
-public static System.Void WritePatchPath(Colossal.UI.Binding.IJsonWriter writer, System.Collections.Generic.IList<System.Int32> path, System.String propertyName1, System.String propertyName2, System.String propertyName3, System.Int32 propertyName4);
+public static void WritePatchPath(IJsonWriter writer, IList<int> path, string propertyName1, string propertyName2, string propertyName3, int propertyName4)
+	{
+		writer.ArrayBegin(2 * path.Count + 3);
+		for (int i = 0; i < path.Count - 1; i++)
+		{
+			writer.Write(path[i]);
+			writer.Write("children");
+		}
+		writer.Write(path[path.Count - 1]);
+		writer.Write(propertyName1);
+		writer.Write(propertyName2);
+		writer.Write(propertyName3);
+		writer.Write(propertyName4);
+		writer.ArrayEnd();
+	}
 ```
 
 - `protected virtual WriteProperties(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-protected virtual System.Void WriteProperties(Colossal.UI.Binding.IJsonWriter writer);
+protected virtual void WriteProperties(IJsonWriter writer)
+	{
+		writer.PropertyName("tutorialTag");
+		writer.Write(tutorialTag);
+	}
 ```
 
 

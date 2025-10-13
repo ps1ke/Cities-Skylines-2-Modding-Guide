@@ -42,7 +42,11 @@ public System.Boolean m_Stored;
 - `public BufferedEntity(Unity.Entities.Entity value, System.Boolean stored)`  
 
 ```csharp
-public BufferedEntity(Unity.Entities.Entity value, System.Boolean stored);
+public BufferedEntity(Entity value, bool stored)
+	{
+		m_Value = value;
+		m_Stored = stored;
+	}
 ```
 
 
@@ -51,7 +55,10 @@ public BufferedEntity(Unity.Entities.Entity value, System.Boolean stored);
 - `public virtual ToString() : System.String`  
 
 ```csharp
-public virtual System.String ToString();
+public override string ToString()
+	{
+		return string.Format("{0}: {1}, {2}: {3}", "m_Value", m_Value, "m_Stored", m_Stored);
+	}
 ```
 
 

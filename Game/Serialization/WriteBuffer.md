@@ -79,7 +79,10 @@ public System.Boolean isCompleted { get; }
 - `public WriteBuffer()`  
 
 ```csharp
-public WriteBuffer();
+public WriteBuffer()
+	{
+		buffer = new NativeList<byte>(Allocator.Persistent);
+	}
 ```
 
 
@@ -88,31 +91,57 @@ public WriteBuffer();
 - `public CompleteDependencies() : System.Void`  
 
 ```csharp
-public System.Void CompleteDependencies();
+public void CompleteDependencies()
+	{
+		if (m_HasDependencies)
+		{
+			m_WriteDependencies.Complete();
+			m_WriteDependencies = default(JobHandle);
+			m_HasDependencies = false;
+		}
+	}
 ```
 
 - `public Dispose() : System.Void`  
 
 ```csharp
-public System.Void Dispose();
+public void Dispose()
+	{
+		DisposeBuffers();
+	}
 ```
 
 - `private DisposeBuffers() : System.Void`  
 
 ```csharp
-private System.Void DisposeBuffers();
+private void DisposeBuffers()
+	{
+		CompleteDependencies();
+		NativeList<byte> nativeList = buffer;
+		if (nativeList.IsCreated)
+		{
+			nativeList.Dispose();
+		}
+		buffer = nativeList;
+	}
 ```
 
 - `public Done(Unity.Jobs.JobHandle handle) : System.Void`  
 
 ```csharp
-public System.Void Done(Unity.Jobs.JobHandle handle);
+public void Done()
+	{
+		m_IsDone = true;
+	}
 ```
 
 - `public Done() : System.Void`  
 
 ```csharp
-public System.Void Done();
+public void Done()
+	{
+		m_IsDone = true;
+	}
 ```
 
 

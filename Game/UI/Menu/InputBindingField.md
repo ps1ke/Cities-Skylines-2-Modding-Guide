@@ -37,7 +37,10 @@ public System.Boolean warning { get; set; }
 - `public InputBindingField()`  
 
 ```csharp
-public InputBindingField();
+public InputBindingField()
+	{
+		base.valueWriter = new ValueWriter<ProxyBinding>();
+	}
 ```
 
 
@@ -46,13 +49,21 @@ public InputBindingField();
 - `protected virtual ValueEquals(Game.Input.ProxyBinding newValue, Game.Input.ProxyBinding oldValue) : System.Boolean`  
 
 ```csharp
-protected virtual System.Boolean ValueEquals(Game.Input.ProxyBinding newValue, Game.Input.ProxyBinding oldValue);
+protected override bool ValueEquals(ProxyBinding newValue, ProxyBinding oldValue)
+	{
+		return ProxyBinding.pathAndModifiersComparer.Equals(newValue, oldValue);
+	}
 ```
 
 - `protected virtual WriteProperties(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-protected virtual System.Void WriteProperties(Colossal.UI.Binding.IJsonWriter writer);
+protected override void WriteProperties(IJsonWriter writer)
+	{
+		base.WriteProperties(writer);
+		writer.PropertyName("conflicts");
+		writer.Write(m_Value.conflicts);
+	}
 ```
 
 

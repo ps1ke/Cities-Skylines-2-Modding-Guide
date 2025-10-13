@@ -26,7 +26,15 @@ public static class PrefabUtils
 - `public static GetContentPrerequisite(Game.Prefabs.PrefabBase prefab) : System.String`  
 
 ```csharp
-public static System.String GetContentPrerequisite(Game.Prefabs.PrefabBase prefab);
+[CanBeNull]
+	public static string GetContentPrerequisite(PrefabBase prefab)
+	{
+		if (prefab.TryGet<ContentPrerequisite>(out var component) && component.m_ContentPrerequisite.TryGet<DlcRequirement>(out var component2))
+		{
+			return PlatformManager.instance.GetDlcName(component2.m_Dlc);
+		}
+		return null;
+	}
 ```
 
 - `public static HasUnlockedPrefab<T>(Unity.Entities.EntityManager entityManager, Unity.Entities.EntityQuery unlockQuery) : System.Boolean`  

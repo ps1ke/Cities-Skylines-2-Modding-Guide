@@ -68,7 +68,10 @@ public static const System.Int32 kZoneSpawnUpdateOffset;
 - `public static GetDemandFactorEffect(System.Int32 total, System.Single effect) : System.Int32`  
 
 ```csharp
-public static System.Int32 GetDemandFactorEffect(System.Int32 total, System.Single effect);
+public static int GetDemandFactorEffect(int total, float effect)
+	{
+		return Mathf.RoundToInt(100f * effect);
+	}
 ```
 
 

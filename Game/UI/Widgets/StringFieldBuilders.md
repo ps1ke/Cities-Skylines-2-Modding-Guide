@@ -34,7 +34,14 @@ public StringFieldBuilders();
 - `public TryCreate(System.Type memberType, System.Object[] attributes) : Game.UI.Widgets.FieldBuilder`  
 
 ```csharp
-public Game.UI.Widgets.FieldBuilder TryCreate(System.Type memberType, System.Object[] attributes);
+public FieldBuilder TryCreate(Type memberType, object[] attributes)
+	{
+		if (memberType == typeof(string))
+		{
+			return WidgetReflectionUtils.CreateFieldBuilder<StringInputField, string>();
+		}
+		return null;
+	}
 ```
 
 

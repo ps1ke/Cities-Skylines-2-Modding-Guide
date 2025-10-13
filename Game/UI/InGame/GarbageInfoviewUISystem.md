@@ -144,7 +144,10 @@ protected System.Boolean Modified { protected get; }
 - `public GarbageInfoviewUISystem()`  
 
 ```csharp
-public GarbageInfoviewUISystem();
+[Preserve]
+	public GarbageInfoviewUISystem()
+	{
+	}
 ```
 
 
@@ -153,7 +156,10 @@ public GarbageInfoviewUISystem();
 - `private __AssignQueries(Unity.Entities.SystemState& state) : System.Void`  
 
 ```csharp
-private System.Void __AssignQueries(Unity.Entities.SystemState& state);
+private void __AssignQueries(ref SystemState state)
+	{
+		new EntityQueryBuilder(Allocator.Temp).Dispose();
+	}
 ```
 
 - `private <OnCreate>b__11_0() : System.Single`  
@@ -165,61 +171,146 @@ private System.Single <OnCreate>b__11_0();
 - `private GetGarbageCapacity() : System.Int32`  
 
 ```csharp
-private System.Int32 GetGarbageCapacity();
+private int GetGarbageCapacity()
+	{
+		return (int)m_Results[1];
+	}
 ```
 
 - `private GetLandfillAvailability() : Game.UI.InGame.IndicatorValue`  
 
 ```csharp
-private Game.UI.InGame.IndicatorValue GetLandfillAvailability();
+private IndicatorValue GetLandfillAvailability()
+	{
+		return IndicatorValue.Calculate(m_Results[1], m_Results[2], 0f);
+	}
 ```
 
 - `private GetProcessingAvailability() : Game.UI.InGame.IndicatorValue`  
 
 ```csharp
-private Game.UI.InGame.IndicatorValue GetProcessingAvailability();
+private IndicatorValue GetProcessingAvailability()
+	{
+		return IndicatorValue.Calculate(m_Results[0], math.max(m_GarbageAccumulationSystem.garbageAccumulation, 0L));
+	}
 ```
 
 - `private GetProcessingRate() : System.Single`  
 
 ```csharp
-private System.Single GetProcessingRate();
+private float GetProcessingRate()
+	{
+		return m_Results[0];
+	}
 ```
 
 - `private GetStoredGarbage() : System.Int32`  
 
 ```csharp
-private System.Int32 GetStoredGarbage();
+private int GetStoredGarbage()
+	{
+		return (int)m_Results[2];
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_GarbageAccumulationSystem = base.World.GetOrCreateSystemManaged<GarbageAccumulationSystem>();
+		m_GarbageFacilityQuery = GetEntityQuery(ComponentType.ReadOnly<Game.Buildings.GarbageFacility>(), ComponentType.ReadOnly<Building>(), ComponentType.ReadOnly<ServiceDispatch>(), ComponentType.ReadOnly<PrefabRef>(), ComponentType.Exclude<Temp>(), ComponentType.Exclude<Deleted>());
+		m_GarbageFacilityModifiedQuery = GetEntityQuery(new EntityQueryDesc
+		{
+			All = new ComponentType[4]
+			{
+				ComponentType.ReadOnly<Game.Buildings.GarbageFacility>(),
+				ComponentType.ReadOnly<Building>(),
+				ComponentType.ReadOnly<ServiceDispatch>(),
+				ComponentType.ReadOnly<PrefabRef>()
+			},
+			Any = new ComponentType[3]
+			{
+				ComponentType.ReadOnly<Deleted>(),
+				ComponentType.ReadOnly<Created>(),
+				ComponentType.ReadOnly<Updated>()
+			},
+			None = new ComponentType[1] { ComponentType.ReadOnly<Temp>() }
+		});
+		AddBinding(m_Capacity = new GetterValueBinding<int>("garbageInfo", "capacity", GetGarbageCapacity));
+		AddBinding(m_StoredGarbage = new GetterValueBinding<int>("garbageInfo", "storedGarbage", GetStoredGarbage));
+		AddBinding(m_ProcessingRate = new GetterValueBinding<float>("garbageInfo", "processingRate", GetProcessingRate));
+		AddBinding(m_GarbageRate = new GetterValueBinding<float>("garbageInfo", "productionRate", () => m_GarbageAccumulationSystem.garbageAccumulation));
+		AddBinding(m_ProcessingAvailability = new GetterValueBinding<IndicatorValue>("garbageInfo", "processingAvailability", GetProcessingAvailability, new ValueWriter<IndicatorValue>()));
+		AddBinding(m_LandfillAvailability = new GetterValueBinding<IndicatorValue>("garbageInfo", "landfillAvailability", GetLandfillAvailability, new ValueWriter<IndicatorValue>()));
+		m_Results = new NativeArray<float>(3, Allocator.Persistent);
+	}
 ```
 
 - `protected virtual OnCreateForCompiler() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreateForCompiler();
+protected override void OnCreateForCompiler()
+	{
+		base.OnCreateForCompiler();
+		__AssignQueries(ref base.CheckedStateRef);
+		__TypeHandle.__AssignHandles(ref base.CheckedStateRef);
+	}
 ```
 
 - `protected virtual OnDestroy() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnDestroy();
+[Preserve]
+	protected override void OnDestroy()
+	{
+		m_Results.Dispose();
+		base.OnDestroy();
+	}
 ```
 
 - `protected virtual PerformUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void PerformUpdate();
+protected override void PerformUpdate()
+	{
+		ResetResults();
+		JobChunkExtensions.Schedule(new UpdateGarbageJob
+		{
+			m_EntityType = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef),
+			m_BuildingEfficiencyType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Buildings_Efficiency_RO_BufferTypeHandle, ref base.CheckedStateRef),
+			m_PrefabRefType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+			m_InstalledUpgradeType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Buildings_InstalledUpgrade_RO_BufferTypeHandle, ref base.CheckedStateRef),
+			m_Storages = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Areas_Storage_RO_ComponentLookup, ref base.CheckedStateRef),
+			m_Geometries = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Areas_Geometry_RO_ComponentLookup, ref base.CheckedStateRef),
+			m_GarbageFacilities = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_GarbageFacilityData_RO_ComponentLookup, ref base.CheckedStateRef),
+			m_StorageAreaDatas = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_StorageAreaData_RO_ComponentLookup, ref base.CheckedStateRef),
+			m_Prefabs = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentLookup, ref base.CheckedStateRef),
+			m_Resources = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Economy_Resources_RO_BufferLookup, ref base.CheckedStateRef),
+			m_SubAreas = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Areas_SubArea_RO_BufferLookup, ref base.CheckedStateRef),
+			m_Results = m_Results
+		}, m_GarbageFacilityQuery, base.Dependency).Complete();
+		m_Capacity.Update();
+		m_StoredGarbage.Update();
+		m_ProcessingRate.Update();
+		m_GarbageRate.Update();
+		m_ProcessingAvailability.Update();
+		m_LandfillAvailability.Update();
+	}
 ```
 
 - `private ResetResults() : System.Void`  
 
 ```csharp
-private System.Void ResetResults();
+private void ResetResults()
+	{
+		for (int i = 0; i < m_Results.Length; i++)
+		{
+			m_Results[i] = 0f;
+		}
+	}
 ```
 
 

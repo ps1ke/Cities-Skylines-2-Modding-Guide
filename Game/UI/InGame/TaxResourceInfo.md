@@ -41,7 +41,15 @@ public System.String m_Icon;
 - `public Write(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-public System.Void Write(Colossal.UI.Binding.IJsonWriter writer);
+public void Write(IJsonWriter writer)
+	{
+		writer.TypeBegin("taxation.TaxResourceInfo");
+		writer.PropertyName("id");
+		writer.Write(m_ID);
+		writer.PropertyName("icon");
+		writer.Write(m_Icon);
+		writer.TypeEnd();
+	}
 ```
 
 

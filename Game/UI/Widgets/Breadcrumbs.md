@@ -73,25 +73,39 @@ public Breadcrumbs();
 - `public GetEnumerator() : System.Collections.Generic.IEnumerator<Game.UI.Widgets.Label>`  
 
 ```csharp
-public System.Collections.Generic.IEnumerator<Game.UI.Widgets.Label> GetEnumerator();
+public IEnumerator<Label> GetEnumerator()
+	{
+		return m_Labels.OfType<Label>().GetEnumerator();
+	}
 ```
 
 - `private System.Collections.IEnumerable.GetEnumerator() : System.Collections.IEnumerator`  
 
 ```csharp
-private System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator();
+public IEnumerator<Label> GetEnumerator()
+	{
+		return m_Labels.OfType<Label>().GetEnumerator();
+	}
 ```
 
 - `public WithLabel(Game.UI.Widgets.Label label) : Game.UI.Widgets.Breadcrumbs`  
 
 ```csharp
-public Game.UI.Widgets.Breadcrumbs WithLabel(Game.UI.Widgets.Label label);
+public Breadcrumbs WithLabel(Label label)
+	{
+		m_Labels.Add(label);
+		return this;
+	}
 ```
 
 - `public WithOutLabel(Game.UI.Widgets.Label label) : Game.UI.Widgets.Breadcrumbs`  
 
 ```csharp
-public Game.UI.Widgets.Breadcrumbs WithOutLabel(Game.UI.Widgets.Label label);
+public Breadcrumbs WithOutLabel(Label label)
+	{
+		m_Labels.Remove(label);
+		return this;
+	}
 ```
 
 

@@ -37,7 +37,10 @@ public Unity.Entities.Entity m_Entity;
 - `public LifePathEntry(Unity.Entities.Entity entity)`  
 
 ```csharp
-public LifePathEntry(Unity.Entities.Entity entity);
+public LifePathEntry(Entity entity)
+	{
+		m_Entity = entity;
+	}
 ```
 
 

@@ -52,7 +52,12 @@ public Unity.Mathematics.int3 m_BoneIndex;
 - `public Relative(Game.Objects.Transform localTransform, Unity.Mathematics.int3 boneIndex)`  
 
 ```csharp
-public Relative(Game.Objects.Transform localTransform, Unity.Mathematics.int3 boneIndex);
+public Relative(Transform localTransform, int3 boneIndex)
+	{
+		m_Position = localTransform.m_Position;
+		m_Rotation = localTransform.m_Rotation;
+		m_BoneIndex = boneIndex;
+	}
 ```
 
 
@@ -73,7 +78,10 @@ public System.Void Serialize<TWriter>(TWriter writer);
 - `public ToTransform() : Game.Objects.Transform`  
 
 ```csharp
-public Game.Objects.Transform ToTransform();
+public Transform ToTransform()
+	{
+		return new Transform(m_Position, m_Rotation);
+	}
 ```
 
 

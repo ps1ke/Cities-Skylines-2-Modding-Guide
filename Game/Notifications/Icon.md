@@ -71,13 +71,19 @@ public System.Void Deserialize<TReader>(TReader reader);
 - `public Equals(Game.Notifications.Icon other) : System.Boolean`  
 
 ```csharp
-public System.Boolean Equals(Game.Notifications.Icon other);
+public bool Equals(Icon other)
+	{
+		return m_Location.Equals(other.m_Location) & (m_Priority == other.m_Priority) & (m_ClusterLayer == other.m_ClusterLayer) & (m_Flags == other.m_Flags);
+	}
 ```
 
 - `public virtual GetHashCode() : System.Int32`  
 
 ```csharp
-public virtual System.Int32 GetHashCode();
+public override int GetHashCode()
+	{
+		return m_Location.GetHashCode();
+	}
 ```
 
 - `public Serialize<TWriter>(TWriter writer) : System.Void`  

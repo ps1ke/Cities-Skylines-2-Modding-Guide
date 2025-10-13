@@ -76,7 +76,10 @@ public System.Single m_PushFactor;
 - `public ToTransform() : Game.Objects.Transform`  
 
 ```csharp
-public Game.Objects.Transform ToTransform();
+public Transform ToTransform()
+	{
+		return new Transform(m_Position, m_Rotation);
+	}
 ```
 
 

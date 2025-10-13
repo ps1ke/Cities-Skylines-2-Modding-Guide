@@ -84,7 +84,10 @@ public Colossal.Serialization.Entities.Context context { get; set; }
 - `public LoadGameSystem()`  
 
 ```csharp
-public LoadGameSystem();
+[Preserve]
+	public LoadGameSystem()
+	{
+	}
 ```
 
 
@@ -93,25 +96,49 @@ public LoadGameSystem();
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_UpdateSystem = base.World.GetOrCreateSystemManaged<UpdateSystem>();
+		base.Enabled = false;
+	}
 ```
 
 - `protected virtual OnDestroy() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnDestroy();
+[Preserve]
+	protected override void OnDestroy()
+	{
+		m_Context.Dispose();
+		onOnSaveGameLoaded = null;
+		base.OnDestroy();
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		m_UpdateSystem.Update(SystemUpdatePhase.Deserialize);
+		base.Enabled = false;
+		onOnSaveGameLoaded?.Invoke(context);
+		m_TaskCompletionSource?.SetResult(result: true);
+	}
 ```
 
 - `public RunOnce() : System.Threading.Tasks.Task`  
 
 ```csharp
-public System.Threading.Tasks.Task RunOnce();
+public async Task RunOnce()
+	{
+		m_TaskCompletionSource = new TaskCompletionSource<bool>();
+		base.Enabled = true;
+		await m_TaskCompletionSource.Task;
+	}
 ```
 
 

@@ -37,7 +37,10 @@ private static readonly System.String[] kCS1TreasureHuntIds;
 - `public PdxSdkDlcsMapping()`  
 
 ```csharp
-public PdxSdkDlcsMapping();
+public PdxSdkDlcsMapping()
+	{
+		Map(Dlc.CS1TreasureHunt, kCS1TreasureHuntIds);
+	}
 ```
 
 

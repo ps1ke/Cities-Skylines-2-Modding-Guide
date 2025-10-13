@@ -73,7 +73,10 @@ protected System.Boolean Modified { protected get; }
 - `protected InfoviewUISystemBase()`  
 
 ```csharp
-protected InfoviewUISystemBase();
+[Preserve]
+	protected InfoviewUISystemBase()
+	{
+	}
 ```
 
 
@@ -82,13 +85,27 @@ protected InfoviewUISystemBase();
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_UpdateState = UIUpdateState.Create(base.World, 256);
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		base.OnUpdate();
+		if (Active && (Modified || m_UpdateState.Advance()))
+		{
+			PerformUpdate();
+			m_Clear = false;
+		}
+	}
 ```
 
 - `protected abstract PerformUpdate() : System.Void`  
@@ -100,13 +117,20 @@ protected abstract System.Void PerformUpdate();
 - `public PreDeserialize(Colossal.Serialization.Entities.Context context) : System.Void`  
 
 ```csharp
-public System.Void PreDeserialize(Colossal.Serialization.Entities.Context context);
+public void PreDeserialize(Context context)
+	{
+		m_Clear = true;
+		m_UpdateState.ForceUpdate();
+	}
 ```
 
 - `public RequestUpdate() : System.Void`  
 
 ```csharp
-public System.Void RequestUpdate();
+public void RequestUpdate()
+	{
+		m_UpdateState.ForceUpdate();
+	}
 ```
 
 - `protected ResetResults<T>(Unity.Collections.NativeArray<T> results) : System.Void`  

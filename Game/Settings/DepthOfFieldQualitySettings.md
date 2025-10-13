@@ -170,13 +170,21 @@ private static Game.Settings.DepthOfFieldQualitySettings disabled { private get;
 - `public DepthOfFieldQualitySettings()`  
 
 ```csharp
-public DepthOfFieldQualitySettings();
+public DepthOfFieldQualitySettings(Level quality, VolumeProfile profile)
+	{
+		CreateVolumeComponent(profile, ref m_DOFComponent);
+		SetLevel(quality, apply: false);
+	}
 ```
 
 - `public DepthOfFieldQualitySettings(Game.Settings.QualitySetting+Level quality, UnityEngine.Rendering.VolumeProfile profile)`  
 
 ```csharp
-public DepthOfFieldQualitySettings(Game.Settings.QualitySetting+Level quality, UnityEngine.Rendering.VolumeProfile profile);
+public DepthOfFieldQualitySettings(Level quality, VolumeProfile profile)
+	{
+		CreateVolumeComponent(profile, ref m_DOFComponent);
+		SetLevel(quality, apply: false);
+	}
 ```
 
 
@@ -185,13 +193,33 @@ public DepthOfFieldQualitySettings(Game.Settings.QualitySetting+Level quality, U
 - `public virtual Apply() : System.Void`  
 
 ```csharp
-public virtual System.Void Apply();
+public override void Apply()
+	{
+		base.Apply();
+		if (m_DOFComponent != null)
+		{
+			ApplyState(m_DOFComponent.focusMode, DepthOfFieldMode.Off, !enabled);
+			ApplyState(m_DOFComponent.m_NearSampleCount, nearSampleCount);
+			ApplyState(m_DOFComponent.m_NearMaxBlur, nearMaxRadius);
+			ApplyState(m_DOFComponent.m_FarSampleCount, farSampleCount);
+			ApplyState(m_DOFComponent.m_FarMaxBlur, farMaxRadius);
+			ApplyState(m_DOFComponent.m_Resolution, resolution);
+			ApplyState(m_DOFComponent.m_HighQualityFiltering, highQualityFiltering);
+		}
+	}
 ```
 
 - `public virtual IsOptionsDisabled() : System.Boolean`  
 
 ```csharp
-public virtual System.Boolean IsOptionsDisabled();
+public override bool IsOptionsDisabled()
+	{
+		if (!IsOptionFullyDisabled())
+		{
+			return !enabled;
+		}
+		return true;
+	}
 ```
 
 

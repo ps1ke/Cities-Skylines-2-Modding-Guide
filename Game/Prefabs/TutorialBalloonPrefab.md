@@ -49,19 +49,48 @@ public TutorialBalloonPrefab();
 - `public virtual GenerateTutorialLinks(Unity.Entities.EntityManager entityManager, Unity.Collections.NativeParallelHashSet<Unity.Entities.Entity> linkedPrefabs) : System.Void`  
 
 ```csharp
-public virtual System.Void GenerateTutorialLinks(Unity.Entities.EntityManager entityManager, Unity.Collections.NativeParallelHashSet<Unity.Entities.Entity> linkedPrefabs);
+public override void GenerateTutorialLinks(EntityManager entityManager, NativeParallelHashSet<Entity> linkedPrefabs)
+	{
+		base.GenerateTutorialLinks(entityManager, linkedPrefabs);
+		PrefabSystem existingSystemManaged = entityManager.World.GetExistingSystemManaged<PrefabSystem>();
+		for (int i = 0; i < m_UITargets.Length; i++)
+		{
+			if (m_UITargets[i].m_UITagProvider != null)
+			{
+				linkedPrefabs.Add(existingSystemManaged.GetEntity(m_UITargets[i].m_UITagProvider));
+			}
+		}
+	}
 ```
 
 - `public virtual GetDependencies(System.Collections.Generic.List<Game.Prefabs.PrefabBase> prefabs) : System.Void`  
 
 ```csharp
-public virtual System.Void GetDependencies(System.Collections.Generic.List<Game.Prefabs.PrefabBase> prefabs);
+public override void GetDependencies(List<PrefabBase> prefabs)
+	{
+		base.GetDependencies(prefabs);
+		for (int i = 0; i < m_UITargets.Length; i++)
+		{
+			if (m_UITargets[i].m_UITagProvider != null)
+			{
+				prefabs.Add(m_UITargets[i].m_UITagProvider);
+			}
+		}
+	}
 ```
 
 - `public virtual Initialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity) : System.Void`  
 
 ```csharp
-public virtual System.Void Initialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity);
+public override void Initialize(EntityManager entityManager, Entity entity)
+	{
+		base.Initialize(entityManager, entity);
+		entityManager.SetComponentData(entity, new TutorialPhaseData
+		{
+			m_Type = TutorialPhaseType.Balloon,
+			m_OverrideCompletionDelay = m_OverrideCompletionDelay
+		});
+	}
 ```
 
 

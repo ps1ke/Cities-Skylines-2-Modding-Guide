@@ -56,7 +56,10 @@ public FileItem();
 - `public CompareTo(Game.UI.Editor.FileItem other) : System.Int32`  
 
 ```csharp
-public System.Int32 CompareTo(Game.UI.Editor.FileItem other);
+public int CompareTo(FileItem other)
+	{
+		return string.CompareOrdinal(path, other.path);
+	}
 ```
 
 

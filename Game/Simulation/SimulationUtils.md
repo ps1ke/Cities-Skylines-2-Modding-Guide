@@ -528,37 +528,60 @@ public static const System.Int32 RESEARCH_FACILITY_UPDATE_GROUP;
 - `public static GetUpdateFrame(System.UInt32 frame, System.Int32 updatesPerDay, System.Int32 groupCount) : System.UInt32`  
 
 ```csharp
-public static System.UInt32 GetUpdateFrame(System.UInt32 frame, System.Int32 updatesPerDay, System.Int32 groupCount);
+public static uint GetUpdateFrame(uint frame, int updatesPerDay, int groupCount)
+	{
+		return (uint)((frame / (262144 / (updatesPerDay * groupCount))) & (groupCount - 1));
+	}
 ```
 
 - `public static GetUpdateFrameRare(System.UInt32 frame, System.Int32 daysPerUpdate, System.Int32 groupCount) : System.UInt32`  
 
 ```csharp
-public static System.UInt32 GetUpdateFrameRare(System.UInt32 frame, System.Int32 daysPerUpdate, System.Int32 groupCount);
+public static uint GetUpdateFrameRare(uint frame, int daysPerUpdate, int groupCount)
+	{
+		return (uint)((frame / (daysPerUpdate * 262144 / groupCount)) & (groupCount - 1));
+	}
 ```
 
 - `public static GetUpdateFrameWithInterval(System.UInt32 frame, System.UInt32 interval, System.Int32 groupCount) : System.UInt32`  
 
 ```csharp
-public static System.UInt32 GetUpdateFrameWithInterval(System.UInt32 frame, System.UInt32 interval, System.Int32 groupCount);
+public static uint GetUpdateFrameWithInterval(uint frame, uint interval, int groupCount)
+	{
+		return (uint)((frame / interval) & (groupCount - 1));
+	}
 ```
 
 - `public static ResetFailedRequest(Game.Simulation.ServiceRequest& serviceRequest) : System.Void`  
 
 ```csharp
-public static System.Void ResetFailedRequest(Game.Simulation.ServiceRequest& serviceRequest);
+public static void ResetFailedRequest(ref ServiceRequest serviceRequest)
+	{
+		serviceRequest.m_FailCount = (byte)math.min(255, serviceRequest.m_FailCount + 1);
+		serviceRequest.m_Cooldown = (byte)((1 << math.min(8, serviceRequest.m_FailCount)) - 1);
+	}
 ```
 
 - `public static ResetReverseRequest(Game.Simulation.ServiceRequest& serviceRequest) : System.Void`  
 
 ```csharp
-public static System.Void ResetReverseRequest(Game.Simulation.ServiceRequest& serviceRequest);
+public static void ResetReverseRequest(ref ServiceRequest serviceRequest)
+	{
+		serviceRequest.m_FailCount = (byte)math.min(255, serviceRequest.m_FailCount + 1);
+		serviceRequest.m_Cooldown = (byte)math.max(4, (1 << math.min(8, serviceRequest.m_FailCount)) - 1);
+	}
 ```
 
 - `public static TickServiceRequest(Game.Simulation.ServiceRequest& serviceRequest) : System.Boolean`  
 
 ```csharp
-public static System.Boolean TickServiceRequest(Game.Simulation.ServiceRequest& serviceRequest);
+public static bool TickServiceRequest(ref ServiceRequest serviceRequest)
+	{
+		bool result = (serviceRequest.m_Cooldown == 0) | ((serviceRequest.m_Flags & ServiceRequestFlags.SkipCooldown) != 0);
+		serviceRequest.m_Cooldown = (byte)math.max(0, serviceRequest.m_Cooldown - 1);
+		serviceRequest.m_Flags &= ~ServiceRequestFlags.SkipCooldown;
+		return result;
+	}
 ```
 
 

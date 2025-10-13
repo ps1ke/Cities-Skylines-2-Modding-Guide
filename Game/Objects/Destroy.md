@@ -42,7 +42,11 @@ public Unity.Entities.Entity m_Event;
 - `public Destroy(Unity.Entities.Entity _object, Unity.Entities.Entity _event)`  
 
 ```csharp
-public Destroy(Unity.Entities.Entity _object, Unity.Entities.Entity _event);
+public Destroy(Entity _object, Entity _event)
+	{
+		m_Object = _object;
+		m_Event = _event;
+	}
 ```
 
 

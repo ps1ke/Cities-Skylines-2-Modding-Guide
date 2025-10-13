@@ -41,7 +41,14 @@ public System.Int32 m_SetupIndex;
 - `public Enqueue(Game.Pathfind.PathTarget pathTarget) : System.Void`  
 
 ```csharp
-public System.Void Enqueue(Game.Pathfind.PathTarget pathTarget);
+public void Enqueue(PathTarget pathTarget)
+	{
+		m_Queue.Enqueue(new PathfindSetupTarget
+		{
+			m_SetupIndex = m_SetupIndex,
+			m_PathTarget = pathTarget
+		});
+	}
 ```
 
 

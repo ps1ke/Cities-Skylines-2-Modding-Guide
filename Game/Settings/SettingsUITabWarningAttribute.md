@@ -50,7 +50,12 @@ public readonly System.String checkMethod;
 - `public SettingsUITabWarningAttribute(System.String tab, System.Type checkType, System.String checkMethod)`  
 
 ```csharp
-public SettingsUITabWarningAttribute(System.String tab, System.Type checkType, System.String checkMethod);
+public SettingsUITabWarningAttribute(string tab, Type checkType, string checkMethod)
+	{
+		this.tab = tab;
+		this.checkType = checkType;
+		this.checkMethod = checkMethod;
+	}
 ```
 
 

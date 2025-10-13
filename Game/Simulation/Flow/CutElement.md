@@ -115,13 +115,26 @@ public System.Boolean isDeleted { get; set; }
 - `private GetFlag(Game.Simulation.Flow.CutElementFlags flag) : System.Boolean`  
 
 ```csharp
-private System.Boolean GetFlag(Game.Simulation.Flow.CutElementFlags flag);
+private bool GetFlag(CutElementFlags flag)
+	{
+		return (m_Flags & flag) != 0;
+	}
 ```
 
 - `private SetFlag(Game.Simulation.Flow.CutElementFlags flag, System.Boolean value) : System.Void`  
 
 ```csharp
-private System.Void SetFlag(Game.Simulation.Flow.CutElementFlags flag, System.Boolean value);
+private void SetFlag(CutElementFlags flag, bool value)
+	{
+		if (value)
+		{
+			m_Flags |= flag;
+		}
+		else
+		{
+			m_Flags &= ~flag;
+		}
+	}
 ```
 
 

@@ -39,7 +39,10 @@ public Unity.Entities.Entity m_Tree;
 - `public WoodResource(Unity.Entities.Entity tree)`  
 
 ```csharp
-public WoodResource(Unity.Entities.Entity tree);
+public WoodResource(Entity tree)
+	{
+		m_Tree = tree;
+	}
 ```
 
 

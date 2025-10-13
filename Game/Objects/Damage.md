@@ -42,7 +42,11 @@ public Unity.Mathematics.float3 m_Delta;
 - `public Damage(Unity.Entities.Entity _object, Unity.Mathematics.float3 delta)`  
 
 ```csharp
-public Damage(Unity.Entities.Entity _object, Unity.Mathematics.float3 delta);
+public Damage(Entity _object, float3 delta)
+	{
+		m_Object = _object;
+		m_Delta = delta;
+	}
 ```
 
 

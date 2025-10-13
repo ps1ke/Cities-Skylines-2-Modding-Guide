@@ -85,13 +85,25 @@ public DirectoryPickerButton();
 - `public Invoke() : System.Void`  
 
 ```csharp
-public System.Void Invoke();
+public void Invoke()
+	{
+		action();
+	}
 ```
 
 - `protected virtual WriteProperties(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-protected virtual System.Void WriteProperties(Colossal.UI.Binding.IJsonWriter writer);
+protected override void WriteProperties(IJsonWriter writer)
+	{
+		base.WriteProperties(writer);
+		writer.PropertyName("selectedDirectory");
+		writer.Write(m_SelectedDirectory);
+		writer.PropertyName("displayValue");
+		writer.Write(displayValue);
+		writer.PropertyName("uiTag");
+		writer.Write(base.uiTag);
+	}
 ```
 
 

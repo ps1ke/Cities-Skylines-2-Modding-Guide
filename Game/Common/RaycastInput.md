@@ -103,7 +103,10 @@ public Game.Net.UtilityTypes m_UtilityTypeMask;
 - `public IsDisabled() : System.Boolean`  
 
 ```csharp
-public System.Boolean IsDisabled();
+public bool IsDisabled()
+	{
+		return (m_Flags & (RaycastFlags.DebugDisable | RaycastFlags.UIDisable | RaycastFlags.ToolDisable | RaycastFlags.FreeCameraDisable)) != 0;
+	}
 ```
 
 

@@ -109,7 +109,47 @@ public SecondaryLaneInfo();
 - `public GetFlags() : Game.Prefabs.SecondaryNetLaneFlags`  
 
 ```csharp
-public Game.Prefabs.SecondaryNetLaneFlags GetFlags();
+public SecondaryNetLaneFlags GetFlags()
+	{
+		SecondaryNetLaneFlags secondaryNetLaneFlags = (SecondaryNetLaneFlags)0;
+		if (m_RequireSafe)
+		{
+			secondaryNetLaneFlags |= SecondaryNetLaneFlags.RequireSafe;
+		}
+		if (m_RequireUnsafe)
+		{
+			secondaryNetLaneFlags |= SecondaryNetLaneFlags.RequireUnsafe;
+		}
+		if (m_RequireSingle)
+		{
+			secondaryNetLaneFlags |= SecondaryNetLaneFlags.RequireSingle;
+		}
+		if (m_RequireMultiple)
+		{
+			secondaryNetLaneFlags |= SecondaryNetLaneFlags.RequireMultiple;
+		}
+		if (m_RequireAllowPassing)
+		{
+			secondaryNetLaneFlags |= SecondaryNetLaneFlags.RequireAllowPassing;
+		}
+		if (m_RequireForbidPassing)
+		{
+			secondaryNetLaneFlags |= SecondaryNetLaneFlags.RequireForbidPassing;
+		}
+		if (m_RequireMerge)
+		{
+			secondaryNetLaneFlags |= SecondaryNetLaneFlags.RequireMerge;
+		}
+		if (m_RequireContinue)
+		{
+			secondaryNetLaneFlags |= SecondaryNetLaneFlags.RequireContinue;
+		}
+		if (m_RequireSafeMaster)
+		{
+			secondaryNetLaneFlags |= SecondaryNetLaneFlags.RequireSafeMaster;
+		}
+		return secondaryNetLaneFlags;
+	}
 ```
 
 

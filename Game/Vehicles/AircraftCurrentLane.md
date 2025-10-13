@@ -73,13 +73,29 @@ public System.Single m_LanePosition;
 - `public AircraftCurrentLane(Game.Vehicles.ParkedCar parkedCar, Game.Vehicles.AircraftLaneFlags flags)`  
 
 ```csharp
-public AircraftCurrentLane(Game.Vehicles.ParkedCar parkedCar, Game.Vehicles.AircraftLaneFlags flags);
+public AircraftCurrentLane(PathElement pathElement, AircraftLaneFlags laneFlags)
+	{
+		m_Lane = pathElement.m_Target;
+		m_CurvePosition = pathElement.m_TargetDelta.xxx;
+		m_LaneFlags = laneFlags;
+		m_Duration = 0f;
+		m_Distance = 0f;
+		m_LanePosition = 0f;
+	}
 ```
 
 - `public AircraftCurrentLane(Game.Pathfind.PathElement pathElement, Game.Vehicles.AircraftLaneFlags laneFlags)`  
 
 ```csharp
-public AircraftCurrentLane(Game.Pathfind.PathElement pathElement, Game.Vehicles.AircraftLaneFlags laneFlags);
+public AircraftCurrentLane(PathElement pathElement, AircraftLaneFlags laneFlags)
+	{
+		m_Lane = pathElement.m_Target;
+		m_CurvePosition = pathElement.m_TargetDelta.xxx;
+		m_LaneFlags = laneFlags;
+		m_Duration = 0f;
+		m_Distance = 0f;
+		m_LanePosition = 0f;
+	}
 ```
 
 

@@ -74,7 +74,10 @@ private Game.UI.InGame.VehicleLocaleKey vehicleKey { private get; private set; }
 - `public HealthcareVehicleSection()`  
 
 ```csharp
-public HealthcareVehicleSection();
+[Preserve]
+	public HealthcareVehicleSection()
+	{
+	}
 ```
 
 
@@ -83,31 +86,77 @@ public HealthcareVehicleSection();
 - `protected virtual OnProcess() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnProcess();
+protected override void OnProcess()
+	{
+		Game.Vehicles.Ambulance componentData = base.EntityManager.GetComponentData<Game.Vehicles.Ambulance>(selectedEntity);
+		patientEntity = componentData.m_TargetPatient;
+		base.stateKey = VehicleUIUtils.GetStateKey(selectedEntity, componentData, base.EntityManager);
+		vehicleKey = (base.EntityManager.HasComponent<HelicopterData>(selectedPrefab) ? VehicleLocaleKey.MedicalHelicopter : VehicleLocaleKey.Ambulance);
+		base.tooltipKeys.Add(vehicleKey.ToString());
+		base.OnProcess();
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		base.visible = Visible();
+	}
 ```
 
 - `public virtual OnWriteProperties(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-public virtual System.Void OnWriteProperties(Colossal.UI.Binding.IJsonWriter writer);
+public override void OnWriteProperties(IJsonWriter writer)
+	{
+		base.OnWriteProperties(writer);
+		writer.PropertyName("patient");
+		if (patientEntity == Entity.Null)
+		{
+			writer.WriteNull();
+		}
+		else
+		{
+			m_NameSystem.BindName(writer, patientEntity);
+		}
+		writer.PropertyName("patientEntity");
+		if (patientEntity == Entity.Null)
+		{
+			writer.WriteNull();
+		}
+		else
+		{
+			writer.Write(patientEntity);
+		}
+		writer.PropertyName("vehicleKey");
+		writer.Write(Enum.GetName(typeof(VehicleLocaleKey), vehicleKey));
+	}
 ```
 
 - `protected virtual Reset() : System.Void`  
 
 ```csharp
-protected virtual System.Void Reset();
+protected override void Reset()
+	{
+		base.Reset();
+		patientEntity = Entity.Null;
+	}
 ```
 
 - `private Visible() : System.Boolean`  
 
 ```csharp
-private System.Boolean Visible();
+private bool Visible()
+	{
+		if (base.EntityManager.HasComponent<Vehicle>(selectedEntity) && base.EntityManager.HasComponent<Game.Vehicles.Ambulance>(selectedEntity))
+		{
+			return base.EntityManager.HasComponent<Owner>(selectedEntity);
+		}
+		return false;
+	}
 ```
 
 

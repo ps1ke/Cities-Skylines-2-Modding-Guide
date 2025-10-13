@@ -123,7 +123,10 @@ public Game.Input.InputManager+DeviceType mask { get; internal set; }
 - `internal ProxyActionMap(UnityEngine.InputSystem.InputActionMap sourceMap)`  
 
 ```csharp
-internal ProxyActionMap(UnityEngine.InputSystem.InputActionMap sourceMap);
+internal ProxyActionMap(InputActionMap sourceMap)
+	{
+		m_SourceMap = sourceMap;
+	}
 ```
 
 
@@ -132,37 +135,91 @@ internal ProxyActionMap(UnityEngine.InputSystem.InputActionMap sourceMap);
 - `public AddAction(Game.Input.ProxyAction+Info actionInfo, System.Boolean bulk = False) : Game.Input.ProxyAction`  
 
 ```csharp
-public Game.Input.ProxyAction AddAction(Game.Input.ProxyAction+Info actionInfo, System.Boolean bulk);
+public ProxyAction AddAction(ProxyAction.Info actionInfo, bool bulk = false)
+	{
+		using (Colossal.PerformanceCounter.Start(delegate(TimeSpan t)
+		{
+			InputManager.log.InfoFormat("Action \"{1}\" added in {0}ms", t.TotalMilliseconds, actionInfo.m_Name);
+		}))
+		{
+			using (InputManager.DeferUpdating())
+			{
+				if (TryFindAction(actionInfo.m_Name, out var action))
+				{
+					return action;
+				}
+				InputAction inputAction = m_SourceMap.AddAction(actionInfo.m_Name, actionInfo.m_Type.GetInputActionType(), null, null, null, null, actionInfo.m_Type.GetExpectedControlLayout());
+				foreach (ProxyComposite.Info composite in actionInfo.m_Composites)
+				{
+					InputManager.instance.CreateCompositeBinding(inputAction, composite);
+				}
+				action = new ProxyAction(this, inputAction);
+				m_Actions.Add(action.name, action);
+				InputManager.instance.InitializeMasks(action);
+				return action;
+			}
+		}
+	}
 ```
 
 - `public FindAction(System.String name) : Game.Input.ProxyAction`  
 
 ```csharp
-public Game.Input.ProxyAction FindAction(System.String name);
+internal ProxyAction FindAction(InputAction action)
+	{
+		return FindAction(action.name);
+	}
 ```
 
 - `internal FindAction(UnityEngine.InputSystem.InputAction action) : Game.Input.ProxyAction`  
 
 ```csharp
-internal Game.Input.ProxyAction FindAction(UnityEngine.InputSystem.InputAction action);
+internal ProxyAction FindAction(InputAction action)
+	{
+		return FindAction(action.name);
+	}
 ```
 
 - `internal InitActions() : System.Void`  
 
 ```csharp
-internal System.Void InitActions();
+internal void InitActions()
+	{
+		foreach (InputAction action in sourceMap.actions)
+		{
+			ProxyAction proxyAction = new ProxyAction(this, action);
+			m_Actions.Add(proxyAction.name, proxyAction);
+		}
+		UpdateState();
+	}
 ```
 
 - `public TryFindAction(System.String name, Game.Input.ProxyAction& action) : System.Boolean`  
 
 ```csharp
-public System.Boolean TryFindAction(System.String name, Game.Input.ProxyAction& action);
+public bool TryFindAction(string name, out ProxyAction action)
+	{
+		return m_Actions.TryGetValue(name, out action);
+	}
 ```
 
 - `internal UpdateState() : System.Void`  
 
 ```csharp
-internal System.Void UpdateState();
+internal void UpdateState()
+	{
+		bool flag = m_Barriers.All((InputBarrier b) => !b.blocked);
+		if (flag == m_Enabled)
+		{
+			return;
+		}
+		m_Enabled = flag;
+		foreach (KeyValuePair<string, ProxyAction> action in m_Actions)
+		{
+			action.Deconstruct(out var _, out var value);
+			value.UpdateState();
+		}
+	}
 ```
 
 

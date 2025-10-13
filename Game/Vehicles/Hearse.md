@@ -58,7 +58,13 @@ public System.Single m_PathElementTime;
 - `public Hearse(Unity.Entities.Entity targetCorpse, Game.Vehicles.HearseFlags state)`  
 
 ```csharp
-public Hearse(Unity.Entities.Entity targetCorpse, Game.Vehicles.HearseFlags state);
+public Hearse(Entity targetCorpse, HearseFlags state)
+	{
+		m_State = state;
+		m_TargetCorpse = targetCorpse;
+		m_TargetRequest = Entity.Null;
+		m_PathElementTime = 0f;
+	}
 ```
 
 

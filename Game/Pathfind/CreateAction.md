@@ -36,7 +36,10 @@ public Unity.Collections.NativeArray<Game.Pathfind.CreateActionData> m_CreateDat
 - `public CreateAction(System.Int32 size, Unity.Collections.Allocator allocator)`  
 
 ```csharp
-public CreateAction(System.Int32 size, Unity.Collections.Allocator allocator);
+public CreateAction(int size, Allocator allocator)
+	{
+		m_CreateData = new NativeArray<CreateActionData>(size, allocator);
+	}
 ```
 
 
@@ -45,7 +48,10 @@ public CreateAction(System.Int32 size, Unity.Collections.Allocator allocator);
 - `public Dispose() : System.Void`  
 
 ```csharp
-public System.Void Dispose();
+public void Dispose()
+	{
+		m_CreateData.Dispose();
+	}
 ```
 
 

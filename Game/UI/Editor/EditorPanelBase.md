@@ -79,19 +79,27 @@ protected EditorPanelBase();
 - `public virtual OnCancel() : System.Boolean`  
 
 ```csharp
-public virtual System.Boolean OnCancel();
+public virtual bool OnCancel()
+	{
+		return OnClose();
+	}
 ```
 
 - `public virtual OnClose() : System.Boolean`  
 
 ```csharp
-public virtual System.Boolean OnClose();
+public virtual bool OnClose()
+	{
+		return true;
+	}
 ```
 
 - `public virtual OnValueChanged(Game.UI.Widgets.IWidget widget) : System.Void`  
 
 ```csharp
-public virtual System.Void OnValueChanged(Game.UI.Widgets.IWidget widget);
+public virtual void OnValueChanged(IWidget widget)
+	{
+	}
 ```
 
 

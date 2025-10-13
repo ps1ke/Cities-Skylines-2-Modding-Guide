@@ -54,7 +54,10 @@ private Game.Effects.CompleteEnabledSystem+TypeHandle __TypeHandle;
 - `public CompleteEnabledSystem()`  
 
 ```csharp
-public CompleteEnabledSystem();
+[Preserve]
+	public CompleteEnabledSystem()
+	{
+	}
 ```
 
 
@@ -63,25 +66,52 @@ public CompleteEnabledSystem();
 - `private __AssignQueries(Unity.Entities.SystemState& state) : System.Void`  
 
 ```csharp
-private System.Void __AssignQueries(Unity.Entities.SystemState& state);
+private void __AssignQueries(ref SystemState state)
+	{
+		new EntityQueryBuilder(Allocator.Temp).Dispose();
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_EffectControlSystem = base.World.GetOrCreateSystemManaged<EffectControlSystem>();
+		m_VFXSystem = base.World.GetOrCreateSystemManaged<VFXSystem>();
+	}
 ```
 
 - `protected virtual OnCreateForCompiler() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreateForCompiler();
+protected override void OnCreateForCompiler()
+	{
+		base.OnCreateForCompiler();
+		__AssignQueries(ref base.CheckedStateRef);
+		__TypeHandle.__AssignHandles(ref base.CheckedStateRef);
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		JobHandle dependencies;
+		JobHandle jobHandle = IJobExtensions.Schedule(new EffectCleanupJob
+		{
+			m_EffectOwners = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Effects_EnabledEffect_RW_BufferLookup, ref base.CheckedStateRef),
+			m_EnabledData = m_EffectControlSystem.GetEnabledData(readOnly: false, out dependencies),
+			m_VFXUpdateQueue = m_VFXSystem.GetSourceUpdateData()
+		}, JobHandle.CombineDependencies(base.Dependency, dependencies));
+		m_EffectControlSystem.AddEnabledDataWriter(jobHandle);
+		m_VFXSystem.AddSourceUpdateWriter(jobHandle);
+		base.Dependency = jobHandle;
+	}
 ```
 
 

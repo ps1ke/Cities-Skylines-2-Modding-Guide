@@ -37,7 +37,10 @@ public Unity.Entities.Entity m_CurrentBuilding;
 - `public CurrentBuilding(Unity.Entities.Entity building)`  
 
 ```csharp
-public CurrentBuilding(Unity.Entities.Entity building);
+public CurrentBuilding(Entity building)
+	{
+		m_CurrentBuilding = building;
+	}
 ```
 
 

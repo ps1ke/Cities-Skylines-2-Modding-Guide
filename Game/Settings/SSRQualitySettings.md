@@ -114,13 +114,21 @@ private static Game.Settings.SSRQualitySettings disabled { private get; }
 - `public SSRQualitySettings()`  
 
 ```csharp
-public SSRQualitySettings();
+public SSRQualitySettings(Level quality, VolumeProfile profile)
+	{
+		CreateVolumeComponent(profile, ref m_SSRComponent);
+		SetLevel(quality, apply: false);
+	}
 ```
 
 - `public SSRQualitySettings(Game.Settings.QualitySetting+Level quality, UnityEngine.Rendering.VolumeProfile profile)`  
 
 ```csharp
-public SSRQualitySettings(Game.Settings.QualitySetting+Level quality, UnityEngine.Rendering.VolumeProfile profile);
+public SSRQualitySettings(Level quality, VolumeProfile profile)
+	{
+		CreateVolumeComponent(profile, ref m_SSRComponent);
+		SetLevel(quality, apply: false);
+	}
 ```
 
 
@@ -129,13 +137,29 @@ public SSRQualitySettings(Game.Settings.QualitySetting+Level quality, UnityEngin
 - `public virtual Apply() : System.Void`  
 
 ```csharp
-public virtual System.Void Apply();
+public override void Apply()
+	{
+		base.Apply();
+		if (m_SSRComponent != null)
+		{
+			ApplyState(m_SSRComponent.enabled, enabled);
+			ApplyState(m_SSRComponent.enabledTransparent, enabled && enabledTransparent);
+			ApplyState(m_SSRComponent.m_RayMaxIterations, maxRaySteps);
+		}
+	}
 ```
 
 - `public virtual IsOptionsDisabled() : System.Boolean`  
 
 ```csharp
-public virtual System.Boolean IsOptionsDisabled();
+public override bool IsOptionsDisabled()
+	{
+		if (!IsOptionFullyDisabled())
+		{
+			return !enabled;
+		}
+		return true;
+	}
 ```
 
 

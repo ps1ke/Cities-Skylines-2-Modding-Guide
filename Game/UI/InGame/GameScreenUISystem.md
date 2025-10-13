@@ -80,7 +80,10 @@ public System.Boolean isMenuActive { get; }
 - `public GameScreenUISystem()`  
 
 ```csharp
-public GameScreenUISystem();
+[Preserve]
+	public GameScreenUISystem()
+	{
+	}
 ```
 
 
@@ -89,37 +92,80 @@ public GameScreenUISystem();
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		AddBinding(m_ActiveScreenBinding = new ValueBinding<GameScreen>("game", "activeScreen", GameScreen.Main, new EnumWriter<GameScreen>()));
+		AddBinding(new TriggerBinding<GameScreen>("game", "setActiveScreen", SetScreen, new EnumReader<GameScreen>()));
+		AddBinding(m_CanUseSaveSystem = new ValueBinding<bool>("game", "canUseSaveSystem", initialValue: true));
+		GameManager.instance.onGameSaveLoad += SaveLoadInProgress;
+	}
 ```
 
 - `protected virtual OnDestroy() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnDestroy();
+[Preserve]
+	protected override void OnDestroy()
+	{
+		GameManager.instance.onGameSaveLoad -= SaveLoadInProgress;
+		base.OnDestroy();
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+	}
 ```
 
 - `public PreDeserialize(Colossal.Serialization.Entities.Context context) : System.Void`  
 
 ```csharp
-public System.Void PreDeserialize(Colossal.Serialization.Entities.Context context);
+public void PreDeserialize(Context context)
+	{
+		SetScreen(GameScreen.Main);
+	}
 ```
 
 - `private SaveLoadInProgress(System.String name, System.Boolean start) : System.Void`  
 
 ```csharp
-private System.Void SaveLoadInProgress(System.String name, System.Boolean start);
+private void SaveLoadInProgress(string name, bool start)
+	{
+		if (start)
+		{
+			string identifier = "SavingGame" + name;
+			LocalizedString? text = LocalizedString.Value(name);
+			ProgressState? progressState = ProgressState.Indeterminate;
+			NotificationSystem.Push(identifier, null, text, "SavingGame", null, null, progressState);
+		}
+		else
+		{
+			string identifier2 = "SavingGame" + name;
+			LocalizedString? text = LocalizedString.Value(name);
+			ProgressState? progressState = ProgressState.Complete;
+			NotificationSystem.Pop(identifier2, 1f, null, text, "SavingGame", null, null, progressState);
+		}
+		m_CanUseSaveSystem.Update(!start);
+	}
 ```
 
 - `public SetScreen(Game.UI.InGame.GameScreenUISystem+GameScreen screen) : System.Void`  
 
 ```csharp
-public System.Void SetScreen(Game.UI.InGame.GameScreenUISystem+GameScreen screen);
+public void SetScreen(GameScreen screen)
+	{
+		InputManager.instance.hideCursor = screen == GameScreen.FreeCamera;
+		InputManager instance = InputManager.instance;
+		CursorLockMode cursorLockMode = (((uint)screen <= 1u) ? SharedSettings.instance.graphics.cursorMode.ToUnityCursorMode() : CursorLockMode.None);
+		instance.cursorLockMode = cursorLockMode;
+		m_ActiveScreenBinding.Update(screen);
+	}
 ```
 
 

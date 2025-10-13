@@ -69,7 +69,10 @@ public System.String propertiesTypeName { get; }
 - `public ValueField(UnityEngine.Rendering.DebugUI+Value debugWidget)`  
 
 ```csharp
-public ValueField(UnityEngine.Rendering.DebugUI+Value debugWidget);
+public ValueField(DebugUI.Value debugWidget)
+	{
+		m_DebugWidget = debugWidget;
+	}
 ```
 
 
@@ -78,13 +81,30 @@ public ValueField(UnityEngine.Rendering.DebugUI+Value debugWidget);
 - `public virtual GetValue() : System.String`  
 
 ```csharp
-public virtual System.String GetValue();
+public override string GetValue()
+	{
+		return m_StringValue ?? string.Empty;
+	}
 ```
 
 - `protected virtual Update() : Game.UI.Widgets.WidgetChanges`  
 
 ```csharp
-protected virtual Game.UI.Widgets.WidgetChanges Update();
+protected override WidgetChanges Update()
+	{
+		m_Timer -= Time.deltaTime;
+		if (m_Timer <= 0f)
+		{
+			m_Timer = m_DebugWidget.refreshRate;
+			object value = m_DebugWidget.GetValue();
+			if (!object.Equals(value, m_ObjectValue))
+			{
+				m_ObjectValue = value;
+				m_StringValue = m_DebugWidget.FormatString(m_ObjectValue);
+			}
+		}
+		return base.Update();
+	}
 ```
 
 

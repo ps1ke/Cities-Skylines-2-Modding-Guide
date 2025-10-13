@@ -51,7 +51,12 @@ public Game.Simulation.FireRescueRequestType m_Type;
 - `public FireRescueRequest(Unity.Entities.Entity target, System.Single priority, Game.Simulation.FireRescueRequestType type)`  
 
 ```csharp
-public FireRescueRequest(Unity.Entities.Entity target, System.Single priority, Game.Simulation.FireRescueRequestType type);
+public FireRescueRequest(Entity target, float priority, FireRescueRequestType type)
+	{
+		m_Target = target;
+		m_Priority = priority;
+		m_Type = type;
+	}
 ```
 
 

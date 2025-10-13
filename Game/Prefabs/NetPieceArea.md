@@ -64,7 +64,10 @@ public System.Single m_SnapWidth;
 - `public CompareTo(Game.Prefabs.NetPieceArea other) : System.Int32`  
 
 ```csharp
-public System.Int32 CompareTo(Game.Prefabs.NetPieceArea other);
+public int CompareTo(NetPieceArea other)
+	{
+		return math.select(0, math.select(-1, 1, m_Position.x > other.m_Position.x), m_Position.x != other.m_Position.x);
+	}
 ```
 
 

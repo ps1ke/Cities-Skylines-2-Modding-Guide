@@ -36,7 +36,10 @@ public readonly System.String icon;
 - `public SettingsUIMultilineTextAttribute(System.String icon = null)`  
 
 ```csharp
-public SettingsUIMultilineTextAttribute(System.String icon);
+public SettingsUIMultilineTextAttribute(string icon = null)
+	{
+		this.icon = icon;
+	}
 ```
 
 

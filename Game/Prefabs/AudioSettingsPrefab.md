@@ -118,13 +118,49 @@ public AudioSettingsPrefab();
 - `public virtual GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetPrefabComponents(HashSet<ComponentType> components)
+	{
+		base.GetPrefabComponents(components);
+		components.Add(ComponentType.ReadWrite<AmbientAudioSettingsData>());
+		components.Add(ComponentType.ReadWrite<AmbientAudioEffect>());
+		components.Add(ComponentType.ReadWrite<CullingAudioSettingsData>());
+	}
 ```
 
 - `public virtual LateInitialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity) : System.Void`  
 
 ```csharp
-public virtual System.Void LateInitialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity);
+public override void LateInitialize(EntityManager entityManager, Entity entity)
+	{
+		base.LateInitialize(entityManager, entity);
+		DynamicBuffer<AmbientAudioEffect> buffer = entityManager.GetBuffer<AmbientAudioEffect>(entity);
+		PrefabSystem orCreateSystemManaged = entityManager.World.GetOrCreateSystemManaged<PrefabSystem>();
+		for (int i = 0; i < m_Effects.Length; i++)
+		{
+			buffer.Add(new AmbientAudioEffect
+			{
+				m_Effect = orCreateSystemManaged.GetEntity(m_Effects[i])
+			});
+		}
+		AmbientAudioSettingsData componentData = new AmbientAudioSettingsData
+		{
+			m_MaxHeight = m_MaxHeight,
+			m_MinDistanceRatio = m_MinDistanceRatio,
+			m_MinHeight = m_MinHeight,
+			m_OverlapRatio = m_OverlapRatio
+		};
+		entityManager.SetComponentData(entity, componentData);
+		CullingAudioSettingsData componentData2 = new CullingAudioSettingsData
+		{
+			m_FireCullMaxAmount = m_FireCullMaxAmount,
+			m_FireCullMaxDistance = m_FireCullMaxDistance,
+			m_CarEngineCullMaxAmount = m_CarEngineCullMaxAmount,
+			m_CarEngineCullMaxDistance = m_CarEngineCullMaxDistance,
+			m_PublicTransCullMaxAmount = m_PublicTransCullMaxAmount,
+			m_PublicTransCullMaxDistance = m_PublicTransCullMaxDistance
+		};
+		entityManager.SetComponentData(entity, componentData2);
+	}
 ```
 
 

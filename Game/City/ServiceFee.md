@@ -49,7 +49,20 @@ public System.Void Deserialize<TReader>(TReader reader);
 - `public GetDefaultFee(Game.City.PlayerResource resource) : System.Single`  
 
 ```csharp
-public System.Single GetDefaultFee(Game.City.PlayerResource resource);
+public float GetDefaultFee(PlayerResource resource)
+	{
+		return resource switch
+		{
+			PlayerResource.BasicEducation => 100f, 
+			PlayerResource.SecondaryEducation => 200f, 
+			PlayerResource.HigherEducation => 300f, 
+			PlayerResource.Healthcare => 100f, 
+			PlayerResource.Garbage => 0.1f, 
+			PlayerResource.Electricity => 0.2f, 
+			PlayerResource.Water => 0.1f, 
+			_ => 0f, 
+		};
+	}
 ```
 
 - `public Serialize<TWriter>(TWriter writer) : System.Void`  

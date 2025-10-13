@@ -49,7 +49,12 @@ public System.Byte m_Value1;
 - `public EdgeColor(System.Byte index, System.Byte value0, System.Byte value1)`  
 
 ```csharp
-public EdgeColor(System.Byte index, System.Byte value0, System.Byte value1);
+public EdgeColor(byte index, byte value0, byte value1)
+	{
+		m_Index = index;
+		m_Value0 = value0;
+		m_Value1 = value1;
+	}
 ```
 
 

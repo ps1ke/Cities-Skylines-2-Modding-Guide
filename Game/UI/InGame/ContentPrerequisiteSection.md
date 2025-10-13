@@ -85,7 +85,10 @@ protected System.String group { protected get; }
 - `public ContentPrerequisiteSection()`  
 
 ```csharp
-public ContentPrerequisiteSection();
+[Preserve]
+	public ContentPrerequisiteSection()
+	{
+	}
 ```
 
 
@@ -94,25 +97,42 @@ public ContentPrerequisiteSection();
 - `protected virtual OnProcess() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnProcess();
+protected override void OnProcess()
+	{
+		if (base.EntityManager.TryGetComponent<ContentPrerequisiteData>(selectedPrefab, out var component))
+		{
+			contentPrefab = m_PrefabSystem.GetPrefabName(component.m_ContentPrerequisite);
+		}
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		base.visible = base.EntityManager.TryGetComponent<ContentPrerequisiteData>(selectedPrefab, out var component) && !base.EntityManager.HasEnabledComponent<PrefabData>(component.m_ContentPrerequisite);
+	}
 ```
 
 - `public virtual OnWriteProperties(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-public virtual System.Void OnWriteProperties(Colossal.UI.Binding.IJsonWriter writer);
+public override void OnWriteProperties(IJsonWriter writer)
+	{
+		writer.PropertyName("contentPrefab");
+		writer.Write(contentPrefab);
+	}
 ```
 
 - `protected virtual Reset() : System.Void`  
 
 ```csharp
-protected virtual System.Void Reset();
+protected override void Reset()
+	{
+		contentPrefab = string.Empty;
+	}
 ```
 
 

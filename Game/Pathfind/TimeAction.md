@@ -36,7 +36,10 @@ public Unity.Collections.NativeQueue<Game.Pathfind.TimeActionData> m_TimeData;
 - `public TimeAction(Unity.Collections.Allocator allocator)`  
 
 ```csharp
-public TimeAction(Unity.Collections.Allocator allocator);
+public TimeAction(Allocator allocator)
+	{
+		m_TimeData = new NativeQueue<TimeActionData>(allocator);
+	}
 ```
 
 
@@ -45,7 +48,10 @@ public TimeAction(Unity.Collections.Allocator allocator);
 - `public Dispose() : System.Void`  
 
 ```csharp
-public System.Void Dispose();
+public void Dispose()
+	{
+		m_TimeData.Dispose();
+	}
 ```
 
 

@@ -39,7 +39,10 @@ public Unity.Entities.Entity m_Building;
 - `public ConnectedBuilding(Unity.Entities.Entity building)`  
 
 ```csharp
-public ConnectedBuilding(Unity.Entities.Entity building);
+public ConnectedBuilding(Entity building)
+	{
+		m_Building = building;
+	}
 ```
 
 
@@ -48,13 +51,19 @@ public ConnectedBuilding(Unity.Entities.Entity building);
 - `public Equals(Game.Buildings.ConnectedBuilding other) : System.Boolean`  
 
 ```csharp
-public System.Boolean Equals(Game.Buildings.ConnectedBuilding other);
+public bool Equals(ConnectedBuilding other)
+	{
+		return m_Building.Equals(other.m_Building);
+	}
 ```
 
 - `public virtual GetHashCode() : System.Int32`  
 
 ```csharp
-public virtual System.Int32 GetHashCode();
+public override int GetHashCode()
+	{
+		return m_Building.GetHashCode();
+	}
 ```
 
 

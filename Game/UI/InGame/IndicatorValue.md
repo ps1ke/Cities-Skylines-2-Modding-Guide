@@ -81,7 +81,12 @@ public System.Single current { get; }
 - `public IndicatorValue(System.Single min, System.Single max, System.Single current)`  
 
 ```csharp
-public IndicatorValue(System.Single min, System.Single max, System.Single current);
+public IndicatorValue(float min, float max, float current)
+	{
+		this.min = min;
+		this.max = max;
+		this.current = math.clamp(current, min, max);
+	}
 ```
 
 
@@ -90,31 +95,62 @@ public IndicatorValue(System.Single min, System.Single max, System.Single curren
 - `public static Calculate(System.Single supply, System.Single demand, System.Single minRangeFactor = -1, System.Single maxRangeFactor = 1) : Game.UI.InGame.IndicatorValue`  
 
 ```csharp
-public static Game.UI.InGame.IndicatorValue Calculate(System.Single supply, System.Single demand, System.Single minRangeFactor, System.Single maxRangeFactor);
+public static IndicatorValue Calculate(float supply, float demand, float minRangeFactor = -1f, float maxRangeFactor = 1f)
+	{
+		float num = ((supply > float.Epsilon) ? math.clamp((supply - demand) / supply, minRangeFactor, maxRangeFactor) : minRangeFactor);
+		return new IndicatorValue(minRangeFactor, maxRangeFactor, num);
+	}
 ```
 
 - `public Equals(Game.UI.InGame.IndicatorValue other) : System.Boolean`  
 
 ```csharp
-public System.Boolean Equals(Game.UI.InGame.IndicatorValue other);
+public override bool Equals(object obj)
+	{
+		if (obj is IndicatorValue indicatorValue)
+		{
+			return indicatorValue.Equals(this);
+		}
+		return false;
+	}
 ```
 
 - `public virtual Equals(System.Object obj) : System.Boolean`  
 
 ```csharp
-public virtual System.Boolean Equals(System.Object obj);
+public override bool Equals(object obj)
+	{
+		if (obj is IndicatorValue indicatorValue)
+		{
+			return indicatorValue.Equals(this);
+		}
+		return false;
+	}
 ```
 
 - `public virtual GetHashCode() : System.Int32`  
 
 ```csharp
-public virtual System.Int32 GetHashCode();
+public override int GetHashCode()
+	{
+		return (min, max, current).GetHashCode();
+	}
 ```
 
 - `public Write(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-public System.Void Write(Colossal.UI.Binding.IJsonWriter writer);
+public void Write(IJsonWriter writer)
+	{
+		writer.TypeBegin(GetType().Name);
+		writer.PropertyName("min");
+		writer.Write(min);
+		writer.PropertyName("max");
+		writer.Write(max);
+		writer.PropertyName("current");
+		writer.Write(current);
+		writer.TypeEnd();
+	}
 ```
 
 

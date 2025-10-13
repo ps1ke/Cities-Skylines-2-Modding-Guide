@@ -54,7 +54,10 @@ private Game.Areas.ServiceDistrictSystem+TypeHandle __TypeHandle;
 - `public ServiceDistrictSystem()`  
 
 ```csharp
-public ServiceDistrictSystem();
+[Preserve]
+	public ServiceDistrictSystem()
+	{
+	}
 ```
 
 
@@ -63,25 +66,53 @@ public ServiceDistrictSystem();
 - `private __AssignQueries(Unity.Entities.SystemState& state) : System.Void`  
 
 ```csharp
-private System.Void __AssignQueries(Unity.Entities.SystemState& state);
+private void __AssignQueries(ref SystemState state)
+	{
+		new EntityQueryBuilder(Allocator.Temp).Dispose();
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_DeletedDistrictQuery = GetEntityQuery(ComponentType.ReadOnly<Deleted>(), ComponentType.ReadOnly<District>(), ComponentType.Exclude<Temp>());
+		m_ServiceDistrictQuery = GetEntityQuery(ComponentType.ReadOnly<ServiceDistrict>(), ComponentType.Exclude<Deleted>());
+		RequireForUpdate(m_DeletedDistrictQuery);
+		RequireForUpdate(m_ServiceDistrictQuery);
+	}
 ```
 
 - `protected virtual OnCreateForCompiler() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreateForCompiler();
+protected override void OnCreateForCompiler()
+	{
+		base.OnCreateForCompiler();
+		__AssignQueries(ref base.CheckedStateRef);
+		__TypeHandle.__AssignHandles(ref base.CheckedStateRef);
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		JobHandle outJobHandle;
+		NativeList<Entity> deletedDistricts = m_DeletedDistrictQuery.ToEntityListAsync(Allocator.TempJob, out outJobHandle);
+		JobHandle jobHandle = JobChunkExtensions.ScheduleParallel(new RemoveServiceDistrictsJob
+		{
+			m_DeletedDistricts = deletedDistricts,
+			m_ServiceDistrictType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Areas_ServiceDistrict_RW_BufferTypeHandle, ref base.CheckedStateRef)
+		}, m_ServiceDistrictQuery, JobHandle.CombineDependencies(base.Dependency, outJobHandle));
+		deletedDistricts.Dispose(jobHandle);
+		base.Dependency = jobHandle;
+	}
 ```
 
 

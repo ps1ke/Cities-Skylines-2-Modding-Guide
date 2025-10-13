@@ -63,19 +63,44 @@ public DeliveryTruck();
 - `public virtual GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetArchetypeComponents(HashSet<ComponentType> components)
+	{
+		components.Add(ComponentType.ReadWrite<Game.Vehicles.DeliveryTruck>());
+		if (base.prefab is CarPrefab)
+		{
+			components.Add(ComponentType.ReadWrite<PathInformation>());
+		}
+	}
 ```
 
 - `public virtual GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetPrefabComponents(HashSet<ComponentType> components)
+	{
+		components.Add(ComponentType.ReadWrite<DeliveryTruckData>());
+	}
 ```
 
 - `public virtual Initialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity) : System.Void`  
 
 ```csharp
-public virtual System.Void Initialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity);
+public override void Initialize(EntityManager entityManager, Entity entity)
+	{
+		DeliveryTruckData componentData = new DeliveryTruckData
+		{
+			m_CargoCapacity = m_CargoCapacity,
+			m_CostToDrive = m_CostToDrive
+		};
+		if (m_TransportedResources != null)
+		{
+			for (int i = 0; i < m_TransportedResources.Length; i++)
+			{
+				componentData.m_TransportedResources |= EconomyUtils.GetResource(m_TransportedResources[i]);
+			}
+		}
+		entityManager.SetComponentData(entity, componentData);
+	}
 ```
 
 

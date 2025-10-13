@@ -49,7 +49,10 @@ public System.Void Deserialize<TReader>(TReader reader);
 - `public GetStride(Colossal.Serialization.Entities.Context context) : System.Int32`  
 
 ```csharp
-public System.Int32 GetStride(Colossal.Serialization.Entities.Context context);
+public int GetStride(Context context)
+	{
+		return 4;
+	}
 ```
 
 - `public Serialize<TWriter>(TWriter writer) : System.Void`  

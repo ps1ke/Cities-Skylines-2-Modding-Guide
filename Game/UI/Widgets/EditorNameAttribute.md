@@ -45,7 +45,10 @@ public System.String displayName { get; private set; }
 - `public EditorNameAttribute(System.String displayName)`  
 
 ```csharp
-public EditorNameAttribute(System.String displayName);
+public EditorNameAttribute(string displayName)
+	{
+		this.displayName = displayName;
+	}
 ```
 
 

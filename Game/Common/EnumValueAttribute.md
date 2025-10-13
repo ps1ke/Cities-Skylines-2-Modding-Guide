@@ -34,7 +34,10 @@ public System.String[] names;
 - `public EnumValueAttribute(System.Type type)`  
 
 ```csharp
-public EnumValueAttribute(System.Type type);
+public EnumValueAttribute(Type type)
+	{
+		names = Enum.GetNames(type);
+	}
 ```
 
 

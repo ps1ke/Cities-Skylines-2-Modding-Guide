@@ -36,7 +36,10 @@ public Unity.Entities.Entity m_Student;
 - `public Student(Unity.Entities.Entity student)`  
 
 ```csharp
-public Student(Unity.Entities.Entity student);
+public Student(Entity student)
+	{
+		m_Student = student;
+	}
 ```
 
 
@@ -45,7 +48,10 @@ public Student(Unity.Entities.Entity student);
 - `public Equals(Game.Buildings.Student other) : System.Boolean`  
 
 ```csharp
-public System.Boolean Equals(Game.Buildings.Student other);
+public bool Equals(Student other)
+	{
+		return m_Student.Equals(other.m_Student);
+	}
 ```
 
 

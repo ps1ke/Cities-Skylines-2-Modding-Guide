@@ -65,13 +65,38 @@ public System.Single m_TelecomNeed;
 - `public AddArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public System.Void AddArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public void AddArchetypeComponents(HashSet<ComponentType> components)
+	{
+		if (m_ElectricityConsumption > 0f)
+		{
+			components.Add(ComponentType.ReadWrite<ElectricityConsumer>());
+		}
+		if (m_WaterConsumption > 0f)
+		{
+			components.Add(ComponentType.ReadWrite<WaterConsumer>());
+		}
+		if (m_GarbageAccumulation > 0f)
+		{
+			components.Add(ComponentType.ReadWrite<GarbageProducer>());
+		}
+		if (m_TelecomNeed > 0f)
+		{
+			components.Add(ComponentType.ReadWrite<TelecomConsumer>());
+		}
+	}
 ```
 
 - `public Combine(Game.Prefabs.ConsumptionData otherData) : System.Void`  
 
 ```csharp
-public System.Void Combine(Game.Prefabs.ConsumptionData otherData);
+public void Combine(ConsumptionData otherData)
+	{
+		m_Upkeep += otherData.m_Upkeep;
+		m_ElectricityConsumption += otherData.m_ElectricityConsumption;
+		m_WaterConsumption += otherData.m_WaterConsumption;
+		m_GarbageAccumulation += otherData.m_GarbageAccumulation;
+		m_TelecomNeed = math.max(m_TelecomNeed, otherData.m_TelecomNeed);
+	}
 ```
 
 - `public Deserialize<TReader>(TReader reader) : System.Void`  

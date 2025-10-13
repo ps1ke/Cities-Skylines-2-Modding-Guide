@@ -51,7 +51,12 @@ public Unity.Entities.Entity m_Original;
 - `public WaypointDefinition(Unity.Mathematics.float3 position)`  
 
 ```csharp
-public WaypointDefinition(Unity.Mathematics.float3 position);
+public WaypointDefinition(float3 position)
+	{
+		m_Position = position;
+		m_Connection = Entity.Null;
+		m_Original = Entity.Null;
+	}
 ```
 
 

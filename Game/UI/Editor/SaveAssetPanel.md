@@ -75,19 +75,32 @@ private System.Boolean <.ctor>b__4_1();
 - `private OnConfirm() : System.Void`  
 
 ```csharp
-private System.Void OnConfirm();
+private void OnConfirm()
+	{
+		m_ConfirmCallback(m_FileName, m_Adapter.selectedItem?.guid);
+	}
 ```
 
 - `private OnMapSelected(Game.UI.Editor.AssetItem item) : System.Void`  
 
 ```csharp
-private System.Void OnMapSelected(Game.UI.Editor.AssetItem item);
+private void OnMapSelected(AssetItem item)
+	{
+		if (!item.fileName.Equals(m_FileName, StringComparison.OrdinalIgnoreCase))
+		{
+			m_FileName = item.fileName;
+		}
+	}
 ```
 
 - `private OnNameChange(System.String value) : System.Void`  
 
 ```csharp
-private System.Void OnNameChange(System.String value);
+private void OnNameChange(string value)
+	{
+		m_Adapter.SelectItemByName(value, StringComparison.OrdinalIgnoreCase);
+		m_FileName = value;
+	}
 ```
 
 

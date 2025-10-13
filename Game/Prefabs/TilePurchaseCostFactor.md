@@ -35,7 +35,10 @@ public System.Single m_Amount;
 - `public TilePurchaseCostFactor(System.Single amount)`  
 
 ```csharp
-public TilePurchaseCostFactor(System.Single amount);
+public TilePurchaseCostFactor(float amount)
+	{
+		m_Amount = amount;
+	}
 ```
 
 

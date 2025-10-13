@@ -44,7 +44,11 @@ public System.Single m_Severity;
 - `public FacingWeather(Unity.Entities.Entity _event, System.Single severity)`  
 
 ```csharp
-public FacingWeather(Unity.Entities.Entity _event, System.Single severity);
+public FacingWeather(Entity _event, float severity)
+	{
+		m_Event = _event;
+		m_Severity = severity;
+	}
 ```
 
 

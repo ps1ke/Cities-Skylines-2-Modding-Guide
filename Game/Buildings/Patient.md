@@ -39,7 +39,10 @@ public Unity.Entities.Entity m_Patient;
 - `public Patient(Unity.Entities.Entity patient)`  
 
 ```csharp
-public Patient(Unity.Entities.Entity patient);
+public Patient(Entity patient)
+	{
+		m_Patient = patient;
+	}
 ```
 
 
@@ -54,13 +57,19 @@ public System.Void Deserialize<TReader>(TReader reader);
 - `public Equals(Game.Buildings.Patient other) : System.Boolean`  
 
 ```csharp
-public System.Boolean Equals(Game.Buildings.Patient other);
+public bool Equals(Patient other)
+	{
+		return m_Patient.Equals(other.m_Patient);
+	}
 ```
 
 - `public virtual GetHashCode() : System.Int32`  
 
 ```csharp
-public virtual System.Int32 GetHashCode();
+public override int GetHashCode()
+	{
+		return m_Patient.GetHashCode();
+	}
 ```
 
 - `public Serialize<TWriter>(TWriter writer) : System.Void`  

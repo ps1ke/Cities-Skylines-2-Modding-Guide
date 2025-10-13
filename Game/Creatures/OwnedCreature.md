@@ -39,7 +39,10 @@ public Unity.Entities.Entity m_Creature;
 - `public OwnedCreature(Unity.Entities.Entity creature)`  
 
 ```csharp
-public OwnedCreature(Unity.Entities.Entity creature);
+public OwnedCreature(Entity creature)
+	{
+		m_Creature = creature;
+	}
 ```
 
 
@@ -48,13 +51,19 @@ public OwnedCreature(Unity.Entities.Entity creature);
 - `public Equals(Game.Creatures.OwnedCreature other) : System.Boolean`  
 
 ```csharp
-public System.Boolean Equals(Game.Creatures.OwnedCreature other);
+public bool Equals(OwnedCreature other)
+	{
+		return m_Creature.Equals(other.m_Creature);
+	}
 ```
 
 - `public virtual GetHashCode() : System.Int32`  
 
 ```csharp
-public virtual System.Int32 GetHashCode();
+public override int GetHashCode()
+	{
+		return m_Creature.GetHashCode();
+	}
 ```
 
 

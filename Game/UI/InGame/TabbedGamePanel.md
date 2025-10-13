@@ -57,13 +57,29 @@ protected TabbedGamePanel();
 - `protected virtual BindProperties(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-protected virtual System.Void BindProperties(Colossal.UI.Binding.IJsonWriter writer);
+protected override void BindProperties(IJsonWriter writer)
+	{
+		base.BindProperties(writer);
+		writer.PropertyName("selectedTab");
+		writer.Write(selectedTab);
+	}
 ```
 
 - `public Equals(Game.UI.InGame.TabbedGamePanel other) : System.Boolean`  
 
 ```csharp
-public System.Boolean Equals(Game.UI.InGame.TabbedGamePanel other);
+public bool Equals(TabbedGamePanel other)
+	{
+		if (other == null)
+		{
+			return false;
+		}
+		if (this != other)
+		{
+			return selectedTab.Equals(other.selectedTab);
+		}
+		return true;
+	}
 ```
 
 

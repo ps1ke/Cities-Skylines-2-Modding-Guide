@@ -96,7 +96,10 @@ private Game.Routes.SearchSystem+TypeHandle __TypeHandle;
 - `public SearchSystem()`  
 
 ```csharp
-public SearchSystem();
+[Preserve]
+	public SearchSystem()
+	{
+	}
 ```
 
 
@@ -105,61 +108,188 @@ public SearchSystem();
 - `private __AssignQueries(Unity.Entities.SystemState& state) : System.Void`  
 
 ```csharp
-private System.Void __AssignQueries(Unity.Entities.SystemState& state);
+private void __AssignQueries(ref SystemState state)
+	{
+		new EntityQueryBuilder(Allocator.Temp).Dispose();
+	}
 ```
 
 - `public AddSearchTreeReader(Unity.Jobs.JobHandle jobHandle) : System.Void`  
 
 ```csharp
-public System.Void AddSearchTreeReader(Unity.Jobs.JobHandle jobHandle);
+public void AddSearchTreeReader(JobHandle jobHandle)
+	{
+		m_ReadDependencies = JobHandle.CombineDependencies(m_ReadDependencies, jobHandle);
+	}
 ```
 
 - `public AddSearchTreeWriter(Unity.Jobs.JobHandle jobHandle) : System.Void`  
 
 ```csharp
-public System.Void AddSearchTreeWriter(Unity.Jobs.JobHandle jobHandle);
+public void AddSearchTreeWriter(JobHandle jobHandle)
+	{
+		m_WriteDependencies = jobHandle;
+	}
 ```
 
 - `private GetLoaded() : System.Boolean`  
 
 ```csharp
-private System.Boolean GetLoaded();
+private bool GetLoaded()
+	{
+		if (m_Loaded)
+		{
+			m_Loaded = false;
+			return true;
+		}
+		return false;
+	}
 ```
 
 - `public GetSearchTree(System.Boolean readOnly, Unity.Jobs.JobHandle& dependencies) : Colossal.Collections.NativeQuadTree<Game.Routes.RouteSearchItem, Game.Common.QuadTreeBoundsXZ>`  
 
 ```csharp
-public Colossal.Collections.NativeQuadTree<Game.Routes.RouteSearchItem, Game.Common.QuadTreeBoundsXZ> GetSearchTree(System.Boolean readOnly, Unity.Jobs.JobHandle& dependencies);
+public NativeQuadTree<RouteSearchItem, QuadTreeBoundsXZ> GetSearchTree(bool readOnly, out JobHandle dependencies)
+	{
+		dependencies = (readOnly ? m_WriteDependencies : JobHandle.CombineDependencies(m_ReadDependencies, m_WriteDependencies));
+		return m_SearchTree;
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_UpdatedRoutesQuery = GetEntityQuery(new EntityQueryDesc
+		{
+			All = new ComponentType[2]
+			{
+				ComponentType.ReadOnly<Waypoint>(),
+				ComponentType.ReadOnly<Position>()
+			},
+			Any = new ComponentType[2]
+			{
+				ComponentType.ReadOnly<Updated>(),
+				ComponentType.ReadOnly<Deleted>()
+			},
+			None = new ComponentType[1] { ComponentType.ReadOnly<Temp>() }
+		}, new EntityQueryDesc
+		{
+			All = new ComponentType[2]
+			{
+				ComponentType.ReadOnly<Segment>(),
+				ComponentType.ReadOnly<PathElement>()
+			},
+			Any = new ComponentType[2]
+			{
+				ComponentType.ReadOnly<Updated>(),
+				ComponentType.ReadOnly<Deleted>()
+			},
+			None = new ComponentType[1] { ComponentType.ReadOnly<Temp>() }
+		}, new EntityQueryDesc
+		{
+			All = new ComponentType[2]
+			{
+				ComponentType.ReadOnly<Event>(),
+				ComponentType.ReadOnly<PathUpdated>()
+			}
+		});
+		m_AllRoutesQuery = GetEntityQuery(new EntityQueryDesc
+		{
+			All = new ComponentType[2]
+			{
+				ComponentType.ReadOnly<Waypoint>(),
+				ComponentType.ReadOnly<Position>()
+			},
+			None = new ComponentType[1] { ComponentType.ReadOnly<Temp>() }
+		}, new EntityQueryDesc
+		{
+			All = new ComponentType[2]
+			{
+				ComponentType.ReadOnly<Segment>(),
+				ComponentType.ReadOnly<PathElement>()
+			},
+			None = new ComponentType[1] { ComponentType.ReadOnly<Temp>() }
+		});
+		m_SearchTree = new NativeQuadTree<RouteSearchItem, QuadTreeBoundsXZ>(1f, Allocator.Persistent);
+		m_ElementCount = new NativeParallelHashMap<Entity, int>(100, Allocator.Persistent);
+	}
 ```
 
 - `protected virtual OnCreateForCompiler() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreateForCompiler();
+protected override void OnCreateForCompiler()
+	{
+		base.OnCreateForCompiler();
+		__AssignQueries(ref base.CheckedStateRef);
+		__TypeHandle.__AssignHandles(ref base.CheckedStateRef);
+	}
 ```
 
 - `protected virtual OnDestroy() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnDestroy();
+[Preserve]
+	protected override void OnDestroy()
+	{
+		m_SearchTree.Dispose();
+		m_ElementCount.Dispose();
+		base.OnDestroy();
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		bool loaded = GetLoaded();
+		EntityQuery query = (loaded ? m_AllRoutesQuery : m_UpdatedRoutesQuery);
+		if (!query.IsEmptyIgnoreFilter)
+		{
+			JobHandle dependencies;
+			UpdateSearchTreeJob jobData = new UpdateSearchTreeJob
+			{
+				m_EntityType = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef),
+				m_PositionType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Routes_Position_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+				m_CreatedType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Common_Created_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+				m_DeletedType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Common_Deleted_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+				m_PrefabRefType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+				m_PathUpdatedType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Pathfind_PathUpdated_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+				m_CurveElementType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Routes_CurveElement_RO_BufferTypeHandle, ref base.CheckedStateRef),
+				m_PrefabRefData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentLookup, ref base.CheckedStateRef),
+				m_PrefabRouteData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_RouteData_RO_ComponentLookup, ref base.CheckedStateRef),
+				m_UpdatedData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Common_Updated_RO_ComponentLookup, ref base.CheckedStateRef),
+				m_DeletedData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Common_Deleted_RO_ComponentLookup, ref base.CheckedStateRef),
+				m_SegmentData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Routes_Segment_RO_ComponentLookup, ref base.CheckedStateRef),
+				m_TempData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Tools_Temp_RO_ComponentLookup, ref base.CheckedStateRef),
+				m_CurveElements = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Routes_CurveElement_RO_BufferLookup, ref base.CheckedStateRef),
+				m_Loaded = loaded,
+				m_SearchTree = GetSearchTree(readOnly: false, out dependencies),
+				m_ElementCount = m_ElementCount
+			};
+			base.Dependency = JobChunkExtensions.Schedule(jobData, query, JobHandle.CombineDependencies(base.Dependency, dependencies));
+			AddSearchTreeWriter(base.Dependency);
+		}
+	}
 ```
 
 - `public PreDeserialize(Colossal.Serialization.Entities.Context context) : System.Void`  
 
 ```csharp
-public System.Void PreDeserialize(Colossal.Serialization.Entities.Context context);
+public void PreDeserialize(Context context)
+	{
+		JobHandle dependencies;
+		NativeQuadTree<RouteSearchItem, QuadTreeBoundsXZ> searchTree = GetSearchTree(readOnly: false, out dependencies);
+		dependencies.Complete();
+		searchTree.Clear();
+		m_Loaded = true;
+	}
 ```
 
 

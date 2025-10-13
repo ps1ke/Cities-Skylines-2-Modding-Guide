@@ -99,7 +99,14 @@ public System.Int32 Item { get; set; }
 - `public Accumulate(Game.Companies.Workplaces other) : System.Void`  
 
 ```csharp
-public System.Void Accumulate(Game.Companies.Workplaces other);
+public void Accumulate(Workplaces other)
+	{
+		m_Uneducated += other.m_Uneducated;
+		m_PoorlyEducated += other.m_PoorlyEducated;
+		m_Educated += other.m_Educated;
+		m_WellEducated += other.m_WellEducated;
+		m_HighlyEducated += other.m_HighlyEducated;
+	}
 ```
 
 - `public Deserialize<TReader>(TReader reader) : System.Void`  
@@ -117,7 +124,14 @@ public System.Void Serialize<TWriter>(TWriter writer);
 - `public ToArray(Unity.Collections.NativeArray<System.Int32> array) : System.Void`  
 
 ```csharp
-public System.Void ToArray(Unity.Collections.NativeArray<System.Int32> array);
+public void ToArray(NativeArray<int> array)
+	{
+		array[0] = m_Uneducated;
+		array[1] = m_PoorlyEducated;
+		array[2] = m_Educated;
+		array[3] = m_WellEducated;
+		array[4] = m_HighlyEducated;
+	}
 ```
 
 

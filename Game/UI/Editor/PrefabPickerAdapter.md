@@ -305,7 +305,11 @@ private System.Boolean <Update>b__40_0(Game.UI.Editor.PrefabItem item);
 - `public ClearFilters() : System.Void`  
 
 ```csharp
-public System.Void ClearFilters();
+public void ClearFilters()
+	{
+		m_ActiveFilters.Clear();
+		m_ActiveFiltersChanged = true;
+	}
 ```
 
 - `private Game.UI.Editor.ItemPicker<Game.UI.Editor.PrefabItem>.IAdapter.SetFavorite(System.Int32 index, System.Boolean favorite) : System.Void`  
@@ -317,7 +321,20 @@ private System.Void Game.UI.Editor.ItemPicker<Game.UI.Editor.PrefabItem>.IAdapte
 - `private Game.UI.Editor.ItemPicker<Game.UI.Editor.PrefabItem>.IAdapter.Update() : System.Boolean`  
 
 ```csharp
-private System.Boolean Game.UI.Editor.ItemPicker<Game.UI.Editor.PrefabItem>.IAdapter.Update();
+public void Update()
+	{
+		if (m_SelectedPrefab != m_SelectedItem?.prefab)
+		{
+			m_SelectedItem = m_Items.FirstOrDefault((PrefabItem item) => item.prefab == m_SelectedPrefab);
+		}
+		if (m_ItemsChanged || m_SearchQueryChanged || m_ActiveFiltersChanged)
+		{
+			m_ItemsChanged = false;
+			m_SearchQueryChanged = false;
+			m_ActiveFiltersChanged = false;
+			UpdateFilteredItems();
+		}
+	}
 ```
 
 - `private Game.UI.Editor.PopupSearchField.IAdapter.SetFavorite(System.String query, System.Boolean favorite) : System.Void`  
@@ -329,49 +346,243 @@ private System.Void Game.UI.Editor.PopupSearchField.IAdapter.SetFavorite(System.
 - `private static GetIncompleteTag(System.String[] searchParts) : System.String`  
 
 ```csharp
-private static System.String GetIncompleteTag(System.String[] searchParts);
+[CanBeNull]
+	private static string GetIncompleteTag(string[] searchParts)
+	{
+		if (searchParts.Length == 0)
+		{
+			return null;
+		}
+		string text = searchParts[^1];
+		if (text.Length <= 1 || !text.StartsWith("#"))
+		{
+			return null;
+		}
+		return text.Substring(1);
+	}
 ```
 
 - `public LoadSettings() : System.Void`  
 
 ```csharp
-public System.Void LoadSettings();
+public void LoadSettings()
+	{
+		m_SearchHistory.Clear();
+		m_SearchFavorites.Clear();
+		m_ColumnCount = 1;
+		m_FavoriteIds.Clear();
+		EditorSettings editorSettings = SharedSettings.instance?.editor;
+		if (editorSettings == null)
+		{
+			return;
+		}
+		if (editorSettings.prefabPickerSearchHistory != null)
+		{
+			m_SearchHistory.AddRange(editorSettings.prefabPickerSearchHistory);
+		}
+		if (editorSettings.prefabPickerSearchFavorites != null)
+		{
+			string[] prefabPickerSearchFavorites = editorSettings.prefabPickerSearchFavorites;
+			foreach (string item in prefabPickerSearchFavorites)
+			{
+				m_SearchFavorites.Add(item);
+			}
+		}
+		m_ColumnCount = editorSettings.prefabPickerColumnCount;
+		if (editorSettings.prefabPickerFavorites != null)
+		{
+			string[] prefabPickerSearchFavorites = editorSettings.prefabPickerFavorites;
+			foreach (string item2 in prefabPickerSearchFavorites)
+			{
+				m_FavoriteIds.Add(item2);
+			}
+		}
+	}
 ```
 
 - `public SelectPrefabByName(System.String name, System.StringComparison comparisonType) : Game.Prefabs.PrefabBase`  
 
 ```csharp
-public Game.Prefabs.PrefabBase SelectPrefabByName(System.String name, System.StringComparison comparisonType);
+public PrefabBase SelectPrefabByName(string name, StringComparison comparisonType)
+	{
+		m_SelectedPrefab = m_Items.Select((PrefabItem item) => item.prefab).FirstOrDefault((PrefabBase prefab) => prefab.name.Equals(name, comparisonType));
+		return m_SelectedPrefab;
+	}
 ```
 
 - `public SetPrefabs(System.Collections.Generic.ICollection<Game.Prefabs.PrefabBase> prefabs) : System.Void`  
 
 ```csharp
-public System.Void SetPrefabs(System.Collections.Generic.ICollection<Game.Prefabs.PrefabBase> prefabs);
+public void SetPrefabs([ItemCanBeNull] ICollection<PrefabBase> prefabs)
+	{
+		m_Items.Clear();
+		m_Items.Capacity = prefabs.Count;
+		m_ItemsChanged = true;
+		m_SelectedItem = null;
+		m_AvailableFilters.Clear();
+		m_ActiveFilters.Clear();
+		HashSet<string> hashSet = new HashSet<string>();
+		foreach (PrefabBase prefab in prefabs)
+		{
+			string prefabID = EditorPrefabUtils.GetPrefabID(prefab);
+			PrefabItem prefabItem = new PrefabItem
+			{
+				prefab = prefab,
+				displayName = EditorPrefabUtils.GetPrefabLabel(prefab)
+			};
+			if (prefab != null && displayPrefabTypeTooltip)
+			{
+				prefabItem.tooltip = LocalizedString.Value(prefab.GetType().Name);
+			}
+			if (prefab != null)
+			{
+				prefabItem.tags.AddRange(EditorPrefabUtils.GetPrefabTags(prefab.GetType()));
+				foreach (ComponentBase component in prefab.components)
+				{
+					prefabItem.tags.Add(component.GetType().Name.ToLowerInvariant());
+				}
+				foreach (string tag in prefabItem.tags)
+				{
+					hashSet.Add(tag);
+				}
+				prefabItem.image = ImageSystem.GetThumbnail(prefab);
+				if (TryGetDLCBadge(prefab, out var icon))
+				{
+					prefabItem.badge = icon;
+				}
+			}
+			if (prefabID != null)
+			{
+				prefabItem.favorite = m_FavoriteIds.Contains(prefabID);
+			}
+			m_Items.Add(prefabItem);
+		}
+		m_AvailableFilters.AddRange(hashSet);
+		m_AvailableFilters.Sort();
+		onAvailableFiltersChanged?.Invoke();
+		m_Items.Sort();
+	}
 ```
 
 - `public ToggleFilter(System.String filter, System.Boolean active) : System.Void`  
 
 ```csharp
-public System.Void ToggleFilter(System.String filter, System.Boolean active);
+public void ToggleFilter(string filter, bool active)
+	{
+		if (active)
+		{
+			if (!m_ActiveFilters.Contains(filter))
+			{
+				m_ActiveFilters.Add(filter);
+			}
+		}
+		else
+		{
+			m_ActiveFilters.Remove(filter);
+		}
+		m_ActiveFiltersChanged = true;
+	}
 ```
 
 - `private TryGetDLCBadge(Game.Prefabs.PrefabBase prefab, System.String& icon) : System.Boolean`  
 
 ```csharp
-private System.Boolean TryGetDLCBadge(Game.Prefabs.PrefabBase prefab, System.String& icon);
+private bool TryGetDLCBadge(PrefabBase prefab, out string icon)
+	{
+		if (prefab.TryGet<AssetPackItem>(out var component) && component.m_Packs != null)
+		{
+			AssetPackPrefab[] packs = component.m_Packs;
+			for (int i = 0; i < packs.Length; i++)
+			{
+				if (packs[i].TryGet<UIObject>(out var component2) && !string.IsNullOrEmpty(component2.m_Icon))
+				{
+					icon = component2.m_Icon;
+					return true;
+				}
+			}
+		}
+		if (prefab.TryGet<ContentPrerequisite>(out var component3))
+		{
+			ContentPrefab contentPrerequisite = component3.m_ContentPrerequisite;
+			if (contentPrerequisite.TryGet<UIObject>(out var component4) && !string.IsNullOrEmpty(component4.m_Icon))
+			{
+				icon = component4.m_Icon;
+				return true;
+			}
+			if (contentPrerequisite.TryGet<DlcRequirement>(out var component5))
+			{
+				string dlcName = PlatformManager.instance.GetDlcName(component5.m_Dlc);
+				if (!string.IsNullOrEmpty(dlcName))
+				{
+					icon = "Media/DLC/" + dlcName + ".svg";
+					return true;
+				}
+			}
+		}
+		icon = null;
+		return false;
+	}
 ```
 
 - `public Update() : System.Void`  
 
 ```csharp
-public System.Void Update();
+public void Update()
+	{
+		if (m_SelectedPrefab != m_SelectedItem?.prefab)
+		{
+			m_SelectedItem = m_Items.FirstOrDefault((PrefabItem item) => item.prefab == m_SelectedPrefab);
+		}
+		if (m_ItemsChanged || m_SearchQueryChanged || m_ActiveFiltersChanged)
+		{
+			m_ItemsChanged = false;
+			m_SearchQueryChanged = false;
+			m_ActiveFiltersChanged = false;
+			UpdateFilteredItems();
+		}
+	}
 ```
 
 - `private UpdateFilteredItems() : System.Void`  
 
 ```csharp
-private System.Void UpdateFilteredItems();
+private void UpdateFilteredItems()
+	{
+		m_SearchSuggestions.Clear();
+		m_FilteredItems.Clear();
+		m_FilteredItemsChanged = true;
+		string[] array = m_SearchQuery.Split(' ');
+		string[] words = array.Where((string p) => p.Length > 0 && !p.StartsWith("#")).ToArray();
+		string[] tags = (from p in array.Take(array.Length - 1)
+			where p.Length > 1 && p.StartsWith("#")
+			select p.Substring(1)).Concat(m_ActiveFilters).ToArray();
+		string incompleteTag = GetIncompleteTag(array);
+		if (words.Length != 0 || tags.Length != 0 || incompleteTag != null)
+		{
+			m_SearchSuggestions.AddRange(m_SearchHistory.Where((string s) => !m_SearchFavorites.Contains(s) && s.StartsWith(m_SearchQuery, StringComparison.OrdinalIgnoreCase)).Take(20).Select(PopupSearchField.Suggestion.NonFavorite));
+			m_SearchSuggestions.AddRange(m_SearchFavorites.Where((string s) => s.StartsWith(m_SearchQuery, StringComparison.OrdinalIgnoreCase)).Select(PopupSearchField.Suggestion.Favorite));
+			m_FilteredItems.AddRange(m_Items.Where(delegate(PrefabItem item)
+			{
+				if (item.prefab == null)
+				{
+					return false;
+				}
+				bool num = words.Length == 0 || words.All((string word) => item.prefab.name.IndexOf(word, StringComparison.OrdinalIgnoreCase) != -1);
+				string typeName = item.prefab.GetType().Name;
+				bool flag = words.Any((string word) => word.IndexOf(typeName, StringComparison.OrdinalIgnoreCase) != -1);
+				bool flag2 = tags.Length == 0 || tags.Any((string tag) => item.tags.Contains(tag, StringComparer.OrdinalIgnoreCase));
+				bool flag3 = incompleteTag == null || item.tags.Any((string tag) => tag.StartsWith(incompleteTag, StringComparison.OrdinalIgnoreCase));
+				return ((num || flag) && flag2 && flag3) ? true : false;
+			}));
+		}
+		else
+		{
+			m_SearchSuggestions.AddRange(m_SearchHistory.Where((string s) => !m_SearchFavorites.Contains(s)).Take(20).Select(PopupSearchField.Suggestion.NonFavorite));
+			m_SearchSuggestions.AddRange(m_SearchFavorites.Select(PopupSearchField.Suggestion.Favorite));
+			m_FilteredItems.AddRange(m_Items);
+		}
+		m_SearchSuggestions.Sort();
+	}
 ```
 
 

@@ -39,7 +39,10 @@ public Unity.Entities.Entity m_Entity;
 - `public ChirpEntity(Unity.Entities.Entity entity)`  
 
 ```csharp
-public ChirpEntity(Unity.Entities.Entity entity);
+public ChirpEntity(Entity entity)
+	{
+		m_Entity = entity;
+	}
 ```
 
 

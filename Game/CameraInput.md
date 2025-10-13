@@ -147,13 +147,24 @@ public CameraInput();
 - `public Initialize() : System.Void`  
 
 ```csharp
-public System.Void Initialize();
+public void Initialize()
+	{
+		m_MoveAction = InputManager.instance.FindAction("Camera", "Move");
+		m_FastMoveAction = InputManager.instance.FindAction("Camera", "Move Fast");
+		m_RotateAction = InputManager.instance.FindAction("Camera", "Rotate");
+		m_ZoomAction = InputManager.instance.FindAction("Camera", "Zoom");
+	}
 ```
 
 - `public Refresh() : System.Void`  
 
 ```csharp
-public System.Void Refresh();
+public void Refresh()
+	{
+		move = MathUtils.MaxAbs(m_MoveAction.ReadValue<Vector2>(), m_FastMoveAction.ReadValue<Vector2>());
+		rotate = m_RotateAction.ReadValue<Vector2>();
+		zoom = m_ZoomAction.ReadValue<float>();
+	}
 ```
 
 

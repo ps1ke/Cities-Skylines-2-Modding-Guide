@@ -203,19 +203,75 @@ public BuildingConfigurationPrefab();
 - `public virtual GetDependencies(System.Collections.Generic.List<Game.Prefabs.PrefabBase> prefabs) : System.Void`  
 
 ```csharp
-public virtual System.Void GetDependencies(System.Collections.Generic.List<Game.Prefabs.PrefabBase> prefabs);
+public override void GetDependencies(List<PrefabBase> prefabs)
+	{
+		base.GetDependencies(prefabs);
+		prefabs.Add(m_AbandonedCollapsedNotification);
+		prefabs.Add(m_AbandonedNotification);
+		prefabs.Add(m_CondemnedNotification);
+		prefabs.Add(m_LevelUpNotification);
+		prefabs.Add(m_TurnedOffNotification);
+		prefabs.Add(m_ElectricityConnectionLane);
+		prefabs.Add(m_SewageConnectionLane);
+		prefabs.Add(m_WaterConnectionLane);
+		prefabs.Add(m_HighRentNotification);
+		prefabs.Add(m_DefaultRenterBrand);
+		prefabs.Add(m_ConstructionSurface);
+		prefabs.Add(m_ConstructionBorder);
+		prefabs.Add(m_ConstructionObject);
+		prefabs.Add(m_CollapsedObject);
+		prefabs.Add(m_CollapseVFX);
+		prefabs.Add(m_CollapseSFX);
+		prefabs.Add(m_CollapsedSurface);
+		prefabs.Add(m_FireLoopSFX);
+		prefabs.Add(m_FireSpotSFX);
+	}
 ```
 
 - `public virtual GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetPrefabComponents(HashSet<ComponentType> components)
+	{
+		base.GetPrefabComponents(components);
+		components.Add(ComponentType.ReadWrite<BuildingConfigurationData>());
+	}
 ```
 
 - `public virtual LateInitialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity) : System.Void`  
 
 ```csharp
-public virtual System.Void LateInitialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity);
+public override void LateInitialize(EntityManager entityManager, Entity entity)
+	{
+		base.LateInitialize(entityManager, entity);
+		PrefabSystem orCreateSystemManaged = entityManager.World.GetOrCreateSystemManaged<PrefabSystem>();
+		entityManager.SetComponentData(entity, new BuildingConfigurationData
+		{
+			m_BuildingConditionIncrement = m_BuildingConditionIncrement,
+			m_BuildingConditionDecrement = m_BuildingConditionDecrement,
+			m_AbandonedCollapsedNotification = orCreateSystemManaged.GetEntity(m_AbandonedCollapsedNotification),
+			m_AbandonedNotification = orCreateSystemManaged.GetEntity(m_AbandonedNotification),
+			m_CondemnedNotification = orCreateSystemManaged.GetEntity(m_CondemnedNotification),
+			m_LevelUpNotification = orCreateSystemManaged.GetEntity(m_LevelUpNotification),
+			m_TurnedOffNotification = orCreateSystemManaged.GetEntity(m_TurnedOffNotification),
+			m_ElectricityConnectionLane = orCreateSystemManaged.GetEntity(m_ElectricityConnectionLane),
+			m_SewageConnectionLane = orCreateSystemManaged.GetEntity(m_SewageConnectionLane),
+			m_WaterConnectionLane = orCreateSystemManaged.GetEntity(m_WaterConnectionLane),
+			m_AbandonedDestroyDelay = m_AbandonedDestroyDelay,
+			m_HighRentNotification = orCreateSystemManaged.GetEntity(m_HighRentNotification),
+			m_DefaultRenterBrand = orCreateSystemManaged.GetEntity(m_DefaultRenterBrand),
+			m_ConstructionSurface = orCreateSystemManaged.GetEntity(m_ConstructionSurface),
+			m_ConstructionBorder = orCreateSystemManaged.GetEntity(m_ConstructionBorder),
+			m_ConstructionObject = orCreateSystemManaged.GetEntity(m_ConstructionObject),
+			m_CollapsedObject = orCreateSystemManaged.GetEntity(m_CollapsedObject),
+			m_CollapseVFX = orCreateSystemManaged.GetEntity(m_CollapseVFX),
+			m_CollapseSFX = orCreateSystemManaged.GetEntity(m_CollapseSFX),
+			m_CollapseSFXDensity = m_CollapseSFXDensity,
+			m_CollapsedSurface = orCreateSystemManaged.GetEntity(m_CollapsedSurface),
+			m_FireLoopSFX = orCreateSystemManaged.GetEntity(m_FireLoopSFX),
+			m_FireSpotSFX = orCreateSystemManaged.GetEntity(m_FireSpotSFX)
+		});
+	}
 ```
 
 

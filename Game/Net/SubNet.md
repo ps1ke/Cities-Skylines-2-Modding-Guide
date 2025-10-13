@@ -39,7 +39,10 @@ public Unity.Entities.Entity m_SubNet;
 - `public SubNet(Unity.Entities.Entity subNet)`  
 
 ```csharp
-public SubNet(Unity.Entities.Entity subNet);
+public SubNet(Entity subNet)
+	{
+		m_SubNet = subNet;
+	}
 ```
 
 
@@ -48,13 +51,19 @@ public SubNet(Unity.Entities.Entity subNet);
 - `public Equals(Game.Net.SubNet other) : System.Boolean`  
 
 ```csharp
-public System.Boolean Equals(Game.Net.SubNet other);
+public bool Equals(SubNet other)
+	{
+		return m_SubNet.Equals(other.m_SubNet);
+	}
 ```
 
 - `public virtual GetHashCode() : System.Int32`  
 
 ```csharp
-public virtual System.Int32 GetHashCode();
+public override int GetHashCode()
+	{
+		return m_SubNet.GetHashCode();
+	}
 ```
 
 

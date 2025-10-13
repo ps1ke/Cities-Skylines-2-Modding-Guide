@@ -52,7 +52,10 @@ private Colossal.GizmosSystem m_GizmosSystem;
 - `public CollapseSFXDebugSystem()`  
 
 ```csharp
-public CollapseSFXDebugSystem();
+[Preserve]
+	public CollapseSFXDebugSystem()
+	{
+	}
 ```
 
 
@@ -61,13 +64,37 @@ public CollapseSFXDebugSystem();
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_GizmosSystem = base.World.GetOrCreateSystemManaged<GizmosSystem>();
+		m_BuildingEffectGroup = GetEntityQuery(ComponentType.ReadOnly<Building>(), ComponentType.ReadOnly<Game.Objects.Transform>(), ComponentType.ReadOnly<PrefabRef>(), ComponentType.Exclude<Deleted>(), ComponentType.Exclude<Temp>());
+		m_ConfigurationQuery = GetEntityQuery(ComponentType.ReadOnly<BuildingConfigurationData>());
+		RequireForUpdate(m_BuildingEffectGroup);
+		base.Enabled = false;
+	}
 ```
 
 - `protected virtual OnUpdate(Unity.Jobs.JobHandle inputDeps) : Unity.Jobs.JobHandle`  
 
 ```csharp
-protected virtual Unity.Jobs.JobHandle OnUpdate(Unity.Jobs.JobHandle inputDeps);
+[Preserve]
+	protected override JobHandle OnUpdate(JobHandle inputDeps)
+	{
+		JobHandle dependencies;
+		JobHandle jobHandle = JobChunkExtensions.ScheduleParallel(new CollapseSfxCoverageGizmoJob
+		{
+			m_EntityType = GetEntityTypeHandle(),
+			m_PreFabRefType = GetComponentTypeHandle<PrefabRef>(isReadOnly: true),
+			m_TransformType = GetComponentTypeHandle<Game.Objects.Transform>(isReadOnly: true),
+			m_EffectsBuffs = GetBufferLookup<Effect>(isReadOnly: true),
+			m_BuildingConfigurationData = m_ConfigurationQuery.GetSingleton<BuildingConfigurationData>(),
+			m_GizmoBatcher = m_GizmosSystem.GetGizmosBatcher(out dependencies)
+		}, m_BuildingEffectGroup, JobHandle.CombineDependencies(inputDeps, dependencies));
+		m_GizmosSystem.AddGizmosBatcherWriter(jobHandle);
+		return JobHandle.CombineDependencies(inputDeps, jobHandle);
+	}
 ```
 
 

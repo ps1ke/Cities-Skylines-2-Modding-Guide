@@ -149,13 +149,21 @@ private static Game.Settings.ShadowsQualitySettings disabled { private get; }
 - `public ShadowsQualitySettings()`  
 
 ```csharp
-public ShadowsQualitySettings();
+public ShadowsQualitySettings(Level quality, VolumeProfile profile)
+	{
+		CreateVolumeComponent(profile, ref m_CascadeShadows);
+		SetLevel(quality, apply: false);
+	}
 ```
 
 - `public ShadowsQualitySettings(Game.Settings.QualitySetting+Level quality, UnityEngine.Rendering.VolumeProfile profile)`  
 
 ```csharp
-public ShadowsQualitySettings(Game.Settings.QualitySetting+Level quality, UnityEngine.Rendering.VolumeProfile profile);
+public ShadowsQualitySettings(Level quality, VolumeProfile profile)
+	{
+		CreateVolumeComponent(profile, ref m_CascadeShadows);
+		SetLevel(quality, apply: false);
+	}
 ```
 
 
@@ -164,13 +172,39 @@ public ShadowsQualitySettings(Game.Settings.QualitySetting+Level quality, UnityE
 - `public virtual Apply() : System.Void`  
 
 ```csharp
-public virtual System.Void Apply();
+public override void Apply()
+	{
+		base.Apply();
+		if (m_SunLightData == null)
+		{
+			TryGetSunLightData(ref m_SunLightData);
+		}
+		if (m_SunLightData != null)
+		{
+			m_SunLightData.EnableShadows(enabled);
+		}
+		if (m_CascadeShadows != null)
+		{
+			m_CascadeShadows.active = enabled;
+		}
+		foreach (TerrainSurface instance in TerrainSurface.instances)
+		{
+			instance.castShadows = terrainCastShadows;
+		}
+	}
 ```
 
 - `public virtual IsOptionsDisabled() : System.Boolean`  
 
 ```csharp
-public virtual System.Boolean IsOptionsDisabled();
+public override bool IsOptionsDisabled()
+	{
+		if (!IsOptionFullyDisabled())
+		{
+			return !enabled;
+		}
+		return true;
+	}
 ```
 
 

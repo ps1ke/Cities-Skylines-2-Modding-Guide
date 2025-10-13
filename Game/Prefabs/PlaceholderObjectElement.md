@@ -37,7 +37,10 @@ public Unity.Entities.Entity m_Object;
 - `public PlaceholderObjectElement(Unity.Entities.Entity obj)`  
 
 ```csharp
-public PlaceholderObjectElement(Unity.Entities.Entity obj);
+public PlaceholderObjectElement(Entity obj)
+	{
+		m_Object = obj;
+	}
 ```
 
 

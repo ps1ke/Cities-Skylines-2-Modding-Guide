@@ -59,13 +59,25 @@ public Unity.Mathematics.float2 m_CurvePosition;
 - `public ParkedTrain(Unity.Entities.Entity location)`  
 
 ```csharp
-public ParkedTrain(Unity.Entities.Entity location);
+public ParkedTrain(Entity location, TrainCurrentLane currentLane)
+	{
+		m_ParkingLocation = location;
+		m_FrontLane = currentLane.m_Front.m_Lane;
+		m_RearLane = currentLane.m_Rear.m_Lane;
+		m_CurvePosition = new float2(currentLane.m_Front.m_CurvePosition.y, currentLane.m_Rear.m_CurvePosition.y);
+	}
 ```
 
 - `public ParkedTrain(Unity.Entities.Entity location, Game.Vehicles.TrainCurrentLane currentLane)`  
 
 ```csharp
-public ParkedTrain(Unity.Entities.Entity location, Game.Vehicles.TrainCurrentLane currentLane);
+public ParkedTrain(Entity location, TrainCurrentLane currentLane)
+	{
+		m_ParkingLocation = location;
+		m_FrontLane = currentLane.m_Front.m_Lane;
+		m_RearLane = currentLane.m_Rear.m_Lane;
+		m_CurvePosition = new float2(currentLane.m_Front.m_CurvePosition.y, currentLane.m_Rear.m_CurvePosition.y);
+	}
 ```
 
 

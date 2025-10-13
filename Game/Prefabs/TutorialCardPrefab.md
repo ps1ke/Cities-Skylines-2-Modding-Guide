@@ -47,7 +47,15 @@ public TutorialCardPrefab();
 - `public virtual Initialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity) : System.Void`  
 
 ```csharp
-public virtual System.Void Initialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity);
+public override void Initialize(EntityManager entityManager, Entity entity)
+	{
+		base.Initialize(entityManager, entity);
+		entityManager.SetComponentData(entity, new TutorialPhaseData
+		{
+			m_Type = ((!m_CenterCard) ? TutorialPhaseType.Card : TutorialPhaseType.CenterCard),
+			m_OverrideCompletionDelay = m_OverrideCompletionDelay
+		});
+	}
 ```
 
 

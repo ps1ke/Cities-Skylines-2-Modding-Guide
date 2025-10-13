@@ -70,19 +70,43 @@ public ToolError();
 - `public virtual GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetArchetypeComponents(HashSet<ComponentType> components)
+	{
+	}
 ```
 
 - `public virtual GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetPrefabComponents(HashSet<ComponentType> components)
+	{
+		components.Add(ComponentType.ReadWrite<ToolErrorData>());
+	}
 ```
 
 - `public virtual Initialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity) : System.Void`  
 
 ```csharp
-public virtual System.Void Initialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity);
+public override void Initialize(EntityManager entityManager, Entity entity)
+	{
+		base.Initialize(entityManager, entity);
+		ToolErrorData componentData = default(ToolErrorData);
+		componentData.m_Error = m_Error;
+		componentData.m_Flags = (ToolErrorFlags)0;
+		if (m_TemporaryOnly)
+		{
+			componentData.m_Flags |= ToolErrorFlags.TemporaryOnly;
+		}
+		if (m_DisableInGame)
+		{
+			componentData.m_Flags |= ToolErrorFlags.DisableInGame;
+		}
+		if (m_DisableInEditor)
+		{
+			componentData.m_Flags |= ToolErrorFlags.DisableInEditor;
+		}
+		entityManager.SetComponentData(entity, componentData);
+	}
 ```
 
 

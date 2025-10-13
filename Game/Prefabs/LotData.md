@@ -58,7 +58,13 @@ public System.Boolean m_AllowOverlap;
 - `public LotData(System.Single maxRadius, UnityEngine.Color32 rangeColor, System.Boolean onWater, System.Boolean allowOverlap)`  
 
 ```csharp
-public LotData(System.Single maxRadius, UnityEngine.Color32 rangeColor, System.Boolean onWater, System.Boolean allowOverlap);
+public LotData(float maxRadius, Color32 rangeColor, bool onWater, bool allowOverlap)
+	{
+		m_MaxRadius = maxRadius;
+		m_RangeColor = rangeColor;
+		m_OnWater = onWater;
+		m_AllowOverlap = allowOverlap;
+	}
 ```
 
 

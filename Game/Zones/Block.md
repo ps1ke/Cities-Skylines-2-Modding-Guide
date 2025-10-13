@@ -57,13 +57,23 @@ public System.Void Deserialize<TReader>(TReader reader);
 - `public Equals(Game.Zones.Block other) : System.Boolean`  
 
 ```csharp
-public System.Boolean Equals(Game.Zones.Block other);
+public bool Equals(Block other)
+	{
+		if (m_Position.Equals(other.m_Position) && m_Direction.Equals(other.m_Direction))
+		{
+			return m_Size.Equals(other.m_Size);
+		}
+		return false;
+	}
 ```
 
 - `public virtual GetHashCode() : System.Int32`  
 
 ```csharp
-public virtual System.Int32 GetHashCode();
+public override int GetHashCode()
+	{
+		return m_Position.GetHashCode();
+	}
 ```
 
 - `public Serialize<TWriter>(TWriter writer) : System.Void`  

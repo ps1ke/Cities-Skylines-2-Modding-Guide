@@ -56,7 +56,10 @@ private Game.UI.InGame.CitizenHappinessKey key { private get; }
 - `public CitizenHappiness(Game.UI.InGame.CitizenHappinessKey key)`  
 
 ```csharp
-public CitizenHappiness(Game.UI.InGame.CitizenHappinessKey key);
+public CitizenHappiness(CitizenHappinessKey key)
+	{
+		this.key = key;
+	}
 ```
 
 
@@ -65,7 +68,15 @@ public CitizenHappiness(Game.UI.InGame.CitizenHappinessKey key);
 - `public Write(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-public System.Void Write(Colossal.UI.Binding.IJsonWriter writer);
+public void Write(IJsonWriter writer)
+	{
+		writer.TypeBegin(typeof(CitizenHappiness).FullName);
+		writer.PropertyName("key");
+		writer.Write(Enum.GetName(typeof(CitizenHappinessKey), key));
+		writer.PropertyName("iconPath");
+		writer.Write(kHappinessPaths[(int)key]);
+		writer.TypeEnd();
+	}
 ```
 
 

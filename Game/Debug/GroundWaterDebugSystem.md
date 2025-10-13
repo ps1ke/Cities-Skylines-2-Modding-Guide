@@ -50,7 +50,10 @@ private Game.Simulation.TerrainSystem m_TerrainSystem;
 - `public GroundWaterDebugSystem()`  
 
 ```csharp
-public GroundWaterDebugSystem();
+[Preserve]
+	public GroundWaterDebugSystem()
+	{
+	}
 ```
 
 
@@ -59,13 +62,36 @@ public GroundWaterDebugSystem();
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_GizmosSystem = base.World.GetOrCreateSystemManaged<GizmosSystem>();
+		m_GroundWaterSystem = base.World.GetOrCreateSystemManaged<GroundWaterSystem>();
+		m_TerrainSystem = base.World.GetOrCreateSystemManaged<TerrainSystem>();
+		base.Enabled = false;
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		JobHandle dependencies;
+		JobHandle dependencies2;
+		GroundWaterGizmoJob jobData = new GroundWaterGizmoJob
+		{
+			m_GroundWaterMap = m_GroundWaterSystem.GetMap(readOnly: true, out dependencies),
+			m_TerrainHeightData = m_TerrainSystem.GetHeightData(),
+			m_GizmoBatcher = m_GizmosSystem.GetGizmosBatcher(out dependencies2)
+		};
+		base.Dependency = jobData.Schedule(JobHandle.CombineDependencies(base.Dependency, dependencies2, dependencies));
+		m_GroundWaterSystem.AddReader(base.Dependency);
+		m_TerrainSystem.AddCPUHeightReader(base.Dependency);
+		m_GizmosSystem.AddGizmosBatcherWriter(base.Dependency);
+	}
 ```
 
 

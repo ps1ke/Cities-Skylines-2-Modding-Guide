@@ -49,7 +49,12 @@ public System.Byte m_Value1;
 - `public LaneColor(System.Byte index, System.Byte value0, System.Byte value1)`  
 
 ```csharp
-public LaneColor(System.Byte index, System.Byte value0, System.Byte value1);
+public LaneColor(byte index, byte value0, byte value1)
+	{
+		m_Index = index;
+		m_Value0 = value0;
+		m_Value1 = value1;
+	}
 ```
 
 

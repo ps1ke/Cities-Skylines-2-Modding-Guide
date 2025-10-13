@@ -76,7 +76,14 @@ public Unity.Mathematics.int2 m_ResourceTaxLimits;
 - `public Equals(Game.Prefabs.TaxParameterData other) : System.Boolean`  
 
 ```csharp
-public System.Boolean Equals(Game.Prefabs.TaxParameterData other);
+public bool Equals(TaxParameterData other)
+	{
+		if (m_CommercialTaxLimits.Equals(other.m_CommercialTaxLimits) && m_IndustrialTaxLimits.Equals(other.m_IndustrialTaxLimits) && m_JobLevelTaxLimits.Equals(other.m_JobLevelTaxLimits) && m_OfficeTaxLimits.Equals(other.m_OfficeTaxLimits) && m_ResidentialTaxLimits.Equals(other.m_ResidentialTaxLimits) && m_ResourceTaxLimits.Equals(other.m_ResourceTaxLimits))
+		{
+			return m_TotalTaxLimits.Equals(other.m_TotalTaxLimits);
+		}
+		return false;
+	}
 ```
 
 

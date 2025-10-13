@@ -64,7 +64,14 @@ public System.SByte m_StudentHealth;
 - `public Combine(Game.Prefabs.SchoolData otherData) : System.Void`  
 
 ```csharp
-public System.Void Combine(Game.Prefabs.SchoolData otherData);
+public void Combine(SchoolData otherData)
+	{
+		m_StudentCapacity += otherData.m_StudentCapacity;
+		m_EducationLevel = (byte)math.max((int)m_EducationLevel, (int)otherData.m_EducationLevel);
+		m_GraduationModifier += otherData.m_GraduationModifier;
+		m_StudentWellbeing += otherData.m_StudentWellbeing;
+		m_StudentHealth += otherData.m_StudentHealth;
+	}
 ```
 
 - `public Deserialize<TReader>(TReader reader) : System.Void`  

@@ -105,7 +105,10 @@ public Unity.Collections.NativeArray<Unity.Entities.Entity> referencedContent { 
 - `public SaveGameSystem()`  
 
 ```csharp
-public SaveGameSystem();
+[Preserve]
+	public SaveGameSystem()
+	{
+	}
 ```
 
 
@@ -114,25 +117,64 @@ public SaveGameSystem();
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_UpdateSystem = base.World.GetOrCreateSystemManaged<UpdateSystem>();
+		m_WriteSystem = base.World.GetOrCreateSystemManaged<WriteSystem>();
+		base.Enabled = false;
+	}
 ```
 
 - `protected virtual OnDestroy() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnDestroy();
+[Preserve]
+	protected override void OnDestroy()
+	{
+		m_Context.Dispose();
+		if (referencedContent.IsCreated)
+		{
+			referencedContent.Dispose();
+		}
+		base.OnDestroy();
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		if (m_Writing)
+		{
+			if (m_WriteSystem.writeDependency.IsCompleted)
+			{
+				m_WriteSystem.writeDependency.Complete();
+				m_Writing = false;
+				base.Enabled = false;
+				m_TaskCompletionSource?.SetResult(result: true);
+			}
+		}
+		else
+		{
+			m_Writing = true;
+			m_UpdateSystem.Update(SystemUpdatePhase.Serialize);
+		}
+	}
 ```
 
 - `public RunOnce() : System.Threading.Tasks.Task`  
 
 ```csharp
-public System.Threading.Tasks.Task RunOnce();
+public async Task RunOnce()
+	{
+		m_TaskCompletionSource = new TaskCompletionSource<bool>();
+		base.Enabled = true;
+		await m_TaskCompletionSource.Task;
+	}
 ```
 
 

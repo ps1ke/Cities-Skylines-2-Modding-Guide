@@ -58,7 +58,13 @@ public Game.Prefabs.PolicePurpose m_Purpose;
 - `public PoliceEmergencyRequest(Unity.Entities.Entity site, Unity.Entities.Entity target, System.Single priority, Game.Prefabs.PolicePurpose purpose)`  
 
 ```csharp
-public PoliceEmergencyRequest(Unity.Entities.Entity site, Unity.Entities.Entity target, System.Single priority, Game.Prefabs.PolicePurpose purpose);
+public PoliceEmergencyRequest(Entity site, Entity target, float priority, PolicePurpose purpose)
+	{
+		m_Site = site;
+		m_Target = target;
+		m_Priority = priority;
+		m_Purpose = purpose;
+	}
 ```
 
 

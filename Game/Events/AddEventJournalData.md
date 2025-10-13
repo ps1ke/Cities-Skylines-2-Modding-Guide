@@ -49,7 +49,12 @@ public System.Int32 m_Count;
 - `public AddEventJournalData(Unity.Entities.Entity eventEntity, Game.Events.EventDataTrackingType type, System.Int32 count = 1)`  
 
 ```csharp
-public AddEventJournalData(Unity.Entities.Entity eventEntity, Game.Events.EventDataTrackingType type, System.Int32 count);
+public AddEventJournalData(Entity eventEntity, EventDataTrackingType type, int count = 1)
+	{
+		m_Event = eventEntity;
+		m_Type = type;
+		m_Count = count;
+	}
 ```
 
 

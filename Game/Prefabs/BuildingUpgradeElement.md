@@ -39,7 +39,10 @@ public Unity.Entities.Entity m_Upgrade;
 - `public BuildingUpgradeElement(Unity.Entities.Entity upgrade)`  
 
 ```csharp
-public BuildingUpgradeElement(Unity.Entities.Entity upgrade);
+public BuildingUpgradeElement(Entity upgrade)
+	{
+		m_Upgrade = upgrade;
+	}
 ```
 
 
@@ -48,13 +51,19 @@ public BuildingUpgradeElement(Unity.Entities.Entity upgrade);
 - `public Equals(Game.Prefabs.BuildingUpgradeElement other) : System.Boolean`  
 
 ```csharp
-public System.Boolean Equals(Game.Prefabs.BuildingUpgradeElement other);
+public bool Equals(BuildingUpgradeElement other)
+	{
+		return m_Upgrade.Equals(other.m_Upgrade);
+	}
 ```
 
 - `public virtual GetHashCode() : System.Int32`  
 
 ```csharp
-public virtual System.Int32 GetHashCode();
+public override int GetHashCode()
+	{
+		return m_Upgrade.GetHashCode();
+	}
 ```
 
 

@@ -114,13 +114,21 @@ private static Game.Settings.VolumetricsQualitySettings disabled { private get; 
 - `public VolumetricsQualitySettings()`  
 
 ```csharp
-public VolumetricsQualitySettings();
+public VolumetricsQualitySettings(Level quality, VolumeProfile profile)
+	{
+		CreateVolumeComponent(profile, ref m_FogComponent);
+		SetLevel(quality, apply: false);
+	}
 ```
 
 - `public VolumetricsQualitySettings(Game.Settings.QualitySetting+Level quality, UnityEngine.Rendering.VolumeProfile profile)`  
 
 ```csharp
-public VolumetricsQualitySettings(Game.Settings.QualitySetting+Level quality, UnityEngine.Rendering.VolumeProfile profile);
+public VolumetricsQualitySettings(Level quality, VolumeProfile profile)
+	{
+		CreateVolumeComponent(profile, ref m_FogComponent);
+		SetLevel(quality, apply: false);
+	}
 ```
 
 
@@ -129,13 +137,29 @@ public VolumetricsQualitySettings(Game.Settings.QualitySetting+Level quality, Un
 - `public virtual Apply() : System.Void`  
 
 ```csharp
-public virtual System.Void Apply();
+public override void Apply()
+	{
+		base.Apply();
+		if (m_FogComponent != null)
+		{
+			ApplyState(m_FogComponent.enableVolumetricFog, enabled);
+			ApplyState(m_FogComponent.m_VolumetricFogBudget, budget);
+			ApplyState(m_FogComponent.m_ResolutionDepthRatio, resolutionDepthRatio);
+		}
+	}
 ```
 
 - `public virtual IsOptionsDisabled() : System.Boolean`  
 
 ```csharp
-public virtual System.Boolean IsOptionsDisabled();
+public override bool IsOptionsDisabled()
+	{
+		if (!IsOptionFullyDisabled())
+		{
+			return !enabled;
+		}
+		return true;
+	}
 ```
 
 

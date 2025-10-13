@@ -37,7 +37,10 @@ public Unity.Entities.Entity m_Segment;
 - `public RouteSegment(Unity.Entities.Entity segment)`  
 
 ```csharp
-public RouteSegment(Unity.Entities.Entity segment);
+public RouteSegment(Entity segment)
+	{
+		m_Segment = segment;
+	}
 ```
 
 

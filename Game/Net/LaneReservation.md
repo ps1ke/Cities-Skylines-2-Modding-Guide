@@ -57,13 +57,19 @@ public System.Void Deserialize<TReader>(TReader reader);
 - `public GetOffset() : System.Single`  
 
 ```csharp
-public System.Single GetOffset();
+public float GetOffset()
+	{
+		return (float)math.max((int)m_Next.m_Offset, (int)m_Prev.m_Offset) * 0.003921569f;
+	}
 ```
 
 - `public GetPriority() : System.Int32`  
 
 ```csharp
-public System.Int32 GetPriority();
+public int GetPriority()
+	{
+		return math.max((int)m_Next.m_Priority, (int)m_Prev.m_Priority);
+	}
 ```
 
 - `public Serialize<TWriter>(TWriter writer) : System.Void`  

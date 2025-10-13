@@ -93,43 +93,64 @@ private static const System.UInt64 SECONDARY_NODE;
 - `public PathNode(Unity.Entities.Entity owner, System.Byte laneIndex, System.Byte segmentIndex)`  
 
 ```csharp
-public PathNode(Unity.Entities.Entity owner, System.Byte laneIndex, System.Byte segmentIndex);
+public PathNode(PathNode pathNode, bool secondaryNode)
+	{
+		m_SearchKey = math.select(pathNode.m_SearchKey & 0xFFFFFFFF7FFFFFFFuL, pathNode.m_SearchKey | 0x80000000u, secondaryNode);
+	}
 ```
 
 - `public PathNode(Unity.Entities.Entity owner, System.Byte laneIndex, System.Byte segmentIndex, System.Single curvePosition)`  
 
 ```csharp
-public PathNode(Unity.Entities.Entity owner, System.Byte laneIndex, System.Byte segmentIndex, System.Single curvePosition);
+public PathNode(PathNode pathNode, bool secondaryNode)
+	{
+		m_SearchKey = math.select(pathNode.m_SearchKey & 0xFFFFFFFF7FFFFFFFuL, pathNode.m_SearchKey | 0x80000000u, secondaryNode);
+	}
 ```
 
 - `public PathNode(Unity.Entities.Entity owner, System.UInt16 laneIndex, System.Single curvePosition)`  
 
 ```csharp
-public PathNode(Unity.Entities.Entity owner, System.UInt16 laneIndex, System.Single curvePosition);
+public PathNode(PathNode pathNode, bool secondaryNode)
+	{
+		m_SearchKey = math.select(pathNode.m_SearchKey & 0xFFFFFFFF7FFFFFFFuL, pathNode.m_SearchKey | 0x80000000u, secondaryNode);
+	}
 ```
 
 - `public PathNode(Unity.Entities.Entity owner, System.UInt16 laneIndex)`  
 
 ```csharp
-public PathNode(Unity.Entities.Entity owner, System.UInt16 laneIndex);
+public PathNode(PathNode pathNode, bool secondaryNode)
+	{
+		m_SearchKey = math.select(pathNode.m_SearchKey & 0xFFFFFFFF7FFFFFFFuL, pathNode.m_SearchKey | 0x80000000u, secondaryNode);
+	}
 ```
 
 - `public PathNode(Game.Pathfind.PathTarget pathTarget)`  
 
 ```csharp
-public PathNode(Game.Pathfind.PathTarget pathTarget);
+public PathNode(PathNode pathNode, bool secondaryNode)
+	{
+		m_SearchKey = math.select(pathNode.m_SearchKey & 0xFFFFFFFF7FFFFFFFuL, pathNode.m_SearchKey | 0x80000000u, secondaryNode);
+	}
 ```
 
 - `public PathNode(Game.Pathfind.PathNode pathNode, System.Single curvePosition)`  
 
 ```csharp
-public PathNode(Game.Pathfind.PathNode pathNode, System.Single curvePosition);
+public PathNode(PathNode pathNode, bool secondaryNode)
+	{
+		m_SearchKey = math.select(pathNode.m_SearchKey & 0xFFFFFFFF7FFFFFFFuL, pathNode.m_SearchKey | 0x80000000u, secondaryNode);
+	}
 ```
 
 - `public PathNode(Game.Pathfind.PathNode pathNode, System.Boolean secondaryNode)`  
 
 ```csharp
-public PathNode(Game.Pathfind.PathNode pathNode, System.Boolean secondaryNode);
+public PathNode(PathNode pathNode, bool secondaryNode)
+	{
+		m_SearchKey = math.select(pathNode.m_SearchKey & 0xFFFFFFFF7FFFFFFFuL, pathNode.m_SearchKey | 0x80000000u, secondaryNode);
+	}
 ```
 
 
@@ -144,73 +165,112 @@ public System.Void Deserialize<TReader>(TReader reader);
 - `public Equals(Game.Pathfind.PathNode other) : System.Boolean`  
 
 ```csharp
-public System.Boolean Equals(Game.Pathfind.PathNode other);
+public bool Equals(PathNode other)
+	{
+		return m_SearchKey == other.m_SearchKey;
+	}
 ```
 
 - `public EqualsIgnoreCurvePos(Game.Pathfind.PathNode other) : System.Boolean`  
 
 ```csharp
-public System.Boolean EqualsIgnoreCurvePos(Game.Pathfind.PathNode other);
+public bool EqualsIgnoreCurvePos(PathNode other)
+	{
+		return ((m_SearchKey ^ other.m_SearchKey) & 0xFFFFFFFF8000FFFFuL) == 0;
+	}
 ```
 
 - `public GetCurvePos() : System.Single`  
 
 ```csharp
-public System.Single GetCurvePos();
+public float GetCurvePos()
+	{
+		return (float)((m_SearchKey & 0x7FFF0000) >> 16) * 3.051851E-05f;
+	}
 ```
 
 - `public GetCurvePosOrder(Game.Pathfind.PathNode other) : System.Int32`  
 
 ```csharp
-public System.Int32 GetCurvePosOrder(Game.Pathfind.PathNode other);
+public int GetCurvePosOrder(PathNode other)
+	{
+		return (int)(m_SearchKey & 0x7FFF0000) - (int)(other.m_SearchKey & 0x7FFF0000);
+	}
 ```
 
 - `public virtual GetHashCode() : System.Int32`  
 
 ```csharp
-public virtual System.Int32 GetHashCode();
+public override int GetHashCode()
+	{
+		return m_SearchKey.GetHashCode();
+	}
 ```
 
 - `public GetLaneIndex() : System.UInt16`  
 
 ```csharp
-public System.UInt16 GetLaneIndex();
+public ushort GetLaneIndex()
+	{
+		return (ushort)(m_SearchKey & 0xFFFF);
+	}
 ```
 
 - `public GetOrder(Game.Pathfind.PathNode other) : System.Boolean`  
 
 ```csharp
-public System.Boolean GetOrder(Game.Pathfind.PathNode other);
+public bool GetOrder(PathNode other)
+	{
+		return other.m_SearchKey < m_SearchKey;
+	}
 ```
 
 - `public GetOwnerIndex() : System.Int32`  
 
 ```csharp
-public System.Int32 GetOwnerIndex();
+public int GetOwnerIndex()
+	{
+		return (int)(m_SearchKey >> 32);
+	}
 ```
 
 - `public GetStride(Colossal.Serialization.Entities.Context context) : System.Int32`  
 
 ```csharp
-public System.Int32 GetStride(Colossal.Serialization.Entities.Context context);
+public int GetStride(Context context)
+	{
+		return 8;
+	}
 ```
 
 - `public IsSecondary() : System.Boolean`  
 
 ```csharp
-public System.Boolean IsSecondary();
+public bool IsSecondary()
+	{
+		return (m_SearchKey & 0x80000000u) != 0;
+	}
 ```
 
 - `public OwnerEquals(Game.Pathfind.PathNode other) : System.Boolean`  
 
 ```csharp
-public System.Boolean OwnerEquals(Game.Pathfind.PathNode other);
+public bool OwnerEquals(PathNode other)
+	{
+		return (uint)(m_SearchKey >> 32) == (uint)(other.m_SearchKey >> 32);
+	}
 ```
 
 - `public ReplaceOwner(Unity.Entities.Entity oldOwner, Unity.Entities.Entity newOwner) : System.Void`  
 
 ```csharp
-public System.Void ReplaceOwner(Unity.Entities.Entity oldOwner, Unity.Entities.Entity newOwner);
+public void ReplaceOwner(Entity oldOwner, Entity newOwner)
+	{
+		if ((int)(m_SearchKey >> 32) == oldOwner.Index)
+		{
+			m_SearchKey = (ulong)((long)newOwner.Index << 32) | (m_SearchKey & 0xFFFFFFFFu);
+		}
+	}
 ```
 
 - `public Serialize<TWriter>(TWriter writer) : System.Void`  
@@ -222,19 +282,31 @@ public System.Void Serialize<TWriter>(TWriter writer);
 - `public SetOwner(Unity.Entities.Entity newOwner) : System.Void`  
 
 ```csharp
-public System.Void SetOwner(Unity.Entities.Entity newOwner);
+public void SetOwner(Entity newOwner)
+	{
+		m_SearchKey = (ulong)((long)newOwner.Index << 32) | (m_SearchKey & 0xFFFFFFFFu);
+	}
 ```
 
 - `public SetSegmentIndex(System.Byte segmentIndex) : System.Void`  
 
 ```csharp
-public System.Void SetSegmentIndex(System.Byte segmentIndex);
+public void SetSegmentIndex(byte segmentIndex)
+	{
+		m_SearchKey = ((ulong)segmentIndex << 8) | (m_SearchKey & 0xFFFFFFFFFFFF00FFuL);
+	}
 ```
 
 - `public StripCurvePos() : Game.Pathfind.PathNode`  
 
 ```csharp
-public Game.Pathfind.PathNode StripCurvePos();
+public PathNode StripCurvePos()
+	{
+		return new PathNode
+		{
+			m_SearchKey = (m_SearchKey & 0xFFFFFFFF8000FFFFuL)
+		};
+	}
 ```
 
 

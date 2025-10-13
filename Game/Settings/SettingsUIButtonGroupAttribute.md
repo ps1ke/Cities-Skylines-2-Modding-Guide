@@ -36,7 +36,10 @@ public readonly System.String name;
 - `public SettingsUIButtonGroupAttribute(System.String name)`  
 
 ```csharp
-public SettingsUIButtonGroupAttribute(System.String name);
+public SettingsUIButtonGroupAttribute(string name)
+	{
+		this.name = name;
+	}
 ```
 
 

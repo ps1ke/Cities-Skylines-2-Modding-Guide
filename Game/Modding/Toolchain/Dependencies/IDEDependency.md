@@ -84,7 +84,34 @@ public IDEDependency();
 - `public virtual GetLocalizedState(System.Boolean includeProgress) : Game.UI.Localization.LocalizedString`  
 
 ```csharp
-public virtual Game.UI.Localization.LocalizedString GetLocalizedState(System.Boolean includeProgress);
+public override LocalizedString GetLocalizedState(bool includeProgress)
+	{
+		switch (base.state.m_State)
+		{
+		case DependencyState.Installed:
+		{
+			Dictionary<string, ILocElement> dictionary = new Dictionary<string, ILocElement> { 
+			{
+				"STATE",
+				LocalizedString.Id("Options.STATE_TOOLCHAIN[Detected]")
+			} };
+			BaseIDEDependency[] array = ides;
+			foreach (BaseIDEDependency baseIDEDependency in array)
+			{
+				if (baseIDEDependency.isMinVersion)
+				{
+					dictionary.Add($"Item{dictionary.Count}", new LocalizedString(null, "{NAME}", new Dictionary<string, ILocElement> { { "NAME", baseIDEDependency.localizedName } }));
+				}
+			}
+			return new LocalizedString(null, "{STATE} (" + string.Join(", ", from k in dictionary.Keys.Skip(1)
+				select "{" + k + "}") + ")", dictionary);
+		}
+		case DependencyState.NotInstalled:
+			return LocalizedString.Id("Options.STATE_TOOLCHAIN[NotDetected]");
+		default:
+			return base.GetLocalizedState(includeProgress);
+		}
+	}
 ```
 
 

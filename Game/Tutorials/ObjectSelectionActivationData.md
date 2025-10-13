@@ -42,7 +42,11 @@ public System.Boolean m_AllowTool;
 - `public ObjectSelectionActivationData(Unity.Entities.Entity prefab, System.Boolean allowTool)`  
 
 ```csharp
-public ObjectSelectionActivationData(Unity.Entities.Entity prefab, System.Boolean allowTool);
+public ObjectSelectionActivationData(Entity prefab, bool allowTool)
+	{
+		m_Prefab = prefab;
+		m_AllowTool = allowTool;
+	}
 ```
 
 

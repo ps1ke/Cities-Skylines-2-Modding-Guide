@@ -86,7 +86,17 @@ public Game.Triggers.ChirpFlags m_Flags;
 - `public Chirp(Unity.Entities.Entity sender, System.UInt32 creationFrame)`  
 
 ```csharp
-public Chirp(Unity.Entities.Entity sender, System.UInt32 creationFrame);
+public Chirp(Entity sender, uint creationFrame)
+	{
+		m_Sender = sender;
+		m_CreationFrame = creationFrame;
+		m_Likes = 0u;
+		m_Flags = (ChirpFlags)0;
+		m_TargetLikes = 0u;
+		m_InactiveFrame = 0u;
+		m_ViralFactor = 1;
+		m_ContinuousFactor = 0.2f;
+	}
 ```
 
 

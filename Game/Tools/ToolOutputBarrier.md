@@ -24,7 +24,10 @@ public class ToolOutputBarrier : Game.SafeCommandBufferSystem
 - `public ToolOutputBarrier()`  
 
 ```csharp
-public ToolOutputBarrier();
+[Preserve]
+	public ToolOutputBarrier()
+	{
+	}
 ```
 
 
@@ -33,7 +36,11 @@ public ToolOutputBarrier();
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		base.OnUpdate();
+	}
 ```
 
 

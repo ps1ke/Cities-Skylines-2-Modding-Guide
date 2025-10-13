@@ -50,7 +50,12 @@ public System.Single m_VehicleEfficiency;
 - `public Combine(Game.Prefabs.MaintenanceDepotData otherData) : System.Void`  
 
 ```csharp
-public System.Void Combine(Game.Prefabs.MaintenanceDepotData otherData);
+public void Combine(MaintenanceDepotData otherData)
+	{
+		m_MaintenanceType |= otherData.m_MaintenanceType;
+		m_VehicleCapacity += otherData.m_VehicleCapacity;
+		m_VehicleEfficiency += otherData.m_VehicleEfficiency;
+	}
 ```
 
 - `public Deserialize<TReader>(TReader reader) : System.Void`  

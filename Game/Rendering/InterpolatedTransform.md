@@ -51,13 +51,23 @@ public Game.Objects.TransformFlags m_Flags;
 - `public InterpolatedTransform(Game.Objects.Transform transform)`  
 
 ```csharp
-public InterpolatedTransform(Game.Objects.Transform transform);
+public InterpolatedTransform(WeatherPhenomenon weatherPhenomenon)
+	{
+		m_Position = weatherPhenomenon.m_HotspotPosition;
+		m_Rotation = quaternion.identity;
+		m_Flags = (TransformFlags)0u;
+	}
 ```
 
 - `public InterpolatedTransform(Game.Events.WeatherPhenomenon weatherPhenomenon)`  
 
 ```csharp
-public InterpolatedTransform(Game.Events.WeatherPhenomenon weatherPhenomenon);
+public InterpolatedTransform(WeatherPhenomenon weatherPhenomenon)
+	{
+		m_Position = weatherPhenomenon.m_HotspotPosition;
+		m_Rotation = quaternion.identity;
+		m_Flags = (TransformFlags)0u;
+	}
 ```
 
 
@@ -66,7 +76,10 @@ public InterpolatedTransform(Game.Events.WeatherPhenomenon weatherPhenomenon);
 - `public ToTransform() : Game.Objects.Transform`  
 
 ```csharp
-public Game.Objects.Transform ToTransform();
+public Transform ToTransform()
+	{
+		return new Transform(m_Position, m_Rotation);
+	}
 ```
 
 

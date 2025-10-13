@@ -83,13 +83,23 @@ public System.Void Deserialize<TReader>(TReader reader);
 - `public GetDateOffset(System.Int32 daysPerYear) : System.Single`  
 
 ```csharp
-public System.Single GetDateOffset(System.Int32 daysPerYear);
+public float GetDateOffset(int daysPerYear)
+	{
+		return (float)(int)m_StartingMonth / (float)daysPerYear;
+	}
 ```
 
 - `public static GetSingleton(Unity.Entities.EntityQuery query) : Game.Common.TimeData`  
 
 ```csharp
-public static Game.Common.TimeData GetSingleton(Unity.Entities.EntityQuery query);
+public static TimeData GetSingleton(EntityQuery query)
+	{
+		if (!query.IsEmptyIgnoreFilter)
+		{
+			return query.GetSingleton<TimeData>();
+		}
+		return default(TimeData);
+	}
 ```
 
 - `public Serialize<TWriter>(TWriter writer) : System.Void`  
@@ -101,7 +111,14 @@ public System.Void Serialize<TWriter>(TWriter writer);
 - `public SetDefaults(Colossal.Serialization.Entities.Context context) : System.Void`  
 
 ```csharp
-public System.Void SetDefaults(Colossal.Serialization.Entities.Context context);
+public void SetDefaults(Context context)
+	{
+		m_FirstFrame = 0u;
+		m_StartingYear = 2021;
+		m_StartingMonth = 5;
+		m_StartingHour = 7;
+		m_StartingMinutes = 0;
+	}
 ```
 
 

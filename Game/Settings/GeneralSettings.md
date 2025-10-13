@@ -168,7 +168,11 @@ public System.Boolean resetSettings { set; }
 - `public GeneralSettings()`  
 
 ```csharp
-public GeneralSettings();
+public GeneralSettings()
+	{
+		SetDefaults();
+		InitializePlatform();
+	}
 ```
 
 
@@ -183,43 +187,87 @@ private System.Void <InitializePlatform>b__39_0(Colossal.PSI.Common.IPlatformSer
 - `public static AutoSaveEnabled() : System.Boolean`  
 
 ```csharp
-public static System.Boolean AutoSaveEnabled();
+public static bool AutoSaveEnabled()
+	{
+		return !SharedSettings.instance.general.autoSave;
+	}
 ```
 
 - `public static CanSave() : System.Boolean`  
 
 ```csharp
-public static System.Boolean CanSave();
+public static bool CanSave()
+	{
+		return !GameManager.instance.gameMode.IsGameOrEditor();
+	}
 ```
 
 - `private HideTelemetryConsentChoice() : System.Boolean`  
 
 ```csharp
-private System.Boolean HideTelemetryConsentChoice();
+private bool HideTelemetryConsentChoice()
+	{
+		if (m_Manager != null)
+		{
+			return !m_Manager.IsTelemetryConsentPresentable();
+		}
+		return true;
+	}
 ```
 
 - `private InitializePlatform() : System.Void`  
 
 ```csharp
-private System.Void InitializePlatform();
+private void InitializePlatform()
+	{
+		m_Manager = PlatformManager.instance.GetPSI<PdxSdkPlatform>("PdxSdk");
+		PlatformManager.instance.onPlatformRegistered += delegate(IPlatformServiceIntegration psi)
+		{
+			if (psi is PdxSdkPlatform manager)
+			{
+				m_Manager = manager;
+			}
+		};
+	}
 ```
 
 - `public virtual SetDefaults() : System.Void`  
 
 ```csharp
-public virtual System.Void SetDefaults();
+public override void SetDefaults()
+	{
+		autoSave = false;
+		autoSaveInterval = AutoSaveInterval.FiveMinutes;
+		autoSaveCount = AutoSaveCount.Three;
+		fpsMode = FPSMode.Off;
+		assetDatabaseAutoReloadMode = AssetDatabase.AutoReloadMode.None;
+		performancePreference = SimulationSystem.PerformancePreference.Balanced;
+	}
 ```
 
 - `private SetTelemetryConsentChoice(System.Boolean allow) : System.Void`  
 
 ```csharp
-private System.Void SetTelemetryConsentChoice(System.Boolean allow);
+private async void SetTelemetryConsentChoice(bool allow)
+	{
+		bool flag = await m_Manager.SetTelemetryConsentChoice(allow);
+		m_OptionalTelemetryConsentFaulted = !flag;
+		if (!flag)
+		{
+			GameManager.instance.userInterface.appBindings.ShowMessageDialog(new MessageDialog("Paradox.TELEMETRY_CONSENT_ERROR_TITLE", "Paradox.TELEMETRY_CONSENT_ERROR_DESCRIPTION", "Common.OK"), delegate
+			{
+			});
+		}
+	}
 ```
 
 - `private TelemetryConsentFaulted() : System.Boolean`  
 
 ```csharp
-private System.Boolean TelemetryConsentFaulted();
+private bool TelemetryConsentFaulted()
+	{
+		return m_OptionalTelemetryConsentFaulted;
+	}
 ```
 
 

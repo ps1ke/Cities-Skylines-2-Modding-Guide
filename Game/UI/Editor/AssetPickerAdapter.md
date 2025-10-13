@@ -144,7 +144,29 @@ public System.Int32 columnCount { get; set; }
 - `public AssetPickerAdapter(System.Collections.Generic.IEnumerable<Game.UI.Editor.AssetItem> items, System.Int32 columnCount = 0)`  
 
 ```csharp
-public AssetPickerAdapter(System.Collections.Generic.IEnumerable<Game.UI.Editor.AssetItem> items, System.Int32 columnCount);
+public AssetPickerAdapter(IEnumerable<AssetItem> items, int columnCount = 0)
+	{
+		m_FavoriteIds.Clear();
+		EditorSettings editorSettings = SharedSettings.instance?.editor;
+		if (editorSettings.assetPickerFavorites != null)
+		{
+			string[] assetPickerFavorites = editorSettings.assetPickerFavorites;
+			foreach (string item in assetPickerFavorites)
+			{
+				m_FavoriteIds.Add(item);
+			}
+		}
+		SetItems(items);
+		m_UseGlobalColumnCount = columnCount <= 0;
+		if (m_UseGlobalColumnCount)
+		{
+			m_ColumnCount = editorSettings?.assetPickerColumnCount ?? 4;
+		}
+		else
+		{
+			m_ColumnCount = columnCount;
+		}
+	}
 ```
 
 
@@ -171,25 +193,58 @@ private System.Boolean Game.UI.Editor.ItemPicker<Game.UI.Editor.AssetItem>.IAdap
 - `public SelectItemByGuid(Colossal.Hash128 guid) : Game.UI.Editor.AssetItem`  
 
 ```csharp
-public Game.UI.Editor.AssetItem SelectItemByGuid(Colossal.Hash128 guid);
+public AssetItem SelectItemByGuid(Hash128 guid)
+	{
+		m_SelectedItem = m_Items.FirstOrDefault((AssetItem item) => item.guid == guid);
+		return m_SelectedItem;
+	}
 ```
 
 - `public SelectItemByName(System.String name, System.StringComparison comparisonType) : Game.UI.Editor.AssetItem`  
 
 ```csharp
-public Game.UI.Editor.AssetItem SelectItemByName(System.String name, System.StringComparison comparisonType);
+public AssetItem SelectItemByName(string name, StringComparison comparisonType)
+	{
+		m_SelectedItem = m_Items.FirstOrDefault((AssetItem item) => item.fileName.Equals(name, comparisonType));
+		return m_SelectedItem;
+	}
 ```
 
 - `public SetItems(System.Collections.Generic.IEnumerable<Game.UI.Editor.AssetItem> items) : System.Void`  
 
 ```csharp
-public System.Void SetItems(System.Collections.Generic.IEnumerable<Game.UI.Editor.AssetItem> items);
+public void SetItems(IEnumerable<AssetItem> items)
+	{
+		m_Items = items.ToList();
+		foreach (AssetItem item in m_Items)
+		{
+			item.favorite = m_FavoriteIds.Contains(item.guid.ToString());
+		}
+		m_Items.Sort();
+		m_FilteredItems = new List<AssetItem>(m_Items);
+	}
 ```
 
 - `private UpdateFilteredItems() : System.Void`  
 
 ```csharp
-private System.Void UpdateFilteredItems();
+private void UpdateFilteredItems()
+	{
+		m_FilteredItems.Clear();
+		List<AssetItem> filteredItems = m_FilteredItems;
+		IEnumerable<AssetItem> collection;
+		if (string.IsNullOrEmpty(m_SearchQuery))
+		{
+			IEnumerable<AssetItem> items = m_Items;
+			collection = items;
+		}
+		else
+		{
+			collection = m_Items.Where((AssetItem item) => !string.IsNullOrEmpty(item.fileName) && item.fileName.IndexOf(m_SearchQuery, StringComparison.OrdinalIgnoreCase) != -1);
+		}
+		filteredItems.AddRange(collection);
+		m_FilteredItemsChanged = true;
+	}
 ```
 
 

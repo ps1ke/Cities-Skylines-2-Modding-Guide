@@ -226,7 +226,80 @@ private Game.Simulation.CitySystem m_CitySystem;
 - `public GarbagePathfindSetup(Game.Simulation.PathfindSetupSystem system)`  
 
 ```csharp
-public GarbagePathfindSetup(Game.Simulation.PathfindSetupSystem system);
+public GarbagePathfindSetup(PathfindSetupSystem system)
+	{
+		m_GarbageCollectorQuery = system.GetSetupQuery(new EntityQueryDesc
+		{
+			Any = new ComponentType[2]
+			{
+				ComponentType.ReadOnly<Game.Buildings.GarbageFacility>(),
+				ComponentType.ReadOnly<Game.Vehicles.GarbageTruck>()
+			},
+			None = new ComponentType[4]
+			{
+				ComponentType.ReadOnly<Deleted>(),
+				ComponentType.ReadOnly<Destroyed>(),
+				ComponentType.ReadOnly<Game.Buildings.ServiceUpgrade>(),
+				ComponentType.ReadOnly<Temp>()
+			}
+		});
+		m_GarbageTransferQuery = system.GetSetupQuery(new EntityQueryDesc
+		{
+			All = new ComponentType[3]
+			{
+				ComponentType.ReadOnly<Game.Buildings.GarbageFacility>(),
+				ComponentType.ReadOnly<ServiceDispatch>(),
+				ComponentType.ReadOnly<PrefabRef>()
+			},
+			None = new ComponentType[3]
+			{
+				ComponentType.ReadOnly<Deleted>(),
+				ComponentType.ReadOnly<Destroyed>(),
+				ComponentType.ReadOnly<Temp>()
+			}
+		}, new EntityQueryDesc
+		{
+			All = new ComponentType[4]
+			{
+				ComponentType.ReadOnly<Game.Companies.StorageCompany>(),
+				ComponentType.ReadOnly<PrefabRef>(),
+				ComponentType.ReadOnly<Resources>(),
+				ComponentType.ReadOnly<TradeCost>()
+			},
+			None = new ComponentType[3]
+			{
+				ComponentType.ReadOnly<Deleted>(),
+				ComponentType.ReadOnly<Destroyed>(),
+				ComponentType.ReadOnly<Temp>()
+			}
+		});
+		m_GarbageCollectionRequestQuery = system.GetSetupQuery(ComponentType.ReadOnly<GarbageCollectionRequest>(), ComponentType.Exclude<Dispatched>(), ComponentType.Exclude<PathInformation>());
+		m_EntityType = system.GetEntityTypeHandle();
+		m_PathOwnerType = system.GetComponentTypeHandle<PathOwner>(isReadOnly: true);
+		m_OwnerType = system.GetComponentTypeHandle<Owner>(isReadOnly: true);
+		m_OutsideConnectionType = system.GetComponentTypeHandle<Game.Objects.OutsideConnection>(isReadOnly: true);
+		m_ServiceRequestType = system.GetComponentTypeHandle<ServiceRequest>(isReadOnly: true);
+		m_GarbageCollectionRequestType = system.GetComponentTypeHandle<GarbageCollectionRequest>(isReadOnly: true);
+		m_GarbageFacilityType = system.GetComponentTypeHandle<Game.Buildings.GarbageFacility>(isReadOnly: true);
+		m_GarbageTruckType = system.GetComponentTypeHandle<Game.Vehicles.GarbageTruck>(isReadOnly: true);
+		m_PrefabRefType = system.GetComponentTypeHandle<PrefabRef>(isReadOnly: true);
+		m_PathElementType = system.GetBufferTypeHandle<PathElement>(isReadOnly: true);
+		m_ServiceDispatchType = system.GetBufferTypeHandle<ServiceDispatch>(isReadOnly: true);
+		m_ResourcesType = system.GetBufferTypeHandle<Resources>(isReadOnly: true);
+		m_TradeCostType = system.GetBufferTypeHandle<TradeCost>(isReadOnly: true);
+		m_InstalledUpgradeType = system.GetBufferTypeHandle<InstalledUpgrade>(isReadOnly: true);
+		m_PathInformationData = system.GetComponentLookup<PathInformation>(isReadOnly: true);
+		m_GarbageCollectionRequestData = system.GetComponentLookup<GarbageCollectionRequest>(isReadOnly: true);
+		m_OutsideConnections = system.GetComponentLookup<Game.Objects.OutsideConnection>(isReadOnly: true);
+		m_CurrentDistrictData = system.GetComponentLookup<CurrentDistrict>(isReadOnly: true);
+		m_GarbageTruckData = system.GetComponentLookup<Game.Vehicles.GarbageTruck>(isReadOnly: true);
+		m_StorageLimitData = system.GetComponentLookup<StorageLimitData>(isReadOnly: true);
+		m_StorageCompanyData = system.GetComponentLookup<StorageCompanyData>(isReadOnly: true);
+		m_CityData = system.GetComponentLookup<Game.City.City>(isReadOnly: true);
+		m_PathElements = system.GetBufferLookup<PathElement>(isReadOnly: true);
+		m_ServiceDistricts = system.GetBufferLookup<ServiceDistrict>(isReadOnly: true);
+		m_CitySystem = system.World.GetOrCreateSystemManaged<CitySystem>();
+	}
 ```
 
 
@@ -235,19 +308,98 @@ public GarbagePathfindSetup(Game.Simulation.PathfindSetupSystem system);
 - `public SetupGarbageCollector(Game.Simulation.PathfindSetupSystem system, Game.Simulation.PathfindSetupSystem+SetupData setupData, Unity.Jobs.JobHandle inputDeps) : Unity.Jobs.JobHandle`  
 
 ```csharp
-public Unity.Jobs.JobHandle SetupGarbageCollector(Game.Simulation.PathfindSetupSystem system, Game.Simulation.PathfindSetupSystem+SetupData setupData, Unity.Jobs.JobHandle inputDeps);
+public JobHandle SetupGarbageCollector(PathfindSetupSystem system, PathfindSetupSystem.SetupData setupData, JobHandle inputDeps)
+	{
+		m_EntityType.Update(system);
+		m_GarbageFacilityType.Update(system);
+		m_GarbageTruckType.Update(system);
+		m_PathOwnerType.Update(system);
+		m_OwnerType.Update(system);
+		m_PathElementType.Update(system);
+		m_ServiceDispatchType.Update(system);
+		m_PathInformationData.Update(system);
+		m_GarbageCollectionRequestData.Update(system);
+		m_PathElements.Update(system);
+		m_ServiceDistricts.Update(system);
+		m_OutsideConnections.Update(system);
+		m_CityData.Update(system);
+		return JobChunkExtensions.ScheduleParallel(new SetupGarbageCollectorsJob
+		{
+			m_EntityType = m_EntityType,
+			m_GarbageFacilityType = m_GarbageFacilityType,
+			m_GarbageTruckType = m_GarbageTruckType,
+			m_PathOwnerType = m_PathOwnerType,
+			m_OwnerType = m_OwnerType,
+			m_PathElementType = m_PathElementType,
+			m_ServiceDispatchType = m_ServiceDispatchType,
+			m_PathInformationData = m_PathInformationData,
+			m_GarbageCollectionRequestData = m_GarbageCollectionRequestData,
+			m_PathElements = m_PathElements,
+			m_ServiceDistricts = m_ServiceDistricts,
+			m_OutsideConnections = m_OutsideConnections,
+			m_CityData = m_CityData,
+			m_City = m_CitySystem.City,
+			m_SetupData = setupData
+		}, m_GarbageCollectorQuery, inputDeps);
+	}
 ```
 
 - `public SetupGarbageCollectorRequest(Game.Simulation.PathfindSetupSystem system, Game.Simulation.PathfindSetupSystem+SetupData setupData, Unity.Jobs.JobHandle inputDeps) : Unity.Jobs.JobHandle`  
 
 ```csharp
-public Unity.Jobs.JobHandle SetupGarbageCollectorRequest(Game.Simulation.PathfindSetupSystem system, Game.Simulation.PathfindSetupSystem+SetupData setupData, Unity.Jobs.JobHandle inputDeps);
+public JobHandle SetupGarbageCollectorRequest(PathfindSetupSystem system, PathfindSetupSystem.SetupData setupData, JobHandle inputDeps)
+	{
+		m_EntityType.Update(system);
+		m_ServiceRequestType.Update(system);
+		m_GarbageCollectionRequestType.Update(system);
+		m_GarbageCollectionRequestData.Update(system);
+		m_CurrentDistrictData.Update(system);
+		m_GarbageTruckData.Update(system);
+		m_ServiceDistricts.Update(system);
+		return JobChunkExtensions.ScheduleParallel(new GarbageCollectorRequestsJob
+		{
+			m_EntityType = m_EntityType,
+			m_ServiceRequestType = m_ServiceRequestType,
+			m_GarbageCollectionRequestType = m_GarbageCollectionRequestType,
+			m_GarbageCollectionRequestData = m_GarbageCollectionRequestData,
+			m_CurrentDistrictData = m_CurrentDistrictData,
+			m_GarbageTruckData = m_GarbageTruckData,
+			m_ServiceDistricts = m_ServiceDistricts,
+			m_SetupData = setupData
+		}, m_GarbageCollectionRequestQuery, inputDeps);
+	}
 ```
 
 - `public SetupGarbageTransfer(Game.Simulation.PathfindSetupSystem system, Game.Simulation.PathfindSetupSystem+SetupData setupData, Unity.Jobs.JobHandle inputDeps) : Unity.Jobs.JobHandle`  
 
 ```csharp
-public Unity.Jobs.JobHandle SetupGarbageTransfer(Game.Simulation.PathfindSetupSystem system, Game.Simulation.PathfindSetupSystem+SetupData setupData, Unity.Jobs.JobHandle inputDeps);
+public JobHandle SetupGarbageTransfer(PathfindSetupSystem system, PathfindSetupSystem.SetupData setupData, JobHandle inputDeps)
+	{
+		m_EntityType.Update(system);
+		m_GarbageFacilityType.Update(system);
+		m_PrefabRefType.Update(system);
+		m_OutsideConnectionType.Update(system);
+		m_ResourcesType.Update(system);
+		m_TradeCostType.Update(system);
+		m_InstalledUpgradeType.Update(system);
+		m_StorageCompanyData.Update(system);
+		m_StorageLimitData.Update(system);
+		m_ServiceDistricts.Update(system);
+		return JobChunkExtensions.ScheduleParallel(new SetupGarbageTransferJob
+		{
+			m_EntityType = m_EntityType,
+			m_GarbageFacilityType = m_GarbageFacilityType,
+			m_PrefabRefType = m_PrefabRefType,
+			m_OutsideConnectionType = m_OutsideConnectionType,
+			m_ResourcesType = m_ResourcesType,
+			m_TradeCostType = m_TradeCostType,
+			m_InstalledUpgradeType = m_InstalledUpgradeType,
+			m_StorageCompanyData = m_StorageCompanyData,
+			m_StorageLimitData = m_StorageLimitData,
+			m_ServiceDistricts = m_ServiceDistricts,
+			m_SetupData = setupData
+		}, m_GarbageTransferQuery, inputDeps);
+	}
 ```
 
 

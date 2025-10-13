@@ -204,7 +204,21 @@ public System.Single usage { get; }
 - `public UITransportLineData(Unity.Entities.Entity entity, System.Boolean active, System.Boolean visible, System.Boolean isCargo, Game.Routes.Color color, Game.UI.InGame.RouteSchedule schedule, Game.Prefabs.TransportType type, System.Single length, System.Int32 stops, System.Int32 vehicles, System.Int32 cargo, System.Single usage)`  
 
 ```csharp
-public UITransportLineData(Unity.Entities.Entity entity, System.Boolean active, System.Boolean visible, System.Boolean isCargo, Game.Routes.Color color, Game.UI.InGame.RouteSchedule schedule, Game.Prefabs.TransportType type, System.Single length, System.Int32 stops, System.Int32 vehicles, System.Int32 cargo, System.Single usage);
+public UITransportLineData(Entity entity, bool active, bool visible, bool isCargo, Game.Routes.Color color, RouteSchedule schedule, TransportType type, float length, int stops, int vehicles, int cargo, float usage)
+	{
+		this.entity = entity;
+		this.active = active;
+		this.visible = visible;
+		this.isCargo = isCargo;
+		this.color = color.m_Color;
+		this.schedule = (int)schedule;
+		this.type = type;
+		this.length = length;
+		this.stops = stops;
+		this.vehicles = vehicles;
+		this.cargo = cargo;
+		this.usage = usage;
+	}
 ```
 
 
@@ -213,13 +227,49 @@ public UITransportLineData(Unity.Entities.Entity entity, System.Boolean active, 
 - `public CompareTo(Game.UI.InGame.UITransportLineData other) : System.Int32`  
 
 ```csharp
-public System.Int32 CompareTo(Game.UI.InGame.UITransportLineData other);
+public int CompareTo(UITransportLineData other)
+	{
+		int num = type.CompareTo(other.type);
+		if (num == 0)
+		{
+			return entity.Index.CompareTo(other.entity.Index);
+		}
+		return num;
+	}
 ```
 
 - `public Write(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-public System.Void Write(Colossal.UI.Binding.IJsonWriter writer);
+public void Write(IJsonWriter writer)
+	{
+		writer.TypeBegin(GetType().FullName);
+		writer.PropertyName("entity");
+		writer.Write(entity);
+		writer.PropertyName("active");
+		writer.Write(active);
+		writer.PropertyName("visible");
+		writer.Write(visible);
+		writer.PropertyName("isCargo");
+		writer.Write(isCargo);
+		writer.PropertyName("color");
+		writer.Write(color);
+		writer.PropertyName("schedule");
+		writer.Write(schedule);
+		writer.PropertyName("type");
+		writer.Write(Enum.GetName(typeof(TransportType), type));
+		writer.PropertyName("length");
+		writer.Write(length);
+		writer.PropertyName("stops");
+		writer.Write(stops);
+		writer.PropertyName("vehicles");
+		writer.Write(vehicles);
+		writer.PropertyName("cargo");
+		writer.Write(cargo);
+		writer.PropertyName("usage");
+		writer.Write(usage);
+		writer.TypeEnd();
+	}
 ```
 
 

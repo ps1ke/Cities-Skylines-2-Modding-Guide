@@ -44,7 +44,11 @@ public Game.Creatures.CreatureVehicleFlags m_Flags;
 - `public CurrentVehicle(Unity.Entities.Entity vehicle, Game.Creatures.CreatureVehicleFlags flags)`  
 
 ```csharp
-public CurrentVehicle(Unity.Entities.Entity vehicle, Game.Creatures.CreatureVehicleFlags flags);
+public CurrentVehicle(Entity vehicle, CreatureVehicleFlags flags)
+	{
+		m_Vehicle = vehicle;
+		m_Flags = flags;
+	}
 ```
 
 

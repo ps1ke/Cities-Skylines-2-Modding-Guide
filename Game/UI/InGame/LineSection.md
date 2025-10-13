@@ -101,7 +101,10 @@ private System.Single usage { private get; private set; }
 - `public LineSection()`  
 
 ```csharp
-public LineSection();
+[Preserve]
+	public LineSection()
+	{
+	}
 ```
 
 
@@ -110,25 +113,57 @@ public LineSection();
 - `protected virtual OnProcess() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnProcess();
+protected override void OnProcess()
+	{
+		m_InfoUISystem.SetRoutesVisible();
+		int num = 0;
+		int capacity = 0;
+		TransportUIUtils.GetRouteVehiclesCount(base.EntityManager, selectedEntity, ref num, ref capacity);
+		usage = ((capacity > 0) ? ((float)num / (float)capacity) : 0f);
+		stops = TransportUIUtils.GetStopCount(base.EntityManager, selectedEntity);
+		length = TransportUIUtils.GetRouteLength(base.EntityManager, selectedEntity);
+		cargo = num;
+		base.tooltipTags.Add(TooltipTags.CargoRoute.ToString());
+		base.tooltipTags.Add(TooltipTags.TransportLine.ToString());
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		base.visible = base.EntityManager.HasComponent<Route>(selectedEntity) && base.EntityManager.HasComponent<TransportLine>(selectedEntity) && base.EntityManager.HasComponent<RouteWaypoint>(selectedEntity);
+	}
 ```
 
 - `public virtual OnWriteProperties(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-public virtual System.Void OnWriteProperties(Colossal.UI.Binding.IJsonWriter writer);
+public override void OnWriteProperties(IJsonWriter writer)
+	{
+		writer.PropertyName("length");
+		writer.Write(length);
+		writer.PropertyName("stops");
+		writer.Write(stops);
+		writer.PropertyName("usage");
+		writer.Write(usage);
+		writer.PropertyName("cargo");
+		writer.Write(cargo);
+	}
 ```
 
 - `protected virtual Reset() : System.Void`  
 
 ```csharp
-protected virtual System.Void Reset();
+protected override void Reset()
+	{
+		length = 0f;
+		stops = 0;
+		cargo = 0;
+		usage = 0f;
+	}
 ```
 
 

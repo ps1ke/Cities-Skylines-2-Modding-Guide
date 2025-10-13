@@ -51,7 +51,12 @@ public System.UInt32 m_InvolvedFrame;
 - `public InvolvedInAccident(Unity.Entities.Entity _event, System.Single severity, System.UInt32 simulationFrame)`  
 
 ```csharp
-public InvolvedInAccident(Unity.Entities.Entity _event, System.Single severity, System.UInt32 simulationFrame);
+public InvolvedInAccident(Entity _event, float severity, uint simulationFrame)
+	{
+		m_Event = _event;
+		m_Severity = severity;
+		m_InvolvedFrame = simulationFrame;
+	}
 ```
 
 

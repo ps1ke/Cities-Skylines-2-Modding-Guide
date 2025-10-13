@@ -49,7 +49,10 @@ public Game.UI.Editor.EditorPanelWidgetRenderer widgetRenderer { get; }
 - `public EditorPhotoModePanel()`  
 
 ```csharp
-public EditorPhotoModePanel();
+[Preserve]
+	public EditorPhotoModePanel()
+	{
+	}
 ```
 
 
@@ -58,19 +61,35 @@ public EditorPhotoModePanel();
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		title = "PhotoMode.TITLE";
+		m_PhotoModeUISystem = base.World.GetOrCreateSystemManaged<PhotoModeUISystem>();
+	}
 ```
 
 - `protected virtual OnStartRunning() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnStartRunning();
+[Preserve]
+	protected override void OnStartRunning()
+	{
+		base.OnStartRunning();
+		m_PhotoModeUISystem.Activate(enabled: true);
+	}
 ```
 
 - `protected virtual OnStopRunning() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnStopRunning();
+[Preserve]
+	protected override void OnStopRunning()
+	{
+		base.OnStopRunning();
+		m_PhotoModeUISystem.Activate(enabled: false);
+	}
 ```
 
 

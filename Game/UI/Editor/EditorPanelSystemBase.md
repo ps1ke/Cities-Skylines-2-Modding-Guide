@@ -125,7 +125,10 @@ private System.Collections.Generic.IList<Game.UI.Widgets.IWidget> Game.UI.Editor
 - `protected EditorPanelSystemBase()`  
 
 ```csharp
-protected EditorPanelSystemBase();
+[Preserve]
+	protected EditorPanelSystemBase()
+	{
+	}
 ```
 
 
@@ -134,55 +137,99 @@ protected EditorPanelSystemBase();
 - `public CloseSubPanel() : System.Void`  
 
 ```csharp
-public System.Void CloseSubPanel();
+public void CloseSubPanel()
+	{
+		activeSubPanel = null;
+	}
 ```
 
 - `private Game.UI.Editor.IEditorPanel.OnCancel() : System.Boolean`  
 
 ```csharp
-private System.Boolean Game.UI.Editor.IEditorPanel.OnCancel();
+protected virtual bool OnCancel()
+	{
+		return OnClose();
+	}
 ```
 
 - `private Game.UI.Editor.IEditorPanel.OnClose() : System.Boolean`  
 
 ```csharp
-private System.Boolean Game.UI.Editor.IEditorPanel.OnClose();
+protected virtual bool OnClose()
+	{
+		return true;
+	}
 ```
 
 - `private Game.UI.Editor.IEditorPanel.OnValueChanged(Game.UI.Widgets.IWidget widget) : System.Void`  
 
 ```csharp
-private System.Void Game.UI.Editor.IEditorPanel.OnValueChanged(Game.UI.Widgets.IWidget widget);
+protected virtual void OnValueChanged(IWidget widget)
+	{
+	}
 ```
 
 - `protected virtual OnCancel() : System.Boolean`  
 
 ```csharp
-protected virtual System.Boolean OnCancel();
+protected virtual bool OnCancel()
+	{
+		return OnClose();
+	}
 ```
 
 - `protected virtual OnClose() : System.Boolean`  
 
 ```csharp
-protected virtual System.Boolean OnClose();
+protected virtual bool OnClose()
+	{
+		return true;
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		base.Enabled = false;
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		if (activeSubPanel != m_LastSubPanel)
+		{
+			if (m_LastSubPanel is ComponentSystemBase componentSystemBase)
+			{
+				componentSystemBase.Enabled = false;
+				componentSystemBase.Update();
+			}
+			m_LastSubPanel = activeSubPanel;
+			if (activeSubPanel is ComponentSystemBase componentSystemBase2)
+			{
+				componentSystemBase2.Enabled = true;
+			}
+		}
+		if (activeSubPanel is ComponentSystemBase componentSystemBase3)
+		{
+			componentSystemBase3.Update();
+		}
+	}
 ```
 
 - `protected virtual OnValueChanged(Game.UI.Widgets.IWidget widget) : System.Void`  
 
 ```csharp
-protected virtual System.Void OnValueChanged(Game.UI.Widgets.IWidget widget);
+protected virtual void OnValueChanged(IWidget widget)
+	{
+	}
 ```
 
 

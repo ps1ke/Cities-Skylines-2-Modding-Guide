@@ -46,7 +46,11 @@ public System.Single m_CurvePos;
 - `public AccessLane(Unity.Entities.Entity lane, System.Single curvePos)`  
 
 ```csharp
-public AccessLane(Unity.Entities.Entity lane, System.Single curvePos);
+public AccessLane(Entity lane, float curvePos)
+	{
+		m_Lane = lane;
+		m_CurvePos = curvePos;
+	}
 ```
 
 
@@ -61,13 +65,23 @@ public System.Void Deserialize<TReader>(TReader reader);
 - `public Equals(Game.Routes.AccessLane other) : System.Boolean`  
 
 ```csharp
-public System.Boolean Equals(Game.Routes.AccessLane other);
+public bool Equals(AccessLane other)
+	{
+		if (m_Lane.Equals(other.m_Lane))
+		{
+			return m_CurvePos.Equals(other.m_CurvePos);
+		}
+		return false;
+	}
 ```
 
 - `public virtual GetHashCode() : System.Int32`  
 
 ```csharp
-public virtual System.Int32 GetHashCode();
+public override int GetHashCode()
+	{
+		return (17 * 31 + m_Lane.GetHashCode()) * 31 + m_CurvePos.GetHashCode();
+	}
 ```
 
 - `public Serialize<TWriter>(TWriter writer) : System.Void`  

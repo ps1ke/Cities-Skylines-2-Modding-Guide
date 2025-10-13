@@ -37,7 +37,10 @@ public System.Single m_DangerLevel;
 - `public DangerLevel(System.Single dangerLevel)`  
 
 ```csharp
-public DangerLevel(System.Single dangerLevel);
+public DangerLevel(float dangerLevel)
+	{
+		m_DangerLevel = dangerLevel;
+	}
 ```
 
 

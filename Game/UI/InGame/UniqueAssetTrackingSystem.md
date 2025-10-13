@@ -95,7 +95,10 @@ public System.Action<Unity.Entities.Entity, System.Boolean> EventUniqueAssetStat
 - `public UniqueAssetTrackingSystem()`  
 
 ```csharp
-public UniqueAssetTrackingSystem();
+[Preserve]
+	public UniqueAssetTrackingSystem()
+	{
+	}
 ```
 
 
@@ -104,43 +107,115 @@ public UniqueAssetTrackingSystem();
 - `private GetLoaded() : System.Boolean`  
 
 ```csharp
-private System.Boolean GetLoaded();
+private bool GetLoaded()
+	{
+		if (m_Loaded)
+		{
+			m_Loaded = false;
+			return true;
+		}
+		return false;
+	}
 ```
 
 - `public IsPlacedUniqueAsset(Unity.Entities.Entity entity) : System.Boolean`  
 
 ```csharp
-public System.Boolean IsPlacedUniqueAsset(Unity.Entities.Entity entity);
+public bool IsPlacedUniqueAsset(Entity entity)
+	{
+		if (IsUniqueAsset(entity))
+		{
+			return placedUniqueAssets.Contains(entity);
+		}
+		return false;
+	}
 ```
 
 - `public IsUniqueAsset(Unity.Entities.Entity entity) : System.Boolean`  
 
 ```csharp
-public System.Boolean IsUniqueAsset(Unity.Entities.Entity entity);
+public bool IsUniqueAsset(Entity entity)
+	{
+		if (base.EntityManager.TryGetComponent<PlaceableObjectData>(entity, out var component))
+		{
+			return (component.m_Flags & PlacementFlags.Unique) != 0;
+		}
+		return false;
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_LoadedUniqueAssetQuery = GetEntityQuery(ComponentType.ReadOnly<Game.Objects.UniqueObject>(), ComponentType.ReadOnly<PrefabRef>(), ComponentType.Exclude<Temp>());
+		m_DeletedUniqueAssetQuery = GetEntityQuery(ComponentType.ReadOnly<Game.Objects.UniqueObject>(), ComponentType.ReadOnly<PrefabRef>(), ComponentType.ReadOnly<Deleted>(), ComponentType.Exclude<Temp>());
+		m_PlacedUniqueAssetQuery = GetEntityQuery(ComponentType.ReadOnly<Game.Objects.UniqueObject>(), ComponentType.ReadOnly<PrefabRef>(), ComponentType.ReadOnly<Created>(), ComponentType.Exclude<Temp>());
+		placedUniqueAssets = new NativeParallelHashSet<Entity>(32, Allocator.Persistent);
+	}
 ```
 
 - `protected virtual OnDestroy() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnDestroy();
+[Preserve]
+	protected override void OnDestroy()
+	{
+		placedUniqueAssets.Dispose();
+		base.OnDestroy();
+	}
 ```
 
 - `protected virtual OnGameLoaded(Colossal.Serialization.Entities.Context serializationContext) : System.Void`  
 
 ```csharp
-protected virtual System.Void OnGameLoaded(Colossal.Serialization.Entities.Context serializationContext);
+protected override void OnGameLoaded(Context serializationContext)
+	{
+		placedUniqueAssets.Clear();
+		m_Loaded = true;
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		if (GetLoaded() && !m_LoadedUniqueAssetQuery.IsEmptyIgnoreFilter)
+		{
+			NativeArray<PrefabRef> nativeArray = m_LoadedUniqueAssetQuery.ToComponentDataArray<PrefabRef>(Allocator.TempJob);
+			for (int i = 0; i < nativeArray.Length; i++)
+			{
+				placedUniqueAssets.Add(nativeArray[i].m_Prefab);
+				EventUniqueAssetStatusChanged?.Invoke(nativeArray[i].m_Prefab, arg2: true);
+			}
+			nativeArray.Dispose();
+		}
+		if (!m_PlacedUniqueAssetQuery.IsEmptyIgnoreFilter)
+		{
+			NativeArray<PrefabRef> nativeArray2 = m_PlacedUniqueAssetQuery.ToComponentDataArray<PrefabRef>(Allocator.TempJob);
+			for (int j = 0; j < nativeArray2.Length; j++)
+			{
+				placedUniqueAssets.Add(nativeArray2[j].m_Prefab);
+				EventUniqueAssetStatusChanged?.Invoke(nativeArray2[j].m_Prefab, arg2: true);
+			}
+			nativeArray2.Dispose();
+		}
+		if (!m_DeletedUniqueAssetQuery.IsEmptyIgnoreFilter)
+		{
+			NativeArray<PrefabRef> nativeArray3 = m_DeletedUniqueAssetQuery.ToComponentDataArray<PrefabRef>(Allocator.TempJob);
+			for (int k = 0; k < nativeArray3.Length; k++)
+			{
+				placedUniqueAssets.Remove(nativeArray3[k].m_Prefab);
+				EventUniqueAssetStatusChanged?.Invoke(nativeArray3[k].m_Prefab, arg2: false);
+			}
+			nativeArray3.Dispose();
+		}
+	}
 ```
 
 

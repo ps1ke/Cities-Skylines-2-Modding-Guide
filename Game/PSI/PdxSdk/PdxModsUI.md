@@ -102,7 +102,21 @@ public System.Boolean isActive { get; }
 - `public PdxModsUI()`  
 
 ```csharp
-public PdxModsUI();
+public PdxModsUI()
+	{
+		Game.Input.InputManager.instance.EventActiveDeviceChanged += OnActiveDeviceChanged;
+		GameManager.instance.localizationManager.onActiveDictionaryChanged += UpdateLocale;
+		m_PdxPlatform = PlatformManager.instance.GetPSI<PdxSdkPlatform>("PdxSdk");
+		m_PdxPlatform?.SetPdxModsUI(this);
+		PlatformManager.instance.onPlatformRegistered += delegate(IPlatformServiceIntegration psi)
+		{
+			if (psi is PdxSdkPlatform pdxPlatform)
+			{
+				m_PdxPlatform = pdxPlatform;
+				m_PdxPlatform.SetPdxModsUI(this);
+			}
+		};
+	}
 ```
 
 
@@ -117,37 +131,71 @@ private System.Void <.ctor>b__8_0(Colossal.PSI.Common.IPlatformServiceIntegratio
 - `public Destroy() : System.Void`  
 
 ```csharp
-public System.Void Destroy();
+public void Destroy()
+	{
+		m_PdxPlatform?.DestroyModsUI();
+	}
 ```
 
 - `public Dispose() : System.Void`  
 
 ```csharp
-public System.Void Dispose();
+public void Dispose()
+	{
+		Game.Input.InputManager.instance.EventActiveDeviceChanged -= OnActiveDeviceChanged;
+		GameManager.instance.localizationManager.onActiveDictionaryChanged -= UpdateLocale;
+	}
 ```
 
 - `public GetInputMode() : PDX.ModsUI.InputMode`  
 
 ```csharp
-public PDX.ModsUI.InputMode GetInputMode();
+public InputMode GetInputMode()
+	{
+		Game.Input.InputManager.ControlScheme activeControlScheme = Game.Input.InputManager.instance.activeControlScheme;
+		Game.Input.InputManager.GamepadType finalInputHintsType = SharedSettings.instance.userInterface.GetFinalInputHintsType();
+		return activeControlScheme switch
+		{
+			Game.Input.InputManager.ControlScheme.KeyboardAndMouse => InputMode.KeyboardAndMouse, 
+			Game.Input.InputManager.ControlScheme.Gamepad => finalInputHintsType switch
+			{
+				Game.Input.InputManager.GamepadType.Xbox => InputMode.XboxSeriesXS, 
+				Game.Input.InputManager.GamepadType.PS => InputMode.PS5, 
+				_ => throw new Exception($"Unknown control scheme {activeControlScheme} with gamepad {finalInputHintsType}"), 
+			}, 
+			_ => throw new Exception($"Unknown control scheme {activeControlScheme}"), 
+		};
+	}
 ```
 
 - `private OnActiveDeviceChanged(UnityEngine.InputSystem.InputDevice newDevice, UnityEngine.InputSystem.InputDevice oldDevice, System.Boolean schemeChanged) : System.Void`  
 
 ```csharp
-private System.Void OnActiveDeviceChanged(UnityEngine.InputSystem.InputDevice newDevice, UnityEngine.InputSystem.InputDevice oldDevice, System.Boolean schemeChanged);
+private void OnActiveDeviceChanged(InputDevice newDevice, InputDevice oldDevice, bool schemeChanged)
+	{
+		if (schemeChanged || Game.Input.InputManager.instance.activeControlScheme == Game.Input.InputManager.ControlScheme.Gamepad)
+		{
+			m_PdxPlatform?.UpdateInputMode();
+		}
+	}
 ```
 
 - `public Show() : System.Void`  
 
 ```csharp
-public System.Void Show();
+public void Show()
+	{
+		m_PdxPlatform?.ShowModsUI();
+	}
 ```
 
 - `private UpdateLocale() : System.Void`  
 
 ```csharp
-private System.Void UpdateLocale();
+private void UpdateLocale()
+	{
+		m_PdxPlatform?.ChangeModsUILanguage(locale);
+	}
 ```
 
 

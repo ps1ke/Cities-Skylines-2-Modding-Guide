@@ -77,19 +77,40 @@ public ExtractorArea();
 - `public virtual GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetArchetypeComponents(HashSet<ComponentType> components)
+	{
+		components.Add(ComponentType.ReadWrite<Extractor>());
+		components.Add(ComponentType.ReadWrite<OwnedVehicle>());
+		if (m_MapFeature == MapFeature.Forest)
+		{
+			components.Add(ComponentType.ReadWrite<WoodResource>());
+		}
+	}
 ```
 
 - `public virtual GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetPrefabComponents(HashSet<ComponentType> components)
+	{
+		components.Add(ComponentType.ReadWrite<ExtractorAreaData>());
+	}
 ```
 
 - `public virtual Initialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity) : System.Void`  
 
 ```csharp
-public virtual System.Void Initialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity);
+public override void Initialize(EntityManager entityManager, Entity entity)
+	{
+		entityManager.SetComponentData(entity, new ExtractorAreaData
+		{
+			m_MapFeature = m_MapFeature,
+			m_ObjectSpawnFactor = m_ObjectSpawnFactor,
+			m_MaxObjectArea = m_MaxObjectArea,
+			m_RequireNaturalResource = m_RequireNaturalResource,
+			m_WorkAmountFactor = m_WorkAmountFactor
+		});
+	}
 ```
 
 

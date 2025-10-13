@@ -37,7 +37,10 @@ public Unity.Entities.Entity m_Entity;
 - `public SelectionElement(Unity.Entities.Entity entity)`  
 
 ```csharp
-public SelectionElement(Unity.Entities.Entity entity);
+public SelectionElement(Entity entity)
+	{
+		m_Entity = entity;
+	}
 ```
 
 

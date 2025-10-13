@@ -75,13 +75,31 @@ public static System.Boolean hasPreviouslySavedGame { get; }
 - `public static GetAvailableCloudTargets() : System.Collections.Generic.List<System.String>`  
 
 ```csharp
-public static System.Collections.Generic.List<System.String> GetAvailableCloudTargets();
+public static List<string> GetAvailableCloudTargets()
+	{
+		return (from x in AssetDatabase.global.GetAvailableRemoteStorages()
+			select x.name).ToList();
+	}
 ```
 
 - `public static GetLastModifiedSave() : Game.Assets.SaveGameMetadata`  
 
 ```csharp
-public static Game.Assets.SaveGameMetadata GetLastModifiedSave();
+public static SaveGameMetadata GetLastModifiedSave()
+	{
+		SaveGameMetadata result = null;
+		DateTime dateTime = DateTime.MinValue;
+		foreach (SaveGameMetadata asset in AssetDatabase.global.GetAssets(default(SearchFilter<SaveGameMetadata>)))
+		{
+			DateTime lastModified = asset.target.lastModified;
+			if (lastModified > dateTime)
+			{
+				dateTime = lastModified;
+				result = asset;
+			}
+		}
+		return result;
+	}
 ```
 
 - `public static GetSanitizedCloudTarget(System.String cloudTarget) : System.ValueTuple<System.String, Colossal.IO.AssetDatabase.ILocalAssetDatabase>`  

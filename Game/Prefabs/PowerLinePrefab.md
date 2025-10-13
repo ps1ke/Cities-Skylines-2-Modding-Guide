@@ -55,13 +55,30 @@ public PowerLinePrefab();
 - `public virtual GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetArchetypeComponents(HashSet<ComponentType> components)
+	{
+		base.GetArchetypeComponents(components);
+		if (components.Contains(ComponentType.ReadWrite<Edge>()))
+		{
+			components.Add(ComponentType.ReadWrite<EdgeColor>());
+		}
+		else if (components.Contains(ComponentType.ReadWrite<Node>()))
+		{
+			components.Add(ComponentType.ReadWrite<NodeColor>());
+		}
+	}
 ```
 
 - `public virtual GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetPrefabComponents(HashSet<ComponentType> components)
+	{
+		base.GetPrefabComponents(components);
+		components.Add(ComponentType.ReadWrite<PowerLineData>());
+		components.Add(ComponentType.ReadWrite<LocalConnectData>());
+		components.Add(ComponentType.ReadWrite<DefaultNetLane>());
+	}
 ```
 
 

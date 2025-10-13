@@ -37,7 +37,10 @@ public Unity.Entities.Entity m_Event;
 - `public SpectatorSite(Unity.Entities.Entity _event)`  
 
 ```csharp
-public SpectatorSite(Unity.Entities.Entity _event);
+public SpectatorSite(Entity _event)
+	{
+		m_Event = _event;
+	}
 ```
 
 

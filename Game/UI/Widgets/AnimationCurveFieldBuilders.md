@@ -34,7 +34,24 @@ public AnimationCurveFieldBuilders();
 - `public TryCreate(System.Type memberType, System.Object[] attributes) : Game.UI.Widgets.FieldBuilder`  
 
 ```csharp
-public Game.UI.Widgets.FieldBuilder TryCreate(System.Type memberType, System.Object[] attributes);
+public FieldBuilder TryCreate(Type memberType, object[] attributes)
+	{
+		if (memberType == typeof(AnimationCurve))
+		{
+			return delegate(IValueAccessor accessor)
+			{
+				if (accessor.GetValue() == null)
+				{
+					accessor.SetValue(new AnimationCurve());
+				}
+				return new AnimationCurveField
+				{
+					accessor = new CastAccessor<AnimationCurve>(accessor)
+				};
+			};
+		}
+		return null;
+	}
 ```
 
 

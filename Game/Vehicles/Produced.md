@@ -37,7 +37,10 @@ public System.Single m_Completed;
 - `public Produced(System.Single completed)`  
 
 ```csharp
-public Produced(System.Single completed);
+public Produced(float completed)
+	{
+		m_Completed = completed;
+	}
 ```
 
 

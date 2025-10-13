@@ -56,7 +56,13 @@ public System.Single m_Adjustment;
 - `public Modify(Unity.Entities.Entity entity, Unity.Entities.Entity policy, System.Boolean active, System.Single adjustment)`  
 
 ```csharp
-public Modify(Unity.Entities.Entity entity, Unity.Entities.Entity policy, System.Boolean active, System.Single adjustment);
+public Modify(Entity entity, Entity policy, bool active, float adjustment)
+	{
+		m_Entity = entity;
+		m_Policy = policy;
+		m_Flags = (active ? PolicyFlags.Active : ((PolicyFlags)0));
+		m_Adjustment = adjustment;
+	}
 ```
 
 

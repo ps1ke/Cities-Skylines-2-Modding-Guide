@@ -77,19 +77,36 @@ public HealthEvent();
 - `public virtual GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetArchetypeComponents(HashSet<ComponentType> components)
+	{
+		components.Add(ComponentType.ReadWrite<Game.Events.HealthEvent>());
+		components.Add(ComponentType.ReadWrite<TargetElement>());
+	}
 ```
 
 - `public virtual GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetPrefabComponents(HashSet<ComponentType> components)
+	{
+		components.Add(ComponentType.ReadWrite<HealthEventData>());
+	}
 ```
 
 - `public virtual Initialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity) : System.Void`  
 
 ```csharp
-public virtual System.Void Initialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity);
+public override void Initialize(EntityManager entityManager, Entity entity)
+	{
+		base.Initialize(entityManager, entity);
+		HealthEventData componentData = default(HealthEventData);
+		componentData.m_RandomTargetType = m_RandomTargetType;
+		componentData.m_HealthEventType = m_HealthEventType;
+		componentData.m_OccurenceProbability = m_OccurenceProbability;
+		componentData.m_TransportProbability = m_TransportProbability;
+		componentData.m_RequireTracking = m_RequireTracking;
+		entityManager.SetComponentData(entity, componentData);
+	}
 ```
 
 

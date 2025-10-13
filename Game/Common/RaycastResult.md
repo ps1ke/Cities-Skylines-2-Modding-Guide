@@ -41,7 +41,13 @@ public Unity.Entities.Entity m_Owner;
 - `public Accumulate(Game.Common.RaycastResult other) : System.Void`  
 
 ```csharp
-public System.Void Accumulate(Game.Common.RaycastResult other);
+public void Accumulate(RaycastResult other)
+	{
+		if (m_Owner == Entity.Null || (other.m_Owner != Entity.Null && (other.m_Hit.m_NormalizedDistance < m_Hit.m_NormalizedDistance || (other.m_Hit.m_NormalizedDistance == m_Hit.m_NormalizedDistance && other.m_Hit.m_HitEntity.Index < m_Hit.m_HitEntity.Index))))
+		{
+			this = other;
+		}
+	}
 ```
 
 

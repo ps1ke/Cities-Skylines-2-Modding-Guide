@@ -63,7 +63,14 @@ public System.Void Deserialize<TReader>(TReader reader);
 - `public Equals(Game.Net.ConnectionLane other) : System.Boolean`  
 
 ```csharp
-public System.Boolean Equals(Game.Net.ConnectionLane other);
+public bool Equals(ConnectionLane other)
+	{
+		if (m_Flags == other.m_Flags && m_TrackTypes == other.m_TrackTypes)
+		{
+			return m_RoadTypes == other.m_RoadTypes;
+		}
+		return false;
+	}
 ```
 
 - `public Serialize<TWriter>(TWriter writer) : System.Void`  

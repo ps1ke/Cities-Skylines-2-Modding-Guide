@@ -54,7 +54,13 @@ public AtmosphereProperties();
 - `protected virtual OnBindVolumeProperties(UnityEngine.Rendering.Volume volume) : System.Void`  
 
 ```csharp
-protected virtual System.Void OnBindVolumeProperties(UnityEngine.Rendering.Volume volume);
+protected override void OnBindVolumeProperties(Volume volume)
+	{
+		PhysicallyBasedSky component = null;
+		VolumeHelper.GetOrCreateVolumeComponent(volume, ref component);
+		m_AuroraBorealisEmissionMultiplier = component.auroraBorealisEmissionMultiplier;
+		m_AuroraBorealisSpeedMultiplier = component.auroraBorealisSpeedMultiplier;
+	}
 ```
 
 

@@ -51,7 +51,12 @@ public Colossal.Mathematics.Bounds1 m_Range;
 - `public CityModifierData(Game.City.CityModifierType type, Game.Prefabs.ModifierValueMode mode, Colossal.Mathematics.Bounds1 range)`  
 
 ```csharp
-public CityModifierData(Game.City.CityModifierType type, Game.Prefabs.ModifierValueMode mode, Colossal.Mathematics.Bounds1 range);
+public CityModifierData(CityModifierType type, ModifierValueMode mode, Bounds1 range)
+	{
+		m_Type = type;
+		m_Mode = mode;
+		m_Range = range;
+	}
 ```
 
 

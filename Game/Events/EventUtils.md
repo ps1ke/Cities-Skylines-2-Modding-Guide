@@ -41,13 +41,30 @@ public static const System.Single FLOOD_DEPTH_TOLERANCE;
 - `public static GetSeverity(Unity.Mathematics.float3 position, Game.Events.WeatherPhenomenon weatherPhenomenon, Game.Prefabs.WeatherPhenomenonData weatherPhenomenonData) : System.Single`  
 
 ```csharp
-public static System.Single GetSeverity(Unity.Mathematics.float3 position, Game.Events.WeatherPhenomenon weatherPhenomenon, Game.Prefabs.WeatherPhenomenonData weatherPhenomenonData);
+public static float GetSeverity(float3 position, WeatherPhenomenon weatherPhenomenon, WeatherPhenomenonData weatherPhenomenonData)
+	{
+		float num = math.distance(position.xz, weatherPhenomenon.m_HotspotPosition.xz) / weatherPhenomenon.m_HotspotRadius;
+		float num2 = weatherPhenomenon.m_Intensity * weatherPhenomenonData.m_DamageSeverity * (1f - num);
+		return math.select(num2, 0f, num2 < 0.001f);
+	}
 ```
 
 - `public static IsWorse(Game.Events.DangerFlags flags, Game.Events.DangerFlags other) : System.Boolean`  
 
 ```csharp
-public static System.Boolean IsWorse(Game.Events.DangerFlags flags, Game.Events.DangerFlags other);
+public static bool IsWorse(DangerFlags flags, DangerFlags other)
+	{
+		DangerFlags dangerFlags = flags ^ other;
+		if ((dangerFlags & DangerFlags.Evacuate) != 0)
+		{
+			return (flags & DangerFlags.Evacuate) != 0;
+		}
+		if ((dangerFlags & DangerFlags.StayIndoors) != 0)
+		{
+			return (flags & DangerFlags.StayIndoors) != 0;
+		}
+		return false;
+	}
 ```
 
 

@@ -38,7 +38,10 @@ public Unity.Entities.Entity m_Prefab;
 - `public PrefabRef(Unity.Entities.Entity prefab)`  
 
 ```csharp
-public PrefabRef(Unity.Entities.Entity prefab);
+public PrefabRef(Entity prefab)
+	{
+		m_Prefab = prefab;
+	}
 ```
 
 
@@ -53,7 +56,10 @@ public System.Void Deserialize<TReader>(TReader reader);
 - `public GetStride(Colossal.Serialization.Entities.Context context) : System.Int32`  
 
 ```csharp
-public System.Int32 GetStride(Colossal.Serialization.Entities.Context context);
+public int GetStride(Context context)
+	{
+		return 4;
+	}
 ```
 
 - `public Serialize<TWriter>(TWriter writer) : System.Void`  

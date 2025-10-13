@@ -105,19 +105,44 @@ public CarLane();
 - `public virtual GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetArchetypeComponents(HashSet<ComponentType> components)
+	{
+		components.Add(ComponentType.ReadWrite<Game.Net.CarLane>());
+		if (!components.Contains(ComponentType.ReadWrite<MasterLane>()))
+		{
+			components.Add(ComponentType.ReadWrite<LaneObject>());
+			components.Add(ComponentType.ReadWrite<LaneReservation>());
+			components.Add(ComponentType.ReadWrite<LaneFlow>());
+			components.Add(ComponentType.ReadWrite<LaneOverlap>());
+			components.Add(ComponentType.ReadWrite<UpdateFrame>());
+		}
+	}
 ```
 
 - `public virtual GetDependencies(System.Collections.Generic.List<Game.Prefabs.PrefabBase> prefabs) : System.Void`  
 
 ```csharp
-public virtual System.Void GetDependencies(System.Collections.Generic.List<Game.Prefabs.PrefabBase> prefabs);
+public override void GetDependencies(List<PrefabBase> prefabs)
+	{
+		base.GetDependencies(prefabs);
+		if (m_NotTrackLane != null)
+		{
+			prefabs.Add(m_NotTrackLane);
+		}
+		if (m_NotBusLane != null)
+		{
+			prefabs.Add(m_NotBusLane);
+		}
+	}
 ```
 
 - `public virtual GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetPrefabComponents(HashSet<ComponentType> components)
+	{
+		components.Add(ComponentType.ReadWrite<CarLaneData>());
+	}
 ```
 
 

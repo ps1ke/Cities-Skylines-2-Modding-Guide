@@ -41,7 +41,10 @@ public Unity.Entities.Entity m_Entity;
 - `public TargetElement(Unity.Entities.Entity entity)`  
 
 ```csharp
-public TargetElement(Unity.Entities.Entity entity);
+public TargetElement(Entity entity)
+	{
+		m_Entity = entity;
+	}
 ```
 
 
@@ -56,13 +59,19 @@ public System.Void Deserialize<TReader>(TReader reader);
 - `public Equals(Game.Events.TargetElement other) : System.Boolean`  
 
 ```csharp
-public System.Boolean Equals(Game.Events.TargetElement other);
+public bool Equals(TargetElement other)
+	{
+		return m_Entity.Equals(other.m_Entity);
+	}
 ```
 
 - `public virtual GetHashCode() : System.Int32`  
 
 ```csharp
-public virtual System.Int32 GetHashCode();
+public override int GetHashCode()
+	{
+		return m_Entity.GetHashCode();
+	}
 ```
 
 - `public Serialize<TWriter>(TWriter writer) : System.Void`  

@@ -126,19 +126,54 @@ public WeatherPhenomenon();
 - `public virtual GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetArchetypeComponents(HashSet<ComponentType> components)
+	{
+		components.Add(ComponentType.ReadWrite<Game.Events.WeatherPhenomenon>());
+		components.Add(ComponentType.ReadWrite<HotspotFrame>());
+		components.Add(ComponentType.ReadWrite<Duration>());
+		components.Add(ComponentType.ReadWrite<DangerLevel>());
+		components.Add(ComponentType.ReadWrite<TargetElement>());
+		components.Add(ComponentType.ReadWrite<InterpolatedTransform>());
+	}
 ```
 
 - `public virtual GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetPrefabComponents(HashSet<ComponentType> components)
+	{
+		components.Add(ComponentType.ReadWrite<WeatherPhenomenonData>());
+	}
 ```
 
 - `public virtual Initialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity) : System.Void`  
 
 ```csharp
-public virtual System.Void Initialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity);
+public override void Initialize(EntityManager entityManager, Entity entity)
+	{
+		base.Initialize(entityManager, entity);
+		WeatherPhenomenonData componentData = default(WeatherPhenomenonData);
+		componentData.m_OccurenceProbability = m_OccurrenceProbability;
+		componentData.m_HotspotInstability = m_HotspotInstability;
+		componentData.m_DamageSeverity = m_DamageSeverity;
+		componentData.m_DangerLevel = m_DangerLevel;
+		componentData.m_PhenomenonRadius = m_PhenomenonRadius;
+		componentData.m_HotspotRadius = m_HotspotRadius;
+		componentData.m_LightningInterval = m_LightningInterval;
+		componentData.m_Duration = m_Duration;
+		componentData.m_OccurenceTemperature = m_OccurenceTemperature;
+		componentData.m_OccurenceRain = m_OccurenceRain;
+		componentData.m_DangerFlags = (DangerFlags)0u;
+		if (m_Evacuate)
+		{
+			componentData.m_DangerFlags = DangerFlags.Evacuate;
+		}
+		if (m_StayIndoors)
+		{
+			componentData.m_DangerFlags = DangerFlags.StayIndoors;
+		}
+		entityManager.SetComponentData(entity, componentData);
+	}
 ```
 
 

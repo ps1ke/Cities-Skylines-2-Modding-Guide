@@ -133,7 +133,18 @@ public abstract System.Threading.Tasks.Task Execute(Game.SceneFlow.GameManager m
 - `protected virtual HandleScreenChange(Game.SceneFlow.OverlayScreen screen) : System.Boolean`  
 
 ```csharp
-protected virtual System.Boolean HandleScreenChange(Game.SceneFlow.OverlayScreen screen);
+protected virtual bool HandleScreenChange(OverlayScreen screen)
+	{
+		if (screen == overlayScreen)
+		{
+			InputManager.instance.AssociateActionsWithUser(associate: false);
+		}
+		else if (screen == OverlayScreen.None || screen == OverlayScreen.Loading)
+		{
+			InputManager.instance.AssociateActionsWithUser(associate: true);
+		}
+		return screen == overlayScreen;
+	}
 ```
 
 

@@ -51,7 +51,10 @@ public System.Collections.Generic.List<Game.Debug.BaseDebugSystem+Option> option
 - `protected BaseDebugSystem()`  
 
 ```csharp
-protected BaseDebugSystem();
+[Preserve]
+	protected BaseDebugSystem()
+	{
+	}
 ```
 
 
@@ -60,37 +63,59 @@ protected BaseDebugSystem();
 - `protected AddOption(System.String displayName, System.Boolean defaultEnabled) : Game.Debug.BaseDebugSystem+Option`  
 
 ```csharp
-protected Game.Debug.BaseDebugSystem+Option AddOption(System.String displayName, System.Boolean defaultEnabled);
+protected Option AddOption(string displayName, bool defaultEnabled)
+	{
+		Option option = new Option(displayName, defaultEnabled);
+		options.Add(option);
+		return option;
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		options = new List<Option>();
+	}
 ```
 
 - `public virtual OnDisabled(UnityEngine.Rendering.DebugUI+Container container) : System.Void`  
 
 ```csharp
-public virtual System.Void OnDisabled(UnityEngine.Rendering.DebugUI+Container container);
+public virtual void OnDisabled(DebugUI.Container container)
+	{
+	}
 ```
 
 - `public virtual OnEnabled(UnityEngine.Rendering.DebugUI+Container container) : System.Void`  
 
 ```csharp
-public virtual System.Void OnEnabled(UnityEngine.Rendering.DebugUI+Container container);
+public virtual void OnEnabled(DebugUI.Container container)
+	{
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected virtual JobHandle OnUpdate(JobHandle inputDeps)
+	{
+		return inputDeps;
+	}
 ```
 
 - `protected virtual OnUpdate(Unity.Jobs.JobHandle inputDeps) : Unity.Jobs.JobHandle`  
 
 ```csharp
-protected virtual Unity.Jobs.JobHandle OnUpdate(Unity.Jobs.JobHandle inputDeps);
+[Preserve]
+	protected virtual JobHandle OnUpdate(JobHandle inputDeps)
+	{
+		return inputDeps;
+	}
 ```
 
 

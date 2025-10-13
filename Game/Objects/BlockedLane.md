@@ -48,7 +48,11 @@ public Unity.Mathematics.float2 m_CurvePosition;
 - `public BlockedLane(Unity.Entities.Entity lane, Unity.Mathematics.float2 curvePosition)`  
 
 ```csharp
-public BlockedLane(Unity.Entities.Entity lane, Unity.Mathematics.float2 curvePosition);
+public BlockedLane(Entity lane, float2 curvePosition)
+	{
+		m_Lane = lane;
+		m_CurvePosition = curvePosition;
+	}
 ```
 
 
@@ -63,13 +67,19 @@ public System.Void Deserialize<TReader>(TReader reader);
 - `public Equals(Game.Objects.BlockedLane other) : System.Boolean`  
 
 ```csharp
-public System.Boolean Equals(Game.Objects.BlockedLane other);
+public bool Equals(BlockedLane other)
+	{
+		return m_Lane.Equals(other.m_Lane);
+	}
 ```
 
 - `public virtual GetHashCode() : System.Int32`  
 
 ```csharp
-public virtual System.Int32 GetHashCode();
+public override int GetHashCode()
+	{
+		return m_Lane.GetHashCode();
+	}
 ```
 
 - `public Serialize<TWriter>(TWriter writer) : System.Void`  

@@ -52,7 +52,10 @@ public FloatInputField();
 - `public virtual ToFieldType(Unity.Mathematics.double4 value) : System.Double`  
 
 ```csharp
-public virtual System.Double ToFieldType(Unity.Mathematics.double4 value);
+public override double ToFieldType(double4 value)
+	{
+		return value.x;
+	}
 ```
 
 

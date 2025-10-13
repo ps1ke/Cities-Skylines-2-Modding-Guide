@@ -42,7 +42,11 @@ public Game.Tutorials.PolicyAdjustmentTriggerTargetFlags m_TargetFlags;
 - `public PolicyAdjustmentTriggerData(Game.Tutorials.PolicyAdjustmentTriggerFlags flags, Game.Tutorials.PolicyAdjustmentTriggerTargetFlags targetFlags)`  
 
 ```csharp
-public PolicyAdjustmentTriggerData(Game.Tutorials.PolicyAdjustmentTriggerFlags flags, Game.Tutorials.PolicyAdjustmentTriggerTargetFlags targetFlags);
+public PolicyAdjustmentTriggerData(PolicyAdjustmentTriggerFlags flags, PolicyAdjustmentTriggerTargetFlags targetFlags)
+	{
+		m_Flags = flags;
+		m_TargetFlags = targetFlags;
+	}
 ```
 
 

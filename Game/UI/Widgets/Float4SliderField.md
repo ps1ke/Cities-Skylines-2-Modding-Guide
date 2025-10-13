@@ -52,7 +52,10 @@ public Float4SliderField();
 - `public virtual ToFieldType(Unity.Mathematics.double4 value) : Unity.Mathematics.float4`  
 
 ```csharp
-public virtual Unity.Mathematics.float4 ToFieldType(Unity.Mathematics.double4 value);
+public override float4 ToFieldType(double4 value)
+	{
+		return new float4(value);
+	}
 ```
 
 

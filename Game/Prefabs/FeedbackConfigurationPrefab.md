@@ -392,19 +392,109 @@ public FeedbackConfigurationPrefab();
 - `public virtual GetDependencies(System.Collections.Generic.List<Game.Prefabs.PrefabBase> prefabs) : System.Void`  
 
 ```csharp
-public virtual System.Void GetDependencies(System.Collections.Generic.List<Game.Prefabs.PrefabBase> prefabs);
+public override void GetDependencies(List<PrefabBase> prefabs)
+	{
+		base.GetDependencies(prefabs);
+		prefabs.Add(m_HappyFaceNotification);
+		prefabs.Add(m_SadFaceNotification);
+	}
 ```
 
 - `public virtual GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetPrefabComponents(HashSet<ComponentType> components)
+	{
+		base.GetPrefabComponents(components);
+		components.Add(ComponentType.ReadWrite<FeedbackConfigurationData>());
+		components.Add(ComponentType.ReadWrite<FeedbackLocalEffectFactor>());
+		components.Add(ComponentType.ReadWrite<FeedbackCityEffectFactor>());
+	}
 ```
 
 - `public virtual LateInitialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity) : System.Void`  
 
 ```csharp
-public virtual System.Void LateInitialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity);
+public override void LateInitialize(EntityManager entityManager, Entity entity)
+	{
+		base.LateInitialize(entityManager, entity);
+		PrefabSystem orCreateSystemManaged = entityManager.World.GetOrCreateSystemManaged<PrefabSystem>();
+		entityManager.SetComponentData(entity, new FeedbackConfigurationData
+		{
+			m_HappyFaceNotification = orCreateSystemManaged.GetEntity(m_HappyFaceNotification),
+			m_SadFaceNotification = orCreateSystemManaged.GetEntity(m_SadFaceNotification),
+			m_GarbageProducerGarbageFactor = m_GarbageProducerGarbageFactor,
+			m_GarbageVehicleFactor = m_GarbageVehicleFactor,
+			m_HospitalAmbulanceFactor = m_HospitalAmbulanceFactor,
+			m_HospitalHelicopterFactor = m_HospitalHelicopterFactor,
+			m_HospitalCapacityFactor = m_HospitalCapacityFactor,
+			m_DeathcareHearseFactor = m_DeathcareHearseFactor,
+			m_DeathcareCapacityFactor = m_DeathcareCapacityFactor,
+			m_DeathcareProcessingFactor = m_DeathcareProcessingFactor,
+			m_ElectricityConsumptionFactor = m_ElectricityConsumptionFactor,
+			m_ElectricityProductionFactor = m_ElectricityProductionFactor,
+			m_TransformerRadius = m_TransformerRadius,
+			m_WaterConsumptionFactor = m_WaterConsumptionFactor,
+			m_WaterCapacityFactor = m_WaterCapacityFactor,
+			m_WaterConsumerSewageFactor = m_WaterConsumerSewageFactor,
+			m_SewageCapacityFactor = m_SewageCapacityFactor,
+			m_TransportVehicleCapacityFactor = m_TransportVehicleCapacityFactor,
+			m_TransportDispatchCenterFactor = m_TransportDispatchCenterFactor,
+			m_TransportStationRange = m_TransportStationRange,
+			m_TransportStopRange = m_TransportStopRange,
+			m_MailProducerMailFactor = m_MailProducerMailFactor,
+			m_PostFacilityVanFactor = m_PostFacilityVanFactor,
+			m_PostFacilityTruckFactor = m_PostFacilityTruckFactor,
+			m_PostFacilityCapacityFactor = m_PostFacilityCapacityFactor,
+			m_PostFacilityProcessingFactor = m_PostFacilityProcessingFactor,
+			m_TelecomCapacityFactor = m_TelecomCapacityFactor,
+			m_ElementarySchoolCapacityFactor = m_ElementarySchoolCapacityFactor,
+			m_HighSchoolCapacityFactor = m_HighSchoolCapacityFactor,
+			m_CollegeCapacityFactor = m_CollegeCapacityFactor,
+			m_UniversityCapacityFactor = m_UniversityCapacityFactor,
+			m_ParkingFacilityRange = m_ParkingFacilityRange,
+			m_MaintenanceVehicleFactor = m_MaintenanceVehicleFactor,
+			m_FireStationEngineFactor = m_FireStationEngineFactor,
+			m_FireStationHelicopterFactor = m_FireStationHelicopterFactor,
+			m_CrimeProducerCrimeFactor = m_CrimeProducerCrimeFactor,
+			m_PoliceStationCarFactor = m_PoliceStationCarFactor,
+			m_PoliceStationHelicopterFactor = m_PoliceStationHelicopterFactor,
+			m_PoliceStationCapacityFactor = m_PoliceStationCapacityFactor,
+			m_PrisonVehicleFactor = m_PrisonVehicleFactor,
+			m_PrisonCapacityFactor = m_PrisonCapacityFactor,
+			m_GroundPollutionFactor = m_GroundPollutionFactor,
+			m_AirPollutionFactor = m_AirPollutionFactor,
+			m_NoisePollutionFactor = m_NoisePollutionFactor,
+			m_GroundPollutionRadius = m_GroundPollutionRadius,
+			m_AirPollutionRadius = m_AirPollutionRadius,
+			m_NoisePollutionRadius = m_NoisePollutionRadius,
+			m_AttractivenessFactor = m_AttractivenessFactor
+		});
+		if (m_LocalModifierFactors != null)
+		{
+			DynamicBuffer<FeedbackLocalEffectFactor> buffer = entityManager.GetBuffer<FeedbackLocalEffectFactor>(entity);
+			buffer.ResizeUninitialized(m_LocalModifierFactors.Length);
+			for (int i = 0; i < m_LocalModifierFactors.Length; i++)
+			{
+				buffer[i] = new FeedbackLocalEffectFactor
+				{
+					m_Factor = m_LocalModifierFactors[i]
+				};
+			}
+		}
+		if (m_CityModifierFactors != null)
+		{
+			DynamicBuffer<FeedbackCityEffectFactor> buffer2 = entityManager.GetBuffer<FeedbackCityEffectFactor>(entity);
+			buffer2.ResizeUninitialized(m_CityModifierFactors.Length);
+			for (int j = 0; j < m_CityModifierFactors.Length; j++)
+			{
+				buffer2[j] = new FeedbackCityEffectFactor
+				{
+					m_Factor = m_CityModifierFactors[j]
+				};
+			}
+		}
+	}
 ```
 
 

@@ -37,7 +37,10 @@ public Game.Net.CoverageService m_Service;
 - `public CoverageServiceType(Game.Net.CoverageService service)`  
 
 ```csharp
-public CoverageServiceType(Game.Net.CoverageService service);
+public CoverageServiceType(CoverageService service)
+	{
+		m_Service = service;
+	}
 ```
 
 

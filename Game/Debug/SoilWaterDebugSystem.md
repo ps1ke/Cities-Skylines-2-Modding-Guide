@@ -43,7 +43,10 @@ private Colossal.GizmosSystem m_GizmosSystem;
 - `public SoilWaterDebugSystem()`  
 
 ```csharp
-public SoilWaterDebugSystem();
+[Preserve]
+	public SoilWaterDebugSystem()
+	{
+	}
 ```
 
 
@@ -52,13 +55,33 @@ public SoilWaterDebugSystem();
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_GizmosSystem = base.World.GetOrCreateSystemManaged<GizmosSystem>();
+		m_SoilWaterSystem = base.World.GetOrCreateSystemManaged<SoilWaterSystem>();
+		base.Enabled = false;
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		JobHandle dependencies;
+		JobHandle dependencies2;
+		SoilWaterGizmoJob jobData = new SoilWaterGizmoJob
+		{
+			m_SoilWaterMap = m_SoilWaterSystem.GetMap(readOnly: true, out dependencies),
+			m_GizmoBatcher = m_GizmosSystem.GetGizmosBatcher(out dependencies2)
+		};
+		base.Dependency = jobData.Schedule(JobHandle.CombineDependencies(base.Dependency, dependencies2, dependencies));
+		m_SoilWaterSystem.AddReader(base.Dependency);
+		m_GizmosSystem.AddGizmosBatcherWriter(base.Dependency);
+	}
 ```
 
 

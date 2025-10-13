@@ -47,7 +47,11 @@ private Unity.Collections.NativeQueue<Game.Net.TreeObjectAction> m_TreeActionQue
 - `public LaneObjectCommandBuffer(Colossal.Collections.NativeParallelQueue<Game.Net.LaneObjectAction> laneActionQueue, Unity.Collections.NativeQueue<Game.Net.TreeObjectAction> treeActionQueue)`  
 
 ```csharp
-public LaneObjectCommandBuffer(Colossal.Collections.NativeParallelQueue<Game.Net.LaneObjectAction> laneActionQueue, Unity.Collections.NativeQueue<Game.Net.TreeObjectAction> treeActionQueue);
+public LaneObjectCommandBuffer(NativeParallelQueue<LaneObjectAction>.Writer laneActionQueue, NativeQueue<TreeObjectAction>.ParallelWriter treeActionQueue)
+	{
+		m_LaneActionQueue = laneActionQueue;
+		m_TreeActionQueue = treeActionQueue;
+	}
 ```
 
 
@@ -56,37 +60,55 @@ public LaneObjectCommandBuffer(Colossal.Collections.NativeParallelQueue<Game.Net
 - `public Add(Unity.Entities.Entity lane, Unity.Entities.Entity entity, Unity.Mathematics.float2 curvePosition) : System.Void`  
 
 ```csharp
-public System.Void Add(Unity.Entities.Entity lane, Unity.Entities.Entity entity, Unity.Mathematics.float2 curvePosition);
+public void Add(Entity entity, Bounds3 bounds)
+	{
+		m_TreeActionQueue.Enqueue(new TreeObjectAction(entity, bounds));
+	}
 ```
 
 - `public Add(Unity.Entities.Entity entity, Colossal.Mathematics.Bounds3 bounds) : System.Void`  
 
 ```csharp
-public System.Void Add(Unity.Entities.Entity entity, Colossal.Mathematics.Bounds3 bounds);
+public void Add(Entity entity, Bounds3 bounds)
+	{
+		m_TreeActionQueue.Enqueue(new TreeObjectAction(entity, bounds));
+	}
 ```
 
 - `public Remove(Unity.Entities.Entity lane, Unity.Entities.Entity entity) : System.Void`  
 
 ```csharp
-public System.Void Remove(Unity.Entities.Entity lane, Unity.Entities.Entity entity);
+public void Remove(Entity entity)
+	{
+		m_TreeActionQueue.Enqueue(new TreeObjectAction(entity));
+	}
 ```
 
 - `public Remove(Unity.Entities.Entity entity) : System.Void`  
 
 ```csharp
-public System.Void Remove(Unity.Entities.Entity entity);
+public void Remove(Entity entity)
+	{
+		m_TreeActionQueue.Enqueue(new TreeObjectAction(entity));
+	}
 ```
 
 - `public Update(Unity.Entities.Entity lane, Unity.Entities.Entity entity, Unity.Mathematics.float2 curvePosition) : System.Void`  
 
 ```csharp
-public System.Void Update(Unity.Entities.Entity lane, Unity.Entities.Entity entity, Unity.Mathematics.float2 curvePosition);
+public void Update(Entity entity, Bounds3 bounds)
+	{
+		m_TreeActionQueue.Enqueue(new TreeObjectAction(entity, entity, bounds));
+	}
 ```
 
 - `public Update(Unity.Entities.Entity entity, Colossal.Mathematics.Bounds3 bounds) : System.Void`  
 
 ```csharp
-public System.Void Update(Unity.Entities.Entity entity, Colossal.Mathematics.Bounds3 bounds);
+public void Update(Entity entity, Bounds3 bounds)
+	{
+		m_TreeActionQueue.Enqueue(new TreeObjectAction(entity, entity, bounds));
+	}
 ```
 
 

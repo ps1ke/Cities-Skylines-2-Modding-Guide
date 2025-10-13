@@ -55,7 +55,13 @@ public Game.Pathfind.SetupQueueTarget m_Destination;
 - `public SetupQueueItem(Unity.Entities.Entity owner, Game.Pathfind.PathfindParameters parameters, Game.Pathfind.SetupQueueTarget origin, Game.Pathfind.SetupQueueTarget destination)`  
 
 ```csharp
-public SetupQueueItem(Unity.Entities.Entity owner, Game.Pathfind.PathfindParameters parameters, Game.Pathfind.SetupQueueTarget origin, Game.Pathfind.SetupQueueTarget destination);
+public SetupQueueItem(Entity owner, PathfindParameters parameters, SetupQueueTarget origin, SetupQueueTarget destination)
+	{
+		m_Owner = owner;
+		m_Parameters = parameters;
+		m_Origin = origin;
+		m_Destination = destination;
+	}
 ```
 
 

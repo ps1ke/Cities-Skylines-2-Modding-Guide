@@ -83,7 +83,10 @@ public System.Collections.Generic.IList<Game.UI.Widgets.IWidget> visibleChildren
 - `public ModdingToolchainDependency()`  
 
 ```csharp
-public ModdingToolchainDependency();
+public ModdingToolchainDependency()
+	{
+		base.valueWriter = new ModdingToolchainDependencyWriter();
+	}
 ```
 
 
@@ -92,13 +95,30 @@ public ModdingToolchainDependency();
 - `protected virtual Update() : Game.UI.Widgets.WidgetChanges`  
 
 ```csharp
-protected virtual Game.UI.Widgets.WidgetChanges Update();
+protected override WidgetChanges Update()
+	{
+		WidgetChanges widgetChanges = base.Update();
+		bool flag = expandedAccessor?.GetTypedValue() ?? true;
+		if (flag != m_Expanded)
+		{
+			widgetChanges |= WidgetChanges.Properties | WidgetChanges.Children;
+			m_Expanded = flag;
+		}
+		return widgetChanges;
+	}
 ```
 
 - `public virtual UpdateVisibility() : Game.UI.Widgets.WidgetChanges`  
 
 ```csharp
-public virtual Game.UI.Widgets.WidgetChanges UpdateVisibility();
+public override WidgetChanges UpdateVisibility()
+	{
+		foreach (Widget item in visibleChildren.OfType<Widget>())
+		{
+			item.UpdateVisibility();
+		}
+		return base.UpdateVisibility();
+	}
 ```
 
 

@@ -74,7 +74,10 @@ public Unity.Mathematics.int2 TextureSize { get; }
 - `public GroundPollutionSystem()`  
 
 ```csharp
-public GroundPollutionSystem();
+[Preserve]
+	public GroundPollutionSystem()
+	{
+	}
 ```
 
 
@@ -83,31 +86,73 @@ public GroundPollutionSystem();
 - `public static GetCellCenter(System.Int32 index) : Unity.Mathematics.float3`  
 
 ```csharp
-public static Unity.Mathematics.float3 GetCellCenter(System.Int32 index);
+public static float3 GetCellCenter(int index)
+	{
+		return CellMapSystem<GroundPollution>.GetCellCenter(index, kTextureSize);
+	}
 ```
 
 - `public static GetPollution(Unity.Mathematics.float3 position, Unity.Collections.NativeArray<Game.Simulation.GroundPollution> pollutionMap) : Game.Simulation.GroundPollution`  
 
 ```csharp
-public static Game.Simulation.GroundPollution GetPollution(Unity.Mathematics.float3 position, Unity.Collections.NativeArray<Game.Simulation.GroundPollution> pollutionMap);
+public static GroundPollution GetPollution(float3 position, NativeArray<GroundPollution> pollutionMap)
+	{
+		GroundPollution result = default(GroundPollution);
+		int2 cell = CellMapSystem<GroundPollution>.GetCell(position, CellMapSystem<GroundPollution>.kMapSize, kTextureSize);
+		float2 cellCoords = CellMapSystem<GroundPollution>.GetCellCoords(position, CellMapSystem<GroundPollution>.kMapSize, kTextureSize);
+		if (cell.x < 0 || cell.x >= kTextureSize || cell.y < 0 || cell.y >= kTextureSize)
+		{
+			return result;
+		}
+		GroundPollution groundPollution = pollutionMap[cell.x + kTextureSize * cell.y];
+		GroundPollution groundPollution2 = ((cell.x < kTextureSize - 1) ? pollutionMap[cell.x + 1 + kTextureSize * cell.y] : default(GroundPollution));
+		GroundPollution groundPollution3 = ((cell.y < kTextureSize - 1) ? pollutionMap[cell.x + kTextureSize * (cell.y + 1)] : default(GroundPollution));
+		GroundPollution groundPollution4 = ((cell.x < kTextureSize - 1 && cell.y < kTextureSize - 1) ? pollutionMap[cell.x + 1 + kTextureSize * (cell.y + 1)] : default(GroundPollution));
+		result.m_Pollution = (short)Mathf.RoundToInt(math.lerp(math.lerp(groundPollution.m_Pollution, groundPollution2.m_Pollution, cellCoords.x - (float)cell.x), math.lerp(groundPollution3.m_Pollution, groundPollution4.m_Pollution, cellCoords.x - (float)cell.x), cellCoords.y - (float)cell.y));
+		return result;
+	}
 ```
 
 - `public virtual GetUpdateInterval(Game.SystemUpdatePhase phase) : System.Int32`  
 
 ```csharp
-public virtual System.Int32 GetUpdateInterval(Game.SystemUpdatePhase phase);
+public override int GetUpdateInterval(SystemUpdatePhase phase)
+	{
+		return 262144 / kUpdatesPerDay;
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_SimulationSystem = base.World.GetOrCreateSystemManaged<SimulationSystem>();
+		CreateTextures(kTextureSize);
+		m_PollutionParameterGroup = GetEntityQuery(ComponentType.ReadOnly<PollutionParameterData>());
+		RequireForUpdate(m_PollutionParameterGroup);
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		PollutionFadeJob jobData = new PollutionFadeJob
+		{
+			m_PollutionMap = m_Map,
+			m_PollutionParameters = m_PollutionParameterGroup.GetSingleton<PollutionParameterData>(),
+			m_Random = RandomSeed.Next(),
+			m_Frame = m_SimulationSystem.frameIndex
+		};
+		base.Dependency = IJobExtensions.Schedule(jobData, JobHandle.CombineDependencies(m_WriteDependencies, m_ReadDependencies, base.Dependency));
+		AddWriter(base.Dependency);
+		base.Dependency = JobHandle.CombineDependencies(m_ReadDependencies, m_WriteDependencies, base.Dependency);
+	}
 ```
 
 

@@ -71,7 +71,10 @@ public static readonly System.Int32 kUpdatesPerDay;
 - `public PartnerSystem()`  
 
 ```csharp
-public PartnerSystem();
+[Preserve]
+	public PartnerSystem()
+	{
+	}
 ```
 
 
@@ -80,37 +83,81 @@ public PartnerSystem();
 - `private __AssignQueries(Unity.Entities.SystemState& state) : System.Void`  
 
 ```csharp
-private System.Void __AssignQueries(Unity.Entities.SystemState& state);
+private void __AssignQueries(ref SystemState state)
+	{
+		new EntityQueryBuilder(Allocator.Temp).Dispose();
+	}
 ```
 
 - `public virtual GetUpdateInterval(Game.SystemUpdatePhase phase) : System.Int32`  
 
 ```csharp
-public virtual System.Int32 GetUpdateInterval(Game.SystemUpdatePhase phase);
+public override int GetUpdateInterval(SystemUpdatePhase phase)
+	{
+		return 262144 / (kUpdatesPerDay * 16);
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_TriggerSystem = base.World.GetOrCreateSystemManaged<TriggerSystem>();
+		m_EndFrameBarrier = base.World.GetOrCreateSystemManaged<EndFrameBarrier>();
+		m_PartnerQuery = GetEntityQuery(ComponentType.ReadWrite<LookingForPartner>());
+	}
 ```
 
 - `protected virtual OnCreateForCompiler() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreateForCompiler();
+protected override void OnCreateForCompiler()
+	{
+		base.OnCreateForCompiler();
+		__AssignQueries(ref base.CheckedStateRef);
+		__TypeHandle.__AssignHandles(ref base.CheckedStateRef);
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		MatchJob jobData = new MatchJob
+		{
+			m_PartnerEntity = m_PartnerQuery.GetSingletonEntity(),
+			m_Partners = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Citizens_LookingForPartner_RW_BufferLookup, ref base.CheckedStateRef),
+			m_Citizens = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Citizens_Citizen_RW_ComponentLookup, ref base.CheckedStateRef),
+			m_HouseholdCitizens = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Citizens_HouseholdCitizen_RW_BufferLookup, ref base.CheckedStateRef),
+			m_HouseholdAnimals = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Citizens_HouseholdAnimal_RW_BufferLookup, ref base.CheckedStateRef),
+			m_Households = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Citizens_Household_RW_ComponentLookup, ref base.CheckedStateRef),
+			m_HouseholdPets = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Citizens_HouseholdPet_RW_ComponentLookup, ref base.CheckedStateRef),
+			m_HouseholdMembers = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Citizens_HouseholdMember_RW_ComponentLookup, ref base.CheckedStateRef),
+			m_Resources = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Economy_Resources_RW_BufferLookup, ref base.CheckedStateRef),
+			m_CommandBuffer = m_EndFrameBarrier.CreateCommandBuffer(),
+			m_TriggerBuffer = m_TriggerSystem.CreateActionBuffer()
+		};
+		base.Dependency = IJobExtensions.Schedule(jobData, base.Dependency);
+		m_EndFrameBarrier.AddJobHandleForProducer(base.Dependency);
+		m_TriggerSystem.AddActionBufferWriter(base.Dependency);
+	}
 ```
 
 - `public PostDeserialize(Colossal.Serialization.Entities.Context context) : System.Void`  
 
 ```csharp
-public System.Void PostDeserialize(Colossal.Serialization.Entities.Context context);
+public void PostDeserialize(Context context)
+	{
+		if (m_PartnerQuery.IsEmptyIgnoreFilter)
+		{
+			base.World.EntityManager.CreateEntity(ComponentType.ReadWrite<LookingForPartner>());
+		}
+	}
 ```
 
 

@@ -44,7 +44,11 @@ public Game.Objects.ElevationFlags m_Flags;
 - `public Elevation(System.Single elevation, Game.Objects.ElevationFlags flags)`  
 
 ```csharp
-public Elevation(System.Single elevation, Game.Objects.ElevationFlags flags);
+public Elevation(float elevation, ElevationFlags flags)
+	{
+		m_Elevation = elevation;
+		m_Flags = flags;
+	}
 ```
 
 

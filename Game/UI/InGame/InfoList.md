@@ -92,7 +92,12 @@ private System.Boolean expanded { private get; private set; }
 - `public InfoList(System.Func<Unity.Entities.Entity, Unity.Entities.Entity, System.Boolean> shouldDisplay, System.Action<Unity.Entities.Entity, Unity.Entities.Entity, Game.UI.InGame.InfoList> onUpdate)`  
 
 ```csharp
-public InfoList(System.Func<Unity.Entities.Entity, Unity.Entities.Entity, System.Boolean> shouldDisplay, System.Action<Unity.Entities.Entity, Unity.Entities.Entity, Game.UI.InGame.InfoList> onUpdate);
+public InfoList(Func<Entity, Entity, bool> shouldDisplay, Action<Entity, Entity, InfoList> onUpdate)
+	{
+		list = new List<Item>();
+		m_ShouldDisplay = shouldDisplay;
+		m_OnUpdate = onUpdate;
+	}
 ```
 
 
@@ -101,25 +106,50 @@ public InfoList(System.Func<Unity.Entities.Entity, Unity.Entities.Entity, System
 - `public Add(Game.UI.InGame.InfoList+Item item) : System.Void`  
 
 ```csharp
-public System.Void Add(Game.UI.InGame.InfoList+Item item);
+public void Add(Item item)
+	{
+		list.Add(item);
+	}
 ```
 
 - `public DisplayFor(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Boolean`  
 
 ```csharp
-public System.Boolean DisplayFor(Unity.Entities.Entity entity, Unity.Entities.Entity prefab);
+public bool DisplayFor(Entity entity, Entity prefab)
+	{
+		return m_ShouldDisplay(entity, prefab);
+	}
 ```
 
 - `public OnRequestUpdate(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : System.Void`  
 
 ```csharp
-public System.Void OnRequestUpdate(Unity.Entities.Entity entity, Unity.Entities.Entity prefab);
+public void OnRequestUpdate(Entity entity, Entity prefab)
+	{
+		list.Clear();
+		m_OnUpdate(entity, prefab, this);
+	}
 ```
 
 - `public Write(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-public System.Void Write(Colossal.UI.Binding.IJsonWriter writer);
+public void Write(IJsonWriter writer)
+	{
+		writer.TypeBegin(GetType().FullName);
+		writer.PropertyName("expanded");
+		writer.Write(expanded);
+		writer.PropertyName("label");
+		writer.Write(label);
+		writer.PropertyName("list");
+		writer.ArrayBegin(list.Count);
+		for (int i = 0; i < list.Count; i++)
+		{
+			writer.Write(list[i]);
+		}
+		writer.ArrayEnd();
+		writer.TypeEnd();
+	}
 ```
 
 

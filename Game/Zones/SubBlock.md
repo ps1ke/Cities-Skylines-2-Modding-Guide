@@ -39,7 +39,10 @@ public Unity.Entities.Entity m_SubBlock;
 - `public SubBlock(Unity.Entities.Entity block)`  
 
 ```csharp
-public SubBlock(Unity.Entities.Entity block);
+public SubBlock(Entity block)
+	{
+		m_SubBlock = block;
+	}
 ```
 
 
@@ -48,13 +51,19 @@ public SubBlock(Unity.Entities.Entity block);
 - `public Equals(Game.Zones.SubBlock other) : System.Boolean`  
 
 ```csharp
-public System.Boolean Equals(Game.Zones.SubBlock other);
+public bool Equals(SubBlock other)
+	{
+		return m_SubBlock.Equals(other.m_SubBlock);
+	}
 ```
 
 - `public virtual GetHashCode() : System.Int32`  
 
 ```csharp
-public virtual System.Int32 GetHashCode();
+public override int GetHashCode()
+	{
+		return m_SubBlock.GetHashCode();
+	}
 ```
 
 

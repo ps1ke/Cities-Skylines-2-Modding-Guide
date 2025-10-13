@@ -37,7 +37,10 @@ public System.Int32 m_Index;
 - `public Waypoint(System.Int32 index)`  
 
 ```csharp
-public Waypoint(System.Int32 index);
+public Waypoint(int index)
+	{
+		m_Index = index;
+	}
 ```
 
 

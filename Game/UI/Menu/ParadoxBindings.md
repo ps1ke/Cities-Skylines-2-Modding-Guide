@@ -155,7 +155,50 @@ private static const System.String kGroup;
 - `public ParadoxBindings()`  
 
 ```csharp
-public ParadoxBindings();
+public ParadoxBindings()
+	{
+		AddBinding(m_RequestActiveBinding = new ValueBinding<bool>("paradox", "requestActive", initialValue: false));
+		AddBinding(m_LoggedInBinding = new ValueBinding<bool>("paradox", "loggedIn", initialValue: false));
+		AddBinding(m_AccountLinkProviderBinding = new ValueBinding<AccountLinkProvider>("paradox", "accountLinkProvider", AccountLinkProvider.Unknown, new EnumNameWriter<AccountLinkProvider>()));
+		AddBinding(m_AccountLinkStateBinding = new ValueBinding<int>("paradox", "accountLinkState", 0));
+		AddBinding(m_UserNameBinding = new ValueBinding<string>("paradox", "userName", null, ValueWriters.Nullable(new StringWriter())));
+		AddBinding(m_EmailBinding = new ValueBinding<string>("paradox", "email", null, ValueWriters.Nullable(new StringWriter())));
+		AddBinding(m_AvatarBinding = new ValueBinding<string>("paradox", "avatar", null, ValueWriters.Nullable(new StringWriter())));
+		AddBinding(new TriggerBinding("paradox", "linkAccount", LinkAccount));
+		AddBinding(new TriggerBinding("paradox", "unlinkAccount", UnlinkAccount));
+		AddBinding(new TriggerBinding("paradox", "logout", Logout));
+		AddBinding(m_ActiveDialogsBinding = new StackBinding<ParadoxDialog>("paradox", "activeDialogs", new ValueWriter<ParadoxDialog>()));
+		AddBinding(new TriggerBinding("paradox", "closeActiveDialog", CloseActiveDialog));
+		AddBinding(new TriggerBinding("paradox", "showLoginForm", ShowLoginForm));
+		AddBinding(new TriggerBinding<string>("paradox", "submitPasswordReset", SubmitPasswordReset));
+		AddBinding(new TriggerBinding<LoginFormData>("paradox", "submitLoginForm", SubmitLoginForm, new ValueReader<LoginFormData>()));
+		AddBinding(m_HasInternetConnection = new ValueBinding<bool>("paradox", "hasInternetConnection", PlatformManager.instance.hasConnectivity));
+		AddBinding(new GetterValueBinding<List<string>>("paradox", "countryCodes", GetCountryCodes, new ListWriter<string>(new StringWriter())));
+		AddBinding(new TriggerBinding("paradox", "showRegistrationForm", ShowRegistrationForm));
+		AddBinding(new TriggerBinding<string>("paradox", "showLink", ShowLink));
+		AddBinding(new TriggerBinding<RegistrationFormData>("paradox", "submitRegistrationForm", SubmitRegistrationForm, new ValueReader<RegistrationFormData>()));
+		AddBinding(new TriggerBinding("paradox", "confirmAccountLink", ConfirmAccountLink));
+		AddBinding(new TriggerBinding("paradox", "confirmAccountLinkOverwrite", ConfirmAccountLinkOverwrite));
+		AddBinding(new TriggerBinding("paradox", "markLegalDocumentAsViewed", MarkLegalDocumentAsViewed));
+		AddBinding(new TriggerBinding("paradox", "showTermsOfUse", ShowTermsOfUse));
+		AddBinding(new TriggerBinding("paradox", "showPrivacyPolicy", ShowPrivacyPolicy));
+		AddBinding(new TriggerBinding<int>("paradox", "onOptionSelected", OnOptionSelected));
+		AddBinding(m_IsPDXSDKEnabled = new ValueBinding<bool>("paradox", "pdxSDKEnabled", initialValue: false));
+		m_PdxPlatform = PlatformManager.instance.GetPSI<PdxSdkPlatform>("PdxSdk");
+		PlatformManager.instance.onPlatformRegistered += delegate(IPlatformServiceIntegration psi)
+		{
+			if (psi is PdxSdkPlatform pdxPlatform)
+			{
+				m_PdxPlatform = pdxPlatform;
+				m_PdxPlatform.onLoggedIn += OnUserLoggedIn;
+				m_PdxPlatform.onLoggedOut += OnUserLoggedOut;
+				m_PdxPlatform.onAccountLinkChanged += OnAccountLinkChanged;
+				m_PdxPlatform.onLegalDocumentStatusChanged += OnLegalDocumentStatusChanged;
+				m_PdxPlatform.onStatusChanged += OnStatusChanged;
+			}
+		};
+		PlatformManager.instance.onConnectivityStatusChanged += OnInternetConnectionStatusChanged;
+	}
 ```
 
 
@@ -170,109 +213,258 @@ private System.Void <.ctor>b__17_0(Colossal.PSI.Common.IPlatformServiceIntegrati
 - `private CloseActiveDialog() : System.Void`  
 
 ```csharp
-private System.Void CloseActiveDialog();
+private void CloseActiveDialog()
+	{
+		if (!m_RequestActiveBinding.value && !(m_ActiveDialogsBinding.Peek() is LegalDocumentDialog { agreementRequired: not false }))
+		{
+			m_ActiveDialogsBinding.Pop();
+			if (m_ActiveDialogsBinding.count == 0)
+			{
+				PlatformManager.instance.EnableSharing();
+			}
+		}
+	}
 ```
 
 - `private ConfirmAccountLink() : System.Void`  
 
 ```csharp
-private System.Void ConfirmAccountLink();
+private async void ConfirmAccountLink()
+	{
+		if (m_RequestActiveBinding.value)
+		{
+			return;
+		}
+		if (m_PdxPlatform.AccountLinkMismatch == AccountLinkMismatch.None)
+		{
+			PdxSdkPlatform.RequestReport requestReport = await RunForegroundRequest(m_PdxPlatform.LinkAccount());
+			if (requestReport == null)
+			{
+				m_AccountLinkStateBinding.Update(2);
+				m_ActiveDialogsBinding.ClearAndPush(new ConfirmationDialog(GetAccountLinkProviderIcon(), "Paradox.ACCOUNT_LINK_PROMPT_TITLE", $"Paradox.ACCOUNT_LINK_CONFIRMATION_TEXT[{m_PdxPlatform.accountLinkProvider:G}]", null));
+			}
+			else
+			{
+				m_ActiveDialogsBinding.Push(new ErrorDialog(requestReport.messageId, requestReport.message));
+			}
+		}
+		else
+		{
+			string messageId = m_PdxPlatform.AccountLinkMismatch switch
+			{
+				AccountLinkMismatch.Paradox => $"Paradox.PDX_ACCOUNT_LINK_OVERWRITE_PROMPT_TEXT[{m_PdxPlatform.accountLinkProvider:G}]", 
+				AccountLinkMismatch.ThirdParty => $"Paradox.PLATFORM_ACCOUNT_LINK_OVERWRITE_PROMPT_TEXT[{m_PdxPlatform.accountLinkProvider:G}]", 
+				AccountLinkMismatch.Both => $"Paradox.PDX_PLATFORM_ACCOUNT_LINK_OVERWRITE_PROMPT_TEXT[{m_PdxPlatform.accountLinkProvider:G}]", 
+				_ => null, 
+			};
+			m_ActiveDialogsBinding.Push(new AccountLinkOverwriteDialog(GetAccountLinkProviderIcon(), messageId));
+		}
+	}
 ```
 
 - `private ConfirmAccountLinkOverwrite() : System.Void`  
 
 ```csharp
-private System.Void ConfirmAccountLinkOverwrite();
+private async void ConfirmAccountLinkOverwrite()
+	{
+		if (!m_RequestActiveBinding.value)
+		{
+			PdxSdkPlatform.RequestReport requestReport = await RunForegroundRequest(m_PdxPlatform.OverwriteAccountLinks());
+			if (requestReport == null)
+			{
+				m_AccountLinkStateBinding.Update(2);
+				m_ActiveDialogsBinding.ClearAndPush(new ConfirmationDialog(GetAccountLinkProviderIcon(), "Paradox.ACCOUNT_LINK_PROMPT_TITLE", $"Paradox.ACCOUNT_LINK_CONFIRMATION_TEXT[{m_PdxPlatform.accountLinkProvider:G}]", null));
+			}
+			else
+			{
+				m_ActiveDialogsBinding.Push(new ErrorDialog(requestReport.messageId, requestReport.message));
+			}
+		}
+	}
 ```
 
 - `private GetAccountLinkProviderIcon() : System.String`  
 
 ```csharp
-private System.String GetAccountLinkProviderIcon();
+private string GetAccountLinkProviderIcon()
+	{
+		return $"Media/Menu/Platforms/{m_PdxPlatform.accountLinkProvider:G}.svg";
+	}
 ```
 
 - `private GetCountryCodes() : System.Collections.Generic.List<System.String>`  
 
 ```csharp
-private System.Collections.Generic.List<System.String> GetCountryCodes();
+private List<string> GetCountryCodes()
+	{
+		List<string> list = new List<string>(Enum.GetNames(typeof(Country)));
+		list.Remove(Country.Undefined.ToString());
+		return list;
+	}
 ```
 
 - `private LinkAccount() : System.Void`  
 
 ```csharp
-private System.Void LinkAccount();
+private void LinkAccount()
+	{
+		m_ActiveDialogsBinding.Push(new AccountLinkDialog(GetAccountLinkProviderIcon(), $"Paradox.ACCOUNT_LINK_PROMPT_TEXT[{m_PdxPlatform.accountLinkProvider:G}]"));
+	}
 ```
 
 - `private Logout() : System.Void`  
 
 ```csharp
-private System.Void Logout();
+private async void Logout()
+	{
+		await m_PdxPlatform.Logout();
+	}
 ```
 
 - `private MarkLegalDocumentAsViewed() : System.Void`  
 
 ```csharp
-private System.Void MarkLegalDocumentAsViewed();
+private async void MarkLegalDocumentAsViewed()
+	{
+		if (m_ActiveDialogsBinding.Peek() is LegalDocumentDialog { document: var document })
+		{
+			await RunForegroundRequest(m_PdxPlatform.MarkLegalDocumentAsViewed(document));
+		}
+	}
 ```
 
 - `private OnAccountLinkChanged(Colossal.PSI.Common.AccountLinkState state, Colossal.PSI.Common.AccountLinkProvider provider) : System.Void`  
 
 ```csharp
-private System.Void OnAccountLinkChanged(Colossal.PSI.Common.AccountLinkState state, Colossal.PSI.Common.AccountLinkProvider provider);
+private void OnAccountLinkChanged(AccountLinkState state, AccountLinkProvider provider)
+	{
+		m_AccountLinkProviderBinding.Update(provider);
+		m_AccountLinkStateBinding.Update((int)state);
+	}
 ```
 
 - `private OnInternetConnectionStatusChanged(System.Boolean connected) : System.Void`  
 
 ```csharp
-private System.Void OnInternetConnectionStatusChanged(System.Boolean connected);
+private void OnInternetConnectionStatusChanged(bool connected)
+	{
+		m_HasInternetConnection.Update(connected);
+	}
 ```
 
 - `private OnLegalDocumentStatusChanged(Colossal.PSI.PdxSdk.LegalDocument doc, System.Int32 remainingCount) : System.Void`  
 
 ```csharp
-private System.Void OnLegalDocumentStatusChanged(Colossal.PSI.PdxSdk.LegalDocument doc, System.Int32 remainingCount);
+private void OnLegalDocumentStatusChanged(LegalDocument doc, int remainingCount)
+	{
+		if (m_ActiveDialogsBinding.Peek() is LegalDocumentDialog)
+		{
+			m_ActiveDialogsBinding.Pop();
+		}
+		if (doc != null)
+		{
+			m_ActiveDialogsBinding.Push(new LegalDocumentDialog(doc));
+		}
+	}
 ```
 
 - `private OnOptionSelected(System.Int32 index) : System.Void`  
 
 ```csharp
-private System.Void OnOptionSelected(System.Int32 index);
+private void OnOptionSelected(int index)
+	{
+		if (m_ActiveDialogsBinding.Peek() is MultiOptionDialog multiOptionDialog)
+		{
+			m_ActiveDialogsBinding.Pop();
+			multiOptionDialog.m_Options[index].m_OnSelect?.Invoke();
+		}
+	}
 ```
 
 - `public OnPSModsUIClosed(System.Action onKeepMods, System.Action onDisableMods, System.Action onBack) : System.Void`  
 
 ```csharp
-public System.Void OnPSModsUIClosed(System.Action onKeepMods, System.Action onDisableMods, System.Action onBack);
+public void OnPSModsUIClosed(Action onKeepMods, Action onDisableMods, Action onBack)
+	{
+		m_ActiveDialogsBinding.Push(new MultiOptionDialog("Menu.PDX_MODS", "Paradox.PS_MODS_EXIT_DISCLAIMER", new MultiOptionDialog.Option
+		{
+			m_Id = "Paradox.PS_MODS_EXIT_KEEP_MODS",
+			m_OnSelect = onKeepMods
+		}, new MultiOptionDialog.Option
+		{
+			m_Id = "Paradox.PS_MODS_EXIT_DISABLE_MODS",
+			m_OnSelect = onDisableMods
+		}, new MultiOptionDialog.Option
+		{
+			m_Id = "Paradox.PS_MODS_EXIT_GO_BACK",
+			m_OnSelect = onBack
+		}));
+	}
 ```
 
 - `public OnPSModsUIOpened(System.Action onContinue) : System.Void`  
 
 ```csharp
-public System.Void OnPSModsUIOpened(System.Action onContinue);
+public void OnPSModsUIOpened(Action onContinue)
+	{
+		m_ActiveDialogsBinding.Push(new MultiOptionDialog("Menu.PDX_MODS", "Paradox.PS_MODS_DISCLAIMER", new MultiOptionDialog.Option
+		{
+			m_Id = "Common.OK",
+			m_OnSelect = onContinue
+		}));
+	}
 ```
 
 - `private OnStatusChanged(Colossal.PSI.Common.IPlatformServiceIntegration psi) : System.Void`  
 
 ```csharp
-private System.Void OnStatusChanged(Colossal.PSI.Common.IPlatformServiceIntegration psi);
+private void OnStatusChanged(IPlatformServiceIntegration psi)
+	{
+		if (psi == m_PdxPlatform)
+		{
+			m_IsPDXSDKEnabled.Update(m_PdxPlatform.isInitialized);
+			m_AccountLinkProviderBinding.Update(m_PdxPlatform.accountLinkProvider);
+			m_AccountLinkStateBinding.Update((int)m_PdxPlatform.accountLinkState);
+		}
+	}
 ```
 
 - `private OnUserLoggedIn(System.String firstName, System.String lastName, System.String email, Colossal.PSI.Common.AccountLinkState accountLinkState, System.Boolean firstTime) : System.Void`  
 
 ```csharp
-private System.Void OnUserLoggedIn(System.String firstName, System.String lastName, System.String email, Colossal.PSI.Common.AccountLinkState accountLinkState, System.Boolean firstTime);
+private async void OnUserLoggedIn(string firstName, string lastName, string email, AccountLinkState accountLinkState, bool firstTime)
+	{
+		m_LoggedInBinding.Update(newValue: true);
+		m_AccountLinkStateBinding.Update((int)accountLinkState);
+		m_EmailBinding.Update(email);
+		ModCreator modCreator = await m_PdxPlatform.GetCreatorProfile();
+		if (modCreator != null)
+		{
+			m_UserNameBinding.Update(modCreator.Username);
+			m_AvatarBinding.Update(modCreator.Avatar.Url);
+		}
+	}
 ```
 
 - `private OnUserLoggedOut(System.String id) : System.Void`  
 
 ```csharp
-private System.Void OnUserLoggedOut(System.String id);
+private void OnUserLoggedOut(string id)
+	{
+		m_UserNameBinding.Update(null);
+		m_EmailBinding.Update(null);
+		m_AvatarBinding.Update(null);
+		m_LoggedInBinding.Update(newValue: false);
+	}
 ```
 
 - `public PushDialog(Game.UI.Menu.ParadoxBindings+ParadoxDialog dialog) : System.Void`  
 
 ```csharp
-public System.Void PushDialog(Game.UI.Menu.ParadoxBindings+ParadoxDialog dialog);
+public void PushDialog(ParadoxDialog dialog)
+	{
+		m_ActiveDialogsBinding.Push(dialog);
+	}
 ```
 
 - `private RunForegroundRequest<T>(System.Threading.Tasks.Task<T> task) : System.Threading.Tasks.Task<T>`  
@@ -284,55 +476,171 @@ private System.Threading.Tasks.Task<T> RunForegroundRequest<T>(System.Threading.
 - `private ShowLink(System.String link) : System.Void`  
 
 ```csharp
-private System.Void ShowLink(System.String link);
+private async void ShowLink(string link)
+	{
+		if (link == kTermsOfUse)
+		{
+			LegalDocument legalDocument = await RunForegroundRequest(m_PdxPlatform.ShowTermsOfUse());
+			if (legalDocument != null)
+			{
+				m_ActiveDialogsBinding.Push(new LegalDocumentDialog(legalDocument, agreementRequired: false));
+			}
+		}
+		else if (link == kPrivacyPolicy)
+		{
+			LegalDocument legalDocument2 = await RunForegroundRequest(m_PdxPlatform.ShowPrivacyPolicy());
+			if (legalDocument2 != null)
+			{
+				m_ActiveDialogsBinding.Push(new LegalDocumentDialog(legalDocument2, agreementRequired: false));
+			}
+		}
+		else
+		{
+			Application.OpenURL(link);
+		}
+	}
 ```
 
 - `public ShowLoginForm() : System.Void`  
 
 ```csharp
-public System.Void ShowLoginForm();
+public void ShowLoginForm()
+	{
+		if (Connectivity.hasConnectivity)
+		{
+			PlatformManager.instance.DisableSharing();
+			m_ActiveDialogsBinding.ClearAndPush(new LoginDialog());
+		}
+		else
+		{
+			m_ActiveDialogsBinding.Push(new ErrorDialog("Failed to connect", "Please check your internet connection"));
+		}
+	}
 ```
 
 - `private ShowPrivacyPolicy() : System.Void`  
 
 ```csharp
-private System.Void ShowPrivacyPolicy();
+private void ShowPrivacyPolicy()
+	{
+		ShowLink(kPrivacyPolicy);
+	}
 ```
 
 - `private ShowRegistrationForm() : System.Void`  
 
 ```csharp
-private System.Void ShowRegistrationForm();
+private void ShowRegistrationForm()
+	{
+		m_ActiveDialogsBinding.ClearAndPush(new RegistrationDialog());
+	}
 ```
 
 - `private ShowTermsOfUse() : System.Void`  
 
 ```csharp
-private System.Void ShowTermsOfUse();
+private void ShowTermsOfUse()
+	{
+		ShowLink(kTermsOfUse);
+	}
 ```
 
 - `private SubmitLoginForm(Game.UI.Menu.ParadoxBindings+LoginFormData data) : System.Void`  
 
 ```csharp
-private System.Void SubmitLoginForm(Game.UI.Menu.ParadoxBindings+LoginFormData data);
+private async void SubmitLoginForm(LoginFormData data)
+	{
+		if (m_RequestActiveBinding.value)
+		{
+			return;
+		}
+		PdxSdkPlatform.RequestReport requestReport = await RunForegroundRequest(m_PdxPlatform.Login(data.email, data.password, CancellationToken.None));
+		if (requestReport == null)
+		{
+			m_ActiveDialogsBinding.Clear();
+			if (m_PdxPlatform.accountLinkProvider != AccountLinkProvider.Unknown && m_PdxPlatform.accountLinkState == AccountLinkState.Unlinked)
+			{
+				LinkAccount();
+			}
+		}
+		else
+		{
+			m_ActiveDialogsBinding.Push(new ErrorDialog(requestReport.messageId, requestReport.message));
+		}
+	}
 ```
 
 - `private SubmitPasswordReset(System.String email) : System.Void`  
 
 ```csharp
-private System.Void SubmitPasswordReset(System.String email);
+private async void SubmitPasswordReset(string email)
+	{
+		if (!m_RequestActiveBinding.value)
+		{
+			PdxSdkPlatform.RequestReport requestReport = await RunForegroundRequest(m_PdxPlatform.ResetPassword(email));
+			if (requestReport == null)
+			{
+				m_ActiveDialogsBinding.Push(new ConfirmationDialog(null, null, "Paradox.PASSWORD_RESET_CONFIRMATION_TEXT", new Dictionary<string, string> { { "EMAIL", email } }));
+			}
+			else
+			{
+				m_ActiveDialogsBinding.Push(new ErrorDialog(requestReport.messageId, requestReport.message));
+			}
+		}
+	}
 ```
 
 - `private SubmitRegistrationForm(Game.UI.Menu.ParadoxBindings+RegistrationFormData data) : System.Void`  
 
 ```csharp
-private System.Void SubmitRegistrationForm(Game.UI.Menu.ParadoxBindings+RegistrationFormData data);
+private async void SubmitRegistrationForm(RegistrationFormData data)
+	{
+		if (m_RequestActiveBinding.value)
+		{
+			return;
+		}
+		if (Enum.TryParse<Country>(data.country, out var result) && DateTime.TryParseExact(data.dateOfBirth, "yyyy-MM-dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out var result2))
+		{
+			PdxSdkPlatform.RequestReport requestReport = await RunForegroundRequest(m_PdxPlatform.CreateParadoxAccount(data.email, data.password, Language.en, result, result2, data.marketingPermission));
+			if (requestReport == null)
+			{
+				m_ActiveDialogsBinding.Clear();
+				if (m_PdxPlatform.accountLinkProvider != AccountLinkProvider.Unknown && m_PdxPlatform.accountLinkState == AccountLinkState.Unlinked)
+				{
+					LinkAccount();
+				}
+				m_ActiveDialogsBinding.Push(new ConfirmationDialog(null, "Paradox.REGISTRATION_CONFIRMATION_TITLE", "Paradox.REGISTRATION_CONFIRMATION_TEXT", null));
+			}
+			else
+			{
+				m_ActiveDialogsBinding.Push(new ErrorDialog(requestReport.messageId, requestReport.message));
+			}
+		}
+		else
+		{
+			m_ActiveDialogsBinding.Push(new ErrorDialog(null, "Internal error: Invalid Country Code string or Invalid date string"));
+		}
+	}
 ```
 
 - `private UnlinkAccount() : System.Void`  
 
 ```csharp
-private System.Void UnlinkAccount();
+private async void UnlinkAccount()
+	{
+		if (!m_RequestActiveBinding.value)
+		{
+			PdxSdkPlatform.RequestReport requestReport = await RunForegroundRequest(m_PdxPlatform.UnlinkThirdPartyAccount());
+			if (requestReport == null)
+			{
+				m_AccountLinkStateBinding.Update(1);
+			}
+			else
+			{
+				m_ActiveDialogsBinding.Push(new ErrorDialog(requestReport.messageId, requestReport.message));
+			}
+		}
+	}
 ```
 
 

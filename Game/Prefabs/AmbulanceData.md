@@ -37,7 +37,10 @@ public System.Int32 m_PatientCapacity;
 - `public AmbulanceData(System.Int32 patientCapacity)`  
 
 ```csharp
-public AmbulanceData(System.Int32 patientCapacity);
+public AmbulanceData(int patientCapacity)
+	{
+		m_PatientCapacity = patientCapacity;
+	}
 ```
 
 

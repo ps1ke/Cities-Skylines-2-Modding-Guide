@@ -435,7 +435,14 @@ public System.Collections.Generic.IEnumerable<System.String> usedKeys { get; }
 - `internal ProxyAction(Game.Input.ProxyActionMap map, UnityEngine.InputSystem.InputAction sourceAction)`  
 
 ```csharp
-internal ProxyAction(Game.Input.ProxyActionMap map, UnityEngine.InputSystem.InputAction sourceAction);
+internal ProxyAction(ProxyActionMap map, InputAction sourceAction)
+	{
+		m_GlobalIndex = counter++;
+		m_Map = map ?? throw new ArgumentNullException("map");
+		m_SourceAction = sourceAction ?? throw new ArgumentNullException("sourceAction");
+		InputManager.instance.actionIndex[m_GlobalIndex] = this;
+		Update();
+	}
 ```
 
 
@@ -444,61 +451,164 @@ internal ProxyAction(Game.Input.ProxyActionMap map, UnityEngine.InputSystem.Inpu
 - `internal ApplyState(System.Boolean newEnable, Game.Input.InputManager+DeviceType newMask) : System.Void`  
 
 ```csharp
-internal System.Void ApplyState(System.Boolean newEnable, Game.Input.InputManager+DeviceType newMask);
+internal void ApplyState(bool newEnable, InputManager.DeviceType newMask)
+	{
+		bool num = newMask != m_Mask;
+		bool flag = newEnable != m_SourceAction.enabled;
+		if (num)
+		{
+			m_Mask = newMask;
+			InputManager.instance?.OnActionMasksChanged();
+		}
+		if (flag)
+		{
+			if (newEnable)
+			{
+				m_SourceAction.Enable();
+			}
+			else
+			{
+				m_SourceAction.Disable();
+			}
+			UpdateDisplay();
+			InputManager.instance?.OnEnabledActionsChanged();
+		}
+	}
 ```
 
 - `public ContainsComposite(Game.Input.InputManager+DeviceType device) : System.Boolean`  
 
 ```csharp
-public System.Boolean ContainsComposite(Game.Input.InputManager+DeviceType device);
+public bool ContainsComposite(InputManager.DeviceType device)
+	{
+		return (m_AvailableMask & device) != 0;
+	}
 ```
 
 - `public CreateActivator(System.String activatorName = null, Game.Input.InputManager+DeviceType activatorMask = All) : Game.Input.InputActivator`  
 
 ```csharp
-public Game.Input.InputActivator CreateActivator(System.String activatorName, Game.Input.InputManager+DeviceType activatorMask);
+public InputActivator CreateActivator(string activatorName = null, InputManager.DeviceType activatorMask = InputManager.DeviceType.All)
+	{
+		return new InputActivator(ignoreIsBuiltIn: false, activatorName, this, activatorMask);
+	}
 ```
 
 - `public CreateBarrier(System.String barrierName = null, Game.Input.InputManager+DeviceType barrierMask = All) : Game.Input.InputBarrier`  
 
 ```csharp
-public Game.Input.InputBarrier CreateBarrier(System.String barrierName, Game.Input.InputManager+DeviceType barrierMask);
+public InputBarrier CreateBarrier(string barrierName = null, InputManager.DeviceType barrierMask = InputManager.DeviceType.All)
+	{
+		return new InputBarrier(barrierName, this, barrierMask);
+	}
 ```
 
 - `internal static DeferStateUpdating() : Game.Input.ProxyAction+DeferActionStateUpdatingWrapper`  
 
 ```csharp
-internal static Game.Input.ProxyAction+DeferActionStateUpdatingWrapper DeferStateUpdating();
+internal static DeferActionStateUpdatingWrapper DeferStateUpdating()
+	{
+		sDeferStateUpdatingWrapper.Acquire();
+		return sDeferStateUpdatingWrapper;
+	}
 ```
 
 - `public GetMagnitude() : System.Single`  
 
 ```csharp
-public System.Single GetMagnitude();
+public unsafe float GetMagnitude()
+	{
+		InputActionState state = m_SourceAction.GetOrCreateActionMap().m_State;
+		if (state != null)
+		{
+			InputActionState.TriggerState* ptr = state.actionStates + m_SourceAction.m_ActionIndexInState;
+			if (ptr->haveMagnitude)
+			{
+				return ptr->magnitude;
+			}
+		}
+		return 0f;
+	}
 ```
 
 - `public IsInProgress() : System.Boolean`  
 
 ```csharp
-public System.Boolean IsInProgress();
+public bool IsInProgress()
+	{
+		return m_SourceAction.IsInProgress();
+	}
 ```
 
 - `public IsPressed() : System.Boolean`  
 
 ```csharp
-public System.Boolean IsPressed();
+public bool IsPressed()
+	{
+		return m_SourceAction.IsPressed();
+	}
 ```
 
 - `internal static LinkActions(Game.Input.ProxyAction+LinkInfo action1, Game.Input.ProxyAction+LinkInfo action2) : System.Void`  
 
 ```csharp
-internal static System.Void LinkActions(Game.Input.ProxyAction+LinkInfo action1, Game.Input.ProxyAction+LinkInfo action2);
+private static void LinkActions(LinkInfo link1, LinkInfo link2, bool addToOther)
+	{
+		if (link1.m_Action == null || link2.m_Action == null || link1.m_Device != link2.m_Device || link1.m_Action == link2.m_Action)
+		{
+			return;
+		}
+		if (addToOther)
+		{
+			if (!link1.m_Action.m_LinkedActions.Contains(link2))
+			{
+				foreach (LinkInfo linkedAction in link1.m_Action.m_LinkedActions)
+				{
+					LinkActions(link2, linkedAction, addToOther: false);
+				}
+			}
+			if (!link2.m_Action.m_LinkedActions.Contains(link1))
+			{
+				foreach (LinkInfo linkedAction2 in link2.m_Action.m_LinkedActions)
+				{
+					LinkActions(link1, linkedAction2, addToOther: false);
+				}
+			}
+		}
+		link1.m_Action.m_LinkedActions.Add(link2);
+		link2.m_Action.m_LinkedActions.Add(link1);
+	}
 ```
 
 - `private static LinkActions(Game.Input.ProxyAction+LinkInfo link1, Game.Input.ProxyAction+LinkInfo link2, System.Boolean addToOther) : System.Void`  
 
 ```csharp
-private static System.Void LinkActions(Game.Input.ProxyAction+LinkInfo link1, Game.Input.ProxyAction+LinkInfo link2, System.Boolean addToOther);
+private static void LinkActions(LinkInfo link1, LinkInfo link2, bool addToOther)
+	{
+		if (link1.m_Action == null || link2.m_Action == null || link1.m_Device != link2.m_Device || link1.m_Action == link2.m_Action)
+		{
+			return;
+		}
+		if (addToOther)
+		{
+			if (!link1.m_Action.m_LinkedActions.Contains(link2))
+			{
+				foreach (LinkInfo linkedAction in link1.m_Action.m_LinkedActions)
+				{
+					LinkActions(link2, linkedAction, addToOther: false);
+				}
+			}
+			if (!link2.m_Action.m_LinkedActions.Contains(link1))
+			{
+				foreach (LinkInfo linkedAction2 in link2.m_Action.m_LinkedActions)
+				{
+					LinkActions(link1, linkedAction2, addToOther: false);
+				}
+			}
+		}
+		link1.m_Action.m_LinkedActions.Add(link2);
+		link2.m_Action.m_LinkedActions.Add(link1);
+	}
 ```
 
 - `internal ReadRawValue<T>(System.Boolean disableAll = True) : T`  
@@ -516,79 +626,208 @@ public T ReadValue<T>();
 - `public ReadValueAsObject() : System.Object`  
 
 ```csharp
-public System.Object ReadValueAsObject();
+public object ReadValueAsObject()
+	{
+		return m_SourceAction.ReadValueAsObject();
+	}
 ```
 
 - `private SourceOnCanceled(UnityEngine.InputSystem.InputAction+CallbackContext context) : System.Void`  
 
 ```csharp
-private System.Void SourceOnCanceled(UnityEngine.InputSystem.InputAction+CallbackContext context);
+private void SourceOnCanceled(InputAction.CallbackContext context)
+	{
+		m_OnInteraction?.Invoke(this, InputActionPhase.Canceled);
+	}
 ```
 
 - `private SourceOnPerformed(UnityEngine.InputSystem.InputAction+CallbackContext context) : System.Void`  
 
 ```csharp
-private System.Void SourceOnPerformed(UnityEngine.InputSystem.InputAction+CallbackContext context);
+private void SourceOnPerformed(InputAction.CallbackContext context)
+	{
+		m_OnInteraction?.Invoke(this, InputActionPhase.Performed);
+	}
 ```
 
 - `private SourceOnStarted(UnityEngine.InputSystem.InputAction+CallbackContext context) : System.Void`  
 
 ```csharp
-private System.Void SourceOnStarted(UnityEngine.InputSystem.InputAction+CallbackContext context);
+private void SourceOnStarted(InputAction.CallbackContext context)
+	{
+		m_OnInteraction?.Invoke(this, InputActionPhase.Started);
+	}
 ```
 
 - `public virtual ToString() : System.String`  
 
 ```csharp
-public virtual System.String ToString();
+public override string ToString()
+	{
+		return mapName + "/" + name + " ( " + string.Join(" | ", from b in bindings
+			where !string.IsNullOrEmpty(b.path)
+			select string.Format("{0}: {1}{2}", b.component, string.Join("", b.modifiers.Select((ProxyModifier m) => m.m_Path + " + ")), b.path)) + " )";
+	}
 ```
 
 - `public TryGetBinding(Game.Input.ProxyBinding sampleBinding, Game.Input.ProxyBinding& foundBinding) : System.Boolean`  
 
 ```csharp
-public System.Boolean TryGetBinding(Game.Input.ProxyBinding sampleBinding, Game.Input.ProxyBinding& foundBinding);
+public bool TryGetBinding(ProxyBinding sampleBinding, out ProxyBinding foundBinding)
+	{
+		if (TryGetComposite(sampleBinding.device, out var composite))
+		{
+			return composite.TryGetBinding(sampleBinding, out foundBinding);
+		}
+		foundBinding = default(ProxyBinding);
+		return false;
+	}
 ```
 
 - `public TryGetComposite(Game.Input.InputManager+DeviceType device, Game.Input.ProxyComposite& composite) : System.Boolean`  
 
 ```csharp
-public System.Boolean TryGetComposite(Game.Input.InputManager+DeviceType device, Game.Input.ProxyComposite& composite);
+public bool TryGetComposite(InputManager.DeviceType device, out ProxyComposite composite)
+	{
+		return m_Composites.TryGetValue(device, out composite);
+	}
 ```
 
 - `internal Update(System.Boolean ignoreDefer = False) : System.Void`  
 
 ```csharp
-internal System.Void Update(System.Boolean ignoreDefer);
+internal void Update(bool ignoreDefer = false)
+	{
+		if (sDeferUpdatingWrapper.isDeferred && !ignoreDefer)
+		{
+			sDeferUpdatingWrapper.AddToUpdateQueue(this);
+			return;
+		}
+		m_Composites.Clear();
+		m_AvailableMask = InputManager.DeviceType.None;
+		foreach (ProxyComposite composite in InputManager.instance.GetComposites(sourceAction))
+		{
+			foreach (LinkInfo linkedAction in m_LinkedActions)
+			{
+				if (linkedAction.m_Device == composite.m_Device)
+				{
+					composite.m_LinkedActions.Add(linkedAction.m_Action);
+				}
+			}
+			m_Composites[composite.m_Device] = composite;
+			m_AvailableMask |= composite.m_Device;
+		}
+		m_Bindings.Clear();
+		foreach (KeyValuePair<InputManager.DeviceType, ProxyComposite> composite2 in m_Composites)
+		{
+			composite2.Deconstruct(out var _, out var value);
+			foreach (var (_, item) in value.bindings)
+			{
+				m_Bindings.Add(item);
+			}
+		}
+		m_IsSystemAction = mapName == "Splash screen" || mapName == "Engagement" || mapName == "Camera" || mapName == "Tool" || mapName == "Editor";
+		InputManager.instance.UpdateActionInKeyActionMap(this);
+		InputManager.instance.OnActionChanged();
+		this.onChanged?.Invoke(this);
+	}
 ```
 
 - `internal UpdateDisplay() : System.Void`  
 
 ```csharp
-internal System.Void UpdateDisplay();
+internal void UpdateDisplay()
+	{
+		displayOverride = (enabled ? (from n in m_DisplayOverrides
+			where n.active
+			orderby n.priority
+			select n).FirstOrDefault() : null);
+		InputManager.instance?.OnActionDisplayNamesChanged();
+	}
 ```
 
 - `internal UpdateState(System.Boolean ignoreDefer = False) : System.Void`  
 
 ```csharp
-internal System.Void UpdateState(System.Boolean ignoreDefer);
+internal void UpdateState(bool ignoreDefer = false)
+	{
+		if (m_SourceAction == null)
+		{
+			return;
+		}
+		if (sDeferStateUpdatingWrapper.isDeferred && !ignoreDefer)
+		{
+			sDeferStateUpdatingWrapper.AddToUpdateQueue(this);
+			return;
+		}
+		m_PreResolvedMask = (m_Map.enabled ? (m_AvailableMask & map.mask) : InputManager.DeviceType.None);
+		if (m_PreResolvedMask != InputManager.DeviceType.None)
+		{
+			InputManager.DeviceType deviceType = InputManager.DeviceType.None;
+			foreach (InputActivator activator in m_Activators)
+			{
+				if (activator.enabled)
+				{
+					deviceType |= activator.mask & m_PreResolvedMask;
+					if ((deviceType & m_PreResolvedMask) == m_PreResolvedMask)
+					{
+						break;
+					}
+				}
+			}
+			if (deviceType != InputManager.DeviceType.None)
+			{
+				foreach (InputBarrier barrier in m_Barriers)
+				{
+					if (barrier.blocked)
+					{
+						deviceType &= ~barrier.mask;
+						if (deviceType == InputManager.DeviceType.None)
+						{
+							break;
+						}
+					}
+				}
+			}
+			m_PreResolvedMask &= deviceType;
+		}
+		m_PreResolvedEnable = m_Map.enabled && m_PreResolvedMask != InputManager.DeviceType.None;
+		if (InputManager.instance != null && (m_PreResolvedEnable != enabled || m_PreResolvedMask != mask))
+		{
+			InputManager.instance.OnPreResolvedActionChanged();
+		}
+		if (isSystemAction)
+		{
+			ApplyState(m_PreResolvedEnable, m_PreResolvedMask);
+		}
+	}
 ```
 
 - `public WasPerformedThisFrame() : System.Boolean`  
 
 ```csharp
-public System.Boolean WasPerformedThisFrame();
+public bool WasPerformedThisFrame()
+	{
+		return m_SourceAction.WasPerformedThisFrame();
+	}
 ```
 
 - `public WasPressedThisFrame() : System.Boolean`  
 
 ```csharp
-public System.Boolean WasPressedThisFrame();
+public bool WasPressedThisFrame()
+	{
+		return m_SourceAction.WasPressedThisFrame();
+	}
 ```
 
 - `public WasReleasedThisFrame() : System.Boolean`  
 
 ```csharp
-public System.Boolean WasReleasedThisFrame();
+public bool WasReleasedThisFrame()
+	{
+		return m_SourceAction.WasReleasedThisFrame();
+	}
 ```
 
 

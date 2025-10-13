@@ -35,7 +35,10 @@ public System.Int32 m_UpdateGroupIndex;
 - `public UpdateFrameData(System.Int32 updateGroupIndex)`  
 
 ```csharp
-public UpdateFrameData(System.Int32 updateGroupIndex);
+public UpdateFrameData(int updateGroupIndex)
+	{
+		m_UpdateGroupIndex = updateGroupIndex;
+	}
 ```
 
 

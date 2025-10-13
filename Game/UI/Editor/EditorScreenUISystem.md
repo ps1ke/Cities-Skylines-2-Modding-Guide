@@ -54,7 +54,10 @@ public Game.UI.Editor.EditorScreenUISystem+EditorScreen activeScreen { get; set;
 - `public EditorScreenUISystem()`  
 
 ```csharp
-public EditorScreenUISystem();
+[Preserve]
+	public EditorScreenUISystem()
+	{
+	}
 ```
 
 
@@ -63,13 +66,22 @@ public EditorScreenUISystem();
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		AddBinding(m_ActiveScreenBinding = new ValueBinding<EditorScreen>("editor", "activeScreen", EditorScreen.Main, new EnumWriter<EditorScreen>()));
+		AddBinding(new TriggerBinding<EditorScreen>("editor", "setActiveScreen", SetScreen, new EnumReader<EditorScreen>()));
+	}
 ```
 
 - `public SetScreen(Game.UI.Editor.EditorScreenUISystem+EditorScreen screen) : System.Void`  
 
 ```csharp
-public System.Void SetScreen(Game.UI.Editor.EditorScreenUISystem+EditorScreen screen);
+public void SetScreen(EditorScreen screen)
+	{
+		m_ActiveScreenBinding.Update(screen);
+	}
 ```
 
 

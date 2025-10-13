@@ -36,7 +36,10 @@ public Unity.Collections.NativeArray<Game.Pathfind.DeleteActionData> m_DeleteDat
 - `public DeleteAction(System.Int32 size, Unity.Collections.Allocator allocator)`  
 
 ```csharp
-public DeleteAction(System.Int32 size, Unity.Collections.Allocator allocator);
+public DeleteAction(int size, Allocator allocator)
+	{
+		m_DeleteData = new NativeArray<DeleteActionData>(size, allocator);
+	}
 ```
 
 
@@ -45,7 +48,10 @@ public DeleteAction(System.Int32 size, Unity.Collections.Allocator allocator);
 - `public Dispose() : System.Void`  
 
 ```csharp
-public System.Void Dispose();
+public void Dispose()
+	{
+		m_DeleteData.Dispose();
+	}
 ```
 
 

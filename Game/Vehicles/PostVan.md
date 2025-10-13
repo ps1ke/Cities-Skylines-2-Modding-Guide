@@ -86,7 +86,17 @@ public System.Int32 m_CollectEstimate;
 - `public PostVan(Game.Vehicles.PostVanFlags flags, System.Int32 requestCount, System.Int32 deliveringMail)`  
 
 ```csharp
-public PostVan(Game.Vehicles.PostVanFlags flags, System.Int32 requestCount, System.Int32 deliveringMail);
+public PostVan(PostVanFlags flags, int requestCount, int deliveringMail)
+	{
+		m_TargetRequest = Entity.Null;
+		m_State = flags;
+		m_RequestCount = requestCount;
+		m_PathElementTime = 0f;
+		m_DeliveringMail = deliveringMail;
+		m_CollectedMail = 0;
+		m_DeliveryEstimate = 0;
+		m_CollectEstimate = 0;
+	}
 ```
 
 

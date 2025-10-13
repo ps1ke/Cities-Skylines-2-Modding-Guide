@@ -66,7 +66,10 @@ private Unity.Entities.ComponentTypeSet m_UpdateTypes;
 - `public CleanUpSystem()`  
 
 ```csharp
-public CleanUpSystem();
+[Preserve]
+	public CleanUpSystem()
+	{
+	}
 ```
 
 
@@ -75,25 +78,55 @@ public CleanUpSystem();
 - `public AddDeleted(Unity.Collections.NativeList<Unity.Entities.Entity> deletedEntities, Unity.Jobs.JobHandle deletedDeps) : System.Void`  
 
 ```csharp
-public System.Void AddDeleted(Unity.Collections.NativeList<Unity.Entities.Entity> deletedEntities, Unity.Jobs.JobHandle deletedDeps);
+public void AddDeleted(NativeList<Entity> deletedEntities, JobHandle deletedDeps)
+	{
+		m_DeletedEntities = deletedEntities;
+		m_DeletedDeps = deletedDeps;
+	}
 ```
 
 - `public AddUpdated(Unity.Collections.NativeList<Unity.Entities.Entity> updatedEntities, Unity.Jobs.JobHandle updatedDeps) : System.Void`  
 
 ```csharp
-public System.Void AddUpdated(Unity.Collections.NativeList<Unity.Entities.Entity> updatedEntities, Unity.Jobs.JobHandle updatedDeps);
+public void AddUpdated(NativeList<Entity> updatedEntities, JobHandle updatedDeps)
+	{
+		m_UpdatedEntities = updatedEntities;
+		m_UpdatedDeps = updatedDeps;
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_UpdateTypes = new ComponentTypeSet(new ComponentType[6]
+		{
+			ComponentType.ReadWrite<Created>(),
+			ComponentType.ReadWrite<Updated>(),
+			ComponentType.ReadWrite<Applied>(),
+			ComponentType.ReadWrite<EffectsUpdated>(),
+			ComponentType.ReadWrite<BatchesUpdated>(),
+			ComponentType.ReadWrite<PathfindUpdated>()
+		});
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		m_DeletedDeps.Complete();
+		m_UpdatedDeps.Complete();
+		base.EntityManager.DestroyEntity(m_DeletedEntities.AsArray());
+		base.EntityManager.RemoveComponent(m_UpdatedEntities.AsArray(), in m_UpdateTypes);
+		m_DeletedEntities.Dispose();
+		m_UpdatedEntities.Dispose();
+	}
 ```
 
 

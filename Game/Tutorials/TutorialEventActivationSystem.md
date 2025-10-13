@@ -53,7 +53,10 @@ private Unity.Jobs.JobHandle m_InputDependencies;
 - `public TutorialEventActivationSystem()`  
 
 ```csharp
-public TutorialEventActivationSystem();
+[Preserve]
+	public TutorialEventActivationSystem()
+	{
+	}
 ```
 
 
@@ -62,31 +65,59 @@ public TutorialEventActivationSystem();
 - `public AddQueueWriter(Unity.Jobs.JobHandle dependency) : System.Void`  
 
 ```csharp
-public System.Void AddQueueWriter(Unity.Jobs.JobHandle dependency);
+public void AddQueueWriter(JobHandle dependency)
+	{
+		m_InputDependencies = JobHandle.CombineDependencies(m_InputDependencies, dependency);
+	}
 ```
 
 - `public GetQueue(Unity.Jobs.JobHandle& dependency) : Unity.Collections.NativeQueue<Unity.Entities.Entity>`  
 
 ```csharp
-public Unity.Collections.NativeQueue<Unity.Entities.Entity> GetQueue(Unity.Jobs.JobHandle& dependency);
+public NativeQueue<Entity> GetQueue(out JobHandle dependency)
+	{
+		dependency = m_InputDependencies;
+		return m_ActivationQueue;
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_BarrierSystem = base.World.GetOrCreateSystemManaged<ModificationBarrier4>();
+		m_ActivationQueue = new NativeQueue<Entity>(Allocator.Persistent);
+	}
 ```
 
 - `protected virtual OnDestroy() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnDestroy();
+[Preserve]
+	protected override void OnDestroy()
+	{
+		base.OnDestroy();
+		m_ActivationQueue.Dispose();
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		m_InputDependencies.Complete();
+		EntityCommandBuffer entityCommandBuffer = m_BarrierSystem.CreateCommandBuffer();
+		Entity item;
+		while (m_ActivationQueue.TryDequeue(out item))
+		{
+			entityCommandBuffer.AddComponent<TutorialActivated>(item);
+		}
+	}
 ```
 
 

@@ -37,7 +37,10 @@ public Unity.Entities.Entity m_Edge;
 - `public ConnectedFlowEdge(Unity.Entities.Entity edge)`  
 
 ```csharp
-public ConnectedFlowEdge(Unity.Entities.Entity edge);
+public ConnectedFlowEdge(Entity edge)
+	{
+		m_Edge = edge;
+	}
 ```
 
 
@@ -46,13 +49,19 @@ public ConnectedFlowEdge(Unity.Entities.Entity edge);
 - `public Equals(Game.Simulation.ConnectedFlowEdge other) : System.Boolean`  
 
 ```csharp
-public System.Boolean Equals(Game.Simulation.ConnectedFlowEdge other);
+public bool Equals(ConnectedFlowEdge other)
+	{
+		return m_Edge.Equals(other.m_Edge);
+	}
 ```
 
 - `public virtual GetHashCode() : System.Int32`  
 
 ```csharp
-public virtual System.Int32 GetHashCode();
+public override int GetHashCode()
+	{
+		return m_Edge.GetHashCode();
+	}
 ```
 
 

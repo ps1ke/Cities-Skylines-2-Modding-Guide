@@ -106,7 +106,10 @@ private static readonly System.Single heightScale;
 - `public LandValueDebugSystem()`  
 
 ```csharp
-public LandValueDebugSystem();
+[Preserve]
+	public LandValueDebugSystem()
+	{
+	}
 ```
 
 
@@ -115,43 +118,115 @@ public LandValueDebugSystem();
 - `private __AssignQueries(Unity.Entities.SystemState& state) : System.Void`  
 
 ```csharp
-private System.Void __AssignQueries(Unity.Entities.SystemState& state);
+private void __AssignQueries(ref SystemState state)
+	{
+		new EntityQueryBuilder(Allocator.Temp).Dispose();
+	}
 ```
 
 - `private static GetColor(UnityEngine.Color a, UnityEngine.Color b, UnityEngine.Color c, System.Single value, System.Single maxValue1, System.Single maxValue2) : UnityEngine.Color`  
 
 ```csharp
-private static UnityEngine.Color GetColor(UnityEngine.Color a, UnityEngine.Color b, UnityEngine.Color c, System.Single value, System.Single maxValue1, System.Single maxValue2);
+private static Color GetColor(Color a, Color b, Color c, float value, float maxValue1, float maxValue2)
+	{
+		if (value < maxValue1)
+		{
+			return Color.Lerp(a, b, value / maxValue1);
+		}
+		return Color.Lerp(b, c, math.saturate((value - maxValue1) / (maxValue2 - maxValue1)));
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_LandValueSystem = base.World.GetOrCreateSystemManaged<LandValueSystem>();
+		m_GizmosSystem = base.World.GetOrCreateSystemManaged<GizmosSystem>();
+		m_TerrainSystem = base.World.GetOrCreateSystemManaged<TerrainSystem>();
+		m_DefaultToolSystem = base.World.GetOrCreateSystemManaged<DefaultToolSystem>();
+		m_LandValueParameterQuery = GetEntityQuery(ComponentType.ReadOnly<LandValueParameterData>());
+		m_LandValueEdgeQuery = GetEntityQuery(ComponentType.ReadOnly<Edge>(), ComponentType.ReadOnly<LandValue>(), ComponentType.Exclude<Deleted>(), ComponentType.Exclude<Temp>(), ComponentType.Exclude<Hidden>());
+		m_LandValueCellOption = AddOption("Land value (Cell)", defaultEnabled: true);
+		m_EdgeLandValueOption = AddOption("Land value (Edge)", defaultEnabled: true);
+		base.Enabled = false;
+	}
 ```
 
 - `protected virtual OnCreateForCompiler() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreateForCompiler();
+protected override void OnCreateForCompiler()
+	{
+		base.OnCreateForCompiler();
+		__AssignQueries(ref base.CheckedStateRef);
+		__TypeHandle.__AssignHandles(ref base.CheckedStateRef);
+	}
 ```
 
 - `public virtual OnDisabled(UnityEngine.Rendering.DebugUI+Container container) : System.Void`  
 
 ```csharp
-public virtual System.Void OnDisabled(UnityEngine.Rendering.DebugUI+Container container);
+public override void OnDisabled(DebugUI.Container container)
+	{
+		base.OnDisabled(container);
+		m_DefaultToolSystem.debugLandValue = false;
+	}
 ```
 
 - `public virtual OnEnabled(UnityEngine.Rendering.DebugUI+Container container) : System.Void`  
 
 ```csharp
-public virtual System.Void OnEnabled(UnityEngine.Rendering.DebugUI+Container container);
+public override void OnEnabled(DebugUI.Container container)
+	{
+		base.OnEnabled(container);
+		m_DefaultToolSystem.debugLandValue = true;
+	}
 ```
 
 - `protected virtual OnUpdate(Unity.Jobs.JobHandle inputDeps) : Unity.Jobs.JobHandle`  
 
 ```csharp
-protected virtual Unity.Jobs.JobHandle OnUpdate(Unity.Jobs.JobHandle inputDeps);
+[Preserve]
+	protected override JobHandle OnUpdate(JobHandle inputDeps)
+	{
+		if (m_LandValueCellOption.enabled)
+		{
+			JobHandle dependencies;
+			JobHandle dependencies2;
+			LandValueGizmoJob jobData = new LandValueGizmoJob
+			{
+				m_LandValueMap = m_LandValueSystem.GetMap(readOnly: true, out dependencies),
+				m_GizmoBatcher = m_GizmosSystem.GetGizmosBatcher(out dependencies2),
+				m_TerrainHeightData = m_TerrainSystem.GetHeightData(),
+				m_LandValueOption = m_LandValueCellOption.enabled,
+				m_LandValueParameterData = m_LandValueParameterQuery.GetSingleton<LandValueParameterData>()
+			};
+			base.Dependency = IJobExtensions.Schedule(jobData, JobHandle.CombineDependencies(inputDeps, dependencies2, dependencies));
+			m_GizmosSystem.AddGizmosBatcherWriter(base.Dependency);
+		}
+		if (m_EdgeLandValueOption.enabled)
+		{
+			JobHandle dependencies3;
+			LandValueEdgeGizmoJob jobData2 = new LandValueEdgeGizmoJob
+			{
+				m_EdgeType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Net_Edge_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+				m_CurveType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Net_Curve_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+				m_LandValues = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Net_LandValue_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+				m_NodeData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_Node_RO_ComponentLookup, ref base.CheckedStateRef),
+				m_TerrainHeightData = m_TerrainSystem.GetHeightData(),
+				m_GizmoBatcher = m_GizmosSystem.GetGizmosBatcher(out dependencies3),
+				m_LandValueOption = m_EdgeLandValueOption.enabled
+			};
+			base.Dependency = JobChunkExtensions.ScheduleParallel(jobData2, m_LandValueEdgeQuery, JobHandle.CombineDependencies(inputDeps, dependencies3));
+			m_GizmosSystem.AddGizmosBatcherWriter(base.Dependency);
+		}
+		m_TerrainSystem.AddCPUHeightReader(base.Dependency);
+		return base.Dependency;
+	}
 ```
 
 

@@ -59,7 +59,10 @@ private Game.UI.InGame.VehicleLocaleKey vehicleKey { private get; private set; }
 - `public PublicTransportVehicleSection()`  
 
 ```csharp
-public PublicTransportVehicleSection();
+[Preserve]
+	public PublicTransportVehicleSection()
+	{
+	}
 ```
 
 
@@ -68,25 +71,49 @@ public PublicTransportVehicleSection();
 - `protected virtual OnProcess() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnProcess();
+protected override void OnProcess()
+	{
+		Game.Vehicles.PublicTransport componentData = base.EntityManager.GetComponentData<Game.Vehicles.PublicTransport>(selectedEntity);
+		base.stateKey = VehicleUIUtils.GetStateKey(selectedEntity, componentData, base.EntityManager);
+		PublicTransportVehicleData componentData2 = base.EntityManager.GetComponentData<PublicTransportVehicleData>(selectedPrefab);
+		vehicleKey = (((componentData2.m_PurposeMask & PublicTransportPurpose.PrisonerTransport) != 0) ? VehicleLocaleKey.PrisonVan : (((componentData2.m_PurposeMask & PublicTransportPurpose.Evacuation) != 0 && (componentData.m_State & PublicTransportFlags.Evacuating) != 0) ? VehicleLocaleKey.EvacuationBus : VehicleLocaleKey.PublicTransportVehicle));
+		base.tooltipKeys.Add(vehicleKey.ToString());
+		base.OnProcess();
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		base.visible = Visible();
+	}
 ```
 
 - `public virtual OnWriteProperties(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-public virtual System.Void OnWriteProperties(Colossal.UI.Binding.IJsonWriter writer);
+public override void OnWriteProperties(IJsonWriter writer)
+	{
+		base.OnWriteProperties(writer);
+		writer.PropertyName("vehicleKey");
+		writer.Write(Enum.GetName(typeof(VehicleLocaleKey), vehicleKey));
+	}
 ```
 
 - `private Visible() : System.Boolean`  
 
 ```csharp
-private System.Boolean Visible();
+private bool Visible()
+	{
+		if (base.EntityManager.HasComponent<Vehicle>(selectedEntity) && base.EntityManager.HasComponent<Owner>(selectedEntity))
+		{
+			return base.EntityManager.HasComponent<Game.Vehicles.PublicTransport>(selectedEntity);
+		}
+		return false;
+	}
 ```
 
 

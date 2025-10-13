@@ -52,7 +52,17 @@ public MapMetadata();
 - `protected virtual OnPostLoad() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnPostLoad();
+protected override void OnPostLoad()
+	{
+		if (state == LoadState.Full && base.database.dataSource.Contains(base.id))
+		{
+			base.target.id = base.identifier;
+			SourceMeta meta = GetMeta();
+			base.target.metaData = this;
+			base.target.isReadonly = !meta.belongsToCurrentUser;
+			base.target.cloudTarget = meta.remoteStorageSourceName;
+		}
+	}
 ```
 
 

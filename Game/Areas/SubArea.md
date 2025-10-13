@@ -39,7 +39,10 @@ public Unity.Entities.Entity m_Area;
 - `public SubArea(Unity.Entities.Entity area)`  
 
 ```csharp
-public SubArea(Unity.Entities.Entity area);
+public SubArea(Entity area)
+	{
+		m_Area = area;
+	}
 ```
 
 
@@ -48,13 +51,19 @@ public SubArea(Unity.Entities.Entity area);
 - `public Equals(Game.Areas.SubArea other) : System.Boolean`  
 
 ```csharp
-public System.Boolean Equals(Game.Areas.SubArea other);
+public bool Equals(SubArea other)
+	{
+		return m_Area.Equals(other.m_Area);
+	}
 ```
 
 - `public virtual GetHashCode() : System.Int32`  
 
 ```csharp
-public virtual System.Int32 GetHashCode();
+public override int GetHashCode()
+	{
+		return m_Area.GetHashCode();
+	}
 ```
 
 

@@ -45,7 +45,24 @@ public SmoothFloatProcessor();
 - `protected virtual Smooth(System.Single value, System.Single& lastValue, System.Single delta) : System.Single`  
 
 ```csharp
-protected virtual System.Single Smooth(System.Single value, System.Single& lastValue, System.Single delta);
+protected override float Smooth(float value, ref float lastValue, float delta)
+	{
+		if (m_Smoothing > 0f)
+		{
+			float t = Mathf.Pow(m_Smoothing, delta);
+			value = Mathf.Lerp(value, lastValue, t);
+			if (Mathf.Abs(value) < 1E-06f)
+			{
+				value = 0f;
+			}
+		}
+		lastValue = value;
+		if (m_Time)
+		{
+			value *= Time.deltaTime;
+		}
+		return value;
+	}
 ```
 
 

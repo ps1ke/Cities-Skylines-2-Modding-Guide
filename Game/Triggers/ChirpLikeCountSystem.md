@@ -55,7 +55,10 @@ private Game.Triggers.ChirpLikeCountSystem+TypeHandle __TypeHandle;
 - `public ChirpLikeCountSystem()`  
 
 ```csharp
-public ChirpLikeCountSystem();
+[Preserve]
+	public ChirpLikeCountSystem()
+	{
+	}
 ```
 
 
@@ -64,31 +67,59 @@ public ChirpLikeCountSystem();
 - `private __AssignQueries(Unity.Entities.SystemState& state) : System.Void`  
 
 ```csharp
-private System.Void __AssignQueries(Unity.Entities.SystemState& state);
+private void __AssignQueries(ref SystemState state)
+	{
+		new EntityQueryBuilder(Allocator.Temp).Dispose();
+	}
 ```
 
 - `public virtual GetUpdateInterval(Game.SystemUpdatePhase phase) : System.Int32`  
 
 ```csharp
-public virtual System.Int32 GetUpdateInterval(Game.SystemUpdatePhase phase);
+public override int GetUpdateInterval(SystemUpdatePhase phase)
+	{
+		return 64;
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_SimulationSystem = base.World.GetOrCreateSystemManaged<SimulationSystem>();
+		m_ChirpQuery = GetEntityQuery(ComponentType.ReadWrite<Chirp>(), ComponentType.Exclude<Temp>(), ComponentType.Exclude<Deleted>());
+		RequireForUpdate(m_ChirpQuery);
+	}
 ```
 
 - `protected virtual OnCreateForCompiler() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreateForCompiler();
+protected override void OnCreateForCompiler()
+	{
+		base.OnCreateForCompiler();
+		__AssignQueries(ref base.CheckedStateRef);
+		__TypeHandle.__AssignHandles(ref base.CheckedStateRef);
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		LikeCountUpdateJob jobData = new LikeCountUpdateJob
+		{
+			m_ChirpType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Triggers_Chirp_RW_ComponentTypeHandle, ref base.CheckedStateRef),
+			m_RandomSeed = RandomSeed.Next(),
+			m_SimulationFrame = m_SimulationSystem.frameIndex
+		};
+		base.Dependency = JobChunkExtensions.ScheduleParallel(jobData, m_ChirpQuery, base.Dependency);
+	}
 ```
 
 

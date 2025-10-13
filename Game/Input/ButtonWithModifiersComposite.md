@@ -56,19 +56,43 @@ public ButtonWithModifiersComposite();
 - `public virtual EvaluateMagnitude(UnityEngine.InputSystem.InputBindingCompositeContext& context) : System.Single`  
 
 ```csharp
-public virtual System.Single EvaluateMagnitude(UnityEngine.InputSystem.InputBindingCompositeContext& context);
+public override float EvaluateMagnitude(ref InputBindingCompositeContext context)
+	{
+		return ReadValue(ref context);
+	}
 ```
 
 - `public static GetCompositeData() : Game.Input.InputManager+CompositeData`  
 
 ```csharp
-public static Game.Input.InputManager+CompositeData GetCompositeData();
+public static InputManager.CompositeData GetCompositeData()
+	{
+		return new InputManager.CompositeData(CompositeUtility.GetCompositeTypeName(typeof(ButtonWithModifiersComposite)), ActionType.Button, new InputManager.CompositeComponentData[1]
+		{
+			new InputManager.CompositeComponentData(ActionComponent.Press, "binding", "modifier")
+		});
+	}
 ```
 
 - `public virtual ReadValue(UnityEngine.InputSystem.InputBindingCompositeContext& context) : System.Single`  
 
 ```csharp
-public virtual System.Single ReadValue(UnityEngine.InputSystem.InputBindingCompositeContext& context);
+public override float ReadValue(ref InputBindingCompositeContext context)
+	{
+		if (m_IsDummy)
+		{
+			return 0f;
+		}
+		if (m_Mode == Mode.Analog)
+		{
+			return CompositeUtility.ReadValue(ref context, binding, base.allowModifiers, modifier, DefaultComparer<float>.instance);
+		}
+		if (!CompositeUtility.ReadValueAsButton(ref context, binding, base.allowModifiers, modifier))
+		{
+			return 0f;
+		}
+		return 1f;
+	}
 ```
 
 

@@ -115,13 +115,19 @@ private static Game.Settings.AntiAliasingQualitySettings disabled { private get;
 - `public AntiAliasingQualitySettings()`  
 
 ```csharp
-public AntiAliasingQualitySettings();
+public AntiAliasingQualitySettings(Level quality)
+	{
+		SetLevel(quality, apply: false);
+	}
 ```
 
 - `public AntiAliasingQualitySettings(Game.Settings.QualitySetting+Level quality)`  
 
 ```csharp
-public AntiAliasingQualitySettings(Game.Settings.QualitySetting+Level quality);
+public AntiAliasingQualitySettings(Level quality)
+	{
+		SetLevel(quality, apply: false);
+	}
 ```
 
 
@@ -130,19 +136,51 @@ public AntiAliasingQualitySettings(Game.Settings.QualitySetting+Level quality);
 - `public virtual Apply() : System.Void`  
 
 ```csharp
-public virtual System.Void Apply();
+public override void Apply()
+	{
+		base.Apply();
+		if (TryGetGameplayCamera(ref m_GameCamera))
+		{
+			if (!SharedSettings.instance.graphics.isDlssActive && !SharedSettings.instance.graphics.isFsr2Active)
+			{
+				m_GameCamera.antialiasing = ToAAMode(antiAliasingMethod);
+				m_GameCamera.SMAAQuality = smaaQuality;
+			}
+			else
+			{
+				m_GameCamera.antialiasing = HDAdditionalCameraData.AntialiasingMode.None;
+			}
+		}
+	}
 ```
 
 - `public virtual IsOptionFullyDisabled() : System.Boolean`  
 
 ```csharp
-public virtual System.Boolean IsOptionFullyDisabled();
+public override bool IsOptionFullyDisabled()
+	{
+		if (!base.IsOptionFullyDisabled() && !SharedSettings.instance.graphics.isDlssActive)
+		{
+			return SharedSettings.instance.graphics.isFsr2Active;
+		}
+		return true;
+	}
 ```
 
 - `private static ToAAMode(Game.Settings.AntiAliasingQualitySettings+AntialiasingMethod method) : UnityEngine.Rendering.HighDefinition.HDAdditionalCameraData+AntialiasingMode`  
 
 ```csharp
-private static UnityEngine.Rendering.HighDefinition.HDAdditionalCameraData+AntialiasingMode ToAAMode(Game.Settings.AntiAliasingQualitySettings+AntialiasingMethod method);
+private static HDAdditionalCameraData.AntialiasingMode ToAAMode(AntialiasingMethod method)
+	{
+		return method switch
+		{
+			AntialiasingMethod.None => HDAdditionalCameraData.AntialiasingMode.None, 
+			AntialiasingMethod.FXAA => HDAdditionalCameraData.AntialiasingMode.FastApproximateAntialiasing, 
+			AntialiasingMethod.SMAA => HDAdditionalCameraData.AntialiasingMode.SubpixelMorphologicalAntiAliasing, 
+			AntialiasingMethod.TAA => HDAdditionalCameraData.AntialiasingMode.TemporalAntialiasing, 
+			_ => HDAdditionalCameraData.AntialiasingMode.None, 
+		};
+	}
 ```
 
 

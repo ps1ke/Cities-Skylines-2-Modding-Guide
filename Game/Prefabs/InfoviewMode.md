@@ -58,7 +58,13 @@ public System.Boolean m_Optional;
 - `public InfoviewMode(Unity.Entities.Entity mode, System.Int32 priority, System.Boolean supplemental, System.Boolean optional)`  
 
 ```csharp
-public InfoviewMode(Unity.Entities.Entity mode, System.Int32 priority, System.Boolean supplemental, System.Boolean optional);
+public InfoviewMode(Entity mode, int priority, bool supplemental, bool optional)
+	{
+		m_Mode = mode;
+		m_Priority = priority;
+		m_Supplemental = supplemental;
+		m_Optional = optional;
+	}
 ```
 
 

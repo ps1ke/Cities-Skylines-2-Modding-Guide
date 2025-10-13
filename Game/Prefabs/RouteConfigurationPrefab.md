@@ -91,19 +91,47 @@ public RouteConfigurationPrefab();
 - `public virtual GetDependencies(System.Collections.Generic.List<Game.Prefabs.PrefabBase> prefabs) : System.Void`  
 
 ```csharp
-public virtual System.Void GetDependencies(System.Collections.Generic.List<Game.Prefabs.PrefabBase> prefabs);
+public override void GetDependencies(List<PrefabBase> prefabs)
+	{
+		base.GetDependencies(prefabs);
+		prefabs.Add(m_PathfindNotification);
+		prefabs.Add(m_CarPathVisualization);
+		prefabs.Add(m_WatercraftPathVisualization);
+		prefabs.Add(m_AircraftPathVisualization);
+		prefabs.Add(m_TrainPathVisualization);
+		prefabs.Add(m_HumanPathVisualization);
+		prefabs.Add(m_MissingRoutePrefab);
+	}
 ```
 
 - `public virtual GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetPrefabComponents(HashSet<ComponentType> components)
+	{
+		base.GetPrefabComponents(components);
+		components.Add(ComponentType.ReadWrite<RouteConfigurationData>());
+	}
 ```
 
 - `public virtual LateInitialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity) : System.Void`  
 
 ```csharp
-public virtual System.Void LateInitialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity);
+public override void LateInitialize(EntityManager entityManager, Entity entity)
+	{
+		base.LateInitialize(entityManager, entity);
+		PrefabSystem orCreateSystemManaged = entityManager.World.GetOrCreateSystemManaged<PrefabSystem>();
+		entityManager.SetComponentData(entity, new RouteConfigurationData
+		{
+			m_PathfindNotification = orCreateSystemManaged.GetEntity(m_PathfindNotification),
+			m_CarPathVisualization = orCreateSystemManaged.GetEntity(m_CarPathVisualization),
+			m_WatercraftPathVisualization = orCreateSystemManaged.GetEntity(m_WatercraftPathVisualization),
+			m_AircraftPathVisualization = orCreateSystemManaged.GetEntity(m_AircraftPathVisualization),
+			m_TrainPathVisualization = orCreateSystemManaged.GetEntity(m_TrainPathVisualization),
+			m_HumanPathVisualization = orCreateSystemManaged.GetEntity(m_HumanPathVisualization),
+			m_MissingRoutePrefab = orCreateSystemManaged.GetEntity(m_MissingRoutePrefab)
+		});
+	}
 ```
 
 

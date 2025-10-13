@@ -272,19 +272,28 @@ public UnityEngine.InputSystem.Utilities.NameAndParameters parameters { get; set
 - `public CompositeInstance(System.String typeName)`  
 
 ```csharp
-public CompositeInstance(System.String typeName);
+public CompositeInstance(string typeName)
+	{
+		this.typeName = typeName;
+	}
 ```
 
 - `public CompositeInstance(UnityEngine.InputSystem.Utilities.NameAndParameters parameters)`  
 
 ```csharp
-public CompositeInstance(UnityEngine.InputSystem.Utilities.NameAndParameters parameters);
+public CompositeInstance(string typeName)
+	{
+		this.typeName = typeName;
+	}
 ```
 
 - `public CompositeInstance(UnityEngine.InputSystem.Utilities.NameAndParameters parameters, UnityEngine.InputSystem.Utilities.NameAndParameters usages)`  
 
 ```csharp
-public CompositeInstance(UnityEngine.InputSystem.Utilities.NameAndParameters parameters, UnityEngine.InputSystem.Utilities.NameAndParameters usages);
+public CompositeInstance(string typeName)
+	{
+		this.typeName = typeName;
+	}
 ```
 
 

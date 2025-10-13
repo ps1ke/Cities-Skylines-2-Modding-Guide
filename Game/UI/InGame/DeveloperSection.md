@@ -89,7 +89,10 @@ protected System.Boolean displayForUpgrades { protected get; }
 - `public DeveloperSection()`  
 
 ```csharp
-public DeveloperSection();
+[Preserve]
+	public DeveloperSection()
+	{
+	}
 ```
 
 
@@ -98,49 +101,107 @@ public DeveloperSection();
 - `public AddSubsection(Game.UI.InGame.ISubsectionSource subsection) : System.Void`  
 
 ```csharp
-public System.Void AddSubsection(Game.UI.InGame.ISubsectionSource subsection);
+public void AddSubsection(ISubsectionSource subsection)
+	{
+		subsections.Add(subsection);
+	}
 ```
 
 - `private GetSubsectionCount() : System.Int32`  
 
 ```csharp
-private System.Int32 GetSubsectionCount();
+private int GetSubsectionCount()
+	{
+		int num = 0;
+		for (int i = 0; i < subsections.Count; i++)
+		{
+			if (subsections[i].DisplayFor(selectedEntity, selectedPrefab))
+			{
+				num++;
+			}
+		}
+		return num;
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		subsections = new List<ISubsectionSource>();
+	}
 ```
 
 - `protected virtual OnProcess() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnProcess();
+protected override void OnProcess()
+	{
+		for (int i = 0; i < subsections.Count; i++)
+		{
+			if (subsections[i].DisplayFor(selectedEntity, selectedPrefab))
+			{
+				subsections[i].OnRequestUpdate(selectedEntity, selectedPrefab);
+			}
+		}
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		base.visible = Visible();
+	}
 ```
 
 - `public virtual OnWriteProperties(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-public virtual System.Void OnWriteProperties(Colossal.UI.Binding.IJsonWriter writer);
+public override void OnWriteProperties(IJsonWriter writer)
+	{
+		writer.PropertyName("subsections");
+		writer.ArrayBegin(GetSubsectionCount());
+		for (int i = 0; i < subsections.Count; i++)
+		{
+			if (subsections[i].DisplayFor(selectedEntity, selectedPrefab))
+			{
+				writer.Write(subsections[i]);
+			}
+		}
+		writer.ArrayEnd();
+	}
 ```
 
 - `protected virtual Reset() : System.Void`  
 
 ```csharp
-protected virtual System.Void Reset();
+protected override void Reset()
+	{
+	}
 ```
 
 - `private Visible() : System.Boolean`  
 
 ```csharp
-private System.Boolean Visible();
+private bool Visible()
+	{
+		bool result = false;
+		for (int i = 0; i < subsections.Count; i++)
+		{
+			if (subsections[i].DisplayFor(selectedEntity, selectedPrefab))
+			{
+				result = true;
+				break;
+			}
+		}
+		return result;
+	}
 ```
 
 

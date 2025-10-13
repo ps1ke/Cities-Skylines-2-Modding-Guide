@@ -73,25 +73,51 @@ public SearchField();
 - `public SetValue(Colossal.UI.Binding.IJsonReader reader) : System.Void`  
 
 ```csharp
-public System.Void SetValue(Colossal.UI.Binding.IJsonReader reader);
+public void SetValue(string value)
+	{
+		if (value != m_Value)
+		{
+			adapter.searchQuery = value;
+		}
+	}
 ```
 
 - `public SetValue(System.String value) : System.Void`  
 
 ```csharp
-public System.Void SetValue(System.String value);
+public void SetValue(string value)
+	{
+		if (value != m_Value)
+		{
+			adapter.searchQuery = value;
+		}
+	}
 ```
 
 - `protected virtual Update() : Game.UI.Widgets.WidgetChanges`  
 
 ```csharp
-protected virtual Game.UI.Widgets.WidgetChanges Update();
+protected override WidgetChanges Update()
+	{
+		WidgetChanges widgetChanges = base.Update();
+		if (adapter.searchQuery != m_Value)
+		{
+			widgetChanges |= WidgetChanges.Properties;
+			m_Value = adapter.searchQuery;
+		}
+		return widgetChanges;
+	}
 ```
 
 - `protected virtual WriteProperties(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-protected virtual System.Void WriteProperties(Colossal.UI.Binding.IJsonWriter writer);
+protected override void WriteProperties(IJsonWriter writer)
+	{
+		base.WriteProperties(writer);
+		writer.PropertyName("value");
+		writer.Write(m_Value ?? string.Empty);
+	}
 ```
 
 

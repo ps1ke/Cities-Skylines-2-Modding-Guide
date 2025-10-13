@@ -173,43 +173,110 @@ public System.Int32 m_OCServiceTradePopulationRange;
 - `public Exportable(Game.City.PlayerResource resource) : System.Boolean`  
 
 ```csharp
-public System.Boolean Exportable(Game.City.PlayerResource resource);
+public bool Exportable(PlayerResource resource)
+	{
+		return GetFee(resource, export: true) != 0f;
+	}
 ```
 
 - `public GetDistanceCost(Game.Prefabs.OutsideConnectionTransferType type) : System.Single`  
 
 ```csharp
-public System.Single GetDistanceCost(Game.Prefabs.OutsideConnectionTransferType type);
+public float GetDistanceCost(OutsideConnectionTransferType type)
+	{
+		float num = float.MaxValue;
+		for (int num2 = 1; num2 < 32; num2 <<= 1)
+		{
+			num = math.min(num, GetDistanceCostSingle(type));
+		}
+		return num;
+	}
 ```
 
 - `private GetDistanceCostSingle(Game.Prefabs.OutsideConnectionTransferType type) : System.Single`  
 
 ```csharp
-private System.Single GetDistanceCostSingle(Game.Prefabs.OutsideConnectionTransferType type);
+private float GetDistanceCostSingle(OutsideConnectionTransferType type)
+	{
+		return type switch
+		{
+			OutsideConnectionTransferType.Air => m_AirDistanceMultiplier, 
+			OutsideConnectionTransferType.Road => m_RoadDistanceMultiplier, 
+			OutsideConnectionTransferType.Train => m_TrainDistanceMultiplier, 
+			OutsideConnectionTransferType.Ship => m_ShipDistanceMultiplier, 
+			_ => 0f, 
+		};
+	}
 ```
 
 - `public GetFee(Game.City.PlayerResource resource, System.Boolean export = False) : System.Single`  
 
 ```csharp
-public System.Single GetFee(Game.City.PlayerResource resource, System.Boolean export);
+public float GetFee(PlayerResource resource, bool export = false)
+	{
+		switch (resource)
+		{
+		case PlayerResource.Electricity:
+			if (!export)
+			{
+				return m_ElectricityImportPrice;
+			}
+			return m_ElectricityExportPrice;
+		case PlayerResource.Water:
+			if (!export)
+			{
+				return m_WaterImportPrice;
+			}
+			return m_WaterExportPrice;
+		case PlayerResource.Sewage:
+			if (!export)
+			{
+				return m_SewageExportPrice;
+			}
+			return 0f;
+		default:
+			return 0f;
+		}
+	}
 ```
 
 - `public GetWeightCost(Game.Prefabs.OutsideConnectionTransferType type) : System.Single`  
 
 ```csharp
-public System.Single GetWeightCost(Game.Prefabs.OutsideConnectionTransferType type);
+public float GetWeightCost(OutsideConnectionTransferType type)
+	{
+		float num = float.MaxValue;
+		for (int num2 = 1; num2 < 32; num2 <<= 1)
+		{
+			num = math.min(num, GetWeightCostSingle(type));
+		}
+		return num;
+	}
 ```
 
 - `private GetWeightCostSingle(Game.Prefabs.OutsideConnectionTransferType type) : System.Single`  
 
 ```csharp
-private System.Single GetWeightCostSingle(Game.Prefabs.OutsideConnectionTransferType type);
+private float GetWeightCostSingle(OutsideConnectionTransferType type)
+	{
+		return type switch
+		{
+			OutsideConnectionTransferType.Air => m_AirWeightMultiplier, 
+			OutsideConnectionTransferType.Road => m_RoadWeightMultiplier, 
+			OutsideConnectionTransferType.Train => m_TrainWeightMultiplier, 
+			OutsideConnectionTransferType.Ship => m_ShipWeightMultiplier, 
+			_ => 0f, 
+		};
+	}
 ```
 
 - `public Importable(Game.City.PlayerResource resource) : System.Boolean`  
 
 ```csharp
-public System.Boolean Importable(Game.City.PlayerResource resource);
+public bool Importable(PlayerResource resource)
+	{
+		return GetFee(resource) != 0f;
+	}
 ```
 
 

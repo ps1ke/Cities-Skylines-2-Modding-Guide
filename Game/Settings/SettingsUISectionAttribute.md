@@ -59,19 +59,34 @@ public static const System.String kGeneral;
 - `public SettingsUISectionAttribute(System.String tab, System.String simpleGroup, System.String advancedGroup)`  
 
 ```csharp
-public SettingsUISectionAttribute(System.String tab, System.String simpleGroup, System.String advancedGroup);
+public SettingsUISectionAttribute(string tab, string simpleGroup, string advancedGroup)
+	{
+		this.tab = tab ?? "General";
+		this.simpleGroup = simpleGroup ?? string.Empty;
+		this.advancedGroup = advancedGroup ?? string.Empty;
+	}
 ```
 
 - `public SettingsUISectionAttribute(System.String tab, System.String group)`  
 
 ```csharp
-public SettingsUISectionAttribute(System.String tab, System.String group);
+public SettingsUISectionAttribute(string tab, string simpleGroup, string advancedGroup)
+	{
+		this.tab = tab ?? "General";
+		this.simpleGroup = simpleGroup ?? string.Empty;
+		this.advancedGroup = advancedGroup ?? string.Empty;
+	}
 ```
 
 - `public SettingsUISectionAttribute(System.String group)`  
 
 ```csharp
-public SettingsUISectionAttribute(System.String group);
+public SettingsUISectionAttribute(string tab, string simpleGroup, string advancedGroup)
+	{
+		this.tab = tab ?? "General";
+		this.simpleGroup = simpleGroup ?? string.Empty;
+		this.advancedGroup = advancedGroup ?? string.Empty;
+	}
 ```
 
 

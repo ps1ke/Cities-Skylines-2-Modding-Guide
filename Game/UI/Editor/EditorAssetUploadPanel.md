@@ -41,7 +41,10 @@ private Game.UI.Menu.AssetUploadPanelUISystem m_AssetUploadPanelSystem;
 - `public EditorAssetUploadPanel()`  
 
 ```csharp
-public EditorAssetUploadPanel();
+[Preserve]
+	public EditorAssetUploadPanel()
+	{
+	}
 ```
 
 
@@ -50,37 +53,68 @@ public EditorAssetUploadPanel();
 - `private OnChildrenChange(System.Collections.Generic.IList<Game.UI.Widgets.IWidget> _children) : System.Void`  
 
 ```csharp
-private System.Void OnChildrenChange(System.Collections.Generic.IList<Game.UI.Widgets.IWidget> _children);
+private void OnChildrenChange(IList<IWidget> _children)
+	{
+		children = _children;
+	}
 ```
 
 - `protected virtual OnClose() : System.Boolean`  
 
 ```csharp
-protected virtual System.Boolean OnClose();
+protected override bool OnClose()
+	{
+		return m_AssetUploadPanelSystem.Close();
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_AssetUploadPanelSystem = base.World.GetOrCreateSystemManaged<AssetUploadPanelUISystem>();
+		m_AssetUploadPanelSystem.Enabled = false;
+		title = "Menu.ASSET_UPLOAD";
+	}
 ```
 
 - `protected virtual OnStartRunning() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnStartRunning();
+[Preserve]
+	protected override void OnStartRunning()
+	{
+		base.OnStartRunning();
+		AssetUploadPanelUISystem assetUploadPanelSystem = m_AssetUploadPanelSystem;
+		assetUploadPanelSystem.onChildrenChange = (Action<IList<IWidget>>)Delegate.Combine(assetUploadPanelSystem.onChildrenChange, new Action<IList<IWidget>>(OnChildrenChange));
+		m_AssetUploadPanelSystem.Enabled = true;
+		children = m_AssetUploadPanelSystem.children;
+	}
 ```
 
 - `protected virtual OnStopRunning() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnStopRunning();
+[Preserve]
+	protected override void OnStopRunning()
+	{
+		base.OnStopRunning();
+		m_AssetUploadPanelSystem.Enabled = false;
+		AssetUploadPanelUISystem assetUploadPanelSystem = m_AssetUploadPanelSystem;
+		assetUploadPanelSystem.onChildrenChange = (Action<IList<IWidget>>)Delegate.Remove(assetUploadPanelSystem.onChildrenChange, new Action<IList<IWidget>>(OnChildrenChange));
+	}
 ```
 
 - `public Show(Colossal.IO.AssetDatabase.AssetData mainAsset, System.Boolean allowManualFileCopy = True) : System.Void`  
 
 ```csharp
-public System.Void Show(Colossal.IO.AssetDatabase.AssetData mainAsset, System.Boolean allowManualFileCopy);
+public void Show(AssetData mainAsset, bool allowManualFileCopy = true)
+	{
+		m_AssetUploadPanelSystem.Show(mainAsset, allowManualFileCopy);
+	}
 ```
 
 

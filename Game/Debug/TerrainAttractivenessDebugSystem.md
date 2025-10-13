@@ -59,7 +59,10 @@ private Colossal.GizmosSystem m_GizmosSystem;
 - `public TerrainAttractivenessDebugSystem()`  
 
 ```csharp
-public TerrainAttractivenessDebugSystem();
+[Preserve]
+	public TerrainAttractivenessDebugSystem()
+	{
+	}
 ```
 
 
@@ -68,13 +71,38 @@ public TerrainAttractivenessDebugSystem();
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_GizmosSystem = base.World.GetOrCreateSystemManaged<GizmosSystem>();
+		m_TerrainAttractivenessSystem = base.World.GetOrCreateSystemManaged<TerrainAttractivenessSystem>();
+		m_TerrainSystem = base.World.GetOrCreateSystemManaged<TerrainSystem>();
+		m_ParameterQuery = GetEntityQuery(ComponentType.ReadOnly<AttractivenessParameterData>());
+		base.Enabled = false;
+	}
 ```
 
 - `protected virtual OnUpdate(Unity.Jobs.JobHandle inputDeps) : Unity.Jobs.JobHandle`  
 
 ```csharp
-protected virtual Unity.Jobs.JobHandle OnUpdate(Unity.Jobs.JobHandle inputDeps);
+[Preserve]
+	protected override JobHandle OnUpdate(JobHandle inputDeps)
+	{
+		JobHandle dependencies;
+		JobHandle dependencies2;
+		JobHandle jobHandle = IJobExtensions.Schedule(new TerrainAttractivenessGizmoJob
+		{
+			m_Map = m_TerrainAttractivenessSystem.GetData(readOnly: true, out dependencies),
+			m_GizmoBatcher = m_GizmosSystem.GetGizmosBatcher(out dependencies2),
+			m_HeightData = m_TerrainSystem.GetHeightData(),
+			m_Parameters = m_ParameterQuery.GetSingleton<AttractivenessParameterData>()
+		}, JobHandle.CombineDependencies(inputDeps, dependencies2, dependencies));
+		m_GizmosSystem.AddGizmosBatcherWriter(jobHandle);
+		m_TerrainAttractivenessSystem.AddReader(jobHandle);
+		m_TerrainSystem.AddCPUHeightReader(jobHandle);
+		return jobHandle;
+	}
 ```
 
 

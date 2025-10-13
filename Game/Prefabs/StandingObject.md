@@ -63,19 +63,32 @@ public StandingObject();
 - `public virtual GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetArchetypeComponents(HashSet<ComponentType> components)
+	{
+	}
 ```
 
 - `public virtual GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetPrefabComponents(HashSet<ComponentType> components)
+	{
+		components.Add(ComponentType.ReadWrite<ObjectGeometryData>());
+	}
 ```
 
 - `public virtual Initialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity) : System.Void`  
 
 ```csharp
-public virtual System.Void Initialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity);
+public override void Initialize(EntityManager entityManager, Entity entity)
+	{
+		base.Initialize(entityManager, entity);
+		ObjectGeometryData componentData = entityManager.GetComponentData<ObjectGeometryData>(entity);
+		componentData.m_LegSize = m_LegSize;
+		componentData.m_LegOffset = math.select(default(float2), (m_LegGap + m_LegSize.xz) * 0.5f, m_LegGap != 0f);
+		componentData.m_Flags |= (GeometryFlags)(m_CircularLeg ? 384 : 128);
+		entityManager.SetComponentData(entity, componentData);
+	}
 ```
 
 

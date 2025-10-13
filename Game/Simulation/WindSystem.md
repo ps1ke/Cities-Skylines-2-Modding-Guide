@@ -81,7 +81,10 @@ public Unity.Mathematics.int2 TextureSize { get; }
 - `public WindSystem()`  
 
 ```csharp
-public WindSystem();
+[Preserve]
+	public WindSystem()
+	{
+	}
 ```
 
 
@@ -96,37 +99,103 @@ public virtual Unity.Jobs.JobHandle Deserialize<TReader>(Colossal.Serialization.
 - `public static GetCellCenter(System.Int32 index) : Unity.Mathematics.float3`  
 
 ```csharp
-public static Unity.Mathematics.float3 GetCellCenter(System.Int32 index);
+public static float3 GetCellCenter(int index)
+	{
+		return CellMapSystem<Wind>.GetCellCenter(index, kTextureSize);
+	}
 ```
 
 - `public virtual GetUpdateInterval(Game.SystemUpdatePhase phase) : System.Int32`  
 
 ```csharp
-public virtual System.Int32 GetUpdateInterval(Game.SystemUpdatePhase phase);
+public override int GetUpdateInterval(SystemUpdatePhase phase)
+	{
+		if (phase != SystemUpdatePhase.GameSimulation)
+		{
+			return 1;
+		}
+		return kUpdateInterval;
+	}
 ```
 
 - `public static GetWind(Unity.Mathematics.float3 position, Unity.Collections.NativeArray<Game.Simulation.Wind> windMap) : Game.Simulation.Wind`  
 
 ```csharp
-public static Game.Simulation.Wind GetWind(Unity.Mathematics.float3 position, Unity.Collections.NativeArray<Game.Simulation.Wind> windMap);
+public static Wind GetWind(float3 position, NativeArray<Wind> windMap)
+	{
+		int2 cell = CellMapSystem<Wind>.GetCell(position, CellMapSystem<Wind>.kMapSize, kTextureSize);
+		cell = math.clamp(cell, 0, kTextureSize - 1);
+		float2 cellCoords = CellMapSystem<Wind>.GetCellCoords(position, CellMapSystem<Wind>.kMapSize, kTextureSize);
+		int num = math.min(kTextureSize - 1, cell.x + 1);
+		int num2 = math.min(kTextureSize - 1, cell.y + 1);
+		return new Wind
+		{
+			m_Wind = math.lerp(math.lerp(windMap[cell.x + kTextureSize * cell.y].m_Wind, windMap[num + kTextureSize * cell.y].m_Wind, cellCoords.x - (float)cell.x), math.lerp(windMap[cell.x + kTextureSize * num2].m_Wind, windMap[num + kTextureSize * num2].m_Wind, cellCoords.x - (float)cell.x), cellCoords.y - (float)cell.y)
+		};
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_WindSimulationSystem = base.World.GetOrCreateSystemManaged<WindSimulationSystem>();
+		m_WindTextureSystem = base.World.GetOrCreateSystemManaged<WindTextureSystem>();
+		m_TerrainSystem = base.World.GetOrCreateSystemManaged<TerrainSystem>();
+		CreateTextures(kTextureSize);
+		for (int i = 0; i < m_Map.Length; i++)
+		{
+			m_Map[i] = new Wind
+			{
+				m_Wind = m_WindSimulationSystem.constantWind
+			};
+		}
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		TerrainHeightData heightData = m_TerrainSystem.GetHeightData();
+		if (heightData.isCreated)
+		{
+			JobHandle deps;
+			WindCopyJob jobData = new WindCopyJob
+			{
+				m_WindMap = m_Map,
+				m_Source = m_WindSimulationSystem.GetCells(out deps),
+				m_TerrainHeightData = heightData
+			};
+			base.Dependency = jobData.Schedule(m_Map.Length, JobHandle.CombineDependencies(deps, JobHandle.CombineDependencies(m_WriteDependencies, m_ReadDependencies, base.Dependency)));
+			AddWriter(base.Dependency);
+			m_TerrainSystem.AddCPUHeightReader(base.Dependency);
+			m_WindSimulationSystem.AddReader(base.Dependency);
+			m_WindTextureSystem.RequireUpdate();
+		}
+	}
 ```
 
 - `public virtual SetDefaults(Colossal.Serialization.Entities.Context context) : Unity.Jobs.JobHandle`  
 
 ```csharp
-public virtual Unity.Jobs.JobHandle SetDefaults(Colossal.Serialization.Entities.Context context);
+public override JobHandle SetDefaults(Context context)
+	{
+		m_WindTextureSystem.RequireUpdate();
+		for (int i = 0; i < m_Map.Length; i++)
+		{
+			m_Map[i] = new Wind
+			{
+				m_Wind = m_WindSimulationSystem.constantWind
+			};
+		}
+		return default(JobHandle);
+	}
 ```
 
 

@@ -56,7 +56,13 @@ public Game.Notifications.IconFlags m_Flags;
 - `public IconDefinition(Game.Notifications.Icon icon)`  
 
 ```csharp
-public IconDefinition(Game.Notifications.Icon icon);
+public IconDefinition(Icon icon)
+	{
+		m_Location = icon.m_Location;
+		m_Priority = icon.m_Priority;
+		m_ClusterLayer = icon.m_ClusterLayer;
+		m_Flags = icon.m_Flags;
+	}
 ```
 
 

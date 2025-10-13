@@ -44,7 +44,11 @@ public Game.Creatures.PetFlags m_Flags;
 - `public Pet(Unity.Entities.Entity householdPet)`  
 
 ```csharp
-public Pet(Unity.Entities.Entity householdPet);
+public Pet(Entity householdPet)
+	{
+		m_HouseholdPet = householdPet;
+		m_Flags = PetFlags.None;
+	}
 ```
 
 

@@ -65,7 +65,10 @@ public Game.GameMode gameMode { get; }
 - `protected UISystemBase()`  
 
 ```csharp
-protected UISystemBase();
+[Preserve]
+	protected UISystemBase()
+	{
+	}
 ```
 
 
@@ -74,37 +77,70 @@ protected UISystemBase();
 - `protected AddBinding(Colossal.UI.Binding.IBinding binding) : System.Void`  
 
 ```csharp
-protected System.Void AddBinding(Colossal.UI.Binding.IBinding binding);
+protected void AddBinding(IBinding binding)
+	{
+		m_Bindings.Add(binding);
+		GameManager.instance.userInterface.bindings.AddBinding(binding);
+	}
 ```
 
 - `protected AddUpdateBinding(Colossal.UI.Binding.IUpdateBinding binding) : System.Void`  
 
 ```csharp
-protected System.Void AddUpdateBinding(Colossal.UI.Binding.IUpdateBinding binding);
+protected void AddUpdateBinding(IUpdateBinding binding)
+	{
+		AddBinding(binding);
+		m_UpdateBindings.Add(binding);
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_Bindings = new List<IBinding>();
+		m_UpdateBindings = new List<IUpdateBinding>();
+	}
 ```
 
 - `protected virtual OnDestroy() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnDestroy();
+[Preserve]
+	protected override void OnDestroy()
+	{
+		base.OnDestroy();
+		foreach (IBinding binding in m_Bindings)
+		{
+			GameManager.instance.userInterface.bindings.RemoveBinding(binding);
+		}
+	}
 ```
 
 - `protected virtual OnGamePreload(Colossal.Serialization.Entities.Purpose purpose, Game.GameMode mode) : System.Void`  
 
 ```csharp
-protected virtual System.Void OnGamePreload(Colossal.Serialization.Entities.Purpose purpose, Game.GameMode mode);
+protected override void OnGamePreload(Purpose purpose, GameMode mode)
+	{
+		base.OnGamePreload(purpose, mode);
+		base.Enabled = (gameMode & mode) != 0;
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		foreach (IUpdateBinding updateBinding in m_UpdateBindings)
+		{
+			updateBinding.Update();
+		}
+	}
 ```
 
 

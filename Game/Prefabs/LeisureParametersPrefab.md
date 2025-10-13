@@ -85,25 +85,50 @@ public LeisureParametersPrefab();
 - `public virtual GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetArchetypeComponents(HashSet<ComponentType> components)
+	{
+		base.GetArchetypeComponents(components);
+	}
 ```
 
 - `public virtual GetDependencies(System.Collections.Generic.List<Game.Prefabs.PrefabBase> prefabs) : System.Void`  
 
 ```csharp
-public virtual System.Void GetDependencies(System.Collections.Generic.List<Game.Prefabs.PrefabBase> prefabs);
+public override void GetDependencies(List<PrefabBase> prefabs)
+	{
+		base.GetDependencies(prefabs);
+		prefabs.Add(m_TravelingEvent);
+		prefabs.Add(m_AttractionPrefab);
+		prefabs.Add(m_SightseeingPrefab);
+	}
 ```
 
 - `public virtual GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
 
 ```csharp
-public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+public override void GetPrefabComponents(HashSet<ComponentType> components)
+	{
+		base.GetPrefabComponents(components);
+		components.Add(ComponentType.ReadWrite<LeisureParametersData>());
+	}
 ```
 
 - `public virtual LateInitialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity) : System.Void`  
 
 ```csharp
-public virtual System.Void LateInitialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity);
+public override void LateInitialize(EntityManager entityManager, Entity entity)
+	{
+		base.LateInitialize(entityManager, entity);
+		PrefabSystem orCreateSystemManaged = entityManager.World.GetOrCreateSystemManaged<PrefabSystem>();
+		LeisureParametersData componentData = default(LeisureParametersData);
+		componentData.m_TravelingPrefab = orCreateSystemManaged.GetEntity(m_TravelingEvent);
+		componentData.m_AttractionPrefab = orCreateSystemManaged.GetEntity(m_AttractionPrefab);
+		componentData.m_SightseeingPrefab = orCreateSystemManaged.GetEntity(m_SightseeingPrefab);
+		componentData.m_LeisureRandomFactor = m_LeisureRandomFactor;
+		componentData.m_TouristLodgingConsumePerDay = m_TouristLodgingConsumePerDay;
+		componentData.m_TouristServiceConsumePerDay = m_TouristServiceConsumePerDay;
+		entityManager.SetComponentData(entity, componentData);
+	}
 ```
 
 

@@ -145,7 +145,34 @@ internal static Unity.Mathematics.float4 <TryCreate>g__ToVector4|1_12(System.Obj
 - `private static CreateFloatFieldBuilder(System.Object[] attributes, System.Double min, System.Double max, System.Converter<System.Object, System.Double> fromObject, System.Converter<System.Double, System.Object> toObject) : Game.UI.Widgets.FieldBuilder`  
 
 ```csharp
-private static Game.UI.Widgets.FieldBuilder CreateFloatFieldBuilder(System.Object[] attributes, System.Double min, System.Double max, System.Converter<System.Object, System.Double> fromObject, System.Converter<System.Double, System.Object> toObject);
+private static FieldBuilder CreateFloatFieldBuilder(object[] attributes, double min, double max, Converter<object, double> fromObject, Converter<double, object> toObject)
+	{
+		if (!EditorGenerator.sBypassValueLimits)
+		{
+			min = math.max(min, -10000000.0);
+			max = math.min(max, 10000000.0);
+		}
+		double step = WidgetAttributeUtils.GetNumberStep(attributes, 0.01);
+		if (!EditorGenerator.sBypassValueLimits && WidgetAttributeUtils.GetNumberRange(attributes, ref min, ref max) && !WidgetAttributeUtils.RequiresInputField(attributes))
+		{
+			string unit = WidgetAttributeUtils.GetNumberUnit(attributes);
+			return (IValueAccessor accessor) => new FloatSliderField
+			{
+				min = min,
+				max = max,
+				step = step,
+				unit = unit,
+				accessor = new CastAccessor<double>(accessor, fromObject, toObject)
+			};
+		}
+		return (IValueAccessor accessor) => new FloatInputField
+		{
+			min = min,
+			max = max,
+			step = step,
+			accessor = new CastAccessor<double>(accessor, fromObject, toObject)
+		};
+	}
 ```
 
 - `private static CreateFloatFieldBuilder<TWidget, TValue>(System.Object[] attributes, System.Converter<System.Object, TValue> fromObject = null, System.Converter<TValue, System.Object> toObject = null) : Game.UI.Widgets.FieldBuilder`  
@@ -157,7 +184,106 @@ private static Game.UI.Widgets.FieldBuilder CreateFloatFieldBuilder<TWidget, TVa
 - `public TryCreate(System.Type memberType, System.Object[] attributes) : Game.UI.Widgets.FieldBuilder`  
 
 ```csharp
-public Game.UI.Widgets.FieldBuilder TryCreate(System.Type memberType, System.Object[] attributes);
+public FieldBuilder TryCreate(Type memberType, object[] attributes)
+	{
+		if (memberType == typeof(float))
+		{
+			return CreateFloatFieldBuilder(attributes, -3.4028234663852886E+38, 3.4028234663852886E+38, ToFloat, FromFloat);
+		}
+		if (memberType == typeof(double))
+		{
+			return CreateFloatFieldBuilder(attributes, double.MinValue, double.MaxValue, ToDouble, FromDouble);
+		}
+		if (memberType == typeof(float2))
+		{
+			return CreateFloatFieldBuilder<Float2InputField, float2>(attributes);
+		}
+		if (memberType == typeof(Vector2))
+		{
+			return CreateFloatFieldBuilder<Float2InputField, float2>(attributes, ToVector, FromVector);
+		}
+		if (memberType == typeof(float3))
+		{
+			return CreateFloatFieldBuilder<Float3InputField, float3>(attributes);
+		}
+		if (memberType == typeof(Vector3))
+		{
+			return CreateFloatFieldBuilder<Float3InputField, float3>(attributes, ToVector3, FromVector3);
+		}
+		if (memberType == typeof(quaternion))
+		{
+			return CreateFloatFieldBuilder<EulerAnglesField, float3>(attributes, ToEulerAngles, FromEulerAngles);
+		}
+		if (memberType == typeof(Quaternion))
+		{
+			return CreateFloatFieldBuilder<EulerAnglesField, float3>(attributes, ToEulerAngles2, FromEulerAngles2);
+		}
+		if (memberType == typeof(float4))
+		{
+			return CreateFloatFieldBuilder<Float4InputField, float4>(attributes);
+		}
+		if (memberType == typeof(Vector4))
+		{
+			return CreateFloatFieldBuilder<Float4InputField, float4>(attributes, ToVector4, FromVector4);
+		}
+		return null;
+		static object FromDouble(double value)
+		{
+			return value;
+		}
+		static object FromEulerAngles(float3 value)
+		{
+			return (quaternion)Quaternion.Euler(value);
+		}
+		static object FromEulerAngles2(float3 value)
+		{
+			return Quaternion.Euler(value);
+		}
+		static object FromFloat(double value)
+		{
+			return (float)value;
+		}
+		static object FromVector(float2 value)
+		{
+			return (Vector2)value;
+		}
+		static object FromVector3(float3 value)
+		{
+			return (Vector3)value;
+		}
+		static object FromVector4(float4 value)
+		{
+			return (Vector4)value;
+		}
+		static double ToDouble(object value)
+		{
+			return (double)value;
+		}
+		static float3 ToEulerAngles(object value)
+		{
+			return ((Quaternion)(quaternion)value).eulerAngles;
+		}
+		static float3 ToEulerAngles2(object value)
+		{
+			return ((Quaternion)value).eulerAngles;
+		}
+		static double ToFloat(object value)
+		{
+			return (float)value;
+		}
+		static float2 ToVector(object value)
+		{
+			return (Vector2)value;
+		}
+		static float3 ToVector3(object value)
+		{
+			return (Vector3)value;
+		}
+		static float4 ToVector4(object value)
+		{
+			return (Vector4)value;
+		}
+	}
 ```
 
 

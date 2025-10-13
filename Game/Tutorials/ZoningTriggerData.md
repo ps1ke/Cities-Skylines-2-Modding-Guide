@@ -35,7 +35,10 @@ public Unity.Entities.Entity m_Zone;
 - `public ZoningTriggerData(Unity.Entities.Entity zone)`  
 
 ```csharp
-public ZoningTriggerData(Unity.Entities.Entity zone);
+public ZoningTriggerData(Entity zone)
+	{
+		m_Zone = zone;
+	}
 ```
 
 

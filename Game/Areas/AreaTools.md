@@ -33,7 +33,22 @@ public AreaTools();
 - `public static GetMapFeatureIconName(Game.Areas.MapFeature feature) : System.String`  
 
 ```csharp
-public static System.String GetMapFeatureIconName(Game.Areas.MapFeature feature);
+public static string GetMapFeatureIconName(MapFeature feature)
+	{
+		return feature switch
+		{
+			MapFeature.None => "None", 
+			MapFeature.Area => "Area", 
+			MapFeature.BuildableLand => "Building", 
+			MapFeature.FertileLand => "Fertility", 
+			MapFeature.Forest => "Forest", 
+			MapFeature.Oil => "Oil", 
+			MapFeature.Ore => "Coal", 
+			MapFeature.SurfaceWater => "Water", 
+			MapFeature.GroundWater => "Water", 
+			_ => "None", 
+		};
+	}
 ```
 
 

@@ -109,7 +109,10 @@ protected System.Boolean Modified { protected get; }
 - `public DisasterInfoviewUISystem()`  
 
 ```csharp
-public DisasterInfoviewUISystem();
+[Preserve]
+	public DisasterInfoviewUISystem()
+	{
+	}
 ```
 
 
@@ -118,31 +121,85 @@ public DisasterInfoviewUISystem();
 - `private __AssignQueries(Unity.Entities.SystemState& state) : System.Void`  
 
 ```csharp
-private System.Void __AssignQueries(Unity.Entities.SystemState& state);
+private void __AssignQueries(ref SystemState state)
+	{
+		new EntityQueryBuilder(Allocator.Temp).Dispose();
+	}
 ```
 
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_SheltersQuery = GetEntityQuery(ComponentType.ReadOnly<Building>(), ComponentType.ReadOnly<Game.Buildings.EmergencyShelter>(), ComponentType.Exclude<Deleted>(), ComponentType.Exclude<Temp>());
+		m_SheltersModifiedQuery = GetEntityQuery(new EntityQueryDesc
+		{
+			All = new ComponentType[2]
+			{
+				ComponentType.ReadOnly<Building>(),
+				ComponentType.ReadOnly<Game.Buildings.EmergencyShelter>()
+			},
+			Any = new ComponentType[3]
+			{
+				ComponentType.ReadOnly<Deleted>(),
+				ComponentType.ReadOnly<Created>(),
+				ComponentType.ReadOnly<Updated>()
+			},
+			None = new ComponentType[1] { ComponentType.ReadOnly<Temp>() }
+		});
+		AddBinding(m_ShelteredCount = new ValueBinding<int>("disasterInfo", "shelteredCount", 0));
+		AddBinding(m_ShelterCapacity = new ValueBinding<int>("disasterInfo", "shelterCapacity", 0));
+		AddBinding(m_ShelterAvailability = new ValueBinding<IndicatorValue>("disasterInfo", "shelterAvailability", default(IndicatorValue), new ValueWriter<IndicatorValue>()));
+		m_Result = new NativeAccumulator<UpdateDisasterResponseJob.Result>(Allocator.Persistent);
+	}
 ```
 
 - `protected virtual OnCreateForCompiler() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreateForCompiler();
+protected override void OnCreateForCompiler()
+	{
+		base.OnCreateForCompiler();
+		__AssignQueries(ref base.CheckedStateRef);
+		__TypeHandle.__AssignHandles(ref base.CheckedStateRef);
+	}
 ```
 
 - `protected virtual OnDestroy() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnDestroy();
+[Preserve]
+	protected override void OnDestroy()
+	{
+		m_Result.Dispose();
+		base.OnDestroy();
+	}
 ```
 
 - `protected virtual PerformUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void PerformUpdate();
+protected override void PerformUpdate()
+	{
+		m_Result.Clear();
+		JobChunkExtensions.Schedule(new UpdateDisasterResponseJob
+		{
+			m_PrefabRefType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentTypeHandle, ref base.CheckedStateRef),
+			m_OccupantType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Buildings_Occupant_RO_BufferTypeHandle, ref base.CheckedStateRef),
+			m_InstalledUpgradeType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Buildings_InstalledUpgrade_RO_BufferTypeHandle, ref base.CheckedStateRef),
+			m_EfficiencyType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Buildings_Efficiency_RO_BufferTypeHandle, ref base.CheckedStateRef),
+			m_Prefabs = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentLookup, ref base.CheckedStateRef),
+			m_EmergencyShelterDatas = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_EmergencyShelterData_RO_ComponentLookup, ref base.CheckedStateRef),
+			m_Result = m_Result
+		}, m_SheltersQuery, base.Dependency).Complete();
+		UpdateDisasterResponseJob.Result result = m_Result.GetResult();
+		m_ShelteredCount.Update(result.m_Count);
+		m_ShelterCapacity.Update(result.m_Capacity);
+		m_ShelterAvailability.Update(new IndicatorValue(0f, result.m_Capacity, result.m_Capacity - result.m_Count));
+	}
 ```
 
 

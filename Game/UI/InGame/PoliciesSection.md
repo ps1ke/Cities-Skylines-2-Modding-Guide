@@ -54,7 +54,10 @@ protected System.String group { protected get; }
 - `public PoliciesSection()`  
 
 ```csharp
-public PoliciesSection();
+[Preserve]
+	public PoliciesSection()
+	{
+	}
 ```
 
 
@@ -63,37 +66,90 @@ public PoliciesSection();
 - `protected virtual OnCreate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnCreate();
+[Preserve]
+	protected override void OnCreate()
+	{
+		base.OnCreate();
+		m_PoliciesUISystem = base.World.GetOrCreateSystemManaged<PoliciesUISystem>();
+		PoliciesUISystem policiesUISystem = m_PoliciesUISystem;
+		policiesUISystem.EventPolicyUnlocked = (Action)Delegate.Combine(policiesUISystem.EventPolicyUnlocked, new Action(m_InfoUISystem.RequestUpdate));
+	}
 ```
 
 - `protected virtual OnDestroy() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnDestroy();
+[Preserve]
+	protected override void OnDestroy()
+	{
+		base.OnDestroy();
+		PoliciesUISystem policiesUISystem = m_PoliciesUISystem;
+		policiesUISystem.EventPolicyUnlocked = (Action)Delegate.Remove(policiesUISystem.EventPolicyUnlocked, new Action(m_InfoUISystem.RequestUpdate));
+	}
 ```
 
 - `protected virtual OnProcess() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnProcess();
+protected override void OnProcess()
+	{
+		if (base.EntityManager.HasComponent<Building>(selectedEntity))
+		{
+			base.tooltipKeys.Add(PoliciesKey.Building.ToString());
+		}
+		else if (base.EntityManager.HasComponent<District>(selectedEntity))
+		{
+			base.tooltipKeys.Add(PoliciesKey.District.ToString());
+		}
+		else if (base.EntityManager.HasComponent<Route>(selectedEntity))
+		{
+			base.tooltipTags.Add(TooltipTags.CargoRoute.ToString());
+			base.tooltipTags.Add(TooltipTags.TransportLine.ToString());
+		}
+	}
 ```
 
 - `protected virtual OnUpdate() : System.Void`  
 
 ```csharp
-protected virtual System.Void OnUpdate();
+[Preserve]
+	protected override void OnUpdate()
+	{
+		base.visible = base.EntityManager.HasComponent<Policy>(selectedEntity) && m_PoliciesUISystem.GatherSelectedInfoPolicies(selectedEntity);
+	}
 ```
 
 - `public virtual OnWriteProperties(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
 
 ```csharp
-public virtual System.Void OnWriteProperties(Colossal.UI.Binding.IJsonWriter writer);
+public override void OnWriteProperties(IJsonWriter writer)
+	{
+		writer.PropertyName("policies");
+		if (base.EntityManager.HasComponent<Building>(selectedEntity))
+		{
+			m_PoliciesUISystem.BindBuildingPolicies(writer);
+		}
+		else if (base.EntityManager.HasComponent<District>(selectedEntity))
+		{
+			m_PoliciesUISystem.BindDistrictPolicies(writer);
+		}
+		else if (base.EntityManager.HasComponent<Route>(selectedEntity))
+		{
+			m_PoliciesUISystem.BindRoutePolicies(writer);
+		}
+		else
+		{
+			writer.WriteNull();
+		}
+	}
 ```
 
 - `protected virtual Reset() : System.Void`  
 
 ```csharp
-protected virtual System.Void Reset();
+protected override void Reset()
+	{
+	}
 ```
 
 

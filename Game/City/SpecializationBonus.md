@@ -43,7 +43,10 @@ public System.Void Deserialize<TReader>(TReader reader);
 - `public GetBonus(System.Single maxBonus, System.Int32 coefficient) : System.Single`  
 
 ```csharp
-public System.Single GetBonus(System.Single maxBonus, System.Int32 coefficient);
+public float GetBonus(float maxBonus, int coefficient)
+	{
+		return maxBonus * (float)m_Value / (float)(m_Value + coefficient);
+	}
 ```
 
 - `public Serialize<TWriter>(TWriter writer) : System.Void`  
@@ -55,7 +58,10 @@ public System.Void Serialize<TWriter>(TWriter writer);
 - `public SetDefaults(Colossal.Serialization.Entities.Context context) : System.Void`  
 
 ```csharp
-public System.Void SetDefaults(Colossal.Serialization.Entities.Context context);
+public void SetDefaults(Context context)
+	{
+		m_Value = 0;
+	}
 ```
 
 

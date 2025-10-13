@@ -36,7 +36,10 @@ public RocketPrefab();
 - `protected virtual GetHelicopterType() : Game.Vehicles.HelicopterType`  
 
 ```csharp
-protected virtual Game.Vehicles.HelicopterType GetHelicopterType();
+protected override HelicopterType GetHelicopterType()
+	{
+		return HelicopterType.Rocket;
+	}
 ```
 
 

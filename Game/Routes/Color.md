@@ -37,7 +37,10 @@ public UnityEngine.Color32 m_Color;
 - `public Color(UnityEngine.Color32 color)`  
 
 ```csharp
-public Color(UnityEngine.Color32 color);
+public Color(Color32 color)
+	{
+		m_Color = color;
+	}
 ```
 
 

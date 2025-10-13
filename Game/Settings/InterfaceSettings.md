@@ -327,7 +327,10 @@ public System.Collections.Generic.HashSet<System.String> dismissedConfirmations 
 - `public InterfaceSettings()`  
 
 ```csharp
-public InterfaceSettings();
+public InterfaceSettings()
+	{
+		SetDefaults();
+	}
 ```
 
 
@@ -336,37 +339,109 @@ public InterfaceSettings();
 - `public AddDismissedConfirmation(System.String name) : System.Void`  
 
 ```csharp
-public System.Void AddDismissedConfirmation(System.String name);
+public void AddDismissedConfirmation(string name)
+	{
+		dismissedConfirmations.Add(name);
+		ApplyAndSave();
+	}
 ```
 
 - `public virtual Apply() : System.Void`  
 
 ```csharp
-public virtual System.Void Apply();
+public override void Apply()
+	{
+		base.Apply();
+		GameManager.instance.localizationManager.SetActiveLocale(locale);
+	}
 ```
 
 - `public GetFinalInputHintsType() : Game.Input.InputManager+GamepadType`  
 
 ```csharp
-public Game.Input.InputManager+GamepadType GetFinalInputHintsType();
+public InputManager.GamepadType GetFinalInputHintsType()
+	{
+		return inputHintsType switch
+		{
+			InputHintsType.AutoDetect => InputManager.instance.GetActiveGamepadType(), 
+			InputHintsType.Xbox => InputManager.GamepadType.Xbox, 
+			InputHintsType.PS => InputManager.GamepadType.PS, 
+			_ => InputManager.GamepadType.Xbox, 
+		};
+	}
 ```
 
 - `public static GetInterfaceStyleValues() : Game.UI.Widgets.DropdownItem<System.String>[]`  
 
 ```csharp
-public static Game.UI.Widgets.DropdownItem<System.String>[] GetInterfaceStyleValues();
+[Preserve]
+	public static DropdownItem<string>[] GetInterfaceStyleValues()
+	{
+		return new List<DropdownItem<string>>
+		{
+			new DropdownItem<string>
+			{
+				value = "default",
+				displayName = "Options.INTERFACE_STYLE[default]"
+			},
+			new DropdownItem<string>
+			{
+				value = "bright-blue",
+				displayName = "Options.INTERFACE_STYLE[bright-blue]"
+			},
+			new DropdownItem<string>
+			{
+				value = "dark-grey-orange",
+				displayName = "Options.INTERFACE_STYLE[dark-grey-orange]"
+			}
+		}.ToArray();
+	}
 ```
 
 - `public static GetLanguageValues() : Game.UI.Widgets.DropdownItem<System.String>[]`  
 
 ```csharp
-public static Game.UI.Widgets.DropdownItem<System.String>[] GetLanguageValues();
+[Preserve]
+	public static DropdownItem<string>[] GetLanguageValues()
+	{
+		LocalizationManager localizationManager = GameManager.instance.localizationManager;
+		string[] supportedLocales = localizationManager.GetSupportedLocales();
+		List<DropdownItem<string>> list = new List<DropdownItem<string>>(supportedLocales.Length);
+		string[] array = supportedLocales;
+		foreach (string text in array)
+		{
+			list.Add(new DropdownItem<string>
+			{
+				value = text,
+				displayName = LocalizedString.Value(localizationManager.GetLocalizedName(text))
+			});
+		}
+		return list.ToArray();
+	}
 ```
 
 - `public virtual SetDefaults() : System.Void`  
 
 ```csharp
-public virtual System.Void SetDefaults();
+public override void SetDefaults()
+	{
+		locale = "os";
+		interfaceStyle = "default";
+		interfaceTransparency = 0.5f;
+		interfaceScaling = true;
+		textScale = 1f;
+		unlockHighlightsEnabled = true;
+		chirperPopupsEnabled = true;
+		showWhatsNewPanel = true;
+		blockingPopupsEnabled = true;
+		inputHintsType = InputHintsType.AutoDetect;
+		keyboardLayout = KeyboardLayout.AutoDetect;
+		shortcutHints = true;
+		timeFormat = TimeFormat.TwentyFourHours;
+		temperatureUnit = TemperatureUnit.Celsius;
+		unitSystem = UnitSystem.Metric;
+		dismissedConfirmations = new HashSet<string>();
+	}
 ```
 
 

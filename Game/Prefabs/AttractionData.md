@@ -36,7 +36,10 @@ public System.Int32 m_Attractiveness;
 - `public Combine(Game.Prefabs.AttractionData otherData) : System.Void`  
 
 ```csharp
-public System.Void Combine(Game.Prefabs.AttractionData otherData);
+public void Combine(AttractionData otherData)
+	{
+		m_Attractiveness += otherData.m_Attractiveness;
+	}
 ```
 
 - `public Deserialize<TReader>(TReader reader) : System.Void`  
