@@ -1,0 +1,35 @@
+﻿# Game.UI.InGame.ModifierUIUtils
+
+**Assembly:** `Game`  
+**Namespace:** `Game.UI.InGame`  
+
+**Type:** class static public  
+
+**Base:** `System.Object`  
+
+## Code
+
+```csharp
+public static class ModifierUIUtils
+{
+    public static System.Single GetModifierDelta(Game.Prefabs.ModifierValueMode mode, System.Single delta);
+    public static System.String GetModifierUnit(Game.Prefabs.ModifierValueMode mode);
+}
+```
+
+
+## Methods
+
+- `public static GetModifierDelta(Game.Prefabs.ModifierValueMode mode, System.Single delta) : System.Single`  
+
+```csharp
+public static System.Single GetModifierDelta(Game.Prefabs.ModifierValueMode mode, System.Single delta);
+```
+
+- `public static GetModifierUnit(Game.Prefabs.ModifierValueMode mode) : System.String`  
+
+```csharp
+public static System.String GetModifierUnit(Game.Prefabs.ModifierValueMode mode);
+```
+
+

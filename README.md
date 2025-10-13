@@ -1,4 +1,18 @@
-# Cities: Skylines 2 Modding Guide
+# Cities: Skylines 2 Modding Documentation
+
+I am starting here to create a documentation page for modding Cities Skylines II. The end goal will be to have a better suited website for this and then also use AI to create more detailed analysis of code snippets.
+
+For now, this is what you need to know to get started.
+
+Modding in Cities Skylines II mainly comes from using classes declared and developed specific for the Game, altough you can use other libraries like System or Unity (or at least I think, for now...). 
+In the following documentation pages, only `Colossal.dll`, `Game.dll` and `PDX.SDK.dll` will be covered. 
+To know the other libraries that you can use, navigate to `\Cities Skylines II\Cities2_Data\Managed` and there is listed all of the Dinamic Libraries you can use, like `System.dll` or `Unity.Burst`.
+
+-   [Colossal.dll](#Colossal/index.md)
+-   [Game.dll](#Game/index.md)
+-   [PDX.SDK.dll](#PDX/index.md)
+
+## Beginner’s guide 
 
 This is an **absolute beginner’s guide** to start modding *Cities: Skylines II*.  
 By the end of this tutorial, you’ll be able to make the game launch a terminal so you can start debugging your mod.

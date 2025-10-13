@@ -1,0 +1,57 @@
+﻿# Game.Prefabs.RouteModifierData
+
+**Assembly:** `Game`  
+**Namespace:** `Game.Prefabs`  
+
+**Type:** struct sealed public  
+
+**Base:** `System.ValueType`  
+**Implements:** `Unity.Entities.IBufferElementData`  
+
+**Attributes:** `InternalBufferCapacity`  
+
+## Code
+
+```csharp
+public sealed struct RouteModifierData : Unity.Entities.IBufferElementData
+{
+    public Game.Routes.RouteModifierType m_Type;
+    public Game.Prefabs.ModifierValueMode m_Mode;
+    public Colossal.Mathematics.Bounds1 m_Range;
+
+    public RouteModifierData(Game.Routes.RouteModifierType type, Game.Prefabs.ModifierValueMode mode, Colossal.Mathematics.Bounds1 range);
+
+}
+```
+
+
+## Fields
+
+- `public Game.Routes.RouteModifierType m_Type`  
+
+```csharp
+public Game.Routes.RouteModifierType m_Type;
+```
+
+- `public Game.Prefabs.ModifierValueMode m_Mode`  
+
+```csharp
+public Game.Prefabs.ModifierValueMode m_Mode;
+```
+
+- `public Colossal.Mathematics.Bounds1 m_Range`  
+
+```csharp
+public Colossal.Mathematics.Bounds1 m_Range;
+```
+
+
+## Constructors
+
+- `public RouteModifierData(Game.Routes.RouteModifierType type, Game.Prefabs.ModifierValueMode mode, Colossal.Mathematics.Bounds1 range)`  
+
+```csharp
+public RouteModifierData(Game.Routes.RouteModifierType type, Game.Prefabs.ModifierValueMode mode, Colossal.Mathematics.Bounds1 range);
+```
+
+

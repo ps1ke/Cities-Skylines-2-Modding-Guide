@@ -1,0 +1,99 @@
+﻿# Game.Serialization.EndPrefabSerializationSystem
+
+**Assembly:** `Game`  
+**Namespace:** `Game.Serialization`  
+
+**Type:** class public  
+
+**Base:** `Game.GameSystemBase`  
+
+**Attributes:** `CompilerGenerated`  
+
+## Code
+
+```csharp
+public class EndPrefabSerializationSystem : Game.GameSystemBase
+{
+    private Game.Serialization.SaveGameSystem m_SaveGameSystem;
+    private Unity.Entities.EntityQuery m_LoadedPrefabsQuery;
+    private Unity.Entities.EntityQuery m_ContentPrefabQuery;
+    private Game.Serialization.EndPrefabSerializationSystem+TypeHandle __TypeHandle;
+
+    public EndPrefabSerializationSystem();
+
+    private System.Void __AssignQueries(Unity.Entities.SystemState& state);
+    protected virtual System.Void OnCreate();
+    protected virtual System.Void OnCreateForCompiler();
+    protected virtual System.Void OnUpdate();
+}
+```
+
+
+## Fields
+
+- `private Game.Serialization.SaveGameSystem m_SaveGameSystem`  
+
+```csharp
+private Game.Serialization.SaveGameSystem m_SaveGameSystem;
+```
+
+- `private Unity.Entities.EntityQuery m_LoadedPrefabsQuery`  
+
+```csharp
+private Unity.Entities.EntityQuery m_LoadedPrefabsQuery;
+```
+
+- `private Unity.Entities.EntityQuery m_ContentPrefabQuery`  
+
+```csharp
+private Unity.Entities.EntityQuery m_ContentPrefabQuery;
+```
+
+- `private Game.Serialization.EndPrefabSerializationSystem+TypeHandle __TypeHandle`  
+
+```csharp
+private Game.Serialization.EndPrefabSerializationSystem+TypeHandle __TypeHandle;
+```
+
+
+## Constructors
+
+- `public EndPrefabSerializationSystem()`  
+
+```csharp
+public EndPrefabSerializationSystem();
+```
+
+
+## Methods
+
+- `private __AssignQueries(Unity.Entities.SystemState& state) : System.Void`  
+
+```csharp
+private System.Void __AssignQueries(Unity.Entities.SystemState& state);
+```
+
+- `protected virtual OnCreate() : System.Void`  
+
+```csharp
+protected virtual System.Void OnCreate();
+```
+
+- `protected virtual OnCreateForCompiler() : System.Void`  
+
+```csharp
+protected virtual System.Void OnCreateForCompiler();
+```
+
+- `protected virtual OnUpdate() : System.Void`  
+
+```csharp
+protected virtual System.Void OnUpdate();
+```
+
+
+## Nested types
+
+- `Game.Serialization.EndPrefabSerializationSystem+EndPrefabSerializationJob`  
+- `Game.Serialization.EndPrefabSerializationSystem+TypeHandle`  
+

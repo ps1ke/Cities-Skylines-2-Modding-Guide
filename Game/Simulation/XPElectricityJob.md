@@ -1,0 +1,63 @@
+﻿# Game.Simulation.XPBuiltSystem+XPElectricityJob
+
+**Assembly:** `Game`  
+**Namespace:** `Game.Simulation`  
+
+**Type:** struct sealed public  
+
+**Base:** `System.ValueType`  
+**Implements:** `Unity.Jobs.IJob`  
+
+**Attributes:** `BurstCompile`  
+
+## Code
+
+```csharp
+public sealed struct XPElectricityJob : Unity.Jobs.IJob
+{
+    public Unity.Collections.NativeArray<Game.Buildings.ElectricityConsumer> m_ElectricityConsumers;
+    public Unity.Collections.NativeQueue<Game.Simulation.XPGain> m_XPQueue;
+    public Unity.Entities.Entity m_City;
+    public Unity.Entities.ComponentLookup<Game.City.XP> m_CityXPs;
+
+    public System.Void Execute();
+}
+```
+
+
+## Fields
+
+- `public Unity.Collections.NativeArray<Game.Buildings.ElectricityConsumer> m_ElectricityConsumers`  
+
+```csharp
+public Unity.Collections.NativeArray<Game.Buildings.ElectricityConsumer> m_ElectricityConsumers;
+```
+
+- `public Unity.Collections.NativeQueue<Game.Simulation.XPGain> m_XPQueue`  
+
+```csharp
+public Unity.Collections.NativeQueue<Game.Simulation.XPGain> m_XPQueue;
+```
+
+- `public Unity.Entities.Entity m_City`  
+
+```csharp
+public Unity.Entities.Entity m_City;
+```
+
+- `public Unity.Entities.ComponentLookup<Game.City.XP> m_CityXPs`  
+
+```csharp
+public Unity.Entities.ComponentLookup<Game.City.XP> m_CityXPs;
+```
+
+
+## Methods
+
+- `public Execute() : System.Void`  
+
+```csharp
+public System.Void Execute();
+```
+
+

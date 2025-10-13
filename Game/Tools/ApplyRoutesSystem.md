@@ -1,0 +1,107 @@
+﻿# Game.Tools.ApplyRoutesSystem
+
+**Assembly:** `Game`  
+**Namespace:** `Game.Tools`  
+
+**Type:** class public  
+
+**Base:** `Game.GameSystemBase`  
+
+**Attributes:** `CompilerGenerated`  
+
+## Code
+
+```csharp
+public class ApplyRoutesSystem : Game.GameSystemBase
+{
+    private Game.Tools.ToolOutputBarrier m_ToolOutputBarrier;
+    private Unity.Entities.EntityQuery m_TempQuery;
+    private Unity.Entities.EntityArchetype m_PathTargetEventArchetype;
+    private Unity.Entities.ComponentTypeSet m_AppliedTypes;
+    private Game.Tools.ApplyRoutesSystem+TypeHandle __TypeHandle;
+
+    public ApplyRoutesSystem();
+
+    private System.Void __AssignQueries(Unity.Entities.SystemState& state);
+    protected virtual System.Void OnCreate();
+    protected virtual System.Void OnCreateForCompiler();
+    protected virtual System.Void OnUpdate();
+}
+```
+
+
+## Fields
+
+- `private Game.Tools.ToolOutputBarrier m_ToolOutputBarrier`  
+
+```csharp
+private Game.Tools.ToolOutputBarrier m_ToolOutputBarrier;
+```
+
+- `private Unity.Entities.EntityQuery m_TempQuery`  
+
+```csharp
+private Unity.Entities.EntityQuery m_TempQuery;
+```
+
+- `private Unity.Entities.EntityArchetype m_PathTargetEventArchetype`  
+
+```csharp
+private Unity.Entities.EntityArchetype m_PathTargetEventArchetype;
+```
+
+- `private Unity.Entities.ComponentTypeSet m_AppliedTypes`  
+
+```csharp
+private Unity.Entities.ComponentTypeSet m_AppliedTypes;
+```
+
+- `private Game.Tools.ApplyRoutesSystem+TypeHandle __TypeHandle`  
+
+```csharp
+private Game.Tools.ApplyRoutesSystem+TypeHandle __TypeHandle;
+```
+
+
+## Constructors
+
+- `public ApplyRoutesSystem()`  
+
+```csharp
+public ApplyRoutesSystem();
+```
+
+
+## Methods
+
+- `private __AssignQueries(Unity.Entities.SystemState& state) : System.Void`  
+
+```csharp
+private System.Void __AssignQueries(Unity.Entities.SystemState& state);
+```
+
+- `protected virtual OnCreate() : System.Void`  
+
+```csharp
+protected virtual System.Void OnCreate();
+```
+
+- `protected virtual OnCreateForCompiler() : System.Void`  
+
+```csharp
+protected virtual System.Void OnCreateForCompiler();
+```
+
+- `protected virtual OnUpdate() : System.Void`  
+
+```csharp
+protected virtual System.Void OnUpdate();
+```
+
+
+## Nested types
+
+- `Game.Tools.ApplyRoutesSystem+PatchTempReferencesJob`  
+- `Game.Tools.ApplyRoutesSystem+HandleTempEntitiesJob`  
+- `Game.Tools.ApplyRoutesSystem+TypeHandle`  
+

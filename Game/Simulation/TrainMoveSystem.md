@@ -1,0 +1,128 @@
+﻿# Game.Simulation.TrainMoveSystem
+
+**Assembly:** `Game`  
+**Namespace:** `Game.Simulation`  
+
+**Type:** class public  
+
+**Base:** `Game.GameSystemBase`  
+
+**Attributes:** `CompilerGenerated`  
+
+## Code
+
+```csharp
+public class TrainMoveSystem : Game.GameSystemBase
+{
+    private Game.Simulation.SimulationSystem m_SimulationSystem;
+    private Game.Rendering.LightingSystem m_LightingSystem;
+    private Game.EndFrameBarrier m_EndFrameBarrier;
+    private Unity.Entities.EntityQuery m_TrainQuery;
+    private Unity.Entities.EntityQuery m_LayoutQuery;
+    private Game.Simulation.TrainMoveSystem+TypeHandle __TypeHandle;
+
+    public TrainMoveSystem();
+
+    private System.Void __AssignQueries(Unity.Entities.SystemState& state);
+    public virtual System.Int32 GetUpdateInterval(Game.SystemUpdatePhase phase);
+    public virtual System.Int32 GetUpdateOffset(Game.SystemUpdatePhase phase);
+    protected virtual System.Void OnCreate();
+    protected virtual System.Void OnCreateForCompiler();
+    protected virtual System.Void OnUpdate();
+}
+```
+
+
+## Fields
+
+- `private Game.Simulation.SimulationSystem m_SimulationSystem`  
+
+```csharp
+private Game.Simulation.SimulationSystem m_SimulationSystem;
+```
+
+- `private Game.Rendering.LightingSystem m_LightingSystem`  
+
+```csharp
+private Game.Rendering.LightingSystem m_LightingSystem;
+```
+
+- `private Game.EndFrameBarrier m_EndFrameBarrier`  
+
+```csharp
+private Game.EndFrameBarrier m_EndFrameBarrier;
+```
+
+- `private Unity.Entities.EntityQuery m_TrainQuery`  
+
+```csharp
+private Unity.Entities.EntityQuery m_TrainQuery;
+```
+
+- `private Unity.Entities.EntityQuery m_LayoutQuery`  
+
+```csharp
+private Unity.Entities.EntityQuery m_LayoutQuery;
+```
+
+- `private Game.Simulation.TrainMoveSystem+TypeHandle __TypeHandle`  
+
+```csharp
+private Game.Simulation.TrainMoveSystem+TypeHandle __TypeHandle;
+```
+
+
+## Constructors
+
+- `public TrainMoveSystem()`  
+
+```csharp
+public TrainMoveSystem();
+```
+
+
+## Methods
+
+- `private __AssignQueries(Unity.Entities.SystemState& state) : System.Void`  
+
+```csharp
+private System.Void __AssignQueries(Unity.Entities.SystemState& state);
+```
+
+- `public virtual GetUpdateInterval(Game.SystemUpdatePhase phase) : System.Int32`  
+
+```csharp
+public virtual System.Int32 GetUpdateInterval(Game.SystemUpdatePhase phase);
+```
+
+- `public virtual GetUpdateOffset(Game.SystemUpdatePhase phase) : System.Int32`  
+
+```csharp
+public virtual System.Int32 GetUpdateOffset(Game.SystemUpdatePhase phase);
+```
+
+- `protected virtual OnCreate() : System.Void`  
+
+```csharp
+protected virtual System.Void OnCreate();
+```
+
+- `protected virtual OnCreateForCompiler() : System.Void`  
+
+```csharp
+protected virtual System.Void OnCreateForCompiler();
+```
+
+- `protected virtual OnUpdate() : System.Void`  
+
+```csharp
+protected virtual System.Void OnUpdate();
+```
+
+
+## Nested types
+
+- `Game.Simulation.TrainMoveSystem+UpdateTransformDataJob`  
+- `Game.Simulation.TrainMoveSystem+UpdateLayoutDataJob`  
+- `Game.Simulation.TrainMoveSystem+TypeHandle`  
+

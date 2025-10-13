@@ -1,0 +1,56 @@
+﻿# Game.Simulation.CompanyUtils
+
+**Assembly:** `Game`  
+**Namespace:** `Game.Simulation`  
+
+**Type:** class static public  
+
+**Base:** `System.Object`  
+
+## Code
+
+```csharp
+public static class CompanyUtils
+{
+    public static System.Int32 GetCommercialMaxFittingWorkers(Game.Prefabs.BuildingData building, Game.Prefabs.BuildingPropertyData properties, System.Int32 level, Game.Companies.ServiceCompanyData serviceData);
+    public static System.Int32 GetCompanyMaxFittingWorkers(Unity.Entities.Entity companyEntity, Unity.Entities.Entity buildingEntity, Unity.Entities.ComponentLookup`1[[Game.Prefabs.PrefabRef, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]& prefabRefs, Unity.Entities.ComponentLookup`1[[Game.Companies.ServiceCompanyData, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]& serviceCompanyDatas, Unity.Entities.ComponentLookup`1[[Game.Prefabs.BuildingData, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]& buildingDatas, Unity.Entities.ComponentLookup`1[[Game.Prefabs.BuildingPropertyData, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]& buildingPropertyDatas, Unity.Entities.ComponentLookup`1[[Game.Prefabs.SpawnableBuildingData, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]& spawnableBuildingDatas, Unity.Entities.ComponentLookup`1[[Game.Prefabs.IndustrialProcessData, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]& industrialProcessDatas, Unity.Entities.ComponentLookup`1[[Game.Prefabs.ExtractorCompanyData, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]& extractorCompanyDatas, Unity.Entities.ComponentLookup`1[[Game.Objects.Attached, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]& attacheds, Unity.Entities.BufferLookup`1[[Game.Areas.SubArea, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]& subAreaBufs, Unity.Entities.BufferLookup`1[[Game.Buildings.InstalledUpgrade, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]& installedUpgrades, Unity.Entities.ComponentLookup`1[[Game.Areas.Lot, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]& lots, Unity.Entities.ComponentLookup`1[[Game.Areas.Geometry, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]& geometries);
+    public static System.Int32 GetCompanyMoveAwayChance(Unity.Entities.Entity company, Unity.Entities.Entity companyPrefab, Unity.Entities.Entity property, Unity.Entities.ComponentLookup`1[[Game.Companies.ServiceAvailable, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]& serviceAvailables, Unity.Entities.ComponentLookup`1[[Game.Buildings.OfficeProperty, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]& officeProperties, Unity.Entities.ComponentLookup`1[[Game.Prefabs.IndustrialProcessData, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]& industrialProcessDatas, Unity.Entities.ComponentLookup`1[[Game.Companies.WorkProvider, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]& workProviders, Unity.Collections.NativeArray<System.Int32> taxRates);
+    public static System.Int32 GetExtractorFittingWorkers(System.Single area, System.Single spaceMultiplier, Game.Prefabs.IndustrialProcessData processData);
+    public static System.Int32 GetIndustrialAndOfficeFittingWorkers(Game.Prefabs.BuildingData building, Game.Prefabs.BuildingPropertyData properties, System.Int32 level, Game.Prefabs.IndustrialProcessData processData);
+}
+```
+
+
+## Methods
+
+- `public static GetCommercialMaxFittingWorkers(Game.Prefabs.BuildingData building, Game.Prefabs.BuildingPropertyData properties, System.Int32 level, Game.Companies.ServiceCompanyData serviceData) : System.Int32`  
+
+```csharp
+public static System.Int32 GetCommercialMaxFittingWorkers(Game.Prefabs.BuildingData building, Game.Prefabs.BuildingPropertyData properties, System.Int32 level, Game.Companies.ServiceCompanyData serviceData);
+```
+
+- `public static GetCompanyMaxFittingWorkers(Unity.Entities.Entity companyEntity, Unity.Entities.Entity buildingEntity, Unity.Entities.ComponentLookup`1[[Game.Prefabs.PrefabRef, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]& prefabRefs, Unity.Entities.ComponentLookup`1[[Game.Companies.ServiceCompanyData, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]& serviceCompanyDatas, Unity.Entities.ComponentLookup`1[[Game.Prefabs.BuildingData, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]& buildingDatas, Unity.Entities.ComponentLookup`1[[Game.Prefabs.BuildingPropertyData, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]& buildingPropertyDatas, Unity.Entities.ComponentLookup`1[[Game.Prefabs.SpawnableBuildingData, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]& spawnableBuildingDatas, Unity.Entities.ComponentLookup`1[[Game.Prefabs.IndustrialProcessData, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]& industrialProcessDatas, Unity.Entities.ComponentLookup`1[[Game.Prefabs.ExtractorCompanyData, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]& extractorCompanyDatas, Unity.Entities.ComponentLookup`1[[Game.Objects.Attached, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]& attacheds, Unity.Entities.BufferLookup`1[[Game.Areas.SubArea, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]& subAreaBufs, Unity.Entities.BufferLookup`1[[Game.Buildings.InstalledUpgrade, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]& installedUpgrades, Unity.Entities.ComponentLookup`1[[Game.Areas.Lot, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]& lots, Unity.Entities.ComponentLookup`1[[Game.Areas.Geometry, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]& geometries) : System.Int32`  
+
+```csharp
+public static System.Int32 GetCompanyMaxFittingWorkers(Unity.Entities.Entity companyEntity, Unity.Entities.Entity buildingEntity, Unity.Entities.ComponentLookup`1[[Game.Prefabs.PrefabRef, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]& prefabRefs, Unity.Entities.ComponentLookup`1[[Game.Companies.ServiceCompanyData, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]& serviceCompanyDatas, Unity.Entities.ComponentLookup`1[[Game.Prefabs.BuildingData, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]& buildingDatas, Unity.Entities.ComponentLookup`1[[Game.Prefabs.BuildingPropertyData, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]& buildingPropertyDatas, Unity.Entities.ComponentLookup`1[[Game.Prefabs.SpawnableBuildingData, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]& spawnableBuildingDatas, Unity.Entities.ComponentLookup`1[[Game.Prefabs.IndustrialProcessData, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]& industrialProcessDatas, Unity.Entities.ComponentLookup`1[[Game.Prefabs.ExtractorCompanyData, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]& extractorCompanyDatas, Unity.Entities.ComponentLookup`1[[Game.Objects.Attached, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]& attacheds, Unity.Entities.BufferLookup`1[[Game.Areas.SubArea, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]& subAreaBufs, Unity.Entities.BufferLookup`1[[Game.Buildings.InstalledUpgrade, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]& installedUpgrades, Unity.Entities.ComponentLookup`1[[Game.Areas.Lot, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]& lots, Unity.Entities.ComponentLookup`1[[Game.Areas.Geometry, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]& geometries);
+```
+
+- `public static GetCompanyMoveAwayChance(Unity.Entities.Entity company, Unity.Entities.Entity companyPrefab, Unity.Entities.Entity property, Unity.Entities.ComponentLookup`1[[Game.Companies.ServiceAvailable, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]& serviceAvailables, Unity.Entities.ComponentLookup`1[[Game.Buildings.OfficeProperty, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]& officeProperties, Unity.Entities.ComponentLookup`1[[Game.Prefabs.IndustrialProcessData, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]& industrialProcessDatas, Unity.Entities.ComponentLookup`1[[Game.Companies.WorkProvider, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]& workProviders, Unity.Collections.NativeArray<System.Int32> taxRates) : System.Int32`  
+
+```csharp
+public static System.Int32 GetCompanyMoveAwayChance(Unity.Entities.Entity company, Unity.Entities.Entity companyPrefab, Unity.Entities.Entity property, Unity.Entities.ComponentLookup`1[[Game.Companies.ServiceAvailable, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]& serviceAvailables, Unity.Entities.ComponentLookup`1[[Game.Buildings.OfficeProperty, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]& officeProperties, Unity.Entities.ComponentLookup`1[[Game.Prefabs.IndustrialProcessData, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]& industrialProcessDatas, Unity.Entities.ComponentLookup`1[[Game.Companies.WorkProvider, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]& workProviders, Unity.Collections.NativeArray<System.Int32> taxRates);
+```
+
+- `public static GetExtractorFittingWorkers(System.Single area, System.Single spaceMultiplier, Game.Prefabs.IndustrialProcessData processData) : System.Int32`  
+
+```csharp
+public static System.Int32 GetExtractorFittingWorkers(System.Single area, System.Single spaceMultiplier, Game.Prefabs.IndustrialProcessData processData);
+```
+
+- `public static GetIndustrialAndOfficeFittingWorkers(Game.Prefabs.BuildingData building, Game.Prefabs.BuildingPropertyData properties, System.Int32 level, Game.Prefabs.IndustrialProcessData processData) : System.Int32`  
+
+```csharp
+public static System.Int32 GetIndustrialAndOfficeFittingWorkers(Game.Prefabs.BuildingData building, Game.Prefabs.BuildingPropertyData properties, System.Int32 level, Game.Prefabs.IndustrialProcessData processData);
+```
+
+
