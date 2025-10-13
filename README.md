@@ -8,9 +8,9 @@ Modding in Cities Skylines II mainly comes from using classes declared and devel
 In the following documentation pages, only `Colossal.dll`, `Game.dll` and `PDX.SDK.dll` will be covered. 
 To know the other libraries that you can use, navigate to `\Cities Skylines II\Cities2_Data\Managed` and there is listed all of the Dinamic Libraries you can use, like `System.dll` or `Unity.Burst`.
 
--   [Colossal.dll](#Colossal/index.md)
--   [Game.dll](#Game/index.md)
--   [PDX.SDK.dll](#PDX/index.md)
+-   [Colossal.dll](Colossal/index.md)
+-   [Game.dll](Game/index.md)
+-   [PDX.SDK.dll](PDX/index.md)
 
 ## Beginner’s guide 
 
