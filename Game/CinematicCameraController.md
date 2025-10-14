@@ -1,332 +1,145 @@
-﻿# Game.CinematicCameraController
+# Game.CinematicCameraController
 
-**Assembly:** `Game`  
-**Namespace:** `Game`  
+**Assembly:** Assembly-CSharp  
+**Namespace:** Game
 
-**Type:** class public  
+**Type:** class
 
-**Base:** `UnityEngine.MonoBehaviour`  
-**Implements:** `Game.Rendering.IGameCameraController`  
+**Base:** MonoBehaviour, IGameCameraController
 
-## Code
-
-```csharp
-public class CinematicCameraController : UnityEngine.MonoBehaviour, Game.Rendering.IGameCameraController
-{
-    private System.Single m_MinMoveSpeed;
-    private System.Single m_MaxMoveSpeed;
-    private System.Single m_MinZoomSpeed;
-    private System.Single m_MaxZoomSpeed;
-    private System.Single m_RotateSpeed;
-    private System.Single m_MaxHeight;
-    private System.Single m_MaxMovementSpeedHeight;
-    private UnityEngine.Transform m_Anchor;
-    private Cinemachine.CinemachineVirtualCamera m_VCam;
-    private Game.CinemachineRestrictToTerrain m_RestrictToTerrain;
-    private Game.CameraInput m_CameraInput;
-    private Game.Rendering.CameraUpdateSystem m_CameraUpdateSystem;
-    private System.Action <eventCameraMove>k__BackingField;
-    private System.Boolean <inputEnabled>k__BackingField;
-
-    public Cinemachine.ICinemachineCamera virtualCamera { get; }
-    public System.Single zoom { get; set; }
-    public UnityEngine.Vector3 pivot { get; set; }
-    public UnityEngine.Vector3 position { get; set; }
-    public UnityEngine.Vector3 rotation { get; set; }
-    public System.Boolean controllerEnabled { get; set; }
-    public System.Boolean collisionsEnabled { get; set; }
-    public Cinemachine.LensSettings& lens { get; }
-    public System.Action eventCameraMove { get; set; }
-    public System.Single fov { get; set; }
-    public System.Single dutch { get; set; }
-    public System.Boolean inputEnabled { get; set; }
-
-    public CinematicCameraController();
-
-    private System.Void Awake();
-    private System.Void OnDestroy();
-    public System.Void TryMatchPosition(Game.Rendering.IGameCameraController other);
-    public System.Void UpdateCamera();
-    private System.Void UpdateController(Game.CameraInput input);
-}
-```
-
+**Summary:** A cinematic/free-roam camera controller used by the game for cutscenes or free camera movement. It drives a Cinemachine virtual camera by moving and rotating an internal anchor Transform, supports configurable move/zoom/rotation speeds, terrain clamping and simple collision handling, and integrates with the game's CameraUpdateSystem and AudioManager.
+---
 
 ## Fields
 
-- `private System.Single m_MinMoveSpeed`  
+- `private float m_MinMoveSpeed`  
+Minimum lateral movement speed (when close to terrain). Serialized so it can be tweaked in the inspector.
 
-```csharp
-private System.Single m_MinMoveSpeed;
-```
+- `private float m_MaxMoveSpeed`  
+Maximum lateral movement speed (when high above terrain). Serialized.
 
-- `private System.Single m_MaxMoveSpeed`  
+- `private float m_MinZoomSpeed`  
+Minimum zoom (vertical movement) speed. Serialized.
 
-```csharp
-private System.Single m_MaxMoveSpeed;
-```
+- `private float m_MaxZoomSpeed`  
+Maximum zoom speed. Serialized.
 
-- `private System.Single m_MinZoomSpeed`  
+- `private float m_RotateSpeed`  
+Rotation sensitivity used to convert input to pitch/yaw changes. Serialized.
 
-```csharp
-private System.Single m_MinZoomSpeed;
-```
+- `private float m_MaxHeight`  
+Maximum height above terrain the camera anchor may reach.
 
-- `private System.Single m_MaxZoomSpeed`  
+- `private float m_MaxMovementSpeedHeight`  
+Height used to lerp between min and max movement/zoom speeds; above this height movement uses the max speeds.
 
-```csharp
-private System.Single m_MaxZoomSpeed;
-```
+- `private Transform m_Anchor`  
+Internal anchor Transform created at runtime. The Cinemachine virtual camera follows this anchor; the anchor holds the world position/rotation used by the cinematic camera.
 
-- `private System.Single m_RotateSpeed`  
+- `private CinemachineVirtualCamera m_VCam`  
+Reference to the Cinemachine virtual camera component on the same GameObject.
 
-```csharp
-private System.Single m_RotateSpeed;
-```
+- `private CinemachineRestrictToTerrain m_RestrictToTerrain`  
+Component used to clamp camera position to the terrain and optionally check collisions with scene objects.
 
-- `private System.Single m_MaxHeight`  
+- `private CameraInput m_CameraInput`  
+Optional input helper used to read camera movement/rotation/zoom input and refresh input state.
 
-```csharp
-private System.Single m_MaxHeight;
-```
-
-- `private System.Single m_MaxMovementSpeedHeight`  
-
-```csharp
-private System.Single m_MaxMovementSpeedHeight;
-```
-
-- `private UnityEngine.Transform m_Anchor`  
-
-```csharp
-private UnityEngine.Transform m_Anchor;
-```
-
-- `private Cinemachine.CinemachineVirtualCamera m_VCam`  
-
-```csharp
-private Cinemachine.CinemachineVirtualCamera m_VCam;
-```
-
-- `private Game.CinemachineRestrictToTerrain m_RestrictToTerrain`  
-
-```csharp
-private Game.CinemachineRestrictToTerrain m_RestrictToTerrain;
-```
-
-- `private Game.CameraInput m_CameraInput`  
-
-```csharp
-private Game.CameraInput m_CameraInput;
-```
-
-- `private Game.Rendering.CameraUpdateSystem m_CameraUpdateSystem`  
-
-```csharp
-private Game.Rendering.CameraUpdateSystem m_CameraUpdateSystem;
-```
-
-- `private System.Action <eventCameraMove>k__BackingField`  
-
-```csharp
-private System.Action <eventCameraMove>k__BackingField;
-```
-
-- `private System.Boolean <inputEnabled>k__BackingField`  
-
-```csharp
-private System.Boolean <inputEnabled>k__BackingField;
-```
-
+- `private CameraUpdateSystem m_CameraUpdateSystem`  
+Reference to the ECS-managed camera update system (obtained from the default World). The controller registers itself on that system so it can receive UpdateCamera calls.
 
 ## Properties
 
-- `public Cinemachine.ICinemachineCamera virtualCamera { get }`  
+- `public ICinemachineCamera virtualCamera { get; }`  
+Returns the Cinemachine virtual camera used by this controller (m_VCam).
 
-```csharp
-public Cinemachine.ICinemachineCamera virtualCamera { get; }
-```
+- `public float zoom { get; set; }`  
+Gets/sets the camera anchor's Y position (height) — used as the camera's "zoom" value.
 
-- `public System.Single zoom { get; set }`  
+- `public Vector3 pivot { get; set; }`  
+Gets/sets the anchor position. Alias for position control of the camera.
 
-```csharp
-public System.Single zoom { get; set; }
-```
+- `public Vector3 position { get; set; }`  
+Alias for pivot (maps to m_Anchor.position).
 
-- `public UnityEngine.Vector3 pivot { get; set }`  
+- `public Vector3 rotation { get; set; }`  
+Gets/sets the anchor rotation as Euler angles (wraps m_Anchor.rotation).
 
-```csharp
-public UnityEngine.Vector3 pivot { get; set; }
-```
+- `public bool controllerEnabled { get; set; }`  
+Maps to the GameObject activity: getter returns isActiveAndEnabled; setter calls gameObject.SetActive(value). Used to enable/disable the controller.
 
-- `public UnityEngine.Vector3 position { get; set }`  
+- `public bool collisionsEnabled { get; set; }`  
+Controls whether object collisions are enabled on the CinemachineRestrictToTerrain component.
 
-```csharp
-public UnityEngine.Vector3 position { get; set; }
-```
+- `public ref LensSettings lens { get; }`  
+Provides a reference to the virtual camera's LensSettings (m_VCam.m_Lens) so callers can read/modify lens parameters directly.
 
-- `public UnityEngine.Vector3 rotation { get; set }`  
+- `public Action eventCameraMove { get; set; }`  
+Event invoked when input indicates the camera has been moved. External systems can subscribe to react to user-driven camera movement.
 
-```csharp
-public UnityEngine.Vector3 rotation { get; set; }
-```
+- `public float fov { get; set; }`  
+Shortcut to get/set FieldOfView on the virtual camera lens.
 
-- `public System.Boolean controllerEnabled { get; set }`  
+- `public float dutch { get; set; }`  
+Shortcut to get/set the Dutch (roll) angle on the virtual camera lens.
 
-```csharp
-public System.Boolean controllerEnabled { get; set; }
-```
-
-- `public System.Boolean collisionsEnabled { get; set }`  
-
-```csharp
-public System.Boolean collisionsEnabled { get; set; }
-```
-
-- `public Cinemachine.LensSettings& lens { get }`  
-
-```csharp
-public Cinemachine.LensSettings& lens { get; }
-```
-
-- `public System.Action eventCameraMove { get; set }`  
-
-```csharp
-public System.Action eventCameraMove { get; set; }
-```
-
-- `public System.Single fov { get; set }`  
-
-```csharp
-public System.Single fov { get; set; }
-```
-
-- `public System.Single dutch { get; set }`  
-
-```csharp
-public System.Single dutch { get; set; }
-```
-
-- `public System.Boolean inputEnabled { get; set }`  
-
-```csharp
-public System.Boolean inputEnabled { get; set; }
-```
-
+- `public bool inputEnabled { get; set; }`  
+Whether the controller processes camera input. Defaults to true.
 
 ## Constructors
 
 - `public CinematicCameraController()`  
-
-```csharp
-public CinematicCameraController();
-```
-
+No explicit user-defined constructor is present; the MonoBehaviour default constructor is used. Initialization of components and the runtime anchor happens in Awake after the GameManager signals ready.
 
 ## Methods
 
-- `private Awake() : System.Void`  
+- `private async void Awake()`  
+Initializes the controller once GameManager is ready. Creates the runtime anchor GameObject, binds the Cinemachine virtual camera to follow it, fetches required components (CinemachineRestrictToTerrain, CameraInput), initializes CameraInput if present, registers the controller on the CameraUpdateSystem (World.DefaultGameObjectInjectionWorld), and sets the controller GameObject inactive by default.
+
+- `public void TryMatchPosition(IGameCameraController other)`  
+Copies position and rotation from another IGameCameraController to this controller's anchor. Useful when switching cameras to maintain viewpoint continuity.
+
+- `public void UpdateCamera()`  
+Called (typically by CameraUpdateSystem) to refresh input and update the camera. If CameraInput exists it is refreshed; if any input was detected eventCameraMove is invoked. If inputEnabled is true, UpdateController is called to actually move the anchor. Also forwards the current transform to the AudioManager to update the audio listener.
+
+- `private void UpdateController(CameraInput input)`  
+Core movement logic. Steps:
+  - Refresh terrain restriction state.
+  - Compute a height-based t factor to lerp between min and max move/zoom speeds (higher altitude -> faster).
+  - Read input move/rotate/zoom values and scale them by the lerped speeds.
+  - Apply rotation to move vector so movement is in camera-local directions.
+  - Clamp resulting position to terrain and cap maximum height above terrain.
+  - Compute new quaternion (pitch/yaw) with clamped pitch and applied yaw/roll from input.
+  - If object collisions are enabled, query the restrict-to-terrain component for collision and use the collision-corrected position if necessary; otherwise set anchor to computed position.
+  - Apply anchor rotation.
+
+- `private void OnDestroy()`  
+Cleans up the runtime anchor GameObject and unregisters the controller from the CameraUpdateSystem.
 
 ```csharp
 private async void Awake()
+{
+	if (await GameManager.instance.WaitForReadyState())
 	{
-		if (await GameManager.instance.WaitForReadyState())
-		{
-			m_Anchor = new GameObject("CinematicCameraControllerAnchor").transform;
-			m_VCam = GetComponent<CinemachineVirtualCamera>();
-			m_VCam.Follow = m_Anchor;
-			m_RestrictToTerrain = GetComponent<CinemachineRestrictToTerrain>();
-			m_CameraInput = GetComponent<CameraInput>();
-			if (m_CameraInput != null)
-			{
-				m_CameraInput.Initialize();
-			}
-			m_CameraUpdateSystem = World.DefaultGameObjectInjectionWorld.GetOrCreateSystemManaged<CameraUpdateSystem>();
-			m_CameraUpdateSystem.cinematicCameraController = this;
-			base.gameObject.SetActive(value: false);
-		}
-	}
-```
-
-- `private OnDestroy() : System.Void`  
-
-```csharp
-private void OnDestroy()
-	{
-		if (m_Anchor != null)
-		{
-			UnityEngine.Object.Destroy(m_Anchor.gameObject);
-		}
-		if (m_CameraUpdateSystem != null)
-		{
-			m_CameraUpdateSystem.cinematicCameraController = null;
-		}
-	}
-```
-
-- `public TryMatchPosition(Game.Rendering.IGameCameraController other) : System.Void`  
-
-```csharp
-public void TryMatchPosition(IGameCameraController other)
-	{
-		position = other.position;
-		rotation = other.rotation;
-	}
-```
-
-- `public UpdateCamera() : System.Void`  
-
-```csharp
-public void UpdateCamera()
-	{
+		m_Anchor = new GameObject("CinematicCameraControllerAnchor").transform;
+		m_VCam = GetComponent<CinemachineVirtualCamera>();
+		m_VCam.Follow = m_Anchor;
+		m_RestrictToTerrain = GetComponent<CinemachineRestrictToTerrain>();
+		m_CameraInput = GetComponent<CameraInput>();
 		if (m_CameraInput != null)
 		{
-			m_CameraInput.Refresh();
-			if (m_CameraInput.any)
-			{
-				eventCameraMove?.Invoke();
-			}
-			if (inputEnabled)
-			{
-				UpdateController(m_CameraInput);
-			}
+			m_CameraInput.Initialize();
 		}
-		AudioManager.instance?.UpdateAudioListener(base.transform.position, base.transform.rotation);
+		m_CameraUpdateSystem = World.DefaultGameObjectInjectionWorld.GetOrCreateSystemManaged<CameraUpdateSystem>();
+		m_CameraUpdateSystem.cinematicCameraController = this;
+		base.gameObject.SetActive(value: false);
 	}
+}
 ```
 
-- `private UpdateController(Game.CameraInput input) : System.Void`  
-
-```csharp
-private void UpdateController(CameraInput input)
-	{
-		m_RestrictToTerrain.Refresh();
-		Vector3 vector = m_Anchor.position;
-		m_RestrictToTerrain.ClampToTerrain(vector, restrictToMapArea: true, out var terrainHeight);
-		float t = Mathf.Min(vector.y - terrainHeight, m_MaxMovementSpeedHeight) / m_MaxMovementSpeedHeight;
-		Vector2 move = input.move;
-		move *= Mathf.Lerp(m_MinMoveSpeed, m_MaxMoveSpeed, t);
-		Vector2 vector2 = input.rotate * m_RotateSpeed;
-		float num = input.zoom * Mathf.Lerp(m_MinZoomSpeed, m_MaxZoomSpeed, t);
-		Vector3 eulerAngles = m_Anchor.rotation.eulerAngles;
-		vector += Quaternion.AngleAxis(eulerAngles.y, Vector3.up) * new Vector3(move.x, 0f - num, move.y);
-		vector = m_RestrictToTerrain.ClampToTerrain(vector, restrictToMapArea: true, out var terrainHeight2);
-		vector.y = Mathf.Min(vector.y, terrainHeight2 + m_MaxHeight);
-		Quaternion quaternion = Quaternion.Euler(Mathf.Clamp((eulerAngles.x + 90f) % 360f - vector2.y, 0f, 180f) - 90f, eulerAngles.y + vector2.x, 0f);
-		if (m_RestrictToTerrain.enableObjectCollisions && m_RestrictToTerrain.CheckForCollision(vector, m_RestrictToTerrain.previousPosition, quaternion, out var vector3))
-		{
-			m_Anchor.position = vector3;
-		}
-		else
-		{
-			m_Anchor.position = vector;
-		}
-		m_Anchor.rotation = quaternion;
-	}
-```
-
-
-## Nested types
-
-- `Game.CinematicCameraController+<Awake>d__48`  
-
+Notes / Integration tips:
+- This controller assumes a CinemachineVirtualCamera and a CinemachineRestrictToTerrain component are present on the same GameObject.
+- The camera movement speeds scale with altitude: close to terrain the controller uses m_MinMoveSpeed / m_MinZoomSpeed, and approaches m_Max* values as altitude increases (controlled by m_MaxMovementSpeedHeight).
+- To enable/disable user control without destroying the camera, toggle controllerEnabled or set inputEnabled = false.
+- Subscribing to eventCameraMove allows external UI/logic to hide or show cursor/UI when the user starts moving the camera.
+- When switching from another camera, call TryMatchPosition to avoid abrupt jumps.

@@ -1,170 +1,88 @@
-﻿# Game.CameraInput
+# Game.CameraInput
 
-**Assembly:** `Game`  
-**Namespace:** `Game`  
+**Assembly:**  
+**Namespace:** Game
 
-**Type:** class public  
+**Type:** class
 
-**Base:** `UnityEngine.MonoBehaviour`  
+**Base:** UnityEngine.MonoBehaviour
 
-## Code
-
-```csharp
-public class CameraInput : UnityEngine.MonoBehaviour
-{
-    public System.Single m_MoveSmoothing;
-    public System.Single m_RotateSmoothing;
-    public System.Single m_ZoomSmoothing;
-    private Game.Input.ProxyAction m_MoveAction;
-    private Game.Input.ProxyAction m_FastMoveAction;
-    private Game.Input.ProxyAction m_RotateAction;
-    private Game.Input.ProxyAction m_ZoomAction;
-    private UnityEngine.Vector2 <move>k__BackingField;
-    private UnityEngine.Vector2 <rotate>k__BackingField;
-    private System.Single <zoom>k__BackingField;
-
-    public UnityEngine.Vector2 move { get; private set; }
-    public UnityEngine.Vector2 rotate { get; private set; }
-    public System.Single zoom { get; private set; }
-    public System.Boolean isMoving { get; }
-    public System.Boolean any { get; }
-
-    public CameraInput();
-
-    public System.Void Initialize();
-    public System.Void Refresh();
-}
-```
-
+**Summary:** Handles reading and exposing camera-related input for movement, fast movement, rotation, and zoom. Uses the game's input action system (ProxyAction / InputManager) and provides smoothing parameters and simple boolean helpers to check input state.
+---
 
 ## Fields
 
-- `public System.Single m_MoveSmoothing`  
+- `public float m_MoveSmoothing = 1E-06f`  
+Small smoothing factor applied to camera movement. Default is 1e-6.
 
-```csharp
-public System.Single m_MoveSmoothing;
-```
+- `public float m_RotateSmoothing = 1E-06f`  
+Small smoothing factor applied to camera rotation. Default is 1e-6.
 
-- `public System.Single m_RotateSmoothing`  
+- `public float m_ZoomSmoothing = 1E-06f`  
+Small smoothing factor applied to camera zoom. Default is 1e-6.
 
-```csharp
-public System.Single m_RotateSmoothing;
-```
+- `private ProxyAction m_MoveAction`  
+ProxyAction used to read standard camera move input. Populated in Initialize().
 
-- `public System.Single m_ZoomSmoothing`  
+- `private ProxyAction m_FastMoveAction`  
+ProxyAction used to read fast camera move input (e.g., when a "fast move" modifier is held). Populated in Initialize().
 
-```csharp
-public System.Single m_ZoomSmoothing;
-```
+- `private ProxyAction m_RotateAction`  
+ProxyAction used to read camera rotate input. Populated in Initialize().
 
-- `private Game.Input.ProxyAction m_MoveAction`  
-
-```csharp
-private Game.Input.ProxyAction m_MoveAction;
-```
-
-- `private Game.Input.ProxyAction m_FastMoveAction`  
-
-```csharp
-private Game.Input.ProxyAction m_FastMoveAction;
-```
-
-- `private Game.Input.ProxyAction m_RotateAction`  
-
-```csharp
-private Game.Input.ProxyAction m_RotateAction;
-```
-
-- `private Game.Input.ProxyAction m_ZoomAction`  
-
-```csharp
-private Game.Input.ProxyAction m_ZoomAction;
-```
-
-- `private UnityEngine.Vector2 <move>k__BackingField`  
-
-```csharp
-private UnityEngine.Vector2 <move>k__BackingField;
-```
-
-- `private UnityEngine.Vector2 <rotate>k__BackingField`  
-
-```csharp
-private UnityEngine.Vector2 <rotate>k__BackingField;
-```
-
-- `private System.Single <zoom>k__BackingField`  
-
-```csharp
-private System.Single <zoom>k__BackingField;
-```
-
+- `private ProxyAction m_ZoomAction`  
+ProxyAction used to read camera zoom input. Populated in Initialize().
 
 ## Properties
 
-- `public UnityEngine.Vector2 move { get; private set }`  
+- `public Vector2 move { get; private set; }`  
+Current camera move vector. Written during Refresh() by taking the component-wise max-abs between the normal move and fast-move actions.
 
-```csharp
-public UnityEngine.Vector2 move { get; private set; }
-```
+- `public Vector2 rotate { get; private set; }`  
+Current camera rotation input vector. Written in Refresh().
 
-- `public UnityEngine.Vector2 rotate { get; private set }`  
+- `public float zoom { get; private set; }`  
+Current camera zoom input value. Written in Refresh().
 
-```csharp
-public UnityEngine.Vector2 rotate { get; private set; }
-```
+- `public bool isMoving => m_MoveAction.IsInProgress()`  
+True when the standard move action is in progress. Note: fast-move is not considered by this property.
 
-- `public System.Single zoom { get; private set }`  
-
-```csharp
-public System.Single zoom { get; private set; }
-```
-
-- `public System.Boolean isMoving { get }`  
-
-```csharp
-public System.Boolean isMoving { get; }
-```
-
-- `public System.Boolean any { get }`  
-
-```csharp
-public System.Boolean any { get; }
-```
-
+- `public bool any`  
+True if any of the move, fast-move, rotate, or zoom actions are in progress. Evaluates each ProxyAction.IsInProgress() to determine overall activity.
 
 ## Constructors
 
 - `public CameraInput()`  
-
-```csharp
-public CameraInput();
-```
-
+Implicit default constructor provided by C#. No explicit initialization is performed here; call Initialize() to bind input actions and call Refresh() each frame (or when input should be sampled).
 
 ## Methods
 
-- `public Initialize() : System.Void`  
+- `public void Initialize()`  
+Finds and caches the camera-related ProxyAction instances from the central InputManager. Must be called before Refresh() or checking properties that rely on the actions.
+
+- `public void Refresh()`  
+Reads current values from the cached ProxyAction objects and updates the move, rotate and zoom properties. Uses MathUtils.MaxAbs(...) to combine normal and fast-move inputs.
 
 ```csharp
 public void Initialize()
-	{
-		m_MoveAction = InputManager.instance.FindAction("Camera", "Move");
-		m_FastMoveAction = InputManager.instance.FindAction("Camera", "Move Fast");
-		m_RotateAction = InputManager.instance.FindAction("Camera", "Rotate");
-		m_ZoomAction = InputManager.instance.FindAction("Camera", "Zoom");
-	}
+{
+	m_MoveAction = InputManager.instance.FindAction("Camera", "Move");
+	m_FastMoveAction = InputManager.instance.FindAction("Camera", "Move Fast");
+	m_RotateAction = InputManager.instance.FindAction("Camera", "Rotate");
+	m_ZoomAction = InputManager.instance.FindAction("Camera", "Zoom");
+}
 ```
-
-- `public Refresh() : System.Void`  
 
 ```csharp
 public void Refresh()
-	{
-		move = MathUtils.MaxAbs(m_MoveAction.ReadValue<Vector2>(), m_FastMoveAction.ReadValue<Vector2>());
-		rotate = m_RotateAction.ReadValue<Vector2>();
-		zoom = m_ZoomAction.ReadValue<float>();
-	}
+{
+	move = MathUtils.MaxAbs(m_MoveAction.ReadValue<Vector2>(), m_FastMoveAction.ReadValue<Vector2>());
+	rotate = m_RotateAction.ReadValue<Vector2>();
+	zoom = m_ZoomAction.ReadValue<float>();
+}
 ```
 
-
+Notes and implementation details:
+- This component expects InputManager.instance to be available and the named actions ("Camera"/"Move", "Move Fast", "Rotate", "Zoom") to be configured in the game's input system.
+- MathUtils.MaxAbs takes two Vector2s and returns the vector that uses the element-wise value with the larger absolute value — used here to prioritize stronger directional input from either normal or fast move.
+- Smoothing fields are present for use by consumers of this component but are not applied inside CameraInput itself; they are intended to be used by camera controllers when processing the raw move/rotate/zoom values.

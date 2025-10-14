@@ -1,815 +1,256 @@
-﻿# Game.CameraController
+# Game.CameraController
 
-**Assembly:** `Game`  
-**Namespace:** `Game`  
+**Assembly:** Assembly-CSharp  
+**Namespace:** Game
 
-**Type:** class public  
+**Type:** class CameraController
 
-**Base:** `UnityEngine.MonoBehaviour`  
-**Implements:** `Game.Rendering.IGameCameraController`  
+**Base:** UnityEngine.MonoBehaviour, IGameCameraController
 
-## Code
+**Summary:** CameraController manages the in-game gameplay camera for Cities: Skylines 2. It reads player input (pan/rotate/zoom and edge-scrolling), computes camera transforms (pivot, angle, zoom), interacts with terrain and water height data, performs collision checking via the CameraCollisionSystem, and updates audio listener position. It also supports a special map-tile tool view with smooth transitions and exposes helpers to match or find the active gameplay camera for modding code to interact with. Intended for single main gameplay camera usage; many internal fields reference other game systems (InputManager, CameraUpdateSystem, CameraCollisionSystem, TerrainSystem, WaterSystem, AudioManager, MapTilesUISystem, Cinemachine).
 
-```csharp
-public class CameraController : UnityEngine.MonoBehaviour, Game.Rendering.IGameCameraController
-{
-    private Unity.Mathematics.float3 m_Pivot;
-    private Unity.Mathematics.float2 m_Angle;
-    private System.Single m_Zoom;
-    private Colossal.Mathematics.Bounds1 m_ZoomRange;
-    private Colossal.Mathematics.Bounds1 m_MapTileToolZoomRange;
-    private System.Boolean m_MapTileToolViewEnabled;
-    private System.Single m_MapTileToolFOV;
-    private System.Single m_MapTileToolFarclip;
-    private Unity.Mathematics.float3 m_MapTileToolPivot;
-    private Unity.Mathematics.float2 m_MapTileToolAngle;
-    private System.Single m_MapTileToolZoom;
-    private System.Single m_MapTileToolTransitionTime;
-    private System.Single m_MoveSmoothing;
-    private System.Single m_CollisionSmoothing;
-    private Game.Input.ProxyActionMap m_CameraMap;
-    private Game.Input.ProxyAction m_MoveAction;
-    private Game.Input.ProxyAction m_MoveFastAction;
-    private Game.Input.ProxyAction m_RotateAction;
-    private Game.Input.ProxyAction m_ZoomAction;
-    private Cinemachine.CinemachineVirtualCamera m_VCam;
-    private System.Single m_InitialFarClip;
-    private System.Single m_InitialFov;
-    private System.Single m_LastGameViewZoom;
-    private Unity.Mathematics.float2 m_LastGameViewAngle;
-    private Unity.Mathematics.float3 m_LastGameViewPivot;
-    private System.Single m_LastMapViewZoom;
-    private Unity.Mathematics.float2 m_LastMapViewAngle;
-    private Unity.Mathematics.float3 m_LastMapViewPivot;
-    private System.Action<System.Boolean> <EventCameraMovingChanged>k__BackingField;
-    private System.Boolean <moving>k__BackingField;
-    private System.Boolean <inputEnabled>k__BackingField;
-    private Unity.Mathematics.float3 <cameraPosition>k__BackingField;
-    private System.Single <velocity>k__BackingField;
-    private System.Single m_MapViewTimer;
-    private System.Boolean <edgeScrolling>k__BackingField;
-    private System.Single <edgeScrollingSensitivity>k__BackingField;
-    private System.Single <clipDistance>k__BackingField;
-    private Game.Audio.AudioManager m_AudioManager;
-    private Game.Rendering.CameraUpdateSystem m_CameraSystem;
-    private Game.Rendering.CameraCollisionSystem m_CollisionSystem;
-
-    public System.Collections.Generic.IEnumerable<Game.Input.ProxyAction> inputActions { get; }
-    public System.Action<System.Boolean> EventCameraMovingChanged { get; set; }
-    public System.Boolean moving { get; private set; }
-    public Cinemachine.LensSettings& lens { get; }
-    public Cinemachine.ICinemachineCamera virtualCamera { get; }
-    public UnityEngine.Vector3 rotation { get; set; }
-    public Game.Simulation.TerrainSystem terrainSystem { get; }
-    public Game.Simulation.WaterSystem waterSystem { get; }
-    public UnityEngine.Vector3 pivot { get; set; }
-    public UnityEngine.Vector3 position { get; set; }
-    public Unity.Mathematics.float2 angle { get; set; }
-    public System.Single zoom { get; set; }
-    public System.Boolean controllerEnabled { get; set; }
-    public System.Boolean inputEnabled { get; set; }
-    public Colossal.Mathematics.Bounds1 zoomRange { get; }
-    public Unity.Mathematics.float3 cameraPosition { get; private set; }
-    public System.Single velocity { get; private set; }
-    public System.Boolean edgeScrolling { get; set; }
-    public System.Single edgeScrollingSensitivity { get; set; }
-    public System.Single clipDistance { get; set; }
-
-    public CameraController();
-
-    private System.Void Awake();
-    private Unity.Mathematics.float3 GetCameraPos(Unity.Mathematics.float3 cameraOffset);
-    private System.Boolean HandleMapViewCamera();
-    public static Unity.Mathematics.float2 LerpAngle(Unity.Mathematics.float2 from, Unity.Mathematics.float2 to, System.Single t);
-    public static System.Boolean TryGet(Game.CameraController& cameraController);
-    private System.Boolean TryGetTerrainHeight(UnityEngine.Vector3 pos, System.Single& terrainHeight);
-    public System.Void TryMatchPosition(Game.Rendering.IGameCameraController other);
-    public System.Void UpdateCamera();
-}
-```
-
+---
 
 ## Fields
 
-- `private Unity.Mathematics.float3 m_Pivot`  
+- `private float3 m_Pivot`  
+Current pivot point (world-space) that the camera orbits around. Used as the main focal point for movement/zoom calculations.
 
-```csharp
-private Unity.Mathematics.float3 m_Pivot;
-```
+- `private float2 m_Angle`  
+Euler angles stored as float2 (x = yaw, y = pitch) used to compute camera orientation.
 
-- `private Unity.Mathematics.float2 m_Angle`  
+- `private float m_Zoom`  
+Current zoom distance from pivot. Clamped against zoomRange and used to compute camera offset.
 
-```csharp
-private Unity.Mathematics.float2 m_Angle;
-```
+- `private Bounds1 m_ZoomRange = new Bounds1(10f, 10000f)`  
+Allowed zoom range for gameplay camera. Switched to m_MapTileToolZoomRange when map tile view is active.
 
-- `private System.Single m_Zoom`  
+- `private Bounds1 m_MapTileToolZoomRange = new Bounds1(10f, 20000f)`  
+Zoom limits when the map tile tool view is enabled.
 
-```csharp
-private System.Single m_Zoom;
-```
+- `private bool m_MapTileToolViewEnabled`  
+Internal flag used to control map-tile tool view behaviour (set via MapTilesUISystem.mapTileViewActive externally).
 
-- `private Colossal.Mathematics.Bounds1 m_ZoomRange`  
+- `private float m_MapTileToolFOV`  
+Field of view used when transitioning to the map tile tool view.
 
-```csharp
-private Colossal.Mathematics.Bounds1 m_ZoomRange;
-```
+- `private float m_MapTileToolFarclip`  
+Far clip plane to use while the map tile tool view is active.
 
-- `private Colossal.Mathematics.Bounds1 m_MapTileToolZoomRange`  
+- `private float3 m_MapTileToolPivot`  
+Target pivot for the map tile tool view.
 
-```csharp
-private Colossal.Mathematics.Bounds1 m_MapTileToolZoomRange;
-```
+- `private float2 m_MapTileToolAngle`  
+Target angle for the map tile tool view.
 
-- `private System.Boolean m_MapTileToolViewEnabled`  
+- `private float m_MapTileToolZoom`  
+Target zoom for the map tile tool view.
 
-```csharp
-private System.Boolean m_MapTileToolViewEnabled;
-```
+- `private float m_MapTileToolTransitionTime`  
+Duration for the smooth transition between game view and map tile tool view.
 
-- `private System.Single m_MapTileToolFOV`  
+- `private float m_MoveSmoothing = 1E-06f`  
+Smoothing factor used when lerping pivot's Y toward terrain/water height.
 
-```csharp
-private System.Single m_MapTileToolFOV;
-```
+- `private float m_CollisionSmoothing = 0.001f`  
+Smoothing parameter passed into the CameraCollisionSystem for collision resolution.
 
-- `private System.Single m_MapTileToolFarclip`  
+- `private ProxyActionMap m_CameraMap`  
+Input action map for camera controls (retrieved from InputManager).
 
-```csharp
-private System.Single m_MapTileToolFarclip;
-```
+- `private ProxyAction m_MoveAction`  
+Input action used for camera panning.
 
-- `private Unity.Mathematics.float3 m_MapTileToolPivot`  
+- `private ProxyAction m_MoveFastAction`  
+Input action for fast panning (e.g., modifier key held).
 
-```csharp
-private Unity.Mathematics.float3 m_MapTileToolPivot;
-```
+- `private ProxyAction m_RotateAction`  
+Input action for camera rotation.
 
-- `private Unity.Mathematics.float2 m_MapTileToolAngle`  
+- `private ProxyAction m_ZoomAction`  
+Input action for camera zoom.
 
-```csharp
-private Unity.Mathematics.float2 m_MapTileToolAngle;
-```
+- `private CinemachineVirtualCamera m_VCam`  
+Reference to the Cinemachine virtual camera component attached to the same GameObject. Used to modify lens parameters (FOV, FarClip).
 
-- `private System.Single m_MapTileToolZoom`  
+- `private float m_InitialFarClip`  
+Stored initial far clip plane of the Cinemachine lens for transitions back from map view.
 
-```csharp
-private System.Single m_MapTileToolZoom;
-```
+- `private float m_InitialFov`  
+Stored initial field of view of the Cinemachine lens.
 
-- `private System.Single m_MapTileToolTransitionTime`  
+- `private float m_LastGameViewZoom`  
+Used when toggling map-tile view: stores the previous game zoom to restore on exit.
 
-```csharp
-private System.Single m_MapTileToolTransitionTime;
-```
+- `private float2 m_LastGameViewAngle`  
+Stores previous game view angle to restore after map-tile view.
 
-- `private System.Single m_MoveSmoothing`  
+- `private float3 m_LastGameViewPivot`  
+Stores previous pivot to restore after map-tile view.
 
-```csharp
-private System.Single m_MoveSmoothing;
-```
+- `private float m_LastMapViewZoom`  
+Stores map-view zoom when transitioning back to game view.
 
-- `private System.Single m_CollisionSmoothing`  
+- `private float2 m_LastMapViewAngle`  
+Stores map-view angle for the transition back.
 
-```csharp
-private System.Single m_CollisionSmoothing;
-```
+- `private float3 m_LastMapViewPivot`  
+Stores map-view pivot for the transition back.
 
-- `private Game.Input.ProxyActionMap m_CameraMap`  
+- `private float m_MapViewTimer`  
+Timer used to interpolate between game view and map-tile tool view.
 
-```csharp
-private Game.Input.ProxyActionMap m_CameraMap;
-```
+- `private AudioManager m_AudioManager`  
+Cached reference to audio manager (AudioManager.instance is used elsewhere). Present if needed for advanced audio updates.
 
-- `private Game.Input.ProxyAction m_MoveAction`  
+- `private CameraUpdateSystem m_CameraSystem`  
+Reference to ECS CameraUpdateSystem used to read activeCamera settings and to register this controller (gamePlayController).
 
-```csharp
-private Game.Input.ProxyAction m_MoveAction;
-```
-
-- `private Game.Input.ProxyAction m_MoveFastAction`  
-
-```csharp
-private Game.Input.ProxyAction m_MoveFastAction;
-```
-
-- `private Game.Input.ProxyAction m_RotateAction`  
-
-```csharp
-private Game.Input.ProxyAction m_RotateAction;
-```
-
-- `private Game.Input.ProxyAction m_ZoomAction`  
-
-```csharp
-private Game.Input.ProxyAction m_ZoomAction;
-```
-
-- `private Cinemachine.CinemachineVirtualCamera m_VCam`  
-
-```csharp
-private Cinemachine.CinemachineVirtualCamera m_VCam;
-```
-
-- `private System.Single m_InitialFarClip`  
-
-```csharp
-private System.Single m_InitialFarClip;
-```
-
-- `private System.Single m_InitialFov`  
-
-```csharp
-private System.Single m_InitialFov;
-```
-
-- `private System.Single m_LastGameViewZoom`  
-
-```csharp
-private System.Single m_LastGameViewZoom;
-```
-
-- `private Unity.Mathematics.float2 m_LastGameViewAngle`  
-
-```csharp
-private Unity.Mathematics.float2 m_LastGameViewAngle;
-```
-
-- `private Unity.Mathematics.float3 m_LastGameViewPivot`  
-
-```csharp
-private Unity.Mathematics.float3 m_LastGameViewPivot;
-```
-
-- `private System.Single m_LastMapViewZoom`  
-
-```csharp
-private System.Single m_LastMapViewZoom;
-```
-
-- `private Unity.Mathematics.float2 m_LastMapViewAngle`  
-
-```csharp
-private Unity.Mathematics.float2 m_LastMapViewAngle;
-```
-
-- `private Unity.Mathematics.float3 m_LastMapViewPivot`  
-
-```csharp
-private Unity.Mathematics.float3 m_LastMapViewPivot;
-```
-
-- `private System.Action<System.Boolean> <EventCameraMovingChanged>k__BackingField`  
-
-```csharp
-private System.Action<System.Boolean> <EventCameraMovingChanged>k__BackingField;
-```
-
-- `private System.Boolean <moving>k__BackingField`  
-
-```csharp
-private System.Boolean <moving>k__BackingField;
-```
-
-- `private System.Boolean <inputEnabled>k__BackingField`  
-
-```csharp
-private System.Boolean <inputEnabled>k__BackingField;
-```
-
-- `private Unity.Mathematics.float3 <cameraPosition>k__BackingField`  
-
-```csharp
-private Unity.Mathematics.float3 <cameraPosition>k__BackingField;
-```
-
-- `private System.Single <velocity>k__BackingField`  
-
-```csharp
-private System.Single <velocity>k__BackingField;
-```
-
-- `private System.Single m_MapViewTimer`  
-
-```csharp
-private System.Single m_MapViewTimer;
-```
-
-- `private System.Boolean <edgeScrolling>k__BackingField`  
-
-```csharp
-private System.Boolean <edgeScrolling>k__BackingField;
-```
-
-- `private System.Single <edgeScrollingSensitivity>k__BackingField`  
-
-```csharp
-private System.Single <edgeScrollingSensitivity>k__BackingField;
-```
-
-- `private System.Single <clipDistance>k__BackingField`  
-
-```csharp
-private System.Single <clipDistance>k__BackingField;
-```
-
-- `private Game.Audio.AudioManager m_AudioManager`  
-
-```csharp
-private Game.Audio.AudioManager m_AudioManager;
-```
-
-- `private Game.Rendering.CameraUpdateSystem m_CameraSystem`  
-
-```csharp
-private Game.Rendering.CameraUpdateSystem m_CameraSystem;
-```
-
-- `private Game.Rendering.CameraCollisionSystem m_CollisionSystem`  
-
-```csharp
-private Game.Rendering.CameraCollisionSystem m_CollisionSystem;
-```
-
+- `private CameraCollisionSystem m_CollisionSystem`  
+Reference to ECS CameraCollisionSystem used to test and resolve camera collisions against world geometry.
 
 ## Properties
 
-- `public System.Collections.Generic.IEnumerable<Game.Input.ProxyAction> inputActions { get }`  
+- `public IEnumerable<ProxyAction> inputActions`  
+Enumerates non-null input actions (Move, Move Fast, Rotate, Zoom). Useful for systems that need to register or enable/disable these actions.
 
-```csharp
-public System.Collections.Generic.IEnumerable<Game.Input.ProxyAction> inputActions { get; }
-```
+- `public Action<bool> EventCameraMovingChanged { get; set; }`  
+Event invoked when camera movement state changes (true = camera started moving, false = stopped). Mods can subscribe to react to camera motion.
 
-- `public System.Action<System.Boolean> EventCameraMovingChanged { get; set }`  
+- `public bool moving { get; private set; }`  
+Indicates whether the controller currently considers the camera to be moving. Updated each UpdateCamera call.
 
-```csharp
-public System.Action<System.Boolean> EventCameraMovingChanged { get; set; }
-```
+- `public ref LensSettings lens => ref m_VCam.m_Lens`  
+Direct reference to Cinemachine lens settings. Allows read/write access to lens properties (FieldOfView, FarClipPlane, etc.). Use with caution since it mutates Cinemachine state.
 
-- `public System.Boolean moving { get; private set }`  
+- `public ICinemachineCamera virtualCamera => m_VCam`  
+Exposes the underlying Cinemachine virtual camera as an ICinemachineCamera.
 
-```csharp
-public System.Boolean moving { get; private set; }
-```
+- `public Vector3 rotation`  
+Gets/sets camera rotation as a Unity Vector3 (x = pitch, y = yaw, z = 0). Setting updates internal m_Angle appropriately.
 
-- `public Cinemachine.LensSettings& lens { get }`  
+- `public TerrainSystem terrainSystem`  
+Gets the ECS-managed TerrainSystem from the default World. Nullable; returns null if world not available. Used for sampling terrain heights and bounds.
 
-```csharp
-public Cinemachine.LensSettings& lens { get; }
-```
+- `public WaterSystem waterSystem`  
+Gets the ECS-managed WaterSystem from the default World. Nullable; used to sample water surface heights.
 
-- `public Cinemachine.ICinemachineCamera virtualCamera { get }`  
+- `public Vector3 pivot`  
+Gets/sets camera pivot (converts internal float3 to Unity Vector3).
 
-```csharp
-public Cinemachine.ICinemachineCamera virtualCamera { get; }
-```
+- `public Vector3 position`  
+Getter returns transform.position. Setter is intentionally empty to prevent direct assignment through this property.
 
-- `public UnityEngine.Vector3 rotation { get; set }`  
+- `public float2 angle`  
+Gets/sets raw internal angle (float2).
 
-```csharp
-public UnityEngine.Vector3 rotation { get; set; }
-```
+- `public float zoom`  
+Gets/sets internal zoom distance.
 
-- `public Game.Simulation.TerrainSystem terrainSystem { get }`  
+- `public bool controllerEnabled`  
+Gets if the controller GameObject is active and enabled; setting toggles the GameObject's active state.
 
-```csharp
-public Game.Simulation.TerrainSystem terrainSystem { get; }
-```
+- `public bool inputEnabled { get; set; } = true`  
+Flag to enable/disable input handling at this controller level.
 
-- `public Game.Simulation.WaterSystem waterSystem { get }`  
+- `public Bounds1 zoomRange`  
+Returns m_MapTileToolZoomRange if MapTilesUISystem.mapTileViewActive is true, otherwise returns m_ZoomRange. Used for clamping zoom and collision logic.
 
-```csharp
-public Game.Simulation.WaterSystem waterSystem { get; }
-```
+- `public float3 cameraPosition { get; private set; }`  
+Computed camera local position used for transforms and collision checks.
 
-- `public UnityEngine.Vector3 pivot { get; set }`  
+- `public float velocity { get; private set; }`  
+Approximate squared velocity (computed from position delta and Time.deltaTime). Useful for detecting movement speed.
 
-```csharp
-public UnityEngine.Vector3 pivot { get; set; }
-```
+- `public bool edgeScrolling { get; set; }`  
+Toggle for edge-of-screen scrolling when using keyboard + mouse control scheme.
 
-- `public UnityEngine.Vector3 position { get; set }`  
+- `public float edgeScrollingSensitivity { get; set; }`  
+Sensitivity multiplier for edge scrolling; loaded from GameplaySettings on Awake.
 
-```csharp
-public UnityEngine.Vector3 position { get; set; }
-```
-
-- `public Unity.Mathematics.float2 angle { get; set }`  
-
-```csharp
-public Unity.Mathematics.float2 angle { get; set; }
-```
-
-- `public System.Single zoom { get; set }`  
-
-```csharp
-public System.Single zoom { get; set; }
-```
-
-- `public System.Boolean controllerEnabled { get; set }`  
-
-```csharp
-public System.Boolean controllerEnabled { get; set; }
-```
-
-- `public System.Boolean inputEnabled { get; set }`  
-
-```csharp
-public System.Boolean inputEnabled { get; set; }
-```
-
-- `public Colossal.Mathematics.Bounds1 zoomRange { get }`  
-
-```csharp
-public Colossal.Mathematics.Bounds1 zoomRange { get; }
-```
-
-- `public Unity.Mathematics.float3 cameraPosition { get; private set }`  
-
-```csharp
-public Unity.Mathematics.float3 cameraPosition { get; private set; }
-```
-
-- `public System.Single velocity { get; private set }`  
-
-```csharp
-public System.Single velocity { get; private set; }
-```
-
-- `public System.Boolean edgeScrolling { get; set }`  
-
-```csharp
-public System.Boolean edgeScrolling { get; set; }
-```
-
-- `public System.Single edgeScrollingSensitivity { get; set }`  
-
-```csharp
-public System.Single edgeScrollingSensitivity { get; set; }
-```
-
-- `public System.Single clipDistance { get; set }`  
-
-```csharp
-public System.Single clipDistance { get; set; }
-```
-
+- `public float clipDistance { get; set; }`  
+Public clip distance value (initialized to float.MaxValue in Awake). Not directly tied to Cinemachine lens; used by collision logic.
 
 ## Constructors
 
 - `public CameraController()`  
-
-```csharp
-public CameraController();
-```
-
+Default MonoBehaviour constructor (implicit). Typical instantiation occurs via a GameObject in the scene tagged "GameplayCamera". Initialization logic is performed in Awake rather than constructor.
 
 ## Methods
 
-- `private Awake() : System.Void`  
+- `public void TryMatchPosition(IGameCameraController other)`  
+Attempts to match pivot/angle/zoom to another IGameCameraController instance. Computes a zoom value based on other camera position/rotation and terrain height, then sets pivot and rotation to match. Useful for syncing two camera controllers (e.g., when switching camera targets).
+
+- `private async void Awake()`  
+Initializes the controller: waits for GameManager ready state, reads edge-scrolling settings, caches Cinemachine camera and lens defaults, initializes input action references from InputManager, and registers this controller with the CameraUpdateSystem and CameraCollisionSystem. This method runs asynchronously and guards against usage until initialization completes.
+
+- `public void UpdateCamera()`  
+Main per-frame update called by CameraUpdateSystem. Reads input (move/rotate/zoom), applies edge-scrolling, clamps zoom, computes orientation and offsets, samples terrain/water heights to adjust pivot Y and camera Y and to clamp pivot inside terrain bounds, performs camera collision checks via CameraCollisionSystem (using active camera near/fov info from CameraUpdateSystem), updates transform, velocity, moving state, and audio listener. Also handles map tile tool view via HandleMapViewCamera early-out.
+
+- `private float3 GetCameraPos(float3 cameraOffset)`  
+Helper that returns pivot + offset, and adds a small Y offset based on zoomRange.min. Used consistently to compute the camera world position from pivot + direction * zoom.
+
+- `private bool HandleMapViewCamera()`  
+Handles smooth transition between game view and map tile tool view when MapTilesUISystem.mapTileViewActive changes. Interpolates pivot, angle (using LerpAngle), zoom and Cinemachine lens FOV/FarClip. Also samples terrain/water heights and clamps camera height similarly to UpdateCamera. Returns true when it handled the frame (so UpdateCamera should early-return).
+
+- `public static float2 LerpAngle(float2 from, float2 to, float t)`  
+Linearly interpolates between two angle pairs while properly taking the shortest path around the yaw wrap (handles 360-degree wrap-around). Pitch is interpolated linearly.
+
+- `private bool TryGetTerrainHeight(Vector3 pos, out float terrainHeight)`  
+Attempts to sample terrain or water height at pos using TerrainSystem and WaterSystem. Returns false and terrainHeight=0 if data unavailable. Completes any water deps before sampling.
+
+- `public static bool TryGet(out CameraController cameraController)`  
+Static helper that finds the GameObject tagged "GameplayCamera" and returns its CameraController component if present. Common pattern for mods to obtain the active camera controller.
+
+---
+
+## Usage notes and modding tips (YOUR_INFO)
+
+- Typical access: use CameraController.TryGet(out var cam) to retrieve the active gameplay camera in your mod. Once obtained you can read or set pivot, angle, zoom, rotation and subscribe to EventCameraMovingChanged.
+- Prefer using exposed properties (pivot, angle, zoom, rotation) and TryMatchPosition rather than directly manipulating transform to keep camera logic consistent with collision, terrain sampling, and Cinemachine lens.
+- The controller relies on ECS systems (TerrainSystem, WaterSystem, CameraCollisionSystem, CameraUpdateSystem). When writing code that interacts with these systems, ensure the default World exists (World.DefaultGameObjectInjectionWorld) and that system features are initialized (this controller sets m_CameraSystem.gamePlayController = this on Awake).
+- Input is read via InputManager action maps. Modifying input behavior should be done through the InputManager / ProxyAction system rather than altering this class directly.
+- Map tile tool view: MapTilesUISystem.mapTileViewActive controls switching; m_MapTileToolTransitionTime is used for smooth interpolation. Cinemachine lens FOV and FarClipPlane are interpolated during the transition. If your mod changes FOV/FarClip, be aware of these transitions.
+- Camera collision: CameraCollisionSystem.CheckCollisions is used to adjust cameraPos when geometry intersects. If you need custom collision behavior, consider hooking or extending CameraCollisionSystem rather than the controller.
+- Performance: UpdateCamera performs terrain/water sampling and may call ECS system data methods that create dependencies. Avoid calling UpdateCamera yourself every frame; let CameraUpdateSystem drive updates. When sampling terrain/water directly in your mod, mimic how this controller completes dependencies (e.g., call deps.Complete() where appropriate).
+- Thread-safety: All Unity API calls (transform, GameObject, Cinemachine) must be done on the main thread. This controller runs on the main thread via MonoBehaviour.Update loop orchestrated by CameraUpdateSystem.
+- Edge scrolling: Edge-scrolling is enabled/disabled based on SharedSettings.gameplay.edgeScrolling and is only applied for the keyboard+mouse control scheme with mouse on screen. You can toggle edgeScrolling and edgeScrollingSensitivity at runtime.
+- Saving/restoring camera: To persist camera state, store pivot, angle, and zoom. To smoothly apply stored state, call TryMatchPosition on a camera that has the stored position/rotation, or lerp the properties over time and let UpdateCamera resolve terrain and collisions.
+- Compatibility: Many mods may want to modify Cinemachine lens values (FOV/far clip). Changing lens directly via cam.lens will be respected, but note the controller overwrites lens values during map view transitions. If you change lens values, consider re-applying after map view changes or hooking into MapTilesUISystem transitions.
 
 ```csharp
 private async void Awake()
+{
+	if (!(await GameManager.instance.WaitForReadyState()))
 	{
-		if (!(await GameManager.instance.WaitForReadyState()))
-		{
-			return;
-		}
-		if (!Application.isEditor)
-		{
-			edgeScrolling = true;
-			GameplaySettings gameplaySettings = SharedSettings.instance?.gameplay;
-			if (gameplaySettings != null)
-			{
-				edgeScrolling = gameplaySettings.edgeScrolling;
-				edgeScrollingSensitivity = gameplaySettings.edgeScrollingSensitivity;
-			}
-		}
-		m_VCam = GetComponent<CinemachineVirtualCamera>();
-		m_InitialFarClip = m_VCam.m_Lens.FarClipPlane;
-		m_InitialFov = m_VCam.m_Lens.FieldOfView;
-		clipDistance = float.MaxValue;
-		m_CameraMap = InputManager.instance.FindActionMap("Camera");
-		m_MoveAction = m_CameraMap.FindAction("Move");
-		m_MoveFastAction = m_CameraMap.FindAction("Move Fast");
-		m_RotateAction = m_CameraMap.FindAction("Rotate");
-		m_ZoomAction = m_CameraMap.FindAction("Zoom");
-		m_CameraSystem = World.DefaultGameObjectInjectionWorld.GetOrCreateSystemManaged<CameraUpdateSystem>();
-		m_CameraSystem.gamePlayController = this;
-		m_CollisionSystem = World.DefaultGameObjectInjectionWorld.GetOrCreateSystemManaged<CameraCollisionSystem>();
+		return;
 	}
-```
-
-- `private GetCameraPos(Unity.Mathematics.float3 cameraOffset) : Unity.Mathematics.float3`  
-
-```csharp
-private float3 GetCameraPos(float3 cameraOffset)
+	if (!Application.isEditor)
 	{
-		float3 result = m_Pivot + cameraOffset;
-		result.y += zoomRange.min * 0.5f;
-		return result;
-	}
-```
-
-- `private HandleMapViewCamera() : System.Boolean`  
-
-```csharp
-private bool HandleMapViewCamera()
-	{
-		float end;
-		float2 to;
-		float3 @float;
-		float num;
-		if (!MapTilesUISystem.mapTileViewActive)
+		edgeScrolling = true;
+		GameplaySettings gameplaySettings = SharedSettings.instance?.gameplay;
+		if (gameplaySettings != null)
 		{
-			if (m_MapViewTimer == 0f)
-			{
-				return false;
-			}
-			if (Mathf.Abs(m_MapViewTimer - m_MapTileToolTransitionTime) < Mathf.Epsilon)
-			{
-				m_Zoom = m_LastGameViewZoom;
-				m_Angle = m_LastGameViewAngle;
-				m_Pivot = m_LastGameViewPivot;
-			}
-			end = m_LastMapViewZoom;
-			to = m_LastMapViewAngle;
-			@float = m_LastMapViewPivot;
-			m_MapViewTimer = math.max(m_MapViewTimer - Time.deltaTime, 0f);
-			num = ((m_MapTileToolTransitionTime > 0f) ? (m_MapViewTimer / m_MapTileToolTransitionTime) : 0f);
-		}
-		else
-		{
-			m_LastMapViewAngle = m_Angle;
-			m_LastMapViewZoom = m_Zoom;
-			m_LastMapViewPivot = m_Pivot;
-			if (Mathf.Abs(m_MapViewTimer - m_MapTileToolTransitionTime) < Mathf.Epsilon)
-			{
-				return false;
-			}
-			m_MapViewTimer = math.min(m_MapViewTimer + Time.deltaTime, m_MapTileToolTransitionTime);
-			num = ((m_MapTileToolTransitionTime > 0f) ? (m_MapViewTimer / m_MapTileToolTransitionTime) : 1f);
-			if (Mathf.Abs(num - 1f) < Mathf.Epsilon)
-			{
-				m_LastGameViewZoom = m_Zoom;
-				m_LastGameViewAngle = m_Angle;
-				m_LastGameViewPivot = m_Pivot;
-				m_Zoom = m_MapTileToolZoom;
-				m_Angle = new float2(Mathf.Round(m_Angle.x / 90f) * 90f, m_MapTileToolAngle.y);
-				m_Pivot = m_MapTileToolPivot;
-			}
-			end = m_MapTileToolZoom;
-			to = new float2(Mathf.Round(m_Angle.x / 90f) * 90f, m_MapTileToolAngle.y);
-			@float = m_MapTileToolPivot;
-		}
-		if (TryGetTerrainHeight(@float, out var terrainHeight))
-		{
-			@float.y = terrainHeight;
-		}
-		num = Mathf.SmoothStep(0f, 1f, num);
-		float3 float2 = math.lerp(m_Pivot, @float, num);
-		float2 x = LerpAngle(m_Angle, to, num);
-		float num2 = math.lerp(m_Zoom, end, num);
-		m_VCam.m_Lens.FarClipPlane = math.lerp(m_InitialFarClip, m_MapTileToolFarclip, num);
-		m_VCam.m_Lens.FieldOfView = math.lerp(m_InitialFov, m_MapTileToolFOV, num);
-		float2 float3 = math.radians(x);
-		float3 float4 = default(float3);
-		float4.x = 0f - math.sin(float3.x);
-		float4.y = 0f;
-		float4.z = 0f - math.cos(float3.x);
-		float3 x2 = float4;
-		float4 *= math.cos(float3.y);
-		float4.y = math.sin(float3.y);
-		float3 float5 = -float4;
-		float4 *= num2;
-		float3 float6 = float2 + float4;
-		float6.y += zoomRange.min * 0.5f;
-		float3 y = math.cross(x2, new float3(0f, 1f, 0f));
-		float3 up = math.cross(float5, y);
-		if (terrainSystem != null)
-		{
-			TerrainHeightData data = terrainSystem.GetHeightData();
-			WaterSurfaceData data2 = default(WaterSurfaceData);
-			if (waterSystem != null)
-			{
-				data2 = waterSystem.GetSurfaceData(out var deps);
-				deps.Complete();
-			}
-			if (data.isCreated)
-			{
-				float num3 = ((!data2.isCreated) ? (TerrainUtils.SampleHeight(ref data, float6) + zoomRange.min * 0.5f + (num2 - zoomRange.min) * 0.1f) : (WaterUtils.SampleHeight(ref data2, ref data, float6) + zoomRange.min * 0.5f + (num2 - zoomRange.min) * 0.1f));
-				float num4 = (float6.y - num3) / num2;
-				num4 = (math.sqrt(num4 * num4 + 0.2f) - num4) * (0.5f * num2);
-				float6.y += num4;
-			}
-		}
-		base.transform.localPosition = float6;
-		base.transform.localRotation = quaternion.LookRotation(float5, up);
-		return true;
-	}
-```
-
-- `public static LerpAngle(Unity.Mathematics.float2 from, Unity.Mathematics.float2 to, System.Single t) : Unity.Mathematics.float2`  
-
-```csharp
-public static float2 LerpAngle(float2 from, float2 to, float t)
-	{
-		float num = ((to.x - from.x) % 360f + 540f) % 360f - 180f;
-		return new float2(from.x + num * t % 360f, math.lerp(from.y, to.y, t));
-	}
-```
-
-- `public static TryGet(Game.CameraController& cameraController) : System.Boolean`  
-
-```csharp
-public static bool TryGet(out CameraController cameraController)
-	{
-		GameObject gameObject = GameObject.FindGameObjectWithTag("GameplayCamera");
-		if (gameObject != null)
-		{
-			cameraController = gameObject.GetComponent<CameraController>();
-			return cameraController != null;
-		}
-		cameraController = null;
-		return false;
-	}
-```
-
-- `private TryGetTerrainHeight(UnityEngine.Vector3 pos, System.Single& terrainHeight) : System.Boolean`  
-
-```csharp
-private bool TryGetTerrainHeight(Vector3 pos, out float terrainHeight)
-	{
-		if (terrainSystem != null)
-		{
-			TerrainHeightData data = terrainSystem.GetHeightData();
-			WaterSurfaceData data2 = default(WaterSurfaceData);
-			if (waterSystem != null)
-			{
-				data2 = waterSystem.GetSurfaceData(out var deps);
-				deps.Complete();
-			}
-			if (data.isCreated)
-			{
-				if (data2.isCreated)
-				{
-					terrainHeight = WaterUtils.SampleHeight(ref data2, ref data, pos);
-				}
-				else
-				{
-					terrainHeight = TerrainUtils.SampleHeight(ref data, pos);
-				}
-				return true;
-			}
-		}
-		terrainHeight = 0f;
-		return false;
-	}
-```
-
-- `public TryMatchPosition(Game.Rendering.IGameCameraController other) : System.Void`  
-
-```csharp
-public void TryMatchPosition(IGameCameraController other)
-	{
-		if (TryGetTerrainHeight(other.position, out var terrainHeight))
-		{
-			float num = other.position.y - terrainHeight;
-			float num2 = Mathf.Sin(MathF.PI / 180f * other.rotation.x);
-			float num3 = 1f / (2f - 4f * num2);
-			float num4 = (8f * zoomRange.min - 20f * num) * num2 + zoomRange.min - 2f * num;
-			zoom = Mathf.Clamp(Mathf.Abs(num3 * (Mathf.Sqrt(num4 * num4 - (4f - 8f * num2) * (-4f * zoomRange.min * zoomRange.min + 18f * zoomRange.min * num - 20f * num * num)) + num4)), zoomRange.min, zoomRange.max);
-			Quaternion quaternion = Quaternion.Euler(other.rotation.x, other.rotation.y, other.rotation.z);
-			pivot = other.position + quaternion * new Vector3(0f, 0f, zoom);
-			angle = new float2(other.rotation.y, (other.rotation.x > 90f) ? (other.rotation.x - 360f) : other.rotation.x);
-			base.transform.rotation = quaternion;
-			base.transform.position = other.position;
+			edgeScrolling = gameplaySettings.edgeScrolling;
+			edgeScrollingSensitivity = gameplaySettings.edgeScrollingSensitivity;
 		}
 	}
+	m_VCam = GetComponent<CinemachineVirtualCamera>();
+	m_InitialFarClip = m_VCam.m_Lens.FarClipPlane;
+	m_InitialFov = m_VCam.m_Lens.FieldOfView;
+	clipDistance = float.MaxValue;
+	m_CameraMap = InputManager.instance.FindActionMap("Camera");
+	m_MoveAction = m_CameraMap.FindAction("Move");
+	m_MoveFastAction = m_CameraMap.FindAction("Move Fast");
+	m_RotateAction = m_CameraMap.FindAction("Rotate");
+	m_ZoomAction = m_CameraMap.FindAction("Zoom");
+	m_CameraSystem = World.DefaultGameObjectInjectionWorld.GetOrCreateSystemManaged<CameraUpdateSystem>();
+	m_CameraSystem.gamePlayController = this;
+	m_CollisionSystem = World.DefaultGameObjectInjectionWorld.GetOrCreateSystemManaged<CameraCollisionSystem>();
+}
 ```
 
-- `public UpdateCamera() : System.Void`  
-
-```csharp
-public void UpdateCamera()
-	{
-		if (m_MapTileToolViewEnabled && HandleMapViewCamera())
-		{
-			return;
-		}
-		float2 @float = float2.zero;
-		float2 float2 = float2.zero;
-		float num = 0f;
-		bool flag = false;
-		if (m_CameraMap.enabled)
-		{
-			@float = MathUtils.MaxAbs(m_MoveAction.ReadValue<Vector2>(), m_MoveFastAction.ReadValue<Vector2>());
-			float2 = m_RotateAction.ReadValue<Vector2>();
-			num = m_ZoomAction.ReadValue<float>();
-			if (edgeScrolling && InputManager.instance.activeControlScheme == InputManager.ControlScheme.KeyboardAndMouse && InputManager.instance.mouseOnScreen)
-			{
-				float num2 = edgeScrollingSensitivity;
-				float2 xy = ((float3)InputManager.instance.mousePosition).xy;
-				xy *= 2f / new float2(Screen.width, Screen.height);
-				xy -= 1f;
-				float num3 = 0.02f;
-				float2 float3 = new float2((float)Screen.height / (float)Screen.width * num3, num3);
-				num2 *= math.saturate(math.cmax((math.abs(xy) - (1f - float3)) / float3));
-				num2 *= Time.deltaTime;
-				@float += math.normalizesafe(xy) * num2;
-			}
-		}
-		float num4 = m_Zoom;
-		m_Zoom = MathUtils.Clamp(math.pow(m_Zoom, 1f + num), zoomRange);
-		if (num4 != m_Zoom)
-		{
-			flag = true;
-		}
-		float2.y = 0f - float2.y;
-		m_Angle += float2;
-		m_Angle.y = math.clamp(m_Angle.y, -90f, 90f);
-		if (m_Angle.x < -180f)
-		{
-			m_Angle.x += 360f;
-		}
-		if (m_Angle.x > 180f)
-		{
-			m_Angle.x -= 360f;
-		}
-		float2 float4 = math.radians(m_Angle);
-		float3 float5 = default(float3);
-		float5.x = 0f - math.sin(float4.x);
-		float5.y = 0f;
-		float5.z = 0f - math.cos(float4.x);
-		float3 float6 = float5;
-		float5 *= math.cos(float4.y);
-		float5.y = math.sin(float4.y);
-		float3 float7 = -float5;
-		float5 *= m_Zoom;
-		float3 float8 = math.cross(float6, new float3(0f, 1f, 0f));
-		float3 up = math.cross(float7, float8);
-		@float *= m_Zoom;
-		m_Pivot += @float.x * float8;
-		m_Pivot -= @float.y * float6;
-		float3 cameraPos = GetCameraPos(float5);
-		if (terrainSystem != null)
-		{
-			TerrainHeightData data = terrainSystem.GetHeightData();
-			WaterSurfaceData data2 = default(WaterSurfaceData);
-			if (waterSystem != null && waterSystem.Loaded)
-			{
-				data2 = waterSystem.GetSurfaceData(out var deps);
-				deps.Complete();
-			}
-			if (data.isCreated)
-			{
-				if (data2.isCreated)
-				{
-					m_Pivot.y = math.lerp(WaterUtils.SampleHeight(ref data2, ref data, m_Pivot), m_Pivot.y, m_MoveSmoothing);
-				}
-				else
-				{
-					m_Pivot.y = math.lerp(TerrainUtils.SampleHeight(ref data, m_Pivot), m_Pivot.y, m_MoveSmoothing);
-				}
-				m_Pivot = MathUtils.Clamp(bounds: GameManager.instance.gameMode.IsEditor() ? TerrainUtils.GetEditorCameraBounds(terrainSystem, ref data) : TerrainUtils.GetBounds(ref data), position: m_Pivot);
-				cameraPos = GetCameraPos(float5);
-				float num5 = ((!data2.isCreated) ? (TerrainUtils.SampleHeight(ref data, cameraPos) + zoomRange.min * 0.5f + (m_Zoom - zoomRange.min) * 0.1f) : (WaterUtils.SampleHeight(ref data2, ref data, cameraPos) + zoomRange.min * 0.5f + (m_Zoom - zoomRange.min) * 0.1f));
-				float num6 = (cameraPos.y - num5) / m_Zoom;
-				num6 = (math.sqrt(num6 * num6 + 0.2f) - num6) * (0.5f * m_Zoom);
-				cameraPos.y += num6;
-			}
-		}
-		float3 float9 = cameraPosition;
-		quaternion quaternion = quaternion.LookRotation(float7, up);
-		if (m_CollisionSystem != null && m_CameraSystem != null && m_CameraSystem.activeCamera != null)
-		{
-			float nearClipPlane = m_CameraSystem.activeCamera.nearClipPlane;
-			float2 fieldOfView = default(float2);
-			fieldOfView.y = m_CameraSystem.activeCamera.fieldOfView;
-			fieldOfView.x = Camera.VerticalToHorizontalFieldOfView(fieldOfView.y, m_CameraSystem.activeCamera.aspect);
-			m_CollisionSystem.CheckCollisions(ref cameraPos, float9, quaternion, math.min(m_Zoom - zoomRange.min, 200f), math.min(zoomRange.max - m_Zoom, 200f), math.max(nearClipPlane * 2f, zoomRange.min * 0.5f), nearClipPlane, m_CollisionSmoothing, fieldOfView);
-		}
-		Quaternion localRotation = base.transform.localRotation;
-		cameraPosition = cameraPos;
-		base.transform.localPosition = cameraPos;
-		base.transform.localRotation = quaternion;
-		velocity = math.lengthsq(float9 - cameraPosition) / Time.deltaTime;
-		if (!localRotation.Equals(base.transform.localRotation) || !float9.Equals(cameraPosition))
-		{
-			flag = true;
-		}
-		if (moving != flag)
-		{
-			EventCameraMovingChanged?.Invoke(flag);
-			moving = flag;
-		}
-		AudioManager.instance?.UpdateAudioListener(base.transform.position, base.transform.rotation);
-	}
-```
-
-
-## Nested types
-
-- `Game.CameraController+<Awake>d__95`  
-- `Game.CameraController+<get_inputActions>d__20`  
-
+If you want, I can generate short example snippets showing:
+- how to fetch the CameraController from a mod and read/write pivot/angle/zoom safely;
+- how to subscribe to EventCameraMovingChanged;
+- or how to force a smooth camera transition to a target position using TryMatchPosition. Which would you prefer?

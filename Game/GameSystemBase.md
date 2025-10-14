@@ -1,250 +1,90 @@
-﻿# Game.GameSystemBase
+# Game.GameSystemBase
 
-**Assembly:** `Game`  
-**Namespace:** `Game`  
+**Assembly:**  
+**Namespace:** Game
 
-**Type:** class abstract public  
+**Type:** abstract class
 
-**Base:** `Colossal.Entities.COSystemBase`  
+**Base:** COSystemBase
 
-## Code
-
-```csharp
-public abstract class GameSystemBase : Colossal.Entities.COSystemBase
-{
-    private Game.Serialization.LoadGameSystem m_LoadGameSystem;
-
-    protected GameSystemBase();
-
-    private System.Void FocusChanged(System.Boolean hasfocus);
-    private System.Void GameLoaded(Colossal.Serialization.Entities.Context serializationContext);
-    private System.Void GameLoadingComplete(Colossal.Serialization.Entities.Purpose purpose, Game.GameMode mode);
-    private System.Void GamePreload(Colossal.Serialization.Entities.Purpose purpose, Game.GameMode mode);
-    public virtual System.Int32 GetUpdateInterval(Game.SystemUpdatePhase phase);
-    public virtual System.Int32 GetUpdateOffset(Game.SystemUpdatePhase phase);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnDestroy();
-    protected virtual System.Void OnFocusChanged(System.Boolean hasFocus);
-    protected virtual System.Void OnGameLoaded(Colossal.Serialization.Entities.Context serializationContext);
-    protected virtual System.Void OnGameLoadingComplete(Colossal.Serialization.Entities.Purpose purpose, Game.GameMode mode);
-    protected virtual System.Void OnGamePreload(Colossal.Serialization.Entities.Purpose purpose, Game.GameMode mode);
-    protected virtual System.Void OnWorldReady();
-    public System.Void ResetDependency();
-    private System.Void WorldReady();
-}
-```
-
+**Summary:** GameSystemBase is an abstract base class for game systems that need to integrate with the Cities: Skylines 2 game lifecycle. It wires into GameManager and LoadGameSystem events (world ready, preload, loading complete, save-game loaded) and forwards those events to protected virtual handlers which derived systems can override. It also listens for application focus changes and provides utility methods for update scheduling and dependency resetting. The base implementation wraps event callbacks in try/catch blocks and logs errors (disabling the system on severe failures) so derived systems get a stable, fault-tolerant integration point.
+---
 
 ## Fields
 
-- `private Game.Serialization.LoadGameSystem m_LoadGameSystem`  
+- `private LoadGameSystem m_LoadGameSystem`  
+Holds a reference to the LoadGameSystem retrieved from the default world. Used to subscribe/unsubscribe to the save-game loaded event so the system can be notified when a save is deserialized.
 
-```csharp
-private Game.Serialization.LoadGameSystem m_LoadGameSystem;
-```
+## Properties
 
+This class does not declare any properties.
 
 ## Constructors
 
 - `protected GameSystemBase()`  
-
-```csharp
-[Preserve]
-	protected GameSystemBase()
-	{
-	}
-```
-
+Preserved constructor used by the runtime. Does not perform initialization itself; initialization is done in OnCreate. Marked with Preserve to avoid stripping.
 
 ## Methods
 
-- `private FocusChanged(System.Boolean hasfocus) : System.Void`  
+- `protected override void OnCreate()`  
+Initializes the system: if running in the default World it gets or creates the LoadGameSystem and subscribes the GameLoaded handler to its onOnSaveGameLoaded event. Also subscribes to GameManager lifecycle events (onWorldReady, onGamePreload, onGameLoadingComplete) and to Application.focusChanged. All event callbacks from the game are routed to protected virtual methods that derived classes may override. Exceptions thrown in callbacks are caught and logged to prevent crashes; on serious errors the system may be disabled.
 
-```csharp
-private void FocusChanged(bool hasfocus)
-	{
-		try
-		{
-			OnFocusChanged(hasfocus);
-		}
-		catch (Exception exception)
-		{
-			COSystemBase.baseLog.Error(exception, GetType().Name + ": Error on Focus change");
-		}
-	}
-```
+- `private void FocusChanged(bool hasfocus)`  
+Internal handler for Application.focusChanged. Calls the protected virtual OnFocusChanged inside a try/catch and logs any exceptions.
 
-- `private GameLoaded(Colossal.Serialization.Entities.Context serializationContext) : System.Void`  
+- `protected override void OnDestroy()`  
+Tears down event subscriptions: unsubscribes from GameManager events, removes the GameLoaded delegate from LoadGameSystem if it was registered, unsubscribes Application.focusChanged, and calls base.OnDestroy().
 
-```csharp
-private void GameLoaded(Context serializationContext)
-	{
-		try
-		{
-			OnGameLoaded(serializationContext);
-		}
-		catch (Exception exception)
-		{
-			COSystemBase.baseLog.Error(exception, GetType().Name + ": Error on game load, disabling system...");
-			base.Enabled = false;
-		}
-	}
-```
+- `private void GameLoadingComplete(Purpose purpose, GameMode mode)`  
+Internal handler invoked when the game loading completes. Calls OnGameLoadingComplete in a try/catch and logs errors; on exception the system may be disabled.
 
-- `private GameLoadingComplete(Colossal.Serialization.Entities.Purpose purpose, Game.GameMode mode) : System.Void`  
+- `private void GameLoaded(Context serializationContext)`  
+Internal handler invoked after a save game is loaded. Calls OnGameLoaded in a try/catch; on exception the error is logged and the system is disabled.
 
-```csharp
-private void GameLoadingComplete(Purpose purpose, GameMode mode)
-	{
-		try
-		{
-			OnGameLoadingComplete(purpose, mode);
-		}
-		catch (Exception exception)
-		{
-			COSystemBase.baseLog.Error(exception, GetType().Name + ": Error on state change, disabling system...");
-		}
-	}
-```
+- `private void GamePreload(Purpose purpose, GameMode mode)`  
+Internal handler invoked during game preload. Calls OnGamePreload in a try/catch and disables the system on exception.
 
-- `private GamePreload(Colossal.Serialization.Entities.Purpose purpose, Game.GameMode mode) : System.Void`  
+- `private void WorldReady()`  
+Internal handler for when the game world becomes ready. Calls OnWorldReady in a try/catch and may disable the system on exception.
 
-```csharp
-private void GamePreload(Purpose purpose, GameMode mode)
-	{
-		try
-		{
-			OnGamePreload(purpose, mode);
-		}
-		catch (Exception exception)
-		{
-			COSystemBase.baseLog.Error(exception, GetType().Name + ": Error on game preload, disabling system...");
-			base.Enabled = false;
-		}
-	}
-```
+- `protected virtual void OnWorldReady()`  
+Virtual callback for derived systems to implement logic when the world is ready. Default implementation is empty.
 
-- `public virtual GetUpdateInterval(Game.SystemUpdatePhase phase) : System.Int32`  
+- `protected virtual void OnGamePreload(Purpose purpose, GameMode mode)`  
+Virtual callback for derived systems to react to the game's preload phase. Default implementation is empty.
 
-```csharp
-public virtual int GetUpdateInterval(SystemUpdatePhase phase)
-	{
-		return 1;
-	}
-```
+- `protected virtual void OnGameLoaded(Context serializationContext)`  
+Virtual callback for derived systems to react after a save game is loaded. Default implementation is empty.
 
-- `public virtual GetUpdateOffset(Game.SystemUpdatePhase phase) : System.Int32`  
+- `protected virtual void OnGameLoadingComplete(Purpose purpose, GameMode mode)`  
+Virtual callback for derived systems to react once the game loading is complete. Default implementation is empty.
 
-```csharp
-public virtual int GetUpdateOffset(SystemUpdatePhase phase)
-	{
-		return -1;
-	}
-```
+- `protected virtual void OnFocusChanged(bool hasFocus)`  
+Virtual callback to respond to application focus changes. Default implementation is empty.
 
-- `protected virtual OnCreate() : System.Void`  
+- `public virtual int GetUpdateInterval(SystemUpdatePhase phase)`  
+Returns the update interval used by the system. Default returns 1. Derived systems can override to change how frequently the system runs relative to the scheduler.
+
+- `public virtual int GetUpdateOffset(SystemUpdatePhase phase)`  
+Returns an update offset for scheduling relative updates. Default returns -1. Override to control per-phase offset placement.
+
+- `public void ResetDependency()`  
+Resets the ECS Dependency property to the default JobHandle, clearing any previously set dependency. Useful when a system wants to break dependency chains or ensure no pending jobs are awaited.
 
 ```csharp
 [Preserve]
-	protected override void OnCreate()
+protected override void OnCreate()
+{
+	base.OnCreate();
+	if (base.World == World.DefaultGameObjectInjectionWorld)
 	{
-		base.OnCreate();
-		if (base.World == World.DefaultGameObjectInjectionWorld)
-		{
-			m_LoadGameSystem = base.World.GetOrCreateSystemManaged<LoadGameSystem>();
-			LoadGameSystem loadGameSystem = m_LoadGameSystem;
-			loadGameSystem.onOnSaveGameLoaded = (LoadGameSystem.EventGameLoaded)Delegate.Combine(loadGameSystem.onOnSaveGameLoaded, new LoadGameSystem.EventGameLoaded(GameLoaded));
-		}
-		GameManager.instance.onWorldReady += WorldReady;
-		GameManager.instance.onGamePreload += GamePreload;
-		GameManager.instance.onGameLoadingComplete += GameLoadingComplete;
-		Application.focusChanged += FocusChanged;
+		m_LoadGameSystem = base.World.GetOrCreateSystemManaged<LoadGameSystem>();
+		LoadGameSystem loadGameSystem = m_LoadGameSystem;
+		loadGameSystem.onOnSaveGameLoaded = (LoadGameSystem.EventGameLoaded)Delegate.Combine(loadGameSystem.onOnSaveGameLoaded, new LoadGameSystem.EventGameLoaded(GameLoaded));
 	}
+	GameManager.instance.onWorldReady += WorldReady;
+	GameManager.instance.onGamePreload += GamePreload;
+	GameManager.instance.onGameLoadingComplete += GameLoadingComplete;
+	Application.focusChanged += FocusChanged;
+}
 ```
-
-- `protected virtual OnDestroy() : System.Void`  
-
-```csharp
-[Preserve]
-	protected override void OnDestroy()
-	{
-		GameManager.instance.onWorldReady -= WorldReady;
-		GameManager.instance.onGamePreload -= GamePreload;
-		GameManager.instance.onGameLoadingComplete -= GameLoadingComplete;
-		if (base.World == World.DefaultGameObjectInjectionWorld && m_LoadGameSystem != null)
-		{
-			LoadGameSystem loadGameSystem = m_LoadGameSystem;
-			loadGameSystem.onOnSaveGameLoaded = (LoadGameSystem.EventGameLoaded)Delegate.Remove(loadGameSystem.onOnSaveGameLoaded, new LoadGameSystem.EventGameLoaded(GameLoaded));
-		}
-		Application.focusChanged -= FocusChanged;
-		base.OnDestroy();
-	}
-```
-
-- `protected virtual OnFocusChanged(System.Boolean hasFocus) : System.Void`  
-
-```csharp
-protected virtual void OnFocusChanged(bool hasFocus)
-	{
-	}
-```
-
-- `protected virtual OnGameLoaded(Colossal.Serialization.Entities.Context serializationContext) : System.Void`  
-
-```csharp
-protected virtual void OnGameLoaded(Context serializationContext)
-	{
-	}
-```
-
-- `protected virtual OnGameLoadingComplete(Colossal.Serialization.Entities.Purpose purpose, Game.GameMode mode) : System.Void`  
-
-```csharp
-protected virtual void OnGameLoadingComplete(Purpose purpose, GameMode mode)
-	{
-	}
-```
-
-- `protected virtual OnGamePreload(Colossal.Serialization.Entities.Purpose purpose, Game.GameMode mode) : System.Void`  
-
-```csharp
-protected virtual void OnGamePreload(Purpose purpose, GameMode mode)
-	{
-	}
-```
-
-- `protected virtual OnWorldReady() : System.Void`  
-
-```csharp
-protected virtual void OnWorldReady()
-	{
-	}
-```
-
-- `public ResetDependency() : System.Void`  
-
-```csharp
-public void ResetDependency()
-	{
-		base.Dependency = default(JobHandle);
-	}
-```
-
-- `private WorldReady() : System.Void`  
-
-```csharp
-private void WorldReady()
-	{
-		try
-		{
-			OnWorldReady();
-		}
-		catch (Exception exception)
-		{
-			COSystemBase.baseLog.Error(exception, GetType().Name + ": Error on game preload, disabling system...");
-			base.Enabled = false;
-		}
-	}
-```
-
-

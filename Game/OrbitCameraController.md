@@ -1,444 +1,158 @@
-﻿# Game.OrbitCameraController
+# Game.OrbitCameraController
 
-**Assembly:** `Game`  
-**Namespace:** `Game`  
+**Assembly:**  
+Assembly-CSharp (game runtime)
 
-**Type:** class public  
+**Namespace:**  
+Game
 
-**Base:** `UnityEngine.MonoBehaviour`  
-**Implements:** `Game.Rendering.IGameCameraController`  
+**Type:**  
+class OrbitCameraController
 
-## Code
+**Base:**  
+UnityEngine.MonoBehaviour, IGameCameraController
 
-```csharp
-public class OrbitCameraController : UnityEngine.MonoBehaviour, Game.Rendering.IGameCameraController
-{
-    public Unity.Mathematics.float2 m_ZoomRange;
-    public System.Single m_FollowSmoothing;
-    private Unity.Entities.Entity m_Entity;
-    private System.Single m_FollowTimer;
-    private Game.OrbitCameraController+Mode <mode>k__BackingField;
-    private Unity.Mathematics.float2 m_Rotation;
-    private UnityEngine.GameObject m_Anchor;
-    private Cinemachine.CinemachineVirtualCamera m_VCam;
-    private Cinemachine.CinemachineOrbitalTransposer m_Transposer;
-    private Game.CinemachineRestrictToTerrain m_Collider;
-    private Game.CameraInput m_CameraInput;
-    private Game.Rendering.CameraUpdateSystem m_CameraUpdateSystem;
-    private System.Boolean <inputEnabled>k__BackingField;
-    private System.Single <zoom>k__BackingField;
-    private System.Single <yOffset>k__BackingField;
-    private System.Single <xOffset>k__BackingField;
-    private System.Action <EventCameraMove>k__BackingField;
-    private static readonly System.Single kPivotVerticalOffset;
-
-    public Unity.Entities.Entity followedEntity { get; set; }
-    public Game.OrbitCameraController+Mode mode { get; set; }
-    public UnityEngine.Vector3 pivot { get; set; }
-    public UnityEngine.Vector3 position { get; set; }
-    public System.Boolean controllerEnabled { get; set; }
-    public System.Boolean inputEnabled { get; set; }
-    public UnityEngine.Vector3 rotation { get; set; }
-    public System.Single zoom { get; set; }
-    public System.Single yOffset { get; set; }
-    public System.Single xOffset { get; set; }
-    public Cinemachine.ICinemachineCamera virtualCamera { get; }
-    public Cinemachine.LensSettings& lens { get; }
-    public System.Boolean collisionsEnabled { get; set; }
-    public System.Action EventCameraMove { get; set; }
-
-    public OrbitCameraController();
-
-    private System.Void Awake();
-    private System.Void OnDestroy();
-    private System.Void OnDisable();
-    private System.Void OnEnable();
-    private System.Void RefreshAudioFollow(System.Boolean active);
-    private static System.Boolean TryGetPosition(Unity.Entities.Entity e, Unity.Entities.EntityManager entityManager, Unity.Mathematics.float3& position, Unity.Mathematics.quaternion& rotation, System.Single& radius);
-    public System.Void TryMatchPosition(Game.Rendering.IGameCameraController other);
-    public System.Void UpdateCamera();
-}
-```
-
+**Summary:** The OrbitCameraController is the game's general-purpose orbiting camera used by gameplay, photo mode and editor modes. It integrates with Cinemachine (virtual camera, orbital transposer and terrain collision helper), receives input from CameraInput, updates the AudioManager listener/follow target, and is registered with the game's CameraUpdateSystem. It supports following entities, free orbiting, zooming and panning while clamping to terrain and a configured zoom range. This class is intended for Cities: Skylines 2 modding to inspect or extend in-game camera behavior.
+---
 
 ## Fields
 
-- `public Unity.Mathematics.float2 m_ZoomRange`  
+- `private static readonly System.Single kPivotVerticalOffset`  
+Constant vertical offset (10f) used to keep the pivot point above terrain center when clamping to terrain.
 
-```csharp
-public Unity.Mathematics.float2 m_ZoomRange;
-```
+- `public Unity.Mathematics.float2 m_ZoomRange`  
+Public zoom range (min,max) expressed as float2. Default is (10f, 10000f). Used to clamp zoom.
 
 - `public System.Single m_FollowSmoothing`  
-
-```csharp
-public System.Single m_FollowSmoothing;
-```
+Smoothing factor for following targets (default ~0.01f). Controls interpolation when the camera follows an entity.
 
 - `private Unity.Entities.Entity m_Entity`  
-
-```csharp
-private Unity.Entities.Entity m_Entity;
-```
+Backing field for the followed entity. Entity.Null means no follow target.
 
 - `private System.Single m_FollowTimer`  
-
-```csharp
-private System.Single m_FollowTimer;
-```
-
-- `private Game.OrbitCameraController+Mode <mode>k__BackingField`  
-
-```csharp
-private Game.OrbitCameraController+Mode <mode>k__BackingField;
-```
+Internal timer used to modulate follow smoothing over time.
 
 - `private Unity.Mathematics.float2 m_Rotation`  
-
-```csharp
-private Unity.Mathematics.float2 m_Rotation;
-```
+Internal rotation state stored as (yaw, pitch) in degrees (x = yaw, y = pitch).
 
 - `private UnityEngine.GameObject m_Anchor`  
-
-```csharp
-private UnityEngine.GameObject m_Anchor;
-```
+A dynamically created anchor GameObject used as the LookAt/Follow target for the Cinemachine virtual camera.
 
 - `private Cinemachine.CinemachineVirtualCamera m_VCam`  
-
-```csharp
-private Cinemachine.CinemachineVirtualCamera m_VCam;
-```
+Reference to the Cinemachine virtual camera component on the same GameObject.
 
 - `private Cinemachine.CinemachineOrbitalTransposer m_Transposer`  
+Reference to the Cinemachine orbital transposer component used to position the camera relative to the anchor.
 
-```csharp
-private Cinemachine.CinemachineOrbitalTransposer m_Transposer;
-```
+- `private CinemachineRestrictToTerrain m_Collider`  
+Helper component that clamps camera positions to terrain and optionally restricts to the map area.
 
-- `private Game.CinemachineRestrictToTerrain m_Collider`  
+- `private CameraInput m_CameraInput`  
+Component that provides camera input (rotation, zoom, movement). May be null if not present.
 
-```csharp
-private Game.CinemachineRestrictToTerrain m_Collider;
-```
-
-- `private Game.CameraInput m_CameraInput`  
-
-```csharp
-private Game.CameraInput m_CameraInput;
-```
-
-- `private Game.Rendering.CameraUpdateSystem m_CameraUpdateSystem`  
-
-```csharp
-private Game.Rendering.CameraUpdateSystem m_CameraUpdateSystem;
-```
-
-- `private System.Boolean <inputEnabled>k__BackingField`  
-
-```csharp
-private System.Boolean <inputEnabled>k__BackingField;
-```
-
-- `private System.Single <zoom>k__BackingField`  
-
-```csharp
-private System.Single <zoom>k__BackingField;
-```
-
-- `private System.Single <yOffset>k__BackingField`  
-
-```csharp
-private System.Single <yOffset>k__BackingField;
-```
-
-- `private System.Single <xOffset>k__BackingField`  
-
-```csharp
-private System.Single <xOffset>k__BackingField;
-```
-
-- `private System.Action <EventCameraMove>k__BackingField`  
-
-```csharp
-private System.Action <EventCameraMove>k__BackingField;
-```
-
-- `private static readonly System.Single kPivotVerticalOffset`  
-
-```csharp
-private static readonly System.Single kPivotVerticalOffset;
-```
-
+- `private CameraUpdateSystem m_CameraUpdateSystem`  
+Reference to the game's CameraUpdateSystem; the controller registers itself there so it can be updated by the game world.
 
 ## Properties
 
-- `public Unity.Entities.Entity followedEntity { get; set }`  
+- `public Unity.Entities.Entity followedEntity { get; set; }`  
+Gets or sets the entity the camera should follow. Setting this resets follow offsets/timer and refreshes audio follow target if the component is enabled. If the component is disabled the getter returns Entity.Null.
 
-```csharp
-public Unity.Entities.Entity followedEntity { get; set; }
-```
+- `public Mode mode { get; set; }`  
+Current mode of the orbit camera (Follow, PhotoMode, Editor). Mode affects how the camera is used by UI/scene flow but is otherwise a simple enum property.
 
-- `public Game.OrbitCameraController+Mode mode { get; set }`  
+- `public UnityEngine.Vector3 pivot { get; set; }`  
+World-space pivot point used by the camera anchor. Getting/setting read/writes m_Anchor.transform.position.
 
-```csharp
-public Game.OrbitCameraController+Mode mode { get; set; }
-```
+- `public UnityEngine.Vector3 position { get; set; }`  
+Camera GameObject position. Setting also positions the anchor along the camera's forward with respect to the current zoom so Cinemachine follows correctly.
 
-- `public UnityEngine.Vector3 pivot { get; set }`  
+- `public bool controllerEnabled { get; set; }`  
+Enable/disable the controller GameObject. Setting toggles the GameObject active state. Getting returns isActiveAndEnabled.
 
-```csharp
-public UnityEngine.Vector3 pivot { get; set; }
-```
+- `public bool inputEnabled { get; set; }`  
+Whether camera input is processed. Default true. When false user input (rotate/zoom/move) is ignored.
 
-- `public UnityEngine.Vector3 position { get; set }`  
+- `public UnityEngine.Vector3 rotation { get; set; }`  
+World Euler rotation of the anchor (degrees). Setting writes to m_Rotation (yaw, pitch).
 
-```csharp
-public UnityEngine.Vector3 position { get; set; }
-```
+- `public System.Single zoom { get; set; }`  
+Distance from the anchor pivot to the camera (used to set Cinemachine transposer offset). Clamped to m_ZoomRange during Awake and when applying input.
 
-- `public System.Boolean controllerEnabled { get; set }`  
+- `public System.Single yOffset { get; set; }`  
+Vertical offset applied to the anchor when following a target.
 
-```csharp
-public System.Boolean controllerEnabled { get; set; }
-```
+- `public System.Single xOffset { get; set; }`  
+Horizontal offset applied to the anchor when following a target.
 
-- `public System.Boolean inputEnabled { get; set }`  
+- `public Cinemachine.ICinemachineCamera virtualCamera { get; }`  
+Read-only accessor to the Cinemachine virtual camera instance.
 
-```csharp
-public System.Boolean inputEnabled { get; set; }
-```
+- `public ref Cinemachine.LensSettings lens { get; }`  
+Ref accessor to the Cinemachine lens settings on the virtual camera (m_VCam.m_Lens). Useful to read/modify FOV and other lens properties directly.
 
-- `public UnityEngine.Vector3 rotation { get; set }`  
+- `public bool collisionsEnabled { get; set; }`  
+Wraps m_Collider.enableObjectCollisions; enables or disables object collision checks for the CinemachineRestrictToTerrain component.
 
-```csharp
-public UnityEngine.Vector3 rotation { get; set; }
-```
-
-- `public System.Single zoom { get; set }`  
-
-```csharp
-public System.Single zoom { get; set; }
-```
-
-- `public System.Single yOffset { get; set }`  
-
-```csharp
-public System.Single yOffset { get; set; }
-```
-
-- `public System.Single xOffset { get; set }`  
-
-```csharp
-public System.Single xOffset { get; set; }
-```
-
-- `public Cinemachine.ICinemachineCamera virtualCamera { get }`  
-
-```csharp
-public Cinemachine.ICinemachineCamera virtualCamera { get; }
-```
-
-- `public Cinemachine.LensSettings& lens { get }`  
-
-```csharp
-public Cinemachine.LensSettings& lens { get; }
-```
-
-- `public System.Boolean collisionsEnabled { get; set }`  
-
-```csharp
-public System.Boolean collisionsEnabled { get; set; }
-```
-
-- `public System.Action EventCameraMove { get; set }`  
-
-```csharp
-public System.Action EventCameraMove { get; set; }
-```
-
+- `public System.Action EventCameraMove { get; set; }`  
+Event invoked when the camera is moved by input or when map tile view is active (used by UI to react to camera movement).
 
 ## Constructors
 
 - `public OrbitCameraController()`  
-
-```csharp
-public OrbitCameraController();
-```
-
+Default Unity constructor. Instances are created by the engine when the MonoBehaviour is added to a GameObject. Initialization is performed asynchronously in Awake once the GameManager is ready.
 
 ## Methods
 
-- `private Awake() : System.Void`  
+- `private async void Awake()`  
+Async initialization executed after GameManager reports ready. Creates the anchor GameObject, finds and wires Cinemachine components (virtual camera, transposer, terrain collider), initializes CameraInput, registers with CameraUpdateSystem and clamps initial zoom. Also disables the controller GameObject by default until explicitly enabled.
+
+- `private void OnEnable()`  
+Enables audio follow target when the controller is enabled.
+
+- `private void OnDisable()`  
+Disables audio follow target when the controller is disabled.
+
+- `private void RefreshAudioFollow(bool active)`  
+Utility called from OnEnable/OnDisable and when changing followedEntity: sets AudioManager.instance.followed to the current followed entity or Entity.Null.
+
+- `private void OnDestroy()`  
+Cleanup: destroys the dynamically created anchor GameObject and clears references on CameraUpdateSystem.
+
+- `public void TryMatchPosition(IGameCameraController other)`  
+Copy rotation/zoom/pivot state from another IGameCameraController. For CinematicCameraController it computes pivot/zoom so the perspectives match by clamping to terrain and accounting for target height. For other camera types it copies zoom and pivot directly.
+
+- `public void UpdateCamera()`  
+Main update routine called by the CameraUpdateSystem. Refreshes collider/input, processes user input (rotation, zoom, movement), handles free panning or following an entity (with smoothing), updates Cinemachine transposer offset to reflect zoom + target radius, updates the AudioListener and fires EventCameraMove when appropriate.
+
+- `private static bool TryGetPosition(Entity e, EntityManager entityManager, out Unity.Mathematics.float3 position, out Unity.Mathematics.quaternion rotation, out System.Single radius)`  
+Helper to query selected entity position, rotation and bounding radius using SelectedInfoUISystem.TryGetPosition. Returns true when a valid position was retrieved; otherwise out parameters are zeroed and returns false.
 
 ```csharp
 private async void Awake()
-	{
-		if (await GameManager.instance.WaitForReadyState())
-		{
-			m_Anchor = new GameObject("OrbitCameraAnchor");
-			Transform transform = m_Anchor.transform;
-			m_VCam = GetComponent<CinemachineVirtualCamera>();
-			m_Transposer = m_VCam.GetCinemachineComponent<CinemachineOrbitalTransposer>();
-			m_Collider = GetComponent<CinemachineRestrictToTerrain>();
-			if (m_VCam != null)
-			{
-				m_VCam.LookAt = transform;
-				m_VCam.Follow = transform;
-			}
-			base.gameObject.SetActive(value: false);
-			m_CameraInput = GetComponent<CameraInput>();
-			if (m_CameraInput != null)
-			{
-				m_CameraInput.Initialize();
-			}
-			m_CameraUpdateSystem = World.DefaultGameObjectInjectionWorld.GetOrCreateSystemManaged<CameraUpdateSystem>();
-			m_CameraUpdateSystem.orbitCameraController = this;
-			zoom = Mathf.Clamp(zoom, m_ZoomRange.x, m_ZoomRange.y);
-		}
-	}
+{
+    if (await GameManager.instance.WaitForReadyState())
+    {
+        m_Anchor = new GameObject("OrbitCameraAnchor");
+        Transform transform = m_Anchor.transform;
+        m_VCam = GetComponent<CinemachineVirtualCamera>();
+        m_Transposer = m_VCam.GetCinemachineComponent<CinemachineOrbitalTransposer>();
+        m_Collider = GetComponent<CinemachineRestrictToTerrain>();
+        if (m_VCam != null)
+        {
+            m_VCam.LookAt = transform;
+            m_VCam.Follow = transform;
+        }
+        base.gameObject.SetActive(value: false);
+        m_CameraInput = GetComponent<CameraInput>();
+        if (m_CameraInput != null)
+        {
+            m_CameraInput.Initialize();
+        }
+        m_CameraUpdateSystem = World.DefaultGameObjectInjectionWorld.GetOrCreateSystemManaged<CameraUpdateSystem>();
+        m_CameraUpdateSystem.orbitCameraController = this;
+        zoom = Mathf.Clamp(zoom, m_ZoomRange.x, m_ZoomRange.y);
+    }
+}
 ```
-
-- `private OnDestroy() : System.Void`  
-
-```csharp
-private void OnDestroy()
-	{
-		if (m_Anchor != null)
-		{
-			UnityEngine.Object.Destroy(m_Anchor);
-		}
-		if (m_CameraUpdateSystem != null)
-		{
-			m_CameraUpdateSystem.cinematicCameraController = null;
-		}
-	}
-```
-
-- `private OnDisable() : System.Void`  
-
-```csharp
-private void OnDisable()
-	{
-		RefreshAudioFollow(active: false);
-	}
-```
-
-- `private OnEnable() : System.Void`  
-
-```csharp
-private void OnEnable()
-	{
-		RefreshAudioFollow(active: true);
-	}
-```
-
-- `private RefreshAudioFollow(System.Boolean active) : System.Void`  
-
-```csharp
-private void RefreshAudioFollow(bool active)
-	{
-		if (AudioManager.instance != null)
-		{
-			AudioManager.instance.followed = (active ? m_Entity : Entity.Null);
-		}
-	}
-```
-
-- `private static TryGetPosition(Unity.Entities.Entity e, Unity.Entities.EntityManager entityManager, Unity.Mathematics.float3& position, Unity.Mathematics.quaternion& rotation, System.Single& radius) : System.Boolean`  
-
-```csharp
-private static bool TryGetPosition(Entity e, EntityManager entityManager, out float3 position, out quaternion rotation, out float radius)
-	{
-		int elementIndex = -1;
-		if (e != Entity.Null && SelectedInfoUISystem.TryGetPosition(e, entityManager, ref elementIndex, out var _, out position, out var bounds, out rotation, reinterpolate: true))
-		{
-			position.y = MathUtils.Center(bounds.y);
-			float3 @float = (bounds.max - bounds.min) / 2f;
-			radius = Mathf.Min(@float.x, @float.y, @float.z);
-			return true;
-		}
-		position = float3.zero;
-		rotation = quaternion.identity;
-		radius = 0f;
-		return false;
-	}
-```
-
-- `public TryMatchPosition(Game.Rendering.IGameCameraController other) : System.Void`  
-
-```csharp
-public void TryMatchPosition(IGameCameraController other)
-	{
-		rotation = other.rotation;
-		if (other is CinematicCameraController)
-		{
-			m_Collider.ClampToTerrain(other.position, restrictToMapArea: false, out var terrainHeight);
-			float num = other.position.y - terrainHeight - kPivotVerticalOffset;
-			zoom = Mathf.Clamp(num / Mathf.Sin(MathF.PI / 180f * Mathf.Abs(other.rotation.x)), m_ZoomRange.x, m_ZoomRange.y);
-			pivot = new Vector3(other.position.x, num, other.position.z) + Quaternion.Euler(other.rotation) * new Vector3(0f, 0f, zoom);
-		}
-		else
-		{
-			zoom = Mathf.Clamp(other.zoom, m_ZoomRange.x, m_ZoomRange.y);
-			pivot = other.pivot;
-		}
-	}
-```
-
-- `public UpdateCamera() : System.Void`  
-
-```csharp
-public void UpdateCamera()
-	{
-		m_Collider.Refresh();
-		m_CameraInput.Refresh();
-		if (inputEnabled && m_CameraInput != null)
-		{
-			Vector2 rotate = m_CameraInput.rotate;
-			m_Rotation.x = (m_Rotation.x + rotate.x) % 360f;
-			m_Rotation.y = Mathf.Clamp((m_Rotation.y + 90f) % 360f - rotate.y, 0f, 180f) - 90f;
-			float num = m_CameraInput.zoom;
-			zoom = Mathf.Clamp(math.pow(zoom, 1f + num), m_ZoomRange.x, m_ZoomRange.y);
-			if (followedEntity == Entity.Null)
-			{
-				Vector2 move = m_CameraInput.move;
-				Vector3 vector = m_Anchor.transform.position;
-				vector = m_Collider.ClampToTerrain(vector, restrictToMapArea: true, out var _);
-				Vector2 vector2 = move * zoom;
-				Vector3 vector3 = vector + (Vector3)math.mul(quaternion.AxisAngle(new float3(0f, 1f, 0f), math.radians(m_Anchor.transform.rotation.eulerAngles.y)), new float3(vector2.x, 0f, vector2.y));
-				vector3 = m_Collider.ClampToTerrain(vector3, restrictToMapArea: true, out var terrainHeight2);
-				vector3.y = terrainHeight2 + kPivotVerticalOffset;
-				m_Anchor.transform.position = vector3;
-			}
-			if (TryGetPosition(followedEntity, World.DefaultGameObjectInjectionWorld.EntityManager, out var @float, out var _, out var radius))
-			{
-				m_Anchor.transform.rotation = quaternion.Euler(math.radians(m_Rotation.y), math.radians(m_Rotation.x), 0f);
-				float3 float2 = (float3)pivot - @float;
-				m_FollowTimer += Time.deltaTime;
-				float num2 = math.pow(m_FollowSmoothing, Time.deltaTime) * math.smoothstep(0.5f, 0f, m_FollowTimer);
-				float2 *= num2;
-				m_Anchor.transform.position = @float + float2 + math.mul(m_Anchor.transform.rotation, new float3(xOffset, yOffset, 0f));
-			}
-			else
-			{
-				m_Anchor.transform.rotation = quaternion.Euler(math.radians(m_Rotation.y), math.radians(m_Rotation.x), 0f);
-			}
-			m_Transposer.m_FollowOffset.z = 0f - zoom - radius;
-		}
-		Transform transform = base.transform;
-		AudioManager.instance?.UpdateAudioListener(transform.position, transform.rotation);
-		if (m_CameraInput.isMoving || MapTilesUISystem.mapTileViewActive)
-		{
-			EventCameraMove?.Invoke();
-		}
-	}
-```
-
-
-## Nested types
-
-- `Game.OrbitCameraController+Mode`  
-- `Game.OrbitCameraController+<Awake>d__59`  
 

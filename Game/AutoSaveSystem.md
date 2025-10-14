@@ -1,270 +1,91 @@
-﻿# Game.AutoSaveSystem
+# Game.AutoSaveSystem
 
-**Assembly:** `Game`  
-**Namespace:** `Game`  
+**Assembly:** Game  
+**Namespace:** Game
 
-**Type:** class public  
+**Type:** class
 
-**Base:** `Game.GameSystemBase`  
+**Base:** GameSystemBase
 
-**Attributes:** `CompilerGenerated`  
-
-## Code
-
-```csharp
-public class AutoSaveSystem : Game.GameSystemBase
-{
-    private System.Single m_LastAutoSaveCheck;
-
-    private System.Single timeSinceStartup { private get; }
-
-    public AutoSaveSystem();
-
-    private static System.Threading.Tasks.Task AutoSave();
-    private System.Void CheckAutoSave(Game.Settings.GeneralSettings settings);
-    private static Colossal.IO.AssetDatabase.ILocalAssetDatabase GetAutoSaveDatabaseTarget();
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnDestroy();
-    protected virtual System.Void OnGameLoadingComplete(Colossal.Serialization.Entities.Purpose purpose, Game.GameMode mode);
-    protected virtual System.Void OnGamePreload(Colossal.Serialization.Entities.Purpose purpose, Game.GameMode mode);
-    private System.Void OnSettingsChanged(Game.Settings.Setting setting);
-    protected virtual System.Void OnUpdate();
-    public System.Threading.Tasks.Task PerformAutoSave(Game.Settings.GeneralSettings settings);
-    private System.Void PruneAutoSaves(Game.Settings.GeneralSettings settings);
-    private static System.Threading.Tasks.Task SafeAutoSave();
-}
-```
-
+**Summary:** Manages the game's automatic save workflow. Watches the user's auto-save setting, enables/disables the periodic auto-save "watch", triggers auto-saves when the configured interval elapses, prunes old auto-save files according to user limits, and performs the actual save operation (including creating a preview texture). Uses TaskManager to schedule the save task and logs errors if they occur.
+---
 
 ## Fields
 
-- `private System.Single m_LastAutoSaveCheck`  
-
-```csharp
-private System.Single m_LastAutoSaveCheck;
-```
-
+- `private float m_LastAutoSaveCheck = -1f`  
+Tracks the last time (Time.realtimeSinceStartup) the auto-save check ran. A value of -1f indicates the auto-save watch is inactive.
 
 ## Properties
 
-- `private System.Single timeSinceStartup { private get }`  
-
-```csharp
-private System.Single timeSinceStartup { private get; }
-```
-
+- `private float timeSinceStartup => UnityEngine.Time.realtimeSinceStartup`  
+Convenience property that returns UnityEngine.Time.realtimeSinceStartup. Used to compute elapsed time for auto-save intervals.
 
 ## Constructors
 
 - `public AutoSaveSystem()`  
-
-```csharp
-[Preserve]
-	public AutoSaveSystem()
-	{
-	}
-```
-
+Default constructor. Marked with [Preserve] in the source. Initializes the system (no custom logic in constructor; initialization happens in OnCreate).
 
 ## Methods
 
-- `private static AutoSave() : System.Threading.Tasks.Task`  
+- `protected override void OnCreate()`  
+Subscribes to SharedSettings.instance.general.onSettingsApplied so the system can react when general settings change (for example toggling auto-save). Calls base.OnCreate().
 
-```csharp
-private static async Task AutoSave()
-	{
-		RenderTexture preview = ScreenCaptureHelper.CreateRenderTarget("PreviewSaveGame-Auto", 680, 383);
-		ScreenCaptureHelper.CaptureScreenshot(Camera.main, preview, new MenuHelpers.SaveGamePreviewSettings());
-		MenuUISystem existingSystemManaged = World.DefaultGameObjectInjectionWorld.GetExistingSystemManaged<MenuUISystem>();
-		string text = $"{DateTime.Now:dd-MMMM-HH-mm-ss}";
-		COSystemBase.baseLog.InfoFormat("Auto-saving {0}...", text);
-		try
-		{
-			ILocalAssetDatabase autoSaveDatabaseTarget = GetAutoSaveDatabaseTarget();
-			if (autoSaveDatabaseTarget.Exists<PackageAsset>(SaveHelpers.GetAssetDataPath<SaveGameMetadata>(autoSaveDatabaseTarget, text), out var asset))
-			{
-				autoSaveDatabaseTarget.DeleteAsset(asset);
-			}
-			await GameManager.instance.Save(text, existingSystemManaged.GetSaveInfo(autoSave: true), autoSaveDatabaseTarget, preview);
-		}
-		catch (Exception exception)
-		{
-			COSystemBase.baseLog.Error(exception);
-		}
-		finally
-		{
-			CoreUtils.Destroy(preview);
-		}
-	}
-```
+- `private void OnSettingsChanged(Setting setting)`  
+Event handler invoked when general settings are applied. If the current mode is a game and the setting is GeneralSettings:
+  - If autoSave is enabled and the watch is not already active, it prunes auto-saves, sets m_LastAutoSaveCheck to current time, and logs that the watch is active.
+  - If autoSave is disabled and the watch is active, it prunes auto-saves, deactivates the watch (sets m_LastAutoSaveCheck = -1f), and logs the change.
 
-- `private CheckAutoSave(Game.Settings.GeneralSettings settings) : System.Void`  
+- `protected override void OnDestroy()`  
+Unsubscribes from SharedSettings.instance.general.onSettingsApplied and calls base.OnDestroy().
 
-```csharp
-private async void CheckAutoSave(GeneralSettings settings)
-	{
-		if (timeSinceStartup - m_LastAutoSaveCheck > (float)settings.autoSaveInterval)
-		{
-			COSystemBase.baseLog.DebugFormat("Auto-save triggered after {0}s", m_LastAutoSaveCheck);
-			m_LastAutoSaveCheck = timeSinceStartup;
-			await PerformAutoSave(settings);
-		}
-	}
-```
+- `protected override void OnGamePreload(Purpose purpose, GameMode mode)`  
+Called during preload. If auto-save is enabled in settings, ensures the auto-save watch starts as inactive (sets m_LastAutoSaveCheck = -1f and logs).
 
-- `private static GetAutoSaveDatabaseTarget() : Colossal.IO.AssetDatabase.ILocalAssetDatabase`  
+- `protected override void OnGameLoadingComplete(Purpose purpose, GameMode mode)`  
+Called after a save/load or new game finishes loading. If loading purpose is LoadGame or NewGame and auto-save is enabled, activates the auto-save watch by setting m_LastAutoSaveCheck to the current time and logs activation.
 
-```csharp
-private static ILocalAssetDatabase GetAutoSaveDatabaseTarget()
-	{
-		return AssetDatabase.user;
-	}
-```
+- `protected override void OnUpdate()`  
+Runs each frame. If auto-save watch is active (m_LastAutoSaveCheck >= 0) and current mode is a game, and autoSave setting is enabled, calls CheckAutoSave to determine if an auto-save should be performed.
 
-- `protected virtual OnCreate() : System.Void`  
+- `private async void CheckAutoSave(GeneralSettings settings)`  
+Checks whether the elapsed time since m_LastAutoSaveCheck exceeds settings.autoSaveInterval. If so:
+  - Logs that auto-save was triggered,
+  - Updates m_LastAutoSaveCheck to the current time,
+  - Awaits PerformAutoSave(settings).
 
-```csharp
-[Preserve]
-	protected override void OnCreate()
-	{
-		base.OnCreate();
-		SharedSettings.instance.general.onSettingsApplied += OnSettingsChanged;
-	}
-```
+- `private void PruneAutoSaves(GeneralSettings settings)`  
+Removes old auto-save files when the user has set a finite auto-save count:
+  - If settings.autoSaveCount == Unlimited, returns immediately.
+  - Otherwise queries the auto-save asset database for SaveGameMetadata assets with target.autoSave == true, orders by lastModified descending, then deletes saves that exceed the configured count using SaveHelpers.DeleteSaveGame.
+  - Wraps logic in try/catch and logs exceptions.
 
-- `protected virtual OnDestroy() : System.Void`  
+- `public async Task PerformAutoSave(GeneralSettings settings)`  
+Performs an auto-save by:
+  - Awaiting SafeAutoSave() to schedule and run the save task,
+  - Then calling PruneAutoSaves(settings) to remove older auto-saves.
+
+- `private static Task SafeAutoSave()`  
+Enqueues the actual AutoSave method as a named task on TaskManager: TaskManager.instance.EnqueueTask("SaveLoadGame", AutoSave, 1). Returns the task that runs AutoSave.
+
+- `private static async Task AutoSave()`  
+Performs the save operation on the scheduled task:
+  - Creates a RenderTexture preview via ScreenCaptureHelper.CreateRenderTarget("PreviewSaveGame-Auto", 680, 383).
+  - Captures a screenshot of Camera.main into the preview using MenuHelpers.SaveGamePreviewSettings.
+  - Obtains the MenuUISystem to collect save metadata and constructs a timestamped save name using DateTime.Now with format "dd-MMMM-HH-mm-ss".
+  - Logs the auto-save attempt.
+  - Gets the auto-save asset database (GetAutoSaveDatabaseTarget()) and deletes any existing asset that would conflict with the new timestamped name.
+  - Calls GameManager.instance.Save(name, saveInfo, autoSaveDatabaseTarget, preview) and awaits it.
+  - Ensures the preview RenderTexture is destroyed in a finally block.
+  - Catches and logs exceptions.
+
+- `private static ILocalAssetDatabase GetAutoSaveDatabaseTarget()`  
+Returns the ILocalAssetDatabase used for auto-saves. In this implementation it returns AssetDatabase.user (the user's local asset database).
 
 ```csharp
 [Preserve]
-	protected override void OnDestroy()
-	{
-		SharedSettings.instance.general.onSettingsApplied -= OnSettingsChanged;
-		base.OnDestroy();
-	}
+    protected override void OnCreate()
+    {
+        base.OnCreate();
+        SharedSettings.instance.general.onSettingsApplied += OnSettingsChanged;
+    }
 ```
-
-- `protected virtual OnGameLoadingComplete(Colossal.Serialization.Entities.Purpose purpose, Game.GameMode mode) : System.Void`  
-
-```csharp
-protected override void OnGameLoadingComplete(Purpose purpose, GameMode mode)
-	{
-		if ((purpose == Purpose.LoadGame || purpose == Purpose.NewGame) && SharedSettings.instance.general.autoSave)
-		{
-			COSystemBase.baseLog.Debug("Auto-save watch active!");
-			m_LastAutoSaveCheck = timeSinceStartup;
-		}
-	}
-```
-
-- `protected virtual OnGamePreload(Colossal.Serialization.Entities.Purpose purpose, Game.GameMode mode) : System.Void`  
-
-```csharp
-protected override void OnGamePreload(Purpose purpose, GameMode mode)
-	{
-		if (SharedSettings.instance.general.autoSave)
-		{
-			COSystemBase.baseLog.Debug("Auto-save watch inactive!");
-			m_LastAutoSaveCheck = -1f;
-		}
-	}
-```
-
-- `private OnSettingsChanged(Game.Settings.Setting setting) : System.Void`  
-
-```csharp
-private void OnSettingsChanged(Setting setting)
-	{
-		if (!GameManager.instance.gameMode.IsGame() || !(setting is GeneralSettings generalSettings))
-		{
-			return;
-		}
-		if (generalSettings.autoSave)
-		{
-			if (m_LastAutoSaveCheck < 0f)
-			{
-				PruneAutoSaves(generalSettings);
-				m_LastAutoSaveCheck = timeSinceStartup;
-				COSystemBase.baseLog.Debug("Auto-save watch active!");
-			}
-		}
-		else if (m_LastAutoSaveCheck >= 0f)
-		{
-			PruneAutoSaves(generalSettings);
-			m_LastAutoSaveCheck = -1f;
-			COSystemBase.baseLog.Debug("Auto-save watch inactive!");
-		}
-	}
-```
-
-- `protected virtual OnUpdate() : System.Void`  
-
-```csharp
-[Preserve]
-	protected override void OnUpdate()
-	{
-		if (m_LastAutoSaveCheck >= 0f && GameManager.instance.gameMode.IsGame())
-		{
-			GeneralSettings general = SharedSettings.instance.general;
-			if (general.autoSave)
-			{
-				CheckAutoSave(general);
-			}
-		}
-	}
-```
-
-- `public PerformAutoSave(Game.Settings.GeneralSettings settings) : System.Threading.Tasks.Task`  
-
-```csharp
-public async Task PerformAutoSave(GeneralSettings settings)
-	{
-		await SafeAutoSave();
-		PruneAutoSaves(settings);
-	}
-```
-
-- `private PruneAutoSaves(Game.Settings.GeneralSettings settings) : System.Void`  
-
-```csharp
-private void PruneAutoSaves(GeneralSettings settings)
-	{
-		if (settings.autoSaveCount == GeneralSettings.AutoSaveCount.Unlimited)
-		{
-			return;
-		}
-		try
-		{
-			List<SaveGameMetadata> source = (from s in GetAutoSaveDatabaseTarget().GetAssets(default(SearchFilter<SaveGameMetadata>))
-				where s.target.autoSave
-				orderby s.target.lastModified descending
-				select s).ToList();
-			int autoSaveCount = (int)settings.autoSaveCount;
-			foreach (SaveGameMetadata item in source.Skip(autoSaveCount))
-			{
-				SaveHelpers.DeleteSaveGame(item);
-			}
-		}
-		catch (Exception exception)
-		{
-			COSystemBase.baseLog.Error(exception, "An error occurred while pruning auto-saves");
-		}
-	}
-```
-
-- `private static SafeAutoSave() : System.Threading.Tasks.Task`  
-
-```csharp
-private static Task SafeAutoSave()
-	{
-		return TaskManager.instance.EnqueueTask("SaveLoadGame", AutoSave, 1);
-	}
-```
-
-
-## Nested types
-
-- `Game.AutoSaveSystem+<>c`  
-- `Game.AutoSaveSystem+<AutoSave>d__13`  
-- `Game.AutoSaveSystem+<CheckAutoSave>d__9`  
-- `Game.AutoSaveSystem+<PerformAutoSave>d__11`  
-

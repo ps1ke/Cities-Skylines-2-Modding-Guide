@@ -1,81 +1,75 @@
-﻿# Game.GameMode
+# Game.GameMode
 
-**Assembly:** `Game`  
-**Namespace:** `Game`  
+**Assembly:**  
+**Namespace:** Game
 
-**Type:** enum sealed public  
+**Type:** enum
 
-**Base:** `System.Enum`  
-**Implements:** `System.IComparable`, `System.ISpanFormattable`, `System.IFormattable`, `System.IConvertible`  
+**Base:** System.Enum
 
-**Attributes:** `Flags`  
-
-## Code
-
-```csharp
-public sealed enum GameMode : System.IComparable, System.ISpanFormattable, System.IFormattable, System.IConvertible
-{
-    public System.Int32 value__;
-    public static const Game.GameMode None;
-    public static const Game.GameMode Other;
-    public static const Game.GameMode Game;
-    public static const Game.GameMode Editor;
-    public static const Game.GameMode MainMenu;
-    public static const Game.GameMode GameOrEditor;
-    public static const Game.GameMode All;
-
-}
-```
-
+**Summary:** Defines a set of bit flags representing the different runtime modes the game can be in (e.g., Game, Editor, MainMenu). The enum is annotated with [Flags], so values can be combined with bitwise operations. Typical uses include checking the current mode or allowing functionality only in certain modes.
+---
 
 ## Fields
 
-- `public System.Int32 value__`  
+- `None = 0`  
+Represents no mode/flag set. Useful as a default or "unset" value.
+
+- `Other = 1`  
+A generic/other category for modes not explicitly listed by the enum. Treated as a single-bit flag.
+
+- `Game = 2`  
+Indicates the normal game play mode.
+
+- `Editor = 4`  
+Indicates an editor mode (e.g., map or asset editor).
+
+- `MainMenu = 8`  
+Indicates the main menu mode.
+
+- `GameOrEditor = 6`  
+A convenience combined flag equal to Game | Editor (2 | 4). Indicates either game or editor mode.
+
+- `All = 0xF`  
+All flags combined (Other | Game | Editor | MainMenu). Useful when you want to match any mode.
+
+## Properties
+
+- This enum exposes no properties. It is a simple flags enum used for bitwise checks.
+
+## Constructors
+
+- Enums do not define explicit constructors. Instances are represented by the named constant values above.
+
+## Methods
+
+- This enum defines no methods. Interaction is via standard enum/bitwise operations.
 
 ```csharp
-public System.Int32 value__;
+// Original enum from the game:
+using System;
+
+namespace Game
+{
+    [Flags]
+    public enum GameMode
+    {
+        None = 0,
+        Other = 1,
+        Game = 2,
+        Editor = 4,
+        MainMenu = 8,
+        GameOrEditor = 6,
+        All = 0xF
+    }
+}
+
+// Typical usage example:
+GameMode currentMode = GameMode.Game;
+
+// Check if in Game mode:
+bool isGame = (currentMode & GameMode.Game) == GameMode.Game;
+
+// Check if in Game or Editor:
+bool isGameOrEditor = (currentMode & GameMode.GameOrEditor) != 0;
 ```
-
-- `public static const Game.GameMode None`  
-
-```csharp
-public static const Game.GameMode None;
-```
-
-- `public static const Game.GameMode Other`  
-
-```csharp
-public static const Game.GameMode Other;
-```
-
-- `public static const Game.GameMode Game`  
-
-```csharp
-public static const Game.GameMode Game;
-```
-
-- `public static const Game.GameMode Editor`  
-
-```csharp
-public static const Game.GameMode Editor;
-```
-
-- `public static const Game.GameMode MainMenu`  
-
-```csharp
-public static const Game.GameMode MainMenu;
-```
-
-- `public static const Game.GameMode GameOrEditor`  
-
-```csharp
-public static const Game.GameMode GameOrEditor;
-```
-
-- `public static const Game.GameMode All`  
-
-```csharp
-public static const Game.GameMode All;
-```
-
-
