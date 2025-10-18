@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#gamesimulationwaterlevelchangesystem" class="md-skip">
+        <a href="#gamewaterlevelchangesystem" class="md-skip">
           Skip to content
         </a>
       
@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87075,6 +87167,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../SurfaceWater/" class="md-nav__link">
         
   
@@ -88988,15 +89103,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -89033,9 +89139,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -117930,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117955,15 +118083,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -118002,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118026,149 +118145,120 @@
 
 
 
-<h1 id="gamesimulationwaterlevelchangesystem">Game.Simulation.WaterLevelChangeSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Simulation</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class WaterLevelChangeSystem : Game.GameSystemBase
-{
-    private Game.Simulation.SimulationSystem m_SimulationSystem;
-    private Game.EndFrameBarrier m_EndFrameBarrier;
-    private Unity.Entities.EntityQuery m_WaterLevelChangeQuery;
-    private Game.Simulation.WaterLevelChangeSystem+TypeHandle __TypeHandle;
-    public static readonly System.Int32 kUpdateInterval;
-
-    public static System.Int32 TsunamiEndDelay { get; }
-
-    public WaterLevelChangeSystem();
-
-    private System.Void __AssignQueries(Unity.Entities.SystemState&amp; state);
-    public static System.UInt32 GetMinimumDelayAt(Game.Events.WaterLevelChange change, Unity.Mathematics.float3 position);
-    public virtual System.Int32 GetUpdateInterval(Game.SystemUpdatePhase phase);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnCreateForCompiler();
-    protected virtual System.Void OnUpdate();
-}
-</code></pre>
+<h1 id="gamewaterlevelchangesystem">Game.WaterLevelChangeSystem</h1>
+<p><strong>Assembly:</strong> Assembly-CSharp<br />
+<strong>Namespace:</strong> Game.Simulation</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> GameSystemBase</p>
+<p><strong>Summary:</strong><br />
+WaterLevelChangeSystem processes WaterLevelChange components each simulation tick (on a reduced update interval) and updates their intensity based on prefab-defined WaterLevelChangeData and the current simulation frame. It uses a Burst-compiled IJobChunk (WaterLevelChangeJob) to iterate matching entities in parallel, reads PrefabRef and Duration data, computes elapsed time since start, and applies wave/tsunami-like intensity curves (currently implemented for the Sine change type). The system schedules its work as a job and registers the job handle with an EndFrameBarrier so work completes before end-of-frame operations. It also exposes utilities like computing a minimum delay for wave arrival at a position.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.Simulation.SimulationSystem m_SimulationSystem</code>  </li>
+<li>
+<p><code>public static readonly int kUpdateInterval</code><br />
+Static constant that controls how often the system runs. Its value is 4, so the system updates every 4 ticks (GetUpdateInterval returns this).</p>
+</li>
+<li>
+<p><code>private SimulationSystem m_SimulationSystem</code><br />
+Reference to the SimulationSystem. Used to read the current simulation frame (m_SimulationSystem.frameIndex) used to compute progression of water level changes.</p>
+</li>
+<li>
+<p><code>private EndFrameBarrier m_EndFrameBarrier</code><br />
+Reference to the EndFrameBarrier system. The system adds its job handle to this barrier to ensure jobs that produce changes complete before other end-of-frame work runs.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_WaterLevelChangeQuery</code><br />
+EntityQuery used to find entities that have a WaterLevelChange component (excluding Deleted). The query is required for update so the system only runs when relevant entities exist.</p>
+</li>
+<li>
+<p><code>private TypeHandle __TypeHandle</code><br />
+Container of ECS type handles used by the job and system (EntityTypeHandle, ComponentTypeHandle<PrefabRef>, ComponentTypeHandle<WaterLevelChange>, ComponentTypeHandle<Duration>, ComponentLookup<WaterLevelChangeData>). The TypeHandle provides an __AssignHandles method to initialize these handles from a SystemState.</p>
+</li>
+<li>
+<p><code>private struct WaterLevelChangeJob</code> (nested)<br />
+Burst-compiled IJobChunk implementation that performs the per-chunk work. Contains:</p>
+</li>
+<li><code>EntityTypeHandle m_EntityType</code> (ReadOnly)</li>
+<li><code>ComponentTypeHandle&lt;PrefabRef&gt; m_PrefabRefType</code> (ReadOnly)</li>
+<li><code>ComponentTypeHandle&lt;WaterLevelChange&gt; m_WaterLevelChangeType</code> (Read/Write)</li>
+<li><code>ComponentTypeHandle&lt;Duration&gt; m_DurationType</code> (ReadOnly)</li>
+<li><code>ComponentLookup&lt;WaterLevelChangeData&gt; m_PrefabWaterLevelChangeData</code> (ReadOnly)</li>
+<li><code>uint m_SimulationFrame</code> (current simulation frame index used in calculations)</li>
 </ul>
-<pre><code class="language-csharp">private Game.Simulation.SimulationSystem m_SimulationSystem;
-</code></pre>
+<p>The job computes elapsed time, reads WaterLevelChangeData from prefab, and updates WaterLevelChange.m_Intensity. The main logic implements a "Sine" change type behavior, scaling intensities and applying an escalation delay. If other change types are present they are currently not handled (code hints at other types but no implementation).</p>
 <ul>
-<li><code>private Game.EndFrameBarrier m_EndFrameBarrier</code>  </li>
+<li><code>private struct TypeHandle</code> (nested)<br />
+Struct grouping the various type handles returned by the system. Contains a method __AssignHandles to fetch handles from a given SystemState.</li>
 </ul>
-<pre><code class="language-csharp">private Game.EndFrameBarrier m_EndFrameBarrier;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_WaterLevelChangeQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_WaterLevelChangeQuery;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.WaterLevelChangeSystem+TypeHandle __TypeHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.WaterLevelChangeSystem+TypeHandle __TypeHandle;
-</code></pre>
-<ul>
-<li><code>public static readonly System.Int32 kUpdateInterval</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static readonly System.Int32 kUpdateInterval;
-</code></pre>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>public static System.Int32 TsunamiEndDelay { get }</code>  </li>
+<li><code>public static int TsunamiEndDelay { get; }</code><br />
+Computed property returning the Tsunami end delay in frames. It calculates Mathf.RoundToInt((float)WaterSystem.kMapSize / WaterSystem.WaveSpeed). This is used internally to compute wave timings relative to map size and wave speed constants.</li>
 </ul>
-<pre><code class="language-csharp">public static System.Int32 TsunamiEndDelay { get; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public WaterLevelChangeSystem()</code>  </li>
+<li><code>public WaterLevelChangeSystem()</code><br />
+Default constructor. The system relies on OnCreate to initialize references and queries. Marked with [Preserve] on lifecycle methods to prevent stripping.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public WaterLevelChangeSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private __AssignQueries(Unity.Entities.SystemState&amp; state) : System.Void</code>  </li>
+<li>
+<p><code>public override int GetUpdateInterval(SystemUpdatePhase phase)</code><br />
+Returns the update interval (kUpdateInterval). This tells the framework how often the system should run (every 4 simulation frames by default).</p>
+</li>
+<li>
+<p><code>public static uint GetMinimumDelayAt(WaterLevelChange change, float3 position)</code><br />
+Utility method that computes the minimum delay (in frames) for a water wave generated by a given WaterLevelChange to reach a world position. It computes an origin point on the map edge based on change.m_Direction and projects the position onto a perpendicular vector to estimate radial distance and divides by WaterSystem.WaveSpeed, rounding to nearest frame. Use this to determine arrival times of waves/tsunamis relative to a change event.</p>
+</li>
+<li>
+<p><code>protected override void OnCreate()</code><br />
+System initialization: obtains SimulationSystem and EndFrameBarrier, creates the m_WaterLevelChangeQuery for WaterLevelChange components, and calls RequireForUpdate(m_WaterLevelChangeQuery) so the system only runs when relevant entities exist.</p>
+</li>
+<li>
+<p><code>protected override void OnUpdate()</code><br />
+Main update method that prepares a WaterLevelChangeJob with the required type handles and current simulation frame, schedules it as a parallel chunk job (JobChunkExtensions.ScheduleParallel), sets base.Dependency to the returned handle, and registers the handle with m_EndFrameBarrier via AddJobHandleForProducer to ensure ordering with end-of-frame work.</p>
+</li>
+<li>
+<p><code>private void __AssignQueries(ref SystemState state)</code><br />
+Compiler helper that sets up queries at compile-time; in this build it's effectively a placeholder that instantiates an EntityQueryBuilder and disposes it. Used by OnCreateForCompiler.</p>
+</li>
+<li>
+<p><code>protected override void OnCreateForCompiler()</code><br />
+Compiler helper called during system creation in certain build flows. Calls __AssignQueries and initializes type handles via __TypeHandle.__AssignHandles(ref base.CheckedStateRef).</p>
+</li>
+<li>
+<p><code>private void TypeHandle.__AssignHandles(ref SystemState state)</code><br />
+Initializes the internal type handles (EntityTypeHandle, PrefabRef read-only, WaterLevelChange read/write, Duration read-only, WaterLevelChangeData lookup read-only) using the provided SystemState. Called from OnCreateForCompiler to prepare handles used by jobs.</p>
+</li>
+<li>
+<p><code>private void WaterLevelChangeJob.Execute(in ArchetypeChunk chunk, int unfilteredChunkIndex, bool useEnabledMask, in v128 chunkEnabledMask)</code><br />
+Job execution logic (see nested job fields above). For each entity in the chunk it:</p>
+</li>
+<li>Reads PrefabRef, WaterLevelChange, Duration</li>
+<li>Fetches WaterLevelChangeData from the prefab</li>
+<li>Computes elapsed time since duration.m_StartFrame, subtracting m_EscalationDelay</li>
+<li>If not yet started (elapsed &lt; 0) continues</li>
+<li>If change type is Sine, calculates a time window (num2) and applies different sine-based formulas for early escalation and main wave, capping to zero after end. Finally multiplies computed intensity by 4f.</li>
+<li>Writes back WaterLevelChange.m_Intensity into component array</li>
 </ul>
-<pre><code class="language-csharp">private void __AssignQueries(ref SystemState state)
-    {
-        new EntityQueryBuilder(Allocator.Temp).Dispose();
-    }
-</code></pre>
-<ul>
-<li><code>public static GetMinimumDelayAt(Game.Events.WaterLevelChange change, Unity.Mathematics.float3 position) : System.UInt32</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static uint GetMinimumDelayAt(WaterLevelChange change, float3 position)
-    {
-        float2 @float = WaterSystem.kMapSize / 2 * new float2(math.cos(0f - change.m_Direction.x), math.sin(0f - change.m_Direction.y));
-        float2 float2 = new float2(change.m_Direction.y, 0f - change.m_Direction.x);
-        float2 float3 = math.dot(float2, position.xz - @float) * float2;
-        return (uint)Mathf.RoundToInt(math.length(position.xz - @float - float3) / WaterSystem.WaveSpeed);
-    }
-</code></pre>
-<ul>
-<li><code>public virtual GetUpdateInterval(Game.SystemUpdatePhase phase) : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override int GetUpdateInterval(SystemUpdatePhase phase)
-    {
-        return kUpdateInterval;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
+<p>Note: other change types are present in the data model but currently not implemented in this job (the code has placeholders for other cases).</p>
+<h2 id="usage-example">Usage Example</h2>
 <pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_SimulationSystem = base.World.GetOrCreateSystemManaged&lt;SimulationSystem&gt;();
-        m_EndFrameBarrier = base.World.GetOrCreateSystemManaged&lt;EndFrameBarrier&gt;();
-        m_WaterLevelChangeQuery = GetEntityQuery(ComponentType.ReadWrite&lt;WaterLevelChange&gt;(), ComponentType.Exclude&lt;Deleted&gt;());
-        RequireForUpdate(m_WaterLevelChangeQuery);
-    }
+protected override void OnCreate()
+{
+    base.OnCreate();
+    m_SimulationSystem = base.World.GetOrCreateSystemManaged&lt;SimulationSystem&gt;();
+    m_EndFrameBarrier = base.World.GetOrCreateSystemManaged&lt;EndFrameBarrier&gt;();
+    m_WaterLevelChangeQuery = GetEntityQuery(ComponentType.ReadWrite&lt;WaterLevelChange&gt;(), ComponentType.Exclude&lt;Deleted&gt;());
+    RequireForUpdate(m_WaterLevelChangeQuery);
+}
 </code></pre>
-<ul>
-<li><code>protected virtual OnCreateForCompiler() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnCreateForCompiler()
-    {
-        base.OnCreateForCompiler();
-        __AssignQueries(ref base.CheckedStateRef);
-        __TypeHandle.__AssignHandles(ref base.CheckedStateRef);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        WaterLevelChangeJob jobData = new WaterLevelChangeJob
-        {
-            m_EntityType = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef),
-            m_PrefabRefType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_WaterLevelChangeType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Events_WaterLevelChange_RW_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_DurationType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Events_Duration_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_PrefabWaterLevelChangeData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_WaterLevelChangeData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_SimulationFrame = m_SimulationSystem.frameIndex
-        };
-        base.Dependency = JobChunkExtensions.ScheduleParallel(jobData, m_WaterLevelChangeQuery, base.Dependency);
-        m_EndFrameBarrier.AddJobHandleForProducer(base.Dependency);
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Simulation.WaterLevelChangeSystem+WaterLevelChangeJob</code>  </li>
-<li><code>Game.Simulation.WaterLevelChangeSystem+TypeHandle</code>  </li>
-</ul>
+<p>Notes and tips:
+- The system is optimized to run only occasionally (kUpdateInterval) and uses Burst + JobChunk for parallel processing; keep component layouts and chunk sizes in mind for performance.
+- WaterLevelChangeData (read via prefab lookup) contains configuration like m_MaxIntensity, m_EscalationDelay, and m_ChangeType. Modify those in prefab definitions to adjust behavior.
+- If adding new change types, extend the WaterLevelChangeJob.Execute logic accordingly and ensure deterministic behavior across frames.
+- The EndFrameBarrier integration ensures jobs are completed before end-of-frame systems act on the results; remember to register new producer jobs similarly.</p>
 
 
 

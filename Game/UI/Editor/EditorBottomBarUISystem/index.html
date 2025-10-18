@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87073,6 +87165,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Simulation/SurfaceWater/" class="md-nav__link">
         
   
@@ -97607,15 +97722,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -97646,6 +97752,15 @@
   <a href="#methods" class="md-nav__link">
     <span class="md-ellipsis">
       Methods
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
     </span>
   </a>
   
@@ -117923,6 +118038,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117948,15 +118085,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -117994,6 +118122,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -118011,174 +118148,126 @@
 
 
 <h1 id="gameuieditoreditorbottombaruisystem">Game.UI.Editor.EditorBottomBarUISystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.UI.Editor</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.UI.UISystemBase</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class EditorBottomBarUISystem : Game.UI.UISystemBase
-{
-    private Game.Simulation.ClimateSystem m_ClimateSystem;
-    private Game.Simulation.PlanetarySystem m_PlanetarySystem;
-    private static readonly System.String kGroup;
-
-    public Game.GameMode gameMode { get; }
-    private System.Single m_NormalizedTimeBindingValue { private get; }
-    private System.Single m_NormalizedDateBindingValue { private get; }
-
-    public EditorBottomBarUISystem();
-
-    private System.Single &lt;OnCreate&gt;b__9_0();
-    private System.Single &lt;OnCreate&gt;b__9_1();
-    private System.Single &lt;OnCreate&gt;b__9_2();
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnStopRunning();
-    private System.Void ResetCloudiness();
-    private System.Void ResetDate();
-    private System.Void ResetTimeOfDay();
-    private System.Void SetCloudiness(System.Single cloudiness);
-    private System.Void SetDate(System.Single date);
-    private System.Void SetTimeOfDay(System.Single time);
-}
-</code></pre>
+<p><strong>Assembly:</strong> Game<br />
+<strong>Namespace:</strong> Game.UI.Editor</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> UISystemBase</p>
+<p><strong>Summary:</strong><br />
+Provides the UI system that drives the editor bottom bar controls (time of day, date and cloudiness) for the Editor game mode. It exposes bindings for the UI to read current values (with snapping) and trigger bindings to set or reset overrides on the underlying simulation systems (PlanetarySystem and ClimateSystem). The system retrieves these simulation systems from the world and ensures state is cleaned up when the system stops running. Uses the "editorBottomBar" binding group for all UI bindings. Marked methods use the [Preserve] attribute so they aren't stripped by linking.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.Simulation.ClimateSystem m_ClimateSystem</code>  </li>
+<li>
+<p><code>private static readonly string kGroup</code><br />
+Group name used for all UI bindings created by this system ("editorBottomBar"). Use this when referencing or adding UI bindings related to the editor bottom bar.</p>
+</li>
+<li>
+<p><code>private ClimateSystem m_ClimateSystem</code><br />
+Reference to the ClimateSystem retrieved from the world. Used to read and override climate-related values like current date and cloudiness.</p>
+</li>
+<li>
+<p><code>private PlanetarySystem m_PlanetarySystem</code><br />
+Reference to the PlanetarySystem retrieved from the world. Used to read and override time-of-day values.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.Simulation.ClimateSystem m_ClimateSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.PlanetarySystem m_PlanetarySystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.PlanetarySystem m_PlanetarySystem;
-</code></pre>
-<ul>
-<li><code>private static readonly System.String kGroup</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static readonly System.String kGroup;
-</code></pre>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>public Game.GameMode gameMode { get }</code>  </li>
+<li>
+<p><code>public override GameMode gameMode { get; }</code><br />
+Returns GameMode.Editor — the system is active for the editor game mode.</p>
+</li>
+<li>
+<p><code>private float m_NormalizedTimeBindingValue { get; }</code><br />
+Computed (private) property that returns the planetary system's normalizedTime snapped to 0.01 increments using MathUtils.Snap. This is used for the UI update binding so the UI doesn't update excessively for tiny changes.</p>
+</li>
+<li>
+<p><code>private float m_NormalizedDateBindingValue { get; }</code><br />
+Computed (private) property that returns the climate system's currentDate snapped to 0.01 increments. Used for the UI update binding for the date field.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public Game.GameMode gameMode { get; }
-</code></pre>
-<ul>
-<li><code>private System.Single m_NormalizedTimeBindingValue { private get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Single m_NormalizedTimeBindingValue { private get; }
-</code></pre>
-<ul>
-<li><code>private System.Single m_NormalizedDateBindingValue { private get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Single m_NormalizedDateBindingValue { private get; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public EditorBottomBarUISystem()</code>  </li>
+<li><code>public EditorBottomBarUISystem()</code><br />
+Default constructor. Marked with [Preserve] attribute on the OnCreate and constructor in source to avoid stripping. No special initialization logic beyond what OnCreate performs.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public EditorBottomBarUISystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private &lt;OnCreate&gt;b__9_0() : System.Single</code>  </li>
+<li><code>protected override void OnCreate()</code><br />
+Initializes the system: retrieves ClimateSystem and PlanetarySystem from the world, registers update bindings and trigger bindings with the UI binding group:</li>
+<li>Update bindings (GetterValueBinding<float>) for:<ul>
+<li>"timeOfDay" -&gt; m_NormalizedTimeBindingValue</li>
+<li>"date" -&gt; m_NormalizedDateBindingValue</li>
+<li>"cloudiness" -&gt; m_ClimateSystem.cloudiness</li>
 </ul>
-<pre><code class="language-csharp">private System.Single &lt;OnCreate&gt;b__9_0();
-</code></pre>
+</li>
+<li>
+<p>Trigger bindings to handle UI actions:</p>
 <ul>
-<li><code>private &lt;OnCreate&gt;b__9_1() : System.Single</code>  </li>
+<li>"setTimeOfDay" (float) -&gt; SetTimeOfDay</li>
+<li>"resetTimeOfDay" -&gt; ResetTimeOfDay</li>
+<li>"setDate" (float) -&gt; SetDate</li>
+<li>"resetDate" -&gt; ResetDate</li>
+<li>"setCloudiness" (float) -&gt; SetCloudiness</li>
+<li>"resetCloudiness" -&gt; ResetCloudiness<br />
+Marked with [Preserve].</li>
 </ul>
-<pre><code class="language-csharp">private System.Single &lt;OnCreate&gt;b__9_1();
-</code></pre>
-<ul>
-<li><code>private &lt;OnCreate&gt;b__9_2() : System.Single</code>  </li>
+</li>
+<li>
+<p><code>protected override void OnStopRunning()</code><br />
+Called when the system stops running. Clears any overrides applied by this system:</p>
+</li>
+<li>m_PlanetarySystem.overrideTime = false</li>
+<li>m_ClimateSystem.currentDate.overrideState = false</li>
+<li>
+<p>m_ClimateSystem.cloudiness.overrideState = false</p>
+</li>
+<li>
+<p><code>private void SetTimeOfDay(float time)</code><br />
+Sets planetary override: enables overrideTime on PlanetarySystem and sets normalizedTime to the provided value.</p>
+</li>
+<li>
+<p><code>private void ResetTimeOfDay()</code><br />
+Disables PlanetarySystem.overrideTime to return to normal time progression.</p>
+</li>
+<li>
+<p><code>private void SetDate(float date)</code><br />
+Sets m_ClimateSystem.currentDate.overrideValue to the provided date (enables override value without toggling overrideState directly here — the overrideState usage is handled elsewhere).</p>
+</li>
+<li>
+<p><code>private void ResetDate()</code><br />
+Disables the currentDate override by setting m_ClimateSystem.currentDate.overrideState = false.</p>
+</li>
+<li>
+<p><code>private void SetCloudiness(float cloudiness)</code><br />
+Sets m_ClimateSystem.cloudiness.overrideValue to the provided cloudiness (similarly manages the override value).</p>
+</li>
+<li>
+<p><code>private void ResetCloudiness()</code><br />
+Disables cloudiness override by setting m_ClimateSystem.cloudiness.overrideState = false.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private System.Single &lt;OnCreate&gt;b__9_2();
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
+<h2 id="usage-example">Usage Example</h2>
 <pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_ClimateSystem = base.World.GetOrCreateSystemManaged&lt;ClimateSystem&gt;();
-        m_PlanetarySystem = base.World.GetOrCreateSystemManaged&lt;PlanetarySystem&gt;();
-        AddUpdateBinding(new GetterValueBinding&lt;float&gt;(kGroup, &quot;timeOfDay&quot;, () =&gt; m_NormalizedTimeBindingValue));
-        AddUpdateBinding(new GetterValueBinding&lt;float&gt;(kGroup, &quot;date&quot;, () =&gt; m_NormalizedDateBindingValue));
-        AddUpdateBinding(new GetterValueBinding&lt;float&gt;(kGroup, &quot;cloudiness&quot;, () =&gt; m_ClimateSystem.cloudiness));
-        AddBinding(new TriggerBinding&lt;float&gt;(kGroup, &quot;setTimeOfDay&quot;, SetTimeOfDay));
-        AddBinding(new TriggerBinding(kGroup, &quot;resetTimeOfDay&quot;, ResetTimeOfDay));
-        AddBinding(new TriggerBinding&lt;float&gt;(kGroup, &quot;setDate&quot;, SetDate));
-        AddBinding(new TriggerBinding(kGroup, &quot;resetDate&quot;, ResetDate));
-        AddBinding(new TriggerBinding&lt;float&gt;(kGroup, &quot;setCloudiness&quot;, SetCloudiness));
-        AddBinding(new TriggerBinding(kGroup, &quot;resetCloudiness&quot;, ResetCloudiness));
-    }
+protected override void OnCreate()
+{
+    base.OnCreate();
+    m_ClimateSystem = base.World.GetOrCreateSystemManaged&lt;ClimateSystem&gt;();
+    m_PlanetarySystem = base.World.GetOrCreateSystemManaged&lt;PlanetarySystem&gt;();
+    AddUpdateBinding(new GetterValueBinding&lt;float&gt;(kGroup, &quot;timeOfDay&quot;, () =&gt; m_NormalizedTimeBindingValue));
+    AddUpdateBinding(new GetterValueBinding&lt;float&gt;(kGroup, &quot;date&quot;, () =&gt; m_NormalizedDateBindingValue));
+    AddUpdateBinding(new GetterValueBinding&lt;float&gt;(kGroup, &quot;cloudiness&quot;, () =&gt; m_ClimateSystem.cloudiness));
+    AddBinding(new TriggerBinding&lt;float&gt;(kGroup, &quot;setTimeOfDay&quot;, SetTimeOfDay));
+    AddBinding(new TriggerBinding(kGroup, &quot;resetTimeOfDay&quot;, ResetTimeOfDay));
+    AddBinding(new TriggerBinding&lt;float&gt;(kGroup, &quot;setDate&quot;, SetDate));
+    AddBinding(new TriggerBinding(kGroup, &quot;resetDate&quot;, ResetDate));
+    AddBinding(new TriggerBinding&lt;float&gt;(kGroup, &quot;setCloudiness&quot;, SetCloudiness));
+    AddBinding(new TriggerBinding(kGroup, &quot;resetCloudiness&quot;, ResetCloudiness));
+}
 </code></pre>
-<ul>
-<li><code>protected virtual OnStopRunning() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnStopRunning()
-    {
-        base.OnStopRunning();
-        m_PlanetarySystem.overrideTime = false;
-        m_ClimateSystem.currentDate.overrideState = false;
-        m_ClimateSystem.cloudiness.overrideState = false;
-    }
-</code></pre>
-<ul>
-<li><code>private ResetCloudiness() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void ResetCloudiness()
-    {
-        m_ClimateSystem.cloudiness.overrideState = false;
-    }
-</code></pre>
-<ul>
-<li><code>private ResetDate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void ResetDate()
-    {
-        m_ClimateSystem.currentDate.overrideState = false;
-    }
-</code></pre>
-<ul>
-<li><code>private ResetTimeOfDay() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void ResetTimeOfDay()
-    {
-        m_PlanetarySystem.overrideTime = false;
-    }
-</code></pre>
-<ul>
-<li><code>private SetCloudiness(System.Single cloudiness) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void SetCloudiness(float cloudiness)
-    {
-        m_ClimateSystem.cloudiness.overrideValue = cloudiness;
-    }
-</code></pre>
-<ul>
-<li><code>private SetDate(System.Single date) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void SetDate(float date)
-    {
-        m_ClimateSystem.currentDate.overrideValue = date;
-    }
-</code></pre>
-<ul>
-<li><code>private SetTimeOfDay(System.Single time) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void SetTimeOfDay(float time)
-    {
-        m_PlanetarySystem.overrideTime = true;
-        m_PlanetarySystem.normalizedTime = time;
-    }
-</code></pre>
+<p>Additional notes:
+- The system uses snapping (0.01) before updating UI to reduce update churn in bindings.
+- Reset methods ensure that any manual overrides applied via the UI are cleared when appropriate (either via UI reset actions or when the system stops running).
+- When modding, ensure you access the same binding keys ("editorBottomBar" group and the exact binding names) if you want to interact with or extend the same UI elements.</p>
 
 
 

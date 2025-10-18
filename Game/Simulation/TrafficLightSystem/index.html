@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87075,6 +87167,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../SurfaceWater/" class="md-nav__link">
         
   
@@ -87976,18 +88091,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -88015,6 +88130,15 @@
   <a href="#nested-types" class="md-nav__link">
     <span class="md-ellipsis">
       Nested types
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
     </span>
   </a>
   
@@ -117921,6 +118045,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117948,18 +118094,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -117992,6 +118138,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -118009,378 +118164,136 @@
 
 
 <h1 id="gamesimulationtrafficlightsystem">Game.Simulation.TrafficLightSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Simulation</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class TrafficLightSystem : Game.GameSystemBase
-{
-    private Game.Simulation.SimulationSystem m_SimulationSystem;
-    private Game.EndFrameBarrier m_EndFrameBarrier;
-    private Unity.Entities.EntityQuery m_TrafficLightQuery;
-    private Game.Simulation.TrafficLightSystem+TypeHandle __TypeHandle;
-    private static const System.UInt32 UPDATE_INTERVAL;
-
-    public TrafficLightSystem();
-
-    private System.Void __AssignQueries(Unity.Entities.SystemState&amp; state);
-    public virtual System.Int32 GetUpdateInterval(Game.SystemUpdatePhase phase);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnCreateForCompiler();
-    protected virtual System.Void OnUpdate();
-    public static System.Void UpdateLaneSignal(Game.Net.TrafficLights trafficLights, Game.Net.LaneSignal&amp; laneSignal);
-    public static System.Void UpdateMoveableBridge(Game.Net.TrafficLights trafficLights, Game.Objects.Transform transform, Game.Prefabs.MoveableBridgeData moveableBridgeData, Game.Common.PointOfInterest&amp; pointOfInterest);
-    public static System.Void UpdateTrafficLightState(Game.Net.TrafficLights trafficLights, Game.Objects.TrafficLight&amp; trafficLight);
-}
-</code></pre>
+<p><strong>Assembly:</strong> Game<br />
+<strong>Namespace:</strong> Game.Simulation</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> GameSystemBase</p>
+<p><strong>Summary:</strong><br />
+TrafficLightSystem is an ECS system responsible for updating traffic light logic for nodes in the simulation. It queries entities with TrafficLights and UpdateFrame, schedules a parallel IJobChunk (UpdateTrafficLightsJob) that evaluates lane signals, determines the next signal group, updates lane-level LaneSignal components and TrafficLight objects, and updates moveable bridge point-of-interest positions. The system uses an EndFrameBarrier to produce command buffers for deferred entity changes and runs on a periodic update interval (GetUpdateInterval returns 4, the system builds an UpdateFrame filter to select which TrafficLights to process).</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.Simulation.SimulationSystem m_SimulationSystem</code>  </li>
+<li>
+<p><code>private const uint UPDATE_INTERVAL = 64u</code><br />
+Used as a constant in the class (present but not directly used in the shown OnUpdate). Indicates a conceptual update interval constant present in the system.</p>
+</li>
+<li>
+<p><code>private SimulationSystem m_SimulationSystem</code><br />
+Reference to the SimulationSystem (used to fetch the current simulation frame index when building the UpdateFrame shared component filter).</p>
+</li>
+<li>
+<p><code>private EndFrameBarrier m_EndFrameBarrier</code><br />
+Barrier system used to create an EntityCommandBuffer.ParallelWriter for making safe changes (e.g., adding EffectsUpdated) from the scheduled job and to add the job handle as producer.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_TrafficLightQuery</code><br />
+EntityQuery used to find TrafficLights entities to operate on. The query requires TrafficLights (read/write) and UpdateFrame, and excludes Deleted/Destroyed/Temp.</p>
+</li>
+<li>
+<p><code>private TypeHandle __TypeHandle</code><br />
+Container for cached type and buffer handles / component lookups used by the job. Populated in OnCreateForCompiler / __AssignHandles.</p>
+</li>
+<li>
+<p>(Nested types) <code>UpdateTrafficLightsJob</code> (private struct) and <code>TypeHandle</code> (private struct)<br />
+UpdateTrafficLightsJob performs the per-chunk logic; TypeHandle holds the handles used to access components/buffers inside the job.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.Simulation.SimulationSystem m_SimulationSystem;
-</code></pre>
+<h2 id="properties">Properties</h2>
 <ul>
-<li><code>private Game.EndFrameBarrier m_EndFrameBarrier</code>  </li>
+<li>None (the system does not expose public properties).</li>
 </ul>
-<pre><code class="language-csharp">private Game.EndFrameBarrier m_EndFrameBarrier;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_TrafficLightQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_TrafficLightQuery;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.TrafficLightSystem+TypeHandle __TypeHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.TrafficLightSystem+TypeHandle __TypeHandle;
-</code></pre>
-<ul>
-<li><code>private static const System.UInt32 UPDATE_INTERVAL</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static const System.UInt32 UPDATE_INTERVAL;
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public TrafficLightSystem()</code>  </li>
+<li><code>public TrafficLightSystem()</code><br />
+Default constructor (preserved attribute on lifecycle methods, constructor does default initialization).</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public TrafficLightSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private __AssignQueries(Unity.Entities.SystemState&amp; state) : System.Void</code>  </li>
+<li>
+<p><code>public override int GetUpdateInterval(SystemUpdatePhase phase)</code><br />
+Returns 4. The system uses this to decide the frequency (frames) at which it participates in the UpdateFrame selection logic.</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnCreate()</code><br />
+Initializes references to SimulationSystem and EndFrameBarrier, creates the m_TrafficLightQuery and calls RequireForUpdate(m_TrafficLightQuery). Sets up the query used by OnUpdate.</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnUpdate()</code><br />
+Main update path:</p>
+</li>
+<li>Resets the query filter and sets a shared component filter with UpdateFrame computed from SimulationUtils.GetUpdateFrameWithInterval using the SimulationSystem frame index and the system's update interval.</li>
+<li>Builds and schedules UpdateTrafficLightsJob as a parallel job (JobChunkExtensions.ScheduleParallel) passing required Component/Buffer lookups and a parallel command buffer.</li>
+<li>
+<p>Assigns the resulting JobHandle to base.Dependency and registers it with m_EndFrameBarrier.AddJobHandleForProducer.</p>
+</li>
+<li>
+<p><code>public static void UpdateLaneSignal(TrafficLights trafficLights, ref LaneSignal laneSignal)</code><br />
+Static helper that updates a single LaneSignal.m_Signal based on the current TrafficLights state (Current/NexSignalGroup and state machine: Beginning, Ongoing, Extending, Extended, Ending, Changing). Encodes logic for mapping traffic light state groups to lane-level signals (Go, Stop, Yield, SafeStop, None).</p>
+</li>
+<li>
+<p><code>public static void UpdateTrafficLightState(TrafficLights trafficLights, ref TrafficLight trafficLight)</code><br />
+Static helper that converts the net-level TrafficLights state/group info to the object-level TrafficLight states (two independent signal sets encoded in the TrafficLight.m_State). Considers LevelCrossing flags for flashing/yellow behavior.</p>
+</li>
+<li>
+<p><code>public static void UpdateMoveableBridge(TrafficLights trafficLights, Transform transform, MoveableBridgeData moveableBridgeData, ref PointOfInterest pointOfInterest)</code><br />
+Updates the PointOfInterest position for a moveable bridge subobject depending on the current/next signal group and configured lift offsets. Used to animate/position moveable bridge POI for effects/visuals.</p>
+</li>
+<li>
+<p><code>private void __AssignQueries(ref SystemState state)</code><br />
+Compiler helper that prepares queries (present as a stub calling EntityQueryBuilder). Part of generated/compiled-once path.</p>
+</li>
+<li>
+<p><code>protected override void OnCreateForCompiler()</code><br />
+Compiler helper that calls __AssignQueries and __TypeHandle.__AssignHandles to populate component lookups/handles used by the job.</p>
+</li>
+<li>
+<p>(Numerous private / nested job methods) The heavy lifting is done inside UpdateTrafficLightsJob:</p>
+</li>
+<li>Execute(in ArchetypeChunk chunk, ...) — iterates entities in the chunk, reads TrafficLights and related buffers, collects lane signals, handles moveable bridges, updates traffic light state machine and lane-level signals, updates traffic light objects and point-of-interest for bridges, and writes EffectsUpdated to the command buffer when appropriate.</li>
+<li>FillLaneSignals(...) overloads — gather lane signal entities from SubLane buffers, from connected edges and SubNet buffers, taking into account node-edge curve orientation (to pick lanes belonging to a node).</li>
+<li>UpdateTrafficLightState(NativeList<Entity> laneSignals, MoveableBridgeData moveableBridgeData, ref TrafficLights trafficLights) — per-node state-machine driver; implements the traffic light state transitions (None, Beginning, Ongoing, Extending, Extended, Ending, Changing). Uses GetNextSignalGroup, RequireEnding, ClearPriority, IsEmpty semantics to decide transitions and timers.</li>
+<li>GetNextSignalGroup(...) — evaluates lane signal petitions, priorities, group masks and extension capability to select the next signal group to grant.</li>
+<li>RequireEnding(...) — determines if current group must be ended because other lanes are still set to Go.</li>
+<li>UpdateLaneSignals(...) — iterates gathered lane signals and applies UpdateLaneSignal(...) logic.</li>
+<li>FindMoveableBridge(...) — checks subObjects for a PrefabRef that has MoveableBridgeData to link bridge POI.</li>
+<li>UpdateTrafficLightObjects(...) — updates object-level TrafficLight components for subObjects that have TrafficLight components.</li>
+<li>IsEmpty(...) and CheckNextLane(...) — helper checks to find blockers on lanes (lane objects, reservations, special prefab types) when deciding if moveable bridge can start moving or if next group is empty.</li>
 </ul>
-<pre><code class="language-csharp">private void __AssignQueries(ref SystemState state)
-    {
-        new EntityQueryBuilder(Allocator.Temp).Dispose();
-    }
-</code></pre>
-<ul>
-<li><code>public virtual GetUpdateInterval(Game.SystemUpdatePhase phase) : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override int GetUpdateInterval(SystemUpdatePhase phase)
-    {
-        return 4;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_SimulationSystem = base.World.GetOrCreateSystemManaged&lt;SimulationSystem&gt;();
-        m_EndFrameBarrier = base.World.GetOrCreateSystemManaged&lt;EndFrameBarrier&gt;();
-        m_TrafficLightQuery = GetEntityQuery(ComponentType.ReadWrite&lt;TrafficLights&gt;(), ComponentType.ReadOnly&lt;UpdateFrame&gt;(), ComponentType.Exclude&lt;Deleted&gt;(), ComponentType.Exclude&lt;Destroyed&gt;(), ComponentType.Exclude&lt;Temp&gt;());
-        RequireForUpdate(m_TrafficLightQuery);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreateForCompiler() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnCreateForCompiler()
-    {
-        base.OnCreateForCompiler();
-        __AssignQueries(ref base.CheckedStateRef);
-        __TypeHandle.__AssignHandles(ref base.CheckedStateRef);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        m_TrafficLightQuery.ResetFilter();
-        m_TrafficLightQuery.SetSharedComponentFilter(new UpdateFrame(SimulationUtils.GetUpdateFrameWithInterval(m_SimulationSystem.frameIndex, (uint)GetUpdateInterval(SystemUpdatePhase.GameSimulation), 16)));
-        JobHandle dependency = JobChunkExtensions.ScheduleParallel(new UpdateTrafficLightsJob
-        {
-            m_EntityType = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef),
-            m_SubLaneType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Net_SubLane_RO_BufferTypeHandle, ref base.CheckedStateRef),
-            m_ConnectedEdgeType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Net_ConnectedEdge_RO_BufferTypeHandle, ref base.CheckedStateRef),
-            m_SubObjectType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Objects_SubObject_RO_BufferTypeHandle, ref base.CheckedStateRef),
-            m_TrafficLightsType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Net_TrafficLights_RW_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_OwnerData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Common_Owner_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_NodeData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_Node_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_EdgeData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_Edge_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_CurveData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_Curve_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_LaneData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_Lane_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_LaneReservationData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_LaneReservation_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_TransformData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Objects_Transform_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabRefData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabCarLaneData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_CarLaneData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabMoveableBridgeData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_MoveableBridgeData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabObjectGeometryData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_ObjectGeometryData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_LaneObjects = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Net_LaneObject_RO_BufferLookup, ref base.CheckedStateRef),
-            m_SubNets = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Net_SubNet_RO_BufferLookup, ref base.CheckedStateRef),
-            m_SubLanes = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Net_SubLane_RO_BufferLookup, ref base.CheckedStateRef),
-            m_ConnectedEdges = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Net_ConnectedEdge_RO_BufferLookup, ref base.CheckedStateRef),
-            m_LaneSignalData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_LaneSignal_RW_ComponentLookup, ref base.CheckedStateRef),
-            m_TrafficLightData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Objects_TrafficLight_RW_ComponentLookup, ref base.CheckedStateRef),
-            m_PointOfInterestData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Common_PointOfInterest_RW_ComponentLookup, ref base.CheckedStateRef),
-            m_CommandBuffer = m_EndFrameBarrier.CreateCommandBuffer().AsParallelWriter()
-        }, m_TrafficLightQuery, base.Dependency);
-        base.Dependency = dependency;
-        m_EndFrameBarrier.AddJobHandleForProducer(base.Dependency);
-    }
-</code></pre>
-<ul>
-<li><code>public static UpdateLaneSignal(Game.Net.TrafficLights trafficLights, Game.Net.LaneSignal&amp; laneSignal) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static void UpdateLaneSignal(TrafficLights trafficLights, ref LaneSignal laneSignal)
-    {
-        int num = 0;
-        int num2 = 0;
-        if (trafficLights.m_CurrentSignalGroup &gt; 0)
-        {
-            num |= 1 &lt;&lt; trafficLights.m_CurrentSignalGroup - 1;
-        }
-        if (trafficLights.m_NextSignalGroup &gt; 0)
-        {
-            num2 |= 1 &lt;&lt; trafficLights.m_NextSignalGroup - 1;
-        }
-        switch (trafficLights.m_State)
-        {
-        case Game.Net.TrafficLightState.Beginning:
-            if ((laneSignal.m_GroupMask &amp; num2) != 0)
-            {
-                if (laneSignal.m_Signal != LaneSignalType.Go)
-                {
-                    laneSignal.m_Signal = LaneSignalType.Yield;
-                }
-            }
-            else
-            {
-                laneSignal.m_Signal = LaneSignalType.Stop;
-            }
-            break;
-        case Game.Net.TrafficLightState.Ongoing:
-            if ((laneSignal.m_GroupMask &amp; num) != 0)
-            {
-                laneSignal.m_Signal = LaneSignalType.Go;
-            }
-            else
-            {
-                laneSignal.m_Signal = LaneSignalType.Stop;
-            }
-            break;
-        case Game.Net.TrafficLightState.Extending:
-            if ((laneSignal.m_Flags &amp; LaneSignalFlags.CanExtend) != 0)
-            {
-                if ((laneSignal.m_GroupMask &amp; num) != 0)
-                {
-                    laneSignal.m_Signal = LaneSignalType.Go;
-                }
-                else
-                {
-                    laneSignal.m_Signal = LaneSignalType.Stop;
-                }
-            }
-            else if (laneSignal.m_Signal == LaneSignalType.Go)
-            {
-                if ((laneSignal.m_GroupMask &amp; num2) == 0)
-                {
-                    laneSignal.m_Signal = LaneSignalType.SafeStop;
-                }
-            }
-            else
-            {
-                laneSignal.m_Signal = LaneSignalType.Stop;
-            }
-            break;
-        case Game.Net.TrafficLightState.Extended:
-            if ((laneSignal.m_Flags &amp; LaneSignalFlags.CanExtend) != 0 &amp;&amp; (laneSignal.m_GroupMask &amp; num) != 0)
-            {
-                laneSignal.m_Signal = LaneSignalType.Go;
-            }
-            else
-            {
-                laneSignal.m_Signal = LaneSignalType.Stop;
-            }
-            break;
-        case Game.Net.TrafficLightState.Ending:
-            if (laneSignal.m_Signal == LaneSignalType.Go)
-            {
-                if ((laneSignal.m_GroupMask &amp; num2) == 0)
-                {
-                    laneSignal.m_Signal = LaneSignalType.SafeStop;
-                }
-            }
-            else
-            {
-                laneSignal.m_Signal = LaneSignalType.Stop;
-            }
-            break;
-        case Game.Net.TrafficLightState.Changing:
-            if (laneSignal.m_Signal != LaneSignalType.Go || (laneSignal.m_GroupMask &amp; num2) == 0)
-            {
-                laneSignal.m_Signal = LaneSignalType.Stop;
-            }
-            break;
-        default:
-            laneSignal.m_Signal = LaneSignalType.None;
-            break;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public static UpdateMoveableBridge(Game.Net.TrafficLights trafficLights, Game.Objects.Transform transform, Game.Prefabs.MoveableBridgeData moveableBridgeData, Game.Common.PointOfInterest&amp; pointOfInterest) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static void UpdateMoveableBridge(TrafficLights trafficLights, Transform transform, MoveableBridgeData moveableBridgeData, ref PointOfInterest pointOfInterest)
-    {
-        int num = -1;
-        if (trafficLights.m_State == Game.Net.TrafficLightState.Beginning || trafficLights.m_State == Game.Net.TrafficLightState.Changing)
-        {
-            if (trafficLights.m_NextSignalGroup &gt; 0)
-            {
-                num = trafficLights.m_NextSignalGroup - 1;
-            }
-        }
-        else if (trafficLights.m_State != Game.Net.TrafficLightState.Ending &amp;&amp; trafficLights.m_CurrentSignalGroup &gt; 0)
-        {
-            num = trafficLights.m_CurrentSignalGroup - 1;
-        }
-        pointOfInterest.m_IsValid = false;
-        if (num &gt;= 0 &amp;&amp; num &lt;= 2)
-        {
-            pointOfInterest.m_Position = transform.m_Position;
-            pointOfInterest.m_Position.y += moveableBridgeData.m_LiftOffsets[num];
-            pointOfInterest.m_IsValid = true;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public static UpdateTrafficLightState(Game.Net.TrafficLights trafficLights, Game.Objects.TrafficLight&amp; trafficLight) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static void UpdateTrafficLightState(TrafficLights trafficLights, ref TrafficLight trafficLight)
-    {
-        int num = 0;
-        int num2 = 0;
-        if (trafficLights.m_CurrentSignalGroup &gt; 0)
-        {
-            num |= 1 &lt;&lt; trafficLights.m_CurrentSignalGroup - 1;
-        }
-        if (trafficLights.m_NextSignalGroup &gt; 0)
-        {
-            num2 |= 1 &lt;&lt; trafficLights.m_NextSignalGroup - 1;
-        }
-        Game.Objects.TrafficLightState trafficLightState = trafficLight.m_State &amp; (Game.Objects.TrafficLightState.Red | Game.Objects.TrafficLightState.Yellow | Game.Objects.TrafficLightState.Green | Game.Objects.TrafficLightState.Flashing);
-        Game.Objects.TrafficLightState trafficLightState2 = (Game.Objects.TrafficLightState)(((int)trafficLight.m_State &gt;&gt; 4) &amp; 0xF);
-        Game.Objects.TrafficLightState trafficLightState3 = (((trafficLights.m_Flags &amp; TrafficLightFlags.LevelCrossing) != 0) ? (Game.Objects.TrafficLightState.Yellow | Game.Objects.TrafficLightState.Flashing) : Game.Objects.TrafficLightState.Yellow);
-        Game.Objects.TrafficLightState trafficLightState4 = (((trafficLights.m_Flags &amp; TrafficLightFlags.LevelCrossing) == 0) ? Game.Objects.TrafficLightState.Red : (Game.Objects.TrafficLightState.Red | Game.Objects.TrafficLightState.Flashing));
-        switch (trafficLights.m_State)
-        {
-        case Game.Net.TrafficLightState.Beginning:
-            if ((trafficLight.m_GroupMask0 &amp; num2) != 0)
-            {
-                if (trafficLightState != Game.Objects.TrafficLightState.Green)
-                {
-                    trafficLightState = trafficLightState4 | trafficLightState3;
-                }
-            }
-            else
-            {
-                trafficLightState = trafficLightState4;
-            }
-            trafficLightState2 = (((trafficLight.m_GroupMask1 &amp; num2) == 0) ? Game.Objects.TrafficLightState.Red : Game.Objects.TrafficLightState.Green);
-            break;
-        case Game.Net.TrafficLightState.Ongoing:
-            trafficLightState = (((trafficLight.m_GroupMask0 &amp; num) == 0) ? trafficLightState4 : Game.Objects.TrafficLightState.Green);
-            trafficLightState2 = (((trafficLight.m_GroupMask1 &amp; num) == 0) ? Game.Objects.TrafficLightState.Red : Game.Objects.TrafficLightState.Green);
-            break;
-        case Game.Net.TrafficLightState.Extending:
-            trafficLightState = (((trafficLight.m_GroupMask0 &amp; num) == 0) ? trafficLightState4 : Game.Objects.TrafficLightState.Green);
-            if (trafficLightState2 == Game.Objects.TrafficLightState.Green)
-            {
-                if ((trafficLight.m_GroupMask1 &amp; num2) == 0)
-                {
-                    trafficLightState2 = Game.Objects.TrafficLightState.Green | Game.Objects.TrafficLightState.Flashing;
-                }
-            }
-            else
-            {
-                trafficLightState2 = Game.Objects.TrafficLightState.Red;
-            }
-            break;
-        case Game.Net.TrafficLightState.Extended:
-            trafficLightState = (((trafficLight.m_GroupMask0 &amp; num) == 0) ? trafficLightState4 : Game.Objects.TrafficLightState.Green);
-            if (trafficLightState2 != Game.Objects.TrafficLightState.Green || (trafficLight.m_GroupMask1 &amp; num2) == 0)
-            {
-                trafficLightState2 = Game.Objects.TrafficLightState.Red;
-            }
-            break;
-        case Game.Net.TrafficLightState.Ending:
-            if (trafficLightState == Game.Objects.TrafficLightState.Green)
-            {
-                if ((trafficLight.m_GroupMask0 &amp; num2) == 0)
-                {
-                    trafficLightState = trafficLightState3;
-                }
-            }
-            else
-            {
-                trafficLightState = trafficLightState4;
-            }
-            if (trafficLightState2 == Game.Objects.TrafficLightState.Green)
-            {
-                if ((trafficLight.m_GroupMask1 &amp; num2) == 0)
-                {
-                    trafficLightState2 = Game.Objects.TrafficLightState.Green | Game.Objects.TrafficLightState.Flashing;
-                }
-            }
-            else
-            {
-                trafficLightState2 = Game.Objects.TrafficLightState.Red;
-            }
-            break;
-        case Game.Net.TrafficLightState.Changing:
-            if (trafficLightState != Game.Objects.TrafficLightState.Green || (trafficLight.m_GroupMask0 &amp; num2) == 0)
-            {
-                trafficLightState = trafficLightState4;
-            }
-            if (trafficLightState2 != Game.Objects.TrafficLightState.Green || (trafficLight.m_GroupMask1 &amp; num2) == 0)
-            {
-                trafficLightState2 = Game.Objects.TrafficLightState.Red;
-            }
-            break;
-        default:
-            trafficLightState = Game.Objects.TrafficLightState.None;
-            trafficLightState2 = Game.Objects.TrafficLightState.None;
-            break;
-        }
-        trafficLight.m_State = (Game.Objects.TrafficLightState)((uint)trafficLightState | ((uint)trafficLightState2 &lt;&lt; 4));
-    }
-</code></pre>
+<p>Note: UpdateTrafficLightsJob uses a number of ComponentLookup<T> and BufferLookup<T> (some with NativeDisableParallelForRestriction) and writes to LaneSignal/TrafficLight via lookups. The job adds EffectsUpdated to the entity via the command buffer in certain transitions.</p>
 <h2 id="nested-types">Nested types</h2>
 <ul>
-<li><code>Game.Simulation.TrafficLightSystem+UpdateTrafficLightsJob</code>  </li>
-<li><code>Game.Simulation.TrafficLightSystem+TypeHandle</code>  </li>
+<li><code>private struct UpdateTrafficLightsJob : IJobChunk</code>  </li>
+<li>Purpose: perform per-chunk processing of TrafficLights entities in parallel.  </li>
+<li>Important fields (passed by OnUpdate): EntityTypeHandle, BufferTypeHandle<Game.Net.SubLane>, BufferTypeHandle<ConnectedEdge>, BufferTypeHandle<Game.Objects.SubObject>, ComponentTypeHandle<TrafficLights>, many ComponentLookup<T> and BufferLookup<T> for supporting data (Owner, Node, Edge, Curve, Lane, LaneReservation, Transform, PrefabRef, CarLaneData, MoveableBridgeData, ObjectGeometryData, LaneObject, SubNet/SubLane/ConnectedEdge), parallel EntityCommandBuffer writer, and writable lookups for LaneSignal / TrafficLight / PointOfInterest.  </li>
+<li>
+<p>Main method: Execute(...) — processes each TrafficLights component to collect lane signals, possibly find a moveable bridge subobject, call state-machine logic to update trafficLights, update lane signal components and traffic light objects, update moveable bridge POI, and potentially add EffectsUpdated to the entity.</p>
+</li>
+<li>
+<p><code>private struct TypeHandle</code>  </p>
+</li>
+<li>Holds a cached set of handles/lookups used by the job (EntityTypeHandle, BufferTypeHandle/ComponentLookup/BufferLookup for all component types used). Provides __AssignHandles(ref SystemState) to get the handles from the SystemState.</li>
 </ul>
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">[Preserve]
+protected override void OnCreate()
+{
+    base.OnCreate();
+    m_SimulationSystem = base.World.GetOrCreateSystemManaged&lt;SimulationSystem&gt;();
+    m_EndFrameBarrier = base.World.GetOrCreateSystemManaged&lt;EndFrameBarrier&gt;();
+    m_TrafficLightQuery = GetEntityQuery(
+        ComponentType.ReadWrite&lt;TrafficLights&gt;(),
+        ComponentType.ReadOnly&lt;UpdateFrame&gt;(),
+        ComponentType.Exclude&lt;Deleted&gt;(),
+        ComponentType.Exclude&lt;Destroyed&gt;(),
+        ComponentType.Exclude&lt;Temp&gt;()
+    );
+    RequireForUpdate(m_TrafficLightQuery);
+}
+</code></pre>
+<p>Notes and tips for modders:
+- This system is tightly integrated with the ECS data model (TrafficLights, LaneSignal, TrafficLight object components, MoveableBridgeData, buffers like SubLane/SubNet). To influence traffic light logic, modify LaneSignal components or TrafficLights component data, or inject different UpdateFrame values so your TrafficLights get updated at different times.
+- The three static helpers (UpdateLaneSignal, UpdateTrafficLightState, UpdateMoveableBridge) can be reused if creating custom traffic-light-like behaviour in other systems or tools.
+- When creating modifications that add/modify TrafficLights/Traf ficLight-related subobjects, ensure you respect the EndFrameBarrier usage and either schedule jobs that produce their own command buffers or use existing barriers to avoid race conditions.</p>
 
 
 

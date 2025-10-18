@@ -65233,6 +65233,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -68403,15 +68426,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -68448,9 +68462,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -69743,6 +69757,29 @@
   
   <span class="md-ellipsis">
     ShaderID
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
     
   </span>
   
@@ -72572,6 +72609,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75562,6 +75622,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87154,6 +87237,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -117930,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117955,15 +118083,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -118002,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118027,600 +118146,181 @@
 
 
 <h1 id="gamerenderinglightingsystem">Game.Rendering.LightingSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Rendering</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class LightingSystem : Game.GameSystemBase
-{
-    private Game.Simulation.PlanetarySystem m_PlanetarySystem;
-    protected Unity.Entities.EntityQuery m_TimeSettingGroup;
-    private UnityEngine.Rendering.HighDefinition.Exposure m_Exposure;
-    private UnityEngine.Rendering.HighDefinition.PhysicallyBasedSky m_PhysicallyBasedSky;
-    private UnityEngine.Rendering.HighDefinition.ColorAdjustments m_ColorAdjustments;
-    private UnityEngine.Rendering.HighDefinition.IndirectLightingController m_Indirect;
-    private UnityEngine.Rendering.HighDefinition.Tonemapping m_Tonemap;
-    private System.Boolean m_PostProcessingSetup;
-    private DayNightCycleData m_NightDayCycleData;
-    private UnityEngine.Rendering.Volume m_Volume;
-    private UnityEngine.Rendering.VolumeProfile m_Profile;
-    private UnityEngine.RenderTexture m_BlendResult;
-    private UnityEngine.ComputeShader m_LUTBlend;
-    private System.Int32 m_KernalBlend;
-    private Game.Rendering.LightingSystem+State m_LastState;
-    private System.Single m_LastDelta;
-    private System.Boolean &lt;shadowDisabled&gt;k__BackingField;
-    private System.Single &lt;dayLightBrightness&gt;k__BackingField;
-
-    private System.Boolean shadowDisabled { private get; private set; }
-    public System.Single dayLightBrightness { get; private set; }
-    public Game.Rendering.LightingSystem+State state { get; }
-
-    public LightingSystem();
-
-    private System.Void BlendLUT(UnityEngine.Texture3D source, UnityEngine.Texture3D destination, System.Single delta, System.Single lutContribution);
-    private System.Single CalcObscured(Game.Simulation.PlanetarySystem+LightData moon, Game.Simulation.PlanetarySystem+LightData night, System.Single range);
-    private Game.Rendering.LightingSystem+State CalculateState(Unity.Mathematics.float3 sunPosition, Unity.Mathematics.float3 sunDirection, System.Single&amp; delta);
-    private System.Void EnableShadows(Game.Simulation.PlanetarySystem+LightData lightData, System.Boolean enabled);
-    private Game.Rendering.LightingSystem+State NextState(Game.Rendering.LightingSystem+State value);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnDestroy();
-    protected virtual System.Void OnUpdate();
-    private System.Void SetupPostprocessing();
-}
-</code></pre>
+<p><strong>Assembly:</strong><br />
+Likely Assembly-CSharp or the game's "Game" assembly (compiled into the game's runtime).<br />
+<strong>Namespace:</strong><br />
+Game.Rendering</p>
+<p><strong>Type:</strong><br />
+public class LightingSystem</p>
+<p><strong>Base:</strong><br />
+GameSystemBase</p>
+<p><strong>Summary:</strong><br />
+Handles the game's day/night lighting and post-processing setup. It reads planetary light data (sun, moon, night lights) from PlanetarySystem, evaluates the current time-of-day state (dawn, sunrise, day, sunset, dusk, night), adjusts exposure, sky parameters, color grading, indirect lighting multipliers, shadow enable/disable for lights, and blends 3D LUTs (look-up textures) for color grading transitions. It also creates and manages a persistent Volume with HDRP post-processing components used by the system (Exposure, PhysicallyBasedSky, ColorAdjustments, Tonemapping, IndirectLightingController) and can blend LUTs using a compute shader.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.Simulation.PlanetarySystem m_PlanetarySystem</code>  </li>
+<li>
+<p><code>private static class ShaderID</code><br />
+Contains cached shader property IDs used by the LUT blending compute shader: _TargetLUT, _SourceLUT, _DestinationLUT and _LUTBlend. These are obtained via Shader.PropertyToID for efficient shader parameter lookups.</p>
+</li>
+<li>
+<p><code>public enum State { Dawn, Sunrise, Day, Sunset, Dusk, Night, Invalid }</code><br />
+Represents the discrete lighting states used by the system to drive transitions and parameter blending.</p>
+</li>
+<li>
+<p><code>private PlanetarySystem m_PlanetarySystem</code><br />
+Reference to the PlanetarySystem (used to get SunLight, MoonLight, NightLight and overrideTime).</p>
+</li>
+<li>
+<p><code>protected EntityQuery m_TimeSettingGroup</code><br />
+EntityQuery to ensure the system updates only when time settings exist (required for update).</p>
+</li>
+<li>
+<p><code>private Exposure m_Exposure</code><br />
+HDRP Exposure volume component controlled by this system.</p>
+</li>
+<li>
+<p><code>private PhysicallyBasedSky m_PhysicallyBasedSky</code><br />
+HDRP PhysicallyBasedSky volume component controlled by this system.</p>
+</li>
+<li>
+<p><code>private ColorAdjustments m_ColorAdjustments</code><br />
+HDRP ColorAdjustments component (color filter, contrast).</p>
+</li>
+<li>
+<p><code>private IndirectLightingController m_Indirect</code><br />
+HDRP IndirectLightingController controlling reflection/indirect multipliers.</p>
+</li>
+<li>
+<p><code>private Tonemapping m_Tonemap</code><br />
+HDRP Tonemapping component used for LUT assignment and contribution.</p>
+</li>
+<li>
+<p><code>private bool m_PostProcessingSetup</code><br />
+Tracks whether the post-processing Volume and components have been created/initialized.</p>
+</li>
+<li>
+<p><code>private DayNightCycleData m_NightDayCycleData</code><br />
+Data asset containing configuration values for exposures, colors, LUTs, angles and intensities used for day/night transitions. Loaded from Resources ("DayNight/Default").</p>
+</li>
+<li>
+<p><code>private Volume m_Volume</code><br />
+The created persistent GameObject's Volume component used to host the profile.</p>
+</li>
+<li>
+<p><code>private VolumeProfile m_Profile</code><br />
+The VolumeProfile instance used to add and hold the HDRP components.</p>
+</li>
+<li>
+<p><code>private RenderTexture m_BlendResult</code><br />
+A 3D RenderTexture used as the target when blending two 3D LUTs with the compute shader.</p>
+</li>
+<li>
+<p><code>private ComputeShader m_LUTBlend</code><br />
+Compute shader used to blend two 3D LUTs into m_BlendResult (loaded from "DayNight/LUTBlend").</p>
+</li>
+<li>
+<p><code>private int m_KernalBlend = -1</code><br />
+Cached kernel index for the compute shader ("CSBlend").</p>
+</li>
+<li>
+<p><code>private State m_LastState = State.Invalid</code><br />
+Stores the last evaluated state to stabilize transitions when overrideTime is not set.</p>
+</li>
+<li>
+<p><code>private float m_LastDelta = -1f</code><br />
+Stores the last delta (blend factor) used for transition smoothing.</p>
+</li>
+<li>
+<p><code>private float m_dayLightBrightness</code> (backed by property <code>dayLightBrightness</code>)<br />
+Internal backing for public dayLightBrightness property (exposed via auto-property in code).</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.Simulation.PlanetarySystem m_PlanetarySystem;
-</code></pre>
-<ul>
-<li><code>protected Unity.Entities.EntityQuery m_TimeSettingGroup</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected Unity.Entities.EntityQuery m_TimeSettingGroup;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.Rendering.HighDefinition.Exposure m_Exposure</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.Rendering.HighDefinition.Exposure m_Exposure;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.Rendering.HighDefinition.PhysicallyBasedSky m_PhysicallyBasedSky</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.Rendering.HighDefinition.PhysicallyBasedSky m_PhysicallyBasedSky;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.Rendering.HighDefinition.ColorAdjustments m_ColorAdjustments</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.Rendering.HighDefinition.ColorAdjustments m_ColorAdjustments;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.Rendering.HighDefinition.IndirectLightingController m_Indirect</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.Rendering.HighDefinition.IndirectLightingController m_Indirect;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.Rendering.HighDefinition.Tonemapping m_Tonemap</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.Rendering.HighDefinition.Tonemapping m_Tonemap;
-</code></pre>
-<ul>
-<li><code>private System.Boolean m_PostProcessingSetup</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean m_PostProcessingSetup;
-</code></pre>
-<ul>
-<li><code>private DayNightCycleData m_NightDayCycleData</code>  </li>
-</ul>
-<pre><code class="language-csharp">private DayNightCycleData m_NightDayCycleData;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.Rendering.Volume m_Volume</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.Rendering.Volume m_Volume;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.Rendering.VolumeProfile m_Profile</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.Rendering.VolumeProfile m_Profile;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.RenderTexture m_BlendResult</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.RenderTexture m_BlendResult;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.ComputeShader m_LUTBlend</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.ComputeShader m_LUTBlend;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_KernalBlend</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_KernalBlend;
-</code></pre>
-<ul>
-<li><code>private Game.Rendering.LightingSystem+State m_LastState</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Rendering.LightingSystem+State m_LastState;
-</code></pre>
-<ul>
-<li><code>private System.Single m_LastDelta</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Single m_LastDelta;
-</code></pre>
-<ul>
-<li><code>private System.Boolean &lt;shadowDisabled&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean &lt;shadowDisabled&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private System.Single &lt;dayLightBrightness&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Single &lt;dayLightBrightness&gt;k__BackingField;
-</code></pre>
+<p>Note: the class also declares a private auto-property:
+- <code>private bool shadowDisabled { get; set; }</code><br />
+Controls whether shadow enabling is globally disabled based on quality settings.</p>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>private System.Boolean shadowDisabled { private get; private set }</code>  </li>
+<li>
+<p><code>private bool shadowDisabled { get; set; }</code><br />
+Private property set each update from shared graphics settings (ShadowsQualitySettings.enabled). Used to prevent enabling shadows when quality settings disable them.</p>
+</li>
+<li>
+<p><code>public float dayLightBrightness { get; private set; }</code><br />
+Public read-only property (private setter) exposing a normalized daylight brightness value computed each update from the sun light's intensity.</p>
+</li>
+<li>
+<p><code>public State state { get }</code><br />
+Read-only property that returns the current evaluated State. Calculates the state based on the PlanetarySystem's sun light transform (position and direction). If sun light is invalid, returns State.Invalid.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private System.Boolean shadowDisabled { private get; private set; }
-</code></pre>
-<ul>
-<li><code>public System.Single dayLightBrightness { get; private set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Single dayLightBrightness { get; private set; }
-</code></pre>
-<ul>
-<li><code>public Game.Rendering.LightingSystem+State state { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Game.Rendering.LightingSystem+State state { get; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public LightingSystem()</code>  </li>
+<li><code>public LightingSystem()</code><br />
+Default constructor (has [Preserve] attribute). Initialization happens primarily in OnCreate; constructor does not perform heavy setup.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public LightingSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private BlendLUT(UnityEngine.Texture3D source, UnityEngine.Texture3D destination, System.Single delta, System.Single lutContribution) : System.Void</code>  </li>
+<li>
+<p><code>protected override void OnCreate()</code><br />
+Initializes the system: acquires PlanetarySystem, loads DayNightCycleData ("DayNight/Default"), sets up post-processing Volume (calls SetupPostprocessing), loads the LUT blend compute shader, creates a 3D RenderTexture target for LUT blending, prepares the entity query for time settings, and marks the system as required for update (RequireForUpdate). This is where resources are loaded and GPU resources (RenderTexture) are created.</p>
+</li>
+<li>
+<p><code>protected override void OnDestroy()</code><br />
+Cleans up created objects: destroys the persistent Volume GameObject and the m_BlendResult RenderTexture if they exist.</p>
+</li>
+<li>
+<p><code>private float CalcObscured(PlanetarySystem.LightData moon, PlanetarySystem.LightData night, float range = 0.3f)</code><br />
+Calculates how obscured the night light is by the moon geometry using the vertical positions of the moon and the night light. Returns a clamped factor [0,1] used to blend night/moon intensities.</p>
+</li>
+<li>
+<p><code>private void EnableShadows(PlanetarySystem.LightData lightData, bool enabled)</code><br />
+Enables/disables shadows on the given light's additionalData, while respecting the system-wide shadowDisabled flag (from quality settings).</p>
+</li>
+<li>
+<p><code>protected override void OnUpdate()</code><br />
+Main update loop. Reads ShadowsQualitySettings to set shadowDisabled, queries PlanetarySystem lights (sun, moon, night), early-exits if any required data is invalid, computes dayLightBrightness, evaluates the current State and delta (with logic to avoid flicker when planetary overrideTime is used), computes various intensity and indirect multipliers (taking into account moon/night obscuration), sets exposure, sky, color adjustments, indirect multipliers, and per-state logic for enabling/disabling shadows and color grading (including blending or assigning LUTs). Finally resets the VolumeProfile to apply changes.</p>
+</li>
+<li>
+<p><code>private State CalculateState(float3 sunPosition, float3 sunDirection, out float delta)</code><br />
+Determines the lighting State (Dawn, Sunrise, Day, Sunset, Dusk, Night) based on sun position and direction and the thresholds in DayNightCycleData (angles for dawn/sunrise/sunset/dusk). Outputs a delta value representing blend factor inside transitions. If m_NightDayCycleData is null it returns Day and delta = 1.</p>
+</li>
+<li>
+<p><code>private State NextState(State value)</code><br />
+Returns the next chronological State (Dawn -&gt; Sunrise -&gt; Day -&gt; Sunset -&gt; Dusk -&gt; Night -&gt; Dawn). Useful for transition stability.</p>
+</li>
+<li>
+<p><code>private void SetupPostprocessing()</code><br />
+Creates a persistent GameObject named "LightingPostProcessVolume" (DontDestroyOnLoad) and adds a Volume component. It sets Volume.priority and adds required HDRP volume components to the profile: Exposure, PhysicallyBasedSky, ColorAdjustments, IndirectLightingController, Tonemapping. Components are configured with sensible default override states and values used by the day/night logic. This method is guarded so it only sets up once.</p>
+</li>
+<li>
+<p><code>private void BlendLUT(Texture3D source, Texture3D destination, float delta, float lutContribution)</code><br />
+Blends two 3D LUT textures. If both exist and a compute shader is available, it dispatches the compute shader into m_BlendResult, then assigns m_BlendResult to the Tonemapping LUT. If compute shader isn't available it picks source/destination based on delta. Handles cases where only one of source/destination exists by lerping lutContribution appropriately. If neither exist it clears the tonemap LUT.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private void BlendLUT(Texture3D source, Texture3D destination, float delta, float lutContribution)
-    {
-        if (source != null &amp;&amp; destination != null)
-        {
-            if (m_LUTBlend != null)
-            {
-                m_LUTBlend.SetTexture(m_KernalBlend, ShaderID._TargetLUT, m_BlendResult);
-                m_LUTBlend.SetTexture(m_KernalBlend, ShaderID._SourceLUT, source);
-                m_LUTBlend.SetTexture(m_KernalBlend, ShaderID._DestinationLUT, destination);
-                m_LUTBlend.SetFloat(ShaderID._BlendLUT, math.clamp(delta, 0f, 1f));
-                m_LUTBlend.Dispatch(m_KernalBlend, 32, 32, 32);
-                m_Tonemap.lutTexture.value = m_BlendResult;
-                m_Tonemap.lutContribution.value = lutContribution;
-            }
-            else
-            {
-                m_Tonemap.lutTexture.value = ((delta &lt; 0.5f) ? source : destination);
-                m_Tonemap.lutContribution.value = lutContribution;
-            }
-        }
-        else if (source != null &amp;&amp; destination == null)
-        {
-            m_Tonemap.lutTexture.value = source;
-            m_Tonemap.lutContribution.value = math.lerp(lutContribution, 0f, delta);
-        }
-        else if (destination != null &amp;&amp; source == null)
-        {
-            m_Tonemap.lutTexture.value = destination;
-            m_Tonemap.lutContribution.value = math.lerp(0f, lutContribution, delta);
-        }
-        else
-        {
-            m_Tonemap.lutTexture.value = null;
-            m_Tonemap.lutContribution.value = lutContribution;
-        }
-    }
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Typical override location inside the system life cycle:
+[Preserve]
+protected override void OnCreate()
+{
+    base.OnCreate();
+    // LightingSystem loads DayNightCycleData, sets up HDRP volume components
+    // and prepares compute shader / render textures for LUT blending.
+}
+
+// Example: reading public state and brightness inside another system or debug:
+var lightingSystem = World.GetExistingSystemManaged&lt;Game.Rendering.LightingSystem&gt;();
+if (lightingSystem != null)
+{
+    var currentState = lightingSystem.state;          // Dawn / Day / Night / etc.
+    float brightness = lightingSystem.dayLightBrightness; // normalized daylight intensity
+}
 </code></pre>
-<ul>
-<li><code>private CalcObscured(Game.Simulation.PlanetarySystem+LightData moon, Game.Simulation.PlanetarySystem+LightData night, System.Single range = 0,3) : System.Single</code>  </li>
-</ul>
-<pre><code class="language-csharp">private float CalcObscured(PlanetarySystem.LightData moon, PlanetarySystem.LightData night, float range = 0.3f)
-    {
-        float y = moon.transform.position.y;
-        float y2 = night.transform.position.y;
-        if (y != y2)
-        {
-            return math.clamp((y2 - y) / range, 0f, 1f);
-        }
-        return 0f;
-    }
-</code></pre>
-<ul>
-<li><code>private CalculateState(Unity.Mathematics.float3 sunPosition, Unity.Mathematics.float3 sunDirection, System.Single&amp; delta) : Game.Rendering.LightingSystem+State</code>  </li>
-</ul>
-<pre><code class="language-csharp">private State CalculateState(float3 sunPosition, float3 sunDirection, out float delta)
-    {
-        if (m_NightDayCycleData == null)
-        {
-            delta = 1f;
-            return State.Day;
-        }
-        float3 @float = new float3(sunPosition.x, 0f, sunPosition.z);
-        @float = ((!(math.dot(@float, @float) &lt; 0.0001f)) ? math.normalize(@float) : new float3(-1f, 0f, 0f));
-        float num = math.acos(math.dot(-sunDirection, @float)) * (180f / MathF.PI);
-        bool num2 = @float.x &gt; 0f;
-        if (sunDirection.y &gt; 0f)
-        {
-            num = 0f - num;
-        }
-        if (num2)
-        {
-            delta = 1f;
-            if (num &lt; m_NightDayCycleData.DawnStartAngle)
-            {
-                return State.Night;
-            }
-            if (num &gt;= m_NightDayCycleData.DawnStartAngle &amp;&amp; num &lt; m_NightDayCycleData.SunriseMidpointAngle)
-            {
-                delta = (num - m_NightDayCycleData.DawnStartAngle) / (m_NightDayCycleData.SunriseMidpointAngle - m_NightDayCycleData.DawnStartAngle);
-                return State.Dawn;
-            }
-            if (num &gt;= m_NightDayCycleData.SunriseMidpointAngle &amp;&amp; num &lt; m_NightDayCycleData.SunriseEndAngle)
-            {
-                delta = (num - m_NightDayCycleData.SunriseMidpointAngle) / (m_NightDayCycleData.SunriseEndAngle - m_NightDayCycleData.SunriseMidpointAngle);
-                return State.Sunrise;
-            }
-            return State.Day;
-        }
-        delta = 1f;
-        if (num &gt; m_NightDayCycleData.SunsetStartAngle)
-        {
-            return State.Day;
-        }
-        if (num &lt;= m_NightDayCycleData.SunsetStartAngle &amp;&amp; num &gt; m_NightDayCycleData.SunsetMidpointAngle)
-        {
-            delta = 1f - (num - m_NightDayCycleData.SunsetMidpointAngle) / (m_NightDayCycleData.SunsetStartAngle - m_NightDayCycleData.SunsetMidpointAngle);
-            return State.Sunset;
-        }
-        if (num &lt;= m_NightDayCycleData.SunsetMidpointAngle &amp;&amp; num &gt; m_NightDayCycleData.DuskEndAngle)
-        {
-            delta = 1f - (num - m_NightDayCycleData.DuskEndAngle) / (m_NightDayCycleData.SunsetMidpointAngle - m_NightDayCycleData.DuskEndAngle);
-            return State.Dusk;
-        }
-        return State.Night;
-    }
-</code></pre>
-<ul>
-<li><code>private EnableShadows(Game.Simulation.PlanetarySystem+LightData lightData, System.Boolean enabled) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void EnableShadows(PlanetarySystem.LightData lightData, bool enabled)
-    {
-        lightData.additionalData.EnableShadows(enabled &amp;&amp; !shadowDisabled);
-    }
-</code></pre>
-<ul>
-<li><code>private NextState(Game.Rendering.LightingSystem+State value) : Game.Rendering.LightingSystem+State</code>  </li>
-</ul>
-<pre><code class="language-csharp">private State NextState(State value)
-    {
-        return value switch
-        {
-            State.Dawn =&gt; State.Sunrise, 
-            State.Sunrise =&gt; State.Day, 
-            State.Day =&gt; State.Sunset, 
-            State.Sunset =&gt; State.Dusk, 
-            State.Dusk =&gt; State.Night, 
-            State.Night =&gt; State.Dawn, 
-            _ =&gt; State.Invalid, 
-        };
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_PlanetarySystem = base.World.GetOrCreateSystemManaged&lt;PlanetarySystem&gt;();
-        m_NightDayCycleData = Resources.Load&lt;DayNightCycleData&gt;(&quot;DayNight/Default&quot;);
-        SetupPostprocessing();
-        m_LUTBlend = Resources.Load&lt;ComputeShader&gt;(&quot;DayNight/LUTBlend&quot;);
-        if ((bool)m_LUTBlend)
-        {
-            m_KernalBlend = m_LUTBlend.FindKernel(&quot;CSBlend&quot;);
-            RenderTextureDescriptor desc = new RenderTextureDescriptor
-            {
-                autoGenerateMips = false,
-                bindMS = false,
-                depthBufferBits = 0,
-                dimension = TextureDimension.Tex3D,
-                enableRandomWrite = true,
-                graphicsFormat = GraphicsFormat.R16G16B16A16_SFloat,
-                memoryless = RenderTextureMemoryless.None,
-                height = 32,
-                width = 32,
-                volumeDepth = 32,
-                mipCount = 1,
-                msaaSamples = 1,
-                sRGB = false,
-                useDynamicScale = false,
-                useMipMap = false
-            };
-            m_BlendResult = new RenderTexture(desc);
-            m_BlendResult.Create();
-        }
-        m_TimeSettingGroup = GetEntityQuery(ComponentType.ReadOnly&lt;TimeSettingsData&gt;());
-        RequireForUpdate(m_TimeSettingGroup);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnDestroy() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnDestroy()
-    {
-        base.OnDestroy();
-        if (m_Volume != null)
-        {
-            UnityEngine.Object.Destroy(m_Volume.gameObject);
-        }
-        if (m_BlendResult != null)
-        {
-            UnityEngine.Object.Destroy(m_BlendResult);
-        }
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        ShadowsQualitySettings shadowsQualitySettings = SharedSettings.instance?.graphics?.GetQualitySetting&lt;ShadowsQualitySettings&gt;();
-        if (shadowsQualitySettings != null)
-        {
-            shadowDisabled = !shadowsQualitySettings.enabled;
-        }
-        PlanetarySystem.LightData moonLight = m_PlanetarySystem.MoonLight;
-        PlanetarySystem.LightData sunLight = m_PlanetarySystem.SunLight;
-        PlanetarySystem.LightData nightLight = m_PlanetarySystem.NightLight;
-        if (!sunLight.isValid || !moonLight.isValid || !nightLight.isValid || m_NightDayCycleData == null)
-        {
-            return;
-        }
-        dayLightBrightness = math.saturate(sunLight.additionalData.intensity / 110000f);
-        float delta;
-        State state = CalculateState(sunLight.transform.position, sunLight.transform.forward, out delta);
-        if (m_PlanetarySystem.overrideTime)
-        {
-            m_LastState = State.Invalid;
-        }
-        else
-        {
-            if ((state == m_LastState &amp;&amp; delta &lt; m_LastDelta) || NextState(state) == m_LastState)
-            {
-                state = m_LastState;
-                delta = m_LastDelta;
-            }
-            m_LastState = state;
-            m_LastDelta = delta;
-        }
-        float t = CalcObscured(moonLight, nightLight, m_NightDayCycleData.NightLightObscuredRange);
-        float num = math.lerp(m_NightDayCycleData.NightLightIntensity, m_NightDayCycleData.NightLightObscuredIntensity, t);
-        float num2 = m_NightDayCycleData.MoonIntensity - (num - m_NightDayCycleData.NightLightIntensity);
-        float num3 = math.lerp(m_NightDayCycleData.NightIndirectReflectiveMultiplier, m_NightDayCycleData.NightObscuredIndirectReflectiveMultiplier, t);
-        float num4 = math.lerp(m_NightDayCycleData.NightIndirectDiffuseMultiplier, m_NightDayCycleData.NightObscuredIndirectDiffuseMultiplier, t);
-        if (!m_NightDayCycleData.UseLUT)
-        {
-            m_Tonemap.lutTexture.value = null;
-            m_Tonemap.lutContribution.value = m_NightDayCycleData.LutContribution;
-        }
-        m_Tonemap.mode.overrideState = m_NightDayCycleData.UseLUT;
-        m_ColorAdjustments.colorFilter.overrideState = m_NightDayCycleData.UseFilters;
-        switch (state)
-        {
-        case State.Dawn:
-        {
-            m_Exposure.limitMax.value = m_NightDayCycleData.NightExposureMax;
-            m_Exposure.limitMin.value = math.lerp(m_NightDayCycleData.NightExposureLowMin, m_NightDayCycleData.DayExposureMin, delta);
-            moonLight.additionalData.intensity = num2;
-            moonLight.additionalData.color = m_NightDayCycleData.MoonLightColor;
-            bool flag2 = sunLight.additionalData.intensity &gt; num2;
-            EnableShadows(moonLight, !flag2);
-            EnableShadows(sunLight, flag2);
-            nightLight.additionalData.intensity = num;
-            nightLight.additionalData.color = m_NightDayCycleData.MoonLightColor;
-            EnableShadows(nightLight, enabled: false);
-            m_PhysicallyBasedSky.exposure.value = math.lerp(m_NightDayCycleData.NightSkyExposure, m_NightDayCycleData.DaySkyExposure, delta);
-            m_PhysicallyBasedSky.zenithTint.value = Color.Lerp(m_NightDayCycleData.NightZenithTint, m_NightDayCycleData.DayZenithTint, delta);
-            m_PhysicallyBasedSky.horizonTint.value = Color.Lerp(m_NightDayCycleData.NightHorizonTint, m_NightDayCycleData.DayHorizonTint, delta);
-            m_ColorAdjustments.colorFilter.value = Color.Lerp(m_NightDayCycleData.NightColorFilter, m_NightDayCycleData.SunriseColorFilter, delta);
-            m_ColorAdjustments.contrast.value = math.lerp(m_NightDayCycleData.NightContrast, m_NightDayCycleData.SunriseAndSunsetContrast, delta);
-            m_Indirect.reflectionLightingMultiplier.value = math.lerp(num3, 1f, delta);
-            m_Indirect.indirectDiffuseLightingMultiplier.value = math.lerp(num4, 1f, delta);
-            if (m_NightDayCycleData.UseLUT)
-            {
-                BlendLUT(m_NightDayCycleData.NightLUT, m_NightDayCycleData.SunriseAndSunsetLUT, delta, m_NightDayCycleData.LutContribution);
-            }
-            break;
-        }
-        case State.Sunrise:
-            m_Exposure.limitMax.value = m_NightDayCycleData.DayExposureMax;
-            m_Exposure.limitMin.value = m_NightDayCycleData.DayExposureMin;
-            moonLight.additionalData.intensity = math.lerp(num2, 0.5f, delta);
-            moonLight.additionalData.color = m_NightDayCycleData.MoonLightColor;
-            EnableShadows(moonLight, enabled: false);
-            nightLight.additionalData.intensity = math.lerp(num, 0.5f, delta);
-            nightLight.additionalData.color = m_NightDayCycleData.MoonLightColor;
-            EnableShadows(nightLight, enabled: false);
-            EnableShadows(sunLight, enabled: true);
-            m_PhysicallyBasedSky.exposure.value = m_NightDayCycleData.DaySkyExposure;
-            m_PhysicallyBasedSky.zenithTint.value = m_NightDayCycleData.DayZenithTint;
-            m_PhysicallyBasedSky.horizonTint.value = m_NightDayCycleData.DayHorizonTint;
-            m_ColorAdjustments.colorFilter.value = Color.Lerp(m_NightDayCycleData.SunriseColorFilter, m_NightDayCycleData.DayColorFilter, delta);
-            m_ColorAdjustments.contrast.value = math.lerp(m_NightDayCycleData.SunriseAndSunsetContrast, m_NightDayCycleData.DayContrast, delta);
-            m_Indirect.reflectionLightingMultiplier.value = 1f;
-            m_Indirect.indirectDiffuseLightingMultiplier.value = 1f;
-            if (m_NightDayCycleData.UseLUT)
-            {
-                BlendLUT(m_NightDayCycleData.SunriseAndSunsetLUT, m_NightDayCycleData.DayLUT, delta, m_NightDayCycleData.LutContribution);
-            }
-            break;
-        case State.Day:
-            m_Exposure.limitMax.value = m_NightDayCycleData.DayExposureMax;
-            m_Exposure.limitMin.value = m_NightDayCycleData.DayExposureMin;
-            m_PhysicallyBasedSky.exposure.value = m_NightDayCycleData.DaySkyExposure;
-            m_PhysicallyBasedSky.zenithTint.value = m_NightDayCycleData.DayZenithTint;
-            m_PhysicallyBasedSky.horizonTint.value = m_NightDayCycleData.DayHorizonTint;
-            moonLight.additionalData.intensity = 0f;
-            moonLight.additionalData.color = m_NightDayCycleData.MoonLightColor;
-            EnableShadows(moonLight, enabled: false);
-            nightLight.additionalData.intensity = 0f;
-            nightLight.additionalData.color = m_NightDayCycleData.MoonLightColor;
-            EnableShadows(nightLight, enabled: false);
-            EnableShadows(sunLight, enabled: true);
-            m_ColorAdjustments.colorFilter.value = m_NightDayCycleData.DayColorFilter;
-            m_ColorAdjustments.contrast.value = m_NightDayCycleData.DayContrast;
-            m_Indirect.reflectionLightingMultiplier.value = 1f;
-            m_Indirect.indirectDiffuseLightingMultiplier.value = 1f;
-            if (m_NightDayCycleData.UseLUT)
-            {
-                m_Tonemap.lutTexture.value = m_NightDayCycleData.DayLUT;
-                m_Tonemap.lutContribution.value = m_NightDayCycleData.LutContribution;
-            }
-            break;
-        case State.Sunset:
-            m_Exposure.limitMax.value = m_NightDayCycleData.DayExposureMax;
-            m_Exposure.limitMin.value = m_NightDayCycleData.DayExposureMin;
-            moonLight.additionalData.intensity = math.lerp(0.5f, num2, delta);
-            moonLight.additionalData.color = m_NightDayCycleData.MoonLightColor;
-            EnableShadows(moonLight, enabled: false);
-            nightLight.additionalData.intensity = math.lerp(0f, num, delta);
-            nightLight.additionalData.color = m_NightDayCycleData.MoonLightColor;
-            EnableShadows(nightLight, enabled: false);
-            EnableShadows(sunLight, enabled: true);
-            m_PhysicallyBasedSky.exposure.value = m_NightDayCycleData.DaySkyExposure;
-            m_PhysicallyBasedSky.zenithTint.value = m_NightDayCycleData.DayZenithTint;
-            m_PhysicallyBasedSky.horizonTint.value = m_NightDayCycleData.DayHorizonTint;
-            m_ColorAdjustments.colorFilter.value = Color.Lerp(m_NightDayCycleData.DayColorFilter, m_NightDayCycleData.SunsetColorFilter, delta);
-            m_ColorAdjustments.contrast.value = math.lerp(m_NightDayCycleData.DayContrast, m_NightDayCycleData.SunriseAndSunsetContrast, delta);
-            m_Indirect.reflectionLightingMultiplier.value = 1f;
-            m_Indirect.indirectDiffuseLightingMultiplier.value = 1f;
-            if (m_NightDayCycleData.UseLUT)
-            {
-                BlendLUT(m_NightDayCycleData.DayLUT, m_NightDayCycleData.SunriseAndSunsetLUT, delta, m_NightDayCycleData.LutContribution);
-            }
-            break;
-        case State.Dusk:
-        {
-            m_Exposure.limitMax.value = m_NightDayCycleData.NightExposureMax;
-            m_Exposure.limitMin.value = m_NightDayCycleData.NightExposureLowMin;
-            moonLight.additionalData.intensity = num2;
-            moonLight.additionalData.color = m_NightDayCycleData.MoonLightColor;
-            bool flag = sunLight.additionalData.intensity &gt; num2;
-            EnableShadows(moonLight, !flag);
-            EnableShadows(sunLight, flag);
-            nightLight.additionalData.intensity = num;
-            nightLight.additionalData.color = m_NightDayCycleData.MoonLightColor;
-            EnableShadows(nightLight, enabled: false);
-            m_PhysicallyBasedSky.exposure.value = math.lerp(m_NightDayCycleData.DaySkyExposure, m_NightDayCycleData.NightSkyExposure, delta);
-            m_PhysicallyBasedSky.zenithTint.value = Color.Lerp(m_NightDayCycleData.DayZenithTint, m_NightDayCycleData.NightZenithTint, delta);
-            m_PhysicallyBasedSky.horizonTint.value = Color.Lerp(m_NightDayCycleData.DayHorizonTint, m_NightDayCycleData.NightHorizonTint, delta);
-            m_ColorAdjustments.colorFilter.value = Color.Lerp(m_NightDayCycleData.SunsetColorFilter, m_NightDayCycleData.NightColorFilter, delta);
-            m_ColorAdjustments.contrast.value = math.lerp(m_NightDayCycleData.SunriseAndSunsetContrast, m_NightDayCycleData.NightContrast, delta);
-            m_Indirect.reflectionLightingMultiplier.value = math.lerp(1f, num3, delta);
-            m_Indirect.indirectDiffuseLightingMultiplier.value = math.lerp(1f, num4, delta);
-            if (m_NightDayCycleData.UseLUT)
-            {
-                BlendLUT(m_NightDayCycleData.SunriseAndSunsetLUT, m_NightDayCycleData.NightLUT, delta, m_NightDayCycleData.LutContribution);
-            }
-            break;
-        }
-        case State.Night:
-            m_Exposure.limitMax.value = m_NightDayCycleData.NightExposureMax;
-            m_Exposure.limitMin.value = m_NightDayCycleData.NightExposureLowMin;
-            m_PhysicallyBasedSky.exposure.value = m_NightDayCycleData.NightSkyExposure;
-            m_PhysicallyBasedSky.zenithTint.value = m_NightDayCycleData.NightZenithTint;
-            m_PhysicallyBasedSky.horizonTint.value = m_NightDayCycleData.NightHorizonTint;
-            moonLight.additionalData.intensity = num2;
-            moonLight.additionalData.color = m_NightDayCycleData.MoonLightColor;
-            EnableShadows(moonLight, enabled: true);
-            EnableShadows(sunLight, enabled: false);
-            moonLight.additionalData.shadowTint = m_NightDayCycleData.MoonShadowTint;
-            nightLight.additionalData.intensity = num;
-            nightLight.additionalData.color = m_NightDayCycleData.MoonLightColor;
-            EnableShadows(nightLight, enabled: false);
-            m_ColorAdjustments.colorFilter.value = m_NightDayCycleData.NightColorFilter;
-            m_ColorAdjustments.contrast.value = m_NightDayCycleData.NightContrast;
-            m_Indirect.reflectionLightingMultiplier.value = num3;
-            m_Indirect.indirectDiffuseLightingMultiplier.value = num4;
-            if (m_NightDayCycleData.UseLUT)
-            {
-                m_Tonemap.lutTexture.value = m_NightDayCycleData.NightLUT;
-                m_Tonemap.lutContribution.value = m_NightDayCycleData.LutContribution;
-            }
-            break;
-        }
-        m_Profile.Reset();
-    }
-</code></pre>
-<ul>
-<li><code>private SetupPostprocessing() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void SetupPostprocessing()
-    {
-        if (!m_PostProcessingSetup)
-        {
-            GameObject gameObject = new GameObject(&quot;LightingPostProcessVolume&quot;);
-            UnityEngine.Object.DontDestroyOnLoad(gameObject);
-            m_Volume = gameObject.AddComponent&lt;Volume&gt;();
-            m_Volume.priority = 1000f;
-            m_Profile = m_Volume.profile;
-            m_Exposure = m_Profile.Add&lt;Exposure&gt;();
-            m_Exposure.active = true;
-            m_Exposure.mode.value = ExposureMode.Automatic;
-            m_Exposure.limitMin.overrideState = true;
-            m_Exposure.limitMin.value = -5f;
-            m_Exposure.limitMax.overrideState = true;
-            m_Exposure.limitMax.value = 14f;
-            m_PhysicallyBasedSky = m_Profile.Add&lt;PhysicallyBasedSky&gt;();
-            m_PhysicallyBasedSky.zenithTint.overrideState = true;
-            m_PhysicallyBasedSky.horizonTint.overrideState = true;
-            m_PhysicallyBasedSky.exposure.overrideState = true;
-            m_PhysicallyBasedSky.exposure.value = 0f;
-            m_ColorAdjustments = m_Profile.Add&lt;ColorAdjustments&gt;();
-            m_ColorAdjustments.colorFilter.overrideState = true;
-            m_ColorAdjustments.colorFilter.value = new Color(1f, 1f, 1f);
-            m_ColorAdjustments.contrast.overrideState = true;
-            m_ColorAdjustments.contrast.value = 0f;
-            m_Indirect = m_Profile.Add&lt;IndirectLightingController&gt;();
-            m_Indirect.reflectionLightingMultiplier.overrideState = true;
-            m_Indirect.indirectDiffuseLightingMultiplier.overrideState = true;
-            m_Indirect.reflectionLightingMultiplier.value = 1f;
-            m_Indirect.indirectDiffuseLightingMultiplier.value = 1f;
-            m_Tonemap = m_Profile.Add&lt;Tonemapping&gt;();
-            m_Tonemap.mode.overrideState = true;
-            m_Tonemap.mode.value = TonemappingMode.External;
-            m_Tonemap.lutContribution.overrideState = true;
-            m_Tonemap.lutContribution.value = 0.5f;
-            m_Tonemap.lutTexture.overrideState = true;
-            m_Tonemap.lutTexture.value = null;
-            m_PostProcessingSetup = true;
-        }
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Rendering.LightingSystem+ShaderID</code>  </li>
-<li><code>Game.Rendering.LightingSystem+State</code>  </li>
-</ul>
+<p>Notes and tips for modders:
+- DayNightCycleData (Resources/DayNight/Default) holds the configurable parameters (angles, colors, LUTs, intensities). Replacing or editing this asset allows customizing transitions and colors.
+- LUT blending requires the "DayNight/LUTBlend" compute shader and a 3D RenderTexture target with GraphicsFormat.R16G16B16A16_SFloat. If the compute shader is missing, the system falls back to a simple choice between source and destination LUTs.
+- The system respects the game's ShadowsQualitySettings to disable shadows globally.
+- The Volume created is persistent (DontDestroyOnLoad) and has a high priority (1000) to ensure its overrides are applied. Modifying or replacing this VolumeProfile at runtime may interfere with LightingSystem updates; prefer editing DayNightCycleData or change component values via the Volume's profile entries.</p>
 
 
 

@@ -65233,6 +65233,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -66264,18 +66287,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -66300,9 +66323,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -69751,6 +69774,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../Skeleton/" class="md-nav__link">
         
   
@@ -72563,6 +72609,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75553,6 +75622,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87145,6 +87237,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -117921,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117948,18 +118085,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -117984,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118009,1143 +118146,217 @@
 
 
 <h1 id="gamerenderingaggregatemeshsystem">Game.Rendering.AggregateMeshSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Rendering</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code><br />
-<strong>Implements:</strong> <code>Game.Serialization.IPreDeserialize</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class AggregateMeshSystem : Game.GameSystemBase, Game.Serialization.IPreDeserialize
-{
-    private Unity.Entities.EntityQuery m_CreatedPrefabQuery;
-    private Unity.Entities.EntityQuery m_UpdatedLabelQuery;
-    private Unity.Entities.EntityQuery m_LabelQuery;
-    private Unity.Entities.EntityQuery m_UpdatedArrowQuery;
-    private Unity.Entities.EntityQuery m_ArrowQuery;
-    private Unity.Entities.EntityQuery m_TempAggregatedQuery;
-    private Game.Rendering.OverlayRenderSystem m_OverlayRenderSystem;
-    private Game.Rendering.UndergroundViewSystem m_UndergroundViewSystem;
-    private Game.Prefabs.PrefabSystem m_PrefabSystem;
-    private Game.UI.NameSystem m_NameSystem;
-    private Game.Tools.ToolSystem m_ToolSystem;
-    private System.Collections.Generic.List&lt;Game.Rendering.AggregateMeshSystem+MeshData&gt; m_LabelData;
-    private System.Collections.Generic.List&lt;Game.Rendering.AggregateMeshSystem+MeshData&gt; m_ArrowData;
-    private System.Collections.Generic.Dictionary&lt;Unity.Entities.Entity, System.String&gt; m_CachedLabels;
-    private System.Int32 m_FaceColor;
-    private System.Boolean m_TunnelSelectOn;
-    private System.Boolean m_Loaded;
-    private Game.Rendering.AggregateMeshSystem+TypeHandle __TypeHandle;
-
-    public AggregateMeshSystem();
-
-    private System.Void __AssignQueries(Unity.Entities.SystemState&amp; state);
-    private System.Void ClearMeshData(System.Collections.Generic.List&lt;Game.Rendering.AggregateMeshSystem+MeshData&gt; meshData);
-    private System.Void DestroyMeshData(System.Collections.Generic.List&lt;Game.Rendering.AggregateMeshSystem+MeshData&gt; meshData);
-    private Unity.Jobs.JobHandle FillArrowMeshData(Unity.Jobs.JobHandle inputDeps);
-    private Unity.Jobs.JobHandle FillNameMeshData(Unity.Jobs.JobHandle inputDeps);
-    public System.Boolean GetArrowMaterial(System.Int32 index, System.Int32 subMeshIndex, UnityEngine.Material&amp; material);
-    public System.Int32 GetArrowMaterialCount();
-    public System.Boolean GetArrowMesh(System.Int32 index, UnityEngine.Mesh&amp; mesh, System.Int32&amp; subMeshCount);
-    private System.Boolean GetLoaded();
-    private System.Boolean GetMaterialData(System.Collections.Generic.List&lt;Game.Rendering.AggregateMeshSystem+MeshData&gt; meshData, System.Int32 index, System.Int32 subMeshIndex, UnityEngine.Material&amp; material);
-    private System.Boolean GetMeshData(System.Collections.Generic.List&lt;Game.Rendering.AggregateMeshSystem+MeshData&gt; meshData, System.Int32 index, UnityEngine.Mesh&amp; mesh, System.Int32&amp; subMeshCount);
-    public System.Boolean GetNameMaterial(System.Int32 index, System.Int32 subMeshIndex, UnityEngine.Material&amp; material);
-    public System.Int32 GetNameMaterialCount();
-    public System.Boolean GetNameMesh(System.Int32 index, UnityEngine.Mesh&amp; mesh, System.Int32&amp; subMeshCount);
-    private System.Void InitializePrefabs();
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnCreateForCompiler();
-    protected virtual System.Void OnDestroy();
-    private System.Void OnDictionaryChanged();
-    protected virtual System.Void OnUpdate();
-    public System.Void PreDeserialize(Colossal.Serialization.Entities.Context context);
-    private System.Void UpdateArrowMaterials(System.Boolean isLoaded);
-    private Unity.Jobs.JobHandle UpdateArrowPositions(Unity.Jobs.JobHandle inputDeps, System.Boolean isLoaded);
-    private Unity.Jobs.JobHandle UpdateLabelPositions(Unity.Jobs.JobHandle inputDeps, System.Boolean isLoaded);
-    private System.Void UpdateLabelVertices(System.Boolean isLoaded);
-    private System.Void UpdateUndergroundState(System.Collections.Generic.List&lt;Game.Rendering.AggregateMeshSystem+MeshData&gt; meshData, System.Boolean undergroundOn);
-}
-</code></pre>
+<p><strong>Assembly:</strong><br />
+<strong>Namespace:</strong> Game.Rendering</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> GameSystemBase</p>
+<p><strong>Summary:</strong><br />
+AggregateMeshSystem is an ECS system responsible for generating and managing aggregated meshes and materials for network labels (names) and lane/turn arrows in the rendering pipeline. It collects per-entity text/arrow vertex data, schedules Jobs (Burst-compiled) to build GPU-ready MeshData, creates Unity Mesh/Material instances when needed, and exposes methods to retrieve meshes/materials for rendering overlays. The system works with several queries, uses Unity.Jobs and Burst for heavy work, and integrates with other game systems (PrefabSystem, NameSystem, OverlayRenderSystem, UndergroundViewSystem, ToolSystem).</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Unity.Entities.EntityQuery m_CreatedPrefabQuery</code>  </li>
+<li>
+<p><code>private EntityQuery m_CreatedPrefabQuery</code><br />
+Holds entities for newly created aggregate prefabs (used to initialize per-prefab material/mesh data).</p>
+</li>
+<li>
+<p><code>private EntityQuery m_UpdatedLabelQuery</code><br />
+Query for aggregates with LabelMaterial and updated/batched/deleted markers used to update label geometry.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_LabelQuery</code><br />
+Query for current label aggregates (excludes Deleted) used to collect data when building meshes.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_UpdatedArrowQuery</code><br />
+Query for aggregates with ArrowMaterial and updated/batched/deleted markers used to update arrow geometry.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_ArrowQuery</code><br />
+Query for current arrow aggregates (excludes Deleted) used to collect arrow data when building meshes.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_TempAggregatedQuery</code><br />
+Query used to build a temporary mapping when handling Temp/Aggregated entities (used for arrow placement when temporary edges replace originals).</p>
+</li>
+<li>
+<p><code>private OverlayRenderSystem m_OverlayRenderSystem</code><br />
+Reference to overlay rendering helper used to copy font atlas parameters and get TextMeshPro instance.</p>
+</li>
+<li>
+<p><code>private UndergroundViewSystem m_UndergroundViewSystem</code><br />
+Used to determine underground/tunnel view state to select underground vs. normal materials and transparency.</p>
+</li>
+<li>
+<p><code>private PrefabSystem m_PrefabSystem</code><br />
+Reference to PrefabSystem for accessing prefab components and AggregateNetPrefab.</p>
+</li>
+<li>
+<p><code>private NameSystem m_NameSystem</code><br />
+Used to produce rendered label strings for entities (taking localization &amp; formatting into account).</p>
+</li>
+<li>
+<p><code>private ToolSystem m_ToolSystem</code><br />
+Used to determine editor mode / tool state (affects arrow placement logic).</p>
+</li>
+<li>
+<p><code>private List&lt;MeshData&gt; m_LabelData</code><br />
+Per-label-material mesh management data (contains original material ref, mutable MaterialData list, Mesh, MeshDataArray, flags, job handle dependencies, etc.).</p>
+</li>
+<li>
+<p><code>private List&lt;MeshData&gt; m_ArrowData</code><br />
+Per-arrow-material mesh management data (similar to m_LabelData but for arrows).</p>
+</li>
+<li>
+<p><code>private Dictionary&lt;Entity, string&gt; m_CachedLabels</code><br />
+Cache of last rendered label string per entity to avoid rebuilding label geometry if text didn't change.</p>
+</li>
+<li>
+<p><code>private int m_FaceColor</code><br />
+Shader property id (Shader.PropertyToID) used to apply face color/alpha on generated materials.</p>
+</li>
+<li>
+<p><code>private bool m_TunnelSelectOn</code><br />
+Tracks last-known underground/tunnel toggle state to update materials' transparency when the view toggles.</p>
+</li>
+<li>
+<p><code>private bool m_Loaded</code><br />
+Flag set during PreDeserialize to indicate a one-time "loaded" update pass is required.</p>
+</li>
+<li>
+<p><code>private TypeHandle __TypeHandle</code><br />
+Internal struct that caches ComponentTypeHandle/BufferTypeHandle/ComponentLookup handles used by jobs and query scheduling.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_CreatedPrefabQuery;
-</code></pre>
+<h2 id="properties">Properties</h2>
 <ul>
-<li><code>private Unity.Entities.EntityQuery m_UpdatedLabelQuery</code>  </li>
+<li>No public properties. (All state is managed internally; the system exposes explicit Get* methods for meshes/materials and counts.)</li>
 </ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_UpdatedLabelQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_LabelQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_LabelQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_UpdatedArrowQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_UpdatedArrowQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_ArrowQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_ArrowQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_TempAggregatedQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_TempAggregatedQuery;
-</code></pre>
-<ul>
-<li><code>private Game.Rendering.OverlayRenderSystem m_OverlayRenderSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Rendering.OverlayRenderSystem m_OverlayRenderSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Rendering.UndergroundViewSystem m_UndergroundViewSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Rendering.UndergroundViewSystem m_UndergroundViewSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Prefabs.PrefabSystem m_PrefabSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Prefabs.PrefabSystem m_PrefabSystem;
-</code></pre>
-<ul>
-<li><code>private Game.UI.NameSystem m_NameSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.UI.NameSystem m_NameSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Tools.ToolSystem m_ToolSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Tools.ToolSystem m_ToolSystem;
-</code></pre>
-<ul>
-<li><code>private System.Collections.Generic.List&lt;Game.Rendering.AggregateMeshSystem+MeshData&gt; m_LabelData</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Collections.Generic.List&lt;Game.Rendering.AggregateMeshSystem+MeshData&gt; m_LabelData;
-</code></pre>
-<ul>
-<li><code>private System.Collections.Generic.List&lt;Game.Rendering.AggregateMeshSystem+MeshData&gt; m_ArrowData</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Collections.Generic.List&lt;Game.Rendering.AggregateMeshSystem+MeshData&gt; m_ArrowData;
-</code></pre>
-<ul>
-<li><code>private System.Collections.Generic.Dictionary&lt;Unity.Entities.Entity, System.String&gt; m_CachedLabels</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Collections.Generic.Dictionary&lt;Unity.Entities.Entity, System.String&gt; m_CachedLabels;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_FaceColor</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_FaceColor;
-</code></pre>
-<ul>
-<li><code>private System.Boolean m_TunnelSelectOn</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean m_TunnelSelectOn;
-</code></pre>
-<ul>
-<li><code>private System.Boolean m_Loaded</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean m_Loaded;
-</code></pre>
-<ul>
-<li><code>private Game.Rendering.AggregateMeshSystem+TypeHandle __TypeHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Rendering.AggregateMeshSystem+TypeHandle __TypeHandle;
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public AggregateMeshSystem()</code>  </li>
+<li><code>public AggregateMeshSystem()</code><br />
+Default constructor. The system is instantiated by the ECS world; initialization logic happens in OnCreate.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public AggregateMeshSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private __AssignQueries(Unity.Entities.SystemState&amp; state) : System.Void</code>  </li>
+<li>
+<p><code>protected override void OnCreate()</code><br />
+Setups queries, caches system references (OverlayRenderSystem, UndergroundViewSystem, PrefabSystem, NameSystem, ToolSystem), registers localization change callback, and initializes Shader property ids.</p>
+</li>
+<li>
+<p><code>protected override void OnDestroy()</code><br />
+Cleans up created Mesh and Material objects and unregisters callbacks. Calls DestroyMeshData for label and arrow data.</p>
+</li>
+<li>
+<p><code>public void PreDeserialize(Context context)</code><br />
+Called before scene/entity deserialization. Clears mesh state and cached labels to ensure meshes/materials are rebuilt after load.</p>
+</li>
+<li>
+<p><code>protected override void OnUpdate()</code><br />
+Main update loop: checks created prefabs to initialize per-prefab materials, detects if label/arrow queries have work, updates underground material state, schedules jobs to compute label/arrow positions and fills MeshData via FillName/FillArrow jobs, and manages job dependencies.</p>
+</li>
+<li>
+<p><code>private void InitializePrefabs()</code><br />
+Runs on newly created prefab entities. Finds NetLabel/NetArrow components on prefabs, creates MeshData and initial MaterialData instances (including separate underground variants), sets material indices in NetNameData/NetArrowData components.</p>
+</li>
+<li>
+<p><code>private void UpdateLabelVertices(bool isLoaded)</code><br />
+Iterates label query chunks, uses TextMeshPro via OverlayRenderSystem to generate per-character vertex data for each label, builds LabelVertex buffers, creates/assigns per-texture materials for label atlases, marks related MeshData as dirty when text or material mappings change, and updates shared LabelMaterial indices on entities as needed.</p>
+</li>
+<li>
+<p><code>private void UpdateArrowMaterials(bool isLoaded)</code><br />
+Iterates arrow query chunks and ensures ArrowMaterial shared components are up-to-date. Marks Arrow MeshData as dirty when needed.</p>
+</li>
+<li>
+<p><code>private JobHandle UpdateLabelPositions(JobHandle inputDeps, bool isLoaded)</code><br />
+Schedules the Burst IJobChunk UpdateLabelPositionsJob which computes placement (LabelPosition buffers) for each aggregate (chooses where along aggregated edges to place each label) and returns a JobHandle for dependency chaining.</p>
+</li>
+<li>
+<p><code>private JobHandle UpdateArrowPositions(JobHandle inputDeps, bool isLoaded)</code><br />
+Builds a temporary mapping for Temp/Aggregated entities (FillTempMapJob) and schedules UpdateArrowPositionsJob to compute ArrowPosition buffers that place arrows along aggregates. Returns JobHandle and ensures temporary map disposal is chained.</p>
+</li>
+<li>
+<p><code>private JobHandle FillNameMeshData(JobHandle inputDeps)</code><br />
+For each dirty label MeshData, collects matching archetype chunks into a NativeList and schedules FillNameDataJob (IJob) which allocates vertex/index buffers in MeshDataArray for all labels of that material. Stores job handle in MeshData for later completion.</p>
+</li>
+<li>
+<p><code>private JobHandle FillArrowMeshData(JobHandle inputDeps)</code><br />
+For each dirty arrow MeshData, collects matching archetype chunks into a NativeList and schedules FillArrowDataJob (IJob) which builds arrow vertex/index buffers in MeshDataArray. Stores job handle in MeshData for later completion.</p>
+</li>
+<li>
+<p><code>private void DestroyMeshData(List&lt;MeshData&gt; meshData)</code><br />
+Frees/destroys all Mesh and Material objects created by the system and disposes MeshDataArray where allocated.</p>
+</li>
+<li>
+<p><code>private void ClearMeshData(List&lt;MeshData&gt; meshData)</code><br />
+Marks existing MeshData entries as having no mesh (m_HasMesh = false), destroys any cached Mesh object and disposes MeshDataArray so they will be rebuilt later (used on PreDeserialize/load).</p>
+</li>
+<li>
+<p><code>private void UpdateUndergroundState(List&lt;MeshData&gt; meshData, bool undergroundOn)</code><br />
+Iterates meshData materials and updates their face-color alpha to the appropriate transparency for underground view toggling.</p>
+</li>
+<li>
+<p><code>private void OnDictionaryChanged()</code><br />
+Callback for localization dictionary change; marks label query entities as Updated so label text will be regenerated with the new language.</p>
+</li>
+<li>
+<p><code>private bool GetLoaded()</code><br />
+Internal helper used to read and reset m_Loaded flag, indicating a one-time loaded pass.</p>
+</li>
+<li>
+<p><code>public int GetNameMaterialCount()</code><br />
+Returns number of distinct label/material groups that have been initialized (m_LabelData.Count) — used by renderers to know how many material variants exist.</p>
+</li>
+<li>
+<p><code>public int GetArrowMaterialCount()</code><br />
+Returns number of distinct arrow material groups (m_ArrowData.Count).</p>
+</li>
+<li>
+<p><code>public bool GetNameMesh(int index, out Mesh mesh, out int subMeshCount)</code><br />
+If the specified label MeshData has produced MeshDataArray results, completes the job dependencies, applies MeshData to a Unity Mesh and returns it and the subMesh count. Returns true if the mesh contains any geometry.</p>
+</li>
+<li>
+<p><code>public bool GetNameMaterial(int index, int subMeshIndex, out Material material)</code><br />
+Retrieves the generated Material instance for the requested label material submesh and returns whether it contains geometry (m_HasMesh).</p>
+</li>
+<li>
+<p><code>public bool GetArrowMesh(int index, out Mesh mesh, out int subMeshCount)</code><br />
+Same as GetNameMesh but for arrow meshes.</p>
+</li>
+<li>
+<p><code>public bool GetArrowMaterial(int index, int subMeshIndex, out Material material)</code><br />
+Same as GetNameMaterial but for arrow materials.</p>
+</li>
+<li>
+<p>plus several internal nested types and Burst jobs (UpdateLabelPositionsJob, FillTempMapJob, UpdateArrowPositionsJob, FillNameDataJob, FillArrowDataJob) used to compute positions and fill MeshDataArray. These are Burst-compiled for performance and operate on ComponentLookups, BufferLookups and chunk data.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private void __AssignQueries(ref SystemState state)
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Get the system from the world (example; call from your mod initialization or a MonoBehaviour)
+var world = World.DefaultGameObjectInjectionWorld;
+var aggregateSystem = world.GetExistingSystemManaged&lt;Game.Rendering.AggregateMeshSystem&gt;();
+
+// Query how many label/arrow material groups exist
+int nameMatCount = aggregateSystem.GetNameMaterialCount();
+int arrowMatCount = aggregateSystem.GetArrowMaterialCount();
+
+// Retrieve a mesh and material if available (index 0 used as an example)
+if (nameMatCount &gt; 0 &amp;&amp; aggregateSystem.GetNameMesh(0, out Mesh nameMesh, out int nameSubCount))
+{
+    // nameMesh is a Unity Mesh ready for rendering; get its material(s)
+    for (int s = 0; s &lt; nameSubCount; s++)
     {
-        new EntityQueryBuilder(Allocator.Temp).Dispose();
-    }
-</code></pre>
-<ul>
-<li><code>private ClearMeshData(System.Collections.Generic.List&lt;Game.Rendering.AggregateMeshSystem+MeshData&gt; meshData) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void ClearMeshData(List&lt;MeshData&gt; meshData)
-    {
-        if (meshData == null)
+        if (aggregateSystem.GetNameMaterial(0, s, out Material mat))
         {
-            return;
-        }
-        for (int i = 0; i &lt; meshData.Count; i++)
-        {
-            MeshData meshData2 = meshData[i];
-            if (meshData2.m_Materials != null)
-            {
-                for (int j = 0; j &lt; meshData2.m_Materials.Count; j++)
-                {
-                    MaterialData value = meshData2.m_Materials[j];
-                    value.m_HasMesh = false;
-                    meshData2.m_Materials[j] = value;
-                }
-            }
-            if (meshData2.m_Mesh != null)
-            {
-                Object.Destroy(meshData2.m_Mesh);
-                meshData2.m_Mesh = null;
-            }
-            if (meshData2.m_HasMeshData)
-            {
-                meshData2.m_MeshData.Dispose();
-                meshData2.m_HasMeshData = false;
-            }
-            meshData2.m_HasMesh = false;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private DestroyMeshData(System.Collections.Generic.List&lt;Game.Rendering.AggregateMeshSystem+MeshData&gt; meshData) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void DestroyMeshData(List&lt;MeshData&gt; meshData)
-    {
-        if (meshData == null)
-        {
-            return;
-        }
-        for (int i = 0; i &lt; meshData.Count; i++)
-        {
-            MeshData meshData2 = meshData[i];
-            if (meshData2.m_Materials != null)
-            {
-                for (int j = 0; j &lt; meshData2.m_Materials.Count; j++)
-                {
-                    MaterialData materialData = meshData2.m_Materials[j];
-                    if (materialData.m_Material != null)
-                    {
-                        Object.Destroy(materialData.m_Material);
-                    }
-                }
-            }
-            if (meshData2.m_Mesh != null)
-            {
-                Object.Destroy(meshData2.m_Mesh);
-            }
-            if (meshData2.m_HasMeshData)
-            {
-                meshData2.m_MeshData.Dispose();
-            }
-        }
-        meshData.Clear();
-    }
-</code></pre>
-<ul>
-<li><code>private FillArrowMeshData(Unity.Jobs.JobHandle inputDeps) : Unity.Jobs.JobHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private JobHandle FillArrowMeshData(JobHandle inputDeps)
-    {
-        JobHandle jobHandle = inputDeps;
-        if (m_ArrowData != null)
-        {
-            for (int i = 0; i &lt; m_ArrowData.Count; i++)
-            {
-                MeshData meshData = m_ArrowData[i];
-                if (!meshData.m_MeshDirty)
-                {
-                    continue;
-                }
-                meshData.m_MeshDirty = false;
-                m_ArrowQuery.ResetFilter();
-                m_ArrowQuery.SetSharedComponentFilter(new ArrowMaterial
-                {
-                    m_Index = i
-                });
-                if (m_ArrowQuery.IsEmptyIgnoreFilter)
-                {
-                    if (meshData.m_Materials != null)
-                    {
-                        for (int j = 0; j &lt; meshData.m_Materials.Count; j++)
-                        {
-                            MaterialData value = meshData.m_Materials[j];
-                            value.m_HasMesh = false;
-                            meshData.m_Materials[j] = value;
-                        }
-                    }
-                    if (meshData.m_Mesh != null)
-                    {
-                        Object.Destroy(meshData.m_Mesh);
-                        meshData.m_Mesh = null;
-                    }
-                    if (meshData.m_HasMeshData)
-                    {
-                        meshData.m_HasMeshData = false;
-                        meshData.m_MeshData.Dispose();
-                    }
-                    meshData.m_HasMesh = false;
-                }
-                else
-                {
-                    JobHandle outJobHandle;
-                    NativeList&lt;ArchetypeChunk&gt; chunks = m_ArrowQuery.ToArchetypeChunkListAsync(Allocator.TempJob, out outJobHandle);
-                    if (!meshData.m_HasMeshData)
-                    {
-                        meshData.m_HasMeshData = true;
-                        meshData.m_MeshData = Mesh.AllocateWritableMeshData(1);
-                    }
-                    JobHandle jobHandle2 = IJobExtensions.Schedule(new FillArrowDataJob
-                    {
-                        m_HiddenType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Tools_Hidden_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                        m_PrefabRefType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                        m_ArrowPositionType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Net_ArrowPosition_RO_BufferTypeHandle, ref base.CheckedStateRef),
-                        m_NetArrowData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_NetArrowData_RO_ComponentLookup, ref base.CheckedStateRef),
-                        m_Chunks = chunks,
-                        m_ArrowMeshData = meshData.m_MeshData
-                    }, JobHandle.CombineDependencies(outJobHandle, inputDeps));
-                    chunks.Dispose(jobHandle2);
-                    meshData.m_DataDependencies = jobHandle2;
-                    jobHandle = JobHandle.CombineDependencies(jobHandle, jobHandle2);
-                }
-            }
-        }
-        return jobHandle;
-    }
-</code></pre>
-<ul>
-<li><code>private FillNameMeshData(Unity.Jobs.JobHandle inputDeps) : Unity.Jobs.JobHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private JobHandle FillNameMeshData(JobHandle inputDeps)
-    {
-        JobHandle jobHandle = inputDeps;
-        if (m_LabelData != null)
-        {
-            for (int i = 0; i &lt; m_LabelData.Count; i++)
-            {
-                MeshData meshData = m_LabelData[i];
-                if (!meshData.m_MeshDirty)
-                {
-                    continue;
-                }
-                meshData.m_MeshDirty = false;
-                m_LabelQuery.ResetFilter();
-                m_LabelQuery.SetSharedComponentFilter(new LabelMaterial
-                {
-                    m_Index = i
-                });
-                if (m_LabelQuery.IsEmptyIgnoreFilter)
-                {
-                    if (meshData.m_Materials != null)
-                    {
-                        for (int j = 0; j &lt; meshData.m_Materials.Count; j++)
-                        {
-                            MaterialData value = meshData.m_Materials[j];
-                            value.m_HasMesh = false;
-                            meshData.m_Materials[j] = value;
-                        }
-                    }
-                    if (meshData.m_Mesh != null)
-                    {
-                        Object.Destroy(meshData.m_Mesh);
-                        meshData.m_Mesh = null;
-                    }
-                    if (meshData.m_HasMeshData)
-                    {
-                        meshData.m_HasMeshData = false;
-                        meshData.m_MeshData.Dispose();
-                    }
-                    meshData.m_HasMesh = false;
-                    continue;
-                }
-                JobHandle outJobHandle;
-                NativeList&lt;ArchetypeChunk&gt; chunks = m_LabelQuery.ToArchetypeChunkListAsync(Allocator.TempJob, out outJobHandle);
-                if (!meshData.m_HasMeshData)
-                {
-                    meshData.m_HasMeshData = true;
-                    meshData.m_MeshData = Mesh.AllocateWritableMeshData(1);
-                }
-                JobHandle jobHandle2 = IJobExtensions.Schedule(new FillNameDataJob
-                {
-                    m_LabelExtentsType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Net_LabelExtents_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                    m_PrefabRefType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                    m_TempType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Tools_Temp_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                    m_HiddenType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Tools_Hidden_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                    m_LabelPositionType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Net_LabelPosition_RO_BufferTypeHandle, ref base.CheckedStateRef),
-                    m_LabelVertexType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Net_LabelVertex_RO_BufferTypeHandle, ref base.CheckedStateRef),
-                    m_NetNameData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_NetNameData_RO_ComponentLookup, ref base.CheckedStateRef),
-                    m_Chunks = chunks,
-                    m_SubMeshCount = meshData.m_Materials.Count,
-                    m_NameMeshData = meshData.m_MeshData
-                }, JobHandle.CombineDependencies(outJobHandle, inputDeps));
-                chunks.Dispose(jobHandle2);
-                meshData.m_DataDependencies = jobHandle2;
-                jobHandle = JobHandle.CombineDependencies(jobHandle, jobHandle2);
-            }
-        }
-        return jobHandle;
-    }
-</code></pre>
-<ul>
-<li><code>public GetArrowMaterial(System.Int32 index, System.Int32 subMeshIndex, UnityEngine.Material&amp; material) : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">public bool GetArrowMaterial(int index, int subMeshIndex, out Material material)
-    {
-        return GetMaterialData(m_ArrowData, index, subMeshIndex, out material);
-    }
-</code></pre>
-<ul>
-<li><code>public GetArrowMaterialCount() : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">public int GetArrowMaterialCount()
-    {
-        if (m_ArrowData != null)
-        {
-            return m_ArrowData.Count;
-        }
-        return 0;
-    }
-</code></pre>
-<ul>
-<li><code>public GetArrowMesh(System.Int32 index, UnityEngine.Mesh&amp; mesh, System.Int32&amp; subMeshCount) : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">public bool GetArrowMesh(int index, out Mesh mesh, out int subMeshCount)
-    {
-        return GetMeshData(m_ArrowData, index, out mesh, out subMeshCount);
-    }
-</code></pre>
-<ul>
-<li><code>private GetLoaded() : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">private bool GetLoaded()
-    {
-        if (m_Loaded)
-        {
-            m_Loaded = false;
-            return true;
-        }
-        return false;
-    }
-</code></pre>
-<ul>
-<li><code>private GetMaterialData(System.Collections.Generic.List&lt;Game.Rendering.AggregateMeshSystem+MeshData&gt; meshData, System.Int32 index, System.Int32 subMeshIndex, UnityEngine.Material&amp; material) : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">private bool GetMaterialData(List&lt;MeshData&gt; meshData, int index, int subMeshIndex, out Material material)
-    {
-        MaterialData materialData = meshData[index].m_Materials[subMeshIndex];
-        material = materialData.m_Material;
-        return materialData.m_HasMesh;
-    }
-</code></pre>
-<ul>
-<li><code>private GetMeshData(System.Collections.Generic.List&lt;Game.Rendering.AggregateMeshSystem+MeshData&gt; meshData, System.Int32 index, UnityEngine.Mesh&amp; mesh, System.Int32&amp; subMeshCount) : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">private bool GetMeshData(List&lt;MeshData&gt; meshData, int index, out Mesh mesh, out int subMeshCount)
-    {
-        MeshData meshData2 = meshData[index];
-        subMeshCount = meshData2.m_Materials.Count;
-        if (meshData2.m_HasMeshData)
-        {
-            meshData2.m_HasMeshData = false;
-            meshData2.m_DataDependencies.Complete();
-            meshData2.m_DataDependencies = default(JobHandle);
-            if (meshData2.m_Mesh == null)
-            {
-                meshData2.m_Mesh = new Mesh();
-                if (meshData2.m_OriginalMaterial != null)
-                {
-                    meshData2.m_Mesh.name = $&quot;Aggregates ({meshData2.m_OriginalMaterial})&quot;;
-                }
-            }
-            Mesh.ApplyAndDisposeWritableMeshData(meshData2.m_MeshData, meshData2.m_Mesh, MeshUpdateFlags.DontValidateIndices | MeshUpdateFlags.DontRecalculateBounds);
-            Bounds bounds = default(Bounds);
-            meshData2.m_HasMesh = false;
-            for (int i = 0; i &lt; subMeshCount; i++)
-            {
-                MaterialData value = meshData2.m_Materials[i];
-                SubMeshDescriptor subMesh = meshData2.m_Mesh.GetSubMesh(i);
-                value.m_HasMesh = subMesh.vertexCount &gt; 0;
-                if (value.m_HasMesh)
-                {
-                    if (meshData2.m_HasMesh)
-                    {
-                        bounds.Encapsulate(subMesh.bounds);
-                    }
-                    else
-                    {
-                        bounds = subMesh.bounds;
-                        meshData2.m_HasMesh = true;
-                    }
-                }
-                meshData2.m_Materials[i] = value;
-            }
-            meshData2.m_Mesh.bounds = bounds;
-        }
-        mesh = meshData2.m_Mesh;
-        return meshData2.m_HasMesh;
-    }
-</code></pre>
-<ul>
-<li><code>public GetNameMaterial(System.Int32 index, System.Int32 subMeshIndex, UnityEngine.Material&amp; material) : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">public bool GetNameMaterial(int index, int subMeshIndex, out Material material)
-    {
-        return GetMaterialData(m_LabelData, index, subMeshIndex, out material);
-    }
-</code></pre>
-<ul>
-<li><code>public GetNameMaterialCount() : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">public int GetNameMaterialCount()
-    {
-        if (m_LabelData != null)
-        {
-            return m_LabelData.Count;
-        }
-        return 0;
-    }
-</code></pre>
-<ul>
-<li><code>public GetNameMesh(System.Int32 index, UnityEngine.Mesh&amp; mesh, System.Int32&amp; subMeshCount) : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">public bool GetNameMesh(int index, out Mesh mesh, out int subMeshCount)
-    {
-        return GetMeshData(m_LabelData, index, out mesh, out subMeshCount);
-    }
-</code></pre>
-<ul>
-<li><code>private InitializePrefabs() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void InitializePrefabs()
-    {
-        NativeArray&lt;ArchetypeChunk&gt; nativeArray = m_CreatedPrefabQuery.ToArchetypeChunkArray(Allocator.TempJob);
-        try
-        {
-            bool flag = m_UndergroundViewSystem.undergroundOn &amp;&amp; m_UndergroundViewSystem.tunnelsOn;
-            ComponentTypeHandle&lt;PrefabData&gt; typeHandle = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_PrefabData_RO_ComponentTypeHandle, ref base.CheckedStateRef);
-            ComponentTypeHandle&lt;NetNameData&gt; typeHandle2 = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_NetNameData_RW_ComponentTypeHandle, ref base.CheckedStateRef);
-            ComponentTypeHandle&lt;NetArrowData&gt; typeHandle3 = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_NetArrowData_RW_ComponentTypeHandle, ref base.CheckedStateRef);
-            for (int i = 0; i &lt; nativeArray.Length; i++)
-            {
-                ArchetypeChunk archetypeChunk = nativeArray[i];
-                NativeArray&lt;PrefabData&gt; nativeArray2 = archetypeChunk.GetNativeArray(ref typeHandle);
-                NativeArray&lt;NetNameData&gt; nativeArray3 = archetypeChunk.GetNativeArray(ref typeHandle2);
-                NativeArray&lt;NetArrowData&gt; nativeArray4 = archetypeChunk.GetNativeArray(ref typeHandle3);
-                for (int j = 0; j &lt; nativeArray2.Length; j++)
-                {
-                    AggregateNetPrefab prefab = m_PrefabSystem.GetPrefab&lt;AggregateNetPrefab&gt;(nativeArray2[j]);
-                    NetLabel component = prefab.GetComponent&lt;NetLabel&gt;();
-                    NetArrow component2 = prefab.GetComponent&lt;NetArrow&gt;();
-                    NetNameData value;
-                    int num;
-                    if (component != null &amp;&amp; component.m_NameMaterial != null)
-                    {
-                        value = nativeArray3[j];
-                        if (m_LabelData != null)
-                        {
-                            num = 0;
-                            while (num &lt; m_LabelData.Count)
-                            {
-                                if (!(m_LabelData[num].m_OriginalMaterial == component.m_NameMaterial))
-                                {
-                                    num++;
-                                    continue;
-                                }
-                                goto IL_012f;
-                            }
-                        }
-                        MeshData meshData = new MeshData();
-                        meshData.m_OriginalMaterial = component.m_NameMaterial;
-                        meshData.m_Materials = new List&lt;MaterialData&gt;(2);
-                        if (m_LabelData == null)
-                        {
-                            m_LabelData = new List&lt;MeshData&gt;();
-                        }
-                        value.m_MaterialIndex = m_LabelData.Count;
-                        nativeArray3[j] = value;
-                        m_LabelData.Add(meshData);
-                    }
-                    goto IL_01b9;
-                    IL_01b9:
-                    if (!(component2 != null) || !(component2.m_ArrowMaterial != null))
-                    {
-                        continue;
-                    }
-                    NetArrowData value2 = nativeArray4[j];
-                    int num2;
-                    if (m_ArrowData != null)
-                    {
-                        num2 = 0;
-                        while (num2 &lt; m_ArrowData.Count)
-                        {
-                            if (!(m_ArrowData[num2].m_OriginalMaterial == component2.m_ArrowMaterial))
-                            {
-                                num2++;
-                                continue;
-                            }
-                            goto IL_0210;
-                        }
-                    }
-                    MeshData meshData2 = new MeshData();
-                    meshData2.m_OriginalMaterial = component2.m_ArrowMaterial;
-                    meshData2.m_Materials = new List&lt;MaterialData&gt;(2);
-                    MaterialData item = default(MaterialData);
-                    item.m_Material = new Material(component2.m_ArrowMaterial);
-                    item.m_Material.name = &quot;Aggregate arrows (&quot; + prefab.name + &quot;)&quot;;
-                    item.m_Material.SetColor(m_FaceColor, new Color(1f, 1f, 1f, flag ? 0.25f : 1f));
-                    meshData2.m_Materials.Add(item);
-                    MaterialData item2 = default(MaterialData);
-                    item2.m_Material = new Material(component2.m_ArrowMaterial);
-                    item2.m_Material.name = &quot;Aggregate underground arrows (&quot; + prefab.name + &quot;)&quot;;
-                    item2.m_Material.SetColor(m_FaceColor, new Color(1f, 1f, 1f, 1f));
-                    item2.m_IsUnderground = true;
-                    meshData2.m_Materials.Add(item2);
-                    if (m_ArrowData == null)
-                    {
-                        m_ArrowData = new List&lt;MeshData&gt;();
-                    }
-                    value2.m_MaterialIndex = m_ArrowData.Count;
-                    nativeArray4[j] = value2;
-                    m_ArrowData.Add(meshData2);
-                    continue;
-                    IL_012f:
-                    value.m_MaterialIndex = num;
-                    nativeArray3[j] = value;
-                    goto IL_01b9;
-                    IL_0210:
-                    value2.m_MaterialIndex = num2;
-                    nativeArray4[j] = value2;
-                }
-            }
-        }
-        finally
-        {
-            nativeArray.Dispose();
+            // Use nameMesh and mat with Graphics.DrawMesh or a custom renderer
         }
     }
+}
 </code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_OverlayRenderSystem = base.World.GetOrCreateSystemManaged&lt;OverlayRenderSystem&gt;();
-        m_UndergroundViewSystem = base.World.GetOrCreateSystemManaged&lt;UndergroundViewSystem&gt;();
-        m_PrefabSystem = base.World.GetOrCreateSystemManaged&lt;PrefabSystem&gt;();
-        m_NameSystem = base.World.GetOrCreateSystemManaged&lt;NameSystem&gt;();
-        m_ToolSystem = base.World.GetOrCreateSystemManaged&lt;ToolSystem&gt;();
-        m_CreatedPrefabQuery = GetEntityQuery(new EntityQueryDesc
-        {
-            All = new ComponentType[2]
-            {
-                ComponentType.ReadOnly&lt;Created&gt;(),
-                ComponentType.ReadOnly&lt;AggregateNetData&gt;()
-            },
-            Any = new ComponentType[2]
-            {
-                ComponentType.ReadOnly&lt;NetNameData&gt;(),
-                ComponentType.ReadOnly&lt;NetArrowData&gt;()
-            }
-        });
-        m_UpdatedLabelQuery = GetEntityQuery(new EntityQueryDesc
-        {
-            All = new ComponentType[2]
-            {
-                ComponentType.ReadOnly&lt;Aggregate&gt;(),
-                ComponentType.ReadOnly&lt;LabelMaterial&gt;()
-            },
-            Any = new ComponentType[3]
-            {
-                ComponentType.ReadOnly&lt;Updated&gt;(),
-                ComponentType.ReadOnly&lt;BatchesUpdated&gt;(),
-                ComponentType.ReadOnly&lt;Deleted&gt;()
-            }
-        });
-        m_LabelQuery = GetEntityQuery(ComponentType.ReadOnly&lt;Aggregate&gt;(), ComponentType.ReadOnly&lt;LabelMaterial&gt;(), ComponentType.Exclude&lt;Deleted&gt;());
-        m_UpdatedArrowQuery = GetEntityQuery(new EntityQueryDesc
-        {
-            All = new ComponentType[2]
-            {
-                ComponentType.ReadOnly&lt;Aggregate&gt;(),
-                ComponentType.ReadOnly&lt;ArrowMaterial&gt;()
-            },
-            Any = new ComponentType[3]
-            {
-                ComponentType.ReadOnly&lt;Updated&gt;(),
-                ComponentType.ReadOnly&lt;BatchesUpdated&gt;(),
-                ComponentType.ReadOnly&lt;Deleted&gt;()
-            }
-        });
-        m_ArrowQuery = GetEntityQuery(ComponentType.ReadOnly&lt;Aggregate&gt;(), ComponentType.ReadOnly&lt;ArrowMaterial&gt;(), ComponentType.Exclude&lt;Deleted&gt;());
-        m_TempAggregatedQuery = GetEntityQuery(ComponentType.ReadOnly&lt;Aggregated&gt;(), ComponentType.ReadOnly&lt;Temp&gt;(), ComponentType.Exclude&lt;Deleted&gt;());
-        m_FaceColor = Shader.PropertyToID(&quot;_FaceColor&quot;);
-        GameManager.instance.localizationManager.onActiveDictionaryChanged += OnDictionaryChanged;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreateForCompiler() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnCreateForCompiler()
-    {
-        base.OnCreateForCompiler();
-        __AssignQueries(ref base.CheckedStateRef);
-        __TypeHandle.__AssignHandles(ref base.CheckedStateRef);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnDestroy() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnDestroy()
-    {
-        DestroyMeshData(m_LabelData);
-        DestroyMeshData(m_ArrowData);
-        GameManager.instance.localizationManager.onActiveDictionaryChanged -= OnDictionaryChanged;
-        base.OnDestroy();
-    }
-</code></pre>
-<ul>
-<li><code>private OnDictionaryChanged() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void OnDictionaryChanged()
-    {
-        base.EntityManager.AddComponent&lt;Updated&gt;(m_LabelQuery);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        bool loaded = GetLoaded();
-        if (!m_CreatedPrefabQuery.IsEmptyIgnoreFilter)
-        {
-            InitializePrefabs();
-        }
-        EntityQuery entityQuery = (loaded ? m_LabelQuery : m_UpdatedLabelQuery);
-        EntityQuery entityQuery2 = (loaded ? m_ArrowQuery : m_UpdatedArrowQuery);
-        bool flag = m_UndergroundViewSystem.undergroundOn &amp;&amp; m_UndergroundViewSystem.tunnelsOn;
-        bool flag2 = !entityQuery.IsEmptyIgnoreFilter;
-        bool flag3 = !entityQuery2.IsEmptyIgnoreFilter;
-        if (flag != m_TunnelSelectOn)
-        {
-            UpdateUndergroundState(m_LabelData, flag);
-            UpdateUndergroundState(m_ArrowData, flag);
-            m_TunnelSelectOn = flag;
-        }
-        if (flag2 || flag3)
-        {
-            JobHandle dependency = base.Dependency;
-            JobHandle jobHandle = default(JobHandle);
-            if (flag2)
-            {
-                UpdateLabelVertices(loaded);
-                JobHandle inputDeps = UpdateLabelPositions(dependency, loaded);
-                jobHandle = JobHandle.CombineDependencies(jobHandle, FillNameMeshData(inputDeps));
-            }
-            if (flag3)
-            {
-                UpdateArrowMaterials(loaded);
-                JobHandle inputDeps2 = UpdateArrowPositions(dependency, loaded);
-                jobHandle = JobHandle.CombineDependencies(jobHandle, FillArrowMeshData(inputDeps2));
-            }
-            base.Dependency = jobHandle;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public PreDeserialize(Colossal.Serialization.Entities.Context context) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void PreDeserialize(Context context)
-    {
-        ClearMeshData(m_LabelData);
-        ClearMeshData(m_ArrowData);
-        if (m_CachedLabels != null)
-        {
-            m_CachedLabels.Clear();
-        }
-        m_Loaded = true;
-    }
-</code></pre>
-<ul>
-<li><code>private UpdateArrowMaterials(System.Boolean isLoaded) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void UpdateArrowMaterials(bool isLoaded)
-    {
-        List&lt;MaterialUpdate&gt; list = null;
-        NativeArray&lt;ArchetypeChunk&gt; nativeArray = (isLoaded ? m_ArrowQuery : m_UpdatedArrowQuery).ToArchetypeChunkArray(Allocator.TempJob);
-        try
-        {
-            EntityTypeHandle entityTypeHandle = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef);
-            ComponentTypeHandle&lt;Updated&gt; typeHandle = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Common_Updated_RO_ComponentTypeHandle, ref base.CheckedStateRef);
-            ComponentTypeHandle&lt;PrefabRef&gt; typeHandle2 = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentTypeHandle, ref base.CheckedStateRef);
-            SharedComponentTypeHandle&lt;ArrowMaterial&gt; sharedComponentTypeHandle = InternalCompilerInterface.GetSharedComponentTypeHandle(ref __TypeHandle.__Game_Net_ArrowMaterial_SharedComponentTypeHandle, ref base.CheckedStateRef);
-            for (int i = 0; i &lt; nativeArray.Length; i++)
-            {
-                ArchetypeChunk archetypeChunk = nativeArray[i];
-                ArrowMaterial sharedComponent = archetypeChunk.GetSharedComponent(sharedComponentTypeHandle, base.EntityManager);
-                if (isLoaded || archetypeChunk.Has(ref typeHandle))
-                {
-                    NativeArray&lt;Entity&gt; nativeArray2 = archetypeChunk.GetNativeArray(entityTypeHandle);
-                    NativeArray&lt;PrefabRef&gt; nativeArray3 = archetypeChunk.GetNativeArray(ref typeHandle2);
-                    for (int j = 0; j &lt; nativeArray2.Length; j++)
-                    {
-                        Entity entity = nativeArray2[j];
-                        PrefabRef prefabRef = nativeArray3[j];
-                        NetArrowData componentData = base.EntityManager.GetComponentData&lt;NetArrowData&gt;(prefabRef.m_Prefab);
-                        m_ArrowData[componentData.m_MaterialIndex].m_MeshDirty = true;
-                        if (componentData.m_MaterialIndex != sharedComponent.m_Index)
-                        {
-                            if (list == null)
-                            {
-                                list = new List&lt;MaterialUpdate&gt;();
-                            }
-                            list.Add(new MaterialUpdate
-                            {
-                                m_Entity = entity,
-                                m_Material = componentData.m_MaterialIndex
-                            });
-                        }
-                    }
-                }
-                else
-                {
-                    NativeArray&lt;Entity&gt; nativeArray4 = archetypeChunk.GetNativeArray(entityTypeHandle);
-                    NativeArray&lt;PrefabRef&gt; nativeArray5 = archetypeChunk.GetNativeArray(ref typeHandle2);
-                    for (int k = 0; k &lt; nativeArray4.Length; k++)
-                    {
-                        _ = nativeArray4[k];
-                        PrefabRef prefabRef2 = nativeArray5[k];
-                        NetArrowData componentData2 = base.EntityManager.GetComponentData&lt;NetArrowData&gt;(prefabRef2.m_Prefab);
-                        m_ArrowData[componentData2.m_MaterialIndex].m_MeshDirty = true;
-                    }
-                }
-            }
-        }
-        finally
-        {
-            nativeArray.Dispose();
-        }
-        if (list != null)
-        {
-            for (int l = 0; l &lt; list.Count; l++)
-            {
-                MaterialUpdate materialUpdate = list[l];
-                base.EntityManager.SetSharedComponent(materialUpdate.m_Entity, new ArrowMaterial
-                {
-                    m_Index = materialUpdate.m_Material
-                });
-            }
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private UpdateArrowPositions(Unity.Jobs.JobHandle inputDeps, System.Boolean isLoaded) : Unity.Jobs.JobHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private JobHandle UpdateArrowPositions(JobHandle inputDeps, bool isLoaded)
-    {
-        EntityQuery query = (isLoaded ? m_ArrowQuery : m_UpdatedArrowQuery);
-        NativeParallelMultiHashMap&lt;Entity, TempValue&gt; tempMap = new NativeParallelMultiHashMap&lt;Entity, TempValue&gt;(32, Allocator.TempJob);
-        FillTempMapJob jobData = new FillTempMapJob
-        {
-            m_EntityType = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef),
-            m_AggregatedType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Net_Aggregated_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_TempType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Tools_Temp_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_TempMap = tempMap
-        };
-        UpdateArrowPositionsJob jobData2 = new UpdateArrowPositionsJob
-        {
-            m_EntityType = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef),
-            m_AggregateElementType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Net_AggregateElement_RO_BufferTypeHandle, ref base.CheckedStateRef),
-            m_ArrowPositionType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Net_ArrowPosition_RW_BufferTypeHandle, ref base.CheckedStateRef),
-            m_EdgeData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_Edge_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_CurveData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_Curve_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_CompositionData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_Composition_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_NetCompositionData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_NetCompositionData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_ConnectedEdges = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Net_ConnectedEdge_RO_BufferLookup, ref base.CheckedStateRef),
-            m_NetCompositionCarriageways = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Prefabs_NetCompositionCarriageway_RO_BufferLookup, ref base.CheckedStateRef),
-            m_EditorMode = m_ToolSystem.actionMode.IsEditor(),
-            m_TempMap = tempMap
-        };
-        JobHandle dependsOn = JobChunkExtensions.Schedule(jobData, m_TempAggregatedQuery, inputDeps);
-        JobHandle jobHandle = JobChunkExtensions.ScheduleParallel(jobData2, query, dependsOn);
-        tempMap.Dispose(jobHandle);
-        return jobHandle;
-    }
-</code></pre>
-<ul>
-<li><code>private UpdateLabelPositions(Unity.Jobs.JobHandle inputDeps, System.Boolean isLoaded) : Unity.Jobs.JobHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private JobHandle UpdateLabelPositions(JobHandle inputDeps, bool isLoaded)
-    {
-        EntityQuery query = (isLoaded ? m_LabelQuery : m_UpdatedLabelQuery);
-        return JobChunkExtensions.ScheduleParallel(new UpdateLabelPositionsJob
-        {
-            m_LabelExtentsType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Net_LabelExtents_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_AggregateElementType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Net_AggregateElement_RO_BufferTypeHandle, ref base.CheckedStateRef),
-            m_LabelPositionType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Net_LabelPosition_RW_BufferTypeHandle, ref base.CheckedStateRef),
-            m_EdgeData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_Edge_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_CurveData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_Curve_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_CompositionData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_Composition_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_NetCompositionData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_NetCompositionData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_ConnectedEdges = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Net_ConnectedEdge_RO_BufferLookup, ref base.CheckedStateRef)
-        }, query, inputDeps);
-    }
-</code></pre>
-<ul>
-<li><code>private UpdateLabelVertices(System.Boolean isLoaded) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void UpdateLabelVertices(bool isLoaded)
-    {
-        List&lt;MaterialUpdate&gt; list = null;
-        NativeArray&lt;ArchetypeChunk&gt; nativeArray = (isLoaded ? m_LabelQuery : m_UpdatedLabelQuery).ToArchetypeChunkArray(Allocator.TempJob);
-        try
-        {
-            TextMeshPro textMesh = m_OverlayRenderSystem.GetTextMesh();
-            textMesh.rectTransform.sizeDelta = new Vector2(250f, 100f);
-            textMesh.fontSize = 200f;
-            textMesh.alignment = TextAlignmentOptions.Center;
-            bool flag = m_UndergroundViewSystem.undergroundOn &amp;&amp; m_UndergroundViewSystem.tunnelsOn;
-            EntityTypeHandle entityTypeHandle = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef);
-            ComponentTypeHandle&lt;Updated&gt; typeHandle = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Common_Updated_RO_ComponentTypeHandle, ref base.CheckedStateRef);
-            ComponentTypeHandle&lt;BatchesUpdated&gt; typeHandle2 = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Common_BatchesUpdated_RO_ComponentTypeHandle, ref base.CheckedStateRef);
-            ComponentTypeHandle&lt;Temp&gt; typeHandle3 = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Tools_Temp_RO_ComponentTypeHandle, ref base.CheckedStateRef);
-            ComponentTypeHandle&lt;PrefabRef&gt; typeHandle4 = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentTypeHandle, ref base.CheckedStateRef);
-            ComponentTypeHandle&lt;LabelExtents&gt; typeHandle5 = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Net_LabelExtents_RW_ComponentTypeHandle, ref base.CheckedStateRef);
-            SharedComponentTypeHandle&lt;LabelMaterial&gt; sharedComponentTypeHandle = InternalCompilerInterface.GetSharedComponentTypeHandle(ref __TypeHandle.__Game_Net_LabelMaterial_SharedComponentTypeHandle, ref base.CheckedStateRef);
-            BufferTypeHandle&lt;LabelVertex&gt; bufferTypeHandle = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Net_LabelVertex_RW_BufferTypeHandle, ref base.CheckedStateRef);
-            LabelVertex value2 = default(LabelVertex);
-            for (int i = 0; i &lt; nativeArray.Length; i++)
-            {
-                ArchetypeChunk archetypeChunk = nativeArray[i];
-                LabelMaterial sharedComponent = archetypeChunk.GetSharedComponent(sharedComponentTypeHandle, base.EntityManager);
-                if (isLoaded || archetypeChunk.Has(ref typeHandle) || archetypeChunk.Has(ref typeHandle2))
-                {
-                    NativeArray&lt;Entity&gt; nativeArray2 = archetypeChunk.GetNativeArray(entityTypeHandle);
-                    NativeArray&lt;Temp&gt; nativeArray3 = archetypeChunk.GetNativeArray(ref typeHandle3);
-                    NativeArray&lt;PrefabRef&gt; nativeArray4 = archetypeChunk.GetNativeArray(ref typeHandle4);
-                    NativeArray&lt;LabelExtents&gt; nativeArray5 = archetypeChunk.GetNativeArray(ref typeHandle5);
-                    BufferAccessor&lt;LabelVertex&gt; bufferAccessor = archetypeChunk.GetBufferAccessor(ref bufferTypeHandle);
-                    for (int j = 0; j &lt; nativeArray2.Length; j++)
-                    {
-                        Entity entity = nativeArray2[j];
-                        PrefabRef prefabRef = nativeArray4[j];
-                        DynamicBuffer&lt;LabelVertex&gt; dynamicBuffer = bufferAccessor[j];
-                        NetNameData componentData = base.EntityManager.GetComponentData&lt;NetNameData&gt;(prefabRef.m_Prefab);
-                        MeshData meshData = m_LabelData[componentData.m_MaterialIndex];
-                        meshData.m_MeshDirty = true;
-                        if (componentData.m_MaterialIndex != sharedComponent.m_Index)
-                        {
-                            if (list == null)
-                            {
-                                list = new List&lt;MaterialUpdate&gt;();
-                            }
-                            list.Add(new MaterialUpdate
-                            {
-                                m_Entity = entity,
-                                m_Material = componentData.m_MaterialIndex
-                            });
-                        }
-                        string renderedLabelName;
-                        if (nativeArray3.Length != 0)
-                        {
-                            Temp temp = nativeArray3[j];
-                            if (!(temp.m_Original != Entity.Null))
-                            {
-                                if (m_CachedLabels != null &amp;&amp; m_CachedLabels.ContainsKey(entity))
-                                {
-                                    m_CachedLabels.Remove(entity);
-                                }
-                                dynamicBuffer.Clear();
-                                continue;
-                            }
-                            renderedLabelName = m_NameSystem.GetRenderedLabelName(temp.m_Original);
-                        }
-                        else
-                        {
-                            renderedLabelName = m_NameSystem.GetRenderedLabelName(entity);
-                        }
-                        if (m_CachedLabels != null)
-                        {
-                            if (m_CachedLabels.TryGetValue(entity, out var value))
-                            {
-                                if (value == renderedLabelName)
-                                {
-                                    continue;
-                                }
-                                m_CachedLabels[entity] = renderedLabelName;
-                            }
-                            else
-                            {
-                                m_CachedLabels.Add(entity, renderedLabelName);
-                            }
-                        }
-                        else
-                        {
-                            m_CachedLabels = new Dictionary&lt;Entity, string&gt;();
-                            m_CachedLabels.Add(entity, renderedLabelName);
-                        }
-                        TMP_TextInfo textInfo = textMesh.GetTextInfo(renderedLabelName);
-                        int num = 0;
-                        for (int k = 0; k &lt; textInfo.meshInfo.Length; k++)
-                        {
-                            TMP_MeshInfo tMP_MeshInfo = textInfo.meshInfo[k];
-                            num += tMP_MeshInfo.vertexCount;
-                        }
-                        dynamicBuffer.ResizeUninitialized(num);
-                        num = 0;
-                        for (int l = 0; l &lt; textInfo.meshInfo.Length; l++)
-                        {
-                            TMP_MeshInfo tMP_MeshInfo2 = textInfo.meshInfo[l];
-                            if (tMP_MeshInfo2.vertexCount == 0)
-                            {
-                                continue;
-                            }
-                            Texture mainTexture = tMP_MeshInfo2.material.mainTexture;
-                            int2 material = -1;
-                            for (int m = 0; m &lt; meshData.m_Materials.Count; m++)
-                            {
-                                MaterialData materialData = meshData.m_Materials[m];
-                                if (materialData.m_Material.mainTexture == mainTexture)
-                                {
-                                    if (materialData.m_IsUnderground)
-                                    {
-                                        material.y = m;
-                                    }
-                                    else
-                                    {
-                                        material.x = m;
-                                    }
-                                }
-                            }
-                            if (material.x == -1)
-                            {
-                                MaterialData item = default(MaterialData);
-                                item.m_Material = new Material(meshData.m_OriginalMaterial);
-                                item.m_Material.SetColor(m_FaceColor, new Color(1f, 1f, 1f, flag ? 0.25f : 1f));
-                                m_OverlayRenderSystem.CopyFontAtlasParameters(tMP_MeshInfo2.material, item.m_Material);
-                                material.x = meshData.m_Materials.Count;
-                                meshData.m_Materials.Add(item);
-                                item.m_Material.name = $&quot;Aggregate names {material.x} ({meshData.m_OriginalMaterial.name})&quot;;
-                            }
-                            if (material.y == -1)
-                            {
-                                MaterialData item2 = default(MaterialData);
-                                item2.m_Material = new Material(meshData.m_OriginalMaterial);
-                                item2.m_Material.SetColor(m_FaceColor, new Color(1f, 1f, 1f, 1f));
-                                m_OverlayRenderSystem.CopyFontAtlasParameters(tMP_MeshInfo2.material, item2.m_Material);
-                                item2.m_IsUnderground = true;
-                                material.y = meshData.m_Materials.Count;
-                                meshData.m_Materials.Add(item2);
-                                item2.m_Material.name = $&quot;Aggregate underground names {material.y} ({meshData.m_OriginalMaterial.name})&quot;;
-                            }
-                            Vector3[] vertices = tMP_MeshInfo2.vertices;
-                            Vector2[] uvs = tMP_MeshInfo2.uvs0;
-                            Vector2[] uvs2 = tMP_MeshInfo2.uvs2;
-                            Color32[] colors = tMP_MeshInfo2.colors32;
-                            for (int n = 0; n &lt; tMP_MeshInfo2.vertexCount; n++)
-                            {
-                                value2.m_Position = vertices[n];
-                                value2.m_Color = colors[n];
-                                value2.m_UV0 = uvs[n];
-                                value2.m_UV1 = uvs2[n];
-                                value2.m_Material = material;
-                                dynamicBuffer[num + n] = value2;
-                            }
-                            num += tMP_MeshInfo2.vertexCount;
-                        }
-                        LabelExtents value3 = default(LabelExtents);
-                        for (int num2 = 0; num2 &lt; textInfo.lineCount; num2++)
-                        {
-                            Extents lineExtents = textInfo.lineInfo[num2].lineExtents;
-                            value3.m_Bounds |= new Bounds2(lineExtents.min, lineExtents.max);
-                        }
-                        nativeArray5[j] = value3;
-                    }
-                    continue;
-                }
-                NativeArray&lt;Entity&gt; nativeArray6 = archetypeChunk.GetNativeArray(entityTypeHandle);
-                NativeArray&lt;PrefabRef&gt; nativeArray7 = archetypeChunk.GetNativeArray(ref typeHandle4);
-                for (int num3 = 0; num3 &lt; nativeArray6.Length; num3++)
-                {
-                    Entity key = nativeArray6[num3];
-                    PrefabRef prefabRef2 = nativeArray7[num3];
-                    NetNameData componentData2 = base.EntityManager.GetComponentData&lt;NetNameData&gt;(prefabRef2.m_Prefab);
-                    m_LabelData[componentData2.m_MaterialIndex].m_MeshDirty = true;
-                    if (m_CachedLabels != null)
-                    {
-                        m_CachedLabels.Remove(key);
-                    }
-                }
-            }
-        }
-        finally
-        {
-            nativeArray.Dispose();
-        }
-        if (list != null)
-        {
-            for (int num4 = 0; num4 &lt; list.Count; num4++)
-            {
-                MaterialUpdate materialUpdate = list[num4];
-                base.EntityManager.SetSharedComponent(materialUpdate.m_Entity, new LabelMaterial
-                {
-                    m_Index = materialUpdate.m_Material
-                });
-            }
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private UpdateUndergroundState(System.Collections.Generic.List&lt;Game.Rendering.AggregateMeshSystem+MeshData&gt; meshData, System.Boolean undergroundOn) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void UpdateUndergroundState(List&lt;MeshData&gt; meshData, bool undergroundOn)
-    {
-        if (meshData == null)
-        {
-            return;
-        }
-        for (int i = 0; i &lt; meshData.Count; i++)
-        {
-            MeshData meshData2 = meshData[i];
-            if (meshData2.m_Materials == null)
-            {
-                continue;
-            }
-            for (int j = 0; j &lt; meshData2.m_Materials.Count; j++)
-            {
-                MaterialData materialData = meshData2.m_Materials[j];
-                if (!materialData.m_IsUnderground &amp;&amp; materialData.m_Material != null)
-                {
-                    materialData.m_Material.SetColor(m_FaceColor, new Color(1f, 1f, 1f, undergroundOn ? 0.25f : 1f));
-                }
-            }
-        }
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Rendering.AggregateMeshSystem+MaterialData</code>  </li>
-<li><code>Game.Rendering.AggregateMeshSystem+MeshData</code>  </li>
-<li><code>Game.Rendering.AggregateMeshSystem+MaterialUpdate</code>  </li>
-<li><code>Game.Rendering.AggregateMeshSystem+UpdateLabelPositionsJob</code>  </li>
-<li><code>Game.Rendering.AggregateMeshSystem+FillTempMapJob</code>  </li>
-<li><code>Game.Rendering.AggregateMeshSystem+TempValue</code>  </li>
-<li><code>Game.Rendering.AggregateMeshSystem+UpdateArrowPositionsJob</code>  </li>
-<li><code>Game.Rendering.AggregateMeshSystem+LabelVertexData</code>  </li>
-<li><code>Game.Rendering.AggregateMeshSystem+SubMeshData</code>  </li>
-<li><code>Game.Rendering.AggregateMeshSystem+FillNameDataJob</code>  </li>
-<li><code>Game.Rendering.AggregateMeshSystem+ArrowVertexData</code>  </li>
-<li><code>Game.Rendering.AggregateMeshSystem+FillArrowDataJob</code>  </li>
-<li><code>Game.Rendering.AggregateMeshSystem+TypeHandle</code>  </li>
-</ul>
+<p>Notes:
+- Many operations are asynchronous (jobs). Callers retrieving meshes should expect that GetNameMesh/GetArrowMesh will complete job dependencies and produce the final Mesh only when data was available.
+- Materials and Mesh instances created by this system are owned by the system and will be destroyed in OnDestroy; do not destroy them yourself.
+- This system integrates tightly with the game's ECS components (LabelVertex, LabelPosition, ArrowPosition, NetNameData, NetArrowData, PrefabRef, Temp, Aggregated, etc.). Use the provided public getters for rendering and avoid manipulating internal buffers directly unless you are familiar with the ECS/data ownership patterns.</p>
 
 
 

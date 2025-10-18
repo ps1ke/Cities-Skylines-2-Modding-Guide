@@ -32632,15 +32632,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -32671,6 +32662,15 @@
   <a href="#methods" class="md-nav__link">
     <span class="md-ellipsis">
       Methods
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
     </span>
   </a>
   
@@ -65322,6 +65322,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69753,6 +69776,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72565,6 +72611,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75555,6 +75624,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87147,6 +87239,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -117923,6 +118038,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117948,15 +118085,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -117994,6 +118122,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -118011,199 +118148,109 @@
 
 
 <h1 id="gameprefabsmodesgamemodesystem">Game.Prefabs.Modes.GameModeSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Prefabs.Modes</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code><br />
-<strong>Implements:</strong> <code>Colossal.Serialization.Entities.IDefaultSerializable</code>, <code>Colossal.Serialization.Entities.ISerializable</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class GameModeSystem : Game.GameSystemBase, Colossal.Serialization.Entities.IDefaultSerializable, Colossal.Serialization.Entities.ISerializable
-{
-    private System.String &lt;overrideMode&gt;k__BackingField;
-    private System.String &lt;currentModeName&gt;k__BackingField;
-    private Game.Prefabs.PrefabSystem m_PrefabSystem;
-    private Game.Prefabs.Modes.ModeSetting m_ModeSetting;
-    private Game.Prefabs.Modes.ModeSetting m_NextMode;
-    private Unity.Entities.EntityQuery m_ModeSettingQuery;
-    private Unity.Entities.EntityQuery m_ModeInfoQuery;
-
-    public System.String overrideMode { get; set; }
-    public Game.Prefabs.Modes.ModeSetting modeSetting { get; }
-    public System.String currentModeName { get; private set; }
-
-    public GameModeSystem();
-
-    public System.Void Deserialize&lt;TReader&gt;(TReader reader);
-    public System.Collections.Generic.List&lt;Game.Prefabs.Modes.GameModeInfo&gt; GetGameModeInfo();
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnUpdate();
-    public System.Void Serialize&lt;TWriter&gt;(TWriter writer);
-    public System.Void SetDefaults(Colossal.Serialization.Entities.Context context);
-}
-</code></pre>
+<p><strong>Assembly:</strong><br />
+{{ Likely Assembly-CSharp (game runtime assembly). Confirm in your build if different. }}  </p>
+<p><strong>Namespace:</strong> Game.Prefabs.Modes</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> GameSystemBase, IDefaultSerializable, ISerializable</p>
+<p><strong>Summary:</strong><br />
+Manages game modes by applying and restoring ModeSetting prefabs within the ECS world. It queries available ModeSetting and GameModeInfo prefabs, applies a selected ModeSetting (or the default "NormalMode") each update, and can be instructed to switch modes via the overrideMode property. Supports saving/loading the active mode via prefab IDs (serialization) and exposes helpers to list available GameModeInfo objects. Uses PrefabSystem to lookup prefabs and EntityQuery to find mode entities. Implements ISerializable for persisting the selected ModeSetting across loads.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private System.String &lt;overrideMode&gt;k__BackingField</code>  </li>
+<li>
+<p><code>private PrefabSystem m_PrefabSystem</code><br />
+{{ Reference to the PrefabSystem used to look up prefab components (ModeSetting, GameModeInfo, etc.). Populated in OnCreate by retrieving the PrefabSystem from the ECS world. }}</p>
+</li>
+<li>
+<p><code>private ModeSetting m_ModeSetting</code><br />
+{{ The currently applied ModeSetting prefab wrapper (if any). When set, StoreDefaultData/ApplyMode have been called and the system considers this mode active. }}</p>
+</li>
+<li>
+<p><code>private ModeSetting m_NextMode</code><br />
+{{ Temporary holder for the ModeSetting that should be applied on the next update. Set by overrideMode or by Deserialize. }}</p>
+</li>
+<li>
+<p><code>private EntityQuery m_ModeSettingQuery</code><br />
+{{ EntityQuery configured to find entities that hold GameModeSettingData (i.e., ModeSetting prefabs). Used to enumerate available modes. }}</p>
+</li>
+<li>
+<p><code>private EntityQuery m_ModeInfoQuery</code><br />
+{{ EntityQuery configured to find entities that hold GameModeInfoData. Used to enumerate GameModeInfo prefabs. }}</p>
+</li>
+<li>
+<p><code>[CanBeNull] public string overrideMode { get; set; }</code><br />
+{{ Nullable public property used to request a mode change by prefab name. When non-null, OnUpdate will search mode prefabs for a matching name and set m_NextMode accordingly, then clear overrideMode. }}</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private System.String &lt;overrideMode&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private System.String &lt;currentModeName&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.String &lt;currentModeName&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private Game.Prefabs.PrefabSystem m_PrefabSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Prefabs.PrefabSystem m_PrefabSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Prefabs.Modes.ModeSetting m_ModeSetting</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Prefabs.Modes.ModeSetting m_ModeSetting;
-</code></pre>
-<ul>
-<li><code>private Game.Prefabs.Modes.ModeSetting m_NextMode</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Prefabs.Modes.ModeSetting m_NextMode;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_ModeSettingQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_ModeSettingQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_ModeInfoQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_ModeInfoQuery;
-</code></pre>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>public System.String overrideMode { get; set }</code>  </li>
+<li>
+<p><code>public ModeSetting modeSetting =&gt; m_ModeSetting</code><br />
+{{ Read-only accessor for the currently applied ModeSetting wrapper (may be null). Use this to inspect the active ModeSetting instance. }}</p>
+</li>
+<li>
+<p><code>public string currentModeName { get; private set; }</code><br />
+{{ Name of the currently applied mode prefab (string). Updated whenever a ModeSetting is applied. Empty string on creation until a mode is applied. }}</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public System.String overrideMode { get; set; }
-</code></pre>
-<ul>
-<li><code>public Game.Prefabs.Modes.ModeSetting modeSetting { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Game.Prefabs.Modes.ModeSetting modeSetting { get; }
-</code></pre>
-<ul>
-<li><code>public System.String currentModeName { get; private set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.String currentModeName { get; private set; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public GameModeSystem()</code>  </li>
+<li><code>public GameModeSystem()</code><br />
+{{ Default constructor. Marked with [Preserve] in the source to avoid stripping. Initialization of fields occurs in OnCreate. }}</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public GameModeSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>public Deserialize&lt;TReader&gt;(TReader reader) : System.Void</code>  </li>
+<li>
+<p><code>public List&lt;GameModeInfo&gt; GetGameModeInfo()</code><br />
+{{ Returns a list of GameModeInfo objects for all GameModeInfo prefabs found via m_ModeInfoQuery. Implementation: converts the query to a NativeArray<Entity>, iterates, obtains the GameModeInfoPrefab for each entity from m_PrefabSystem and calls GetGameModeInfo(), builds and returns a managed List<GameModeInfo>. Note: disposes the NativeArray after use. }}</p>
+</li>
+<li>
+<p><code>protected override void OnCreate() : System.Void</code><br />
+{{ Called when the system is created. Retrieves PrefabSystem from the world, sets up m_ModeSettingQuery and m_ModeInfoQuery (ComponentType.ReadOnly<GameModeSettingData> / GameModeInfoData) and initializes currentModeName to an empty string. Marked with [Preserve]. }}</p>
+</li>
+<li>
+<p><code>protected override void OnUpdate() : System.Void</code><br />
+{{ Main update logic run each frame (or system tick):</p>
+</li>
+<li>If overrideMode is non-null, enumerates m_ModeSettingQuery to find a ModeSetting prefab whose prefab.name matches overrideMode, sets m_NextMode and clears overrideMode.</li>
+<li>If a current m_ModeSetting exists, calls RestoreDefaultData on it (passing the EntityManager and PrefabSystem) and clears m_ModeSetting.</li>
+<li>Sets m_ModeSetting = m_NextMode and clears m_NextMode.</li>
+<li>If m_ModeSetting is still null, searches for a ModeSetting whose prefab.name == "NormalMode" and uses it as fallback.</li>
+<li>If m_ModeSetting is non-null after that, calls StoreDefaultData, then ApplyMode (which may return a JobHandle) and assigns the returned JobHandle to base.Dependency. Updates currentModeName to the applied prefab.name.</li>
+<li>
+<p>Writes debug logs via COSystemBase.baseLog for cleanup/apply steps.
+Notes: NativeArray results are disposed after each enumeration. ApplyMode returns a dependency that is assigned to the system's dependency chain. }}</p>
+</li>
+<li>
+<p><code>public void Serialize&lt;TWriter&gt;(TWriter writer) where TWriter : IWriter</code><br />
+{{ Writes the active ModeSetting's prefab ID to the writer. If m_ModeSetting is null, writes the default(PrefabID) (i.e., an empty ID). This allows persisting the selected mode across saves. }}</p>
+</li>
+<li>
+<p><code>public void Deserialize&lt;TReader&gt;(TReader reader) where TReader : IReader</code><br />
+{{ Reads a PrefabID from the reader, resolves the prefab via m_PrefabSystem.TryGetPrefab, and attempts to get exactly a ModeSetting component from that prefab. If successful, sets m_NextMode to that ModeSetting so the mode will be applied on the next update. Otherwise sets m_NextMode to null. }}</p>
+</li>
+<li>
+<p><code>public void SetDefaults(Context context)</code><br />
+{{ IDefaultSerializable implementation; in this class the method is empty (no defaults to set). }}</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public System.Void Deserialize&lt;TReader&gt;(TReader reader);
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Example: request a mode change by prefab name
+var gameModeSystem = World.GetOrCreateSystemManaged&lt;GameModeSystem&gt;();
+gameModeSystem.overrideMode = &quot;SandboxMode&quot;; // OnUpdate will find and schedule this mode
+
+// Example: read current mode name
+string active = gameModeSystem.currentModeName;
+
+// Example: list available GameModeInfo
+List&lt;GameModeInfo&gt; infos = gameModeSystem.GetGameModeInfo();
 </code></pre>
-<ul>
-<li><code>public GetGameModeInfo() : System.Collections.Generic.List&lt;Game.Prefabs.Modes.GameModeInfo&gt;</code>  </li>
-</ul>
-<pre><code class="language-csharp">public List&lt;GameModeInfo&gt; GetGameModeInfo()
-    {
-        List&lt;GameModeInfo&gt; list = new List&lt;GameModeInfo&gt;();
-        NativeArray&lt;Entity&gt; nativeArray = m_ModeInfoQuery.ToEntityArray(Allocator.TempJob);
-        for (int i = 0; i &lt; nativeArray.Length; i++)
-        {
-            Entity entity = nativeArray[i];
-            GameModeInfo gameModeInfo = m_PrefabSystem.GetPrefab&lt;GameModeInfoPrefab&gt;(entity).GetGameModeInfo();
-            list.Add(gameModeInfo);
-        }
-        nativeArray.Dispose();
-        return list;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_PrefabSystem = base.World.GetOrCreateSystemManaged&lt;PrefabSystem&gt;();
-        m_ModeSettingQuery = GetEntityQuery(ComponentType.ReadOnly&lt;GameModeSettingData&gt;());
-        m_ModeInfoQuery = GetEntityQuery(ComponentType.ReadOnly&lt;GameModeInfoData&gt;());
-        currentModeName = string.Empty;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        if (overrideMode != null)
-        {
-            NativeArray&lt;Entity&gt; nativeArray = m_ModeSettingQuery.ToEntityArray(Allocator.TempJob);
-            for (int i = 0; i &lt; nativeArray.Length; i++)
-            {
-                Entity entity = nativeArray[i];
-                ModeSetting prefab = m_PrefabSystem.GetPrefab&lt;ModeSetting&gt;(entity);
-                if (prefab.prefab.name == overrideMode)
-                {
-                    m_NextMode = prefab;
-                    break;
-                }
-            }
-            nativeArray.Dispose();
-            overrideMode = null;
-        }
-        if (m_ModeSetting != null)
-        {
-            COSystemBase.baseLog.Debug(&quot;Clean up &quot; + m_ModeSetting.prefab.name);
-            m_ModeSetting.RestoreDefaultData(base.EntityManager, m_PrefabSystem);
-            m_ModeSetting = null;
-        }
-        m_ModeSetting = m_NextMode;
-        m_NextMode = null;
-        if (m_ModeSetting == null)
-        {
-            NativeArray&lt;Entity&gt; nativeArray2 = m_ModeSettingQuery.ToEntityArray(Allocator.TempJob);
-            for (int j = 0; j &lt; nativeArray2.Length; j++)
-            {
-                Entity entity2 = nativeArray2[j];
-                ModeSetting prefab2 = m_PrefabSystem.GetPrefab&lt;ModeSetting&gt;(entity2);
-                if (prefab2.prefab.name == &quot;NormalMode&quot;)
-                {
-                    m_ModeSetting = prefab2;
-                    break;
-                }
-            }
-            nativeArray2.Dispose();
-        }
-        if (m_ModeSetting != null)
-        {
-            COSystemBase.baseLog.Debug(&quot;Apply &quot; + m_ModeSetting.prefab.name);
-            m_ModeSetting.StoreDefaultData(base.EntityManager, m_PrefabSystem);
-            base.Dependency = m_ModeSetting.ApplyMode(base.EntityManager, m_PrefabSystem, base.Dependency);
-            currentModeName = m_ModeSetting.prefab.name;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public Serialize&lt;TWriter&gt;(TWriter writer) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Void Serialize&lt;TWriter&gt;(TWriter writer);
-</code></pre>
-<ul>
-<li><code>public SetDefaults(Colossal.Serialization.Entities.Context context) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void SetDefaults(Context context)
-    {
-    }
-</code></pre>
+<p>Additional notes:
+- The system relies on ModeSetting prefabs exposing StoreDefaultData/RestoreDefaultData/ApplyMode to snapshot/restore and apply mode-specific ECS state. Ensure ModeSetting prefabs implement those correctly.
+- OnUpdate will always attempt to apply a mode; if none was requested, it falls back to a prefab named "NormalMode".
+- NativeArray allocations use Allocator.TempJob and are disposed immediately; ensure not to retain those arrays beyond the method scope.
+- The system updates base.Dependency with the JobHandle returned by ApplyMode to chain job dependencies correctly.</p>
 
 
 

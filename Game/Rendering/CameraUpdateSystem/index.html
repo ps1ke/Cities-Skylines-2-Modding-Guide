@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#gamerenderingcameraupdatesystem" class="md-skip">
+        <a href="#gamecameraupdatesystem" class="md-skip">
           Skip to content
         </a>
       
@@ -65233,6 +65233,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -67391,15 +67414,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -67436,9 +67450,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -69743,6 +69757,29 @@
   
   <span class="md-ellipsis">
     ShaderID
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
     
   </span>
   
@@ -72572,6 +72609,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75562,6 +75622,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87154,6 +87237,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -117930,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117955,15 +118083,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -118002,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118026,464 +118145,189 @@
 
 
 
-<h1 id="gamerenderingcameraupdatesystem">Game.Rendering.CameraUpdateSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Rendering</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class CameraUpdateSystem : Game.GameSystemBase
-{
-    private Game.Common.RaycastSystem m_RaycastSystem;
-    private UnityEngine.Rendering.Volume m_Volume;
-    private UnityEngine.Rendering.HighDefinition.DepthOfField m_DepthOfField;
-    private UnityEngine.Rendering.HighDefinition.HDShadowSettings m_ShadowSettings;
-    private Unity.Mathematics.float4 m_StoredShadowSplitsAndDistance;
-    private Unity.Mathematics.float4 m_StoredShadowBorders;
-    private Game.Input.InputActivator[] m_CameraActionActivators;
-    private Game.Input.InputBarrier[] m_CameraActionBarriers;
-    private Game.Rendering.Viewer &lt;activeViewer&gt;k__BackingField;
-    private Game.CameraController &lt;gamePlayController&gt;k__BackingField;
-    private Game.CinematicCameraController &lt;cinematicCameraController&gt;k__BackingField;
-    private Game.OrbitCameraController &lt;orbitCameraController&gt;k__BackingField;
-    private System.Single &lt;nearClipPlane&gt;k__BackingField;
-    private Unity.Mathematics.float3 &lt;position&gt;k__BackingField;
-    private Unity.Mathematics.float3 &lt;direction&gt;k__BackingField;
-    private System.Single &lt;zoom&gt;k__BackingField;
-
-    public Game.Rendering.Viewer activeViewer { get; private set; }
-    public Game.CameraController gamePlayController { get; set; }
-    public Game.CinematicCameraController cinematicCameraController { get; set; }
-    public Game.OrbitCameraController orbitCameraController { get; set; }
-    public UnityEngine.Camera activeCamera { get; set; }
-    public System.Single nearClipPlane { get; private set; }
-    public Unity.Mathematics.float3 position { get; private set; }
-    public Unity.Mathematics.float3 direction { get; private set; }
-    public System.Single zoom { get; private set; }
-    public Game.Rendering.IGameCameraController activeCameraController { get; set; }
-
-    public CameraUpdateSystem();
-
-    private System.Boolean CheckOrCacheViewer();
-    public Game.Rendering.CameraBlend GetBlendWeight(System.Single&amp; weight);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnDestroy();
-    protected virtual System.Void OnGameLoaded(Colossal.Serialization.Entities.Context serializationContext);
-    protected virtual System.Void OnUpdate();
-    private System.Void RefreshInput();
-    public System.Boolean TryGetLODParameters(UnityEngine.Rendering.LODParameters&amp; lodParameters);
-    public System.Boolean TryGetViewer(Game.Rendering.Viewer&amp; viewer);
-    private System.Void UpdateDepthOfField(System.Single distance);
-    private System.Void UpdateShadows(Game.Rendering.Viewer viewer);
-}
-</code></pre>
+<h1 id="gamecameraupdatesystem">Game.CameraUpdateSystem</h1>
+<p><strong>Assembly:</strong> Assembly-CSharp<br />
+<strong>Namespace:</strong> Game.Rendering</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> GameSystemBase</p>
+<p><strong>Summary:</strong><br />
+Manages the game's active camera/viewer and updates camera-related systems each frame. Responsibilities include caching the active viewer, updating depth of field and shadow settings based on viewer distances, driving Cinemachine brains, refreshing camera input activation/blocking, and coordinating multiple camera controllers (gameplay, cinematic, orbit). It creates a small HD Volume used to tweak DepthOfField and HDShadowSettings for the active camera.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.Common.RaycastSystem m_RaycastSystem</code>  </li>
+<li>
+<p><code>private RaycastSystem m_RaycastSystem</code><br />
+References the RaycastSystem used to perform viewer raycasts and collision/visibility queries.</p>
+</li>
+<li>
+<p><code>private Volume m_Volume</code><br />
+A local HD Volume created to host depth-of-field and shadow setting overrides.</p>
+</li>
+<li>
+<p><code>private DepthOfField m_DepthOfField</code><br />
+Reference to the DepthOfField component inside m_Volume used to apply DoF settings.</p>
+</li>
+<li>
+<p><code>private HDShadowSettings m_ShadowSettings</code><br />
+Reference to the HD shadow settings component inside m_Volume used to override cascade splits and max distance.</p>
+</li>
+<li>
+<p><code>private float4 m_StoredShadowSplitsAndDistance</code><br />
+Cached original shadow cascade split distances and max shadow distance read from the camera/HD pipeline (packed into a float4).</p>
+</li>
+<li>
+<p><code>private float4 m_StoredShadowBorders</code><br />
+Cached original cascade shadow border values.</p>
+</li>
+<li>
+<p><code>private InputActivator[] m_CameraActionActivators</code><br />
+Array of InputActivators created from the "Camera" action map actions; used to enable/disable camera action handling while a camera controller is active.</p>
+</li>
+<li>
+<p><code>private InputBarrier[] m_CameraActionBarriers</code><br />
+Array of InputBarriers created from the "Camera" action map actions; used to block camera input when the mouse is over UI (with some conditions).</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.Common.RaycastSystem m_RaycastSystem;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.Rendering.Volume m_Volume</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.Rendering.Volume m_Volume;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.Rendering.HighDefinition.DepthOfField m_DepthOfField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.Rendering.HighDefinition.DepthOfField m_DepthOfField;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.Rendering.HighDefinition.HDShadowSettings m_ShadowSettings</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.Rendering.HighDefinition.HDShadowSettings m_ShadowSettings;
-</code></pre>
-<ul>
-<li><code>private Unity.Mathematics.float4 m_StoredShadowSplitsAndDistance</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Mathematics.float4 m_StoredShadowSplitsAndDistance;
-</code></pre>
-<ul>
-<li><code>private Unity.Mathematics.float4 m_StoredShadowBorders</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Mathematics.float4 m_StoredShadowBorders;
-</code></pre>
-<ul>
-<li><code>private Game.Input.InputActivator[] m_CameraActionActivators</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Input.InputActivator[] m_CameraActionActivators;
-</code></pre>
-<ul>
-<li><code>private Game.Input.InputBarrier[] m_CameraActionBarriers</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Input.InputBarrier[] m_CameraActionBarriers;
-</code></pre>
-<ul>
-<li><code>private Game.Rendering.Viewer &lt;activeViewer&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Rendering.Viewer &lt;activeViewer&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private Game.CameraController &lt;gamePlayController&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.CameraController &lt;gamePlayController&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private Game.CinematicCameraController &lt;cinematicCameraController&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.CinematicCameraController &lt;cinematicCameraController&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private Game.OrbitCameraController &lt;orbitCameraController&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.OrbitCameraController &lt;orbitCameraController&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private System.Single &lt;nearClipPlane&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Single &lt;nearClipPlane&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private Unity.Mathematics.float3 &lt;position&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Mathematics.float3 &lt;position&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private Unity.Mathematics.float3 &lt;direction&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Mathematics.float3 &lt;direction&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private System.Single &lt;zoom&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Single &lt;zoom&gt;k__BackingField;
-</code></pre>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>public Game.Rendering.Viewer activeViewer { get; private set }</code>  </li>
+<li>
+<p><code>public Viewer activeViewer { get; private set; }</code><br />
+The currently active Viewer wrapper around the Unity Camera. Null when no camera is active. Many updates read/viewer metrics (position, forward, distances) from this instance.</p>
+</li>
+<li>
+<p><code>public CameraController gamePlayController { get; set; }</code><br />
+Reference to the gameplay camera controller. Can be toggled on/off via activeCameraController.</p>
+</li>
+<li>
+<p><code>public CinematicCameraController cinematicCameraController { get; set; }</code><br />
+Reference to the cinematic camera controller.</p>
+</li>
+<li>
+<p><code>public OrbitCameraController orbitCameraController { get; set; }</code><br />
+Reference to the orbit camera controller.</p>
+</li>
+<li>
+<p><code>public Camera activeCamera { get; set; }</code><br />
+Getter returns the Unity Camera of the activeViewer, or null. Setter wraps a Camera into a Viewer and assigns activeViewer (or clears it when value is null). Setting logs the change via COSystemBase.baseLog.</p>
+</li>
+<li>
+<p><code>public float nearClipPlane { get; private set; }</code><br />
+Cached near clip plane of the active viewer camera (updated on CheckOrCacheViewer).</p>
+</li>
+<li>
+<p><code>public float3 position { get; private set; }</code><br />
+Cached position of the active viewer (world space).</p>
+</li>
+<li>
+<p><code>public float3 direction { get; private set; }</code><br />
+Cached forward direction of the active viewer.</p>
+</li>
+<li>
+<p><code>public float zoom { get; private set; }</code><br />
+Current zoom value (source is the active camera controller when available, otherwise preserved value).</p>
+</li>
+<li>
+<p><code>public IGameCameraController activeCameraController { get; set; }</code><br />
+Gets the currently active IGameCameraController. The getter enforces that only one of the controllers (gameplay / cinematic / orbit) is enabled at a time and returns the enabled one. The setter disables any other controllers and enables the provided controller (if non-null).</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public Game.Rendering.Viewer activeViewer { get; private set; }
-</code></pre>
-<ul>
-<li><code>public Game.CameraController gamePlayController { get; set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Game.CameraController gamePlayController { get; set; }
-</code></pre>
-<ul>
-<li><code>public Game.CinematicCameraController cinematicCameraController { get; set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Game.CinematicCameraController cinematicCameraController { get; set; }
-</code></pre>
-<ul>
-<li><code>public Game.OrbitCameraController orbitCameraController { get; set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Game.OrbitCameraController orbitCameraController { get; set; }
-</code></pre>
-<ul>
-<li><code>public UnityEngine.Camera activeCamera { get; set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public UnityEngine.Camera activeCamera { get; set; }
-</code></pre>
-<ul>
-<li><code>public System.Single nearClipPlane { get; private set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Single nearClipPlane { get; private set; }
-</code></pre>
-<ul>
-<li><code>public Unity.Mathematics.float3 position { get; private set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Unity.Mathematics.float3 position { get; private set; }
-</code></pre>
-<ul>
-<li><code>public Unity.Mathematics.float3 direction { get; private set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Unity.Mathematics.float3 direction { get; private set; }
-</code></pre>
-<ul>
-<li><code>public System.Single zoom { get; private set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Single zoom { get; private set; }
-</code></pre>
-<ul>
-<li><code>public Game.Rendering.IGameCameraController activeCameraController { get; set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Game.Rendering.IGameCameraController activeCameraController { get; set; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public CameraUpdateSystem()</code>  </li>
+<li><code>public CameraUpdateSystem()</code><br />
+Default constructor. Initialization of runtime state is done in OnCreate. The constructor itself does not perform special logic.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public CameraUpdateSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private CheckOrCacheViewer() : System.Boolean</code>  </li>
+<li>
+<p><code>protected override void OnGameLoaded(Context serializationContext)</code><br />
+Called when the game world is loaded. Calls base implementation and sets activeCamera = Camera.main to initialize the active viewer to the main camera.</p>
+</li>
+<li>
+<p><code>public CameraBlend GetBlendWeight(out float weight)</code><br />
+Queries Cinemachine to determine if a brain is currently blending between cameras. If a blend is active and not complete, sets weight to the blend weight and returns a CameraBlend enum indicating whether the blend is to/from the cinematic camera (if that camera participates in the blend). Otherwise returns CameraBlend.None and weight = 1f.</p>
+</li>
+<li>
+<p><code>public bool TryGetViewer(out Viewer viewer)</code><br />
+Returns the cached activeViewer via out parameter and returns true when a viewer exists.</p>
+</li>
+<li>
+<p><code>public bool TryGetLODParameters(out LODParameters lodParameters)</code><br />
+If there is an activeViewer, attempts to fetch LODParameters via activeViewer.TryGetLODParameters and returns true on success. Otherwise returns false and out param is defaulted.</p>
+</li>
+<li>
+<p><code>private bool CheckOrCacheViewer()</code><br />
+Checks that activeViewer and its camera are valid. If valid, populates nearClipPlane, position, direction and zoom (from the active camera controller if present), invokes activeViewer.Raycast to update raycast state, and returns true. If invalid, clears cached values, sets activeCamera = null, and returns false.</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnCreate()</code><br />
+Creates/initializes required systems and resources:</p>
+</li>
+<li>Obtains RaycastSystem from the world.</li>
+<li>Creates an HD Volume named "CameraControllerVolume" (priority 51).</li>
+<li>Ensures DepthOfField and HDShadowSettings components exist in the created volume and caches references.</li>
+<li>
+<p>Fetches the "Camera" action map from InputManager and builds InputActivator[] and InputBarrier[] arrays for its actions so camera input can be enabled/blocked as needed.</p>
+</li>
+<li>
+<p><code>private void UpdateDepthOfField(float distance)</code><br />
+Updates the DepthOfField component (m_DepthOfField) according to shared GraphicsSettings:</p>
+</li>
+<li>If settings specify TiltShift mode, sets manual focus mode and configures near/far focus ranges relative to the provided distance and configured tilt shift factors.</li>
+<li>If settings specify Physical mode, sets physical camera focus distance to the provided distance.</li>
+<li>
+<p>Otherwise turns DoF off.</p>
+</li>
+<li>
+<p><code>private void UpdateShadows(Viewer viewer)</code><br />
+Adjusts HD shadow settings (m_ShadowSettings) based on the viewer's distance information:</p>
+</li>
+<li>On first run, caches original shadow split/distances and borders from HDCamera volume stack.</li>
+<li>If viewer.shadowsAdjustFarDistance is false, clears any override states (restores defaults).</li>
+<li>
+<p>If true, computes a suitable max shadow distance and cascade splits/clamps based on viewerDistances (farthestSurface, maxDistanceToSeaLevel, ground, etc.) and overrides m_ShadowSettings fields accordingly.</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnDestroy()</code><br />
+Cleans up created resources:</p>
+</li>
+<li>Destroys the created Volume.</li>
+<li>Disables controllerEnabled on gameplay/cinematic/orbit controllers if set.</li>
+<li>
+<p>Calls base.OnDestroy.</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnUpdate()</code><br />
+Per-frame update:</p>
+</li>
+<li>If an active viewer exists, updates its raycast state and stores the focus distance, then calls UpdateShadows(viewer).</li>
+<li>Calls UpdateDepthOfField with the computed focus distance.</li>
+<li>Calls UpdateCamera() on the activeCameraController (if any).</li>
+<li>Forces ManualUpdate() on all Cinemachine brains present.</li>
+<li>Calls CheckOrCacheViewer() to refresh cached viewer values.</li>
+<li>
+<p>Calls RefreshInput() to enable/disable activators and block/unblock barriers based on whether a camera controller is active and mouse-over-UI state.</p>
+</li>
+<li>
+<p><code>private void RefreshInput()</code><br />
+Enables or disables InputActivators based on whether there is an active camera controller. For InputBarriers:</p>
+</li>
+<li>If no active controller, barriers are not blocked.</li>
+<li>If the mouse is not over UI according to InputManager, barriers are not blocked.</li>
+<li>Otherwise, if the corresponding actions are not in progress, the barrier is blocked (preventing camera input while over UI unless an action is actively occurring).</li>
 </ul>
-<pre><code class="language-csharp">private bool CheckOrCacheViewer()
-    {
-        if (activeViewer != null &amp;&amp; activeViewer.camera != null)
-        {
-            nearClipPlane = activeViewer.nearClipPlane;
-            position = activeViewer.position;
-            direction = activeViewer.forward;
-            zoom = activeCameraController?.zoom ?? zoom;
-            activeViewer.Raycast(m_RaycastSystem);
-            return true;
-        }
-        nearClipPlane = 0f;
-        position = float3.zero;
-        direction = new float3(0f, 0f, 1f);
-        activeCamera = null;
-        zoom = 0f;
-        return false;
-    }
-</code></pre>
-<ul>
-<li><code>public GetBlendWeight(System.Single&amp; weight) : Game.Rendering.CameraBlend</code>  </li>
-</ul>
-<pre><code class="language-csharp">public CameraBlend GetBlendWeight(out float weight)
-    {
-        if (CinemachineCore.Instance.BrainCount &gt; 0)
-        {
-            CinemachineBrain activeBrain = CinemachineCore.Instance.GetActiveBrain(0);
-            if (activeBrain != null &amp;&amp; activeBrain.IsBlending)
-            {
-                CinemachineBlend activeBlend = activeBrain.ActiveBlend;
-                if (activeBlend.IsValid &amp;&amp; !activeBlend.IsComplete)
-                {
-                    weight = activeBlend.BlendWeight;
-                    if (activeBlend.CamB == cinematicCameraController.virtualCamera)
-                    {
-                        return CameraBlend.ToCinematicCamera;
-                    }
-                    if (activeBlend.CamA == cinematicCameraController.virtualCamera)
-                    {
-                        return CameraBlend.FromCinematicCamera;
-                    }
-                }
-            }
-        }
-        weight = 1f;
-        return CameraBlend.None;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
+<h2 id="usage-example">Usage Example</h2>
 <pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_RaycastSystem = base.World.GetOrCreateSystemManaged&lt;RaycastSystem&gt;();
-        m_Volume = VolumeHelper.CreateVolume(&quot;CameraControllerVolume&quot;, 51);
-        VolumeHelper.GetOrCreateVolumeComponent(m_Volume, ref m_DepthOfField);
-        VolumeHelper.GetOrCreateVolumeComponent(m_Volume, ref m_ShadowSettings);
-        ProxyActionMap proxyActionMap = InputManager.instance.FindActionMap(&quot;Camera&quot;);
-        m_CameraActionActivators = proxyActionMap.actions.Values.Select((ProxyAction a) =&gt; new InputActivator(ignoreIsBuiltIn: true, &quot;CameraUpdateSystem(&quot; + a.name + &quot;)&quot;, a)).ToArray();
-        m_CameraActionBarriers = proxyActionMap.actions.Values.Select((ProxyAction a) =&gt; new InputBarrier(&quot;CameraUpdateSystem(&quot; + a.name + &quot;)&quot;, a, InputManager.DeviceType.Mouse)).ToArray();
-    }
+protected override void OnGameLoaded(Context serializationContext)
+{
+    base.OnGameLoaded(serializationContext);
+    // Initialize the system's active viewer to the main camera on load
+    activeCamera = Camera.main;
+}
 </code></pre>
-<ul>
-<li><code>protected virtual OnDestroy() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnDestroy()
-    {
-        base.OnDestroy();
-        VolumeHelper.DestroyVolume(m_Volume);
-        if (gamePlayController != null)
-        {
-            gamePlayController.controllerEnabled = false;
-        }
-        if (cinematicCameraController != null)
-        {
-            cinematicCameraController.controllerEnabled = false;
-        }
-        if (orbitCameraController != null)
-        {
-            orbitCameraController.controllerEnabled = false;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnGameLoaded(Colossal.Serialization.Entities.Context serializationContext) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnGameLoaded(Context serializationContext)
-    {
-        base.OnGameLoaded(serializationContext);
-        activeCamera = Camera.main;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        bool num = activeViewer != null &amp;&amp; activeViewer.camera != null;
-        float distance = 0f;
-        if (num)
-        {
-            activeViewer.UpdateRaycast(m_RaycastSystem, base.CheckedStateRef.WorldUnmanaged.Time.DeltaTime);
-            distance = activeViewer.viewerDistances.focus;
-            UpdateShadows(activeViewer);
-        }
-        UpdateDepthOfField(distance);
-        activeCameraController?.UpdateCamera();
-        for (int i = 0; i &lt; CinemachineCore.Instance.BrainCount; i++)
-        {
-            CinemachineCore.Instance.GetActiveBrain(i).ManualUpdate();
-        }
-        CheckOrCacheViewer();
-        RefreshInput();
-    }
-</code></pre>
-<ul>
-<li><code>private RefreshInput() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void RefreshInput()
-    {
-        InputActivator[] array = m_CameraActionActivators;
-        for (int i = 0; i &lt; array.Length; i++)
-        {
-            array[i].enabled = activeCameraController != null;
-        }
-        InputBarrier[] array2 = m_CameraActionBarriers;
-        foreach (InputBarrier inputBarrier in array2)
-        {
-            if (activeCameraController == null)
-            {
-                inputBarrier.blocked = false;
-            }
-            else if (!InputManager.instance.mouseOverUI)
-            {
-                inputBarrier.blocked = false;
-            }
-            else if (inputBarrier.actions.All((ProxyAction a) =&gt; !a.IsInProgress()))
-            {
-                inputBarrier.blocked = true;
-            }
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public TryGetLODParameters(UnityEngine.Rendering.LODParameters&amp; lodParameters) : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">public bool TryGetLODParameters(out LODParameters lodParameters)
-    {
-        if (activeViewer != null)
-        {
-            return activeViewer.TryGetLODParameters(out lodParameters);
-        }
-        lodParameters = default(LODParameters);
-        return false;
-    }
-</code></pre>
-<ul>
-<li><code>public TryGetViewer(Game.Rendering.Viewer&amp; viewer) : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">public bool TryGetViewer(out Viewer viewer)
-    {
-        viewer = activeViewer;
-        return activeViewer != null;
-    }
-</code></pre>
-<ul>
-<li><code>private UpdateDepthOfField(System.Single distance) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void UpdateDepthOfField(float distance)
-    {
-        Game.Settings.GraphicsSettings graphicsSettings = SharedSettings.instance?.graphics;
-        if (graphicsSettings != null)
-        {
-            if (graphicsSettings.depthOfFieldMode == Game.Settings.GraphicsSettings.DepthOfFieldMode.TiltShift)
-            {
-                m_DepthOfField.focusMode.Override(DepthOfFieldMode.Manual);
-                m_DepthOfField.nearFocusStart.Override(distance - distance * graphicsSettings.tiltShiftNearStart);
-                m_DepthOfField.nearFocusEnd.Override(distance - distance * graphicsSettings.tiltShiftNearEnd);
-                m_DepthOfField.farFocusStart.Override(distance + distance * graphicsSettings.tiltShiftFarStart);
-                m_DepthOfField.farFocusEnd.Override(distance + distance * graphicsSettings.tiltShiftFarEnd);
-            }
-            else if (graphicsSettings.depthOfFieldMode == Game.Settings.GraphicsSettings.DepthOfFieldMode.Physical)
-            {
-                m_DepthOfField.focusMode.Override(DepthOfFieldMode.UsePhysicalCamera);
-                m_DepthOfField.focusDistanceMode.Override(FocusDistanceMode.Volume);
-                m_DepthOfField.focusDistance.Override(distance);
-            }
-            else
-            {
-                m_DepthOfField.focusMode.Override(DepthOfFieldMode.Off);
-            }
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private UpdateShadows(Game.Rendering.Viewer viewer) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void UpdateShadows(Viewer viewer)
-    {
-        Camera camera = viewer.camera;
-        if (!camera)
-        {
-            return;
-        }
-        if (math.lengthsq(m_StoredShadowSplitsAndDistance) == 0f)
-        {
-            HDCamera orCreate = HDCamera.GetOrCreate(camera);
-            if (orCreate != null)
-            {
-                HDShadowSettings component = orCreate.volumeStack.GetComponent&lt;HDShadowSettings&gt;();
-                float value = component.maxShadowDistance.value;
-                float[] cascadeShadowSplits = component.cascadeShadowSplits;
-                float[] cascadeShadowBorders = component.cascadeShadowBorders;
-                m_StoredShadowSplitsAndDistance = new float4(cascadeShadowSplits[0] * value, cascadeShadowSplits[1] * value, cascadeShadowSplits[2] * value, value);
-                m_StoredShadowBorders = new float4(cascadeShadowBorders[0], cascadeShadowBorders[1], cascadeShadowBorders[2], cascadeShadowBorders[3]);
-            }
-        }
-        if (!viewer.shadowsAdjustFarDistance)
-        {
-            m_ShadowSettings.maxShadowDistance.overrideState = false;
-            m_ShadowSettings.cascadeShadowSplit0.overrideState = false;
-            m_ShadowSettings.cascadeShadowSplit1.overrideState = false;
-            m_ShadowSettings.cascadeShadowSplit2.overrideState = false;
-            m_ShadowSettings.cascadeShadowBorder0.overrideState = false;
-            m_ShadowSettings.cascadeShadowBorder1.overrideState = false;
-            m_ShadowSettings.cascadeShadowBorder2.overrideState = false;
-            m_ShadowSettings.cascadeShadowBorder3.overrideState = false;
-            return;
-        }
-        float w = m_StoredShadowSplitsAndDistance.w;
-        float y = math.lerp(viewer.viewerDistances.farthestSurface, viewer.viewerDistances.maxDistanceToSeaLevel, 0.2f) * 1.1f;
-        w = math.min(w, y);
-        float x = m_StoredShadowSplitsAndDistance.x;
-        float y2 = m_StoredShadowSplitsAndDistance.y;
-        float z = m_StoredShadowSplitsAndDistance.z;
-        x = math.clamp(x, 15f, w * 0.15f);
-        y2 = math.clamp(y2, 45f, w * 0.3f);
-        z = math.clamp(z, 135f, w * 0.6f);
-        float ground = viewer.viewerDistances.ground;
-        x = math.min(x, ground * 5f);
-        y2 = math.min(y2, ground * 30f);
-        z = math.min(z, ground * 200f);
-        w = math.max(w, z * 1.2f);
-        m_ShadowSettings.maxShadowDistance.Override(w);
-        m_ShadowSettings.cascadeShadowSplit0.Override(x / w);
-        m_ShadowSettings.cascadeShadowSplit1.Override(y2 / w);
-        m_ShadowSettings.cascadeShadowSplit2.Override(z / w);
-        m_ShadowSettings.cascadeShadowBorder0.Override(m_StoredShadowBorders.x);
-        m_ShadowSettings.cascadeShadowBorder1.Override(m_StoredShadowBorders.y);
-        m_ShadowSettings.cascadeShadowBorder2.Override(m_StoredShadowBorders.z);
-        m_ShadowSettings.cascadeShadowBorder3.Override(m_StoredShadowBorders.w);
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Rendering.CameraUpdateSystem+&lt;&gt;c</code>  </li>
-</ul>
+<p>Notes and tips:
+- CameraUpdateSystem relies on a Viewer abstraction (not defined here) which provides viewerDistances and raycast helpers. Inspect the Viewer class for details on viewerDistances fields (focus, ground, farthestSurface, maxDistanceToSeaLevel, etc.).
+- The system integrates with Unity HDRP (HDCamera / HDShadowSettings / DepthOfField) and Cinemachine; ensure those packages/features are present in your project when interacting with its internals.
+- Input activation/blocking logic depends on InputManager and the "Camera" action map — modifying or renaming that action map will affect this system.</p>
 
 
 

@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87073,6 +87165,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Simulation/SurfaceWater/" class="md-nav__link">
         
   
@@ -97078,15 +97193,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -97123,9 +97229,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -117932,6 +118038,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117957,15 +118085,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -118004,9 +118123,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118029,221 +118148,142 @@
 
 
 <h1 id="gameuieditorassetpickeradapter">Game.UI.Editor.AssetPickerAdapter</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.UI.Editor</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>System.Object</code><br />
-<strong>Implements:</strong> <code>Game.UI.Editor.ItemPicker&lt;Game.UI.Editor.AssetItem&gt;</code>, <code>Game.UI.Editor.SearchField+IAdapter</code>, <code>Game.UI.Editor.ItemPickerFooter+IAdapter</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class AssetPickerAdapter : Game.UI.Editor.ItemPicker&lt;Game.UI.Editor.AssetItem&gt;, Game.UI.Editor.SearchField+IAdapter, Game.UI.Editor.ItemPickerFooter+IAdapter
-{
-    private System.String m_SearchQuery;
-    private System.Collections.Generic.List&lt;Game.UI.Editor.AssetItem&gt; m_Items;
-    private System.Collections.Generic.List&lt;Game.UI.Editor.AssetItem&gt; m_FilteredItems;
-    private System.Boolean m_FilteredItemsChanged;
-    private Game.UI.Editor.AssetItem m_SelectedItem;
-    private System.Int32 m_ColumnCount;
-    private System.Boolean m_UseGlobalColumnCount;
-    private System.Collections.Generic.HashSet&lt;System.String&gt; m_FavoriteIds;
-    public System.Action&lt;Game.UI.Editor.AssetItem&gt; EventItemSelected;
-
-    public Game.UI.Editor.AssetItem selectedItem { get; set; }
-    private Game.UI.Editor.AssetItem Game.UI.Editor.ItemPicker&lt;Game.UI.Editor.AssetItem&gt;.IAdapter.selectedItem { private get; private set; }
-    private System.Collections.Generic.List&lt;Game.UI.Editor.AssetItem&gt; Game.UI.Editor.ItemPicker&lt;Game.UI.Editor.AssetItem&gt;.IAdapter.items { private get; }
-    public System.String searchQuery { get; set; }
-    private System.Int32 Game.UI.Editor.ItemPickerFooter.IAdapter.length { private get; }
-    public System.Int32 columnCount { get; set; }
-
-    public AssetPickerAdapter(System.Collections.Generic.IEnumerable&lt;Game.UI.Editor.AssetItem&gt; items, System.Int32 columnCount);
-
-    private System.Boolean &lt;UpdateFilteredItems&gt;b__16_0(Game.UI.Editor.AssetItem item);
-    private System.Void Game.UI.Editor.ItemPicker&lt;Game.UI.Editor.AssetItem&gt;.IAdapter.SetFavorite(System.Int32 index, System.Boolean favorite);
-    private System.Boolean Game.UI.Editor.ItemPicker&lt;Game.UI.Editor.AssetItem&gt;.IAdapter.Update();
-    public Game.UI.Editor.AssetItem SelectItemByGuid(Colossal.Hash128 guid);
-    public Game.UI.Editor.AssetItem SelectItemByName(System.String name, System.StringComparison comparisonType);
-    public System.Void SetItems(System.Collections.Generic.IEnumerable&lt;Game.UI.Editor.AssetItem&gt; items);
-    private System.Void UpdateFilteredItems();
-}
-</code></pre>
+<p><strong>Assembly:</strong> Game<br />
+<strong>Namespace:</strong> Game.UI.Editor</p>
+<p><strong>Type:</strong> public class</p>
+<p><strong>Base:</strong> ItemPicker<AssetItem>.IAdapter, SearchField.IAdapter, ItemPickerFooter.IAdapter</p>
+<p><strong>Summary:</strong><br />
+Adapter that provides AssetItem data and behavior to an ItemPicker UI used in the editor. Manages the full list of assets, a filtered list based on a search query, selection, favorites, and column count. Persists favorites and (optionally) column count to SharedSettings.instance.editor. Supports explicit interface implementations required by the item picker, search field and footer components.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private System.String m_SearchQuery</code>  </li>
+<li>
+<p><code>private string m_SearchQuery = string.Empty</code><br />
+Holds the current search query used to filter displayed items.</p>
+</li>
+<li>
+<p><code>private List&lt;AssetItem&gt; m_Items</code><br />
+Master list of all AssetItem instances managed by the adapter.</p>
+</li>
+<li>
+<p><code>private List&lt;AssetItem&gt; m_FilteredItems</code><br />
+Current filtered list (subset of m_Items) based on m_SearchQuery. This is what the ItemPicker UI consumes.</p>
+</li>
+<li>
+<p><code>private bool m_FilteredItemsChanged</code><br />
+Flag set when the filtered list has changed. Returned by the explicit Update() interface method so the UI can refresh.</p>
+</li>
+<li>
+<p><code>[CanBeNull] private AssetItem m_SelectedItem</code><br />
+Currently selected asset item (nullable).</p>
+</li>
+<li>
+<p><code>private int m_ColumnCount</code><br />
+Number of columns the picker should render.</p>
+</li>
+<li>
+<p><code>private bool m_UseGlobalColumnCount = true</code><br />
+When true, columnCount changes are written to SharedSettings.instance.editor.assetPickerColumnCount; when false, columnCount is local to this adapter.</p>
+</li>
+<li>
+<p><code>private HashSet&lt;string&gt; m_FavoriteIds = new HashSet&lt;string&gt;()</code><br />
+Set of favorite asset GUID strings persisted to editor settings.</p>
+</li>
+<li>
+<p><code>public Action&lt;AssetItem&gt; EventItemSelected</code><br />
+Event invoked when an item is selected via the explicit interface setter.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private System.String m_SearchQuery;
-</code></pre>
-<ul>
-<li><code>private System.Collections.Generic.List&lt;Game.UI.Editor.AssetItem&gt; m_Items</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Collections.Generic.List&lt;Game.UI.Editor.AssetItem&gt; m_Items;
-</code></pre>
-<ul>
-<li><code>private System.Collections.Generic.List&lt;Game.UI.Editor.AssetItem&gt; m_FilteredItems</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Collections.Generic.List&lt;Game.UI.Editor.AssetItem&gt; m_FilteredItems;
-</code></pre>
-<ul>
-<li><code>private System.Boolean m_FilteredItemsChanged</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean m_FilteredItemsChanged;
-</code></pre>
-<ul>
-<li><code>private Game.UI.Editor.AssetItem m_SelectedItem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.UI.Editor.AssetItem m_SelectedItem;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_ColumnCount</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_ColumnCount;
-</code></pre>
-<ul>
-<li><code>private System.Boolean m_UseGlobalColumnCount</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean m_UseGlobalColumnCount;
-</code></pre>
-<ul>
-<li><code>private System.Collections.Generic.HashSet&lt;System.String&gt; m_FavoriteIds</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Collections.Generic.HashSet&lt;System.String&gt; m_FavoriteIds;
-</code></pre>
-<ul>
-<li><code>public System.Action&lt;Game.UI.Editor.AssetItem&gt; EventItemSelected</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Action&lt;Game.UI.Editor.AssetItem&gt; EventItemSelected;
-</code></pre>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>public Game.UI.Editor.AssetItem selectedItem { get; set }</code>  </li>
+<li>
+<p><code>public AssetItem selectedItem { get; set; }</code><br />
+Gets or sets the currently selected AssetItem. Setting this directly updates the adapter's selection but does not invoke EventItemSelected (the explicit interface setter does).</p>
+</li>
+<li>
+<p><code>AssetItem ItemPicker&lt;AssetItem&gt;.IAdapter.selectedItem { get; set; }</code><br />
+Explicit interface implementation used by the ItemPicker. Getting returns the current selection; setting assigns the selection and invokes EventItemSelected if non-null.</p>
+</li>
+<li>
+<p><code>List&lt;AssetItem&gt; ItemPicker&lt;AssetItem&gt;.IAdapter.items =&gt; m_FilteredItems</code><br />
+Explicit interface property returning the list of items the picker should display (the filtered list).</p>
+</li>
+<li>
+<p><code>public string searchQuery { get; set; }</code><br />
+Public property to get/set the search query. When changed, triggers UpdateFilteredItems() to rebuild m_FilteredItems.</p>
+</li>
+<li>
+<p><code>int ItemPickerFooter.IAdapter.length =&gt; m_FilteredItems.Count</code><br />
+Explicit interface property used by the footer to obtain the current number of filtered items.</p>
+</li>
+<li>
+<p><code>public int columnCount { get; set; }</code><br />
+Number of columns the picker uses. When set and m_UseGlobalColumnCount is true, the value is saved to SharedSettings.instance.editor.assetPickerColumnCount.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public Game.UI.Editor.AssetItem selectedItem { get; set; }
-</code></pre>
-<ul>
-<li><code>private Game.UI.Editor.AssetItem Game.UI.Editor.ItemPicker&lt;Game.UI.Editor.AssetItem&gt;.IAdapter.selectedItem { private get; private set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.UI.Editor.AssetItem Game.UI.Editor.ItemPicker&lt;Game.UI.Editor.AssetItem&gt;.IAdapter.selectedItem { private get; private set; }
-</code></pre>
-<ul>
-<li><code>private System.Collections.Generic.List&lt;Game.UI.Editor.AssetItem&gt; Game.UI.Editor.ItemPicker&lt;Game.UI.Editor.AssetItem&gt;.IAdapter.items { private get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Collections.Generic.List&lt;Game.UI.Editor.AssetItem&gt; Game.UI.Editor.ItemPicker&lt;Game.UI.Editor.AssetItem&gt;.IAdapter.items { private get; }
-</code></pre>
-<ul>
-<li><code>public System.String searchQuery { get; set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.String searchQuery { get; set; }
-</code></pre>
-<ul>
-<li><code>private System.Int32 Game.UI.Editor.ItemPickerFooter.IAdapter.length { private get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 Game.UI.Editor.ItemPickerFooter.IAdapter.length { private get; }
-</code></pre>
-<ul>
-<li><code>public System.Int32 columnCount { get; set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Int32 columnCount { get; set; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public AssetPickerAdapter(System.Collections.Generic.IEnumerable&lt;Game.UI.Editor.AssetItem&gt; items, System.Int32 columnCount = 0)</code>  </li>
+<li><code>public AssetPickerAdapter(IEnumerable&lt;AssetItem&gt; items, int columnCount = 0)</code><br />
+Creates a new adapter:</li>
+<li>Loads favorite IDs from SharedSettings.instance?.editor.assetPickerFavorites (if present) into m_FavoriteIds.</li>
+<li>Calls SetItems(items) to populate, mark favorites and sort lists.</li>
+<li>If columnCount &lt;= 0, uses the global editor setting editor.assetPickerColumnCount (defaulting to 4 if missing); otherwise uses the provided columnCount and disables global persistence.</li>
 </ul>
-<pre><code class="language-csharp">public AssetPickerAdapter(IEnumerable&lt;AssetItem&gt; items, int columnCount = 0)
-    {
-        m_FavoriteIds.Clear();
-        EditorSettings editorSettings = SharedSettings.instance?.editor;
-        if (editorSettings.assetPickerFavorites != null)
-        {
-            string[] assetPickerFavorites = editorSettings.assetPickerFavorites;
-            foreach (string item in assetPickerFavorites)
-            {
-                m_FavoriteIds.Add(item);
-            }
-        }
-        SetItems(items);
-        m_UseGlobalColumnCount = columnCount &lt;= 0;
-        if (m_UseGlobalColumnCount)
-        {
-            m_ColumnCount = editorSettings?.assetPickerColumnCount ?? 4;
-        }
-        else
-        {
-            m_ColumnCount = columnCount;
-        }
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private &lt;UpdateFilteredItems&gt;b__16_0(Game.UI.Editor.AssetItem item) : System.Boolean</code>  </li>
+<li><code>public void SetItems(IEnumerable&lt;AssetItem&gt; items)</code><br />
+Replaces the adapter's master list with the provided items:</li>
+<li>
+<p>Converts to a List, marks each item.favorite based on m_FavoriteIds, sorts m_Items, and initializes m_FilteredItems as a copy of m_Items.</p>
+</li>
+<li>
+<p><code>public AssetItem SelectItemByName(string name, StringComparison comparisonType)</code><br />
+Finds the first AssetItem in m_Items whose fileName equals the given name using the specified comparison and sets it as the current selection. Returns the selected item (or null if not found).</p>
+</li>
+<li>
+<p><code>public AssetItem SelectItemByGuid(Hash128 guid)</code><br />
+Finds the first AssetItem in m_Items with a matching guid and sets it as the current selection. Returns the selected item (or null if not found).</p>
+</li>
+<li>
+<p><code>private void UpdateFilteredItems()</code><br />
+Rebuilds m_FilteredItems based on m_SearchQuery:</p>
+</li>
+<li>If the search query is empty, m_FilteredItems becomes a copy of m_Items.</li>
+<li>Otherwise, filters m_Items to those whose fileName contains the query (case-insensitive).</li>
+<li>
+<p>Sets m_FilteredItemsChanged = true.</p>
+</li>
+<li>
+<p><code>bool ItemPicker&lt;AssetItem&gt;.IAdapter.Update()</code><br />
+Explicit interface method called by the UI to know if the filtered items changed. Returns the previous value of m_FilteredItemsChanged and clears the flag.</p>
+</li>
+<li>
+<p><code>void ItemPicker&lt;AssetItem&gt;.IAdapter.SetFavorite(int index, bool favorite)</code><br />
+Explicit interface method used to toggle favorite state for an item at the given index in m_FilteredItems:</p>
+</li>
+<li>Updates m_FavoriteIds and writes the favorites array back to SharedSettings.instance?.editor.assetPickerFavorites (if available).</li>
+<li>Updates the assetItem.favorite flag, re-sorts m_Items and m_FilteredItems, and sets m_FilteredItemsChanged = true.</li>
 </ul>
-<pre><code class="language-csharp">private System.Boolean &lt;UpdateFilteredItems&gt;b__16_0(Game.UI.Editor.AssetItem item);
-</code></pre>
-<ul>
-<li><code>private Game.UI.Editor.ItemPicker&lt;Game.UI.Editor.AssetItem&gt;.IAdapter.SetFavorite(System.Int32 index, System.Boolean favorite) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Void Game.UI.Editor.ItemPicker&lt;Game.UI.Editor.AssetItem&gt;.IAdapter.SetFavorite(System.Int32 index, System.Boolean favorite);
-</code></pre>
-<ul>
-<li><code>private Game.UI.Editor.ItemPicker&lt;Game.UI.Editor.AssetItem&gt;.IAdapter.Update() : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean Game.UI.Editor.ItemPicker&lt;Game.UI.Editor.AssetItem&gt;.IAdapter.Update();
-</code></pre>
-<ul>
-<li><code>public SelectItemByGuid(Colossal.Hash128 guid) : Game.UI.Editor.AssetItem</code>  </li>
-</ul>
-<pre><code class="language-csharp">public AssetItem SelectItemByGuid(Hash128 guid)
-    {
-        m_SelectedItem = m_Items.FirstOrDefault((AssetItem item) =&gt; item.guid == guid);
-        return m_SelectedItem;
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Create the adapter with a list of AssetItem and use global column count:
+var adapter = new AssetPickerAdapter(allAssets);
+
+// Subscribe to selection events:
+adapter.EventItemSelected = item =&gt; {
+    if (item != null) {
+        Debug.Log($&quot;Selected asset: {item.fileName} ({item.guid})&quot;);
     }
+};
+
+// Filter items by name:
+adapter.searchQuery = &quot;park&quot;;
+
+// Programmatically select an item by name:
+var selected = adapter.SelectItemByName(&quot;Small Park&quot;, StringComparison.OrdinalIgnoreCase);
+
+// Toggle favorite via the picker interface (example usage from picker code):
+// ((ItemPicker&lt;AssetItem&gt;.IAdapter)adapter).SetFavorite(0, true);
 </code></pre>
-<ul>
-<li><code>public SelectItemByName(System.String name, System.StringComparison comparisonType) : Game.UI.Editor.AssetItem</code>  </li>
-</ul>
-<pre><code class="language-csharp">public AssetItem SelectItemByName(string name, StringComparison comparisonType)
-    {
-        m_SelectedItem = m_Items.FirstOrDefault((AssetItem item) =&gt; item.fileName.Equals(name, comparisonType));
-        return m_SelectedItem;
-    }
-</code></pre>
-<ul>
-<li><code>public SetItems(System.Collections.Generic.IEnumerable&lt;Game.UI.Editor.AssetItem&gt; items) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void SetItems(IEnumerable&lt;AssetItem&gt; items)
-    {
-        m_Items = items.ToList();
-        foreach (AssetItem item in m_Items)
-        {
-            item.favorite = m_FavoriteIds.Contains(item.guid.ToString());
-        }
-        m_Items.Sort();
-        m_FilteredItems = new List&lt;AssetItem&gt;(m_Items);
-    }
-</code></pre>
-<ul>
-<li><code>private UpdateFilteredItems() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void UpdateFilteredItems()
-    {
-        m_FilteredItems.Clear();
-        List&lt;AssetItem&gt; filteredItems = m_FilteredItems;
-        IEnumerable&lt;AssetItem&gt; collection;
-        if (string.IsNullOrEmpty(m_SearchQuery))
-        {
-            IEnumerable&lt;AssetItem&gt; items = m_Items;
-            collection = items;
-        }
-        else
-        {
-            collection = m_Items.Where((AssetItem item) =&gt; !string.IsNullOrEmpty(item.fileName) &amp;&amp; item.fileName.IndexOf(m_SearchQuery, StringComparison.OrdinalIgnoreCase) != -1);
-        }
-        filteredItems.AddRange(collection);
-        m_FilteredItemsChanged = true;
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.UI.Editor.AssetPickerAdapter+&lt;&gt;c__DisplayClass14_0</code>  </li>
-<li><code>Game.UI.Editor.AssetPickerAdapter+&lt;&gt;c__DisplayClass15_0</code>  </li>
-</ul>
 
 
 

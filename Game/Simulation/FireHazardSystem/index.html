@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#gamesimulationfirehazardsystem" class="md-skip">
+        <a href="#gamefirehazardsystem" class="md-skip">
           Skip to content
         </a>
       
@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -81720,15 +81812,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -81765,9 +81848,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -87154,6 +87237,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -117930,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117955,15 +118083,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -118002,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118026,249 +118145,149 @@
 
 
 
-<h1 id="gamesimulationfirehazardsystem">Game.Simulation.FireHazardSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Simulation</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code><br />
-<strong>Implements:</strong> <code>Colossal.Serialization.Entities.IDefaultSerializable</code>, <code>Colossal.Serialization.Entities.ISerializable</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class FireHazardSystem : Game.GameSystemBase, Colossal.Serialization.Entities.IDefaultSerializable, Colossal.Serialization.Entities.ISerializable
-{
-    private Game.Buildings.LocalEffectSystem m_LocalEffectSystem;
-    private Game.Prefabs.PrefabSystem m_PrefabSystem;
-    private Game.Simulation.ClimateSystem m_ClimateSystem;
-    private Game.City.CityConfigurationSystem m_CityConfigurationSystem;
-    private Game.EndFrameBarrier m_EndFrameBarrier;
-    private Unity.Entities.EntityQuery m_FlammableQuery;
-    private Unity.Entities.EntityQuery m_FirePrefabQuery;
-    private Unity.Entities.EntityQuery m_FireConfigQuery;
-    private Game.Simulation.EventHelpers+FireHazardData m_FireHazardData;
-    private System.Single &lt;noRainDays&gt;k__BackingField;
-    private Game.Simulation.FireHazardSystem+TypeHandle __TypeHandle;
-    private static const System.Int32 UPDATES_PER_DAY;
-
-    public System.Single noRainDays { get; private set; }
-
-    public FireHazardSystem();
-
-    private System.Void __AssignQueries(Unity.Entities.SystemState&amp; state);
-    public System.Void Deserialize&lt;TReader&gt;(TReader reader);
-    public virtual System.Int32 GetUpdateInterval(Game.SystemUpdatePhase phase);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnCreateForCompiler();
-    protected virtual System.Void OnUpdate();
-    public System.Void Serialize&lt;TWriter&gt;(TWriter writer);
-    public System.Void SetDefaults(Colossal.Serialization.Entities.Context context);
-}
-</code></pre>
+<h1 id="gamefirehazardsystem">Game.FireHazardSystem</h1>
+<p><strong>Assembly:</strong><br />
+Assembly-CSharp (game assembly)</p>
+<p><strong>Namespace:</strong><br />
+Game.Simulation</p>
+<p><strong>Type:</strong><br />
+class</p>
+<p><strong>Base:</strong><br />
+GameSystemBase</p>
+<p><strong>Summary:</strong><br />
+FireHazardSystem is an ECS system that evaluates flammable entities (buildings and trees) and probabilistically starts fire events based on prefab FireData and computed fire hazard values. It integrates climate and city configuration (rain, temperature, natural disasters) and uses a parallel IJobChunk (FireHazardJob) to sample entity chunks, compute hazard using EventHelpers.FireHazardData, and spawn event entities (fire events) via an EndFrameBarrier command buffer. The system also tracks consecutive no-rain progress as a floating "noRainDays" value and is serializable so that noRainDays is persisted across saves.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.Buildings.LocalEffectSystem m_LocalEffectSystem</code>  </li>
+<li>
+<p><code>private const int UPDATES_PER_DAY</code><br />
+Tracks the number of hazard update ticks per in-game day (value: 64). Used to convert tick progress into days for climate/rain accumulation.</p>
+</li>
+<li>
+<p><code>private LocalEffectSystem m_LocalEffectSystem</code><br />
+Reference to the LocalEffectSystem used to read local effect data needed by the hazard calculation and to register readers for scheduled jobs.</p>
+</li>
+<li>
+<p><code>private PrefabSystem m_PrefabSystem</code><br />
+Reference to the PrefabSystem used to access FireConfigurationPrefab and other prefab data.</p>
+</li>
+<li>
+<p><code>private ClimateSystem m_ClimateSystem</code><br />
+Reference to ClimateSystem for temperature and rain status which influence fire hazard.</p>
+</li>
+<li>
+<p><code>private CityConfigurationSystem m_CityConfigurationSystem</code><br />
+Reference to CityConfigurationSystem to check whether natural disasters are enabled (affects tree fires).</p>
+</li>
+<li>
+<p><code>private EndFrameBarrier m_EndFrameBarrier</code><br />
+Barrier used to produce event entities at the end of frame via a parallel EntityCommandBuffer.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_FlammableQuery</code><br />
+EntityQuery that matches flammable entities (buildings OR trees) while excluding placeholders, owners, on-fire entities, deleted/overridden/temp, and fire stations.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_FirePrefabQuery</code><br />
+EntityQuery that matches event prefabs that contain EventData and FireData (and excludes Locked), used to sample available fire event prefabs.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_FireConfigQuery</code><br />
+EntityQuery that holds the FireConfigurationData entity (singletons) used to fetch FireConfigurationPrefab.</p>
+</li>
+<li>
+<p><code>private EventHelpers.FireHazardData m_FireHazardData</code><br />
+Helper that computes per-entity fire hazard using prefab, building/tree state, district, damage and construction status, plus environmental modifiers.</p>
+</li>
+<li>
+<p><code>private TypeHandle __TypeHandle</code><br />
+Internal container of EntityTypeHandle and ComponentTypeHandle&lt;&gt; instances used for the job's access to components.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.Buildings.LocalEffectSystem m_LocalEffectSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Prefabs.PrefabSystem m_PrefabSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Prefabs.PrefabSystem m_PrefabSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.ClimateSystem m_ClimateSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.ClimateSystem m_ClimateSystem;
-</code></pre>
-<ul>
-<li><code>private Game.City.CityConfigurationSystem m_CityConfigurationSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.City.CityConfigurationSystem m_CityConfigurationSystem;
-</code></pre>
-<ul>
-<li><code>private Game.EndFrameBarrier m_EndFrameBarrier</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.EndFrameBarrier m_EndFrameBarrier;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_FlammableQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_FlammableQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_FirePrefabQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_FirePrefabQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_FireConfigQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_FireConfigQuery;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.EventHelpers+FireHazardData m_FireHazardData</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.EventHelpers+FireHazardData m_FireHazardData;
-</code></pre>
-<ul>
-<li><code>private System.Single &lt;noRainDays&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Single &lt;noRainDays&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.FireHazardSystem+TypeHandle __TypeHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.FireHazardSystem+TypeHandle __TypeHandle;
-</code></pre>
-<ul>
-<li><code>private static const System.Int32 UPDATES_PER_DAY</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static const System.Int32 UPDATES_PER_DAY;
-</code></pre>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>public System.Single noRainDays { get; private set }</code>  </li>
+<li><code>public float noRainDays { get; private set; }</code><br />
+Accumulated number of in-game days without rain (incremented by 1/64 each update tick when not raining). Used by FireHazardData to influence start probabilities (drier conditions increase hazard). Serialized for save/load.</li>
 </ul>
-<pre><code class="language-csharp">public System.Single noRainDays { get; private set; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public FireHazardSystem()</code>  </li>
+<li><code>public FireHazardSystem()</code><br />
+Default constructor (preserved for serialization / runtime creation). Typical systems are created by the world; no special initialization is done in the ctor — initialization happens in OnCreate.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public FireHazardSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private __AssignQueries(Unity.Entities.SystemState&amp; state) : System.Void</code>  </li>
+<li><code>public override int GetUpdateInterval(SystemUpdatePhase phase)</code><br />
+Returns the update interval for the system (4096). This controls how frequently the system receives OnUpdate calls relative to other systems/phases.</li>
 </ul>
-<pre><code class="language-csharp">private void __AssignQueries(ref SystemState state)
-    {
-        new EntityQueryBuilder(Allocator.Temp).Dispose();
-    }
-</code></pre>
+<p>{{ YOUR_INFO }}: This method makes the system run less frequently than every frame; the scheduling uses Unity ECS system update cadence to distribute workload.</p>
 <ul>
-<li><code>public Deserialize&lt;TReader&gt;(TReader reader) : System.Void</code>  </li>
+<li><code>protected override void OnCreate()</code><br />
+Sets up dependencies: resolves LocalEffectSystem, PrefabSystem, ClimateSystem, CityConfigurationSystem and EndFrameBarrier; builds the EntityQueries (m_FlammableQuery, m_FirePrefabQuery, m_FireConfigQuery); initializes EventHelpers.FireHazardData; and calls RequireForUpdate on necessary queries.</li>
 </ul>
-<pre><code class="language-csharp">public System.Void Deserialize&lt;TReader&gt;(TReader reader);
-</code></pre>
+<p>{{ YOUR_INFO }}: The flammable query includes both Building and Tree as Any components, and excludes buildings that are fire stations or currently flagged as OnFire, Deleted, Overridden, etc. The fire prefab query looks for prefabs with EventData + FireData and excludes Locked prefabs so only usable fire event prefabs are considered.</p>
 <ul>
-<li><code>public virtual GetUpdateInterval(Game.SystemUpdatePhase phase) : System.Int32</code>  </li>
+<li><code>protected override void OnUpdate()</code><br />
+Main system tick. Updates noRainDays depending on m_ClimateSystem.isRaining. Obtains read data from LocalEffectSystem and FireConfigurationPrefab from PrefabSystem, then updates m_FireHazardData. Schedules the Burst-compiled FireHazardJob in parallel across matching flammable entities. The job receives a list of fire event prefab chunks, component type handles, the random seed, and the EndFrameBarrier command buffer (parallel writer). Adds the job as a local effect reader and registers the producer with the EndFrameBarrier.</li>
 </ul>
-<pre><code class="language-csharp">public override int GetUpdateInterval(SystemUpdatePhase phase)
-    {
-        return 4096;
-    }
-</code></pre>
+<p>{{ YOUR_INFO }}: OnUpdate composes three JobHandles (system dependency, prefab chunk listing async job, and local effect read dependencies) and combines them before scheduling the FireHazardJob. The CommandBuffer used to spawn events is produced in parallel and consumed at the end frame barrier.</p>
 <ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
+<li><code>public void Serialize&lt;TWriter&gt;(TWriter writer) where TWriter : IWriter</code><br />
+Writes noRainDays to the save writer so the drought progress persists across saves.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_LocalEffectSystem = base.World.GetOrCreateSystemManaged&lt;LocalEffectSystem&gt;();
-        m_PrefabSystem = base.World.GetOrCreateSystemManaged&lt;PrefabSystem&gt;();
-        m_ClimateSystem = base.World.GetOrCreateSystemManaged&lt;ClimateSystem&gt;();
-        m_CityConfigurationSystem = base.World.GetOrCreateSystemManaged&lt;CityConfigurationSystem&gt;();
-        m_EndFrameBarrier = base.World.GetOrCreateSystemManaged&lt;EndFrameBarrier&gt;();
-        m_FlammableQuery = GetEntityQuery(new EntityQueryDesc
-        {
-            Any = new ComponentType[2]
-            {
-                ComponentType.ReadOnly&lt;Building&gt;(),
-                ComponentType.ReadOnly&lt;Tree&gt;()
-            },
-            None = new ComponentType[7]
-            {
-                ComponentType.ReadOnly&lt;Game.Buildings.FireStation&gt;(),
-                ComponentType.ReadOnly&lt;Placeholder&gt;(),
-                ComponentType.ReadOnly&lt;Owner&gt;(),
-                ComponentType.ReadOnly&lt;OnFire&gt;(),
-                ComponentType.ReadOnly&lt;Deleted&gt;(),
-                ComponentType.ReadOnly&lt;Overridden&gt;(),
-                ComponentType.ReadOnly&lt;Temp&gt;()
-            }
-        });
-        m_FirePrefabQuery = GetEntityQuery(ComponentType.ReadOnly&lt;EventData&gt;(), ComponentType.ReadOnly&lt;FireData&gt;(), ComponentType.Exclude&lt;Locked&gt;());
-        m_FireConfigQuery = GetEntityQuery(ComponentType.ReadOnly&lt;FireConfigurationData&gt;());
-        m_FireHazardData = new EventHelpers.FireHazardData(this);
-        RequireForUpdate(m_FlammableQuery);
-        RequireForUpdate(m_FirePrefabQuery);
-    }
-</code></pre>
+<p>{{ YOUR_INFO }}: Only noRainDays is serialized by the system. Other runtime state is reconstructed from world entities/prefabs on load.</p>
 <ul>
-<li><code>protected virtual OnCreateForCompiler() : System.Void</code>  </li>
+<li><code>public void Deserialize&lt;TReader&gt;(TReader reader) where TReader : IReader</code><br />
+Reads noRainDays from the save reader and restores the field.</li>
 </ul>
-<pre><code class="language-csharp">protected override void OnCreateForCompiler()
-    {
-        base.OnCreateForCompiler();
-        __AssignQueries(ref base.CheckedStateRef);
-        __TypeHandle.__AssignHandles(ref base.CheckedStateRef);
-    }
-</code></pre>
+<p>{{ YOUR_INFO }}: This method expects the same ordering/format as Serialize; it reads a single float.</p>
 <ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
+<li><code>public void SetDefaults(Context context)</code><br />
+Resets system state to defaults (sets noRainDays = 0f).</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        if (m_ClimateSystem.isRaining)
-        {
-            noRainDays = 0f;
-        }
-        else
-        {
-            noRainDays += 1f / 64f;
-        }
-        JobHandle dependencies;
-        LocalEffectSystem.ReadData readData = m_LocalEffectSystem.GetReadData(out dependencies);
-        FireConfigurationPrefab prefab = m_PrefabSystem.GetPrefab&lt;FireConfigurationPrefab&gt;(m_FireConfigQuery.GetSingletonEntity());
-        m_FireHazardData.Update(this, readData, prefab, m_ClimateSystem.temperature, noRainDays);
-        JobHandle outJobHandle;
-        JobHandle jobHandle = JobChunkExtensions.ScheduleParallel(new FireHazardJob
-        {
-            m_FirePrefabChunks = m_FirePrefabQuery.ToArchetypeChunkListAsync(base.World.UpdateAllocator.ToAllocator, out outJobHandle),
-            m_EntityType = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef),
-            m_BuildingType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Buildings_Building_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_CurrentDistrictType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Areas_CurrentDistrict_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_TreeType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Objects_Tree_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_DamagedType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Objects_Damaged_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_UnderConstructionType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Objects_UnderConstruction_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_TransformType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Objects_Transform_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_PrefabRefType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_PrefabEventType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_EventData_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_PrefabFireType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_FireData_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_LockedType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_Locked_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_FireHazardData = m_FireHazardData,
-            m_RandomSeed = RandomSeed.Next(),
-            m_NaturalDisasters = m_CityConfigurationSystem.naturalDisasters,
-            m_CommandBuffer = m_EndFrameBarrier.CreateCommandBuffer().AsParallelWriter()
-        }, m_FlammableQuery, JobHandle.CombineDependencies(base.Dependency, outJobHandle, dependencies));
-        m_LocalEffectSystem.AddLocalEffectReader(jobHandle);
-        m_EndFrameBarrier.AddJobHandleForProducer(jobHandle);
-        base.Dependency = jobHandle;
-    }
-</code></pre>
+<p>{{ YOUR_INFO }}: Called during initialization for default game state creation.</p>
 <ul>
-<li><code>public Serialize&lt;TWriter&gt;(TWriter writer) : System.Void</code>  </li>
+<li><code>private void __AssignQueries(ref SystemState state)</code><br />
+Internal helper used by compiler-generated OnCreateForCompiler to assign or initialize any queries required by the system. In this compiled code it creates and disposes a temporary EntityQueryBuilder — present to ensure query initialization is compatible with codegen.</li>
 </ul>
-<pre><code class="language-csharp">public System.Void Serialize&lt;TWriter&gt;(TWriter writer);
-</code></pre>
+<p>{{ YOUR_INFO }}: This is part of compiled/system scaffolding and normally not used directly by modders.</p>
 <ul>
-<li><code>public SetDefaults(Colossal.Serialization.Entities.Context context) : System.Void</code>  </li>
+<li><code>protected override void OnCreateForCompiler()</code><br />
+Compiler helper: calls __AssignQueries and assigns component type handles via __TypeHandle.__AssignHandles.</li>
 </ul>
-<pre><code class="language-csharp">public void SetDefaults(Context context)
-    {
-        noRainDays = 0f;
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
+<p>{{ YOUR_INFO }}: Present for runtime/IL2CPP codegen compatibility; modders rarely need to interact with it.</p>
+<p>Nested types (summary of important nested job/structs):</p>
 <ul>
-<li><code>Game.Simulation.FireHazardSystem+FireHazardJob</code>  </li>
-<li><code>Game.Simulation.FireHazardSystem+TypeHandle</code>  </li>
+<li>FireHazardJob (private, BurstCompile, implements IJobChunk)  </li>
+<li>Scans chunks of flammable entities in parallel, uses RandomSeed sampling (1/64 chance per call) to early-out most entities to limit spawn rate.</li>
+<li>For buildings: reads Building, CurrentDistrict, PrefabRef, Damaged, UnderConstruction and computes hazard via m_FireHazardData.GetFireHazard(prefabRef,...). If hazard triggers, it calls TryStartFire.</li>
+<li>For trees (only when natural disasters enabled): reads Transform and Damaged and computes hazard similarly.</li>
+<li>TryStartFire iterates m_FirePrefabChunks (the available event prefabs) and their FireData to find a matching FireData.m_RandomTargetType (Building or WildTree) and not Locked. It computes final probability as fireHazard * FireData.m_StartProbability and samples Random.NextFloat(10000f) &lt; num. On success, CreateFireEvent creates an event entity via the command buffer and sets its PrefabRef and target buffer TargetElement (with the target entity).</li>
+<li>FireHazardJob uses EntityCommandBuffer.ParallelWriter so event creation is safe in parallel.</li>
 </ul>
+<p>{{ YOUR_INFO }}: The job uses a chunk-level Random derived from RandomSeed.Next() using unfilteredChunkIndex, meaning the randomness is deterministic per job chunk provided the seed is reproducible.</p>
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Example: accessing the FireHazardSystem from another system to read noRainDays.
+[Preserve]
+protected override void OnCreate()
+{
+    base.OnCreate();
+    var fireSystem = World.GetOrCreateSystemManaged&lt;Game.Simulation.FireHazardSystem&gt;();
+    UnityEngine.Debug.Log($&quot;Current no-rain-days: {fireSystem.noRainDays}&quot;);
+}
+
+// Example: resetting the tracked drought progress (callable at world init)
+[Preserve]
+public void ResetFireSystemProgress()
+{
+    var fireSystem = World.GetOrCreateSystemManaged&lt;Game.Simulation.FireHazardSystem&gt;();
+    fireSystem.SetDefaults(default); // sets noRainDays = 0
+}
+</code></pre>
+<p>{{ YOUR_INFO }}: To influence fire behavior, modders can:
+- Add/modify FireData on event prefabs (m_StartProbability, m_RandomTargetType) to change which prefabs can start fires and their base start rates.
+- Extend or replace EventHelpers.FireHazardData logic (if accessible) to change how building/tree attributes, district, damage, or climate affect fireHazard.
+- Toggle naturalDisasters in CityConfigurationSystem to allow/disallow tree fires triggered by this system.
+- Be mindful that FireHazardJob runs in parallel and creates events via the EndFrameBarrier — spawned event entities will be processed later by event-handling systems.</p>
 
 
 

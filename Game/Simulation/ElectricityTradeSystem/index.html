@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -81260,15 +81352,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -81305,9 +81388,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -87154,6 +87237,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -117930,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117955,15 +118083,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -118002,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118027,234 +118146,135 @@
 
 
 <h1 id="gamesimulationelectricitytradesystem">Game.Simulation.ElectricityTradeSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Simulation</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code><br />
-<strong>Implements:</strong> <code>Colossal.Serialization.Entities.IDefaultSerializable</code>, <code>Colossal.Serialization.Entities.ISerializable</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class ElectricityTradeSystem : Game.GameSystemBase, Colossal.Serialization.Entities.IDefaultSerializable, Colossal.Serialization.Entities.ISerializable
-{
-    private Game.Simulation.ElectricityFlowSystem m_ElectricityFlowSystem;
-    private Unity.Entities.EntityQuery m_TradeNodeGroup;
-    private Game.Simulation.ServiceFeeSystem m_ServiceFeeSystem;
-    private Colossal.NativePerThreadSumInt m_Export;
-    private Colossal.NativePerThreadSumInt m_Import;
-    private System.Int32 m_LastExport;
-    private System.Int32 m_LastImport;
-    private Game.Simulation.ElectricityTradeSystem+TypeHandle __TypeHandle;
-    private Unity.Entities.EntityQuery __query_1233563293_0;
-
-    public System.Int32 export { get; }
-    public System.Int32 import { get; }
-
-    public ElectricityTradeSystem();
-
-    private System.Void __AssignQueries(Unity.Entities.SystemState&amp; state);
-    public System.Void Deserialize&lt;TReader&gt;(TReader reader);
-    public virtual System.Int32 GetUpdateInterval(Game.SystemUpdatePhase phase);
-    public virtual System.Int32 GetUpdateOffset(Game.SystemUpdatePhase phase);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnCreateForCompiler();
-    protected virtual System.Void OnDestroy();
-    protected virtual System.Void OnUpdate();
-    public System.Void Serialize&lt;TWriter&gt;(TWriter writer);
-    public System.Void SetDefaults(Colossal.Serialization.Entities.Context context);
-}
-</code></pre>
+<p><strong>Assembly:</strong> Game<br />
+<strong>Namespace:</strong> Game.Simulation</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> GameSystemBase, IDefaultSerializable, ISerializable</p>
+<p><strong>Summary:</strong><br />
+ElectricityTradeSystem collects electricity flows that cross trade nodes (outside connections), accumulates total exported and imported electricity, and enqueues fee events for outside electricity trade. It uses two Burst jobs: SumJob (IJobChunk) to read ConnectedFlowEdge buffers and ElectricityFlowEdge components to accumulate per-thread export/import counts, and ElectricityTradeJob (IJob) to convert those counts to monetary cost using OutsideTradeParameterData and push ServiceFeeSystem.FeeEvent entries. The system runs on a coarse interval (update interval 128, offset 126) and persists the last-frame export/import totals for save/load.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.Simulation.ElectricityFlowSystem m_ElectricityFlowSystem</code>  </li>
+<li>
+<p><code>private ElectricityFlowSystem m_ElectricityFlowSystem</code><br />
+Reference to the ElectricityFlowSystem used to obtain source/sink node Entities for determining direction of flow.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_TradeNodeGroup</code><br />
+EntityQuery selecting TradeNode entities that also have ElectricityFlowNode and ConnectedFlowEdge; used to schedule the SumJob over trade nodes.</p>
+</li>
+<li>
+<p><code>private ServiceFeeSystem m_ServiceFeeSystem</code><br />
+Reference to the ServiceFeeSystem used to obtain a fee queue writer and to register the writer's dependency.</p>
+</li>
+<li>
+<p><code>private NativePerThreadSumInt m_Export</code><br />
+Per-thread accumulator used during the SumJob to sum exported electricity units; persisted across updates and reset each update.</p>
+</li>
+<li>
+<p><code>private NativePerThreadSumInt m_Import</code><br />
+Per-thread accumulator used during the SumJob to sum imported electricity units; persisted across updates and reset each update.</p>
+</li>
+<li>
+<p><code>private int m_LastExport</code><br />
+Last recorded total export count (snapshot saved/serialized). Exposed via the export property.</p>
+</li>
+<li>
+<p><code>private int m_LastImport</code><br />
+Last recorded total import count (snapshot saved/serialized). Exposed via the import property.</p>
+</li>
+<li>
+<p><code>private TypeHandle __TypeHandle</code><br />
+Compiler-generated struct containing BufferTypeHandle and ComponentLookup handles used by the scheduled job. Managed/initialized in OnCreateForCompiler.</p>
+</li>
+<li>
+<p><code>private EntityQuery __query_1233563293_0</code><br />
+Compiler-generated EntityQuery used to obtain the OutsideTradeParameterData singleton.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.Simulation.ElectricityFlowSystem m_ElectricityFlowSystem;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_TradeNodeGroup</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_TradeNodeGroup;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.ServiceFeeSystem m_ServiceFeeSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.ServiceFeeSystem m_ServiceFeeSystem;
-</code></pre>
-<ul>
-<li><code>private Colossal.NativePerThreadSumInt m_Export</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.NativePerThreadSumInt m_Export;
-</code></pre>
-<ul>
-<li><code>private Colossal.NativePerThreadSumInt m_Import</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.NativePerThreadSumInt m_Import;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_LastExport</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_LastExport;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_LastImport</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_LastImport;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.ElectricityTradeSystem+TypeHandle __TypeHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.ElectricityTradeSystem+TypeHandle __TypeHandle;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery __query_1233563293_0</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery __query_1233563293_0;
-</code></pre>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>public System.Int32 export { get }</code>  </li>
+<li>
+<p><code>public int export { get }</code><br />
+Returns m_LastExport — the last update's total exported electricity count. Useful for UI or stats.</p>
+</li>
+<li>
+<p><code>public int import { get }</code><br />
+Returns m_LastImport — the last update's total imported electricity count.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public System.Int32 export { get; }
-</code></pre>
-<ul>
-<li><code>public System.Int32 import { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Int32 import { get; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public ElectricityTradeSystem()</code>  </li>
+<li><code>public ElectricityTradeSystem()</code><br />
+Default constructor (preserved). Initialization is performed in OnCreate rather than the constructor.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public ElectricityTradeSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private __AssignQueries(Unity.Entities.SystemState&amp; state) : System.Void</code>  </li>
+<li>
+<p><code>public override int GetUpdateInterval(SystemUpdatePhase phase)</code><br />
+Returns 128 — this system runs every 128 ticks (coarse periodic update).</p>
+</li>
+<li>
+<p><code>public override int GetUpdateOffset(SystemUpdatePhase phase)</code><br />
+Returns 126 — the offset into the update schedule.</p>
+</li>
+<li>
+<p><code>protected override void OnCreate()</code><br />
+Initializes references to ElectricityFlowSystem and ServiceFeeSystem, builds the trade node EntityQuery, requires OutsideTradeParameterData for updates, and allocates the NativePerThreadSumInt accumulators (m_Export and m_Import) with Allocator.Persistent.</p>
+</li>
+<li>
+<p><code>protected override void OnDestroy()</code><br />
+Disposes m_Export and m_Import and calls base.OnDestroy to free resources.</p>
+</li>
+<li>
+<p><code>public void Serialize&lt;TWriter&gt;(TWriter writer) where TWriter : IWriter</code><br />
+Writes m_LastExport and m_LastImport to the provided writer for save persistence.</p>
+</li>
+<li>
+<p><code>public void Deserialize&lt;TReader&gt;(TReader reader) where TReader : IReader</code><br />
+Reads m_LastExport and m_LastImport from the provided reader during load.</p>
+</li>
+<li>
+<p><code>public void SetDefaults(Context context)</code><br />
+Resets m_LastExport and m_LastImport to zero. Called when initializing default data for a new game/context.</p>
+</li>
+<li>
+<p><code>protected override void OnUpdate()</code><br />
+Main runtime logic:</p>
+</li>
+<li>Copies current accumulator counts to m_LastExport/m_LastImport and resets accumulators.</li>
+<li>If there are trade nodes, schedules SumJob (parallel JobChunk) that iterates ConnectedFlowEdge buffers and ElectricityFlowEdge components to increment per-thread export/import accumulators based on source/sink node comparison.</li>
+<li>Schedules ElectricityTradeJob which computes trade amounts and costs from the accumulated counts and the OutsideTradeParameterData singleton, enqueueing ServiceFeeSystem.FeeEvent entries for export/import fees. It also wires dependencies with the ServiceFeeSystem fee queue.</li>
+<li>
+<p>Registers the fee queue writer dependency with ServiceFeeSystem.</p>
+</li>
+<li>
+<p><code>private void __AssignQueries(ref SystemState state)</code><br />
+Compiler-generated: builds the query that fetches the OutsideTradeParameterData singleton (including systems) and stores it in __query_1233563293_0.</p>
+</li>
+<li>
+<p><code>protected override void OnCreateForCompiler()</code><br />
+Compiler helper called during system creation to assign query and type handles using the system state.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private void __AssignQueries(ref SystemState state)
-    {
-        EntityQueryBuilder entityQueryBuilder = new EntityQueryBuilder(Allocator.Temp);
-        EntityQueryBuilder entityQueryBuilder2 = entityQueryBuilder.WithAll&lt;OutsideTradeParameterData&gt;();
-        entityQueryBuilder2 = entityQueryBuilder2.WithOptions(EntityQueryOptions.IncludeSystems);
-        __query_1233563293_0 = entityQueryBuilder2.Build(ref state);
-        entityQueryBuilder.Reset();
-        entityQueryBuilder.Dispose();
-    }
-</code></pre>
+<p>Inner job descriptions (nested private structs):
+- SumJob (IJobChunk)<br />
+  - Reads ConnectedFlowEdge buffers and ElectricityFlowEdge components. For each connected edge on a trade node, checks whether the flow edge represents an export (edge.End == sink node) or import (edge.Start == source node), asserts non-negative flow, and adds the integer flow amount to the per-thread m_Export or m_Import accumulators.</p>
 <ul>
-<li><code>public Deserialize&lt;TReader&gt;(TReader reader) : System.Void</code>  </li>
+<li>ElectricityTradeJob (IJob)  </li>
+<li>Converts accumulated counts to normalized amounts (divides by 2048f), multiplies by prices from OutsideTradeParameterData to calculate costs, and enqueues ServiceFeeSystem.FeeEvent entries for positive export/import costs. Uses a fee queue provided by ServiceFeeSystem and respects job dependencies.</li>
 </ul>
-<pre><code class="language-csharp">public System.Void Deserialize&lt;TReader&gt;(TReader reader);
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Example: get the system from the World and read the last export/import totals.
+var tradeSystem = World.DefaultGameObjectInjectionWorld
+    .GetExistingSystemManaged&lt;Game.Simulation.ElectricityTradeSystem&gt;();
+if (tradeSystem != null)
+{
+    int lastExport = tradeSystem.export;
+    int lastImport = tradeSystem.import;
+    // Use the values for UI, stats, or logging.
+}
 </code></pre>
-<ul>
-<li><code>public virtual GetUpdateInterval(Game.SystemUpdatePhase phase) : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override int GetUpdateInterval(SystemUpdatePhase phase)
-    {
-        return 128;
-    }
-</code></pre>
-<ul>
-<li><code>public virtual GetUpdateOffset(Game.SystemUpdatePhase phase) : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override int GetUpdateOffset(SystemUpdatePhase phase)
-    {
-        return 126;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_ElectricityFlowSystem = base.World.GetOrCreateSystemManaged&lt;ElectricityFlowSystem&gt;();
-        m_ServiceFeeSystem = base.World.GetOrCreateSystemManaged&lt;ServiceFeeSystem&gt;();
-        m_TradeNodeGroup = GetEntityQuery(ComponentType.ReadOnly&lt;TradeNode&gt;(), ComponentType.ReadOnly&lt;ElectricityFlowNode&gt;(), ComponentType.ReadOnly&lt;ConnectedFlowEdge&gt;());
-        RequireForUpdate&lt;OutsideTradeParameterData&gt;();
-        m_Export = new NativePerThreadSumInt(Allocator.Persistent);
-        m_Import = new NativePerThreadSumInt(Allocator.Persistent);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreateForCompiler() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnCreateForCompiler()
-    {
-        base.OnCreateForCompiler();
-        __AssignQueries(ref base.CheckedStateRef);
-        __TypeHandle.__AssignHandles(ref base.CheckedStateRef);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnDestroy() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnDestroy()
-    {
-        m_Export.Dispose();
-        m_Import.Dispose();
-        base.OnDestroy();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        m_LastExport = m_Export.Count;
-        m_LastImport = m_Import.Count;
-        m_Export.Count = 0;
-        m_Import.Count = 0;
-        if (!m_TradeNodeGroup.IsEmptyIgnoreFilter)
-        {
-            SumJob jobData = new SumJob
-            {
-                m_FlowConnectionType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Simulation_ConnectedFlowEdge_RO_BufferTypeHandle, ref base.CheckedStateRef),
-                m_FlowEdges = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Simulation_ElectricityFlowEdge_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_Export = m_Export.ToConcurrent(),
-                m_Import = m_Import.ToConcurrent(),
-                m_SourceNode = m_ElectricityFlowSystem.sourceNode,
-                m_SinkNode = m_ElectricityFlowSystem.sinkNode
-            };
-            base.Dependency = JobChunkExtensions.ScheduleParallel(jobData, m_TradeNodeGroup, base.Dependency);
-            JobHandle deps;
-            ElectricityTradeJob jobData2 = new ElectricityTradeJob
-            {
-                m_Export = m_Export,
-                m_Import = m_Import,
-                m_FeeQueue = m_ServiceFeeSystem.GetFeeQueue(out deps),
-                m_OutsideTradeParameters = __query_1233563293_0.GetSingleton&lt;OutsideTradeParameterData&gt;()
-            };
-            base.Dependency = IJobExtensions.Schedule(jobData2, JobHandle.CombineDependencies(base.Dependency, deps));
-            m_ServiceFeeSystem.AddQueueWriter(base.Dependency);
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public Serialize&lt;TWriter&gt;(TWriter writer) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Void Serialize&lt;TWriter&gt;(TWriter writer);
-</code></pre>
-<ul>
-<li><code>public SetDefaults(Colossal.Serialization.Entities.Context context) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void SetDefaults(Context context)
-    {
-        m_LastExport = 0;
-        m_LastImport = 0;
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Simulation.ElectricityTradeSystem+SumJob</code>  </li>
-<li><code>Game.Simulation.ElectricityTradeSystem+ElectricityTradeJob</code>  </li>
-<li><code>Game.Simulation.ElectricityTradeSystem+TypeHandle</code>  </li>
-</ul>
 
 
 

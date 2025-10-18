@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#gamerenderingclimaterendersystem" class="md-skip">
+        <a href="#gameclimaterendersystem" class="md-skip">
           Skip to content
         </a>
       
@@ -65233,6 +65233,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -67437,15 +67460,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -67482,9 +67496,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -69743,6 +69757,29 @@
   
   <span class="md-ellipsis">
     ShaderID
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
     
   </span>
   
@@ -72572,6 +72609,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75562,6 +75622,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87154,6 +87237,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -117930,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117955,15 +118083,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -118002,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118026,723 +118145,324 @@
 
 
 
-<h1 id="gamerenderingclimaterendersystem">Game.Rendering.ClimateRenderSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Rendering</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class ClimateRenderSystem : Game.GameSystemBase
-{
-    private Game.Rendering.RenderingSystem m_RenderingSystem;
-    private Game.Simulation.ClimateSystem m_ClimateSystem;
-    private Game.Simulation.SimulationSystem m_SimulationSystem;
-    private Game.Rendering.CameraUpdateSystem m_CameraUpdateSystem;
-    private Game.Prefabs.PrefabSystem m_PrefabSystem;
-    private Game.Rendering.WindTextureSystem m_WindTextureSystem;
-    private Game.Simulation.TerrainSystem m_TerrainSystem;
-    private Game.Simulation.TimeSystem m_TimeSystem;
-    private Game.Audio.AudioManager m_AudioManager;
-    private System.Single &lt;precipitationVolumeScale&gt;k__BackingField;
-    public System.Boolean globalEffectTimeStepFromSimulation;
-    public System.Boolean weatherEffectTimeStepFromSimulation;
-    private UnityEngine.VFX.VisualEffect m_PrecipitationVFX;
-    private UnityEngine.VFX.VisualEffect m_LightningVFX;
-    private UnityEngine.Rendering.Volume m_ClimateControlVolume;
-    private UnityEngine.Rendering.HighDefinition.VolumetricClouds m_VolumetricClouds;
-    private Game.Rendering.WindVolumeComponent m_Wind;
-    private Game.Rendering.WindControl m_WindControl;
-    private System.Boolean m_IsRaining;
-    private System.Boolean m_IsSnowing;
-    private System.Boolean m_HailStorm;
-    private Unity.Entities.EntityQuery m_EventQuery;
-    private Unity.Collections.NativeQueue&lt;Game.Events.LightningStrike&gt; m_LightningStrikeQueue;
-    private Unity.Jobs.JobHandle m_LightningStrikeDeps;
-    private System.Boolean &lt;editMode&gt;k__BackingField;
-    private System.Boolean &lt;pauseSimulationOnLightning&gt;k__BackingField;
-    private Game.Rendering.Climate.WeatherPropertiesStack m_PropertiesStack;
-    private readonly System.Collections.Generic.List&lt;Game.Prefabs.Climate.WeatherPrefab&gt; m_FromWeatherPrefabs;
-    private readonly System.Collections.Generic.List&lt;Game.Prefabs.Climate.WeatherPrefab&gt; m_ToWeatherPrefabs;
-    private System.Boolean m_PropertiesChanged;
-    private System.Boolean &lt;IsAsync&gt;k__BackingField;
-    private Game.Rendering.ClimateRenderSystem+TypeHandle __TypeHandle;
-    private Unity.Entities.EntityQuery __query_100321765_0;
-    private Unity.Entities.EntityQuery __query_100321765_1;
-    private static UnityEngine.VFX.VisualEffectAsset s_PrecipitationVFXAsset;
-    private static UnityEngine.VFX.VisualEffectAsset s_LightningVFXAsset;
-
-    public System.Single precipitationVolumeScale { get; set; }
-    public System.Boolean editMode { get; set; }
-    public System.Boolean pauseSimulationOnLightning { get; set; }
-    internal Game.Rendering.Climate.WeatherPropertiesStack propertiesStack { internal get; }
-    public System.Collections.Generic.IReadOnlyList&lt;Game.Prefabs.Climate.WeatherPrefab&gt; fromWeatherPrefabs { get; }
-    public System.Collections.Generic.IReadOnlyList&lt;Game.Prefabs.Climate.WeatherPrefab&gt; toWeatherPrefabs { get; }
-    public System.Boolean IsAsync { get; set; }
-
-    public ClimateRenderSystem();
-
-    private System.Void __AssignQueries(Unity.Entities.SystemState&amp; state);
-    public System.Void AddLightningStrikeWriter(Unity.Jobs.JobHandle jobHandle);
-    public System.Void Clear();
-    private System.Void CreateDynamicVFXIfNeeded();
-    private System.Boolean GetEventName(Game.Rendering.ClimateRenderSystem+PrecipitationType type, System.Boolean start, System.String&amp; name);
-    public Unity.Collections.NativeQueue&lt;Game.Events.LightningStrike&gt; GetLightningStrikeQueue(Unity.Jobs.JobHandle&amp; dependencies);
-    private System.Single GetTimeOfYear();
-    public System.Void LightningStrike(Unity.Mathematics.float3 start, Unity.Mathematics.float3 target, System.Boolean useCloudsAltitude);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnCreateForCompiler();
-    protected virtual System.Void OnDestroy();
-    protected virtual System.Void OnUpdate();
-    private System.Void ResetOverrides();
-    public System.Void ScheduleFrom(Game.Prefabs.Climate.WeatherPrefab prefab);
-    public System.Void ScheduleTo(Game.Prefabs.Climate.WeatherPrefab prefab);
-    private System.Void SetData(Game.Rendering.Climate.WeatherPropertiesStack stack, System.Collections.Generic.IReadOnlyList&lt;Game.Prefabs.Climate.WeatherPrefab&gt; fromPrefab, System.Collections.Generic.IReadOnlyList&lt;Game.Prefabs.Climate.WeatherPrefab&gt; toPrefab);
-    private System.Void UpdateEffectsProperties();
-    private System.Void UpdateEffectsState();
-    private System.Void UpdateEffectState(Game.Rendering.ClimateRenderSystem+PrecipitationType type, System.Boolean start);
-    private System.Void UpdateVFXSpeed();
-    private System.Void UpdateVolumetricClouds();
-    private System.Void UpdateWeather();
-}
-</code></pre>
+<h1 id="gameclimaterendersystem">Game.ClimateRenderSystem</h1>
+<p><strong>Assembly:</strong> Assembly-CSharp (typical for game code; replace with actual assembly if different)<br />
+<strong>Namespace:</strong> Game.Rendering</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> GameSystemBase</p>
+<p><strong>Summary:</strong><br />
+ClimateRenderSystem is a rendering-level system responsible for driving visual climate effects in Cities: Skylines 2. It coordinates volumetric clouds, precipitation VFX (rain, snow, hail), lightning VFX, wind textures, and a small climate-control Volume that exposes weather-related overrides. The system bridges simulation state (ClimateSystem, SimulationSystem, TimeSystem) with rendering and audio subsystems to produce synchronized weather visuals and sound. It also exposes a small API for scheduling weather prefab transitions and queuing/dispatching lightning strikes for use by other systems or jobs.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.Rendering.RenderingSystem m_RenderingSystem</code>  </li>
+<li>
+<p><code>private static class VFXIDs</code><br />
+Static container of Shader.PropertyToID integer IDs used by the precipitation/lightning VFX (CameraPosition, CameraDirection, VolumeScale, WindTexture, CloudsAltitude, MapOffsetScale, RainStrength, SnowStrength, LightningOrigin, LightningTarget). Used to set VFX parameters efficiently.</p>
+</li>
+<li>
+<p><code>private enum PrecipitationType</code><br />
+Local enum listing precipitation kinds (Rain, Snow, Hail) used to translate system state to VFX events/names.</p>
+</li>
+<li>
+<p><code>[StructLayout(LayoutKind.Sequential, Size = 1)] private struct TypeHandle</code><br />
+Compiler-generated small struct used to assign Entity query handles. Internal plumbing for DOTS/ECS integration.</p>
+</li>
+<li>
+<p><code>private RenderingSystem m_RenderingSystem</code><br />
+Reference to the rendering system used to obtain frame timing and camera frame data.</p>
+</li>
+<li>
+<p><code>private ClimateSystem m_ClimateSystem</code><br />
+Reference to the simulation climate system (source of precipitation, temperature, hail, etc.).</p>
+</li>
+<li>
+<p><code>private SimulationSystem m_SimulationSystem</code><br />
+Reference to the simulation system (used to pause or read sim speed when necessary).</p>
+</li>
+<li>
+<p><code>private CameraUpdateSystem m_CameraUpdateSystem</code><br />
+Reference to camera data (position, direction) used to drive VFX uniforms and volumetric cloud behaviour.</p>
+</li>
+<li>
+<p><code>private PrefabSystem m_PrefabSystem</code><br />
+Used to resolve prefabs referenced by event entities.</p>
+</li>
+<li>
+<p><code>private WindTextureSystem m_WindTextureSystem</code><br />
+Provides the wind texture used by precipitation VFX.</p>
+</li>
+<li>
+<p><code>private TerrainSystem m_TerrainSystem</code><br />
+Provides map offset/scale used by VFX (MapOffsetScale).</p>
+</li>
+<li>
+<p><code>private TimeSystem m_TimeSystem</code><br />
+Used to compute time-of-year for climate sampling.</p>
+</li>
+<li>
+<p><code>private AudioManager m_AudioManager</code><br />
+Used to play lightning SFX.</p>
+</li>
+<li>
+<p><code>public bool globalEffectTimeStepFromSimulation</code><br />
+If true, VFX fixed timestep is controlled by simulation time step &amp; simulation speed (applies to VFXManager.fixedTimeStep).</p>
+</li>
+<li>
+<p><code>public bool weatherEffectTimeStepFromSimulation = true</code><br />
+If true, precipitation/lightning VisualEffect play rate is scaled according to simulation timestep; otherwise uses 1.</p>
+</li>
+<li>
+<p><code>private static VisualEffectAsset s_PrecipitationVFXAsset</code><br />
+Static cached VisualEffectAsset loaded from Resources ("Precipitation/PrecipitationVFX").</p>
+</li>
+<li>
+<p><code>private VisualEffect m_PrecipitationVFX</code><br />
+Instanced VisualEffect used to drive precipitation VFX (created at runtime on demand).</p>
+</li>
+<li>
+<p><code>private static VisualEffectAsset s_LightningVFXAsset</code><br />
+Static cached VisualEffectAsset loaded from Resources ("Lightning/LightningBolt").</p>
+</li>
+<li>
+<p><code>private VisualEffect m_LightningVFX</code><br />
+Instanced VisualEffect used to drive lightning VFX.</p>
+</li>
+<li>
+<p><code>private Volume m_ClimateControlVolume</code><br />
+A post-processing/volume object created to host WeatherPropertiesStack components (volumetric clouds, wind, etc).</p>
+</li>
+<li>
+<p><code>private VolumetricClouds m_VolumetricClouds</code><br />
+Volume component referencing volumetric cloud settings used and updated by the system.</p>
+</li>
+<li>
+<p><code>private WindVolumeComponent m_Wind</code><br />
+Volume component referencing wind configuration.</p>
+</li>
+<li>
+<p><code>private WindControl m_WindControl</code><br />
+Instance wrapper providing additional wind control / lifetime handling.</p>
+</li>
+<li>
+<p><code>private bool m_IsRaining</code><br />
+Internal flag tracking if rain VFX is currently active.</p>
+</li>
+<li>
+<p><code>private bool m_IsSnowing</code><br />
+Internal flag tracking if snow VFX is currently active.</p>
+</li>
+<li>
+<p><code>private bool m_HailStorm</code><br />
+Internal flag tracking if hail VFX is currently active.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_EventQuery</code><br />
+EntityQuery used to scan for WeatherPhenomenon event entities so the system can instantiate/display associated prefabs as needed.</p>
+</li>
+<li>
+<p><code>private NativeQueue&lt;LightningStrike&gt; m_LightningStrikeQueue</code><br />
+Thread-safe queue used by jobs / other systems to enqueue lightning strike requests processed on the main/render thread.</p>
+</li>
+<li>
+<p><code>private JobHandle m_LightningStrikeDeps</code><br />
+JobHandle representing dependencies for writers that enqueue lightning strikes (to ensure their producers complete before consumption).</p>
+</li>
+<li>
+<p><code>private WeatherPropertiesStack m_PropertiesStack</code><br />
+Container that manages weather override properties stored in the climate control volume; used to interpolate and apply overrideable properties.</p>
+</li>
+<li>
+<p><code>private readonly List&lt;WeatherPrefab&gt; m_FromWeatherPrefabs = new List&lt;WeatherPrefab&gt;()</code><br />
+List of weather prefabs representing the current "from" state when interpolating between weather configurations.</p>
+</li>
+<li>
+<p><code>private readonly List&lt;WeatherPrefab&gt; m_ToWeatherPrefabs = new List&lt;WeatherPrefab&gt;()</code><br />
+List of weather prefabs representing the target "to" state when interpolating.</p>
+</li>
+<li>
+<p><code>private bool m_PropertiesChanged</code><br />
+Flag indicating that scheduled from/to prefab lists changed and SetData should be called before the next interpolation.</p>
+</li>
+<li>
+<p><code>private TypeHandle __TypeHandle</code><br />
+Compiler-generated handle used internally to map component types to query handles.</p>
+</li>
+<li>
+<p><code>private EntityQuery __query_100321765_0</code><br />
+Compiler-generated EntityQuery used for TimeSettingsData.</p>
+</li>
+<li>
+<p><code>private EntityQuery __query_100321765_1</code><br />
+Compiler-generated EntityQuery used for TimeData.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.Rendering.RenderingSystem m_RenderingSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.ClimateSystem m_ClimateSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.ClimateSystem m_ClimateSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.SimulationSystem m_SimulationSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.SimulationSystem m_SimulationSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Rendering.CameraUpdateSystem m_CameraUpdateSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Rendering.CameraUpdateSystem m_CameraUpdateSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Prefabs.PrefabSystem m_PrefabSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Prefabs.PrefabSystem m_PrefabSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Rendering.WindTextureSystem m_WindTextureSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Rendering.WindTextureSystem m_WindTextureSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.TerrainSystem m_TerrainSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.TerrainSystem m_TerrainSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.TimeSystem m_TimeSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.TimeSystem m_TimeSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Audio.AudioManager m_AudioManager</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Audio.AudioManager m_AudioManager;
-</code></pre>
-<ul>
-<li><code>private System.Single &lt;precipitationVolumeScale&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Single &lt;precipitationVolumeScale&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>public System.Boolean globalEffectTimeStepFromSimulation</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Boolean globalEffectTimeStepFromSimulation;
-</code></pre>
-<ul>
-<li><code>public System.Boolean weatherEffectTimeStepFromSimulation</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Boolean weatherEffectTimeStepFromSimulation;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.VFX.VisualEffect m_PrecipitationVFX</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.VFX.VisualEffect m_PrecipitationVFX;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.VFX.VisualEffect m_LightningVFX</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.VFX.VisualEffect m_LightningVFX;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.Rendering.Volume m_ClimateControlVolume</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.Rendering.Volume m_ClimateControlVolume;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.Rendering.HighDefinition.VolumetricClouds m_VolumetricClouds</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.Rendering.HighDefinition.VolumetricClouds m_VolumetricClouds;
-</code></pre>
-<ul>
-<li><code>private Game.Rendering.WindVolumeComponent m_Wind</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Rendering.WindVolumeComponent m_Wind;
-</code></pre>
-<ul>
-<li><code>private Game.Rendering.WindControl m_WindControl</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Rendering.WindControl m_WindControl;
-</code></pre>
-<ul>
-<li><code>private System.Boolean m_IsRaining</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean m_IsRaining;
-</code></pre>
-<ul>
-<li><code>private System.Boolean m_IsSnowing</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean m_IsSnowing;
-</code></pre>
-<ul>
-<li><code>private System.Boolean m_HailStorm</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean m_HailStorm;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_EventQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_EventQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeQueue&lt;Game.Events.LightningStrike&gt; m_LightningStrikeQueue</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeQueue&lt;Game.Events.LightningStrike&gt; m_LightningStrikeQueue;
-</code></pre>
-<ul>
-<li><code>private Unity.Jobs.JobHandle m_LightningStrikeDeps</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Jobs.JobHandle m_LightningStrikeDeps;
-</code></pre>
-<ul>
-<li><code>private System.Boolean &lt;editMode&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean &lt;editMode&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private System.Boolean &lt;pauseSimulationOnLightning&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean &lt;pauseSimulationOnLightning&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private Game.Rendering.Climate.WeatherPropertiesStack m_PropertiesStack</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Rendering.Climate.WeatherPropertiesStack m_PropertiesStack;
-</code></pre>
-<ul>
-<li><code>private readonly System.Collections.Generic.List&lt;Game.Prefabs.Climate.WeatherPrefab&gt; m_FromWeatherPrefabs</code>  </li>
-</ul>
-<pre><code class="language-csharp">private readonly System.Collections.Generic.List&lt;Game.Prefabs.Climate.WeatherPrefab&gt; m_FromWeatherPrefabs;
-</code></pre>
-<ul>
-<li><code>private readonly System.Collections.Generic.List&lt;Game.Prefabs.Climate.WeatherPrefab&gt; m_ToWeatherPrefabs</code>  </li>
-</ul>
-<pre><code class="language-csharp">private readonly System.Collections.Generic.List&lt;Game.Prefabs.Climate.WeatherPrefab&gt; m_ToWeatherPrefabs;
-</code></pre>
-<ul>
-<li><code>private System.Boolean m_PropertiesChanged</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean m_PropertiesChanged;
-</code></pre>
-<ul>
-<li><code>private System.Boolean &lt;IsAsync&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean &lt;IsAsync&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private Game.Rendering.ClimateRenderSystem+TypeHandle __TypeHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Rendering.ClimateRenderSystem+TypeHandle __TypeHandle;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery __query_100321765_0</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery __query_100321765_0;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery __query_100321765_1</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery __query_100321765_1;
-</code></pre>
-<ul>
-<li><code>private static UnityEngine.VFX.VisualEffectAsset s_PrecipitationVFXAsset</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static UnityEngine.VFX.VisualEffectAsset s_PrecipitationVFXAsset;
-</code></pre>
-<ul>
-<li><code>private static UnityEngine.VFX.VisualEffectAsset s_LightningVFXAsset</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static UnityEngine.VFX.VisualEffectAsset s_LightningVFXAsset;
-</code></pre>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>public System.Single precipitationVolumeScale { get; set }</code>  </li>
+<li>
+<p><code>public float precipitationVolumeScale { get; set; } = 30f</code><br />
+Controls the cubic scale of the precipitation VFX volume in world units. Default is 30. Modding tip: increasing this expands the effective VFX volume (affects particle spawning bounds); decreasing shrinks it.</p>
+</li>
+<li>
+<p><code>public bool editMode { get; set; }</code><br />
+When true, interpolation and property application may behave in an editor-friendly way (used by the system to alter behavior in UI/edit contexts).</p>
+</li>
+<li>
+<p><code>public bool pauseSimulationOnLightning { get; set; }</code><br />
+When true, triggering LightningStrike will set simulation speed to 0 (pauses simulation) — used to emphasize lightning events.</p>
+</li>
+<li>
+<p><code>internal WeatherPropertiesStack propertiesStack =&gt; m_PropertiesStack</code><br />
+Internal access to the WeatherPropertiesStack for interrogating or modifying applied overrides.</p>
+</li>
+<li>
+<p><code>public IReadOnlyList&lt;WeatherPrefab&gt; fromWeatherPrefabs =&gt; m_FromWeatherPrefabs</code><br />
+Read-only view of the scheduled "from" weather prefabs.</p>
+</li>
+<li>
+<p><code>public IReadOnlyList&lt;WeatherPrefab&gt; toWeatherPrefabs =&gt; m_ToWeatherPrefabs</code><br />
+Read-only view of the scheduled "to" weather prefabs.</p>
+</li>
+<li>
+<p><code>public bool IsAsync { get; set; }</code><br />
+Flag indicating whether the system is operating asynchronously (affects some timing choices).</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public System.Single precipitationVolumeScale { get; set; }
-</code></pre>
-<ul>
-<li><code>public System.Boolean editMode { get; set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Boolean editMode { get; set; }
-</code></pre>
-<ul>
-<li><code>public System.Boolean pauseSimulationOnLightning { get; set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Boolean pauseSimulationOnLightning { get; set; }
-</code></pre>
-<ul>
-<li><code>internal Game.Rendering.Climate.WeatherPropertiesStack propertiesStack { internal get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">internal Game.Rendering.Climate.WeatherPropertiesStack propertiesStack { internal get; }
-</code></pre>
-<ul>
-<li><code>public System.Collections.Generic.IReadOnlyList&lt;Game.Prefabs.Climate.WeatherPrefab&gt; fromWeatherPrefabs { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Collections.Generic.IReadOnlyList&lt;Game.Prefabs.Climate.WeatherPrefab&gt; fromWeatherPrefabs { get; }
-</code></pre>
-<ul>
-<li><code>public System.Collections.Generic.IReadOnlyList&lt;Game.Prefabs.Climate.WeatherPrefab&gt; toWeatherPrefabs { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Collections.Generic.IReadOnlyList&lt;Game.Prefabs.Climate.WeatherPrefab&gt; toWeatherPrefabs { get; }
-</code></pre>
-<ul>
-<li><code>public System.Boolean IsAsync { get; set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Boolean IsAsync { get; set; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public ClimateRenderSystem()</code>  </li>
+<li><code>public ClimateRenderSystem()</code><br />
+Default constructor. Most initialization occurs in OnCreate (DOTS-style). No parameters; system is created by the world.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public ClimateRenderSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private __AssignQueries(Unity.Entities.SystemState&amp; state) : System.Void</code>  </li>
+<li>
+<p><code>private void SetData(WeatherPropertiesStack stack, IReadOnlyList&lt;WeatherPrefab&gt; fromPrefab, IReadOnlyList&lt;WeatherPrefab&gt; toPrefab)</code><br />
+Collects overrideable properties from the provided weather prefabs and configures the WeatherPropertiesStack appropriately. Distinguishes between immediate overrides and time-based interpolation overrides.</p>
+</li>
+<li>
+<p><code>public void Clear()</code><br />
+Clears scheduled from/to weather prefab lists and marks properties changed so SetData is re-run on next update.</p>
+</li>
+<li>
+<p><code>public void ScheduleFrom(WeatherPrefab prefab)</code><br />
+Append a WeatherPrefab to the "from" list for interpolation/transition setup.</p>
+</li>
+<li>
+<p><code>public void ScheduleTo(WeatherPrefab prefab)</code><br />
+Append a WeatherPrefab to the "to" list for interpolation/transition setup.</p>
+</li>
+<li>
+<p><code>private float GetTimeOfYear()</code><br />
+Returns normalized time-of-year used to sample ClimateSystem. If ClimateSystem has an override date it uses that; otherwise it queries TimeSettingsData and TimeData singletons and computes rendering-frame-aligned time-of-year. If absent, returns 0.5.</p>
+</li>
+<li>
+<p><code>private void UpdateWeather()</code><br />
+Samples ClimateSystem using time-of-year, ensures SetData has been applied when scheduled lists changed, and advances interpolation in WeatherPropertiesStack using both simulation and rendering time information. Also respects editMode.</p>
+</li>
+<li>
+<p><code>private void UpdateEffectsState()</code><br />
+Decides which precipitation VFX events (rain/snow/hail start/stop) should be fired based on m_ClimateSystem.precipitation, hail, and temperature. Maintains m_IsRaining/m_IsSnowing/m_HailStorm internal state.</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnCreate()</code><br />
+Initializes references to subsystems (ClimateSystem, RenderingSystem, SimulationSystem, CameraUpdateSystem, PrefabSystem, WindTextureSystem, TerrainSystem, TimeSystem, AudioManager), creates the climate-control Volume and WeatherPropertiesStack, obtains/creates VolumetricClouds and Wind volume components, sets up resources and queries, and allocates the lightning queue. Also loads VisualEffectAssets from Resources ("Precipitation/PrecipitationVFX", "Lightning/LightningBolt").</p>
+</li>
+<li>
+<p><code>private void ResetOverrides()</code><br />
+Resets volumetric cloud volume overrides to disabled/defaults (helper used during initialization).</p>
+</li>
+<li>
+<p><code>public NativeQueue&lt;LightningStrike&gt; GetLightningStrikeQueue(out JobHandle dependencies)</code><br />
+Returns the NativeQueue used for lightning strike requests and outputs the current job dependencies (so producers can add their JobHandle with AddLightningStrikeWriter).</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnUpdate()</code><br />
+Main update: if there's an active viewer, it updates weather interpolation, volumetric clouds, ensures VFX instances exist, updates precipitation/lighting state and properties, and adjusts VFX speed/playrate. It also iterates event entities, resolves any WeatherPhenomenon prefabs, completes and consumes the lightning queue, and triggers LightningStrike for queued entries.</p>
+</li>
+<li>
+<p><code>public void AddLightningStrikeWriter(JobHandle jobHandle)</code><br />
+Registers a producer JobHandle so the system knows dependencies before consuming the m_LightningStrikeQueue. Call this from systems/jobs that enqueue lightning strikes.</p>
+</li>
+<li>
+<p><code>private void UpdateVolumetricClouds()</code><br />
+Adjusts volumetric cloud FadeIn settings and render hook depending on camera altitude/direction (makes clouds render correctly above or below camera).</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnDestroy()</code><br />
+Completes any pending lightning job dependencies, disposes the lightning queue, disposes WindControl and WeatherPropertiesStack, destroys the climate volume, and performs base cleanup.</p>
+</li>
+<li>
+<p><code>private void CreateDynamicVFXIfNeeded()</code><br />
+Instantiates a GameObject+VisualEffect for precipitation and lightning at runtime when their VisualEffectAssets are loaded and instances are missing. Ensures a small pool (one instance each) exists.</p>
+</li>
+<li>
+<p><code>public void LightningStrike(float3 start, float3 target, bool useCloudsAltitude = true)</code><br />
+Trigger an immediate lightning event. Optionally sets start.y to sit in the cloud volume altitude. If pauseSimulationOnLightning is true, sets simulation speed to 0. Sends VFX event and plays lightning SFX.</p>
+</li>
+<li>
+<p><code>private bool GetEventName(PrecipitationType type, bool start, out string name)</code><br />
+Internal helper mapping PrecipitationType + start/stop state to VFX event name strings (e.g., "OnRainStart"/"OnRainStop").</p>
+</li>
+<li>
+<p><code>private void UpdateEffectState(PrecipitationType type, bool start)</code><br />
+Uses GetEventName and sends the appropriate event to the precipitation VisualEffect instance to start/stop precipitation.</p>
+</li>
+<li>
+<p><code>private void UpdateEffectsProperties()</code><br />
+Syncs VFX uniforms/parameters: camera position/direction, volume scale, wind texture, cloud altitude, map offset/scale, rain/snow strengths from ClimateSystem, etc. Uses SetChecked* helpers to avoid setting null textures or absent VFX.</p>
+</li>
+<li>
+<p><code>private void UpdateVFXSpeed()</code><br />
+Adjusts VFXManager.fixedTimeStep or VisualEffect.playRate depending on globalEffectTimeStepFromSimulation and weatherEffectTimeStepFromSimulation to keep VFX time progression consistent with simulation/rendering speeds.</p>
+</li>
+<li>
+<p><code>[MethodImpl(MethodImplOptions.AggressiveInlining)] private void __AssignQueries(ref SystemState state)</code><br />
+Compiler-generated: builds internal queries for TimeSettingsData and TimeData.</p>
+</li>
+<li>
+<p><code>protected override void OnCreateForCompiler()</code><br />
+Compiler helper that calls __AssignQueries and assigns TypeHandle handles. Not normally called by mod code.</p>
+</li>
+<li>
+<p><code>private void __AssignHandles(ref SystemState state)</code><br />
+Compiler-generated small helper invoked by OnCreateForCompiler to populate handles (present on TypeHandle struct).</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private void __AssignQueries(ref SystemState state)
-    {
-        EntityQueryBuilder entityQueryBuilder = new EntityQueryBuilder(Allocator.Temp);
-        EntityQueryBuilder entityQueryBuilder2 = entityQueryBuilder.WithAll&lt;TimeSettingsData&gt;();
-        entityQueryBuilder2 = entityQueryBuilder2.WithOptions(EntityQueryOptions.IncludeSystems);
-        __query_100321765_0 = entityQueryBuilder2.Build(ref state);
-        entityQueryBuilder.Reset();
-        entityQueryBuilder2 = entityQueryBuilder.WithAll&lt;TimeData&gt;();
-        entityQueryBuilder2 = entityQueryBuilder2.WithOptions(EntityQueryOptions.IncludeSystems);
-        __query_100321765_1 = entityQueryBuilder2.Build(ref state);
-        entityQueryBuilder.Reset();
-        entityQueryBuilder.Dispose();
-    }
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">using Unity.Mathematics;
+using UnityEngine;
+using UnityEngine.VFX;
+
+// inside a system/behavior that has a reference to ClimateRenderSystem:
+[Preserve]
+protected override void OnCreate()
+{
+    base.OnCreate();
+
+    // Example: tweak precipitation volume and enable edit mode for editor UI previews
+    var climate = World.GetOrCreateSystemManaged&lt;Game.Rendering.ClimateRenderSystem&gt;();
+    climate.precipitationVolumeScale = 50f;
+    climate.editMode = true;
+
+    // Schedule weather prefabs (assuming you have references to WeatherPrefab instances)
+    // climate.ScheduleFrom(currentWeatherPrefab);
+    // climate.ScheduleTo(targetWeatherPrefab);
+
+    // Trigger a manual lightning strike at runtime:
+    float3 start = new float3(100f, 0f, 200f);
+    float3 target = new float3(110f, 0f, 210f);
+    climate.LightningStrike(start, target);
+
+    // If a job will enqueue lightning, register its JobHandle before the system consumes the queue:
+    // JobHandle writerJobHandle = ...;
+    // climate.AddLightningStrikeWriter(writerJobHandle);
+}
 </code></pre>
-<ul>
-<li><code>public AddLightningStrikeWriter(Unity.Jobs.JobHandle jobHandle) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void AddLightningStrikeWriter(JobHandle jobHandle)
-    {
-        m_LightningStrikeDeps = jobHandle;
-    }
-</code></pre>
-<ul>
-<li><code>public Clear() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void Clear()
-    {
-        m_PropertiesChanged = true;
-        m_FromWeatherPrefabs.Clear();
-        m_ToWeatherPrefabs.Clear();
-    }
-</code></pre>
-<ul>
-<li><code>private CreateDynamicVFXIfNeeded() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void CreateDynamicVFXIfNeeded()
-    {
-        if (s_PrecipitationVFXAsset != null &amp;&amp; m_PrecipitationVFX == null)
-        {
-            COSystemBase.baseLog.DebugFormat(&quot;Creating VFXs pool&quot;);
-            m_PrecipitationVFX = new GameObject(&quot;PrecipitationVFX&quot;).AddComponent&lt;VisualEffect&gt;();
-            m_PrecipitationVFX.visualEffectAsset = s_PrecipitationVFXAsset;
-            m_LightningVFX = new GameObject(&quot;LightningVFX&quot;).AddComponent&lt;VisualEffect&gt;();
-            m_LightningVFX.visualEffectAsset = s_LightningVFXAsset;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private GetEventName(Game.Rendering.ClimateRenderSystem+PrecipitationType type, System.Boolean start, System.String&amp; name) : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">private bool GetEventName(PrecipitationType type, bool start, out string name)
-    {
-        switch (type)
-        {
-        case PrecipitationType.Rain:
-            name = (start ? &quot;OnRainStart&quot; : &quot;OnRainStop&quot;);
-            return true;
-        case PrecipitationType.Snow:
-            name = (start ? &quot;OnSnowStart&quot; : &quot;OnSnowStop&quot;);
-            return true;
-        case PrecipitationType.Hail:
-            name = (start ? &quot;OnHailStart&quot; : &quot;OnHailStop&quot;);
-            return true;
-        default:
-            name = null;
-            return false;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public GetLightningStrikeQueue(Unity.Jobs.JobHandle&amp; dependencies) : Unity.Collections.NativeQueue&lt;Game.Events.LightningStrike&gt;</code>  </li>
-</ul>
-<pre><code class="language-csharp">public NativeQueue&lt;LightningStrike&gt; GetLightningStrikeQueue(out JobHandle dependencies)
-    {
-        dependencies = m_LightningStrikeDeps;
-        return m_LightningStrikeQueue;
-    }
-</code></pre>
-<ul>
-<li><code>private GetTimeOfYear() : System.Single</code>  </li>
-</ul>
-<pre><code class="language-csharp">private float GetTimeOfYear()
-    {
-        if (m_ClimateSystem.currentDate.overrideState)
-        {
-            return m_ClimateSystem.currentDate.overrideValue;
-        }
-        if (__query_100321765_0.TryGetSingleton&lt;TimeSettingsData&gt;(out var value) &amp;&amp; __query_100321765_1.TryGetSingleton&lt;TimeData&gt;(out var value2))
-        {
-            double renderingFrame = (float)(m_RenderingSystem.frameIndex - value2.m_FirstFrame) + m_RenderingSystem.frameTime;
-            return m_TimeSystem.GetTimeOfYear(value, value2, renderingFrame);
-        }
-        return 0.5f;
-    }
-</code></pre>
-<ul>
-<li><code>public LightningStrike(Unity.Mathematics.float3 start, Unity.Mathematics.float3 target, System.Boolean useCloudsAltitude = True) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void LightningStrike(float3 start, float3 target, bool useCloudsAltitude = true)
-    {
-        if (pauseSimulationOnLightning)
-        {
-            m_SimulationSystem.selectedSpeed = 0f;
-        }
-        if (useCloudsAltitude)
-        {
-            start.y = m_VolumetricClouds.bottomAltitude.value + m_VolumetricClouds.altitudeRange.value * 0.1f;
-        }
-        COSystemBase.baseLog.DebugFormat(&quot;Lightning strike {0}-&gt;{1}&quot;, start, target);
-        m_LightningVFX.SetVector3(VFXIDs.LightningOrigin, start);
-        m_LightningVFX.SetVector3(VFXIDs.LightningTarget, target);
-        m_LightningVFX.SendEvent(&quot;OnPlay&quot;);
-        m_AudioManager.PlayLightningSFX((start - target) / 2f);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        m_ClimateSystem = base.World.GetOrCreateSystemManaged&lt;ClimateSystem&gt;();
-        m_RenderingSystem = base.World.GetOrCreateSystemManaged&lt;RenderingSystem&gt;();
-        m_SimulationSystem = base.World.GetOrCreateSystemManaged&lt;SimulationSystem&gt;();
-        m_CameraUpdateSystem = base.World.GetOrCreateSystemManaged&lt;CameraUpdateSystem&gt;();
-        m_PrefabSystem = base.World.GetOrCreateSystemManaged&lt;PrefabSystem&gt;();
-        m_WindTextureSystem = base.World.GetOrCreateSystemManaged&lt;WindTextureSystem&gt;();
-        m_TerrainSystem = base.World.GetOrCreateSystemManaged&lt;TerrainSystem&gt;();
-        m_TimeSystem = base.World.GetOrCreateSystemManaged&lt;TimeSystem&gt;();
-        m_AudioManager = base.World.GetOrCreateSystemManaged&lt;AudioManager&gt;();
-        m_ClimateControlVolume = VolumeHelper.CreateVolume(&quot;ClimateControlVolume&quot;, 50);
-        m_PropertiesStack = new WeatherPropertiesStack(m_ClimateControlVolume);
-        VolumeHelper.GetOrCreateVolumeComponent(m_ClimateControlVolume, ref m_VolumetricClouds);
-        VolumeHelper.GetOrCreateVolumeComponent(m_ClimateControlVolume, ref m_Wind);
-        m_WindControl = WindControl.instance;
-        ResetOverrides();
-        s_PrecipitationVFXAsset = Resources.Load&lt;VisualEffectAsset&gt;(&quot;Precipitation/PrecipitationVFX&quot;);
-        s_LightningVFXAsset = Resources.Load&lt;VisualEffectAsset&gt;(&quot;Lightning/LightningBolt&quot;);
-        m_EventQuery = GetEntityQuery(ComponentType.ReadOnly&lt;Game.Events.WeatherPhenomenon&gt;(), ComponentType.Exclude&lt;Deleted&gt;(), ComponentType.Exclude&lt;Temp&gt;());
-        m_LightningStrikeQueue = new NativeQueue&lt;LightningStrike&gt;(Allocator.Persistent);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreateForCompiler() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnCreateForCompiler()
-    {
-        base.OnCreateForCompiler();
-        __AssignQueries(ref base.CheckedStateRef);
-        __TypeHandle.__AssignHandles(ref base.CheckedStateRef);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnDestroy() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnDestroy()
-    {
-        m_LightningStrikeDeps.Complete();
-        m_LightningStrikeQueue.Dispose();
-        m_WindControl.Dispose();
-        m_PropertiesStack.Dispose();
-        VolumeHelper.DestroyVolume(m_ClimateControlVolume);
-        base.OnDestroy();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        if (m_CameraUpdateSystem.activeViewer != null)
-        {
-            UpdateWeather();
-            UpdateVolumetricClouds();
-            CreateDynamicVFXIfNeeded();
-            UpdateEffectsState();
-            UpdateEffectsProperties();
-            UpdateVFXSpeed();
-        }
-        NativeArray&lt;Entity&gt; nativeArray = m_EventQuery.ToEntityArray(Allocator.TempJob);
-        try
-        {
-            for (int i = 0; i &lt; nativeArray.Length; i++)
-            {
-                Entity entity = nativeArray[i];
-                if (base.EntityManager.GetComponentData&lt;Game.Events.WeatherPhenomenon&gt;(entity).m_Intensity != 0f)
-                {
-                    base.EntityManager.GetComponentData&lt;InterpolatedTransform&gt;(entity);
-                    PrefabRef componentData = base.EntityManager.GetComponentData&lt;PrefabRef&gt;(entity);
-                    m_PrefabSystem.GetPrefab&lt;EventPrefab&gt;(componentData).GetComponent&lt;Game.Prefabs.WeatherPhenomenon&gt;();
-                }
-            }
-        }
-        finally
-        {
-            nativeArray.Dispose();
-        }
-        m_LightningStrikeDeps.Complete();
-        LightningStrike item;
-        while (m_LightningStrikeQueue.TryDequeue(out item))
-        {
-            LightningStrike(item.m_Position, item.m_Position);
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private ResetOverrides() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void ResetOverrides()
-    {
-        m_VolumetricClouds.SetAllOverridesTo(state: false);
-    }
-</code></pre>
-<ul>
-<li><code>public ScheduleFrom(Game.Prefabs.Climate.WeatherPrefab prefab) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void ScheduleFrom(WeatherPrefab prefab)
-    {
-        m_FromWeatherPrefabs.Add(prefab);
-    }
-</code></pre>
-<ul>
-<li><code>public ScheduleTo(Game.Prefabs.Climate.WeatherPrefab prefab) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void ScheduleTo(WeatherPrefab prefab)
-    {
-        m_ToWeatherPrefabs.Add(prefab);
-    }
-</code></pre>
-<ul>
-<li><code>private SetData(Game.Rendering.Climate.WeatherPropertiesStack stack, System.Collections.Generic.IReadOnlyList&lt;Game.Prefabs.Climate.WeatherPrefab&gt; fromPrefab, System.Collections.Generic.IReadOnlyList&lt;Game.Prefabs.Climate.WeatherPrefab&gt; toPrefab) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void SetData(WeatherPropertiesStack stack, IReadOnlyList&lt;WeatherPrefab&gt; fromPrefab, IReadOnlyList&lt;WeatherPrefab&gt; toPrefab)
-    {
-        for (int i = 0; i &lt; fromPrefab.Count; i++)
-        {
-            foreach (OverrideablePropertiesComponent overrideableProperty in fromPrefab[i].overrideableProperties)
-            {
-                if (overrideableProperty.active &amp;&amp; !overrideableProperty.hasTimeBasedInterpolation)
-                {
-                    stack.SetFrom(overrideableProperty.GetType(), overrideableProperty);
-                }
-            }
-        }
-        for (int j = 0; j &lt; toPrefab.Count; j++)
-        {
-            WeatherPrefab weatherPrefab = toPrefab[j];
-            foreach (OverrideablePropertiesComponent overrideableProperty2 in weatherPrefab.overrideableProperties)
-            {
-                if (overrideableProperty2.active)
-                {
-                    if (overrideableProperty2.hasTimeBasedInterpolation)
-                    {
-                        stack.SetTarget(overrideableProperty2.GetType(), overrideableProperty2);
-                    }
-                    else
-                    {
-                        stack.SetTo(overrideableProperty2.GetType(), overrideableProperty2, j == 1, new Bounds1(weatherPrefab.m_CloudinessRange));
-                    }
-                }
-            }
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private UpdateEffectsProperties() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void UpdateEffectsProperties()
-    {
-        m_PrecipitationVFX.SetCheckedVector3(VFXIDs.CameraPosition, m_CameraUpdateSystem.position);
-        m_PrecipitationVFX.SetCheckedVector3(VFXIDs.CameraDirection, m_CameraUpdateSystem.direction);
-        m_PrecipitationVFX.SetCheckedVector3(VFXIDs.VolumeScale, new Vector3(precipitationVolumeScale, precipitationVolumeScale, precipitationVolumeScale));
-        m_PrecipitationVFX.SetCheckedTexture(VFXIDs.WindTexture, m_WindTextureSystem.WindTexture);
-        m_PrecipitationVFX.SetCheckedFloat(VFXIDs.CloudsAltitude, m_VolumetricClouds.bottomAltitude.value);
-        m_PrecipitationVFX.SetCheckedVector4(VFXIDs.MapOffsetScale, m_TerrainSystem.mapOffsetScale);
-        m_PrecipitationVFX.SetCheckedFloat(VFXIDs.RainStrength, m_ClimateSystem.precipitation);
-        m_PrecipitationVFX.SetCheckedFloat(VFXIDs.SnowStrength, m_ClimateSystem.precipitation);
-    }
-</code></pre>
-<ul>
-<li><code>private UpdateEffectsState() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void UpdateEffectsState()
-    {
-        if (m_ClimateSystem.isPrecipitating &amp;&amp; m_ClimateSystem.hail &lt; 0.001f)
-        {
-            if ((float)m_ClimateSystem.temperature &gt; 0f)
-            {
-                if (m_IsSnowing)
-                {
-                    UpdateEffectState(PrecipitationType.Snow, start: false);
-                    m_IsSnowing = false;
-                }
-                if (!m_IsRaining)
-                {
-                    UpdateEffectState(PrecipitationType.Rain, start: true);
-                    m_IsRaining = true;
-                }
-            }
-            else
-            {
-                if (!m_IsSnowing)
-                {
-                    UpdateEffectState(PrecipitationType.Snow, start: true);
-                    m_IsSnowing = true;
-                }
-                if (m_IsRaining)
-                {
-                    UpdateEffectState(PrecipitationType.Rain, start: false);
-                    m_IsRaining = false;
-                }
-            }
-        }
-        else
-        {
-            if (m_IsRaining)
-            {
-                UpdateEffectState(PrecipitationType.Rain, start: false);
-                m_IsRaining = false;
-            }
-            if (m_IsSnowing)
-            {
-                UpdateEffectState(PrecipitationType.Snow, start: false);
-                m_IsSnowing = false;
-            }
-        }
-        if (m_HailStorm &amp;&amp; m_ClimateSystem.hail &lt;= 0.001f)
-        {
-            UpdateEffectState(PrecipitationType.Hail, start: false);
-            m_HailStorm = false;
-        }
-        else if (!m_HailStorm &amp;&amp; m_ClimateSystem.hail &gt; 0.001f)
-        {
-            UpdateEffectState(PrecipitationType.Hail, start: true);
-            m_HailStorm = true;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private UpdateEffectState(Game.Rendering.ClimateRenderSystem+PrecipitationType type, System.Boolean start) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void UpdateEffectState(PrecipitationType type, bool start)
-    {
-        if (GetEventName(type, start, out var name))
-        {
-            COSystemBase.baseLog.DebugFormat(&quot;PrecipitationVFX event {0}&quot;, name);
-            m_PrecipitationVFX.SendEvent(name);
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private UpdateVFXSpeed() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void UpdateVFXSpeed()
-    {
-        if (globalEffectTimeStepFromSimulation)
-        {
-            float num = m_RenderingSystem.frameDelta / 60f;
-            float smoothSpeed = m_SimulationSystem.smoothSpeed;
-            VFXManager.fixedTimeStep = num * smoothSpeed;
-            UnityEngine.Debug.Log(&quot;smoothedRenderTimeStep: &quot; + num + &quot; simulationSpeedMultiplier: &quot; + smoothSpeed);
-        }
-        else
-        {
-            float num2 = m_RenderingSystem.frameDelta / math.max(1E-06f, base.CheckedStateRef.WorldUnmanaged.Time.DeltaTime * 60f);
-            m_PrecipitationVFX.playRate = (weatherEffectTimeStepFromSimulation ? num2 : 1f);
-            m_LightningVFX.playRate = (weatherEffectTimeStepFromSimulation ? num2 : 1f);
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private UpdateVolumetricClouds() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void UpdateVolumetricClouds()
-    {
-        float num = 1f + (1f - math.abs(math.dot(m_CameraUpdateSystem.direction, new float3(0f, 1f, 0f))));
-        m_VolumetricClouds.fadeInMode.Override(VolumetricClouds.CloudFadeInMode.Manual);
-        m_VolumetricClouds.fadeInStart.Override(math.max((m_CameraUpdateSystem.position.y - m_VolumetricClouds.bottomAltitude.value) * num, m_CameraUpdateSystem.nearClipPlane));
-        m_VolumetricClouds.fadeInDistance.Override(m_VolumetricClouds.altitudeRange.value * 0.3f);
-        m_VolumetricClouds.renderHook.Override((!(m_CameraUpdateSystem.position.y &lt; m_VolumetricClouds.bottomAltitude.value)) ? VolumetricClouds.CloudHook.PostTransparent : VolumetricClouds.CloudHook.PreTransparent);
-    }
-</code></pre>
-<ul>
-<li><code>private UpdateWeather() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void UpdateWeather()
-    {
-        float timeOfYear = GetTimeOfYear();
-        ClimateSystem.ClimateSample sample = m_ClimateSystem.SampleClimate(timeOfYear);
-        if (m_PropertiesChanged)
-        {
-            SetData(m_PropertiesStack, m_FromWeatherPrefabs, m_ToWeatherPrefabs);
-            m_PropertiesChanged = false;
-        }
-        float renderingDeltaTime = m_RenderingSystem.frameDelta / 60f;
-        float deltaTime = base.CheckedStateRef.WorldUnmanaged.Time.DeltaTime;
-        m_PropertiesStack.InterpolateOverrideData(deltaTime, renderingDeltaTime, sample, editMode);
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Rendering.ClimateRenderSystem+VFXIDs</code>  </li>
-<li><code>Game.Rendering.ClimateRenderSystem+PrecipitationType</code>  </li>
-<li><code>Game.Rendering.ClimateRenderSystem+TypeHandle</code>  </li>
-</ul>
+<p>Additional notes and modding tips:
+- VisualEffectAssets are loaded via Resources at paths "Precipitation/PrecipitationVFX" and "Lightning/LightningBolt". Replace or override those assets in modded Resources or intercept creation if you want custom VFX.
+- precipitationVolumeScale affects the VFX volume used for particle emission; adjust it to fit your city camera heights.
+- Use GetLightningStrikeQueue/AddLightningStrikeWriter to enqueue lightning strikes from background jobs safely. Always supply a JobHandle via AddLightningStrikeWriter so the render system completes producers before consuming the queue.
+- The system manages a Volume (m_ClimateControlVolume) and WeatherPropertiesStack — disposing or destroying that volume externally will break the interpolation pipeline; prefer interacting through the exposed propertiesStack when modifying overrides.
+- Be cautious when setting globalEffectTimeStepFromSimulation: changing VFXManager.fixedTimeStep affects all VisualEffect playback globally and may have side effects for other systems using VFXManager.</p>
 
 
 

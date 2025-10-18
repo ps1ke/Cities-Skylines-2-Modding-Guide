@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87075,6 +87167,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../SurfaceWater/" class="md-nav__link">
         
   
@@ -90184,15 +90299,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -90229,9 +90335,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -117930,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117955,15 +118083,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -118002,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118027,178 +118146,107 @@
 
 
 <h1 id="gamesimulationzoneambiencesystem">Game.Simulation.ZoneAmbienceSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Simulation</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.Simulation.CellMapSystem&lt;Game.Simulation.ZoneAmbienceCell&gt;</code><br />
-<strong>Implements:</strong> <code>Colossal.Serialization.Entities.IJobSerializable</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class ZoneAmbienceSystem : Game.Simulation.CellMapSystem&lt;Game.Simulation.ZoneAmbienceCell&gt;, Colossal.Serialization.Entities.IJobSerializable
-{
-    public static readonly System.Int32 kTextureSize;
-    public static readonly System.Int32 kUpdatesPerDay;
-
-    public Unity.Mathematics.int2 TextureSize { get; }
-
-    public ZoneAmbienceSystem();
-
-    public static Unity.Mathematics.float3 GetCellCenter(System.Int32 index);
-    public virtual System.Int32 GetUpdateInterval(Game.SystemUpdatePhase phase);
-    public static System.Single GetZoneAmbience(Game.Simulation.GroupAmbienceType type, Unity.Mathematics.float3 position, Unity.Collections.NativeArray&lt;Game.Simulation.ZoneAmbienceCell&gt; zoneAmbienceMap, System.Single maxPerCell);
-    public static Game.Simulation.ZoneAmbienceCell GetZoneAmbience(Unity.Mathematics.float3 position, Unity.Collections.NativeArray&lt;Game.Simulation.ZoneAmbienceCell&gt; zoneAmbienceMap);
-    public static System.Single GetZoneAmbienceNear(Game.Simulation.GroupAmbienceType type, Unity.Mathematics.float3 position, Unity.Collections.NativeArray&lt;Game.Simulation.ZoneAmbienceCell&gt; zoneAmbienceMap, System.Single nearWeight, System.Single maxPerCell);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnUpdate();
-}
-</code></pre>
+<p><strong>Assembly:</strong> Game<br />
+<strong>Namespace:</strong> Game.Simulation</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> CellMapSystem<ZoneAmbienceCell>, IJobSerializable</p>
+<p><strong>Summary:</strong><br />
+ZoneAmbienceSystem maintains a 2D cell map (texture) of aggregated ambient values for zones and provides sampling utilities for querying ambience at world positions. It collects per-frame accumulators into the cell values on a scheduled parallel job, exposes helper sampling functions that perform weighted blending across neighboring cells, and creates the textures used for visualization. The system is designed to run as part of the simulation update pipeline and uses Unity.Jobs (Burst-compiled job for the update sweep) and Unity.Collections (NativeArray) for performance.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>public static readonly System.Int32 kTextureSize</code>  </li>
+<li>
+<p><code>public static readonly int kTextureSize = 64</code><br />
+Defines the internal texture resolution (width and height) used for the zone ambience cell map. The map is kTextureSize x kTextureSize.</p>
+</li>
+<li>
+<p><code>public static readonly int kUpdatesPerDay = 128</code><br />
+Controls how frequently the system performs its full update over the logical day. Used to compute the update interval returned by GetUpdateInterval.</p>
+</li>
+<li>
+<p><code>private struct ZoneAmbienceUpdateJob : IJobParallelFor</code> (nested, BurstCompile)<br />
+Job type used to atomically move each cell's accumulated ambience into the cell's stored m_Value and then reset the accumulator. This job operates over the NativeArray<ZoneAmbienceCell> that backs the map and is scheduled as a parallel-for.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public static readonly System.Int32 kTextureSize;
-</code></pre>
-<ul>
-<li><code>public static readonly System.Int32 kUpdatesPerDay</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static readonly System.Int32 kUpdatesPerDay;
-</code></pre>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>public Unity.Mathematics.int2 TextureSize { get }</code>  </li>
+<li><code>public int2 TextureSize =&gt; new int2(kTextureSize, kTextureSize)</code><br />
+Read-only convenience property returning the texture dimensions as an int2 (64,64). Use this to query the system texture size.</li>
 </ul>
-<pre><code class="language-csharp">public Unity.Mathematics.int2 TextureSize { get; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public ZoneAmbienceSystem()</code>  </li>
+<li><code>public ZoneAmbienceSystem()</code><br />
+Default constructor (empty). System initialization happens in OnCreate.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public ZoneAmbienceSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>public static GetCellCenter(System.Int32 index) : Unity.Mathematics.float3</code>  </li>
+<li>
+<p><code>public override int GetUpdateInterval(SystemUpdatePhase phase)</code><br />
+Returns the interval (in simulation ticks) between updates for this system. Computed as 262144 / kUpdatesPerDay (with kUpdatesPerDay = 128 the interval is 2048). This determines how often OnUpdate is invoked relative to the simulation update phase scheduling.</p>
+</li>
+<li>
+<p><code>public static float3 GetCellCenter(int index)</code><br />
+Returns the world-space center position for the cell at the given linear index. Delegates to CellMapSystem<ZoneAmbienceCell>.GetCellCenter with kTextureSize.</p>
+</li>
+<li>
+<p><code>public static float GetZoneAmbienceNear(GroupAmbienceType type, float3 position, NativeArray&lt;ZoneAmbienceCell&gt; zoneAmbienceMap, float nearWeight, float maxPerCell)</code><br />
+Samples the ambience for the given GroupAmbienceType near the specified position. The function:</p>
+</li>
+<li>Locates the integer cell containing the position.</li>
+<li>Iterates a 5x5 neighborhood (cell +/-2 in x and y).</li>
+<li>For each valid neighbor cell, computes a distance weight using math.distance(GetCellCenter(index), position)/10f raised to (1 + nearWeight) and clamped to a minimum of 1.</li>
+<li>Adds a capped contribution (min(maxPerCell, cell.m_Value.GetAmbience(type))) divided by that weight.</li>
+<li>
+<p>Normalizes by the sum of inverse weights to return a weighted average.
+This variant uses linear distance with a tunable nearWeight exponent to bias nearby cells.</p>
+</li>
+<li>
+<p><code>public static float GetZoneAmbience(GroupAmbienceType type, float3 position, NativeArray&lt;ZoneAmbienceCell&gt; zoneAmbienceMap, float maxPerCell)</code><br />
+Similar sampling method to GetZoneAmbienceNear but uses squared-distance weighting (math.distancesq) and no nearWeight exponent. Contributions are capped per cell by maxPerCell. The neighborhood and normalization are identical otherwise.</p>
+</li>
+<li>
+<p><code>public static ZoneAmbienceCell GetZoneAmbience(float3 position, NativeArray&lt;ZoneAmbienceCell&gt; zoneAmbienceMap)</code><br />
+Returns a blended ZoneAmbienceCell (all ambience channels) at the given position by sampling the 5x5 neighborhood and performing a distance-weighted blend (using squared distance). This builds a ZoneAmbiences accumulator that is normalized by the sum of inverse weights and returned as result.m_Value.</p>
+</li>
+<li>
+<p><code>protected override void OnCreate()</code> [Preserve]<br />
+Called when the system is created. Calls base.OnCreate() and CreateTextures(kTextureSize) to prepare the cell map textures at the configured resolution.</p>
+</li>
+<li>
+<p><code>protected override void OnUpdate()</code> [Preserve]<br />
+Schedules the ZoneAmbienceUpdateJob:</p>
+</li>
+<li>Constructs ZoneAmbienceUpdateJob with m_ZoneMap = m_Map (the NativeArray backing the cell map).</li>
+<li>Schedules the job as an IJobParallelFor with total iterations kTextureSize * kTextureSize and a batch size of kTextureSize, combining existing read/write dependencies with base.Dependency.</li>
+<li>Adds the scheduled job as a writer dependency and combines dependencies for base.Dependency.
+Effectively this moves per-cell accumulators into stored values and resets accumulators on a background job.</li>
 </ul>
-<pre><code class="language-csharp">public static float3 GetCellCenter(int index)
-    {
-        return CellMapSystem&lt;ZoneAmbienceCell&gt;.GetCellCenter(index, kTextureSize);
-    }
-</code></pre>
-<ul>
-<li><code>public virtual GetUpdateInterval(Game.SystemUpdatePhase phase) : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override int GetUpdateInterval(SystemUpdatePhase phase)
-    {
-        return 262144 / kUpdatesPerDay;
-    }
-</code></pre>
-<ul>
-<li><code>public static GetZoneAmbience(Game.Simulation.GroupAmbienceType type, Unity.Mathematics.float3 position, Unity.Collections.NativeArray&lt;Game.Simulation.ZoneAmbienceCell&gt; zoneAmbienceMap, System.Single maxPerCell) : System.Single</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static ZoneAmbienceCell GetZoneAmbience(float3 position, NativeArray&lt;ZoneAmbienceCell&gt; zoneAmbienceMap)
-    {
-        ZoneAmbienceCell result = default(ZoneAmbienceCell);
-        int2 cell = CellMapSystem&lt;ZoneAmbienceCell&gt;.GetCell(position, CellMapSystem&lt;ZoneAmbienceCell&gt;.kMapSize, kTextureSize);
-        ZoneAmbiences zoneAmbiences = default(ZoneAmbiences);
-        float num = 0f;
-        for (int i = cell.x - 2; i &lt;= cell.x + 2; i++)
-        {
-            for (int j = cell.y - 2; j &lt;= cell.y + 2; j++)
-            {
-                if (i &gt;= 0 &amp;&amp; i &lt; kTextureSize &amp;&amp; j &gt;= 0 &amp;&amp; j &lt; kTextureSize)
-                {
-                    int index = i + kTextureSize * j;
-                    float num2 = math.max(1f, math.distancesq(GetCellCenter(index), position) / 10f);
-                    zoneAmbiences += zoneAmbienceMap[index].m_Value / num2;
-                    num += 1f / num2;
-                }
-            }
-        }
-        result.m_Value = zoneAmbiences / num;
-        return result;
-    }
-</code></pre>
-<ul>
-<li><code>public static GetZoneAmbience(Unity.Mathematics.float3 position, Unity.Collections.NativeArray&lt;Game.Simulation.ZoneAmbienceCell&gt; zoneAmbienceMap) : Game.Simulation.ZoneAmbienceCell</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static ZoneAmbienceCell GetZoneAmbience(float3 position, NativeArray&lt;ZoneAmbienceCell&gt; zoneAmbienceMap)
-    {
-        ZoneAmbienceCell result = default(ZoneAmbienceCell);
-        int2 cell = CellMapSystem&lt;ZoneAmbienceCell&gt;.GetCell(position, CellMapSystem&lt;ZoneAmbienceCell&gt;.kMapSize, kTextureSize);
-        ZoneAmbiences zoneAmbiences = default(ZoneAmbiences);
-        float num = 0f;
-        for (int i = cell.x - 2; i &lt;= cell.x + 2; i++)
-        {
-            for (int j = cell.y - 2; j &lt;= cell.y + 2; j++)
-            {
-                if (i &gt;= 0 &amp;&amp; i &lt; kTextureSize &amp;&amp; j &gt;= 0 &amp;&amp; j &lt; kTextureSize)
-                {
-                    int index = i + kTextureSize * j;
-                    float num2 = math.max(1f, math.distancesq(GetCellCenter(index), position) / 10f);
-                    zoneAmbiences += zoneAmbienceMap[index].m_Value / num2;
-                    num += 1f / num2;
-                }
-            }
-        }
-        result.m_Value = zoneAmbiences / num;
-        return result;
-    }
-</code></pre>
-<ul>
-<li><code>public static GetZoneAmbienceNear(Game.Simulation.GroupAmbienceType type, Unity.Mathematics.float3 position, Unity.Collections.NativeArray&lt;Game.Simulation.ZoneAmbienceCell&gt; zoneAmbienceMap, System.Single nearWeight, System.Single maxPerCell) : System.Single</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static float GetZoneAmbienceNear(GroupAmbienceType type, float3 position, NativeArray&lt;ZoneAmbienceCell&gt; zoneAmbienceMap, float nearWeight, float maxPerCell)
-    {
-        int2 cell = CellMapSystem&lt;ZoneAmbienceCell&gt;.GetCell(position, CellMapSystem&lt;ZoneAmbienceCell&gt;.kMapSize, kTextureSize);
-        float num = 0f;
-        float num2 = 0f;
-        for (int i = cell.x - 2; i &lt;= cell.x + 2; i++)
-        {
-            for (int j = cell.y - 2; j &lt;= cell.y + 2; j++)
-            {
-                if (i &gt;= 0 &amp;&amp; i &lt; kTextureSize &amp;&amp; j &gt;= 0 &amp;&amp; j &lt; kTextureSize)
-                {
-                    int index = i + kTextureSize * j;
-                    float num3 = math.max(1f, math.pow(math.distance(GetCellCenter(index), position) / 10f, 1f + nearWeight));
-                    num += math.min(maxPerCell, zoneAmbienceMap[index].m_Value.GetAmbience(type)) / num3;
-                    num2 += 1f / num3;
-                }
-            }
-        }
-        return num / num2;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
+<p>Notes:
+- ZoneAmbienceUpdateJob is Burst-compiled for performance.
+- Sampling functions accept a NativeArray<ZoneAmbienceCell> so they can be called in safe contexts where you have access to the map buffer (e.g., from other jobs if properly synchronized).
+- The system relies on an accumulator pattern: code elsewhere should add to cell.m_Accumulator during the frame; OnUpdate moves accumulators into m_Value once per scheduled update.</p>
+<h2 id="usage-example">Usage Example</h2>
 <pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        CreateTextures(kTextureSize);
-    }
+protected override void OnCreate()
+{
+    base.OnCreate();
+    // Prepare 64x64 textures used by the cell map
+    CreateTextures(ZoneAmbienceSystem.kTextureSize);
+}
+
+[Preserve]
+protected override void OnUpdate()
+{
+    // The system already schedules the ZoneAmbienceUpdateJob internally.
+    // If you manually need to sample the map on the main thread after dependencies:
+    // NativeArray&lt;ZoneAmbienceCell&gt; map = /* obtain the NativeArray from the system or API */;
+    // float ambientValue = ZoneAmbienceSystem.GetZoneAmbienceNear(GroupAmbienceType.SomeType, position, map, nearWeight: 0.5f, maxPerCell: 1f);
+}
 </code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        ZoneAmbienceUpdateJob jobData = new ZoneAmbienceUpdateJob
-        {
-            m_ZoneMap = m_Map
-        };
-        base.Dependency = IJobParallelForExtensions.Schedule(jobData, kTextureSize * kTextureSize, kTextureSize, JobHandle.CombineDependencies(m_WriteDependencies, m_ReadDependencies, base.Dependency));
-        AddWriter(base.Dependency);
-        base.Dependency = JobHandle.CombineDependencies(m_ReadDependencies, m_WriteDependencies, base.Dependency);
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Simulation.ZoneAmbienceSystem+ZoneAmbienceUpdateJob</code>  </li>
-</ul>
+<p>Additional tips:
+- Use GetZoneAmbienceNear when you want to bias toward very close contributions (tune nearWeight), otherwise use GetZoneAmbience for squared-distance blending.
+- maxPerCell is useful to cap noisy cell contributions when aggregating many sources.
+- Ensure proper dependency synchronization if you read the map from a job (use the system's read/write dependencies).</p>
 
 
 

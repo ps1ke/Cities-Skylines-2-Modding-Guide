@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#gamesimulationwindsimulationsystem" class="md-skip">
+        <a href="#gamewindsimulationsystem" class="md-skip">
           Skip to content
         </a>
       
@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87075,6 +87167,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../SurfaceWater/" class="md-nav__link">
         
   
@@ -89793,15 +89908,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -89838,9 +89944,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -117930,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117955,15 +118083,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -118002,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118026,375 +118145,227 @@
 
 
 
-<h1 id="gamesimulationwindsimulationsystem">Game.Simulation.WindSimulationSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Simulation</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code><br />
-<strong>Implements:</strong> <code>Colossal.Serialization.Entities.IDefaultSerializable</code>, <code>Colossal.Serialization.Entities.ISerializable</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class WindSimulationSystem : Game.GameSystemBase, Colossal.Serialization.Entities.IDefaultSerializable, Colossal.Serialization.Entities.ISerializable
-{
-    private Unity.Mathematics.float2 &lt;constantWind&gt;k__BackingField;
-    private System.Single &lt;m_ConstantPressure&gt;k__BackingField;
-    private Game.Simulation.SimulationSystem m_SimulationSystem;
-    private Game.Simulation.TerrainSystem m_TerrainSystem;
-    private Game.Simulation.WaterSystem m_WaterSystem;
-    private Game.Simulation.ClimateSystem m_ClimateSystem;
-    private System.Boolean m_Odd;
-    private Unity.Jobs.JobHandle m_Deps;
-    private Unity.Collections.NativeArray&lt;Game.Simulation.WindSimulationSystem+WindCell&gt; m_Cells;
-    public static readonly System.Int32 kUpdateInterval;
-    public static readonly Unity.Mathematics.int3 kResolution;
-    public static readonly System.Single kChangeFactor;
-    public static readonly System.Single kTerrainSlowdown;
-    public static readonly System.Single kAirSlowdown;
-    public static readonly System.Single kVerticalSlowdown;
-
-    public Unity.Mathematics.float2 constantWind { get; set; }
-    private System.Single m_ConstantPressure { private get; private set; }
-
-    public WindSimulationSystem();
-
-    public System.Void AddReader(Unity.Jobs.JobHandle reader);
-    public System.Byte[] CreateByteArray&lt;T&gt;(Unity.Collections.NativeArray&lt;T&gt; src);
-    public System.Void DebugLoad();
-    public System.Void DebugSave();
-    public System.Void Deserialize&lt;TReader&gt;(TReader reader);
-    private Game.Simulation.WindSimulationSystem+WindCell GetCell(Unity.Mathematics.int3 position);
-    public static Game.Simulation.WindSimulationSystem+WindCell GetCell(Unity.Mathematics.int3 position, Unity.Collections.NativeArray&lt;Game.Simulation.WindSimulationSystem+WindCell&gt; cells);
-    public static Unity.Mathematics.float3 GetCellCenter(System.Int32 index);
-    public Unity.Collections.NativeArray&lt;Game.Simulation.WindSimulationSystem+WindCell&gt; GetCells(Unity.Jobs.JobHandle&amp; deps);
-    public static Unity.Mathematics.float3 GetCenterVelocity(Unity.Mathematics.int3 cell, Unity.Collections.NativeArray&lt;Game.Simulation.WindSimulationSystem+WindCell&gt; cells);
-    public virtual System.Int32 GetUpdateInterval(Game.SystemUpdatePhase phase);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnDestroy();
-    protected virtual System.Void OnUpdate();
-    public System.Void Serialize&lt;TWriter&gt;(TWriter writer);
-    public System.Void SetDefaults(Colossal.Serialization.Entities.Context context);
-    public System.Void SetWind(Unity.Mathematics.float2 direction, System.Single pressure);
-}
-</code></pre>
+<h1 id="gamewindsimulationsystem">Game.WindSimulationSystem</h1>
+<p><strong>Assembly:</strong><br />
+<strong>Namespace:</strong> Game.Simulation</p>
+<p><strong>Type:</strong> public class</p>
+<p><strong>Base:</strong> GameSystemBase, IDefaultSerializable, ISerializable</p>
+<p><strong>Summary:</strong><br />
+Simulates 3D wind as a grid of volumetric cells (WindCell) using Unity Jobs / Burst for performance. The system maintains per-cell pressure and velocity, steps the simulation in two alternating job phases (velocity update and pressure update), integrates terrain and water surface heights to affect flow, supports serialization/deserialization, debug save/load to disk, and exposes APIs to read the cell buffer and to set a global wind/pressure. The system is intended for use in Cities: Skylines 2 modding as the engine-level wind field provider for other systems (e.g., weather, particles, and environment effects).</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Unity.Mathematics.float2 &lt;constantWind&gt;k__BackingField</code>  </li>
+<li><code>public struct WindCell</code><br />
+Represents a single cell in the wind volume. Contains:</li>
+<li><code>float m_Pressure</code> — scalar pressure value for the cell.</li>
+<li><code>float3 m_Velocities</code> — velocity components (x, y, z) for the cell.</li>
+<li>
+<p>The struct implements ISerializable with Serialize/Deserialize methods to read/write pressure and velocities.</p>
+</li>
+<li>
+<p><code>private struct UpdateWindVelocityJob</code> (BurstCompiled)<br />
+Job that updates per-cell velocities based on neighboring cell pressures, terrain/water heights and slowdown factors. Runs over each cell and:</p>
+</li>
+<li>Applies slowdown factors (air, terrain, vertical) and change factor to produce new velocity components.</li>
+<li>Samples water/terrain height information via provided TerrainHeightData and WaterSurfaceData.</li>
+<li>
+<p>Writes updated WindCell values back into the NativeArray.</p>
+</li>
+<li>
+<p><code>private struct UpdatePressureJob</code> (BurstCompiled)<br />
+Job that updates per-cell pressure from velocity divergence and applies boundary/edge driving forces based on the constant wind vector. Runs over every cell and:</p>
+</li>
+<li>Subtracts outgoing velocities, adds incoming neighbor velocities.</li>
+<li>
+<p>On edges, applies a computed driving pressure that depends on the constant wind, cell position and altitude layer.</p>
+</li>
+<li>
+<p><code>public static readonly int kUpdateInterval</code><br />
+Update frequency (in simulation ticks) for this system. Value: 512.</p>
+</li>
+<li>
+<p><code>public static readonly int3 kResolution</code><br />
+Grid resolution of the voxel wind field (x,y,z). Uses WindSystem.kTextureSize for x/y and 16 layers for z.</p>
+</li>
+<li>
+<p><code>public static readonly float kChangeFactor</code><br />
+Factor controlling how quickly pressure differences change velocities. Value: 0.02.</p>
+</li>
+<li>
+<p><code>public static readonly float kTerrainSlowdown</code><br />
+Slowdown multiplier applied near terrain. Value: 0.99.</p>
+</li>
+<li>
+<p><code>public static readonly float kAirSlowdown</code><br />
+General air slowdown per step. Value: 0.995.</p>
+</li>
+<li>
+<p><code>public static readonly float kVerticalSlowdown</code><br />
+Vertical velocity slowdown multiplier. Value: 0.9.</p>
+</li>
+<li>
+<p><code>private SimulationSystem m_SimulationSystem</code><br />
+Cached reference to the SimulationSystem from the World.</p>
+</li>
+<li>
+<p><code>private TerrainSystem m_TerrainSystem</code><br />
+Cached reference to the TerrainSystem used to read height data.</p>
+</li>
+<li>
+<p><code>private WaterSystem m_WaterSystem</code><br />
+Cached reference to the WaterSystem used to read water surface data.</p>
+</li>
+<li>
+<p><code>private ClimateSystem m_ClimateSystem</code><br />
+Cached reference to the ClimateSystem (present but not heavily used in this file).</p>
+</li>
+<li>
+<p><code>private bool m_Odd</code><br />
+Toggle used to alternate between velocity update and pressure update phases each frame the system runs.</p>
+</li>
+<li>
+<p><code>private JobHandle m_Deps</code><br />
+Current combined job dependency handle for outstanding jobs that operate on the wind cell buffer.</p>
+</li>
+<li>
+<p><code>private NativeArray&lt;WindCell&gt; m_Cells</code><br />
+Persistent NativeArray storing the entire wind grid (kResolution.x * kResolution.y * kResolution.z) of WindCell entries.</p>
+</li>
+<li>
+<p><code>public float2 constantWind { get; set; }</code><br />
+Public property representing global horizontal wind direction/magnitude used by the boundary pressure driver.</p>
+</li>
+<li>
+<p><code>private float m_ConstantPressure { get; set; }</code><br />
+Private property storing the base pressure value used when initializing/resetting cells.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Unity.Mathematics.float2 &lt;constantWind&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private System.Single &lt;m_ConstantPressure&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Single &lt;m_ConstantPressure&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.SimulationSystem m_SimulationSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.SimulationSystem m_SimulationSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.TerrainSystem m_TerrainSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.TerrainSystem m_TerrainSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.WaterSystem m_WaterSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.WaterSystem m_WaterSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.ClimateSystem m_ClimateSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.ClimateSystem m_ClimateSystem;
-</code></pre>
-<ul>
-<li><code>private System.Boolean m_Odd</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean m_Odd;
-</code></pre>
-<ul>
-<li><code>private Unity.Jobs.JobHandle m_Deps</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Jobs.JobHandle m_Deps;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeArray&lt;Game.Simulation.WindSimulationSystem+WindCell&gt; m_Cells</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeArray&lt;Game.Simulation.WindSimulationSystem+WindCell&gt; m_Cells;
-</code></pre>
-<ul>
-<li><code>public static readonly System.Int32 kUpdateInterval</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static readonly System.Int32 kUpdateInterval;
-</code></pre>
-<ul>
-<li><code>public static readonly Unity.Mathematics.int3 kResolution</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static readonly Unity.Mathematics.int3 kResolution;
-</code></pre>
-<ul>
-<li><code>public static readonly System.Single kChangeFactor</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static readonly System.Single kChangeFactor;
-</code></pre>
-<ul>
-<li><code>public static readonly System.Single kTerrainSlowdown</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static readonly System.Single kTerrainSlowdown;
-</code></pre>
-<ul>
-<li><code>public static readonly System.Single kAirSlowdown</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static readonly System.Single kAirSlowdown;
-</code></pre>
-<ul>
-<li><code>public static readonly System.Single kVerticalSlowdown</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static readonly System.Single kVerticalSlowdown;
-</code></pre>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>public Unity.Mathematics.float2 constantWind { get; set }</code>  </li>
+<li>
+<p><code>public float2 constantWind { get; set; }</code><br />
+Global, public horizontal wind vector used to seed and drive wind at the grid edges. Can be changed at runtime (SetWind method also sets pressure and resets cells).</p>
+</li>
+<li>
+<p><code>private float m_ConstantPressure { get; set; }</code><br />
+Internal pressure default used when setting/resetting the grid.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public Unity.Mathematics.float2 constantWind { get; set; }
-</code></pre>
-<ul>
-<li><code>private System.Single m_ConstantPressure { private get; private set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Single m_ConstantPressure { private get; private set; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public WindSimulationSystem()</code>  </li>
+<li><code>public WindSimulationSystem()</code><br />
+Default constructor. The system uses OnCreate to initialize subsystems and allocate the NativeArray; the constructor itself is present and marked with [Preserve] at runtime to prevent stripping.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public WindSimulationSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>public AddReader(Unity.Jobs.JobHandle reader) : System.Void</code>  </li>
+<li>
+<p><code>public override int GetUpdateInterval(SystemUpdatePhase phase)</code><br />
+Returns how often the system should be updated for the given phase. For GameSimulation phase it returns kUpdateInterval (512); for other phases it returns 1.</p>
+</li>
+<li>
+<p><code>public unsafe byte[] CreateByteArray&lt;T&gt;(NativeArray&lt;T&gt; src) where T : struct</code><br />
+Utility to copy a NativeArray<T> into a managed byte[] using UnsafeUtility.MemCpy. Useful for debug dumps or serialization helpers.</p>
+</li>
+<li>
+<p><code>public void DebugSave()</code><br />
+Completes outstanding jobs, then writes the grid resolution and raw cell bytes to Application.streamingAssetsPath + "/wind_temp.dat" using a BinaryWriter. Useful for offline debugging.</p>
+</li>
+<li>
+<p><code>public unsafe void DebugLoad()</code><br />
+Completes outstanding jobs, reads raw bytes from streamingAssetsPath + "/wind_temp.dat" and copies them directly into the m_Cells NativeArray memory. Use with caution because it performs unsafe raw memory writes.</p>
+</li>
+<li>
+<p><code>public void Serialize&lt;TWriter&gt;(TWriter writer) where TWriter : IWriter</code><br />
+Writes the number of cells, the cells NativeArray, and the constantWind vector to the writer. Used by the engine save/load streaming.</p>
+</li>
+<li>
+<p><code>public void Deserialize&lt;TReader&gt;(TReader reader) where TReader : IReader</code><br />
+Reads saved data back into the system. Handles version checks and compatibility:</p>
+</li>
+<li>If reader.context.version &lt;= Version.stormWater then it returns early (older versions unsupported).</li>
+<li>
+<p>Supports reading cell array length and contents if versions indicate compatibility, and reads constantWind if available; otherwise sets a default constantWind.</p>
+</li>
+<li>
+<p><code>public void SetDefaults(Context context)</code><br />
+Completes outstanding jobs and initializes all cells to the current m_ConstantPressure and velocities using constantWind (z velocity = 0). Called on reset/initialization.</p>
+</li>
+<li>
+<p><code>public void SetWind(float2 direction, float pressure)</code><br />
+Completes outstanding jobs, sets constantWind and m_ConstantPressure, then calls SetDefaults to apply the new wind/pressure across the grid.</p>
+</li>
+<li>
+<p><code>public static float3 GetCenterVelocity(int3 cell, NativeArray&lt;WindCell&gt; cells)</code><br />
+Compute an interpolated/center velocity for a cell by averaging the cell's velocity with those of negative-direction neighbors (to provide a center-sampled velocity). Helpful for sampling velocity at a voxel center.</p>
+</li>
+<li>
+<p><code>public static float3 GetCellCenter(int index)</code><br />
+Get world-space center position of the given flat index cell. Accounts for x/y cell location inside the horizontal CellMapSystem<Wind>.kMapSize and maps z layers to world heights (100 + 1024 * layerNormalized).</p>
+</li>
+<li>
+<p><code>public NativeArray&lt;WindCell&gt; GetCells(out JobHandle deps)</code><br />
+Returns the internal NativeArray<WindCell> and outputs the current dependency JobHandle so callers can add their own dependencies (reader jobs) or complete before reading.</p>
+</li>
+<li>
+<p><code>public void AddReader(JobHandle reader)</code><br />
+Combine an external reader job handle with the system's m_Deps to ensure correct job dependency tracking.</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnCreate()</code><br />
+System initialization:</p>
+</li>
+<li>Retrieves references to SimulationSystem, TerrainSystem, WaterSystem, ClimateSystem from the World.</li>
+<li>Sets default constantWind (0.275, 0.275) and default pressure (40f).</li>
+<li>
+<p>Allocates the persistent NativeArray m_Cells sized to kResolution.x * kResolution.y * kResolution.z.</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnDestroy()</code><br />
+Disposes the persistent NativeArray m_Cells. Ensures no memory leaks.</p>
+</li>
+<li>
+<p><code>private WindCell GetCell(int3 position)</code><br />
+Instance helper to read a WindCell from m_Cells using 3D coordinates.</p>
+</li>
+<li>
+<p><code>public static WindCell GetCell(int3 position, NativeArray&lt;WindCell&gt; cells)</code><br />
+Static safe lookup that converts 3D coordinates to flat index and returns default(WindCell) when out of bounds.</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnUpdate()</code><br />
+Main update loop invoked by the engine:</p>
+</li>
+<li>Requires terrain heightmap to be present.</li>
+<li>Alternates m_Odd each frame to schedule either UpdateWindVelocityJob or UpdatePressureJob.</li>
+<li>When scheduling UpdateWindVelocityJob it fetches TerrainHeightData and WaterSurfaceData and schedules the job over the entire grid. Adds readers to water/terrain systems to manage dependencies.</li>
+<li>When scheduling UpdatePressureJob it uses constantWind/10f for the driving wind.</li>
+<li>
+<p>Updates base.Dependency to the returned job handle so downstream systems in the same frame can depend on the wind results.</p>
+</li>
+<li>
+<p><code>[Preserve] public WindSimulationSystem()</code><br />
+Empty preserved constructor (same as the public constructor mentioned earlier).</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public void AddReader(JobHandle reader)
-    {
-        m_Deps = JobHandle.CombineDependencies(m_Deps, reader);
-    }
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Example: initialize and set a new wind direction / pressure at runtime
+[Preserve]
+protected override void OnCreate()
+{
+    base.OnCreate();
+
+    // The system will allocate m_Cells and set a default wind/pressure in OnCreate.
+    // To change the wind vector and pressure at runtime:
+    var windSystem = base.World.GetOrCreateSystemManaged&lt;WindSimulationSystem&gt;();
+    windSystem.SetWind(new float2(0.5f, 0.0f), 50f);
+
+    // If you need to read the cell array on the CPU:
+    JobHandle deps;
+    var cells = windSystem.GetCells(out deps);
+    deps.Complete(); // ensure jobs are finished before accessing cells on main thread
+    // read cells[index] as needed, then continue...
+}
 </code></pre>
-<ul>
-<li><code>public CreateByteArray&lt;T&gt;(Unity.Collections.NativeArray&lt;T&gt; src) : System.Byte[]</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Byte[] CreateByteArray&lt;T&gt;(Unity.Collections.NativeArray&lt;T&gt; src);
-</code></pre>
-<ul>
-<li><code>public DebugLoad() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public unsafe void DebugLoad()
-    {
-        m_Deps.Complete();
-        using System.IO.BinaryReader binaryReader = new System.IO.BinaryReader(File.OpenRead(Application.streamingAssetsPath + &quot;/wind_temp.dat&quot;));
-        int num = binaryReader.ReadInt32();
-        int num2 = binaryReader.ReadInt32();
-        int num3 = binaryReader.ReadInt32();
-        int num4 = num * num2 * num3 * UnsafeUtility.SizeOf&lt;WindCell&gt;();
-        byte[] array = new byte[num4];
-        binaryReader.Read(array, 0, num * num2 * num3 * sizeof(WindCell));
-        byte* unsafePtr = (byte*)m_Cells.GetUnsafePtr();
-        for (int i = 0; i &lt; num4; i++)
-        {
-            unsafePtr[i] = array[i];
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public DebugSave() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void DebugSave()
-    {
-        m_Deps.Complete();
-        using System.IO.BinaryWriter binaryWriter = new System.IO.BinaryWriter(File.OpenWrite(Application.streamingAssetsPath + &quot;/wind_temp.dat&quot;));
-        binaryWriter.Write(kResolution.x);
-        binaryWriter.Write(kResolution.y);
-        binaryWriter.Write(kResolution.z);
-        binaryWriter.Write(CreateByteArray(m_Cells));
-    }
-</code></pre>
-<ul>
-<li><code>public Deserialize&lt;TReader&gt;(TReader reader) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Void Deserialize&lt;TReader&gt;(TReader reader);
-</code></pre>
-<ul>
-<li><code>private GetCell(Unity.Mathematics.int3 position) : Game.Simulation.WindSimulationSystem+WindCell</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static WindCell GetCell(int3 position, NativeArray&lt;WindCell&gt; cells)
-    {
-        int num = position.x + position.y * kResolution.x + position.z * kResolution.x * kResolution.y;
-        if (num &lt; 0 || num &gt;= cells.Length)
-        {
-            return default(WindCell);
-        }
-        return cells[num];
-    }
-</code></pre>
-<ul>
-<li><code>public static GetCell(Unity.Mathematics.int3 position, Unity.Collections.NativeArray&lt;Game.Simulation.WindSimulationSystem+WindCell&gt; cells) : Game.Simulation.WindSimulationSystem+WindCell</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static WindCell GetCell(int3 position, NativeArray&lt;WindCell&gt; cells)
-    {
-        int num = position.x + position.y * kResolution.x + position.z * kResolution.x * kResolution.y;
-        if (num &lt; 0 || num &gt;= cells.Length)
-        {
-            return default(WindCell);
-        }
-        return cells[num];
-    }
-</code></pre>
-<ul>
-<li><code>public static GetCellCenter(System.Int32 index) : Unity.Mathematics.float3</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static float3 GetCellCenter(int index)
-    {
-        int3 @int = new int3(index % kResolution.x, index / kResolution.x % kResolution.y, index / (kResolution.x * kResolution.y));
-        float3 result = CellMapSystem&lt;Wind&gt;.kMapSize * new float3(((float)@int.x + 0.5f) / (float)kResolution.x, 0f, ((float)@int.y + 0.5f) / (float)kResolution.y) - CellMapSystem&lt;Wind&gt;.kMapSize / 2;
-        result.y = 100f + 1024f * ((float)@int.z + 0.5f) / (float)kResolution.z;
-        return result;
-    }
-</code></pre>
-<ul>
-<li><code>public GetCells(Unity.Jobs.JobHandle&amp; deps) : Unity.Collections.NativeArray&lt;Game.Simulation.WindSimulationSystem+WindCell&gt;</code>  </li>
-</ul>
-<pre><code class="language-csharp">public NativeArray&lt;WindCell&gt; GetCells(out JobHandle deps)
-    {
-        deps = m_Deps;
-        return m_Cells;
-    }
-</code></pre>
-<ul>
-<li><code>public static GetCenterVelocity(Unity.Mathematics.int3 cell, Unity.Collections.NativeArray&lt;Game.Simulation.WindSimulationSystem+WindCell&gt; cells) : Unity.Mathematics.float3</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static float3 GetCenterVelocity(int3 cell, NativeArray&lt;WindCell&gt; cells)
-    {
-        float3 velocities = GetCell(cell, cells).m_Velocities;
-        float3 @float = ((cell.x &gt; 0) ? GetCell(cell + new int3(-1, 0, 0), cells).m_Velocities : velocities);
-        float3 float2 = ((cell.y &gt; 0) ? GetCell(cell + new int3(0, -1, 0), cells).m_Velocities : velocities);
-        float3 float3 = ((cell.z &gt; 0) ? GetCell(cell + new int3(0, 0, -1), cells).m_Velocities : velocities);
-        return 0.5f * new float3(velocities.x + @float.x, velocities.y + float2.y, velocities.z + float3.z);
-    }
-</code></pre>
-<ul>
-<li><code>public virtual GetUpdateInterval(Game.SystemUpdatePhase phase) : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override int GetUpdateInterval(SystemUpdatePhase phase)
-    {
-        if (phase != SystemUpdatePhase.GameSimulation)
-        {
-            return 1;
-        }
-        return kUpdateInterval;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        m_SimulationSystem = base.World.GetOrCreateSystemManaged&lt;SimulationSystem&gt;();
-        m_TerrainSystem = base.World.GetOrCreateSystemManaged&lt;TerrainSystem&gt;();
-        m_WaterSystem = base.World.GetOrCreateSystemManaged&lt;WaterSystem&gt;();
-        m_ClimateSystem = base.World.GetOrCreateSystemManaged&lt;ClimateSystem&gt;();
-        constantWind = new float2(0.275f, 0.275f);
-        m_ConstantPressure = 40f;
-        m_Cells = new NativeArray&lt;WindCell&gt;(kResolution.x * kResolution.y * kResolution.z, Allocator.Persistent);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnDestroy() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnDestroy()
-    {
-        m_Cells.Dispose();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        if (m_TerrainSystem.heightmap != null)
-        {
-            m_Odd = !m_Odd;
-            if (!m_Odd)
-            {
-                TerrainHeightData data = m_TerrainSystem.GetHeightData();
-                float x = TerrainUtils.ToWorldSpace(ref data, 0f);
-                float y = TerrainUtils.ToWorldSpace(ref data, 65535f);
-                float2 terrainRange = new float2(x, y);
-                JobHandle deps;
-                UpdateWindVelocityJob jobData = new UpdateWindVelocityJob
-                {
-                    m_Cells = m_Cells,
-                    m_TerrainHeightData = data,
-                    m_WaterSurfaceData = m_WaterSystem.GetSurfaceData(out deps),
-                    m_TerrainRange = terrainRange
-                };
-                m_Deps = jobData.Schedule(kResolution.x * kResolution.y * kResolution.z, JobHandle.CombineDependencies(m_Deps, deps, base.Dependency));
-                m_WaterSystem.AddSurfaceReader(m_Deps);
-                m_TerrainSystem.AddCPUHeightReader(m_Deps);
-            }
-            else
-            {
-                UpdatePressureJob jobData2 = new UpdatePressureJob
-                {
-                    m_Cells = m_Cells,
-                    m_Wind = constantWind / 10f
-                };
-                m_Deps = jobData2.Schedule(kResolution.x * kResolution.y * kResolution.z, JobHandle.CombineDependencies(m_Deps, base.Dependency));
-            }
-            base.Dependency = m_Deps;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public Serialize&lt;TWriter&gt;(TWriter writer) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Void Serialize&lt;TWriter&gt;(TWriter writer);
-</code></pre>
-<ul>
-<li><code>public SetDefaults(Colossal.Serialization.Entities.Context context) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void SetDefaults(Context context)
-    {
-        m_Deps.Complete();
-        for (int i = 0; i &lt; m_Cells.Length; i++)
-        {
-            m_Cells[i] = new WindCell
-            {
-                m_Pressure = m_ConstantPressure,
-                m_Velocities = new float3(constantWind, 0f)
-            };
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public SetWind(Unity.Mathematics.float2 direction, System.Single pressure) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void SetWind(float2 direction, float pressure)
-    {
-        m_Deps.Complete();
-        constantWind = direction;
-        m_ConstantPressure = pressure;
-        SetDefaults(default(Context));
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Simulation.WindSimulationSystem+WindCell</code>  </li>
-<li><code>Game.Simulation.WindSimulationSystem+UpdateWindVelocityJob</code>  </li>
-<li><code>Game.Simulation.WindSimulationSystem+UpdatePressureJob</code>  </li>
-</ul>
 
 
 

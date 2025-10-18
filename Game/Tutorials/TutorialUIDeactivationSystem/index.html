@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87073,6 +87165,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Simulation/SurfaceWater/" class="md-nav__link">
         
   
@@ -95842,18 +95957,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -95872,6 +95987,15 @@
   <a href="#methods" class="md-nav__link">
     <span class="md-ellipsis">
       Methods
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
     </span>
   </a>
   
@@ -117912,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117939,18 +118085,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -117974,6 +118120,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -117991,126 +118146,97 @@
 
 
 <h1 id="gametutorialstutorialuideactivationsystem">Game.Tutorials.TutorialUIDeactivationSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Tutorials</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.Tutorials.TutorialDeactivationSystemBase</code><br />
-<strong>Implements:</strong> <code>Game.Tutorials.ITutorialUIDeactivationSystem</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class TutorialUIDeactivationSystem : Game.Tutorials.TutorialDeactivationSystemBase, Game.Tutorials.ITutorialUIDeactivationSystem
-{
-    private Game.Prefabs.PrefabSystem m_PrefabSystem;
-    private readonly System.Collections.Generic.HashSet&lt;System.String&gt; m_Deactivate;
-    private Unity.Entities.EntityQuery m_PendingTutorialQuery;
-    private Unity.Entities.EntityQuery m_ActiveTutorialQuery;
-
-    public TutorialUIDeactivationSystem();
-
-    private System.Void CheckDeactivate(Unity.Entities.EntityQuery query);
-    public System.Void DeactivateTag(System.String tag);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnUpdate();
-}
-</code></pre>
+<p><strong>Assembly:</strong><br />
+Assembly-CSharp (typical runtime assembly for game code; adjust if your build uses a different assembly)<br />
+<strong>Namespace:</strong> Game.Tutorials</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> TutorialDeactivationSystemBase, ITutorialUIDeactivationSystem</p>
+<p><strong>Summary:</strong><br />
+System that deactivates tutorial UI activations by tag. It monitors tutorial entities that contain UI activation data and a prefab reference, checks their UI tag string(s) and removes the TutorialActivated component when a matching tag has been requested for deactivation. Uses the game's PrefabSystem to read the tutorial prefab UI tag, and issues structural changes through an EntityCommandBuffer from the barrier system provided by the base class. Designed to handle both pending and active tutorial entities and respects the base class' phaseCanDeactivate for active tutorials.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.Prefabs.PrefabSystem m_PrefabSystem</code>  </li>
+<li>
+<p><code>private PrefabSystem m_PrefabSystem</code><br />
+Reference to the game's PrefabSystem used to resolve TutorialPrefab instances and read their TutorialUIActivation component (to obtain the uiTag).</p>
+</li>
+<li>
+<p><code>private readonly HashSet&lt;string&gt; m_Deactivate = new HashSet&lt;string&gt;()</code><br />
+A set of string tags requested for deactivation this frame. Tags are compared against the prefab uiTag entries (split by '|', trimmed). Cleared at the end of OnUpdate.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_PendingTutorialQuery</code><br />
+EntityQuery that matches tutorial entities that are pending activation (contain UIActivationData, TutorialData, TutorialActivated, PrefabData; exclude TutorialActive, TutorialCompleted, ForceActivation). Used to find pending tutorials to deactivate.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_ActiveTutorialQuery</code><br />
+EntityQuery that matches active tutorial entities (contain UIActivationData, TutorialData, TutorialActivated, PrefabData, TutorialActive; exclude TutorialCompleted, ForceActivation). Used to find active tutorials to deactivate when the system phase allows it.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.Prefabs.PrefabSystem m_PrefabSystem;
-</code></pre>
+<h2 id="properties">Properties</h2>
 <ul>
-<li><code>private readonly System.Collections.Generic.HashSet&lt;System.String&gt; m_Deactivate</code>  </li>
+<li>None.</li>
 </ul>
-<pre><code class="language-csharp">private readonly System.Collections.Generic.HashSet&lt;System.String&gt; m_Deactivate;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_PendingTutorialQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_PendingTutorialQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_ActiveTutorialQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_ActiveTutorialQuery;
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public TutorialUIDeactivationSystem()</code>  </li>
+<li><code>public TutorialUIDeactivationSystem()</code><br />
+Default constructor. Marked with [Preserve] attribute on the class and C# generated attribute for compatibility with managed systems. No custom initialization beyond what is done in OnCreate.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public TutorialUIDeactivationSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private CheckDeactivate(Unity.Entities.EntityQuery query) : System.Void</code>  </li>
+<li><code>protected override void OnCreate()</code><br />
+Initializes the system: obtains the PrefabSystem from the world and builds two EntityQuery objects:</li>
+<li>m_PendingTutorialQuery: for pending tutorial UI activations (not yet active).</li>
+<li>
+<p>m_ActiveTutorialQuery: for currently active tutorial UI activations.
+These queries filter entities by the presence/absence of components (UIActivationData, TutorialData, TutorialActivated, PrefabData, TutorialActive, TutorialCompleted, ForceActivation). Called once when the system is created.</p>
+</li>
+<li>
+<p><code>public void DeactivateTag(string tag)</code><br />
+Adds the provided tag string to the m_Deactivate HashSet. Tags accumulated this frame will be used in OnUpdate to deactivate matching tutorials.</p>
+</li>
+<li>
+<p><code>protected override void OnUpdate()</code><br />
+Main update loop. If there are any tags in m_Deactivate:</p>
+</li>
+<li>Checks the pending tutorial query and calls CheckDeactivate for matches.</li>
+<li>If the system's base phase allows deactivation (base.phaseCanDeactivate) and there are active tutorials, checks the active tutorial query as well.
+After processing, clears m_Deactivate.
+Notes:</li>
+<li>Uses EntityQuery.IsEmptyIgnoreFilter to avoid unnecessary work.</li>
+<li>
+<p>The actual removal of TutorialActivated is done using an EntityCommandBuffer produced by the inherited barrier system.</p>
+</li>
+<li>
+<p><code>private void CheckDeactivate(EntityQuery query)</code><br />
+Performs the actual matching and deactivation for the provided query:</p>
+</li>
+<li>Converts the query results into NativeArray<PrefabData> and NativeArray<Entity> with Allocator.TempJob (must be disposed).</li>
+<li>Iterates all matched entities and for each:<ul>
+<li>Resolves the TutorialPrefab via m_PrefabSystem.GetPrefab<TutorialPrefab>(prefabData).</li>
+<li>Reads the TutorialUIActivation component's m_UITagProvider.uiTag string.</li>
+<li>Splits uiTag by '|' into tag entries; if uiTag is null the entity is skipped.</li>
+<li>Trims each tag entry and if it matches any tag in m_Deactivate, enqueues a command to remove the TutorialActivated component on that entity via the EntityCommandBuffer.</li>
 </ul>
-<pre><code class="language-csharp">private void CheckDeactivate(EntityQuery query)
-    {
-        NativeArray&lt;PrefabData&gt; nativeArray = query.ToComponentDataArray&lt;PrefabData&gt;(Allocator.TempJob);
-        NativeArray&lt;Entity&gt; nativeArray2 = query.ToEntityArray(Allocator.TempJob);
-        EntityCommandBuffer entityCommandBuffer = m_BarrierSystem.CreateCommandBuffer();
-        for (int i = 0; i &lt; nativeArray2.Length; i++)
-        {
-            string[] array = m_PrefabSystem.GetPrefab&lt;TutorialPrefab&gt;(nativeArray[i]).GetComponent&lt;TutorialUIActivation&gt;().m_UITagProvider.uiTag?.Split('|');
-            if (array == null)
-            {
-                continue;
-            }
-            for (int j = 0; j &lt; array.Length; j++)
-            {
-                if (m_Deactivate.Contains(array[j].Trim()))
-                {
-                    entityCommandBuffer.RemoveComponent&lt;TutorialActivated&gt;(nativeArray2[i]);
-                }
-            }
-        }
-        nativeArray.Dispose();
-        nativeArray2.Dispose();
-    }
-</code></pre>
-<ul>
-<li><code>public DeactivateTag(System.String tag) : System.Void</code>  </li>
+</li>
+<li>Disposes the native arrays after processing.
+Performance &amp; safety notes:</li>
+<li>Allocator.TempJob is used; arrays are disposed synchronously in this method — avoid long-running operations between allocation and disposal.</li>
+<li>This method issues structural changes via an ECB (so changes will be applied later by the barrier system).</li>
+<li>Tag matching is simple string equality on trimmed entries; tag strings are split by '|' in the prefab's uiTag.</li>
 </ul>
-<pre><code class="language-csharp">public void DeactivateTag(string tag)
-    {
-        m_Deactivate.Add(tag);
-    }
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Request deactivation of tutorials whose prefab uiTag contains &quot;myTag&quot;.
+var uiDeactivation = World.DefaultGameObjectInjectionWorld
+    .GetOrCreateSystemManaged&lt;Game.Tutorials.TutorialUIDeactivationSystem&gt;();
+uiDeactivation.DeactivateTag(&quot;myTag&quot;);
+
+// The system will process the request in its next OnUpdate, removing the TutorialActivated
+// component from matching tutorial entities (pending or active, depending on phase).
 </code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_PrefabSystem = base.World.GetOrCreateSystemManaged&lt;PrefabSystem&gt;();
-        m_PendingTutorialQuery = GetEntityQuery(ComponentType.ReadOnly&lt;UIActivationData&gt;(), ComponentType.ReadOnly&lt;TutorialData&gt;(), ComponentType.ReadOnly&lt;TutorialActivated&gt;(), ComponentType.ReadOnly&lt;PrefabData&gt;(), ComponentType.Exclude&lt;TutorialActive&gt;(), ComponentType.Exclude&lt;TutorialCompleted&gt;(), ComponentType.Exclude&lt;ForceActivation&gt;());
-        m_ActiveTutorialQuery = GetEntityQuery(ComponentType.ReadOnly&lt;UIActivationData&gt;(), ComponentType.ReadOnly&lt;TutorialData&gt;(), ComponentType.ReadOnly&lt;TutorialActivated&gt;(), ComponentType.ReadOnly&lt;PrefabData&gt;(), ComponentType.ReadOnly&lt;TutorialActive&gt;(), ComponentType.Exclude&lt;TutorialCompleted&gt;(), ComponentType.Exclude&lt;ForceActivation&gt;());
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        if (m_Deactivate.Count &gt; 0)
-        {
-            if (!m_PendingTutorialQuery.IsEmptyIgnoreFilter)
-            {
-                CheckDeactivate(m_PendingTutorialQuery);
-            }
-            if (!m_ActiveTutorialQuery.IsEmptyIgnoreFilter &amp;&amp; base.phaseCanDeactivate)
-            {
-                CheckDeactivate(m_ActiveTutorialQuery);
-            }
-        }
-        m_Deactivate.Clear();
-    }
-</code></pre>
+<p>Additional notes:
+- The system expects tutorial prefabs to provide their UI tag string via TutorialUIActivation.m_UITagProvider.uiTag; tags can be combined in the prefab with '|' separators (e.g., "tagA|tagB").
+- Because the system removes TutorialActivated, other systems reacting to activation state changes should observe the resulting entity/component state the usual ECS way (after the barrier applies the changes).</p>
 
 
 

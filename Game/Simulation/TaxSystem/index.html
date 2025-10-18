@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87075,6 +87167,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../SurfaceWater/" class="md-nav__link">
         
   
@@ -87355,15 +87470,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -87400,9 +87506,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -117930,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117955,15 +118083,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -118002,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118027,1034 +118146,255 @@
 
 
 <h1 id="gamesimulationtaxsystem">Game.Simulation.TaxSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Simulation</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code><br />
-<strong>Implements:</strong> <code>Game.Simulation.ITaxSystem</code>, <code>Colossal.Serialization.Entities.IDefaultSerializable</code>, <code>Colossal.Serialization.Entities.ISerializable</code>, <code>Game.Serialization.IPostDeserialize</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class TaxSystem : Game.GameSystemBase, Game.Simulation.ITaxSystem, Colossal.Serialization.Entities.IDefaultSerializable, Colossal.Serialization.Entities.ISerializable, Game.Serialization.IPostDeserialize
-{
-    private Unity.Collections.NativeArray&lt;System.Int32&gt; m_TaxRates;
-    private Unity.Entities.EntityQuery m_ResidentialTaxPayerGroup;
-    private Unity.Entities.EntityQuery m_CommercialTaxPayerGroup;
-    private Unity.Entities.EntityQuery m_IndustrialTaxPayerGroup;
-    private Unity.Entities.EntityQuery m_TaxParameterGroup;
-    private Unity.Entities.EntityQuery m_GameModeSettingQuery;
-    private Game.Simulation.CityStatisticsSystem m_CityStatisticsSystem;
-    private Game.Simulation.SimulationSystem m_SimulationSystem;
-    private Game.Prefabs.ResourceSystem m_ResourceSystem;
-    private Game.Prefabs.TaxParameterData m_TaxParameterData;
-    private Unity.Mathematics.float3 m_TaxPaidMultiplier;
-    private Unity.Jobs.JobHandle m_Readers;
-    private Game.Simulation.TaxSystem+TypeHandle __TypeHandle;
-    public static readonly System.Int32 kUpdatesPerDay;
-
-    public System.Int32 TaxRate { get; set; }
-    public Unity.Jobs.JobHandle Readers { get; }
-
-    public TaxSystem();
-
-    private System.Void __AssignQueries(Unity.Entities.SystemState&amp; state);
-    public System.Void AddReader(Unity.Jobs.JobHandle reader);
-    private System.Void ClampResidentialTaxRates();
-    private System.Void ClampResourceTaxRates(Game.Simulation.TaxAreaType areaType);
-    public System.Void Deserialize&lt;TReader&gt;(TReader reader);
-    private System.Void EnsureAreaTaxRateLimits(Game.Simulation.TaxAreaType areaType);
-    private System.Void EnsureJobLevelTaxRateLimits(System.Int32 jobLevel);
-    private System.Void EnsureResourceTaxRateLimits(Game.Simulation.TaxAreaType areaType, Game.Economy.Resource resource);
-    private System.Void EnsureTaxParameterData();
-    public System.Int32 GetCommercialTaxRate(Game.Economy.Resource resource);
-    public static System.Int32 GetCommercialTaxRate(Game.Economy.Resource resource, Unity.Collections.NativeArray&lt;System.Int32&gt; taxRates);
-    public System.Int32 GetEstimatedCommercialTaxIncome(Game.Economy.Resource resource, Unity.Collections.NativeParallelHashMap&lt;Game.Simulation.CityStatisticsSystem+StatisticsKey, Unity.Entities.Entity&gt; statisticsLookup, Unity.Entities.BufferLookup&lt;Game.City.CityStatistic&gt; stats);
-    public static System.Int32 GetEstimatedCommercialTaxIncome(Game.Economy.Resource resource, Unity.Collections.NativeParallelHashMap&lt;Game.Simulation.CityStatisticsSystem+StatisticsKey, Unity.Entities.Entity&gt; statisticsLookup, Unity.Entities.BufferLookup&lt;Game.City.CityStatistic&gt; stats, Unity.Collections.NativeArray&lt;System.Int32&gt; taxRates);
-    public System.Int32 GetEstimatedIndustrialTaxIncome(Game.Economy.Resource resource, Unity.Collections.NativeParallelHashMap&lt;Game.Simulation.CityStatisticsSystem+StatisticsKey, Unity.Entities.Entity&gt; statisticsLookup, Unity.Entities.BufferLookup&lt;Game.City.CityStatistic&gt; stats);
-    public static System.Int32 GetEstimatedIndustrialTaxIncome(Game.Economy.Resource resource, Unity.Collections.NativeParallelHashMap&lt;Game.Simulation.CityStatisticsSystem+StatisticsKey, Unity.Entities.Entity&gt; statisticsLookup, Unity.Entities.BufferLookup&lt;Game.City.CityStatistic&gt; stats, Unity.Collections.NativeArray&lt;System.Int32&gt; taxRates);
-    public System.Int32 GetEstimatedOfficeTaxIncome(Game.Economy.Resource resource, Unity.Collections.NativeParallelHashMap&lt;Game.Simulation.CityStatisticsSystem+StatisticsKey, Unity.Entities.Entity&gt; statisticsLookup, Unity.Entities.BufferLookup&lt;Game.City.CityStatistic&gt; stats);
-    public static System.Int32 GetEstimatedOfficeTaxIncome(Game.Economy.Resource resource, Unity.Collections.NativeParallelHashMap&lt;Game.Simulation.CityStatisticsSystem+StatisticsKey, Unity.Entities.Entity&gt; statisticsLookup, Unity.Entities.BufferLookup&lt;Game.City.CityStatistic&gt; stats, Unity.Collections.NativeArray&lt;System.Int32&gt; taxRates);
-    public System.Int32 GetEstimatedResidentialTaxIncome(System.Int32 jobLevel, Unity.Collections.NativeParallelHashMap&lt;Game.Simulation.CityStatisticsSystem+StatisticsKey, Unity.Entities.Entity&gt; statisticsLookup, Unity.Entities.BufferLookup&lt;Game.City.CityStatistic&gt; stats);
-    public static System.Int32 GetEstimatedResidentialTaxIncome(System.Int32 jobLevel, Unity.Collections.NativeParallelHashMap&lt;Game.Simulation.CityStatisticsSystem+StatisticsKey, Unity.Entities.Entity&gt; statisticsLookup, Unity.Entities.BufferLookup&lt;Game.City.CityStatistic&gt; stats, Unity.Collections.NativeArray&lt;System.Int32&gt; taxRates);
-    public System.Int32 GetEstimatedTaxAmount(Game.Simulation.TaxAreaType areaType, Game.Simulation.TaxResultType resultType, Unity.Collections.NativeParallelHashMap&lt;Game.Simulation.CityStatisticsSystem+StatisticsKey, Unity.Entities.Entity&gt; statisticsLookup, Unity.Entities.BufferLookup&lt;Game.City.CityStatistic&gt; stats);
-    public static System.Int32 GetEstimatedTaxAmount(Game.Simulation.TaxAreaType areaType, Game.Simulation.TaxResultType resultType, Unity.Collections.NativeParallelHashMap&lt;Game.Simulation.CityStatisticsSystem+StatisticsKey, Unity.Entities.Entity&gt; statisticsLookup, Unity.Entities.BufferLookup&lt;Game.City.CityStatistic&gt; stats, Unity.Collections.NativeArray&lt;System.Int32&gt; taxRates);
-    public System.Int32 GetIndustrialTaxRate(Game.Economy.Resource resource);
-    public static System.Int32 GetIndustrialTaxRate(Game.Economy.Resource resource, Unity.Collections.NativeArray&lt;System.Int32&gt; taxRates);
-    private Unity.Mathematics.int2 GetJobLevelTaxRateRange();
-    public System.Int32 GetModifiedCommercialTaxRate(Game.Economy.Resource resource, Unity.Entities.Entity district, Unity.Entities.BufferLookup&lt;Game.Areas.DistrictModifier&gt; policies);
-    public static System.Int32 GetModifiedCommercialTaxRate(Game.Economy.Resource resource, Unity.Collections.NativeArray&lt;System.Int32&gt; taxRates, Unity.Entities.Entity district, Unity.Entities.BufferLookup&lt;Game.Areas.DistrictModifier&gt; policies);
-    public System.Int32 GetModifiedTaxRate(Game.Simulation.TaxAreaType areaType, Unity.Entities.Entity district, Unity.Entities.BufferLookup&lt;Game.Areas.DistrictModifier&gt; policies);
-    public static System.Int32 GetModifiedTaxRate(Game.Simulation.TaxAreaType areaType, Unity.Collections.NativeArray&lt;System.Int32&gt; taxRates, Unity.Entities.Entity district, Unity.Entities.BufferLookup&lt;Game.Areas.DistrictModifier&gt; policies);
-    public System.Int32 GetOfficeTaxRate(Game.Economy.Resource resource);
-    public static System.Int32 GetOfficeTaxRate(Game.Economy.Resource resource, Unity.Collections.NativeArray&lt;System.Int32&gt; taxRates);
-    public System.Int32 GetResidentialTaxRate(System.Int32 jobLevel);
-    public static System.Int32 GetResidentialTaxRate(System.Int32 jobLevel, Unity.Collections.NativeArray&lt;System.Int32&gt; taxRates);
-    private Unity.Mathematics.int2 GetResourceTaxRateRange(Game.Simulation.TaxAreaType areaType);
-    public static System.Int32 GetTax(Game.Agents.TaxPayer payer);
-    public Game.Prefabs.TaxParameterData GetTaxParameterData();
-    public System.Int32 GetTaxRate(Game.Simulation.TaxAreaType areaType);
-    public static System.Int32 GetTaxRate(Game.Simulation.TaxAreaType areaType, Unity.Collections.NativeArray&lt;System.Int32&gt; taxRates);
-    public System.Int32 GetTaxRateEffect(Game.Simulation.TaxAreaType areaType, System.Int32 taxRate);
-    public Unity.Mathematics.int2 GetTaxRateRange(Game.Simulation.TaxAreaType areaType);
-    public Unity.Collections.NativeArray&lt;System.Int32&gt; GetTaxRates();
-    public virtual System.Int32 GetUpdateInterval(Game.SystemUpdatePhase phase);
-    private System.Int32 GetZeroOffset(Game.Simulation.TaxAreaType areaType);
-    private static System.Boolean MatchesResultType(System.Int32 amount, Game.Simulation.TaxResultType resultType);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnCreateForCompiler();
-    protected virtual System.Void OnDestroy();
-    protected virtual System.Void OnGameLoaded(Colossal.Serialization.Entities.Context serializationContext);
-    protected virtual System.Void OnUpdate();
-    public System.Void PostDeserialize(Colossal.Serialization.Entities.Context context);
-    public System.Void Serialize&lt;TWriter&gt;(TWriter writer);
-    public System.Void SetCommercialTaxRate(Game.Economy.Resource resource, System.Int32 rate);
-    public System.Void SetDefaults(Colossal.Serialization.Entities.Context context);
-    public System.Void SetIndustrialTaxRate(Game.Economy.Resource resource, System.Int32 rate);
-    public System.Void SetOfficeTaxRate(Game.Economy.Resource resource, System.Int32 rate);
-    public System.Void SetResidentialTaxRate(System.Int32 jobLevel, System.Int32 rate);
-    public System.Void SetTaxRate(Game.Simulation.TaxAreaType areaType, System.Int32 rate);
-}
-</code></pre>
+<p><strong>Assembly:</strong> Game<br />
+<strong>Namespace:</strong> Game.Simulation</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> GameSystemBase, ITaxSystem, IDefaultSerializable, ISerializable, IPostDeserialize</p>
+<p><strong>Summary:</strong><br />
+TaxSystem manages all city tax logic: stores and clamps tax rates, schedules jobs that collect taxes from residential/commercial/industrial entities, computes estimated tax incomes from statistics, and handles serialization of tax settings. It exposes APIs to get/set global and area/resource/job-level tax rates, apply district policy modifiers, and obtain estimated income/expense values for UI and simulation decisions. Internally it schedules a Burst-compiled IJobChunk (PayTaxJob) that deducts money from entities' resources and pushes statistics events. It also respects game mode multipliers (ModeSettingData) and tax parameter limits (TaxParameterData).</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Unity.Collections.NativeArray&lt;System.Int32&gt; m_TaxRates</code>  </li>
+<li>
+<p><code>public static readonly int kUpdatesPerDay</code><br />
+Constant specifying how many tax updates happen per day (32). Used when computing update frames and converting untaxed income to per-day numbers.</p>
+</li>
+<li>
+<p><code>private NativeArray&lt;int&gt; m_TaxRates</code><br />
+Array storing the base/global tax rate at index 0 and offsets for area/resource/job-level rates in the remaining slots. Persisted across save/load and clamped against TaxParameterData limits.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_ResidentialTaxPayerGroup</code><br />
+EntityQuery used to find residential tax payer entities for scheduling the PayTaxJob (households).</p>
+</li>
+<li>
+<p><code>private EntityQuery m_CommercialTaxPayerGroup</code><br />
+EntityQuery for commercial tax payer entities (commercial service buildings / businesses).</p>
+</li>
+<li>
+<p><code>private EntityQuery m_IndustrialTaxPayerGroup</code><br />
+EntityQuery for industrial tax payer entities (processing companies / industrial buildings).</p>
+</li>
+<li>
+<p><code>private EntityQuery m_TaxParameterGroup</code><br />
+Query to access TaxParameterData singleton (limits and rule parameters).</p>
+</li>
+<li>
+<p><code>private EntityQuery m_GameModeSettingQuery</code><br />
+Query to access ModeSettingData singleton (game mode multipliers such as m_TaxPaidMultiplier).</p>
+</li>
+<li>
+<p><code>private CityStatisticsSystem m_CityStatisticsSystem</code><br />
+Reference to CityStatisticsSystem for queuing statistic events and reading statistics used by estimators.</p>
+</li>
+<li>
+<p><code>private SimulationSystem m_SimulationSystem</code><br />
+Reference to SimulationSystem used to compute the current update frame.</p>
+</li>
+<li>
+<p><code>private ResourceSystem m_ResourceSystem</code><br />
+Reference to ResourceSystem for iterating resources and mapping resources → prefabs.</p>
+</li>
+<li>
+<p><code>private TaxParameterData m_TaxParameterData</code><br />
+Cached TaxParameterData containing allowed ranges for different tax categories; refreshed from m_TaxParameterGroup when needed.</p>
+</li>
+<li>
+<p><code>private float3 m_TaxPaidMultiplier</code><br />
+Multiplier applied to tax payments per area type (x=residential, y=commercial, z=industrial). Taken from ModeSettingData if enabled; otherwise defaults to (1,1,1).</p>
+</li>
+<li>
+<p><code>private JobHandle m_Readers</code><br />
+Combined JobHandle of external readers that must be synchronized with this system (used by AddReader/Readers).</p>
+</li>
+<li>
+<p><code>private TypeHandle __TypeHandle</code><br />
+Compiler-generated struct holding Entity/Component/Buffer handles used by the internal job scheduling paths.</p>
+</li>
+<li>
+<p><code>private struct PayTaxJob</code> (nested)<br />
+Burst-compiled IJobChunk that iterates taxpayers for a specific IncomeSource (residential/commercial/industrial), calculates tax to pay, deducts money from their Resources buffer, and enqueues StatisticsEvent(s). It uses BufferLookup/ComponentLookup handles and respects UpdateFrame shared component to only process entities on the correct frame.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeArray&lt;System.Int32&gt; m_TaxRates;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_ResidentialTaxPayerGroup</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_ResidentialTaxPayerGroup;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_CommercialTaxPayerGroup</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_CommercialTaxPayerGroup;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_IndustrialTaxPayerGroup</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_IndustrialTaxPayerGroup;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_TaxParameterGroup</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_TaxParameterGroup;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_GameModeSettingQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_GameModeSettingQuery;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.CityStatisticsSystem m_CityStatisticsSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.CityStatisticsSystem m_CityStatisticsSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.SimulationSystem m_SimulationSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.SimulationSystem m_SimulationSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Prefabs.ResourceSystem m_ResourceSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Prefabs.ResourceSystem m_ResourceSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Prefabs.TaxParameterData m_TaxParameterData</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Prefabs.TaxParameterData m_TaxParameterData;
-</code></pre>
-<ul>
-<li><code>private Unity.Mathematics.float3 m_TaxPaidMultiplier</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Mathematics.float3 m_TaxPaidMultiplier;
-</code></pre>
-<ul>
-<li><code>private Unity.Jobs.JobHandle m_Readers</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Jobs.JobHandle m_Readers;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.TaxSystem+TypeHandle __TypeHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.TaxSystem+TypeHandle __TypeHandle;
-</code></pre>
-<ul>
-<li><code>public static readonly System.Int32 kUpdatesPerDay</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static readonly System.Int32 kUpdatesPerDay;
-</code></pre>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>public System.Int32 TaxRate { get; set }</code>  </li>
+<li>
+<p><code>public int TaxRate { get; set; }</code><br />
+Gets or sets the global base tax rate (m_TaxRates[0]). Setter clamps to m_TaxParameterData.m_TotalTaxLimits and then enforces area-specific limits via EnsureAreaTaxRateLimits for Residential, Commercial, Industrial, and Office.</p>
+</li>
+<li>
+<p><code>public JobHandle Readers { get; }</code><br />
+Returns the combined JobHandle for registered readers (m_Readers). Use AddReader to add dependencies.</p>
+</li>
+<li>
+<p><code>public override int GetUpdateInterval(SystemUpdatePhase phase)</code><br />
+Returns the system update interval used by the engine; uses kUpdatesPerDay to compute the frequency.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public System.Int32 TaxRate { get; set; }
-</code></pre>
-<ul>
-<li><code>public Unity.Jobs.JobHandle Readers { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Unity.Jobs.JobHandle Readers { get; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public TaxSystem()</code>  </li>
+<li><code>public TaxSystem()</code><br />
+Default constructor (preserved). Initialization of runtime data occurs in OnCreate.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public TaxSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private __AssignQueries(Unity.Entities.SystemState&amp; state) : System.Void</code>  </li>
+<li>
+<p><code>protected override void OnCreate()</code> : System.Void<br />
+Initializes queries and subsystems, allocates m_TaxRates (size 92), sets defaults (m_TaxRates[0]=10), sets m_TaxPaidMultiplier to (1,1,1), and calls RequireForUpdate(m_TaxParameterGroup) so system updates only when parameter data is present. Also caches references to CityStatisticsSystem, SimulationSystem, ResourceSystem.</p>
+</li>
+<li>
+<p><code>protected override void OnDestroy()</code> : System.Void<br />
+Disposes persistent NativeArray m_TaxRates and calls base.OnDestroy.</p>
+</li>
+<li>
+<p><code>protected override void OnUpdate()</code> : System.Void<br />
+Main runtime update. Ensures TaxParameterData is loaded, computes updateFrame, prepares ResourcePrefabs, and schedules three PayTaxJob instances (residential, commercial, industrial) as parallel jobs. Collects JobHandles and sets base.Dependency accordingly. Also registers writers with CityStatisticsSystem and uses m_TaxPaidMultiplier per job.</p>
+</li>
+<li>
+<p><code>public static int GetTax(TaxPayer payer)</code> : int<br />
+Utility to compute the tax amount from a TaxPayer: round(0.01 * payer.m_AverageTaxRate * payer.m_UntaxedIncome).</p>
+</li>
+<li>
+<p><code>public void Serialize&lt;TWriter&gt;(TWriter writer) where TWriter : IWriter</code> : System.Void<br />
+Writes the length and contents of m_TaxRates to a writer for saving.</p>
+</li>
+<li>
+<p><code>public void Deserialize&lt;TReader&gt;(TReader reader) where TReader : IReader</code> : System.Void<br />
+Reads tax rates back from save data. Handles format/version differences (e.g., older formats without averageTaxRate or fish resource tags) and applies migrations (shifting array entries, setting fish rates to 0) when needed.</p>
+</li>
+<li>
+<p><code>public void PostDeserialize(Context context)</code> : System.Void<br />
+After deserialization this sets sensible defaults for very old versions that predate averageTaxRate by resetting the array.</p>
+</li>
+<li>
+<p><code>public void SetDefaults(Context context)</code> : System.Void<br />
+Sets default tax values (m_TaxRates[0]=10, others 0).</p>
+</li>
+<li>
+<p><code>public NativeArray&lt;int&gt; GetTaxRates()</code> : NativeArray<int><br />
+Returns the internal NativeArray containing all tax rate offsets and base value. Caller must not dispose.</p>
+</li>
+<li>
+<p><code>public void AddReader(JobHandle reader)</code> : System.Void<br />
+Combines a JobHandle from an external reader with m_Readers so the TaxSystem can respect external dependencies.</p>
+</li>
+<li>
+<p><code>public int GetTaxRate(TaxAreaType areaType)</code> : int<br />
+Returns tax rate for the given area type using the current m_TaxRates.</p>
+</li>
+<li>
+<p><code>public static int GetTaxRate(TaxAreaType areaType, NativeArray&lt;int&gt; taxRates)</code> : int<br />
+Static variant that computes base + offset for areaType from a provided taxRates array.</p>
+</li>
+<li>
+<p><code>public int2 GetTaxRateRange(TaxAreaType areaType)</code> : int2<br />
+Returns a min/max allowed tax rate for the given area type. For Residential this includes job-level modifiers; for others it uses resource ranges.</p>
+</li>
+<li>
+<p><code>public int GetModifiedTaxRate(TaxAreaType areaType, Entity district, BufferLookup&lt;DistrictModifier&gt; policies)</code> : int<br />
+Returns modified tax rate in a district, applying district modifiers (e.g., LowCommercialTax). Static overload also exists.</p>
+</li>
+<li>
+<p><code>private void EnsureTaxParameterData()</code> : System.Void<br />
+Ensures m_TaxParameterData is valid (refetches from m_TaxParameterGroup singleton if uninitialized).</p>
+</li>
+<li>
+<p><code>public void SetTaxRate(TaxAreaType areaType, int rate)</code> : System.Void<br />
+Sets the effective tax for the areaType by storing an offset relative to base tax (m_TaxRates[areaType] = rate - base) and enforces limits.</p>
+</li>
+<li>
+<p><code>private void EnsureAreaTaxRateLimits(TaxAreaType areaType)</code> : System.Void<br />
+Clamps and enforces per-area and per-resource/job limits based on m_TaxParameterData. Also iterates resources and job levels to ensure sub-rates obey allowed ranges.</p>
+</li>
+<li>
+<p><code>private void EnsureJobLevelTaxRateLimits(int jobLevel)</code> : System.Void<br />
+Enforces job-level tax limits for a single residential job level.</p>
+</li>
+<li>
+<p><code>private void ClampResidentialTaxRates()</code> : System.Void<br />
+If job-level offsets collectively exceed allowed ranges, this method redistributes adjustments to keep global/respective offsets consistent.</p>
+</li>
+<li>
+<p><code>private int2 GetJobLevelTaxRateRange()</code> : int2<br />
+Returns min/max of the job-level offsets (m_TaxRates[5..9]).</p>
+</li>
+<li>
+<p><code>private void EnsureResourceTaxRateLimits(TaxAreaType areaType, Resource resource)</code> : System.Void<br />
+Enforces resource-specific tax limits for commercial/industrial/office categories.</p>
+</li>
+<li>
+<p><code>private void ClampResourceTaxRates(TaxAreaType areaType)</code> : System.Void<br />
+When resource-specific offsets collectively exceed allowed limits, this redistributes adjustments and applies offset corrections across taxable resources.</p>
+</li>
+<li>
+<p><code>private int2 GetResourceTaxRateRange(TaxAreaType areaType)</code> : int2<br />
+Computes min/max offsets across all taxable resources for the given area type.</p>
+</li>
+<li>
+<p><code>private int GetZeroOffset(TaxAreaType areaType)</code> : int<br />
+Returns the index offset used in m_TaxRates for the zero-based slot corresponding to resource arrays: 10 for Commercial, 51 for Industrial/Office. Throws for Residential.</p>
+</li>
+<li>
+<p>Residential/commercial/industrial/office convenience APIs:</p>
+</li>
+<li><code>public int GetResidentialTaxRate(int jobLevel)</code> / static overload  </li>
+<li><code>public void SetResidentialTaxRate(int jobLevel, int rate)</code>  </li>
+<li><code>public int GetCommercialTaxRate(Resource resource)</code> / static overload  </li>
+<li><code>public void SetCommercialTaxRate(Resource resource, int rate)</code>  </li>
+<li><code>public int GetIndustrialTaxRate(Resource resource)</code> / static overload  </li>
+<li><code>public void SetIndustrialTaxRate(Resource resource, int rate)</code>  </li>
+<li><code>public int GetOfficeTaxRate(Resource resource)</code> / static overload  </li>
+<li>
+<p><code>public void SetOfficeTaxRate(Resource resource, int rate)</code><br />
+  Each getter composes base + area offset + resource/job offset. Setters store offsets and call Ensure... and Clamp... helpers.</p>
+</li>
+<li>
+<p><code>public int GetTaxRateEffect(TaxAreaType areaType, int taxRate)</code> : int<br />
+Placeholder method that currently returns 0 in this code (could be intended to compute some effect on demand).</p>
+</li>
+<li>
+<p>Estimation methods for UI/prediction:</p>
+</li>
+<li><code>public int GetEstimatedTaxAmount(TaxAreaType areaType, TaxResultType resultType, NativeParallelHashMap&lt;...&gt; statisticsLookup, BufferLookup&lt;CityStatistic&gt; stats)</code>  </li>
+<li>
+<p>Static helpers: GetEstimatedResidentialTaxIncome, GetEstimatedCommercialTaxIncome, GetEstimatedIndustrialTaxIncome, GetEstimatedOfficeTaxIncome<br />
+  These compute estimated tax income/expense using statistics values (e.g., StatisticType.*TaxableIncome) multiplied by the configured tax rate and divided by 100.</p>
+</li>
+<li>
+<p><code>private static bool MatchesResultType(int amount, TaxResultType resultType)</code> : bool<br />
+Utility used by GetEstimatedTaxAmount to filter returned totals based on whether the caller wants Income, Expense, Any, etc.</p>
+</li>
+<li>
+<p>Compiler/serialization helper methods (<code>__AssignQueries</code>, <code>OnCreateForCompiler</code>, <code>__TypeHandle.__AssignHandles</code>)<br />
+These are support generated methods used by the DOTS compiler integration and should not be needed by typical modders.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private void __AssignQueries(ref SystemState state)
-    {
-        new EntityQueryBuilder(Allocator.Temp).Dispose();
-    }
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Example: change base tax and a resource-specific commercial tax, then query an estimate.
+var taxSystem = World.DefaultGameObjectInjectionWorld.GetExistingSystemManaged&lt;Game.Simulation.TaxSystem&gt;();
+
+// Set global base tax to 12%
+taxSystem.TaxRate = 12;
+
+// Set commercial tax for Entertainment resource to 15% total
+taxSystem.SetCommercialTaxRate(Resource.Entertainment, 15);
+
+// Read residential tax rate for job level 0 (low level)
+int lowResRate = taxSystem.GetResidentialTaxRate(0);
+
+// Get an estimated commercial income (Income-only) for UI reporting
+int estimatedCommercialIncome = taxSystem.GetEstimatedTaxAmount(
+    TaxAreaType.Commercial,
+    TaxResultType.Income,
+    cityStatisticsLookup, // NativeParallelHashMap&lt;StatisticsKey, Entity&gt;
+    cityStatisticsBufferLookup // BufferLookup&lt;CityStatistic&gt;
+);
 </code></pre>
-<ul>
-<li><code>public AddReader(Unity.Jobs.JobHandle reader) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void AddReader(JobHandle reader)
-    {
-        m_Readers = JobHandle.CombineDependencies(m_Readers, reader);
-    }
-</code></pre>
-<ul>
-<li><code>private ClampResidentialTaxRates() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void ClampResidentialTaxRates()
-    {
-        int2 jobLevelTaxRateRange = GetJobLevelTaxRateRange();
-        int num = 0;
-        if (jobLevelTaxRateRange.x &gt; 0)
-        {
-            num = jobLevelTaxRateRange.x;
-        }
-        else if (jobLevelTaxRateRange.y &lt; 0)
-        {
-            num = jobLevelTaxRateRange.y;
-        }
-        if (num != 0)
-        {
-            m_TaxRates[1] += num;
-            for (int i = 0; i &lt; 5; i++)
-            {
-                m_TaxRates[5 + i] -= num;
-            }
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private ClampResourceTaxRates(Game.Simulation.TaxAreaType areaType) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void ClampResourceTaxRates(TaxAreaType areaType)
-    {
-        int2 resourceTaxRateRange = GetResourceTaxRateRange(areaType);
-        int num = 0;
-        if (resourceTaxRateRange.x &gt; 0)
-        {
-            num = resourceTaxRateRange.x;
-        }
-        else if (resourceTaxRateRange.y &lt; 0)
-        {
-            num = resourceTaxRateRange.y;
-        }
-        if (num == 0)
-        {
-            return;
-        }
-        m_TaxRates[(int)areaType] += num;
-        int zeroOffset = GetZeroOffset(areaType);
-        ResourcePrefabs prefabs = m_ResourceSystem.GetPrefabs();
-        ResourceIterator iterator = ResourceIterator.GetIterator();
-        while (iterator.Next())
-        {
-            Entity entity = prefabs[iterator.resource];
-            if (base.EntityManager.TryGetComponent&lt;TaxableResourceData&gt;(entity, out var component) &amp;&amp; component.Contains(areaType))
-            {
-                m_TaxRates[zeroOffset + EconomyUtils.GetResourceIndex(iterator.resource)] -= num;
-            }
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public Deserialize&lt;TReader&gt;(TReader reader) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Void Deserialize&lt;TReader&gt;(TReader reader);
-</code></pre>
-<ul>
-<li><code>private EnsureAreaTaxRateLimits(Game.Simulation.TaxAreaType areaType) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void EnsureAreaTaxRateLimits(TaxAreaType areaType)
-    {
-        switch (areaType)
-        {
-        case TaxAreaType.Residential:
-        {
-            int2 officeTaxLimits = m_TaxParameterData.m_ResidentialTaxLimits;
-            m_TaxRates[(int)areaType] = math.min(officeTaxLimits.y, math.max(officeTaxLimits.x, GetTaxRate(areaType))) - m_TaxRates[0];
-            for (int i = 0; i &lt; 5; i++)
-            {
-                EnsureJobLevelTaxRateLimits(i);
-            }
-            break;
-        }
-        case TaxAreaType.Commercial:
-        {
-            int2 officeTaxLimits = m_TaxParameterData.m_CommercialTaxLimits;
-            m_TaxRates[(int)areaType] = math.min(officeTaxLimits.y, math.max(officeTaxLimits.x, GetTaxRate(areaType))) - m_TaxRates[0];
-            ResourceIterator iterator = ResourceIterator.GetIterator();
-            while (iterator.Next())
-            {
-                if (EconomyUtils.IsCommercialResource(iterator.resource))
-                {
-                    EnsureResourceTaxRateLimits(areaType, iterator.resource);
-                }
-            }
-            break;
-        }
-        case TaxAreaType.Industrial:
-        {
-            int2 officeTaxLimits = m_TaxParameterData.m_IndustrialTaxLimits;
-            m_TaxRates[(int)areaType] = math.min(officeTaxLimits.y, math.max(officeTaxLimits.x, GetTaxRate(areaType))) - m_TaxRates[0];
-            ResourceIterator iterator = ResourceIterator.GetIterator();
-            while (iterator.Next())
-            {
-                if (!base.EntityManager.TryGetComponent&lt;ResourceData&gt;(m_ResourceSystem.GetPrefab(iterator.resource), out var component) || (component.m_IsProduceable &amp;&amp; component.m_Weight &gt; 0f))
-                {
-                    EnsureResourceTaxRateLimits(areaType, iterator.resource);
-                }
-            }
-            break;
-        }
-        case TaxAreaType.Office:
-        {
-            int2 officeTaxLimits = m_TaxParameterData.m_OfficeTaxLimits;
-            m_TaxRates[(int)areaType] = math.min(officeTaxLimits.y, math.max(officeTaxLimits.x, GetTaxRate(areaType))) - m_TaxRates[0];
-            ResourceIterator iterator = ResourceIterator.GetIterator();
-            while (iterator.Next())
-            {
-                if (EconomyUtils.IsOfficeResource(iterator.resource))
-                {
-                    EnsureResourceTaxRateLimits(areaType, iterator.resource);
-                }
-            }
-            break;
-        }
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private EnsureJobLevelTaxRateLimits(System.Int32 jobLevel) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void EnsureJobLevelTaxRateLimits(int jobLevel)
-    {
-        m_TaxRates[5 + jobLevel] = math.min(m_TaxParameterData.m_JobLevelTaxLimits.y, math.max(m_TaxParameterData.m_JobLevelTaxLimits.x, GetResidentialTaxRate(jobLevel))) - GetTaxRate(TaxAreaType.Residential);
-    }
-</code></pre>
-<ul>
-<li><code>private EnsureResourceTaxRateLimits(Game.Simulation.TaxAreaType areaType, Game.Economy.Resource resource) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void EnsureResourceTaxRateLimits(TaxAreaType areaType, Resource resource)
-    {
-        switch (areaType)
-        {
-        case TaxAreaType.Commercial:
-        {
-            int taxRate = GetTaxRate(TaxAreaType.Commercial);
-            m_TaxRates[10 + EconomyUtils.GetResourceIndex(resource)] = math.min(m_TaxParameterData.m_ResourceTaxLimits.y, math.max(m_TaxParameterData.m_ResourceTaxLimits.x, GetCommercialTaxRate(resource))) - taxRate;
-            break;
-        }
-        case TaxAreaType.Industrial:
-        {
-            int taxRate = GetTaxRate(TaxAreaType.Industrial);
-            m_TaxRates[51 + EconomyUtils.GetResourceIndex(resource)] = math.min(m_TaxParameterData.m_ResourceTaxLimits.y, math.max(m_TaxParameterData.m_ResourceTaxLimits.x, GetIndustrialTaxRate(resource))) - taxRate;
-            break;
-        }
-        case TaxAreaType.Office:
-        {
-            int taxRate = GetTaxRate(TaxAreaType.Office);
-            m_TaxRates[51 + EconomyUtils.GetResourceIndex(resource)] = math.min(m_TaxParameterData.m_ResourceTaxLimits.y, math.max(m_TaxParameterData.m_ResourceTaxLimits.x, GetOfficeTaxRate(resource))) - taxRate;
-            break;
-        }
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private EnsureTaxParameterData() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void EnsureTaxParameterData()
-    {
-        if (m_TaxParameterData.m_TotalTaxLimits.x == m_TaxParameterData.m_TotalTaxLimits.y)
-        {
-            m_TaxParameterData = m_TaxParameterGroup.GetSingleton&lt;TaxParameterData&gt;();
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public GetCommercialTaxRate(Game.Economy.Resource resource) : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static int GetCommercialTaxRate(Resource resource, NativeArray&lt;int&gt; taxRates)
-    {
-        return GetTaxRate(TaxAreaType.Commercial, taxRates) + taxRates[10 + EconomyUtils.GetResourceIndex(resource)];
-    }
-</code></pre>
-<ul>
-<li><code>public static GetCommercialTaxRate(Game.Economy.Resource resource, Unity.Collections.NativeArray&lt;System.Int32&gt; taxRates) : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static int GetCommercialTaxRate(Resource resource, NativeArray&lt;int&gt; taxRates)
-    {
-        return GetTaxRate(TaxAreaType.Commercial, taxRates) + taxRates[10 + EconomyUtils.GetResourceIndex(resource)];
-    }
-</code></pre>
-<ul>
-<li><code>public GetEstimatedCommercialTaxIncome(Game.Economy.Resource resource, Unity.Collections.NativeParallelHashMap&lt;Game.Simulation.CityStatisticsSystem+StatisticsKey, Unity.Entities.Entity&gt; statisticsLookup, Unity.Entities.BufferLookup&lt;Game.City.CityStatistic&gt; stats) : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static int GetEstimatedCommercialTaxIncome(Resource resource, NativeParallelHashMap&lt;CityStatisticsSystem.StatisticsKey, Entity&gt; statisticsLookup, BufferLookup&lt;CityStatistic&gt; stats, NativeArray&lt;int&gt; taxRates)
-    {
-        return (int)((long)GetCommercialTaxRate(resource, taxRates) * (long)CityStatisticsSystem.GetStatisticValue(statisticsLookup, stats, StatisticType.CommercialTaxableIncome, EconomyUtils.GetResourceIndex(resource)) / 100);
-    }
-</code></pre>
-<ul>
-<li><code>public static GetEstimatedCommercialTaxIncome(Game.Economy.Resource resource, Unity.Collections.NativeParallelHashMap&lt;Game.Simulation.CityStatisticsSystem+StatisticsKey, Unity.Entities.Entity&gt; statisticsLookup, Unity.Entities.BufferLookup&lt;Game.City.CityStatistic&gt; stats, Unity.Collections.NativeArray&lt;System.Int32&gt; taxRates) : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static int GetEstimatedCommercialTaxIncome(Resource resource, NativeParallelHashMap&lt;CityStatisticsSystem.StatisticsKey, Entity&gt; statisticsLookup, BufferLookup&lt;CityStatistic&gt; stats, NativeArray&lt;int&gt; taxRates)
-    {
-        return (int)((long)GetCommercialTaxRate(resource, taxRates) * (long)CityStatisticsSystem.GetStatisticValue(statisticsLookup, stats, StatisticType.CommercialTaxableIncome, EconomyUtils.GetResourceIndex(resource)) / 100);
-    }
-</code></pre>
-<ul>
-<li><code>public GetEstimatedIndustrialTaxIncome(Game.Economy.Resource resource, Unity.Collections.NativeParallelHashMap&lt;Game.Simulation.CityStatisticsSystem+StatisticsKey, Unity.Entities.Entity&gt; statisticsLookup, Unity.Entities.BufferLookup&lt;Game.City.CityStatistic&gt; stats) : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static int GetEstimatedIndustrialTaxIncome(Resource resource, NativeParallelHashMap&lt;CityStatisticsSystem.StatisticsKey, Entity&gt; statisticsLookup, BufferLookup&lt;CityStatistic&gt; stats, NativeArray&lt;int&gt; taxRates)
-    {
-        return (int)((long)GetIndustrialTaxRate(resource, taxRates) * (long)CityStatisticsSystem.GetStatisticValue(statisticsLookup, stats, StatisticType.IndustrialTaxableIncome, EconomyUtils.GetResourceIndex(resource)) / 100);
-    }
-</code></pre>
-<ul>
-<li><code>public static GetEstimatedIndustrialTaxIncome(Game.Economy.Resource resource, Unity.Collections.NativeParallelHashMap&lt;Game.Simulation.CityStatisticsSystem+StatisticsKey, Unity.Entities.Entity&gt; statisticsLookup, Unity.Entities.BufferLookup&lt;Game.City.CityStatistic&gt; stats, Unity.Collections.NativeArray&lt;System.Int32&gt; taxRates) : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static int GetEstimatedIndustrialTaxIncome(Resource resource, NativeParallelHashMap&lt;CityStatisticsSystem.StatisticsKey, Entity&gt; statisticsLookup, BufferLookup&lt;CityStatistic&gt; stats, NativeArray&lt;int&gt; taxRates)
-    {
-        return (int)((long)GetIndustrialTaxRate(resource, taxRates) * (long)CityStatisticsSystem.GetStatisticValue(statisticsLookup, stats, StatisticType.IndustrialTaxableIncome, EconomyUtils.GetResourceIndex(resource)) / 100);
-    }
-</code></pre>
-<ul>
-<li><code>public GetEstimatedOfficeTaxIncome(Game.Economy.Resource resource, Unity.Collections.NativeParallelHashMap&lt;Game.Simulation.CityStatisticsSystem+StatisticsKey, Unity.Entities.Entity&gt; statisticsLookup, Unity.Entities.BufferLookup&lt;Game.City.CityStatistic&gt; stats) : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static int GetEstimatedOfficeTaxIncome(Resource resource, NativeParallelHashMap&lt;CityStatisticsSystem.StatisticsKey, Entity&gt; statisticsLookup, BufferLookup&lt;CityStatistic&gt; stats, NativeArray&lt;int&gt; taxRates)
-    {
-        return (int)((long)GetOfficeTaxRate(resource, taxRates) * (long)CityStatisticsSystem.GetStatisticValue(statisticsLookup, stats, StatisticType.OfficeTaxableIncome, EconomyUtils.GetResourceIndex(resource)) / 100);
-    }
-</code></pre>
-<ul>
-<li><code>public static GetEstimatedOfficeTaxIncome(Game.Economy.Resource resource, Unity.Collections.NativeParallelHashMap&lt;Game.Simulation.CityStatisticsSystem+StatisticsKey, Unity.Entities.Entity&gt; statisticsLookup, Unity.Entities.BufferLookup&lt;Game.City.CityStatistic&gt; stats, Unity.Collections.NativeArray&lt;System.Int32&gt; taxRates) : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static int GetEstimatedOfficeTaxIncome(Resource resource, NativeParallelHashMap&lt;CityStatisticsSystem.StatisticsKey, Entity&gt; statisticsLookup, BufferLookup&lt;CityStatistic&gt; stats, NativeArray&lt;int&gt; taxRates)
-    {
-        return (int)((long)GetOfficeTaxRate(resource, taxRates) * (long)CityStatisticsSystem.GetStatisticValue(statisticsLookup, stats, StatisticType.OfficeTaxableIncome, EconomyUtils.GetResourceIndex(resource)) / 100);
-    }
-</code></pre>
-<ul>
-<li><code>public GetEstimatedResidentialTaxIncome(System.Int32 jobLevel, Unity.Collections.NativeParallelHashMap&lt;Game.Simulation.CityStatisticsSystem+StatisticsKey, Unity.Entities.Entity&gt; statisticsLookup, Unity.Entities.BufferLookup&lt;Game.City.CityStatistic&gt; stats) : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static int GetEstimatedResidentialTaxIncome(int jobLevel, NativeParallelHashMap&lt;CityStatisticsSystem.StatisticsKey, Entity&gt; statisticsLookup, BufferLookup&lt;CityStatistic&gt; stats, NativeArray&lt;int&gt; taxRates)
-    {
-        return (int)((long)GetResidentialTaxRate(jobLevel, taxRates) * (long)CityStatisticsSystem.GetStatisticValue(statisticsLookup, stats, StatisticType.ResidentialTaxableIncome, jobLevel) / 100);
-    }
-</code></pre>
-<ul>
-<li><code>public static GetEstimatedResidentialTaxIncome(System.Int32 jobLevel, Unity.Collections.NativeParallelHashMap&lt;Game.Simulation.CityStatisticsSystem+StatisticsKey, Unity.Entities.Entity&gt; statisticsLookup, Unity.Entities.BufferLookup&lt;Game.City.CityStatistic&gt; stats, Unity.Collections.NativeArray&lt;System.Int32&gt; taxRates) : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static int GetEstimatedResidentialTaxIncome(int jobLevel, NativeParallelHashMap&lt;CityStatisticsSystem.StatisticsKey, Entity&gt; statisticsLookup, BufferLookup&lt;CityStatistic&gt; stats, NativeArray&lt;int&gt; taxRates)
-    {
-        return (int)((long)GetResidentialTaxRate(jobLevel, taxRates) * (long)CityStatisticsSystem.GetStatisticValue(statisticsLookup, stats, StatisticType.ResidentialTaxableIncome, jobLevel) / 100);
-    }
-</code></pre>
-<ul>
-<li><code>public GetEstimatedTaxAmount(Game.Simulation.TaxAreaType areaType, Game.Simulation.TaxResultType resultType, Unity.Collections.NativeParallelHashMap&lt;Game.Simulation.CityStatisticsSystem+StatisticsKey, Unity.Entities.Entity&gt; statisticsLookup, Unity.Entities.BufferLookup&lt;Game.City.CityStatistic&gt; stats) : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static int GetEstimatedTaxAmount(TaxAreaType areaType, TaxResultType resultType, NativeParallelHashMap&lt;CityStatisticsSystem.StatisticsKey, Entity&gt; statisticsLookup, BufferLookup&lt;CityStatistic&gt; stats, NativeArray&lt;int&gt; taxRates)
-    {
-        int num = 0;
-        switch (areaType)
-        {
-        case TaxAreaType.Residential:
-        {
-            for (int i = 0; i &lt; 5; i++)
-            {
-                int estimatedResidentialTaxIncome = GetEstimatedResidentialTaxIncome(i, statisticsLookup, stats, taxRates);
-                if (MatchesResultType(estimatedResidentialTaxIncome, resultType))
-                {
-                    num += estimatedResidentialTaxIncome;
-                }
-            }
-            return num;
-        }
-        case TaxAreaType.Commercial:
-        {
-            ResourceIterator iterator = ResourceIterator.GetIterator();
-            while (iterator.Next())
-            {
-                int estimatedCommercialTaxIncome = GetEstimatedCommercialTaxIncome(iterator.resource, statisticsLookup, stats, taxRates);
-                if (MatchesResultType(estimatedCommercialTaxIncome, resultType))
-                {
-                    num += estimatedCommercialTaxIncome;
-                }
-            }
-            return num;
-        }
-        case TaxAreaType.Industrial:
-        {
-            ResourceIterator iterator = ResourceIterator.GetIterator();
-            while (iterator.Next())
-            {
-                int estimatedIndustrialTaxIncome = GetEstimatedIndustrialTaxIncome(iterator.resource, statisticsLookup, stats, taxRates);
-                if (MatchesResultType(estimatedIndustrialTaxIncome, resultType))
-                {
-                    num += estimatedIndustrialTaxIncome;
-                }
-            }
-            return num;
-        }
-        case TaxAreaType.Office:
-        {
-            ResourceIterator iterator = ResourceIterator.GetIterator();
-            while (iterator.Next())
-            {
-                int estimatedOfficeTaxIncome = GetEstimatedOfficeTaxIncome(iterator.resource, statisticsLookup, stats, taxRates);
-                if (MatchesResultType(estimatedOfficeTaxIncome, resultType))
-                {
-                    num += estimatedOfficeTaxIncome;
-                }
-            }
-            return num;
-        }
-        default:
-            return 0;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public static GetEstimatedTaxAmount(Game.Simulation.TaxAreaType areaType, Game.Simulation.TaxResultType resultType, Unity.Collections.NativeParallelHashMap&lt;Game.Simulation.CityStatisticsSystem+StatisticsKey, Unity.Entities.Entity&gt; statisticsLookup, Unity.Entities.BufferLookup&lt;Game.City.CityStatistic&gt; stats, Unity.Collections.NativeArray&lt;System.Int32&gt; taxRates) : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static int GetEstimatedTaxAmount(TaxAreaType areaType, TaxResultType resultType, NativeParallelHashMap&lt;CityStatisticsSystem.StatisticsKey, Entity&gt; statisticsLookup, BufferLookup&lt;CityStatistic&gt; stats, NativeArray&lt;int&gt; taxRates)
-    {
-        int num = 0;
-        switch (areaType)
-        {
-        case TaxAreaType.Residential:
-        {
-            for (int i = 0; i &lt; 5; i++)
-            {
-                int estimatedResidentialTaxIncome = GetEstimatedResidentialTaxIncome(i, statisticsLookup, stats, taxRates);
-                if (MatchesResultType(estimatedResidentialTaxIncome, resultType))
-                {
-                    num += estimatedResidentialTaxIncome;
-                }
-            }
-            return num;
-        }
-        case TaxAreaType.Commercial:
-        {
-            ResourceIterator iterator = ResourceIterator.GetIterator();
-            while (iterator.Next())
-            {
-                int estimatedCommercialTaxIncome = GetEstimatedCommercialTaxIncome(iterator.resource, statisticsLookup, stats, taxRates);
-                if (MatchesResultType(estimatedCommercialTaxIncome, resultType))
-                {
-                    num += estimatedCommercialTaxIncome;
-                }
-            }
-            return num;
-        }
-        case TaxAreaType.Industrial:
-        {
-            ResourceIterator iterator = ResourceIterator.GetIterator();
-            while (iterator.Next())
-            {
-                int estimatedIndustrialTaxIncome = GetEstimatedIndustrialTaxIncome(iterator.resource, statisticsLookup, stats, taxRates);
-                if (MatchesResultType(estimatedIndustrialTaxIncome, resultType))
-                {
-                    num += estimatedIndustrialTaxIncome;
-                }
-            }
-            return num;
-        }
-        case TaxAreaType.Office:
-        {
-            ResourceIterator iterator = ResourceIterator.GetIterator();
-            while (iterator.Next())
-            {
-                int estimatedOfficeTaxIncome = GetEstimatedOfficeTaxIncome(iterator.resource, statisticsLookup, stats, taxRates);
-                if (MatchesResultType(estimatedOfficeTaxIncome, resultType))
-                {
-                    num += estimatedOfficeTaxIncome;
-                }
-            }
-            return num;
-        }
-        default:
-            return 0;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public GetIndustrialTaxRate(Game.Economy.Resource resource) : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static int GetIndustrialTaxRate(Resource resource, NativeArray&lt;int&gt; taxRates)
-    {
-        return GetTaxRate(TaxAreaType.Industrial, taxRates) + taxRates[51 + EconomyUtils.GetResourceIndex(resource)];
-    }
-</code></pre>
-<ul>
-<li><code>public static GetIndustrialTaxRate(Game.Economy.Resource resource, Unity.Collections.NativeArray&lt;System.Int32&gt; taxRates) : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static int GetIndustrialTaxRate(Resource resource, NativeArray&lt;int&gt; taxRates)
-    {
-        return GetTaxRate(TaxAreaType.Industrial, taxRates) + taxRates[51 + EconomyUtils.GetResourceIndex(resource)];
-    }
-</code></pre>
-<ul>
-<li><code>private GetJobLevelTaxRateRange() : Unity.Mathematics.int2</code>  </li>
-</ul>
-<pre><code class="language-csharp">private int2 GetJobLevelTaxRateRange()
-    {
-        int2 result = new int2(int.MaxValue, int.MinValue);
-        for (int i = 0; i &lt; 5; i++)
-        {
-            int y = m_TaxRates[5 + i];
-            result.x = math.min(result.x, y);
-            result.y = math.max(result.y, y);
-        }
-        return result;
-    }
-</code></pre>
-<ul>
-<li><code>public GetModifiedCommercialTaxRate(Game.Economy.Resource resource, Unity.Entities.Entity district, Unity.Entities.BufferLookup&lt;Game.Areas.DistrictModifier&gt; policies) : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static int GetModifiedCommercialTaxRate(Resource resource, NativeArray&lt;int&gt; taxRates, Entity district, BufferLookup&lt;DistrictModifier&gt; policies)
-    {
-        return GetModifiedTaxRate(TaxAreaType.Commercial, taxRates, district, policies) + taxRates[10 + EconomyUtils.GetResourceIndex(resource)];
-    }
-</code></pre>
-<ul>
-<li><code>public static GetModifiedCommercialTaxRate(Game.Economy.Resource resource, Unity.Collections.NativeArray&lt;System.Int32&gt; taxRates, Unity.Entities.Entity district, Unity.Entities.BufferLookup&lt;Game.Areas.DistrictModifier&gt; policies) : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static int GetModifiedCommercialTaxRate(Resource resource, NativeArray&lt;int&gt; taxRates, Entity district, BufferLookup&lt;DistrictModifier&gt; policies)
-    {
-        return GetModifiedTaxRate(TaxAreaType.Commercial, taxRates, district, policies) + taxRates[10 + EconomyUtils.GetResourceIndex(resource)];
-    }
-</code></pre>
-<ul>
-<li><code>public GetModifiedTaxRate(Game.Simulation.TaxAreaType areaType, Unity.Entities.Entity district, Unity.Entities.BufferLookup&lt;Game.Areas.DistrictModifier&gt; policies) : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static int GetModifiedTaxRate(TaxAreaType areaType, NativeArray&lt;int&gt; taxRates, Entity district, BufferLookup&lt;DistrictModifier&gt; policies)
-    {
-        float value = GetTaxRate(areaType, taxRates);
-        if (policies.HasBuffer(district))
-        {
-            DynamicBuffer&lt;DistrictModifier&gt; modifiers = policies[district];
-            AreaUtils.ApplyModifier(ref value, modifiers, DistrictModifierType.LowCommercialTax);
-        }
-        return (int)math.round(value);
-    }
-</code></pre>
-<ul>
-<li><code>public static GetModifiedTaxRate(Game.Simulation.TaxAreaType areaType, Unity.Collections.NativeArray&lt;System.Int32&gt; taxRates, Unity.Entities.Entity district, Unity.Entities.BufferLookup&lt;Game.Areas.DistrictModifier&gt; policies) : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static int GetModifiedTaxRate(TaxAreaType areaType, NativeArray&lt;int&gt; taxRates, Entity district, BufferLookup&lt;DistrictModifier&gt; policies)
-    {
-        float value = GetTaxRate(areaType, taxRates);
-        if (policies.HasBuffer(district))
-        {
-            DynamicBuffer&lt;DistrictModifier&gt; modifiers = policies[district];
-            AreaUtils.ApplyModifier(ref value, modifiers, DistrictModifierType.LowCommercialTax);
-        }
-        return (int)math.round(value);
-    }
-</code></pre>
-<ul>
-<li><code>public GetOfficeTaxRate(Game.Economy.Resource resource) : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static int GetOfficeTaxRate(Resource resource, NativeArray&lt;int&gt; taxRates)
-    {
-        return GetTaxRate(TaxAreaType.Office, taxRates) + taxRates[51 + EconomyUtils.GetResourceIndex(resource)];
-    }
-</code></pre>
-<ul>
-<li><code>public static GetOfficeTaxRate(Game.Economy.Resource resource, Unity.Collections.NativeArray&lt;System.Int32&gt; taxRates) : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static int GetOfficeTaxRate(Resource resource, NativeArray&lt;int&gt; taxRates)
-    {
-        return GetTaxRate(TaxAreaType.Office, taxRates) + taxRates[51 + EconomyUtils.GetResourceIndex(resource)];
-    }
-</code></pre>
-<ul>
-<li><code>public GetResidentialTaxRate(System.Int32 jobLevel) : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static int GetResidentialTaxRate(int jobLevel, NativeArray&lt;int&gt; taxRates)
-    {
-        return GetTaxRate(TaxAreaType.Residential, taxRates) + taxRates[5 + jobLevel];
-    }
-</code></pre>
-<ul>
-<li><code>public static GetResidentialTaxRate(System.Int32 jobLevel, Unity.Collections.NativeArray&lt;System.Int32&gt; taxRates) : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static int GetResidentialTaxRate(int jobLevel, NativeArray&lt;int&gt; taxRates)
-    {
-        return GetTaxRate(TaxAreaType.Residential, taxRates) + taxRates[5 + jobLevel];
-    }
-</code></pre>
-<ul>
-<li><code>private GetResourceTaxRateRange(Game.Simulation.TaxAreaType areaType) : Unity.Mathematics.int2</code>  </li>
-</ul>
-<pre><code class="language-csharp">private int2 GetResourceTaxRateRange(TaxAreaType areaType)
-    {
-        int2 result = new int2(int.MaxValue, int.MinValue);
-        ResourcePrefabs prefabs = m_ResourceSystem.GetPrefabs();
-        ResourceIterator iterator = ResourceIterator.GetIterator();
-        int zeroOffset = GetZeroOffset(areaType);
-        while (iterator.Next())
-        {
-            Entity entity = prefabs[iterator.resource];
-            if (base.EntityManager.TryGetComponent&lt;TaxableResourceData&gt;(entity, out var component) &amp;&amp; component.Contains(areaType))
-            {
-                int y = m_TaxRates[zeroOffset + EconomyUtils.GetResourceIndex(iterator.resource)];
-                result.x = math.min(result.x, y);
-                result.y = math.max(result.y, y);
-            }
-        }
-        return result;
-    }
-</code></pre>
-<ul>
-<li><code>public static GetTax(Game.Agents.TaxPayer payer) : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static int GetTax(TaxPayer payer)
-    {
-        return (int)math.round(0.01f * (float)payer.m_AverageTaxRate * (float)payer.m_UntaxedIncome);
-    }
-</code></pre>
-<ul>
-<li><code>public GetTaxParameterData() : Game.Prefabs.TaxParameterData</code>  </li>
-</ul>
-<pre><code class="language-csharp">public TaxParameterData GetTaxParameterData()
-    {
-        if (!m_TaxParameterGroup.IsEmptyIgnoreFilter)
-        {
-            EnsureTaxParameterData();
-            return m_TaxParameterData;
-        }
-        return default(TaxParameterData);
-    }
-</code></pre>
-<ul>
-<li><code>public GetTaxRate(Game.Simulation.TaxAreaType areaType) : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static int GetTaxRate(TaxAreaType areaType, NativeArray&lt;int&gt; taxRates)
-    {
-        return taxRates[0] + taxRates[(int)areaType];
-    }
-</code></pre>
-<ul>
-<li><code>public static GetTaxRate(Game.Simulation.TaxAreaType areaType, Unity.Collections.NativeArray&lt;System.Int32&gt; taxRates) : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static int GetTaxRate(TaxAreaType areaType, NativeArray&lt;int&gt; taxRates)
-    {
-        return taxRates[0] + taxRates[(int)areaType];
-    }
-</code></pre>
-<ul>
-<li><code>public GetTaxRateEffect(Game.Simulation.TaxAreaType areaType, System.Int32 taxRate) : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">public int GetTaxRateEffect(TaxAreaType areaType, int taxRate)
-    {
-        return 0;
-    }
-</code></pre>
-<ul>
-<li><code>public GetTaxRateRange(Game.Simulation.TaxAreaType areaType) : Unity.Mathematics.int2</code>  </li>
-</ul>
-<pre><code class="language-csharp">public int2 GetTaxRateRange(TaxAreaType areaType)
-    {
-        if (areaType == TaxAreaType.Residential)
-        {
-            return GetTaxRate(areaType) + GetJobLevelTaxRateRange();
-        }
-        return GetTaxRate(areaType) + GetResourceTaxRateRange(areaType);
-    }
-</code></pre>
-<ul>
-<li><code>public GetTaxRates() : Unity.Collections.NativeArray&lt;System.Int32&gt;</code>  </li>
-</ul>
-<pre><code class="language-csharp">public NativeArray&lt;int&gt; GetTaxRates()
-    {
-        return m_TaxRates;
-    }
-</code></pre>
-<ul>
-<li><code>public virtual GetUpdateInterval(Game.SystemUpdatePhase phase) : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override int GetUpdateInterval(SystemUpdatePhase phase)
-    {
-        return 262144 / (kUpdatesPerDay * 16);
-    }
-</code></pre>
-<ul>
-<li><code>private GetZeroOffset(Game.Simulation.TaxAreaType areaType) : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">private int GetZeroOffset(TaxAreaType areaType)
-    {
-        switch (areaType)
-        {
-        case TaxAreaType.Commercial:
-            return 10;
-        case TaxAreaType.Industrial:
-        case TaxAreaType.Office:
-            return 51;
-        default:
-            throw new ArgumentOutOfRangeException(&quot;areaType&quot;, areaType, null);
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private static MatchesResultType(System.Int32 amount, Game.Simulation.TaxResultType resultType) : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static bool MatchesResultType(int amount, TaxResultType resultType)
-    {
-        if (resultType != TaxResultType.Any &amp;&amp; (resultType != TaxResultType.Income || amount &lt;= 0))
-        {
-            if (resultType == TaxResultType.Expense)
-            {
-                return amount &lt; 0;
-            }
-            return false;
-        }
-        return true;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_CityStatisticsSystem = base.World.GetOrCreateSystemManaged&lt;CityStatisticsSystem&gt;();
-        m_SimulationSystem = base.World.GetOrCreateSystemManaged&lt;SimulationSystem&gt;();
-        m_ResourceSystem = base.World.GetOrCreateSystemManaged&lt;ResourceSystem&gt;();
-        m_ResidentialTaxPayerGroup = GetEntityQuery(ComponentType.ReadWrite&lt;TaxPayer&gt;(), ComponentType.ReadOnly&lt;UpdateFrame&gt;(), ComponentType.ReadWrite&lt;Resources&gt;(), ComponentType.Exclude&lt;Deleted&gt;(), ComponentType.Exclude&lt;Temp&gt;(), ComponentType.ReadOnly&lt;Household&gt;());
-        m_CommercialTaxPayerGroup = GetEntityQuery(ComponentType.ReadWrite&lt;TaxPayer&gt;(), ComponentType.ReadOnly&lt;UpdateFrame&gt;(), ComponentType.ReadWrite&lt;Resources&gt;(), ComponentType.Exclude&lt;Deleted&gt;(), ComponentType.Exclude&lt;Temp&gt;(), ComponentType.ReadOnly&lt;ServiceAvailable&gt;());
-        m_IndustrialTaxPayerGroup = GetEntityQuery(ComponentType.ReadWrite&lt;TaxPayer&gt;(), ComponentType.ReadOnly&lt;UpdateFrame&gt;(), ComponentType.ReadWrite&lt;Resources&gt;(), ComponentType.ReadOnly&lt;Game.Companies.ProcessingCompany&gt;(), ComponentType.Exclude&lt;Deleted&gt;(), ComponentType.Exclude&lt;Temp&gt;(), ComponentType.Exclude&lt;Game.Companies.StorageCompany&gt;(), ComponentType.Exclude&lt;ServiceAvailable&gt;());
-        m_TaxParameterGroup = GetEntityQuery(ComponentType.ReadOnly&lt;TaxParameterData&gt;());
-        m_GameModeSettingQuery = GetEntityQuery(ComponentType.ReadOnly&lt;ModeSettingData&gt;());
-        m_TaxRates = new NativeArray&lt;int&gt;(92, Allocator.Persistent);
-        m_TaxRates[0] = 10;
-        m_TaxPaidMultiplier = new float3(1f, 1f, 1f);
-        RequireForUpdate(m_TaxParameterGroup);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreateForCompiler() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnCreateForCompiler()
-    {
-        base.OnCreateForCompiler();
-        __AssignQueries(ref base.CheckedStateRef);
-        __TypeHandle.__AssignHandles(ref base.CheckedStateRef);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnDestroy() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnDestroy()
-    {
-        m_TaxRates.Dispose();
-        base.OnDestroy();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnGameLoaded(Colossal.Serialization.Entities.Context serializationContext) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnGameLoaded(Context serializationContext)
-    {
-        base.OnGameLoaded(serializationContext);
-        if (m_GameModeSettingQuery.IsEmptyIgnoreFilter)
-        {
-            m_TaxPaidMultiplier = new float3(1f, 1f, 1f);
-            return;
-        }
-        ModeSettingData singleton = m_GameModeSettingQuery.GetSingleton&lt;ModeSettingData&gt;();
-        if (singleton.m_Enable)
-        {
-            m_TaxPaidMultiplier = singleton.m_TaxPaidMultiplier;
-        }
-        else
-        {
-            m_TaxPaidMultiplier = new float3(1f, 1f, 1f);
-        }
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        EnsureTaxParameterData();
-        uint updateFrame = SimulationUtils.GetUpdateFrame(m_SimulationSystem.frameIndex, kUpdatesPerDay, 16);
-        m_TaxParameterData = m_TaxParameterGroup.GetSingleton&lt;TaxParameterData&gt;();
-        ResourcePrefabs prefabs = m_ResourceSystem.GetPrefabs();
-        JobHandle deps;
-        JobHandle jobHandle = JobChunkExtensions.ScheduleParallel(new PayTaxJob
-        {
-            m_EntityType = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef),
-            m_TaxPayerType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Agents_TaxPayer_RW_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_UpdateFrameType = GetSharedComponentTypeHandle&lt;UpdateFrame&gt;(),
-            m_ResourceType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Economy_Resources_RW_BufferTypeHandle, ref base.CheckedStateRef),
-            m_HouseholdCitizens = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Citizens_HouseholdCitizen_RO_BufferLookup, ref base.CheckedStateRef),
-            m_Prefabs = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_ProcessDatas = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_IndustrialProcessData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_Workers = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Citizens_Worker_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_ResourceDatas = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_ResourceData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_ResourcePrefabs = prefabs,
-            m_Type = IncomeSource.TaxResidential,
-            m_UpdateFrameIndex = updateFrame,
-            m_PaidMultiplier = m_TaxPaidMultiplier.x,
-            m_StatisticsEventQueue = m_CityStatisticsSystem.GetStatisticsEventQueue(out deps).AsParallelWriter()
-        }, m_ResidentialTaxPayerGroup, JobHandle.CombineDependencies(base.Dependency, deps));
-        m_CityStatisticsSystem.AddWriter(jobHandle);
-        updateFrame = SimulationUtils.GetUpdateFrame(m_SimulationSystem.frameIndex, kUpdatesPerDay, 16);
-        JobHandle jobHandle2 = JobChunkExtensions.ScheduleParallel(new PayTaxJob
-        {
-            m_EntityType = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef),
-            m_TaxPayerType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Agents_TaxPayer_RW_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_UpdateFrameType = GetSharedComponentTypeHandle&lt;UpdateFrame&gt;(),
-            m_ResourceType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Economy_Resources_RW_BufferTypeHandle, ref base.CheckedStateRef),
-            m_HouseholdCitizens = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Citizens_HouseholdCitizen_RO_BufferLookup, ref base.CheckedStateRef),
-            m_Prefabs = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_ProcessDatas = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_IndustrialProcessData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_Workers = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Citizens_Worker_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_ResourceDatas = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_ResourceData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_ResourcePrefabs = prefabs,
-            m_Type = IncomeSource.TaxCommercial,
-            m_UpdateFrameIndex = updateFrame,
-            m_PaidMultiplier = m_TaxPaidMultiplier.y,
-            m_StatisticsEventQueue = m_CityStatisticsSystem.GetStatisticsEventQueue(out deps).AsParallelWriter()
-        }, m_CommercialTaxPayerGroup, JobHandle.CombineDependencies(base.Dependency, deps));
-        m_CityStatisticsSystem.AddWriter(jobHandle2);
-        JobHandle jobHandle3 = JobChunkExtensions.ScheduleParallel(new PayTaxJob
-        {
-            m_EntityType = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef),
-            m_TaxPayerType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Agents_TaxPayer_RW_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_UpdateFrameType = GetSharedComponentTypeHandle&lt;UpdateFrame&gt;(),
-            m_ResourceType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Economy_Resources_RW_BufferTypeHandle, ref base.CheckedStateRef),
-            m_HouseholdCitizens = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Citizens_HouseholdCitizen_RO_BufferLookup, ref base.CheckedStateRef),
-            m_Prefabs = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_ProcessDatas = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_IndustrialProcessData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_Workers = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Citizens_Worker_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_ResourceDatas = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_ResourceData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_ResourcePrefabs = prefabs,
-            m_Type = IncomeSource.TaxIndustrial,
-            m_UpdateFrameIndex = updateFrame,
-            m_PaidMultiplier = m_TaxPaidMultiplier.z,
-            m_StatisticsEventQueue = m_CityStatisticsSystem.GetStatisticsEventQueue(out deps).AsParallelWriter()
-        }, m_IndustrialTaxPayerGroup, JobHandle.CombineDependencies(base.Dependency, deps));
-        m_CityStatisticsSystem.AddWriter(jobHandle3);
-        base.Dependency = JobHandle.CombineDependencies(jobHandle, jobHandle2, jobHandle3);
-    }
-</code></pre>
-<ul>
-<li><code>public PostDeserialize(Colossal.Serialization.Entities.Context context) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void PostDeserialize(Context context)
-    {
-        if (context.version &lt; Version.averageTaxRate)
-        {
-            m_TaxRates[0] = 10;
-            for (int i = 1; i &lt; m_TaxRates.Length; i++)
-            {
-                m_TaxRates[i] = 0;
-            }
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public Serialize&lt;TWriter&gt;(TWriter writer) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Void Serialize&lt;TWriter&gt;(TWriter writer);
-</code></pre>
-<ul>
-<li><code>public SetCommercialTaxRate(Game.Economy.Resource resource, System.Int32 rate) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void SetCommercialTaxRate(Resource resource, int rate)
-    {
-        m_TaxRates[10 + EconomyUtils.GetResourceIndex(resource)] = rate - GetTaxRate(TaxAreaType.Commercial);
-        EnsureResourceTaxRateLimits(TaxAreaType.Commercial, resource);
-        ClampResourceTaxRates(TaxAreaType.Commercial);
-    }
-</code></pre>
-<ul>
-<li><code>public SetDefaults(Colossal.Serialization.Entities.Context context) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void SetDefaults(Context context)
-    {
-        m_TaxRates[0] = 10;
-        for (int i = 1; i &lt; m_TaxRates.Length; i++)
-        {
-            m_TaxRates[i] = 0;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public SetIndustrialTaxRate(Game.Economy.Resource resource, System.Int32 rate) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void SetIndustrialTaxRate(Resource resource, int rate)
-    {
-        m_TaxRates[51 + EconomyUtils.GetResourceIndex(resource)] = rate - GetTaxRate(TaxAreaType.Industrial);
-        EnsureResourceTaxRateLimits(TaxAreaType.Industrial, resource);
-        ClampResourceTaxRates(TaxAreaType.Industrial);
-    }
-</code></pre>
-<ul>
-<li><code>public SetOfficeTaxRate(Game.Economy.Resource resource, System.Int32 rate) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void SetOfficeTaxRate(Resource resource, int rate)
-    {
-        m_TaxRates[51 + EconomyUtils.GetResourceIndex(resource)] = rate - GetTaxRate(TaxAreaType.Office);
-        EnsureResourceTaxRateLimits(TaxAreaType.Office, resource);
-        ClampResourceTaxRates(TaxAreaType.Office);
-    }
-</code></pre>
-<ul>
-<li><code>public SetResidentialTaxRate(System.Int32 jobLevel, System.Int32 rate) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void SetResidentialTaxRate(int jobLevel, int rate)
-    {
-        m_TaxRates[5 + jobLevel] = rate - GetTaxRate(TaxAreaType.Residential);
-        EnsureJobLevelTaxRateLimits(jobLevel);
-        ClampResidentialTaxRates();
-    }
-</code></pre>
-<ul>
-<li><code>public SetTaxRate(Game.Simulation.TaxAreaType areaType, System.Int32 rate) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void SetTaxRate(TaxAreaType areaType, int rate)
-    {
-        m_TaxRates[(int)areaType] = rate - m_TaxRates[0];
-        EnsureAreaTaxRateLimits(areaType);
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Simulation.TaxSystem+PayTaxJob</code>  </li>
-<li><code>Game.Simulation.TaxSystem+TypeHandle</code>  </li>
-</ul>
+<p>Notes for modders:
+- Tax rates are stored as a base (index 0) + offsets. When setting rates you usually call the Set* methods (they store offsets and enforce limits).
+- Many methods accept or return NativeArray<int> or NativeParallelHashMap and BufferLookup — these are DOTS/native containers; be careful with thread safety and job dependencies.
+- Tax collection runs in Burst jobs (PayTaxJob). If you need to read resources modified by tax collection you should use AddReader to add your JobHandle to m_Readers (or combine dependencies) so reads/writes are synchronized.
+- Serialization handles older save formats; if adding new tax-related fields be sure to extend Serialize/Deserialize/PostDeserialize as appropriate.</p>
 
 
 

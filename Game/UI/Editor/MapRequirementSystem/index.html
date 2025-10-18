@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#gameuieditormaprequirementsystem" class="md-skip">
+        <a href="#gamemaprequirementsystem" class="md-skip">
           Skip to content
         </a>
       
@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87056,6 +87148,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -98688,15 +98803,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -98733,9 +98839,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -117932,6 +118038,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117957,15 +118085,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -118004,9 +118123,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118028,369 +118147,168 @@
 
 
 
-<h1 id="gameuieditormaprequirementsystem">Game.UI.Editor.MapRequirementSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.UI.Editor</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class MapRequirementSystem : Game.GameSystemBase
-{
-    private Game.Areas.MapTileSystem m_MapTileSystem;
-    private Game.Simulation.WaterSystem m_WaterSystem;
-    private Unity.Entities.EntityQuery m_TileQuery;
-    private Unity.Entities.EntityQuery m_OutsideRoadNodeQuery;
-    private Unity.Entities.EntityQuery m_OutsideTrainNodeQuery;
-    private Unity.Entities.EntityQuery m_OutsideAirNodeQuery;
-    private Unity.Entities.EntityQuery m_OutsideElectricityConnectionQuery;
-    private Unity.Jobs.JobHandle m_ResultDependency;
-    private Colossal.Collections.NativeValue&lt;System.Boolean&gt; m_WaterResult;
-    private Unity.Collections.NativeArray&lt;System.Boolean&gt; m_StartingAreaResources;
-    private Unity.Collections.NativeArray&lt;System.Boolean&gt; m_MapResources;
-    private System.Boolean &lt;hasStartingArea&gt;k__BackingField;
-    private System.Boolean &lt;roadConnection&gt;k__BackingField;
-    private System.Boolean &lt;trainConnection&gt;k__BackingField;
-    private System.Boolean &lt;airConnection&gt;k__BackingField;
-    private System.Boolean &lt;electricityConnection&gt;k__BackingField;
-    private Game.UI.Editor.MapRequirementSystem+TypeHandle __TypeHandle;
-
-    public System.Boolean hasStartingArea { get; private set; }
-    public System.Boolean roadConnection { get; private set; }
-    public System.Boolean trainConnection { get; private set; }
-    public System.Boolean airConnection { get; private set; }
-    public System.Boolean electricityConnection { get; private set; }
-
-    public MapRequirementSystem();
-
-    private System.Void __AssignQueries(Unity.Entities.SystemState&amp; state);
-    public System.Boolean MapHasResource(Game.Areas.MapFeature feature);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnCreateForCompiler();
-    protected virtual System.Void OnDestroy();
-    protected virtual System.Void OnUpdate();
-    public System.Boolean StartingAreaHasResource(Game.Areas.MapFeature feature);
-}
-</code></pre>
+<h1 id="gamemaprequirementsystem">Game.MapRequirementSystem</h1>
+<p><strong>Assembly:</strong> Assembly-CSharp<br />
+<strong>Namespace:</strong> Game.UI.Editor</p>
+<p><strong>Type:</strong> class MapRequirementSystem</p>
+<p><strong>Base:</strong> GameSystemBase</p>
+<p><strong>Summary:</strong><br />
+Manages detection and reporting of map resources and outside connections for the map editor / city start selection. The system:
+- Collects available map features (area, buildable land, fertile land, forest, oil, ore, groundwater, fish, surface water) across the whole map and the configured starting tiles using Burst jobs and Unity's ECS job system.
+- Queries water surface data to detect surface water inside starting tiles.
+- Tracks presence of outside connections: roads, train, air, and electricity.
+- Exposes synchronous query methods (StartingAreaHasResource and MapHasResource) and boolean properties indicating presence of starting area and outside connections.</p>
+<p>Internally it uses MapTileSystem and WaterSystem, several EntityQueries to detect outside connection nodes, and holds persistent native arrays (9-element arrays for map/starting resources) and a NativeValue<bool> for water results. This system schedules three Burst jobs:
+- CollectResourcesJob — scans all map tiles' MapFeatureElement buffers to populate m_MapResources.
+- CollectStartingResourcesJob — scans starting tiles' MapFeatureElement buffers to populate m_StartingAreaResources.
+- CheckWaterJob — inspects WaterSurfaceData for any water depth within starting tile bounds to determine surface water in the starting area.</p>
+<p>All resource reads are protected by completing the internal JobHandle (m_ResultDependency) before returning results.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.Areas.MapTileSystem m_MapTileSystem</code>  </li>
+<li>
+<p><code>private MapTileSystem m_MapTileSystem</code><br />
+This cached reference provides starting tiles and tile-related data.</p>
+</li>
+<li>
+<p><code>private WaterSystem m_WaterSystem</code><br />
+Used to obtain WaterSurfaceData and register a surface reader for scheduled jobs.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_TileQuery</code><br />
+Query matching MapTile + Geometry + MapFeatureElement (and excluding Temp/Deleted) used to build chunk arrays for the full-map resource collection job.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_OutsideRoadNodeQuery</code><br />
+Query matching outside road nodes (Node + Road + OutsideConnection) used to set roadConnection.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_OutsideTrainNodeQuery</code><br />
+Query matching outside train nodes (Node + TrainTrack + OutsideConnection) used to set trainConnection.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_OutsideAirNodeQuery</code><br />
+Query matching outside airplane stops with outside connection used to set airConnection.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_OutsideElectricityConnectionQuery</code><br />
+Query matching electricity outside connections used to set electricityConnection.</p>
+</li>
+<li>
+<p><code>private JobHandle m_ResultDependency</code><br />
+JobHandle referencing the scheduled collection jobs. The system calls Complete() on this handle before reading results in public query methods.</p>
+</li>
+<li>
+<p><code>private NativeValue&lt;bool&gt; m_WaterResult</code><br />
+Persistent container storing whether starting tiles contain surface water (written by CheckWaterJob).</p>
+</li>
+<li>
+<p><code>private NativeArray&lt;bool&gt; m_StartingAreaResources</code><br />
+Persistent 9-element array storing presence flags of each MapFeature type for the starting tiles (written by CollectStartingResourcesJob).</p>
+</li>
+<li>
+<p><code>private NativeArray&lt;bool&gt; m_MapResources</code><br />
+Persistent 9-element array storing presence flags of each MapFeature type across the full map (written by CollectResourcesJob).</p>
+</li>
+<li>
+<p><code>private TypeHandle __TypeHandle</code><br />
+Generated helper that caches component/buffer lookups and buffer type handles used by jobs.</p>
+</li>
+<li>
+<p><code>public struct CollectResourcesJob</code> (nested)<br />
+Burst-compiled IJob that iterates area archetype chunks and examines MapFeatureElement buffers to set flags in a provided NativeArray<bool> representing the map's available resources.</p>
+</li>
+<li>
+<p><code>public struct CollectStartingResourcesJob</code> (nested)<br />
+Burst-compiled IJob that iterates provided starting tile entities and reads their MapFeatureElement dynamic buffers (via BufferLookup) to set flags in a provided NativeArray<bool> for starting-area resources.</p>
+</li>
+<li>
+<p><code>public struct CheckWaterJob</code> (nested)<br />
+Burst-compiled IJob that inspects WaterSurfaceData depth values across the bounding area(s) of starting tiles (via Geometry component bounds) to determine if any surface water exists; writes result into a NativeValue<bool>.</p>
+</li>
+<li>
+<p><code>private struct TypeHandle</code> (nested)<br />
+Holds ComponentLookup<Geometry>, BufferLookup<MapFeatureElement>, and BufferTypeHandle<MapFeatureElement> for scheduler-safe access. Has an __AssignHandles method used during system setup.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.Areas.MapTileSystem m_MapTileSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.WaterSystem m_WaterSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.WaterSystem m_WaterSystem;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_TileQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_TileQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_OutsideRoadNodeQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_OutsideRoadNodeQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_OutsideTrainNodeQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_OutsideTrainNodeQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_OutsideAirNodeQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_OutsideAirNodeQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_OutsideElectricityConnectionQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_OutsideElectricityConnectionQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Jobs.JobHandle m_ResultDependency</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Jobs.JobHandle m_ResultDependency;
-</code></pre>
-<ul>
-<li><code>private Colossal.Collections.NativeValue&lt;System.Boolean&gt; m_WaterResult</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.Collections.NativeValue&lt;System.Boolean&gt; m_WaterResult;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeArray&lt;System.Boolean&gt; m_StartingAreaResources</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeArray&lt;System.Boolean&gt; m_StartingAreaResources;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeArray&lt;System.Boolean&gt; m_MapResources</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeArray&lt;System.Boolean&gt; m_MapResources;
-</code></pre>
-<ul>
-<li><code>private System.Boolean &lt;hasStartingArea&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean &lt;hasStartingArea&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private System.Boolean &lt;roadConnection&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean &lt;roadConnection&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private System.Boolean &lt;trainConnection&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean &lt;trainConnection&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private System.Boolean &lt;airConnection&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean &lt;airConnection&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private System.Boolean &lt;electricityConnection&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean &lt;electricityConnection&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private Game.UI.Editor.MapRequirementSystem+TypeHandle __TypeHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.UI.Editor.MapRequirementSystem+TypeHandle __TypeHandle;
-</code></pre>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>public System.Boolean hasStartingArea { get; private set }</code>  </li>
+<li>
+<p><code>public bool hasStartingArea { get; private set; }</code><br />
+True when MapTileSystem reports at least one starting tile. Updated each OnUpdate.</p>
+</li>
+<li>
+<p><code>public bool roadConnection { get; private set; }</code><br />
+True when any outside road connection nodes exist (set from m_OutsideRoadNodeQuery).</p>
+</li>
+<li>
+<p><code>public bool trainConnection { get; private set; }</code><br />
+True when any outside train connection nodes exist (set from m_OutsideTrainNodeQuery).</p>
+</li>
+<li>
+<p><code>public bool airConnection { get; private set; }</code><br />
+True when any outside airplane/air connections exist (set from m_OutsideAirNodeQuery).</p>
+</li>
+<li>
+<p><code>public bool electricityConnection { get; private set; }</code><br />
+True when any outside electricity connections exist (set from m_OutsideElectricityConnectionQuery).</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public System.Boolean hasStartingArea { get; private set; }
-</code></pre>
-<ul>
-<li><code>public System.Boolean roadConnection { get; private set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Boolean roadConnection { get; private set; }
-</code></pre>
-<ul>
-<li><code>public System.Boolean trainConnection { get; private set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Boolean trainConnection { get; private set; }
-</code></pre>
-<ul>
-<li><code>public System.Boolean airConnection { get; private set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Boolean airConnection { get; private set; }
-</code></pre>
-<ul>
-<li><code>public System.Boolean electricityConnection { get; private set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Boolean electricityConnection { get; private set; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public MapRequirementSystem()</code>  </li>
+<li>
+<p><code>public MapRequirementSystem()</code><br />
+Default generated constructor. Initialization of persistent native containers is done in OnCreate.</p>
+</li>
+<li>
+<p><code>protected override void OnCreate()</code><br />
+Creates queries, obtains MapTileSystem and WaterSystem, allocates persistent NativeValue<bool> and NativeArray<bool> buffers (9 elements each) to store results. Also configures EntityQuery descriptors used later in OnUpdate.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public MapRequirementSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private __AssignQueries(Unity.Entities.SystemState&amp; state) : System.Void</code>  </li>
+<li>
+<p><code>protected override void OnUpdate()</code><br />
+Main scheduling method. Completes previous m_ResultDependency, fetches starting tiles, updates the public connection/starting-area booleans, schedules the CheckWaterJob (obtaining WaterSurfaceData from WaterSystem), schedules CollectStartingResourcesJob for starting tiles, schedules CollectResourcesJob for all map tiles (using m_TileQuery ToArchetypeChunkArray), and stores the resulting JobHandle in m_ResultDependency. Also registers the scheduled dependency with the WaterSystem as a reader.</p>
+</li>
+<li>
+<p><code>public bool StartingAreaHasResource(MapFeature feature)</code><br />
+Synchronous query to test whether a specified MapFeature exists in the configured starting area. Internally completes m_ResultDependency to ensure jobs are finished. For SurfaceWater, it returns true if either the starting-area MapFeature flags contain SurfaceWater or the water check (m_WaterResult) reported water. For the other MapFeature values it returns the value from m_StartingAreaResources. Returns false for invalid MapFeature values.</p>
+</li>
+<li>
+<p><code>public bool MapHasResource(MapFeature feature)</code><br />
+Synchronous query to test whether a specified MapFeature exists anywhere on the map. Completes m_ResultDependency and returns the flag from m_MapResources (if feature is in valid range).</p>
+</li>
+<li>
+<p><code>protected override void OnDestroy()</code><br />
+Disposes persistent NativeValue and NativeArray instances (m_WaterResult, m_StartingAreaResources, m_MapResources).</p>
+</li>
+<li>
+<p><code>private void __AssignQueries(ref SystemState state)</code><br />
+Compiler-generated helper (empty in this decompiled listing) used during OnCreateForCompiler to set up any dynamic EntityQueryBuilder usage.</p>
+</li>
+<li>
+<p><code>protected override void OnCreateForCompiler()</code><br />
+Compiler helper that calls __AssignQueries and __TypeHandle.__AssignHandles to prepare component lookups for job scheduling.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private void __AssignQueries(ref SystemState state)
-    {
-        new EntityQueryBuilder(Allocator.Temp).Dispose();
-    }
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Typical usage inside another system or UI code that can access MapRequirementSystem:
+var mapReq = World.GetOrCreateSystemManaged&lt;MapRequirementSystem&gt;();
+
+// After the MapRequirementSystem has run its update (it schedules jobs on its own),
+// call these synchronous methods/properties to get final results:
+bool hasStart = mapReq.hasStartingArea;
+bool road = mapReq.roadConnection;
+bool canStartWithWater = mapReq.StartingAreaHasResource(MapFeature.SurfaceWater);
+bool mapHasOil = mapReq.MapHasResource(MapFeature.Oil);
+
+// Note: StartingAreaHasResource and MapHasResource complete the internal job handle
+// to ensure the data is up-to-date before returning.
 </code></pre>
-<ul>
-<li><code>public MapHasResource(Game.Areas.MapFeature feature) : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">public bool MapHasResource(MapFeature feature)
-    {
-        m_ResultDependency.Complete();
-        if (feature &gt; MapFeature.None &amp;&amp; feature &lt; MapFeature.Count)
-        {
-            return m_MapResources[(int)feature];
-        }
-        return false;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_MapTileSystem = base.World.GetOrCreateSystemManaged&lt;MapTileSystem&gt;();
-        m_WaterSystem = base.World.GetOrCreateSystemManaged&lt;WaterSystem&gt;();
-        m_TileQuery = GetEntityQuery(new EntityQueryDesc
-        {
-            All = new ComponentType[3]
-            {
-                ComponentType.ReadOnly&lt;MapTile&gt;(),
-                ComponentType.ReadOnly&lt;Geometry&gt;(),
-                ComponentType.ReadOnly&lt;MapFeatureElement&gt;()
-            },
-            None = new ComponentType[2]
-            {
-                ComponentType.ReadOnly&lt;Temp&gt;(),
-                ComponentType.ReadOnly&lt;Deleted&gt;()
-            }
-        });
-        m_OutsideRoadNodeQuery = GetEntityQuery(new EntityQueryDesc
-        {
-            All = new ComponentType[3]
-            {
-                ComponentType.ReadOnly&lt;Game.Net.Node&gt;(),
-                ComponentType.ReadOnly&lt;Road&gt;(),
-                ComponentType.ReadOnly&lt;Game.Net.OutsideConnection&gt;()
-            },
-            None = new ComponentType[2]
-            {
-                ComponentType.ReadOnly&lt;Temp&gt;(),
-                ComponentType.ReadOnly&lt;Deleted&gt;()
-            }
-        });
-        m_OutsideTrainNodeQuery = GetEntityQuery(new EntityQueryDesc
-        {
-            All = new ComponentType[3]
-            {
-                ComponentType.ReadOnly&lt;Game.Net.Node&gt;(),
-                ComponentType.ReadOnly&lt;TrainTrack&gt;(),
-                ComponentType.ReadOnly&lt;Game.Net.OutsideConnection&gt;()
-            },
-            None = new ComponentType[2]
-            {
-                ComponentType.ReadOnly&lt;Temp&gt;(),
-                ComponentType.ReadOnly&lt;Deleted&gt;()
-            }
-        });
-        m_OutsideAirNodeQuery = GetEntityQuery(new EntityQueryDesc
-        {
-            All = new ComponentType[2]
-            {
-                ComponentType.ReadOnly&lt;AirplaneStop&gt;(),
-                ComponentType.ReadOnly&lt;Game.Objects.OutsideConnection&gt;()
-            },
-            None = new ComponentType[2]
-            {
-                ComponentType.ReadOnly&lt;Temp&gt;(),
-                ComponentType.ReadOnly&lt;Deleted&gt;()
-            }
-        });
-        m_OutsideElectricityConnectionQuery = GetEntityQuery(new EntityQueryDesc
-        {
-            All = new ComponentType[1] { ComponentType.ReadOnly&lt;ElectricityOutsideConnection&gt;() },
-            None = new ComponentType[2]
-            {
-                ComponentType.ReadOnly&lt;Temp&gt;(),
-                ComponentType.ReadOnly&lt;Deleted&gt;()
-            }
-        });
-        m_WaterResult = new NativeValue&lt;bool&gt;(Allocator.Persistent);
-        m_StartingAreaResources = new NativeArray&lt;bool&gt;(9, Allocator.Persistent);
-        m_MapResources = new NativeArray&lt;bool&gt;(9, Allocator.Persistent);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreateForCompiler() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnCreateForCompiler()
-    {
-        base.OnCreateForCompiler();
-        __AssignQueries(ref base.CheckedStateRef);
-        __TypeHandle.__AssignHandles(ref base.CheckedStateRef);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnDestroy() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnDestroy()
-    {
-        base.OnDestroy();
-        m_WaterResult.Dispose();
-        m_StartingAreaResources.Dispose();
-        m_MapResources.Dispose();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        m_ResultDependency.Complete();
-        NativeArray&lt;Entity&gt; startingTiles = m_MapTileSystem.GetStartTiles().ToArray(Allocator.TempJob);
-        hasStartingArea = startingTiles.Length != 0;
-        roadConnection = !m_OutsideRoadNodeQuery.IsEmptyIgnoreFilter;
-        trainConnection = !m_OutsideTrainNodeQuery.IsEmptyIgnoreFilter;
-        airConnection = !m_OutsideAirNodeQuery.IsEmptyIgnoreFilter;
-        electricityConnection = !m_OutsideElectricityConnectionQuery.IsEmptyIgnoreFilter;
-        JobHandle deps;
-        CheckWaterJob jobData = new CheckWaterJob
-        {
-            m_Result = m_WaterResult,
-            m_SurfaceData = m_WaterSystem.GetSurfaceData(out deps),
-            m_StartingTiles = startingTiles,
-            m_GeometryData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Areas_Geometry_RO_ComponentLookup, ref base.CheckedStateRef)
-        };
-        base.Dependency = IJobExtensions.Schedule(jobData, JobHandle.CombineDependencies(base.Dependency, deps));
-        m_WaterSystem.AddSurfaceReader(base.Dependency);
-        CollectStartingResourcesJob jobData2 = new CollectStartingResourcesJob
-        {
-            m_StartingTiles = startingTiles,
-            m_MapFeatureElements = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Areas_MapFeatureElement_RO_BufferLookup, ref base.CheckedStateRef),
-            m_Results = m_StartingAreaResources
-        };
-        base.Dependency = IJobExtensions.Schedule(jobData2, base.Dependency);
-        startingTiles.Dispose(base.Dependency);
-        CollectResourcesJob jobData3 = new CollectResourcesJob
-        {
-            m_AreaChunks = m_TileQuery.ToArchetypeChunkArray(Allocator.TempJob),
-            m_MapFeatureElementType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Areas_MapFeatureElement_RO_BufferTypeHandle, ref base.CheckedStateRef),
-            m_Results = m_MapResources
-        };
-        base.Dependency = IJobExtensions.Schedule(jobData3, base.Dependency);
-        m_ResultDependency = base.Dependency;
-    }
-</code></pre>
-<ul>
-<li><code>public StartingAreaHasResource(Game.Areas.MapFeature feature) : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">public bool StartingAreaHasResource(MapFeature feature)
-    {
-        m_ResultDependency.Complete();
-        switch (feature)
-        {
-        case MapFeature.SurfaceWater:
-            if (!m_StartingAreaResources[(int)feature])
-            {
-                return m_WaterResult.value;
-            }
-            return true;
-        case MapFeature.Area:
-        case MapFeature.BuildableLand:
-        case MapFeature.FertileLand:
-        case MapFeature.Forest:
-        case MapFeature.Oil:
-        case MapFeature.Ore:
-        case MapFeature.GroundWater:
-        case MapFeature.Fish:
-            return m_StartingAreaResources[(int)feature];
-        default:
-            return false;
-        }
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.UI.Editor.MapRequirementSystem+CollectResourcesJob</code>  </li>
-<li><code>Game.UI.Editor.MapRequirementSystem+CollectStartingResourcesJob</code>  </li>
-<li><code>Game.UI.Editor.MapRequirementSystem+CheckWaterJob</code>  </li>
-<li><code>Game.UI.Editor.MapRequirementSystem+TypeHandle</code>  </li>
-</ul>
+<p>Additional notes:
+- The system uses Burst-compiled jobs and Unity's ECS BufferLookup/BufferTypeHandle APIs — ensure you schedule/complete correctly when interacting with these methods.
+- The resource arrays are sized for nine MapFeature values; MapFeature enum ordering must match the indices used by this system.</p>
 
 
 

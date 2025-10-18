@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -86711,15 +86803,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -86756,9 +86839,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -87154,6 +87237,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -117930,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117955,15 +118083,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -118002,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118027,406 +118146,213 @@
 
 
 <h1 id="gamesimulationsimulationsystem">Game.Simulation.SimulationSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Simulation</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code><br />
-<strong>Implements:</strong> <code>Game.Simulation.ISimulationSystem</code>, <code>Colossal.Serialization.Entities.IDefaultSerializable</code>, <code>Colossal.Serialization.Entities.ISerializable</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class SimulationSystem : Game.GameSystemBase, Game.Simulation.ISimulationSystem, Colossal.Serialization.Entities.IDefaultSerializable, Colossal.Serialization.Entities.ISerializable
-{
-    private System.UInt32 &lt;frameIndex&gt;k__BackingField;
-    private System.Single &lt;frameTime&gt;k__BackingField;
-    private System.Single &lt;smoothSpeed&gt;k__BackingField;
-    private System.Single &lt;frameDuration&gt;k__BackingField;
-    private Game.Simulation.SimulationSystem+PerformancePreference &lt;performancePreference&gt;k__BackingField;
-    private Game.UpdateSystem m_UpdateSystem;
-    private Game.Tools.ToolSystem m_ToolSystem;
-    private Game.Pathfind.PathfindResultSystem m_PathfindResultSystem;
-    private Game.EndFrameBarrier m_EndFrameBarrier;
-    private System.Single m_Timer;
-    private System.Single m_LastSpeed;
-    private System.Single m_SelectedSpeed;
-    private System.Int32 m_LoadingCount;
-    private System.Int32 m_StepCount;
-    private System.Boolean m_IsLoading;
-    private Unity.Jobs.JobHandle m_WatchDeps;
-    private System.Diagnostics.Stopwatch m_Stopwatch;
-    public static const System.Single PENDING_FRAMES_SPEED_FACTOR;
-    private static const System.Int32 LOADING_COUNT;
-    public static const System.String kLoadingTask;
-
-    public System.UInt32 frameIndex { get; private set; }
-    public System.Single frameTime { get; private set; }
-    public System.Single selectedSpeed { get; set; }
-    public System.Single smoothSpeed { get; private set; }
-    public System.Single loadingProgress { get; private set; }
-    public System.Single frameDuration { get; private set; }
-    public Game.Simulation.SimulationSystem+PerformancePreference performancePreference { get; set; }
-
-    public SimulationSystem();
-
-    public System.Void Deserialize&lt;TReader&gt;(TReader reader);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnDestroy();
-    protected virtual System.Void OnGamePreload(Colossal.Serialization.Entities.Purpose purpose, Game.GameMode mode);
-    protected virtual System.Void OnUpdate();
-    public System.Void Serialize&lt;TWriter&gt;(TWriter writer);
-    public System.Void SetDefaults(Colossal.Serialization.Entities.Context context);
-    private System.Void UpdateLoadingProgress();
-}
-</code></pre>
+<p><strong>Assembly:</strong> Assembly-CSharp<br />
+<strong>Namespace:</strong> Game.Simulation</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> GameSystemBase</p>
+<p><strong>Summary:</strong><br />
+SimulationSystem is the core simulation stepping system for Cities: Skylines 2. It is responsible for advancing the in-game simulation frames, managing loading-time stepping, smoothing the effective simulation speed, honoring user performance preferences (frame rate vs. simulation speed), and coordinating with other systems (UpdateSystem, ToolSystem, PathfindResultSystem and EndFrameBarrier). It also tracks timing and frame indices, serializes frame index for save/load, and uses a small IJob (SimulationEndTimeJob) to stop a Stopwatch on a worker thread when simulation steps complete to measure frame duration. The class handles both editor and game simulation phases and limits step counts based on pending pathfinding results and performance settings.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private System.UInt32 &lt;frameIndex&gt;k__BackingField</code>  </li>
+<li><code>public enum PerformancePreference { FrameRate, Balanced, SimulationSpeed }</code><br />
+Defines preferences that bias how simulation steps are throttled relative to elapsed frame time:</li>
+<li>FrameRate: favors keeping frame-rate (fewer simulation steps per update).</li>
+<li>Balanced: compromise between framerate and simulation speed.</li>
+<li>
+<p>SimulationSpeed: favors simulation speed (more steps when possible).</p>
+</li>
+<li>
+<p><code>private struct SimulationEndTimeJob : IJob</code><br />
+A small job that holds a GCHandle to a Stopwatch, stops it and frees the handle from a worker thread. Used to measure elapsed simulation time without blocking the main thread.</p>
+</li>
+<li>
+<p><code>public const float PENDING_FRAMES_SPEED_FACTOR = 1f / 48f</code><br />
+Factor used to scale simulation speed when there are pending pathfinding frames to catch up.</p>
+</li>
+<li>
+<p><code>private const int LOADING_COUNT = 1024</code><br />
+Default number of simulated frames to run during a NewGame preload.</p>
+</li>
+<li>
+<p><code>public const string kLoadingTask = "LoadSimulation"</code><br />
+Task name used with TaskManager for reporting loading progress.</p>
+</li>
+<li>
+<p><code>private UpdateSystem m_UpdateSystem</code><br />
+Reference to UpdateSystem used to drive system update phases (PreSimulation, GameSimulation, EditorSimulation, PostSimulation, LoadSimulation).</p>
+</li>
+<li>
+<p><code>private ToolSystem m_ToolSystem</code><br />
+Reference to ToolSystem; used to determine whether editor or game simulation phases should run.</p>
+</li>
+<li>
+<p><code>private PathfindResultSystem m_PathfindResultSystem</code><br />
+Reference to PathfindResultSystem used to inspect pending pathfinding frames and limit simulation stepping accordingly.</p>
+</li>
+<li>
+<p><code>private EndFrameBarrier m_EndFrameBarrier</code><br />
+Reference to EndFrameBarrier used for job dependency (producerHandle) and elapsed time sampling to adapt step counts.</p>
+</li>
+<li>
+<p><code>private float m_Timer</code><br />
+Accumulated simulation time (in seconds) used to determine how many fixed-step simulation frames to run this update.</p>
+</li>
+<li>
+<p><code>private float m_LastSpeed</code><br />
+Stores the previously selectedSpeed to help compute smoothing deltas.</p>
+</li>
+<li>
+<p><code>private float m_SelectedSpeed</code><br />
+Backing field for selectedSpeed property (user-requested simulation speed; setting while loading is ignored).</p>
+</li>
+<li>
+<p><code>private int m_LoadingCount</code><br />
+Remaining load-simulation frames to run during preload.</p>
+</li>
+<li>
+<p><code>private int m_StepCount</code><br />
+Number of simulation steps performed this update that are still being timed by the stopwatch.</p>
+</li>
+<li>
+<p><code>private bool m_IsLoading</code><br />
+True while game is in the initial loading/preload mode; affects selectedSpeed behavior and loadingProgress updates.</p>
+</li>
+<li>
+<p><code>private JobHandle m_WatchDeps</code><br />
+JobHandle returned from scheduling the SimulationEndTimeJob; completed on OnDestroy and before accessing stopwatch results.</p>
+</li>
+<li>
+<p><code>private Stopwatch m_Stopwatch</code><br />
+Stopwatch used to measure simulation execution time across the step loop. It is passed to the job via GCHandle so it can be stopped on a worker thread when the scheduled job completes.</p>
+</li>
+<li>
+<p><code>public uint frameIndex { get; private set; }</code><br />
+Current global simulation frame index (incremented every simulated step).</p>
+</li>
+<li>
+<p><code>private float m_LastPerfSample?</code> (not present)<br />
+Note: only fields present in source are documented above.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private System.UInt32 &lt;frameIndex&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private System.Single &lt;frameTime&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Single &lt;frameTime&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private System.Single &lt;smoothSpeed&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Single &lt;smoothSpeed&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private System.Single &lt;frameDuration&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Single &lt;frameDuration&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.SimulationSystem+PerformancePreference &lt;performancePreference&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.SimulationSystem+PerformancePreference &lt;performancePreference&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private Game.UpdateSystem m_UpdateSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.UpdateSystem m_UpdateSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Tools.ToolSystem m_ToolSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Tools.ToolSystem m_ToolSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Pathfind.PathfindResultSystem m_PathfindResultSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Pathfind.PathfindResultSystem m_PathfindResultSystem;
-</code></pre>
-<ul>
-<li><code>private Game.EndFrameBarrier m_EndFrameBarrier</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.EndFrameBarrier m_EndFrameBarrier;
-</code></pre>
-<ul>
-<li><code>private System.Single m_Timer</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Single m_Timer;
-</code></pre>
-<ul>
-<li><code>private System.Single m_LastSpeed</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Single m_LastSpeed;
-</code></pre>
-<ul>
-<li><code>private System.Single m_SelectedSpeed</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Single m_SelectedSpeed;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_LoadingCount</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_LoadingCount;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_StepCount</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_StepCount;
-</code></pre>
-<ul>
-<li><code>private System.Boolean m_IsLoading</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean m_IsLoading;
-</code></pre>
-<ul>
-<li><code>private Unity.Jobs.JobHandle m_WatchDeps</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Jobs.JobHandle m_WatchDeps;
-</code></pre>
-<ul>
-<li><code>private System.Diagnostics.Stopwatch m_Stopwatch</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Diagnostics.Stopwatch m_Stopwatch;
-</code></pre>
-<ul>
-<li><code>public static const System.Single PENDING_FRAMES_SPEED_FACTOR</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static const System.Single PENDING_FRAMES_SPEED_FACTOR;
-</code></pre>
-<ul>
-<li><code>private static const System.Int32 LOADING_COUNT</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static const System.Int32 LOADING_COUNT;
-</code></pre>
-<ul>
-<li><code>public static const System.String kLoadingTask</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static const System.String kLoadingTask;
-</code></pre>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>public System.UInt32 frameIndex { get; private set }</code>  </li>
+<li>
+<p><code>public uint frameIndex { get; private set; }</code><br />
+Current simulation frame counter. Incremented for each simulated step. Serialized to saves.</p>
+</li>
+<li>
+<p><code>public float frameTime { get; private set; }</code><br />
+Unconsumed fraction of a simulation frame (in frames, not seconds). Calculated from m_Timer * 60f before stepping.</p>
+</li>
+<li>
+<p><code>public float selectedSpeed { get; private set }</code><br />
+Desired simulation speed set by UI or systems (1.0 = normal, 0 = paused). Setter ignores changes while m_IsLoading is true to avoid changing speed during preload.</p>
+</li>
+<li>
+<p><code>public float smoothSpeed { get; private set; }</code><br />
+Smoothed representation of the perceived simulation speed used for UI and smoothing behavior. Computed each update to reduce abrupt changes.</p>
+</li>
+<li>
+<p><code>public float loadingProgress { get; private set; }</code><br />
+Progress of loading simulation (0..1). When m_IsLoading is true, setter reports progress to TaskManager with task name "LoadSimulation". Getter returns 1.0 when not loading.</p>
+</li>
+<li>
+<p><code>public float frameDuration { get; private set; }</code><br />
+Average wall-clock duration (seconds) per simulation step for the last batch. Computed using Stopwatch elapsed ticks and last step count.</p>
+</li>
+<li>
+<p><code>public PerformancePreference performancePreference { get; set; }</code><br />
+User-configurable preference that biases step limits (FrameRate, Balanced, or SimulationSpeed). Default read from SharedSettings.general.performancePreference when created.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public System.UInt32 frameIndex { get; private set; }
-</code></pre>
-<ul>
-<li><code>public System.Single frameTime { get; private set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Single frameTime { get; private set; }
-</code></pre>
-<ul>
-<li><code>public System.Single selectedSpeed { get; set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Single selectedSpeed { get; set; }
-</code></pre>
-<ul>
-<li><code>public System.Single smoothSpeed { get; private set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Single smoothSpeed { get; private set; }
-</code></pre>
-<ul>
-<li><code>public System.Single loadingProgress { get; private set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Single loadingProgress { get; private set; }
-</code></pre>
-<ul>
-<li><code>public System.Single frameDuration { get; private set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Single frameDuration { get; private set; }
-</code></pre>
-<ul>
-<li><code>public Game.Simulation.SimulationSystem+PerformancePreference performancePreference { get; set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Game.Simulation.SimulationSystem+PerformancePreference performancePreference { get; set; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public SimulationSystem()</code>  </li>
+<li><code>public SimulationSystem()</code><br />
+Default constructor. The system uses OnCreate to perform actual initialization. Marked with [Preserve] attribute in source to prevent stripping.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public SimulationSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>public Deserialize&lt;TReader&gt;(TReader reader) : System.Void</code>  </li>
+<li><code>protected override void OnCreate()</code><br />
+Initializes internal fields and subsystem references:</li>
+<li>Sets default selectedSpeed (1.0f).</li>
+<li>Loads performancePreference from SharedSettings (falls back to Balanced).</li>
+<li>Constructs a Stopwatch.</li>
+<li>
+<p>Retrieves UpdateSystem, ToolSystem, PathfindResultSystem and EndFrameBarrier from the World.
+Called when the GameSystem is created.</p>
+</li>
+<li>
+<p><code>protected override void OnDestroy()</code><br />
+Completes any outstanding job dependencies (m_WatchDeps.Complete()) to ensure the stopwatch job has finished, then calls base.OnDestroy().</p>
+</li>
+<li>
+<p><code>public void Serialize&lt;TWriter&gt;(TWriter writer) where TWriter : IWriter</code><br />
+Serializes the frameIndex into the provided writer. Only frameIndex is saved.</p>
+</li>
+<li>
+<p><code>public void Deserialize&lt;TReader&gt;(TReader reader) where TReader : IReader</code><br />
+Reads the saved frameIndex and resets frameTime and internal timer to zero. Ensures simulation resumes deterministically.</p>
+</li>
+<li>
+<p><code>public void SetDefaults(Context context)</code><br />
+Sets default runtime values (frameIndex = 0, frameTime = 0, m_Timer = 0). Called when creating a new simulation context.</p>
+</li>
+<li>
+<p><code>protected override void OnGamePreload(Purpose purpose, GameMode mode)</code><br />
+Called during game preload. Sets selectedSpeed = 0, loadingProgress = 0, sets m_LoadingCount to LOADING_COUNT for new games (1024) or 0 otherwise, and marks m_IsLoading true. This triggers UpdateLoadingProgress behavior until loading completes.</p>
+</li>
+<li>
+<p><code>private void UpdateLoadingProgress()</code><br />
+Runs a small loop of simulation steps used during preload:</p>
+</li>
+<li>Calls UpdateSystem phases PreSimulation, then iterates a fixed number of load simulation steps (8), calling UpdateSystem.Update(SystemUpdatePhase.LoadSimulation, frameIndex, i) for each.</li>
+<li>After the load block, PostSimulation is run and m_LoadingCount is decremented.</li>
+<li>
+<p>Reports loadingProgress via TaskManager until m_LoadingCount reaches zero.
+Used only while m_IsLoading is true.</p>
+</li>
+<li>
+<p><code>protected override void OnUpdate()</code><br />
+Main per-frame logic:</p>
+</li>
+<li>If previous steps were timed (m_StepCount != 0), completes m_WatchDeps, computes frameDuration based on stopwatch and step count, resets stopwatch and step count.</li>
+<li>Handles loading state and transitions: updates loading progress until complete; once done, sets m_IsLoading false and selectedSpeed to either 0 (paused after loading) or 1 based on SharedSettings.gameplay.pausedAfterLoading.</li>
+<li>If selectedSpeed == 0, no steps are taken and smoothSpeed = 0.</li>
+<li>Otherwise, computes an amount of simulation time to accumulate using UnityEngine.Time.deltaTime * selectedSpeed, applies pending pathfind catch-up scaling (PENDING_FRAMES_SPEED_FACTOR) if pathfinding backlog exists, clamps step counts based on pending pathfind frames, and clamps by a maximum per-update step limit (1..8 scaled by selectedSpeed * pending factor).</li>
+<li>Adjusts step count further according to performancePreference and EndFrameBarrier timings to prevent simulation stepping from starving frame-rate or running too long.</li>
+<li>Updates smoothSpeed using exponential smoothing and constraints to reduce jitter in UI.</li>
+<li>Increments frameIndex for each simulated step and invokes UpdateSystem.Update for either EditorSimulation or GameSimulation depending on ToolSystem.actionMode.</li>
+<li>Starts m_Stopwatch and schedules SimulationEndTimeJob using GCHandle.Alloc(m_Stopwatch) and schedules it with m_EndFrameBarrier.producerHandle; stores returned JobHandle in m_WatchDeps.</li>
+<li>
+<p>Always runs PreSimulation and PostSimulation phases around stepping.
+This method contains the core algorithm that maps wall-clock time to fixed simulation steps while respecting pathfind backlog and preferences.</p>
+</li>
+<li>
+<p>SimulationEndTimeJob.Execute()<br />
+Stops the Stopwatch referenced by GCHandle and frees the handle when the job runs. This is scheduled to run after the simulation steps (via EndFrameBarrier.producerHandle) so the stopwatch measures the CPU time used by the scheduled simulation jobs/steps when possible.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public System.Void Deserialize&lt;TReader&gt;(TReader reader);
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
+<h2 id="usage-example">Usage Example</h2>
 <pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        selectedSpeed = 1f;
-        performancePreference = SharedSettings.instance?.general.performancePreference ?? PerformancePreference.Balanced;
-        m_Stopwatch = new Stopwatch();
-        m_UpdateSystem = base.World.GetOrCreateSystemManaged&lt;UpdateSystem&gt;();
-        m_ToolSystem = base.World.GetOrCreateSystemManaged&lt;ToolSystem&gt;();
-        m_PathfindResultSystem = base.World.GetOrCreateSystemManaged&lt;PathfindResultSystem&gt;();
-        m_EndFrameBarrier = base.World.GetOrCreateSystemManaged&lt;EndFrameBarrier&gt;();
-    }
+protected override void OnCreate()
+{
+    base.OnCreate();
+    // SimulationSystem handles its own initialization; example usage:
+    // - Read current frame index
+    // - Pause simulation after loading by setting selectedSpeed (setter ignored while loading)
+    var sim = World.GetOrCreateSystemManaged&lt;SimulationSystem&gt;();
+    uint currentFrame = sim.frameIndex;
+    float progress = sim.loadingProgress;
+    // Pause or resume:
+    sim.selectedSpeed = 0f; // pause (will be ignored if system is still in loading)
+}
 </code></pre>
-<ul>
-<li><code>protected virtual OnDestroy() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnDestroy()
-    {
-        m_WatchDeps.Complete();
-        base.OnDestroy();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnGamePreload(Colossal.Serialization.Entities.Purpose purpose, Game.GameMode mode) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnGamePreload(Purpose purpose, GameMode mode)
-    {
-        base.OnGamePreload(purpose, mode);
-        selectedSpeed = 0f;
-        loadingProgress = 0f;
-        m_LoadingCount = ((purpose == Purpose.NewGame) ? 1024 : 0);
-        m_IsLoading = true;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        if (m_StepCount != 0)
-        {
-            m_WatchDeps.Complete();
-            frameDuration = (float)m_Stopwatch.ElapsedTicks / (float)(Stopwatch.Frequency * m_StepCount);
-            m_Stopwatch.Reset();
-            m_StepCount = 0;
-        }
-        else
-        {
-            frameDuration = 0f;
-        }
-        if (m_IsLoading)
-        {
-            if (loadingProgress != 1f)
-            {
-                UpdateLoadingProgress();
-                return;
-            }
-            if (!GameManager.instance.isGameLoading)
-            {
-                m_IsLoading = false;
-                GameplaySettings gameplaySettings = SharedSettings.instance?.gameplay;
-                selectedSpeed = ((gameplaySettings != null &amp;&amp; gameplaySettings.pausedAfterLoading) ? 0f : 1f);
-            }
-        }
-        else if (GameManager.instance.isGameLoading)
-        {
-            selectedSpeed = 0f;
-        }
-        int num;
-        if (selectedSpeed == 0f)
-        {
-            num = 0;
-            smoothSpeed = 0f;
-        }
-        else
-        {
-            float deltaTime = UnityEngine.Time.deltaTime;
-            float num2 = deltaTime * selectedSpeed;
-            float num3 = 1f;
-            if (m_PathfindResultSystem.pendingSimulationFrame &lt; uint.MaxValue)
-            {
-                int num4 = (int)math.max(0u, m_PathfindResultSystem.pendingSimulationFrame - frameIndex - 1);
-                num3 = math.min(1f, (float)num4 * (1f / 48f));
-                num2 *= num3;
-            }
-            m_Timer += num2;
-            num = (int)math.floor(m_Timer * 60f);
-            num2 *= 60f;
-            if (m_PathfindResultSystem.pendingSimulationFrame &lt; uint.MaxValue)
-            {
-                int num5 = (int)math.max(0u, m_PathfindResultSystem.pendingSimulationFrame - frameIndex - 1);
-                num = math.min(num, num5);
-                num2 = math.min(num2, num5);
-            }
-            if (performancePreference != PerformancePreference.SimulationSpeed)
-            {
-                float currentElapsedTime = m_EndFrameBarrier.currentElapsedTime;
-                float f = (m_EndFrameBarrier.lastElapsedTime - currentElapsedTime) / math.max(0.001f, frameDuration);
-                int num6 = math.max(1, (performancePreference == PerformancePreference.FrameRate) ? Mathf.FloorToInt(f) : Mathf.CeilToInt(f));
-                num = math.min(num, num6);
-                num2 = math.min(num2, num6);
-            }
-            m_Timer = math.clamp(m_Timer - (float)num / 60f, 0f, 1f / 60f);
-            int num7 = math.max(1, math.min(8, Mathf.RoundToInt(selectedSpeed * num3 * 2f)));
-            num = math.clamp(num, 0, num7);
-            num2 = math.clamp(num2, 0f, num7);
-            float num8 = num2 / math.max(1E-06f, 60f * deltaTime);
-            float y = math.lerp(num8, smoothSpeed, math.pow(0.5f, deltaTime));
-            float y2 = smoothSpeed + selectedSpeed - m_LastSpeed;
-            if (num8 &gt; smoothSpeed)
-            {
-                smoothSpeed = math.max(math.min(num8, y2), y);
-            }
-            else
-            {
-                smoothSpeed = math.min(math.max(num8, y2), y);
-            }
-        }
-        frameTime = m_Timer * 60f;
-        m_LastSpeed = selectedSpeed;
-        m_UpdateSystem.Update(SystemUpdatePhase.PreSimulation);
-        if (num != 0)
-        {
-            m_StepCount = num;
-            m_Stopwatch.Start();
-            for (int i = 0; i &lt; num; i++)
-            {
-                frameIndex++;
-                if (m_ToolSystem.actionMode.IsEditor())
-                {
-                    m_UpdateSystem.Update(SystemUpdatePhase.EditorSimulation, frameIndex, i);
-                }
-                if (m_ToolSystem.actionMode.IsGame())
-                {
-                    m_UpdateSystem.Update(SystemUpdatePhase.GameSimulation, frameIndex, i);
-                }
-            }
-            SimulationEndTimeJob jobData = new SimulationEndTimeJob
-            {
-                m_Stopwatch = GCHandle.Alloc(m_Stopwatch)
-            };
-            m_WatchDeps = jobData.Schedule(m_EndFrameBarrier.producerHandle);
-        }
-        m_UpdateSystem.Update(SystemUpdatePhase.PostSimulation);
-    }
-</code></pre>
-<ul>
-<li><code>public Serialize&lt;TWriter&gt;(TWriter writer) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Void Serialize&lt;TWriter&gt;(TWriter writer);
-</code></pre>
-<ul>
-<li><code>public SetDefaults(Colossal.Serialization.Entities.Context context) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void SetDefaults(Context context)
-    {
-        frameIndex = 0u;
-        frameTime = 0f;
-        m_Timer = 0f;
-    }
-</code></pre>
-<ul>
-<li><code>private UpdateLoadingProgress() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void UpdateLoadingProgress()
-    {
-        if (m_LoadingCount &gt; 0)
-        {
-            m_UpdateSystem.Update(SystemUpdatePhase.PreSimulation);
-            int num = 8;
-            for (int i = 0; i &lt; num; i++)
-            {
-                frameIndex++;
-                m_UpdateSystem.Update(SystemUpdatePhase.LoadSimulation, frameIndex, i);
-            }
-            m_UpdateSystem.Update(SystemUpdatePhase.PostSimulation);
-            m_LoadingCount -= num;
-        }
-        if (m_LoadingCount &gt; 0)
-        {
-            loadingProgress = math.clamp(1f - (float)m_LoadingCount / 1024f, 0f, 0.99999f);
-        }
-        else
-        {
-            loadingProgress = 1f;
-        }
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Simulation.SimulationSystem+PerformancePreference</code>  </li>
-<li><code>Game.Simulation.SimulationSystem+SimulationEndTimeJob</code>  </li>
-</ul>
+<p>Notes and tips:
+- The system enforces a maximum of 8 simulation steps per update (scaled by selectedSpeed and pending frames factor). This is to avoid long stalls in the main thread.
+- Pathfinding backlog is respected: if PathfindResultSystem reports pendingSimulationFrame, the simulation will limit steps to avoid outrunning pathfinding results.
+- performancePreference interacts with EndFrameBarrier timing to adapt steps to keep smooth frame-rate (FrameRate preference) or favor catching up simulation (SimulationSpeed).
+- frameIndex is the only persistent state serialized; other transient timing values are reset on load.</p>
 
 
 

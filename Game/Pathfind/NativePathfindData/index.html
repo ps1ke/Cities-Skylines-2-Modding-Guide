@@ -29280,15 +29280,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -29319,6 +29310,15 @@
   <a href="#methods" class="md-nav__link">
     <span class="md-ellipsis">
       Methods
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
     </span>
   </a>
   
@@ -65320,6 +65320,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69751,6 +69774,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72563,6 +72609,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75553,6 +75622,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87145,6 +87237,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -117921,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117946,15 +118083,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -117992,6 +118120,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -118009,250 +118146,162 @@
 
 
 <h1 id="gamepathfindnativepathfinddata">Game.Pathfind.NativePathfindData</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Pathfind</code>  </p>
-<p><strong>Type:</strong> struct sealed public  </p>
-<p><strong>Base:</strong> <code>System.ValueType</code><br />
-<strong>Implements:</strong> <code>System.IDisposable</code>  </p>
-<p><strong>Attributes:</strong> <code>NativeContainer</code>, <code>GenerateTestsForBurstCompatibility</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public sealed struct NativePathfindData : System.IDisposable
-{
-    internal Game.Pathfind.UnsafePathfindData* m_PathfindData;
-    internal Unity.Collections.Allocator m_AllocatorLabel;
-
-    public System.Boolean IsCreated { get; }
-    public System.Int32 Size { get; }
-
-    public NativePathfindData(Unity.Collections.Allocator allocator);
-    private NativePathfindData(Unity.Collections.Allocator allocator, System.Int32 disposeSentinelStackDepth);
-
-    public System.Void AddEdge(Unity.Entities.Entity owner, Game.Pathfind.EdgeID edgeID);
-    public System.Void AddSecondaryEdge(Unity.Entities.Entity owner, Game.Pathfind.EdgeID edgeID);
-    private System.Void CheckRead();
-    private System.Void CheckWrite();
-    public System.Void Clear();
-    public Game.Pathfind.EdgeID CreateEdge(Game.Pathfind.PathNode startNode, Game.Pathfind.PathNode middleNode, Game.Pathfind.PathNode endNode, Game.Pathfind.PathSpecification specification, Game.Pathfind.LocationSpecification location);
-    public System.Void DestroyEdge(Game.Pathfind.EdgeID edgeID);
-    public System.Void Dispose();
-    public System.Boolean GetEdge(Unity.Entities.Entity owner, Game.Pathfind.EdgeID&amp; edgeID);
-    public Game.Pathfind.EdgeFlags GetFlags(Game.Pathfind.EdgeID edgeID);
-    public System.Void GetMemoryStats(System.UInt32&amp; used, System.UInt32&amp; allocated);
-    public Game.Pathfind.UnsafePathfindData GetReadOnlyData();
-    public System.Boolean GetSecondaryEdge(Unity.Entities.Entity owner, Game.Pathfind.EdgeID&amp; edgeID);
-    public System.Boolean RemoveEdge(Unity.Entities.Entity owner, Game.Pathfind.EdgeID&amp; edgeID);
-    public System.Boolean RemoveSecondaryEdge(Unity.Entities.Entity owner, Game.Pathfind.EdgeID&amp; edgeID);
-    public Game.Pathfind.PathfindCosts&amp; SetCosts(Game.Pathfind.EdgeID edgeID);
-    public System.Single&amp; SetDensity(Game.Pathfind.EdgeID edgeID);
-    public System.Void SetEdgeDirections(Game.Pathfind.EdgeID edgeID, Game.Pathfind.PathNode startNode, Game.Pathfind.PathNode endNode, System.Boolean enableForward, System.Boolean enableBackward);
-    public System.Byte&amp; SetFlowOffset(Game.Pathfind.EdgeID edgeID);
-    public System.Void UpdateEdge(Game.Pathfind.EdgeID edgeID, Game.Pathfind.PathNode startNode, Game.Pathfind.PathNode middleNode, Game.Pathfind.PathNode endNode, Game.Pathfind.PathSpecification specification, Game.Pathfind.LocationSpecification location);
-}
-</code></pre>
+<p><strong>Assembly:</strong> Assembly-CSharp<br />
+<strong>Namespace:</strong> Game.Pathfind</p>
+<p><strong>Type:</strong> struct (NativeContainer, GenerateTestsForBurstCompatibility)</p>
+<p><strong>Base:</strong> System.ValueType, implements System.IDisposable</p>
+<p><strong>Summary:</strong><br />
+NativePathfindData is a low-level native container wrapper around an UnsafePathfindData pointer. It manages allocation and lifetime of the underlying pathfinding data used by the game's pathfinding system (edges, free id lists, owner-to-edge maps, etc.). The type exposes methods that forward to the underlying UnsafePathfindData for creating/updating/destroying edges, querying and mutating edge properties, and retrieving memory statistics. Because it stores an unsafe pointer and performs manual allocations via UnsafeUtility, it is intended for advanced usage and must be explicitly disposed to avoid native memory leaks. The struct is annotated with NativeContainer and GenerateTestsForBurstCompatibility and uses NativeDisableUnsafePtrRestriction for its pointer field.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>internal Game.Pathfind.UnsafePathfindData* m_PathfindData</code>  </li>
+<li>
+<p><code>internal unsafe UnsafePathfindData* m_PathfindData</code><br />
+  Pointer to the allocated UnsafePathfindData instance. This is the backing storage for all pathfind structures. Null when the container is not created. All public operations are forwarded to this pointer (unsafe access).</p>
+</li>
+<li>
+<p><code>internal Allocator m_AllocatorLabel</code><br />
+  Allocator label used when allocating the UnsafePathfindData with UnsafeUtility.Malloc. Used on Dispose to free with the correct allocator.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">internal Game.Pathfind.UnsafePathfindData* m_PathfindData;
-</code></pre>
-<ul>
-<li><code>internal Unity.Collections.Allocator m_AllocatorLabel</code>  </li>
-</ul>
-<pre><code class="language-csharp">internal Unity.Collections.Allocator m_AllocatorLabel;
-</code></pre>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>public System.Boolean IsCreated { get }</code>  </li>
+<li>
+<p><code>public unsafe bool IsCreated =&gt; m_PathfindData != null</code><br />
+  True when the native container has been allocated (m_PathfindData is non-null). Use to check if the container is valid before calling other methods.</p>
+</li>
+<li>
+<p><code>public unsafe int Size =&gt; m_PathfindData-&gt;m_Edges.Length - m_PathfindData-&gt;m_FreeIDs.Length</code><br />
+  Returns the current number of active edges (total edges minus free/available IDs). Computed from the underlying UnsafePathfindData arrays.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public System.Boolean IsCreated { get; }
-</code></pre>
-<ul>
-<li><code>public System.Int32 Size { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Int32 Size { get; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public NativePathfindData(Unity.Collections.Allocator allocator)</code>  </li>
+<li>
+<p><code>public NativePathfindData(Allocator allocator)</code><br />
+  Public constructor that allocates and initializes the underlying UnsafePathfindData using the provided allocator. Delegates to the private constructor with a default sentinel depth.</p>
+</li>
+<li>
+<p><code>private unsafe NativePathfindData(Allocator allocator, int disposeSentinelStackDepth)</code><br />
+  Allocates native memory for UnsafePathfindData using UnsafeUtility.Malloc with the given allocator and alignment/size derived from UnsafeUtility. Initializes the pointed UnsafePathfindData via new UnsafePathfindData(allocator). The disposeSentinelStackDepth parameter is present in signature (likely for native-container disposal checks) but not used beyond selecting this overload.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private unsafe NativePathfindData(Allocator allocator, int disposeSentinelStackDepth)
-    {
-        m_PathfindData = (UnsafePathfindData*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf&lt;UnsafePathfindData&gt;(), UnsafeUtility.AlignOf&lt;UnsafePathfindData&gt;(), allocator);
-        *m_PathfindData = new UnsafePathfindData(allocator);
-        m_AllocatorLabel = allocator;
-    }
-</code></pre>
-<ul>
-<li><code>private NativePathfindData(Unity.Collections.Allocator allocator, System.Int32 disposeSentinelStackDepth)</code>  </li>
-</ul>
-<pre><code class="language-csharp">private unsafe NativePathfindData(Allocator allocator, int disposeSentinelStackDepth)
-    {
-        m_PathfindData = (UnsafePathfindData*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf&lt;UnsafePathfindData&gt;(), UnsafeUtility.AlignOf&lt;UnsafePathfindData&gt;(), allocator);
-        *m_PathfindData = new UnsafePathfindData(allocator);
-        m_AllocatorLabel = allocator;
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>public AddEdge(Unity.Entities.Entity owner, Game.Pathfind.EdgeID edgeID) : System.Void</code>  </li>
+<li>
+<p><code>private void CheckRead()</code><br />
+  Conditional method compiled only when ENABLE_UNITY_COLLECTIONS_CHECKS is defined. Intended for read-safety checks; no-op when checks are disabled.</p>
+</li>
+<li>
+<p><code>private void CheckWrite()</code><br />
+  Conditional method compiled only when ENABLE_UNITY_COLLECTIONS_CHECKS is defined. Intended for write-safety checks; no-op when checks are disabled.</p>
+</li>
+<li>
+<p><code>public unsafe void Dispose()</code><br />
+  Disposes the underlying UnsafePathfindData (calls its Dispose), frees the allocated native memory via UnsafeUtility.Free using m_AllocatorLabel, and sets m_PathfindData to null. Must be called to avoid native memory leaks.</p>
+</li>
+<li>
+<p><code>public unsafe void Clear()</code><br />
+  Forwards to UnsafePathfindData.Clear(), clearing stored edges and related structures but keeping the container allocated.</p>
+</li>
+<li>
+<p><code>public unsafe void GetMemoryStats(out uint used, out uint allocated)</code><br />
+  Forwards to UnsafePathfindData.GetMemoryStats to obtain memory usage/allocated bytes for the underlying data.</p>
+</li>
+<li>
+<p><code>public unsafe EdgeID CreateEdge(PathNode startNode, PathNode middleNode, PathNode endNode, PathSpecification specification, LocationSpecification location)</code><br />
+  Creates a new edge in the underlying data and returns its EdgeID.</p>
+</li>
+<li>
+<p><code>public unsafe void UpdateEdge(EdgeID edgeID, PathNode startNode, PathNode middleNode, PathNode endNode, PathSpecification specification, LocationSpecification location)</code><br />
+  Updates an existing edge with new node positions/specification/location.</p>
+</li>
+<li>
+<p><code>public unsafe void DestroyEdge(EdgeID edgeID)</code><br />
+  Removes/destroys an edge by EdgeID (for reuse of IDs).</p>
+</li>
+<li>
+<p><code>public unsafe void AddEdge(Entity owner, EdgeID edgeID)</code><br />
+  Associates an owner entity with a primary edge.</p>
+</li>
+<li>
+<p><code>public unsafe void AddSecondaryEdge(Entity owner, EdgeID edgeID)</code><br />
+  Associates an owner entity with a secondary edge.</p>
+</li>
+<li>
+<p><code>public unsafe bool GetEdge(Entity owner, out EdgeID edgeID)</code><br />
+  Gets the primary EdgeID associated with an owner entity; returns true if found.</p>
+</li>
+<li>
+<p><code>public unsafe bool GetSecondaryEdge(Entity owner, out EdgeID edgeID)</code><br />
+  Gets the secondary EdgeID associated with an owner entity; returns true if found.</p>
+</li>
+<li>
+<p><code>public unsafe bool RemoveEdge(Entity owner, out EdgeID edgeID)</code><br />
+  Removes and returns the primary EdgeID associated with an owner entity; returns true if an edge was removed.</p>
+</li>
+<li>
+<p><code>public unsafe bool RemoveSecondaryEdge(Entity owner, out EdgeID edgeID)</code><br />
+  Removes and returns the secondary EdgeID associated with an owner entity; returns true if an edge was removed.</p>
+</li>
+<li>
+<p><code>public unsafe ref float SetDensity(EdgeID edgeID)</code><br />
+  Returns a ref to the m_Density field of the specified edge's PathSpecification so callers can modify density in-place.</p>
+</li>
+<li>
+<p><code>public unsafe ref PathfindCosts SetCosts(EdgeID edgeID)</code><br />
+  Returns a ref to the PathfindCosts struct inside the edge's specification for in-place modification.</p>
+</li>
+<li>
+<p><code>public unsafe ref byte SetFlowOffset(EdgeID edgeID)</code><br />
+  Returns a ref to the flow offset byte in the edge specification.</p>
+</li>
+<li>
+<p><code>public unsafe EdgeFlags GetFlags(EdgeID edgeID)</code><br />
+  Returns the EdgeFlags value stored in the edge's PathSpecification.</p>
+</li>
+<li>
+<p><code>public unsafe void SetEdgeDirections(EdgeID edgeID, PathNode startNode, PathNode endNode, bool enableForward, bool enableBackward)</code><br />
+  Sets allowed directions for the edge (forward/backward) based on nodes and flags.</p>
+</li>
+<li>
+<p><code>public unsafe UnsafePathfindData GetReadOnlyData()</code><br />
+  Returns a copy of the underlying UnsafePathfindData value (dereferences the pointer and returns the struct by value). Useful for read-only snapshot-style access; be mindful this copies struct contents.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public unsafe void AddEdge(Entity owner, EdgeID edgeID)
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Create with a persistent allocator (or Temp/TempJob as appropriate)
+var pathfindData = new NativePathfindData(Allocator.Persistent);
+
+try
+{
+    // Use API to create edges, query stats, etc.
+    uint used, allocated;
+    pathfindData.GetMemoryStats(out used, out allocated);
+    UnityEngine.Debug.Log($&quot;Pathfind memory used={used} allocated={allocated}&quot;);
+
+    // Example: clear all data
+    pathfindData.Clear();
+
+    // Check if created
+    if (pathfindData.IsCreated)
     {
-        m_PathfindData-&gt;AddEdge(owner, edgeID);
+        int count = pathfindData.Size;
+        UnityEngine.Debug.Log($&quot;Active edges: {count}&quot;);
     }
+
+    // ... create/update/destroy edges via CreateEdge/UpdateEdge/DestroyEdge
+}
+finally
+{
+    // Always dispose to free native memory
+    pathfindData.Dispose();
+}
 </code></pre>
-<ul>
-<li><code>public AddSecondaryEdge(Unity.Entities.Entity owner, Game.Pathfind.EdgeID edgeID) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public unsafe void AddSecondaryEdge(Entity owner, EdgeID edgeID)
-    {
-        m_PathfindData-&gt;AddSecondaryEdge(owner, edgeID);
-    }
-</code></pre>
-<ul>
-<li><code>private CheckRead() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void CheckRead()
-    {
-    }
-</code></pre>
-<ul>
-<li><code>private CheckWrite() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void CheckWrite()
-    {
-    }
-</code></pre>
-<ul>
-<li><code>public Clear() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public unsafe void Clear()
-    {
-        m_PathfindData-&gt;Clear();
-    }
-</code></pre>
-<ul>
-<li><code>public CreateEdge(Game.Pathfind.PathNode startNode, Game.Pathfind.PathNode middleNode, Game.Pathfind.PathNode endNode, Game.Pathfind.PathSpecification specification, Game.Pathfind.LocationSpecification location) : Game.Pathfind.EdgeID</code>  </li>
-</ul>
-<pre><code class="language-csharp">public unsafe EdgeID CreateEdge(PathNode startNode, PathNode middleNode, PathNode endNode, PathSpecification specification, LocationSpecification location)
-    {
-        return m_PathfindData-&gt;CreateEdge(startNode, middleNode, endNode, specification, location);
-    }
-</code></pre>
-<ul>
-<li><code>public DestroyEdge(Game.Pathfind.EdgeID edgeID) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public unsafe void DestroyEdge(EdgeID edgeID)
-    {
-        m_PathfindData-&gt;DestroyEdge(edgeID);
-    }
-</code></pre>
-<ul>
-<li><code>public Dispose() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public unsafe void Dispose()
-    {
-        m_PathfindData-&gt;Dispose();
-        UnsafeUtility.Free(m_PathfindData, m_AllocatorLabel);
-        m_PathfindData = null;
-    }
-</code></pre>
-<ul>
-<li><code>public GetEdge(Unity.Entities.Entity owner, Game.Pathfind.EdgeID&amp; edgeID) : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">public unsafe bool GetEdge(Entity owner, out EdgeID edgeID)
-    {
-        return m_PathfindData-&gt;GetEdge(owner, out edgeID);
-    }
-</code></pre>
-<ul>
-<li><code>public GetFlags(Game.Pathfind.EdgeID edgeID) : Game.Pathfind.EdgeFlags</code>  </li>
-</ul>
-<pre><code class="language-csharp">public unsafe EdgeFlags GetFlags(EdgeID edgeID)
-    {
-        return m_PathfindData-&gt;GetEdge(edgeID).m_Specification.m_Flags;
-    }
-</code></pre>
-<ul>
-<li><code>public GetMemoryStats(System.UInt32&amp; used, System.UInt32&amp; allocated) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public unsafe void GetMemoryStats(out uint used, out uint allocated)
-    {
-        m_PathfindData-&gt;GetMemoryStats(out used, out allocated);
-    }
-</code></pre>
-<ul>
-<li><code>public GetReadOnlyData() : Game.Pathfind.UnsafePathfindData</code>  </li>
-</ul>
-<pre><code class="language-csharp">public unsafe UnsafePathfindData GetReadOnlyData()
-    {
-        return *m_PathfindData;
-    }
-</code></pre>
-<ul>
-<li><code>public GetSecondaryEdge(Unity.Entities.Entity owner, Game.Pathfind.EdgeID&amp; edgeID) : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">public unsafe bool GetSecondaryEdge(Entity owner, out EdgeID edgeID)
-    {
-        return m_PathfindData-&gt;GetSecondaryEdge(owner, out edgeID);
-    }
-</code></pre>
-<ul>
-<li><code>public RemoveEdge(Unity.Entities.Entity owner, Game.Pathfind.EdgeID&amp; edgeID) : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">public unsafe bool RemoveEdge(Entity owner, out EdgeID edgeID)
-    {
-        return m_PathfindData-&gt;RemoveEdge(owner, out edgeID);
-    }
-</code></pre>
-<ul>
-<li><code>public RemoveSecondaryEdge(Unity.Entities.Entity owner, Game.Pathfind.EdgeID&amp; edgeID) : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">public unsafe bool RemoveSecondaryEdge(Entity owner, out EdgeID edgeID)
-    {
-        return m_PathfindData-&gt;RemoveSecondaryEdge(owner, out edgeID);
-    }
-</code></pre>
-<ul>
-<li><code>public SetCosts(Game.Pathfind.EdgeID edgeID) : Game.Pathfind.PathfindCosts&amp;</code>  </li>
-</ul>
-<pre><code class="language-csharp">public unsafe ref PathfindCosts SetCosts(EdgeID edgeID)
-    {
-        return ref m_PathfindData-&gt;GetEdge(edgeID).m_Specification.m_Costs;
-    }
-</code></pre>
-<ul>
-<li><code>public SetDensity(Game.Pathfind.EdgeID edgeID) : System.Single&amp;</code>  </li>
-</ul>
-<pre><code class="language-csharp">public unsafe ref float SetDensity(EdgeID edgeID)
-    {
-        return ref m_PathfindData-&gt;GetEdge(edgeID).m_Specification.m_Density;
-    }
-</code></pre>
-<ul>
-<li><code>public SetEdgeDirections(Game.Pathfind.EdgeID edgeID, Game.Pathfind.PathNode startNode, Game.Pathfind.PathNode endNode, System.Boolean enableForward, System.Boolean enableBackward) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public unsafe void SetEdgeDirections(EdgeID edgeID, PathNode startNode, PathNode endNode, bool enableForward, bool enableBackward)
-    {
-        m_PathfindData-&gt;SetEdgeDirections(edgeID, startNode, endNode, enableForward, enableBackward);
-    }
-</code></pre>
-<ul>
-<li><code>public SetFlowOffset(Game.Pathfind.EdgeID edgeID) : System.Byte&amp;</code>  </li>
-</ul>
-<pre><code class="language-csharp">public unsafe ref byte SetFlowOffset(EdgeID edgeID)
-    {
-        return ref m_PathfindData-&gt;GetEdge(edgeID).m_Specification.m_FlowOffset;
-    }
-</code></pre>
-<ul>
-<li><code>public UpdateEdge(Game.Pathfind.EdgeID edgeID, Game.Pathfind.PathNode startNode, Game.Pathfind.PathNode middleNode, Game.Pathfind.PathNode endNode, Game.Pathfind.PathSpecification specification, Game.Pathfind.LocationSpecification location) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public unsafe void UpdateEdge(EdgeID edgeID, PathNode startNode, PathNode middleNode, PathNode endNode, PathSpecification specification, LocationSpecification location)
-    {
-        m_PathfindData-&gt;UpdateEdge(edgeID, startNode, middleNode, endNode, specification, location);
-    }
-</code></pre>
+<p>Notes and safety considerations:
+- This type uses unsafe pointers and manual native allocation. Always call Dispose when finished to free memory.
+- The struct is marked with NativeDisableUnsafePtrRestriction for the pointer field; misuse can violate safety rules. The CheckRead/CheckWrite methods are conditional debug checks and no-ops unless ENABLE_UNITY_COLLECTIONS_CHECKS is defined.
+- Although annotated for Burst compatibility testing, care must be taken when using this container inside jobs; it is a raw pointer-backed container and may not include built-in AtomicSafetyHandle protections in this struct alone. Use appropriate job- and thread-safety patterns when accessing from worker threads.</p>
 
 
 

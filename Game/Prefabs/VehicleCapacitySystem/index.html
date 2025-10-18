@@ -61411,18 +61411,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -61447,9 +61447,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -65310,6 +65310,29 @@
   
   <span class="md-ellipsis">
     InterpolatedProperties
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
     
   </span>
   
@@ -69751,6 +69774,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72563,6 +72609,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75553,6 +75622,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87145,6 +87237,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -117921,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117948,18 +118085,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -117984,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118009,202 +118146,145 @@
 
 
 <h1 id="gameprefabsvehiclecapacitysystem">Game.Prefabs.VehicleCapacitySystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Prefabs</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code><br />
-<strong>Implements:</strong> <code>Game.Serialization.IPostDeserialize</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class VehicleCapacitySystem : Game.GameSystemBase, Game.Serialization.IPostDeserialize
-{
-    private Game.City.CityConfigurationSystem m_CityConfigurationSystem;
-    private Unity.Entities.EntityQuery m_UpdatedQuery;
-    private Unity.Entities.EntityQuery m_DeliveryTruckQuery;
-    private Unity.Collections.NativeList&lt;Game.Prefabs.DeliveryTruckSelectItem&gt; m_DeliveryTruckItems;
-    private Unity.Jobs.JobHandle m_WriteDependency;
-    private Game.Prefabs.VehicleSelectRequirementData m_VehicleSelectRequirementData;
-    private System.Boolean m_RequireUpdate;
-    private Game.Prefabs.VehicleCapacitySystem+TypeHandle __TypeHandle;
-
-    public VehicleCapacitySystem();
-
-    private System.Void __AssignQueries(Unity.Entities.SystemState&amp; state);
-    public Game.Prefabs.DeliveryTruckSelectData GetDeliveryTruckSelectData();
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnCreateForCompiler();
-    protected virtual System.Void OnDestroy();
-    protected virtual System.Void OnUpdate();
-    public System.Void PostDeserialize(Colossal.Serialization.Entities.Context context);
-}
-</code></pre>
+<p><strong>Assembly:</strong><br />
+<strong>Namespace:</strong> Game.Prefabs</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> GameSystemBase</p>
+<p><strong>Summary:</strong><br />
+VehicleCapacitySystem is an ECS system responsible for maintaining and updating the list of selectable delivery trucks (DeliveryTruckSelectData) used by UI/selection logic. It watches for relevant prefab/vehicle updates, collects matching delivery truck prefabs via an EntityQuery, computes selection requirements using VehicleSelectRequirementData, and schedules a job (UpdateDeliveryTruckSelectJob) that fills a persistent NativeList<DeliveryTruckSelectItem>. The system supports post-deserialization initialization to trigger a full update after loading or starting a new game.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.City.CityConfigurationSystem m_CityConfigurationSystem</code>  </li>
+<li>
+<p><code>private CityConfigurationSystem m_CityConfigurationSystem</code><br />
+Used to access city configuration; retrieved in OnCreate via World.GetOrCreateSystemManaged<CityConfigurationSystem>() and used when updating selection requirement data.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_UpdatedQuery</code><br />
+An EntityQuery that finds entities with VehicleData and PrefabData and that have either the Updated or Deleted component. This is used to detect when vehicle/prefab data changes and trigger an update.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_DeliveryTruckQuery</code><br />
+An EntityQuery that matches delivery truck prefabs: All of DeliveryTruckData, CarData, ObjectData and PrefabData, and excludes Locked. This query is enumerated asynchronously to produce archetype chunks for the scheduled job.</p>
+</li>
+<li>
+<p><code>private NativeList&lt;DeliveryTruckSelectItem&gt; m_DeliveryTruckItems</code><br />
+Persistent NativeList used to store select items produced by the scheduled job. Allocated with Allocator.Persistent in OnCreate and disposed in OnDestroy. Read via GetDeliveryTruckSelectData() after ensuring job completion.</p>
+</li>
+<li>
+<p><code>private JobHandle m_WriteDependency</code><br />
+Stores the JobHandle returned by scheduling UpdateDeliveryTruckSelectJob. Used to complete the job before reading m_DeliveryTruckItems (e.g., in GetDeliveryTruckSelectData).</p>
+</li>
+<li>
+<p><code>private VehicleSelectRequirementData m_VehicleSelectRequirementData</code><br />
+Helper data structure used to determine which vehicles meet selection requirements; updated every time an update is triggered and passed into the scheduled job.</p>
+</li>
+<li>
+<p><code>private bool m_RequireUpdate</code><br />
+Flag set by PostDeserialize (for NewGame or LoadGame) to force a full update on the next OnUpdate. Also cleared by OnUpdate when an update is performed.</p>
+</li>
+<li>
+<p><code>private TypeHandle __TypeHandle</code><br />
+Compiler-generated nested struct instance that caches EntityTypeHandle and ComponentTypeHandle<T> instances for efficient job access. It is initialized in OnCreateForCompiler / __AssignHandles.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.City.CityConfigurationSystem m_CityConfigurationSystem;
-</code></pre>
+<h2 id="properties">Properties</h2>
 <ul>
-<li><code>private Unity.Entities.EntityQuery m_UpdatedQuery</code>  </li>
+<li>(none declared in this class)<br />
+This class does not expose public properties. All state is maintained via fields and methods.</li>
 </ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_UpdatedQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_DeliveryTruckQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_DeliveryTruckQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeList&lt;Game.Prefabs.DeliveryTruckSelectItem&gt; m_DeliveryTruckItems</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeList&lt;Game.Prefabs.DeliveryTruckSelectItem&gt; m_DeliveryTruckItems;
-</code></pre>
-<ul>
-<li><code>private Unity.Jobs.JobHandle m_WriteDependency</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Jobs.JobHandle m_WriteDependency;
-</code></pre>
-<ul>
-<li><code>private Game.Prefabs.VehicleSelectRequirementData m_VehicleSelectRequirementData</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Prefabs.VehicleSelectRequirementData m_VehicleSelectRequirementData;
-</code></pre>
-<ul>
-<li><code>private System.Boolean m_RequireUpdate</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean m_RequireUpdate;
-</code></pre>
-<ul>
-<li><code>private Game.Prefabs.VehicleCapacitySystem+TypeHandle __TypeHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Prefabs.VehicleCapacitySystem+TypeHandle __TypeHandle;
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public VehicleCapacitySystem()</code>  </li>
+<li><code>public VehicleCapacitySystem()</code><br />
+Default constructor (preserved). No custom initialization beyond what OnCreate performs.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public VehicleCapacitySystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private __AssignQueries(Unity.Entities.SystemState&amp; state) : System.Void</code>  </li>
+<li><code>protected override void OnCreate()</code><br />
+Initializes the system:</li>
+<li>Calls base.OnCreate().</li>
+<li>Obtains the CityConfigurationSystem instance.</li>
+<li>Creates a VehicleSelectRequirementData instance bound to this system.</li>
+<li>Builds two EntityQuery instances:<ul>
+<li>m_UpdatedQuery: matches entities with VehicleData &amp; PrefabData and (Updated | Deleted).</li>
+<li>m_DeliveryTruckQuery: matches DeliveryTruckData, CarData, ObjectData, PrefabData and excludes Locked.</li>
 </ul>
-<pre><code class="language-csharp">private void __AssignQueries(ref SystemState state)
-    {
-        new EntityQueryBuilder(Allocator.Temp).Dispose();
-    }
-</code></pre>
+</li>
+<li>
+<p>Allocates m_DeliveryTruckItems as a persistent NativeList<DeliveryTruckSelectItem>.
+This sets up the data required for OnUpdate to detect changes and schedule work.</p>
+</li>
+<li>
+<p><code>protected override void OnDestroy()</code><br />
+Disposes persistent resources:</p>
+</li>
+<li>Disposes m_DeliveryTruckItems.</li>
+<li>
+<p>Calls base.OnDestroy().</p>
+</li>
+<li>
+<p><code>public void PostDeserialize(Context context)</code><br />
+Implements IPostDeserialize. If context.purpose is Purpose.NewGame or Purpose.LoadGame, sets m_RequireUpdate = true so that a full rebuild of selectable delivery trucks happens on the next update.</p>
+</li>
+<li>
+<p><code>protected override void OnUpdate()</code><br />
+Main update loop:</p>
+</li>
+<li>If m_RequireUpdate is true or there are entities matching m_UpdatedQuery, an update is performed.</li>
+<li>Resets m_RequireUpdate.</li>
+<li>Calls m_DeliveryTruckQuery.ToArchetypeChunkListAsync(...) to collect prefab chunks and obtain a dependency JobHandle for that read.</li>
+<li>Calls m_VehicleSelectRequirementData.Update(this, m_CityConfigurationSystem) to refresh requirement data.</li>
+<li>Schedules UpdateDeliveryTruckSelectJob with component/entity type handles from __TypeHandle, passing:<ul>
+<li>the prefabChunks (ArchetypeChunk list)</li>
+<li>m_RequirementData and m_DeliveryTruckItems to be filled</li>
+</ul>
+</li>
+<li>Combines dependencies (base.Dependency and the ToArchetypeChunkListAsync job), stores returned job handle into m_WriteDependency and also assigns it to base.Dependency.</li>
+<li>Ensures prefabChunks.Dispose(jobHandle) is scheduled so the temporary chunk list is disposed once the job completes.</li>
+</ul>
+<p>Note: The scheduled job fills m_DeliveryTruckItems asynchronously; callers must complete m_WriteDependency before reading the list.</p>
 <ul>
-<li><code>public GetDeliveryTruckSelectData() : Game.Prefabs.DeliveryTruckSelectData</code>  </li>
+<li>
+<p><code>public DeliveryTruckSelectData GetDeliveryTruckSelectData()</code><br />
+Completes the outstanding write job (m_WriteDependency.Complete()) to ensure m_DeliveryTruckItems is ready, then returns a new DeliveryTruckSelectData constructed from m_DeliveryTruckItems.AsArray(). Use this to obtain a safe, managed snapshot of the current delivery truck selection items.</p>
+</li>
+<li>
+<p><code>private void __AssignQueries(ref SystemState state)</code><br />
+Compiler / tooling helper; currently empty (creates and disposes an EntityQueryBuilder). Called by OnCreateForCompiler. Not intended for manual use.</p>
+</li>
+<li>
+<p><code>protected override void OnCreateForCompiler()</code><br />
+Compiler helper that calls __AssignQueries and __TypeHandle.__AssignHandles(ref base.CheckedStateRef) to initialize cached type handles used by jobs. Ensures the internal TypeHandle fields are set up for job scheduling.</p>
+</li>
+<li>
+<p><code>private struct TypeHandle</code> (nested, compiler-generated)  </p>
+</li>
+<li>Fields: EntityTypeHandle __Unity_Entities_Entity_TypeHandle; ComponentTypeHandle<DeliveryTruckData> __Game_Prefabs_DeliveryTruckData_RO_ComponentTypeHandle; ComponentTypeHandle<CarTrailerData> __Game_Prefabs_CarTrailerData_RO_ComponentTypeHandle; ComponentTypeHandle<CarTractorData> __Game_Prefabs_CarTractorData_RO_ComponentTypeHandle.</li>
+<li>Method: <code>public void __AssignHandles(ref SystemState state)</code> — sets the above handles using state.GetEntityTypeHandle() and state.GetComponentTypeHandle<T>(isReadOnly: true). These cached handles are later converted for use with InternalCompilerInterface.Get... in the job scheduling.</li>
 </ul>
-<pre><code class="language-csharp">public DeliveryTruckSelectData GetDeliveryTruckSelectData()
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Example: reading the current delivery truck selection from a different system or UI code.
+// Ensure this runs after systems have updated (e.g., in a later system's OnUpdate or via Game loop).
+
+[Preserve]
+protected override void OnUpdate()
+{
+    base.OnUpdate();
+
+    var vehicleCapacitySystem = World.GetExistingSystemManaged&lt;Game.Prefabs.VehicleCapacitySystem&gt;();
+    if (vehicleCapacitySystem != null)
     {
-        m_WriteDependency.Complete();
-        return new DeliveryTruckSelectData(m_DeliveryTruckItems.AsArray());
+        // This method completes the internal job if needed and returns a managed snapshot.
+        DeliveryTruckSelectData selectData = vehicleCapacitySystem.GetDeliveryTruckSelectData();
+
+        // Use selectData for UI or selection logic...
     }
+}
 </code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_CityConfigurationSystem = base.World.GetOrCreateSystemManaged&lt;CityConfigurationSystem&gt;();
-        m_VehicleSelectRequirementData = new VehicleSelectRequirementData(this);
-        m_UpdatedQuery = GetEntityQuery(new EntityQueryDesc
-        {
-            All = new ComponentType[2]
-            {
-                ComponentType.ReadOnly&lt;VehicleData&gt;(),
-                ComponentType.ReadOnly&lt;PrefabData&gt;()
-            },
-            Any = new ComponentType[2]
-            {
-                ComponentType.ReadOnly&lt;Updated&gt;(),
-                ComponentType.ReadOnly&lt;Deleted&gt;()
-            }
-        });
-        m_DeliveryTruckQuery = GetEntityQuery(new EntityQueryDesc
-        {
-            All = new ComponentType[4]
-            {
-                ComponentType.ReadOnly&lt;DeliveryTruckData&gt;(),
-                ComponentType.ReadOnly&lt;CarData&gt;(),
-                ComponentType.ReadOnly&lt;ObjectData&gt;(),
-                ComponentType.ReadOnly&lt;PrefabData&gt;()
-            },
-            None = new ComponentType[1] { ComponentType.ReadOnly&lt;Locked&gt;() }
-        });
-        m_DeliveryTruckItems = new NativeList&lt;DeliveryTruckSelectItem&gt;(10, Allocator.Persistent);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreateForCompiler() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnCreateForCompiler()
-    {
-        base.OnCreateForCompiler();
-        __AssignQueries(ref base.CheckedStateRef);
-        __TypeHandle.__AssignHandles(ref base.CheckedStateRef);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnDestroy() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnDestroy()
-    {
-        m_DeliveryTruckItems.Dispose();
-        base.OnDestroy();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        if (m_RequireUpdate || !m_UpdatedQuery.IsEmptyIgnoreFilter)
-        {
-            m_RequireUpdate = false;
-            JobHandle outJobHandle;
-            NativeList&lt;ArchetypeChunk&gt; prefabChunks = m_DeliveryTruckQuery.ToArchetypeChunkListAsync(Allocator.TempJob, out outJobHandle);
-            m_VehicleSelectRequirementData.Update(this, m_CityConfigurationSystem);
-            JobHandle jobHandle = IJobExtensions.Schedule(new UpdateDeliveryTruckSelectJob
-            {
-                m_EntityType = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef),
-                m_DeliveryTruckDataType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_DeliveryTruckData_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                m_CarTrailerDataType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_CarTrailerData_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                m_CarTractorDataType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_CarTractorData_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                m_PrefabChunks = prefabChunks,
-                m_RequirementData = m_VehicleSelectRequirementData,
-                m_DeliveryTruckItems = m_DeliveryTruckItems
-            }, JobHandle.CombineDependencies(base.Dependency, outJobHandle));
-            prefabChunks.Dispose(jobHandle);
-            m_WriteDependency = jobHandle;
-            base.Dependency = jobHandle;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public PostDeserialize(Colossal.Serialization.Entities.Context context) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void PostDeserialize(Context context)
-    {
-        if (context.purpose == Purpose.NewGame || context.purpose == Purpose.LoadGame)
-        {
-            m_RequireUpdate = true;
-        }
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Prefabs.VehicleCapacitySystem+TypeHandle</code>  </li>
-</ul>
+<p>Notes and tips:
+- The system schedules work that writes into a persistent NativeList; always call GetDeliveryTruckSelectData (or otherwise complete m_WriteDependency) before accessing the list to avoid race conditions.
+- PostDeserialize is used to mark the system to rebuild its data after loading or starting a new game.
+- The update path uses asynchronous chunk enumeration (ToArchetypeChunkListAsync) and schedules a custom job (UpdateDeliveryTruckSelectJob). If you need to depend on this job in other systems, inspect base.Dependency or synchronize explicitly by completing the job handle.</p>
 
 
 

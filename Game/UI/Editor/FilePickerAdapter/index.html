@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87073,6 +87165,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Simulation/SurfaceWater/" class="md-nav__link">
         
   
@@ -98113,15 +98228,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -98158,9 +98264,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -117932,6 +118038,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117957,15 +118085,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -118004,9 +118123,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118029,167 +118148,132 @@
 
 
 <h1 id="gameuieditorfilepickeradapter">Game.UI.Editor.FilePickerAdapter</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.UI.Editor</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>System.Object</code><br />
-<strong>Implements:</strong> <code>Game.UI.Editor.ItemPicker&lt;Game.UI.Editor.FileItem&gt;</code>, <code>Game.UI.Editor.SearchField+IAdapter</code>, <code>Game.UI.Editor.ItemPickerFooter+IAdapter</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class FilePickerAdapter : Game.UI.Editor.ItemPicker&lt;Game.UI.Editor.FileItem&gt;, Game.UI.Editor.SearchField+IAdapter, Game.UI.Editor.ItemPickerFooter+IAdapter
-{
-    private System.String m_SearchQuery;
-    private System.Collections.Generic.List&lt;Game.UI.Editor.FileItem&gt; m_Items;
-    private System.Collections.Generic.List&lt;Game.UI.Editor.FileItem&gt; m_FilteredItems;
-    private System.Boolean m_FilteredItemsChanged;
-    private Game.UI.Editor.FileItem m_SelectedItem;
-    private System.Int32 m_ColumnCount;
-    public System.Action&lt;Game.UI.Editor.FileItem&gt; EventItemSelected;
-
-    public Game.UI.Editor.FileItem selectedItem { get; set; }
-    private Game.UI.Editor.FileItem Game.UI.Editor.ItemPicker&lt;Game.UI.Editor.FileItem&gt;.IAdapter.selectedItem { private get; private set; }
-    private System.Collections.Generic.List&lt;Game.UI.Editor.FileItem&gt; Game.UI.Editor.ItemPicker&lt;Game.UI.Editor.FileItem&gt;.IAdapter.items { private get; }
-    public System.String searchQuery { get; set; }
-    private System.Int32 Game.UI.Editor.ItemPickerFooter.IAdapter.length { private get; }
-    public System.Int32 columnCount { get; set; }
-
-    public FilePickerAdapter(System.Collections.Generic.IEnumerable&lt;Game.UI.Editor.FileItem&gt; items);
-
-    private System.Boolean &lt;UpdateFilteredItems&gt;b__12_0(Game.UI.Editor.FileItem item);
-    private System.Void Game.UI.Editor.ItemPicker&lt;Game.UI.Editor.FileItem&gt;.IAdapter.SetFavorite(System.Int32 index, System.Boolean favorite);
-    private System.Boolean Game.UI.Editor.ItemPicker&lt;Game.UI.Editor.FileItem&gt;.IAdapter.Update();
-    public Game.UI.Editor.FileItem SelectItemByName(System.String name, System.StringComparison comparisonType);
-    private System.Void UpdateFilteredItems();
-}
-</code></pre>
+<p><strong>Assembly:</strong><br />
+<strong>Namespace:</strong> Game.UI.Editor</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> System.Object</p>
+<p><strong>Summary:</strong><br />
+Adapter that bridges a collection of FileItem objects to several UI picker interfaces used by the editor (ItemPicker<FileItem>.IAdapter, SearchField.IAdapter, ItemPickerFooter.IAdapter). It maintains the full item list, a filtered view based on a search query, the currently selected item, and a configurable column count that is persisted to SharedSettings.instance.editor.assetPickerColumnCount. Filtering is case-insensitive and performed on FileItem.path. The adapter raises EventItemSelected when selection changes through the explicit ItemPicker adapter setter.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private System.String m_SearchQuery</code>  </li>
+<li>
+<p><code>private string m_SearchQuery = string.Empty</code><br />
+Holds the current search query used to filter m_Items. Empty string means no filtering.</p>
+</li>
+<li>
+<p><code>private List&lt;FileItem&gt; m_Items</code><br />
+The complete, sorted list of FileItem instances provided at construction.</p>
+</li>
+<li>
+<p><code>private List&lt;FileItem&gt; m_FilteredItems</code><br />
+The current filtered subset of m_Items after applying m_SearchQuery. Used by the ItemPicker adapter.</p>
+</li>
+<li>
+<p><code>private bool m_FilteredItemsChanged</code><br />
+Flag set when UpdateFilteredItems alters m_FilteredItems. Reset by the explicit ItemPicker<IAdapter>.Update implementation.</p>
+</li>
+<li>
+<p><code>[CanBeNull] private FileItem m_SelectedItem</code><br />
+Currently selected FileItem. Nullable.</p>
+</li>
+<li>
+<p><code>private int m_ColumnCount</code><br />
+Number of columns the UI should use to display items. Persisted to editor settings when changed.</p>
+</li>
+<li>
+<p><code>public Action&lt;FileItem&gt; EventItemSelected</code><br />
+Event/action invoked when an item is selected via the explicit ItemPicker<FileItem>.IAdapter.selectedItem setter. May be null.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private System.String m_SearchQuery;
-</code></pre>
-<ul>
-<li><code>private System.Collections.Generic.List&lt;Game.UI.Editor.FileItem&gt; m_Items</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Collections.Generic.List&lt;Game.UI.Editor.FileItem&gt; m_Items;
-</code></pre>
-<ul>
-<li><code>private System.Collections.Generic.List&lt;Game.UI.Editor.FileItem&gt; m_FilteredItems</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Collections.Generic.List&lt;Game.UI.Editor.FileItem&gt; m_FilteredItems;
-</code></pre>
-<ul>
-<li><code>private System.Boolean m_FilteredItemsChanged</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean m_FilteredItemsChanged;
-</code></pre>
-<ul>
-<li><code>private Game.UI.Editor.FileItem m_SelectedItem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.UI.Editor.FileItem m_SelectedItem;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_ColumnCount</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_ColumnCount;
-</code></pre>
-<ul>
-<li><code>public System.Action&lt;Game.UI.Editor.FileItem&gt; EventItemSelected</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Action&lt;Game.UI.Editor.FileItem&gt; EventItemSelected;
-</code></pre>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>public Game.UI.Editor.FileItem selectedItem { get; set }</code>  </li>
+<li>
+<p><code>public FileItem selectedItem { get; set; }</code><br />
+Gets or sets the currently selected item (backed by m_SelectedItem). Setting this property only updates the stored selection; it does not invoke EventItemSelected.</p>
+</li>
+<li>
+<p><code>FileItem ItemPicker&lt;FileItem&gt;.IAdapter.selectedItem { get; set; }</code><br />
+Explicit interface implementation used by the ItemPicker. Getting returns the current selection. Setting updates m_SelectedItem and invokes EventItemSelected (if non-null). This is the path to notify listeners when the picker UI changes selection.</p>
+</li>
+<li>
+<p><code>List&lt;FileItem&gt; ItemPicker&lt;FileItem&gt;.IAdapter.items =&gt; m_FilteredItems</code><br />
+Explicit read-only interface property returning the currently filtered list shown by the picker.</p>
+</li>
+<li>
+<p><code>public string searchQuery { get; set; }</code><br />
+Public search query property. When changed, triggers UpdateFilteredItems() to rebuild m_FilteredItems. Matching is performed with StringComparison.OrdinalIgnoreCase against FileItem.path.</p>
+</li>
+<li>
+<p><code>int ItemPickerFooter.IAdapter.length =&gt; m_FilteredItems.Count</code><br />
+Explicit interface property returning the length of the filtered list (used by footer UI).</p>
+</li>
+<li>
+<p><code>public int columnCount { get; set; }</code><br />
+Number of columns for the asset picker grid. When set, the value is stored into SharedSettings.instance?.editor?.assetPickerColumnCount (if editor settings are available). The constructor initializes this from the same settings, defaulting to 4 if not present.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public Game.UI.Editor.FileItem selectedItem { get; set; }
-</code></pre>
-<ul>
-<li><code>private Game.UI.Editor.FileItem Game.UI.Editor.ItemPicker&lt;Game.UI.Editor.FileItem&gt;.IAdapter.selectedItem { private get; private set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.UI.Editor.FileItem Game.UI.Editor.ItemPicker&lt;Game.UI.Editor.FileItem&gt;.IAdapter.selectedItem { private get; private set; }
-</code></pre>
-<ul>
-<li><code>private System.Collections.Generic.List&lt;Game.UI.Editor.FileItem&gt; Game.UI.Editor.ItemPicker&lt;Game.UI.Editor.FileItem&gt;.IAdapter.items { private get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Collections.Generic.List&lt;Game.UI.Editor.FileItem&gt; Game.UI.Editor.ItemPicker&lt;Game.UI.Editor.FileItem&gt;.IAdapter.items { private get; }
-</code></pre>
-<ul>
-<li><code>public System.String searchQuery { get; set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.String searchQuery { get; set; }
-</code></pre>
-<ul>
-<li><code>private System.Int32 Game.UI.Editor.ItemPickerFooter.IAdapter.length { private get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 Game.UI.Editor.ItemPickerFooter.IAdapter.length { private get; }
-</code></pre>
-<ul>
-<li><code>public System.Int32 columnCount { get; set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Int32 columnCount { get; set; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public FilePickerAdapter(System.Collections.Generic.IEnumerable&lt;Game.UI.Editor.FileItem&gt; items)</code>  </li>
+<li><code>public FilePickerAdapter(IEnumerable&lt;FileItem&gt; items)</code><br />
+Initializes the adapter from a sequence of FileItem. The constructor:</li>
+<li>Copies items into m_Items and sorts them (using FileItem's comparison),</li>
+<li>Copies items into m_FilteredItems (initially unfiltered),</li>
+<li>Loads m_ColumnCount from SharedSettings.instance.editor.assetPickerColumnCount or defaults to 4.</li>
 </ul>
-<pre><code class="language-csharp">public FilePickerAdapter(IEnumerable&lt;FileItem&gt; items)
-    {
-        m_Items = items.ToList();
-        m_Items.Sort();
-        m_FilteredItems = new List&lt;FileItem&gt;(m_Items);
-        m_ColumnCount = (SharedSettings.instance?.editor)?.assetPickerColumnCount ?? 4;
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private &lt;UpdateFilteredItems&gt;b__12_0(Game.UI.Editor.FileItem item) : System.Boolean</code>  </li>
+<li>
+<p><code>public FileItem SelectItemByName(string name, StringComparison comparisonType)</code><br />
+Searches the full m_Items list for the first FileItem whose path equals name according to the provided comparisonType. Sets m_SelectedItem to the found item (or null if not found) and returns it. Does not raise EventItemSelected.</p>
+</li>
+<li>
+<p><code>private void UpdateFilteredItems()</code><br />
+Rebuilds m_FilteredItems from m_Items according to m_SearchQuery:</p>
+</li>
+<li>If m_SearchQuery is null or empty, copies all items.</li>
+<li>
+<p>Otherwise, includes items where item.path.IndexOf(m_SearchQuery, StringComparison.OrdinalIgnoreCase) != -1 (case-insensitive substring match).
+Sets m_FilteredItemsChanged = true to indicate the visible set changed.</p>
+</li>
+<li>
+<p><code>bool ItemPicker&lt;FileItem&gt;.IAdapter.Update()</code><br />
+Explicit interface implementation called by the picker UI to check whether the filtered items changed. Returns the current value of m_FilteredItemsChanged and resets it to false.</p>
+</li>
+<li>
+<p><code>void ItemPicker&lt;FileItem&gt;.IAdapter.SetFavorite(int index, bool favorite)</code><br />
+Explicit interface implementation intended to mark an item as favorite. Currently implemented as a no-op.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private System.Boolean &lt;UpdateFilteredItems&gt;b__12_0(Game.UI.Editor.FileItem item);
-</code></pre>
-<ul>
-<li><code>private Game.UI.Editor.ItemPicker&lt;Game.UI.Editor.FileItem&gt;.IAdapter.SetFavorite(System.Int32 index, System.Boolean favorite) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Void Game.UI.Editor.ItemPicker&lt;Game.UI.Editor.FileItem&gt;.IAdapter.SetFavorite(System.Int32 index, System.Boolean favorite);
-</code></pre>
-<ul>
-<li><code>private Game.UI.Editor.ItemPicker&lt;Game.UI.Editor.FileItem&gt;.IAdapter.Update() : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean Game.UI.Editor.ItemPicker&lt;Game.UI.Editor.FileItem&gt;.IAdapter.Update();
-</code></pre>
-<ul>
-<li><code>public SelectItemByName(System.String name, System.StringComparison comparisonType) : Game.UI.Editor.FileItem</code>  </li>
-</ul>
-<pre><code class="language-csharp">public FileItem SelectItemByName(string name, StringComparison comparisonType)
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Construct adapter with a collection of FileItem
+var adapter = new FilePickerAdapter(allFileItems);
+
+// Listen to selection changes coming from the picker UI
+adapter.EventItemSelected = item =&gt;
+{
+    if (item != null)
     {
-        m_SelectedItem = m_Items.FirstOrDefault((FileItem item) =&gt; item.path.Equals(name, comparisonType));
-        return m_SelectedItem;
+        Console.WriteLine(&quot;Selected: &quot; + item.path);
     }
+};
+
+// Set a search query to filter shown items (case-insensitive substring match)
+adapter.searchQuery = &quot;bridge&quot;;
+
+// Ask the adapter to select an item by exact path (ordinal ignore case or other comparison)
+var selected = adapter.SelectItemByName(&quot;assets/bridge.bundle&quot;, StringComparison.OrdinalIgnoreCase);
+
+// Read the filtered items (via explicit interface in picker UI; shown here for example)
+var filtered = ((ItemPicker&lt;FileItem&gt;.IAdapter)adapter).items;
+
+// Change column count (also persisted to SharedSettings.instance.editor.assetPickerColumnCount if available)
+adapter.columnCount = 6;
 </code></pre>
-<ul>
-<li><code>private UpdateFilteredItems() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void UpdateFilteredItems()
-    {
-        m_FilteredItems.Clear();
-        List&lt;FileItem&gt; filteredItems = m_FilteredItems;
-        IEnumerable&lt;FileItem&gt; collection;
-        if (string.IsNullOrEmpty(m_SearchQuery))
-        {
-            IEnumerable&lt;FileItem&gt; items = m_Items;
-            collection = items;
-        }
-        else
-        {
-            collection = m_Items.Where((FileItem item) =&gt; item.path.IndexOf(m_SearchQuery, StringComparison.OrdinalIgnoreCase) != -1);
-        }
-        filteredItems.AddRange(collection);
-        m_FilteredItemsChanged = true;
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.UI.Editor.FilePickerAdapter+&lt;&gt;c__DisplayClass11_0</code>  </li>
-</ul>
+<p>Notes:
+- Filtering is performed on FileItem.path with case-insensitive substring matching.
+- The explicit ItemPicker selectedItem setter invokes EventItemSelected; direct assignment to the public selectedItem property does not.
+- The adapter stores and restores the column count via SharedSettings; if settings are unavailable it defaults to 4.</p>
 
 
 

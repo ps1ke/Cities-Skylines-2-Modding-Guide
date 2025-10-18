@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72175,9 +72221,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
@@ -72211,9 +72257,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -72563,6 +72609,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75553,6 +75622,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87145,6 +87237,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -117921,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117948,9 +118085,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
@@ -117984,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118009,110 +118146,74 @@
 
 
 <h1 id="gamesceneflowcontrollerpairingscreen">Game.SceneFlow.ControllerPairingScreen</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.SceneFlow</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.SceneFlow.FullScreenOverlay</code><br />
-<strong>Implements:</strong> <code>Game.SceneFlow.IScreenState</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class ControllerPairingScreen : Game.SceneFlow.FullScreenOverlay, Game.SceneFlow.IScreenState
-{
-    protected Game.SceneFlow.OverlayScreen overlayScreen { protected get; }
-    protected System.String continueDisplayProperty { protected get; }
-    protected System.String cancelDisplayProperty { protected get; }
-    protected System.Int32 cancelDisplayPriority { protected get; }
-
-    public ControllerPairingScreen();
-
-    public virtual System.Threading.Tasks.Task Execute(Game.SceneFlow.GameManager manager, System.Threading.CancellationToken token);
-}
-</code></pre>
+<p><strong>Assembly:</strong> Assembly-CSharp.dll<br />
+<strong>Namespace:</strong> Game.SceneFlow</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> FullScreenOverlay</p>
+<p><strong>Summary:</strong><br />
+ControllerPairingScreen is a fullscreen overlay that handles controller pairing and user switching flows. It presents an overlay screen to the player, binds actions for "continue" (Switch User) and "cancel", and waits for either explicit input actions or an attached input device event. It uses PlatformManager to perform sign-in or device association and launches a WaitScreen while sign-in is in progress. If the active user changes during sign-in and the game is running (or in the editor), it returns the player to the main menu.</p>
+<hr />
+<h2 id="fields">Fields</h2>
+<ul>
+<li>This class declares no private fields of its own.<br />
+Most of the instance state it references (for example m_Done and m_CompletedEvent) is provided by the FullScreenOverlay base class.</li>
+</ul>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>protected Game.SceneFlow.OverlayScreen overlayScreen { protected get }</code>  </li>
+<li>
+<p><code>protected override OverlayScreen overlayScreen { get; }</code><br />
+Returns OverlayScreen.ControllerPairingChanged — identifies the overlay screen shown by this overlay.</p>
+</li>
+<li>
+<p><code>protected override string continueDisplayProperty { get; }</code><br />
+Returns the display string key "Switch User" for the continue action/button.</p>
+</li>
+<li>
+<p><code>protected override string cancelDisplayProperty { get; }</code><br />
+Returns the display string key "Cancel" for the cancel action/button.</p>
+</li>
+<li>
+<p><code>protected override int cancelDisplayPriority { get; }</code><br />
+Returns 30 — the priority value used when registering the cancel action display.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">protected Game.SceneFlow.OverlayScreen overlayScreen { protected get; }
-</code></pre>
-<ul>
-<li><code>protected System.String continueDisplayProperty { protected get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected System.String continueDisplayProperty { protected get; }
-</code></pre>
-<ul>
-<li><code>protected System.String cancelDisplayProperty { protected get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected System.String cancelDisplayProperty { protected get; }
-</code></pre>
-<ul>
-<li><code>protected System.Int32 cancelDisplayPriority { protected get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected System.Int32 cancelDisplayPriority { protected get; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public ControllerPairingScreen()</code>  </li>
+<li>This class has no explicit constructors; it uses the default parameterless constructor inherited from System.Object. Initialization is performed in Execute when the overlay is activated.</li>
 </ul>
-<pre><code class="language-csharp">public ControllerPairingScreen();
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>public virtual Execute(Game.SceneFlow.GameManager manager, System.Threading.CancellationToken token) : System.Threading.Tasks.Task</code>  </li>
+<li><code>public override async Task Execute(GameManager manager, CancellationToken token)</code><br />
+Main asynchronous entry point for the overlay. Execution flow:</li>
+<li>Creates two EnabledActionScoped instances to bind continue (actionA) and cancel (actionB) inputs with labels and priorities.</li>
+<li>Creates an overlay barrier via InputManager.instance.CreateOverlayBarrier to prevent other input from interfering.</li>
+<li>Activates the overlay UI via manager.userInterface.overlayBindings.ActivateScreenScoped(overlayScreen).</li>
+<li>Enters a loop until m_Done is set:<ul>
+<li>Starts two tasks: IScreenState.WaitForInput to await continue/cancel actions, and IScreenState.WaitForDevice to wait for device connection.</li>
+<li>Awaits Task.WhenAny(input, device) and invokes m_CompletedEvent to notify waiting logic.</li>
+<li>If input completed successfully:</li>
+<li>If the input indicates "ok" (continue), calls PlatformManager.instance.SignIn with UserChangingCallback; sets m_Done on success and sends the player to the main menu if the user changed and the game is running.</li>
+<li>If the input indicates cancel, calls PlatformManager.instance.AssociateDevice with the detected device and sets m_Done based on the result.</li>
+<li>If device task completes successfully (or other unexpected completion), sets m_Done to true to dismiss the overlay.</li>
 </ul>
-<pre><code class="language-csharp">public override async Task Execute(GameManager manager, CancellationToken token)
-    {
-        using (EnabledActionScoped continueAction = new EnabledActionScoped(manager, &quot;Engagement&quot;, actionA, HandleScreenChange, continueDisplayProperty, continueDisplayPriority))
-        {
-            using EnabledActionScoped cancelAction = new EnabledActionScoped(manager, &quot;Engagement&quot;, actionB, HandleScreenChange, cancelDisplayProperty, cancelDisplayPriority);
-            using (Game.Input.InputManager.instance.CreateOverlayBarrier(&quot;ControllerPairingScreen&quot;))
-            {
-                OverlayBindings overlayBindings = manager.userInterface.overlayBindings;
-                using (overlayBindings.ActivateScreenScoped(overlayScreen))
-                {
-                    while (!m_Done)
-                    {
-                        Task&lt;(bool ok, InputDevice device)&gt; input = IScreenState.WaitForInput(continueAction, cancelAction, m_CompletedEvent, token);
-                        Task&lt;object&gt; device = IScreenState.WaitForDevice(m_CompletedEvent, token);
-                        await Task.WhenAny(input, device);
-                        m_CompletedEvent?.Invoke();
-                        if (input.IsCompletedSuccessfully)
-                        {
-                            if (input.Result.ok)
-                            {
-                                SignInFlags signInFlags = await PlatformManager.instance.SignIn(SignInOptions.None, UserChangingCallback);
-                                m_Done = signInFlags.HasFlag(SignInFlags.Success);
-                                if (signInFlags.HasFlag(SignInFlags.UserChanged) &amp;&amp; manager.gameMode.IsGameOrEditor())
-                                {
-                                    manager.MainMenu();
-                                }
-                            }
-                            else
-                            {
-                                m_Done = await PlatformManager.instance.AssociateDevice(input.Result.device);
-                            }
-                        }
-                        else if (device.IsCompletedSuccessfully)
-                        {
-                            m_Done = true;
-                        }
-                        else
-                        {
-                            m_Done = true;
-                        }
-                    }
-                }
-            }
-        }
-        void UserChangingCallback(Task signInTask)
-        {
-            new WaitScreen().Execute(manager, token, signInTask);
-        }
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
+</li>
+<li>Ensures proper disposal of action scopes, overlay bindings and the overlay barrier.</li>
+</ul>
+<p>The method also defines a nested callback:</p>
 <ul>
-<li><code>Game.SceneFlow.ControllerPairingScreen+&lt;&gt;c__DisplayClass8_0</code>  </li>
-<li><code>Game.SceneFlow.ControllerPairingScreen+&lt;Execute&gt;d__8</code>  </li>
+<li><code>void UserChangingCallback(Task signInTask)</code><br />
+    Called when SignIn has been initiated. It launches a WaitScreen to show sign-in progress: new WaitScreen().Execute(manager, token, signInTask).</li>
 </ul>
+<p>Notes:
+  - Uses EnabledActionScoped to temporarily enable controller actions with UI labels.
+  - Uses PlatformManager to perform sign-in and device association.
+  - If the active user changes while in-game or in-editor, it calls manager.MainMenu() to return to the main menu.</p>
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Example: invoking the controller pairing overlay from a GameManager context
+var screen = new Game.SceneFlow.ControllerPairingScreen();
+CancellationToken token = CancellationToken.None; // or a real token provided by the caller
+await screen.Execute(manager, token);
+</code></pre>
 
 
 

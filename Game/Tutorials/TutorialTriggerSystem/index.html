@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87073,6 +87165,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Simulation/SurfaceWater/" class="md-nav__link">
         
   
@@ -95773,18 +95888,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -95803,6 +95918,15 @@
   <a href="#methods" class="md-nav__link">
     <span class="md-ellipsis">
       Methods
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
     </span>
   </a>
   
@@ -117912,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117939,18 +118085,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -117974,6 +118120,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -117991,104 +118146,94 @@
 
 
 <h1 id="gametutorialstutorialtriggersystem">Game.Tutorials.TutorialTriggerSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Tutorials</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code><br />
-<strong>Implements:</strong> <code>Game.Serialization.IPreDeserialize</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class TutorialTriggerSystem : Game.GameSystemBase, Game.Serialization.IPreDeserialize
-{
-    private readonly System.Collections.Generic.List&lt;Game.Tutorials.TutorialTriggerSystemBase&gt; m_Systems;
-    private Unity.Entities.EntityQuery m_TriggerQuery;
-
-    public TutorialTriggerSystem();
-
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnGamePreload(Colossal.Serialization.Entities.Purpose purpose, Game.GameMode mode);
-    protected virtual System.Void OnUpdate();
-    public System.Void PreDeserialize(Colossal.Serialization.Entities.Context context);
-}
-</code></pre>
+<p><strong>Assembly:</strong> Assembly-CSharp<br />
+<strong>Namespace:</strong> Game.Tutorials</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> GameSystemBase, IPreDeserialize</p>
+<p><strong>Summary:</strong><br />
+Manages and coordinates multiple TutorialTriggerSystemBase implementations. On creation it collects all concrete tutorial trigger subsystems (object placement, input, area, selection, upgrade, UI, policy adjustment, zoning) and maintains an EntityQuery for entities that contain TutorialTriggerData. The system is only enabled in game mode and, each update, forwards Update() calls to each contained subsystem while catching and logging exceptions. It also implements IPreDeserialize to clear trigger-related components before deserialization, ensuring tutorial triggers are reset appropriately during load.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private readonly System.Collections.Generic.List&lt;Game.Tutorials.TutorialTriggerSystemBase&gt; m_Systems</code>  </li>
+<li><code>private readonly System.Collections.Generic.List&lt;TutorialTriggerSystemBase&gt; m_Systems</code><br />
+Holds the instantiated tutorial trigger subsystems retrieved via base.World.GetOrCreateSystemManaged<T>(). The list includes systems such as:</li>
+<li>TutorialObjectPlacementTriggerSystem</li>
+<li>TutorialInputTriggerSystem</li>
+<li>TutorialAreaTriggerSystem</li>
+<li>TutorialObjectSelectionTriggerSystem</li>
+<li>TutorialUpgradeTriggerSystem</li>
+<li>TutorialUITriggerSystem</li>
+<li>TutorialPolicyAdjustmentTriggerSystem</li>
+<li>
+<p>TutorialZoningTriggerSystem<br />
+Useful for delegating Update() calls to all registered trigger subsystems.</p>
+</li>
+<li>
+<p><code>private Unity.Entities.EntityQuery m_TriggerQuery</code><br />
+EntityQuery configured to find entities with the TutorialTriggerData component (ComponentType.ReadOnly<TutorialTriggerData>), used by PreDeserialize to remove trigger-related components from matching entities.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private readonly System.Collections.Generic.List&lt;Game.Tutorials.TutorialTriggerSystemBase&gt; m_Systems;
-</code></pre>
+<h2 id="properties">Properties</h2>
 <ul>
-<li><code>private Unity.Entities.EntityQuery m_TriggerQuery</code>  </li>
+<li>None (no public properties exposed).</li>
 </ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_TriggerQuery;
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public TutorialTriggerSystem()</code>  </li>
+<li><code>public TutorialTriggerSystem()</code><br />
+Parameterless constructor with the [Preserve] attribute. The real initialization happens in OnCreate; constructor itself is empty.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public TutorialTriggerSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
+<li><code>protected override void OnCreate() : System.Void</code><br />
+Initializes the system:</li>
+<li>Calls base.OnCreate().</li>
+<li>Adds each tutorial trigger subsystem to m_Systems by calling base.World.GetOrCreateSystemManaged<T>() for each concrete subsystem type.</li>
+<li>Creates m_TriggerQuery = GetEntityQuery(ComponentType.ReadOnly<TutorialTriggerData>()).</li>
+<li>
+<p>Sets base.Enabled = false so the system doesn't run until allowed (OnGamePreload will enable it if in game mode).</p>
+</li>
+<li>
+<p><code>protected override void OnGamePreload(Purpose purpose, GameMode mode) : System.Void</code><br />
+Called during game preload. Enables or disables the system depending on whether the current GameMode is a game mode:</p>
+</li>
+<li>
+<p>base.Enabled = mode.IsGame();</p>
+</li>
+<li>
+<p><code>protected override void OnUpdate() : System.Void</code><br />
+Main update loop executed while the system is enabled. Iterates the m_Systems list and calls system.Update() on each TutorialTriggerSystemBase. Each call is wrapped in a try/catch — exceptions are logged via COSystemBase.baseLog.Critical(exception) so a failure in one subsystem does not prevent others from updating.</p>
+</li>
+<li>
+<p><code>public void PreDeserialize(Context context) : System.Void</code><br />
+IPreDeserialize implementation called before entity deserialization. Removes the following components from all entities matching m_TriggerQuery:</p>
+</li>
+<li>TriggerActive</li>
+<li>TriggerPreCompleted</li>
+<li>TriggerCompleted</li>
+<li>TutorialNextPhase<br />
+This resets trigger activation/completion state so that tutorial triggers are in a clean state when a save is loaded or deserialization happens.</li>
 </ul>
+<h2 id="usage-example">Usage Example</h2>
 <pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_Systems.Add(base.World.GetOrCreateSystemManaged&lt;TutorialObjectPlacementTriggerSystem&gt;());
-        m_Systems.Add(base.World.GetOrCreateSystemManaged&lt;TutorialInputTriggerSystem&gt;());
-        m_Systems.Add(base.World.GetOrCreateSystemManaged&lt;TutorialAreaTriggerSystem&gt;());
-        m_Systems.Add(base.World.GetOrCreateSystemManaged&lt;TutorialObjectSelectionTriggerSystem&gt;());
-        m_Systems.Add(base.World.GetOrCreateSystemManaged&lt;TutorialUpgradeTriggerSystem&gt;());
-        m_Systems.Add(base.World.GetOrCreateSystemManaged&lt;TutorialUITriggerSystem&gt;());
-        m_Systems.Add(base.World.GetOrCreateSystemManaged&lt;TutorialPolicyAdjustmentTriggerSystem&gt;());
-        m_Systems.Add(base.World.GetOrCreateSystemManaged&lt;TutorialZoningTriggerSystem&gt;());
-        m_TriggerQuery = GetEntityQuery(ComponentType.ReadOnly&lt;TutorialTriggerData&gt;());
-        base.Enabled = false;
-    }
+protected override void OnCreate()
+{
+    base.OnCreate();
+    // The system adds its subsystems and sets up the entity query for TutorialTriggerData.
+    // If you need to add a custom tutorial trigger system, you can do so here:
+    m_Systems.Add(base.World.GetOrCreateSystemManaged&lt;MyCustomTutorialTriggerSystem&gt;());
+    m_TriggerQuery = GetEntityQuery(ComponentType.ReadOnly&lt;TutorialTriggerData&gt;());
+    base.Enabled = false;
+}
 </code></pre>
-<ul>
-<li><code>protected virtual OnGamePreload(Colossal.Serialization.Entities.Purpose purpose, Game.GameMode mode) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnGamePreload(Purpose purpose, GameMode mode)
-    {
-        base.OnGamePreload(purpose, mode);
-        base.Enabled = mode.IsGame();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        foreach (TutorialTriggerSystemBase system in m_Systems)
-        {
-            try
-            {
-                system.Update();
-            }
-            catch (Exception exception)
-            {
-                COSystemBase.baseLog.Critical(exception);
-            }
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public PreDeserialize(Colossal.Serialization.Entities.Context context) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void PreDeserialize(Context context)
-    {
-        base.EntityManager.RemoveComponent&lt;TriggerActive&gt;(m_TriggerQuery);
-        base.EntityManager.RemoveComponent&lt;TriggerPreCompleted&gt;(m_TriggerQuery);
-        base.EntityManager.RemoveComponent&lt;TriggerCompleted&gt;(m_TriggerQuery);
-        base.EntityManager.RemoveComponent&lt;TutorialNextPhase&gt;(m_TriggerQuery);
-    }
-</code></pre>
+<p>{{ ADDITIONAL_INFO }}
+- Typical use for modders:
+  - To add custom tutorial triggers, implement a TutorialTriggerSystemBase-derived system and register it via World.GetOrCreateSystemManaged<T>() (call from your system's OnCreate or via a mod initialization routine).
+  - If you need custom serialization behavior for tutorial triggers, hook into PreDeserialize or provide your own serialization handling for the Trigger* components.
+  - Be aware that this system runs only when the game mode is a playable game (mode.IsGame()), so testing code should ensure the correct mode or manually enable the system for editor/debugging.
+- Key ECS components referenced:
+  - TutorialTriggerData (used to identify trigger entities)
+  - TriggerActive, TriggerPreCompleted, TriggerCompleted, TutorialNextPhase (removed during PreDeserialize to reset state)
+- Error handling: subsystem Update() calls are isolated with try/catch; exceptions are logged with COSystemBase.baseLog.Critical, preventing a single failing subsystem from stopping the overall update loop.</p>
 
 
 

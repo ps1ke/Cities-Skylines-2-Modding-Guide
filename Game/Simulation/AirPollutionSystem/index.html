@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75481,6 +75550,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Settings/InputHintsType/" class="md-nav__link">
         
   
@@ -78086,15 +78178,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -78131,9 +78214,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -87154,6 +87237,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -117930,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117955,15 +118083,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -118002,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118027,153 +118146,136 @@
 
 
 <h1 id="gamesimulationairpollutionsystem">Game.Simulation.AirPollutionSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Simulation</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.Simulation.CellMapSystem&lt;Game.Simulation.AirPollution&gt;</code><br />
-<strong>Implements:</strong> <code>Colossal.Serialization.Entities.IJobSerializable</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class AirPollutionSystem : Game.Simulation.CellMapSystem&lt;Game.Simulation.AirPollution&gt;, Colossal.Serialization.Entities.IJobSerializable
-{
-    private Game.Simulation.WindSystem m_WindSystem;
-    private Game.Simulation.SimulationSystem m_SimulationSystem;
-    private Unity.Entities.EntityQuery m_PollutionParameterQuery;
-    private static readonly System.Int32 kSpread;
-    public static readonly System.Int32 kTextureSize;
-    public static readonly System.Int32 kUpdatesPerDay;
-
-    public Unity.Mathematics.int2 TextureSize { get; }
-
-    public AirPollutionSystem();
-
-    public static Unity.Mathematics.float3 GetCellCenter(System.Int32 index);
-    public static Game.Simulation.AirPollution GetPollution(Unity.Mathematics.float3 position, Unity.Collections.NativeArray&lt;Game.Simulation.AirPollution&gt; pollutionMap);
-    public virtual System.Int32 GetUpdateInterval(Game.SystemUpdatePhase phase);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnUpdate();
-}
-</code></pre>
+<p><strong>Assembly:</strong> Game<br />
+<strong>Namespace:</strong> Game.Simulation</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> CellMapSystem<AirPollution>, IJobSerializable</p>
+<p><strong>Summary:</strong><br />
+AirPollutionSystem manages the game's 2D air pollution cell map (256x256). It advects pollution using wind, applies diffusion/spread and fade each simulation update, and stores pollution values in a CellMap texture-backed array. The system schedules a Burst-compiled job (AirPollutionMoveJob) that reads wind data from WindSystem and pollution parameters from a PollutionParameterData singleton (via an entity query). Pollution advection is stochastic (uses RandomSeed) and includes bilinear sampling for queries. The system integrates with the simulation dependency model (readers/writers) and runs on a fixed update interval.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.Simulation.WindSystem m_WindSystem</code>  </li>
+<li>
+<p><code>private static readonly int kSpread = 3</code><br />
+Describes how much pollution spread is applied when sampling neighbouring cells. It's used as a right-shift amount when adding neighbour contributions.</p>
+</li>
+<li>
+<p><code>public static readonly int kTextureSize = 256</code><br />
+Size of the pollution texture/map in each dimension (256x256).</p>
+</li>
+<li>
+<p><code>public static readonly int kUpdatesPerDay = 128</code><br />
+Number of pollution updates per in-game day. Used to derive fade rate and the update interval.</p>
+</li>
+<li>
+<p><code>private WindSystem m_WindSystem</code><br />
+Cached reference to the WindSystem (used to get wind map and drive advection).</p>
+</li>
+<li>
+<p><code>private SimulationSystem m_SimulationSystem</code><br />
+Cached reference to the SimulationSystem (used to read the current frame index).</p>
+</li>
+<li>
+<p><code>private EntityQuery m_PollutionParameterQuery</code><br />
+EntityQuery used to obtain PollutionParameterData singleton (contains m_WindAdvectionSpeed, m_AirFade, etc.).</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.Simulation.WindSystem m_WindSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.SimulationSystem m_SimulationSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.SimulationSystem m_SimulationSystem;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_PollutionParameterQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_PollutionParameterQuery;
-</code></pre>
-<ul>
-<li><code>private static readonly System.Int32 kSpread</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static readonly System.Int32 kSpread;
-</code></pre>
-<ul>
-<li><code>public static readonly System.Int32 kTextureSize</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static readonly System.Int32 kTextureSize;
-</code></pre>
-<ul>
-<li><code>public static readonly System.Int32 kUpdatesPerDay</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static readonly System.Int32 kUpdatesPerDay;
-</code></pre>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>public Unity.Mathematics.int2 TextureSize { get }</code>  </li>
+<li><code>public int2 TextureSize { get; }</code><br />
+Returns the texture/map dimensions as an int2: (kTextureSize, kTextureSize). Use this to know the cell-map resolution (256x256).</li>
 </ul>
-<pre><code class="language-csharp">public Unity.Mathematics.int2 TextureSize { get; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public AirPollutionSystem()</code>  </li>
+<li><code>public AirPollutionSystem()</code><br />
+Default constructor. No special initialization beyond base constructor. The real initialization happens in OnCreate.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public AirPollutionSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>public static GetCellCenter(System.Int32 index) : Unity.Mathematics.float3</code>  </li>
+<li>
+<p><code>public override int GetUpdateInterval(SystemUpdatePhase phase)</code><br />
+Returns the update interval (in simulation ticks) for the system: 262144 / kUpdatesPerDay. With kUpdatesPerDay = 128 this evaluates to 2048 ticks. This controls how often the system's OnUpdate runs relative to the simulation phase.</p>
+</li>
+<li>
+<p><code>public static float3 GetCellCenter(int index)</code><br />
+Get the world-space center position of the given pollution cell index. Delegates to CellMapSystem<AirPollution>.GetCellCenter with kTextureSize.</p>
+</li>
+<li>
+<p><code>public static AirPollution GetPollution(float3 position, NativeArray&lt;AirPollution&gt; pollutionMap)</code><br />
+Sample pollution at an arbitrary world position. Performs bilinear interpolation between the four surrounding pollution cells. Steps:</p>
+</li>
+<li>Converts position to cell coordinates in the 256x256 map.</li>
+<li>Clamps cell indices to valid range (0..kTextureSize-2) so the 2x2 sample is valid.</li>
+<li>
+<p>Reads four neighbouring short pollution values from the provided NativeArray and returns an AirPollution with the bilinearly-interpolated short value (rounded).</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnCreate()</code><br />
+Initializes the system:</p>
+</li>
+<li>Calls base.OnCreate().</li>
+<li>Calls CreateTextures(kTextureSize) to allocate the map texture/array.</li>
+<li>Caches references to WindSystem and SimulationSystem from the world (GetOrCreateSystemManaged).</li>
+<li>
+<p>Builds an EntityQuery for PollutionParameterData and calls RequireForUpdate so the system only runs when parameters exist.</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnUpdate()</code><br />
+Prepares and schedules the AirPollutionMoveJob:</p>
+</li>
+<li>Retrieves the wind map from WindSystem via GetMap(readOnly: true, out dependencies).</li>
+<li>Reads the PollutionParameterData singleton from m_PollutionParameterQuery.</li>
+<li>Creates a job struct (AirPollutionMoveJob) with m_PollutionMap = m_Map (the CellMap backing array), the wind map, pollution parameters, a RandomSeed, and current frame index.</li>
+<li>Schedules the job using JobUtils.CombineDependencies and IJobExtensions.Schedule; integrates the job handle with the system's m_ReadDependencies and m_WriteDependencies.</li>
+<li>
+<p>Registers the scheduled dependency with WindSystem.AddReader and AddWriter, then combines dependencies into base.Dependency.</p>
+</li>
+<li>
+<p><code>private struct AirPollutionMoveJob : IJob</code> (Burst compiled)<br />
+Implements the per-update pollution advection, diffusion/spread and fade. Key behavior in Execute():</p>
+</li>
+<li>Allocates a temporary NativeArray<AirPollution> same length as the pollution map to store advected values.</li>
+<li>For each cell index:<ul>
+<li>Computes the cell center.</li>
+<li>Samples wind at the cell center using WindSystem.GetWind (via provided wind map).</li>
+<li>Samples pollution from an upwind position: position - m_WindAdvectionSpeed * wind.xy (m_WindAdvectionSpeed comes from PollutionParameterData).</li>
+<li>Writes that sampled pollution into the temporary buffer.</li>
 </ul>
-<pre><code class="language-csharp">public static float3 GetCellCenter(int index)
-    {
-        return CellMapSystem&lt;AirPollution&gt;.GetCellCenter(index, kTextureSize);
-    }
-</code></pre>
-<ul>
-<li><code>public static GetPollution(Unity.Mathematics.float3 position, Unity.Collections.NativeArray&lt;Game.Simulation.AirPollution&gt; pollutionMap) : Game.Simulation.AirPollution</code>  </li>
+</li>
+<li>Applies diffusion &amp; fade in a second pass over kTextureSize x kTextureSize:<ul>
+<li>For each cell sums neighbour contributions (right-shifted by kSpread).</li>
+<li>Subtracts a portion of the cell's own pollution and a randomized fade amount (uses Random and m_PollutionParameters.m_AirFade / kUpdatesPerDay).</li>
+<li>Clamps the result to 0..32767 and writes back into the main m_PollutionMap.</li>
 </ul>
-<pre><code class="language-csharp">public static AirPollution GetPollution(float3 position, NativeArray&lt;AirPollution&gt; pollutionMap)
-    {
-        AirPollution result = default(AirPollution);
-        float num = (float)CellMapSystem&lt;AirPollution&gt;.kMapSize / (float)kTextureSize;
-        int2 cell = CellMapSystem&lt;AirPollution&gt;.GetCell(position - new float3(num / 2f, 0f, num / 2f), CellMapSystem&lt;AirPollution&gt;.kMapSize, kTextureSize);
-        float2 @float = CellMapSystem&lt;AirPollution&gt;.GetCellCoords(position, CellMapSystem&lt;AirPollution&gt;.kMapSize, kTextureSize) - new float2(0.5f, 0.5f);
-        cell = math.clamp(cell, 0, kTextureSize - 2);
-        short pollution = pollutionMap[cell.x + kTextureSize * cell.y].m_Pollution;
-        short pollution2 = pollutionMap[cell.x + 1 + kTextureSize * cell.y].m_Pollution;
-        short pollution3 = pollutionMap[cell.x + kTextureSize * (cell.y + 1)].m_Pollution;
-        short pollution4 = pollutionMap[cell.x + 1 + kTextureSize * (cell.y + 1)].m_Pollution;
-        result.m_Pollution = (short)math.round(math.lerp(math.lerp(pollution, pollution2, @float.x - (float)cell.x), math.lerp(pollution3, pollution4, @float.x - (float)cell.x), @float.y - (float)cell.y));
-        return result;
-    }
-</code></pre>
-<ul>
-<li><code>public virtual GetUpdateInterval(Game.SystemUpdatePhase phase) : System.Int32</code>  </li>
+</li>
+<li>Disposes the temporary array.</li>
 </ul>
-<pre><code class="language-csharp">public override int GetUpdateInterval(SystemUpdatePhase phase)
-    {
-        return 262144 / kUpdatesPerDay;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
+<p>Notes on threading and safety:
+  - The job is Burst compiled and uses NativeArray for parallel safety.
+  - Reads the wind map as ReadOnly.
+  - The job uses RandomSeed to create per-frame Random for stochastic rounding in fading.</p>
+<h2 id="usage-example">Usage Example</h2>
 <pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        CreateTextures(kTextureSize);
-        m_WindSystem = base.World.GetOrCreateSystemManaged&lt;WindSystem&gt;();
-        m_SimulationSystem = base.World.GetOrCreateSystemManaged&lt;SimulationSystem&gt;();
-        m_PollutionParameterQuery = GetEntityQuery(ComponentType.ReadOnly&lt;PollutionParameterData&gt;());
-        RequireForUpdate(m_PollutionParameterQuery);
-    }
+protected override void OnCreate()
+{
+    base.OnCreate();
+
+    // Allocate the map/texture used to store pollution
+    CreateTextures(AirPollutionSystem.kTextureSize);
+
+    // Cache systems we depend on
+    m_WindSystem = World.GetOrCreateSystemManaged&lt;WindSystem&gt;();
+    m_SimulationSystem = World.GetOrCreateSystemManaged&lt;SimulationSystem&gt;();
+
+    // Only run when PollutionParameterData exists
+    m_PollutionParameterQuery = GetEntityQuery(ComponentType.ReadOnly&lt;PollutionParameterData&gt;());
+    RequireForUpdate(m_PollutionParameterQuery);
+}
 </code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        JobHandle dependencies;
-        AirPollutionMoveJob jobData = new AirPollutionMoveJob
-        {
-            m_PollutionMap = m_Map,
-            m_WindMap = m_WindSystem.GetMap(readOnly: true, out dependencies),
-            m_PollutionParameters = m_PollutionParameterQuery.GetSingleton&lt;PollutionParameterData&gt;(),
-            m_Random = RandomSeed.Next(),
-            m_Frame = m_SimulationSystem.frameIndex
-        };
-        base.Dependency = IJobExtensions.Schedule(jobData, JobUtils.CombineDependencies(dependencies, m_WriteDependencies, m_ReadDependencies, base.Dependency));
-        m_WindSystem.AddReader(base.Dependency);
-        AddWriter(base.Dependency);
-        base.Dependency = JobHandle.CombineDependencies(m_ReadDependencies, m_WriteDependencies, base.Dependency);
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Simulation.AirPollutionSystem+AirPollutionMoveJob</code>  </li>
-</ul>
+<p>Additional notes / tips:
+- To query pollution at a world position from outside the system, obtain the map array (if exposed) or add a public helper that calls AirPollutionSystem.GetPollution(position, pollutionMap). GetPollution expects the NativeArray backing the map, and performs bilinear interpolation.
+- The advection uses PollutionParameterData.m_WindAdvectionSpeed to displace the sample point in the opposite direction of the wind, so tuning those parameters (and m_AirFade) adjusts how pollution moves and dissipates.
+- The job uses bit-shifts (kSpread) to approximate diffusion/spread cheaply; changing kSpread alters diffusion strength.</p>
 
 
 

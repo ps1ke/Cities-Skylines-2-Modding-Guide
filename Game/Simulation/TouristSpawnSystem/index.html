@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87075,6 +87167,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../SurfaceWater/" class="md-nav__link">
         
   
@@ -87792,18 +87907,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -87828,9 +87943,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -117921,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117948,18 +118085,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -117984,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118009,174 +118146,155 @@
 
 
 <h1 id="gamesimulationtouristspawnsystem">Game.Simulation.TouristSpawnSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Simulation</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class TouristSpawnSystem : Game.GameSystemBase
-{
-    private Unity.Entities.EntityQuery m_HouseholdPrefabQuery;
-    private Unity.Entities.EntityQuery m_OutsideConnectionQuery;
-    private Unity.Entities.EntityQuery m_AttractivenessParameterQuery;
-    private Unity.Entities.EntityQuery m_DemandParameterQuery;
-    private Game.EndFrameBarrier m_EndFrameBarrier;
-    private Game.Simulation.SimulationSystem m_SimulationSystem;
-    private Game.Simulation.ClimateSystem m_ClimateSystem;
-    private Game.Simulation.CitySystem m_CitySystem;
-    private Game.Simulation.TouristSpawnSystem+TypeHandle __TypeHandle;
-
-    public TouristSpawnSystem();
-
-    private System.Void __AssignQueries(Unity.Entities.SystemState&amp; state);
-    public virtual System.Int32 GetUpdateInterval(Game.SystemUpdatePhase phase);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnCreateForCompiler();
-    protected virtual System.Void OnUpdate();
-}
-</code></pre>
+<p><strong>Assembly:</strong><br />
+Game (Assembly-CSharp / game runtime assembly)</p>
+<p><strong>Namespace:</strong><br />
+Game.Simulation</p>
+<p><strong>Type:</strong><br />
+class TouristSpawnSystem</p>
+<p><strong>Base:</strong><br />
+GameSystemBase</p>
+<p><strong>Summary:</strong><br />
+System responsible for spawning tourist households in the city. Runs on a fixed update interval (16 frames) and schedules a Burst-compiled IJob (SpawnTouristHouseholdJob) that:
+- Reads city Tourism and climate (weather, temperature, precipitation) information.
+- Computes tourist spawn probability using TourismSystem.GetTouristProbability and current weather/attractiveness.
+- Randomly selects a household prefab and creates a household entity flagged as Tourist.
+- Optionally assigns a CurrentBuilding (outside connection) to the spawned tourist household based on demand/OC spawn parameters.
+Uses an EndFrameBarrier command buffer to create and configure entities safely from the job.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Unity.Entities.EntityQuery m_HouseholdPrefabQuery</code>  </li>
+<li>
+<p><code>private EntityQuery m_HouseholdPrefabQuery</code><br />
+Query to select household prefab entities (reads ArchetypeData and HouseholdData). Used to build lists of prefab entities and component data for spawning.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_OutsideConnectionQuery</code><br />
+Query to select outside connection entities (excludes electricity/water outside connections, Temp and Deleted). Used to pick a random outside connection for the tourist household spawn target.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_AttractivenessParameterQuery</code><br />
+Query to access AttractivenessParameterData singleton (read-only).</p>
+</li>
+<li>
+<p><code>private EntityQuery m_DemandParameterQuery</code><br />
+Query to access DemandParameterData singleton (read-only). Used to retrieve TouristOCSpawnParameters for outside connection selection.</p>
+</li>
+<li>
+<p><code>private EndFrameBarrier m_EndFrameBarrier</code><br />
+Barrier system used to create a command buffer for structural changes made by the job (entity creation and component additions).</p>
+</li>
+<li>
+<p><code>private SimulationSystem m_SimulationSystem</code><br />
+Reference to the SimulationSystem used to read the current simulation frame (frameIndex).</p>
+</li>
+<li>
+<p><code>private ClimateSystem m_ClimateSystem</code><br />
+Reference to the ClimateSystem used to read current weather classification, temperature, precipitation and rain/snow flags.</p>
+</li>
+<li>
+<p><code>private CitySystem m_CitySystem</code><br />
+Reference to CitySystem used to identify the City entity.</p>
+</li>
+<li>
+<p><code>private TypeHandle __TypeHandle</code><br />
+Synthesized struct holding read-only ComponentLookup handles (Tourism, OutsideConnectionData, PrefabRef). Assigned in OnCreateForCompiler for safe access from jobs.</p>
+</li>
+<li>
+<p><code>private struct SpawnTouristHouseholdJob</code> (nested)<br />
+Burst-compiled IJob that performs the actual spawn logic. Key points:</p>
+</li>
+<li>Reads lists of prefab entities, archetype data, household prefab data and outside connection entities.</li>
+<li>Uses read-only component lookups for Tourism, OutsideConnectionData and PrefabRef.</li>
+<li>Reads AttractivenessParameterData and DemandParameterData singletons.</li>
+<li>Uses RandomSeed and Simulation frame to create deterministic randomness.</li>
+<li>Checks Tourism component on the city entity and computes the spawn chance.</li>
+<li>If a spawn is to occur, creates a new entity using the prefab archetype, sets PrefabRef and Household with Tourist flag, adds TouristHousehold component and optionally CurrentBuilding if a matching outside connection is found.</li>
+<li>
+<p>Uses an EntityCommandBuffer for entity creation and component setting.</p>
+</li>
+<li>
+<p><code>private struct TypeHandle</code> (nested)<br />
+Holds ComponentLookup<T>s and a method to assign them from SystemState. Used to obtain read-only component access within the job.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_HouseholdPrefabQuery;
-</code></pre>
+<h2 id="properties">Properties</h2>
 <ul>
-<li><code>private Unity.Entities.EntityQuery m_OutsideConnectionQuery</code>  </li>
+<li>(none declared on this type)</li>
 </ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_OutsideConnectionQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_AttractivenessParameterQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_AttractivenessParameterQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_DemandParameterQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_DemandParameterQuery;
-</code></pre>
-<ul>
-<li><code>private Game.EndFrameBarrier m_EndFrameBarrier</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.EndFrameBarrier m_EndFrameBarrier;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.SimulationSystem m_SimulationSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.SimulationSystem m_SimulationSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.ClimateSystem m_ClimateSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.ClimateSystem m_ClimateSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.CitySystem m_CitySystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.CitySystem m_CitySystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.TouristSpawnSystem+TypeHandle __TypeHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.TouristSpawnSystem+TypeHandle __TypeHandle;
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public TouristSpawnSystem()</code>  </li>
+<li><code>public TouristSpawnSystem()</code><br />
+Default (parameterless) constructor. No custom initialization logic beyond base constructor.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public TouristSpawnSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private __AssignQueries(Unity.Entities.SystemState&amp; state) : System.Void</code>  </li>
+<li>
+<p><code>public override int GetUpdateInterval(SystemUpdatePhase phase)</code><br />
+Returns 16. The system is scheduled to run once every 16 frames (coarse periodic update).</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnCreate()</code><br />
+Initializes the system:</p>
+</li>
+<li>Retrieves EndFrameBarrier, SimulationSystem, ClimateSystem and CitySystem from the World.</li>
+<li>Sets up EntityQuery instances: household prefab query, outside connection query, demand and attractiveness parameter queries.</li>
+<li>
+<p>Calls RequireForUpdate on the household prefab and outside connection queries to ensure the system only runs when relevant data exists.</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnUpdate()</code><br />
+Builds and schedules the SpawnTouristHouseholdJob:</p>
+</li>
+<li>Converts queries to async lists / component data arrays (ToEntityListAsync / ToComponentDataListAsync) and collects their job handles.</li>
+<li>Obtains component lookups (via __TypeHandle) and singletons for parameter data.</li>
+<li>Fills job struct fields with climate, city and random seed data and a command buffer from the EndFrameBarrier.</li>
+<li>
+<p>Schedules the job (Burst-compiled) and adds the resulting dependency to the EndFrameBarrier via AddJobHandleForProducer.</p>
+</li>
+<li>
+<p><code>[MethodImpl(MethodImplOptions.AggressiveInlining)] private void __AssignQueries(ref SystemState state)</code><br />
+Compiler-generated placeholder for query assignment. In this class it does not create additional queries beyond those created in OnCreate; present to satisfy codegen patterns.</p>
+</li>
+<li>
+<p><code>protected override void OnCreateForCompiler()</code><br />
+Called by generated/compiled code paths:</p>
+</li>
+<li>
+<p>Calls __AssignQueries and assigns component lookup handles via __TypeHandle.__AssignHandles(ref base.CheckedStateRef).</p>
+</li>
+<li>
+<p><code>[Preserve] public TouristSpawnSystem()</code><br />
+(Public parameterless constructor declaration retained for preservation by codegen/runtime.)</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private void __AssignQueries(ref SystemState state)
-    {
-        new EntityQueryBuilder(Allocator.Temp).Dispose();
-    }
-</code></pre>
+<p>Nested job method:</p>
 <ul>
-<li><code>public virtual GetUpdateInterval(Game.SystemUpdatePhase phase) : System.Int32</code>  </li>
+<li><code>private struct SpawnTouristHouseholdJob : IJob</code> -&gt; <code>public void Execute()</code><br />
+Core spawning logic executed on a worker thread (Burst):</li>
+<li>Returns early if the city entity has no Tourism component.</li>
+<li>Generates a Random instance from RandomSeed and the current frame to ensure deterministic randomness.</li>
+<li>Uses TourismSystem.GetTouristProbability with attractiveness and weather/climate inputs to decide whether to spawn.</li>
+<li>If spawning, selects a random household prefab, creates an entity with the prefab archetype, assigns PrefabRef and Household (Tourist flag) components, and adds a TouristHousehold with default values.</li>
+<li>Attempts to pick a matching outside connection using BuildingUtils.GetRandomOutsideConnectionByParameters and adds CurrentBuilding to the spawned entity if found.</li>
+<li>All entity creation and component modifications are added to the provided EntityCommandBuffer.</li>
 </ul>
-<pre><code class="language-csharp">public override int GetUpdateInterval(SystemUpdatePhase phase)
-    {
-        return 16;
-    }
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Typical usage: the system is created and managed by the game's World.
+// You can obtain the system instance and inspect or interact with it from a mod:
+
+var world = Unity.Entities.World.DefaultGameObjectInjectionWorld;
+var touristSystem = world?.GetExistingSystemManaged&lt;Game.Simulation.TouristSpawnSystem&gt;();
+if (touristSystem != null)
+{
+    // The system runs automatically; you can read state from related systems if needed:
+    // e.g. access the city entity via CitySystem, or adjust global parameters via parameter singletons.
+}
 </code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_EndFrameBarrier = base.World.GetOrCreateSystemManaged&lt;EndFrameBarrier&gt;();
-        m_SimulationSystem = base.World.GetOrCreateSystemManaged&lt;SimulationSystem&gt;();
-        m_ClimateSystem = base.World.GetOrCreateSystemManaged&lt;ClimateSystem&gt;();
-        m_CitySystem = base.World.GetOrCreateSystemManaged&lt;CitySystem&gt;();
-        m_HouseholdPrefabQuery = GetEntityQuery(ComponentType.ReadOnly&lt;ArchetypeData&gt;(), ComponentType.ReadOnly&lt;HouseholdData&gt;());
-        m_OutsideConnectionQuery = GetEntityQuery(ComponentType.ReadOnly&lt;Game.Objects.OutsideConnection&gt;(), ComponentType.Exclude&lt;Game.Objects.ElectricityOutsideConnection&gt;(), ComponentType.Exclude&lt;Game.Objects.WaterPipeOutsideConnection&gt;(), ComponentType.Exclude&lt;Temp&gt;(), ComponentType.Exclude&lt;Deleted&gt;());
-        m_DemandParameterQuery = GetEntityQuery(ComponentType.ReadOnly&lt;DemandParameterData&gt;());
-        m_AttractivenessParameterQuery = GetEntityQuery(ComponentType.ReadOnly&lt;AttractivenessParameterData&gt;());
-        RequireForUpdate(m_HouseholdPrefabQuery);
-        RequireForUpdate(m_OutsideConnectionQuery);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreateForCompiler() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnCreateForCompiler()
-    {
-        base.OnCreateForCompiler();
-        __AssignQueries(ref base.CheckedStateRef);
-        __TypeHandle.__AssignHandles(ref base.CheckedStateRef);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        JobHandle outJobHandle;
-        JobHandle outJobHandle2;
-        JobHandle outJobHandle3;
-        JobHandle outJobHandle4;
-        SpawnTouristHouseholdJob jobData = new SpawnTouristHouseholdJob
-        {
-            m_PrefabEntities = m_HouseholdPrefabQuery.ToEntityListAsync(base.World.UpdateAllocator.ToAllocator, out outJobHandle),
-            m_Archetypes = m_HouseholdPrefabQuery.ToComponentDataListAsync&lt;ArchetypeData&gt;(base.World.UpdateAllocator.ToAllocator, out outJobHandle2),
-            m_HouseholdPrefabs = m_HouseholdPrefabQuery.ToComponentDataListAsync&lt;HouseholdData&gt;(base.World.UpdateAllocator.ToAllocator, out outJobHandle3),
-            m_OutsideConnectionEntities = m_OutsideConnectionQuery.ToEntityListAsync(base.World.UpdateAllocator.ToAllocator, out outJobHandle4),
-            m_Tourisms = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_City_Tourism_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_OutsideConnectionDatas = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_OutsideConnectionData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabRefs = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_AttractivenessParameter = m_AttractivenessParameterQuery.GetSingleton&lt;AttractivenessParameterData&gt;(),
-            m_DemandParameterData = m_DemandParameterQuery.GetSingleton&lt;DemandParameterData&gt;(),
-            m_WeatherClassification = m_ClimateSystem.classification,
-            m_Temperature = m_ClimateSystem.temperature,
-            m_Precipitation = m_ClimateSystem.precipitation,
-            m_IsRaining = m_ClimateSystem.isRaining,
-            m_IsSnowing = m_ClimateSystem.isSnowing,
-            m_City = m_CitySystem.City,
-            m_Frame = m_SimulationSystem.frameIndex,
-            m_RandomSeed = RandomSeed.Next(),
-            m_CommandBuffer = m_EndFrameBarrier.CreateCommandBuffer()
-        };
-        base.Dependency = IJobExtensions.Schedule(jobData, JobHandle.CombineDependencies(outJobHandle, outJobHandle2, JobHandle.CombineDependencies(outJobHandle3, base.Dependency, outJobHandle4)));
-        m_EndFrameBarrier.AddJobHandleForProducer(base.Dependency);
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Simulation.TouristSpawnSystem+SpawnTouristHouseholdJob</code>  </li>
-<li><code>Game.Simulation.TouristSpawnSystem+TypeHandle</code>  </li>
-</ul>
+<p>Additional notes:
+- The system relies on several game-specific components and utilities: Tourism, HouseholdData, ArchetypeData, PrefabRef, TouristHousehold, CurrentBuilding, BuildingUtils, TourismSystem, DemandParameterData.m_TouristOCSpawnParameters, and climate/city systems.
+- It performs entity creation via an EndFrameBarrier command buffer to ensure structural changes are applied safely at the end of the frame.
+- The spawn decision takes weather and attractiveness into account to make tourism behavior responsive to game state.</p>
 
 
 

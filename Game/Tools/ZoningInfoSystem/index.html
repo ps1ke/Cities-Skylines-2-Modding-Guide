@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#gametoolszoninginfosystem" class="md-skip">
+        <a href="#gamezoninginfosystem" class="md-skip">
           Skip to content
         </a>
       
@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87073,6 +87165,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Simulation/SurfaceWater/" class="md-nav__link">
         
   
@@ -93473,15 +93588,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -93518,9 +93624,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -117930,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117955,15 +118083,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -118002,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118026,222 +118145,148 @@
 
 
 
-<h1 id="gametoolszoninginfosystem">Game.Tools.ZoningInfoSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Tools</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code><br />
-<strong>Implements:</strong> <code>Game.Tools.IZoningInfoSystem</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class ZoningInfoSystem : Game.GameSystemBase, Game.Tools.IZoningInfoSystem
-{
-    private Unity.Entities.EntityQuery m_ZoningPreferenceGroup;
-    private Unity.Entities.EntityQuery m_ProcessQuery;
-    private Unity.Collections.NativeList&lt;Game.Simulation.ZoneEvaluationUtils+ZoningEvaluationResult&gt; m_EvaluationResults;
-    private Game.Tools.ZoneToolSystem m_ZoneToolSystem;
-    private Game.Simulation.IndustrialDemandSystem m_IndustrialDemandSystem;
-    private Game.Simulation.GroundPollutionSystem m_GroundPollutionSystem;
-    private Game.Simulation.AirPollutionSystem m_AirPollutionSystem;
-    private Game.Simulation.NoisePollutionSystem m_NoisePollutionSystem;
-    private Game.Prefabs.PrefabSystem m_PrefabSystem;
-    private Game.Prefabs.ResourceSystem m_ResourceSystem;
-    private Game.Tools.ToolRaycastSystem m_ToolRaycastSystem;
-    private Game.Tools.ZoningInfoSystem+TypeHandle __TypeHandle;
-
-    public Unity.Collections.NativeList&lt;Game.Simulation.ZoneEvaluationUtils+ZoningEvaluationResult&gt; evaluationResults { get; }
-
-    public ZoningInfoSystem();
-
-    private System.Void __AssignQueries(Unity.Entities.SystemState&amp; state);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnCreateForCompiler();
-    protected virtual System.Void OnDestroy();
-    protected virtual System.Void OnUpdate();
-}
-</code></pre>
+<h1 id="gamezoninginfosystem">Game.ZoningInfoSystem</h1>
+<p><strong>Assembly:</strong> Game<br />
+<strong>Namespace:</strong> Game.Tools</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> GameSystemBase, IZoningInfoSystem</p>
+<p><strong>Summary:</strong><br />
+ZoningInfoSystem is an ECS system used by the zoning tool to evaluate potential zoning placements. It collects data from several game systems (zone tool &amp; prefab data, pollution maps, resource/prefab systems, industrial demand and process data, land value, and zoning preferences) and produces a sorted list of zoning evaluation results (ZoneEvaluationUtils.ZoningEvaluationResult) stored in a persistent NativeList. The system runs when industrial process data is present and when the tool raycast returns a valid target; it completes required job dependencies, gathers required buffers/arrays, calls ZoneEvaluationUtils.GetFactors to compute scores, and sorts the results.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Unity.Entities.EntityQuery m_ZoningPreferenceGroup</code>  </li>
+<li>
+<p><code>private EntityQuery m_ZoningPreferenceGroup</code><br />
+Holds an EntityQuery targeting ZonePreferenceData (read-only). Used to read the current zoning preferences that influence evaluation.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_ProcessQuery</code><br />
+EntityQuery for IndustrialProcessData (read-only). Required for update; used to fetch industrial process definitions used in evaluations.</p>
+</li>
+<li>
+<p><code>private NativeList&lt;ZoneEvaluationUtils.ZoningEvaluationResult&gt; m_EvaluationResults</code><br />
+Persistent NativeList that stores evaluation results produced in OnUpdate. Cleared at the start of each update and disposed in OnDestroy.</p>
+</li>
+<li>
+<p><code>private ZoneToolSystem m_ZoneToolSystem</code><br />
+Cached reference to the ZoneToolSystem (tool and currently selected prefab/area/office flags).</p>
+</li>
+<li>
+<p><code>private IndustrialDemandSystem m_IndustrialDemandSystem</code><br />
+Cached reference to the IndustrialDemandSystem to obtain industrial resource demand arrays.</p>
+</li>
+<li>
+<p><code>private GroundPollutionSystem m_GroundPollutionSystem</code><br />
+Cached reference to read ground pollution map.</p>
+</li>
+<li>
+<p><code>private AirPollutionSystem m_AirPollutionSystem</code><br />
+Cached reference to read air pollution map.</p>
+</li>
+<li>
+<p><code>private NoisePollutionSystem m_NoisePollutionSystem</code><br />
+Cached reference to read noise pollution map.</p>
+</li>
+<li>
+<p><code>private PrefabSystem m_PrefabSystem</code><br />
+Cached reference to PrefabSystem to get the entity/prefab for the zone being evaluated.</p>
+</li>
+<li>
+<p><code>private ResourceSystem m_ResourceSystem</code><br />
+Cached reference to ResourceSystem to get resource prefabs and data.</p>
+</li>
+<li>
+<p><code>private ToolRaycastSystem m_ToolRaycastSystem</code><br />
+Cached reference to ToolRaycastSystem used to get the current raycast result from the tool (where the player is pointing).</p>
+</li>
+<li>
+<p><code>private TypeHandle __TypeHandle</code><br />
+Compiler-generated handle structure that caches BufferLookup/ComponentLookup handles used in job/OnUpdate. Populated by __AssignHandles in OnCreateForCompiler.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_ZoningPreferenceGroup;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_ProcessQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_ProcessQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeList&lt;Game.Simulation.ZoneEvaluationUtils+ZoningEvaluationResult&gt; m_EvaluationResults</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeList&lt;Game.Simulation.ZoneEvaluationUtils+ZoningEvaluationResult&gt; m_EvaluationResults;
-</code></pre>
-<ul>
-<li><code>private Game.Tools.ZoneToolSystem m_ZoneToolSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Tools.ZoneToolSystem m_ZoneToolSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.IndustrialDemandSystem m_IndustrialDemandSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.IndustrialDemandSystem m_IndustrialDemandSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.GroundPollutionSystem m_GroundPollutionSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.GroundPollutionSystem m_GroundPollutionSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.AirPollutionSystem m_AirPollutionSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.AirPollutionSystem m_AirPollutionSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.NoisePollutionSystem m_NoisePollutionSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.NoisePollutionSystem m_NoisePollutionSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Prefabs.PrefabSystem m_PrefabSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Prefabs.PrefabSystem m_PrefabSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Prefabs.ResourceSystem m_ResourceSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Prefabs.ResourceSystem m_ResourceSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Tools.ToolRaycastSystem m_ToolRaycastSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Tools.ToolRaycastSystem m_ToolRaycastSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Tools.ZoningInfoSystem+TypeHandle __TypeHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Tools.ZoningInfoSystem+TypeHandle __TypeHandle;
-</code></pre>
+<hr />
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>public Unity.Collections.NativeList&lt;Game.Simulation.ZoneEvaluationUtils+ZoningEvaluationResult&gt; evaluationResults { get }</code>  </li>
+<li><code>public NativeList&lt;ZoneEvaluationUtils.ZoningEvaluationResult&gt; evaluationResults { get }</code><br />
+Read-only accessor exposing the m_EvaluationResults list. Contains the results produced by the last OnUpdate. Note: this is a NativeList managed by the system (persistent) — read it only after the system has updated (and after its job dependencies are completed). If you need the results for your own jobs, copy them to another Native container or convert to a NativeArray/managed array and manage lifetimes appropriately.</li>
 </ul>
-<pre><code class="language-csharp">public Unity.Collections.NativeList&lt;Game.Simulation.ZoneEvaluationUtils+ZoningEvaluationResult&gt; evaluationResults { get; }
-</code></pre>
+<hr />
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public ZoningInfoSystem()</code>  </li>
+<li><code>public ZoningInfoSystem()</code><br />
+Default constructor. Standard compiler-generated constructor for an ECS system. Initialization of fields and system references happens in OnCreate.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public ZoningInfoSystem()
-    {
-    }
-</code></pre>
+<hr />
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private __AssignQueries(Unity.Entities.SystemState&amp; state) : System.Void</code>  </li>
+<li>
+<p><code>protected override void OnCreate()</code><br />
+Initializes the system: gets references to required managed systems (ZoneToolSystem, IndustrialDemandSystem, pollution systems, PrefabSystem, ResourceSystem, ToolRaycastSystem), creates EntityQueries (m_ProcessQuery for IndustrialProcessData and m_ZoningPreferenceGroup for ZonePreferenceData), allocates the persistent NativeList m_EvaluationResults, and calls RequireForUpdate(m_ProcessQuery) so the system only updates when industrial process data exists.</p>
+</li>
+<li>
+<p><code>protected override void OnDestroy()</code><br />
+Disposes the persistent m_EvaluationResults NativeList and calls base.OnDestroy. Ensures no Native memory leak.</p>
+</li>
+<li>
+<p><code>protected override void OnUpdate()</code><br />
+Core evaluation logic:</p>
+</li>
+<li>Clears m_EvaluationResults.</li>
+<li>Uses m_ToolRaycastSystem.GetRaycastResult to get the tool hit result; checks for Block and Owner components for the hit owner entity.</li>
+<li>Completes base.Dependency to ensure job safety before accessing managed/component data.</li>
+<li>Retrieves BufferLookup/ComponentLookup handles via InternalCompilerInterface (through __TypeHandle).</li>
+<li>Reads ZonePreferenceData via m_ZoningPreferenceGroup.ToComponentDataArray.</li>
+<li>Gets industrial resource demand array from m_IndustrialDemandSystem (async JobHandle handled and completed).</li>
+<li>Gets resource prefabs from m_ResourceSystem and ResourceData ComponentLookup.</li>
+<li>Reads pollution maps (ground, air, noise) from respective systems (async returns and handles completed).</li>
+<li>Computes combined pollution at the hit position.</li>
+<li>Reads land value for the owner and adjusts it based on the prefab's ZonePropertiesData (space multipliers / residential scaling).</li>
+<li>Gets the prefab entity and its ProcessEstimate buffer (read-only).</li>
+<li>Reads IndustrialProcessData list via m_ProcessQuery.ToComponentDataListAsync and completes that handle.</li>
+<li>Calls ZoneEvaluationUtils.GetFactors(...) with all gathered data to populate m_EvaluationResults.</li>
+<li>Disposes temporary NativeArrays and NativeLists used for queries and sorts m_EvaluationResults.</li>
 </ul>
-<pre><code class="language-csharp">private void __AssignQueries(ref SystemState state)
-    {
-        new EntityQueryBuilder(Allocator.Temp).Dispose();
-    }
-</code></pre>
+<p>Important notes: the method carefully completes outstanding JobHandles when needed to safely access native data synchronously, and uses temporary Native containers (allocated with TempJob/Temp) that are disposed in the same frame.</p>
 <ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
+<li>
+<p><code>private void __AssignQueries(ref SystemState state)</code><br />
+Compiler-generated helper used by OnCreateForCompiler; here it currently creates and disposes an EntityQueryBuilder (no runtime query assignment beyond what OnCreate does).</p>
+</li>
+<li>
+<p><code>protected override void OnCreateForCompiler()</code><br />
+Compiler helper that calls __AssignQueries and __TypeHandle.__AssignHandles to populate component/buffer lookup handles used by the system (generated pattern for source-generated ECS compatibility).</p>
+</li>
+<li>
+<p>TypeHandle.__AssignHandles(ref SystemState state)<br />
+Assigns BufferLookup<ResourceAvailability>, ComponentLookup<LandValue>, and ComponentLookup<ResourceData> to the TypeHandle fields with read-only flags. Used by OnCreateForCompiler so lookups are available in OnUpdate.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_ZoneToolSystem = base.World.GetOrCreateSystemManaged&lt;ZoneToolSystem&gt;();
-        m_IndustrialDemandSystem = base.World.GetOrCreateSystemManaged&lt;IndustrialDemandSystem&gt;();
-        m_GroundPollutionSystem = base.World.GetOrCreateSystemManaged&lt;GroundPollutionSystem&gt;();
-        m_AirPollutionSystem = base.World.GetOrCreateSystemManaged&lt;AirPollutionSystem&gt;();
-        m_NoisePollutionSystem = base.World.GetOrCreateSystemManaged&lt;NoisePollutionSystem&gt;();
-        m_PrefabSystem = base.World.GetOrCreateSystemManaged&lt;PrefabSystem&gt;();
-        m_ResourceSystem = base.World.GetOrCreateSystemManaged&lt;ResourceSystem&gt;();
-        m_ToolRaycastSystem = base.World.GetOrCreateSystemManaged&lt;ToolRaycastSystem&gt;();
-        m_ProcessQuery = GetEntityQuery(ComponentType.ReadOnly&lt;IndustrialProcessData&gt;());
-        m_ZoningPreferenceGroup = GetEntityQuery(ComponentType.ReadOnly&lt;ZonePreferenceData&gt;());
-        m_EvaluationResults = new NativeList&lt;ZoneEvaluationUtils.ZoningEvaluationResult&gt;(Allocator.Persistent);
-        RequireForUpdate(m_ProcessQuery);
-    }
+<hr />
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Example: read evaluation results from another managed system or MonoBehaviour after the world updates.
+// Ensure you access results after ZoningInfoSystem.OnUpdate has run for this frame.
+
+var zoningInfoSystem = World.DefaultGameObjectInjectionWorld
+    .GetExistingSystemManaged&lt;Game.Tools.ZoningInfoSystem&gt;();
+
+if (zoningInfoSystem != null)
+{
+    // The system populates evaluationResults during its OnUpdate.
+    // If calling from another system's OnUpdate you must ensure ordering (update after ZoningInfoSystem),
+    // and complete any dependencies if you will use the data on jobs.
+    var results = zoningInfoSystem.evaluationResults;
+
+    // example: copy results into a managed array for safe use on the main thread
+    var copy = results.ToArray(); // ZoneEvaluationUtils.ZoningEvaluationResult[]
+    // ... examine copy array ...
+
+    // Note: Do NOT dispose zoningInfoSystem.evaluationResults (managed by the system).
+}
 </code></pre>
-<ul>
-<li><code>protected virtual OnCreateForCompiler() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnCreateForCompiler()
-    {
-        base.OnCreateForCompiler();
-        __AssignQueries(ref base.CheckedStateRef);
-        __TypeHandle.__AssignHandles(ref base.CheckedStateRef);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnDestroy() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnDestroy()
-    {
-        m_EvaluationResults.Dispose();
-        base.OnDestroy();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        m_EvaluationResults.Clear();
-        if (m_ToolRaycastSystem.GetRaycastResult(out var result) &amp;&amp; base.EntityManager.TryGetComponent&lt;Block&gt;(result.m_Owner, out var component) &amp;&amp; base.EntityManager.TryGetComponent&lt;Owner&gt;(result.m_Owner, out var component2))
-        {
-            base.Dependency.Complete();
-            BufferLookup&lt;ResourceAvailability&gt; bufferLookup = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Net_ResourceAvailability_RO_BufferLookup, ref base.CheckedStateRef);
-            ComponentLookup&lt;LandValue&gt; componentLookup = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_LandValue_RO_ComponentLookup, ref base.CheckedStateRef);
-            NativeArray&lt;ZonePreferenceData&gt; nativeArray = m_ZoningPreferenceGroup.ToComponentDataArray&lt;ZonePreferenceData&gt;(Allocator.TempJob);
-            JobHandle deps;
-            NativeArray&lt;int&gt; industrialResourceDemands = m_IndustrialDemandSystem.GetIndustrialResourceDemands(out deps);
-            ResourcePrefabs prefabs = m_ResourceSystem.GetPrefabs();
-            ComponentLookup&lt;ResourceData&gt; componentLookup2 = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_ResourceData_RO_ComponentLookup, ref base.CheckedStateRef);
-            ZonePreferenceData preferences = nativeArray[0];
-            Entity owner = component2.m_Owner;
-            AreaType areaType = m_ZoneToolSystem.prefab.m_AreaType;
-            JobHandle dependencies;
-            NativeArray&lt;GroundPollution&gt; map = m_GroundPollutionSystem.GetMap(readOnly: true, out dependencies);
-            JobHandle dependencies2;
-            NativeArray&lt;AirPollution&gt; map2 = m_AirPollutionSystem.GetMap(readOnly: true, out dependencies2);
-            JobHandle dependencies3;
-            NativeArray&lt;NoisePollution&gt; map3 = m_NoisePollutionSystem.GetMap(readOnly: true, out dependencies3);
-            deps.Complete();
-            dependencies.Complete();
-            dependencies2.Complete();
-            dependencies3.Complete();
-            float num = GroundPollutionSystem.GetPollution(component.m_Position, map).m_Pollution;
-            num += (float)AirPollutionSystem.GetPollution(component.m_Position, map2).m_Pollution;
-            num += (float)NoisePollutionSystem.GetPollution(component.m_Position, map3).m_Pollution;
-            float num2 = componentLookup[owner].m_LandValue;
-            Entity entity = m_PrefabSystem.GetEntity(m_ZoneToolSystem.prefab);
-            DynamicBuffer&lt;ProcessEstimate&gt; buffer = base.World.EntityManager.GetBuffer&lt;ProcessEstimate&gt;(entity, isReadOnly: true);
-            if (base.World.EntityManager.HasComponent&lt;ZonePropertiesData&gt;(entity))
-            {
-                ZonePropertiesData componentData = base.World.EntityManager.GetComponentData&lt;ZonePropertiesData&gt;(entity);
-                float num3 = ((areaType != AreaType.Residential) ? componentData.m_SpaceMultiplier : (componentData.m_ScaleResidentials ? componentData.m_ResidentialProperties : (componentData.m_ResidentialProperties / 8f)));
-                num2 /= num3;
-            }
-            JobHandle outJobHandle;
-            NativeList&lt;IndustrialProcessData&gt; processes = m_ProcessQuery.ToComponentDataListAsync&lt;IndustrialProcessData&gt;(Allocator.TempJob, out outJobHandle);
-            outJobHandle.Complete();
-            ZoneEvaluationUtils.GetFactors(areaType, m_ZoneToolSystem.prefab.m_Office, bufferLookup[owner], result.m_Hit.m_CurvePosition, ref preferences, m_EvaluationResults, industrialResourceDemands, num, num2, buffer, processes, prefabs, componentLookup2);
-            processes.Dispose();
-            nativeArray.Dispose();
-            m_EvaluationResults.Sort();
-        }
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Tools.ZoningInfoSystem+TypeHandle</code>  </li>
-</ul>
+<p>Additional notes:
+- evaluationResults is a persistent NativeList allocated with Allocator.Persistent by the system; it is cleared each update and disposed in OnDestroy. Do not dispose it yourself.
+- If you want to use evaluationResults on a job, copy contents to a separate NativeArray/NativeList and manage job dependencies and lifetimes correctly (complete the system's dependency where necessary).
+- This system relies on several other game systems; ensure those systems are present in the world when interacting with ZoningInfoSystem.</p>
 
 
 

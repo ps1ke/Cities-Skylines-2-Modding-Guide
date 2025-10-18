@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87073,6 +87165,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Simulation/SurfaceWater/" class="md-nav__link">
         
   
@@ -97469,18 +97584,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -97499,6 +97614,15 @@
   <a href="#methods" class="md-nav__link">
     <span class="md-ellipsis">
       Methods
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
     </span>
   </a>
   
@@ -117914,6 +118038,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117941,18 +118087,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -117976,6 +118122,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -117993,153 +118148,85 @@
 
 
 <h1 id="gameuieditordiversitypanelsystem">Game.UI.Editor.DiversityPanelSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.UI.Editor</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.UI.Editor.EditorPanelSystemBase</code><br />
-<strong>Implements:</strong> <code>Game.UI.Editor.IEditorPanel</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class DiversityPanelSystem : Game.UI.Editor.EditorPanelSystemBase, Game.UI.Editor.IEditorPanel
-{
-    private Game.Prefabs.PrefabSystem m_PrefabSystem;
-    private Game.Simulation.DiversitySystem m_DiversitySystem;
-    private Unity.Entities.EntityQuery m_AtmosphereQuery;
-    private Unity.Entities.EntityQuery m_BiomeQuery;
-    private Game.Prefabs.AtmospherePrefab m_Atmosphere;
-    private Game.Prefabs.BiomePrefab m_Biome;
-
-    public DiversityPanelSystem();
-
-    private Game.Prefabs.PrefabBase &lt;OnCreate&gt;b__6_0();
-    private Game.Prefabs.PrefabBase &lt;OnCreate&gt;b__6_1();
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnStartRunning();
-    private System.Void SetAtmosphere(Game.Prefabs.PrefabBase prefab);
-    private System.Void SetBiome(Game.Prefabs.PrefabBase prefab);
-}
-</code></pre>
+<p><strong>Assembly:</strong> Game<br />
+<strong>Namespace:</strong> Game.UI.Editor</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> EditorPanelSystemBase</p>
+<p><strong>Summary:</strong><br />
+This editor UI system provides a "Diversity" panel for the in-game editor that allows selecting atmosphere and biome presets (prefabs). It wires up prefab pickers for AtmospherePrefab and BiomePrefab, reads current settings from simulation singletons on start, and applies chosen presets via the DiversitySystem. The system uses PrefabSystem to resolve prefabs and EntityQuery to read AtmosphereData and BiomeData singletons.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.Prefabs.PrefabSystem m_PrefabSystem</code>  </li>
+<li>
+<p><code>private PrefabSystem m_PrefabSystem</code><br />
+Holds a reference to the PrefabSystem used to resolve prefab types and entities for chosen atmosphere/biome prefabs.</p>
+</li>
+<li>
+<p><code>private DiversitySystem m_DiversitySystem</code><br />
+Reference to the game DiversitySystem which is used to apply atmosphere and biome presets to the simulation.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_AtmosphereQuery</code><br />
+EntityQuery configured to read AtmosphereData. Used to obtain the current atmosphere prefab ID from the simulation singleton.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_BiomeQuery</code><br />
+EntityQuery configured to read BiomeData. Used to obtain the current biome prefab ID from the simulation singleton.</p>
+</li>
+<li>
+<p><code>private AtmospherePrefab m_Atmosphere</code><br />
+The currently selected AtmospherePrefab instance displayed/edited by the panel.</p>
+</li>
+<li>
+<p><code>private BiomePrefab m_Biome</code><br />
+The currently selected BiomePrefab instance displayed/edited by the panel.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.Prefabs.PrefabSystem m_PrefabSystem;
-</code></pre>
+<h2 id="properties">Properties</h2>
 <ul>
-<li><code>private Game.Simulation.DiversitySystem m_DiversitySystem</code>  </li>
+<li>(none)</li>
 </ul>
-<pre><code class="language-csharp">private Game.Simulation.DiversitySystem m_DiversitySystem;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_AtmosphereQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_AtmosphereQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_BiomeQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_BiomeQuery;
-</code></pre>
-<ul>
-<li><code>private Game.Prefabs.AtmospherePrefab m_Atmosphere</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Prefabs.AtmospherePrefab m_Atmosphere;
-</code></pre>
-<ul>
-<li><code>private Game.Prefabs.BiomePrefab m_Biome</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Prefabs.BiomePrefab m_Biome;
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public DiversityPanelSystem()</code>  </li>
+<li><code>public DiversityPanelSystem()</code><br />
+Parameterless constructor. Marked with [Preserve] attribute in the implementation to prevent stripping. Most initialization occurs in OnCreate and OnStartRunning.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public DiversityPanelSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private &lt;OnCreate&gt;b__6_0() : Game.Prefabs.PrefabBase</code>  </li>
+<li>
+<p><code>protected override void OnCreate()</code><br />
+Initializes UI widgets and internal system references. Obtains PrefabSystem and DiversitySystem from World, creates EntityQueries for AtmosphereData and BiomeData, sets the panel title to the localized "Diversity" string, and constructs the children widget tree (a scrollable section containing popup pickers for Atmosphere and Biome prefabs). This method sets up DelegateAccessor callbacks to SetAtmosphere and SetBiome.</p>
+</li>
+<li>
+<p><code>protected override void OnStartRunning()</code><br />
+Called when the system starts running. Reads AtmosphereData and BiomeData singletons via the entity queries, resolves their prefab IDs into AtmospherePrefab and BiomePrefab instances using PrefabSystem.TryGetPrefab, and assigns them to m_Atmosphere and m_Biome so the UI shows the current simulation presets.</p>
+</li>
+<li>
+<p><code>private void SetAtmosphere(PrefabBase prefab)</code><br />
+Callback used by the Atmosphere popup picker. Casts the selected PrefabBase to AtmospherePrefab, resolves its Entity via PrefabSystem.GetEntity, and calls DiversitySystem.ApplyAtmospherePreset(entity) to apply the chosen atmosphere preset to the simulation.</p>
+</li>
+<li>
+<p><code>private void SetBiome(PrefabBase prefab)</code><br />
+Callback used by the Biome popup picker. Casts the selected PrefabBase to BiomePrefab, resolves its Entity via PrefabSystem.GetEntity, and calls DiversitySystem.ApplyBiomePreset(entity) to apply the chosen biome preset to the simulation.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.Prefabs.PrefabBase &lt;OnCreate&gt;b__6_0();
-</code></pre>
-<ul>
-<li><code>private &lt;OnCreate&gt;b__6_1() : Game.Prefabs.PrefabBase</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Prefabs.PrefabBase &lt;OnCreate&gt;b__6_1();
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
+<h2 id="usage-example">Usage Example</h2>
 <pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_PrefabSystem = base.World.GetOrCreateSystemManaged&lt;PrefabSystem&gt;();
-        m_DiversitySystem = base.World.GetOrCreateSystemManaged&lt;DiversitySystem&gt;();
-        m_AtmosphereQuery = GetEntityQuery(ComponentType.ReadOnly&lt;AtmosphereData&gt;());
-        m_BiomeQuery = GetEntityQuery(ComponentType.ReadOnly&lt;BiomeData&gt;());
-        title = LocalizedString.Value(&quot;Diversity&quot;);
-        children = new IWidget[1] { Scrollable.WithChildren(new IWidget[1]
-        {
-            new EditorSection
-            {
-                displayName = &quot;Diversity Settings&quot;,
-                expanded = true,
-                children = new IWidget[2]
-                {
-                    new PopupValueField&lt;PrefabBase&gt;
-                    {
-                        displayName = &quot;Atmosphere&quot;,
-                        accessor = new DelegateAccessor&lt;PrefabBase&gt;(() =&gt; m_Atmosphere, SetAtmosphere),
-                        popup = new PrefabPickerPopup(typeof(AtmospherePrefab))
-                    },
-                    new PopupValueField&lt;PrefabBase&gt;
-                    {
-                        displayName = &quot;Biome&quot;,
-                        accessor = new DelegateAccessor&lt;PrefabBase&gt;(() =&gt; m_Biome, SetBiome),
-                        popup = new PrefabPickerPopup(typeof(BiomePrefab))
-                    }
-                }
-            }
-        }) };
-    }
+protected override void OnCreate()
+{
+    base.OnCreate();
+    // The system creates widget children, configures queries and references:
+    m_PrefabSystem = base.World.GetOrCreateSystemManaged&lt;PrefabSystem&gt;();
+    m_DiversitySystem = base.World.GetOrCreateSystemManaged&lt;DiversitySystem&gt;();
+    m_AtmosphereQuery = GetEntityQuery(ComponentType.ReadOnly&lt;AtmosphereData&gt;());
+    m_BiomeQuery = GetEntityQuery(ComponentType.ReadOnly&lt;BiomeData&gt;());
+    title = LocalizedString.Value(&quot;Diversity&quot;);
+    // The UI contains popup pickers that call SetAtmosphere and SetBiome when changed.
+}
 </code></pre>
-<ul>
-<li><code>protected virtual OnStartRunning() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnStartRunning()
-    {
-        base.OnStartRunning();
-        AtmosphereData singleton = m_AtmosphereQuery.GetSingleton&lt;AtmosphereData&gt;();
-        m_PrefabSystem.TryGetPrefab&lt;AtmospherePrefab&gt;(singleton.m_AtmospherePrefab, out m_Atmosphere);
-        BiomeData singleton2 = m_BiomeQuery.GetSingleton&lt;BiomeData&gt;();
-        m_PrefabSystem.TryGetPrefab&lt;BiomePrefab&gt;(singleton2.m_BiomePrefab, out m_Biome);
-    }
-</code></pre>
-<ul>
-<li><code>private SetAtmosphere(Game.Prefabs.PrefabBase prefab) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void SetAtmosphere(PrefabBase prefab)
-    {
-        m_Atmosphere = (AtmospherePrefab)prefab;
-        Entity entity = m_PrefabSystem.GetEntity(m_Atmosphere);
-        m_DiversitySystem.ApplyAtmospherePreset(entity);
-    }
-</code></pre>
-<ul>
-<li><code>private SetBiome(Game.Prefabs.PrefabBase prefab) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void SetBiome(PrefabBase prefab)
-    {
-        m_Biome = (BiomePrefab)prefab;
-        Entity entity = m_PrefabSystem.GetEntity(m_Biome);
-        m_DiversitySystem.ApplyBiomePreset(entity);
-    }
-</code></pre>
+<p>Additional notes:
+- The system expects AtmosphereData and BiomeData singletons to exist in the world; OnStartRunning reads them to initialize the UI to the current simulation state.
+- SetAtmosphere/SetBiome rely on PrefabSystem to map prefabs to entities; those entity handles are passed to DiversitySystem.ApplyAtmospherePreset / ApplyBiomePreset to enact the change.</p>
 
 
 

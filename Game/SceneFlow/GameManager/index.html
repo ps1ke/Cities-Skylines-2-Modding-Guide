@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72359,15 +72405,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -72404,18 +72441,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#events" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Events
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
-    <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -72581,6 +72609,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75571,6 +75622,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87163,6 +87237,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -117939,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117964,15 +118083,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -118011,18 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#events" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Events
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
-    <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118045,2904 +118146,457 @@
 
 
 <h1 id="gamesceneflowgamemanager">Game.SceneFlow.GameManager</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.SceneFlow</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>UnityEngine.MonoBehaviour</code><br />
-<strong>Implements:</strong> <code>Game.Threading.ICoroutineHost</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class GameManager : UnityEngine.MonoBehaviour, Game.Threading.ICoroutineHost
-{
-    private System.String[] &lt;cmdLine&gt;k__BackingField;
-    private Game.SceneFlow.GameManager+Configuration m_Configuration;
-    private System.String m_AdditionalCommandLineToggles;
-    private Game.GameMode &lt;gameMode&gt;k__BackingField;
-    private Game.Settings.SharedSettings &lt;settings&gt;k__BackingField;
-    private Game.Modding.ModManager m_ModManager;
-    private System.Threading.CancellationTokenSource m_Cts;
-    private readonly System.Threading.CancellationTokenSource m_QuitRequested;
-    private readonly System.Threading.Tasks.TaskCompletionSource&lt;System.Boolean&gt; m_WorldReadySource;
-    public UnityEngine.GameObject[] m_SettingsDependantObjects;
-    private System.Int32 m_MainThreadId;
-    private Game.SceneFlow.GameManager+State m_State;
-    private Game.SceneFlow.OverlayScreen m_InitialEngagementScreen;
-    private System.Boolean m_IsEngagementStarted;
-    private Game.SceneFlow.GameManager+EventGameSaveLoad onGameSaveLoad;
-    private Game.SceneFlow.GameManager+EventGamePreload onGamePreload;
-    private Game.SceneFlow.GameManager+EventGamePreload onGameLoadingComplete;
-    private Game.SceneFlow.GameManager+EventCallback onWorldReady;
-    private System.Boolean m_StartUpTelemetryFired;
-    private System.String m_UILocation;
-    private Colossal.UI.UIManager m_UIManager;
-    private Colossal.UI.UIInputSystem m_UIInputSystem;
-    private Colossal.Localization.LocalizationManager &lt;localizationManager&gt;k__BackingField;
-    private Game.SceneFlow.UserInterface &lt;userInterface&gt;k__BackingField;
-    private readonly System.Collections.Concurrent.ConcurrentDictionary&lt;System.Guid, System.Func&lt;System.Boolean&gt;&gt; m_Updaters;
-    private Game.UI.Thumbnails.ThumbnailCache &lt;thumbnailCache&gt;k__BackingField;
-    private UnityEngine.LayerMask m_DefaultCullingMask;
-    private UnityEngine.LayerMask m_DefaultVolumeLayerMask;
-    private Game.Debug.ConsoleWindow m_Console;
-    private Unity.Entities.World m_World;
-    private Game.UpdateSystem m_UpdateSystem;
-    private Game.Serialization.LoadGameSystem m_DeserializationSystem;
-    private Game.Serialization.SaveGameSystem m_SerializationSystem;
-    private Game.Prefabs.PrefabSystem m_PrefabSystem;
-    private static Colossal.Logging.ILog log;
-    private static Game.SceneFlow.GameManager &lt;instance&gt;k__BackingField;
-    private static System.String s_ModdingRuntime;
-    public static const System.String kInMainMenuState;
-    public static const System.String kInGameState;
-    public static const System.String kInEditorState;
-    private static const System.String kBootTask;
-
-    public System.String[] cmdLine { get; private set; }
-    public Game.SceneFlow.GameManager+Configuration configuration { get; }
-    public static Game.SceneFlow.GameManager instance { get; private set; }
-    public System.Boolean isMainThread { get; }
-    public Game.GameMode gameMode { get; private set; }
-    public System.Boolean isGameLoading { get; }
-    public Game.Settings.SharedSettings settings { get; private set; }
-    public Game.Modding.ModManager modManager { get; }
-    public System.Threading.CancellationToken terminationToken { get; }
-    public Game.SceneFlow.GameManager+State state { get; }
-    public System.Boolean shouldUpdateManager { get; }
-    public System.Boolean shouldUpdateWorld { get; }
-    public static Colossal.UI.UIInputSystem UIInputSystem { get; }
-    public Colossal.Localization.LocalizationManager localizationManager { get; private set; }
-    public Game.SceneFlow.UserInterface userInterface { get; private set; }
-    public Game.UI.Thumbnails.ThumbnailCache thumbnailCache { get; private set; }
-
-    public GameManager();
-
-    internal static System.Void &lt;HandleUserFolderVersion&gt;g__DeleteSettings|177_0(System.String settingsPath);
-    private System.Threading.Tasks.Task &lt;Initialize&gt;b__54_1();
-    private System.Threading.Tasks.Task &lt;Initialize&gt;b__54_2();
-    private System.Void &lt;ParseOptions&gt;b__12_0(System.String option);
-    private System.Void &lt;ParseOptions&gt;b__12_1(System.String option);
-    private System.Void &lt;ParseOptions&gt;b__12_10(System.String option);
-    private System.Void &lt;ParseOptions&gt;b__12_11(System.String option);
-    private System.Void &lt;ParseOptions&gt;b__12_12(System.String option);
-    private System.Void &lt;ParseOptions&gt;b__12_13(System.String option);
-    private System.Void &lt;ParseOptions&gt;b__12_14(System.String option);
-    private System.Void &lt;ParseOptions&gt;b__12_15(System.String option);
-    private System.Void &lt;ParseOptions&gt;b__12_16(System.String option);
-    private System.Void &lt;ParseOptions&gt;b__12_3(System.String option);
-    private System.Void &lt;ParseOptions&gt;b__12_4(System.String option);
-    private System.Void &lt;ParseOptions&gt;b__12_5(System.String option);
-    private System.Void &lt;ParseOptions&gt;b__12_6(System.String option);
-    private System.Void &lt;ParseOptions&gt;b__12_7(System.String option);
-    private System.Void &lt;ParseOptions&gt;b__12_8(System.String option);
-    private System.Void &lt;ParseOptions&gt;b__12_9(System.String option);
-    private System.String &lt;RegisterPdxSdk&gt;b__105_10(System.String localeId);
-    private System.Void &lt;RegisterPdxSdk&gt;b__105_16(Colossal.IO.AssetDatabase.UIModuleAsset asset, System.Boolean isInActivePlayset);
-    private System.Void &lt;RegisterPdxSdk&gt;b__105_17(Colossal.IO.AssetDatabase.ExecutableAsset asset, System.Boolean isInActivePlayset);
-    private System.Void &lt;RegisterPdxSdk&gt;b__105_2(Colossal.PSI.PdxSdk.LegalDocument doc, System.Int32 remaining);
-    private System.Void &lt;RegisterPdxSdk&gt;b__105_6(System.Collections.Generic.List&lt;Colossal.PSI.Common.IDlc&gt; dlcs);
-    private System.Void &lt;RegisterPdxSdk&gt;g__OnActivePlaysetChanged|105_13();
-    private System.Void &lt;RegisterPdxSdk&gt;g__OnAssetChanged|105_14(Colossal.IO.AssetDatabase.AssetChangedEventArgs args);
-    private System.String &lt;SaveSimulationData&gt;b__89_0(Unity.Entities.Entity x);
-    private System.Boolean &lt;ShowFallbackUI&gt;b__124_1();
-    internal static System.Threading.Tasks.Task &lt;SubscribeToGdkUserEvents&gt;g__RegisterDb|108_2();
-    internal static System.Threading.Tasks.Task &lt;SubscribeToGdkUserEvents&gt;g__UnregisterDb|108_1();
-    private System.Void &lt;WaitForReadyState&gt;b__57_0();
-    public System.Boolean ArePrerequisitesMet(System.String[] contentPrerequisites);
-    public System.Boolean ArePrerequisitesMet&lt;T&gt;(Colossal.IO.AssetDatabase.Metadata&lt;T&gt; meta);
-    private System.Threading.Tasks.Task&lt;System.Boolean&gt; AutoLoad(Colossal.IO.AssetDatabase.IAssetData asset);
-    private System.Threading.Tasks.Task&lt;System.Boolean&gt; AutoLoad(Colossal.Hash128 guid);
-    private System.Void Awake();
-    private System.Collections.IEnumerator CaptureScreenshot();
-    private System.Threading.Tasks.Task CheckCapabilities();
-    private System.Boolean CheckValidity();
-    private System.Void CleanupMemory();
-    private System.Void CreateSystems();
-    private System.Void CreateUISystems();
-    private System.Void CreateWorld();
-    private System.Void DestroyWorld();
-    private static System.Void DetectModdingRuntime();
-    private static System.String DetectModdingRuntimeName();
-    private System.Void DisableCameraRendering();
-    private System.Threading.Tasks.Task DisposePlatforms();
-    private System.Void DisposeThumbnails();
-    private System.Void EnableCameraRendering();
-    private System.Void EnableMemoryLeaksDetection();
-    private System.Void EnableSettingsDependantObjects();
-    private static System.IntPtr FindWindow(System.String strClassName, System.String strWindowName);
-    public System.Void FocusChanged(System.Boolean hasFocus);
-    private UnityEngine.Coroutine Game.Threading.ICoroutineHost.StartCoroutine(System.Collections.IEnumerator routine);
-    public System.String[] GetAvailablePrerequisitesNames();
-    private static System.Collections.Generic.Dictionary&lt;System.String, System.String&gt; GetDefaultBacktraceAttributes();
-    private System.Guid GetSessionGuid(Colossal.Serialization.Entities.Purpose purpose, System.Guid existingGuid);
-    private Game.SceneFlow.GameManager+Configuration+StdoutCaptureMode GetStdoutCaptureMode(System.String option);
-    public static System.String GetSystemInfoString();
-    public static System.String GetVersionsInfo();
-    private static System.Int32 GetWindowText(System.IntPtr hWnd, System.Text.StringBuilder lpString, System.Int32 nMaxCount);
-    private System.Boolean HandleConfiguration();
-    private System.Void HandleDeviceAssociationLost();
-    private System.Void HandleDeviceDisconnected();
-    private System.Void HandleDevicePaired();
-    private System.Void HandleUserFolderVersion();
-    private System.Void HandleUserUpdated(Colossal.PSI.Common.IPlatformServiceIntegration psi, Colossal.PSI.Common.UserChangedFlags flags);
-    private System.Void InitConsole();
-    private System.Void Initialize();
-    private System.Void InitializeLocalization();
-    private System.Void InitializeModManager(System.Boolean ignoreParadox);
-    private System.Threading.Tasks.Task InitializePlatformManager();
-    private System.Void InitializeThumbnails();
-    private System.Threading.Tasks.Task InitializeUI();
-    private System.Void LateUpdate();
-    private System.Void LateUpdateWorld();
-    private static System.Void ListHarmonyPatches();
-    private System.Threading.Tasks.Task&lt;System.Boolean&gt; Load(Game.GameMode mode, Colossal.Serialization.Entities.Purpose purpose, Colossal.IO.AssetDatabase.AsyncReadDescriptor descriptor, Colossal.Hash128 instigatorGuid, System.Guid sessionGuid);
-    public System.Threading.Tasks.Task&lt;System.Boolean&gt; Load(Game.GameMode mode, Colossal.Serialization.Entities.Purpose purpose, Colossal.IO.AssetDatabase.IAssetData asset);
-    public System.Threading.Tasks.Task&lt;System.Boolean&gt; Load(Game.GameMode mode, Colossal.Serialization.Entities.Purpose purpose, Colossal.Hash128 guid);
-    private System.Threading.Tasks.Task&lt;Game.SceneFlow.AssetLibrary&gt; LoadAssetLibraryAsync();
-    private System.Void LoadPrefabs();
-    private System.Threading.Tasks.Task LoadSimulationData(Colossal.Serialization.Entities.Context context, Colossal.IO.AssetDatabase.AsyncReadDescriptor dataDescriptor);
-    private System.Threading.Tasks.Task LoadUnityPrefabs();
-    public System.Threading.Tasks.Task&lt;System.Boolean&gt; MainMenu();
-    private static System.String[] MaskArguments(System.String[] cmdLine);
-    private static System.String[] MergeAdditionalCommandLineArguments(System.String[] cmdLineArgs, System.String additionalCmdLine);
-    private System.Void NotifyProgress(System.String identifier, System.Int32 progress);
-    private System.Void OnDestroy();
-    private System.Void OnGUI();
-    private System.Void OnMainMenuReached(Colossal.Serialization.Entities.Purpose purpose, Game.GameMode mode);
-    private System.Void ParseOptions();
-    private System.Void PostUpdateWorld();
-    private System.Threading.Tasks.Task PreparePersistentStorage();
-    private static System.Void PrintIndividualPatches(Colossal.Logging.ILog moddingLog, System.String patchType, System.Collections.Generic.IEnumerable&lt;System.Object&gt; patches, Game.SceneFlow.GameManager+LocalTypeCache typeCache);
-    private static System.Void PrintPatchDetails(Colossal.Logging.ILog moddingLog, System.Object patchInfo, System.Type patchInfoType, Game.SceneFlow.GameManager+LocalTypeCache typeCache);
-    public static System.Void QuitGame();
-    public System.Void RegisterCancellationOnQuit(System.Threading.Tasks.TaskCompletionSource&lt;System.Boolean&gt; tcs, System.Boolean stateOnCancel);
-    private System.Void RegisterDeviceAndUserListeners();
-    private System.Threading.Tasks.Task RegisterPdxSdk();
-    public System.Guid RegisterUpdater(System.Action action);
-    public System.Guid RegisterUpdater(System.Func&lt;System.Boolean&gt; func);
-    private System.Void ReleaseConsole();
-    private System.Void ReleaseUI();
-    private System.Void ReportBootProgress(System.Single progress);
-    public System.Void RunOnMainThread(System.Action action);
-    public System.Threading.Tasks.Task&lt;System.Boolean&gt; Save(System.String saveName, Game.Assets.SaveInfo meta, Colossal.IO.AssetDatabase.ILocalAssetDatabase database, UnityEngine.Texture savePreview);
-    public System.Threading.Tasks.Task&lt;System.Boolean&gt; Save(System.String saveName, Game.Assets.SaveInfo meta, Colossal.IO.AssetDatabase.ILocalAssetDatabase database, Game.UI.ScreenCaptureHelper+AsyncRequest previewRequest);
-    private System.Threading.Tasks.Task&lt;System.String[]&gt; SaveSimulationData(Colossal.Serialization.Entities.Context context, System.IO.Stream stream);
-    private System.Threading.Tasks.Task SetInitialEngagementScreenActive();
-    private static System.Void SetNativeStackTrace();
-    public System.Threading.Tasks.Task SetScreenActive&lt;T&gt;();
-    private static System.Void SetupCustomAssetTypes();
-    private static System.Void SetWindowsTitle();
-    private static System.Boolean SetWindowText(System.IntPtr hWnd, System.String lpString);
-    private System.Void ShowFallbackUI(System.Exception ex);
-    private System.Void SubscribeToGdkUserEvents();
-    public System.Void TakeScreenshot();
-    private System.Void TelemetryReady();
-    private System.Threading.Tasks.Task TerminateGame();
-    private System.Void TryCatchUnhandledExceptions();
-    public System.Boolean UnregisterUpdater(System.Guid guid);
-    private System.Void Update();
-    private System.Void UpdatePlatforms();
-    private System.Void UpdateUI();
-    private System.Void UpdateUpdaters();
-    private System.Void UpdateWorld();
-    public System.Threading.Tasks.Task&lt;System.Boolean&gt; WaitForReadyState();
-    private System.Boolean WantsToQuit();
-}
-</code></pre>
+<p><strong>Assembly:</strong> (Game assembly - Cities: Skylines II)<br />
+<strong>Namespace:</strong> Game.SceneFlow</p>
+<p><strong>Type:</strong> public class GameManager : MonoBehaviour, ICoroutineHost</p>
+<p><strong>Base:</strong> UnityEngine.MonoBehaviour, ICoroutineHost</p>
+<p><strong>Summary:</strong><br />
+GameManager is the central bootstrapping and runtime manager for Cities: Skylines II. It controls application initialization, command-line parsing, UI and platform integration, ECS world creation, asset/prefab loading, save/load workflows, mod registration (PDX/BepInEx), telemetry, and graceful termination. It exposes lifecycle events and utilities used throughout the game and by mods to coordinate boot, loading and runtime behavior.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private System.String[] &lt;cmdLine&gt;k__BackingField</code>  </li>
+<li>
+<p><code>private Configuration m_Configuration</code><br />
+Stores the parsed runtime configuration/options (see nested Configuration class). Lazy-created by the configuration property.</p>
+</li>
+<li>
+<p><code>[SerializeField] private string m_AdditionalCommandLineToggles</code><br />
+Additional command-line options read from runOnce.txt (user data).</p>
+</li>
+<li>
+<p><code>private static ILog log</code><br />
+Logger used by GameManager for boot/runtime logging.</p>
+</li>
+<li>
+<p><code>private ModManager m_ModManager</code><br />
+Mod/patch manager, initialized after platform and mod DB registration.</p>
+</li>
+<li>
+<p><code>private CancellationTokenSource m_Cts</code><br />
+Cancellation token source used to cancel background tasks on termination.</p>
+</li>
+<li>
+<p><code>private readonly CancellationTokenSource m_QuitRequested</code><br />
+Cancellation token source that signals a quit request.</p>
+</li>
+<li>
+<p><code>private readonly TaskCompletionSource&lt;bool&gt; m_WorldReadySource</code><br />
+TaskCompletionSource that completes when the world reaches ready state.</p>
+</li>
+<li>
+<p><code>public GameObject[] m_SettingsDependantObjects</code><br />
+List of GameObjects that are toggled/activated once settings are applied.</p>
+</li>
+<li>
+<p><code>private int m_MainThreadId</code><br />
+Managed thread id of the main Unity thread (set in Awake).</p>
+</li>
+<li>
+<p><code>private State m_State</code><br />
+Current GameManager.State (Booting, UIReady, WorldReady, Loading, Quitting, Terminated, etc).</p>
+</li>
+<li>
+<p><code>private OverlayScreen m_InitialEngagementScreen</code><br />
+Initial engagement overlay (controller pairing, engagement, etc).</p>
+</li>
+<li>
+<p><code>private bool m_IsEngagementStarted</code><br />
+Whether initial engagement (platform user flow) has started.</p>
+</li>
+<li>
+<p><code>private bool m_StartUpTelemetryFired</code><br />
+Flag to avoid firing startup telemetry multiple times.</p>
+</li>
+<li>
+<p><code>[SerializeField] private string m_UILocation</code><br />
+Root UI content location used by UserInterface.</p>
+</li>
+<li>
+<p><code>private UIManager m_UIManager</code><br />
+UI manager wrapper (cohtml integration + UISystems).</p>
+</li>
+<li>
+<p><code>private UIInputSystem m_UIInputSystem</code><br />
+Input system for the UI.</p>
+</li>
+<li>
+<p><code>private readonly ConcurrentDictionary&lt;Guid, Func&lt;bool&gt;&gt; m_Updaters</code><br />
+Collection of registered one-shot / polling updaters that GameManager will call each Update.</p>
+</li>
+<li>
+<p><code>private LayerMask m_DefaultCullingMask</code><br />
+Stored camera culling mask for disabling/enabling camera during boot.</p>
+</li>
+<li>
+<p><code>private LayerMask m_DefaultVolumeLayerMask</code><br />
+Stored HDRP volume layer mask used while camera rendering is disabled.</p>
+</li>
+<li>
+<p><code>private ConsoleWindow m_Console</code><br />
+Optional console window for stdout capture.</p>
+</li>
+<li>
+<p><code>private static string s_ModdingRuntime</code><br />
+Detected modding runtime name (e.g., BepInEx version or Builtin).</p>
+</li>
+<li>
+<p><code>private World m_World</code><br />
+ECS World instance (Unity.Entities World).</p>
+</li>
+<li>
+<p><code>private UpdateSystem m_UpdateSystem</code><br />
+Reference to the game's update ECS system.</p>
+</li>
+<li>
+<p><code>private LoadGameSystem m_DeserializationSystem</code><br />
+ECS system used for deserializing/loading a saved simulation.</p>
+</li>
+<li>
+<p><code>private SaveGameSystem m_SerializationSystem</code><br />
+ECS system used for saving/serializing simulation state.</p>
+</li>
+<li>
+<p><code>private PrefabSystem m_PrefabSystem</code><br />
+System that manages prefab registration and availability.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private System.String[] &lt;cmdLine&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private Game.SceneFlow.GameManager+Configuration m_Configuration</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.SceneFlow.GameManager+Configuration m_Configuration;
-</code></pre>
-<ul>
-<li><code>private System.String m_AdditionalCommandLineToggles</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.String m_AdditionalCommandLineToggles;
-</code></pre>
-<ul>
-<li><code>private Game.GameMode &lt;gameMode&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.GameMode &lt;gameMode&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private Game.Settings.SharedSettings &lt;settings&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Settings.SharedSettings &lt;settings&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private Game.Modding.ModManager m_ModManager</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Modding.ModManager m_ModManager;
-</code></pre>
-<ul>
-<li><code>private System.Threading.CancellationTokenSource m_Cts</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Threading.CancellationTokenSource m_Cts;
-</code></pre>
-<ul>
-<li><code>private readonly System.Threading.CancellationTokenSource m_QuitRequested</code>  </li>
-</ul>
-<pre><code class="language-csharp">private readonly System.Threading.CancellationTokenSource m_QuitRequested;
-</code></pre>
-<ul>
-<li><code>private readonly System.Threading.Tasks.TaskCompletionSource&lt;System.Boolean&gt; m_WorldReadySource</code>  </li>
-</ul>
-<pre><code class="language-csharp">private readonly System.Threading.Tasks.TaskCompletionSource&lt;System.Boolean&gt; m_WorldReadySource;
-</code></pre>
-<ul>
-<li><code>public UnityEngine.GameObject[] m_SettingsDependantObjects</code>  </li>
-</ul>
-<pre><code class="language-csharp">public UnityEngine.GameObject[] m_SettingsDependantObjects;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_MainThreadId</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_MainThreadId;
-</code></pre>
-<ul>
-<li><code>private Game.SceneFlow.GameManager+State m_State</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.SceneFlow.GameManager+State m_State;
-</code></pre>
-<ul>
-<li><code>private Game.SceneFlow.OverlayScreen m_InitialEngagementScreen</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.SceneFlow.OverlayScreen m_InitialEngagementScreen;
-</code></pre>
-<ul>
-<li><code>private System.Boolean m_IsEngagementStarted</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean m_IsEngagementStarted;
-</code></pre>
-<ul>
-<li><code>private Game.SceneFlow.GameManager+EventGameSaveLoad onGameSaveLoad</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.SceneFlow.GameManager+EventGameSaveLoad onGameSaveLoad;
-</code></pre>
-<ul>
-<li><code>private Game.SceneFlow.GameManager+EventGamePreload onGamePreload</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.SceneFlow.GameManager+EventGamePreload onGamePreload;
-</code></pre>
-<ul>
-<li><code>private Game.SceneFlow.GameManager+EventGamePreload onGameLoadingComplete</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.SceneFlow.GameManager+EventGamePreload onGameLoadingComplete;
-</code></pre>
-<ul>
-<li><code>private Game.SceneFlow.GameManager+EventCallback onWorldReady</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.SceneFlow.GameManager+EventCallback onWorldReady;
-</code></pre>
-<ul>
-<li><code>private System.Boolean m_StartUpTelemetryFired</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean m_StartUpTelemetryFired;
-</code></pre>
-<ul>
-<li><code>private System.String m_UILocation</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.String m_UILocation;
-</code></pre>
-<ul>
-<li><code>private Colossal.UI.UIManager m_UIManager</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.UI.UIManager m_UIManager;
-</code></pre>
-<ul>
-<li><code>private Colossal.UI.UIInputSystem m_UIInputSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.UI.UIInputSystem m_UIInputSystem;
-</code></pre>
-<ul>
-<li><code>private Colossal.Localization.LocalizationManager &lt;localizationManager&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.Localization.LocalizationManager &lt;localizationManager&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private Game.SceneFlow.UserInterface &lt;userInterface&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.SceneFlow.UserInterface &lt;userInterface&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private readonly System.Collections.Concurrent.ConcurrentDictionary&lt;System.Guid, System.Func&lt;System.Boolean&gt;&gt; m_Updaters</code>  </li>
-</ul>
-<pre><code class="language-csharp">private readonly System.Collections.Concurrent.ConcurrentDictionary&lt;System.Guid, System.Func&lt;System.Boolean&gt;&gt; m_Updaters;
-</code></pre>
-<ul>
-<li><code>private Game.UI.Thumbnails.ThumbnailCache &lt;thumbnailCache&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.UI.Thumbnails.ThumbnailCache &lt;thumbnailCache&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.LayerMask m_DefaultCullingMask</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.LayerMask m_DefaultCullingMask;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.LayerMask m_DefaultVolumeLayerMask</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.LayerMask m_DefaultVolumeLayerMask;
-</code></pre>
-<ul>
-<li><code>private Game.Debug.ConsoleWindow m_Console</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Debug.ConsoleWindow m_Console;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.World m_World</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.World m_World;
-</code></pre>
-<ul>
-<li><code>private Game.UpdateSystem m_UpdateSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.UpdateSystem m_UpdateSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Serialization.LoadGameSystem m_DeserializationSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Serialization.LoadGameSystem m_DeserializationSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Serialization.SaveGameSystem m_SerializationSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Serialization.SaveGameSystem m_SerializationSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Prefabs.PrefabSystem m_PrefabSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Prefabs.PrefabSystem m_PrefabSystem;
-</code></pre>
-<ul>
-<li><code>private static Colossal.Logging.ILog log</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static Colossal.Logging.ILog log;
-</code></pre>
-<ul>
-<li><code>private static Game.SceneFlow.GameManager &lt;instance&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static Game.SceneFlow.GameManager &lt;instance&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private static System.String s_ModdingRuntime</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static System.String s_ModdingRuntime;
-</code></pre>
-<ul>
-<li><code>public static const System.String kInMainMenuState</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static const System.String kInMainMenuState;
-</code></pre>
-<ul>
-<li><code>public static const System.String kInGameState</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static const System.String kInGameState;
-</code></pre>
-<ul>
-<li><code>public static const System.String kInEditorState</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static const System.String kInEditorState;
-</code></pre>
-<ul>
-<li><code>private static const System.String kBootTask</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static const System.String kBootTask;
-</code></pre>
+<p>(There are other private fields used for task handling, asset &amp; thumbnail caches and platform integrations. Above are the most commonly used ones.)</p>
+<hr />
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>public System.String[] cmdLine { get; private set }</code>  </li>
+<li>
+<p><code>public string[] cmdLine { get; private set; }</code><br />
+Command-line arguments after merging additional toggles.</p>
+</li>
+<li>
+<p><code>public Configuration configuration { get; }</code><br />
+Lazy-initialized Configuration instance (holds parsed command line flags, profiler target, modding toggles, etc).</p>
+</li>
+<li>
+<p><code>public static GameManager instance { get; private set; }</code><br />
+Singleton instance of GameManager (set in Awake).</p>
+</li>
+<li>
+<p><code>public bool isMainThread =&gt; Thread.CurrentThread.ManagedThreadId == m_MainThreadId</code><br />
+Utility to detect if current thread is the main Unity thread.</p>
+</li>
+<li>
+<p><code>public GameMode gameMode { get; private set; } = GameMode.Other</code><br />
+Current logical game mode (MainMenu, Game, Editor, Other).</p>
+</li>
+<li>
+<p><code>public bool isGameLoading { get; }</code><br />
+True while the manager is in loading state or during boot.</p>
+</li>
+<li>
+<p><code>public SharedSettings settings { get; private set; }</code><br />
+Reference to shared/launcher settings used by the UI and systems.</p>
+</li>
+<li>
+<p><code>public ModManager modManager =&gt; m_ModManager</code><br />
+Access to the mod manager instance.</p>
+</li>
+<li>
+<p><code>public CancellationToken terminationToken { get; }</code><br />
+CancellationToken that becomes active when the GameManager is terminating (safe to pass to async ops).</p>
+</li>
+<li>
+<p><code>public State state =&gt; m_State</code><br />
+Current lifecycle state.</p>
+</li>
+<li>
+<p><code>public bool shouldUpdateManager =&gt; m_State &gt;= State.UIReady</code><br />
+Indicates whether manager-level update tick should run.</p>
+</li>
+<li>
+<p><code>public bool shouldUpdateWorld =&gt; m_State &gt;= State.WorldReady</code><br />
+Indicates whether world/ECS simulation updates should run.</p>
+</li>
+<li>
+<p><code>public static UIInputSystem UIInputSystem =&gt; instance?.m_UIInputSystem</code><br />
+Static accessor for the UIInputSystem.</p>
+</li>
+<li>
+<p><code>public LocalizationManager localizationManager { get; private set; }</code><br />
+Localization manager instance.</p>
+</li>
+<li>
+<p><code>public UserInterface userInterface { get; private set; }</code><br />
+UserInterface wrapper (UI bindings, menus).</p>
+</li>
+<li>
+<p><code>public ThumbnailCache thumbnailCache { get; private set; }</code><br />
+Thumbnail cache instance used for asset previews.</p>
+</li>
+<li>
+<p><code>public event EventGameSaveLoad onGameSaveLoad</code><br />
+Event fired before/after save operations.</p>
+</li>
+<li>
+<p><code>public event EventGamePreload onGamePreload</code><br />
+Event fired before simulation preload begins.</p>
+</li>
+<li>
+<p><code>public event EventGamePreload onGameLoadingComplete</code><br />
+Event fired when loading completes.</p>
+</li>
+<li>
+<p><code>public event EventCallback onWorldReady</code><br />
+Invoked when the world is ready (after boot setup and prefabs loaded).</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public System.String[] cmdLine { get; private set; }
-</code></pre>
-<ul>
-<li><code>public Game.SceneFlow.GameManager+Configuration configuration { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Game.SceneFlow.GameManager+Configuration configuration { get; }
-</code></pre>
-<ul>
-<li><code>public static Game.SceneFlow.GameManager instance { get; private set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static Game.SceneFlow.GameManager instance { get; private set; }
-</code></pre>
-<ul>
-<li><code>public System.Boolean isMainThread { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Boolean isMainThread { get; }
-</code></pre>
-<ul>
-<li><code>public Game.GameMode gameMode { get; private set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Game.GameMode gameMode { get; private set; }
-</code></pre>
-<ul>
-<li><code>public System.Boolean isGameLoading { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Boolean isGameLoading { get; }
-</code></pre>
-<ul>
-<li><code>public Game.Settings.SharedSettings settings { get; private set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Game.Settings.SharedSettings settings { get; private set; }
-</code></pre>
-<ul>
-<li><code>public Game.Modding.ModManager modManager { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Game.Modding.ModManager modManager { get; }
-</code></pre>
-<ul>
-<li><code>public System.Threading.CancellationToken terminationToken { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Threading.CancellationToken terminationToken { get; }
-</code></pre>
-<ul>
-<li><code>public Game.SceneFlow.GameManager+State state { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Game.SceneFlow.GameManager+State state { get; }
-</code></pre>
-<ul>
-<li><code>public System.Boolean shouldUpdateManager { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Boolean shouldUpdateManager { get; }
-</code></pre>
-<ul>
-<li><code>public System.Boolean shouldUpdateWorld { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Boolean shouldUpdateWorld { get; }
-</code></pre>
-<ul>
-<li><code>public static Colossal.UI.UIInputSystem UIInputSystem { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static Colossal.UI.UIInputSystem UIInputSystem { get; }
-</code></pre>
-<ul>
-<li><code>public Colossal.Localization.LocalizationManager localizationManager { get; private set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Colossal.Localization.LocalizationManager localizationManager { get; private set; }
-</code></pre>
-<ul>
-<li><code>public Game.SceneFlow.UserInterface userInterface { get; private set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Game.SceneFlow.UserInterface userInterface { get; private set; }
-</code></pre>
-<ul>
-<li><code>public Game.UI.Thumbnails.ThumbnailCache thumbnailCache { get; private set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Game.UI.Thumbnails.ThumbnailCache thumbnailCache { get; private set; }
-</code></pre>
+<hr />
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public GameManager()</code>  </li>
+<li><code>public GameManager()</code><br />
+Default MonoBehaviour constructor. GameManager performs initialization in Awake() — it is not expected to be constructed directly by user code.</li>
 </ul>
-<pre><code class="language-csharp">public GameManager();
-</code></pre>
+<p>{{ YOUR_INFO }}<br />
+GameManager is a MonoBehaviour and uses Awake()/Initialize() for bootstrapping. Do not attempt complex init in the constructor; use Awake / Start / the exposed async initialization methods.</p>
+<hr />
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>internal static &lt;HandleUserFolderVersion&gt;g__DeleteSettings|177_0(System.String settingsPath) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">internal static System.Void &lt;HandleUserFolderVersion&gt;g__DeleteSettings|177_0(System.String settingsPath);
-</code></pre>
-<ul>
-<li><code>private &lt;Initialize&gt;b__54_1() : System.Threading.Tasks.Task</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Threading.Tasks.Task &lt;Initialize&gt;b__54_1();
-</code></pre>
-<ul>
-<li><code>private &lt;Initialize&gt;b__54_2() : System.Threading.Tasks.Task</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Threading.Tasks.Task &lt;Initialize&gt;b__54_2();
-</code></pre>
-<ul>
-<li><code>private &lt;ParseOptions&gt;b__12_0(System.String option) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Void &lt;ParseOptions&gt;b__12_0(System.String option);
-</code></pre>
-<ul>
-<li><code>private &lt;ParseOptions&gt;b__12_1(System.String option) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Void &lt;ParseOptions&gt;b__12_1(System.String option);
-</code></pre>
-<ul>
-<li><code>private &lt;ParseOptions&gt;b__12_10(System.String option) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Void &lt;ParseOptions&gt;b__12_10(System.String option);
-</code></pre>
-<ul>
-<li><code>private &lt;ParseOptions&gt;b__12_11(System.String option) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Void &lt;ParseOptions&gt;b__12_11(System.String option);
-</code></pre>
-<ul>
-<li><code>private &lt;ParseOptions&gt;b__12_12(System.String option) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Void &lt;ParseOptions&gt;b__12_12(System.String option);
-</code></pre>
-<ul>
-<li><code>private &lt;ParseOptions&gt;b__12_13(System.String option) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Void &lt;ParseOptions&gt;b__12_13(System.String option);
-</code></pre>
-<ul>
-<li><code>private &lt;ParseOptions&gt;b__12_14(System.String option) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Void &lt;ParseOptions&gt;b__12_14(System.String option);
-</code></pre>
-<ul>
-<li><code>private &lt;ParseOptions&gt;b__12_15(System.String option) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Void &lt;ParseOptions&gt;b__12_15(System.String option);
-</code></pre>
-<ul>
-<li><code>private &lt;ParseOptions&gt;b__12_16(System.String option) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Void &lt;ParseOptions&gt;b__12_16(System.String option);
-</code></pre>
-<ul>
-<li><code>private &lt;ParseOptions&gt;b__12_3(System.String option) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Void &lt;ParseOptions&gt;b__12_3(System.String option);
-</code></pre>
-<ul>
-<li><code>private &lt;ParseOptions&gt;b__12_4(System.String option) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Void &lt;ParseOptions&gt;b__12_4(System.String option);
-</code></pre>
-<ul>
-<li><code>private &lt;ParseOptions&gt;b__12_5(System.String option) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Void &lt;ParseOptions&gt;b__12_5(System.String option);
-</code></pre>
-<ul>
-<li><code>private &lt;ParseOptions&gt;b__12_6(System.String option) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Void &lt;ParseOptions&gt;b__12_6(System.String option);
-</code></pre>
-<ul>
-<li><code>private &lt;ParseOptions&gt;b__12_7(System.String option) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Void &lt;ParseOptions&gt;b__12_7(System.String option);
-</code></pre>
-<ul>
-<li><code>private &lt;ParseOptions&gt;b__12_8(System.String option) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Void &lt;ParseOptions&gt;b__12_8(System.String option);
-</code></pre>
-<ul>
-<li><code>private &lt;ParseOptions&gt;b__12_9(System.String option) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Void &lt;ParseOptions&gt;b__12_9(System.String option);
-</code></pre>
-<ul>
-<li><code>private &lt;RegisterPdxSdk&gt;b__105_10(System.String localeId) : System.String</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.String &lt;RegisterPdxSdk&gt;b__105_10(System.String localeId);
-</code></pre>
-<ul>
-<li><code>private &lt;RegisterPdxSdk&gt;b__105_16(Colossal.IO.AssetDatabase.UIModuleAsset asset, System.Boolean isInActivePlayset) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Void &lt;RegisterPdxSdk&gt;b__105_16(Colossal.IO.AssetDatabase.UIModuleAsset asset, System.Boolean isInActivePlayset);
-</code></pre>
-<ul>
-<li><code>private &lt;RegisterPdxSdk&gt;b__105_17(Colossal.IO.AssetDatabase.ExecutableAsset asset, System.Boolean isInActivePlayset) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Void &lt;RegisterPdxSdk&gt;b__105_17(Colossal.IO.AssetDatabase.ExecutableAsset asset, System.Boolean isInActivePlayset);
-</code></pre>
-<ul>
-<li><code>private &lt;RegisterPdxSdk&gt;b__105_2(Colossal.PSI.PdxSdk.LegalDocument doc, System.Int32 remaining) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Void &lt;RegisterPdxSdk&gt;b__105_2(Colossal.PSI.PdxSdk.LegalDocument doc, System.Int32 remaining);
-</code></pre>
-<ul>
-<li><code>private &lt;RegisterPdxSdk&gt;b__105_6(System.Collections.Generic.List&lt;Colossal.PSI.Common.IDlc&gt; dlcs) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Void &lt;RegisterPdxSdk&gt;b__105_6(System.Collections.Generic.List&lt;Colossal.PSI.Common.IDlc&gt; dlcs);
-</code></pre>
-<ul>
-<li><code>private &lt;RegisterPdxSdk&gt;g__OnActivePlaysetChanged|105_13() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Void &lt;RegisterPdxSdk&gt;g__OnActivePlaysetChanged|105_13();
-</code></pre>
-<ul>
-<li><code>private &lt;RegisterPdxSdk&gt;g__OnAssetChanged|105_14(Colossal.IO.AssetDatabase.AssetChangedEventArgs args) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Void &lt;RegisterPdxSdk&gt;g__OnAssetChanged|105_14(Colossal.IO.AssetDatabase.AssetChangedEventArgs args);
-</code></pre>
-<ul>
-<li><code>private &lt;SaveSimulationData&gt;b__89_0(Unity.Entities.Entity x) : System.String</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.String &lt;SaveSimulationData&gt;b__89_0(Unity.Entities.Entity x);
-</code></pre>
-<ul>
-<li><code>private &lt;ShowFallbackUI&gt;b__124_1() : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean &lt;ShowFallbackUI&gt;b__124_1();
-</code></pre>
-<ul>
-<li><code>internal static &lt;SubscribeToGdkUserEvents&gt;g__RegisterDb|108_2() : System.Threading.Tasks.Task</code>  </li>
-</ul>
-<pre><code class="language-csharp">internal static System.Threading.Tasks.Task &lt;SubscribeToGdkUserEvents&gt;g__RegisterDb|108_2();
-</code></pre>
-<ul>
-<li><code>internal static &lt;SubscribeToGdkUserEvents&gt;g__UnregisterDb|108_1() : System.Threading.Tasks.Task</code>  </li>
-</ul>
-<pre><code class="language-csharp">internal static System.Threading.Tasks.Task &lt;SubscribeToGdkUserEvents&gt;g__UnregisterDb|108_1();
-</code></pre>
-<ul>
-<li><code>private &lt;WaitForReadyState&gt;b__57_0() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Void &lt;WaitForReadyState&gt;b__57_0();
-</code></pre>
-<ul>
-<li><code>public ArePrerequisitesMet(System.String[] contentPrerequisites) : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">public bool ArePrerequisitesMet(string[] contentPrerequisites)
-    {
-        if (contentPrerequisites == null)
-        {
-            return true;
-        }
-        foreach (string text in contentPrerequisites)
-        {
-            if (!m_PrefabSystem.TryGetPrefab(new PrefabID(&quot;ContentPrefab&quot;, text), out var prefab) || !((ContentPrefab)prefab).IsAvailable())
-            {
-                return false;
-            }
-        }
-        return true;
-    }
-</code></pre>
-<ul>
-<li><code>public ArePrerequisitesMet&lt;T&gt;(Colossal.IO.AssetDatabase.Metadata&lt;T&gt; meta) : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Boolean ArePrerequisitesMet&lt;T&gt;(Colossal.IO.AssetDatabase.Metadata&lt;T&gt; meta);
-</code></pre>
-<ul>
-<li><code>private AutoLoad(Colossal.IO.AssetDatabase.IAssetData asset) : System.Threading.Tasks.Task&lt;System.Boolean&gt;</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Task&lt;bool&gt; AutoLoad(Colossal.Hash128 guid)
-    {
-        if (AssetDatabase.global.TryGetAsset(guid, out var asset))
-        {
-            return AutoLoad(asset);
-        }
-        log.WarnFormat(&quot;Couldn't load '{0}'. Asset doesn't exist!&quot;, guid);
-        return Task.FromResult(result: false);
-    }
-</code></pre>
-<ul>
-<li><code>private AutoLoad(Colossal.Hash128 guid) : System.Threading.Tasks.Task&lt;System.Boolean&gt;</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Task&lt;bool&gt; AutoLoad(Colossal.Hash128 guid)
-    {
-        if (AssetDatabase.global.TryGetAsset(guid, out var asset))
-        {
-            return AutoLoad(asset);
-        }
-        log.WarnFormat(&quot;Couldn't load '{0}'. Asset doesn't exist!&quot;, guid);
-        return Task.FromResult(result: false);
-    }
-</code></pre>
-<ul>
-<li><code>private Awake() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private async void Awake()
-    {
-        _ = 1;
-        try
-        {
-            CoroutineHost.Register(this);
-            if (!CheckValidity())
-            {
-                return;
-            }
-            using (Colossal.PerformanceCounter.Start(delegate(TimeSpan t)
-            {
-                log?.InfoFormat(&quot;GameManager created! ({0}ms)&quot;, t.TotalMilliseconds);
-            }))
-            {
-                Task checkCapabilities = CheckCapabilities();
-                DetectModdingRuntime();
-                BacktraceHelper.SetDefaultAttributes(GetDefaultBacktraceAttributes());
-                EnableMemoryLeaksDetection();
-                Application.wantsToQuit += WantsToQuit;
-                m_MainThreadId = Thread.CurrentThread.ManagedThreadId;
-                m_State = State.Booting;
-                Application.focusChanged += FocusChanged;
-                SetNativeStackTrace();
-                m_Cts = new CancellationTokenSource();
-                CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;
-                LogManager.SetDefaultEffectiveness(Level.Info);
-                BacktraceHelper.SetDefaultAttributes(GetDefaultBacktraceAttributes());
-                log = LogManager.GetLogger(&quot;SceneFlow&quot;);
-                TryCatchUnhandledExceptions();
-                ParseOptions();
-                InitConsole();
-                if (!HandleConfiguration())
-                {
-                    QuitGame();
-                    return;
-                }
-                DisableCameraRendering();
-                await PreparePersistentStorage();
-                HandleUserFolderVersion();
-                await checkCapabilities;
-                instance = this;
-                Initialize();
-            }
-        }
-        catch (Exception exception)
-        {
-            log.Fatal(exception);
-            QuitGame();
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private CaptureScreenshot() : System.Collections.IEnumerator</code>  </li>
-</ul>
-<pre><code class="language-csharp">private IEnumerator CaptureScreenshot()
-    {
-        yield return new WaitForEndOfFrame();
-        ScreenUtility.CaptureScreenshot();
-    }
-</code></pre>
-<ul>
-<li><code>private CheckCapabilities() : System.Threading.Tasks.Task</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Task CheckCapabilities()
-    {
-        return Capabilities.CacheCapabilities();
-    }
-</code></pre>
-<ul>
-<li><code>private CheckValidity() : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">private bool CheckValidity()
-    {
-        try
-        {
-            _ = instance.enabled;
-        }
-        catch (MissingReferenceException)
-        {
-            base.enabled = false;
-            UnityEngine.Object.Destroy(base.gameObject);
-            QuitGame();
-            return false;
-        }
-        catch
-        {
-        }
-        if (instance != null &amp;&amp; instance != this)
-        {
-            base.enabled = false;
-            UnityEngine.Object.Destroy(base.gameObject);
-            return false;
-        }
-        return true;
-    }
-</code></pre>
-<ul>
-<li><code>private CleanupMemory() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void CleanupMemory()
-    {
-        Resources.UnloadUnusedAssets();
-        foreach (Colossal.UI.UISystem uISystem in UIManager.UISystems)
-        {
-            uISystem.ClearCachedUnusedImages();
-        }
-        GC.Collect();
-    }
-</code></pre>
-<ul>
-<li><code>private CreateSystems() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void CreateSystems()
-    {
-        m_Cts.Token.ThrowIfCancellationRequested();
-        log.Info(&quot;Creating ECS systems&quot;);
-        SystemOrder.Initialize(m_UpdateSystem);
-        userInterface.view.AudioSource = AudioManager.instance.UIHtmlAudioSource;
-        Telemetry.gameplayData = new Telemetry.GameplayData(m_World);
-    }
-</code></pre>
-<ul>
-<li><code>private CreateUISystems() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void CreateUISystems()
-    {
-        foreach (Type item in ReflectionUtils.GetAllTypesDerivedFrom&lt;UISystemBase&gt;())
-        {
-            if (!item.IsAbstract)
-            {
-                m_World.GetOrCreateSystem(item);
-            }
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private CreateWorld() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void CreateWorld()
-    {
-        m_Cts.Token.ThrowIfCancellationRequested();
-        log.Info(&quot;Creating ECS world&quot;);
-        CORuntimeApplication.Initialize();
-        m_World = new World(&quot;Game&quot;);
-        World.DefaultGameObjectInjectionWorld = m_World;
-        m_PrefabSystem = m_World.GetOrCreateSystemManaged&lt;PrefabSystem&gt;();
-        m_UpdateSystem = m_World.GetOrCreateSystemManaged&lt;UpdateSystem&gt;();
-        m_DeserializationSystem = m_World.GetOrCreateSystemManaged&lt;LoadGameSystem&gt;();
-        m_SerializationSystem = m_World.GetOrCreateSystemManaged&lt;SaveGameSystem&gt;();
-    }
-</code></pre>
-<ul>
-<li><code>private DestroyWorld() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void DestroyWorld()
-    {
-        Telemetry.gameplayData = null;
-        World.DisposeAllWorlds();
-        CORuntimeApplication.Shutdown();
-        m_State = State.WorldDisposed;
-    }
-</code></pre>
-<ul>
-<li><code>private static DetectModdingRuntime() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static void DetectModdingRuntime()
-    {
-        s_ModdingRuntime = DetectModdingRuntimeName();
-    }
-</code></pre>
-<ul>
-<li><code>private static DetectModdingRuntimeName() : System.String</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static string DetectModdingRuntimeName()
-    {
-        try
-        {
-            Assembly[] assemblies = AppDomain.CurrentDomain.GetAssemblies();
-            Assembly[] array = assemblies;
-            foreach (Assembly assembly in array)
-            {
-                if (assembly.GetName().Name.Equals(&quot;BepInEx&quot;, StringComparison.OrdinalIgnoreCase))
-                {
-                    return $&quot;{assembly.GetName().Name} {assembly.GetName().Version}&quot;;
-                }
-            }
-            array = assemblies;
-            foreach (Assembly assembly2 in array)
-            {
-                if (assembly2.GetName().Name.Contains(&quot;BepInEx&quot;, StringComparison.OrdinalIgnoreCase))
-                {
-                    return $&quot;{assembly2.GetName().Name} {assembly2.GetName().Version}&quot;;
-                }
-                if (assembly2.GetTypes().Any((Type t) =&gt; t.Namespace != null &amp;&amp; t.Namespace.StartsWith(&quot;BepInEx&quot;)))
-                {
-                    return $&quot;{assembly2.GetName().Name} {assembly2.GetName().Version}&quot;;
-                }
-            }
-            return &quot;Builtin&quot;;
-        }
-        catch
-        {
-            return &quot;Unknown&quot;;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private DisableCameraRendering() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void DisableCameraRendering()
-    {
-        Camera main = Camera.main;
-        if (main != null)
-        {
-            m_DefaultCullingMask = main.cullingMask;
-            main.cullingMask = 0;
-            HDAdditionalCameraData component = main.GetComponent&lt;HDAdditionalCameraData&gt;();
-            if (component != null)
-            {
-                m_DefaultVolumeLayerMask = component.volumeLayerMask;
-                component.volumeLayerMask = 0;
-            }
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private DisposePlatforms() : System.Threading.Tasks.Task</code>  </li>
-</ul>
-<pre><code class="language-csharp">private async Task DisposePlatforms()
-    {
-        Task task = PlatformManager.instance.Dispose(disposeEvents: true, CancellationToken.None);
-        while (!task.IsCompleted)
-        {
-            Update();
-            await Task.Delay(500);
-        }
-        await task;
-    }
-</code></pre>
-<ul>
-<li><code>private DisposeThumbnails() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void DisposeThumbnails()
-    {
-        thumbnailCache?.Dispose();
-    }
-</code></pre>
-<ul>
-<li><code>private EnableCameraRendering() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void EnableCameraRendering()
-    {
-        m_Cts.Token.ThrowIfCancellationRequested();
-        Camera main = Camera.main;
-        if (main != null)
-        {
-            main.cullingMask = m_DefaultCullingMask;
-            HDAdditionalCameraData component = main.GetComponent&lt;HDAdditionalCameraData&gt;();
-            if (component != null)
-            {
-                component.volumeLayerMask = m_DefaultVolumeLayerMask;
-            }
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private EnableMemoryLeaksDetection() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void EnableMemoryLeaksDetection()
-    {
-        NativeLeakDetection.Mode = NativeLeakDetectionMode.Disabled;
-    }
-</code></pre>
-<ul>
-<li><code>private EnableSettingsDependantObjects() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void EnableSettingsDependantObjects()
-    {
-        m_Cts.Token.ThrowIfCancellationRequested();
-        GameObject[] settingsDependantObjects = m_SettingsDependantObjects;
-        foreach (GameObject obj in settingsDependantObjects)
-        {
-            obj.SetActive(obj);
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private static FindWindow(System.String strClassName, System.String strWindowName) : System.IntPtr</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static System.IntPtr FindWindow(System.String strClassName, System.String strWindowName);
-</code></pre>
-<ul>
-<li><code>public FocusChanged(System.Boolean hasFocus) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void FocusChanged(bool hasFocus)
-    {
-        InputManager.instance?.OnFocusChanged(hasFocus);
-    }
-</code></pre>
-<ul>
-<li><code>private Game.Threading.ICoroutineHost.StartCoroutine(System.Collections.IEnumerator routine) : UnityEngine.Coroutine</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.Coroutine Game.Threading.ICoroutineHost.StartCoroutine(System.Collections.IEnumerator routine);
-</code></pre>
-<ul>
-<li><code>public GetAvailablePrerequisitesNames() : System.String[]</code>  </li>
-</ul>
-<pre><code class="language-csharp">public string[] GetAvailablePrerequisitesNames()
-    {
-        return m_PrefabSystem.GetAvailablePrerequisitesNames();
-    }
-</code></pre>
-<ul>
-<li><code>private static GetDefaultBacktraceAttributes() : System.Collections.Generic.Dictionary&lt;System.String, System.String&gt;</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static Dictionary&lt;string, string&gt; GetDefaultBacktraceAttributes()
-    {
-        return new Dictionary&lt;string, string&gt;
-        {
-            [&quot;game.version&quot;] = Version.current.fullVersion,
-            [&quot;cohtml.version&quot;] = Versioning.Build.ToString(),
-            [&quot;pdxsdk.version&quot;] = SDKVersion.Version,
-            [&quot;atl.version&quot;] = ATL.Version.getVersion(),
-            [&quot;game.moddingRuntime&quot;] = s_ModdingRuntime
-        };
-    }
-</code></pre>
-<ul>
-<li><code>private GetSessionGuid(Colossal.Serialization.Entities.Purpose purpose, System.Guid existingGuid) : System.Guid</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Guid GetSessionGuid(Purpose purpose, Guid existingGuid)
-    {
-        if (purpose == Purpose.NewMap || purpose == Purpose.NewGame)
-        {
-            return Guid.NewGuid();
-        }
-        return existingGuid;
-    }
-</code></pre>
-<ul>
-<li><code>private GetStdoutCaptureMode(System.String option) : Game.SceneFlow.GameManager+Configuration+StdoutCaptureMode</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Configuration.StdoutCaptureMode GetStdoutCaptureMode(string option)
-    {
-        return option switch
-        {
-            &quot;console&quot; =&gt; Configuration.StdoutCaptureMode.Console, 
-            &quot;capture&quot; =&gt; Configuration.StdoutCaptureMode.CaptureOnly, 
-            &quot;redirect&quot; =&gt; Configuration.StdoutCaptureMode.Redirect, 
-            _ =&gt; Configuration.StdoutCaptureMode.None, 
-        };
-    }
-</code></pre>
-<ul>
-<li><code>public static GetSystemInfoString() : System.String</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static string GetSystemInfoString()
-    {
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.AppendLine(&quot;Type: &quot; + SystemInfo.deviceType);
-        stringBuilder.AppendLine(&quot;OS: &quot; + SystemInfo.operatingSystem);
-        stringBuilder.AppendLine(&quot;System memory: &quot; + FormatUtils.FormatBytes((long)SystemInfo.systemMemorySize * 1024L * 1024));
-        stringBuilder.AppendLine(&quot;Graphics device: &quot; + SystemInfo.graphicsDeviceName + &quot; (Version: &quot; + SystemInfo.graphicsDeviceVersion + &quot;)&quot;);
-        stringBuilder.AppendLine(&quot;Graphics memory: &quot; + FormatUtils.FormatBytes((long)SystemInfo.graphicsMemorySize * 1024L * 1024));
-        stringBuilder.AppendLine(&quot;Max texture size: &quot; + SystemInfo.maxTextureSize);
-        stringBuilder.AppendLine(&quot;Shader level: &quot; + SystemInfo.graphicsShaderLevel);
-        stringBuilder.AppendLine(&quot;3D textures: &quot; + SystemInfo.supports3DTextures);
-        stringBuilder.AppendLine(&quot;Shadows: &quot; + SystemInfo.supportsShadows);
-        stringBuilder.AppendLine(&quot;Compute: &quot; + SystemInfo.supportsComputeShaders);
-        stringBuilder.AppendLine(&quot;CPU: &quot; + SystemInfo.processorType);
-        stringBuilder.AppendLine(&quot;Core count: &quot; + SystemInfo.processorCount);
-        stringBuilder.AppendLine(&quot;Platform: &quot; + Application.platform);
-        stringBuilder.AppendLine(&quot;Screen resolution: &quot; + Screen.currentResolution.width + &quot;x&quot; + Screen.currentResolution.height + &quot;x&quot; + (int)Screen.currentResolution.refreshRateRatio.value);
-        stringBuilder.AppendLine(&quot;Window resolution: &quot; + Screen.width + &quot;x&quot; + Screen.height);
-        stringBuilder.AppendLine(&quot;DPI: &quot; + Screen.dpi);
-        stringBuilder.AppendLine(&quot;Rendering Threading Mode: &quot; + SystemInfo.renderingThreadingMode);
-        stringBuilder.AppendLine(&quot;CLR: &quot; + Environment.Version);
-        stringBuilder.AppendLine(&quot;Modding runtime: &quot; + s_ModdingRuntime);
-        Type type = Type.GetType(&quot;Mono.Runtime&quot;);
-        if (type != null)
-        {
-            MethodInfo method = type.GetMethod(&quot;GetDisplayName&quot;, BindingFlags.Static | BindingFlags.NonPublic);
-            if (method != null)
-            {
-                stringBuilder.AppendLine(&quot;Scripting runtime: Mono &quot; + method.Invoke(null, null));
-            }
-        }
-        return stringBuilder.ToString().TrimEnd();
-    }
-</code></pre>
-<ul>
-<li><code>public static GetVersionsInfo() : System.String</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static string GetVersionsInfo()
-    {
-        StringBuilder stringBuilder = new StringBuilder();
-        string text = null;
-        text = &quot;Mono&quot;;
-        stringBuilder.AppendLine($&quot;Date: {DateTime.UtcNow}&quot;);
-        stringBuilder.AppendLine($&quot;Game version: {Version.current.fullVersion} {Application.platform.ToPlatform()} {PlatformManager.instance.principalPlatformName}&quot;);
-        stringBuilder.AppendLine(&quot;Game configuration: &quot; + (UnityEngine.Debug.isDebugBuild ? &quot;Development&quot; : &quot;Release&quot;) + &quot; (&quot; + text + &quot;)&quot;);
-        stringBuilder.AppendLine(&quot;COre version: &quot; + Colossal.Core.Version.current.fullVersion);
-        stringBuilder.AppendLine(&quot;Localization version: &quot; + Colossal.Localization.Version.current.fullVersion);
-        stringBuilder.AppendLine(&quot;UI version: &quot; + Colossal.UI.Version.current.fullVersion);
-        stringBuilder.AppendLine(&quot;Unity version: &quot; + Application.unityVersion);
-        stringBuilder.AppendLine($&quot;Cohtml version: {Versioning.Build}&quot;);
-        stringBuilder.AppendLine(&quot;ATL Version: &quot; + ATL.Version.getVersion());
-        PlatformManager.instance.LogVersion(stringBuilder);
-        foreach (IDlc item in PlatformManager.instance.EnumerateLocalDLCs())
-        {
-            stringBuilder.AppendLine(item.internalName.Nicify() + &quot;: &quot; + item.version.fullVersion);
-        }
-        if (Application.genuineCheckAvailable)
-        {
-            stringBuilder.AppendLine($&quot;Genuine: {Application.genuine}&quot;);
-        }
-        return stringBuilder.ToString().TrimEnd();
-    }
-</code></pre>
-<ul>
-<li><code>private static GetWindowText(System.IntPtr hWnd, System.Text.StringBuilder lpString, System.Int32 nMaxCount) : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static System.Int32 GetWindowText(System.IntPtr hWnd, System.Text.StringBuilder lpString, System.Int32 nMaxCount);
-</code></pre>
-<ul>
-<li><code>private HandleConfiguration() : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">private bool HandleConfiguration()
-    {
-        if (configuration.showHelp != null)
-        {
-            Console.WriteLine(configuration.showHelp);
-            return false;
-        }
-        if (!string.IsNullOrEmpty(configuration.profilerTarget))
-        {
-            Profiler.logFile = configuration.profilerTarget;
-            Profiler.enableBinaryLog = true;
-            Profiler.enabled = true;
-        }
-        return true;
-    }
-</code></pre>
-<ul>
-<li><code>private HandleDeviceAssociationLost() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void HandleDeviceAssociationLost()
-    {
-        if (m_IsEngagementStarted)
-        {
-            SetScreenActive&lt;ControllerPairingScreen&gt;();
-        }
-        else if (m_InitialEngagementScreen &gt; OverlayScreen.ControllerPairingChanged)
-        {
-            m_InitialEngagementScreen = OverlayScreen.ControllerPairingChanged;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private HandleDeviceDisconnected() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void HandleDeviceDisconnected()
-    {
-        if (m_IsEngagementStarted)
-        {
-            SetScreenActive&lt;ControllerDisconnectedScreen&gt;();
-        }
-        else if (m_InitialEngagementScreen &gt; OverlayScreen.ControllerDisconnected)
-        {
-            m_InitialEngagementScreen = OverlayScreen.ControllerDisconnected;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private HandleDevicePaired() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void HandleDevicePaired()
-    {
-        if (!m_IsEngagementStarted)
-        {
-            m_InitialEngagementScreen = OverlayScreen.Engagement;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private HandleUserFolderVersion() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void HandleUserFolderVersion()
-    {
-        try
-        {
-            Colossal.Version version = Version.current;
-            string path = EnvPath.kUserDataPath + &quot;/version&quot;;
-            if (LongFile.Exists(path))
-            {
-                version = new Colossal.Version(LongFile.ReadAllText(path));
-            }
-            if (version &lt; Version.current)
-            {
-                UnityEngine.Debug.Log(&quot;Persistent folder version is outdated &quot; + version.fullVersion + &quot; (Game: &quot; + Version.current.fullVersion + &quot;)&quot;);
-                if (version &lt; new Colossal.Version(&quot;1.0.6f2&quot;))
-                {
-                    UnityEngine.Debug.Log(&quot;User settings deleted due to outdated persistent folder version. Backups were created ending with ~&quot;);
-                    DeleteSettings(EnvPath.kUserDataPath);
-                    PlayerPrefs.DeleteAll();
-                    PlayerPrefs.Save();
-                }
-            }
-            LongFile.WriteAllText(path, Version.current.fullVersion);
-        }
-        catch (Exception exception)
-        {
-            log.Error(exception);
-        }
-        static void DeleteSettings(string settingsPath)
-        {
-            foreach (FileInfo item in new DirectoryInfo(settingsPath).EnumerateFiles(&quot;*&quot;, SearchOption.AllDirectories))
-            {
-                if (item.Extension.ToLower() == &quot;.coc&quot;)
-                {
-                    string text = Path.ChangeExtension(item.FullName, &quot;.coc~&quot;);
-                    LongFile.Delete(text);
-                    item.MoveTo(text);
-                }
-            }
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private HandleUserUpdated(Colossal.PSI.Common.IPlatformServiceIntegration psi, Colossal.PSI.Common.UserChangedFlags flags) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void HandleUserUpdated(IPlatformServiceIntegration psi, UserChangedFlags flags)
-    {
-        if (m_IsEngagementStarted)
-        {
-            if (flags.HasFlag(UserChangedFlags.UserSigningOut) &amp;&amp; !flags.HasFlag(UserChangedFlags.ChangingUser))
-            {
-                SetScreenActive&lt;LoggedOutScreen&gt;();
-            }
-        }
-        else if (flags.HasFlag(UserChangedFlags.UserSigningOut) &amp;&amp; m_InitialEngagementScreen &gt; OverlayScreen.UserLoggedOut)
-        {
-            m_InitialEngagementScreen = OverlayScreen.UserLoggedOut;
-        }
-        else if (flags.HasFlag(UserChangedFlags.UserSignedInAgain))
-        {
-            m_InitialEngagementScreen = OverlayScreen.Engagement;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private InitConsole() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void InitConsole()
-    {
-        if (configuration.captureStdout != Configuration.StdoutCaptureMode.None)
-        {
-            if (configuration.captureStdout != Configuration.StdoutCaptureMode.Redirect)
-            {
-                m_Console = new ConsoleWindow(Application.productName, configuration.captureStdout == Configuration.StdoutCaptureMode.Console);
-            }
-            LogManager.stdOutActive = true;
-            log.Info(&quot;\u001b[1m\u001b[38;2;0;135;215mWelcome to Cities: Skylines II\u001b[0m&quot;);
-            log.Info(&quot;\u001b[1m\u001b[38;2;0;135;215mColossal Order Oy - 2023\u001b[0m&quot;);
-            Thread.Sleep(1000);
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private Initialize() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private async void Initialize()
-    {
-        _ = 13;
-        try
-        {
-            using (Colossal.PerformanceCounter.Start(delegate(TimeSpan t)
-            {
-                log?.InfoFormat(&quot;GameManager initialized! ({0}ms)&quot;, t.TotalMilliseconds);
-            }))
-            {
-                await TestScenarioSystem.Create(cmdLine);
-                onGameLoadingComplete += OnMainMenuReached;
-                ListHarmonyPatches();
-                TaskManager taskManager = TaskManager.instance;
-                InputManager.CreateInstance();
-                AssetDatabase.global.SetSettingsConfiguration(configuration.saveAllSettings, configuration.cleanupSettings);
-                await InitializePlatformManager();
-                await taskManager.SharedTask(&quot;CacheAssets&quot;, () =&gt; AssetDatabase.global.CacheAssets(priorityAssets: true, m_Cts.Token));
-                Task caching = taskManager.SharedTask(&quot;CacheAssets&quot;, () =&gt; AssetDatabase.global.CacheAssets(priorityAssets: false, m_Cts.Token));
-                InitializeLocalization();
-                settings = new SharedSettings(localizationManager);
-                CreateWorld();
-                InputManager.instance.SetDefaultControlScheme();
-                await InitializeUI();
-                TaskManager.instance.onNotifyProgress += NotifyProgress;
-                ReportBootProgress(0f);
-                Task engagement = SetInitialEngagementScreenActive();
-                Task loading = SetScreenActive&lt;LoadingScreen&gt;();
-                await SetScreenActive&lt;SplashScreenSequence&gt;();
-                Task assetLoading = LoadUnityPrefabs();
-                log.Info(GetVersionsInfo());
-                log.Info(GetSystemInfoString());
-                configuration.LogConfiguration();
-                await engagement;
-                RegisterDeviceAndUserListeners();
-                m_ModManager = new ModManager(configuration.disableCodeModding);
-                await caching;
-                await RegisterPdxSdk();
-                ReportBootProgress(0.3f);
-                settings.LoadUserSettings();
-                ReportBootProgress(0.5f);
-                CreateSystems();
-                InitializeModManager();
-                settings.Apply();
-                EnableSettingsDependantObjects();
-                await assetLoading;
-                ReportBootProgress(0.8f);
-                LoadPrefabs();
-                InitializeThumbnails();
-                m_State = State.WorldReady;
-                ReportBootProgress(1f);
-                await Task.Yield();
-                this.onWorldReady?.Invoke();
-                await Task.WhenAll(loading, PlatformManager.instance.WaitForAchievements());
-                EnableCameraRendering();
-                m_WorldReadySource.TrySetResult(result: true);
-                log.Info(&quot;Boot completed&quot;);
-                bool flag = true;
-                if (configuration.startGame.isValid)
-                {
-                    flag = !(await AutoLoad(configuration.startGame));
-                }
-                else if (configuration.continuelastsave)
-                {
-                    flag = !(await userInterface.appBindings.LauncherContinueGame());
-                }
-                if (flag)
-                {
-                    await MainMenu();
-                }
-            }
-        }
-        catch (OperationCanceledException)
-        {
-            UnityEngine.Debug.Log(&quot;GameManager termination requested before initialization completed&quot;);
-        }
-        catch (Exception ex2)
-        {
-            log.Fatal(ex2);
-            ShowFallbackUI(ex2);
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private InitializeLocalization() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void InitializeLocalization()
-    {
-        m_Cts.Token.ThrowIfCancellationRequested();
-        localizationManager = new LocalizationManager(&quot;en-US&quot;, SystemLanguage.English, &quot;English&quot;);
-        localizationManager.LoadAvailableLocales();
-    }
-</code></pre>
-<ul>
-<li><code>private InitializeModManager(System.Boolean ignoreParadox = False) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void InitializeModManager(bool ignoreParadox = false)
-    {
-        if (m_UpdateSystem != null &amp;&amp; (ignoreParadox || AssetDatabase&lt;ParadoxMods&gt;.instance.isCached))
-        {
-            m_ModManager.Initialize(m_UpdateSystem);
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private InitializePlatformManager() : System.Threading.Tasks.Task</code>  </li>
-</ul>
-<pre><code class="language-csharp">private async Task InitializePlatformManager()
-    {
-        PlatformManager.instance.RegisterRichPresenceKey(&quot;#StatusInMainMenu&quot;, () =&gt; &quot;In Main-Menu&quot;);
-        PlatformManager.instance.RegisterRichPresenceKey(&quot;#StatusInGame&quot;, () =&gt; &quot;In-Game&quot;);
-        PlatformManager.instance.RegisterRichPresenceKey(&quot;#StatusInEditor&quot;, () =&gt; &quot;In-Editor&quot;);
-        await PlatformManager.instance.RegisterPSI(() =&gt; PlatformSupport.kCreateGDKPlatform(), m_Cts.Token).ConfigureAwait(continueOnCapturedContext: false);
-        await PlatformManager.instance.RegisterPSI(PlatformSupport.kCreateDiscordRichPresence, m_Cts.Token).ConfigureAwait(continueOnCapturedContext: false);
-        if (!(await PlatformManager.instance.Initialize(m_Cts.Token)))
-        {
-            log.ErrorFormat(&quot;A platform service integration failed to initialize&quot;);
-            QuitGame();
-        }
-        EnvPath.UpdateSpecialPathCache();
-        await AssetDatabase.global.RegisterDatabase(AssetDatabase&lt;GdkCloud&gt;.instance);
-        SubscribeToGdkUserEvents();
-        await Colossal.IO.AssetDatabase.ContentHelper.RegisterContent();
-    }
-</code></pre>
-<ul>
-<li><code>private InitializeThumbnails() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void InitializeThumbnails()
-    {
-        m_Cts.Token.ThrowIfCancellationRequested();
-        thumbnailCache = new ThumbnailCache();
-        thumbnailCache.Initialize();
-    }
-</code></pre>
-<ul>
-<li><code>private InitializeUI() : System.Threading.Tasks.Task</code>  </li>
-</ul>
-<pre><code class="language-csharp">private async Task InitializeUI()
-    {
-        m_Cts.Token.ThrowIfCancellationRequested();
-        ILog uiLog = UIManager.log;
-        try
-        {
-            uiLog.Info(&quot;Bootstrapping cohtmlUISystem&quot;);
-            m_UIManager = new UIManager(configuration.uiDeveloperMode);
-            Colossal.UI.UISystem.Settings settings = Colossal.UI.UISystem.Settings.New;
-            settings.localizationManager = new UILocalizationManager(localizationManager);
-            settings.resourceHandler = new GameUIResourceHandler(this);
-            Colossal.UI.UISystem uISystem = m_UIManager.CreateUISystem(settings);
-            foreach (UIHostAsset asset in AssetDatabase.global.GetAssets(default(SearchFilter&lt;UIHostAsset&gt;)))
-            {
-                if (asset.scheme == &quot;assetdb&quot;)
-                {
-                    uISystem.AddDatabaseHostLocation(asset.hostname, asset.uiUri, asset.priority);
-                }
-                else
-                {
-                    uISystem.AddHostLocation(asset.hostname, asset.uiPath, shouldWatch: true, asset.priority);
-                }
-            }
-            m_UIInputSystem = new UIInputSystem(uISystem);
-            userInterface = new UserInterface(m_UILocation, localizationManager, uISystem);
-            m_World.GetOrCreateSystem&lt;NotificationUISystem&gt;();
-            m_World.GetOrCreateSystem&lt;OptionsUISystem&gt;();
-            this.settings.RegisterInOptionsUI();
-            m_State = State.UIReady;
-            InputManager.instance.CheckConflicts();
-            log.DebugFormat(&quot;Time to UI {0}s&quot;, Time.realtimeSinceStartup);
-            await userInterface.WaitForBindings();
-        }
-        catch (Exception exception)
-        {
-            uiLog.Error(exception);
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private LateUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void LateUpdate()
-    {
-        if (!m_Cts.IsCancellationRequested)
-        {
-            LateUpdateWorld();
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private LateUpdateWorld() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void LateUpdateWorld()
-    {
-        if (shouldUpdateWorld)
-        {
-            m_UpdateSystem.Update(SystemUpdatePhase.LateUpdate);
-            m_UpdateSystem.Update(SystemUpdatePhase.DebugGizmos);
-            CORuntimeApplication.Update();
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private static ListHarmonyPatches() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static void ListHarmonyPatches()
-    {
-        ILog logger = LogManager.GetLogger(&quot;Modding&quot;);
-        logger.InfoFormat(&quot;Modding runtime: {0}&quot;, s_ModdingRuntime);
-        try
-        {
-            LocalTypeCache localTypeCache = new LocalTypeCache();
-            Assembly assembly = AppDomain.CurrentDomain.GetAssemblies().FirstOrDefault((Assembly a) =&gt; a.GetName().Name.Contains(&quot;Harmony&quot;));
-            if (assembly == null)
-            {
-                return;
-            }
-            log.Info(&quot;Harmony found.&quot;);
-            Type type = assembly.GetType(&quot;Harmony.HarmonyInstance&quot;, throwOnError: false) ?? assembly.GetType(&quot;HarmonyLib.Harmony&quot;, throwOnError: false);
-            if (type == null)
-            {
-                logger.Info(&quot;HarmonyInstance/Harmony class not found.&quot;);
-                return;
-            }
-            MethodInfo method = localTypeCache.GetMethod(type, &quot;GetAllPatchedMethods&quot;, BindingFlags.Static | BindingFlags.Public);
-            if (method == null)
-            {
-                logger.Info(&quot;Method GetAllPatchedMethods not found.&quot;);
-                return;
-            }
-            if (!(method.Invoke(null, null) is IEnumerable&lt;MethodBase&gt; enumerable))
-            {
-                logger.Info(&quot;No patched methods found.&quot;);
-                return;
-            }
-            MethodInfo method2 = localTypeCache.GetMethod(type, &quot;GetPatchInfo&quot;, BindingFlags.Static | BindingFlags.Public);
-            if (method2 == null)
-            {
-                logger.Info(&quot;Method GetPatchInfo not found.&quot;);
-                return;
-            }
-            Type type2 = assembly.GetType(&quot;HarmonyLib.Patches&quot;, throwOnError: false);
-            if (type2 == null)
-            {
-                logger.Info(&quot;Patches class not found.&quot;);
-                return;
-            }
-            foreach (MethodBase item in enumerable)
-            {
-                logger.InfoFormat(&quot;Patched Method: {0}.{1}&quot;, item.DeclaringType?.FullName ?? &quot;&lt;Global Type&gt;&quot;, item.Name);
-                object patchInfo = method2.Invoke(null, new object[1] { item });
-                PrintPatchDetails(logger, patchInfo, type2, localTypeCache);
-            }
-        }
-        catch (Exception exception)
-        {
-            log.Warn(exception, &quot;ListHarmonyPatches failed&quot;);
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private Load(Game.GameMode mode, Colossal.Serialization.Entities.Purpose purpose, Colossal.IO.AssetDatabase.AsyncReadDescriptor descriptor, Colossal.Hash128 instigatorGuid, System.Guid sessionGuid) : System.Threading.Tasks.Task&lt;System.Boolean&gt;</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Task&lt;bool&gt; Load(GameMode mode, Purpose purpose, Colossal.Hash128 guid)
-    {
-        if (AssetDatabase.global.TryGetAsset(guid, out var asset))
-        {
-            return Load(mode, purpose, asset);
-        }
-        log.WarnFormat(&quot;Couldn't load '{0}'. Asset doesn't exist!&quot;, guid);
-        return Task.FromResult(result: false);
-    }
-</code></pre>
-<ul>
-<li><code>public Load(Game.GameMode mode, Colossal.Serialization.Entities.Purpose purpose, Colossal.IO.AssetDatabase.IAssetData asset = null) : System.Threading.Tasks.Task&lt;System.Boolean&gt;</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Task&lt;bool&gt; Load(GameMode mode, Purpose purpose, Colossal.Hash128 guid)
-    {
-        if (AssetDatabase.global.TryGetAsset(guid, out var asset))
-        {
-            return Load(mode, purpose, asset);
-        }
-        log.WarnFormat(&quot;Couldn't load '{0}'. Asset doesn't exist!&quot;, guid);
-        return Task.FromResult(result: false);
-    }
-</code></pre>
-<ul>
-<li><code>public Load(Game.GameMode mode, Colossal.Serialization.Entities.Purpose purpose, Colossal.Hash128 guid) : System.Threading.Tasks.Task&lt;System.Boolean&gt;</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Task&lt;bool&gt; Load(GameMode mode, Purpose purpose, Colossal.Hash128 guid)
-    {
-        if (AssetDatabase.global.TryGetAsset(guid, out var asset))
-        {
-            return Load(mode, purpose, asset);
-        }
-        log.WarnFormat(&quot;Couldn't load '{0}'. Asset doesn't exist!&quot;, guid);
-        return Task.FromResult(result: false);
-    }
-</code></pre>
-<ul>
-<li><code>private LoadAssetLibraryAsync() : System.Threading.Tasks.Task&lt;Game.SceneFlow.AssetLibrary&gt;</code>  </li>
-</ul>
-<pre><code class="language-csharp">private async Task&lt;AssetLibrary&gt; LoadAssetLibraryAsync()
-    {
-        using (Colossal.PerformanceCounter.Start(delegate(TimeSpan t)
-        {
-            log.InfoFormat(&quot;LoadAssetLibraryAsync performed in {0}ms&quot;, t.TotalMilliseconds);
-        }))
-        {
-            UnityEngine.ResourceRequest asyncLoad = Resources.LoadAsync&lt;AssetLibrary&gt;(&quot;GameAssetLibrary&quot;);
-            while (!asyncLoad.isDone)
-            {
-                m_Cts.Token.ThrowIfCancellationRequested();
-                await Task.Yield();
-            }
-            ((AssetLibrary)asyncLoad.asset).Load(m_PrefabSystem, m_Cts.Token);
-            return asyncLoad.asset as AssetLibrary;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private LoadPrefabs() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void LoadPrefabs()
-    {
-        int count = 0;
-        using (Colossal.PerformanceCounter.Start(delegate(TimeSpan t)
-        {
-            log.InfoFormat(&quot;Loaded {1} prefabs in {0}s&quot;, t.TotalSeconds, count);
-        }))
-        {
-            foreach (PrefabAsset asset in AssetDatabase.global.GetAssets(default(SearchFilter&lt;PrefabAsset&gt;)))
-            {
-                if (asset.Load() is PrefabBase prefab)
-                {
-                    m_PrefabSystem.AddPrefab(prefab);
-                    count++;
-                }
-            }
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private LoadSimulationData(Colossal.Serialization.Entities.Context context, Colossal.IO.AssetDatabase.AsyncReadDescriptor dataDescriptor) : System.Threading.Tasks.Task</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Task LoadSimulationData(Colossal.Serialization.Entities.Context context, AsyncReadDescriptor dataDescriptor)
-    {
-        this.onGamePreload?.Invoke(context.purpose, gameMode);
-        CleanupMemory();
-        m_DeserializationSystem.dataDescriptor = dataDescriptor;
-        m_DeserializationSystem.context = context;
-        return m_DeserializationSystem.RunOnce();
-    }
-</code></pre>
-<ul>
-<li><code>private LoadUnityPrefabs() : System.Threading.Tasks.Task</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Task LoadUnityPrefabs()
-    {
-        return LoadAssetLibraryAsync();
-    }
-</code></pre>
-<ul>
-<li><code>public MainMenu() : System.Threading.Tasks.Task&lt;System.Boolean&gt;</code>  </li>
-</ul>
-<pre><code class="language-csharp">public async Task&lt;bool&gt; MainMenu()
-    {
-        _ = 2;
-        try
-        {
-            IAssetData asset = null;
-            bool ret = await Load(GameMode.MainMenu, Purpose.Cleanup, asset);
-            if (ret)
-            {
-                await AudioManager.instance.ResetAudioOnMainThread();
-                await AudioManager.instance.PlayMenuMusic(&quot;Main Menu Theme&quot;);
-                log.Info(&quot;MainMenu reached&quot;);
-            }
-            return ret;
-        }
-        catch (OperationCanceledException)
-        {
-        }
-        catch (Exception exception)
-        {
-            log.Error(exception);
-        }
-        return false;
-    }
-</code></pre>
-<ul>
-<li><code>private static MaskArguments(System.String[] cmdLine) : System.String[]</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static string[] MaskArguments(string[] cmdLine)
-    {
-        try
-        {
-            HashSet&lt;string&gt; hashSet = new HashSet&lt;string&gt; { &quot;pdx-launcher-session-token&quot;, &quot;paradox-account-userid&quot;, &quot;accessToken&quot;, &quot;hubSessionId&quot;, &quot;licensingIpc&quot; };
-            string[] array = (string[])cmdLine.Clone();
-            for (int i = 0; i &lt; array.Length; i++)
-            {
-                string text = array[i].TrimStart('-');
-                int num = text.IndexOf('=');
-                if (num != -1)
-                {
-                    string input = text.Substring(num + 1);
-                    text = text.Substring(0, num);
-                    array[i] = text + &quot;=&quot; + input.Sensitive();
-                }
-                else if (hashSet.Contains(text) &amp;&amp; i + 1 &lt; array.Length)
-                {
-                    array[i + 1] = array[i + 1].Sensitive();
-                }
-            }
-            return array;
-        }
-        catch (Exception exception)
-        {
-            log.Warn(exception, &quot;An error occured parsing the command line for logging&quot;);
-            return Array.Empty&lt;string&gt;();
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private static MergeAdditionalCommandLineArguments(System.String[] cmdLineArgs, System.String additionalCmdLine) : System.String[]</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static string[] MergeAdditionalCommandLineArguments(string[] cmdLineArgs, string additionalCmdLine)
-    {
-        HashSet&lt;string&gt; hashSet = (string.IsNullOrEmpty(additionalCmdLine) ? new HashSet&lt;string&gt;() : additionalCmdLine.Split(new char[1] { ' ' }, StringSplitOptions.RemoveEmptyEntries).ToHashSet());
-        if (hashSet.Count &gt; 0)
-        {
-            string[] array = new string[cmdLineArgs.Length + hashSet.Count];
-            cmdLineArgs.CopyTo(array, 0);
-            hashSet.CopyTo(array, cmdLineArgs.Length);
-            return array;
-        }
-        return cmdLineArgs;
-    }
-</code></pre>
-<ul>
-<li><code>private NotifyProgress(System.String identifier, System.Int32 progress) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void NotifyProgress(string identifier, int progress)
-    {
-        string titleId = identifier;
-        string textId = identifier;
-        ProgressState? progressState = ProgressState.Progressing;
-        int? progress2 = progress;
-        NotificationSystem.Push(identifier, null, null, titleId, textId, null, progressState, progress2);
-        if (progress &gt;= 100)
-        {
-            textId = identifier;
-            titleId = identifier;
-            progressState = ProgressState.Complete;
-            progress2 = progress;
-            NotificationSystem.Pop(identifier, 2f, null, null, textId, titleId, null, progressState, progress2);
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private OnDestroy() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void OnDestroy()
-    {
-        Application.wantsToQuit -= WantsToQuit;
-    }
-</code></pre>
-<ul>
-<li><code>private OnGUI() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void OnGUI()
-    {
-        if (shouldUpdateWorld &amp;&amp; !m_Cts.IsCancellationRequested)
-        {
-            TerrainDebugSystem orCreateSystemManaged = m_World.GetOrCreateSystemManaged&lt;TerrainDebugSystem&gt;();
-            if (orCreateSystemManaged.Enabled)
-            {
-                orCreateSystemManaged.RenderDebugUI();
-            }
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private OnMainMenuReached(Colossal.Serialization.Entities.Purpose purpose, Game.GameMode mode) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void OnMainMenuReached(Purpose purpose, GameMode mode)
-    {
-        if (mode == GameMode.MainMenu)
-        {
-            AutomationClientSystem.instance.OnMainMenuReached();
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private ParseOptions() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void ParseOptions()
-    {
-        OptionSet optionSet = new OptionSet().Add(&quot;cleanupSettings&quot;, &quot;Cleanup unchanged settings&quot;, delegate(string option)
-        {
-            configuration.cleanupSettings = option != null;
-        }).Add(&quot;saveAllSettings&quot;, &quot;Dump all settings regardless if they have changed&quot;, delegate(string option)
-        {
-            configuration.saveAllSettings = option != null;
-        }).Add(&quot;logsEffectiveness=&quot;, &quot;Override effectiveness level of all logs&quot;, delegate(string option)
-        {
-            LogManager.SetDefaultEffectiveness(Level.GetLevel(option));
-        })
-            .Add(&quot;duplicateLogToDefault&quot;, &quot;Duplicate logs to default log handler&quot;, delegate(string option)
-            {
-                configuration.duplicateLogToDefault = option != null;
-            })
-            .Add(&quot;developerMode&quot;, &quot;Enable developer mode&quot;, delegate(string option)
-            {
-                configuration.developerMode = option != null;
-            })
-            .Add(&quot;uiDeveloperMode&quot;, &quot;Enable UI debugger and memory tracker&quot;, delegate(string option)
-            {
-                configuration.uiDeveloperMode = option != null;
-            })
-            .Add(&quot;qaDeveloperMode&quot;, &quot;Enable tests and automation&quot;, delegate(string option)
-            {
-                configuration.qaDeveloperMode = option != null;
-            })
-            .Add(&quot;help&quot;, &quot;Display usage&quot;, delegate(string option)
-            {
-                configuration.showHelp = option;
-            })
-            .Add(&quot;disableThumbnails&quot;, &quot;Disable thumbnails&quot;, delegate(string option)
-            {
-                configuration.noThumbnails = option != null;
-            })
-            .Add(&quot;disablePdxSdk&quot;, &quot;Disables PDX SDK integration&quot;, delegate(string option)
-            {
-                configuration.disablePDXSDK = option != null;
-            })
-            .Add(&quot;disableModding&quot;, &quot;Disable modding&quot;, delegate(string option)
-            {
-                configuration.disableModding = option != null;
-                configuration.disableCodeModding = configuration.disableModding;
-            })
-            .Add(&quot;disableCodeModding&quot;, &quot;Disable code modding&quot;, delegate(string option)
-            {
-                configuration.disableCodeModding = option != null;
-            })
-            .Add(&quot;disableUserSection&quot;, &quot;Disable user section in main menu&quot;, delegate(string option)
-            {
-                configuration.disableUserSection = option != null;
-            })
-            .Add(&quot;startGame=&quot;, &quot;Auto start the game with the asset referenced&quot;, delegate(string option)
-            {
-                configuration.startGame = Colossal.Hash128.Parse(option);
-            })
-            .Add(&quot;profile=&quot;, &quot;Enable profiling to the specific file&quot;, delegate(string option)
-            {
-                configuration.profilerTarget = option;
-            })
-            .Add(&quot;captureStdout=&quot;, &quot;Capture all logs on stdout. Options: \&quot;console\&quot;,\&quot;capture\&quot;&quot;, delegate(string option)
-            {
-                configuration.captureStdout = GetStdoutCaptureMode(option);
-            })
-            .Add(&quot;continuelastsave&quot;, &quot;Auto start the game with the asset referenced&quot;, delegate(string option)
-            {
-                configuration.continuelastsave = option != null;
-            });
-        try
-        {
-            string path = EnvPath.kUserDataPath + &quot;/runOnce.txt&quot;;
-            if (LongFile.Exists(path))
-            {
-                m_AdditionalCommandLineToggles = StringUtils.Concatenate(&quot; &quot;, m_AdditionalCommandLineToggles, File.ReadAllText(path));
-                LongFile.Delete(path);
-            }
-            cmdLine = Environment.GetCommandLineArgs();
-            cmdLine = MergeAdditionalCommandLineArguments(cmdLine, m_AdditionalCommandLineToggles);
-            optionSet.Parse(cmdLine);
-            log.InfoFormat(&quot;Command line: {0}&quot;, string.Join(&quot;\n&quot;, MaskArguments(cmdLine)));
-            if (configuration.showHelp != null)
-            {
-                using (TextWriter textWriter = new StringWriter())
-                {
-                    optionSet.WriteOptionDescriptions(textWriter);
-                    configuration.showHelp = textWriter.ToString();
-                    return;
-                }
-            }
-        }
-        catch (OptionException exception)
-        {
-            UnityEngine.Debug.LogException(exception);
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private PostUpdateWorld() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void PostUpdateWorld()
-    {
-        if (shouldUpdateWorld)
-        {
-            m_UpdateSystem.Update(SystemUpdatePhase.Cleanup);
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private PreparePersistentStorage() : System.Threading.Tasks.Task</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Task PreparePersistentStorage()
-    {
-        EnvPath.RegisterSpecialPath&lt;SaveGameMetadata&gt;(SaveGameMetadata.kPersistentLocation);
-        EnvPath.RegisterSpecialPath&lt;SaveGameData&gt;(SaveGameMetadata.kPersistentLocation);
-        EnvPath.RegisterSpecialPath&lt;MapMetadata&gt;(MapMetadata.kPersistentLocation);
-        EnvPath.RegisterSpecialPath&lt;MapData&gt;(MapMetadata.kPersistentLocation);
-        EnvPath.RegisterSpecialPath&lt;CinematicCameraAsset&gt;(CinematicCameraAsset.kPersistentLocation);
-        return EnvPath.WipeTempPath();
-    }
-</code></pre>
-<ul>
-<li><code>private static PrintIndividualPatches(Colossal.Logging.ILog moddingLog, System.String patchType, System.Collections.Generic.IEnumerable&lt;System.Object&gt; patches, Game.SceneFlow.GameManager+LocalTypeCache typeCache) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static void PrintIndividualPatches(ILog moddingLog, string patchType, IEnumerable&lt;object&gt; patches, LocalTypeCache typeCache)
-    {
-        if (patches == null || !patches.Any())
-        {
-            return;
-        }
-        moddingLog.InfoFormat(&quot; {0}:&quot;, patchType);
-        using (moddingLog.indent.scoped)
-        {
-            foreach (object patch in patches)
-            {
-                MethodBase methodBase = typeCache.GetProperty(patch.GetType(), &quot;PatchMethod&quot;).GetValue(patch, null) as MethodBase;
-                if (methodBase != null)
-                {
-                    string p = methodBase.DeclaringType?.FullName ?? &quot;&lt;Global Method&gt;&quot;;
-                    moddingLog.InfoFormat(&quot;Patch Method: {0}.{1}&quot;, p, methodBase.Name);
-                }
-            }
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private static PrintPatchDetails(Colossal.Logging.ILog moddingLog, System.Object patchInfo, System.Type patchInfoType, Game.SceneFlow.GameManager+LocalTypeCache typeCache) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static void PrintPatchDetails(ILog moddingLog, object patchInfo, Type patchInfoType, LocalTypeCache typeCache)
-    {
-        if (patchInfo != null)
-        {
-            FieldInfo field = typeCache.GetField(patchInfoType, &quot;Prefixes&quot;);
-            FieldInfo field2 = typeCache.GetField(patchInfoType, &quot;Postfixes&quot;);
-            FieldInfo field3 = typeCache.GetField(patchInfoType, &quot;Transpilers&quot;);
-            FieldInfo field4 = typeCache.GetField(patchInfoType, &quot;Finalizers&quot;);
-            IEnumerable&lt;object&gt; patches = field?.GetValue(patchInfo) as IEnumerable&lt;object&gt;;
-            IEnumerable&lt;object&gt; patches2 = field2?.GetValue(patchInfo) as IEnumerable&lt;object&gt;;
-            IEnumerable&lt;object&gt; patches3 = field3?.GetValue(patchInfo) as IEnumerable&lt;object&gt;;
-            IEnumerable&lt;object&gt; patches4 = field4?.GetValue(patchInfo) as IEnumerable&lt;object&gt;;
-            PrintIndividualPatches(moddingLog, &quot;Prefixes&quot;, patches, typeCache);
-            PrintIndividualPatches(moddingLog, &quot;Postfixes&quot;, patches2, typeCache);
-            PrintIndividualPatches(moddingLog, &quot;Transpilers&quot;, patches3, typeCache);
-            PrintIndividualPatches(moddingLog, &quot;Finalizers&quot;, patches4, typeCache);
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public static QuitGame() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static void QuitGame()
-    {
-        Application.Quit();
-    }
-</code></pre>
-<ul>
-<li><code>public RegisterCancellationOnQuit(System.Threading.Tasks.TaskCompletionSource&lt;System.Boolean&gt; tcs, System.Boolean stateOnCancel) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public async void RegisterCancellationOnQuit(TaskCompletionSource&lt;bool&gt; tcs, bool stateOnCancel)
-    {
-        await using (m_QuitRequested.Token.Register(delegate
-        {
-            tcs.TrySetResult(stateOnCancel);
-        }))
-        {
-            await tcs.Task;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private RegisterDeviceAndUserListeners() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void RegisterDeviceAndUserListeners()
-    {
-        InputManager.instance.EventActiveDeviceAssociationLost += HandleDeviceAssociationLost;
-        InputManager.instance.EventActiveDeviceDisconnected += HandleDeviceDisconnected;
-        InputManager.instance.EventDevicePaired += HandleDevicePaired;
-        PlatformManager.instance.onUserUpdated += HandleUserUpdated;
-    }
-</code></pre>
-<ul>
-<li><code>private RegisterPdxSdk() : System.Threading.Tasks.Task</code>  </li>
-</ul>
-<pre><code class="language-csharp">private async Task RegisterPdxSdk()
-    {
-        if (!configuration.disablePDXSDK)
-        {
-            PdxSdkConfiguration pdxConfiguration = new PdxSdkConfiguration
-            {
-                language = localizationManager.activeLocaleId,
-                gameNamespace = &quot;cities_skylines_2&quot;,
-                gameVersion = Version.current.fullVersion,
-                environment = ProductEnvironment.Live
-            };
-            await PlatformManager.instance.RegisterPSI(delegate
-            {
-                CancellationTokenSource cts = new CancellationTokenSource();
-                string value;
-                PdxSdkPlatform pdxSdkPlatform = new PdxSdkPlatform(pdxConfiguration)
-                {
-                    translationHandler = (string localeId) =&gt; (!localizationManager.activeDictionary.TryGetValue(localeId, out value)) ? localeId : value
-                };
-                localizationManager.onActiveDictionaryChanged += delegate
-                {
-                    pdxSdkPlatform.ChangeLanguage(localizationManager.activeLocaleId);
-                };
-                pdxSdkPlatform.onLegalDocumentStatusChanged += delegate(LegalDocument doc, int remaining)
-                {
-                    if (remaining == 0)
-                    {
-                        TelemetryReady();
-                        PlatformManager.instance.EnableSharing();
-                    }
-                };
-                pdxSdkPlatform.onNoLogin += async delegate
-                {
-                    try
-                    {
-                        if (state != State.Quitting &amp;&amp; !configuration.disableModding)
-                        {
-                            await RegisterDatabase();
-                        }
-                    }
-                    catch (OperationCanceledException)
-                    {
-                    }
-                    catch (Exception exception)
-                    {
-                        InitializeModManager(ignoreParadox: true);
-                        PdxSdkPlatform.log.Error(exception);
-                    }
-                    finally
-                    {
-                        cts = new CancellationTokenSource();
-                    }
-                };
-                pdxSdkPlatform.onLoggedIn += async delegate
-                {
-                    _ = 1;
-                    try
-                    {
-                        if (state != State.Quitting)
-                        {
-                            Task task = Task.CompletedTask;
-                            if (!configuration.disableModding)
-                            {
-                                task = pdxSdkPlatform.SyncMods();
-                            }
-                            if (!configuration.disableModding)
-                            {
-                                await task;
-                                await RegisterDatabase();
-                            }
-                        }
-                    }
-                    catch (OperationCanceledException)
-                    {
-                    }
-                    catch (Exception exception)
-                    {
-                        InitializeModManager(ignoreParadox: true);
-                        PdxSdkPlatform.log.Error(exception);
-                    }
-                    finally
-                    {
-                        cts = new CancellationTokenSource();
-                    }
-                };
-                pdxSdkPlatform.onLoggedOut += async delegate
-                {
-                    cts.Cancel();
-                    cts = new CancellationTokenSource();
-                    if (!configuration.disableModding &amp;&amp; await AssetDatabase.global.UnregisterDatabase(AssetDatabase&lt;ParadoxMods&gt;.instance))
-                    {
-                        AssetDatabase&lt;ParadoxMods&gt;.instance.Dispose();
-                    }
-                };
-                pdxSdkPlatform.onContentUnlocked += delegate(List&lt;IDlc&gt; dlcs)
-                {
-                    if (dlcs != null)
-                    {
-                        foreach (IDlc dlc in dlcs)
-                        {
-                            if (!string.IsNullOrEmpty(dlc.internalName))
-                            {
-                                string internalName = dlc.internalName;
-                                string internalName2 = dlc.internalName;
-                                string internalName3 = dlc.internalName;
-                                ProgressState? progressState = ProgressState.Complete;
-                                NotificationSystem.Pop(internalName, 4f, null, null, internalName2, internalName3, null, progressState);
-                            }
-                        }
-                    }
-                    LoadUnityPrefabs();
-                };
-                pdxSdkPlatform.onDataSyncConflict += delegate
-                {
-                    ProgressState? progressState = ProgressState.Warning;
-                    NotificationSystem.Push(&quot;PDXDataSyncConflict&quot;, null, null, &quot;ActionRequired&quot;, &quot;PDXDataSyncConflict&quot;, null, progressState, null, async delegate
-                    {
-                        TaskCompletionSource&lt;int&gt; tcs = new TaskCompletionSource&lt;int&gt;();
-                        userInterface.appBindings.ShowConfirmationDialog(new ParadoxCloudConflictResolutionDialog(), delegate(int msg)
-                        {
-                            tcs.SetResult(msg);
-                        });
-                        await tcs.Task;
-                        if (tcs.Task.Result != -1)
-                        {
-                            NotificationSystem.Pop(&quot;PDXDataSyncConflict&quot;);
-                            ProgressState? progressState2 = ProgressState.Indeterminate;
-                            NotificationSystem.Push(&quot;PDXDataSyncConflictResolving&quot;, null, null, &quot;PDXDataSyncConflict&quot;, &quot;PDXDataSyncConflictResolving&quot;, null, progressState2);
-                            if (await pdxSdkPlatform.SyncModConflict((tcs.Task.Result == 0) ? SyncDirection.Downstream : SyncDirection.Upstream))
-                            {
-                                progressState2 = ProgressState.Complete;
-                                NotificationSystem.Pop(&quot;PDXDataSyncConflictResolving&quot;, 1f, null, null, &quot;PDXDataSyncConflict&quot;, &quot;PDXDataSyncConflictResolved&quot;, null, progressState2);
-                            }
-                            else
-                            {
-                                progressState2 = ProgressState.Failed;
-                                NotificationSystem.Pop(&quot;PDXDataSyncConflictResolving&quot;, 1f, null, null, &quot;PDXDataSyncConflict&quot;, &quot;PDXDataSyncConflictFailed&quot;, null, progressState2);
-                            }
-                        }
-                    });
-                };
-                pdxSdkPlatform.onModSyncCompleted += delegate
-                {
-                    if (!pdxSdkPlatform.HasLocalChanges())
-                    {
-                        NotificationSystem.Pop(&quot;PDXDataSyncConflict&quot;);
-                    }
-                };
-                return pdxSdkPlatform;
-                async Task RegisterDatabase()
-                {
-                    cts.Token.ThrowIfCancellationRequested();
-                    AssetDatabase&lt;ParadoxMods&gt; modsDatabase = AssetDatabase&lt;ParadoxMods&gt;.instance;
-                    IDataSourceProvider dataSource = modsDatabase.dataSource;
-                    if (dataSource is ParadoxModsDataSource dataSource2)
-                    {
-                        dataSource2.onAfterActivePlaysetOrModStatusChanged -= OnActivePlaysetChanged;
-                        modsDatabase.onAssetDatabaseChanged.Unsubscribe(OnAssetChanged);
-                        dataSource2.onEntryIsInActivePlaysetChanged -= OnEntryIsInActivePlaysetChanged;
-                        await AssetDatabase.global.RegisterDatabase(modsDatabase);
-                        modsDatabase.onAssetDatabaseChanged.Subscribe(OnAssetChanged);
-                        dataSource2.onEntryIsInActivePlaysetChanged += OnEntryIsInActivePlaysetChanged;
-                        dataSource2.onAfterActivePlaysetOrModStatusChanged += OnActivePlaysetChanged;
-                        await dataSource2.Populate();
-                    }
-                    InitializeModManager(!modsDatabase.isCached);
-                    void OnEntryIsInActivePlaysetChanged(Colossal.Hash128 guid, bool isInActivePlayset)
-                    {
-                        if (modsDatabase.TryGetAsset(guid, out var asset))
-                        {
-                            if (!(asset is ExecutableAsset executableAsset))
-                            {
-                                if (!(asset is UIModuleAsset uIModuleAsset))
-                                {
-                                    if (!(asset is SurfaceAsset) &amp;&amp; !(asset is MidMipCacheAsset))
-                                    {
-                                        if (asset is PrefabAsset prefabAsset)
-                                        {
-                                            try
-                                            {
-                                                log.DebugFormat(&quot;OnEntryIsInActivePlaysetChanged: {0} ({1})&quot;, asset.name, isInActivePlayset);
-                                                PrefabBase prefabBase = prefabAsset.Load() as PrefabBase;
-                                                if (isInActivePlayset)
-                                                {
-                                                    if (m_PrefabSystem.AddPrefab(prefabBase))
-                                                    {
-                                                        log.DebugFormat(&quot;Loaded {0}&quot;, prefabBase.name);
-                                                    }
-                                                }
-                                                else if (m_PrefabSystem.RemovePrefab(prefabBase))
-                                                {
-                                                    log.DebugFormat(&quot;Removed {0}&quot;, prefabBase.name);
-                                                }
-                                            }
-                                            catch (Exception exception)
-                                            {
-                                                log.Error(exception);
-                                            }
-                                        }
-                                    }
-                                    else
-                                    {
-                                        m_World.GetOrCreateSystemManaged&lt;TextureStreamingSystem&gt;()?.MarkVTAssetsDirty();
-                                    }
-                                }
-                                else
-                                {
-                                    uIModuleAsset.isInActivePlayset = isInActivePlayset;
-                                }
-                            }
-                            else
-                            {
-                                executableAsset.isInActivePlayset = isInActivePlayset;
-                            }
-                        }
-                    }
-                }
-            }, m_Cts.Token).ConfigureAwait(continueOnCapturedContext: false);
-        }
-        else
-        {
-            PlatformManager.instance.EnableSharing();
-            await Task.CompletedTask;
-        }
-        void OnActivePlaysetChanged()
-        {
-            m_World.GetOrCreateSystemManaged&lt;TextureStreamingSystem&gt;()?.RefreshVT(AssetDatabase&lt;ParadoxMods&gt;.instance);
-        }
-        void OnAssetChanged(AssetChangedEventArgs args)
-        {
-            if (args.change == Colossal.IO.AssetDatabase.ChangeType.AssetAdded)
-            {
-                IAssetData asset = args.asset;
-                if (!(asset is UIModuleAsset uIModuleAsset))
-                {
-                    if (asset is ExecutableAsset executableAsset)
-                    {
-                        executableAsset.onActivePlaysetChanged += delegate(ExecutableAsset executableAsset2, bool isInActivePlayset)
-                        {
-                            if (executableAsset2.isILAssembly &amp;&amp; executableAsset2.isLoaded != isInActivePlayset)
-                            {
-                                m_ModManager?.RequireRestart();
-                            }
-                        };
-                    }
-                }
-                else
-                {
-                    uIModuleAsset.onActivePlaysetChanged += delegate(UIModuleAsset uiModule, bool isInActivePlayset)
-                    {
-                        if (isInActivePlayset)
-                        {
-                            m_ModManager?.AddUIModule(uiModule);
-                        }
-                        else
-                        {
-                            m_ModManager?.RemoveUIModule(uiModule);
-                        }
-                    };
-                }
-            }
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public RegisterUpdater(System.Action action) : System.Guid</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Guid RegisterUpdater(Func&lt;bool&gt; func)
-    {
-        if (func != null)
-        {
-            Guid guid = Guid.NewGuid();
-            m_Updaters.TryAdd(guid, func);
-            log.DebugFormat(&quot;Updater {0} registered with guid {1}&quot;, func.Method.Name, guid.ToLowerNoDashString());
-            return guid;
-        }
-        return Guid.Empty;
-    }
-</code></pre>
-<ul>
-<li><code>public RegisterUpdater(System.Func&lt;System.Boolean&gt; func) : System.Guid</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Guid RegisterUpdater(Func&lt;bool&gt; func)
-    {
-        if (func != null)
-        {
-            Guid guid = Guid.NewGuid();
-            m_Updaters.TryAdd(guid, func);
-            log.DebugFormat(&quot;Updater {0} registered with guid {1}&quot;, func.Method.Name, guid.ToLowerNoDashString());
-            return guid;
-        }
-        return Guid.Empty;
-    }
-</code></pre>
-<ul>
-<li><code>private ReleaseConsole() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void ReleaseConsole()
-    {
-        m_Console?.Dispose();
-    }
-</code></pre>
-<ul>
-<li><code>private ReleaseUI() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void ReleaseUI()
-    {
-        userInterface?.Dispose();
-        m_UIInputSystem?.Dispose();
-        m_UIManager?.Dispose();
-    }
-</code></pre>
-<ul>
-<li><code>private ReportBootProgress(System.Single progress) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void ReportBootProgress(float progress)
-    {
-        TaskManager.instance.progress.Report(new ProgressTracker(&quot;Boot&quot;, ProgressTracker.Group.Group3)
-        {
-            progress = progress
-        });
-    }
-</code></pre>
-<ul>
-<li><code>public RunOnMainThread(System.Action action) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void RunOnMainThread(Action action)
-    {
-        if (isMainThread)
-        {
-            action();
-        }
-        else
-        {
-            RegisterUpdater(action);
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public Save(System.String saveName, Game.Assets.SaveInfo meta, Colossal.IO.AssetDatabase.ILocalAssetDatabase database, UnityEngine.Texture savePreview) : System.Threading.Tasks.Task&lt;System.Boolean&gt;</code>  </li>
-</ul>
-<pre><code class="language-csharp">public async Task&lt;bool&gt; Save(string saveName, SaveInfo meta, ILocalAssetDatabase database, ScreenCaptureHelper.AsyncRequest previewRequest)
-    {
-        log.Info(&quot;Save &quot; + saveName + &quot; to &quot; + database.name);
-        this.onGameSaveLoad?.Invoke(saveName, start: true);
-        ILocalAssetDatabase saveDatabase = AssetDatabase.GetTransient(0L);
-        try
-        {
-            meta.sessionGuid = Telemetry.GetCurrentSession();
-            meta.lastModified = DateTime.Now;
-            AssetDataPath saveNameDataPath = saveName;
-            SaveGameData saveGameData = saveDatabase.AddAsset&lt;SaveGameData&gt;(saveNameDataPath);
-            Colossal.Serialization.Entities.Context context = new Colossal.Serialization.Entities.Context(Purpose.SaveGame, Version.current, saveGameData.id.guid);
-            SaveInfo saveInfo = meta;
-            saveInfo.contentPrerequisites = await SaveSimulationData(context, saveGameData.GetWriteStream());
-            meta.saveGameData = saveGameData;
-            if (previewRequest != null)
-            {
-                await previewRequest.Complete();
-                using TextureImporter.Texture texture = TextureImporter.Texture.CreateUncompressed1Mip(saveName, previewRequest.width, previewRequest.height, sRGB: false, previewRequest.result);
-                using TextureAsset textureAsset = saveDatabase.AddAsset(texture);
-                meta.preview = textureAsset;
-                textureAsset.Save();
-            }
-            PackageAsset p = await Task.Run(delegate
-            {
-                SaveGameMetadata saveGameMetadata = saveDatabase.AddAsset&lt;SaveGameMetadata&gt;(saveNameDataPath);
-                saveGameMetadata.target = meta;
-                saveGameMetadata.Save();
-                AssetDataPath assetDataPath = SaveHelpers.GetAssetDataPath&lt;SaveGameMetadata&gt;(database, saveName);
-                using (AssetDatabase.global.DisableNotificationsScoped())
-                {
-                    if (database.Exists&lt;PackageAsset&gt;(assetDataPath, out var asset))
-                    {
-                        database.DeleteAsset(asset);
-                    }
-                    PackageAsset packageAsset = database.AddAsset(assetDataPath, saveDatabase);
-                    packageAsset.Save();
-                    settings.userState.lastSaveGameMetadata = saveGameMetadata;
-                    settings.userState.ApplyAndSave();
-                    Launcher.SaveLastSaveMetadata(meta);
-                    return packageAsset;
-                }
-            });
-            this.onGameSaveLoad?.Invoke(saveName, start: false);
-            log.InfoFormat(&quot;Saving completed {0}&quot;, p);
-            return true;
-        }
-        finally
-        {
-            if (saveDatabase != null)
-            {
-                saveDatabase.Dispose();
-            }
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public Save(System.String saveName, Game.Assets.SaveInfo meta, Colossal.IO.AssetDatabase.ILocalAssetDatabase database, Game.UI.ScreenCaptureHelper+AsyncRequest previewRequest) : System.Threading.Tasks.Task&lt;System.Boolean&gt;</code>  </li>
-</ul>
-<pre><code class="language-csharp">public async Task&lt;bool&gt; Save(string saveName, SaveInfo meta, ILocalAssetDatabase database, ScreenCaptureHelper.AsyncRequest previewRequest)
-    {
-        log.Info(&quot;Save &quot; + saveName + &quot; to &quot; + database.name);
-        this.onGameSaveLoad?.Invoke(saveName, start: true);
-        ILocalAssetDatabase saveDatabase = AssetDatabase.GetTransient(0L);
-        try
-        {
-            meta.sessionGuid = Telemetry.GetCurrentSession();
-            meta.lastModified = DateTime.Now;
-            AssetDataPath saveNameDataPath = saveName;
-            SaveGameData saveGameData = saveDatabase.AddAsset&lt;SaveGameData&gt;(saveNameDataPath);
-            Colossal.Serialization.Entities.Context context = new Colossal.Serialization.Entities.Context(Purpose.SaveGame, Version.current, saveGameData.id.guid);
-            SaveInfo saveInfo = meta;
-            saveInfo.contentPrerequisites = await SaveSimulationData(context, saveGameData.GetWriteStream());
-            meta.saveGameData = saveGameData;
-            if (previewRequest != null)
-            {
-                await previewRequest.Complete();
-                using TextureImporter.Texture texture = TextureImporter.Texture.CreateUncompressed1Mip(saveName, previewRequest.width, previewRequest.height, sRGB: false, previewRequest.result);
-                using TextureAsset textureAsset = saveDatabase.AddAsset(texture);
-                meta.preview = textureAsset;
-                textureAsset.Save();
-            }
-            PackageAsset p = await Task.Run(delegate
-            {
-                SaveGameMetadata saveGameMetadata = saveDatabase.AddAsset&lt;SaveGameMetadata&gt;(saveNameDataPath);
-                saveGameMetadata.target = meta;
-                saveGameMetadata.Save();
-                AssetDataPath assetDataPath = SaveHelpers.GetAssetDataPath&lt;SaveGameMetadata&gt;(database, saveName);
-                using (AssetDatabase.global.DisableNotificationsScoped())
-                {
-                    if (database.Exists&lt;PackageAsset&gt;(assetDataPath, out var asset))
-                    {
-                        database.DeleteAsset(asset);
-                    }
-                    PackageAsset packageAsset = database.AddAsset(assetDataPath, saveDatabase);
-                    packageAsset.Save();
-                    settings.userState.lastSaveGameMetadata = saveGameMetadata;
-                    settings.userState.ApplyAndSave();
-                    Launcher.SaveLastSaveMetadata(meta);
-                    return packageAsset;
-                }
-            });
-            this.onGameSaveLoad?.Invoke(saveName, start: false);
-            log.InfoFormat(&quot;Saving completed {0}&quot;, p);
-            return true;
-        }
-        finally
-        {
-            if (saveDatabase != null)
-            {
-                saveDatabase.Dispose();
-            }
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private SaveSimulationData(Colossal.Serialization.Entities.Context context, System.IO.Stream stream) : System.Threading.Tasks.Task&lt;System.String[]&gt;</code>  </li>
-</ul>
-<pre><code class="language-csharp">private async Task&lt;string[]&gt; SaveSimulationData(Colossal.Serialization.Entities.Context context, Stream stream)
-    {
-        CleanupMemory();
-        m_SerializationSystem.stream = stream;
-        m_SerializationSystem.context = context;
-        await m_SerializationSystem.RunOnce();
-        string[] array = m_SerializationSystem.referencedContent.Select((Entity x) =&gt; m_PrefabSystem.GetPrefabName(x)).ToArray();
-        return (array.Length != 0) ? array : null;
-    }
-</code></pre>
-<ul>
-<li><code>private SetInitialEngagementScreenActive() : System.Threading.Tasks.Task</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Task SetInitialEngagementScreenActive()
-    {
-        m_IsEngagementStarted = true;
-        if (!PlatformManager.instance.requiresEngagement)
-        {
-            return Task.CompletedTask;
-        }
-        if (AutomationClientSystem.instance.IsConnected)
-        {
-            return Task.CompletedTask;
-        }
-        return m_InitialEngagementScreen switch
-        {
-            OverlayScreen.UserLoggedOut =&gt; SetScreenActive&lt;LoggedOutScreen&gt;(), 
-            OverlayScreen.ControllerPairingChanged =&gt; SetScreenActive&lt;ControllerPairingScreen&gt;(), 
-            OverlayScreen.ControllerDisconnected =&gt; SetScreenActive&lt;ControllerDisconnectedScreen&gt;(), 
-            _ =&gt; SetScreenActive&lt;EngagementScreen&gt;(), 
-        };
-    }
-</code></pre>
-<ul>
-<li><code>private static SetNativeStackTrace() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static void SetNativeStackTrace()
-    {
-        Application.SetStackTraceLogType(LogType.Assert, StackTraceLogType.Full);
-        Application.SetStackTraceLogType(LogType.Error, StackTraceLogType.Full);
-        Application.SetStackTraceLogType(LogType.Exception, StackTraceLogType.Full);
-        Application.SetStackTraceLogType(LogType.Log, StackTraceLogType.Full);
-        Application.SetStackTraceLogType(LogType.Warning, StackTraceLogType.Full);
-        UnityEngine.Debug.Log(&quot;Game version: &quot; + Version.current.fullVersion);
-        UnityEngine.Debug.Log(GetSystemInfoString());
-    }
-</code></pre>
-<ul>
-<li><code>public SetScreenActive&lt;T&gt;() : System.Threading.Tasks.Task</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Threading.Tasks.Task SetScreenActive&lt;T&gt;();
-</code></pre>
-<ul>
-<li><code>private static SetupCustomAssetTypes() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[RuntimeInitializeOnLoadMethod]
-    private static void SetupCustomAssetTypes()
-    {
-        DefaultAssetFactory.instance.AddSupportedType(&quot;.SaveGameMetadata&quot;, () =&gt; new SaveGameMetadata());
-        DefaultAssetFactory.instance.AddSupportedType(&quot;.MapMetadata&quot;, () =&gt; new MapMetadata());
-        DefaultAssetFactory.instance.AddSupportedType(&quot;.CinematicCamera&quot;, () =&gt; new CinematicCameraAsset());
-    }
-</code></pre>
-<ul>
-<li><code>private static SetWindowsTitle() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[RuntimeInitializeOnLoadMethod]
-    private static void SetWindowsTitle()
-    {
-        IntPtr intPtr = FindWindow(null, Application.productName);
-        if (intPtr != IntPtr.Zero)
-        {
-            SetWindowText(intPtr, &quot;Cities: Skylines II&quot;);
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private static SetWindowText(System.IntPtr hWnd, System.String lpString) : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static System.Boolean SetWindowText(System.IntPtr hWnd, System.String lpString);
-</code></pre>
-<ul>
-<li><code>private ShowFallbackUI(System.Exception ex) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void ShowFallbackUI(Exception ex)
-    {
-        if (m_UIManager == null)
-        {
-            m_UIManager = new UIManager(developerMode: false);
-        }
-        ErrorPage errorPage = new ErrorPage();
-        errorPage.AddAction(&quot;quit&quot;, QuitGame);
-        errorPage.AddAction(&quot;visit&quot;, delegate
-        {
-            try
-            {
-                Process.Start(new ProcessStartInfo
-                {
-                    FileName = &quot;https://pdxint.at/3Do979W&quot;,
-                    UseShellExecute = true
-                });
-            }
-            catch
-            {
-                QuitGame();
-            }
-        });
-        errorPage.SetStopCode(ex);
-        errorPage.SetRoot(EnvPath.kContentPath + &quot;/Game/UI/.fatal&quot;, EnvPath.kContentPath + &quot;/Game/.fatal&quot;);
-        errorPage.SetFonts(EnvPath.kContentPath + &quot;/Game/UI/Fonts&quot;, EnvPath.kContentPath + &quot;/Game/Fonts.cok&quot;);
-        Colossal.UI.UISystem.Settings settings = Colossal.UI.UISystem.Settings.New;
-        settings.resourceHandler = new FatalResourceHandler(errorPage);
-        settings.enableDebugger = false;
-        Colossal.UI.UISystem uISystem = m_UIManager.CreateUISystem(settings);
-        UIView.Settings settings2 = UIView.Settings.New;
-        settings2.liveReload = true;
-        uISystem.CreateView(&quot;fatal://error&quot;, settings2, GetComponent&lt;Camera&gt;()).enabled = true;
-        if (m_UIInputSystem != null)
-        {
-            m_UIInputSystem.Dispose();
-        }
-        m_UIInputSystem = new UIInputSystem(uISystem);
-        if (!shouldUpdateManager)
-        {
-            RegisterUpdater(delegate
-            {
-                m_UIInputSystem.DispatchInputEvents();
-                m_UIManager.Update();
-                return false;
-            });
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private SubscribeToGdkUserEvents() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void SubscribeToGdkUserEvents()
-    {
-        PlatformManager.instance.onUserUpdated += async delegate(IUserSupport psi, UserChangedFlags flags)
-        {
-            if (PlatformManager.instance.IsPrincipalUserIntegration(psi))
-            {
-                if (flags.HasFlag(UserChangedFlags.UserSigningOut))
-                {
-                    await UnregisterDb();
-                }
-                if (flags.HasFlag(UserChangedFlags.UserSignedInAgain) || flags.HasFlag(UserChangedFlags.UserStatus))
-                {
-                    if (AssetDatabase.global.databases.FirstOrDefault((IAssetDatabase db) =&gt; db.name == &quot;GdkCloud&quot;) == null)
-                    {
-                        await RegisterDb();
-                    }
-                    else if (flags.HasFlag(UserChangedFlags.UserStatus) &amp;&amp; !flags.HasFlag(UserChangedFlags.ChangingUser))
-                    {
-                        await UnregisterDb();
-                        await RegisterDb();
-                    }
-                }
-            }
-        };
-        static async Task RegisterDb()
-        {
-            AssetDatabase&lt;GdkCloud&gt; cloudDatabase = AssetDatabase&lt;GdkCloud&gt;.instance;
-            await AssetDatabase.global.RegisterDatabase(cloudDatabase);
-            await cloudDatabase.PopulateFromDataSource(priorityData: false, CancellationToken.None, TaskManager.instance.progress.GetSubProgress());
-        }
-        static async Task UnregisterDb()
-        {
-            if (await AssetDatabase.global.UnregisterDatabase(AssetDatabase&lt;GdkCloud&gt;.instance))
-            {
-                AssetDatabase&lt;GdkCloud&gt;.instance.Dispose();
-            }
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public TakeScreenshot() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void TakeScreenshot()
-    {
-        StartCoroutine(CaptureScreenshot());
-    }
-</code></pre>
-<ul>
-<li><code>private TelemetryReady() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void TelemetryReady()
-    {
-        if (!m_StartUpTelemetryFired)
-        {
-            Telemetry.FireSessionStartEvents();
-            PlatformManager.instance.onAchievementUpdated += delegate(IAchievementsSupport p, AchievementId a)
-            {
-                Telemetry.AchievementUnlocked(a);
-            };
-            m_StartUpTelemetryFired = true;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private TerminateGame() : System.Threading.Tasks.Task</code>  </li>
-</ul>
-<pre><code class="language-csharp">private async Task TerminateGame()
-    {
-        if (m_Cts == null)
-        {
-            m_State = State.Terminated;
-            QuitGame();
-        }
-        else
-        {
-            if (m_State == State.Quitting || m_State == State.Terminated)
-            {
-                return;
-            }
-            try
-            {
-                using (Colossal.PerformanceCounter.Start(delegate(TimeSpan t)
-                {
-                    log?.InfoFormat(&quot;GameManager destroyed ({0}ms)&quot;, t.TotalMilliseconds);
-                }))
-                {
-                    State quittingState = m_State;
-                    m_State = State.Quitting;
-                    m_QuitRequested.Cancel();
-                    await TaskManager.instance.Complete(&quot;SaveLoadGame&quot;);
-                    if (quittingState &gt;= State.WorldReady)
-                    {
-                        LauncherSettings.SaveSettings(settings);
-                        await TaskManager.instance.SharedTask(&quot;CacheAssets&quot;, () =&gt; AssetDatabase.global.SaveSettings());
-                    }
-                    TaskManager.instance.onNotifyProgress -= NotifyProgress;
-                    m_Cts.Cancel();
-                    m_ModManager?.Dispose();
-                    DestroyWorld();
-                    DisposeThumbnails();
-                    bool flag = await DisposePlatforms().AwaitWithTimeout(TimeSpan.FromSeconds(10.0));
-                    ReleaseUI();
-                    InputManager.DestroyInstance();
-                    StopAllCoroutines();
-                    CoroutineHost.Register(null);
-                    bool flag2 = flag;
-                    flag = flag2 &amp; await TaskManager.instance.CompleteAndClear().AwaitWithTimeout(TimeSpan.FromSeconds(10.0));
-                    VolumeHelper.Dispose();
-                    AssetDatabase.global.Dispose();
-                    LogManager.ReleaseResources();
-                    Colossal.Gizmos.ReleaseResources();
-                    LogManager.stdOutActive = false;
-                    ReleaseConsole();
-                    onGameLoadingComplete -= OnMainMenuReached;
-                    TestScenarioSystem.Destroy();
-                    instance = null;
-                    Application.focusChanged -= FocusChanged;
-                    if (flag)
-                    {
-                        UnityEngine.Debug.Log(&quot;Game terminated successfully&quot;);
-                    }
-                    else
-                    {
-                        UnityEngine.Debug.Log(&quot;Game terminated due to timeout&quot;);
-                    }
-                }
-            }
-            catch (Exception exception)
-            {
-                instance = null;
-                log.Error(exception);
-            }
-            finally
-            {
-                m_State = State.Terminated;
-                QuitGame();
-            }
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private TryCatchUnhandledExceptions() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void TryCatchUnhandledExceptions()
-    {
-        System.Threading.Tasks.TaskScheduler.UnobservedTaskException += delegate(object sender, UnobservedTaskExceptionEventArgs e)
-        {
-            e.SetObserved();
-            log.Critical(e.Exception, &quot;Unobserved exception triggered&quot;);
-        };
-        AppDomain.CurrentDomain.UnhandledException += delegate(object sender, UnhandledExceptionEventArgs e)
-        {
-            Exception exception = (Exception)e.ExceptionObject;
-            log.Critical(exception, &quot;Unhandled domain exception triggered&quot;);
-        };
-    }
-</code></pre>
-<ul>
-<li><code>public UnregisterUpdater(System.Guid guid) : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">public bool UnregisterUpdater(Guid guid)
-    {
-        if (m_Updaters.TryRemove(guid, out var value))
-        {
-            log.DebugFormat(&quot;Updater {0} with {1} unregistered&quot;, guid.ToLowerNoDashString(), value.Method.Name);
-            return true;
-        }
-        log.DebugFormat(&quot;Updater {0} was not found&quot;);
-        return false;
-    }
-</code></pre>
-<ul>
-<li><code>private Update() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void Update()
-    {
-        if (shouldUpdateManager &amp;&amp; !m_Cts.IsCancellationRequested)
-        {
-            TestScenarioSystem.instance.Update();
-            InputManager.instance.Update();
-            m_UIInputSystem.DispatchInputEvents(InputManager.instance.activeControlScheme == InputManager.ControlScheme.KeyboardAndMouse);
-            UpdateWorld();
-            UpdateUI();
-            PostUpdateWorld();
-        }
-        UpdateUpdaters();
-        UpdatePlatforms();
-    }
-</code></pre>
-<ul>
-<li><code>private UpdatePlatforms() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void UpdatePlatforms()
-    {
-        PlatformManager.instance.Update();
-    }
-</code></pre>
-<ul>
-<li><code>private UpdateUI() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void UpdateUI()
-    {
-        m_UIManager.Update();
-        userInterface.Update();
-    }
-</code></pre>
-<ul>
-<li><code>private UpdateUpdaters() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void UpdateUpdaters()
-    {
-        foreach (KeyValuePair&lt;Guid, Func&lt;bool&gt;&gt; updater in m_Updaters)
-        {
-            if (updater.Value())
-            {
-                UnregisterUpdater(updater.Key);
-            }
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private UpdateWorld() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void UpdateWorld()
-    {
-        if (shouldUpdateWorld)
-        {
-            CORuntimeApplication.ResetUpdateAllocator(m_World);
-            m_UpdateSystem.Update(SystemUpdatePhase.MainLoop);
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public WaitForReadyState() : System.Threading.Tasks.Task&lt;System.Boolean&gt;</code>  </li>
-</ul>
-<pre><code class="language-csharp">public async Task&lt;bool&gt; WaitForReadyState()
-    {
-        _ = 1;
-        try
-        {
-            await using (m_Cts.Token.Register(delegate
-            {
-                m_WorldReadySource.TrySetCanceled();
-            }))
-            {
-                await m_WorldReadySource.Task.ConfigureAwait(continueOnCapturedContext: false);
-            }
-            return m_WorldReadySource.Task.IsCompletedSuccessfully;
-        }
-        catch (OperationCanceledException)
-        {
-            return false;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private WantsToQuit() : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">private bool WantsToQuit()
-    {
-        if (m_State != State.Quitting &amp;&amp; m_State != State.Terminated)
-        {
-            TerminateGame();
-            return false;
-        }
-        if (m_State == State.Quitting)
-        {
-            UnityEngine.Debug.LogWarning(&quot;TerminateGame is already in progress, please wait.&quot;);
-            return false;
-        }
-        return true;
-    }
-</code></pre>
-<h2 id="events">Events</h2>
-<ul>
-<li><code>onGameSaveLoad</code> : <code>Game.SceneFlow.GameManager+EventGameSaveLoad</code>  </li>
-</ul>
-<pre><code class="language-csharp">public event Game.SceneFlow.GameManager+EventGameSaveLoad onGameSaveLoad;
-</code></pre>
-<ul>
-<li><code>onGamePreload</code> : <code>Game.SceneFlow.GameManager+EventGamePreload</code>  </li>
-</ul>
-<pre><code class="language-csharp">public event Game.SceneFlow.GameManager+EventGamePreload onGamePreload;
-</code></pre>
-<ul>
-<li><code>onGameLoadingComplete</code> : <code>Game.SceneFlow.GameManager+EventGamePreload</code>  </li>
-</ul>
-<pre><code class="language-csharp">public event Game.SceneFlow.GameManager+EventGamePreload onGameLoadingComplete;
-</code></pre>
-<ul>
-<li><code>onWorldReady</code> : <code>Game.SceneFlow.GameManager+EventCallback</code>  </li>
-</ul>
-<pre><code class="language-csharp">public event Game.SceneFlow.GameManager+EventCallback onWorldReady;
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.SceneFlow.GameManager+Configuration</code>  </li>
-<li><code>Game.SceneFlow.GameManager+State</code>  </li>
-<li><code>Game.SceneFlow.GameManager+EventCallback</code>  </li>
-<li><code>Game.SceneFlow.GameManager+EventGamePreload</code>  </li>
-<li><code>Game.SceneFlow.GameManager+EventGameSaveLoad</code>  </li>
-<li><code>Game.SceneFlow.GameManager+LocalTypeCache</code>  </li>
-<li><code>Game.SceneFlow.GameManager+&lt;&lt;SubscribeToGdkUserEvents&gt;g__RegisterDb|108_2&gt;d</code>  </li>
-<li><code>Game.SceneFlow.GameManager+&lt;&lt;SubscribeToGdkUserEvents&gt;g__UnregisterDb|108_1&gt;d</code>  </li>
-<li><code>Game.SceneFlow.GameManager+&lt;&gt;c</code>  </li>
-<li><code>Game.SceneFlow.GameManager+&lt;&gt;c__DisplayClass105_0</code>  </li>
-<li><code>Game.SceneFlow.GameManager+&lt;&gt;c__DisplayClass105_1</code>  </li>
-<li><code>Game.SceneFlow.GameManager+&lt;&gt;c__DisplayClass105_2</code>  </li>
-<li><code>Game.SceneFlow.GameManager+&lt;&gt;c__DisplayClass105_3</code>  </li>
-<li><code>Game.SceneFlow.GameManager+&lt;&gt;c__DisplayClass132_0</code>  </li>
-<li><code>Game.SceneFlow.GameManager+&lt;&gt;c__DisplayClass152_0</code>  </li>
-<li><code>Game.SceneFlow.GameManager+&lt;&gt;c__DisplayClass39_0</code>  </li>
-<li><code>Game.SceneFlow.GameManager+&lt;&gt;c__DisplayClass91_0</code>  </li>
-<li><code>Game.SceneFlow.GameManager+&lt;&gt;c__DisplayClass93_0</code>  </li>
-<li><code>Game.SceneFlow.GameManager+&lt;Awake&gt;d__51</code>  </li>
-<li><code>Game.SceneFlow.GameManager+&lt;CaptureScreenshot&gt;d__191</code>  </li>
-<li><code>Game.SceneFlow.GameManager+&lt;DisposePlatforms&gt;d__110</code>  </li>
-<li><code>Game.SceneFlow.GameManager+&lt;Initialize&gt;d__54</code>  </li>
-<li><code>Game.SceneFlow.GameManager+&lt;InitializePlatformManager&gt;d__107</code>  </li>
-<li><code>Game.SceneFlow.GameManager+&lt;InitializeUI&gt;d__125</code>  </li>
-<li><code>Game.SceneFlow.GameManager+&lt;Load&gt;d__93</code>  </li>
-<li><code>Game.SceneFlow.GameManager+&lt;LoadAssetLibraryAsync&gt;d__153</code>  </li>
-<li><code>Game.SceneFlow.GameManager+&lt;MainMenu&gt;d__99</code>  </li>
-<li><code>Game.SceneFlow.GameManager+&lt;RegisterCancellationOnQuit&gt;d__39</code>  </li>
-<li><code>Game.SceneFlow.GameManager+&lt;RegisterPdxSdk&gt;d__105</code>  </li>
-<li><code>Game.SceneFlow.GameManager+&lt;Save&gt;d__91</code>  </li>
-<li><code>Game.SceneFlow.GameManager+&lt;SaveSimulationData&gt;d__89</code>  </li>
-<li><code>Game.SceneFlow.GameManager+&lt;TerminateGame&gt;d__64</code>  </li>
-<li><code>Game.SceneFlow.GameManager+&lt;WaitForReadyState&gt;d__57</code>  </li>
-</ul>
+<li>
+<p><code>private void Awake()</code><br />
+Main entry point for GameManager. Registers coroutine host, parses CLI options, prepares persistent storage, checks capabilities, detects modding runtime, initializes logging/console, disables camera rendering during boot, creates the singleton instance and calls Initialize() to continue asynchronous initialization. Handles fatal exceptions and will call QuitGame on unrecoverable errors.</p>
+</li>
+<li>
+<p><code>private async void Initialize()</code><br />
+Async continuation after Awake. Performs the heavy boot sequence: platform initialization, UI initialization, asset caching, prefab loading, thumbnail initialization, mod manager initialization, world/systems creation and sets state to WorldReady. Triggers onWorldReady and may auto-load a save/start a game based on configuration.</p>
+</li>
+<li>
+<p><code>private Task CheckCapabilities()</code><br />
+Wrapper to asynchronously cache/check platform/game capabilities.</p>
+</li>
+<li>
+<p><code>private void OnMainMenuReached(Purpose purpose, GameMode mode)</code><br />
+Internal callback to notify automation when the main menu is reached.</p>
+</li>
+<li>
+<p><code>public async Task&lt;bool&gt; MainMenu()</code><br />
+Convenience method to load the main menu (Load with GameMode.MainMenu &amp; Purpose.Cleanup). Also resets audio and plays main menu music when reached.</p>
+</li>
+<li>
+<p><code>public Task&lt;bool&gt; Load(GameMode mode, Purpose purpose, IAssetData asset = null)</code><br />
+Public overload to load by asset metadata (SaveGameMetadata, MapMetadata, SaveGameData, MapData or null). Internally resolves AsyncReadDescriptor and delegates to the main Load(...) implementation.</p>
+</li>
+<li>
+<p><code>private async Task&lt;bool&gt; Load(GameMode mode, Purpose purpose, AsyncReadDescriptor descriptor, Colossal.Hash128 instigatorGuid, Guid sessionGuid)</code><br />
+Core load routine. Sets up progress trackers, optionally runs deserialization pipeline (LoadSimulationData), adjusts UI state and telemetry, calls onGameLoadingComplete and returns success state. Manages GameMode specific behavior (open/close telemetry session, set cursor etc).</p>
+</li>
+<li>
+<p><code>private Task LoadSimulationData(Colossal.Serialization.Entities.Context context, AsyncReadDescriptor dataDescriptor)</code><br />
+Invokes onGamePreload, cleans memory then runs the LoadGameSystem to deserialize simulation data.</p>
+</li>
+<li>
+<p><code>public Task&lt;bool&gt; Save(string saveName, SaveInfo meta, ILocalAssetDatabase database, Texture savePreview)</code><br />
+Convenience overload — wraps Texture into ScreenCaptureHelper.AsyncRequest and calls the async Save method.</p>
+</li>
+<li>
+<p><code>public async Task&lt;bool&gt; Save(string saveName, SaveInfo meta, ILocalAssetDatabase database, ScreenCaptureHelper.AsyncRequest previewRequest)</code><br />
+Saves the simulation: runs SaveGameSystem to serialize simulation state, writes preview texture if provided, writes metadata and packages the transient save database into the target ILocalAssetDatabase. Triggers onGameSaveLoad start/end callbacks.</p>
+</li>
+<li>
+<p><code>private void Update()</code><br />
+Main per-frame update. If shouldUpdateManager and not terminating: updates input, UI input dispatch, world update, UI update and post-update processing. Also runs registered updaters and platform updates.</p>
+</li>
+<li>
+<p><code>private void LateUpdate()</code><br />
+Calls LateUpdateWorld if not terminating.</p>
+</li>
+<li>
+<p><code>private void UpdateWorld()</code><br />
+Updates m_UpdateSystem for the MainLoop phase (ECS update) if shouldUpdateWorld.</p>
+</li>
+<li>
+<p><code>private void PostUpdateWorld()</code><br />
+Runs cleanup phase updates.</p>
+</li>
+<li>
+<p><code>private void LateUpdateWorld()</code><br />
+Runs LateUpdate and DebugGizmos phases and CORuntimeApplication.Update().</p>
+</li>
+<li>
+<p><code>private void OnGUI()</code><br />
+Renders any in-game debug UI (e.g. TerrainDebugSystem) when world is ready.</p>
+</li>
+<li>
+<p><code>public static void QuitGame()</code><br />
+Wrapper calling Application.Quit().</p>
+</li>
+<li>
+<p><code>private bool WantsToQuit()</code><br />
+Hooked into Application.wantsToQuit; triggers TerminateGame and prevents immediate quit until termination completes.</p>
+</li>
+<li>
+<p><code>private async Task TerminateGame()</code><br />
+Shuts down the game gracefully: cancels tokens, completes pending save/load, saves settings, disposes mod manager, tears down ECS world, disposes thumbnails, unregisters platform integrations and UI, and finally calls QuitGame. Includes timeouts and logs termination success/failure.</p>
+</li>
+<li>
+<p><code>private void OnDestroy()</code><br />
+Removes the wantsToQuit hook.</p>
+</li>
+<li>
+<p><code>private void PreparePersistentStorage()</code><br />
+Registers special EnvPath locations for save/map metadata &amp; data and clears temporary paths.</p>
+</li>
+<li>
+<p><code>private void InitializeLocalization()</code><br />
+Creates the LocalizationManager and loads available locales.</p>
+</li>
+<li>
+<p><code>private void CreateWorld()</code><br />
+Creates ECS world, initializes CORuntimeApplication, sets World.DefaultGameObjectInjectionWorld and gets core systems (PrefabSystem, UpdateSystem, LoadGameSystem, SaveGameSystem).</p>
+</li>
+<li>
+<p><code>private void CreateSystems()</code><br />
+Initializes system ordering, telemetry gameplay data and connects UI audio source.</p>
+</li>
+<li>
+<p><code>private void DestroyWorld()</code><br />
+Disposes worlds and shuts down CORuntimeApplication.</p>
+</li>
+<li>
+<p><code>private void InitializeUI()</code><br />
+Bootstraps the UIManager/cohtml system, creates the UISystem(s), registers UI host locations from assets, prepares UserInterface, and sets GameManager state to UIReady.</p>
+</li>
+<li>
+<p><code>private void ReleaseUI()</code><br />
+Disposes userInterface, m_UIInputSystem and m_UIManager.</p>
+</li>
+<li>
+<p><code>public Task SetScreenActive&lt;T&gt;() where T : IScreenState, new()</code><br />
+Helper that creates and executes a screen state (IScreenState.Execute) with GameManager context and cancellation token.</p>
+</li>
+<li>
+<p><code>public Guid RegisterUpdater(Func&lt;bool&gt; func)</code><br />
+Registers a polling updater; GameManager will call it each Update and if it returns true it will be unregistered. Returns a Guid to refer to the updater.</p>
+</li>
+<li>
+<p><code>public Guid RegisterUpdater(Action action)</code><br />
+Convenience wrapper that registers a single-run action (returns true immediately after executing).</p>
+</li>
+<li>
+<p><code>public bool UnregisterUpdater(Guid guid)</code><br />
+Removes a previously registered updater.</p>
+</li>
+<li>
+<p><code>private void UpdateUpdaters()</code><br />
+Internal loop to invoke updaters and auto-unregister ones that return true.</p>
+</li>
+<li>
+<p><code>public string[] GetAvailablePrerequisitesNames()</code><br />
+Returns names of content prerequisites available via PrefabSystem.</p>
+</li>
+<li>
+<p><code>public bool ArePrerequisitesMet(string[] contentPrerequisites)</code><br />
+Checks if content prerequisites (ContentPrefab names) are available/installed.</p>
+</li>
+<li>
+<p><code>public bool ArePrerequisitesMet&lt;T&gt;(Metadata&lt;T&gt; meta) where T : IContentPrerequisite</code><br />
+Generic wrapper which extracts contentPrerequisites from metadata and calls ArePrerequisitesMet.</p>
+</li>
+<li>
+<p><code>private void ReportBootProgress(float progress)</code><br />
+Reports boot progress (ProgressTracker group Boot).</p>
+</li>
+<li>
+<p><code>private void NotifyProgress(string identifier, int progress)</code><br />
+Pushes notifications for asset caching/long-running tasks and pops when progress reaches 100.</p>
+</li>
+<li>
+<p><code>private void InitializeThumbnails()</code><br />
+Initializes the thumbnail cache.</p>
+</li>
+<li>
+<p><code>private void DisposeThumbnails()</code><br />
+Disposes thumbnail cache.</p>
+</li>
+<li>
+<p><code>private Task LoadUnityPrefabs()</code><br />
+Starts async loading of built-in Unity AssetLibrary that contains in-game prefabs.</p>
+</li>
+<li>
+<p><code>private void LoadPrefabs()</code><br />
+Synchronous scan of AssetDatabase for PrefabAssets to load into PrefabSystem.</p>
+</li>
+<li>
+<p><code>private async Task&lt;AssetLibrary&gt; LoadAssetLibraryAsync()</code><br />
+Loads "GameAssetLibrary" resource asynchronously and applies it to m_PrefabSystem.</p>
+</li>
+<li>
+<p><code>private void DisableCameraRendering()</code> / <code>private void EnableCameraRendering()</code><br />
+Temporarily disable camera culling/volume layers during boot and restore them when ready.</p>
+</li>
+<li>
+<p><code>private void InitConsole()</code> / <code>private void ReleaseConsole()</code><br />
+Initialize and release optional console window based on configuration.captureStdout.</p>
+</li>
+<li>
+<p><code>private void TryCatchUnhandledExceptions()</code><br />
+Wires TaskScheduler.UnobservedTaskException and AppDomain.CurrentDomain.UnhandledException to log critical issues.</p>
+</li>
+<li>
+<p><code>private bool CheckValidity()</code><br />
+Checks the GameManager instance validity (singleton enforcement), prevents double-instantiation and early destroy scenarios.</p>
+</li>
+<li>
+<p><code>public async Task&lt;bool&gt; WaitForReadyState()</code><br />
+Awaitable helper that completes when the world reaches ready state or is cancelled.</p>
+</li>
+<li>
+<p><code>public void RunOnMainThread(Action action)</code><br />
+If already on main thread, invoke immediately; otherwise register as an updater to be executed on the main thread.</p>
+</li>
+<li>
+<p><code>public void TakeScreenshot()</code> / private IEnumerator CaptureScreenshot()`<br />
+Utility to take a screenshot at end of frame.</p>
+</li>
+<li>
+<p><code>private static void DetectModdingRuntime()</code> / <code>private static string DetectModdingRuntimeName()</code><br />
+Detects whether a known modding runtime (e.g., BepInEx) is present and logs it.</p>
+</li>
+<li>
+<p><code>private static void ListHarmonyPatches()</code> and related helpers (PrintPatchDetails, PrintIndividualPatches)<br />
+Inspect loaded Harmony assemblies and print discovered method patches to modding log (useful for debugging mod conflicts).</p>
+</li>
+<li>
+<p>(... many additional helper/private methods used for PDX SDK registration, platform registration, GDK/GdkCloud DB handling, user/device event handlers, telemetry readiness, asset DB registration callbacks ...)  </p>
+</li>
+</ul>
+<p>{{ YOUR_INFO }}<br />
+This class is large and contains many platform- and engine-specific private helpers; the above list focuses on the main surface a modder or integrator would interact with. Use public methods/events for integration, and prefer RunOnMainThread / RegisterUpdater to schedule actions into the main update loop.</p>
+<hr />
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Typical usage from a mod or UI integration:
+
+// 1) Wait until GameManager/world is ready:
+await GameManager.instance.WaitForReadyState();
+
+// 2) Run code on main thread
+GameManager.instance.RunOnMainThread(() =&gt; {
+    // safe to interact with Unity objects and game systems
+    Debug.Log(&quot;Running on main thread&quot;);
+});
+
+// 3) Register a one-shot updater to poll for a condition:
+Guid updaterId = GameManager.instance.RegisterUpdater(() =&gt; {
+    bool ready = SomeDependency.IsReady();
+    if (ready) {
+        // perform initialization
+    }
+    return ready; // returning true will unregister this updater
+});
+
+// 4) Start main menu or load a save (from metadata guid)
+await GameManager.instance.MainMenu();
+// or
+await GameManager.instance.Load(GameMode.Game, Purpose.LoadGame, mySaveMeta);
+</code></pre>
+<p>Notes:
+- Use GameManager.instance only after Awake has executed. Many mod-loading hooks happen during boot; consider subscribing to onWorldReady or awaiting WaitForReadyState().
+- For save/load integration, prefer using Save/Load overloads that accept metadata (MapMetadata/SaveGameMetadata) so session GUID and preview handling is correct.
+- Avoid blocking the main thread. Use the async methods and pass CancellationToken from GameManager.terminationToken when appropriate.</p>
 
 
 

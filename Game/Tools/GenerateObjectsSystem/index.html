@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87073,6 +87165,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Simulation/SurfaceWater/" class="md-nav__link">
         
   
@@ -91748,18 +91863,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -91784,9 +91899,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -117921,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117948,18 +118085,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -117984,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118009,328 +118146,158 @@
 
 
 <h1 id="gametoolsgenerateobjectssystem">Game.Tools.GenerateObjectsSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Tools</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class GenerateObjectsSystem : Game.GameSystemBase
-{
-    private Game.Tools.ToolSystem m_ToolSystem;
-    private Game.Simulation.SimulationSystem m_SimulationSystem;
-    private Game.Common.ModificationBarrier1 m_ModificationBarrier;
-    private Game.Net.SearchSystem m_NetSearchSystem;
-    private Unity.Entities.EntityQuery m_DefinitionQuery;
-    private Unity.Entities.EntityQuery m_DeletedQuery;
-    private Unity.Entities.EntityQuery m_EconomyParameterQuery;
-    private Unity.Entities.ComponentTypeSet m_SubTypes;
-    private Unity.Entities.ComponentTypeSet m_StoppedUpdateFrameTypes;
-    private Unity.Collections.NativeHashMap&lt;Game.Tools.OwnerDefinition, Unity.Entities.Entity&gt; m_ReusedOwnerMap;
-    private Unity.Jobs.JobHandle m_OwnerMapReadDeps;
-    private Unity.Jobs.JobHandle m_OwnerMapWriteDeps;
-    private Game.Tools.GenerateObjectsSystem+TypeHandle __TypeHandle;
-
-    public GenerateObjectsSystem();
-
-    private System.Void __AssignQueries(Unity.Entities.SystemState&amp; state);
-    public System.Void AddOwnerMapReader(Unity.Jobs.JobHandle dependencies);
-    public Unity.Collections.NativeHashMap&lt;Game.Tools.OwnerDefinition, Unity.Entities.Entity&gt; GetReusedOwnerMap(Unity.Jobs.JobHandle&amp; dependencies);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnCreateForCompiler();
-    protected virtual System.Void OnDestroy();
-    protected virtual System.Void OnStopRunning();
-    protected virtual System.Void OnUpdate();
-}
-</code></pre>
+<p><strong>Assembly:</strong> Assembly-CSharp<br />
+<strong>Namespace:</strong> Game.Tools</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> GameSystemBase</p>
+<p><strong>Summary:</strong><br />
+GenerateObjectsSystem is a game system responsible for creating, updating, reusing and deleting in-game placeable objects based on CreationDefinition / ObjectDefinition / NetCourse entities. It collects creation requests, tries to match them against existing objects (to reuse / relocate / upgrade), and issues entity command buffer operations (create, set components, add/remove components) to materialize the requested objects. The system heavily uses Unity DOTS jobs (IJobChunk, IJob, IJobParallelForDefer) and Native containers to parallelize scans, matching and creation work, and integrates with other core systems like ToolSystem, SimulationSystem, ModificationBarrier1 and the Net search tree.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.Tools.ToolSystem m_ToolSystem</code>  </li>
+<li>
+<p><code>private ToolSystem m_ToolSystem</code><br />
+Reference to the global ToolSystem; used to determine editor mode and other tool-related states.</p>
+</li>
+<li>
+<p><code>private SimulationSystem m_SimulationSystem</code><br />
+Reference to the SimulationSystem; used to obtain current simulation frame index for cost/age calculations.</p>
+</li>
+<li>
+<p><code>private ModificationBarrier1 m_ModificationBarrier</code><br />
+Barrier used to obtain an EntityCommandBuffer.ParallelWriter for safely applying structural changes from jobs.</p>
+</li>
+<li>
+<p><code>private Game.Net.SearchSystem m_NetSearchSystem</code><br />
+Reference to the Net search system used to obtain the quad-tree for net-related spatial queries.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_DefinitionQuery</code><br />
+EntityQuery used to find pending CreationDefinition entities (with Updated) and related ObjectDefinition / NetCourse components.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_DeletedQuery</code><br />
+EntityQuery used to iterate existing objects that are marked Deleted and Temp (used to build a map of old objects for reuse).</p>
+</li>
+<li>
+<p><code>private EntityQuery m_EconomyParameterQuery</code><br />
+EntityQuery used to fetch EconomyParameterData singleton required for cost calculations.</p>
+</li>
+<li>
+<p><code>private ComponentTypeSet m_SubTypes</code><br />
+ComponentTypeSet used to add sub-type components to created entities (SubObject / SubNet / SubArea) when needed in editor mode.</p>
+</li>
+<li>
+<p><code>private ComponentTypeSet m_StoppedUpdateFrameTypes</code><br />
+ComponentTypeSet containing types referencing stopped/parked update types; used when creating stopped archetype entities.</p>
+</li>
+<li>
+<p><code>private NativeHashMap&lt;OwnerDefinition, Entity&gt; m_ReusedOwnerMap</code><br />
+Persistent native hash map used to store owner mappings for reused objects (maps OwnerDefinition to entity). Exposed to other systems via GetReusedOwnerMap.</p>
+</li>
+<li>
+<p><code>private JobHandle m_OwnerMapReadDeps</code><br />
+JobHandle accumulating read-side dependencies for readers of the reused owner map.</p>
+</li>
+<li>
+<p><code>private JobHandle m_OwnerMapWriteDeps</code><br />
+JobHandle representing the write-side dependency for the owner map updates (set when the system writes to the map).</p>
+</li>
+<li>
+<p><code>private TypeHandle __TypeHandle</code><br />
+Internal collection of component type handles &amp; lookups cached/assigned via __AssignHandles for use in jobs.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.Tools.ToolSystem m_ToolSystem;
-</code></pre>
+<h2 id="properties">Properties</h2>
 <ul>
-<li><code>private Game.Simulation.SimulationSystem m_SimulationSystem</code>  </li>
+<li>None (the system uses methods to expose data: GetReusedOwnerMap and AddOwnerMapReader).</li>
 </ul>
-<pre><code class="language-csharp">private Game.Simulation.SimulationSystem m_SimulationSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Common.ModificationBarrier1 m_ModificationBarrier</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Common.ModificationBarrier1 m_ModificationBarrier;
-</code></pre>
-<ul>
-<li><code>private Game.Net.SearchSystem m_NetSearchSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Net.SearchSystem m_NetSearchSystem;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_DefinitionQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_DefinitionQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_DeletedQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_DeletedQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_EconomyParameterQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_EconomyParameterQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.ComponentTypeSet m_SubTypes</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.ComponentTypeSet m_SubTypes;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.ComponentTypeSet m_StoppedUpdateFrameTypes</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.ComponentTypeSet m_StoppedUpdateFrameTypes;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeHashMap&lt;Game.Tools.OwnerDefinition, Unity.Entities.Entity&gt; m_ReusedOwnerMap</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeHashMap&lt;Game.Tools.OwnerDefinition, Unity.Entities.Entity&gt; m_ReusedOwnerMap;
-</code></pre>
-<ul>
-<li><code>private Unity.Jobs.JobHandle m_OwnerMapReadDeps</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Jobs.JobHandle m_OwnerMapReadDeps;
-</code></pre>
-<ul>
-<li><code>private Unity.Jobs.JobHandle m_OwnerMapWriteDeps</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Jobs.JobHandle m_OwnerMapWriteDeps;
-</code></pre>
-<ul>
-<li><code>private Game.Tools.GenerateObjectsSystem+TypeHandle __TypeHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Tools.GenerateObjectsSystem+TypeHandle __TypeHandle;
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public GenerateObjectsSystem()</code>  </li>
+<li><code>public GenerateObjectsSystem()</code><br />
+Default constructor. The System is created by the DOTS world; initialization work occurs in OnCreate.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public GenerateObjectsSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private __AssignQueries(Unity.Entities.SystemState&amp; state) : System.Void</code>  </li>
+<li>
+<p><code>protected override void OnCreate()</code><br />
+Initializes references to required systems (ToolSystem, SimulationSystem, ModificationBarrier1, Net search system), creates the persistent m_ReusedOwnerMap, sets up EntityQueries, ComponentTypeSets and calls RequireForUpdate on definition and economy queries. Prepares the system to run only when there are pending definitions.</p>
+</li>
+<li>
+<p><code>protected override void OnDestroy()</code><br />
+Completes outstanding owner-map job dependencies and disposes of the persistent m_ReusedOwnerMap. Cleans up before system destruction.</p>
+</li>
+<li>
+<p><code>public NativeHashMap&lt;OwnerDefinition, Entity&gt; GetReusedOwnerMap(out JobHandle dependencies)</code><br />
+Returns the internal m_ReusedOwnerMap and outputs the current write-side dependency JobHandle. Other systems can call this to read owner reuse mappings. The caller should respect returned dependencies.</p>
+</li>
+<li>
+<p><code>public void AddOwnerMapReader(JobHandle dependencies)</code><br />
+Register a reader dependency for the reused owner map. Combine the provided dependency with internal m_OwnerMapReadDeps to avoid races.</p>
+</li>
+<li>
+<p><code>protected override void OnStopRunning()</code><br />
+Completes owner map job dependencies and clears m_ReusedOwnerMap contents when the system stops running (for example during domain reload or world stop).</p>
+</li>
+<li>
+<p><code>protected override void OnUpdate()</code><br />
+Main system update. The method:</p>
+</li>
+<li>Allocates temporary NativeQueue, NativeList and NativeParallelMultiHashMap to collect creation requests and map existing objects.</li>
+<li>Ensures owner map job dependencies are completed and clears reused owner map.</li>
+<li>Prepares and schedules three major jobs:<ul>
+<li>FillCreationListJob (IJobChunk): scans CreationDefinition/ObjectDefinition/NetCourse entities and enqueues creation candidates into a creation queue. Also performs net neighborhood checks (local connect / attachments / subobjects) by querying the NetSearchTree via iterators.</li>
+<li>FillOldObjectsJob (IJobChunk): scans existing objects (Deleted + Temp + PrefabRef) and fills the oldObjectMap (used later to match and reuse entities).</li>
+<li>CollectCreationDataJob (IJob): dequeues the creation queue into a list, sorts and deduplicates entries, fills prefab references, and attempts to match creation entries with old objects and registers reused owners.</li>
+<li>CreateObjectsJob (IJobParallelForDefer): parallel job that consumes the final creation list and issues EntityCommandBuffer operations to create or update objects, set components, add Temp/Native/Attached/Elevation/etc. It handles many flags (Create, Delete, Upgrade, Repair, Relocate, Permanent, Attach, Native, Editor-mode specifics, stacking, trees, under-construction, etc.)</li>
 </ul>
-<pre><code class="language-csharp">private void __AssignQueries(ref SystemState state)
-    {
-        new EntityQueryBuilder(Allocator.Temp).Dispose();
-    }
-</code></pre>
-<ul>
-<li><code>public AddOwnerMapReader(Unity.Jobs.JobHandle dependencies) : System.Void</code>  </li>
+</li>
+<li>
+<p>Schedules and wires job dependencies, disposes temporary containers with appropriate dependency handles, registers the producer handle with the modification barrier and net search system, and stores the owner map write dependency for other readers.</p>
+</li>
+<li>
+<p><code>private void __AssignQueries(ref SystemState state)</code><br />
+Internal helper used by the compiler-generated bootstrap. (In the provided code it constructs an empty EntityQueryBuilder and disposes it; real handle assignment is performed in __AssignHandles.)</p>
+</li>
+<li>
+<p><code>protected override void OnCreateForCompiler()</code><br />
+Used by generated code to call __AssignQueries and assign type handles (via __TypeHandle.__AssignHandles). Prepares job handles for compilation-time path.</p>
+</li>
+<li>
+<p><code>public void __AssignHandles(ref SystemState state)</code> (actually on nested TypeHandle)<br />
+Internal method used to cache and assign all ComponentTypeHandle / ComponentLookup / BufferLookup and EntityTypeHandle used by the jobs. Called from OnCreateForCompiler.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public void AddOwnerMapReader(JobHandle dependencies)
-    {
-        m_OwnerMapReadDeps = JobHandle.CombineDependencies(m_OwnerMapReadDeps, dependencies);
-    }
-</code></pre>
-<ul>
-<li><code>public GetReusedOwnerMap(Unity.Jobs.JobHandle&amp; dependencies) : Unity.Collections.NativeHashMap&lt;Game.Tools.OwnerDefinition, Unity.Entities.Entity&gt;</code>  </li>
-</ul>
-<pre><code class="language-csharp">public NativeHashMap&lt;OwnerDefinition, Entity&gt; GetReusedOwnerMap(out JobHandle dependencies)
-    {
-        dependencies = m_OwnerMapWriteDeps;
-        return m_ReusedOwnerMap;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_ToolSystem = base.World.GetOrCreateSystemManaged&lt;ToolSystem&gt;();
-        m_SimulationSystem = base.World.GetOrCreateSystemManaged&lt;SimulationSystem&gt;();
-        m_ModificationBarrier = base.World.GetOrCreateSystemManaged&lt;ModificationBarrier1&gt;();
-        m_NetSearchSystem = base.World.GetOrCreateSystemManaged&lt;Game.Net.SearchSystem&gt;();
-        m_ReusedOwnerMap = new NativeHashMap&lt;OwnerDefinition, Entity&gt;(32, Allocator.Persistent);
-        m_DefinitionQuery = GetEntityQuery(new EntityQueryDesc
-        {
-            All = new ComponentType[2]
-            {
-                ComponentType.ReadOnly&lt;CreationDefinition&gt;(),
-                ComponentType.ReadOnly&lt;Updated&gt;()
-            },
-            Any = new ComponentType[2]
-            {
-                ComponentType.ReadOnly&lt;ObjectDefinition&gt;(),
-                ComponentType.ReadOnly&lt;NetCourse&gt;()
-            }
-        });
-        m_DeletedQuery = GetEntityQuery(ComponentType.ReadOnly&lt;Game.Objects.Object&gt;(), ComponentType.ReadOnly&lt;Deleted&gt;(), ComponentType.ReadOnly&lt;Temp&gt;(), ComponentType.ReadOnly&lt;PrefabRef&gt;());
-        m_SubTypes = new ComponentTypeSet(ComponentType.ReadWrite&lt;Game.Objects.SubObject&gt;(), ComponentType.ReadWrite&lt;Game.Net.SubNet&gt;(), ComponentType.ReadWrite&lt;Game.Areas.SubArea&gt;());
-        m_StoppedUpdateFrameTypes = new ComponentTypeSet(ComponentType.ReadWrite&lt;Stopped&gt;(), ComponentType.ReadWrite&lt;ParkedCar&gt;(), ComponentType.ReadWrite&lt;ParkedTrain&gt;(), ComponentType.ReadWrite&lt;UpdateFrame&gt;());
-        m_EconomyParameterQuery = GetEntityQuery(ComponentType.ReadOnly&lt;EconomyParameterData&gt;());
-        RequireForUpdate(m_DefinitionQuery);
-        RequireForUpdate(m_EconomyParameterQuery);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreateForCompiler() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnCreateForCompiler()
-    {
-        base.OnCreateForCompiler();
-        __AssignQueries(ref base.CheckedStateRef);
-        __TypeHandle.__AssignHandles(ref base.CheckedStateRef);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnDestroy() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnDestroy()
-    {
-        m_OwnerMapReadDeps.Complete();
-        m_OwnerMapWriteDeps.Complete();
-        m_ReusedOwnerMap.Dispose();
-        base.OnDestroy();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnStopRunning() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnStopRunning()
-    {
-        m_OwnerMapReadDeps.Complete();
-        m_OwnerMapWriteDeps.Complete();
-        m_ReusedOwnerMap.Clear();
-        base.OnStopRunning();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
+<p>Notes about nested types and jobs:
+- The system defines several nested structs used as job data and helpers:
+  - CreationData, OldObjectKey, OldObjectValue — small helper structs used in queues, lists and multimaps.
+  - FillOldObjectsJob (IJobChunk) — populates oldObjectMap with existing entities that can be reused.
+  - FillCreationListJob (IJobChunk) — scans creation definitions and net courses, performs spatial queries through NetSearchTree using EdgeIterator and NodeIterator nested iterator types and enqueues candidate CreationData entries.
+  - CollectCreationDataJob (IJob) — consolidates and deduplicates creation queue entries into a final sorted/best list, populates m_ReusedOwnerMap when matching old entities.
+  - CreateObjectsJob (IJobParallelForDefer) — the worker that actually creates or updates entities using EntityCommandBuffer.ParallelWriter; handles many component interactions and flag semantics.
+  These nested jobs contain many helper methods used to test attachment/local connect, find/assign old entities, compute costs, initialize tree states, build Attached components, and more.</p>
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Typical system usage is automatic within the DOTS world. Example: reading the owner reuse map from another system.
+
+public class MyReaderSystem : SystemBase
+{
     protected override void OnUpdate()
     {
-        NativeQueue&lt;CreationData&gt; creationQueue = new NativeQueue&lt;CreationData&gt;(Allocator.TempJob);
-        NativeList&lt;CreationData&gt; nativeList = new NativeList&lt;CreationData&gt;(Allocator.TempJob);
-        NativeParallelMultiHashMap&lt;OldObjectKey, OldObjectValue&gt; oldObjectMap = new NativeParallelMultiHashMap&lt;OldObjectKey, OldObjectValue&gt;(32, Allocator.TempJob);
-        m_OwnerMapReadDeps.Complete();
-        m_OwnerMapWriteDeps.Complete();
-        m_ReusedOwnerMap.Clear();
-        JobHandle dependencies;
-        FillCreationListJob jobData = new FillCreationListJob
+        var generateSystem = World.GetExistingSystemManaged&lt;Game.Tools.GenerateObjectsSystem&gt;();
+        if (generateSystem != null)
         {
-            m_CreationDefinitionType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Tools_CreationDefinition_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_OwnerDefinitionType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Tools_OwnerDefinition_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_ObjectDefinitionType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Tools_ObjectDefinition_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_NetCourseType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Tools_NetCourse_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_AttachedData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Objects_Attached_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_TransformData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Objects_Transform_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_OwnerData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Common_Owner_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_ElevationData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Objects_Elevation_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_DeletedData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Common_Deleted_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabRefData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_ObjectData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_ObjectData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_NetData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_NetData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_NetGeometryData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_NetGeometryData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabLocalConnectData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_LocalConnectData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_RoadData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_RoadData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_EdgeData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_Edge_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_NodeData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_Node_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_CurveData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_Curve_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_LocalConnectData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_LocalConnect_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_RoundaboutData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_Roundabout_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_SubObjects = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Objects_SubObject_RO_BufferLookup, ref base.CheckedStateRef),
-            m_ConnectedEdges = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Net_ConnectedEdge_RO_BufferLookup, ref base.CheckedStateRef),
-            m_ConnectedNodes = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Net_ConnectedNode_RO_BufferLookup, ref base.CheckedStateRef),
-            m_NetSearchTree = m_NetSearchSystem.GetNetSearchTree(readOnly: true, out dependencies),
-            m_CreationQueue = creationQueue.AsParallelWriter()
-        };
-        FillOldObjectsJob jobData2 = new FillOldObjectsJob
-        {
-            m_EntityType = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef),
-            m_OwnerType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Common_Owner_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_TempType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Tools_Temp_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_TransformType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Objects_Transform_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_EditorContainerType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Tools_EditorContainer_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_PrefabRefType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_OldObjectMap = oldObjectMap
-        };
-        CollectCreationDataJob jobData3 = new CollectCreationDataJob
-        {
-            m_PrefabRefData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_CreationQueue = creationQueue,
-            m_CreationList = nativeList,
-            m_OldObjectMap = oldObjectMap,
-            m_ReusedOwnerMap = m_ReusedOwnerMap
-        };
-        CreateObjectsJob jobData4 = new CreateObjectsJob
-        {
-            m_EditorMode = m_ToolSystem.actionMode.IsEditor(),
-            m_SimulationFrame = m_SimulationSystem.frameIndex,
-            m_RandomSeed = RandomSeed.Next(),
-            m_SubTypes = m_SubTypes,
-            m_StoppedUpdateFrameTypes = m_StoppedUpdateFrameTypes,
-            m_CreationList = nativeList.AsDeferredJobArray(),
-            m_CommandBuffer = m_ModificationBarrier.CreateCommandBuffer().AsParallelWriter(),
-            m_NativeData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Common_Native_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_StoppedData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Objects_Stopped_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_AttachedData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Objects_Attached_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_ElevationData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Objects_Elevation_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_RelativeData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Objects_Relative_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_RecentData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Tools_Recent_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_TreeData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Objects_Tree_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_DestroyedData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Common_Destroyed_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_DamagedData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Objects_Damaged_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PseudoRandomSeedData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Common_PseudoRandomSeed_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_SurfaceData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Objects_Surface_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_StackData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Objects_Stack_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_UnderConstructionData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Objects_UnderConstruction_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_TransformData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Objects_Transform_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_CurveData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_Curve_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabRefData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabObjectData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_ObjectGeometryData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PlaceableObjectData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_PlaceableObjectData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_ServiceUpgradeData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_ServiceUpgradeData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_ObjectData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_ObjectData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_MovingObjectData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_MovingObjectData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabTreeData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_TreeData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabBuildingData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_BuildingData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabEffectData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_EffectData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabStackData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_StackData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_PrefabData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_EconomyParameterData = m_EconomyParameterQuery.GetSingleton&lt;EconomyParameterData&gt;()
-        };
-        JobHandle jobHandle = JobChunkExtensions.ScheduleParallel(jobData, m_DefinitionQuery, JobHandle.CombineDependencies(base.Dependency, dependencies));
-        JobHandle job = JobChunkExtensions.Schedule(jobData2, m_DeletedQuery, base.Dependency);
-        JobHandle jobHandle2 = IJobExtensions.Schedule(jobData3, JobHandle.CombineDependencies(jobHandle, job));
-        JobHandle jobHandle3 = jobData4.Schedule(nativeList, 1, jobHandle2);
-        creationQueue.Dispose(jobHandle2);
-        nativeList.Dispose(jobHandle3);
-        oldObjectMap.Dispose(jobHandle2);
-        m_ModificationBarrier.AddJobHandleForProducer(jobHandle3);
-        m_NetSearchSystem.AddNetSearchTreeReader(jobHandle);
-        m_OwnerMapWriteDeps = jobHandle2;
-        base.Dependency = jobHandle3;
+            JobHandle deps;
+            var reusedOwners = generateSystem.GetReusedOwnerMap(out deps);
+            // Use 'reusedOwners' only after honoring 'deps' (combine/complete as required)
+            // Example: schedule a job that depends on 'deps' and uses reusedOwners as read-only input.
+            // When done, call generateSystem.AddOwnerMapReader(yourJobHandle) to register your read dependency.
+        }
     }
+}
 </code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Tools.GenerateObjectsSystem+CreationData</code>  </li>
-<li><code>Game.Tools.GenerateObjectsSystem+OldObjectKey</code>  </li>
-<li><code>Game.Tools.GenerateObjectsSystem+OldObjectValue</code>  </li>
-<li><code>Game.Tools.GenerateObjectsSystem+FillOldObjectsJob</code>  </li>
-<li><code>Game.Tools.GenerateObjectsSystem+FillCreationListJob</code>  </li>
-<li><code>Game.Tools.GenerateObjectsSystem+CollectCreationDataJob</code>  </li>
-<li><code>Game.Tools.GenerateObjectsSystem+CreateObjectsJob</code>  </li>
-<li><code>Game.Tools.GenerateObjectsSystem+TypeHandle</code>  </li>
-</ul>
+<p>Additional notes / tips:
+- The system is heavily optimized for DOTS: creating/updating objects happens via a sequence of jobs to minimize main-thread work. If you extend or hook into this system, respect the job dependencies (GetReusedOwnerMap / AddOwnerMapReader) to avoid race conditions.
+- The CreateObjectsJob performs many checks and component operations; modding changes to component layouts or prefab flags may require careful updates to the job code or the TypeHandle assignments.</p>
 
 
 

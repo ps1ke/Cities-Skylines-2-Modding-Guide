@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -78477,15 +78569,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -78522,9 +78605,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -87154,6 +87237,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -117930,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117955,15 +118083,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -118002,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118027,162 +118146,132 @@
 
 
 <h1 id="gamesimulationavailabilityinfotogridsystem">Game.Simulation.AvailabilityInfoToGridSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Simulation</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.Simulation.CellMapSystem&lt;Game.Simulation.AvailabilityInfoCell&gt;</code><br />
-<strong>Implements:</strong> <code>Colossal.Serialization.Entities.IJobSerializable</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class AvailabilityInfoToGridSystem : Game.Simulation.CellMapSystem&lt;Game.Simulation.AvailabilityInfoCell&gt;, Colossal.Serialization.Entities.IJobSerializable
-{
-    private Game.Net.SearchSystem m_NetSearchSystem;
-    private Game.Simulation.AvailabilityInfoToGridSystem+TypeHandle __TypeHandle;
-    public static readonly System.Int32 kTextureSize;
-    public static readonly System.Int32 kUpdatesPerDay;
-
-    public Unity.Mathematics.int2 TextureSize { get; }
-
-    public AvailabilityInfoToGridSystem();
-
-    private System.Void __AssignQueries(Unity.Entities.SystemState&amp; state);
-    public static Game.Simulation.AvailabilityInfoCell GetAvailabilityInfo(Unity.Mathematics.float3 position, Unity.Collections.NativeArray&lt;Game.Simulation.AvailabilityInfoCell&gt; AvailabilityInfoMap);
-    public static Unity.Mathematics.float3 GetCellCenter(System.Int32 index);
-    public virtual System.Int32 GetUpdateInterval(Game.SystemUpdatePhase phase);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnCreateForCompiler();
-    protected virtual System.Void OnUpdate();
-}
-</code></pre>
+<p><strong>Assembly:</strong> Assembly-CSharp<br />
+<strong>Namespace:</strong> Game.Simulation</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> CellMapSystem<AvailabilityInfoCell>, IJobSerializable</p>
+<p><strong>Summary:</strong><br />
+AvailabilityInfoToGridSystem collects ResourceAvailability data from road/edge entities and rasterizes that information into a fixed-size cell grid (texture) used by other systems to query local availability values (attractiveness, consumers, services, workplaces). It builds a weighted average per cell by sampling availability buffers on nearby edge geometry (start/end curb segments), using a NetSearchTree for fast spatial queries and a Burst-compiled IJobParallelFor to fill the grid in parallel. The final data for each cell is stored in an AvailabilityInfoCell (m_AvailabilityInfo float4) in the inherited map (m_Map). The system updates periodically (kUpdatesPerDay) and exposes helper functions to sample/interpolate the map at arbitrary world positions.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.Net.SearchSystem m_NetSearchSystem</code>  </li>
+<li>
+<p><code>public static readonly int kTextureSize</code><br />
+Defines the resolution of the square availability grid/texture. Value: 128. The grid is kTextureSize × kTextureSize cells and is used when computing cell centers, indexing and interpolation.</p>
+</li>
+<li>
+<p><code>public static readonly int kUpdatesPerDay</code><br />
+Defines how many times per in-game day the grid should be updated. Value: 32. Used by GetUpdateInterval to determine scheduling frequency.</p>
+</li>
+<li>
+<p><code>private SearchSystem m_NetSearchSystem</code><br />
+Reference to the game's SearchSystem used to obtain a NativeQuadTree of network entities (edges) for spatial queries. The system requests a read-only net search tree and registers itself as a reader when scheduling jobs.</p>
+</li>
+<li>
+<p><code>private TypeHandle __TypeHandle</code><br />
+Container of component/buffer lookup handles (BufferLookup<ResourceAvailability> and ComponentLookup<EdgeGeometry>) assigned in OnCreateForCompiler. Internal use for safely obtaining buffer/component access inside jobs via InternalCompilerInterface.GetBufferLookup / GetComponentLookup.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.Net.SearchSystem m_NetSearchSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.AvailabilityInfoToGridSystem+TypeHandle __TypeHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.AvailabilityInfoToGridSystem+TypeHandle __TypeHandle;
-</code></pre>
-<ul>
-<li><code>public static readonly System.Int32 kTextureSize</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static readonly System.Int32 kTextureSize;
-</code></pre>
-<ul>
-<li><code>public static readonly System.Int32 kUpdatesPerDay</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static readonly System.Int32 kUpdatesPerDay;
-</code></pre>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>public Unity.Mathematics.int2 TextureSize { get }</code>  </li>
+<li><code>public int2 TextureSize { get; }</code><br />
+Returns the grid resolution as an int2: (kTextureSize, kTextureSize). Useful when creating or sampling textures or for code that needs to know the size of the AvailabilityInfo map.</li>
 </ul>
-<pre><code class="language-csharp">public Unity.Mathematics.int2 TextureSize { get; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public AvailabilityInfoToGridSystem()</code>  </li>
+<li><code>public AvailabilityInfoToGridSystem()</code><br />
+Default constructor. The system uses [Preserve] attributed lifecycle methods (OnCreate/OnUpdate) to set up textures and get references to SearchSystem. No custom constructor initialization beyond the default.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public AvailabilityInfoToGridSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private __AssignQueries(Unity.Entities.SystemState&amp; state) : System.Void</code>  </li>
+<li>
+<p><code>public override int GetUpdateInterval(SystemUpdatePhase phase)</code><br />
+Returns scheduling interval for the system in simulation ticks. Implementation returns 262144 / kUpdatesPerDay. This controls how often OnUpdate runs relative to the engine update tick rate.</p>
+</li>
+<li>
+<p><code>public static float3 GetCellCenter(int index)</code><br />
+Helper to compute the world-space center of the cell at a flattened index. Uses the base CellMapSystem<AvailabilityInfoCell>.GetCellCenter helper with kTextureSize.</p>
+</li>
+<li>
+<p><code>public static AvailabilityInfoCell GetAvailabilityInfo(float3 position, NativeArray&lt;AvailabilityInfoCell&gt; AvailabilityInfoMap)</code><br />
+Samples the availability grid at an arbitrary world position and returns an interpolated AvailabilityInfoCell. The method:</p>
+</li>
+<li>Converts world position to a cell (int2) and fractional cell coordinates.</li>
+<li>Performs bilinear interpolation between up to 4 neighboring cells' m_AvailabilityInfo (float4).</li>
+<li>
+<p>Returns default(AvailabilityInfoCell) if the position is outside the grid.
+This is the recommended way for other systems/mods to query local availability values from the raw NativeArray grid.</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnCreate()</code><br />
+Initializes the textures (CreateTextures(kTextureSize)) and acquires the SearchSystem reference via World.GetOrCreateSystemManaged<SearchSystem>(). Also called during domain reloads and system creation. Ensures data structures needed in OnUpdate are available.</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnUpdate()</code><br />
+Main scheduling point. It:</p>
+</li>
+<li>Gets a read-only NativeQuadTree<Entity, QuadTreeBoundsXZ> from m_NetSearchSystem (also obtains native dependency JobHandle).</li>
+<li>Prepares an AvailabilityInfoToGridJob with:<ul>
+<li>m_AvailabilityInfoMap (m_Map from the base CellMapSystem),</li>
+<li>m_NetSearchTree,</li>
+<li>buffer/component lookups (ResourceAvailability buffer and EdgeGeometry component) via the compiled TypeHandle helpers,</li>
+<li>computed cell size (kMapSize / kTextureSize).</li>
 </ul>
-<pre><code class="language-csharp">private void __AssignQueries(ref SystemState state)
-    {
-        new EntityQueryBuilder(Allocator.Temp).Dispose();
-    }
-</code></pre>
+</li>
+<li>Schedules a Burst-compiled IJobParallelFor across all grid cells (kTextureSize*kTextureSize) with suitable batching.</li>
+<li>
+<p>Registers the job dependency with writers/readers and the net search system (AddNetSearchTreeReader).
+The job computes per-cell weighted averages by iterating nearby edges through the net search tree.</p>
+</li>
+<li>
+<p><code>protected override void OnCreateForCompiler()</code><br />
+Internal/compiler helper invoked during system creation to assign queries and component/buffer lookups. It calls __AssignQueries and __TypeHandle.__AssignHandles.</p>
+</li>
+<li>
+<p><code>[MethodImpl(MethodImplOptions.AggressiveInlining)] private void __AssignQueries(ref SystemState state)</code><br />
+Internal query assignment stub. Leaves an empty EntityQueryBuilder as implemented here (likely a placeholder required by codegen).</p>
+</li>
+</ul>
+<p>Nested types (important for modders to know):</p>
 <ul>
-<li><code>public static GetAvailabilityInfo(Unity.Mathematics.float3 position, Unity.Collections.NativeArray&lt;Game.Simulation.AvailabilityInfoCell&gt; AvailabilityInfoMap) : Game.Simulation.AvailabilityInfoCell</code>  </li>
+<li>NetIterator (private struct)<br />
+Implements INativeQuadTreeIterator and IUnsafeQuadTreeIterator used by NativeQuadTree.Iterate. For each visited edge entity, NetIterator:</li>
+<li>Checks intersection between cell bounds and the iterator bounds,</li>
+<li>Reads ResourceAvailability dynamic buffer on the entity and EdgeGeometry component,</li>
+<li>Samples a number of points along the start and end curb curves (count proportional to middleLength * 0.05),</li>
+<li>For each sample computes a weight based on distance to the cell center and m_CellSize,</li>
+<li>
+<p>Adds weighted contributions for attractiveness, consumers (combining uneducated + educated halves), services and workplaces into a running AvailabilityInfoCell result and a total weight cell.
+NetIterator fields include m_TotalWeight, m_Result, m_CellSize, m_Bounds, BufferLookup<ResourceAvailability> and ComponentLookup<EdgeGeometry>.</p>
+</li>
+<li>
+<p>AvailabilityInfoToGridJob (private struct, [BurstCompile])<br />
+IJobParallelFor that runs per cell index:</p>
+</li>
+<li>Creates a NetIterator with bounds centered at the cell center (radius 1.5 * m_CellSize in XZ and a very large Y extent),</li>
+<li>Iterates the net search tree to accumulate availability into the iterator,</li>
+<li>
+<p>Writes the normalized result into m_AvailabilityInfo for the cell (division guarded by zero-weight check).
+This job uses Burst and runs in parallel; it reads buffers/components via BufferLookup/ComponentLookup.</p>
+</li>
+<li>
+<p>TypeHandle (private struct)<br />
+Holds readonly handles for BufferLookup<ResourceAvailability> and ComponentLookup<EdgeGeometry>. Has a method __AssignHandles(ref SystemState) which obtains the lookups from the SystemState. This is necessary to get access inside scheduled jobs in a safe way.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public static AvailabilityInfoCell GetAvailabilityInfo(float3 position, NativeArray&lt;AvailabilityInfoCell&gt; AvailabilityInfoMap)
-    {
-        AvailabilityInfoCell result = default(AvailabilityInfoCell);
-        int2 cell = CellMapSystem&lt;AvailabilityInfoCell&gt;.GetCell(position, CellMapSystem&lt;AvailabilityInfoCell&gt;.kMapSize, kTextureSize);
-        float2 cellCoords = CellMapSystem&lt;AvailabilityInfoCell&gt;.GetCellCoords(position, CellMapSystem&lt;AvailabilityInfoCell&gt;.kMapSize, kTextureSize);
-        if (cell.x &lt; 0 || cell.x &gt;= kTextureSize || cell.y &lt; 0 || cell.y &gt;= kTextureSize)
-        {
-            return default(AvailabilityInfoCell);
-        }
-        float4 availabilityInfo = AvailabilityInfoMap[cell.x + kTextureSize * cell.y].m_AvailabilityInfo;
-        float4 end = ((cell.x &lt; kTextureSize - 1) ? AvailabilityInfoMap[cell.x + 1 + kTextureSize * cell.y].m_AvailabilityInfo : ((float4)0));
-        float4 start = ((cell.y &lt; kTextureSize - 1) ? AvailabilityInfoMap[cell.x + kTextureSize * (cell.y + 1)].m_AvailabilityInfo : ((float4)0));
-        float4 end2 = ((cell.x &lt; kTextureSize - 1 &amp;&amp; cell.y &lt; kTextureSize - 1) ? AvailabilityInfoMap[cell.x + 1 + kTextureSize * (cell.y + 1)].m_AvailabilityInfo : ((float4)0));
-        result.m_AvailabilityInfo = math.lerp(math.lerp(availabilityInfo, end, cellCoords.x - (float)cell.x), math.lerp(start, end2, cellCoords.x - (float)cell.x), cellCoords.y - (float)cell.y);
-        return result;
-    }
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Example: sample availability at a world position from within another system/job.
+// `availabilityMap` is the NativeArray&lt;AvailabilityInfoCell&gt; belonging to this system (m_Map).
+float3 worldPos = new float3(1000f, 0f, 2000f);
+AvailabilityInfoCell info = AvailabilityInfoToGridSystem.GetAvailabilityInfo(worldPos, availabilityMap);
+float4 availabilityValues = info.m_AvailabilityInfo; // x=attractiveness, y=consumers, z=services, w=workplaces (mapping depends on AvailabilityInfoCell)
 </code></pre>
-<ul>
-<li><code>public static GetCellCenter(System.Int32 index) : Unity.Mathematics.float3</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static float3 GetCellCenter(int index)
-    {
-        return CellMapSystem&lt;AvailabilityInfoCell&gt;.GetCellCenter(index, kTextureSize);
-    }
-</code></pre>
-<ul>
-<li><code>public virtual GetUpdateInterval(Game.SystemUpdatePhase phase) : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override int GetUpdateInterval(SystemUpdatePhase phase)
-    {
-        return 262144 / kUpdatesPerDay;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        CreateTextures(kTextureSize);
-        m_NetSearchSystem = base.World.GetOrCreateSystemManaged&lt;SearchSystem&gt;();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreateForCompiler() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnCreateForCompiler()
-    {
-        base.OnCreateForCompiler();
-        __AssignQueries(ref base.CheckedStateRef);
-        __TypeHandle.__AssignHandles(ref base.CheckedStateRef);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        JobHandle dependencies;
-        AvailabilityInfoToGridJob jobData = new AvailabilityInfoToGridJob
-        {
-            m_NetSearchTree = m_NetSearchSystem.GetNetSearchTree(readOnly: true, out dependencies),
-            m_AvailabilityInfoMap = m_Map,
-            m_AvailabilityData = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Net_ResourceAvailability_RO_BufferLookup, ref base.CheckedStateRef),
-            m_EdgeGeometryData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_EdgeGeometry_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_CellSize = (float)CellMapSystem&lt;AvailabilityInfoCell&gt;.kMapSize / (float)kTextureSize
-        };
-        base.Dependency = IJobParallelForExtensions.Schedule(jobData, kTextureSize * kTextureSize, kTextureSize, JobHandle.CombineDependencies(dependencies, JobHandle.CombineDependencies(m_WriteDependencies, m_ReadDependencies, base.Dependency)));
-        AddWriter(base.Dependency);
-        m_NetSearchSystem.AddNetSearchTreeReader(base.Dependency);
-        base.Dependency = JobHandle.CombineDependencies(m_ReadDependencies, m_WriteDependencies, base.Dependency);
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Simulation.AvailabilityInfoToGridSystem+NetIterator</code>  </li>
-<li><code>Game.Simulation.AvailabilityInfoToGridSystem+AvailabilityInfoToGridJob</code>  </li>
-<li><code>Game.Simulation.AvailabilityInfoToGridSystem+TypeHandle</code>  </li>
-</ul>
+<p>Additional notes for modders:
+- The system relies on ResourceAvailability buffers being present on net entities and EdgeGeometry components being available. If your custom network/entities do not populate these, they will not contribute to the grid.
+- The grid resolution is fixed by kTextureSize (128). Lowering/higher resolutions would require changing kTextureSize and ensuring consumers of the grid respect the new size.
+- The job is Burst-compiled and scheduled in parallel (IJobParallelFor). Ensure any code interacting with internal NativeArrays observes thread-safety (read/write dependencies) and uses job dependencies correctly.
+- Use GetAvailabilityInfo for interpolation, do not directly index m_Map unless you know the intended cell indexing and bounds.
+- The system adds itself as a reader to the NetSearchSystem; other systems depending on net search data should coordinate via job dependencies (AddNetSearchTreeReader / AddNetSearchTreeWriter) to avoid race conditions.</p>
 
 
 

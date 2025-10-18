@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87056,6 +87148,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -101356,15 +101471,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -101401,9 +101507,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -117932,6 +118038,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117957,15 +118085,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -118004,9 +118123,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118029,331 +118148,200 @@
 
 
 <h1 id="gameuiingamedestroyedbuildingsection">Game.UI.InGame.DestroyedBuildingSection</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.UI.InGame</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.UI.InGame.InfoSectionBase</code><br />
-<strong>Implements:</strong> <code>Game.UI.InGame.ISectionSource</code>, <code>Colossal.UI.Binding.IJsonWritable</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class DestroyedBuildingSection : Game.UI.InGame.InfoSectionBase, Game.UI.InGame.ISectionSource, Colossal.UI.Binding.IJsonWritable
-{
-    private Game.Tools.ToolSystem m_ToolSystem;
-    private Game.Tools.DefaultToolSystem m_DefaultToolSystem;
-    private Game.Tools.UpgradeToolSystem m_UpgradeToolSystem;
-    private Colossal.UI.Binding.ValueBinding&lt;System.Boolean&gt; m_Rebuilding;
-    private Unity.Entities.EntityQuery m_FireStationQuery;
-    private Unity.Entities.EntityQuery m_ServiceDispatchQuery;
-    private Unity.Entities.Entity &lt;destroyer&gt;k__BackingField;
-    private System.Boolean &lt;cleared&gt;k__BackingField;
-    private System.Single &lt;progress&gt;k__BackingField;
-    private Game.UI.InGame.DestroyedBuildingSection+Status &lt;status&gt;k__BackingField;
-
-    protected System.String group { protected get; }
-    private Unity.Entities.Entity destroyer { private get; private set; }
-    private System.Boolean cleared { private get; private set; }
-    private System.Single progress { private get; private set; }
-    private Game.UI.InGame.DestroyedBuildingSection+Status status { private get; private set; }
-    protected System.Boolean displayForDestroyedObjects { protected get; }
-    protected System.Boolean displayForUpgrades { protected get; }
-
-    public DestroyedBuildingSection();
-
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnDestroy();
-    protected virtual System.Void OnProcess();
-    private System.Void OnToggleRebuild();
-    private System.Void OnToolChanged(Game.Tools.ToolBaseSystem tool);
-    protected virtual System.Void OnUpdate();
-    public virtual System.Void OnWriteProperties(Colossal.UI.Binding.IJsonWriter writer);
-    protected virtual System.Void Reset();
-    private System.Boolean VehicleAtTarget(Unity.Entities.Entity vehicle);
-    private System.Boolean Visible();
-}
-</code></pre>
+<p><strong>Assembly:</strong><br />
+Assembly-CSharp</p>
+<p><strong>Namespace:</strong><br />
+Game.UI.InGame</p>
+<p><strong>Type:</strong><br />
+class</p>
+<p><strong>Base:</strong><br />
+InfoSectionBase</p>
+<p><strong>Summary:</strong><br />
+DestroyedBuildingSection is an Info UI section used for destroyed (burned/ruined) buildings. It reads the Destroyed component for the selected entity, determines the progress of clearing, whether the building has been fully cleared, and whether disaster response vehicles are en route. It integrates with the game's ToolSystem to allow toggling the upgrade/rebuild tool, exposes a UI binding for the rebuild toggle, and reports tooltip tags and localized tooltip keys representing the current state (Waiting, NoService, Searching, Rebuild). The section queries for available fire stations and service-dispatch vehicles using ECS EntityQuery and reads/writes properties for UI consumption (including JSON serialization). It carefully disposes of temporary NativeArray results created from queries.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.Tools.ToolSystem m_ToolSystem</code>  </li>
+<li>
+<p><code>private ToolSystem m_ToolSystem</code><br />
+m_ToolSystem is the global ToolSystem retrieved from the world. Used to inspect and change the currently active tool and to subscribe to tool-change events.</p>
+</li>
+<li>
+<p><code>private DefaultToolSystem m_DefaultToolSystem</code><br />
+Reference to the default (pointer/select) tool so the section can restore the default tool when toggling rebuild mode off.</p>
+</li>
+<li>
+<p><code>private UpgradeToolSystem m_UpgradeToolSystem</code><br />
+Reference to the upgrade/rebuild tool used when the user chooses to rebuild the destroyed building. The section sets this tool as active when toggling rebuild on.</p>
+</li>
+<li>
+<p><code>private ValueBinding&lt;bool&gt; m_Rebuilding</code><br />
+UI binding that reflects whether the rebuild/upgrade tool is currently active. Bound to the UI key "rebuilding" so the UI can show the rebuild toggle state.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_FireStationQuery</code><br />
+An EntityQuery configured to find fire station buildings (Building + FireStation + PrefabRef, excluding Temp and Deleted). Used to check whether disaster-response capacity exists in the city.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_ServiceDispatchQuery</code><br />
+An EntityQuery to find vehicles that have ServiceDispatch buffers (Vehicle + ServiceDispatch, excluding Deleted/Temp). Used to inspect currently dispatched vehicles and their service buffers.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.Tools.ToolSystem m_ToolSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Tools.DefaultToolSystem m_DefaultToolSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Tools.DefaultToolSystem m_DefaultToolSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Tools.UpgradeToolSystem m_UpgradeToolSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Tools.UpgradeToolSystem m_UpgradeToolSystem;
-</code></pre>
-<ul>
-<li><code>private Colossal.UI.Binding.ValueBinding&lt;System.Boolean&gt; m_Rebuilding</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.UI.Binding.ValueBinding&lt;System.Boolean&gt; m_Rebuilding;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_FireStationQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_FireStationQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_ServiceDispatchQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_ServiceDispatchQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.Entity &lt;destroyer&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.Entity &lt;destroyer&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private System.Boolean &lt;cleared&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean &lt;cleared&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private System.Single &lt;progress&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Single &lt;progress&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private Game.UI.InGame.DestroyedBuildingSection+Status &lt;status&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.UI.InGame.DestroyedBuildingSection+Status &lt;status&gt;k__BackingField;
-</code></pre>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>protected System.String group { protected get }</code>  </li>
+<li>
+<p><code>protected override string group =&gt; "DestroyedBuildingSection"</code><br />
+Group identifier used for UI binding scoping and tooltip keys.</p>
+</li>
+<li>
+<p><code>private Entity destroyer { get; set; }</code><br />
+Entity (prefab) that caused the destruction (e.g., a disaster prefab). Populated from the Destroyed component's event PrefabRef during processing. Can be Entity.Null when there is no recorded destroyer.</p>
+</li>
+<li>
+<p><code>private bool cleared { get; set; }</code><br />
+True when clearing progress reaches or exceeds 100% (progress &gt;= 1.0). Used to switch status to Rebuild when the site is cleared.</p>
+</li>
+<li>
+<p><code>private float progress { get; set; }</code><br />
+Clearing progress for the destroyed site (0..1). The UI exposes this multiplied by 100 in OnWriteProperties.</p>
+</li>
+<li>
+<p><code>private Status status { get; set; }</code><br />
+Current internal status of the destroyed site. Enum values: None, Waiting, NoService, Searching, Rebuild. The status is used to add tooltip keys and decide UI state.</p>
+</li>
+<li>
+<p><code>protected override bool displayForDestroyedObjects =&gt; true</code><br />
+Overrides base to indicate this section should display for destroyed objects.</p>
+</li>
+<li>
+<p><code>protected override bool displayForUpgrades =&gt; true</code><br />
+Overrides base to indicate this section should be shown in upgrade contexts as well.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">protected System.String group { protected get; }
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.Entity destroyer { private get; private set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.Entity destroyer { private get; private set; }
-</code></pre>
-<ul>
-<li><code>private System.Boolean cleared { private get; private set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean cleared { private get; private set; }
-</code></pre>
-<ul>
-<li><code>private System.Single progress { private get; private set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Single progress { private get; private set; }
-</code></pre>
-<ul>
-<li><code>private Game.UI.InGame.DestroyedBuildingSection+Status status { private get; private set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.UI.InGame.DestroyedBuildingSection+Status status { private get; private set; }
-</code></pre>
-<ul>
-<li><code>protected System.Boolean displayForDestroyedObjects { protected get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected System.Boolean displayForDestroyedObjects { protected get; }
-</code></pre>
-<ul>
-<li><code>protected System.Boolean displayForUpgrades { protected get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected System.Boolean displayForUpgrades { protected get; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public DestroyedBuildingSection()</code>  </li>
+<li><code>public DestroyedBuildingSection()</code><br />
+Default constructor. The class lifecycle relies on OnCreate to initialize systems and bindings; constructor is empty except for the [Preserve] attribute in the source (ensures it isn't stripped).</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public DestroyedBuildingSection()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
+<li><code>protected override void OnCreate()</code><br />
+Initializes internal system references (ToolSystem, DefaultToolSystem, UpgradeToolSystem), subscribes to ToolSystem.EventToolChanged, constructs EntityQuery instances (m_FireStationQuery, m_ServiceDispatchQuery), and adds UI bindings:</li>
+<li>TriggerBinding("toggleRebuild", OnToggleRebuild)</li>
+<li>
+<p>ValueBinding<bool>("rebuilding", initialValue: false)
+This method wires up the section to react to tool changes and to allow the user to toggle rebuild mode.</p>
+</li>
+<li>
+<p><code>protected override void OnDestroy()</code><br />
+Unsubscribes the OnToolChanged callback from ToolSystem.EventToolChanged and calls base.OnDestroy. Ensures no stale event subscriptions remain.</p>
+</li>
+<li>
+<p><code>private void OnToolChanged(ToolBaseSystem tool)</code><br />
+Event handler for tool changes. Updates m_Rebuilding binding to true when the active tool is the UpgradeToolSystem, false otherwise. Keeps UI toggle in sync with the actual active tool.</p>
+</li>
+<li>
+<p><code>private void OnToggleRebuild()</code><br />
+Called by the UI trigger binding to toggle rebuild mode:</p>
+</li>
+<li>If the active tool is already the UpgradeToolSystem, switch back to DefaultToolSystem.</li>
+<li>
+<p>Otherwise clear m_UpgradeToolSystem.prefab and set the active tool to the UpgradeToolSystem (enter rebuild mode).
+This method centralizes the logic for entering/exiting rebuild tool mode.</p>
+</li>
+<li>
+<p><code>protected override void Reset()</code><br />
+Resets internal state when the section is reset (e.g., when selection changes). Sets destroyer to Entity.Null, status to None, cleared to false and progress to 0.</p>
+</li>
+<li>
+<p><code>private bool Visible()</code><br />
+Determines whether the UI section should be visible for the currently selected entity. Checks:</p>
+</li>
+<li>base.Destroyed flag true</li>
+<li>selectedEntity has Building component</li>
+<li>either no Owner component or ServiceUpgrade component exists</li>
+<li>
+<p>special-case for SpawnableBuildingData vs PlacedSignatureBuildingData: if spawnable and not placed-signature, only show if Attached component exists
+Returns true if all conditions satisfied.</p>
+</li>
+<li>
+<p><code>protected override void OnUpdate()</code><br />
+Sets base.visible using Visible(). Called each frame/update to determine UI visibility.</p>
+</li>
+<li>
+<p><code>protected override void OnProcess()</code><br />
+Main per-frame/process logic for the section. Steps:</p>
+</li>
+<li>Reads Destroyed component for selectedEntity to get clearing progress and event PrefabRef.</li>
+<li>Sets destroyer from the event's PrefabRef (if present).</li>
+<li>Computes progress and cleared flag.</li>
+<li>If not cleared:<ul>
+<li>Queries fire station prefabs (m_FireStationQuery) and checks whether any have disaster response capacity &gt; 0.</li>
+<li>If none, sets status = NoService.</li>
+<li>Otherwise enumerates service-dispatch vehicles (m_ServiceDispatchQuery), reads their ServiceDispatch buffers and inspects referenced requests for FireRescueRequest of type Disaster targeting selectedEntity; uses VehicleAtTarget to check vehicle state (e.g., Rescueing flag). If a matching dispatch is found, sets status = Searching.</li>
+<li>If no conditions matched, sets status = Waiting.</li>
+<li>Disposes temporary NativeArray results from queries.</li>
 </ul>
+</li>
+<li>If cleared, sets status = Rebuild.</li>
+<li>Adds the status.ToString() to base.tooltipKeys (for localized tooltip) when status != None.</li>
+<li>Adds TooltipTags.Destroyed to m_InfoUISystem.tooltipTags.
+Notes:</li>
+<li>Temporary NativeArray allocations are used; they are disposed at the end of the check.</li>
+<li>
+<p>The method relies on component reads and TryGetComponent calls that may fail; it guards appropriately.</p>
+</li>
+<li>
+<p><code>private bool VehicleAtTarget(Entity vehicle)</code><br />
+Utility to determine if a vehicle is currently at the target and performing a rescue: tries to get the FireEngine component and checks the Rescueing flag in its state. Returns true when the vehicle is in the Rescueing state.</p>
+</li>
+<li>
+<p><code>public override void OnWriteProperties(IJsonWriter writer)</code><br />
+Serializes UI-visible properties to JSON for the UI:</p>
+</li>
+<li>"destroyer": writes the destroyer prefab name (via PrefabSystem.GetPrefab) or null if Entity.Null</li>
+<li>"progress": writes progress * 100 (percentage)</li>
+<li>"cleared": writes cleared boolean</li>
+<li>"status": writes status.ToString()
+Used by the UI system to obtain JSON properties for client-side widgets or external inspection.</li>
+</ul>
+<h2 id="usage-example">Usage Example</h2>
 <pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_ToolSystem = base.World.GetOrCreateSystemManaged&lt;ToolSystem&gt;();
-        m_DefaultToolSystem = base.World.GetOrCreateSystemManaged&lt;DefaultToolSystem&gt;();
-        m_UpgradeToolSystem = base.World.GetOrCreateSystemManaged&lt;UpgradeToolSystem&gt;();
-        ToolSystem toolSystem = m_ToolSystem;
-        toolSystem.EventToolChanged = (Action&lt;ToolBaseSystem&gt;)Delegate.Combine(toolSystem.EventToolChanged, new Action&lt;ToolBaseSystem&gt;(OnToolChanged));
-        m_FireStationQuery = GetEntityQuery(ComponentType.ReadOnly&lt;Building&gt;(), ComponentType.ReadOnly&lt;Game.Buildings.FireStation&gt;(), ComponentType.ReadOnly&lt;PrefabRef&gt;(), ComponentType.Exclude&lt;Temp&gt;(), ComponentType.Exclude&lt;Deleted&gt;());
-        m_ServiceDispatchQuery = GetEntityQuery(ComponentType.ReadOnly&lt;Vehicle&gt;(), ComponentType.ReadOnly&lt;ServiceDispatch&gt;(), ComponentType.Exclude&lt;Deleted&gt;(), ComponentType.Exclude&lt;Temp&gt;());
-        AddBinding(new TriggerBinding(group, &quot;toggleRebuild&quot;, OnToggleRebuild));
-        AddBinding(m_Rebuilding = new ValueBinding&lt;bool&gt;(group, &quot;rebuilding&quot;, initialValue: false));
-    }
+protected override void OnCreate()
+{
+    base.OnCreate();
+    m_ToolSystem = base.World.GetOrCreateSystemManaged&lt;ToolSystem&gt;();
+    m_DefaultToolSystem = base.World.GetOrCreateSystemManaged&lt;DefaultToolSystem&gt;();
+    m_UpgradeToolSystem = base.World.GetOrCreateSystemManaged&lt;UpgradeToolSystem&gt;();
+
+    // Subscribe to tool changes so the UI toggle stays in sync
+    m_ToolSystem.EventToolChanged = (Action&lt;ToolBaseSystem&gt;)Delegate.Combine(
+        m_ToolSystem.EventToolChanged,
+        new Action&lt;ToolBaseSystem&gt;(OnToolChanged));
+
+    // Create queries to check for fire stations and service dispatch vehicles
+    m_FireStationQuery = GetEntityQuery(
+        ComponentType.ReadOnly&lt;Building&gt;(),
+        ComponentType.ReadOnly&lt;Game.Buildings.FireStation&gt;(),
+        ComponentType.ReadOnly&lt;PrefabRef&gt;(),
+        ComponentType.Exclude&lt;Temp&gt;(),
+        ComponentType.Exclude&lt;Deleted&gt;());
+
+    m_ServiceDispatchQuery = GetEntityQuery(
+        ComponentType.ReadOnly&lt;Vehicle&gt;(),
+        ComponentType.ReadOnly&lt;ServiceDispatch&gt;(),
+        ComponentType.Exclude&lt;Deleted&gt;(),
+        ComponentType.Exclude&lt;Temp&gt;());
+
+    // Bind the UI toggle and rebuilding flag
+    AddBinding(new TriggerBinding(group, &quot;toggleRebuild&quot;, OnToggleRebuild));
+    AddBinding(m_Rebuilding = new ValueBinding&lt;bool&gt;(group, &quot;rebuilding&quot;, initialValue: false));
+}
 </code></pre>
-<ul>
-<li><code>protected virtual OnDestroy() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnDestroy()
-    {
-        ToolSystem toolSystem = m_ToolSystem;
-        toolSystem.EventToolChanged = (Action&lt;ToolBaseSystem&gt;)Delegate.Remove(toolSystem.EventToolChanged, new Action&lt;ToolBaseSystem&gt;(OnToolChanged));
-        base.OnDestroy();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnProcess() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnProcess()
-    {
-        Destroyed componentData = base.EntityManager.GetComponentData&lt;Destroyed&gt;(selectedEntity);
-        base.EntityManager.TryGetComponent&lt;PrefabRef&gt;(componentData.m_Event, out var component);
-        destroyer = component.m_Prefab;
-        progress = math.max(0f, componentData.m_Cleared);
-        cleared = progress &gt;= 1f;
-        if (!cleared)
-        {
-            NativeArray&lt;PrefabRef&gt; nativeArray = m_FireStationQuery.ToComponentDataArray&lt;PrefabRef&gt;(Allocator.TempJob);
-            NativeArray&lt;Entity&gt; nativeArray2 = m_ServiceDispatchQuery.ToEntityArray(Allocator.TempJob);
-            bool flag = false;
-            for (int i = 0; i &lt; nativeArray.Length; i++)
-            {
-                if (base.EntityManager.TryGetComponent&lt;FireStationData&gt;(nativeArray[i].m_Prefab, out var component2) &amp;&amp; component2.m_DisasterResponseCapacity &gt; 0)
-                {
-                    flag = true;
-                    break;
-                }
-            }
-            if (!flag)
-            {
-                status = Status.NoService;
-            }
-            else
-            {
-                for (int j = 0; j &lt; nativeArray2.Length; j++)
-                {
-                    DynamicBuffer&lt;ServiceDispatch&gt; buffer = base.EntityManager.GetBuffer&lt;ServiceDispatch&gt;(nativeArray2[j], isReadOnly: true);
-                    for (int k = 0; k &lt; buffer.Length; k++)
-                    {
-                        if (base.EntityManager.TryGetComponent&lt;FireRescueRequest&gt;(buffer[k].m_Request, out var component3) &amp;&amp; component3.m_Type == FireRescueRequestType.Disaster &amp;&amp; component3.m_Target == selectedEntity &amp;&amp; VehicleAtTarget(nativeArray2[j]))
-                        {
-                            status = Status.Searching;
-                            break;
-                        }
-                    }
-                }
-            }
-            if (status == Status.None)
-            {
-                status = Status.Waiting;
-            }
-            nativeArray.Dispose();
-            nativeArray2.Dispose();
-        }
-        else
-        {
-            status = Status.Rebuild;
-        }
-        if (status != Status.None)
-        {
-            base.tooltipKeys.Add(status.ToString());
-        }
-        m_InfoUISystem.tooltipTags.Add(TooltipTags.Destroyed);
-    }
-</code></pre>
-<ul>
-<li><code>private OnToggleRebuild() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void OnToggleRebuild()
-    {
-        if (m_ToolSystem.activeTool == m_UpgradeToolSystem)
-        {
-            m_ToolSystem.activeTool = m_DefaultToolSystem;
-            return;
-        }
-        m_UpgradeToolSystem.prefab = null;
-        m_ToolSystem.activeTool = m_UpgradeToolSystem;
-    }
-</code></pre>
-<ul>
-<li><code>private OnToolChanged(Game.Tools.ToolBaseSystem tool) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void OnToolChanged(ToolBaseSystem tool)
-    {
-        m_Rebuilding.Update(tool == m_UpgradeToolSystem);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        base.visible = Visible();
-    }
-</code></pre>
-<ul>
-<li><code>public virtual OnWriteProperties(Colossal.UI.Binding.IJsonWriter writer) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override void OnWriteProperties(IJsonWriter writer)
-    {
-        writer.PropertyName(&quot;destroyer&quot;);
-        if (destroyer != Entity.Null)
-        {
-            PrefabBase prefab = m_PrefabSystem.GetPrefab&lt;PrefabBase&gt;(destroyer);
-            writer.Write(prefab.name);
-        }
-        else
-        {
-            writer.WriteNull();
-        }
-        writer.PropertyName(&quot;progress&quot;);
-        writer.Write(progress * 100f);
-        writer.PropertyName(&quot;cleared&quot;);
-        writer.Write(cleared);
-        writer.PropertyName(&quot;status&quot;);
-        writer.Write(status.ToString());
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual Reset() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void Reset()
-    {
-        destroyer = Entity.Null;
-        status = Status.None;
-        cleared = false;
-        progress = 0f;
-    }
-</code></pre>
-<ul>
-<li><code>private VehicleAtTarget(Unity.Entities.Entity vehicle) : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">private bool VehicleAtTarget(Entity vehicle)
-    {
-        if (base.EntityManager.TryGetComponent&lt;Game.Vehicles.FireEngine&gt;(vehicle, out var component))
-        {
-            return (component.m_State &amp; FireEngineFlags.Rescueing) != 0;
-        }
-        return false;
-    }
-</code></pre>
-<ul>
-<li><code>private Visible() : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">private bool Visible()
-    {
-        if (base.Destroyed &amp;&amp; base.EntityManager.HasComponent&lt;Building&gt;(selectedEntity) &amp;&amp; (!base.EntityManager.HasComponent&lt;Owner&gt;(selectedEntity) || base.EntityManager.HasComponent&lt;Game.Buildings.ServiceUpgrade&gt;(selectedEntity)))
-        {
-            if (base.EntityManager.HasComponent&lt;SpawnableBuildingData&gt;(selectedPrefab) &amp;&amp; !base.EntityManager.HasComponent&lt;PlacedSignatureBuildingData&gt;(selectedPrefab))
-            {
-                return base.EntityManager.HasComponent&lt;Attached&gt;(selectedEntity);
-            }
-            return true;
-        }
-        return false;
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.UI.InGame.DestroyedBuildingSection+Status</code>  </li>
-</ul>
+<p>Additional notes and tips:
+- The class uses ECS patterns (EntityQuery, component buffers, TryGetComponent), so ensure calls are made on the correct thread/context the entity world expects.
+- Temporary NativeArray allocations (ToComponentDataArray / ToEntityArray) are created per-process and must be disposed to avoid leaks — the code disposes them after use.
+- The status enum values correspond to localized tooltip keys used by base.tooltipKeys; if adding new statuses, ensure localization entries exist.
+- OnToggleRebuild clears m_UpgradeToolSystem.prefab before activating the upgrade tool; this ensures the user must pick a prefab to rebuild rather than reusing a stale selection.</p>
 
 
 

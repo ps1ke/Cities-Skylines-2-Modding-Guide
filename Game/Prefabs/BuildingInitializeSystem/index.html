@@ -36985,18 +36985,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -37024,6 +37024,15 @@
   <a href="#nested-types" class="md-nav__link">
     <span class="md-ellipsis">
       Nested types
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
     </span>
   </a>
   
@@ -65320,6 +65329,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69751,6 +69783,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72563,6 +72618,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75553,6 +75631,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87145,6 +87246,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -117921,6 +118045,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117948,18 +118094,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -117992,6 +118138,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -118009,696 +118164,155 @@
 
 
 <h1 id="gameprefabsbuildinginitializesystem">Game.Prefabs.BuildingInitializeSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Prefabs</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class BuildingInitializeSystem : Game.GameSystemBase
-{
-    private Unity.Entities.EntityQuery m_PrefabQuery;
-    private Unity.Entities.EntityQuery m_ConfigurationQuery;
-    private Game.Prefabs.PrefabSystem m_PrefabSystem;
-    private Game.Prefabs.BuildingInitializeSystem+TypeHandle __TypeHandle;
-    private Unity.Entities.EntityQuery __query_547773813_0;
-    private static Colossal.Logging.ILog log;
-
-    public BuildingInitializeSystem();
-
-    private System.Void __AssignQueries(Unity.Entities.SystemState&amp; state);
-    private System.Void InitializeLotSize(Game.Prefabs.BuildingPrefab buildingPrefab, Game.Prefabs.BuildingTerraformOverride terraformOverride, Game.Prefabs.ObjectGeometryData&amp; objectGeometryData, Game.Prefabs.BuildingTerraformData&amp; buildingTerraformData, Game.Prefabs.BuildingData&amp; buildingData);
-    public static System.Void InitializeTerraformData(Game.Prefabs.BuildingTerraformOverride terraformOverride, Game.Prefabs.BuildingTerraformData&amp; buildingTerraformData, Colossal.Mathematics.Bounds2 lotBounds, Colossal.Mathematics.Bounds2 flatBounds);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnCreateForCompiler();
-    protected virtual System.Void OnUpdate();
-}
-</code></pre>
+<p><strong>Assembly:</strong><br />
+Game (simulation/prefab systems)</p>
+<p><strong>Namespace:</strong><br />
+Game.Prefabs</p>
+<p><strong>Type:</strong><br />
+class</p>
+<p><strong>Base:</strong><br />
+GameSystemBase</p>
+<p><strong>Summary:</strong><br />
+Initializes building- and placeable-object prefabs when they are created. This ECS system configures geometry &amp; lot sizes, terraform data, placement flags, service upkeep/upgrade relations and zone constraints, and schedules a parallel job that determines network/power/water/sewage connection requirements and generates procedural effects (collapse/fire SFX/VFX) for building prefabs. It runs during prefab creation and is responsible for a large portion of prefab preprocessing needed by the simulation (lot bounds, access flags, LOD, upkeep, service upgrade wiring, and effect buffers).</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Unity.Entities.EntityQuery m_PrefabQuery</code>  </li>
+<li>
+<p><code>private static ILog log</code><br />
+Used for logging warnings and diagnostics during prefab initialization (e.g., geometry vs lot size warnings, monetary upkeep warnings).</p>
+</li>
+<li>
+<p><code>private EntityQuery m_PrefabQuery</code><br />
+EntityQuery that matches created Prefab entities that need initialization (buildings, extensions, service upgrades, spawnable buildings, etc.). Required for the system to run.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_ConfigurationQuery</code><br />
+EntityQuery used to retrieve BuildingConfigurationData (singleton) used by connection/effect logic.</p>
+</li>
+<li>
+<p><code>private PrefabSystem m_PrefabSystem</code><br />
+Reference to the game's PrefabSystem used to fetch typed prefabs (BuildingPrefab, BuildingExtensionPrefab, etc.) during initialization.</p>
+</li>
+<li>
+<p><code>private TypeHandle __TypeHandle</code><br />
+Internal structure holding ComponentTypeHandle/BufferTypeHandle/ComponentLookup instances used to access chunk data efficiently. Assigned in OnCreateForCompiler.</p>
+</li>
+<li>
+<p><code>private EntityQuery __query_547773813_0</code><br />
+Internal query used to access EconomyParameterData (used when computing upkeep/maintenance costs).</p>
+</li>
+<li>
+<p>(Nested) <code>FindConnectionRequirementsJob</code> (Burst-compiled struct implementing IJobParallelFor)<br />
+A parallel job that inspects chunks of prefab entities to:</p>
+</li>
+<li>compute required network/water/power/sewage layers,</li>
+<li>set BuildingFlags (RequireRoad, HasWaterNode, HasSewageNode, HasLowVoltageNode, colorize lot, access flags, restricted traffic flags),</li>
+<li>examine sub-meshes and effects to add procedural collapse and fire SFX/VFX effects based on building geometry and configuration,</li>
+<li>
+<p>combine effects to generate looping/spot audio and VFX where needed.
+  This job uses many ComponentTypeHandles, BufferLookups and a RandomSeed and operates over the archetype chunk array created in OnUpdate.</p>
+</li>
+<li>
+<p>(Nested) <code>TypeHandle</code> (struct)<br />
+Holds the ComponentTypeHandle/BufferTypeHandle and ComponentLookup instances that GetComponent/GetBuffer logic uses; it exposes __AssignHandles to bind the handles to a SystemState.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_PrefabQuery;
-</code></pre>
+<hr />
+<h2 id="properties">Properties</h2>
 <ul>
-<li><code>private Unity.Entities.EntityQuery m_ConfigurationQuery</code>  </li>
+<li>None (no public properties on the system itself).<br />
+  Note: the nested TypeHandle and the job have many component handles/lookups used internally.</li>
 </ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_ConfigurationQuery;
-</code></pre>
-<ul>
-<li><code>private Game.Prefabs.PrefabSystem m_PrefabSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Prefabs.PrefabSystem m_PrefabSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Prefabs.BuildingInitializeSystem+TypeHandle __TypeHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Prefabs.BuildingInitializeSystem+TypeHandle __TypeHandle;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery __query_547773813_0</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery __query_547773813_0;
-</code></pre>
-<ul>
-<li><code>private static Colossal.Logging.ILog log</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static Colossal.Logging.ILog log;
-</code></pre>
+<hr />
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public BuildingInitializeSystem()</code>  </li>
+<li><code>public BuildingInitializeSystem()</code><br />
+Default (preserved) constructor. The system is constructed by the world; initialization of handles/queries happens in OnCreate/OnCreateForCompiler.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public BuildingInitializeSystem()
-    {
-    }
-</code></pre>
+<hr />
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private __AssignQueries(Unity.Entities.SystemState&amp; state) : System.Void</code>  </li>
+<li><code>protected override void OnCreate()</code><br />
+Initial setup executed when the system is created:</li>
+<li>Initializes the logger,</li>
+<li>obtains PrefabSystem from World,</li>
+<li>creates m_PrefabQuery (matches Created + PrefabData and any of building/extension/serviceupgrade/spawnable building components) and m_ConfigurationQuery (BuildingConfigurationData),</li>
+<li>
+<p>calls RequireForUpdate(m_PrefabQuery) so the system runs only when prefabs are present.</p>
+</li>
+<li>
+<p><code>protected override void OnUpdate()</code><br />
+Main method executed when the system updates:</p>
+</li>
+<li>Creates an EntityCommandBuffer for deferred shared-component/other changes,</li>
+<li>Converts m_PrefabQuery to an array of archetype chunks and completes dependencies,</li>
+<li>Iterates chunks and for each chunk:<ul>
+<li>if chunk is a Deleted (service upgrade deletion): removes upgrade references from associated buildings,</li>
+<li>otherwise reads/writes various component arrays (PrefabData, ObjectGeometryData, BuildingData, BuildingExtensionData, ConsumptionData, PlaceableObjectData, ServiceUpgradeData, BuildingPropertyData, ServiceUpkeep buffers, etc.),</li>
+<li>calls InitializeLotSize for buildings and performs object geometry/lot size adjustments for building extensions and placeables,</li>
+<li>adjusts placement flags (RoadSide/OwnerSide/NetObject/shoreline) and building flags (CanBeOnRoad),</li>
+<li>registers upgrades into BuildingUpgradeElement buffers,</li>
+<li>computes upkeep and adds ServiceUpkeep entries if needed, possibly logging warnings,</li>
 </ul>
-<pre><code class="language-csharp">private void __AssignQueries(ref SystemState state)
-    {
-        EntityQueryBuilder entityQueryBuilder = new EntityQueryBuilder(Allocator.Temp);
-        EntityQueryBuilder entityQueryBuilder2 = entityQueryBuilder.WithAll&lt;EconomyParameterData&gt;();
-        entityQueryBuilder2 = entityQueryBuilder2.WithOptions(EntityQueryOptions.IncludeSystems);
-        __query_547773813_0 = entityQueryBuilder2.Build(ref state);
-        entityQueryBuilder.Reset();
-        entityQueryBuilder.Dispose();
-    }
-</code></pre>
-<ul>
-<li><code>private InitializeLotSize(Game.Prefabs.BuildingPrefab buildingPrefab, Game.Prefabs.BuildingTerraformOverride terraformOverride, Game.Prefabs.ObjectGeometryData&amp; objectGeometryData, Game.Prefabs.BuildingTerraformData&amp; buildingTerraformData, Game.Prefabs.BuildingData&amp; buildingData) : System.Void</code>  </li>
+</li>
+<li>Schedules the Burst-compiled FindConnectionRequirementsJob over the same chunk array to set connection flags and procedural effects, then waits for completion,</li>
+<li>
+<p>Plays back the EntityCommandBuffer and disposes resources.</p>
+</li>
+<li>
+<p><code>private void InitializeLotSize(BuildingPrefab buildingPrefab, BuildingTerraformOverride terraformOverride, ref ObjectGeometryData objectGeometryData, ref BuildingTerraformData buildingTerraformData, ref BuildingData buildingData)</code><br />
+Compute and set buildingData.m_LotSize based on prefab lot width/depth or standing-geometry leg sizes; compute lot bounds and call InitializeTerraformData; update objectGeometryData (size, bounds, LOD layers); set BuildingFlags for access type (LeftAccess/RightAccess/BackAccess) based on prefab.m_AccessType; warn via log if geometry doesn't fit lot when asset warnings are enabled.</p>
+</li>
+<li>
+<p><code>public static void InitializeTerraformData(BuildingTerraformOverride terraformOverride, ref BuildingTerraformData buildingTerraformData, Bounds2 lotBounds, Bounds2 flatBounds)</code><br />
+Static helper used to derive BuildingTerraformData (flat region &amp; smoothing) from given lot and flat bounds and optional override values. Applies level offsets, smoothing offsets and clamps computed flat extents into buildingTerraformData fields.</p>
+</li>
+<li>
+<p><code>private void __AssignQueries(ref SystemState state)</code><br />
+Internal method invoked by OnCreateForCompiler to build an internal query for EconomyParameterData (includes systems).</p>
+</li>
+<li>
+<p><code>protected override void OnCreateForCompiler()</code><br />
+Compiler-time helper that assigns internal queries and component handles by invoking __AssignQueries and TypeHandle.__AssignHandles.</p>
+</li>
+<li>
+<p>(Nested TypeHandle) <code>public void __AssignHandles(ref SystemState state)</code><br />
+Binds all ComponentTypeHandle/BufferTypeHandle/ComponentLookup fields in TypeHandle to an actual SystemState; called during system creation/compilation phase.</p>
+</li>
+<li>
+<p>(Nested FindConnectionRequirementsJob) <code>public void Execute(int index)</code><br />
+Job entry point that processes a single archetype chunk: sets building flags for roads/parking/track/power/water/sewage requirements based on ConsumptionData, WorkplaceData, special facility types (water pumping/station, transformer, parking, transport stations, parks), inspects SubNets to discover required net layers, marks nodes (HasLowVoltageNode/HasWaterNode/HasSewageNode), inspects SubMeshes + Effect buffers to add procedural collapse/fall VFX/SFX and fire effects (including combining close fire effects and adding loop/spot audio), and uses the BuildingConfigurationData and RandomSeed for procedural placement.</p>
+</li>
+<li>
+<p>(Nested FindConnectionRequirementsJob) helper methods:</p>
+</li>
+<li><code>private void AddFireSfxToBuilding(ref bool2 hasFireSfxEffects, DynamicBuffer&lt;Effect&gt; effects, float3 position, quaternion rotation, int parent)</code><br />
+    Adds fire loop/spot SFX effects to the effects buffer if not already present.</li>
+<li><code>private void CheckPropFlags(ref BuildingFlags flags, DynamicBuffer&lt;SubObject&gt; subObjects, int maxDepth = 10)</code><br />
+    Recursively inspects sub-objects (props) for spawn location data to determine properties such as HasInsideRoom and handles nested sub-object recursion (guarded by maxDepth).</li>
 </ul>
-<pre><code class="language-csharp">private void InitializeLotSize(BuildingPrefab buildingPrefab, BuildingTerraformOverride terraformOverride, ref ObjectGeometryData objectGeometryData, ref BuildingTerraformData buildingTerraformData, ref BuildingData buildingData)
-    {
-        buildingData.m_LotSize = new int2(buildingPrefab.m_LotWidth, buildingPrefab.m_LotDepth);
-        float2 @float = new float2(buildingPrefab.m_LotWidth, buildingPrefab.m_LotDepth);
-        @float *= 8f;
-        bool flag = false;
-        Bounds2 flatBounds;
-        if ((objectGeometryData.m_Flags &amp; Game.Objects.GeometryFlags.Standing) != Game.Objects.GeometryFlags.None)
-        {
-            int2 @int = default(int2);
-            @int.x = Mathf.RoundToInt((objectGeometryData.m_LegSize.x + objectGeometryData.m_LegOffset.x * 2f) / 8f);
-            @int.y = Mathf.RoundToInt((objectGeometryData.m_LegSize.z + objectGeometryData.m_LegOffset.y * 2f) / 8f);
-            flag = math.all(@int == buildingData.m_LotSize);
-            buildingData.m_LotSize = @int;
-            float2 xz = objectGeometryData.m_Pivot.xz;
-            float2 float2 = objectGeometryData.m_LegSize.xz * 0.5f + objectGeometryData.m_LegOffset;
-            flatBounds = new Bounds2(xz - float2, xz + float2);
-            objectGeometryData.m_LegSize.xz = (float2)@int * 8f - objectGeometryData.m_LegOffset * 2f - 0.4f;
-        }
-        else
-        {
-            flatBounds = objectGeometryData.m_Bounds.xz;
-        }
-        Bounds2 lotBounds = default(Bounds2);
-        lotBounds.max = (float2)buildingData.m_LotSize * 4f;
-        lotBounds.min = -lotBounds.max;
-        InitializeTerraformData(terraformOverride, ref buildingTerraformData, lotBounds, flatBounds);
-        objectGeometryData.m_Layers |= MeshLayer.Default;
-        objectGeometryData.m_MinLod = math.min(objectGeometryData.m_MinLod, RenderingUtils.CalculateLodLimit(RenderingUtils.GetRenderingSize(new float3(@float.x, 0f, @float.y))));
-        switch (buildingPrefab.m_AccessType)
-        {
-        case BuildingAccessType.LeftCorner:
-            buildingData.m_Flags |= BuildingFlags.LeftAccess;
-            break;
-        case BuildingAccessType.RightCorner:
-            buildingData.m_Flags |= BuildingFlags.RightAccess;
-            break;
-        case BuildingAccessType.LeftAndRightCorner:
-            buildingData.m_Flags |= BuildingFlags.LeftAccess | BuildingFlags.RightAccess;
-            break;
-        case BuildingAccessType.LeftAndBackCorner:
-            buildingData.m_Flags |= BuildingFlags.LeftAccess | BuildingFlags.BackAccess;
-            break;
-        case BuildingAccessType.RightAndBackCorner:
-            buildingData.m_Flags |= BuildingFlags.RightAccess | BuildingFlags.BackAccess;
-            break;
-        case BuildingAccessType.FrontAndBack:
-            buildingData.m_Flags |= BuildingFlags.BackAccess;
-            break;
-        case BuildingAccessType.All:
-            buildingData.m_Flags |= BuildingFlags.LeftAccess | BuildingFlags.RightAccess | BuildingFlags.BackAccess;
-            break;
-        }
-        if (!flag)
-        {
-            if (math.any(objectGeometryData.m_Size.xz &gt; @float + 0.5f) &amp;&amp; AssetDatabase.global.AreAssetsWarningsEnabled(buildingPrefab.asset))
-            {
-                log.WarnFormat(&quot;Building geometry doesn't fit inside the lot ({0}): {1}m x {2}m ({3}x{4})&quot;, buildingPrefab.name, objectGeometryData.m_Size.x, objectGeometryData.m_Size.z, buildingData.m_LotSize.x, buildingData.m_LotSize.y);
-            }
-            @float -= 0.4f;
-            objectGeometryData.m_Size.xz = @float;
-            objectGeometryData.m_Bounds.min.xz = @float * -0.5f;
-            objectGeometryData.m_Bounds.max.xz = @float * 0.5f;
-        }
-        objectGeometryData.m_Size.y = math.max(objectGeometryData.m_Size.y, 5f);
-        objectGeometryData.m_Bounds.min.y = math.min(objectGeometryData.m_Bounds.min.y, 0f);
-        objectGeometryData.m_Bounds.max.y = math.max(objectGeometryData.m_Bounds.max.y, 5f);
-    }
-</code></pre>
-<ul>
-<li><code>public static InitializeTerraformData(Game.Prefabs.BuildingTerraformOverride terraformOverride, Game.Prefabs.BuildingTerraformData&amp; buildingTerraformData, Colossal.Mathematics.Bounds2 lotBounds, Colossal.Mathematics.Bounds2 flatBounds) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static void InitializeTerraformData(BuildingTerraformOverride terraformOverride, ref BuildingTerraformData buildingTerraformData, Bounds2 lotBounds, Bounds2 flatBounds)
-    {
-        float3 @float = new float3(1f, 0f, 1f);
-        float3 float2 = new float3(1f, 0f, 1f);
-        float3 float3 = new float3(1f, 0f, 1f);
-        float3 float4 = new float3(1f, 0f, 1f);
-        buildingTerraformData.m_Smooth.xy = lotBounds.min;
-        buildingTerraformData.m_Smooth.zw = lotBounds.max;
-        if (terraformOverride != null)
-        {
-            flatBounds.min += terraformOverride.m_LevelMinOffset;
-            flatBounds.max += terraformOverride.m_LevelMaxOffset;
-            @float.x = terraformOverride.m_LevelBackRight.x;
-            @float.z = terraformOverride.m_LevelFrontRight.x;
-            float2.x = terraformOverride.m_LevelBackRight.y;
-            float2.z = terraformOverride.m_LevelBackLeft.y;
-            float3.x = terraformOverride.m_LevelBackLeft.x;
-            float3.z = terraformOverride.m_LevelFrontLeft.x;
-            float4.x = terraformOverride.m_LevelFrontRight.y;
-            float4.z = terraformOverride.m_LevelFrontLeft.y;
-            buildingTerraformData.m_Smooth.xy += terraformOverride.m_SmoothMinOffset;
-            buildingTerraformData.m_Smooth.zw += terraformOverride.m_SmoothMaxOffset;
-            buildingTerraformData.m_HeightOffset = terraformOverride.m_HeightOffset;
-            buildingTerraformData.m_DontRaise = terraformOverride.m_DontRaise;
-            buildingTerraformData.m_DontLower = terraformOverride.m_DontLower;
-        }
-        float3 float5 = flatBounds.min.x + @float;
-        float3 float6 = flatBounds.min.y + float2;
-        float3 float7 = flatBounds.max.x - float3;
-        float3 float8 = flatBounds.max.y - float4;
-        float3 x = (float5 + float7) * 0.5f;
-        float3 x2 = (float6 + float8) * 0.5f;
-        buildingTerraformData.m_FlatX0 = math.min(float5, math.max(x, float7));
-        buildingTerraformData.m_FlatZ0 = math.min(float6, math.max(x2, float8));
-        buildingTerraformData.m_FlatX1 = math.max(float7, math.min(x, float5));
-        buildingTerraformData.m_FlatZ1 = math.max(float8, math.min(x2, float6));
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        log = LogManager.GetLogger(&quot;Simulation&quot;);
-        base.OnCreate();
-        m_PrefabSystem = base.World.GetOrCreateSystemManaged&lt;PrefabSystem&gt;();
-        m_PrefabQuery = GetEntityQuery(new EntityQueryDesc
-        {
-            All = new ComponentType[2]
-            {
-                ComponentType.ReadOnly&lt;Created&gt;(),
-                ComponentType.ReadOnly&lt;PrefabData&gt;()
-            },
-            Any = new ComponentType[4]
-            {
-                ComponentType.ReadWrite&lt;BuildingData&gt;(),
-                ComponentType.ReadWrite&lt;BuildingExtensionData&gt;(),
-                ComponentType.ReadWrite&lt;ServiceUpgradeData&gt;(),
-                ComponentType.ReadWrite&lt;SpawnableBuildingData&gt;()
-            }
-        }, new EntityQueryDesc
-        {
-            All = new ComponentType[3]
-            {
-                ComponentType.ReadOnly&lt;Deleted&gt;(),
-                ComponentType.ReadOnly&lt;PrefabData&gt;(),
-                ComponentType.ReadWrite&lt;ServiceUpgradeData&gt;()
-            }
-        });
-        m_ConfigurationQuery = GetEntityQuery(ComponentType.ReadOnly&lt;BuildingConfigurationData&gt;());
-        RequireForUpdate(m_PrefabQuery);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreateForCompiler() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnCreateForCompiler()
-    {
-        base.OnCreateForCompiler();
-        __AssignQueries(ref base.CheckedStateRef);
-        __TypeHandle.__AssignHandles(ref base.CheckedStateRef);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        EntityCommandBuffer entityCommandBuffer = new EntityCommandBuffer(Allocator.TempJob, PlaybackPolicy.SinglePlayback);
-        NativeArray&lt;ArchetypeChunk&gt; chunks = m_PrefabQuery.ToArchetypeChunkArray(Allocator.TempJob);
-        EntityTypeHandle entityTypeHandle = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef);
-        ComponentTypeHandle&lt;Deleted&gt; typeHandle = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Common_Deleted_RO_ComponentTypeHandle, ref base.CheckedStateRef);
-        ComponentTypeHandle&lt;PrefabData&gt; typeHandle2 = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_PrefabData_RO_ComponentTypeHandle, ref base.CheckedStateRef);
-        ComponentTypeHandle&lt;BuildingData&gt; typeHandle3 = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_BuildingData_RW_ComponentTypeHandle, ref base.CheckedStateRef);
-        ComponentTypeHandle&lt;BuildingExtensionData&gt; typeHandle4 = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_BuildingExtensionData_RW_ComponentTypeHandle, ref base.CheckedStateRef);
-        ComponentTypeHandle&lt;BuildingTerraformData&gt; typeHandle5 = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_BuildingTerraformData_RW_ComponentTypeHandle, ref base.CheckedStateRef);
-        ComponentTypeHandle&lt;ConsumptionData&gt; typeHandle6 = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_ConsumptionData_RW_ComponentTypeHandle, ref base.CheckedStateRef);
-        ComponentTypeHandle&lt;ObjectGeometryData&gt; typeHandle7 = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_ObjectGeometryData_RW_ComponentTypeHandle, ref base.CheckedStateRef);
-        ComponentTypeHandle&lt;SpawnableBuildingData&gt; typeHandle8 = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_SpawnableBuildingData_RO_ComponentTypeHandle, ref base.CheckedStateRef);
-        ComponentTypeHandle&lt;SignatureBuildingData&gt; typeHandle9 = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_SignatureBuildingData_RO_ComponentTypeHandle, ref base.CheckedStateRef);
-        ComponentTypeHandle&lt;PlaceableObjectData&gt; typeHandle10 = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_PlaceableObjectData_RW_ComponentTypeHandle, ref base.CheckedStateRef);
-        ComponentTypeHandle&lt;ServiceUpgradeData&gt; typeHandle11 = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_ServiceUpgradeData_RO_ComponentTypeHandle, ref base.CheckedStateRef);
-        ComponentTypeHandle&lt;BuildingPropertyData&gt; typeHandle12 = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_BuildingPropertyData_RO_ComponentTypeHandle, ref base.CheckedStateRef);
-        ComponentTypeHandle&lt;WaterPoweredData&gt; typeHandle13 = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_WaterPoweredData_RO_ComponentTypeHandle, ref base.CheckedStateRef);
-        ComponentTypeHandle&lt;SewageOutletData&gt; typeHandle14 = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_SewageOutletData_RO_ComponentTypeHandle, ref base.CheckedStateRef);
-        BufferTypeHandle&lt;ServiceUpgradeBuilding&gt; bufferTypeHandle = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Prefabs_ServiceUpgradeBuilding_RO_BufferTypeHandle, ref base.CheckedStateRef);
-        ComponentTypeHandle&lt;CollectedServiceBuildingBudgetData&gt; typeHandle15 = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Simulation_CollectedServiceBuildingBudgetData_RO_ComponentTypeHandle, ref base.CheckedStateRef);
-        BufferTypeHandle&lt;ServiceUpkeepData&gt; bufferTypeHandle2 = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Prefabs_ServiceUpkeepData_RW_BufferTypeHandle, ref base.CheckedStateRef);
-        ComponentLookup&lt;ZoneData&gt; componentLookup = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_ZoneData_RW_ComponentLookup, ref base.CheckedStateRef);
-        ComponentLookup&lt;ZoneServiceConsumptionData&gt; componentLookup2 = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_ZoneServiceConsumptionData_RO_ComponentLookup, ref base.CheckedStateRef);
-        CompleteDependency();
-        for (int i = 0; i &lt; chunks.Length; i++)
-        {
-            ArchetypeChunk archetypeChunk = chunks[i];
-            NativeArray&lt;Entity&gt; nativeArray = archetypeChunk.GetNativeArray(entityTypeHandle);
-            BufferAccessor&lt;ServiceUpgradeBuilding&gt; bufferAccessor = archetypeChunk.GetBufferAccessor(ref bufferTypeHandle);
-            if (archetypeChunk.Has(ref typeHandle))
-            {
-                if (bufferAccessor.Length == 0)
-                {
-                    continue;
-                }
-                for (int j = 0; j &lt; bufferAccessor.Length; j++)
-                {
-                    Entity upgrade = nativeArray[j];
-                    DynamicBuffer&lt;ServiceUpgradeBuilding&gt; dynamicBuffer = bufferAccessor[j];
-                    for (int k = 0; k &lt; dynamicBuffer.Length; k++)
-                    {
-                        ServiceUpgradeBuilding serviceUpgradeBuilding = dynamicBuffer[k];
-                        CollectionUtils.RemoveValue(base.EntityManager.GetBuffer&lt;BuildingUpgradeElement&gt;(serviceUpgradeBuilding.m_Building), new BuildingUpgradeElement(upgrade));
-                    }
-                }
-                continue;
-            }
-            NativeArray&lt;PrefabData&gt; nativeArray2 = archetypeChunk.GetNativeArray(ref typeHandle2);
-            NativeArray&lt;ObjectGeometryData&gt; nativeArray3 = archetypeChunk.GetNativeArray(ref typeHandle7);
-            NativeArray&lt;BuildingData&gt; nativeArray4 = archetypeChunk.GetNativeArray(ref typeHandle3);
-            NativeArray&lt;BuildingExtensionData&gt; nativeArray5 = archetypeChunk.GetNativeArray(ref typeHandle4);
-            NativeArray&lt;ConsumptionData&gt; nativeArray6 = archetypeChunk.GetNativeArray(ref typeHandle6);
-            NativeArray&lt;SpawnableBuildingData&gt; nativeArray7 = archetypeChunk.GetNativeArray(ref typeHandle8);
-            NativeArray&lt;PlaceableObjectData&gt; nativeArray8 = archetypeChunk.GetNativeArray(ref typeHandle10);
-            NativeArray&lt;ServiceUpgradeData&gt; nativeArray9 = archetypeChunk.GetNativeArray(ref typeHandle11);
-            NativeArray&lt;BuildingPropertyData&gt; nativeArray10 = archetypeChunk.GetNativeArray(ref typeHandle12);
-            BufferAccessor&lt;ServiceUpkeepData&gt; bufferAccessor2 = archetypeChunk.GetBufferAccessor(ref bufferTypeHandle2);
-            bool flag = archetypeChunk.Has(ref typeHandle15);
-            bool flag2 = archetypeChunk.Has(ref typeHandle9);
-            bool flag3 = archetypeChunk.Has(ref typeHandle13);
-            bool flag4 = archetypeChunk.Has(ref typeHandle14);
-            if (nativeArray4.Length != 0)
-            {
-                NativeArray&lt;BuildingTerraformData&gt; nativeArray11 = archetypeChunk.GetNativeArray(ref typeHandle5);
-                for (int l = 0; l &lt; nativeArray4.Length; l++)
-                {
-                    BuildingPrefab prefab = m_PrefabSystem.GetPrefab&lt;BuildingPrefab&gt;(nativeArray2[l]);
-                    BuildingTerraformOverride component = prefab.GetComponent&lt;BuildingTerraformOverride&gt;();
-                    ObjectGeometryData objectGeometryData = nativeArray3[l];
-                    BuildingTerraformData buildingTerraformData = nativeArray11[l];
-                    BuildingData buildingData = nativeArray4[l];
-                    InitializeLotSize(prefab, component, ref objectGeometryData, ref buildingTerraformData, ref buildingData);
-                    if (nativeArray7.Length != 0 &amp;&amp; !flag2)
-                    {
-                        objectGeometryData.m_Flags |= Game.Objects.GeometryFlags.DeleteOverridden;
-                    }
-                    else
-                    {
-                        objectGeometryData.m_Flags &amp;= ~Game.Objects.GeometryFlags.Overridable;
-                        objectGeometryData.m_Flags |= Game.Objects.GeometryFlags.OverrideZone;
-                    }
-                    if (flag3)
-                    {
-                        objectGeometryData.m_Flags |= Game.Objects.GeometryFlags.CanSubmerge;
-                    }
-                    else if (flag4 &amp;&amp; prefab.GetComponent&lt;SewageOutlet&gt;().m_AllowSubmerged)
-                    {
-                        objectGeometryData.m_Flags |= Game.Objects.GeometryFlags.CanSubmerge;
-                    }
-                    objectGeometryData.m_Flags &amp;= ~Game.Objects.GeometryFlags.Brushable;
-                    objectGeometryData.m_Flags |= Game.Objects.GeometryFlags.ExclusiveGround | Game.Objects.GeometryFlags.WalkThrough | Game.Objects.GeometryFlags.OccupyZone | Game.Objects.GeometryFlags.HasLot;
-                    if (CollectionUtils.TryGet(nativeArray8, l, out var value) &amp;&amp; (value.m_Flags &amp; (Game.Objects.PlacementFlags.OnGround | Game.Objects.PlacementFlags.Floating | Game.Objects.PlacementFlags.Swaying)) == (Game.Objects.PlacementFlags.Floating | Game.Objects.PlacementFlags.Swaying))
-                    {
-                        objectGeometryData.m_Flags &amp;= ~(Game.Objects.GeometryFlags.ExclusiveGround | Game.Objects.GeometryFlags.OccupyZone);
-                    }
-                    nativeArray3[l] = objectGeometryData;
-                    nativeArray11[l] = buildingTerraformData;
-                    nativeArray4[l] = buildingData;
-                }
-            }
-            if (nativeArray5.Length != 0)
-            {
-                NativeArray&lt;BuildingTerraformData&gt; nativeArray12 = archetypeChunk.GetNativeArray(ref typeHandle5);
-                for (int m = 0; m &lt; nativeArray5.Length; m++)
-                {
-                    BuildingExtensionPrefab prefab2 = m_PrefabSystem.GetPrefab&lt;BuildingExtensionPrefab&gt;(nativeArray2[m]);
-                    ObjectGeometryData value2 = nativeArray3[m];
-                    Bounds2 flatBounds;
-                    if ((value2.m_Flags &amp; Game.Objects.GeometryFlags.Standing) != Game.Objects.GeometryFlags.None)
-                    {
-                        float2 xz = value2.m_Pivot.xz;
-                        float2 @float = value2.m_LegSize.xz * 0.5f + value2.m_LegOffset;
-                        flatBounds = new Bounds2(xz - @float, xz + @float);
-                    }
-                    else
-                    {
-                        flatBounds = value2.m_Bounds.xz;
-                    }
-                    value2.m_Bounds.min = math.min(value2.m_Bounds.min, new float3(-0.5f, 0f, -0.5f));
-                    value2.m_Bounds.max = math.max(value2.m_Bounds.max, new float3(0.5f, 5f, 0.5f));
-                    value2.m_Flags &amp;= ~(Game.Objects.GeometryFlags.Overridable | Game.Objects.GeometryFlags.Brushable);
-                    value2.m_Flags |= Game.Objects.GeometryFlags.ExclusiveGround | Game.Objects.GeometryFlags.WalkThrough | Game.Objects.GeometryFlags.OccupyZone | Game.Objects.GeometryFlags.HasLot;
-                    BuildingExtensionData value3 = nativeArray5[m];
-                    value3.m_Position = prefab2.m_Position;
-                    value3.m_LotSize = prefab2.m_OverrideLotSize;
-                    value3.m_External = prefab2.m_ExternalLot;
-                    if (prefab2.m_OverrideHeight &gt; 0f)
-                    {
-                        value2.m_Bounds.max.y = prefab2.m_OverrideHeight;
-                    }
-                    Bounds2 lotBounds;
-                    if (math.all(value3.m_LotSize &gt; 0))
-                    {
-                        float2 float2 = value3.m_LotSize;
-                        float2 *= 8f;
-                        lotBounds = new Bounds2(float2 * -0.5f, float2 * 0.5f);
-                        float2 -= 0.4f;
-                        value2.m_Bounds.min.xz = float2 * -0.5f;
-                        value2.m_Bounds.max.xz = float2 * 0.5f;
-                        if (bufferAccessor.Length != 0)
-                        {
-                            value2.m_Flags |= Game.Objects.GeometryFlags.OverrideZone;
-                        }
-                    }
-                    else
-                    {
-                        Bounds3 bounds = value2.m_Bounds;
-                        lotBounds = value2.m_Bounds.xz;
-                        if (bufferAccessor.Length != 0)
-                        {
-                            DynamicBuffer&lt;ServiceUpgradeBuilding&gt; dynamicBuffer2 = bufferAccessor[m];
-                            for (int n = 0; n &lt; dynamicBuffer2.Length; n++)
-                            {
-                                ServiceUpgradeBuilding serviceUpgradeBuilding2 = dynamicBuffer2[n];
-                                BuildingPrefab prefab3 = m_PrefabSystem.GetPrefab&lt;BuildingPrefab&gt;(serviceUpgradeBuilding2.m_Building);
-                                float2 float3 = new int2(prefab3.m_LotWidth, prefab3.m_LotDepth);
-                                float3 *= 8f;
-                                float2 float4 = float3;
-                                float3 -= 0.4f;
-                                if ((value2.m_Flags &amp; Game.Objects.GeometryFlags.Standing) == 0 &amp;&amp; prefab3.TryGet&lt;StandingObject&gt;(out var component2))
-                                {
-                                    float3 = component2.m_LegSize.xz + math.select(default(float2), component2.m_LegSize.xz + component2.m_LegGap, component2.m_LegGap != 0f);
-                                    float3 -= 0.4f;
-                                    float4 = float3;
-                                    if (component2.m_CircularLeg)
-                                    {
-                                        value2.m_Flags |= Game.Objects.GeometryFlags.Circular;
-                                    }
-                                }
-                                if (n == 0)
-                                {
-                                    bounds.xz = new Bounds2(float3 * -0.5f, float3 * 0.5f) - prefab2.m_Position.xz;
-                                    lotBounds = new Bounds2(float4 * -0.5f, float4 * 0.5f) - prefab2.m_Position.xz;
-                                }
-                                else
-                                {
-                                    bounds.xz &amp;= new Bounds2(float3 * -0.5f, float3 * 0.5f) - prefab2.m_Position.xz;
-                                    lotBounds &amp;= new Bounds2(float4 * -0.5f, float4 * 0.5f) - prefab2.m_Position.xz;
-                                }
-                            }
-                            value2.m_Bounds.xz = bounds.xz;
-                            value2.m_Flags |= Game.Objects.GeometryFlags.OverrideZone;
-                        }
-                        float2 float5 = math.min(-bounds.min.xz, bounds.max.xz) * 0.25f - 0.01f;
-                        value3.m_LotSize.x = math.max(1, Mathf.CeilToInt(float5.x));
-                        value3.m_LotSize.y = math.max(1, Mathf.CeilToInt(float5.y));
-                    }
-                    if (value3.m_External)
-                    {
-                        float2 float6 = value3.m_LotSize;
-                        float6 *= 8f;
-                        value2.m_Layers |= MeshLayer.Default;
-                        value2.m_MinLod = math.min(value2.m_MinLod, RenderingUtils.CalculateLodLimit(RenderingUtils.GetRenderingSize(new float3(float6.x, 0f, float6.y))));
-                    }
-                    if (nativeArray12.Length != 0)
-                    {
-                        BuildingTerraformOverride component3 = prefab2.GetComponent&lt;BuildingTerraformOverride&gt;();
-                        BuildingTerraformData buildingTerraformData2 = nativeArray12[m];
-                        InitializeTerraformData(component3, ref buildingTerraformData2, lotBounds, flatBounds);
-                        nativeArray12[m] = buildingTerraformData2;
-                    }
-                    value2.m_Size = math.max(ObjectUtils.GetSize(value2.m_Bounds), new float3(1f, 5f, 1f));
-                    nativeArray3[m] = value2;
-                    nativeArray5[m] = value3;
-                }
-            }
-            if (nativeArray7.Length != 0)
-            {
-                for (int num = 0; num &lt; nativeArray7.Length; num++)
-                {
-                    Entity e = nativeArray[num];
-                    BuildingPrefab prefab4 = m_PrefabSystem.GetPrefab&lt;BuildingPrefab&gt;(nativeArray2[num]);
-                    BuildingPropertyData buildingPropertyData = ((nativeArray10.Length != 0) ? nativeArray10[num] : default(BuildingPropertyData));
-                    SpawnableBuildingData spawnableBuildingData = nativeArray7[num];
-                    if (!(spawnableBuildingData.m_ZonePrefab != Entity.Null))
-                    {
-                        continue;
-                    }
-                    Entity zonePrefab = spawnableBuildingData.m_ZonePrefab;
-                    ZoneData value4 = componentLookup[zonePrefab];
-                    if (!flag2)
-                    {
-                        entityCommandBuffer.SetSharedComponent(e, new BuildingSpawnGroupData(value4.m_ZoneType));
-                        ushort num2 = (ushort)math.clamp(Mathf.CeilToInt(nativeArray3[num].m_Size.y), 0, 65535);
-                        if (spawnableBuildingData.m_Level == 1)
-                        {
-                            if (prefab4.m_LotWidth == 1 &amp;&amp; (value4.m_ZoneFlags &amp; ZoneFlags.SupportNarrow) == 0)
-                            {
-                                value4.m_ZoneFlags |= ZoneFlags.SupportNarrow;
-                                componentLookup[zonePrefab] = value4;
-                            }
-                            if (prefab4.m_AccessType == BuildingAccessType.LeftCorner &amp;&amp; (value4.m_ZoneFlags &amp; ZoneFlags.SupportLeftCorner) == 0)
-                            {
-                                value4.m_ZoneFlags |= ZoneFlags.SupportLeftCorner;
-                                componentLookup[zonePrefab] = value4;
-                            }
-                            if (prefab4.m_AccessType == BuildingAccessType.RightCorner &amp;&amp; (value4.m_ZoneFlags &amp; ZoneFlags.SupportRightCorner) == 0)
-                            {
-                                value4.m_ZoneFlags |= ZoneFlags.SupportRightCorner;
-                                componentLookup[zonePrefab] = value4;
-                            }
-                            if (prefab4.m_AccessType == BuildingAccessType.Front &amp;&amp; prefab4.m_LotWidth &lt;= 3 &amp;&amp; prefab4.m_LotDepth &lt;= 2)
-                            {
-                                if ((prefab4.m_LotWidth == 1 || prefab4.m_LotWidth == 3) &amp;&amp; num2 &lt; value4.m_MinOddHeight)
-                                {
-                                    value4.m_MinOddHeight = num2;
-                                    componentLookup[zonePrefab] = value4;
-                                }
-                                if ((prefab4.m_LotWidth == 1 || prefab4.m_LotWidth == 2) &amp;&amp; num2 &lt; value4.m_MinEvenHeight)
-                                {
-                                    value4.m_MinEvenHeight = num2;
-                                    componentLookup[zonePrefab] = value4;
-                                }
-                            }
-                        }
-                        if (num2 &gt; value4.m_MaxHeight)
-                        {
-                            value4.m_MaxHeight = num2;
-                            componentLookup[zonePrefab] = value4;
-                        }
-                    }
-                    int level = spawnableBuildingData.m_Level;
-                    BuildingData buildingData2 = nativeArray4[num];
-                    int lotSize = buildingData2.m_LotSize.x * buildingData2.m_LotSize.y;
-                    if (nativeArray6.Length != 0 &amp;&amp; !prefab4.Has&lt;ServiceConsumption&gt;() &amp;&amp; componentLookup2.HasComponent(zonePrefab))
-                    {
-                        ZoneServiceConsumptionData zoneServiceConsumptionData = componentLookup2[zonePrefab];
-                        ref ConsumptionData reference = ref nativeArray6.ElementAt(num);
-                        if (flag2)
-                        {
-                            level = 2;
-                        }
-                        bool isStorage = buildingPropertyData.m_AllowedStored != Resource.NoResource;
-                        EconomyParameterData economyParameterData = __query_547773813_0.GetSingleton&lt;EconomyParameterData&gt;();
-                        reference.m_Upkeep = PropertyRenterSystem.GetUpkeep(level, zoneServiceConsumptionData.m_Upkeep, lotSize, value4.m_AreaType, ref economyParameterData, isStorage);
-                    }
-                }
-            }
-            if (nativeArray8.Length != 0)
-            {
-                if (nativeArray9.Length != 0)
-                {
-                    for (int num3 = 0; num3 &lt; nativeArray8.Length; num3++)
-                    {
-                        PlaceableObjectData value5 = nativeArray8[num3];
-                        ObjectGeometryData value6 = nativeArray3[num3];
-                        ServiceUpgradeData serviceUpgradeData = nativeArray9[num3];
-                        if (nativeArray4.Length != 0)
-                        {
-                            value5.m_Flags |= Game.Objects.PlacementFlags.OwnerSide;
-                            if (serviceUpgradeData.m_MaxPlacementDistance != 0f)
-                            {
-                                value5.m_Flags |= Game.Objects.PlacementFlags.RoadSide;
-                            }
-                        }
-                        if ((value5.m_Flags &amp; Game.Objects.PlacementFlags.NetObject) != Game.Objects.PlacementFlags.None)
-                        {
-                            value6.m_Flags |= Game.Objects.GeometryFlags.IgnoreLegCollision;
-                            if (nativeArray4.Length != 0)
-                            {
-                                BuildingData value7 = nativeArray4[num3];
-                                value7.m_Flags |= BuildingFlags.CanBeOnRoad;
-                                nativeArray4[num3] = value7;
-                            }
-                            if ((value5.m_Flags &amp; Game.Objects.PlacementFlags.Shoreline) != Game.Objects.PlacementFlags.None)
-                            {
-                                value5.m_Flags &amp;= ~(Game.Objects.PlacementFlags.RoadSide | Game.Objects.PlacementFlags.OwnerSide);
-                            }
-                        }
-                        value5.m_ConstructionCost = serviceUpgradeData.m_UpgradeCost;
-                        nativeArray8[num3] = value5;
-                        nativeArray3[num3] = value6;
-                    }
-                }
-                else
-                {
-                    for (int num4 = 0; num4 &lt; nativeArray8.Length; num4++)
-                    {
-                        PlaceableObjectData value8 = nativeArray8[num4];
-                        ObjectGeometryData value9 = nativeArray3[num4];
-                        if (nativeArray4.Length != 0)
-                        {
-                            value8.m_Flags |= Game.Objects.PlacementFlags.RoadSide;
-                        }
-                        if ((value8.m_Flags &amp; Game.Objects.PlacementFlags.NetObject) != Game.Objects.PlacementFlags.None)
-                        {
-                            value9.m_Flags |= Game.Objects.GeometryFlags.IgnoreLegCollision;
-                            if (nativeArray4.Length != 0)
-                            {
-                                BuildingData value10 = nativeArray4[num4];
-                                value10.m_Flags |= BuildingFlags.CanBeOnRoad;
-                                nativeArray4[num4] = value10;
-                            }
-                            if ((value8.m_Flags &amp; Game.Objects.PlacementFlags.Shoreline) != Game.Objects.PlacementFlags.None)
-                            {
-                                value8.m_Flags &amp;= ~Game.Objects.PlacementFlags.RoadSide;
-                            }
-                        }
-                        nativeArray8[num4] = value8;
-                        nativeArray3[num4] = value9;
-                    }
-                }
-            }
-            bool flag5 = false;
-            if (flag)
-            {
-                for (int num5 = 0; num5 &lt; nativeArray.Length; num5++)
-                {
-                    if (nativeArray6.Length == 0 || nativeArray6[num5].m_Upkeep &lt;= 0)
-                    {
-                        continue;
-                    }
-                    bool flag6 = false;
-                    DynamicBuffer&lt;ServiceUpkeepData&gt; dynamicBuffer3 = bufferAccessor2[num5];
-                    for (int num6 = 0; num6 &lt; dynamicBuffer3.Length; num6++)
-                    {
-                        if (dynamicBuffer3[num6].m_Upkeep.m_Resource == Resource.Money)
-                        {
-                            log.WarnFormat(&quot;Warning: {0} has monetary upkeep in both ConsumptionData and CityServiceUpkeep&quot;, m_PrefabSystem.GetPrefab&lt;PrefabBase&gt;(nativeArray[num5]).name);
-                        }
-                    }
-                    if (!flag6)
-                    {
-                        dynamicBuffer3.Add(new ServiceUpkeepData
-                        {
-                            m_ScaleWithUsage = false,
-                            m_Upkeep = new ResourceStack
-                            {
-                                m_Amount = nativeArray6[num5].m_Upkeep,
-                                m_Resource = Resource.Money
-                            }
-                        });
-                        flag5 = true;
-                    }
-                }
-            }
-            if (bufferAccessor.Length == 0)
-            {
-                continue;
-            }
-            for (int num7 = 0; num7 &lt; bufferAccessor.Length; num7++)
-            {
-                Entity upgrade2 = nativeArray[num7];
-                DynamicBuffer&lt;ServiceUpgradeBuilding&gt; dynamicBuffer4 = bufferAccessor[num7];
-                for (int num8 = 0; num8 &lt; dynamicBuffer4.Length; num8++)
-                {
-                    ServiceUpgradeBuilding serviceUpgradeBuilding3 = dynamicBuffer4[num8];
-                    base.EntityManager.GetBuffer&lt;BuildingUpgradeElement&gt;(serviceUpgradeBuilding3.m_Building).Add(new BuildingUpgradeElement(upgrade2));
-                }
-                if (!flag5 &amp;&amp; nativeArray6.Length != 0 &amp;&amp; nativeArray6[num7].m_Upkeep &gt; 0)
-                {
-                    bufferAccessor2[num7].Add(new ServiceUpkeepData
-                    {
-                        m_ScaleWithUsage = false,
-                        m_Upkeep = new ResourceStack
-                        {
-                            m_Amount = nativeArray6[num7].m_Upkeep,
-                            m_Resource = Resource.Money
-                        }
-                    });
-                }
-            }
-        }
-        IJobParallelForExtensions.Schedule(new FindConnectionRequirementsJob
-        {
-            m_SpawnableBuildingDataType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_SpawnableBuildingData_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_ServiceUpgradeDataType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_ServiceUpgradeData_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_ExtractorFacilityDataType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_ExtractorFacilityData_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_ConsumptionDataType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_ConsumptionData_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_WorkplaceDataType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_WorkplaceData_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_WaterPumpingStationDataType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_WaterPumpingStationData_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_WaterTowerDataType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_WaterTowerData_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_SewageOutletDataType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_SewageOutletData_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_WastewaterTreatmentPlantDataType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_WastewaterTreatmentPlantData_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_TransformerDataType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_TransformerData_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_ParkingFacilityDataType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_ParkingFacilityData_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_PublicTransportStationDataType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_PublicTransportStationData_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_CargoTransportStationDataType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_CargoTransportStationData_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_ParkDataType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_ParkData_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_SubNetType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Prefabs_SubNet_RO_BufferTypeHandle, ref base.CheckedStateRef),
-            m_SubObjectType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Prefabs_SubObject_RO_BufferTypeHandle, ref base.CheckedStateRef),
-            m_SubMeshType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Prefabs_SubMesh_RO_BufferTypeHandle, ref base.CheckedStateRef),
-            m_BuildingDataType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_BuildingData_RW_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_EffectType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Prefabs_Effect_RW_BufferTypeHandle, ref base.CheckedStateRef),
-            m_NetData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_NetData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_SpawnLocationData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_SpawnLocationData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_MeshData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_MeshData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_EffectData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_EffectData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_VFXData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_VFXData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_AudioSourceData = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Prefabs_AudioSourceData_RO_BufferLookup, ref base.CheckedStateRef),
-            m_AudioSpotData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_AudioSpotData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_AudioEffectData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_AudioEffectData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_SubObjects = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Prefabs_SubObject_RO_BufferLookup, ref base.CheckedStateRef),
-            m_RandomSeed = RandomSeed.Next(),
-            m_Chunks = chunks,
-            m_BuildingConfigurationData = m_ConfigurationQuery.GetSingleton&lt;BuildingConfigurationData&gt;()
-        }, chunks.Length, 1).Complete();
-        chunks.Dispose();
-        entityCommandBuffer.Playback(base.EntityManager);
-        entityCommandBuffer.Dispose();
-    }
-</code></pre>
+<hr />
 <h2 id="nested-types">Nested types</h2>
 <ul>
-<li><code>Game.Prefabs.BuildingInitializeSystem+FindConnectionRequirementsJob</code>  </li>
-<li><code>Game.Prefabs.BuildingInitializeSystem+TypeHandle</code>  </li>
+<li>FindConnectionRequirementsJob (BurstCompile, IJobParallelFor) — job used by OnUpdate to set flags and create procedural effects.</li>
+<li>TypeHandle (struct) — contains ComponentTypeHandles/BufferTypeHandles/ComponentLookups and __AssignHandles method.</li>
 </ul>
+<hr />
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Typical usage is automatic: the system runs in the game's world when prefabs are created.
+// You can, however, call the static terraform initializer from custom code if needed:
+
+// Prepare data (terraformOverride can be null)
+BuildingTerraformData terraformData = default;
+Bounds2 lotBounds = new Bounds2(new float2(-4f, -4f), new float2(4f, 4f));
+Bounds2 flatBounds = prefabObjectGeometry.m_Bounds.xz;
+
+// Initialize terraform data (applies overrides and clamps flat extents)
+BuildingInitializeSystem.InitializeTerraformData(terraformOverride, ref terraformData, lotBounds, flatBounds);
+</code></pre>
+<p>Notes:
+- This system is part of the simulation/prefab initialization pipeline. Most mods should not need to call the system directly; instead rely on the game's prefab creation flow. Modders can call InitializeTerraformData for custom prefab preprocessing if constructing BuildingTerraformData manually.
+- Many methods and data structures interact with internal ECS component types (buffers, lookups and chunk access). Use care when reading/writing those components from other systems — maintain dependency completion and proper access semantics.</p>
 
 
 

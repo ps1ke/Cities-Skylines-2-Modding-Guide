@@ -63159,18 +63159,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -63195,9 +63195,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -65310,6 +65310,29 @@
   
   <span class="md-ellipsis">
     InterpolatedProperties
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
     
   </span>
   
@@ -69751,6 +69774,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72563,6 +72609,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75553,6 +75622,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87145,6 +87237,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -117921,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117948,18 +118085,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -117984,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118009,254 +118146,162 @@
 
 
 <h1 id="gameprefabszonebuiltrequirementsystem">Game.Prefabs.ZoneBuiltRequirementSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Prefabs</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code><br />
-<strong>Implements:</strong> <code>Game.Serialization.IPreDeserialize</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class ZoneBuiltRequirementSystem : Game.GameSystemBase, Game.Serialization.IPreDeserialize
-{
-    private Game.Common.ModificationBarrier5 m_ModificationBarrier;
-    private Unity.Entities.EntityQuery m_UpdatedBuildingsQuery;
-    private Unity.Entities.EntityQuery m_AllBuildingsQuery;
-    private Unity.Entities.EntityQuery m_RequirementQuery;
-    private Unity.Entities.EntityArchetype m_UnlockEventArchetype;
-    private Unity.Collections.NativeParallelHashMap&lt;Game.Prefabs.ZoneBuiltDataKey, Game.Prefabs.ZoneBuiltDataValue&gt; m_ZoneBuiltData;
-    private Unity.Collections.NativeQueue&lt;Game.Prefabs.ZoneBuiltLevelUpdate&gt; m_ZoneBuiltLevelQueue;
-    private Unity.Jobs.JobHandle m_WriteDeps;
-    private Unity.Jobs.JobHandle m_QueueWriteDeps;
-    private System.Boolean m_Loaded;
-    private Game.Prefabs.ZoneBuiltRequirementSystem+TypeHandle __TypeHandle;
-
-    public ZoneBuiltRequirementSystem();
-
-    private System.Void __AssignQueries(Unity.Entities.SystemState&amp; state);
-    public System.Void AddWriter(Unity.Jobs.JobHandle jobHandle);
-    private System.Boolean GetLoaded();
-    public Unity.Collections.NativeQueue&lt;Game.Prefabs.ZoneBuiltLevelUpdate&gt; GetZoneBuiltLevelQueue(Unity.Jobs.JobHandle&amp; deps);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnCreateForCompiler();
-    protected virtual System.Void OnDestroy();
-    protected virtual System.Void OnUpdate();
-    public System.Void PreDeserialize(Colossal.Serialization.Entities.Context context);
-}
-</code></pre>
+<p><strong>Assembly:</strong><br />
+{{ Likely part of the main game assembly that contains Game.* prefabs and systems (Cities: Skylines 2 game assemblies). }}</p>
+<p><strong>Namespace:</strong> 
+Game.Prefabs</p>
+<p><strong>Type:</strong><br />
+Class (Game system derived from GameSystemBase, compiler-generated attribution present)</p>
+<p><strong>Base:</strong><br />
+GameSystemBase, IPreDeserialize</p>
+<p><strong>Summary:</strong><br />
+{{ ZoneBuiltRequirementSystem collects and maintains statistics about built zone tiles and built zone counts (per zone prefab, level and/or theme/type) by scanning building entities and consuming queued level-change events. It stores the aggregated data in a native hash map and uses a parallel IJobChunk to evaluate ZoneBuiltRequirementData components (unlock requirements). When requirements are satisfied the system emits Unlock events (creates entities with Unlock components) via a ModificationBarrier command buffer. The system uses persistent Native collections and schedules burst-compiled jobs to run the data-collection and requirement evaluation in parallel. It also supports being told when a load finished (PreDeserialize) so it can rebuild its internal state from all buildings. }}</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.Common.ModificationBarrier5 m_ModificationBarrier</code>  </li>
+<li>
+<p><code>private ModificationBarrier5 m_ModificationBarrier</code><br />
+{{ Command-buffer barrier system used to create unlock event entities and enqueue commands from jobs in a thread-safe manner. Obtained in OnCreate. }}</p>
+</li>
+<li>
+<p><code>private EntityQuery m_UpdatedBuildingsQuery</code><br />
+{{ Query selecting building entities that were Created or Deleted (and are not Temp) — used for incremental updates. }}</p>
+</li>
+<li>
+<p><code>private EntityQuery m_AllBuildingsQuery</code><br />
+{{ Query selecting all Building entities (excluding Temp) — used when full rebuild is required (e.g. after load). }}</p>
+</li>
+<li>
+<p><code>private EntityQuery m_RequirementQuery</code><br />
+{{ Query selecting entities with ZoneBuiltRequirementData, UnlockRequirementData (read/write) and Locked — used to evaluate unlocks. }}</p>
+</li>
+<li>
+<p><code>private EntityArchetype m_UnlockEventArchetype</code><br />
+{{ Archetype used to create Unlock event entities (components: Event, Unlock). }}</p>
+</li>
+<li>
+<p><code>private NativeParallelHashMap&lt;ZoneBuiltDataKey, ZoneBuiltDataValue&gt; m_ZoneBuiltData</code><br />
+{{ Primary native container mapping (zone prefab, level) keys to aggregated counts and squares built. Persistent allocator; cleared on PreDeserialize and disposed on OnDestroy. }}</p>
+</li>
+<li>
+<p><code>private NativeQueue&lt;ZoneBuiltLevelUpdate&gt; m_ZoneBuiltLevelQueue</code><br />
+{{ Queue used by other systems/jobs to report building level transitions (from one zone level to another) — consumed by UpdateZoneBuiltDataJob to update zone built aggregates. Persistent allocator; disposed on OnDestroy. }}</p>
+</li>
+<li>
+<p><code>private JobHandle m_WriteDeps</code><br />
+{{ JobHandle that tracks outstanding jobs that wrote to m_ZoneBuiltData (used to ensure completion where necessary, e.g. PreDeserialize). }}</p>
+</li>
+<li>
+<p><code>private JobHandle m_QueueWriteDeps</code><br />
+{{ JobHandle that tracks writers that have written to the level-change queue. Consumers can combine dependencies via AddWriter. }}</p>
+</li>
+<li>
+<p><code>private bool m_Loaded</code><br />
+{{ Flag set by PreDeserialize to indicate a full rebuild is required on next update. }}</p>
+</li>
+<li>
+<p><code>private TypeHandle __TypeHandle</code><br />
+{{ Internal struct caching all ComponentTypeHandle/ComponentLookup/BufferLookup used by jobs; assigned in OnCreateForCompiler. }}</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.Common.ModificationBarrier5 m_ModificationBarrier;
-</code></pre>
+<h2 id="properties">Properties</h2>
 <ul>
-<li><code>private Unity.Entities.EntityQuery m_UpdatedBuildingsQuery</code>  </li>
+<li>(none declared)<br />
+{{ The system exposes no public C# properties. It exposes methods to access internal queues and to add writer dependencies. }}</li>
 </ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_UpdatedBuildingsQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_AllBuildingsQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_AllBuildingsQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_RequirementQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_RequirementQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityArchetype m_UnlockEventArchetype</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityArchetype m_UnlockEventArchetype;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeParallelHashMap&lt;Game.Prefabs.ZoneBuiltDataKey, Game.Prefabs.ZoneBuiltDataValue&gt; m_ZoneBuiltData</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeParallelHashMap&lt;Game.Prefabs.ZoneBuiltDataKey, Game.Prefabs.ZoneBuiltDataValue&gt; m_ZoneBuiltData;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeQueue&lt;Game.Prefabs.ZoneBuiltLevelUpdate&gt; m_ZoneBuiltLevelQueue</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeQueue&lt;Game.Prefabs.ZoneBuiltLevelUpdate&gt; m_ZoneBuiltLevelQueue;
-</code></pre>
-<ul>
-<li><code>private Unity.Jobs.JobHandle m_WriteDeps</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Jobs.JobHandle m_WriteDeps;
-</code></pre>
-<ul>
-<li><code>private Unity.Jobs.JobHandle m_QueueWriteDeps</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Jobs.JobHandle m_QueueWriteDeps;
-</code></pre>
-<ul>
-<li><code>private System.Boolean m_Loaded</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean m_Loaded;
-</code></pre>
-<ul>
-<li><code>private Game.Prefabs.ZoneBuiltRequirementSystem+TypeHandle __TypeHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Prefabs.ZoneBuiltRequirementSystem+TypeHandle __TypeHandle;
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public ZoneBuiltRequirementSystem()</code>  </li>
+<li><code>public ZoneBuiltRequirementSystem()</code><br />
+{{ Default constructor; system uses OnCreate to perform initialization. The class is marked [CompilerGenerated] and has a [Preserve] attribute on lifecycle methods. }}</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public ZoneBuiltRequirementSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private __AssignQueries(Unity.Entities.SystemState&amp; state) : System.Void</code>  </li>
+<li>
+<p><code>public NativeQueue&lt;ZoneBuiltLevelUpdate&gt; GetZoneBuiltLevelQueue(out JobHandle deps)</code><br />
+{{ Returns the internal NativeQueue<ZoneBuiltLevelUpdate> used to enqueue building level-change updates. Also returns current JobHandle dependencies (m_QueueWriteDeps) via out parameter — callers should pass that dependency to any jobs that will write to the queue or call AddWriter with their job handle. Note: returned queue is the actual internal queue (NativeQueue) — be careful with ownership and threading; call AddWriter to register job dependencies. }}</p>
+</li>
+<li>
+<p><code>public void AddWriter(JobHandle jobHandle)</code><br />
+{{ Combine a job handle (writer to the queue) with the internal m_QueueWriteDeps to track concurrent writers. This ensures the UpdateZoneBuiltDataJob will wait on writers when scheduled. }}</p>
+</li>
+<li>
+<p><code>protected override void OnCreate()</code><br />
+{{ Initializes queries, archetypes, and native containers: sets up m_ModificationBarrier, m_UpdatedBuildingsQuery, m_AllBuildingsQuery, m_RequirementQuery, creates m_UnlockEventArchetype, allocates m_ZoneBuiltData and m_ZoneBuiltLevelQueue with persistent allocators. Called when the system is created. }}</p>
+</li>
+<li>
+<p><code>protected override void OnDestroy()</code><br />
+{{ Disposes the persistent native containers (m_ZoneBuiltData and m_ZoneBuiltLevelQueue) and calls base.OnDestroy. Ensure that any outstanding jobs have completed before destruction (the system's lifecycle ensures this). }}</p>
+</li>
+<li>
+<p><code>private bool GetLoaded()</code><br />
+{{ Internal helper used in OnUpdate; returns true if m_Loaded was set (by PreDeserialize) and clears the flag. This triggers a full rebuild pass using m_AllBuildingsQuery. }}</p>
+</li>
+<li>
+<p><code>protected override void OnUpdate()</code><br />
+{{ Main update loop. If there are updated buildings (or a full-load rebuild requested) or pending queued level updates: </p>
+</li>
+<li>Collects building ArchetypeChunks (async) and schedules UpdateZoneBuiltDataJob which scans building entities and the level-change queue to update m_ZoneBuiltData.</li>
+<li>If any ZoneBuiltRequirementData exist (m_RequirementQuery non-empty) schedules ZoneBuiltRequirementJob (IJobChunk) to evaluate requirements using the aggregated m_ZoneBuiltData and create Unlock event entities via the modification barrier.</li>
+<li>
+<p>Properly chains job dependencies and adds the job handle to the modification barrier for producer tracking.
+  }}</p>
+</li>
+<li>
+<p><code>public void PreDeserialize(Context context)</code><br />
+{{ Implementation of IPreDeserialize. Completes m_WriteDeps to ensure jobs updating the internal data are finished, clears m_ZoneBuiltData, and sets m_Loaded = true so the next OnUpdate will perform a full rebuild from all buildings (m_AllBuildingsQuery). This is required during loading to ensure internal aggregates are rebuilt. }}</p>
+</li>
+<li>
+<p><code>protected override void OnCreateForCompiler()</code><br />
+{{ Internal initialization helper called by generated code paths: assigns cached entity/component handles and queries via __AssignQueries and __TypeHandle.__AssignHandles. }}</p>
+</li>
+<li>
+<p><code>private void __AssignQueries(ref SystemState state)</code><br />
+{{ Compiler-generated stub for query assignment; minimal implementation present. }}</p>
+</li>
+<li>
+<p>Nested types (summary)</p>
+</li>
+<li><code>private struct ZoneBuiltData</code><br />
+    {{ Local POD struct used to hold per-entry values in some contexts (Entity, Zone, squares, count, area type and level). This nested struct in source is not the persistent hash map value type used externally (this file uses ZoneBuiltDataKey and ZoneBuiltDataValue types which are declared elsewhere). }}</li>
+<li><code>private struct UpdateZoneBuiltDataJob : IJob</code><br />
+    {{ Burst-compiled IJob that:<ul>
+<li>Iterates building archetype chunks (m_BuildingChunks).</li>
+<li>Reads PrefabRef and Deleted to determine whether a building contributes positively or negatively.</li>
+<li>Uses SpawnableBuildingData and BuildingData lookups to find zone prefab and lot size to compute squares/count.</li>
+<li>Updates m_ZoneBuiltData (NativeParallelHashMap) accordingly.</li>
+<li>Dequeues ZoneBuiltLevelUpdate items from m_ZoneBuiltLevelQueue and applies their effects (move one building from one level key to another).
+   This job is scheduled from OnUpdate and writes into the system's native hash map. }}</li>
 </ul>
-<pre><code class="language-csharp">private void __AssignQueries(ref SystemState state)
-    {
-        new EntityQueryBuilder(Allocator.Temp).Dispose();
-    }
+</li>
+<li><code>private struct ZoneBuiltRequirementJob : IJobChunk</code><br />
+    {{ Burst-compiled IJobChunk that runs over entities with ZoneBuiltRequirementData + UnlockRequirementData (locked). For each entity:<ul>
+<li>Aggregates squares and counts from m_ZoneBuiltData according to the requirement (by specific zone prefab &amp; min level, or by theme, or by area type).</li>
+<li>Updates the UnlockRequirementData.m_Progress (either progress toward minimum squares or toward minimum count).</li>
+<li>If the requirement is satisfied (enough squares and count), it uses an EntityCommandBuffer.ParallelWriter to create an Unlock event entity with the Unlock component pointing at the target entity.
+   This job is scheduled in parallel via JobChunkExtensions.ScheduleParallel. }}</li>
+</ul>
+</li>
+</ul>
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Example: enqueue a level-change update from another system/job and register its job dependency.
+var zoneSystem = World.GetExistingSystemManaged&lt;ZoneBuiltRequirementSystem&gt;();
+JobHandle writerDeps = someJobHandleThatProducesLevelUpdates; // your job that enqueues updates
+zoneSystem.AddWriter(writerDeps);
+
+// From main thread (or a safe thread) you can also enqueue directly:
+JobHandle deps;
+var queue = zoneSystem.GetZoneBuiltLevelQueue(out deps); // get queue and producer deps
+// Ensure any jobs that will write have been added via AddWriter before enqueueing from jobs.
+// Enqueue an update (example struct fields depend on ZoneBuiltLevelUpdate definition):
+queue.Enqueue(new ZoneBuiltLevelUpdate { m_Zone = myZoneEntity, m_FromLevel = 1, m_ToLevel = 2, m_Squares = 4 });
+
+// The system will pick up queued updates on its next OnUpdate and rebuild/adjust aggregates as needed.
 </code></pre>
-<ul>
-<li><code>public AddWriter(Unity.Jobs.JobHandle jobHandle) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void AddWriter(JobHandle jobHandle)
-    {
-        m_QueueWriteDeps = JobHandle.CombineDependencies(jobHandle, m_QueueWriteDeps);
-    }
-</code></pre>
-<ul>
-<li><code>private GetLoaded() : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">private bool GetLoaded()
-    {
-        if (m_Loaded)
-        {
-            m_Loaded = false;
-            return true;
-        }
-        return false;
-    }
-</code></pre>
-<ul>
-<li><code>public GetZoneBuiltLevelQueue(Unity.Jobs.JobHandle&amp; deps) : Unity.Collections.NativeQueue&lt;Game.Prefabs.ZoneBuiltLevelUpdate&gt;</code>  </li>
-</ul>
-<pre><code class="language-csharp">public NativeQueue&lt;ZoneBuiltLevelUpdate&gt; GetZoneBuiltLevelQueue(out JobHandle deps)
-    {
-        deps = m_QueueWriteDeps;
-        return m_ZoneBuiltLevelQueue;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_ModificationBarrier = base.World.GetOrCreateSystemManaged&lt;ModificationBarrier5&gt;();
-        m_UpdatedBuildingsQuery = GetEntityQuery(new EntityQueryDesc
-        {
-            All = new ComponentType[1] { ComponentType.ReadOnly&lt;Building&gt;() },
-            Any = new ComponentType[2]
-            {
-                ComponentType.ReadOnly&lt;Created&gt;(),
-                ComponentType.ReadOnly&lt;Deleted&gt;()
-            },
-            None = new ComponentType[1] { ComponentType.ReadOnly&lt;Temp&gt;() }
-        });
-        m_AllBuildingsQuery = GetEntityQuery(ComponentType.ReadOnly&lt;Building&gt;(), ComponentType.Exclude&lt;Temp&gt;());
-        m_RequirementQuery = GetEntityQuery(ComponentType.ReadOnly&lt;ZoneBuiltRequirementData&gt;(), ComponentType.ReadWrite&lt;UnlockRequirementData&gt;(), ComponentType.ReadOnly&lt;Locked&gt;());
-        m_UnlockEventArchetype = base.EntityManager.CreateArchetype(ComponentType.ReadWrite&lt;Event&gt;(), ComponentType.ReadWrite&lt;Unlock&gt;());
-        m_ZoneBuiltData = new NativeParallelHashMap&lt;ZoneBuiltDataKey, ZoneBuiltDataValue&gt;(20, Allocator.Persistent);
-        m_ZoneBuiltLevelQueue = new NativeQueue&lt;ZoneBuiltLevelUpdate&gt;(Allocator.Persistent);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreateForCompiler() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnCreateForCompiler()
-    {
-        base.OnCreateForCompiler();
-        __AssignQueries(ref base.CheckedStateRef);
-        __TypeHandle.__AssignHandles(ref base.CheckedStateRef);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnDestroy() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnDestroy()
-    {
-        m_ZoneBuiltData.Dispose();
-        m_ZoneBuiltLevelQueue.Dispose();
-        base.OnDestroy();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        EntityQuery entityQuery = (GetLoaded() ? m_AllBuildingsQuery : m_UpdatedBuildingsQuery);
-        if (!entityQuery.IsEmptyIgnoreFilter || !m_ZoneBuiltLevelQueue.IsEmpty())
-        {
-            JobHandle outJobHandle;
-            NativeList&lt;ArchetypeChunk&gt; buildingChunks = entityQuery.ToArchetypeChunkListAsync(Allocator.TempJob, out outJobHandle);
-            JobHandle jobHandle = IJobExtensions.Schedule(new UpdateZoneBuiltDataJob
-            {
-                m_BuildingChunks = buildingChunks,
-                m_ZoneBuiltData = m_ZoneBuiltData,
-                m_ZoneBuiltLevelQueue = m_ZoneBuiltLevelQueue,
-                m_DeletedType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Common_Deleted_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                m_PrefabRefType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                m_SpawnableBuildingData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_SpawnableBuildingData_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_BuildingData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_BuildingData_RO_ComponentLookup, ref base.CheckedStateRef)
-            }, JobHandle.CombineDependencies(base.Dependency, outJobHandle, m_QueueWriteDeps));
-            buildingChunks.Dispose(jobHandle);
-            m_WriteDeps = jobHandle;
-            if (!m_RequirementQuery.IsEmptyIgnoreFilter)
-            {
-                JobHandle jobHandle2 = JobChunkExtensions.ScheduleParallel(new ZoneBuiltRequirementJob
-                {
-                    m_ZoneBuiltData = m_ZoneBuiltData,
-                    m_UnlockEventArchetype = m_UnlockEventArchetype,
-                    m_CommandBuffer = m_ModificationBarrier.CreateCommandBuffer().AsParallelWriter(),
-                    m_EntityType = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef),
-                    m_ZoneBuiltRequirementType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_ZoneBuiltRequirementData_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                    m_UnlockRequirementType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_UnlockRequirementData_RW_ComponentTypeHandle, ref base.CheckedStateRef),
-                    m_ZoneData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_ZoneData_RO_ComponentLookup, ref base.CheckedStateRef),
-                    m_ThemeData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_ThemeData_RO_ComponentLookup, ref base.CheckedStateRef),
-                    m_ObjectRequirementElements = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Prefabs_ObjectRequirementElement_RO_BufferLookup, ref base.CheckedStateRef)
-                }, m_RequirementQuery, jobHandle);
-                m_ModificationBarrier.AddJobHandleForProducer(jobHandle2);
-                base.Dependency = jobHandle2;
-            }
-            else
-            {
-                base.Dependency = jobHandle;
-            }
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public PreDeserialize(Colossal.Serialization.Entities.Context context) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void PreDeserialize(Context context)
-    {
-        m_WriteDeps.Complete();
-        m_ZoneBuiltData.Clear();
-        m_Loaded = true;
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Prefabs.ZoneBuiltRequirementSystem+ZoneBuiltData</code>  </li>
-<li><code>Game.Prefabs.ZoneBuiltRequirementSystem+UpdateZoneBuiltDataJob</code>  </li>
-<li><code>Game.Prefabs.ZoneBuiltRequirementSystem+ZoneBuiltRequirementJob</code>  </li>
-<li><code>Game.Prefabs.ZoneBuiltRequirementSystem+TypeHandle</code>  </li>
-</ul>
+<p>{{ Notes:
+- The system relies on types defined elsewhere: ZoneBuiltDataKey, ZoneBuiltDataValue, ZoneBuiltLevelUpdate, ZoneBuiltRequirementData, UnlockRequirementData, ObjectRequirementElement, ThemeData, ZoneData, SpawnableBuildingData, BuildingData, etc.
+- Because it uses NativeParallelHashMap and NativeQueue with Allocator.Persistent, make sure the system's lifecycle is respected; do not attempt to use returned NativeQueue after the system has been destroyed.
+- To ensure correct multithreading, always call AddWriter with the job handle of any job that writes to the queue so the system can combine dependencies and avoid race conditions.
+- PreDeserialize is important on load: it completes outstanding writes, clears cached aggregates and forces a full rebuild from all building entities. }}</p>
 
 
 

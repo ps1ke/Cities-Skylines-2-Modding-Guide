@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#gameprefabsinstancecountsystem" class="md-skip">
+        <a href="#gameinstancecountsystem" class="md-skip">
           Skip to content
         </a>
       
@@ -45058,18 +45058,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -45094,9 +45094,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -65320,6 +65320,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69751,6 +69774,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72563,6 +72609,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75553,6 +75622,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87145,6 +87237,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -117921,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117948,18 +118085,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -117984,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118008,209 +118145,160 @@
 
 
 
-<h1 id="gameprefabsinstancecountsystem">Game.Prefabs.InstanceCountSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Prefabs</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code><br />
-<strong>Implements:</strong> <code>Game.Serialization.IPreDeserialize</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class InstanceCountSystem : Game.GameSystemBase, Game.Serialization.IPreDeserialize
-{
-    private Unity.Entities.EntityQuery m_UpdatedInstancesQuery;
-    private Unity.Entities.EntityQuery m_AllInstancesQuery;
-    private Unity.Collections.NativeParallelHashMap&lt;Unity.Entities.Entity, System.Int32&gt; m_InstanceCounts;
-    private Unity.Jobs.JobHandle m_ReadDependencies;
-    private Unity.Jobs.JobHandle m_WriteDependencies;
-    private System.Boolean m_Loaded;
-    private Game.Prefabs.InstanceCountSystem+TypeHandle __TypeHandle;
-
-    public InstanceCountSystem();
-
-    private System.Void __AssignQueries(Unity.Entities.SystemState&amp; state);
-    public System.Void AddCountReader(Unity.Jobs.JobHandle jobHandle);
-    public System.Void AddCountWriter(Unity.Jobs.JobHandle jobHandle);
-    public Unity.Collections.NativeParallelHashMap&lt;Unity.Entities.Entity, System.Int32&gt; GetInstanceCounts(System.Boolean readOnly, Unity.Jobs.JobHandle&amp; dependencies);
-    private System.Boolean GetLoaded();
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnCreateForCompiler();
-    protected virtual System.Void OnDestroy();
-    protected virtual System.Void OnUpdate();
-    public System.Void PreDeserialize(Colossal.Serialization.Entities.Context context);
-}
-</code></pre>
+<h1 id="gameinstancecountsystem">Game.InstanceCountSystem</h1>
+<p><strong>Assembly:</strong> Assembly-CSharp<br />
+<strong>Namespace:</strong> Game.Prefabs</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> GameSystemBase, IPreDeserialize</p>
+<p><strong>Summary:</strong><br />
+InstanceCountSystem maintains an up-to-date count of instantiated prefabs (by prefab Entity) in the world. It scans entities that have a PrefabRef component and increments or decrements per-prefab counters using a NativeParallelHashMap<Entity,int>. Counting work is performed in a burst-compiled IJobChunk (UpdateCountsJob) for performance. The system exposes APIs to obtain the counts and to register read/write JobHandle dependencies so other systems can safely read or write the map. PreDeserialize clears the counts and marks the system as "loaded" so the next update performs a full recount.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Unity.Entities.EntityQuery m_UpdatedInstancesQuery</code>  </li>
+<li>
+<p><code>private EntityQuery m_UpdatedInstancesQuery</code><br />
+  Query that selects entities with PrefabRef and either Created or Deleted, excluding Temp. Used to perform incremental updates when not performing a full recount.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_AllInstancesQuery</code><br />
+  Query that selects all entities with PrefabRef (excluding Temp). Used to perform a full recount (e.g., after load).</p>
+</li>
+<li>
+<p><code>private NativeParallelHashMap&lt;Entity, int&gt; m_InstanceCounts</code><br />
+  The map that stores counts per prefab Entity. Allocated with capacity 100 and Allocator.Persistent. Must be disposed in OnDestroy.</p>
+</li>
+<li>
+<p><code>private JobHandle m_ReadDependencies</code><br />
+  Combined JobHandle representing jobs that have read access to m_InstanceCounts. Used to sequence writers after readers.</p>
+</li>
+<li>
+<p><code>private JobHandle m_WriteDependencies</code><br />
+  Combined JobHandle representing jobs that write to m_InstanceCounts. Used to sequence readers/writers correctly.</p>
+</li>
+<li>
+<p><code>private bool m_Loaded</code><br />
+  Flag that is set in PreDeserialize to request a full recount on the next update. GetLoaded() flips it to false and returns prior value.</p>
+</li>
+<li>
+<p><code>private TypeHandle __TypeHandle</code><br />
+  Holds ComponentTypeHandle instances for PrefabRef and Deleted used by UpdateCountsJob. Populated via __AssignHandles in OnCreateForCompiler.</p>
+</li>
+<li>
+<p><code>private struct UpdateCountsJob</code> (nested)<br />
+  A Burst-compiled IJobChunk that iterates chunks, reads PrefabRef components and Deleted presence, and increments or decrements counts in m_InstanceCounts accordingly. Uses NativeParallelHashMap<Entity,int> for concurrent access (the job gets a direct reference to the map in this implementation).</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_UpdatedInstancesQuery;
-</code></pre>
+<p>Behavior:
+  - If the chunk contains Deleted component, the job decrements the count for each PrefabRef found; if resulting count &lt;= 0, the map entry is removed.
+  - Otherwise, the job increments the count for each PrefabRef, adding new entries when necessary.</p>
 <ul>
-<li><code>private Unity.Entities.EntityQuery m_AllInstancesQuery</code>  </li>
+<li><code>private struct TypeHandle</code> (nested)<br />
+  Wrapper storing ComponentTypeHandle<PrefabRef> and ComponentTypeHandle<Deleted> (both read-only) and an inline method to assign them from a SystemState.</li>
 </ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_AllInstancesQuery;
-</code></pre>
+<h2 id="properties">Properties</h2>
 <ul>
-<li><code>private Unity.Collections.NativeParallelHashMap&lt;Unity.Entities.Entity, System.Int32&gt; m_InstanceCounts</code>  </li>
+<li>None (no public properties). The system exposes GetInstanceCounts(readOnly, out JobHandle) to obtain the counts and the JobHandle dependencies.</li>
 </ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeParallelHashMap&lt;Unity.Entities.Entity, System.Int32&gt; m_InstanceCounts;
-</code></pre>
-<ul>
-<li><code>private Unity.Jobs.JobHandle m_ReadDependencies</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Jobs.JobHandle m_ReadDependencies;
-</code></pre>
-<ul>
-<li><code>private Unity.Jobs.JobHandle m_WriteDependencies</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Jobs.JobHandle m_WriteDependencies;
-</code></pre>
-<ul>
-<li><code>private System.Boolean m_Loaded</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean m_Loaded;
-</code></pre>
-<ul>
-<li><code>private Game.Prefabs.InstanceCountSystem+TypeHandle __TypeHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Prefabs.InstanceCountSystem+TypeHandle __TypeHandle;
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public InstanceCountSystem()</code>  </li>
+<li><code>public InstanceCountSystem()</code><br />
+  Default constructor. Marked with [Preserve]. No custom initialization beyond what base constructor does; actual initialization occurs in OnCreate.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public InstanceCountSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private __AssignQueries(Unity.Entities.SystemState&amp; state) : System.Void</code>  </li>
+<li><code>[Preserve] protected override void OnCreate()</code> : System.Void<br />
+  Sets up EntityQuery instances:</li>
+<li>m_UpdatedInstancesQuery: PrefabRef (All) and (Created || Deleted) in Any, excluding Temp.</li>
+<li>
+<p>m_AllInstancesQuery: PrefabRef (exclude Temp).<br />
+  Allocates m_InstanceCounts as NativeParallelHashMap<Entity,int>(100, Allocator.Persistent).</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnDestroy()</code> : System.Void<br />
+  Disposes the m_InstanceCounts NativeParallelHashMap and calls base.OnDestroy().</p>
+</li>
+<li>
+<p><code>private bool GetLoaded()</code> : System.Boolean<br />
+  Returns true if m_Loaded was set (and resets m_Loaded to false). Used to switch OnUpdate between full recount and incremental update.</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnUpdate()</code> : System.Void<br />
+  Chooses the query to run: m_AllInstancesQuery if GetLoaded() returned true (full recount), otherwise m_UpdatedInstancesQuery (incremental). Schedules the burst-compiled UpdateCountsJob over the chosen query if the query is not empty. The job receives ComponentTypeHandles obtained from __TypeHandle and the NativeParallelHashMap via GetInstanceCounts(...). The scheduled job handle is recorded by calling AddCountWriter(jobHandle) and assigned to base.Dependency to maintain system scheduling correctness.</p>
+</li>
+<li>
+<p><code>public NativeParallelHashMap&lt;Entity, int&gt; GetInstanceCounts(bool readOnly, out JobHandle dependencies)</code> : NativeParallelHashMap<Entity,int><br />
+  Returns the internal m_InstanceCounts. Also outputs current dependency JobHandle:</p>
+</li>
+<li>If readOnly == true: dependencies = m_WriteDependencies (so readers wait on writers).</li>
+<li>
+<p>If readOnly == false: dependencies = Combine(m_ReadDependencies, m_WriteDependencies) (writer must wait on existing readers and writers).
+  This API is how other systems/jobs can obtain the map and the JobHandle they should depend on.</p>
+</li>
+<li>
+<p><code>public void AddCountReader(JobHandle jobHandle)</code> : System.Void<br />
+  Combine the provided jobHandle into m_ReadDependencies (readers) to update the dependency tracking.</p>
+</li>
+<li>
+<p><code>public void AddCountWriter(JobHandle jobHandle)</code> : System.Void<br />
+  Combine the provided jobHandle into m_WriteDependencies (writers) to update the dependency tracking.</p>
+</li>
+<li>
+<p><code>public void PreDeserialize(Context context)</code> : System.Void<br />
+  Called before deserialization/load. It obtains the instance counts map (completing outstanding dependencies), clears the map, and sets m_Loaded = true to trigger a full recount on the next update.</p>
+</li>
+<li>
+<p><code>[MethodImpl(MethodImplOptions.AggressiveInlining)] private void __AssignQueries(ref SystemState state)</code> : System.Void<br />
+  Compiler helper used during generated code path (no runtime query assignment here beyond OnCreate). Called from OnCreateForCompiler.</p>
+</li>
+<li>
+<p><code>protected override void OnCreateForCompiler()</code> : System.Void<br />
+  Compiler-time helper. Calls __AssignQueries and assigns component type handles via __TypeHandle.__AssignHandles.</p>
+</li>
+<li>
+<p><code>private struct TypeHandle.__AssignHandles(ref SystemState state)</code> : System.Void<br />
+  Populates the ComponentTypeHandle fields for PrefabRef and Deleted by calling state.GetComponentTypeHandle<T>(isReadOnly:true).</p>
+</li>
+<li>
+<p><code>private struct UpdateCountsJob.Execute(...)</code> : System.Void<br />
+  The job execute method described above. There is an explicit IJobChunk.Execute implementation forwarding to the strongly-typed Execute.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private void __AssignQueries(ref SystemState state)
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Example: reading counts from another system safely
+protected override void OnCreate()
+{
+    base.OnCreate();
+    // ... obtain reference to the InstanceCountSystem (DI or World.GetExistingSystem)
+}
+
+protected override void OnUpdate()
+{
+    // Suppose instanceCountSystem is a reference to Game.Prefabs.InstanceCountSystem
+    JobHandle deps;
+    var counts = instanceCountSystem.GetInstanceCounts(readOnly: true, out deps);
+
+    // Ensure any jobs that wrote the map are finished before accessing on main thread:
+    deps.Complete();
+
+    // Read counts on main thread (not recommended for heavy work)
+    if (counts.TryGetValue(somePrefabEntity, out var count))
     {
-        new EntityQueryBuilder(Allocator.Temp).Dispose();
+        UnityEngine.Debug.Log($&quot;Instances of prefab {somePrefabEntity}: {count}&quot;);
     }
+
+    // If you schedule a job that reads the map, register it as a reader:
+    // instanceCountSystem.AddCountReader(someJobHandle);
+}
+
+// Example: PreDeserialize (system will clear counts and request full recount)
+instanceCountSystem.PreDeserialize(someContext);
+// The next Update will run a full recount using m_AllInstancesQuery.
 </code></pre>
-<ul>
-<li><code>public AddCountReader(Unity.Jobs.JobHandle jobHandle) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void AddCountReader(JobHandle jobHandle)
-    {
-        m_ReadDependencies = JobHandle.CombineDependencies(m_ReadDependencies, jobHandle);
-    }
-</code></pre>
-<ul>
-<li><code>public AddCountWriter(Unity.Jobs.JobHandle jobHandle) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void AddCountWriter(JobHandle jobHandle)
-    {
-        m_WriteDependencies = JobHandle.CombineDependencies(m_WriteDependencies, jobHandle);
-    }
-</code></pre>
-<ul>
-<li><code>public GetInstanceCounts(System.Boolean readOnly, Unity.Jobs.JobHandle&amp; dependencies) : Unity.Collections.NativeParallelHashMap&lt;Unity.Entities.Entity, System.Int32&gt;</code>  </li>
-</ul>
-<pre><code class="language-csharp">public NativeParallelHashMap&lt;Entity, int&gt; GetInstanceCounts(bool readOnly, out JobHandle dependencies)
-    {
-        dependencies = (readOnly ? m_WriteDependencies : JobHandle.CombineDependencies(m_ReadDependencies, m_WriteDependencies));
-        return m_InstanceCounts;
-    }
-</code></pre>
-<ul>
-<li><code>private GetLoaded() : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">private bool GetLoaded()
-    {
-        if (m_Loaded)
-        {
-            m_Loaded = false;
-            return true;
-        }
-        return false;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_UpdatedInstancesQuery = GetEntityQuery(new EntityQueryDesc
-        {
-            All = new ComponentType[1] { ComponentType.ReadOnly&lt;PrefabRef&gt;() },
-            Any = new ComponentType[2]
-            {
-                ComponentType.ReadOnly&lt;Created&gt;(),
-                ComponentType.ReadOnly&lt;Deleted&gt;()
-            },
-            None = new ComponentType[1] { ComponentType.ReadOnly&lt;Temp&gt;() }
-        });
-        m_AllInstancesQuery = GetEntityQuery(ComponentType.ReadOnly&lt;PrefabRef&gt;(), ComponentType.Exclude&lt;Temp&gt;());
-        m_InstanceCounts = new NativeParallelHashMap&lt;Entity, int&gt;(100, Allocator.Persistent);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreateForCompiler() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnCreateForCompiler()
-    {
-        base.OnCreateForCompiler();
-        __AssignQueries(ref base.CheckedStateRef);
-        __TypeHandle.__AssignHandles(ref base.CheckedStateRef);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnDestroy() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnDestroy()
-    {
-        m_InstanceCounts.Dispose();
-        base.OnDestroy();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        EntityQuery query = (GetLoaded() ? m_AllInstancesQuery : m_UpdatedInstancesQuery);
-        if (!query.IsEmptyIgnoreFilter)
-        {
-            JobHandle dependencies;
-            JobHandle jobHandle = JobChunkExtensions.Schedule(new UpdateCountsJob
-            {
-                m_PrefabRefType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                m_DeletedType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Common_Deleted_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                m_InstanceCounts = GetInstanceCounts(readOnly: false, out dependencies)
-            }, query, JobHandle.CombineDependencies(base.Dependency, dependencies));
-            AddCountWriter(jobHandle);
-            base.Dependency = jobHandle;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public PreDeserialize(Colossal.Serialization.Entities.Context context) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void PreDeserialize(Context context)
-    {
-        JobHandle dependencies;
-        NativeParallelHashMap&lt;Entity, int&gt; instanceCounts = GetInstanceCounts(readOnly: false, out dependencies);
-        dependencies.Complete();
-        instanceCounts.Clear();
-        m_Loaded = true;
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Prefabs.InstanceCountSystem+UpdateCountsJob</code>  </li>
-<li><code>Game.Prefabs.InstanceCountSystem+TypeHandle</code>  </li>
-</ul>
+<p>Notes and tips:
+- The system uses a persistent NativeParallelHashMap which must be disposed; this is handled in OnDestroy.
+- Use GetInstanceCounts to get the map and the appropriate dependency JobHandle; always respect the returned dependencies (Complete or combine into your job) to avoid race conditions.
+- For large numbers of prefabs/entities consider the initial capacity (100) and increase if needed to avoid rehashing.
+- PreDeserialize is intended to be called during save/load so the system will re-scan all instances and rebuild accurate counts.</p>
 
 
 

@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87073,6 +87165,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Simulation/SurfaceWater/" class="md-nav__link">
         
   
@@ -95083,15 +95198,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -95122,6 +95228,15 @@
   <a href="#methods" class="md-nav__link">
     <span class="md-ellipsis">
       Methods
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
     </span>
   </a>
   
@@ -117921,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117946,15 +118083,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -117992,6 +118120,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -118009,61 +118146,68 @@
 
 
 <h1 id="gametutorialstutorialdeactivationsystembase">Game.Tutorials.TutorialDeactivationSystemBase</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Tutorials</code>  </p>
-<p><strong>Type:</strong> class abstract public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public abstract class TutorialDeactivationSystemBase : Game.GameSystemBase
-{
-    private Unity.Entities.EntityQuery m_ActivePhaseQuery;
-    protected Unity.Entities.EntityCommandBufferSystem m_BarrierSystem;
-
-    protected System.Boolean phaseCanDeactivate { protected get; }
-
-    protected TutorialDeactivationSystemBase();
-
-    protected virtual System.Void OnCreate();
-}
-</code></pre>
+<p><strong>Assembly:</strong> Assembly-CSharp (game code / modding assembly)</p>
+<p><strong>Namespace:</strong> Game.Tutorials</p>
+<p><strong>Type:</strong> abstract class</p>
+<p><strong>Base:</strong> Game.Common.GameSystemBase</p>
+<p><strong>Summary:</strong><br />
+Base system for tutorial-phase deactivation logic. This abstract system prepares a query that finds tutorial phases which are both active and marked as able to deactivate, and provides a reference to the modification/command buffer barrier system (ModificationBarrier3) so derived systems can make structural changes safely. It encapsulates common setup so derived tutorial deactivation systems can focus on deactivation logic and scheduling commands.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Unity.Entities.EntityQuery m_ActivePhaseQuery</code>  </li>
+<li>
+<p><code>private Unity.Entities.EntityQuery m_ActivePhaseQuery</code><br />
+Holds an EntityQuery that selects entities with TutorialPhaseData, TutorialPhaseActive and TutorialPhaseCanDeactivate components. Used to test whether any phases are currently active and eligible for deactivation.</p>
+</li>
+<li>
+<p><code>protected Unity.Entities.EntityCommandBufferSystem m_BarrierSystem</code><br />
+Reference to the world’s ModificationBarrier3 (an EntityCommandBufferSystem). Derived systems should use this to create/record EntityCommandBuffer operations (or schedule jobs that use command buffers) so structural changes are applied at the appropriate sync point.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_ActivePhaseQuery;
-</code></pre>
-<ul>
-<li><code>protected Unity.Entities.EntityCommandBufferSystem m_BarrierSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected Unity.Entities.EntityCommandBufferSystem m_BarrierSystem;
-</code></pre>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>protected System.Boolean phaseCanDeactivate { protected get }</code>  </li>
+<li><code>protected bool phaseCanDeactivate { get; }</code><br />
+Computed read-only property. Returns true when the m_ActivePhaseQuery is non-empty (i.e., there exists at least one active tutorial phase that can be deactivated). Note: the name indicates the presence of phases eligible for deactivation; it does not perform any deactivation itself.</li>
 </ul>
-<pre><code class="language-csharp">protected System.Boolean phaseCanDeactivate { protected get; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>protected TutorialDeactivationSystemBase()</code>  </li>
+<li><code>protected TutorialDeactivationSystemBase()</code><br />
+Parameterless protected constructor. The class does no special construction work beyond what GameSystemBase provides; initialization is performed in OnCreate.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    protected TutorialDeactivationSystemBase()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
+<li><code>protected override void OnCreate() : System.Void</code><br />
+Initializes the system:</li>
+<li>Retrieves or creates the ModificationBarrier3 system from the world and stores it in m_BarrierSystem.</li>
+<li>Builds m_ActivePhaseQuery to select entities with TutorialPhaseData, TutorialPhaseActive and TutorialPhaseCanDeactivate components.
+This method is marked with [Preserve] in the source to avoid stripping by the linker. Derived systems should call base.OnCreate() in their overrides.</li>
 </ul>
+<h2 id="usage-example">Usage Example</h2>
 <pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
+protected override void OnCreate()
+{
+    base.OnCreate(); // sets up m_BarrierSystem and m_ActivePhaseQuery
+}
+
+// Example OnUpdate in a derived system:
+protected override void OnUpdate()
+{
+    // If any active phases can deactivate, perform deactivation logic
+    if (phaseCanDeactivate)
     {
-        base.OnCreate();
-        m_BarrierSystem = base.World.GetOrCreateSystemManaged&lt;ModificationBarrier3&gt;();
-        m_ActivePhaseQuery = GetEntityQuery(ComponentType.ReadOnly&lt;TutorialPhaseData&gt;(), ComponentType.ReadOnly&lt;TutorialPhaseActive&gt;(), ComponentType.ReadOnly&lt;TutorialPhaseCanDeactivate&gt;());
+        var ecb = m_BarrierSystem.CreateCommandBuffer(); // record structural changes
+        // Example: add a component to mark phase as deactivated, or remove TutorialPhaseActive
+        // ecb.RemoveComponent&lt;TutorialPhaseActive&gt;(entity);
+        // ecb.AddComponent(entity, new TutorialPhaseDeactivated { ... });
+
+        // If scheduling jobs that write to command buffer, use m_BarrierSystem.CreateCommandBuffer().ToConcurrent() etc.
     }
+}
 </code></pre>
+<p>Notes and best practices:
+- Use m_BarrierSystem to record structural changes rather than applying them immediately.
+- The query built in OnCreate uses ReadOnly component types for efficient matching; if you need different filters, adjust or create a new query in the derived system.
+- Respect the ECS update model (jobs / main-thread) when creating or scheduling work that uses the barrier.</p>
 
 
 

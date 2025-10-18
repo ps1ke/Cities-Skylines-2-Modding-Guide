@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72336,15 +72382,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -72375,6 +72412,15 @@
   <a href="#methods" class="md-nav__link">
     <span class="md-ellipsis">
       Methods
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
     </span>
   </a>
   
@@ -72563,6 +72609,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75553,6 +75622,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87145,6 +87237,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -117921,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117946,15 +118083,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -117992,6 +118120,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -118009,124 +118146,117 @@
 
 
 <h1 id="gamesceneflowfullscreenoverlay">Game.SceneFlow.FullScreenOverlay</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.SceneFlow</code>  </p>
-<p><strong>Type:</strong> class abstract public  </p>
-<p><strong>Base:</strong> <code>System.Object</code><br />
-<strong>Implements:</strong> <code>Game.SceneFlow.IScreenState</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public abstract class FullScreenOverlay : Game.SceneFlow.IScreenState
-{
-    protected System.Action m_CompletedEvent;
-    protected System.Boolean m_Done;
-    protected static const System.String kEngagementAnyKeyAction;
-    protected static const System.String kEngagementContinueAction;
-    protected static const System.String kEngagementCancelAction;
-
-    protected Game.SceneFlow.OverlayScreen overlayScreen { protected get; }
-    protected System.String actionA { protected get; }
-    protected System.String actionB { protected get; }
-    protected System.String continueDisplayProperty { protected get; }
-    protected System.String cancelDisplayProperty { protected get; }
-    protected System.Int32 continueDisplayPriority { protected get; }
-    protected System.Int32 cancelDisplayPriority { protected get; }
-
-    protected FullScreenOverlay();
-
-    public abstract System.Threading.Tasks.Task Execute(Game.SceneFlow.GameManager manager, System.Threading.CancellationToken token);
-    protected virtual System.Boolean HandleScreenChange(Game.SceneFlow.OverlayScreen screen);
-}
-</code></pre>
+<p><strong>Assembly:</strong><br />
+{{ YOUR_INFO: Assembly not specified in the provided file. This type is part of the game's SceneFlow code — include the mod assembly name or core game assembly when documenting for your project. }}</p>
+<p><strong>Namespace:</strong> Game.SceneFlow</p>
+<p><strong>Type:</strong> abstract class</p>
+<p><strong>Base:</strong> IScreenState</p>
+<p><strong>Summary:</strong><br />
+{{ YOUR_INFO: FullScreenOverlay is a base class for full-screen overlay screen states (for example pause screens, modal dialogs, loading overlays) in the SceneFlow system. It centralizes common behavior such as named input actions (AnyKey / Continue / Cancel), a completion event, a done flag, and default display properties/priorities for continue/cancel actions. Subclasses provide the specific overlay type via the abstract overlayScreen property and implement the overlay lifecycle by overriding Execute. The class also offers HandleScreenChange which toggles input associations when the overlay becomes active or inactive. }}</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>protected System.Action m_CompletedEvent</code>  </li>
+<li>
+<p><code>protected const string kEngagementAnyKeyAction</code><br />
+{{ YOUR_INFO: Constant string with value "AnyKey". Used to identify a general "any key" engagement action. }}</p>
+</li>
+<li>
+<p><code>protected const string kEngagementContinueAction</code><br />
+{{ YOUR_INFO: Constant string with value "Continue". Used to identify the continue/confirm action. }}</p>
+</li>
+<li>
+<p><code>protected const string kEngagementCancelAction</code><br />
+{{ YOUR_INFO: Constant string with value "Cancel". Used to identify the cancel/back action. }}</p>
+</li>
+<li>
+<p><code>protected Action m_CompletedEvent</code><br />
+{{ YOUR_INFO: Protected event-like delegate that derived classes can invoke when the overlay finishes. Consumers can attach handlers to be notified of completion. }}</p>
+</li>
+<li>
+<p><code>protected bool m_Done</code><br />
+{{ YOUR_INFO: Flag indicating the overlay has finished/should be closed. Derived classes typically set this to true when the overlay's work is complete. }}</p>
+</li>
 </ul>
-<pre><code class="language-csharp">protected System.Action m_CompletedEvent;
-</code></pre>
-<ul>
-<li><code>protected System.Boolean m_Done</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected System.Boolean m_Done;
-</code></pre>
-<ul>
-<li><code>protected static const System.String kEngagementAnyKeyAction</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected static const System.String kEngagementAnyKeyAction;
-</code></pre>
-<ul>
-<li><code>protected static const System.String kEngagementContinueAction</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected static const System.String kEngagementContinueAction;
-</code></pre>
-<ul>
-<li><code>protected static const System.String kEngagementCancelAction</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected static const System.String kEngagementCancelAction;
-</code></pre>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>protected Game.SceneFlow.OverlayScreen overlayScreen { protected get }</code>  </li>
+<li>
+<p><code>protected abstract OverlayScreen overlayScreen { get; }</code><br />
+{{ YOUR_INFO: Required override in derived classes to indicate which OverlayScreen enum value this overlay represents (e.g., OverlayScreen.Pause). Used by HandleScreenChange to detect activation. }}</p>
+</li>
+<li>
+<p><code>protected virtual string actionA { get; }</code><br />
+{{ YOUR_INFO: Default action name for the primary action. Returns "Continue" by default. Subclasses can override to change the action used for the primary engagement. }}</p>
+</li>
+<li>
+<p><code>protected virtual string actionB { get; }</code><br />
+{{ YOUR_INFO: Default action name for the secondary action. Returns "Cancel" by default. Subclasses can override to change the action used for the secondary engagement. }}</p>
+</li>
+<li>
+<p><code>protected virtual string continueDisplayProperty { get; }</code><br />
+{{ YOUR_INFO: Optional UI display property name for the continue action. Default is null. Override to provide a localized display string or property key. }}</p>
+</li>
+<li>
+<p><code>protected virtual string cancelDisplayProperty { get; }</code><br />
+{{ YOUR_INFO: Optional UI display property name for the cancel action. Default is null. Override to provide a localized display string or property key. }}</p>
+</li>
+<li>
+<p><code>protected virtual int continueDisplayPriority { get; }</code><br />
+{{ YOUR_INFO: Display priority for the continue action. Default is 20. Can be overridden to influence ordering/visibility in UI. }}</p>
+</li>
+<li>
+<p><code>protected virtual int cancelDisplayPriority { get; }</code><br />
+{{ YOUR_INFO: Display priority for the cancel action. Default is 20. Can be overridden to influence ordering/visibility in UI. }}</p>
+</li>
 </ul>
-<pre><code class="language-csharp">protected Game.SceneFlow.OverlayScreen overlayScreen { protected get; }
-</code></pre>
-<ul>
-<li><code>protected System.String actionA { protected get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected System.String actionA { protected get; }
-</code></pre>
-<ul>
-<li><code>protected System.String actionB { protected get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected System.String actionB { protected get; }
-</code></pre>
-<ul>
-<li><code>protected System.String continueDisplayProperty { protected get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected System.String continueDisplayProperty { protected get; }
-</code></pre>
-<ul>
-<li><code>protected System.String cancelDisplayProperty { protected get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected System.String cancelDisplayProperty { protected get; }
-</code></pre>
-<ul>
-<li><code>protected System.Int32 continueDisplayPriority { protected get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected System.Int32 continueDisplayPriority { protected get; }
-</code></pre>
-<ul>
-<li><code>protected System.Int32 cancelDisplayPriority { protected get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected System.Int32 cancelDisplayPriority { protected get; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>protected FullScreenOverlay()</code>  </li>
+<li><code>public FullScreenOverlay()</code><br />
+{{ YOUR_INFO: No explicit constructor is declared in the source file; a default parameterless constructor is provided by the compiler. As an abstract class, it is intended to be subclassed. }}</li>
 </ul>
-<pre><code class="language-csharp">protected FullScreenOverlay();
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>public abstract Execute(Game.SceneFlow.GameManager manager, System.Threading.CancellationToken token) : System.Threading.Tasks.Task</code>  </li>
+<li>
+<p><code>protected virtual bool HandleScreenChange(OverlayScreen screen)</code><br />
+{{ YOUR_INFO: Called to handle changes to the active overlay screen. If the provided screen equals this.overlayScreen, input is disassociated from the player (InputManager.instance.AssociateActionsWithUser(false)) so overlay actions are not bound to the normal player input. If the screen is OverlayScreen.None or OverlayScreen.Loading, input association is restored (AssociateActionsWithUser(true)). Returns true when the provided screen matches this.overlayScreen (i.e., the overlay is active). This method can be overridden by subclasses to customize activation behavior. }}</p>
+</li>
+<li>
+<p><code>public abstract Task Execute(GameManager manager, CancellationToken token)</code><br />
+{{ YOUR_INFO: The main lifecycle method that derived classes must implement. Execute should contain the overlay's asynchronous logic (show UI, wait for user input or other conditions, set m_Done and/or invoke m_CompletedEvent when finished). The CancellationToken should be observed to support cancellation by the caller. }}</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public abstract System.Threading.Tasks.Task Execute(Game.SceneFlow.GameManager manager, System.Threading.CancellationToken token);
-</code></pre>
-<ul>
-<li><code>protected virtual HandleScreenChange(Game.SceneFlow.OverlayScreen screen) : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected virtual bool HandleScreenChange(OverlayScreen screen)
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">public class PauseOverlay : FullScreenOverlay
+{
+    protected override OverlayScreen overlayScreen =&gt; OverlayScreen.Pause;
+
+    // Optionally override displays/priorities:
+    protected override string continueDisplayProperty =&gt; &quot;HUD_CONTINUE&quot;;
+    protected override string cancelDisplayProperty =&gt; &quot;HUD_EXIT_TO_MENU&quot;;
+
+    public override async Task Execute(GameManager manager, CancellationToken token)
     {
-        if (screen == overlayScreen)
+        // Example: mark overlay as active, wait until done or canceled.
+        m_Done = false;
+
+        // Optionally subscribe to completion
+        m_CompletedEvent += () =&gt; Console.WriteLine(&quot;Pause overlay completed.&quot;);
+
+        // Simple loop that waits until m_Done is set or cancellation requested.
+        while (!m_Done &amp;&amp; !token.IsCancellationRequested)
         {
-            InputManager.instance.AssociateActionsWithUser(associate: false);
+            // Let the scheduler run other tasks / frames
+            await Task.Yield();
+
+            // Keep input association state in sync with the manager's current overlay.
+            HandleScreenChange(manager.CurrentOverlay);
         }
-        else if (screen == OverlayScreen.None || screen == OverlayScreen.Loading)
-        {
-            InputManager.instance.AssociateActionsWithUser(associate: true);
-        }
-        return screen == overlayScreen;
+
+        // Notify listeners
+        m_CompletedEvent?.Invoke();
     }
+}
 </code></pre>
+<p>{{ YOUR_INFO: The example shows how to implement a concrete full-screen overlay. In a real mod, you would show/hide UI elements, register input handlers for actionA/actionB (using names like kEngagementContinueAction / kEngagementCancelAction or the actionA/actionB properties), and set m_Done when the user confirms/cancels. Always honor the CancellationToken and use HandleScreenChange to let the base class manage input association state. }}</p>
 
 
 

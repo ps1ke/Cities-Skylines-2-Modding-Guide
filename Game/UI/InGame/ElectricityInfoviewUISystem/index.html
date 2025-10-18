@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#gameuiingameelectricityinfoviewuisystem" class="md-skip">
+        <a href="#gameelectricityinfoviewuisystem" class="md-skip">
           Skip to content
         </a>
       
@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87056,6 +87148,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -101724,15 +101839,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -101763,6 +101869,15 @@
   <a href="#methods" class="md-nav__link">
     <span class="md-ellipsis">
       Methods
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
     </span>
   </a>
   
@@ -117923,6 +118038,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117948,15 +118085,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -117994,6 +118122,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -118010,232 +118147,137 @@
 
 
 
-<h1 id="gameuiingameelectricityinfoviewuisystem">Game.UI.InGame.ElectricityInfoviewUISystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.UI.InGame</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.UI.InGame.InfoviewUISystemBase</code><br />
-<strong>Implements:</strong> <code>Game.Serialization.IPreDeserialize</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class ElectricityInfoviewUISystem : Game.UI.InGame.InfoviewUISystemBase, Game.Serialization.IPreDeserialize
-{
-    private Game.Simulation.ElectricityStatisticsSystem m_ElectricityStatisticsSystem;
-    private Game.Simulation.ElectricityTradeSystem m_ElectricityTradeSystem;
-    private Unity.Entities.EntityQuery m_OutsideTradeParameterGroup;
-    private Colossal.UI.Binding.GetterValueBinding&lt;System.Int32&gt; m_ElectricityProduction;
-    private Colossal.UI.Binding.GetterValueBinding&lt;System.Int32&gt; m_ElectricityConsumption;
-    private Colossal.UI.Binding.GetterValueBinding&lt;System.Int32&gt; m_ElectricityTransmitted;
-    private Colossal.UI.Binding.GetterValueBinding&lt;System.Int32&gt; m_ElectricityExport;
-    private Colossal.UI.Binding.GetterValueBinding&lt;System.Int32&gt; m_ElectricityImport;
-    private Colossal.UI.Binding.GetterValueBinding&lt;Game.UI.InGame.IndicatorValue&gt; m_ElectricityAvailability;
-    private Colossal.UI.Binding.GetterValueBinding&lt;Game.UI.InGame.IndicatorValue&gt; m_ElectricityTransmission;
-    private Colossal.UI.Binding.GetterValueBinding&lt;Game.UI.InGame.IndicatorValue&gt; m_ElectricityTrade;
-    private Colossal.UI.Binding.GetterValueBinding&lt;Game.UI.InGame.IndicatorValue&gt; m_BatteryCharge;
-    private static const System.String kGroup;
-
-    protected System.Boolean Active { protected get; }
-
-    public ElectricityInfoviewUISystem();
-
-    private System.Int32 &lt;OnCreate&gt;b__13_0();
-    private System.Int32 &lt;OnCreate&gt;b__13_1();
-    private System.Int32 &lt;OnCreate&gt;b__13_2();
-    private System.Int32 &lt;OnCreate&gt;b__13_3();
-    private System.Int32 &lt;OnCreate&gt;b__13_4();
-    private Game.UI.InGame.IndicatorValue GetBatteryCharge();
-    private Game.UI.InGame.IndicatorValue GetElectricityAvailability();
-    private Game.UI.InGame.IndicatorValue GetElectricityTrade();
-    private Game.UI.InGame.IndicatorValue GetElectricityTransmission();
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void PerformUpdate();
-}
-</code></pre>
+<h1 id="gameelectricityinfoviewuisystem">Game.ElectricityInfoviewUISystem</h1>
+<p><strong>Assembly:</strong>  (inferred: Game)<br />
+<strong>Namespace:</strong> Game.UI.InGame</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> InfoviewUISystemBase</p>
+<p><strong>Summary:</strong><br />
+Provides the in-game electricity infoview UI bindings. The system connects to ElectricityStatisticsSystem and ElectricityTradeSystem, creates GetterValueBinding instances for multiple electricity-related values (production, consumption, transmission, trade, battery charge, etc.), updates those bindings each frame, and exposes indicator values that the UI can render. It also queries outside-trade parameters for calculating trade indicators.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.Simulation.ElectricityStatisticsSystem m_ElectricityStatisticsSystem</code>  </li>
+<li>
+<p><code>private ElectricityStatisticsSystem m_ElectricityStatisticsSystem</code><br />
+Holds a reference to the ElectricityStatisticsSystem used to read production, consumption, fulfilled consumption, battery capacity/charge and other electricity-related stats.</p>
+</li>
+<li>
+<p><code>private ElectricityTradeSystem m_ElectricityTradeSystem</code><br />
+Holds a reference to the ElectricityTradeSystem used to read import/export amounts for electricity trade.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_OutsideTradeParameterGroup</code><br />
+EntityQuery used to check for and read the singleton OutsideTradeParameterData to obtain export/import prices for trade calculations.</p>
+</li>
+<li>
+<p><code>private GetterValueBinding&lt;int&gt; m_ElectricityProduction</code><br />
+Getter binding for the integer electricity production value (group "electricityInfo", key "electricityProduction"). Reads from m_ElectricityStatisticsSystem.production.</p>
+</li>
+<li>
+<p><code>private GetterValueBinding&lt;int&gt; m_ElectricityConsumption</code><br />
+Getter binding for the integer electricity consumption value (group "electricityInfo", key "electricityConsumption"). Reads from m_ElectricityStatisticsSystem.consumption.</p>
+</li>
+<li>
+<p><code>private GetterValueBinding&lt;int&gt; m_ElectricityTransmitted</code><br />
+Getter binding for the integer fulfilled/transmitted electricity (group "electricityInfo", key "electricityTransmitted"). Reads from m_ElectricityStatisticsSystem.fulfilledConsumption.</p>
+</li>
+<li>
+<p><code>private GetterValueBinding&lt;int&gt; m_ElectricityExport</code><br />
+Getter binding for electricity export amount (group "electricityInfo", key "electricityExport"). Reads from m_ElectricityTradeSystem.export.</p>
+</li>
+<li>
+<p><code>private GetterValueBinding&lt;int&gt; m_ElectricityImport</code><br />
+Getter binding for electricity import amount (group "electricityInfo", key "electricityImport"). Reads from m_ElectricityTradeSystem.import.</p>
+</li>
+<li>
+<p><code>private GetterValueBinding&lt;IndicatorValue&gt; m_ElectricityAvailability</code><br />
+Getter binding that supplies an IndicatorValue representing production vs consumption (group "electricityInfo", key "electricityAvailability"). Uses GetElectricityAvailability.</p>
+</li>
+<li>
+<p><code>private GetterValueBinding&lt;IndicatorValue&gt; m_ElectricityTransmission</code><br />
+Getter binding that supplies an IndicatorValue representing transmission fulfillment (group "electricityInfo", key "electricityTransmission"). Uses GetElectricityTransmission.</p>
+</li>
+<li>
+<p><code>private GetterValueBinding&lt;IndicatorValue&gt; m_ElectricityTrade</code><br />
+Getter binding that supplies an IndicatorValue for trade balance based on import/export and outside prices (group "electricityInfo", key "electricityTrade"). Uses GetElectricityTrade.</p>
+</li>
+<li>
+<p><code>private GetterValueBinding&lt;IndicatorValue&gt; m_BatteryCharge</code><br />
+Getter binding that supplies an IndicatorValue representing battery charge relative to capacity (group "electricityInfo", key "batteryCharge"). Uses GetBatteryCharge.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.Simulation.ElectricityStatisticsSystem m_ElectricityStatisticsSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.ElectricityTradeSystem m_ElectricityTradeSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.ElectricityTradeSystem m_ElectricityTradeSystem;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_OutsideTradeParameterGroup</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_OutsideTradeParameterGroup;
-</code></pre>
-<ul>
-<li><code>private Colossal.UI.Binding.GetterValueBinding&lt;System.Int32&gt; m_ElectricityProduction</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.UI.Binding.GetterValueBinding&lt;System.Int32&gt; m_ElectricityProduction;
-</code></pre>
-<ul>
-<li><code>private Colossal.UI.Binding.GetterValueBinding&lt;System.Int32&gt; m_ElectricityConsumption</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.UI.Binding.GetterValueBinding&lt;System.Int32&gt; m_ElectricityConsumption;
-</code></pre>
-<ul>
-<li><code>private Colossal.UI.Binding.GetterValueBinding&lt;System.Int32&gt; m_ElectricityTransmitted</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.UI.Binding.GetterValueBinding&lt;System.Int32&gt; m_ElectricityTransmitted;
-</code></pre>
-<ul>
-<li><code>private Colossal.UI.Binding.GetterValueBinding&lt;System.Int32&gt; m_ElectricityExport</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.UI.Binding.GetterValueBinding&lt;System.Int32&gt; m_ElectricityExport;
-</code></pre>
-<ul>
-<li><code>private Colossal.UI.Binding.GetterValueBinding&lt;System.Int32&gt; m_ElectricityImport</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.UI.Binding.GetterValueBinding&lt;System.Int32&gt; m_ElectricityImport;
-</code></pre>
-<ul>
-<li><code>private Colossal.UI.Binding.GetterValueBinding&lt;Game.UI.InGame.IndicatorValue&gt; m_ElectricityAvailability</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.UI.Binding.GetterValueBinding&lt;Game.UI.InGame.IndicatorValue&gt; m_ElectricityAvailability;
-</code></pre>
-<ul>
-<li><code>private Colossal.UI.Binding.GetterValueBinding&lt;Game.UI.InGame.IndicatorValue&gt; m_ElectricityTransmission</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.UI.Binding.GetterValueBinding&lt;Game.UI.InGame.IndicatorValue&gt; m_ElectricityTransmission;
-</code></pre>
-<ul>
-<li><code>private Colossal.UI.Binding.GetterValueBinding&lt;Game.UI.InGame.IndicatorValue&gt; m_ElectricityTrade</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.UI.Binding.GetterValueBinding&lt;Game.UI.InGame.IndicatorValue&gt; m_ElectricityTrade;
-</code></pre>
-<ul>
-<li><code>private Colossal.UI.Binding.GetterValueBinding&lt;Game.UI.InGame.IndicatorValue&gt; m_BatteryCharge</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.UI.Binding.GetterValueBinding&lt;Game.UI.InGame.IndicatorValue&gt; m_BatteryCharge;
-</code></pre>
-<ul>
-<li><code>private static const System.String kGroup</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static const System.String kGroup;
-</code></pre>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>protected System.Boolean Active { protected get }</code>  </li>
+<li><code>protected override bool Active { get; }</code><br />
+Determines whether this UI system is active. Returns true if the base.Active is true or if any of the binding fields are active. The check tests all main bindings (production, consumption, transmitted, export, import, availability, transmission, trade) and finally battery charge; if none are active and base.Active is false, this property returns false.</li>
 </ul>
-<pre><code class="language-csharp">protected System.Boolean Active { protected get; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public ElectricityInfoviewUISystem()</code>  </li>
+<li><code>public ElectricityInfoviewUISystem()</code><br />
+Default constructor. The system has a [Preserve] attribute in code, but otherwise no custom initialization is performed in the constructor; initialization happens in OnCreate.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public ElectricityInfoviewUISystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private &lt;OnCreate&gt;b__13_0() : System.Int32</code>  </li>
+<li>
+<p><code>protected override void OnCreate()</code><br />
+Initializes the system: calls base.OnCreate(), obtains managed system references via World.GetOrCreateSystemManaged for ElectricityStatisticsSystem and ElectricityTradeSystem, creates an EntityQuery for OutsideTradeParameterData, and registers all GetterValueBinding instances with AddBinding. Each binding is configured with the group "electricityInfo" and an appropriate key name. Bindings for IndicatorValue use ValueWriter<IndicatorValue>.</p>
+</li>
+<li>
+<p><code>protected override void PerformUpdate()</code><br />
+Called each update to refresh UI values. Calls Update() on every GetterValueBinding so the UI receives the latest values.</p>
+</li>
+<li>
+<p><code>private IndicatorValue GetElectricityTransmission()</code><br />
+Builds and returns an IndicatorValue with:</p>
+</li>
+<li>min = 0</li>
+<li>max = m_ElectricityStatisticsSystem.consumption</li>
+<li>
+<p>current = m_ElectricityStatisticsSystem.fulfilledConsumption
+Represents how much of consumption is currently fulfilled (transmitted).</p>
+</li>
+<li>
+<p><code>private IndicatorValue GetElectricityAvailability()</code><br />
+Returns IndicatorValue.Calculate(production, consumption) using values from m_ElectricityStatisticsSystem. Represents availability of electricity relative to demand.</p>
+</li>
+<li>
+<p><code>private IndicatorValue GetElectricityTrade()</code><br />
+If an OutsideTradeParameterData singleton exists, calculates a normalized trade indicator:</p>
+</li>
+<li>Computes trade balance in currency: export * exportPrice - import * importPrice</li>
+<li>Normalizes by a positive baseline = max(0.01, consumption * exportPrice)</li>
+<li>
+<p>Clamps result to [-1, 1] and returns new IndicatorValue(-1, 1, clampedValue)
+If no outside-trade parameters exist, returns IndicatorValue(-1, 1, 0). Uses Unity.Mathematics.math.clamp and math.max.</p>
+</li>
+<li>
+<p><code>private IndicatorValue GetBatteryCharge()</code><br />
+Returns new IndicatorValue(0, batteryCapacity, batteryCharge) from m_ElectricityStatisticsSystem.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private System.Int32 &lt;OnCreate&gt;b__13_0();
-</code></pre>
-<ul>
-<li><code>private &lt;OnCreate&gt;b__13_1() : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 &lt;OnCreate&gt;b__13_1();
-</code></pre>
-<ul>
-<li><code>private &lt;OnCreate&gt;b__13_2() : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 &lt;OnCreate&gt;b__13_2();
-</code></pre>
-<ul>
-<li><code>private &lt;OnCreate&gt;b__13_3() : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 &lt;OnCreate&gt;b__13_3();
-</code></pre>
-<ul>
-<li><code>private &lt;OnCreate&gt;b__13_4() : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 &lt;OnCreate&gt;b__13_4();
-</code></pre>
-<ul>
-<li><code>private GetBatteryCharge() : Game.UI.InGame.IndicatorValue</code>  </li>
-</ul>
-<pre><code class="language-csharp">private IndicatorValue GetBatteryCharge()
-    {
-        return new IndicatorValue(0f, m_ElectricityStatisticsSystem.batteryCapacity, m_ElectricityStatisticsSystem.batteryCharge);
-    }
-</code></pre>
-<ul>
-<li><code>private GetElectricityAvailability() : Game.UI.InGame.IndicatorValue</code>  </li>
-</ul>
-<pre><code class="language-csharp">private IndicatorValue GetElectricityAvailability()
-    {
-        return IndicatorValue.Calculate(m_ElectricityStatisticsSystem.production, m_ElectricityStatisticsSystem.consumption);
-    }
-</code></pre>
-<ul>
-<li><code>private GetElectricityTrade() : Game.UI.InGame.IndicatorValue</code>  </li>
-</ul>
-<pre><code class="language-csharp">private IndicatorValue GetElectricityTrade()
-    {
-        if (!m_OutsideTradeParameterGroup.IsEmptyIgnoreFilter)
-        {
-            OutsideTradeParameterData singleton = m_OutsideTradeParameterGroup.GetSingleton&lt;OutsideTradeParameterData&gt;();
-            float num = (float)m_ElectricityTradeSystem.export * singleton.m_ElectricityExportPrice - (float)m_ElectricityTradeSystem.import * singleton.m_ElectricityImportPrice;
-            float num2 = math.max(0.01f, (float)m_ElectricityStatisticsSystem.consumption * singleton.m_ElectricityExportPrice);
-            return new IndicatorValue(-1f, 1f, math.clamp(num / num2, -1f, 1f));
-        }
-        return new IndicatorValue(-1f, 1f, 0f);
-    }
-</code></pre>
-<ul>
-<li><code>private GetElectricityTransmission() : Game.UI.InGame.IndicatorValue</code>  </li>
-</ul>
-<pre><code class="language-csharp">private IndicatorValue GetElectricityTransmission()
-    {
-        float max = m_ElectricityStatisticsSystem.consumption;
-        float current = m_ElectricityStatisticsSystem.fulfilledConsumption;
-        return new IndicatorValue(0f, max, current);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
+<h2 id="usage-example">Usage Example</h2>
 <pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_ElectricityStatisticsSystem = base.World.GetOrCreateSystemManaged&lt;ElectricityStatisticsSystem&gt;();
-        m_ElectricityTradeSystem = base.World.GetOrCreateSystemManaged&lt;ElectricityTradeSystem&gt;();
-        m_OutsideTradeParameterGroup = GetEntityQuery(ComponentType.ReadOnly&lt;OutsideTradeParameterData&gt;());
-        AddBinding(m_ElectricityProduction = new GetterValueBinding&lt;int&gt;(&quot;electricityInfo&quot;, &quot;electricityProduction&quot;, () =&gt; m_ElectricityStatisticsSystem.production));
-        AddBinding(m_ElectricityConsumption = new GetterValueBinding&lt;int&gt;(&quot;electricityInfo&quot;, &quot;electricityConsumption&quot;, () =&gt; m_ElectricityStatisticsSystem.consumption));
-        AddBinding(m_ElectricityTransmitted = new GetterValueBinding&lt;int&gt;(&quot;electricityInfo&quot;, &quot;electricityTransmitted&quot;, () =&gt; m_ElectricityStatisticsSystem.fulfilledConsumption));
-        AddBinding(m_ElectricityExport = new GetterValueBinding&lt;int&gt;(&quot;electricityInfo&quot;, &quot;electricityExport&quot;, () =&gt; m_ElectricityTradeSystem.export));
-        AddBinding(m_ElectricityImport = new GetterValueBinding&lt;int&gt;(&quot;electricityInfo&quot;, &quot;electricityImport&quot;, () =&gt; m_ElectricityTradeSystem.import));
-        AddBinding(m_ElectricityAvailability = new GetterValueBinding&lt;IndicatorValue&gt;(&quot;electricityInfo&quot;, &quot;electricityAvailability&quot;, GetElectricityAvailability, new ValueWriter&lt;IndicatorValue&gt;()));
-        AddBinding(m_ElectricityTransmission = new GetterValueBinding&lt;IndicatorValue&gt;(&quot;electricityInfo&quot;, &quot;electricityTransmission&quot;, GetElectricityTransmission, new ValueWriter&lt;IndicatorValue&gt;()));
-        AddBinding(m_ElectricityTrade = new GetterValueBinding&lt;IndicatorValue&gt;(&quot;electricityInfo&quot;, &quot;electricityTrade&quot;, GetElectricityTrade, new ValueWriter&lt;IndicatorValue&gt;()));
-        AddBinding(m_BatteryCharge = new GetterValueBinding&lt;IndicatorValue&gt;(&quot;electricityInfo&quot;, &quot;batteryCharge&quot;, GetBatteryCharge, new ValueWriter&lt;IndicatorValue&gt;()));
-    }
+protected override void OnCreate()
+{
+    base.OnCreate();
+
+    // Obtain referenced systems
+    m_ElectricityStatisticsSystem = World.GetOrCreateSystemManaged&lt;ElectricityStatisticsSystem&gt;();
+    m_ElectricityTradeSystem = World.GetOrCreateSystemManaged&lt;ElectricityTradeSystem&gt;();
+
+    // Query outside trade parameters
+    m_OutsideTradeParameterGroup = GetEntityQuery(ComponentType.ReadOnly&lt;OutsideTradeParameterData&gt;());
+
+    // Register bindings (group &quot;electricityInfo&quot;, keys as shown)
+    AddBinding(m_ElectricityProduction = new GetterValueBinding&lt;int&gt;(&quot;electricityInfo&quot;, &quot;electricityProduction&quot;, () =&gt; m_ElectricityStatisticsSystem.production));
+    AddBinding(m_ElectricityConsumption = new GetterValueBinding&lt;int&gt;(&quot;electricityInfo&quot;, &quot;electricityConsumption&quot;, () =&gt; m_ElectricityStatisticsSystem.consumption));
+    // ...other bindings similarly registered (transmitted, export, import, availability, transmission, trade, batteryCharge)
+}
 </code></pre>
-<ul>
-<li><code>protected virtual PerformUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void PerformUpdate()
-    {
-        m_ElectricityProduction.Update();
-        m_ElectricityConsumption.Update();
-        m_ElectricityTransmitted.Update();
-        m_ElectricityExport.Update();
-        m_ElectricityImport.Update();
-        m_ElectricityAvailability.Update();
-        m_ElectricityTransmission.Update();
-        m_ElectricityTrade.Update();
-        m_BatteryCharge.Update();
-    }
-</code></pre>
+<p>Notes and remarks:
+- This system assumes ElectricityStatisticsSystem and ElectricityTradeSystem are present/registered in the same World and exposes the necessary properties used here (production, consumption, fulfilledConsumption, batteryCapacity, batteryCharge, export, import).
+- IndicatorValue is used to convey min/max/current triples (or ranged indicator values) the UI can render.
+- OutsideTradeParameterData is read as a singleton to obtain export/import prices for trade normalization; the system handles absence of that singleton by returning a neutral trade indicator.</p>
 
 
 

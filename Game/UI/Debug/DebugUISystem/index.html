@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87073,6 +87165,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Simulation/SurfaceWater/" class="md-nav__link">
         
   
@@ -96319,15 +96434,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -96364,9 +96470,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -117932,6 +118038,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117957,15 +118085,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -118004,9 +118123,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118029,387 +118148,176 @@
 
 
 <h1 id="gameuidebugdebuguisystem">Game.UI.Debug.DebugUISystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.UI.Debug</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.UI.UISystemBase</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class DebugUISystem : Game.UI.UISystemBase
-{
-    private Colossal.UI.Binding.ValueBinding&lt;System.Boolean&gt; m_EnabledBinding;
-    private Colossal.UI.Binding.ValueBinding&lt;System.Boolean&gt; m_VisibleBinding;
-    private Colossal.UI.Binding.ValueBinding&lt;Game.UI.Debug.DebugUISystem+Panel&gt; m_SelectedPanelBinding;
-    private Game.UI.Widgets.WidgetBindings m_WidgetBindings;
-    private Colossal.UI.Binding.ValueBinding&lt;Colossal.UI.Binding.IDebugBinding&gt; m_ObservedBindingBinding;
-    private Colossal.UI.Binding.EventBinding&lt;Colossal.UI.Binding.IDebugBinding&gt; m_BindingTriggeredBinding;
-    private Colossal.UI.Binding.GetterValueBinding&lt;System.Collections.Generic.List&lt;Game.Debug.DebugWatchSystem+Watch&gt;&gt; m_WatchesBinding;
-    private System.String m_SelectedPanel;
-    private System.Boolean m_ShowDeveloperInfo;
-    private static const System.String kGroup;
-
-    public System.Boolean visible { get; }
-    public Colossal.UI.Binding.IDebugBinding observedBinding { get; set; }
-    private System.String selectedPanel { private get; private set; }
-    public System.Boolean developerInfoVisible { get; set; }
-    private static System.Collections.Generic.IEnumerable&lt;UnityEngine.Rendering.DebugUI+Panel&gt; visiblePanels { private get; }
-    private static System.Boolean debugSystemEnabled { private get; }
-
-    public DebugUISystem();
-
-    private System.Int32 &lt;OnCreate&gt;b__21_0();
-    private System.Boolean &lt;OnCreate&gt;b__21_1();
-    private System.Collections.Generic.List&lt;Game.Debug.DebugWatchSystem+Watch&gt; &lt;OnCreate&gt;b__21_2();
-    private System.Void &lt;Show&gt;b__24_0(System.Int32 msg, System.Boolean dismiss);
-    private static UnityEngine.Rendering.DebugUI+Panel GetPanel(System.Int32 panelIndex);
-    private static System.Int32 GetPanelCount();
-    private static System.Int32 GetPanelIndex(System.String name);
-    private System.Collections.Generic.List&lt;System.String&gt; GetPanels();
-    public System.Void Hide();
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnUpdate();
-    private System.Void SelectNextPanel();
-    private System.Void SelectPanel(System.Int32 index);
-    private System.Void SelectPreviousPanel();
-    public System.Void Show();
-    public System.Void Trigger(Colossal.UI.Binding.IDebugBinding binding);
-    private System.Void UpdateSelectedPanel();
-}
-</code></pre>
+<p><strong>Assembly:</strong><br />
+<strong>Namespace:</strong> Game.UI.Debug</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> UISystemBase</p>
+<p><strong>Summary:</strong><br />
+DebugUISystem is a UI system that exposes the in-game debug menu to the UI binding layer. It manages the debug menu visibility, the currently selected debug panel, widget bindings for the selected panel, observed debug bindings, and the debug watches. It also coordinates enabling/disabling the underlying DebugSystem and handles user interactions such as showing/hiding the menu, selecting panels, and triggering debug bindings. The class maintains UI ValueBindings and UpdateBindings that the game's UI framework uses to read/update debug UI state.</p>
+<p>This class also contains a private nested class Panel which adapts DebugUI.Panel instances for the UI layer. The nested Panel caches the panel's display name, builds widget representations, detects changes (via panel.onSetDirty) and supports JSON writing and disposal of the change subscription.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Colossal.UI.Binding.ValueBinding&lt;System.Boolean&gt; m_EnabledBinding</code>  </li>
+<li>
+<p><code>private const string kGroup = "debug"</code><br />
+Provides a constant group name used when creating ValueBindings / UpdateBindings for the debug UI.</p>
+</li>
+<li>
+<p><code>private ValueBinding&lt;bool&gt; m_EnabledBinding</code><br />
+Binding that reflects whether the debug system is allowed (initial value comes from developer mode configuration). Used to prevent showing the debug UI when the game isn't in developer mode.</p>
+</li>
+<li>
+<p><code>private ValueBinding&lt;bool&gt; m_VisibleBinding</code><br />
+Binding representing whether the debug UI is currently visible.</p>
+</li>
+<li>
+<p><code>private ValueBinding&lt;Panel&gt; m_SelectedPanelBinding</code><br />
+Binding that holds the currently selected Panel wrapper (the nested Panel type). Updated when the selected panel changes.</p>
+</li>
+<li>
+<p><code>private WidgetBindings m_WidgetBindings</code><br />
+Bindings object that exposes the child widgets of the selected panel to the UI. It is updated whenever the selected panel or its children change.</p>
+</li>
+<li>
+<p><code>private ValueBinding&lt;IDebugBinding&gt; m_ObservedBindingBinding</code><br />
+Binding used to expose the currently observed debug binding (for showing details / inspecting a specific binding).</p>
+</li>
+<li>
+<p><code>private EventBinding&lt;IDebugBinding&gt; m_BindingTriggeredBinding</code><br />
+Event binding used to notify the UI layer when a debug binding is triggered via Trigger(IDebugBinding).</p>
+</li>
+<li>
+<p><code>private GetterValueBinding&lt;List&lt;DebugWatchSystem.Watch&gt;&gt; m_WatchesBinding</code><br />
+Getter binding that provides the list of debug watches maintained by DebugWatchSystem.</p>
+</li>
+<li>
+<p><code>private string m_SelectedPanel</code><br />
+Backer for the private selectedPanel property; stores the displayName of the currently selected panel.</p>
+</li>
+<li>
+<p><code>private bool m_ShowDeveloperInfo</code><br />
+Backer for developerInfoVisible; indicates whether developer info should be shown in the UI.</p>
+</li>
+<li>
+<p><code>private static IEnumerable&lt;DebugUI.Panel&gt; visiblePanels</code><br />
+Private static property that returns the list of DebugUI.Panel instances that are not editor-only and that contain at least one non-editor-only widget. Used to build the list of panels that can be selected by the debug UI.</p>
+</li>
+<li>
+<p><code>private static bool debugSystemEnabled</code><br />
+Private static property that returns whether developer mode is enabled in the current GameManager configuration. Used to initialize m_EnabledBinding.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Colossal.UI.Binding.ValueBinding&lt;System.Boolean&gt; m_EnabledBinding;
-</code></pre>
-<ul>
-<li><code>private Colossal.UI.Binding.ValueBinding&lt;System.Boolean&gt; m_VisibleBinding</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.UI.Binding.ValueBinding&lt;System.Boolean&gt; m_VisibleBinding;
-</code></pre>
-<ul>
-<li><code>private Colossal.UI.Binding.ValueBinding&lt;Game.UI.Debug.DebugUISystem+Panel&gt; m_SelectedPanelBinding</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.UI.Binding.ValueBinding&lt;Game.UI.Debug.DebugUISystem+Panel&gt; m_SelectedPanelBinding;
-</code></pre>
-<ul>
-<li><code>private Game.UI.Widgets.WidgetBindings m_WidgetBindings</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.UI.Widgets.WidgetBindings m_WidgetBindings;
-</code></pre>
-<ul>
-<li><code>private Colossal.UI.Binding.ValueBinding&lt;Colossal.UI.Binding.IDebugBinding&gt; m_ObservedBindingBinding</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.UI.Binding.ValueBinding&lt;Colossal.UI.Binding.IDebugBinding&gt; m_ObservedBindingBinding;
-</code></pre>
-<ul>
-<li><code>private Colossal.UI.Binding.EventBinding&lt;Colossal.UI.Binding.IDebugBinding&gt; m_BindingTriggeredBinding</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.UI.Binding.EventBinding&lt;Colossal.UI.Binding.IDebugBinding&gt; m_BindingTriggeredBinding;
-</code></pre>
-<ul>
-<li><code>private Colossal.UI.Binding.GetterValueBinding&lt;System.Collections.Generic.List&lt;Game.Debug.DebugWatchSystem+Watch&gt;&gt; m_WatchesBinding</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.UI.Binding.GetterValueBinding&lt;System.Collections.Generic.List&lt;Game.Debug.DebugWatchSystem+Watch&gt;&gt; m_WatchesBinding;
-</code></pre>
-<ul>
-<li><code>private System.String m_SelectedPanel</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.String m_SelectedPanel;
-</code></pre>
-<ul>
-<li><code>private System.Boolean m_ShowDeveloperInfo</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean m_ShowDeveloperInfo;
-</code></pre>
-<ul>
-<li><code>private static const System.String kGroup</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static const System.String kGroup;
-</code></pre>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>public System.Boolean visible { get }</code>  </li>
+<li>
+<p><code>public bool visible =&gt; m_VisibleBinding.value</code><br />
+Read-only property exposing whether the debug UI is currently visible.</p>
+</li>
+<li>
+<p><code>[CanBeNull] public IDebugBinding observedBinding { get; set; }</code><br />
+Getter/Setter that proxies to m_ObservedBindingBinding. Used by UI consumers to get or set the currently observed debug binding.</p>
+</li>
+<li>
+<p><code>private string selectedPanel { get; set; }</code><br />
+Private property backed by m_SelectedPanel; stores the displayName of the selected panel. Changing it updates the internal value but selection changes are applied during UpdateSelectedPanel.</p>
+</li>
+<li>
+<p><code>public bool developerInfoVisible { get; set; }</code><br />
+Gets or sets whether developer information should be visible in the debug UI (backed by m_ShowDeveloperInfo).</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public System.Boolean visible { get; }
-</code></pre>
-<ul>
-<li><code>public Colossal.UI.Binding.IDebugBinding observedBinding { get; set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Colossal.UI.Binding.IDebugBinding observedBinding { get; set; }
-</code></pre>
-<ul>
-<li><code>private System.String selectedPanel { private get; private set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.String selectedPanel { private get; private set; }
-</code></pre>
-<ul>
-<li><code>public System.Boolean developerInfoVisible { get; set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Boolean developerInfoVisible { get; set; }
-</code></pre>
-<ul>
-<li><code>private static System.Collections.Generic.IEnumerable&lt;UnityEngine.Rendering.DebugUI+Panel&gt; visiblePanels { private get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static System.Collections.Generic.IEnumerable&lt;UnityEngine.Rendering.DebugUI+Panel&gt; visiblePanels { private get; }
-</code></pre>
-<ul>
-<li><code>private static System.Boolean debugSystemEnabled { private get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static System.Boolean debugSystemEnabled { private get; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public DebugUISystem()</code>  </li>
+<li><code>public DebugUISystem()</code><br />
+Default constructor. Marked with [Preserve] attribute in source to avoid code stripping. Initialization of bindings and update bindings happens in OnCreate rather than the constructor.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public DebugUISystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private &lt;OnCreate&gt;b__21_0() : System.Int32</code>  </li>
+<li><code>protected override void OnCreate()</code><br />
+Initializes all ValueBindings and UpdateBindings for the debug UI group, including:</li>
+<li>Enabled/visible flags</li>
+<li>Panels list and selected index bindings</li>
+<li>Selected panel binding</li>
+<li>Widget bindings and default widget bindings</li>
+<li>Observed binding and binding-triggered event</li>
+<li>Watches binding (from DebugWatchSystem)</li>
+<li>Trigger bindings for show/hide/select actions</li>
 </ul>
-<pre><code class="language-csharp">private System.Int32 &lt;OnCreate&gt;b__21_0();
-</code></pre>
+<p>The method wires the UI bindings into the system so the front-end can control and display the debug UI.</p>
 <ul>
-<li><code>private &lt;OnCreate&gt;b__21_1() : System.Boolean</code>  </li>
+<li><code>protected override void OnUpdate()</code><br />
+Called every frame; if the debug UI is visible it:</li>
+<li>Calls UpdateSelectedPanel() to ensure the selected panel and widgets are synchronized.</li>
+<li>Checks the DebugWatchSystem for changed watches and triggers a watches update when needed.</li>
+<li>
+<p>Calls base.OnUpdate() at the end.</p>
+</li>
+<li>
+<p><code>public void Trigger(IDebugBinding binding)</code><br />
+Triggers the bindingTriggered EventBinding so the UI layer (or other listeners) can respond to an explicit trigger of a debug binding.</p>
+</li>
+<li>
+<p><code>public void Show()</code><br />
+Makes the debug UI visible (if enabled). If this is the first time and the user hasn't dismissed the confirmation, it shows a confirmation dialog warning that achievements will be disabled; if confirmed, the DebugSystem is enabled and achievements are disabled. Otherwise it immediately enables DebugSystem and disables achievements. After enabling, it updates the selected panel.</p>
+</li>
+<li>
+<p><code>public void Hide()</code><br />
+Hides the debug UI and disables the DebugSystem. Also updates the selected panel state.</p>
+</li>
+<li>
+<p><code>private void SelectPanel(int index)</code><br />
+If the debug UI is visible, sets selectedPanel to the displayName of the panel at the given index and updates the selected panel wrapper.</p>
+</li>
+<li>
+<p><code>private void SelectPreviousPanel()</code><br />
+If visible, selects the previous available panel in the list; wraps to the last panel if currently at or before the first.</p>
+</li>
+<li>
+<p><code>private void SelectNextPanel()</code><br />
+If visible, selects the next available panel in the list; wraps to the first panel if currently at or after the last.</p>
+</li>
+<li>
+<p><code>private List&lt;string&gt; GetPanels()</code><br />
+Returns a list of displayName strings for the currently visible panels (uses visiblePanels).</p>
+</li>
+<li>
+<p><code>private void UpdateSelectedPanel()</code><br />
+Synchronizes the m_SelectedPanelBinding (the Panel wrapper) with the currently selected DebugUI.Panel (based on selectedPanel string and visibility). If the selected underlying panel object changes, it disposes the previous wrapper, creates a new Panel wrapper, and updates m_WidgetBindings.children. If the wrapper exists and reports an update (its displayName or children changed), it triggers bindings to update the UI.</p>
+</li>
+<li>
+<p><code>private static int GetPanelCount()</code><br />
+Returns the count of visible panels.</p>
+</li>
+<li>
+<p><code>[CanBeNull] private static DebugUI.Panel GetPanel(int panelIndex)</code><br />
+Returns the DebugUI.Panel at the given index (or null for negative index). Uses visiblePanels with Skip/FirstOrDefault.</p>
+</li>
+<li>
+<p><code>private static int GetPanelIndex(string name)</code><br />
+Finds the index of the panel whose displayName matches the provided name. Returns -1 if not found.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private System.Boolean &lt;OnCreate&gt;b__21_1();
-</code></pre>
-<ul>
-<li><code>private &lt;OnCreate&gt;b__21_2() : System.Collections.Generic.List&lt;Game.Debug.DebugWatchSystem+Watch&gt;</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Collections.Generic.List&lt;Game.Debug.DebugWatchSystem+Watch&gt; &lt;OnCreate&gt;b__21_2();
-</code></pre>
-<ul>
-<li><code>private &lt;Show&gt;b__24_0(System.Int32 msg, System.Boolean dismiss) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Void &lt;Show&gt;b__24_0(System.Int32 msg, System.Boolean dismiss);
-</code></pre>
-<ul>
-<li><code>private static GetPanel(System.Int32 panelIndex) : UnityEngine.Rendering.DebugUI+Panel</code>  </li>
-</ul>
-<pre><code class="language-csharp">[CanBeNull]
-    private static DebugUI.Panel GetPanel(int panelIndex)
-    {
-        if (panelIndex &lt; 0)
-        {
-            return null;
-        }
-        return visiblePanels.Skip(panelIndex).FirstOrDefault();
-    }
-</code></pre>
-<ul>
-<li><code>private static GetPanelCount() : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static int GetPanelCount()
-    {
-        return visiblePanels.Count();
-    }
-</code></pre>
-<ul>
-<li><code>private static GetPanelIndex(System.String name) : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static int GetPanelIndex(string name)
-    {
-        return visiblePanels.ToList().FindIndex((DebugUI.Panel panel) =&gt; panel.displayName == name);
-    }
-</code></pre>
-<ul>
-<li><code>private GetPanels() : System.Collections.Generic.List&lt;System.String&gt;</code>  </li>
-</ul>
-<pre><code class="language-csharp">private List&lt;string&gt; GetPanels()
-    {
-        return visiblePanels.Select((DebugUI.Panel p) =&gt; p.displayName).ToList();
-    }
-</code></pre>
-<ul>
-<li><code>public Hide() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void Hide()
-    {
-        if (visible)
-        {
-            m_VisibleBinding.Update(newValue: false);
-            base.World.GetOrCreateSystemManaged&lt;DebugSystem&gt;().Enabled = false;
-            UpdateSelectedPanel();
-        }
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
+<h2 id="usage-example">Usage Example</h2>
 <pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        AddBinding(m_EnabledBinding = new ValueBinding&lt;bool&gt;(&quot;debug&quot;, &quot;enabled&quot;, debugSystemEnabled));
-        AddBinding(m_VisibleBinding = new ValueBinding&lt;bool&gt;(&quot;debug&quot;, &quot;visible&quot;, initialValue: false));
-        AddUpdateBinding(new GetterValueBinding&lt;List&lt;string&gt;&gt;(&quot;debug&quot;, &quot;panels&quot;, GetPanels, new ListWriter&lt;string&gt;()));
-        AddUpdateBinding(new GetterValueBinding&lt;int&gt;(&quot;debug&quot;, &quot;selectedIndex&quot;, () =&gt; GetPanelIndex(selectedPanel)));
-        AddBinding(m_SelectedPanelBinding = new ValueBinding&lt;Panel&gt;(&quot;debug&quot;, &quot;selectedPanel&quot;, null, ValueWriters.Nullable(new ValueWriter&lt;Panel&gt;())));
-        AddUpdateBinding(m_WidgetBindings = new WidgetBindings(&quot;debug&quot;));
-        m_WidgetBindings.AddDefaultBindings();
-        AddBinding(m_ObservedBindingBinding = new ValueBinding&lt;IDebugBinding&gt;(&quot;debug&quot;, &quot;observedBinding&quot;, null, ValueWriters.Nullable(new DebugBindingWriter())));
-        AddBinding(m_BindingTriggeredBinding = new EventBinding&lt;IDebugBinding&gt;(&quot;debug&quot;, &quot;bindingTriggered&quot;, new DebugBindingWriter()));
-        AddUpdateBinding(new GetterValueBinding&lt;bool&gt;(&quot;debug&quot;, &quot;developerInfoVisible&quot;, () =&gt; developerInfoVisible));
-        AddBinding(m_WatchesBinding = new GetterValueBinding&lt;List&lt;DebugWatchSystem.Watch&gt;&gt;(&quot;debug&quot;, &quot;watches&quot;, () =&gt; base.World.GetOrCreateSystemManaged&lt;DebugWatchSystem&gt;().watches, new ListWriter&lt;DebugWatchSystem.Watch&gt;(new ValueWriter&lt;DebugWatchSystem.Watch&gt;())));
-        AddBinding(new TriggerBinding(&quot;debug&quot;, &quot;show&quot;, Show));
-        AddBinding(new TriggerBinding(&quot;debug&quot;, &quot;hide&quot;, Hide));
-        AddBinding(new TriggerBinding&lt;int&gt;(&quot;debug&quot;, &quot;selectPanel&quot;, SelectPanel));
-        AddBinding(new TriggerBinding(&quot;debug&quot;, &quot;selectPreviousPanel&quot;, SelectPreviousPanel));
-        AddBinding(new TriggerBinding(&quot;debug&quot;, &quot;selectNextPanel&quot;, SelectNextPanel));
-    }
+protected override void OnCreate()
+{
+    base.OnCreate();
+    // DebugUISystem sets up bindings for UI; Show/Hide control visibility and DebugSystem state.
+}
+
+// Example: Show the debug UI from another system or UI event
+var debugUI = World.GetOrCreateSystemManaged&lt;DebugUISystem&gt;();
+debugUI.Show();
+
+// Example: Trigger a specific debug binding
+debugUI.Trigger(someDebugBinding);
+
+// Example: Observe a debug binding (null to clear)
+debugUI.observedBinding = someDebugBindingOrNull;
 </code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        if (visible)
-        {
-            UpdateSelectedPanel();
-            DebugWatchSystem orCreateSystemManaged = base.World.GetOrCreateSystemManaged&lt;DebugWatchSystem&gt;();
-            if (orCreateSystemManaged.watchesChanged)
-            {
-                m_WatchesBinding.TriggerUpdate();
-                orCreateSystemManaged.ClearWatchesChanged();
-            }
-        }
-        base.OnUpdate();
-    }
-</code></pre>
-<ul>
-<li><code>private SelectNextPanel() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void SelectNextPanel()
-    {
-        if (!visible)
-        {
-            return;
-        }
-        int panelCount = GetPanelCount();
-        if (panelCount != 0)
-        {
-            int panelIndex = GetPanelIndex(selectedPanel);
-            if (panelIndex &lt; 0 || panelIndex &gt;= panelCount - 1)
-            {
-                SelectPanel(0);
-            }
-            else
-            {
-                SelectPanel(panelIndex + 1);
-            }
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private SelectPanel(System.Int32 index) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void SelectPanel(int index)
-    {
-        if (visible)
-        {
-            selectedPanel = GetPanel(index)?.displayName;
-            UpdateSelectedPanel();
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private SelectPreviousPanel() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void SelectPreviousPanel()
-    {
-        if (!visible)
-        {
-            return;
-        }
-        int panelCount = GetPanelCount();
-        if (panelCount != 0)
-        {
-            int panelIndex = GetPanelIndex(selectedPanel);
-            if (panelIndex &lt;= 0 || panelIndex &gt;= panelCount)
-            {
-                SelectPanel(panelCount - 1);
-            }
-            else
-            {
-                SelectPanel(panelIndex - 1);
-            }
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public Show() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void Show()
-    {
-        if (visible || !m_EnabledBinding.value)
-        {
-            return;
-        }
-        m_VisibleBinding.Update(newValue: true);
-        if (!SharedSettings.instance.userInterface.dismissedConfirmations.Contains(&quot;DebugMenu&quot;) &amp;&amp; PlatformManager.instance.achievementsEnabled)
-        {
-            GameManager.instance.userInterface.appBindings.ShowConfirmationDialog(new DismissibleConfirmationDialog(&quot;Common.DIALOG_TITLE[Warning]&quot;, &quot;Common.DIALOG_MESSAGE[DisableAchievements]&quot;, &quot;Common.DIALOG_ACTION[Yes]&quot;, &quot;Common.DIALOG_ACTION[No]&quot;), delegate(int msg, bool dismiss)
-            {
-                if (msg == 0)
-                {
-                    if (dismiss)
-                    {
-                        SharedSettings.instance.userInterface.dismissedConfirmations.Add(&quot;DebugMenu&quot;);
-                        SharedSettings.instance.userInterface.ApplyAndSave();
-                    }
-                    base.World.GetOrCreateSystemManaged&lt;DebugSystem&gt;().Enabled = true;
-                    PlatformManager.instance.achievementsEnabled = false;
-                }
-            });
-        }
-        else
-        {
-            base.World.GetOrCreateSystemManaged&lt;DebugSystem&gt;().Enabled = true;
-            PlatformManager.instance.achievementsEnabled = false;
-        }
-        UpdateSelectedPanel();
-    }
-</code></pre>
-<ul>
-<li><code>public Trigger(Colossal.UI.Binding.IDebugBinding binding) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void Trigger(IDebugBinding binding)
-    {
-        m_BindingTriggeredBinding.Trigger(binding);
-    }
-</code></pre>
-<ul>
-<li><code>private UpdateSelectedPanel() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void UpdateSelectedPanel()
-    {
-        Panel value = m_SelectedPanelBinding.value;
-        DebugUI.Panel obj = value?.panel;
-        DebugUI.Panel panel = (visible ? GetPanel(GetPanelIndex(selectedPanel)) : null);
-        if (obj != panel)
-        {
-            value?.Dispose();
-            m_SelectedPanelBinding.Update((panel != null) ? new Panel(panel) : null);
-            m_WidgetBindings.children = ((m_SelectedPanelBinding.value != null) ? m_SelectedPanelBinding.value.children : new List&lt;IWidget&gt;());
-        }
-        else if (value != null &amp;&amp; value.Update())
-        {
-            m_SelectedPanelBinding.TriggerUpdate();
-            m_WidgetBindings.children = ((m_SelectedPanelBinding.value != null) ? m_SelectedPanelBinding.value.children : new List&lt;IWidget&gt;());
-        }
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.UI.Debug.DebugUISystem+Panel</code>  </li>
-<li><code>Game.UI.Debug.DebugUISystem+&lt;&gt;c</code>  </li>
-<li><code>Game.UI.Debug.DebugUISystem+&lt;&gt;c__DisplayClass33_0</code>  </li>
-</ul>
+<p>Notes:
+- The nested private Panel class adapts DebugUI.Panel for the UI: it caches displayName, rebuilds children widgets via DebugWidgetBuilders.BuildWidgets when the panel marks itself dirty, implements IJsonWritable to serialize displayName, and unsubscribes from panel.onSetDirty when disposed.
+- The debug UI disables platform achievements when activated to prevent achievement earning while in debug mode. The user may be prompted with a confirmation dialog the first time they open the debug menu unless they've previously dismissed it.</p>
 
 
 

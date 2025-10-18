@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87075,6 +87167,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../SurfaceWater/" class="md-nav__link">
         
   
@@ -89816,15 +89931,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -89861,9 +89967,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -117930,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117955,15 +118083,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -118002,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118027,180 +118146,98 @@
 
 
 <h1 id="gamesimulationwindsystem">Game.Simulation.WindSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Simulation</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.Simulation.CellMapSystem&lt;Game.Simulation.Wind&gt;</code><br />
-<strong>Implements:</strong> <code>Colossal.Serialization.Entities.IJobSerializable</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class WindSystem : Game.Simulation.CellMapSystem&lt;Game.Simulation.Wind&gt;, Colossal.Serialization.Entities.IJobSerializable
-{
-    public Game.Simulation.WindSimulationSystem m_WindSimulationSystem;
-    public Game.Rendering.WindTextureSystem m_WindTextureSystem;
-    public Game.Simulation.TerrainSystem m_TerrainSystem;
-    public static readonly System.Int32 kTextureSize;
-    public static readonly System.Int32 kUpdateInterval;
-
-    public Unity.Mathematics.int2 TextureSize { get; }
-
-    public WindSystem();
-
-    public virtual Unity.Jobs.JobHandle Deserialize&lt;TReader&gt;(Colossal.Serialization.Entities.EntityReaderData readerData, Unity.Jobs.JobHandle inputDeps);
-    public static Unity.Mathematics.float3 GetCellCenter(System.Int32 index);
-    public virtual System.Int32 GetUpdateInterval(Game.SystemUpdatePhase phase);
-    public static Game.Simulation.Wind GetWind(Unity.Mathematics.float3 position, Unity.Collections.NativeArray&lt;Game.Simulation.Wind&gt; windMap);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnUpdate();
-    public virtual Unity.Jobs.JobHandle SetDefaults(Colossal.Serialization.Entities.Context context);
-}
-</code></pre>
+<p><strong>Assembly:</strong> Assembly-CSharp<br />
+<strong>Namespace:</strong> Game.Simulation</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> CellMapSystem<Wind>, IJobSerializable</p>
+<p><strong>Summary:</strong><br />
+WindSystem maintains a low-resolution (64x64) wind cell map used by rendering and gameplay systems. It copies wind data from the full WindSimulationSystem into a compact cell map that is sampled by other systems (e.g., WindTextureSystem). The system samples terrain heights to pick the appropriate vertical layer of the 3D wind simulation, interpolates between layers, and writes the resulting 2D wind vectors into a NativeArray<Wind>. Updates are scheduled using the Unity Job System (Burst-compiled IJobFor), and the system coordinates job dependencies with TerrainSystem and WindSimulationSystem. The system also handles serialization compatibility for older cell map lengths and sets sensible defaults from WindSimulationSystem.constantWind.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>public Game.Simulation.WindSimulationSystem m_WindSimulationSystem</code>  </li>
+<li>
+<p><code>public static readonly int kTextureSize</code><br />
+Contains the width/height of the 2D wind texture (64). The wind map is a square grid with kTextureSize * kTextureSize cells.</p>
+</li>
+<li>
+<p><code>public static readonly int kUpdateInterval</code><br />
+Update interval used for GameSimulation phase (512). In non-GameSimulation phases the system updates every frame.</p>
+</li>
+<li>
+<p><code>public WindSimulationSystem m_WindSimulationSystem</code><br />
+Reference to the WindSimulationSystem (source of detailed 3D wind cells and the constantWind default). Used to obtain source wind cells and register read dependencies.</p>
+</li>
+<li>
+<p><code>public WindTextureSystem m_WindTextureSystem</code><br />
+Reference to WindTextureSystem. The WindSystem requests the WindTextureSystem to update whenever the 2D wind map changes.</p>
+</li>
+<li>
+<p><code>public TerrainSystem m_TerrainSystem</code><br />
+Reference to the TerrainSystem used to acquire TerrainHeightData for sampling heights when mapping 3D wind data into the 2D grid.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public Game.Simulation.WindSimulationSystem m_WindSimulationSystem;
-</code></pre>
-<ul>
-<li><code>public Game.Rendering.WindTextureSystem m_WindTextureSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Game.Rendering.WindTextureSystem m_WindTextureSystem;
-</code></pre>
-<ul>
-<li><code>public Game.Simulation.TerrainSystem m_TerrainSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Game.Simulation.TerrainSystem m_TerrainSystem;
-</code></pre>
-<ul>
-<li><code>public static readonly System.Int32 kTextureSize</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static readonly System.Int32 kTextureSize;
-</code></pre>
-<ul>
-<li><code>public static readonly System.Int32 kUpdateInterval</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static readonly System.Int32 kUpdateInterval;
-</code></pre>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>public Unity.Mathematics.int2 TextureSize { get }</code>  </li>
+<li><code>public int2 TextureSize { get; }</code><br />
+Returns the texture size as an int2: new int2(kTextureSize, kTextureSize). Useful when creating render targets or iterating the 2D grid.</li>
 </ul>
-<pre><code class="language-csharp">public Unity.Mathematics.int2 TextureSize { get; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public WindSystem()</code>  </li>
+<li><code>public WindSystem()</code><br />
+Default, preserved constructor. Most initialization happens in OnCreate (system retrieval, texture creation, and initial map population).</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public WindSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>public virtual Deserialize&lt;TReader&gt;(Colossal.Serialization.Entities.EntityReaderData readerData, Unity.Jobs.JobHandle inputDeps) : Unity.Jobs.JobHandle</code>  </li>
+<li>
+<p><code>public override int GetUpdateInterval(SystemUpdatePhase phase)</code><br />
+Returns the update interval for the given update phase. For SystemUpdatePhase.GameSimulation it returns kUpdateInterval (512) to reduce frequency; for other phases it returns 1 (every frame).</p>
+</li>
+<li>
+<p><code>public static float3 GetCellCenter(int index)</code><br />
+Compute and return the world-space center of the cell at the provided linear index using the CellMapSystem<Wind> helper with kTextureSize.</p>
+</li>
+<li>
+<p><code>public static Wind GetWind(float3 position, NativeArray&lt;Wind&gt; windMap)</code><br />
+Sample the 2D wind map at a world position. This performs clamping and bilinear interpolation across the four neighboring texels and returns a Wind containing the interpolated wind vector. Intended for callers that have direct access to the NativeArray<Wind> map.</p>
+</li>
+<li>
+<p><code>public override JobHandle Deserialize&lt;TReader&gt;(EntityReaderData readerData, JobHandle inputDeps)</code><br />
+Custom deserialization logic that ensures compatibility with older saved versions that used a larger cell map length. It signals the WindTextureSystem to update, and for versions below Version.cellMapLengths it resizes internal m_Map temporarily to 65536 to match serialized layout, calls the base deserializer, completes the job, and then resizes m_Map back to kTextureSize * kTextureSize. For newer versions it delegates to base.Deserialize.</p>
+</li>
+<li>
+<p><code>public override JobHandle SetDefaults(Context context)</code><br />
+Populate the wind map with a default Wind value using WindSimulationSystem.constantWind. Also requests an update on WindTextureSystem. Returns a completed/default JobHandle as no asynchronous work is scheduled.</p>
+</li>
+<li>
+<p><code>protected override void OnCreate()</code><br />
+Initializes the system: retrieves WindSimulationSystem, WindTextureSystem and TerrainSystem from the world, creates textures at kTextureSize, and fills the internal map with the constantWind default. Marked with [Preserve] as in the original.</p>
+</li>
+<li>
+<p><code>protected override void OnUpdate()</code><br />
+Main update: obtains TerrainHeightData from TerrainSystem. If available, it schedules a Burst-compiled WindCopyJob (IJobFor) to copy and interpolate wind from WindSimulationSystem cells into the 2D map, using terrain height to pick vertical layers. The method wires job dependencies (TerrainSystem CPU reader, WindSimulationSystem reader, and its own read/write dependencies), sets base.Dependency, and marks WindTextureSystem for update.</p>
+</li>
+<li>
+<p><code>private struct WindCopyJob : IJobFor</code> (nested, BurstCompiled)<br />
+Job fields:</p>
+</li>
+<li>m_WindMap: NativeArray<Wind> target map to write into.</li>
+<li>m_Source: ReadOnly NativeArray<WindSimulationSystem.WindCell> source 3D wind cells.</li>
+<li>m_TerrainHeightData: ReadOnly TerrainHeightData for sampling world heights.</li>
 </ul>
-<pre><code class="language-csharp">public virtual Unity.Jobs.JobHandle Deserialize&lt;TReader&gt;(Colossal.Serialization.Entities.EntityReaderData readerData, Unity.Jobs.JobHandle inputDeps);
+<p>Execute(index) behavior:
+  - Computes the world center of the 2D cell.
+  - Samples terrain height at that position and offsets upward (+25f) to determine which vertical layer to sample.
+  - Calculates a vertical fractional layer index (clamped to available resolution), picks the current and next integer layers, reads center velocities from the WindSimulation source for both layers, linearly interpolates between them by the fractional part, and writes the resulting 2D wind vector into m_WindMap[index]. This job is scheduled with Burst and IJobFor parallelization for the whole grid.</p>
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Example: sampling the 2D wind map from a known NativeArray&lt;Wind&gt; (e.g., inside another system/job)
+float3 worldPos = new float3(512f, 0f, 1024f);
+Wind sampled = WindSystem.GetWind(worldPos, windMap);
+float2 windVelocity = sampled.m_Wind;
 </code></pre>
-<ul>
-<li><code>public static GetCellCenter(System.Int32 index) : Unity.Mathematics.float3</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static float3 GetCellCenter(int index)
-    {
-        return CellMapSystem&lt;Wind&gt;.GetCellCenter(index, kTextureSize);
-    }
+<p>If you are writing a managed system and need to ensure the WindTexture is refreshed or to access the WindSystem, retrieve it from the world:</p>
+<pre><code class="language-csharp">var windSystem = World.GetOrCreateSystemManaged&lt;Game.Simulation.WindSystem&gt;();
+// Note: direct access to the internal wind NativeArray map is only possible from within systems/jobs
 </code></pre>
-<ul>
-<li><code>public virtual GetUpdateInterval(Game.SystemUpdatePhase phase) : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override int GetUpdateInterval(SystemUpdatePhase phase)
-    {
-        if (phase != SystemUpdatePhase.GameSimulation)
-        {
-            return 1;
-        }
-        return kUpdateInterval;
-    }
-</code></pre>
-<ul>
-<li><code>public static GetWind(Unity.Mathematics.float3 position, Unity.Collections.NativeArray&lt;Game.Simulation.Wind&gt; windMap) : Game.Simulation.Wind</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static Wind GetWind(float3 position, NativeArray&lt;Wind&gt; windMap)
-    {
-        int2 cell = CellMapSystem&lt;Wind&gt;.GetCell(position, CellMapSystem&lt;Wind&gt;.kMapSize, kTextureSize);
-        cell = math.clamp(cell, 0, kTextureSize - 1);
-        float2 cellCoords = CellMapSystem&lt;Wind&gt;.GetCellCoords(position, CellMapSystem&lt;Wind&gt;.kMapSize, kTextureSize);
-        int num = math.min(kTextureSize - 1, cell.x + 1);
-        int num2 = math.min(kTextureSize - 1, cell.y + 1);
-        return new Wind
-        {
-            m_Wind = math.lerp(math.lerp(windMap[cell.x + kTextureSize * cell.y].m_Wind, windMap[num + kTextureSize * cell.y].m_Wind, cellCoords.x - (float)cell.x), math.lerp(windMap[cell.x + kTextureSize * num2].m_Wind, windMap[num + kTextureSize * num2].m_Wind, cellCoords.x - (float)cell.x), cellCoords.y - (float)cell.y)
-        };
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_WindSimulationSystem = base.World.GetOrCreateSystemManaged&lt;WindSimulationSystem&gt;();
-        m_WindTextureSystem = base.World.GetOrCreateSystemManaged&lt;WindTextureSystem&gt;();
-        m_TerrainSystem = base.World.GetOrCreateSystemManaged&lt;TerrainSystem&gt;();
-        CreateTextures(kTextureSize);
-        for (int i = 0; i &lt; m_Map.Length; i++)
-        {
-            m_Map[i] = new Wind
-            {
-                m_Wind = m_WindSimulationSystem.constantWind
-            };
-        }
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        TerrainHeightData heightData = m_TerrainSystem.GetHeightData();
-        if (heightData.isCreated)
-        {
-            JobHandle deps;
-            WindCopyJob jobData = new WindCopyJob
-            {
-                m_WindMap = m_Map,
-                m_Source = m_WindSimulationSystem.GetCells(out deps),
-                m_TerrainHeightData = heightData
-            };
-            base.Dependency = jobData.Schedule(m_Map.Length, JobHandle.CombineDependencies(deps, JobHandle.CombineDependencies(m_WriteDependencies, m_ReadDependencies, base.Dependency)));
-            AddWriter(base.Dependency);
-            m_TerrainSystem.AddCPUHeightReader(base.Dependency);
-            m_WindSimulationSystem.AddReader(base.Dependency);
-            m_WindTextureSystem.RequireUpdate();
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public virtual SetDefaults(Colossal.Serialization.Entities.Context context) : Unity.Jobs.JobHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override JobHandle SetDefaults(Context context)
-    {
-        m_WindTextureSystem.RequireUpdate();
-        for (int i = 0; i &lt; m_Map.Length; i++)
-        {
-            m_Map[i] = new Wind
-            {
-                m_Wind = m_WindSimulationSystem.constantWind
-            };
-        }
-        return default(JobHandle);
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Simulation.WindSystem+WindCopyJob</code>  </li>
-</ul>
 
 
 

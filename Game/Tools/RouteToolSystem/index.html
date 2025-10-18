@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#gametoolsroutetoolsystem" class="md-skip">
+        <a href="#gameroutetoolsystem" class="md-skip">
           Skip to content
         </a>
       
@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87073,6 +87165,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Simulation/SurfaceWater/" class="md-nav__link">
         
   
@@ -92530,9 +92645,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#nested-types" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Nested types
     </span>
   </a>
   
@@ -92575,9 +92690,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -117930,6 +118045,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117957,9 +118094,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#nested-types" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Nested types
     </span>
   </a>
   
@@ -118002,9 +118139,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118026,1524 +118163,339 @@
 
 
 
-<h1 id="gametoolsroutetoolsystem">Game.Tools.RouteToolSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Tools</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.Tools.ToolBaseSystem</code><br />
-<strong>Implements:</strong> <code>System.IEquatable&lt;Game.Tools.ToolBaseSystem&gt;</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class RouteToolSystem : Game.Tools.ToolBaseSystem, System.IEquatable&lt;Game.Tools.ToolBaseSystem&gt;
-{
-    private System.Boolean &lt;underground&gt;k__BackingField;
-    private System.Boolean &lt;serviceUpgrade&gt;k__BackingField;
-    private Game.Audio.AudioManager m_AudioManager;
-    private Unity.Entities.EntityQuery m_DefinitionQuery;
-    private Unity.Entities.EntityQuery m_TempRouteQuery;
-    private Unity.Entities.EntityQuery m_EventQuery;
-    private Unity.Entities.EntityQuery m_SoundQuery;
-    private Game.Input.IProxyAction m_AddWaypoint;
-    private Game.Input.IProxyAction m_InsertWaypoint;
-    private Game.Input.IProxyAction m_MoveWaypoint;
-    private Game.Input.IProxyAction m_MergeWaypoint;
-    private Game.Input.IProxyAction m_RemoveWaypoint;
-    private Game.Input.IProxyAction m_UndoWaypoint;
-    private Game.Input.IProxyAction m_CreateRoute;
-    private Game.Input.IProxyAction m_CompleteRoute;
-    private Game.Input.IProxyAction m_DeleteRoute;
-    private Game.Input.IProxyAction m_DiscardInsertWaypoint;
-    private Game.Input.IProxyAction m_DiscardMoveWaypoint;
-    private Game.Input.IProxyAction m_DiscardMergeWaypoint;
-    private System.Boolean m_ApplyBlocked;
-    private Game.Tools.ControlPoint m_LastRaycastPoint;
-    private Unity.Collections.NativeList&lt;Game.Tools.ControlPoint&gt; m_ControlPoints;
-    private Colossal.Collections.NativeValue&lt;Game.Tools.RouteToolSystem+Tooltip&gt; m_Tooltip;
-    private Game.Tools.RouteToolSystem+State m_State;
-    private System.Boolean m_ControlPointsMoved;
-    private System.Boolean m_ForceApply;
-    private System.Boolean m_ForceCancel;
-    private System.Boolean m_CanApplyModify;
-    private Game.Tools.ControlPoint m_MoveStartPosition;
-    private Game.Tools.ToolOutputBarrier m_ToolOutputBarrier;
-    private Game.Prefabs.RoutePrefab m_SelectedPrefab;
-    private Game.Tools.RouteToolSystem+TypeHandle __TypeHandle;
-    public static const System.String kToolID;
-
-    public System.String toolID { get; }
-    public Game.Prefabs.RoutePrefab prefab { get; set; }
-    public Game.Tools.RouteToolSystem+State state { get; }
-    public Game.Tools.ControlPoint moveStartPosition { get; }
-    public Game.Tools.RouteToolSystem+Tooltip tooltip { get; }
-    public System.Boolean underground { get; set; }
-    public System.Boolean serviceUpgrade { get; private set; }
-    private System.Collections.Generic.IEnumerable&lt;Game.Input.IProxyAction&gt; toolActions { private get; }
-
-    public RouteToolSystem();
-
-    private System.Void __AssignQueries(Unity.Entities.SystemState&amp; state);
-    private Unity.Jobs.JobHandle Apply(Unity.Jobs.JobHandle inputDeps, System.Boolean singleFrameOnly);
-    private Unity.Jobs.JobHandle Cancel(Unity.Jobs.JobHandle inputDeps, System.Boolean singleFrameOnly);
-    private System.Boolean CheckPathUpdates();
-    private Unity.Jobs.JobHandle Clear(Unity.Jobs.JobHandle inputDeps);
-    public virtual System.Void ElevationDown();
-    public virtual System.Void ElevationScroll();
-    public virtual System.Void ElevationUp();
-    public Unity.Collections.NativeList&lt;Game.Tools.ControlPoint&gt; GetControlPoints(Unity.Jobs.JobHandle&amp; dependencies);
-    private System.Boolean GetPathfindCompleted();
-    public virtual Game.Prefabs.PrefabBase GetPrefab();
-    protected virtual System.Boolean GetRaycastResult(Game.Tools.ControlPoint&amp; controlPoint);
-    protected virtual System.Boolean GetRaycastResult(Game.Tools.ControlPoint&amp; controlPoint, System.Boolean&amp; forceUpdate);
-    private Unity.Entities.Entity GetUpgradable(Unity.Entities.Entity entity);
-    public virtual System.Void InitializeRaycast();
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnCreateForCompiler();
-    protected virtual System.Void OnDestroy();
-    protected virtual System.Void OnStartRunning();
-    protected virtual Unity.Jobs.JobHandle OnUpdate(Unity.Jobs.JobHandle inputDeps);
-    public virtual System.Void SetUnderground(System.Boolean underground);
-    private Unity.Jobs.JobHandle SnapControlPoints(Unity.Jobs.JobHandle inputDeps, Unity.Entities.Entity applyTempRoute);
-    public virtual System.Boolean TrySetPrefab(Game.Prefabs.PrefabBase prefab);
-    private Unity.Jobs.JobHandle Update(Unity.Jobs.JobHandle inputDeps, System.Boolean fullUpdate);
-    private virtual System.Void UpdateActions();
-    private System.Void UpdateApplyAction();
-    private System.Void UpdateCancelAction();
-    private Unity.Jobs.JobHandle UpdateDefinitions(Unity.Jobs.JobHandle inputDeps, Unity.Entities.Entity applyTempRoute);
-    private System.Void UpdateSecondaryApplyAction();
-}
-</code></pre>
-<h2 id="fields">Fields</h2>
-<ul>
-<li><code>private System.Boolean &lt;underground&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean &lt;underground&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private System.Boolean &lt;serviceUpgrade&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean &lt;serviceUpgrade&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private Game.Audio.AudioManager m_AudioManager</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Audio.AudioManager m_AudioManager;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_DefinitionQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_DefinitionQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_TempRouteQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_TempRouteQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_EventQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_EventQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_SoundQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_SoundQuery;
-</code></pre>
-<ul>
-<li><code>private Game.Input.IProxyAction m_AddWaypoint</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Input.IProxyAction m_AddWaypoint;
-</code></pre>
-<ul>
-<li><code>private Game.Input.IProxyAction m_InsertWaypoint</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Input.IProxyAction m_InsertWaypoint;
-</code></pre>
-<ul>
-<li><code>private Game.Input.IProxyAction m_MoveWaypoint</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Input.IProxyAction m_MoveWaypoint;
-</code></pre>
-<ul>
-<li><code>private Game.Input.IProxyAction m_MergeWaypoint</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Input.IProxyAction m_MergeWaypoint;
-</code></pre>
-<ul>
-<li><code>private Game.Input.IProxyAction m_RemoveWaypoint</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Input.IProxyAction m_RemoveWaypoint;
-</code></pre>
-<ul>
-<li><code>private Game.Input.IProxyAction m_UndoWaypoint</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Input.IProxyAction m_UndoWaypoint;
-</code></pre>
-<ul>
-<li><code>private Game.Input.IProxyAction m_CreateRoute</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Input.IProxyAction m_CreateRoute;
-</code></pre>
-<ul>
-<li><code>private Game.Input.IProxyAction m_CompleteRoute</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Input.IProxyAction m_CompleteRoute;
-</code></pre>
-<ul>
-<li><code>private Game.Input.IProxyAction m_DeleteRoute</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Input.IProxyAction m_DeleteRoute;
-</code></pre>
-<ul>
-<li><code>private Game.Input.IProxyAction m_DiscardInsertWaypoint</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Input.IProxyAction m_DiscardInsertWaypoint;
-</code></pre>
-<ul>
-<li><code>private Game.Input.IProxyAction m_DiscardMoveWaypoint</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Input.IProxyAction m_DiscardMoveWaypoint;
-</code></pre>
-<ul>
-<li><code>private Game.Input.IProxyAction m_DiscardMergeWaypoint</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Input.IProxyAction m_DiscardMergeWaypoint;
-</code></pre>
-<ul>
-<li><code>private System.Boolean m_ApplyBlocked</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean m_ApplyBlocked;
-</code></pre>
-<ul>
-<li><code>private Game.Tools.ControlPoint m_LastRaycastPoint</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Tools.ControlPoint m_LastRaycastPoint;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeList&lt;Game.Tools.ControlPoint&gt; m_ControlPoints</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeList&lt;Game.Tools.ControlPoint&gt; m_ControlPoints;
-</code></pre>
-<ul>
-<li><code>private Colossal.Collections.NativeValue&lt;Game.Tools.RouteToolSystem+Tooltip&gt; m_Tooltip</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.Collections.NativeValue&lt;Game.Tools.RouteToolSystem+Tooltip&gt; m_Tooltip;
-</code></pre>
-<ul>
-<li><code>private Game.Tools.RouteToolSystem+State m_State</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Tools.RouteToolSystem+State m_State;
-</code></pre>
-<ul>
-<li><code>private System.Boolean m_ControlPointsMoved</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean m_ControlPointsMoved;
-</code></pre>
-<ul>
-<li><code>private System.Boolean m_ForceApply</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean m_ForceApply;
-</code></pre>
-<ul>
-<li><code>private System.Boolean m_ForceCancel</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean m_ForceCancel;
-</code></pre>
-<ul>
-<li><code>private System.Boolean m_CanApplyModify</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean m_CanApplyModify;
-</code></pre>
-<ul>
-<li><code>private Game.Tools.ControlPoint m_MoveStartPosition</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Tools.ControlPoint m_MoveStartPosition;
-</code></pre>
-<ul>
-<li><code>private Game.Tools.ToolOutputBarrier m_ToolOutputBarrier</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Tools.ToolOutputBarrier m_ToolOutputBarrier;
-</code></pre>
-<ul>
-<li><code>private Game.Prefabs.RoutePrefab m_SelectedPrefab</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Prefabs.RoutePrefab m_SelectedPrefab;
-</code></pre>
-<ul>
-<li><code>private Game.Tools.RouteToolSystem+TypeHandle __TypeHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Tools.RouteToolSystem+TypeHandle __TypeHandle;
-</code></pre>
-<ul>
-<li><code>public static const System.String kToolID</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static const System.String kToolID;
-</code></pre>
-<h2 id="properties">Properties</h2>
-<ul>
-<li><code>public System.String toolID { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.String toolID { get; }
-</code></pre>
-<ul>
-<li><code>public Game.Prefabs.RoutePrefab prefab { get; set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Game.Prefabs.RoutePrefab prefab { get; set; }
-</code></pre>
-<ul>
-<li><code>public Game.Tools.RouteToolSystem+State state { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Game.Tools.RouteToolSystem+State state { get; }
-</code></pre>
-<ul>
-<li><code>public Game.Tools.ControlPoint moveStartPosition { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Game.Tools.ControlPoint moveStartPosition { get; }
-</code></pre>
-<ul>
-<li><code>public Game.Tools.RouteToolSystem+Tooltip tooltip { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Game.Tools.RouteToolSystem+Tooltip tooltip { get; }
-</code></pre>
-<ul>
-<li><code>public System.Boolean underground { get; set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Boolean underground { get; set; }
-</code></pre>
-<ul>
-<li><code>public System.Boolean serviceUpgrade { get; private set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Boolean serviceUpgrade { get; private set; }
-</code></pre>
-<ul>
-<li><code>private System.Collections.Generic.IEnumerable&lt;Game.Input.IProxyAction&gt; toolActions { private get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Collections.Generic.IEnumerable&lt;Game.Input.IProxyAction&gt; toolActions { private get; }
-</code></pre>
-<h2 id="constructors">Constructors</h2>
-<ul>
-<li><code>public RouteToolSystem()</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    public RouteToolSystem()
-    {
-    }
-</code></pre>
-<h2 id="methods">Methods</h2>
-<ul>
-<li><code>private __AssignQueries(Unity.Entities.SystemState&amp; state) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void __AssignQueries(ref SystemState state)
-    {
-        new EntityQueryBuilder(Allocator.Temp).Dispose();
-    }
-</code></pre>
-<ul>
-<li><code>private Apply(Unity.Jobs.JobHandle inputDeps, System.Boolean singleFrameOnly = False) : Unity.Jobs.JobHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private JobHandle Apply(JobHandle inputDeps, bool singleFrameOnly = false)
-    {
-        switch (m_State)
-        {
-        case State.Default:
-            if (GetAllowApply() &amp;&amp; m_ControlPoints.Length &gt; 0)
-            {
-                base.applyMode = ApplyMode.Clear;
-                ControlPoint value = m_ControlPoints[0];
-                m_AudioManager.PlayUISound(m_SoundQuery.GetSingleton&lt;ToolUXSoundSettingsData&gt;().m_TransportLineStartSound);
-                if (base.EntityManager.HasComponent&lt;Route&gt;(value.m_OriginalEntity) &amp;&amp; math.any(value.m_ElementIndex &gt;= 0))
-                {
-                    m_State = State.Modify;
-                    m_ControlPointsMoved = value.m_ElementIndex.y &gt;= 0;
-                    m_MoveStartPosition = value;
-                    m_ForceApply = singleFrameOnly;
-                    m_CanApplyModify = false;
-                    if (GetRaycastResult(out var controlPoint2))
-                    {
-                        m_LastRaycastPoint = controlPoint2;
-                        m_ControlPoints[0] = controlPoint2;
-                        inputDeps = SnapControlPoints(inputDeps, Entity.Null);
-                        JobHandle.ScheduleBatchedJobs();
-                        inputDeps.Complete();
-                        ControlPoint other = m_ControlPoints[0];
-                        m_ControlPointsMoved |= !m_MoveStartPosition.Equals(other);
-                        inputDeps = UpdateDefinitions(inputDeps, Entity.Null);
-                    }
-                    else
-                    {
-                        m_Tooltip.value = Tooltip.None;
-                    }
-                    return inputDeps;
-                }
-                if (!value.Equals(default(ControlPoint)))
-                {
-                    m_State = State.Create;
-                    m_MoveStartPosition = default(ControlPoint);
-                    if (GetRaycastResult(out var controlPoint3))
-                    {
-                        m_LastRaycastPoint = controlPoint3;
-                        m_ControlPoints.Add(in controlPoint3);
-                        inputDeps = SnapControlPoints(inputDeps, Entity.Null);
-                        inputDeps = UpdateDefinitions(inputDeps, Entity.Null);
-                    }
-                    else
-                    {
-                        m_ControlPoints.Add(in value);
-                        m_Tooltip.value = Tooltip.None;
-                    }
-                    return inputDeps;
-                }
-                return Update(inputDeps, fullUpdate: false);
-            }
-            return Update(inputDeps, fullUpdate: false);
-        case State.Create:
-            if (GetAllowApply() &amp;&amp; !m_TempRouteQuery.IsEmptyIgnoreFilter &amp;&amp; GetPathfindCompleted())
-            {
-                RouteData componentData = m_PrefabSystem.GetComponentData&lt;RouteData&gt;(prefab);
-                float num = math.distance(m_ControlPoints[m_ControlPoints.Length - 2].m_Position, m_ControlPoints[m_ControlPoints.Length - 1].m_Position);
-                float minWaypointDistance = RouteUtils.GetMinWaypointDistance(componentData);
-                if (num &gt;= minWaypointDistance)
-                {
-                    Entity applyTempRoute = Entity.Null;
-                    NativeArray&lt;ArchetypeChunk&gt; nativeArray = m_TempRouteQuery.ToArchetypeChunkArray(Allocator.TempJob);
-                    ComponentTypeHandle&lt;Route&gt; typeHandle = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Routes_Route_RO_ComponentTypeHandle, ref base.CheckedStateRef);
-                    if ((nativeArray[0].GetNativeArray(ref typeHandle)[0].m_Flags &amp; RouteFlags.Complete) != 0)
-                    {
-                        base.applyMode = ApplyMode.Apply;
-                        m_State = State.Default;
-                        m_ControlPoints.Clear();
-                        applyTempRoute = nativeArray[0].GetNativeArray(GetEntityTypeHandle())[0];
-                        m_AudioManager.PlayUISound(m_SoundQuery.GetSingleton&lt;ToolUXSoundSettingsData&gt;().m_TransportLineCompleteSound);
-                    }
-                    else
-                    {
-                        m_AudioManager.PlayUISound(m_SoundQuery.GetSingleton&lt;ToolUXSoundSettingsData&gt;().m_TransportLineBuildSound);
-                        base.applyMode = ApplyMode.Clear;
-                    }
-                    nativeArray.Dispose();
-                    if (GetRaycastResult(out var controlPoint4))
-                    {
-                        m_LastRaycastPoint = controlPoint4;
-                        m_ControlPoints.Add(in controlPoint4);
-                        inputDeps = SnapControlPoints(inputDeps, applyTempRoute);
-                        inputDeps = UpdateDefinitions(inputDeps, applyTempRoute);
-                    }
-                    else
-                    {
-                        m_Tooltip.value = Tooltip.None;
-                    }
-                    return inputDeps;
-                }
-            }
-            return Update(inputDeps, fullUpdate: false);
-        case State.Modify:
-        {
-            bool allowApply = GetAllowApply();
-            if (!m_ControlPointsMoved &amp;&amp; allowApply &amp;&amp; m_ControlPoints.Length &gt; 0)
-            {
-                base.applyMode = ApplyMode.Clear;
-                m_State = State.Create;
-                m_MoveStartPosition = default(ControlPoint);
-                if (GetRaycastResult(out var controlPoint5))
-                {
-                    m_LastRaycastPoint = controlPoint5;
-                    m_ControlPoints.Add(in controlPoint5);
-                    inputDeps = SnapControlPoints(inputDeps, Entity.Null);
-                    inputDeps = UpdateDefinitions(inputDeps, Entity.Null);
-                }
-                else
-                {
-                    m_ControlPoints.Add(m_ControlPoints[0]);
-                    m_Tooltip.value = Tooltip.None;
-                }
-                return inputDeps;
-            }
-            if (m_CanApplyModify)
-            {
-                Entity applyTempRoute2 = Entity.Null;
-                if (allowApply &amp;&amp; !m_TempRouteQuery.IsEmptyIgnoreFilter)
-                {
-                    base.applyMode = ApplyMode.Apply;
-                    NativeArray&lt;ArchetypeChunk&gt; nativeArray2 = m_TempRouteQuery.ToArchetypeChunkArray(Allocator.TempJob);
-                    applyTempRoute2 = nativeArray2[0].GetNativeArray(GetEntityTypeHandle())[0];
-                    nativeArray2.Dispose();
-                }
-                else
-                {
-                    base.applyMode = ApplyMode.Clear;
-                }
-                m_State = State.Default;
-                m_ControlPoints.Clear();
-                if (GetRaycastResult(out var controlPoint6))
-                {
-                    m_LastRaycastPoint = controlPoint6;
-                    m_ControlPoints.Add(in controlPoint6);
-                    inputDeps = SnapControlPoints(inputDeps, applyTempRoute2);
-                    inputDeps = UpdateDefinitions(inputDeps, applyTempRoute2);
-                }
-                else
-                {
-                    m_Tooltip.value = Tooltip.None;
-                }
-                return inputDeps;
-            }
-            m_ForceApply = true;
-            return Update(inputDeps, fullUpdate: false);
-        }
-        case State.Remove:
-        {
-            m_ControlPoints.Clear();
-            base.applyMode = ApplyMode.Clear;
-            m_State = State.Default;
-            if (GetRaycastResult(out var controlPoint))
-            {
-                m_LastRaycastPoint = controlPoint;
-                m_ControlPoints.Add(in controlPoint);
-                inputDeps = SnapControlPoints(inputDeps, Entity.Null);
-                inputDeps = UpdateDefinitions(inputDeps, Entity.Null);
-            }
-            else
-            {
-                m_Tooltip.value = Tooltip.None;
-            }
-            return inputDeps;
-        }
-        default:
-            return Update(inputDeps, fullUpdate: false);
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private Cancel(Unity.Jobs.JobHandle inputDeps, System.Boolean singleFrameOnly = False) : Unity.Jobs.JobHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private JobHandle Cancel(JobHandle inputDeps, bool singleFrameOnly = false)
-    {
-        m_AudioManager.PlayUISound(m_SoundQuery.GetSingleton&lt;ToolUXSoundSettingsData&gt;().m_TransportLineRemoveSound);
-        switch (m_State)
-        {
-        case State.Default:
-            if (GetAllowApply() &amp;&amp; m_ControlPoints.Length &gt; 0)
-            {
-                base.applyMode = ApplyMode.Clear;
-                ControlPoint controlPoint2 = m_ControlPoints[0];
-                if (base.EntityManager.HasComponent&lt;Route&gt;(controlPoint2.m_OriginalEntity) &amp;&amp; controlPoint2.m_ElementIndex.x &gt;= 0)
-                {
-                    m_State = State.Remove;
-                    m_MoveStartPosition = controlPoint2;
-                    m_ForceCancel = singleFrameOnly;
-                    if (GetRaycastResult(out var controlPoint3))
-                    {
-                        m_LastRaycastPoint = controlPoint3;
-                        m_ControlPoints[0] = controlPoint3;
-                        inputDeps = SnapControlPoints(inputDeps, Entity.Null);
-                        inputDeps = UpdateDefinitions(inputDeps, Entity.Null);
-                    }
-                    else
-                    {
-                        m_Tooltip.value = Tooltip.None;
-                    }
-                    return inputDeps;
-                }
-                return Update(inputDeps, fullUpdate: false);
-            }
-            return Update(inputDeps, fullUpdate: false);
-        case State.Create:
-        {
-            m_ControlPoints.RemoveAtSwapBack(m_ControlPoints.Length - 1);
-            base.applyMode = ApplyMode.Clear;
-            if (m_ControlPoints.Length &lt;= 1)
-            {
-                m_State = State.Default;
-            }
-            if (GetRaycastResult(out var controlPoint5))
-            {
-                m_LastRaycastPoint = controlPoint5;
-                m_ControlPoints[m_ControlPoints.Length - 1] = controlPoint5;
-                inputDeps = SnapControlPoints(inputDeps, Entity.Null);
-                inputDeps = UpdateDefinitions(inputDeps, Entity.Null);
-            }
-            else if (m_ControlPoints.Length &gt;= 2)
-            {
-                m_ControlPoints[m_ControlPoints.Length - 1] = m_ControlPoints[m_ControlPoints.Length - 2];
-                inputDeps = UpdateDefinitions(inputDeps, Entity.Null);
-            }
-            else
-            {
-                m_Tooltip.value = Tooltip.None;
-            }
-            return inputDeps;
-        }
-        case State.Modify:
-        {
-            m_ControlPoints.Clear();
-            base.applyMode = ApplyMode.Clear;
-            m_State = State.Default;
-            if (GetRaycastResult(out var controlPoint4))
-            {
-                m_LastRaycastPoint = controlPoint4;
-                m_ControlPoints.Add(in controlPoint4);
-                inputDeps = SnapControlPoints(inputDeps, Entity.Null);
-                inputDeps = UpdateDefinitions(inputDeps, Entity.Null);
-            }
-            else
-            {
-                m_Tooltip.value = Tooltip.None;
-            }
-            return inputDeps;
-        }
-        case State.Remove:
-        {
-            Entity applyTempRoute = Entity.Null;
-            if (GetAllowApply() &amp;&amp; !m_TempRouteQuery.IsEmptyIgnoreFilter)
-            {
-                base.applyMode = ApplyMode.Apply;
-                NativeArray&lt;ArchetypeChunk&gt; nativeArray = m_TempRouteQuery.ToArchetypeChunkArray(Allocator.TempJob);
-                applyTempRoute = nativeArray[0].GetNativeArray(GetEntityTypeHandle())[0];
-                nativeArray.Dispose();
-            }
-            else
-            {
-                base.applyMode = ApplyMode.Clear;
-            }
-            m_State = State.Default;
-            m_ControlPoints.Clear();
-            if (GetRaycastResult(out var controlPoint))
-            {
-                m_LastRaycastPoint = controlPoint;
-                m_ControlPoints.Add(in controlPoint);
-                inputDeps = SnapControlPoints(inputDeps, applyTempRoute);
-                inputDeps = UpdateDefinitions(inputDeps, applyTempRoute);
-            }
-            else
-            {
-                m_Tooltip.value = Tooltip.None;
-            }
-            return inputDeps;
-        }
-        default:
-            return Update(inputDeps, fullUpdate: false);
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private CheckPathUpdates() : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">private bool CheckPathUpdates()
-    {
-        if (m_EventQuery.IsEmptyIgnoreFilter)
-        {
-            return false;
-        }
-        NativeArray&lt;ArchetypeChunk&gt; nativeArray = m_EventQuery.ToArchetypeChunkArray(Allocator.TempJob);
-        try
-        {
-            ComponentTypeHandle&lt;PathUpdated&gt; typeHandle = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Pathfind_PathUpdated_RO_ComponentTypeHandle, ref base.CheckedStateRef);
-            ComponentLookup&lt;Temp&gt; componentLookup = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Tools_Temp_RO_ComponentLookup, ref base.CheckedStateRef);
-            for (int i = 0; i &lt; nativeArray.Length; i++)
-            {
-                NativeArray&lt;PathUpdated&gt; nativeArray2 = nativeArray[i].GetNativeArray(ref typeHandle);
-                for (int j = 0; j &lt; nativeArray2.Length; j++)
-                {
-                    if (componentLookup.HasComponent(nativeArray2[j].m_Owner))
-                    {
-                        return true;
-                    }
-                }
-            }
-        }
-        finally
-        {
-            nativeArray.Dispose();
-        }
-        return false;
-    }
-</code></pre>
-<ul>
-<li><code>private Clear(Unity.Jobs.JobHandle inputDeps) : Unity.Jobs.JobHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private JobHandle Clear(JobHandle inputDeps)
-    {
-        base.applyMode = ApplyMode.Clear;
-        return inputDeps;
-    }
-</code></pre>
-<ul>
-<li><code>public virtual ElevationDown() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override void ElevationDown()
-    {
-        underground = true;
-    }
-</code></pre>
-<ul>
-<li><code>public virtual ElevationScroll() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override void ElevationScroll()
-    {
-        underground = !underground;
-    }
-</code></pre>
-<ul>
-<li><code>public virtual ElevationUp() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override void ElevationUp()
-    {
-        underground = false;
-    }
-</code></pre>
-<ul>
-<li><code>public GetControlPoints(Unity.Jobs.JobHandle&amp; dependencies) : Unity.Collections.NativeList&lt;Game.Tools.ControlPoint&gt;</code>  </li>
-</ul>
-<pre><code class="language-csharp">public NativeList&lt;ControlPoint&gt; GetControlPoints(out JobHandle dependencies)
-    {
-        dependencies = base.Dependency;
-        return m_ControlPoints;
-    }
-</code></pre>
-<ul>
-<li><code>private GetPathfindCompleted() : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">private bool GetPathfindCompleted()
-    {
-        NativeArray&lt;Entity&gt; nativeArray = m_TempRouteQuery.ToEntityArray(Allocator.TempJob);
-        try
-        {
-            for (int i = 0; i &lt; nativeArray.Length; i++)
-            {
-                Entity entity = nativeArray[i];
-                DynamicBuffer&lt;RouteWaypoint&gt; buffer = base.EntityManager.GetBuffer&lt;RouteWaypoint&gt;(entity, isReadOnly: true);
-                DynamicBuffer&lt;RouteSegment&gt; buffer2 = base.EntityManager.GetBuffer&lt;RouteSegment&gt;(entity, isReadOnly: true);
-                for (int j = 0; j &lt; buffer2.Length; j++)
-                {
-                    Entity segment = buffer2[j].m_Segment;
-                    if (base.EntityManager.TryGetComponent&lt;PathTargets&gt;(segment, out var component))
-                    {
-                        RouteWaypoint routeWaypoint = buffer[j];
-                        RouteWaypoint routeWaypoint2 = buffer[math.select(j + 1, 0, j + 1 &gt;= buffer.Length)];
-                        if (base.EntityManager.TryGetComponent&lt;Position&gt;(routeWaypoint.m_Waypoint, out var component2) &amp;&amp; math.distancesq(component.m_ReadyStartPosition, component2.m_Position) &gt;= 1f)
-                        {
-                            return false;
-                        }
-                        if (base.EntityManager.TryGetComponent&lt;Position&gt;(routeWaypoint2.m_Waypoint, out var component3) &amp;&amp; math.distancesq(component.m_ReadyEndPosition, component3.m_Position) &gt;= 1f)
-                        {
-                            return false;
-                        }
-                    }
-                }
-            }
-        }
-        finally
-        {
-            nativeArray.Dispose();
-        }
-        return true;
-    }
-</code></pre>
-<ul>
-<li><code>public virtual GetPrefab() : Game.Prefabs.PrefabBase</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override PrefabBase GetPrefab()
-    {
-        return prefab;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual GetRaycastResult(Game.Tools.ControlPoint&amp; controlPoint) : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override bool GetRaycastResult(out ControlPoint controlPoint, out bool forceUpdate)
-    {
-        if (GetRaycastResult(out var entity, out var hit, out forceUpdate))
-        {
-            if (base.EntityManager.HasComponent&lt;ConnectedRoute&gt;(hit.m_HitEntity))
-            {
-                entity = hit.m_HitEntity;
-            }
-            controlPoint = new ControlPoint(entity, hit);
-            return true;
-        }
-        controlPoint = default(ControlPoint);
-        return false;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual GetRaycastResult(Game.Tools.ControlPoint&amp; controlPoint, System.Boolean&amp; forceUpdate) : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override bool GetRaycastResult(out ControlPoint controlPoint, out bool forceUpdate)
-    {
-        if (GetRaycastResult(out var entity, out var hit, out forceUpdate))
-        {
-            if (base.EntityManager.HasComponent&lt;ConnectedRoute&gt;(hit.m_HitEntity))
-            {
-                entity = hit.m_HitEntity;
-            }
-            controlPoint = new ControlPoint(entity, hit);
-            return true;
-        }
-        controlPoint = default(ControlPoint);
-        return false;
-    }
-</code></pre>
-<ul>
-<li><code>private GetUpgradable(Unity.Entities.Entity entity) : Unity.Entities.Entity</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Entity GetUpgradable(Entity entity)
-    {
-        if (base.EntityManager.TryGetComponent&lt;Attached&gt;(entity, out var component))
-        {
-            return component.m_Parent;
-        }
-        return entity;
-    }
-</code></pre>
-<ul>
-<li><code>public virtual InitializeRaycast() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override void InitializeRaycast()
-    {
-        base.InitializeRaycast();
-        if (prefab != null)
-        {
-            bool flag = false;
-            RouteData componentData = m_PrefabSystem.GetComponentData&lt;RouteData&gt;(prefab);
-            Entity entity = m_PrefabSystem.GetEntity(prefab);
-            if ((m_State == State.Modify || m_State == State.Remove) &amp;&amp; base.EntityManager.HasComponent&lt;Route&gt;(m_MoveStartPosition.m_OriginalEntity))
-            {
-                entity = base.EntityManager.GetComponentData&lt;PrefabRef&gt;(m_MoveStartPosition.m_OriginalEntity).m_Prefab;
-            }
-            RouteConnectionData component2;
-            if (base.EntityManager.TryGetComponent&lt;TransportLineData&gt;(entity, out var component))
-            {
-                m_ToolRaycastSystem.typeMask = TypeMask.StaticObjects | TypeMask.Net | TypeMask.RouteWaypoints;
-                m_ToolRaycastSystem.transportType = component.m_TransportType;
-                m_ToolRaycastSystem.raycastFlags |= RaycastFlags.BuildingLots;
-                if (component.m_PassengerTransport)
-                {
-                    m_ToolRaycastSystem.raycastFlags |= RaycastFlags.Passenger;
-                }
-                if (component.m_CargoTransport)
-                {
-                    m_ToolRaycastSystem.raycastFlags |= RaycastFlags.Cargo;
-                }
-                switch (component.m_TransportType)
-                {
-                case TransportType.Bus:
-                    m_ToolRaycastSystem.netLayerMask = Layer.Road | Layer.Pathway | Layer.MarkerPathway | Layer.PublicTransportRoad;
-                    flag = true;
-                    break;
-                case TransportType.Tram:
-                    m_ToolRaycastSystem.netLayerMask = Layer.Road | Layer.TramTrack | Layer.PublicTransportRoad;
-                    flag = true;
-                    break;
-                case TransportType.Train:
-                    m_ToolRaycastSystem.netLayerMask = Layer.TrainTrack;
-                    flag = true;
-                    break;
-                case TransportType.Subway:
-                    m_ToolRaycastSystem.netLayerMask = Layer.SubwayTrack;
-                    flag = true;
-                    break;
-                case TransportType.Ship:
-                    m_ToolRaycastSystem.netLayerMask = Layer.Waterway;
-                    break;
-                case TransportType.Airplane:
-                    m_ToolRaycastSystem.netLayerMask = Layer.Taxiway | Layer.MarkerTaxiway;
-                    break;
-                default:
-                    m_ToolRaycastSystem.netLayerMask = Layer.None;
-                    break;
-                }
-            }
-            else if (base.EntityManager.TryGetComponent&lt;RouteConnectionData&gt;(entity, out component2))
-            {
-                m_ToolRaycastSystem.typeMask = TypeMask.StaticObjects | TypeMask.Net | TypeMask.RouteWaypoints;
-                m_ToolRaycastSystem.transportType = TransportType.Work;
-                m_ToolRaycastSystem.raycastFlags |= RaycastFlags.BuildingLots;
-                if ((component2.m_RouteRoadType &amp; RoadTypes.Car) != RoadTypes.None)
-                {
-                    m_ToolRaycastSystem.netLayerMask |= Layer.Road | Layer.Pathway | Layer.MarkerPathway;
-                }
-                if ((component2.m_RouteRoadType &amp; RoadTypes.Watercraft) != RoadTypes.None)
-                {
-                    m_ToolRaycastSystem.netLayerMask |= Layer.Waterway;
-                }
-            }
-            else
-            {
-                m_ToolRaycastSystem.typeMask = TypeMask.Terrain | TypeMask.RouteWaypoints;
-                m_ToolRaycastSystem.netLayerMask = Layer.None;
-            }
-            if (flag &amp;&amp; underground)
-            {
-                m_ToolRaycastSystem.collisionMask = CollisionMask.Underground;
-            }
-            else
-            {
-                m_ToolRaycastSystem.collisionMask = CollisionMask.OnGround | CollisionMask.Overground;
-            }
-            if (m_State == State.Default)
-            {
-                m_ToolRaycastSystem.typeMask |= TypeMask.RouteSegments;
-            }
-            m_ToolRaycastSystem.routeType = componentData.m_Type;
-        }
-        else
-        {
-            m_ToolRaycastSystem.typeMask = TypeMask.None;
-            m_ToolRaycastSystem.netLayerMask = Layer.None;
-            m_ToolRaycastSystem.routeType = RouteType.None;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_ToolOutputBarrier = base.World.GetOrCreateSystemManaged&lt;ToolOutputBarrier&gt;();
-        m_AudioManager = base.World.GetOrCreateSystemManaged&lt;AudioManager&gt;();
-        m_DefinitionQuery = GetDefinitionQuery();
-        m_TempRouteQuery = GetEntityQuery(ComponentType.ReadOnly&lt;Route&gt;(), ComponentType.ReadOnly&lt;Temp&gt;());
-        m_EventQuery = GetEntityQuery(ComponentType.ReadOnly&lt;Game.Common.Event&gt;(), ComponentType.ReadOnly&lt;PathUpdated&gt;());
-        m_SoundQuery = GetEntityQuery(ComponentType.ReadOnly&lt;ToolUXSoundSettingsData&gt;());
-        m_AddWaypoint = InputManager.instance.toolActionCollection.GetActionState(&quot;Add Waypoint&quot;, &quot;RouteToolSystem&quot;);
-        m_InsertWaypoint = InputManager.instance.toolActionCollection.GetActionState(&quot;Insert Waypoint&quot;, &quot;RouteToolSystem&quot;);
-        m_MoveWaypoint = InputManager.instance.toolActionCollection.GetActionState(&quot;Move Waypoint&quot;, &quot;RouteToolSystem&quot;);
-        m_MergeWaypoint = InputManager.instance.toolActionCollection.GetActionState(&quot;Merge Waypoint&quot;, &quot;RouteToolSystem&quot;);
-        m_RemoveWaypoint = InputManager.instance.toolActionCollection.GetActionState(&quot;Remove Waypoint&quot;, &quot;RouteToolSystem&quot;);
-        m_UndoWaypoint = InputManager.instance.toolActionCollection.GetActionState(&quot;Undo Waypoint&quot;, &quot;RouteToolSystem&quot;);
-        m_CreateRoute = InputManager.instance.toolActionCollection.GetActionState(&quot;Create Route&quot;, &quot;RouteToolSystem&quot;);
-        m_CompleteRoute = InputManager.instance.toolActionCollection.GetActionState(&quot;Complete Route&quot;, &quot;RouteToolSystem&quot;);
-        m_DeleteRoute = InputManager.instance.toolActionCollection.GetActionState(&quot;Delete Route&quot;, &quot;RouteToolSystem&quot;);
-        m_DiscardInsertWaypoint = InputManager.instance.toolActionCollection.GetActionState(&quot;Discard Insert Waypoint&quot;, &quot;RouteToolSystem&quot;);
-        m_DiscardMoveWaypoint = InputManager.instance.toolActionCollection.GetActionState(&quot;Discard Move Waypoint&quot;, &quot;RouteToolSystem&quot;);
-        m_DiscardMergeWaypoint = InputManager.instance.toolActionCollection.GetActionState(&quot;Discard Merge Waypoint&quot;, &quot;RouteToolSystem&quot;);
-        m_ControlPoints = new NativeList&lt;ControlPoint&gt;(20, Allocator.Persistent);
-        m_Tooltip = new NativeValue&lt;Tooltip&gt;(Allocator.Persistent);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreateForCompiler() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnCreateForCompiler()
-    {
-        base.OnCreateForCompiler();
-        __AssignQueries(ref base.CheckedStateRef);
-        __TypeHandle.__AssignHandles(ref base.CheckedStateRef);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnDestroy() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnDestroy()
-    {
-        m_ControlPoints.Dispose();
-        m_Tooltip.Dispose();
-        base.OnDestroy();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnStartRunning() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnStartRunning()
-    {
-        base.OnStartRunning();
-        m_ControlPoints.Clear();
-        m_LastRaycastPoint = default(ControlPoint);
-        m_State = State.Default;
-        m_Tooltip.value = Tooltip.None;
-        m_ForceApply = false;
-        m_ForceCancel = false;
-        m_ApplyBlocked = false;
-        base.requireUnderground = false;
-        base.requireNetArrows = false;
-        base.requireRoutes = RouteType.None;
-        base.requireNet = Layer.None;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate(Unity.Jobs.JobHandle inputDeps) : Unity.Jobs.JobHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override JobHandle OnUpdate(JobHandle inputDeps)
-    {
-        UpdateActions();
-        bool flag = m_ForceApply;
-        bool flag2 = m_ForceCancel;
-        m_ForceApply = false;
-        m_ForceCancel = false;
-        if (prefab != null)
-        {
-            allowUnderground = false;
-            base.requireUnderground = false;
-            base.requireNetArrows = false;
-            base.requireNet = Layer.None;
-            base.requireStops = TransportType.None;
-            RouteData componentData = m_PrefabSystem.GetComponentData&lt;RouteData&gt;(prefab);
-            base.requireRoutes = componentData.m_Type;
-            if (componentData.m_Type == RouteType.TransportLine)
-            {
-                TransportLineData componentData2 = m_PrefabSystem.GetComponentData&lt;TransportLineData&gt;(prefab);
-                base.requireNetArrows = true;
-                switch (componentData2.m_TransportType)
-                {
-                case TransportType.Bus:
-                    base.requireNet |= Layer.Road | Layer.Pathway | Layer.MarkerPathway | Layer.PublicTransportRoad;
-                    allowUnderground = true;
-                    break;
-                case TransportType.Tram:
-                    base.requireNet |= Layer.Road | Layer.TramTrack | Layer.PublicTransportRoad;
-                    allowUnderground = true;
-                    break;
-                case TransportType.Train:
-                    base.requireNet |= Layer.TrainTrack;
-                    allowUnderground = true;
-                    break;
-                case TransportType.Subway:
-                    base.requireNet |= Layer.SubwayTrack;
-                    allowUnderground = true;
-                    break;
-                case TransportType.Ship:
-                    base.requireNet |= Layer.Waterway;
-                    break;
-                case TransportType.Airplane:
-                    base.requireNet |= Layer.Taxiway | Layer.MarkerTaxiway;
-                    break;
-                }
-                base.requireStops = componentData2.m_TransportType;
-            }
-            else if (componentData.m_Type == RouteType.WorkRoute)
-            {
-                RouteConnectionData componentData3 = m_PrefabSystem.GetComponentData&lt;RouteConnectionData&gt;(prefab);
-                if ((componentData3.m_RouteRoadType &amp; RoadTypes.Car) != RoadTypes.None)
-                {
-                    base.requireNet |= Layer.Road | Layer.Pathway | Layer.MarkerPathway;
-                }
-                if ((componentData3.m_RouteRoadType &amp; RoadTypes.Watercraft) != RoadTypes.None)
-                {
-                    base.requireNet |= Layer.Waterway;
-                }
-                base.requireStops = TransportType.Work;
-            }
-            if (allowUnderground)
-            {
-                base.requireUnderground = underground;
-            }
-            UpdateInfoview(m_PrefabSystem.GetEntity(prefab));
-            if (m_State != State.Default &amp;&amp; !base.applyAction.enabled)
-            {
-                m_State = State.Default;
-            }
-            if ((m_ToolRaycastSystem.raycastFlags &amp; (RaycastFlags.DebugDisable | RaycastFlags.UIDisable)) == 0)
-            {
-                switch (m_State)
-                {
-                case State.Default:
-                case State.Create:
-                    if (m_ApplyBlocked)
-                    {
-                        if (base.applyAction.WasReleasedThisFrame() || base.secondaryApplyAction.WasReleasedThisFrame())
-                        {
-                            m_ApplyBlocked = false;
-                        }
-                        return Update(inputDeps, fullUpdate: false);
-                    }
-                    if (base.applyAction.WasPressedThisFrame())
-                    {
-                        return Apply(inputDeps, base.applyAction.WasReleasedThisFrame());
-                    }
-                    if (base.secondaryApplyAction.WasPressedThisFrame())
-                    {
-                        return Cancel(inputDeps, base.secondaryApplyAction.WasReleasedThisFrame());
-                    }
-                    break;
-                case State.Modify:
-                    if (base.cancelAction.WasPressedThisFrame())
-                    {
-                        m_ApplyBlocked = true;
-                        m_State = State.Default;
-                        return Update(inputDeps, fullUpdate: true);
-                    }
-                    if (flag || base.applyAction.WasReleasedThisFrame())
-                    {
-                        return Apply(inputDeps);
-                    }
-                    break;
-                case State.Remove:
-                    if (base.cancelAction.WasPressedThisFrame())
-                    {
-                        m_ApplyBlocked = true;
-                        m_State = State.Default;
-                        return Update(inputDeps, fullUpdate: true);
-                    }
-                    if (flag2 || base.secondaryApplyAction.WasReleasedThisFrame())
-                    {
-                        return Cancel(inputDeps);
-                    }
-                    break;
-                }
-                return Update(inputDeps, fullUpdate: false);
-            }
-        }
-        else
-        {
-            base.requireUnderground = false;
-            base.requireNetArrows = false;
-            base.requireRoutes = RouteType.None;
-            base.requireNet = Layer.None;
-            UpdateInfoview(Entity.Null);
-            m_Tooltip.value = Tooltip.None;
-        }
-        if (m_State == State.Modify &amp;&amp; base.applyAction.WasReleasedThisFrame())
-        {
-            if ((m_ToolRaycastSystem.raycastFlags &amp; (RaycastFlags.DebugDisable | RaycastFlags.UIDisable)) == 0)
-            {
-                return Cancel(inputDeps);
-            }
-            m_ControlPoints.Clear();
-            m_State = State.Default;
-        }
-        else if (m_State == State.Remove &amp;&amp; base.secondaryApplyAction.WasReleasedThisFrame())
-        {
-            if ((m_ToolRaycastSystem.raycastFlags &amp; (RaycastFlags.DebugDisable | RaycastFlags.UIDisable)) == 0)
-            {
-                return Apply(inputDeps);
-            }
-            m_ControlPoints.Clear();
-            m_State = State.Default;
-        }
-        return Clear(inputDeps);
-    }
-</code></pre>
-<ul>
-<li><code>public virtual SetUnderground(System.Boolean underground) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override void SetUnderground(bool underground)
-    {
-        this.underground = underground;
-    }
-</code></pre>
-<ul>
-<li><code>private SnapControlPoints(Unity.Jobs.JobHandle inputDeps, Unity.Entities.Entity applyTempRoute) : Unity.Jobs.JobHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private JobHandle SnapControlPoints(JobHandle inputDeps, Entity applyTempRoute)
-    {
-        return IJobExtensions.Schedule(new SnapJob
-        {
-            m_Snap = GetActualSnap(),
-            m_State = m_State,
-            m_Prefab = m_PrefabSystem.GetEntity(prefab),
-            m_ApplyTempRoute = applyTempRoute,
-            m_MoveStartPosition = m_MoveStartPosition,
-            m_PrefabRefData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabRouteData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_RouteData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabTransportLineData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_TransportLineData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabRouteConnectionData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_RouteConnectionData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabCarLaneData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_CarLaneData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabTrackLaneData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_TrackLaneData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabTransportStopData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_TransportStopData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_TempData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Tools_Temp_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_OwnerData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Common_Owner_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PositionData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Routes_Position_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_TransformData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Objects_Transform_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_CurveData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_Curve_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_SlaveLaneData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_SlaveLane_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_ConnectedRoutes = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Routes_ConnectedRoute_RO_BufferLookup, ref base.CheckedStateRef),
-            m_Waypoints = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Routes_RouteWaypoint_RO_BufferLookup, ref base.CheckedStateRef),
-            m_SubObjects = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Objects_SubObject_RO_BufferLookup, ref base.CheckedStateRef),
-            m_SubLanes = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Net_SubLane_RO_BufferLookup, ref base.CheckedStateRef),
-            m_ControlPoints = m_ControlPoints
-        }, inputDeps);
-    }
-</code></pre>
-<ul>
-<li><code>public virtual TrySetPrefab(Game.Prefabs.PrefabBase prefab) : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override bool TrySetPrefab(PrefabBase prefab)
-    {
-        if (prefab is RoutePrefab routePrefab)
-        {
-            this.prefab = routePrefab;
-            return true;
-        }
-        return false;
-    }
-</code></pre>
-<ul>
-<li><code>private Update(Unity.Jobs.JobHandle inputDeps, System.Boolean fullUpdate) : Unity.Jobs.JobHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private JobHandle Update(JobHandle inputDeps, bool fullUpdate)
-    {
-        bool flag = CheckPathUpdates();
-        if (m_State == State.Modify)
-        {
-            m_CanApplyModify = true;
-        }
-        if (GetRaycastResult(out ControlPoint controlPoint, out bool forceUpdate))
-        {
-            forceUpdate = forceUpdate || fullUpdate;
-            if (m_ControlPoints.Length == 0)
-            {
-                m_LastRaycastPoint = controlPoint;
-                m_ControlPoints.Add(in controlPoint);
-                inputDeps = SnapControlPoints(inputDeps, Entity.Null);
-                base.applyMode = ApplyMode.Clear;
-                return UpdateDefinitions(inputDeps, Entity.Null);
-            }
-            if (m_LastRaycastPoint.Equals(controlPoint) &amp;&amp; !flag &amp;&amp; !forceUpdate)
-            {
-                base.applyMode = ApplyMode.None;
-                return inputDeps;
-            }
-            m_LastRaycastPoint = controlPoint;
-            ControlPoint controlPoint2 = m_ControlPoints[m_ControlPoints.Length - 1];
-            m_ControlPoints[m_ControlPoints.Length - 1] = controlPoint;
-            inputDeps = SnapControlPoints(inputDeps, Entity.Null);
-            JobHandle.ScheduleBatchedJobs();
-            inputDeps.Complete();
-            ControlPoint other = m_ControlPoints[m_ControlPoints.Length - 1];
-            if (controlPoint2.EqualsIgnoreHit(other) &amp;&amp; !flag &amp;&amp; !forceUpdate)
-            {
-                base.applyMode = ApplyMode.None;
-            }
-            else
-            {
-                m_ControlPointsMoved = true;
-                base.applyMode = ApplyMode.Clear;
-                inputDeps = UpdateDefinitions(inputDeps, Entity.Null);
-            }
-            return inputDeps;
-        }
-        if (m_LastRaycastPoint.Equals(controlPoint))
-        {
-            forceUpdate = forceUpdate || fullUpdate;
-            if (flag || forceUpdate)
-            {
-                base.applyMode = ApplyMode.Clear;
-                if (m_ControlPoints.Length &gt; 0)
-                {
-                    return UpdateDefinitions(inputDeps, Entity.Null);
-                }
-                return inputDeps;
-            }
-            base.applyMode = ApplyMode.None;
-            return inputDeps;
-        }
-        m_LastRaycastPoint = controlPoint;
-        if (m_State == State.Default &amp;&amp; m_ControlPoints.Length == 1)
-        {
-            base.applyMode = ApplyMode.Clear;
-            m_ControlPoints[m_ControlPoints.Length - 1] = default(ControlPoint);
-            return UpdateDefinitions(inputDeps, Entity.Null);
-        }
-        if (m_State == State.Modify &amp;&amp; m_ControlPoints.Length &gt;= 1)
-        {
-            m_ControlPointsMoved = true;
-            base.applyMode = ApplyMode.Clear;
-            m_ControlPoints[m_ControlPoints.Length - 1] = m_MoveStartPosition;
-            return UpdateDefinitions(inputDeps, Entity.Null);
-        }
-        if (m_State == State.Remove &amp;&amp; m_ControlPoints.Length &gt;= 1)
-        {
-            m_ControlPointsMoved = true;
-            base.applyMode = ApplyMode.Clear;
-            ControlPoint value = m_MoveStartPosition;
-            value.m_OriginalEntity = Entity.Null;
-            m_ControlPoints[m_ControlPoints.Length - 1] = value;
-            return UpdateDefinitions(inputDeps, Entity.Null);
-        }
-        if (m_ControlPoints.Length &gt;= 2)
-        {
-            m_ControlPointsMoved = true;
-            base.applyMode = ApplyMode.Clear;
-            m_ControlPoints[m_ControlPoints.Length - 1] = m_ControlPoints[m_ControlPoints.Length - 2];
-            return UpdateDefinitions(inputDeps, Entity.Null);
-        }
-        m_Tooltip.value = Tooltip.None;
-        return inputDeps;
-    }
-</code></pre>
-<ul>
-<li><code>private virtual UpdateActions() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private protected override void UpdateActions()
-    {
-        using (ProxyAction.DeferStateUpdating())
-        {
-            UpdateApplyAction();
-            UpdateSecondaryApplyAction();
-            UpdateCancelAction();
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private UpdateApplyAction() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void UpdateApplyAction()
-    {
-        switch (state)
-        {
-        case State.Default:
-        {
-            Route component3;
-            DynamicBuffer&lt;RouteWaypoint&gt; buffer2;
-            if (m_ControlPoints.Length &lt; 1 || m_ControlPoints[0].Equals(default(ControlPoint)))
-            {
-                base.applyAction.enabled = base.actionsEnabled;
-                base.applyActionOverride = null;
-            }
-            else if (m_ControlPoints.Length == 1 &amp;&amp; base.EntityManager.TryGetComponent&lt;Route&gt;(m_ControlPoints[0].m_OriginalEntity, out component3) &amp;&amp; component3.m_Flags == RouteFlags.Complete &amp;&amp; base.EntityManager.TryGetBuffer(m_ControlPoints[0].m_OriginalEntity, isReadOnly: true, out buffer2))
-            {
-                for (int j = 0; j &lt; buffer2.Length; j++)
-                {
-                    Entity waypoint2 = buffer2[j].m_Waypoint;
-                    if (base.EntityManager.TryGetComponent&lt;Position&gt;(waypoint2, out var component4) &amp;&amp; component4.m_Position.Equals(m_ControlPoints[0].m_Position))
-                    {
-                        base.applyAction.enabled = base.actionsEnabled;
-                        base.applyActionOverride = m_MoveWaypoint;
-                        return;
-                    }
-                }
-                base.applyAction.enabled = base.actionsEnabled;
-                base.applyActionOverride = m_InsertWaypoint;
-            }
-            else if (!base.EntityManager.HasComponent&lt;RouteWaypoint&gt;(m_ControlPoints[0].m_OriginalEntity) || !math.any(m_ControlPoints[0].m_ElementIndex &gt;= 0))
-            {
-                base.applyAction.enabled = base.actionsEnabled;
-                base.applyActionOverride = m_CreateRoute;
-            }
-            else
-            {
-                base.applyAction.enabled = false;
-                base.applyActionOverride = null;
-            }
-            break;
-        }
-        case State.Create:
-        {
-            ref NativeList&lt;ControlPoint&gt; reference = ref m_ControlPoints;
-            if (reference[reference.Length - 1].Equals(default(ControlPoint)))
-            {
-                base.applyAction.enabled = base.actionsEnabled;
-                base.applyActionOverride = null;
-                break;
-            }
-            ref NativeList&lt;ControlPoint&gt; reference2 = ref m_ControlPoints;
-            ControlPoint controlPoint = reference2[reference2.Length - 1];
-            ref float3 position = ref controlPoint.m_Position;
-            ref NativeList&lt;ControlPoint&gt; reference3 = ref m_ControlPoints;
-            if (!position.Equals(reference3[reference3.Length - 2].m_Position))
-            {
-                ref NativeList&lt;ControlPoint&gt; reference4 = ref m_ControlPoints;
-                if (!reference4[reference4.Length - 1].m_Position.Equals(m_ControlPoints[0].m_Position))
-                {
-                    base.applyAction.enabled = base.actionsEnabled;
-                    base.applyActionOverride = (GetAllowApply() ? m_AddWaypoint : null);
-                    break;
-                }
-            }
-            if (m_ControlPoints.Length &gt;= 3)
-            {
-                ref NativeList&lt;ControlPoint&gt; reference5 = ref m_ControlPoints;
-                if (reference5[reference5.Length - 1].m_Position.Equals(m_ControlPoints[0].m_Position))
-                {
-                    base.applyAction.enabled = base.actionsEnabled;
-                    base.applyActionOverride = (GetAllowApply() ? m_CompleteRoute : null);
-                    break;
-                }
-            }
-            base.applyAction.enabled = base.actionsEnabled;
-            base.applyActionOverride = null;
-            break;
-        }
-        case State.Modify:
-        {
-            if (base.EntityManager.TryGetComponent&lt;Route&gt;(m_MoveStartPosition.m_OriginalEntity, out var component) &amp;&amp; component.m_Flags == RouteFlags.Complete &amp;&amp; base.EntityManager.TryGetBuffer(m_MoveStartPosition.m_OriginalEntity, isReadOnly: true, out DynamicBuffer&lt;RouteWaypoint&gt; buffer))
-            {
-                for (int i = 0; i &lt; buffer.Length; i++)
-                {
-                    Entity waypoint = buffer[i].m_Waypoint;
-                    if (base.EntityManager.TryGetComponent&lt;Position&gt;(waypoint, out var component2))
-                    {
-                        if (!component2.m_Position.Equals(m_MoveStartPosition.m_Position) &amp;&amp; component2.m_Position.Equals(m_ControlPoints[0].m_Position))
-                        {
-                            base.applyAction.enabled = base.actionsEnabled;
-                            base.applyActionOverride = m_MergeWaypoint;
-                            return;
-                        }
-                        if (component2.m_Position.Equals(m_MoveStartPosition.m_Position))
-                        {
-                            base.applyAction.enabled = base.actionsEnabled;
-                            base.applyActionOverride = m_MoveWaypoint;
-                            return;
-                        }
-                    }
-                }
-                base.applyAction.enabled = base.actionsEnabled;
-                base.applyActionOverride = m_InsertWaypoint;
-            }
-            else
-            {
-                base.applyAction.enabled = false;
-                base.applyActionOverride = null;
-            }
-            break;
-        }
-        case State.Remove:
-            base.applyAction.enabled = base.actionsEnabled;
-            base.applyActionOverride = null;
-            break;
-        default:
-            base.applyAction.enabled = false;
-            base.applyActionOverride = null;
-            break;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private UpdateCancelAction() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void UpdateCancelAction()
-    {
-        if (state == State.Modify)
-        {
-            if (base.EntityManager.TryGetComponent&lt;Route&gt;(m_MoveStartPosition.m_OriginalEntity, out var component) &amp;&amp; component.m_Flags == RouteFlags.Complete &amp;&amp; base.EntityManager.TryGetBuffer(m_MoveStartPosition.m_OriginalEntity, isReadOnly: true, out DynamicBuffer&lt;RouteWaypoint&gt; buffer))
-            {
-                for (int i = 0; i &lt; buffer.Length; i++)
-                {
-                    Entity waypoint = buffer[i].m_Waypoint;
-                    if (base.EntityManager.TryGetComponent&lt;Position&gt;(waypoint, out var component2))
-                    {
-                        if (!component2.m_Position.Equals(m_MoveStartPosition.m_Position) &amp;&amp; component2.m_Position.Equals(m_ControlPoints[0].m_Position))
-                        {
-                            base.cancelAction.enabled = base.actionsEnabled;
-                            base.cancelActionOverride = m_DiscardMergeWaypoint;
-                            return;
-                        }
-                        if (component2.m_Position.Equals(m_MoveStartPosition.m_Position))
-                        {
-                            base.cancelAction.enabled = base.actionsEnabled;
-                            base.cancelActionOverride = m_DiscardMoveWaypoint;
-                            return;
-                        }
-                    }
-                }
-                base.cancelAction.enabled = base.actionsEnabled;
-                base.cancelActionOverride = m_DiscardInsertWaypoint;
-            }
-            else
-            {
-                base.cancelAction.enabled = false;
-                base.cancelActionOverride = null;
-            }
-        }
-        else
-        {
-            base.cancelAction.enabled = false;
-            base.cancelActionOverride = null;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private UpdateDefinitions(Unity.Jobs.JobHandle inputDeps, Unity.Entities.Entity applyTempRoute) : Unity.Jobs.JobHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private JobHandle UpdateDefinitions(JobHandle inputDeps, Entity applyTempRoute)
-    {
-        JobHandle jobHandle = DestroyDefinitions(m_DefinitionQuery, m_ToolOutputBarrier, inputDeps);
-        if (prefab != null)
-        {
-            CreateDefinitionsJob jobData = new CreateDefinitionsJob
-            {
-                m_State = m_State,
-                m_Prefab = m_PrefabSystem.GetEntity(prefab),
-                m_ApplyTempRoute = applyTempRoute,
-                m_MoveStartPosition = m_MoveStartPosition,
-                m_PrefabRouteData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_RouteData_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_TempData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Tools_Temp_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_PositionData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Routes_Position_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_ConnectedData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Routes_Connected_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_TransformData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Objects_Transform_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_ElevationData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Objects_Elevation_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_AttachedData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Objects_Attached_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_PrefabRefData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_ConnectedRoutes = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Routes_ConnectedRoute_RO_BufferLookup, ref base.CheckedStateRef),
-                m_Waypoints = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Routes_RouteWaypoint_RO_BufferLookup, ref base.CheckedStateRef),
-                m_ControlPoints = m_ControlPoints,
-                m_Tooltip = m_Tooltip,
-                m_Color = color,
-                m_CommandBuffer = m_ToolOutputBarrier.CreateCommandBuffer()
-            };
-            if (serviceUpgrade)
-            {
-                jobData.m_ServiceUpgradeOwner = GetUpgradable(m_ToolSystem.selected);
-            }
-            JobHandle jobHandle2 = IJobExtensions.Schedule(jobData, inputDeps);
-            m_ToolOutputBarrier.AddJobHandleForProducer(jobHandle2);
-            jobHandle = JobHandle.CombineDependencies(jobHandle, jobHandle2);
-        }
-        return jobHandle;
-    }
-</code></pre>
-<ul>
-<li><code>private UpdateSecondaryApplyAction() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void UpdateSecondaryApplyAction()
-    {
-        switch (state)
-        {
-        case State.Default:
-        {
-            if (m_ControlPoints.Length == 1 &amp;&amp; base.EntityManager.TryGetComponent&lt;Route&gt;(m_ControlPoints[0].m_OriginalEntity, out var component) &amp;&amp; component.m_Flags == RouteFlags.Complete &amp;&amp; base.EntityManager.TryGetBuffer(m_ControlPoints[0].m_OriginalEntity, isReadOnly: true, out DynamicBuffer&lt;RouteWaypoint&gt; buffer))
-            {
-                for (int i = 0; i &lt; buffer.Length; i++)
-                {
-                    Entity waypoint = buffer[i].m_Waypoint;
-                    if (base.EntityManager.TryGetComponent&lt;Position&gt;(waypoint, out var component2) &amp;&amp; component2.m_Position.Equals(m_ControlPoints[0].m_Position))
-                    {
-                        base.secondaryApplyAction.enabled = base.actionsEnabled;
-                        base.secondaryApplyActionOverride = ((buffer.Length &gt;= 3) ? m_RemoveWaypoint : m_DeleteRoute);
-                        return;
-                    }
-                }
-            }
-            base.secondaryApplyAction.enabled = false;
-            base.secondaryApplyActionOverride = null;
-            break;
-        }
-        case State.Create:
-            if (m_ControlPoints.Length &gt; 1)
-            {
-                base.secondaryApplyAction.enabled = base.actionsEnabled;
-                base.secondaryApplyActionOverride = m_UndoWaypoint;
-            }
-            else
-            {
-                base.secondaryApplyAction.enabled = base.actionsEnabled;
-                base.secondaryApplyActionOverride = null;
-            }
-            break;
-        case State.Remove:
-            base.secondaryApplyAction.enabled = base.actionsEnabled;
-            base.secondaryApplyActionOverride = m_RemoveWaypoint;
-            break;
-        default:
-            base.secondaryApplyAction.enabled = false;
-            base.secondaryApplyActionOverride = null;
-            break;
-        }
-    }
-</code></pre>
+<h1 id="gameroutetoolsystem">Game.RouteToolSystem</h1>
+<p><strong>Assembly:</strong> Game (game executable)<br />
+<strong>Namespace:</strong> Game.Tools</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> ToolBaseSystem</p>
+<p><strong>Summary:</strong><br />
+RouteToolSystem is the in-game tool system that drives creation, modification and removal of routes (transport lines and work routes) in Cities: Skylines 2. It handles user input, raycasting, snapping to existing waypoints/lanes/stops, creating temporary preview routes, generating creation definitions for the UI, and applying or cancelling operations. It exposes the currently selected RoutePrefab and tool state and coordinates burst jobs for snapping and definition creation.</p>
+<hr />
 <h2 id="nested-types">Nested types</h2>
 <ul>
-<li><code>Game.Tools.RouteToolSystem+State</code>  </li>
-<li><code>Game.Tools.RouteToolSystem+Tooltip</code>  </li>
-<li><code>Game.Tools.RouteToolSystem+SnapJob</code>  </li>
-<li><code>Game.Tools.RouteToolSystem+CreateDefinitionsJob</code>  </li>
-<li><code>Game.Tools.RouteToolSystem+TypeHandle</code>  </li>
-<li><code>Game.Tools.RouteToolSystem+&lt;get_toolActions&gt;d__41</code>  </li>
+<li>
+<p><code>public enum State</code><br />
+  Represents the tool state: Default, Create, Modify, Remove.</p>
+</li>
+<li>
+<p><code>public enum Tooltip</code><br />
+  Tooltip identifiers used by the tool to show context-sensitive UX hints (CreateRoute, ModifyWaypoint, AddWaypoint, MergeWaypoints, DeleteRoute, etc).</p>
+</li>
+<li>
+<p><code>private struct SnapJob : IJob</code> (BurstCompile)<br />
+  Job responsible for snapping control points to nearest valid locations (waypoints, stops, lanes, subobjects) according to prefab RouteData, transport type and current State.</p>
+</li>
+<li>
+<p><code>private struct CreateDefinitionsJob : IJob</code> (BurstCompile)<br />
+  Job that builds CreationDefinition/WaypointDefinition buffers used to present visual previews / temporary objects and determine the current tooltip/color state.</p>
+</li>
+<li>
+<p><code>private struct TypeHandle</code><br />
+  Internal container of ComponentTypeHandle / ComponentLookup / BufferLookup instances used to access ECS component data inside jobs and the system.</p>
+</li>
 </ul>
+<h2 id="fields">Fields</h2>
+<ul>
+<li>
+<p><code>private AudioManager m_AudioManager</code><br />
+  Reference to the AudioManager system used to play UI sounds for start/complete/build/remove actions.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_DefinitionQuery</code><br />
+  Query used to find and destroy previously created temporary definition entities.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_TempRouteQuery</code><br />
+  Query to find temporary route entities (Route + Temp) that the tool uses while building/modifying routes.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_EventQuery</code><br />
+  Query for PathUpdated / event components used to detect relevant pathfinding updates.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_SoundQuery</code><br />
+  Query to read tool sound settings (ToolUXSoundSettingsData).</p>
+</li>
+<li>
+<p><code>private IProxyAction m_AddWaypoint</code><br />
+  Input action proxy for adding a waypoint.</p>
+</li>
+<li>
+<p><code>private IProxyAction m_InsertWaypoint</code><br />
+  Input action proxy for inserting a waypoint.</p>
+</li>
+<li>
+<p><code>private IProxyAction m_MoveWaypoint</code><br />
+  Input action proxy for moving a waypoint.</p>
+</li>
+<li>
+<p><code>private IProxyAction m_MergeWaypoint</code><br />
+  Input action proxy for merging a waypoint.</p>
+</li>
+<li>
+<p><code>private IProxyAction m_RemoveWaypoint</code><br />
+  Input action proxy for removing a waypoint.</p>
+</li>
+<li>
+<p><code>private IProxyAction m_UndoWaypoint</code><br />
+  Input action proxy for undoing the last waypoint.</p>
+</li>
+<li>
+<p><code>private IProxyAction m_CreateRoute</code><br />
+  Input action proxy for creating a route.</p>
+</li>
+<li>
+<p><code>private IProxyAction m_CompleteRoute</code><br />
+  Input action proxy for completing a route.</p>
+</li>
+<li>
+<p><code>private IProxyAction m_DeleteRoute</code><br />
+  Input action proxy for deleting a route.</p>
+</li>
+<li>
+<p><code>private IProxyAction m_DiscardInsertWaypoint</code><br />
+  Input action proxy for discarding an inserted waypoint.</p>
+</li>
+<li>
+<p><code>private IProxyAction m_DiscardMoveWaypoint</code><br />
+  Input action proxy for discarding a move waypoint operation.</p>
+</li>
+<li>
+<p><code>private IProxyAction m_DiscardMergeWaypoint</code><br />
+  Input action proxy for discarding a merge waypoint operation.</p>
+</li>
+<li>
+<p><code>private bool m_ApplyBlocked</code><br />
+  Flag used to temporarily block apply actions (e.g., during certain transitions).</p>
+</li>
+<li>
+<p><code>private ControlPoint m_LastRaycastPoint</code><br />
+  Last raycast result saved for change detection.</p>
+</li>
+<li>
+<p><code>private NativeList&lt;ControlPoint&gt; m_ControlPoints</code><br />
+  The list of control points currently manipulated by the tool (persistent native list).</p>
+</li>
+<li>
+<p><code>private NativeValue&lt;Tooltip&gt; m_Tooltip</code><br />
+  Current tooltip value (native container used by jobs/producer).</p>
+</li>
+<li>
+<p><code>private State m_State</code><br />
+  Current tool state (Default/Create/Modify/Remove).</p>
+</li>
+<li>
+<p><code>private bool m_ControlPointsMoved</code><br />
+  Tracks whether control points have been moved since entering a mode.</p>
+</li>
+<li>
+<p><code>private bool m_ForceApply</code><br />
+  Force apply flag used to trigger an Apply on the next update.</p>
+</li>
+<li>
+<p><code>private bool m_ForceCancel</code><br />
+  Force cancel flag used to trigger a Cancel on the next update.</p>
+</li>
+<li>
+<p><code>private bool m_CanApplyModify</code><br />
+  When modifying a route, indicates whether the modification can be applied.</p>
+</li>
+<li>
+<p><code>private ControlPoint m_MoveStartPosition</code><br />
+  The original control point used when starting a modify/remove operation (start waypoint/segment reference).</p>
+</li>
+<li>
+<p><code>private ToolOutputBarrier m_ToolOutputBarrier</code><br />
+  Command buffer barrier used to create/destroy temporary definition entities safely.</p>
+</li>
+<li>
+<p><code>private RoutePrefab m_SelectedPrefab</code><br />
+  Currently selected route prefab (transport line or work route).</p>
+</li>
+<li>
+<p><code>private TypeHandle __TypeHandle</code><br />
+  Internal cached handles to components used for jobs / read access.</p>
+</li>
+</ul>
+<h2 id="properties">Properties</h2>
+<ul>
+<li>
+<p><code>public override string toolID { get; }</code><br />
+  Returns "Route Tool". Identifier for this tool.</p>
+</li>
+<li>
+<p><code>public RoutePrefab prefab { get; set; }</code><br />
+  The currently selected RoutePrefab. Setting this forces an update, updates color, serviceUpgrade availability and triggers EventPrefabChanged on the tool system.</p>
+</li>
+<li>
+<p><code>public State state { get; }</code><br />
+  Current tool State.</p>
+</li>
+<li>
+<p><code>public ControlPoint moveStartPosition { get; }</code><br />
+  The control point that was used to start a modify/remove operation (read-only).</p>
+</li>
+<li>
+<p><code>public Tooltip tooltip { get; }</code><br />
+  Current tooltip value (contextual UX hint).</p>
+</li>
+<li>
+<p><code>public bool underground { get; set; }</code><br />
+  Whether the tool is currently operating underground (affects raycast collisionMask).</p>
+</li>
+<li>
+<p><code>public bool serviceUpgrade { get; private set; }</code><br />
+  Whether the selected prefab supports service upgrades (set when prefab is changed).</p>
+</li>
+<li>
+<p><code>private protected override IEnumerable&lt;IProxyAction&gt; toolActions { get; }</code><br />
+  Enumerates the tool's action proxies for integration with input/UI. Includes add/insert/move/merge/remove/undo/create/complete/delete/discard actions.</p>
+</li>
+</ul>
+<h2 id="constructors">Constructors</h2>
+<ul>
+<li><code>public RouteToolSystem()</code><br />
+  Default constructor. (Preserved attribute applied in source.)</li>
+</ul>
+<h2 id="methods">Methods</h2>
+<ul>
+<li>
+<p><code>[Preserve] protected override void OnCreate()</code><br />
+  Initializes system: obtains references to other systems (ToolOutputBarrier, AudioManager), prepares EntityQueries, retrieves input actions from InputManager, allocates NativeList and NativeValue containers. Call base.OnCreate() then set up fields.</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnDestroy()</code><br />
+  Disposes native containers (m_ControlPoints, m_Tooltip) and calls base.OnDestroy().</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnStartRunning()</code><br />
+  Resets tool state when the system starts running: clears control points, sets state to Default, clears tool flags like m_ForceApply, m_ApplyBlocked, and sets required tool constraints to defaults.</p>
+</li>
+<li>
+<p><code>private protected override void UpdateActions()</code><br />
+  Called each update to refresh proxy action states (apply/secondary/cancel). Uses ProxyAction.DeferStateUpdating() while updating.</p>
+</li>
+<li>
+<p><code>private void UpdateApplyAction()</code><br />
+  Updates base.applyAction.enabled and base.applyActionOverride depending on current state, selected prefab, and control points; decides context-sensitive primary action (Add/Insert/Move/Merge/Complete/Create).</p>
+</li>
+<li>
+<p><code>private void UpdateSecondaryApplyAction()</code><br />
+  Updates base.secondaryApplyAction and override depending on state (e.g., Undo waypoint, Remove waypoint, Delete route).</p>
+</li>
+<li>
+<p><code>private void UpdateCancelAction()</code><br />
+  Updates base.cancelAction and override for cancelling in modify mode (discard move/merge/insert).</p>
+</li>
+<li>
+<p><code>public NativeList&lt;ControlPoint&gt; GetControlPoints(out JobHandle dependencies)</code><br />
+  Returns the current m_ControlPoints and writes the system's base.Dependency to dependencies so callers can chain jobs.</p>
+</li>
+<li>
+<p><code>public override PrefabBase GetPrefab()</code><br />
+  Returns the currently selected prefab (RoutePrefab).</p>
+</li>
+<li>
+<p><code>public override bool TrySetPrefab(PrefabBase prefab)</code><br />
+  Attempts to set the tool's prefab; returns true when the provided prefab is a RoutePrefab and was accepted.</p>
+</li>
+<li>
+<p><code>public override void SetUnderground(bool underground)</code><br />
+  Sets underground property.</p>
+</li>
+<li>
+<p><code>public override void ElevationUp()</code><br />
+  Sets underground = false.</p>
+</li>
+<li>
+<p><code>public override void ElevationDown()</code><br />
+  Sets underground = true.</p>
+</li>
+<li>
+<p><code>public override void ElevationScroll()</code><br />
+  Toggles underground.</p>
+</li>
+<li>
+<p><code>public override void InitializeRaycast()</code><br />
+  Configures the internal raycast system (m_ToolRaycastSystem) according to the selected prefab's RouteData and transport type: sets TypeMask, Layer masks, collision masks, routeType and flags like build/passenger/cargo. Takes into account modify/remove state and underground flag.</p>
+</li>
+<li>
+<p><code>[Preserve] protected override JobHandle OnUpdate(JobHandle inputDeps)</code><br />
+  Main update loop. Handles user inputs (apply/secondary/cancel actions), transitions between states (Default/Create/Modify/Remove), triggers SnapControlPoints and UpdateDefinitions jobs, and schedules Apply/Cancel/Clear operations. Also handles temporary force apply/cancel and checks pathfinding completion/state.</p>
+</li>
+<li>
+<p><code>protected override bool GetRaycastResult(out ControlPoint controlPoint)</code><br />
+  Wrapper over base raycast helpers to produce a ControlPoint from last hit entity/hit. Returns true if there is a raycast hit.</p>
+</li>
+<li>
+<p><code>protected override bool GetRaycastResult(out ControlPoint controlPoint, out bool forceUpdate)</code><br />
+  Overload that also reports whether the raycast result forces a UI update.</p>
+</li>
+<li>
+<p><code>private JobHandle Clear(JobHandle inputDeps)</code><br />
+  Sets applyMode to Clear and returns inputDeps (no expensive work).</p>
+</li>
+<li>
+<p><code>private JobHandle Cancel(JobHandle inputDeps, bool singleFrameOnly = false)</code><br />
+  Handles cancelling user actions depending on current state: transitions state machine, plays remove sound, prepares preview/temp route queries, performs raycast-based snapping and definition updates. Returns job handle chain for subsequent snapshot/definition jobs.</p>
+</li>
+<li>
+<p><code>private JobHandle Apply(JobHandle inputDeps, bool singleFrameOnly = false)</code><br />
+  Handles applying actions depending on current state: start modify, start create, complete create, or apply modification/remove. Handles playing appropriate UI sounds, validating pathfinding completion, toggling applyMode to Apply or Clear, and scheduling snapshot/definition updates.</p>
+</li>
+<li>
+<p><code>private bool GetPathfindCompleted()</code><br />
+  Checks whether temporary route pathfind targets are ready by inspecting PathTargets components on temporary route segments; used to decide whether a built route is complete.</p>
+</li>
+<li>
+<p><code>private bool CheckPathUpdates()</code><br />
+  Returns true if any PathUpdated events in the world reference a Temp entity owned by this tool, indicating path updates that may require re-evaluation.</p>
+</li>
+<li>
+<p><code>private JobHandle Update(JobHandle inputDeps, bool fullUpdate)</code><br />
+  Updates internal control points based on current raycast results, decides when to SnapControlPoints and call UpdateDefinitions, handles no-hit fallback behavior for various states, and sets base.applyMode appropriately.</p>
+</li>
+<li>
+<p><code>private Entity GetUpgradable(Entity entity)</code><br />
+  Returns the "upgradable" entity (attached parent if entity has Attached), used to detect service upgrade owners.</p>
+</li>
+<li>
+<p><code>private JobHandle SnapControlPoints(JobHandle inputDeps, Entity applyTempRoute)</code><br />
+  Schedules the SnapJob (Burst) to snap the m_ControlPoints NativeList. The job is provided with many ComponentLookup/BufferLookup handles and uses m_Prefab entity + state to snap appropriately. Returns the scheduled JobHandle.</p>
+</li>
+<li>
+<p><code>private JobHandle UpdateDefinitions(JobHandle inputDeps, Entity applyTempRoute)</code><br />
+  Destroys previous temporary definition entities and, if a prefab is selected, schedules CreateDefinitionsJob to create new preview definitions (CreationDefinition/WaypointDefinition buffers). Adds job handles to m_ToolOutputBarrier for safe command buffer application. Returns combined JobHandle.</p>
+</li>
+<li>
+<p><code>[MethodImpl(MethodImplOptions.AggressiveInlining)] private void __AssignQueries(ref SystemState state)</code><br />
+  Internal helper used by compiler-generated OnCreateForCompiler to initialize queries. No logic in source (placeholder).</p>
+</li>
+<li>
+<p><code>protected override void OnCreateForCompiler()</code><br />
+  Compiler helper which assigns queries and type handles (calls __AssignQueries and __TypeHandle.__AssignHandles).</p>
+</li>
+</ul>
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Acquire the system and configure it (typical usage from a mod initialization point)
+var world = World.DefaultGameObjectInjectionWorld;
+var routeTool = world.GetOrCreateSystemManaged&lt;Game.Tools.RouteToolSystem&gt;();
+
+// Set the RoutePrefab (RoutePrefab must be obtained from the game's PrefabSystem)
+RoutePrefab myRoutePrefab = /* obtain RoutePrefab via PrefabSystem or editor UI */;
+routeTool.prefab = myRoutePrefab;
+
+// Optionally toggle underground mode
+routeTool.underground = true;
+
+// The tool then runs as part of the game update loop; you can query its state:
+var state = routeTool.state;
+var tooltip = routeTool.tooltip;
+</code></pre>
+<p>Notes / Tips:
+- The tool heavily relies on ECS component lookups and scheduled Burst jobs — be careful when calling into it from jobs or other systems; use GetControlPoints(out JobHandle) to capture dependencies.
+- Changes to prefab property automatically mark the tool for update and fire an EventPrefabChanged notification on the tool system.
+- The tool distinguishes TransportLine routes vs WorkRoute and adjusts raycast/lane/stop validation accordingly.</p>
 
 
 

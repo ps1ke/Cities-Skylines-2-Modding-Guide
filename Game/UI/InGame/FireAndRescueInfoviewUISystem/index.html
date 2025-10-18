@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87056,6 +87148,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -102000,15 +102115,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -102045,9 +102151,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -117932,6 +118038,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117957,15 +118085,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -118004,9 +118123,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118029,235 +118148,147 @@
 
 
 <h1 id="gameuiingamefireandrescueinfoviewuisystem">Game.UI.InGame.FireAndRescueInfoviewUISystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.UI.InGame</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.UI.InGame.InfoviewUISystemBase</code><br />
-<strong>Implements:</strong> <code>Game.Serialization.IPreDeserialize</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class FireAndRescueInfoviewUISystem : Game.UI.InGame.InfoviewUISystemBase, Game.Serialization.IPreDeserialize
-{
-    private Game.Buildings.LocalEffectSystem m_LocalEffectSystem;
-    private Game.Simulation.ClimateSystem m_ClimateSystem;
-    private Game.Simulation.FireHazardSystem m_FireHazardSystem;
-    private Game.Prefabs.PrefabSystem m_PrefabSystem;
-    private Unity.Entities.EntityQuery m_FlammableQuery;
-    private Unity.Entities.EntityQuery m_FireStationsModifiedQuery;
-    private Unity.Entities.EntityQuery m_FireConfigQuery;
-    private Unity.Collections.NativeArray&lt;System.Single&gt; m_Results;
-    private Game.Simulation.EventHelpers+FireHazardData m_FireHazardData;
-    private Colossal.UI.Binding.ValueBinding&lt;Game.UI.InGame.IndicatorValue&gt; m_AverageFireHazard;
-    private Game.UI.InGame.FireAndRescueInfoviewUISystem+TypeHandle __TypeHandle;
-    private static const System.String kGroup;
-
-    protected System.Boolean Active { protected get; }
-    protected System.Boolean Modified { protected get; }
-
-    public FireAndRescueInfoviewUISystem();
-
-    private System.Void __AssignQueries(Unity.Entities.SystemState&amp; state);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnCreateForCompiler();
-    protected virtual System.Void OnDestroy();
-    protected virtual System.Void PerformUpdate();
-}
-</code></pre>
+<p><strong>Assembly:</strong><br />
+Assembly-CSharp</p>
+<p><strong>Namespace:</strong><br />
+Game.UI.InGame</p>
+<p><strong>Type:</strong><br />
+class</p>
+<p><strong>Base:</strong><br />
+InfoviewUISystemBase</p>
+<p><strong>Summary:</strong><br />
+FireAndRescueInfoviewUISystem is an UI infoview system used by the Fire &amp; Rescue info view. It collects fire-hazard related data for flammable entities (buildings and trees), computes an average fire hazard indicator and updates a bound UI indicator value. The system uses an IJobChunk (FireHazardJob) to scan matching entities in parallel, aggregates results into a NativeArray, and converts that into an IndicatorValue for the UI. It integrates with LocalEffectSystem, ClimateSystem, FireHazardSystem and PrefabSystem and reacts to changes in fire station entities and fire configuration prefabs.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.Buildings.LocalEffectSystem m_LocalEffectSystem</code>  </li>
+<li>
+<p><code>private const string kGroup</code><br />
+Name of the binding group used by the UI binding ("fireAndRescueInfo").</p>
+</li>
+<li>
+<p><code>private LocalEffectSystem m_LocalEffectSystem</code><br />
+Reference to the LocalEffectSystem used to obtain local-effect read data and register job readers.</p>
+</li>
+<li>
+<p><code>private ClimateSystem m_ClimateSystem</code><br />
+Reference to the ClimateSystem used to obtain temperature and climate related data for hazard calculation.</p>
+</li>
+<li>
+<p><code>private FireHazardSystem m_FireHazardSystem</code><br />
+Reference to the FireHazardSystem used to obtain fire hazard related counters (e.g., noRainDays).</p>
+</li>
+<li>
+<p><code>private PrefabSystem m_PrefabSystem</code><br />
+Reference to the PrefabSystem used to fetch prefabs (like FireConfigurationPrefab) required by hazard calculations.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_FlammableQuery</code><br />
+EntityQuery that matches flammable entities (Buildings or Trees) that are not fire stations, not on fire, not deleted and not temp. This is the primary query scanned by the FireHazardJob.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_FireStationsModifiedQuery</code><br />
+EntityQuery to detect modifications (Created/Deleted/Updated) to fire station entities (used to know when to consider the view "Modified").</p>
+</li>
+<li>
+<p><code>private EntityQuery m_FireConfigQuery</code><br />
+EntityQuery to access the FireConfigurationData prefab entity used for configuration.</p>
+</li>
+<li>
+<p><code>private NativeArray&lt;float&gt; m_Results</code><br />
+A two-element NativeArray used as an accumulation buffer for the job: index 0 accumulates total risk, index 1 accumulates count of risk-contributing entities. Allocated with Allocator.Persistent and disposed in OnDestroy.</p>
+</li>
+<li>
+<p><code>private EventHelpers.FireHazardData m_FireHazardData</code><br />
+Helper struct holding precomputed/lookup data needed by the FireHazardJob and updated each PerformUpdate call (populated from systems/prefab/climate).</p>
+</li>
+<li>
+<p><code>private ValueBinding&lt;IndicatorValue&gt; m_AverageFireHazard</code><br />
+UI binding that exposes the computed average fire hazard as an IndicatorValue under the "fireAndRescueInfo" group with key "averageFireHazard".</p>
+</li>
+<li>
+<p><code>private TypeHandle __TypeHandle</code><br />
+Internal struct instance holding EntityTypeHandle and ComponentTypeHandle<T> instances used to build the job's type handles.</p>
+</li>
+<li>
+<p><code>private struct FireHazardJob</code> (nested)<br />
+IJobChunk that scans chunks of flammable entities and accumulates per-chunk risk and count into m_Result (the NativeArray passed in). It reads Building, CurrentDistrict, PrefabRef and optionally Damaged/UnderConstruction components and uses EventHelpers.FireHazardData to compute risk.</p>
+</li>
+<li>
+<p><code>private struct TypeHandle</code> (nested)<br />
+Small helper struct that stores EntityTypeHandle and ComponentTypeHandle<T> for required component types and provides __AssignHandles to initialize them from a SystemState.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.Buildings.LocalEffectSystem m_LocalEffectSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.ClimateSystem m_ClimateSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.ClimateSystem m_ClimateSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.FireHazardSystem m_FireHazardSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.FireHazardSystem m_FireHazardSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Prefabs.PrefabSystem m_PrefabSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Prefabs.PrefabSystem m_PrefabSystem;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_FlammableQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_FlammableQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_FireStationsModifiedQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_FireStationsModifiedQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_FireConfigQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_FireConfigQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeArray&lt;System.Single&gt; m_Results</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeArray&lt;System.Single&gt; m_Results;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.EventHelpers+FireHazardData m_FireHazardData</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.EventHelpers+FireHazardData m_FireHazardData;
-</code></pre>
-<ul>
-<li><code>private Colossal.UI.Binding.ValueBinding&lt;Game.UI.InGame.IndicatorValue&gt; m_AverageFireHazard</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.UI.Binding.ValueBinding&lt;Game.UI.InGame.IndicatorValue&gt; m_AverageFireHazard;
-</code></pre>
-<ul>
-<li><code>private Game.UI.InGame.FireAndRescueInfoviewUISystem+TypeHandle __TypeHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.UI.InGame.FireAndRescueInfoviewUISystem+TypeHandle __TypeHandle;
-</code></pre>
-<ul>
-<li><code>private static const System.String kGroup</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static const System.String kGroup;
-</code></pre>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>protected System.Boolean Active { protected get }</code>  </li>
+<li>
+<p><code>protected override bool Active</code><br />
+Overrides base Active property to return true when system is active OR when the bound average fire hazard indicator is active. Ensures the infoview remains active while the UI binding is active.</p>
+</li>
+<li>
+<p><code>protected override bool Modified</code><br />
+Overrides Modified to indicate if the fire stations set has recent modifications. Implemented as !m_FireStationsModifiedQuery.IsEmptyIgnoreFilter.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">protected System.Boolean Active { protected get; }
-</code></pre>
-<ul>
-<li><code>protected System.Boolean Modified { protected get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected System.Boolean Modified { protected get; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public FireAndRescueInfoviewUISystem()</code>  </li>
+<li><code>public FireAndRescueInfoviewUISystem()</code><br />
+Default parameterless constructor. The actual initialization of systems, queries, bindings and NativeArray occurs in OnCreate.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public FireAndRescueInfoviewUISystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private __AssignQueries(Unity.Entities.SystemState&amp; state) : System.Void</code>  </li>
+<li>
+<p><code>protected override void OnCreate()</code><br />
+Initializes system references (LocalEffectSystem, ClimateSystem, FireHazardSystem, PrefabSystem), creates entity queries (m_FlammableQuery, m_FireStationsModifiedQuery, m_FireConfigQuery), adds the UI binding (m_AverageFireHazard), allocates the m_Results NativeArray (size 2, persistent) and constructs the EventHelpers.FireHazardData helper. Marked with [Preserve].</p>
+</li>
+<li>
+<p><code>protected override void OnDestroy()</code><br />
+Disposes persistent resources created in OnCreate. Specifically disposes m_Results. Calls base.OnDestroy(). Marked with [Preserve].</p>
+</li>
+<li>
+<p><code>protected override void PerformUpdate()</code><br />
+Main update loop executed each frame. Steps:</p>
+</li>
+<li>Acquire read data from LocalEffectSystem (and its job dependency).</li>
+<li>Fetch the FireConfigurationPrefab using m_FireConfigQuery.</li>
+<li>If m_Results contains previous job results, complete base.Dependency, read m_Results, compute average risk (total risk / count or 0 if count == 0) and update m_AverageFireHazard with an IndicatorValue in range 0..100, then zero m_Results.</li>
+<li>Update m_FireHazardData with environment/state (prefab, temperature, noRainDays).</li>
+<li>Schedule FireHazardJob over m_FlammableQuery, passing type handles and the m_FireHazardData and m_Results buffer. Combine dependencies with local effect read dependencies and base.Dependency.</li>
+<li>
+<p>Register the job handle with LocalEffectSystem.AddLocalEffectReader and set base.Dependency to the returned handle.</p>
+</li>
+<li>
+<p><code>private void __AssignQueries(ref SystemState state)</code><br />
+Compiler helper used to assign/query builder state. In the decompiled source it's essentially a placeholder creating/disposing an EntityQueryBuilder; included for compiler-generated path and called from OnCreateForCompiler.</p>
+</li>
+<li>
+<p><code>protected override void OnCreateForCompiler()</code><br />
+Compiler helper called on creation in some assembly configurations. It calls __AssignQueries and __TypeHandle.__AssignHandles to set up type handles for the job.</p>
+</li>
+<li>
+<p><code>private void __AssignHandles(ref SystemState state)</code> (inside TypeHandle)<br />
+Assigns EntityTypeHandle and ComponentTypeHandle<T> instances from the passed SystemState. Called by OnCreateForCompiler to initialize __TypeHandle.</p>
+</li>
+<li>
+<p><code>void FireHazardJob.Execute(in ArchetypeChunk chunk, int unfilteredChunkIndex, bool useEnabledMask, in v128 chunkEnabledMask)</code><br />
+The job's execution method (IJobChunk). Iterates the chunk's entities, reads PrefabRef, Building, CurrentDistrict, optional Damaged and UnderConstruction and calls m_FireHazardData.GetFireHazard to compute per-entity riskFactor. It sums riskFactor and counts contributing entities, then atomically adds per-chunk totals into m_Result[0] and m_Result[1] (here additive assignments to the array).</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private void __AssignQueries(ref SystemState state)
-    {
-        new EntityQueryBuilder(Allocator.Temp).Dispose();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
+<p>Notes on thread-safety: m_Result is a NativeArray<float> shared across chunks; the job uses simple additions into m_Result[0/1] — in multithreaded contexts this relies on chunk-level execution ordering in this job or must be used carefully; this is how the original code wrote it (e.g., additive accumulation per chunk into a shared two-element NativeArray).</p>
+<h2 id="usage-example">Usage Example</h2>
 <pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_LocalEffectSystem = base.World.GetOrCreateSystemManaged&lt;LocalEffectSystem&gt;();
-        m_ClimateSystem = base.World.GetOrCreateSystemManaged&lt;ClimateSystem&gt;();
-        m_FireHazardSystem = base.World.GetOrCreateSystemManaged&lt;FireHazardSystem&gt;();
-        m_PrefabSystem = base.World.GetOrCreateSystemManaged&lt;PrefabSystem&gt;();
-        m_FlammableQuery = GetEntityQuery(new EntityQueryDesc
-        {
-            Any = new ComponentType[2]
-            {
-                ComponentType.ReadOnly&lt;Building&gt;(),
-                ComponentType.ReadOnly&lt;Tree&gt;()
-            },
-            None = new ComponentType[4]
-            {
-                ComponentType.ReadOnly&lt;Game.Buildings.FireStation&gt;(),
-                ComponentType.ReadOnly&lt;OnFire&gt;(),
-                ComponentType.ReadOnly&lt;Deleted&gt;(),
-                ComponentType.ReadOnly&lt;Temp&gt;()
-            }
-        });
-        m_FireStationsModifiedQuery = GetEntityQuery(new EntityQueryDesc
-        {
-            All = new ComponentType[2]
-            {
-                ComponentType.ReadOnly&lt;Game.Buildings.FireStation&gt;(),
-                ComponentType.ReadOnly&lt;PrefabRef&gt;()
-            },
-            Any = new ComponentType[3]
-            {
-                ComponentType.ReadOnly&lt;Created&gt;(),
-                ComponentType.ReadOnly&lt;Deleted&gt;(),
-                ComponentType.ReadOnly&lt;Updated&gt;()
-            }
-        });
-        m_FireConfigQuery = GetEntityQuery(ComponentType.ReadOnly&lt;FireConfigurationData&gt;());
-        AddBinding(m_AverageFireHazard = new ValueBinding&lt;IndicatorValue&gt;(&quot;fireAndRescueInfo&quot;, &quot;averageFireHazard&quot;, default(IndicatorValue), new ValueWriter&lt;IndicatorValue&gt;()));
-        m_Results = new NativeArray&lt;float&gt;(2, Allocator.Persistent);
-        m_FireHazardData = new EventHelpers.FireHazardData(this);
-    }
+protected override void OnCreate()
+{
+    base.OnCreate();
+    // base.OnCreate sets up queries, bindings and allocates m_Results.
+    // The system will schedule a FireHazardJob each update that populates m_Results,
+    // and the PerformUpdate method aggregates into the bound indicator:
+    // m_AverageFireHazard.Update(new IndicatorValue(0f, 100f, averageRisk));
+}
 </code></pre>
-<ul>
-<li><code>protected virtual OnCreateForCompiler() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnCreateForCompiler()
-    {
-        base.OnCreateForCompiler();
-        __AssignQueries(ref base.CheckedStateRef);
-        __TypeHandle.__AssignHandles(ref base.CheckedStateRef);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnDestroy() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnDestroy()
-    {
-        base.OnDestroy();
-        m_Results.Dispose();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual PerformUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void PerformUpdate()
-    {
-        JobHandle dependencies;
-        LocalEffectSystem.ReadData readData = m_LocalEffectSystem.GetReadData(out dependencies);
-        FireConfigurationPrefab prefab = m_PrefabSystem.GetPrefab&lt;FireConfigurationPrefab&gt;(m_FireConfigQuery.GetSingletonEntity());
-        if (m_Results.IsCreated)
-        {
-            base.Dependency.Complete();
-            float num = m_Results[0];
-            float num2 = m_Results[1];
-            float current = ((num2 &gt; 0f) ? (num / num2) : 0f);
-            m_AverageFireHazard.Update(new IndicatorValue(0f, 100f, current));
-            m_Results[0] = 0f;
-            m_Results[1] = 0f;
-        }
-        m_FireHazardData.Update(this, readData, prefab, m_ClimateSystem.temperature, m_FireHazardSystem.noRainDays);
-        JobHandle jobHandle = JobChunkExtensions.Schedule(new FireHazardJob
-        {
-            m_EntityType = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef),
-            m_BuildingType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Buildings_Building_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_CurrentDistrictType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Areas_CurrentDistrict_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_DamagedType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Objects_Damaged_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_UnderConstructionType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Objects_UnderConstruction_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_PrefabRefType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_FireHazardData = m_FireHazardData,
-            m_Result = m_Results
-        }, m_FlammableQuery, JobHandle.CombineDependencies(base.Dependency, dependencies));
-        m_LocalEffectSystem.AddLocalEffectReader(jobHandle);
-        base.Dependency = jobHandle;
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.UI.InGame.FireAndRescueInfoviewUISystem+FireHazardJob</code>  </li>
-<li><code>Game.UI.InGame.FireAndRescueInfoviewUISystem+TypeHandle</code>  </li>
-</ul>
+<p>If you need, I can:
+- Expand the usage example to show a sample mod workflow that reads the IndicatorValue from code,
+- Explain how to safely modify the job to use thread-safe accumulation (e.g., using NativeArray with Interlocked or NativeList per-chunk),
+- Or produce a documentation snippet for the nested FireHazardJob and TypeHandle types.</p>
 
 
 

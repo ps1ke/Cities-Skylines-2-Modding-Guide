@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87056,6 +87148,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -100114,18 +100229,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -100144,6 +100259,15 @@
   <a href="#methods" class="md-nav__link">
     <span class="md-ellipsis">
       Methods
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
     </span>
   </a>
   
@@ -117914,6 +118038,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117941,18 +118087,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -117976,6 +118122,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -117993,288 +118148,176 @@
 
 
 <h1 id="gameuiingamebudgetuisystem">Game.UI.InGame.BudgetUISystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.UI.InGame</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.UI.UISystemBase</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class BudgetUISystem : Game.UI.UISystemBase
-{
-    private Game.Prefabs.PrefabSystem m_PrefabSystem;
-    private Game.Simulation.GameModeGovernmentSubsidiesSystem m_GovernmentSubsidiesSystem;
-    private Game.Simulation.ICityServiceBudgetSystem m_CityServiceBudgetSystem;
-    private Game.City.CityConfigurationSystem m_CityConfigurationSystem;
-    private Game.Simulation.MapTilePurchaseSystem m_MapTilePurchaseSystem;
-    private Unity.Entities.EntityQuery m_ConfigQuery;
-    private Colossal.UI.Binding.GetterValueBinding&lt;System.Int32&gt; m_TotalIncomeBinding;
-    private Colossal.UI.Binding.GetterValueBinding&lt;System.Int32&gt; m_TotalExpensesBinding;
-    private Colossal.UI.Binding.RawValueBinding m_IncomeItemsBinding;
-    private Colossal.UI.Binding.RawValueBinding m_IncomeValuesBinding;
-    private Colossal.UI.Binding.RawValueBinding m_ExpenseItemsBinding;
-    private Colossal.UI.Binding.RawValueBinding m_ExpenseValuesBinding;
-    private System.Collections.Generic.Dictionary&lt;System.String, System.Func&lt;System.Boolean&gt;&gt; m_BudgetsActivations;
-    private static const System.String kGroup;
-
-    public BudgetUISystem();
-
-    private System.Int32 &lt;OnCreate&gt;b__14_0();
-    private System.Int32 &lt;OnCreate&gt;b__14_1();
-    private System.Boolean &lt;OnCreate&gt;b__14_2();
-    private System.Void BindExpenseItems(Colossal.UI.Binding.IJsonWriter writer);
-    private System.Void BindExpenseValues(Colossal.UI.Binding.IJsonWriter writer);
-    private System.Void BindIncomeItems(Colossal.UI.Binding.IJsonWriter writer);
-    private System.Void BindIncomeValues(Colossal.UI.Binding.IJsonWriter writer);
-    private Game.UI.UIEconomyConfigurationPrefab GetConfig();
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnUpdate();
-}
-</code></pre>
+<p><strong>Assembly:</strong><br />
+Assembly-CSharp (game runtime assembly)</p>
+<p><strong>Namespace:</strong><br />
+Game.UI.InGame</p>
+<p><strong>Type:</strong><br />
+class</p>
+<p><strong>Base:</strong><br />
+UISystemBase</p>
+<p><strong>Summary:</strong><br />
+BudgetUISystem is a UI-facing ECS system that binds city budget data to the in-game UI. It gathers income and expense values from the CityServiceBudgetSystem, exposes total income/expenses and detailed per-source arrays to the UI via value bindings, and enumerates available budget item metadata from a UI configuration prefab. It also consults other game systems (government subsidies, city configuration, map tile purchase) to determine whether certain budget categories are active. The system is intended for use by the game's UI layer and depends on several simulation/prefab systems to provide data.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.Prefabs.PrefabSystem m_PrefabSystem</code>  </li>
+<li>
+<p><code>private const string kGroup = "budget"</code><br />
+Identifier/group name used for UI bindings. The bindings added in OnCreate use "budget" as the binding group.</p>
+</li>
+<li>
+<p><code>private PrefabSystem m_PrefabSystem</code><br />
+Used to fetch the UI configuration prefab (UIEconomyConfigurationPrefab) via GetConfig().</p>
+</li>
+<li>
+<p><code>private GameModeGovernmentSubsidiesSystem m_GovernmentSubsidiesSystem</code><br />
+Consulted to determine whether the "Government" budget item is active (government subsidies enabled).</p>
+</li>
+<li>
+<p><code>private ICityServiceBudgetSystem m_CityServiceBudgetSystem</code><br />
+Primary source for numeric budget data (total income/expenses and per-source values). Methods used: GetTotalIncome(), GetTotalExpenses(), GetIncome(IncomeSource), GetExpense(ExpenseSource).</p>
+</li>
+<li>
+<p><code>private CityConfigurationSystem m_CityConfigurationSystem</code><br />
+Used to check city configuration flags such as unlimited money; affects activation of some budget items (e.g., "Loan Interest").</p>
+</li>
+<li>
+<p><code>private MapTilePurchaseSystem m_MapTilePurchaseSystem</code><br />
+Used to determine if map tile upkeep is enabled (affects "Tile Upkeep" budget item).</p>
+</li>
+<li>
+<p><code>private EntityQuery m_ConfigQuery</code><br />
+EntityQuery used to fetch the UIEconomyConfigurationData singleton prefab via the PrefabSystem.</p>
+</li>
+<li>
+<p><code>private GetterValueBinding&lt;int&gt; m_TotalIncomeBinding</code><br />
+A binding that exposes the total income integer to the UI ("budget", "totalIncome"). It uses m_CityServiceBudgetSystem.GetTotalIncome() as the value provider and is updated each OnUpdate.</p>
+</li>
+<li>
+<p><code>private GetterValueBinding&lt;int&gt; m_TotalExpensesBinding</code><br />
+A binding that exposes the total expenses integer to the UI ("budget", "totalExpenses"). Uses m_CityServiceBudgetSystem.GetTotalExpenses() and is updated each OnUpdate.</p>
+</li>
+<li>
+<p><code>private RawValueBinding m_IncomeItemsBinding</code><br />
+A raw binding that writes the income item metadata (id, color, icon, active, sources) to the UI JSON stream. Bound to ("budget", "incomeItems").</p>
+</li>
+<li>
+<p><code>private RawValueBinding m_IncomeValuesBinding</code><br />
+A raw binding that writes the numeric income values for each IncomeSource to the UI ("budget", "incomeValues"). Produces a fixed-length array (14 entries in current implementation).</p>
+</li>
+<li>
+<p><code>private RawValueBinding m_ExpenseItemsBinding</code><br />
+A raw binding that writes the expense item metadata (similar to income items) to the UI ("budget", "expenseItems").</p>
+</li>
+<li>
+<p><code>private RawValueBinding m_ExpenseValuesBinding</code><br />
+A raw binding that writes the numeric expense values for each ExpenseSource to the UI ("budget", "expenseValues"). Produces a fixed-length array (15 entries in current implementation); values are negated (written as negative numbers) to reflect outflows.</p>
+</li>
+<li>
+<p><code>private Dictionary&lt;string, Func&lt;bool&gt;&gt; m_BudgetsActivations</code><br />
+A lookup mapping budget item IDs (as strings) to functions that indicate whether the corresponding budget category is active. Used when writing the "active" property for each budget item. Entries include "Government", "Loan Interest" (disabled when unlimitedMoney is true), and "Tile Upkeep".</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.Prefabs.PrefabSystem m_PrefabSystem;
-</code></pre>
+<h2 id="properties">Properties</h2>
 <ul>
-<li><code>private Game.Simulation.GameModeGovernmentSubsidiesSystem m_GovernmentSubsidiesSystem</code>  </li>
+<li>This class does not expose public properties. All bindings and dependencies are private fields and are managed internally by the system.</li>
 </ul>
-<pre><code class="language-csharp">private Game.Simulation.GameModeGovernmentSubsidiesSystem m_GovernmentSubsidiesSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.ICityServiceBudgetSystem m_CityServiceBudgetSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.ICityServiceBudgetSystem m_CityServiceBudgetSystem;
-</code></pre>
-<ul>
-<li><code>private Game.City.CityConfigurationSystem m_CityConfigurationSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.City.CityConfigurationSystem m_CityConfigurationSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.MapTilePurchaseSystem m_MapTilePurchaseSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.MapTilePurchaseSystem m_MapTilePurchaseSystem;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_ConfigQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_ConfigQuery;
-</code></pre>
-<ul>
-<li><code>private Colossal.UI.Binding.GetterValueBinding&lt;System.Int32&gt; m_TotalIncomeBinding</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.UI.Binding.GetterValueBinding&lt;System.Int32&gt; m_TotalIncomeBinding;
-</code></pre>
-<ul>
-<li><code>private Colossal.UI.Binding.GetterValueBinding&lt;System.Int32&gt; m_TotalExpensesBinding</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.UI.Binding.GetterValueBinding&lt;System.Int32&gt; m_TotalExpensesBinding;
-</code></pre>
-<ul>
-<li><code>private Colossal.UI.Binding.RawValueBinding m_IncomeItemsBinding</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.UI.Binding.RawValueBinding m_IncomeItemsBinding;
-</code></pre>
-<ul>
-<li><code>private Colossal.UI.Binding.RawValueBinding m_IncomeValuesBinding</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.UI.Binding.RawValueBinding m_IncomeValuesBinding;
-</code></pre>
-<ul>
-<li><code>private Colossal.UI.Binding.RawValueBinding m_ExpenseItemsBinding</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.UI.Binding.RawValueBinding m_ExpenseItemsBinding;
-</code></pre>
-<ul>
-<li><code>private Colossal.UI.Binding.RawValueBinding m_ExpenseValuesBinding</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.UI.Binding.RawValueBinding m_ExpenseValuesBinding;
-</code></pre>
-<ul>
-<li><code>private System.Collections.Generic.Dictionary&lt;System.String, System.Func&lt;System.Boolean&gt;&gt; m_BudgetsActivations</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Collections.Generic.Dictionary&lt;System.String, System.Func&lt;System.Boolean&gt;&gt; m_BudgetsActivations;
-</code></pre>
-<ul>
-<li><code>private static const System.String kGroup</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static const System.String kGroup;
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public BudgetUISystem()</code>  </li>
+<li><code>public BudgetUISystem()</code><br />
+Default constructor. Marked with [Preserve] attribute on the class methods to prevent trimming; no explicit initialization other than that performed in OnCreate.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public BudgetUISystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private &lt;OnCreate&gt;b__14_0() : System.Int32</code>  </li>
+<li><code>protected override void OnCreate()</code><br />
+Lifecycle method where the system initializes references and registers UI bindings. Actions performed:</li>
+<li>Calls base.OnCreate().</li>
+<li>Obtains references to required systems: PrefabSystem, CityServiceBudgetSystem, GameModeGovernmentSubsidiesSystem, CityConfigurationSystem, MapTilePurchaseSystem.</li>
+<li>Creates an EntityQuery for UIEconomyConfigurationData to fetch the UI configuration prefab.</li>
+<li>Builds m_BudgetsActivations dictionary mapping budget item IDs to activation check functions.</li>
+<li>Adds multiple bindings:<ul>
+<li>m_TotalIncomeBinding: GetterValueBinding<int>("budget","totalIncome", () =&gt; m_CityServiceBudgetSystem.GetTotalIncome())</li>
+<li>m_TotalExpensesBinding: GetterValueBinding<int>("budget","totalExpenses", () =&gt; m_CityServiceBudgetSystem.GetTotalExpenses())</li>
+<li>m_IncomeItemsBinding: RawValueBinding("budget","incomeItems", BindIncomeItems)</li>
+<li>m_IncomeValuesBinding: RawValueBinding("budget","incomeValues", BindIncomeValues)</li>
+<li>m_ExpenseItemsBinding: RawValueBinding("budget","expenseItems", BindExpenseItems)</li>
+<li>m_ExpenseValuesBinding: RawValueBinding("budget","expenseValues", BindExpenseValues)</li>
 </ul>
-<pre><code class="language-csharp">private System.Int32 &lt;OnCreate&gt;b__14_0();
-</code></pre>
+</li>
+</ul>
+<p>Note: Methods and delegates passed to the bindings will be invoked by the UI system to serialize data for the UI.</p>
 <ul>
-<li><code>private &lt;OnCreate&gt;b__14_1() : System.Int32</code>  </li>
+<li><code>protected override void OnUpdate()</code><br />
+Called each frame (or UI update tick). Updates numeric bindings:</li>
+<li>m_TotalIncomeBinding.Update()</li>
+<li>m_TotalExpensesBinding.Update()</li>
+<li>m_IncomeValuesBinding.Update()</li>
+<li>
+<p>m_ExpenseValuesBinding.Update()
+  The RawValueBindings for items (income/expense items metadata) are not updated every tick here because that metadata is static per prefab; they are registered and will be serialized when requested.</p>
+</li>
+<li>
+<p><code>private void BindIncomeItems(IJsonWriter writer)</code><br />
+Serializes income item metadata into the provided IJsonWriter. Behavior:</p>
+</li>
+<li>Fetches the UIEconomyConfigurationPrefab via GetConfig().</li>
+<li>Iterates config.m_IncomeItems (array of BudgetItem<IncomeSource>).</li>
+<li>For each BudgetItem writes a typed object "Game.UI.InGame.BudgetItem" with properties:<ul>
+<li>id: budgetItem.m_ID</li>
+<li>color: budgetItem.m_Color</li>
+<li>icon: budgetItem.m_Icon</li>
+<li>active: computed via m_BudgetsActivations lookup; active if not present in the dictionary or its delegate returns true.</li>
+<li>sources: array of BudgetSource objects, each with:</li>
+<li>id: Enum.GetName(typeof(IncomeSource), incomeSource)</li>
+<li>index: numeric index cast from IncomeSource enum</li>
 </ul>
-<pre><code class="language-csharp">private System.Int32 &lt;OnCreate&gt;b__14_1();
-</code></pre>
-<ul>
-<li><code>private &lt;OnCreate&gt;b__14_2() : System.Boolean</code>  </li>
+</li>
+<li>
+<p>Starts/wraps arrays appropriately (writer.ArrayBegin / ArrayEnd / TypeBegin / TypeEnd).</p>
+</li>
+<li>
+<p><code>private void BindIncomeValues(IJsonWriter writer)</code><br />
+Writes an array of income numeric values to the writer. Implementation details:</p>
+</li>
+<li>Writes an array of length 14 (fixed in this implementation).</li>
+<li>For each index i from 0..13 writes m_CityServiceBudgetSystem.GetIncome((IncomeSource)i).</li>
+<li>
+<p>Assumes IncomeSource enum has up to 14 entries or that indices 0..13 are valid.</p>
+</li>
+<li>
+<p><code>private void BindExpenseItems(IJsonWriter writer)</code><br />
+Serializes expense item metadata, analogous to BindIncomeItems but using config.m_ExpenseItems (BudgetItem<ExpenseSource>) and writing ExpenseSource enum names and indices. Uses the same "active" logic via m_BudgetsActivations.</p>
+</li>
+<li>
+<p><code>private void BindExpenseValues(IJsonWriter writer)</code><br />
+Writes an array of expense numeric values to the writer. Implementation details:</p>
+</li>
+<li>Writes an array of length 15 (fixed in this implementation).</li>
+<li>
+<p>For each index i from 0..14 writes -m_CityServiceBudgetSystem.GetExpense((ExpenseSource)i) (negates values to represent outflows).</p>
+</li>
+<li>
+<p><code>private UIEconomyConfigurationPrefab GetConfig()</code><br />
+Helper that returns the UIEconomyConfigurationPrefab singleton from PrefabSystem using m_ConfigQuery.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private System.Boolean &lt;OnCreate&gt;b__14_2();
-</code></pre>
-<ul>
-<li><code>private BindExpenseItems(Colossal.UI.Binding.IJsonWriter writer) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void BindExpenseItems(IJsonWriter writer)
-    {
-        UIEconomyConfigurationPrefab config = GetConfig();
-        writer.ArrayBegin(config.m_ExpenseItems.Length);
-        BudgetItem&lt;ExpenseSource&gt;[] expenseItems = config.m_ExpenseItems;
-        foreach (BudgetItem&lt;ExpenseSource&gt; budgetItem in expenseItems)
-        {
-            writer.TypeBegin(&quot;Game.UI.InGame.BudgetItem&quot;);
-            writer.PropertyName(&quot;id&quot;);
-            writer.Write(budgetItem.m_ID);
-            writer.PropertyName(&quot;color&quot;);
-            writer.Write(budgetItem.m_Color);
-            writer.PropertyName(&quot;icon&quot;);
-            writer.Write(budgetItem.m_Icon);
-            writer.PropertyName(&quot;active&quot;);
-            writer.Write(!m_BudgetsActivations.ContainsKey(budgetItem.m_ID) || m_BudgetsActivations[budgetItem.m_ID]());
-            writer.PropertyName(&quot;sources&quot;);
-            writer.ArrayBegin(budgetItem.m_Sources.Length);
-            ExpenseSource[] sources = budgetItem.m_Sources;
-            foreach (ExpenseSource expenseSource in sources)
-            {
-                writer.TypeBegin(&quot;Game.UI.InGame.BudgetSource&quot;);
-                writer.PropertyName(&quot;id&quot;);
-                writer.Write(Enum.GetName(typeof(ExpenseSource), expenseSource));
-                writer.PropertyName(&quot;index&quot;);
-                writer.Write((int)expenseSource);
-                writer.TypeEnd();
-            }
-            writer.ArrayEnd();
-            writer.TypeEnd();
-        }
-        writer.ArrayEnd();
-    }
-</code></pre>
-<ul>
-<li><code>private BindExpenseValues(Colossal.UI.Binding.IJsonWriter writer) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void BindExpenseValues(IJsonWriter writer)
-    {
-        writer.ArrayBegin(15u);
-        for (int i = 0; i &lt; 15; i++)
-        {
-            writer.Write(-m_CityServiceBudgetSystem.GetExpense((ExpenseSource)i));
-        }
-        writer.ArrayEnd();
-    }
-</code></pre>
-<ul>
-<li><code>private BindIncomeItems(Colossal.UI.Binding.IJsonWriter writer) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void BindIncomeItems(IJsonWriter writer)
-    {
-        UIEconomyConfigurationPrefab config = GetConfig();
-        writer.ArrayBegin(config.m_IncomeItems.Length);
-        BudgetItem&lt;IncomeSource&gt;[] incomeItems = config.m_IncomeItems;
-        foreach (BudgetItem&lt;IncomeSource&gt; budgetItem in incomeItems)
-        {
-            writer.TypeBegin(&quot;Game.UI.InGame.BudgetItem&quot;);
-            writer.PropertyName(&quot;id&quot;);
-            writer.Write(budgetItem.m_ID);
-            writer.PropertyName(&quot;color&quot;);
-            writer.Write(budgetItem.m_Color);
-            writer.PropertyName(&quot;icon&quot;);
-            writer.Write(budgetItem.m_Icon);
-            writer.PropertyName(&quot;active&quot;);
-            writer.Write(!m_BudgetsActivations.ContainsKey(budgetItem.m_ID) || m_BudgetsActivations[budgetItem.m_ID]());
-            writer.PropertyName(&quot;sources&quot;);
-            writer.ArrayBegin(budgetItem.m_Sources.Length);
-            IncomeSource[] sources = budgetItem.m_Sources;
-            foreach (IncomeSource incomeSource in sources)
-            {
-                writer.TypeBegin(&quot;Game.UI.InGame.BudgetSource&quot;);
-                writer.PropertyName(&quot;id&quot;);
-                writer.Write(Enum.GetName(typeof(IncomeSource), incomeSource));
-                writer.PropertyName(&quot;index&quot;);
-                writer.Write((int)incomeSource);
-                writer.TypeEnd();
-            }
-            writer.ArrayEnd();
-            writer.TypeEnd();
-        }
-        writer.ArrayEnd();
-    }
-</code></pre>
-<ul>
-<li><code>private BindIncomeValues(Colossal.UI.Binding.IJsonWriter writer) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void BindIncomeValues(IJsonWriter writer)
-    {
-        writer.ArrayBegin(14u);
-        for (int i = 0; i &lt; 14; i++)
-        {
-            writer.Write(m_CityServiceBudgetSystem.GetIncome((IncomeSource)i));
-        }
-        writer.ArrayEnd();
-    }
-</code></pre>
-<ul>
-<li><code>private GetConfig() : Game.UI.UIEconomyConfigurationPrefab</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UIEconomyConfigurationPrefab GetConfig()
-    {
-        return m_PrefabSystem.GetSingletonPrefab&lt;UIEconomyConfigurationPrefab&gt;(m_ConfigQuery);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
+<h2 id="usage-example">Usage Example</h2>
 <pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_PrefabSystem = base.World.GetOrCreateSystemManaged&lt;PrefabSystem&gt;();
-        m_CityServiceBudgetSystem = base.World.GetOrCreateSystemManaged&lt;CityServiceBudgetSystem&gt;();
-        m_GovernmentSubsidiesSystem = base.World.GetOrCreateSystemManaged&lt;GameModeGovernmentSubsidiesSystem&gt;();
-        m_CityConfigurationSystem = base.World.GetOrCreateSystemManaged&lt;CityConfigurationSystem&gt;();
-        m_MapTilePurchaseSystem = base.World.GetOrCreateSystemManaged&lt;MapTilePurchaseSystem&gt;();
-        m_ConfigQuery = GetEntityQuery(ComponentType.ReadOnly&lt;UIEconomyConfigurationData&gt;());
-        m_BudgetsActivations = new Dictionary&lt;string, Func&lt;bool&gt;&gt;
-        {
-            { &quot;Government&quot;, m_GovernmentSubsidiesSystem.GetGovernmentSubsidiesEnabled },
-            {
-                &quot;Loan Interest&quot;,
-                () =&gt; !m_CityConfigurationSystem.unlimitedMoney
-            },
-            { &quot;Tile Upkeep&quot;, m_MapTilePurchaseSystem.GetMapTileUpkeepEnabled }
-        };
-        AddBinding(m_TotalIncomeBinding = new GetterValueBinding&lt;int&gt;(&quot;budget&quot;, &quot;totalIncome&quot;, () =&gt; m_CityServiceBudgetSystem.GetTotalIncome()));
-        AddBinding(m_TotalExpensesBinding = new GetterValueBinding&lt;int&gt;(&quot;budget&quot;, &quot;totalExpenses&quot;, () =&gt; m_CityServiceBudgetSystem.GetTotalExpenses()));
-        AddBinding(m_IncomeItemsBinding = new RawValueBinding(&quot;budget&quot;, &quot;incomeItems&quot;, BindIncomeItems));
-        AddBinding(m_IncomeValuesBinding = new RawValueBinding(&quot;budget&quot;, &quot;incomeValues&quot;, BindIncomeValues));
-        AddBinding(m_ExpenseItemsBinding = new RawValueBinding(&quot;budget&quot;, &quot;expenseItems&quot;, BindExpenseItems));
-        AddBinding(m_ExpenseValuesBinding = new RawValueBinding(&quot;budget&quot;, &quot;expenseValues&quot;, BindExpenseValues));
-    }
+protected override void OnCreate()
+{
+    base.OnCreate();
+    // BudgetUISystem initializes bindings to provide the UI with budget metadata and values.
+    // If you need to access the same data from another modged system, obtain references similarly:
+    var prefabSystem = World.GetOrCreateSystemManaged&lt;PrefabSystem&gt;();
+    var budgetSystem = World.GetOrCreateSystemManaged&lt;CityServiceBudgetSystem&gt;();
+    int totalIncome = budgetSystem.GetTotalIncome();
+}
 </code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        m_TotalIncomeBinding.Update();
-        m_TotalExpensesBinding.Update();
-        m_IncomeValuesBinding.Update();
-        m_ExpenseValuesBinding.Update();
-    }
-</code></pre>
+<p>Additional notes for modders:
+- The system depends on several engine/game systems (PrefabSystem, CityServiceBudgetSystem, GameModeGovernmentSubsidiesSystem, CityConfigurationSystem, MapTilePurchaseSystem). If you write compatibility code, ensure those systems are available.
+- The BindIncomeValues and BindExpenseValues methods write fixed-length arrays (14 for incomes, 15 for expenses). If the IncomeSource or ExpenseSource enums change in different versions, this hard-coded length may need adjustment.
+- The "active" property of budget items is computed from m_BudgetsActivations. To add or override activation logic for additional budget items, modify that dictionary in OnCreate (or replace the system via Harmony/IL patching).
+- Methods and fields are marked with [Preserve] where needed to avoid code stripping; respect these attributes when creating your own subclasses or replacements.</p>
 
 
 

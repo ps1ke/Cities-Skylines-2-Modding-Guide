@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#gamesimulationwatertradesystem" class="md-skip">
+        <a href="#gamewatertradesystem" class="md-skip">
           Skip to content
         </a>
       
@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87075,6 +87167,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../SurfaceWater/" class="md-nav__link">
         
   
@@ -89540,15 +89655,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -89585,9 +89691,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -117930,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117955,15 +118083,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -118002,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118026,282 +118145,174 @@
 
 
 
-<h1 id="gamesimulationwatertradesystem">Game.Simulation.WaterTradeSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Simulation</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code><br />
-<strong>Implements:</strong> <code>Colossal.Serialization.Entities.IDefaultSerializable</code>, <code>Colossal.Serialization.Entities.ISerializable</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class WaterTradeSystem : Game.GameSystemBase, Colossal.Serialization.Entities.IDefaultSerializable, Colossal.Serialization.Entities.ISerializable
-{
-    private Game.Simulation.WaterPipeFlowSystem m_WaterPipeFlowSystem;
-    private Game.Simulation.WaterStatisticsSystem m_WaterStatisticsSystem;
-    private Unity.Entities.EntityQuery m_TradeNodeGroup;
-    private Game.Simulation.ServiceFeeSystem m_ServiceFeeSystem;
-    private Colossal.NativePerThreadSumInt m_FreshExport;
-    private Colossal.NativePerThreadSumInt m_PollutedExport;
-    private Colossal.NativePerThreadSumInt m_FreshImport;
-    private Colossal.NativePerThreadSumInt m_SewageExport;
-    private System.Int32 m_LastFreshExport;
-    private System.Int32 m_LastFreshImport;
-    private System.Int32 m_LastSewageExport;
-    private Game.Simulation.WaterTradeSystem+TypeHandle __TypeHandle;
-    private Unity.Entities.EntityQuery __query_1457460959_0;
-
-    public System.Int32 freshExport { get; }
-    public System.Int32 freshImport { get; }
-    public System.Int32 sewageExport { get; }
-
-    public WaterTradeSystem();
-
-    private System.Void __AssignQueries(Unity.Entities.SystemState&amp; state);
-    public System.Void Deserialize&lt;TReader&gt;(TReader reader);
-    public virtual System.Int32 GetUpdateInterval(Game.SystemUpdatePhase phase);
-    public virtual System.Int32 GetUpdateOffset(Game.SystemUpdatePhase phase);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnCreateForCompiler();
-    protected virtual System.Void OnDestroy();
-    protected virtual System.Void OnUpdate();
-    public System.Void Serialize&lt;TWriter&gt;(TWriter writer);
-    public System.Void SetDefaults(Colossal.Serialization.Entities.Context context);
-}
-</code></pre>
+<h1 id="gamewatertradesystem">Game.WaterTradeSystem</h1>
+<p><strong>Assembly:</strong><br />
+Likely part of the game's main "Game" assembly (Game.dll). This system lives in the simulation layer of Cities: Skylines 2 and is packaged with the game's runtime code.</p>
+<p><strong>Namespace:</strong> 
+Game.Simulation</p>
+<p><strong>Type:</strong><br />
+class</p>
+<p><strong>Base:</strong><br />
+GameSystemBase, IDefaultSerializable, ISerializable</p>
+<p><strong>Summary:</strong><br />
+Handles outside-water trading logic for the city: it scans trade-enabled water pipe nodes, aggregates exported/imported fresh water and sewage amounts (including polluted export estimation), and enqueues service fee events for outside trade (water export, water import, sewage export). The system uses Burst-compiled jobs (SumJob and WaterTradeJob) for parallel aggregation and cost calculation, and integrates with other simulation systems: WaterPipeFlowSystem (to know source/sink nodes), WaterStatisticsSystem (to compute available water), and ServiceFeeSystem (to enqueue fees). The system persists summary values (last export/import/sewage counts) via the ISerializable interface and updates at a coarse interval (see GetUpdateInterval/GetUpdateOffset).</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.Simulation.WaterPipeFlowSystem m_WaterPipeFlowSystem</code>  </li>
+<li>
+<p><code>private WaterPipeFlowSystem m_WaterPipeFlowSystem</code><br />
+Reference to the WaterPipeFlowSystem. Used to get the source/sink trade nodes for water flow direction and to identify which connected edges represent exports vs imports.</p>
+</li>
+<li>
+<p><code>private WaterStatisticsSystem m_WaterStatisticsSystem</code><br />
+Reference to the WaterStatisticsSystem. Used to compute available fresh water (capacity minus consumption) for export limiting.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_TradeNodeGroup</code><br />
+EntityQuery used to select trade nodes having TradeNode, WaterPipeNode and ConnectedFlowEdge components. Iterated by the SumJob to aggregate trade flows.</p>
+</li>
+<li>
+<p><code>private ServiceFeeSystem m_ServiceFeeSystem</code><br />
+Reference to the ServiceFeeSystem. Provides a FeeQueue writer to enqueue outside trade cost events for player resources.</p>
+</li>
+<li>
+<p><code>private NativePerThreadSumInt m_FreshExport</code><br />
+Thread-safe per-thread integer aggregator for fresh water exported toward the outside.</p>
+</li>
+<li>
+<p><code>private NativePerThreadSumInt m_PollutedExport</code><br />
+Thread-safe per-thread integer aggregator for polluted amount attributed to exports (used to limit export of polluted water).</p>
+</li>
+<li>
+<p><code>private NativePerThreadSumInt m_FreshImport</code><br />
+Thread-safe per-thread integer aggregator for fresh water imported from outside.</p>
+</li>
+<li>
+<p><code>private NativePerThreadSumInt m_SewageExport</code><br />
+Thread-safe per-thread integer aggregator for sewage exported to outside.</p>
+</li>
+<li>
+<p><code>private int m_LastFreshExport</code><br />
+Serialized/persisted snapshot of the last frame's fresh export total (written during Serialize). Exposed via freshExport property.</p>
+</li>
+<li>
+<p><code>private int m_LastFreshImport</code><br />
+Serialized/persisted snapshot of the last frame's fresh import total. Exposed via freshImport property.</p>
+</li>
+<li>
+<p><code>private int m_LastSewageExport</code><br />
+Serialized/persisted snapshot of the last frame's sewage export total. Exposed via sewageExport property.</p>
+</li>
+<li>
+<p><code>private TypeHandle __TypeHandle</code><br />
+Internal container for BufferTypeHandle and ComponentLookup handles used by the job (ConnectedFlowEdge buffer and WaterPipeEdge lookup). Populated in OnCreateForCompiler.</p>
+</li>
+<li>
+<p><code>private EntityQuery __query_1457460959_0</code><br />
+Internal EntityQuery used to access the singleton OutsideTradeParameterData (includes import/export prices and pollution tolerance).</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.Simulation.WaterPipeFlowSystem m_WaterPipeFlowSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.WaterStatisticsSystem m_WaterStatisticsSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.WaterStatisticsSystem m_WaterStatisticsSystem;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_TradeNodeGroup</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_TradeNodeGroup;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.ServiceFeeSystem m_ServiceFeeSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.ServiceFeeSystem m_ServiceFeeSystem;
-</code></pre>
-<ul>
-<li><code>private Colossal.NativePerThreadSumInt m_FreshExport</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.NativePerThreadSumInt m_FreshExport;
-</code></pre>
-<ul>
-<li><code>private Colossal.NativePerThreadSumInt m_PollutedExport</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.NativePerThreadSumInt m_PollutedExport;
-</code></pre>
-<ul>
-<li><code>private Colossal.NativePerThreadSumInt m_FreshImport</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.NativePerThreadSumInt m_FreshImport;
-</code></pre>
-<ul>
-<li><code>private Colossal.NativePerThreadSumInt m_SewageExport</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.NativePerThreadSumInt m_SewageExport;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_LastFreshExport</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_LastFreshExport;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_LastFreshImport</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_LastFreshImport;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_LastSewageExport</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_LastSewageExport;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.WaterTradeSystem+TypeHandle __TypeHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.WaterTradeSystem+TypeHandle __TypeHandle;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery __query_1457460959_0</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery __query_1457460959_0;
-</code></pre>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>public System.Int32 freshExport { get }</code>  </li>
+<li>
+<p><code>public int freshExport { get; }</code><br />
+Returns m_LastFreshExport, the persisted snapshot of fresh water exported during the last update. Use for statistics/UI reporting.</p>
+</li>
+<li>
+<p><code>public int freshImport { get; }</code><br />
+Returns m_LastFreshImport, the persisted snapshot of fresh water imported during the last update.</p>
+</li>
+<li>
+<p><code>public int sewageExport { get; }</code><br />
+Returns m_LastSewageExport, the persisted snapshot of sewage exported during the last update.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public System.Int32 freshExport { get; }
-</code></pre>
-<ul>
-<li><code>public System.Int32 freshImport { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Int32 freshImport { get; }
-</code></pre>
-<ul>
-<li><code>public System.Int32 sewageExport { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Int32 sewageExport { get; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public WaterTradeSystem()</code>  </li>
+<li><code>public WaterTradeSystem()</code><br />
+Default constructor. The real initialization is done in OnCreate (obtains other systems, initializes queries and native aggregators). Constructor itself is empty.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public WaterTradeSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private __AssignQueries(Unity.Entities.SystemState&amp; state) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void __AssignQueries(ref SystemState state)
-    {
-        EntityQueryBuilder entityQueryBuilder = new EntityQueryBuilder(Allocator.Temp);
-        EntityQueryBuilder entityQueryBuilder2 = entityQueryBuilder.WithAll&lt;OutsideTradeParameterData&gt;();
-        entityQueryBuilder2 = entityQueryBuilder2.WithOptions(EntityQueryOptions.IncludeSystems);
-        __query_1457460959_0 = entityQueryBuilder2.Build(ref state);
-        entityQueryBuilder.Reset();
-        entityQueryBuilder.Dispose();
-    }
-</code></pre>
+<li>
+<p><code>public override int GetUpdateInterval(SystemUpdatePhase phase)</code><br />
+Returns 128 — this system runs every 128 frames (coarse-grain update to reduce cost).</p>
+</li>
+<li>
+<p><code>public override int GetUpdateOffset(SystemUpdatePhase phase)</code><br />
+Returns 62 — offset to stagger updates.</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnCreate()</code><br />
+Initializes references to other systems (WaterPipeFlowSystem, ServiceFeeSystem, WaterStatisticsSystem), builds the TradeNode entity query, requires the OutsideTradeParameterData singleton for updates, and allocates NativePerThreadSumInt aggregators (persistent). Called when the system is created.</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnDestroy()</code><br />
+Disposes the NativePerThreadSumInt aggregators and calls base.OnDestroy(). Ensures native memory is freed.</p>
+</li>
+<li>
+<p><code>public void Serialize&lt;TWriter&gt;(TWriter writer) where TWriter : IWriter</code><br />
+Writes three integers (m_LastFreshExport, m_LastFreshImport, m_LastSewageExport) into the save stream so last-known trade numbers persist across loads.</p>
+</li>
+<li>
+<p><code>public void Deserialize&lt;TReader&gt;(TReader reader) where TReader : IReader</code><br />
+Reads and restores the three persisted integers from the save stream into the corresponding fields.</p>
+</li>
+<li>
+<p><code>public void SetDefaults(Context context)</code><br />
+Sets default values for persisted counters (zeros). Called when initializing default save state.</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnUpdate()</code><br />
+Main runtime logic run on the update interval. Steps:</p>
+</li>
+<li>Save current aggregators into m_Last* fields for persistence/UI.</li>
+<li>Compute available water from WaterStatisticsSystem (freshCapacity - freshConsumption).</li>
+<li>Reset per-thread aggregator counts to zero.</li>
+<li>
+<p>If any trade nodes exist:</p>
 <ul>
-<li><code>public Deserialize&lt;TReader&gt;(TReader reader) : System.Void</code>  </li>
+<li>Obtain OutsideTradeParameterData singleton (prices and pollution tolerance).</li>
+<li>Schedule SumJob as a parallel IJobChunk over trade node group to aggregate fresh/polluted exports and imports/sewage exports per connected flow edges. SumJob uses ConnectedFlowEdge buffers and WaterPipeEdge component lookup to classify edges as exports (edges that end at sink node) or imports (edges that start at source node). Polluted export estimate uses the outside pollution tolerance param.</li>
+<li>Schedule WaterTradeJob (IJob) after the chunk job and after getting a FeeQueue writer from ServiceFeeSystem. WaterTradeJob clamps fresh export to available water, normalizes counts (dividing by 2048f) then computes costs using prices in OutsideTradeParameterData. For each positive cost a ServiceFeeSystem.FeeEvent is enqueued for Water or Sewage resource with appropriate positive or negative amount and m_Outside = true.</li>
+<li>Register the ServiceFeeSystem queue writer dependency.</li>
 </ul>
-<pre><code class="language-csharp">public System.Void Deserialize&lt;TReader&gt;(TReader reader);
-</code></pre>
+</li>
+<li>
+<p><code>private void __AssignQueries(ref SystemState state)</code><br />
+Compiler-generated helper that builds the internal entity query for OutsideTradeParameterData (includes systems). Called from OnCreateForCompiler.</p>
+</li>
+<li>
+<p><code>protected override void OnCreateForCompiler()</code><br />
+Compiler-time initialization path that assigns queries and type handles into __TypeHandle by calling __AssignQueries and TypeHandle.__AssignHandles.</p>
+</li>
+</ul>
+<p>Nested job summaries:
+- SumJob (BurstCompile, IJobChunk)<br />
+  Iterates trade node chunks, reads ConnectedFlowEdge buffers and WaterPipeEdge components to collect per-thread sums for: FreshExport, PollutedExport (estimated), FreshImport, SewageExport. Uses m_SourceNode and m_SinkNode (from WaterPipeFlowSystem) to determine flow direction. Asserts on non-negative flows and zero sewage on export edges.</p>
 <ul>
-<li><code>public virtual GetUpdateInterval(Game.SystemUpdatePhase phase) : System.Int32</code>  </li>
+<li>WaterTradeJob (BurstCompile, IJob)<br />
+  Reads aggregated counts, clamps fresh export to available water, scales counts by 1/2048f, multiplies by outside trade prices to compute costs, and enqueues ServiceFeeSystem.FeeEvent entries for positive costs (water export revenue, water import cost as negative amount, sewage export cost as negative amount).</li>
 </ul>
-<pre><code class="language-csharp">public override int GetUpdateInterval(SystemUpdatePhase phase)
-    {
-        return 128;
-    }
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Example: from another mod/system obtaining the WaterTradeSystem and reading last recorded trade numbers
+[Preserve]
+protected override void OnCreate()
+{
+    base.OnCreate();
+    var waterTrade = World.GetOrCreateSystemManaged&lt;Game.Simulation.WaterTradeSystem&gt;();
+    // Read persisted snapshot values (updated on the system's update tick)
+    int lastExport = waterTrade.freshExport;
+    int lastImport = waterTrade.freshImport;
+    int lastSewageExport = waterTrade.sewageExport;
+    // You can use those values to display UI or generate statistics.
+}
 </code></pre>
-<ul>
-<li><code>public virtual GetUpdateOffset(Game.SystemUpdatePhase phase) : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override int GetUpdateOffset(SystemUpdatePhase phase)
-    {
-        return 62;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_WaterPipeFlowSystem = base.World.GetOrCreateSystemManaged&lt;WaterPipeFlowSystem&gt;();
-        m_ServiceFeeSystem = base.World.GetOrCreateSystemManaged&lt;ServiceFeeSystem&gt;();
-        m_WaterStatisticsSystem = base.World.GetOrCreateSystemManaged&lt;WaterStatisticsSystem&gt;();
-        m_TradeNodeGroup = GetEntityQuery(ComponentType.ReadOnly&lt;TradeNode&gt;(), ComponentType.ReadOnly&lt;WaterPipeNode&gt;(), ComponentType.ReadOnly&lt;ConnectedFlowEdge&gt;());
-        RequireForUpdate&lt;OutsideTradeParameterData&gt;();
-        m_FreshExport = new NativePerThreadSumInt(Allocator.Persistent);
-        m_PollutedExport = new NativePerThreadSumInt(Allocator.Persistent);
-        m_FreshImport = new NativePerThreadSumInt(Allocator.Persistent);
-        m_SewageExport = new NativePerThreadSumInt(Allocator.Persistent);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreateForCompiler() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnCreateForCompiler()
-    {
-        base.OnCreateForCompiler();
-        __AssignQueries(ref base.CheckedStateRef);
-        __TypeHandle.__AssignHandles(ref base.CheckedStateRef);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnDestroy() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnDestroy()
-    {
-        m_FreshExport.Dispose();
-        m_PollutedExport.Dispose();
-        m_FreshImport.Dispose();
-        m_SewageExport.Dispose();
-        base.OnDestroy();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        m_LastFreshExport = m_FreshExport.Count;
-        m_LastFreshImport = m_FreshImport.Count;
-        m_LastSewageExport = m_SewageExport.Count;
-        int availableWater = m_WaterStatisticsSystem.freshCapacity - m_WaterStatisticsSystem.freshConsumption;
-        m_FreshExport.Count = 0;
-        m_PollutedExport.Count = 0;
-        m_FreshImport.Count = 0;
-        m_SewageExport.Count = 0;
-        if (!m_TradeNodeGroup.IsEmptyIgnoreFilter)
-        {
-            OutsideTradeParameterData singleton = __query_1457460959_0.GetSingleton&lt;OutsideTradeParameterData&gt;();
-            SumJob jobData = new SumJob
-            {
-                m_FlowConnectionType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Simulation_ConnectedFlowEdge_RO_BufferTypeHandle, ref base.CheckedStateRef),
-                m_FlowEdges = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Simulation_WaterPipeEdge_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_FreshExport = m_FreshExport.ToConcurrent(),
-                m_PollutedExport = m_PollutedExport.ToConcurrent(),
-                m_FreshImport = m_FreshImport.ToConcurrent(),
-                m_SewageExport = m_SewageExport.ToConcurrent(),
-                m_OutsideTradeParameters = singleton,
-                m_SourceNode = m_WaterPipeFlowSystem.sourceNode,
-                m_SinkNode = m_WaterPipeFlowSystem.sinkNode
-            };
-            base.Dependency = JobChunkExtensions.ScheduleParallel(jobData, m_TradeNodeGroup, base.Dependency);
-            JobHandle deps;
-            WaterTradeJob jobData2 = new WaterTradeJob
-            {
-                m_AvailableWater = availableWater,
-                m_FreshExport = m_FreshExport,
-                m_PollutedExport = m_PollutedExport,
-                m_FreshImport = m_FreshImport,
-                m_SewageExport = m_SewageExport,
-                m_FeeQueue = m_ServiceFeeSystem.GetFeeQueue(out deps),
-                m_OutsideTradeParameters = singleton
-            };
-            base.Dependency = IJobExtensions.Schedule(jobData2, JobHandle.CombineDependencies(base.Dependency, deps));
-            m_ServiceFeeSystem.AddQueueWriter(base.Dependency);
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public Serialize&lt;TWriter&gt;(TWriter writer) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Void Serialize&lt;TWriter&gt;(TWriter writer);
-</code></pre>
-<ul>
-<li><code>public SetDefaults(Colossal.Serialization.Entities.Context context) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void SetDefaults(Context context)
-    {
-        m_LastFreshExport = 0;
-        m_LastFreshImport = 0;
-        m_LastSewageExport = 0;
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Simulation.WaterTradeSystem+SumJob</code>  </li>
-<li><code>Game.Simulation.WaterTradeSystem+WaterTradeJob</code>  </li>
-<li><code>Game.Simulation.WaterTradeSystem+TypeHandle</code>  </li>
-</ul>
+<p>Notes and modding tips:
+- The system relies on OutsideTradeParameterData for prices and pollution tolerance; you can inspect or modify that singleton if you need to change outside trade economics.
+- NativePerThreadSumInt is used for parallel aggregation; ensure you match the system's update interval if you depend on its outputs (it only updates every 128 frames).
+- To observe or monitor enqueued fee events, inspect ServiceFeeSystem or subscribe to its queue writers; WaterTradeSystem enqueues FeeEvent entries with m_Outside = true so they are identifiable as outside trades.
+- The export/import amounts are normalized by 2048f before pricing — this is important when interpreting fee magnitudes in the UI or logs.</p>
 
 
 

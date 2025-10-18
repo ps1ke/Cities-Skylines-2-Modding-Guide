@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72221,18 +72267,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -72251,6 +72297,15 @@
   <a href="#methods" class="md-nav__link">
     <span class="md-ellipsis">
       Methods
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
     </span>
   </a>
   
@@ -72554,6 +72609,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75544,6 +75622,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87136,6 +87237,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -117912,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117939,18 +118085,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -117974,6 +118120,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -117991,80 +118146,91 @@
 
 
 <h1 id="gamesceneflowenabledactionscoped">Game.SceneFlow.EnabledActionScoped</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.SceneFlow</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>System.Object</code><br />
-<strong>Implements:</strong> <code>System.IDisposable</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class EnabledActionScoped : System.IDisposable
-{
-    private readonly Game.SceneFlow.OverlayBindings m_Bindings;
-    private readonly Game.Input.ProxyAction m_Proxy;
-    private readonly Game.Input.DisplayNameOverride m_NameOverride;
-    private readonly System.Func&lt;Game.SceneFlow.OverlayScreen, System.Boolean&gt; m_ShouldBeEnabled;
-
-    public EnabledActionScoped(Game.SceneFlow.GameManager manager, System.String actionMapName, System.String actionName, System.Func&lt;Game.SceneFlow.OverlayScreen, System.Boolean&gt; shouldBeEnabled, System.String displayProperty, System.Int32 displayPriority);
-
-    public System.Void Dispose();
-    private System.Void HandleScreenChange(Game.SceneFlow.OverlayScreen screen);
-}
-</code></pre>
+<p><strong>Assembly:</strong><br />
+Assembly-CSharp</p>
+<p><strong>Namespace:</strong><br />
+Game.SceneFlow</p>
+<p><strong>Type:</strong><br />
+public class</p>
+<p><strong>Base:</strong><br />
+System.IDisposable</p>
+<p><strong>Summary:</strong><br />
+Helper/RAII-style class that temporarily enables or disables a proxy input action based on the currently active overlay screen. When constructed it locates a ProxyAction from the input system, registers a handler with the game's overlayBindings.onScreenActivated event, and uses a DisplayNameOverride to control the action's displayed name/priority. When the scope is disposed it unsubscribes from the event, disables the proxy action, and disposes the name override. Typical use is to enable an input action only when specific overlay screens are active.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private readonly Game.SceneFlow.OverlayBindings m_Bindings</code>  </li>
+<li>
+<p><code>private readonly OverlayBindings m_Bindings</code><br />
+References the overlay bindings instance from the GameManager; used to subscribe to onScreenActivated so the enabled state can update when the active overlay screen changes.</p>
+</li>
+<li>
+<p><code>private readonly ProxyAction m_Proxy</code><br />
+The ProxyAction wrapper for the target input action found via Game.Input.InputManager.instance.FindAction(...). The class toggles m_Proxy.enabled to turn the action on/off.</p>
+</li>
+<li>
+<p><code>private readonly DisplayNameOverride m_NameOverride</code><br />
+Manages a display name/priority override for the action while it is enabled. This is activated/deactivated in sync with the proxy action.</p>
+</li>
+<li>
+<p><code>private readonly Func&lt;OverlayScreen, bool&gt; m_ShouldBeEnabled</code><br />
+Optional predicate that receives the currently active OverlayScreen and returns whether the action should be enabled for that screen. If null, the action is enabled for all screens.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private readonly Game.SceneFlow.OverlayBindings m_Bindings;
-</code></pre>
+<h2 id="properties">Properties</h2>
 <ul>
-<li><code>private readonly Game.Input.ProxyAction m_Proxy</code>  </li>
+<li>(none)</li>
 </ul>
-<pre><code class="language-csharp">private readonly Game.Input.ProxyAction m_Proxy;
-</code></pre>
-<ul>
-<li><code>private readonly Game.Input.DisplayNameOverride m_NameOverride</code>  </li>
-</ul>
-<pre><code class="language-csharp">private readonly Game.Input.DisplayNameOverride m_NameOverride;
-</code></pre>
-<ul>
-<li><code>private readonly System.Func&lt;Game.SceneFlow.OverlayScreen, System.Boolean&gt; m_ShouldBeEnabled</code>  </li>
-</ul>
-<pre><code class="language-csharp">private readonly System.Func&lt;Game.SceneFlow.OverlayScreen, System.Boolean&gt; m_ShouldBeEnabled;
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public EnabledActionScoped(Game.SceneFlow.GameManager manager, System.String actionMapName, System.String actionName, System.Func&lt;Game.SceneFlow.OverlayScreen, System.Boolean&gt; shouldBeEnabled = null, System.String displayProperty = null, System.Int32 displayPriority = 20)</code>  </li>
+<li><code>public EnabledActionScoped(GameManager manager, string actionMapName, string actionName, Func&lt;OverlayScreen, bool&gt; shouldBeEnabled = null, string displayProperty = null, int displayPriority = 20)</code><br />
+Finds the specified ProxyAction (actionMap + action name) via the game's InputManager, creates a DisplayNameOverride (using displayProperty and displayPriority), asserts the proxy is found, stores the optional predicate, and subscribes HandleScreenChange to manager.userInterface.overlayBindings.onScreenActivated so the action and name override will be toggled when overlay screens change.</li>
 </ul>
-<pre><code class="language-csharp">public EnabledActionScoped(GameManager manager, string actionMapName, string actionName, Func&lt;OverlayScreen, bool&gt; shouldBeEnabled = null, string displayProperty = null, int displayPriority = 20)
-    {
-        m_Proxy = Game.Input.InputManager.instance.FindAction(actionMapName, actionName);
-        m_Bindings = manager.userInterface.overlayBindings;
-        m_NameOverride = new DisplayNameOverride(&quot;EnabledActionScoped&quot;, m_Proxy, displayProperty, displayPriority);
-        Assert.IsNotNull(m_Proxy);
-        m_ShouldBeEnabled = shouldBeEnabled;
-        m_Bindings.onScreenActivated += HandleScreenChange;
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>public Dispose() : System.Void</code>  </li>
+<li>
+<p><code>private void HandleScreenChange(OverlayScreen screen)</code><br />
+Event handler called when the active overlay screen changes. Evaluates the predicate m_ShouldBeEnabled (if provided) to determine whether the proxy action should be enabled. Sets m_Proxy.enabled and m_NameOverride.active to the resulting boolean.</p>
+</li>
+<li>
+<p><code>public void Dispose()</code><br />
+Unsubscribes HandleScreenChange from overlayBindings.onScreenActivated, disables the proxy action (m_Proxy.enabled = false), and disposes the DisplayNameOverride. After disposal the scoped enabling behavior stops and the action remains disabled.</p>
+</li>
+<li>
+<p><code>public static implicit operator InputAction(EnabledActionScoped scoped)</code><br />
+Implicit conversion operator allowing the scoped instance to be used where an InputAction is expected by returning scoped.m_Proxy.sourceAction. Useful for passing the underlying InputAction directly to APIs.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public void Dispose()
-    {
-        m_Bindings.onScreenActivated -= HandleScreenChange;
-        m_Proxy.enabled = false;
-        m_NameOverride.Dispose();
-    }
-</code></pre>
-<ul>
-<li><code>private HandleScreenChange(Game.SceneFlow.OverlayScreen screen) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void HandleScreenChange(OverlayScreen screen)
-    {
-        bool flag = m_ShouldBeEnabled == null || m_ShouldBeEnabled(screen);
-        m_Proxy.enabled = flag;
-        m_NameOverride.active = flag;
-    }
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Create and keep the scope for as long as you want the action to auto-enable/disable
+private EnabledActionScoped _scopedCancel;
+
+[Preserve]
+protected override void OnCreate()
+{
+    base.OnCreate();
+
+    // Enable the &quot;Cancel&quot; action only when the Build overlay is active,
+    // and apply a display name override (optional).
+    _scopedCancel = new EnabledActionScoped(
+        manager: GameManager.instance,
+        actionMapName: &quot;UI&quot;,
+        actionName: &quot;Cancel&quot;,
+        shouldBeEnabled: screen =&gt; screen == OverlayScreen.Build,
+        displayProperty: &quot;ui_action_cancel&quot;,
+        displayPriority: 20
+    );
+
+    // You can also get the underlying InputAction directly:
+    UnityEngine.InputSystem.InputAction cancelAction = _scopedCancel;
+}
+
+// When the object is destroyed or no longer needs the behavior:
+protected override void OnDestroy()
+{
+    _scopedCancel?.Dispose();
+    _scopedCancel = null;
+    base.OnDestroy();
+}
 </code></pre>
 
 

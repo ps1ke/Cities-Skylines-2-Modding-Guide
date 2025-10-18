@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87073,6 +87165,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Simulation/SurfaceWater/" class="md-nav__link">
         
   
@@ -95106,18 +95221,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -95136,6 +95251,15 @@
   <a href="#methods" class="md-nav__link">
     <span class="md-ellipsis">
       Methods
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
     </span>
   </a>
   
@@ -117912,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117939,18 +118085,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -117974,6 +118120,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -117991,105 +118146,108 @@
 
 
 <h1 id="gametutorialstutorialeventactivationsystem">Game.Tutorials.TutorialEventActivationSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Tutorials</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class TutorialEventActivationSystem : Game.GameSystemBase
-{
-    protected Unity.Entities.EntityCommandBufferSystem m_BarrierSystem;
-    private Unity.Collections.NativeQueue&lt;Unity.Entities.Entity&gt; m_ActivationQueue;
-    private Unity.Jobs.JobHandle m_InputDependencies;
-
-    public TutorialEventActivationSystem();
-
-    public System.Void AddQueueWriter(Unity.Jobs.JobHandle dependency);
-    public Unity.Collections.NativeQueue&lt;Unity.Entities.Entity&gt; GetQueue(Unity.Jobs.JobHandle&amp; dependency);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnDestroy();
-    protected virtual System.Void OnUpdate();
-}
-</code></pre>
+<p><strong>Assembly:</strong><br />
+Assembly-CSharp (Game runtime assembly where Game.* types live)</p>
+<p><strong>Namespace:</strong><br />
+Game.Tutorials</p>
+<p><strong>Type:</strong><br />
+public class</p>
+<p><strong>Base:</strong><br />
+Game.Common.GameSystemBase</p>
+<p><strong>Summary:</strong><br />
+Manages a persistent NativeQueue of tutorial event entities that should be "activated" at the end of the frame. External jobs/systems can obtain access to the queue (and supply their JobHandle dependencies) so that this system will wait for those jobs to complete, dequeue the entities and add a TutorialActivated component to each entity using a command buffer obtained from the ModificationBarrier4 (an EntityCommandBufferSystem). The system ensures the queue is created on OnCreate and disposed on OnDestroy.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>protected Unity.Entities.EntityCommandBufferSystem m_BarrierSystem</code>  </li>
+<li>
+<p><code>protected Unity.Entities.EntityCommandBufferSystem m_BarrierSystem</code><br />
+Holds a reference to the ModificationBarrier4 command buffer system (retrieved via World.GetOrCreateSystemManaged<ModificationBarrier4> in OnCreate). Used to create an EntityCommandBuffer to make structural changes (adding TutorialActivated) at a safe point.</p>
+</li>
+<li>
+<p><code>private Unity.Collections.NativeQueue&lt;Unity.Entities.Entity&gt; m_ActivationQueue</code><br />
+A persistent NativeQueue<Entity> used to queue entities that should be activated. It is allocated with Allocator.Persistent in OnCreate and disposed in OnDestroy.</p>
+</li>
+<li>
+<p><code>private Unity.Jobs.JobHandle m_InputDependencies</code><br />
+Accumulates job dependencies from writers via AddQueueWriter so OnUpdate can wait for those jobs to complete before reading/dequeueing the queue.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">protected Unity.Entities.EntityCommandBufferSystem m_BarrierSystem;
-</code></pre>
+<h2 id="properties">Properties</h2>
 <ul>
-<li><code>private Unity.Collections.NativeQueue&lt;Unity.Entities.Entity&gt; m_ActivationQueue</code>  </li>
+<li>(none)<br />
+This class exposes no public properties. Interaction is through the GetQueue and AddQueueWriter methods.</li>
 </ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeQueue&lt;Unity.Entities.Entity&gt; m_ActivationQueue;
-</code></pre>
-<ul>
-<li><code>private Unity.Jobs.JobHandle m_InputDependencies</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Jobs.JobHandle m_InputDependencies;
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public TutorialEventActivationSystem()</code>  </li>
+<li><code>public TutorialEventActivationSystem()</code><br />
+Default public constructor. The class relies on Unity lifecycle methods (OnCreate / OnDestroy / OnUpdate) to initialize and tear down state.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public TutorialEventActivationSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>public AddQueueWriter(Unity.Jobs.JobHandle dependency) : System.Void</code>  </li>
+<li>
+<p><code>public NativeQueue&lt;Entity&gt; GetQueue(out JobHandle dependency)</code><br />
+Returns the internal NativeQueue<Entity> so other code can enqueue entities to be activated. Also outputs the current accumulated JobHandle (m_InputDependencies) via the out parameter so callers can combine/chain their own job dependencies with the system’s dependency. Note: when writing to the queue from jobs, callers should use the queue's AsParallelWriter() (or appropriate concurrent writer) from the returned queue and then call AddQueueWriter with the returned job handle.</p>
+</li>
+<li>
+<p><code>public void AddQueueWriter(JobHandle dependency)</code><br />
+Combine the supplied dependency with the system's existing m_InputDependencies using JobHandle.CombineDependencies. This lets the activation system know about additional pending jobs that will write to the queue so it can wait for them to finish in OnUpdate.</p>
+</li>
+<li>
+<p><code>protected override void OnCreate()</code><br />
+Initializes the system: calls base.OnCreate(), retrieves the ModificationBarrier4 EntityCommandBufferSystem from the World and allocates the m_ActivationQueue with Allocator.Persistent.</p>
+</li>
+<li>
+<p><code>protected override void OnDestroy()</code><br />
+Disposes the NativeQueue to free memory. Calls base.OnDestroy() as well.</p>
+</li>
+<li>
+<p><code>protected override void OnUpdate()</code><br />
+Main execution: completes m_InputDependencies (ensures any jobs that wrote to the queue have finished), creates an EntityCommandBuffer from m_BarrierSystem, then dequeues every entity and adds the TutorialActivated component to each via the command buffer. This performs the activation as a structural change at the appropriate point.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public void AddQueueWriter(JobHandle dependency)
-    {
-        m_InputDependencies = JobHandle.CombineDependencies(m_InputDependencies, dependency);
-    }
-</code></pre>
-<ul>
-<li><code>public GetQueue(Unity.Jobs.JobHandle&amp; dependency) : Unity.Collections.NativeQueue&lt;Unity.Entities.Entity&gt;</code>  </li>
-</ul>
-<pre><code class="language-csharp">public NativeQueue&lt;Entity&gt; GetQueue(out JobHandle dependency)
-    {
-        dependency = m_InputDependencies;
-        return m_ActivationQueue;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
+<h2 id="usage-example">Usage Example</h2>
 <pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
+protected override void OnCreate()
+{
+    base.OnCreate();
+    // (This is what the system already does)
+    m_BarrierSystem = World.GetOrCreateSystemManaged&lt;ModificationBarrier4&gt;();
+    m_ActivationQueue = new NativeQueue&lt;Entity&gt;(Allocator.Persistent);
+}
+
+// Example: how an external producer (job/system) could enqueue entities for activation
+void ScheduleProducerWork(TutorialEventActivationSystem activationSystem)
+{
+    // Get current dependency and queue
+    JobHandle existingDependency;
+    var queue = activationSystem.GetQueue(out existingDependency);
+
+    // If scheduling a job that will write to the queue, use AsParallelWriter and return its handle.
+    var parallelWriter = queue.AsParallelWriter();
+    var job = new MyProducerJob { writer = parallelWriter /*, ... */ }
+               .Schedule(existingDependency);
+
+    // Tell the activation system about this writer job so it will wait for it in OnUpdate
+    activationSystem.AddQueueWriter(job);
+}
+
+// OnUpdate of the activation system will then:
+[Preserve]
+protected override void OnUpdate()
+{
+    m_InputDependencies.Complete(); // wait for producers
+    var ecb = m_BarrierSystem.CreateCommandBuffer();
+    Entity e;
+    while (m_ActivationQueue.TryDequeue(out e))
     {
-        base.OnCreate();
-        m_BarrierSystem = base.World.GetOrCreateSystemManaged&lt;ModificationBarrier4&gt;();
-        m_ActivationQueue = new NativeQueue&lt;Entity&gt;(Allocator.Persistent);
+        ecb.AddComponent&lt;TutorialActivated&gt;(e);
     }
+}
 </code></pre>
-<ul>
-<li><code>protected virtual OnDestroy() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnDestroy()
-    {
-        base.OnDestroy();
-        m_ActivationQueue.Dispose();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        m_InputDependencies.Complete();
-        EntityCommandBuffer entityCommandBuffer = m_BarrierSystem.CreateCommandBuffer();
-        Entity item;
-        while (m_ActivationQueue.TryDequeue(out item))
-        {
-            entityCommandBuffer.AddComponent&lt;TutorialActivated&gt;(item);
-        }
-    }
-</code></pre>
+<p>Notes and best practices:
+- When enqueuing from a job, use NativeQueue<T>.AsParallelWriter() (or other thread-safe writer) and schedule the job. Then call AddQueueWriter with the job's handle so the activation system will wait before reading the queue.
+- The queue is allocated with Allocator.Persistent and disposed in OnDestroy; do not hold onto returned NativeQueue references beyond the lifetime of this system.
+- Structural changes (adding TutorialActivated) are performed via the ModificationBarrier4 command buffer to ensure safe Entity structural changes at the appropriate sync point.</p>
 
 
 

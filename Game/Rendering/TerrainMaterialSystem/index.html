@@ -65233,6 +65233,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69664,6 +69687,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../Skeleton/" class="md-nav__link">
         
   
@@ -69875,9 +69921,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#nested-types" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Nested types
     </span>
   </a>
   
@@ -69920,9 +69966,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -72572,6 +72618,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75562,6 +75631,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87154,6 +87246,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -117930,6 +118045,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117957,9 +118094,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#nested-types" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Nested types
     </span>
   </a>
   
@@ -118002,9 +118139,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118027,471 +118164,195 @@
 
 
 <h1 id="gamerenderingterrainmaterialsystem">Game.Rendering.TerrainMaterialSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Rendering</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code><br />
-<strong>Implements:</strong> <code>Colossal.Serialization.Entities.IDefaultSerializable</code>, <code>Colossal.Serialization.Entities.ISerializable</code>, <code>Game.Serialization.IPostDeserialize</code>  </p>
-<p><strong>Attributes:</strong> <code>FormerlySerializedAs</code>, <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class TerrainMaterialSystem : Game.GameSystemBase, Colossal.Serialization.Entities.IDefaultSerializable, Colossal.Serialization.Entities.ISerializable, Game.Serialization.IPostDeserialize
-{
-    private Colossal.Logging.ILog log;
-    private System.Single m_TerrainVTBorder;
-    private Game.Simulation.TerrainSystem m_TerrainSystem;
-    private Game.Rendering.WaterRenderSystem m_WaterRenderSystem;
-    private Game.Prefabs.PrefabSystem m_PrefabSystem;
-    private Game.Simulation.SnowSystem m_SnowSystem;
-    private UnityEngine.Material m_SplatMaterial;
-    private UnityEngine.MaterialPropertyBlock m_Properties;
-    private UnityEngine.Mesh m_BlitMesh;
-    private UnityEngine.RenderTexture m_SplatMap;
-    private UnityEngine.RenderTexture m_SplatWorldMap;
-    private UnityEngine.Rendering.CommandBuffer m_CommandBuffer;
-    private UnityEngine.Texture2D m_Noise;
-    private System.Int32 m_UpdateIndex;
-    private System.Int32 m_UpdateTick;
-    private System.Boolean m_ForceUpdateWholeSplatmap;
-    private Unity.Collections.NativeList&lt;Unity.Entities.Entity&gt; m_MaterialPrefabs;
-    private static readonly Unity.Mathematics.float4 kClearViewport;
-    private static const System.Int32 m_SplatUpdateSize;
-    private static const System.Int32 m_SplatRegularUpdateTick;
-
-    private UnityEngine.Material splatMaterial { private get; private set; }
-    public UnityEngine.Texture splatmap { get; }
-
-    public TerrainMaterialSystem();
-
-    private System.Void CreateNoiseTexture();
-    public System.Void Deserialize&lt;TReader&gt;(TReader reader);
-    public System.Void ForceUpdateWholeSplatmap();
-    public System.Int32 GetOrAddMaterialIndex(Unity.Entities.Entity prefab);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnDestroy();
-    protected virtual System.Void OnUpdate();
-    public System.Void PatchReferences(Game.Serialization.PrefabReferences&amp; references);
-    public System.Void PostDeserialize(Colossal.Serialization.Entities.Context context);
-    public System.Void Serialize&lt;TWriter&gt;(TWriter writer);
-    public System.Void SetDefaults(Colossal.Serialization.Entities.Context context);
-    public System.Void UpdateMaterial(UnityEngine.Material material);
-    private System.Void UpdateSplatmap(UnityEngine.Rendering.CommandBuffer cmd, Unity.Mathematics.float4 viewport, System.Boolean bWorldUpdate);
-}
-</code></pre>
-<h2 id="fields">Fields</h2>
-<ul>
-<li><code>private Colossal.Logging.ILog log</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.Logging.ILog log;
-</code></pre>
-<ul>
-<li><code>private System.Single m_TerrainVTBorder</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Single m_TerrainVTBorder;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.TerrainSystem m_TerrainSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.TerrainSystem m_TerrainSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Rendering.WaterRenderSystem m_WaterRenderSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Rendering.WaterRenderSystem m_WaterRenderSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Prefabs.PrefabSystem m_PrefabSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Prefabs.PrefabSystem m_PrefabSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.SnowSystem m_SnowSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.SnowSystem m_SnowSystem;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.Material m_SplatMaterial</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.Material m_SplatMaterial;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.MaterialPropertyBlock m_Properties</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.MaterialPropertyBlock m_Properties;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.Mesh m_BlitMesh</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.Mesh m_BlitMesh;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.RenderTexture m_SplatMap</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.RenderTexture m_SplatMap;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.RenderTexture m_SplatWorldMap</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.RenderTexture m_SplatWorldMap;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.Rendering.CommandBuffer m_CommandBuffer</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.Rendering.CommandBuffer m_CommandBuffer;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.Texture2D m_Noise</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.Texture2D m_Noise;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_UpdateIndex</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_UpdateIndex;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_UpdateTick</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_UpdateTick;
-</code></pre>
-<ul>
-<li><code>private System.Boolean m_ForceUpdateWholeSplatmap</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean m_ForceUpdateWholeSplatmap;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeList&lt;Unity.Entities.Entity&gt; m_MaterialPrefabs</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeList&lt;Unity.Entities.Entity&gt; m_MaterialPrefabs;
-</code></pre>
-<ul>
-<li><code>private static readonly Unity.Mathematics.float4 kClearViewport</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static readonly Unity.Mathematics.float4 kClearViewport;
-</code></pre>
-<ul>
-<li><code>private static const System.Int32 m_SplatUpdateSize</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static const System.Int32 m_SplatUpdateSize;
-</code></pre>
-<ul>
-<li><code>private static const System.Int32 m_SplatRegularUpdateTick</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static const System.Int32 m_SplatRegularUpdateTick;
-</code></pre>
-<h2 id="properties">Properties</h2>
-<ul>
-<li><code>private UnityEngine.Material splatMaterial { private get; private set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.Material splatMaterial { private get; private set; }
-</code></pre>
-<ul>
-<li><code>public UnityEngine.Texture splatmap { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public UnityEngine.Texture splatmap { get; }
-</code></pre>
-<h2 id="constructors">Constructors</h2>
-<ul>
-<li><code>public TerrainMaterialSystem()</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    public TerrainMaterialSystem()
-    {
-    }
-</code></pre>
-<h2 id="methods">Methods</h2>
-<ul>
-<li><code>private CreateNoiseTexture() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void CreateNoiseTexture()
-    {
-        m_Noise = new Texture2D(256, 256, TextureFormat.R8, mipChain: false);
-        byte[] array = new byte[65536];
-        float num = 0f;
-        for (int i = 0; i &lt; 256; i++)
-        {
-            for (int j = 0; j &lt; 256; j++)
-            {
-                num = Mathf.PerlinNoise((float)j * (5f / 128f), (float)i * (5f / 128f));
-                array[i * 256 + j] = (byte)(255f * num);
-            }
-        }
-        m_Noise.SetPixelData(array, 0);
-        m_Noise.Apply();
-    }
-</code></pre>
-<ul>
-<li><code>public Deserialize&lt;TReader&gt;(TReader reader) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Void Deserialize&lt;TReader&gt;(TReader reader);
-</code></pre>
-<ul>
-<li><code>public ForceUpdateWholeSplatmap() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void ForceUpdateWholeSplatmap()
-    {
-        m_ForceUpdateWholeSplatmap = true;
-    }
-</code></pre>
-<ul>
-<li><code>public GetOrAddMaterialIndex(Unity.Entities.Entity prefab) : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">public int GetOrAddMaterialIndex(Entity prefab)
-    {
-        for (int i = 0; i &lt; m_MaterialPrefabs.Length; i++)
-        {
-            if (m_MaterialPrefabs[i] == prefab)
-            {
-                return i;
-            }
-        }
-        TerraformingPrefab prefab2 = m_PrefabSystem.GetPrefab&lt;TerraformingPrefab&gt;(prefab);
-        UnityEngine.Debug.Log(&quot;Adding terrain material: &quot; + prefab2.name, prefab2);
-        int length = m_MaterialPrefabs.Length;
-        m_MaterialPrefabs.Add(in prefab);
-        prefab2.GetComponent&lt;TerrainMaterialProperties&gt;();
-        return length;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_TerrainSystem = base.World.GetOrCreateSystemManaged&lt;TerrainSystem&gt;();
-        m_WaterRenderSystem = base.World.GetOrCreateSystemManaged&lt;WaterRenderSystem&gt;();
-        m_SnowSystem = base.World.GetOrCreateSystemManaged&lt;SnowSystem&gt;();
-        m_PrefabSystem = base.World.GetOrCreateSystemManaged&lt;PrefabSystem&gt;();
-        m_CommandBuffer = new CommandBuffer();
-        m_CommandBuffer.name = &quot;TerrainMaterialSystem&quot;;
-        AssetDatabaseResources.Terrain terrain = AssetDatabase.global.resources.terrain;
-        splatMaterial = terrain.splatMaterial;
-        Shader.SetGlobalTexture(ShaderID._COTerrainRockDiffuse, terrain.rockDiffuse);
-        Shader.SetGlobalTexture(ShaderID._COTerrainDirtDiffuse, terrain.dirtDiffuse);
-        Shader.SetGlobalTexture(ShaderID._COTerrainGrassDiffuse, terrain.grassDiffuse);
-        Shader.SetGlobalTexture(ShaderID._COTerrainRockNormal, terrain.rockNormal);
-        Shader.SetGlobalTexture(ShaderID._COTerrainDirtNormal, terrain.dirtNormal);
-        Shader.SetGlobalTexture(ShaderID._COTerrainGrassNormal, terrain.grassNormal);
-        Shader.SetGlobalVector(ShaderID._COTerrainTextureTiling, new Vector4(terrain.terrainFarTiling, terrain.terrainCloseTiling, terrain.terrainCloseDirtTiling, 1f));
-        CreateNoiseTexture();
-        m_SplatMap = new RenderTexture(4096, 4096, 0, GraphicsFormat.R8G8_UNorm)
-        {
-            name = &quot;Splatmap&quot;,
-            hideFlags = HideFlags.DontSave
-        };
-        m_SplatMap.Create();
-        m_SplatWorldMap = new RenderTexture(1024, 1024, 0, GraphicsFormat.R8G8_UNorm)
-        {
-            name = &quot;SplatmapWorld&quot;,
-            hideFlags = HideFlags.DontSave
-        };
-        m_SplatWorldMap.Create();
-        m_SplatMaterial.SetTexture(ShaderID._NoiseTex, m_Noise);
-        m_BlitMesh = new Mesh();
-        m_BlitMesh.vertices = new Vector3[3]
-        {
-            new Vector3(-1f, -1f, 0f),
-            new Vector3(3f, -1f, 0f),
-            new Vector3(-1f, 3f, 0f)
-        };
-        m_BlitMesh.uv = new Vector2[3]
-        {
-            new Vector2(0f, 0f),
-            new Vector2(2f, 0f),
-            new Vector2(0f, 2f)
-        };
-        m_BlitMesh.subMeshCount = 1;
-        m_BlitMesh.SetTriangles(new int[3] { 0, 2, 1 }, 0);
-        m_BlitMesh.UploadMeshData(markNoLongerReadable: true);
-        m_MaterialPrefabs = new NativeList&lt;Entity&gt;(Allocator.Persistent);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnDestroy() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnDestroy()
-    {
-        base.OnDestroy();
-        CoreUtils.Destroy(m_SplatMap);
-        CoreUtils.Destroy(m_SplatWorldMap);
-        m_MaterialPrefabs.Dispose();
-        CoreUtils.Destroy(m_Noise);
-        CoreUtils.Destroy(m_BlitMesh);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        if (m_SplatMaterial == null || m_TerrainSystem.GetCascadeTexture() == null)
-        {
-            return;
-        }
-        log.Trace(&quot;Updating..&quot;);
-        log.indent++;
-        using (new ProfilingScope(m_CommandBuffer, ProfilingSampler.Get(ProfileId.UpdateSplatmap)))
-        {
-            bool flag = false;
-            if (m_TerrainSystem.heightMapRenderRequired)
-            {
-                if (m_TerrainSystem.heightMapSliceUpdated[TerrainSystem.baseLod])
-                {
-                    m_UpdateTick = 0;
-                    float4 @float = m_TerrainSystem.heightMapViewport[TerrainSystem.baseLod];
-                    UpdateSplatmap(m_CommandBuffer, @float, math.all(@float == kClearViewport));
-                    flag = true;
-                }
-            }
-            else if (m_ForceUpdateWholeSplatmap)
-            {
-                UpdateSplatmap(m_CommandBuffer, kClearViewport, bWorldUpdate: true);
-                m_ForceUpdateWholeSplatmap = false;
-                flag = true;
-                m_UpdateTick = 0;
-            }
-            else if (++m_UpdateTick &gt;= 8)
-            {
-                m_UpdateTick = 0;
-                int num = 32;
-                int num2 = m_UpdateIndex % num;
-                int num3 = m_UpdateIndex / num;
-                if (++m_UpdateIndex &gt;= num * num)
-                {
-                    m_UpdateIndex = 0;
-                }
-                float4 viewport = new float4((float)num2 / (float)num, (float)num3 / (float)num, 1f / (float)num, 1f / (float)num);
-                flag = true;
-                UpdateSplatmap(m_CommandBuffer, viewport, bWorldUpdate: false);
-                float2 float2 = m_TerrainSystem.playableOffset + viewport.xy * m_TerrainSystem.playableArea;
-                float2 float3 = viewport.zw * m_TerrainSystem.playableArea;
-                foreach (WaterSurface instance in WaterSurface.instances)
-                {
-                    instance.UpdateMinMaxArea(float2, float3);
-                }
-            }
-            if (m_TerrainSystem.NewMap)
-            {
-                m_ForceUpdateWholeSplatmap = true;
-                m_TerrainSystem.HandleNewMap();
-                foreach (WaterSurface instance2 in WaterSurface.instances)
-                {
-                    instance2.UpdateMinMaxArea(m_TerrainSystem.worldOffset, m_TerrainSystem.worldSize);
-                }
-            }
-            if (flag)
-            {
-                log.Trace(&quot;Executing command buffer&quot;);
-                Graphics.ExecuteCommandBuffer(m_CommandBuffer);
-            }
-        }
-        log.indent--;
-    }
-</code></pre>
-<ul>
-<li><code>public PatchReferences(Game.Serialization.PrefabReferences&amp; references) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void PatchReferences(ref PrefabReferences references)
-    {
-        for (int i = 0; i &lt; m_MaterialPrefabs.Length; i++)
-        {
-            m_MaterialPrefabs[i] = references.Check(base.EntityManager, m_MaterialPrefabs[i]);
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public PostDeserialize(Colossal.Serialization.Entities.Context context) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void PostDeserialize(Context context)
-    {
-    }
-</code></pre>
-<ul>
-<li><code>public Serialize&lt;TWriter&gt;(TWriter writer) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Void Serialize&lt;TWriter&gt;(TWriter writer);
-</code></pre>
-<ul>
-<li><code>public SetDefaults(Colossal.Serialization.Entities.Context context) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void SetDefaults(Context context)
-    {
-        m_MaterialPrefabs.Clear();
-    }
-</code></pre>
-<ul>
-<li><code>public UpdateMaterial(UnityEngine.Material material) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void UpdateMaterial(Material material)
-    {
-        material.SetTexture(ShaderID._Splatmap, splatmap);
-        material.SetTexture(ShaderID._BackdropSnowHeightTexture, m_SnowSystem.SnowHeightBackdropTexture);
-        float2 @float = new float2(m_TerrainVTBorder) / (m_TerrainSystem.playableArea + 2f * m_TerrainVTBorder);
-        float4 float2 = new float4(1f / @float, @float);
-        float4 float3 = new float4(m_TerrainSystem.playableArea / (m_TerrainSystem.playableArea + 2f * m_TerrainVTBorder), @float);
-        material.SetVector(ShaderID._VTInvBorder, float2);
-        material.SetVector(ShaderID._PlayableScaleOffset, float3);
-        Shader.SetGlobalTexture(ShaderID._COSplatmap, m_SplatMap);
-        Shader.SetGlobalTexture(ShaderID._COWorldSplatmap, m_SplatWorldMap);
-        Shader.SetGlobalVector(ShaderID._COInvVTBorder, float2);
-        Shader.SetGlobalVector(ShaderID._COPlayableScaleOffset, float3);
-    }
-</code></pre>
-<ul>
-<li><code>private UpdateSplatmap(UnityEngine.Rendering.CommandBuffer cmd, Unity.Mathematics.float4 viewport, System.Boolean bWorldUpdate) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void UpdateSplatmap(CommandBuffer cmd, float4 viewport, bool bWorldUpdate)
-    {
-        log.Trace(&quot;UpdateSplatmap&quot;);
-        cmd.Clear();
-        float4 @float = new float4((m_TerrainSystem.worldOffset - m_TerrainSystem.playableOffset) / m_TerrainSystem.playableArea, m_TerrainSystem.worldSize / m_TerrainSystem.playableArea);
-        float4 float2 = new float4(m_TerrainSystem.heightScaleOffset, 0f, 0f);
-        float4 float3 = new float4(0.2f, 0.4f, -1f, 0f);
-        float4 float4 = new float4(500f, 1500f, 0.75f, 0f);
-        float4 float5 = new float4(20f, 300f, 500f, 0.5f);
-        float4 float6 = new float4(1f, 1f, 0.001f, 0.002f);
-        Texture cascadeTexture = m_TerrainSystem.GetCascadeTexture();
-        m_Properties.Clear();
-        m_Properties.SetTexture(ShaderID._HeightmapArray, cascadeTexture);
-        m_Properties.SetTexture(ShaderID._WaterTexture, m_WaterRenderSystem.waterTexture ?? Texture2D.blackTexture);
-        m_Properties.SetTexture(ShaderID._NoiseTex, m_Noise);
-        m_Properties.SetInt(ShaderID._HeightMapArrayIndex, TerrainSystem.baseLod);
-        m_Properties.SetVector(ShaderID._HeightScaleOffset, float2);
-        m_Properties.SetVector(ShaderID._HeightMapArrayOffsetScale, viewport);
-        m_Properties.SetVector(ShaderID._VTScaleOffset, new Vector4(1f, 1f, 0f, 0f));
-        m_Properties.SetVector(ShaderID._SplatHeightVariance, float3);
-        m_Properties.SetVector(ShaderID._SplatRockLimit, float4);
-        m_Properties.SetVector(ShaderID._SplatGrassLimit, float5);
-        m_Properties.SetVector(ShaderID._NoiseOffset, float6);
-        m_Properties.SetVector(ShaderID._WaterTextureOffsetScale, viewport);
-        m_Properties.SetFloat(ShaderID._WorldAdjust, 1f);
-        Rect viewport2 = new Rect(viewport.x * (float)m_SplatMap.width, viewport.y * (float)m_SplatMap.height, viewport.z * (float)m_SplatMap.width, viewport.w * (float)m_SplatMap.height);
-        bool flag = viewport.x == 0f &amp;&amp; viewport.y == 0f &amp;&amp; viewport.z == 1f &amp;&amp; viewport.w == 1f;
-        cmd.SetRenderTarget(m_SplatMap, flag ? RenderBufferLoadAction.DontCare : RenderBufferLoadAction.Load, RenderBufferStoreAction.Store);
-        cmd.SetViewProjectionMatrices(Matrix4x4.identity, Matrix4x4.identity);
-        cmd.SetViewport(viewport2);
-        cmd.DrawMesh(m_BlitMesh, Matrix4x4.identity, m_SplatMaterial, 0, 0, m_Properties);
-        if (bWorldUpdate)
-        {
-            cmd.SetRenderTarget(m_SplatWorldMap, RenderBufferLoadAction.DontCare, RenderBufferStoreAction.Store);
-            cmd.SetViewport(new Rect(0f, 0f, m_SplatWorldMap.width, m_SplatWorldMap.height));
-            m_Properties.SetInt(ShaderID._HeightMapArrayIndex, 0);
-            m_Properties.SetVector(ShaderID._HeightMapArrayOffsetScale, new Vector4(0f, 0f, 1f, 1f));
-            m_Properties.SetVector(ShaderID._WaterTextureOffsetScale, @float);
-            float3.xy *= 0.25f;
-            m_Properties.SetVector(ShaderID._SplatHeightVariance, float3);
-            m_Properties.SetFloat(ShaderID._WorldAdjust, 0.7f);
-            cmd.DrawMesh(m_BlitMesh, Matrix4x4.identity, m_SplatMaterial, 0, 0, m_Properties);
-        }
-    }
-</code></pre>
+<p><strong>Assembly:</strong> Game<br />
+<strong>Namespace:</strong> Game.Rendering</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> GameSystemBase, IDefaultSerializable, ISerializable, IPostDeserialize</p>
+<p><strong>Summary:</strong><br />
+TerrainMaterialSystem is responsible for generating and updating terrain splatmaps (both local and world), providing terrain-related shader properties and textures, creating a noise texture used by terrain shaders, and tracking terrain material prefabs used by terraforming. It uses a CommandBuffer to render splatmap updates into RenderTextures, exposes a public splatmap texture for materials, and updates global shader state required by terrain rendering (including support for water &amp; snow textures). It also serializes/deserializes a list of terrain material prefab references.</p>
+<hr />
 <h2 id="nested-types">Nested types</h2>
 <ul>
-<li><code>Game.Rendering.TerrainMaterialSystem+ShaderID</code>  </li>
+<li>ShaderID (class)<br />
+  Contains many shader property IDs used by the system (examples):</li>
+<li>_HeightMapArray, _WaterTexture, _NoiseTex  </li>
+<li>_HeightMapArrayOffsetScale, _HeightScaleOffset, _SplatHeightVariance  </li>
+<li>_SplatRockLimit, _SplatGrassLimit, _WorldAdjust, _NoiseOffset  </li>
+<li>_Splatmap, _VTScaleOffset, _PlayableScaleOffset, _InvVTBorder  </li>
+<li>colossal_<em> prefixed IDs (colossal_Splatmap, colossal_WorldSplatmap, colossal_Terrain</em> textures, etc.)<br />
+  These are static readonly ints generated via Shader.PropertyToID and used throughout the class to bind textures and vectors to shaders.</li>
 </ul>
+<h2 id="fields">Fields</h2>
+<ul>
+<li>
+<p><code>private ILog log</code><br />
+  Logger instance ("TerrainTexturing") used for trace/debug logging.</p>
+</li>
+<li>
+<p><code>private static readonly float4 kClearViewport</code><br />
+  Constant viewport value used to indicate a full/clear update (initialized to (0,0,1,1)).</p>
+</li>
+<li>
+<p><code>private const int m_SplatUpdateSize = 128</code><br />
+  Constant indicating internal update subdivision size (used while iterating updates).</p>
+</li>
+<li>
+<p><code>private const int m_SplatRegularUpdateTick = 8</code><br />
+  Constant tick interval used to control periodic updates.</p>
+</li>
+<li>
+<p><code>private float m_TerrainVTBorder = 1000f</code><br />
+  Border size used when computing virtual texture scale/offset for playable area.</p>
+</li>
+<li>
+<p><code>private TerrainSystem m_TerrainSystem</code><br />
+  Reference to the TerrainSystem (obtained from World).</p>
+</li>
+<li>
+<p><code>private WaterRenderSystem m_WaterRenderSystem</code><br />
+  Reference to the WaterRenderSystem (for water texture binding).</p>
+</li>
+<li>
+<p><code>private PrefabSystem m_PrefabSystem</code><br />
+  Reference to the PrefabSystem (used to resolve terraform prefab metadata).</p>
+</li>
+<li>
+<p><code>private SnowSystem m_SnowSystem</code><br />
+  Reference to SnowSystem (provides snow height/backdrop textures).</p>
+</li>
+<li>
+<p><code>private Material m_SplatMaterial</code><br />
+  Internal material used to render/update the splatmap (a copy of the configured splat material).</p>
+</li>
+<li>
+<p><code>private MaterialPropertyBlock m_Properties</code><br />
+  Reusable MaterialPropertyBlock used when drawing into render targets.</p>
+</li>
+<li>
+<p><code>private Mesh m_BlitMesh</code><br />
+  Simple full-screen triangle mesh used for blitting/drawing passes.</p>
+</li>
+<li>
+<p><code>private RenderTexture m_SplatMap</code><br />
+  High-resolution (4096x4096) splatmap RenderTexture used by terrain materials.</p>
+</li>
+<li>
+<p><code>private RenderTexture m_SplatWorldMap</code><br />
+  Lower-resolution (1024x1024) world splatmap RenderTexture used for backdrop/overview.</p>
+</li>
+<li>
+<p><code>private CommandBuffer m_CommandBuffer</code><br />
+  Command buffer named "TerrainMaterialSystem" used to enqueue splatmap rendering commands.</p>
+</li>
+<li>
+<p><code>private Texture2D m_Noise</code><br />
+  256x256 R8 noise texture (Perlin noise) used by splat material/shaders.</p>
+</li>
+<li>
+<p><code>private int m_UpdateIndex</code><br />
+  Internal index used to iterate small sections of the splatmap for periodic updates.</p>
+</li>
+<li>
+<p><code>private int m_UpdateTick</code><br />
+  Tick counter to throttle regular updates.</p>
+</li>
+<li>
+<p><code>private bool m_ForceUpdateWholeSplatmap</code><br />
+  When set, forces a full splatmap/world update on next OnUpdate.</p>
+</li>
+<li>
+<p><code>private NativeList&lt;Entity&gt; m_MaterialPrefabs</code><br />
+  Native list of Entity references to terrain material (terraforming) prefabs. Serialized for save/load.</p>
+</li>
+</ul>
+<h2 id="properties">Properties</h2>
+<ul>
+<li>
+<p><code>private Material splatMaterial { get; set; }</code><br />
+  Backing property for the splat material. The setter clones the provided Material (new Material(value)) to avoid modifying the shared asset.</p>
+</li>
+<li>
+<p><code>public Texture splatmap { get; }</code><br />
+  Public accessor exposing the current splatmap RenderTexture (m_SplatMap). Used by terrain materials and other systems.</p>
+</li>
+</ul>
+<h2 id="constructors">Constructors</h2>
+<ul>
+<li><code>public TerrainMaterialSystem()</code><br />
+  Default constructor. The heavy initialization occurs in OnCreate().</li>
+</ul>
+<h2 id="methods">Methods</h2>
+<ul>
+<li>
+<p><code>protected override void OnCreate()</code><br />
+  Initializes system references (TerrainSystem, WaterRenderSystem, SnowSystem, PrefabSystem), creates the CommandBuffer, loads the configured splat material and terrain textures from AssetDatabaseResources.Terrain, creates noise texture, allocates the splatmap and world splatmap RenderTextures (4096 and 1024), sets up the blit mesh used for rendering, and allocates the NativeList for material prefabs.</p>
+</li>
+<li>
+<p><code>public int GetOrAddMaterialIndex(Entity prefab)</code><br />
+  Returns the index of a terraform/material prefab in m_MaterialPrefabs. If not present, adds it, logs the addition (with prefab name), retrieves TerrainMaterialProperties from the prefab (to ensure it exists) and returns the new index. Used to map prefab entities to a compact index for terrain material lookups.</p>
+</li>
+<li>
+<p><code>public void Serialize&lt;TWriter&gt;(TWriter writer) where TWriter : IWriter</code><br />
+  Writes m_MaterialPrefabs to the provided writer for save serialization.</p>
+</li>
+<li>
+<p><code>public void Deserialize&lt;TReader&gt;(TReader reader) where TReader : IReader</code><br />
+  Reads m_MaterialPrefabs from the provided reader for load deserialization.</p>
+</li>
+<li>
+<p><code>public void SetDefaults(Context context)</code><br />
+  Clears the m_MaterialPrefabs list (called when resetting defaults).</p>
+</li>
+<li>
+<p><code>public void PatchReferences(ref PrefabReferences references)</code><br />
+  After deserialization, patches each Entity in m_MaterialPrefabs using PrefabReferences.Check to ensure the references are valid in the current EntityManager.</p>
+</li>
+<li>
+<p><code>public void PostDeserialize(Context context)</code><br />
+  Empty implementation, provided for IPostDeserialize. (No extra work required after patching in current code.)</p>
+</li>
+<li>
+<p><code>public void ForceUpdateWholeSplatmap()</code><br />
+  Sets m_ForceUpdateWholeSplatmap to true to force a full splatmap/world splatmap rebuild on the next update.</p>
+</li>
+<li>
+<p><code>protected override void OnUpdate()</code><br />
+  Main update loop: checks prerequisites (splat material and terrain cascade texture must exist). If heightmap slices changed or a forced update is set or periodic update tick reached, it enqueues DrawMesh commands into m_CommandBuffer to update portions or all of the splatmap. It also updates water surface areas to match the updated playable area. When changes were enqueued, the command buffer is executed with Graphics.ExecuteCommandBuffer. Uses profiling scopes and logs.</p>
+</li>
+<li>
+<p><code>protected override void OnDestroy()</code><br />
+  Cleans up/destroys created resources: Destroy m_SplatMap and m_SplatWorldMap, dispose m_MaterialPrefabs, destroy m_Noise and m_BlitMesh.</p>
+</li>
+<li>
+<p><code>private void UpdateSplatmap(CommandBuffer cmd, float4 viewport, bool bWorldUpdate)</code><br />
+  Internal method that constructs shader parameter vectors, sets MaterialPropertyBlock textures and vectors (heightmap cascade texture, water texture, noise, offsets, tiling, limits, etc.), and issues DrawMesh calls into the provided CommandBuffer to render the splatmap into m_SplatMap for the given viewport. If bWorldUpdate is true, it also renders into m_SplatWorldMap using adjusted parameters and world offsets. Uses RenderBuffer load/store actions to control whether parts are updated or fully replaced.</p>
+</li>
+<li>
+<p><code>public void UpdateMaterial(Material material)</code><br />
+  Binds the generated splatmap and snow height backdrop texture to the provided material, sets VT/playable area scale and offset vectors on the material, and sets corresponding global shader textures/vectors (colossal_* shader properties) so other shaders can access the splatmap and parameters.</p>
+</li>
+<li>
+<p><code>private void CreateNoiseTexture()</code><br />
+  Generates a 256x256 8-bit Perlin-noise texture (TextureFormat.R8) used by the splat shader. It computes Mathf.PerlinNoise samples and writes bytes into texture pixel data, then applies the texture.</p>
+</li>
+</ul>
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">[Preserve]
+protected override void OnCreate()
+{
+    base.OnCreate();
+    // Typical initialization is handled by the system: it sets up splat material,
+    // creates noise and splatmap RTs, and prepares the blit mesh.
+    // You can force a full splatmap rebuild from other code as:
+    var terrainMaterialSystem = World.GetOrCreateSystemManaged&lt;TerrainMaterialSystem&gt;();
+    terrainMaterialSystem.ForceUpdateWholeSplatmap();
+}
+</code></pre>
+<p>Notes and tips for modders:
+- The system exposes the generated splatmap via the public splatmap property and also sets global shader textures (colossal_Splatmap and colossal_WorldSplatmap). Custom shaders that sample terrain splat information should use these global IDs (or ShaderID constants) to get consistent results.
+- When adding custom terrain materials or terraform prefabs, use GetOrAddMaterialIndex(Entity) to obtain a stable index used internally by the terrain material logic.
+- The splatmap is large (4096x4096) and kept in memory; avoid creating additional copies. Use UpdateMaterial to bind it to your materials.
+- The CommandBuffer is executed only when the system detects changes to minimize GPU work. Use ForceUpdateWholeSplatmap() to manually request a full rebuild (for example after loading modded terrain textures).</p>
 
 
 

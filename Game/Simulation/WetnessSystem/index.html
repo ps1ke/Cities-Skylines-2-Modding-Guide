@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87075,6 +87167,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../SurfaceWater/" class="md-nav__link">
         
   
@@ -89701,18 +89816,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -89737,9 +89852,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -117921,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117948,18 +118085,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -117984,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118009,165 +118146,156 @@
 
 
 <h1 id="gamesimulationwetnesssystem">Game.Simulation.WetnessSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Simulation</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class WetnessSystem : Game.GameSystemBase
-{
-    private Game.Simulation.ClimateSystem m_ClimateSystem;
-    private Game.EndFrameBarrier m_EndFrameBarrier;
-    private Unity.Entities.EntityQuery m_SurfaceQuery;
-    private Unity.Entities.EntityArchetype m_SubObjectEventArchetype;
-    private Game.Simulation.WetnessSystem+TypeHandle __TypeHandle;
-    public static const System.Int32 SNOW_REQUIREMENT_LIMIT;
-
-    public WetnessSystem();
-
-    private System.Void __AssignQueries(Unity.Entities.SystemState&amp; state);
-    public virtual System.Int32 GetUpdateInterval(Game.SystemUpdatePhase phase);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnCreateForCompiler();
-    protected virtual System.Void OnUpdate();
-}
-</code></pre>
+<p><strong>Assembly:</strong><br />
+(Assembly not specified — typically in the game's managed assembly, e.g. Assembly-CSharp)</p>
+<p><strong>Namespace:</strong> Game.Simulation</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> GameSystemBase</p>
+<p><strong>Summary:</strong><br />
+WetnessSystem is an ECS system that updates per-entity Surface components to simulate wetness, snow accumulation and drying based on the current climate (precipitation and temperature). It schedules a parallel IJobChunk (WetnessJob) which computes target wetness/dry/wet speeds, applies randomized changes to the Surface byte fields (m_Wetness, m_SnowAmount, m_AccumulatedWetness, m_AccumulatedSnow) and, when necessary, emits SubObjectsUpdated event entities for prefabs that have subobjects dependent on snow/wetness changes. The system runs on an interval (GetUpdateInterval returns 256) and uses the EndFrameBarrier to produce event entities safely across jobs.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.Simulation.ClimateSystem m_ClimateSystem</code>  </li>
+<li>
+<p><code>public const int SNOW_REQUIREMENT_LIMIT</code><br />
+Constant (value 15) used as the threshold for determining whether a Surface's accumulated snow counts as "snow requirement" (used to mark ObjectRequirementFlags.Snow). {{ This constant controls when snow-dependent subobjects should be considered required. }}</p>
+</li>
+<li>
+<p><code>private ClimateSystem m_ClimateSystem</code><br />
+{{ Reference to the ClimateSystem used to read current precipitation and temperature (m_ClimateSystem.precipitation and m_ClimateSystem.temperature). }}</p>
+</li>
+<li>
+<p><code>private EndFrameBarrier m_EndFrameBarrier</code><br />
+{{ A barrier system used to create an EntityCommandBuffer for use from the scheduled WetnessJob; the job's producer job handle is added to this barrier so the command buffer is played back safely at end of frame. }}</p>
+</li>
+<li>
+<p><code>private EntityQuery m_SurfaceQuery</code><br />
+{{ Query matching entities that have a Surface component and are not Deleted, Overridden or Temp. This is the query used to schedule WetnessJob. }}</p>
+</li>
+<li>
+<p><code>private EntityArchetype m_SubObjectEventArchetype</code><br />
+{{ Archetype used to create event entities that carry SubObjectsUpdated components when a prefab's subobject requirement changes (so other systems can react to subobject updates). }}</p>
+</li>
+<li>
+<p><code>private TypeHandle __TypeHandle</code><br />
+{{ Internal type-handle container used by the system to cache EntityTypeHandle, ComponentTypeHandle, BufferTypeHandle and ComponentLookup handles for scheduling the job. Not intended for user modification. }}</p>
+</li>
+<li>
+<p>Nested type: <code>private struct WetnessJob : IJobChunk</code><br />
+{{ The job that runs over the Surface query, performing per-chunk updates of Surface values. See Methods section for details. }}</p>
+</li>
+<li>
+<p>Nested type: <code>private struct TypeHandle</code><br />
+{{ Helper structure that caches and assigns handles (EntityTypeHandle, ComponentTypeHandle<T>, BufferTypeHandle<T>, ComponentLookup<T>) from a SystemState for use by the job. }}</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.Simulation.ClimateSystem m_ClimateSystem;
-</code></pre>
+<h2 id="properties">Properties</h2>
 <ul>
-<li><code>private Game.EndFrameBarrier m_EndFrameBarrier</code>  </li>
+<li>(None)<br />
+{{ WetnessSystem does not expose public properties. Internal state is stored in private fields and accessed during OnUpdate. }}</li>
 </ul>
-<pre><code class="language-csharp">private Game.EndFrameBarrier m_EndFrameBarrier;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_SurfaceQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_SurfaceQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityArchetype m_SubObjectEventArchetype</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityArchetype m_SubObjectEventArchetype;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.WetnessSystem+TypeHandle __TypeHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.WetnessSystem+TypeHandle __TypeHandle;
-</code></pre>
-<ul>
-<li><code>public static const System.Int32 SNOW_REQUIREMENT_LIMIT</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static const System.Int32 SNOW_REQUIREMENT_LIMIT;
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public WetnessSystem()</code>  </li>
+<li><code>public WetnessSystem()</code><br />
+{{ Default constructor. The system initializes its state in OnCreate/OnCreateForCompiler rather than in the constructor. }}</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public WetnessSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private __AssignQueries(Unity.Entities.SystemState&amp; state) : System.Void</code>  </li>
+<li>
+<p><code>public override int GetUpdateInterval(SystemUpdatePhase phase)</code><br />
+{{ Returns 256. The system is configured to run at this interval (i.e., it updates less frequently than every frame). }}</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnCreate()</code><br />
+{{ Called when the system is created. OnCreate does:</p>
+</li>
+<li>Locates the ClimateSystem and EndFrameBarrier via World.GetOrCreateSystemManaged.</li>
+<li>Builds m_SurfaceQuery to select Surface components excluding Deleted/Overridden/Temp.</li>
+<li>Creates m_SubObjectEventArchetype for event entities containing Event and SubObjectsUpdated.</li>
+<li>
+<p>Calls RequireForUpdate(m_SurfaceQuery) so the system only updates when there are matching entities.
+  This method sets up the system for runtime use. }}</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnUpdate()</code><br />
+{{ Called when the system updates (per GetUpdateInterval). Behavior:</p>
+</li>
+<li>Reads precipitation and temperature from m_ClimateSystem.</li>
+<li>Constructs three float4 vectors (target wetness, wet speed, dry speed) based on precipitation and temperature. Different formulas are used depending on whether temperature &gt; 0 or &lt;= 0.</li>
+<li>Schedules the WetnessJob as a parallel IJobChunk across m_SurfaceQuery, passing:<ul>
+<li>entity/component handles from __TypeHandle</li>
+<li>a RandomSeed</li>
+<li>computed m_TargetWetness, m_WetSpeed and m_DrySpeed (saturated and negated where appropriate)</li>
+<li>the command buffer acquired from m_EndFrameBarrier (AsParallelWriter)</li>
 </ul>
-<pre><code class="language-csharp">private void __AssignQueries(ref SystemState state)
-    {
-        new EntityQueryBuilder(Allocator.Temp).Dispose();
-    }
+</li>
+<li>
+<p>Adds the job handle to m_EndFrameBarrier via AddJobHandleForProducer and assigns the job handle to base.Dependency.
+  This is the main runtime logic that computes the per-surface wetness/snow changes in parallel. }}</p>
+</li>
+<li>
+<p><code>protected override void OnCreateForCompiler()</code><br />
+{{ Internal initialization helper used by the compiled code: assigns queries and type handles by calling __AssignQueries and TypeHandle.__AssignHandles. Not typically called by modders. }}</p>
+</li>
+<li>
+<p><code>[MethodImpl(MethodImplOptions.AggressiveInlining)] private void __AssignQueries(ref SystemState state)</code><br />
+{{ Compiler-generated helper: sets up queries used by the system; here it contains a placeholder EntityQueryBuilder call. }}</p>
+</li>
+<li>
+<p><code>private struct WetnessJob.Execute(...)</code><br />
+{{ Detailed behavior of WetnessJob:</p>
+</li>
+<li>Iterates over chunk entities and their Surface components.</li>
+<li>For each Surface:<ul>
+<li>Determine ObjectRequirementFlags.Snow if m_AccumulatedSnow &gt;= SNOW_REQUIREMENT_LIMIT.</li>
+<li>Construct an int4 from the four byte members (m_Wetness, m_SnowAmount, m_AccumulatedWetness, m_AccumulatedSnow).</li>
+<li>Compute a float4 speed vector: math.clamp(m_TargetWetness - int4*0.003921569f, m_DrySpeed, m_WetSpeed).</li>
+<li>Multiply speed by a random float4 in [0.8, 1.0] and add a randomized integer delta via MathUtils.RoundToIntRandom, clamped to [0,255].</li>
+<li>Store updated byte values back into the Surface component.</li>
+<li>If the chunk has SubObject buffer and the entity has no Owner, and the change in snow-requirement flags toggled, check the prefab's ObjectGeometryData m_SubObjectMask to see if any subobjects are affected.</li>
+<li>If affected, create an event entity of m_SubObjectEventArchetype and set SubObjectsUpdated with the original entity.</li>
+</ul>
+</li>
+<li>Uses EntityCommandBuffer.ParallelWriter to create and set event entities safely from parallel job logic.
+  This job performs the randomized per-frame wetness/snow accumulation logic and triggers subobject update events when thresholds flip. }}</li>
+</ul>
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// The system itself overrides OnCreate and OnUpdate as shown in the source.
+// Example: reading current climate values in another system or debugging:
+protected override void OnCreate()
+{
+    base.OnCreate();
+    // Ensure the WetnessSystem runs only when surfaces are present.
+    // (In actual modding, you typically don't call WetnessSystem.OnCreate directly;
+    //  instead you can reference its behavior or configure climate values.)
+}
+
+// Example simplified sketch: how WetnessSystem schedules its job (conceptual):
+var job = new WetnessJob {
+    m_EntityTypeHandle = ...,
+    m_OwnerType = ...,
+    m_PrefabRefType = ...,
+    m_SubObjectType = ...,
+    m_ObjectSurfaceType = ...,
+    m_PrefabObjectGeometryData = ...,
+    m_SubObjectEventArchetype = subObjectArchetype,
+    m_RandomSeed = RandomSeed.Next(),
+    m_TargetWetness = math.saturate(targetWetness),
+    m_WetSpeed = math.saturate(wetSpeed),
+    m_DrySpeed = -math.saturate(drySpeed),
+    m_CommandBuffer = endFrameBarrier.CreateCommandBuffer().AsParallelWriter()
+};
+JobHandle handle = JobChunkExtensions.ScheduleParallel(job, surfaceQuery, dependency);
+endFrameBarrier.AddJobHandleForProducer(handle);
+dependency = handle;
 </code></pre>
-<ul>
-<li><code>public virtual GetUpdateInterval(Game.SystemUpdatePhase phase) : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override int GetUpdateInterval(SystemUpdatePhase phase)
-    {
-        return 256;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_ClimateSystem = base.World.GetOrCreateSystemManaged&lt;ClimateSystem&gt;();
-        m_EndFrameBarrier = base.World.GetOrCreateSystemManaged&lt;EndFrameBarrier&gt;();
-        m_SurfaceQuery = GetEntityQuery(ComponentType.ReadWrite&lt;Surface&gt;(), ComponentType.Exclude&lt;Deleted&gt;(), ComponentType.Exclude&lt;Overridden&gt;(), ComponentType.Exclude&lt;Temp&gt;());
-        m_SubObjectEventArchetype = base.EntityManager.CreateArchetype(ComponentType.ReadWrite&lt;Event&gt;(), ComponentType.ReadWrite&lt;SubObjectsUpdated&gt;());
-        RequireForUpdate(m_SurfaceQuery);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreateForCompiler() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnCreateForCompiler()
-    {
-        base.OnCreateForCompiler();
-        __AssignQueries(ref base.CheckedStateRef);
-        __TypeHandle.__AssignHandles(ref base.CheckedStateRef);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        float4 x = default(float4);
-        float4 x2 = default(float4);
-        float4 x3 = default(float4);
-        float num = m_ClimateSystem.precipitation;
-        float num2 = m_ClimateSystem.temperature;
-        if (num2 &gt; 0f)
-        {
-            x.x = math.sqrt(num);
-            x.z = math.sqrt(x.x);
-            x2.x = num * 0.1f;
-            x2.z = num * 0.01f;
-            x3.x = (1f - num) * 0.05f;
-            x3.y = num2 * 0.01f;
-            x3.z = (1f - num) * 0.005f;
-            x3.w = num2 * 0.001f;
-        }
-        else
-        {
-            x.yw = 1f;
-            x2.y = num * 0.05f;
-            x2.w = num * 0.005f;
-            x3.x = num2 * -0.01f;
-            x3.z = num2 * -0.001f;
-        }
-        JobHandle jobHandle = JobChunkExtensions.ScheduleParallel(new WetnessJob
-        {
-            m_EntityTypeHandle = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef),
-            m_OwnerType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Common_Owner_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_PrefabRefType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_SubObjectType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Objects_SubObject_RO_BufferTypeHandle, ref base.CheckedStateRef),
-            m_ObjectSurfaceType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Objects_Surface_RW_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_PrefabObjectGeometryData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_ObjectGeometryData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_SubObjectEventArchetype = m_SubObjectEventArchetype,
-            m_RandomSeed = RandomSeed.Next(),
-            m_TargetWetness = math.saturate(x),
-            m_WetSpeed = math.saturate(x2),
-            m_DrySpeed = -math.saturate(x3),
-            m_CommandBuffer = m_EndFrameBarrier.CreateCommandBuffer().AsParallelWriter()
-        }, m_SurfaceQuery, base.Dependency);
-        m_EndFrameBarrier.AddJobHandleForProducer(jobHandle);
-        base.Dependency = jobHandle;
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Simulation.WetnessSystem+WetnessJob</code>  </li>
-<li><code>Game.Simulation.WetnessSystem+TypeHandle</code>  </li>
-</ul>
+<p>Additional notes:
+- The system uses byte fields on Surface and packs several values together (wetness, snow amount, accumulated wetness, accumulated snow) so values are clamped to [0,255].
+- SNOW_REQUIREMENT_LIMIT (15) is used to decide when a Surface counts as having snow for the purpose of subobject requirements.
+- SubObjectsUpdated events are only created for entities that have subobject buffers and do not have an Owner component (likely world objects rather than owned subobjects).
+- Wetness changes include a random component (RandomSeed.Next().NextFloat4(0.8f, 1f) and MathUtils.RoundToIntRandom) so updates are not fully deterministic per-chunk.
+- The job writes commands through an EntityCommandBuffer.ParallelWriter and the system registers its job handle with EndFrameBarrier so commands are safe to play back at end of frame.</p>
+<p>If you want, I can produce a short doc focused only on the WetnessJob internals or an explanation of how to react to SubObjectsUpdated events from a custom system.</p>
 
 
 

@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72491,6 +72537,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../SceneFlow/SaveHelpers/" class="md-nav__link">
         
   
@@ -74567,15 +74636,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -74606,6 +74666,15 @@
   <a href="#methods" class="md-nav__link">
     <span class="md-ellipsis">
       Methods
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
     </span>
   </a>
   
@@ -75553,6 +75622,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87145,6 +87237,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -117921,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117946,15 +118083,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -117992,6 +118120,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -118009,288 +118146,117 @@
 
 
 <h1 id="gameserializationserializersystem">Game.Serialization.SerializerSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Serialization</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class SerializerSystem : Game.GameSystemBase
-{
-    private System.Int32 &lt;totalSize&gt;k__BackingField;
-    private Game.Serialization.SaveGameSystem m_SaveGameSystem;
-    private Game.Serialization.LoadGameSystem m_LoadGameSystem;
-    private Game.Serialization.WriteSystem m_WriteSystem;
-    private Game.Serialization.ReadSystem m_ReadSystem;
-    private Game.UpdateSystem m_UpdateSystem;
-    private Colossal.Serialization.Entities.ComponentSerializerLibrary m_ComponentSerializerLibrary;
-    private Colossal.Serialization.Entities.SystemSerializerLibrary m_SystemSerializerLibrary;
-    private Unity.Entities.EntityQuery m_Query;
-
-    public Colossal.Serialization.Entities.ComponentSerializerLibrary componentLibrary { get; }
-    public Colossal.Serialization.Entities.SystemSerializerLibrary systemLibrary { get; }
-    public System.Int32 totalSize { get; set; }
-
-    public SerializerSystem();
-
-    private System.Void CreateQuery(System.Collections.Generic.IEnumerable&lt;Unity.Entities.ComponentType&gt; serializableComponents);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnDestroy();
-    protected virtual System.Void OnUpdate();
-    public System.Void SetDirty();
-}
-</code></pre>
+<p><strong>Assembly:</strong><br />
+Game</p>
+<p><strong>Namespace:</strong><br />
+Game.Serialization</p>
+<p><strong>Type:</strong><br />
+class</p>
+<p><strong>Base:</strong><br />
+GameSystemBase</p>
+<p><strong>Summary:</strong><br />
+Manages serialization and deserialization of ECS entities for save/load. It coordinates component and system serializer libraries, constructs the EntityQuery used to select entities to (de)serialize, and drives the actual serialization/deserialization work during the save/load phases (via EntitySerializer/EntityDeserializer). It also tracks the total serialized size and exposes the serializer libraries for other systems to query or modify.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private System.Int32 &lt;totalSize&gt;k__BackingField</code>  </li>
+<li>
+<p><code>private SaveGameSystem m_SaveGameSystem</code><br />
+Reference to the SaveGameSystem used to obtain the save context when serializing.</p>
+</li>
+<li>
+<p><code>private LoadGameSystem m_LoadGameSystem</code><br />
+Reference to the LoadGameSystem used to obtain/set the load context when deserializing.</p>
+</li>
+<li>
+<p><code>private WriteSystem m_WriteSystem</code><br />
+WriteSystem used by EntitySerializer when writing data out.</p>
+</li>
+<li>
+<p><code>private ReadSystem m_ReadSystem</code><br />
+ReadSystem used by EntityDeserializer when reading data in.</p>
+</li>
+<li>
+<p><code>private UpdateSystem m_UpdateSystem</code><br />
+Used to determine the current serialization phase (SystemUpdatePhase), e.g., Serialize or Deserialize.</p>
+</li>
+<li>
+<p><code>private ComponentSerializerLibrary m_ComponentSerializerLibrary</code><br />
+Holds component serializers. Lazily created and re-initialized when marked dirty. Disposed in OnDestroy.</p>
+</li>
+<li>
+<p><code>private SystemSerializerLibrary m_SystemSerializerLibrary</code><br />
+Holds system serializers. Lazily created and re-initialized when marked dirty. Disposed in OnDestroy.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_Query</code><br />
+EntityQuery built from a set of core component types plus any discovered serializable components. Used to select the entities that will be (de)serialized. The query excludes certain runtime-only types (NetCompositionData, EffectInstance, LivePath, Temp, Deleted).</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private System.Int32 &lt;totalSize&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private Game.Serialization.SaveGameSystem m_SaveGameSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Serialization.SaveGameSystem m_SaveGameSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Serialization.LoadGameSystem m_LoadGameSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Serialization.LoadGameSystem m_LoadGameSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Serialization.WriteSystem m_WriteSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Serialization.WriteSystem m_WriteSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Serialization.ReadSystem m_ReadSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Serialization.ReadSystem m_ReadSystem;
-</code></pre>
-<ul>
-<li><code>private Game.UpdateSystem m_UpdateSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.UpdateSystem m_UpdateSystem;
-</code></pre>
-<ul>
-<li><code>private Colossal.Serialization.Entities.ComponentSerializerLibrary m_ComponentSerializerLibrary</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.Serialization.Entities.ComponentSerializerLibrary m_ComponentSerializerLibrary;
-</code></pre>
-<ul>
-<li><code>private Colossal.Serialization.Entities.SystemSerializerLibrary m_SystemSerializerLibrary</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.Serialization.Entities.SystemSerializerLibrary m_SystemSerializerLibrary;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_Query</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_Query;
-</code></pre>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>public Colossal.Serialization.Entities.ComponentSerializerLibrary componentLibrary { get }</code>  </li>
+<li>
+<p><code>public ComponentSerializerLibrary componentLibrary { get; }</code><br />
+Accessor for the ComponentSerializerLibrary (returns m_ComponentSerializerLibrary). Use to inspect available component serializers.</p>
+</li>
+<li>
+<p><code>public SystemSerializerLibrary systemLibrary { get; }</code><br />
+Accessor for the SystemSerializerLibrary (returns m_SystemSerializerLibrary). Use to inspect available system serializers.</p>
+</li>
+<li>
+<p><code>public int totalSize { get; set; }</code><br />
+Holds the accumulated size (in bytes) of the serialization operation. Reset to 0 at the start of serialization/deserialization runs.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public Colossal.Serialization.Entities.ComponentSerializerLibrary componentLibrary { get; }
-</code></pre>
-<ul>
-<li><code>public Colossal.Serialization.Entities.SystemSerializerLibrary systemLibrary { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Colossal.Serialization.Entities.SystemSerializerLibrary systemLibrary { get; }
-</code></pre>
-<ul>
-<li><code>public System.Int32 totalSize { get; set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Int32 totalSize { get; set; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public SerializerSystem()</code>  </li>
+<li><code>public SerializerSystem()</code><br />
+Default constructor. Marked with [Preserve] in source. No custom initialization beyond the base constructor; actual initialization occurs in OnCreate/OnUpdate.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public SerializerSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private CreateQuery(System.Collections.Generic.IEnumerable&lt;Unity.Entities.ComponentType&gt; serializableComponents) : System.Void</code>  </li>
+<li>
+<p><code>protected override void OnCreate() : System.Void</code><br />
+Initializes references to other systems via World.GetOrCreateSystemManaged<T>() (SaveGameSystem, LoadGameSystem, WriteSystem, ReadSystem, UpdateSystem) and calls CreateQuery with an empty component list to create the initial EntityQuery.</p>
+</li>
+<li>
+<p><code>protected override void OnDestroy() : System.Void</code><br />
+Disposes m_ComponentSerializerLibrary and m_SystemSerializerLibrary if they exist, then calls base.OnDestroy().</p>
+</li>
+<li>
+<p><code>protected override void OnUpdate() : System.Void</code><br />
+Main update driver:</p>
+</li>
+<li>Ensures component and system serializer libraries exist; if marked dirty, initializes them.</li>
+<li>Depending on m_UpdateSystem.currentPhase:<ul>
+<li>Serialize: creates EntitySerializer<WriteBuffer>, resets totalSize, gets save context from m_SaveGameSystem.context and calls Serialize<BinaryWriter, FormatTags>(...) using BufferFormat.CompressedZStd and including PrefabData as a ReadWrite component filter.</li>
+<li>Deserialize: creates EntityDeserializer<ReadBuffer>, resets totalSize, reads and updates context via Deserialize<BinaryReader, FormatTags>(ref context, ...). Logs serialized version and format tags. If Deserialize returns false, adjusts the context purpose for legacy load-to-new logic and recreates the context if needed. Finally assigns the possibly-updated context back to m_LoadGameSystem.context.</li>
 </ul>
-<pre><code class="language-csharp">private void CreateQuery(IEnumerable&lt;ComponentType&gt; serializableComponents)
-    {
-        HashSet&lt;ComponentType&gt; hashSet = new HashSet&lt;ComponentType&gt;
-        {
-            ComponentType.ReadOnly&lt;LoadedIndex&gt;(),
-            ComponentType.ReadOnly&lt;PrefabRef&gt;(),
-            ComponentType.ReadOnly&lt;ElectricityFlowNode&gt;(),
-            ComponentType.ReadOnly&lt;ElectricityFlowEdge&gt;(),
-            ComponentType.ReadOnly&lt;WaterPipeNode&gt;(),
-            ComponentType.ReadOnly&lt;WaterPipeEdge&gt;(),
-            ComponentType.ReadOnly&lt;ServiceRequest&gt;(),
-            ComponentType.ReadOnly&lt;Game.Simulation.WaterSourceData&gt;(),
-            ComponentType.ReadOnly&lt;Game.City.City&gt;(),
-            ComponentType.ReadOnly&lt;SchoolSeeker&gt;(),
-            ComponentType.ReadOnly&lt;JobSeeker&gt;(),
-            ComponentType.ReadOnly&lt;CityStatistic&gt;(),
-            ComponentType.ReadOnly&lt;ServiceBudgetData&gt;(),
-            ComponentType.ReadOnly&lt;FloodCounterData&gt;(),
-            ComponentType.ReadOnly&lt;CoordinatedMeeting&gt;(),
-            ComponentType.ReadOnly&lt;LookingForPartner&gt;(),
-            ComponentType.ReadOnly&lt;AtmosphereData&gt;(),
-            ComponentType.ReadOnly&lt;BiomeData&gt;(),
-            ComponentType.ReadOnly&lt;TimeData&gt;()
-        };
-        foreach (ComponentType serializableComponent in serializableComponents)
-        {
-            hashSet.Add(ComponentType.ReadOnly(serializableComponent.TypeIndex));
-        }
-        m_Query = GetEntityQuery(new EntityQueryDesc
-        {
-            Any = hashSet.ToArray(),
-            None = new ComponentType[5]
-            {
-                ComponentType.ReadOnly&lt;NetCompositionData&gt;(),
-                ComponentType.ReadOnly&lt;EffectInstance&gt;(),
-                ComponentType.ReadOnly&lt;LivePath&gt;(),
-                ComponentType.ReadOnly&lt;Temp&gt;(),
-                ComponentType.ReadOnly&lt;Deleted&gt;()
-            }
-        });
-    }
-</code></pre>
+</li>
+</ul>
+<p>Both serializer/deserializer are disposed in finally blocks to ensure cleanup.</p>
 <ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
+<li>
+<p><code>public void SetDirty() : System.Void</code><br />
+Marks both the component and system serializer libraries as dirty (if they exist) so they'll be re-initialized on the next update. Useful when new serializers are registered at runtime.</p>
+</li>
+<li>
+<p><code>private void CreateQuery(IEnumerable&lt;ComponentType&gt; serializableComponents) : System.Void</code><br />
+Constructs the EntityQuery used for (de)serialization. Starts from a fixed set of core ReadOnly component types required by the save system (LoadedIndex, PrefabRef, ElectricityFlowNode, ElectricityFlowEdge, WaterPipeNode, WaterPipeEdge, ServiceRequest, Game.Simulation.WaterSourceData, Game.City.City, SchoolSeeker, JobSeeker, CityStatistic, ServiceBudgetData, FloodCounterData, CoordinatedMeeting, LookingForPartner, AtmosphereData, BiomeData, TimeData). Adds any additional serializable component types passed in, then creates an EntityQuery whose Any set is that combined list and whose None set excludes NetCompositionData, EffectInstance, LivePath, Temp, and Deleted.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_SaveGameSystem = base.World.GetOrCreateSystemManaged&lt;SaveGameSystem&gt;();
-        m_LoadGameSystem = base.World.GetOrCreateSystemManaged&lt;LoadGameSystem&gt;();
-        m_WriteSystem = base.World.GetOrCreateSystemManaged&lt;WriteSystem&gt;();
-        m_ReadSystem = base.World.GetOrCreateSystemManaged&lt;ReadSystem&gt;();
-        m_UpdateSystem = base.World.GetOrCreateSystemManaged&lt;UpdateSystem&gt;();
-        CreateQuery(Array.Empty&lt;ComponentType&gt;());
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnDestroy() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnDestroy()
-    {
-        if (m_ComponentSerializerLibrary != null)
-        {
-            m_ComponentSerializerLibrary.Dispose();
-        }
-        if (m_SystemSerializerLibrary != null)
-        {
-            m_SystemSerializerLibrary.Dispose();
-        }
-        base.OnDestroy();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        if (m_ComponentSerializerLibrary == null)
-        {
-            m_ComponentSerializerLibrary = new ComponentSerializerLibrary();
-        }
-        if (m_ComponentSerializerLibrary.isDirty)
-        {
-            m_ComponentSerializerLibrary.Initialize(this, out var serializableComponents);
-            CreateQuery(serializableComponents);
-        }
-        if (m_SystemSerializerLibrary == null)
-        {
-            m_SystemSerializerLibrary = new SystemSerializerLibrary();
-        }
-        if (m_SystemSerializerLibrary.isDirty)
-        {
-            m_SystemSerializerLibrary.Initialize(base.World);
-        }
-        switch (m_UpdateSystem.currentPhase)
-        {
-        case SystemUpdatePhase.Serialize:
-        {
-            EntitySerializer&lt;WriteBuffer&gt; entitySerializer = new EntitySerializer&lt;WriteBuffer&gt;(base.EntityManager, m_ComponentSerializerLibrary, m_SystemSerializerLibrary, m_WriteSystem);
-            try
-            {
-                totalSize = 0;
-                Context context2 = m_SaveGameSystem.context;
-                entitySerializer.Serialize&lt;BinaryWriter, FormatTags&gt;(context2, m_Query, BufferFormat.CompressedZStd, new ComponentType[1] { ComponentType.ReadWrite&lt;PrefabData&gt;() });
-                break;
-            }
-            finally
-            {
-                entitySerializer.Dispose();
-            }
-        }
-        case SystemUpdatePhase.Deserialize:
-        {
-            EntityDeserializer&lt;ReadBuffer&gt; entityDeserializer = new EntityDeserializer&lt;ReadBuffer&gt;(base.EntityManager, m_ComponentSerializerLibrary, m_SystemSerializerLibrary, m_ReadSystem);
-            try
-            {
-                totalSize = 0;
-                Context context = m_LoadGameSystem.context;
-                bool num = entityDeserializer.Deserialize&lt;BinaryReader, FormatTags&gt;(ref context, Array.Empty&lt;ComponentType&gt;());
-                COSystemBase.baseLog.InfoFormat(&quot;Serialized version: {0}&quot;, context.version);
-                if (num)
-                {
-                    string[] names = Enum.GetNames(typeof(FormatTags));
-                    FormatTags[] array = (FormatTags[])Enum.GetValues(typeof(FormatTags));
-                    List&lt;string&gt; list = new List&lt;string&gt;(names.Length);
-                    for (int i = 0; i &lt; array.Length; i++)
-                    {
-                        if (context.format.Has(array[i]))
-                        {
-                            list.Add(names[i]);
-                        }
-                    }
-                    COSystemBase.baseLog.InfoFormat(&quot;Format tags: {0}&quot;, string.Join(&quot;, &quot;, list));
-                }
-                else
-                {
-                    Colossal.Hash128 instigatorGuid = context.instigatorGuid;
-                    Colossal.Serialization.Entities.Purpose purpose = context.purpose switch
-                    {
-                        Colossal.Serialization.Entities.Purpose.LoadMap =&gt; Colossal.Serialization.Entities.Purpose.NewMap, 
-                        Colossal.Serialization.Entities.Purpose.LoadGame =&gt; Colossal.Serialization.Entities.Purpose.NewGame, 
-                        _ =&gt; context.purpose, 
-                    };
-                    if (purpose != context.purpose)
-                    {
-                        context.Dispose();
-                        context = new Context(purpose, Version.current, instigatorGuid, Enum.GetNames(typeof(FormatTags)).Length, Allocator.Persistent);
-                    }
-                }
-                m_LoadGameSystem.context = context;
-                break;
-            }
-            finally
-            {
-                entityDeserializer.Dispose();
-            }
-        }
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public SetDirty() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void SetDirty()
-    {
-        if (m_ComponentSerializerLibrary != null)
-        {
-            m_ComponentSerializerLibrary.SetDirty();
-        }
-        if (m_SystemSerializerLibrary != null)
-        {
-            m_SystemSerializerLibrary.SetDirty();
-        }
-    }
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Force the serializer system to re-scan available serializers (e.g. after registering new serializers)
+[Preserve]
+protected override void OnCreate()
+{
+    base.OnCreate();
+    var serializer = World.GetOrCreateSystemManaged&lt;Game.Serialization.SerializerSystem&gt;();
+    // mark the libraries dirty so they reinitialize on next update
+    serializer.SetDirty();
+
+    // Inspect the component serializer library if needed
+    var compLib = serializer.componentLibrary;
+}
 </code></pre>
 
 

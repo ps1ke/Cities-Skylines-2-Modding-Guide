@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87056,6 +87148,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -113966,15 +114081,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -114011,9 +114117,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -117930,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117955,15 +118083,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -118002,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118027,224 +118146,137 @@
 
 
 <h1 id="gameuiuisystembootstrapper">Game.UI.UISystemBootstrapper</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.UI</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>UnityEngine.MonoBehaviour</code><br />
-<strong>Implements:</strong> <code>Colossal.UI.IUIViewComponent</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class UISystemBootstrapper : UnityEngine.MonoBehaviour, Colossal.UI.IUIViewComponent
-{
-    private Colossal.UI.UIView m_View;
-    private Colossal.UI.UIView m_FatalView;
-    private Colossal.UI.UIManager m_UIManager;
-    private Colossal.UI.UIInputSystem m_UIInputSystem;
-    private Colossal.UI.UIInputSystem m_FallbackUIInputSystem;
-    private Game.UI.InputBindings m_InputBindings;
-    public System.Boolean m_EnableFatalUI;
-    public System.String m_Url;
-    public System.String m_FatalUrl;
-
-    public cohtml.Net.View View { get; }
-    public Colossal.UI.IUnityViewListener Listener { get; }
-
-    public UISystemBootstrapper();
-
-    private System.Void Awake();
-    private System.Boolean Colossal.UI.IUIViewComponent.get_enabled();
-    private System.Void LateUpdate();
-    private System.Void OnDestroy();
-    private System.Void OnReadyForBindings();
-    private System.Void Update();
-}
-</code></pre>
+<p><strong>Assembly:</strong><br />
+Assembly-CSharp</p>
+<p><strong>Namespace:</strong><br />
+Game.UI</p>
+<p><strong>Type:</strong><br />
+class</p>
+<p><strong>Base:</strong><br />
+MonoBehaviour, IUIViewComponent</p>
+<p><strong>Summary:</strong><br />
+Bootstraps the cohtml / Colossal.UI systems for development. Creates a UIManager, one or two UISystems (regular + optional fatal UI), creates Views from provided URLs, sets up input systems and input bindings, and manages their lifecycle (initialization in Awake, per-frame Update/LateUpdate, and cleanup in OnDestroy). This component is intended for development use (logs a warning on Awake) and expects to run on a GameObject that has a Camera and optionally an AudioSource.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Colossal.UI.UIView m_View</code>  </li>
+<li>
+<p><code>private UIView m_View</code><br />
+Holds the primary UIView produced by the main UISystem. Used to access the underlying cohtml View and Listener.</p>
+</li>
+<li>
+<p><code>private UIView m_FatalView</code><br />
+Holds the UIView used for the fatal/error UI (created only when m_EnableFatalUI is true).</p>
+</li>
+<li>
+<p><code>private UIManager m_UIManager</code><br />
+Manages creation and lifetime of UISystems used by this bootstrapper.</p>
+</li>
+<li>
+<p><code>private UIInputSystem m_UIInputSystem</code><br />
+Input system instance associated with the main UISystem; used to dispatch UI input events.</p>
+</li>
+<li>
+<p><code>private UIInputSystem m_FallbackUIInputSystem</code><br />
+Input system instance associated with the fatal UISystem (if created).</p>
+</li>
+<li>
+<p><code>private InputBindings m_InputBindings</code><br />
+Manages binding game input to JS view bindings; attaches when the view signals ReadyForBindings.</p>
+</li>
+<li>
+<p><code>public bool m_EnableFatalUI</code><br />
+If true, creates a separate UISystem/View for displaying fatal error screens (ErrorPage).</p>
+</li>
+<li>
+<p><code>public string m_Url</code><br />
+URL or path passed to the main UISystem.CreateView — the view to load for normal UI.</p>
+</li>
+<li>
+<p><code>public string m_FatalUrl</code><br />
+URL or path passed to the fatal UISystem.CreateView — the view to load for the fatal UI.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Colossal.UI.UIView m_View;
-</code></pre>
-<ul>
-<li><code>private Colossal.UI.UIView m_FatalView</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.UI.UIView m_FatalView;
-</code></pre>
-<ul>
-<li><code>private Colossal.UI.UIManager m_UIManager</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.UI.UIManager m_UIManager;
-</code></pre>
-<ul>
-<li><code>private Colossal.UI.UIInputSystem m_UIInputSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.UI.UIInputSystem m_UIInputSystem;
-</code></pre>
-<ul>
-<li><code>private Colossal.UI.UIInputSystem m_FallbackUIInputSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.UI.UIInputSystem m_FallbackUIInputSystem;
-</code></pre>
-<ul>
-<li><code>private Game.UI.InputBindings m_InputBindings</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.UI.InputBindings m_InputBindings;
-</code></pre>
-<ul>
-<li><code>public System.Boolean m_EnableFatalUI</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Boolean m_EnableFatalUI;
-</code></pre>
-<ul>
-<li><code>public System.String m_Url</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.String m_Url;
-</code></pre>
-<ul>
-<li><code>public System.String m_FatalUrl</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.String m_FatalUrl;
-</code></pre>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>public cohtml.Net.View View { get }</code>  </li>
+<li>
+<p><code>public cohtml.Net.View View { get; }</code><br />
+Returns the underlying cohtml View instance from m_View (m_View.View). Can be null until m_View is created.</p>
+</li>
+<li>
+<p><code>public IUnityViewListener Listener { get; }</code><br />
+Returns the view listener (m_View.Listener) for hooking view lifecycle events. Can be null until m_View is created.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public cohtml.Net.View View { get; }
-</code></pre>
-<ul>
-<li><code>public Colossal.UI.IUnityViewListener Listener { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Colossal.UI.IUnityViewListener Listener { get; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public UISystemBootstrapper()</code>  </li>
+<li><code>public UISystemBootstrapper()</code><br />
+Default MonoBehaviour constructor (no custom initialization beyond field defaults). Initialization happens in Awake.</li>
 </ul>
-<pre><code class="language-csharp">public UISystemBootstrapper();
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private Awake() : System.Void</code>  </li>
+<li><code>private async void Awake()</code><br />
+Initializes the UI stack:</li>
+<li>Logs a development warning.</li>
+<li>Caches capabilities (awaits Capabilities.CacheCapabilities()).</li>
+<li>Creates InputManager and UIManager (developerMode true).</li>
+<li>Configures Colossal.UI.UISystem.Settings (resource handler, localization manager if GameManager available, enables debugger).</li>
+<li>Creates main UISystem, adds host location "gameui" and creates the main view from m_Url; enables the view and assigns AudioSource and ReadyForBindings handler.</li>
+<li>Creates primary UIInputSystem and InputBindings.</li>
+<li>
+<p>If m_EnableFatalUI is true, configures an ErrorPage, sets fonts/roots/stop code, creates a fatal UISystem using FatalResourceHandler and creates m_FatalView with liveReload. Also creates fallback UI input system.</p>
+</li>
+<li>
+<p><code>private void Update()</code><br />
+Per-frame update:</p>
+</li>
+<li>Enables/disables m_FatalView based on m_EnableFatalUI.</li>
+<li>
+<p>Calls InputManager.instance?.Update(), m_UIManager?.Update(), and m_InputBindings?.Update().</p>
+</li>
+<li>
+<p><code>private void LateUpdate()</code><br />
+Dispatches input events to UIInputSystems:</p>
+</li>
+<li>m_UIInputSystem?.DispatchInputEvents()</li>
+<li>
+<p>m_FallbackUIInputSystem?.DispatchInputEvents()</p>
+</li>
+<li>
+<p><code>private void OnReadyForBindings()</code><br />
+Handler for m_View.Listener.ReadyForBindings — attaches input bindings to the cohtml View when ready.</p>
+</li>
+<li>
+<p><code>private void OnDestroy()</code><br />
+Cleans up:</p>
+</li>
+<li>Unsubscribes ReadyForBindings.</li>
+<li>Detaches and disposes InputBindings.</li>
+<li>Disposes UIInputSystem(s) and UIManager.</li>
+<li>
+<p>Destroys InputManager instance.</p>
+</li>
+<li>
+<p><code>bool IUIViewComponent.get_enabled()</code><br />
+Explicit interface getter that returns the MonoBehaviour.enabled value.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private async void Awake()
-    {
-        UnityEngine.Debug.LogWarning(&quot;UISystemBootstrapper is only meant for development purpose&quot;);
-        await Capabilities.CacheCapabilities();
-        UIManager.log.Info(&quot;Bootstrapping cohtmlUISystem&quot;);
-        InputManager.CreateInstance();
-        m_UIManager = new UIManager(developerMode: true);
-        Colossal.UI.UISystem.Settings settings = Colossal.UI.UISystem.Settings.New;
-        settings.enableDebugger = true;
-        if (GameManager.instance != null)
-        {
-            settings.localizationManager = new UILocalizationManager(GameManager.instance.localizationManager);
-        }
-        settings.resourceHandler = new GameUIResourceHandler(this);
-        settings.enableDebugger = true;
-        Colossal.UI.UISystem uISystem = m_UIManager.CreateUISystem(settings);
-        uISystem.AddHostLocation(&quot;gameui&quot;, EnvPath.kContentPath + &quot;/Game/UI&quot;);
-        m_View = uISystem.CreateView(m_Url, UIView.Settings.New, GetComponent&lt;Camera&gt;());
-        m_View.enabled = true;
-        m_View.AudioSource = GetComponent&lt;AudioSource&gt;();
-        m_View.Listener.ReadyForBindings += OnReadyForBindings;
-        m_UIInputSystem = new UIInputSystem(uISystem);
-        m_InputBindings = new InputBindings();
-        if (!m_EnableFatalUI)
-        {
-            return;
-        }
-        ErrorPage errorPage = new ErrorPage();
-        errorPage.AddAction(&quot;quit&quot;, delegate
-        {
-            Application.Quit();
-        });
-        errorPage.AddAction(&quot;visit&quot;, delegate
-        {
-            try
-            {
-                Process.Start(new ProcessStartInfo
-                {
-                    FileName = &quot;https://pdxint.at/3Do979W&quot;,
-                    UseShellExecute = true
-                });
-            }
-            catch
-            {
-                Application.Quit();
-            }
-        });
-        errorPage.SetRoot(EnvPath.kContentPath + &quot;/Game/UI/.fatal&quot;, EnvPath.kContentPath + &quot;/Game/.fatal&quot;);
-        errorPage.SetFonts(EnvPath.kContentPath + &quot;/Game/UI/Fonts&quot;, EnvPath.kContentPath + &quot;/Game/Fonts.cok&quot;);
-        errorPage.SetStopCode(new AggregateException());
-        Colossal.UI.UISystem.Settings settings2 = Colossal.UI.UISystem.Settings.New;
-        settings2.resourceHandler = new FatalResourceHandler(errorPage);
-        settings2.enableDebugger = true;
-        settings2.debuggerPort = 9445;
-        Colossal.UI.UISystem uISystem2 = m_UIManager.CreateUISystem(settings2);
-        UIView.Settings settings3 = UIView.Settings.New;
-        settings3.liveReload = true;
-        m_FatalView = uISystem2.CreateView(m_FatalUrl, settings3, GetComponent&lt;Camera&gt;());
-        m_FatalView.enabled = true;
-        m_FallbackUIInputSystem = new UIInputSystem(uISystem2);
-    }
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Attach this component to a GameObject that has a Camera (and optionally an AudioSource).
+var go = new GameObject(&quot;UISystemBootstrapper&quot;);
+go.AddComponent&lt;Camera&gt;();
+go.AddComponent&lt;AudioSource&gt;();
+
+var bootstrapper = go.AddComponent&lt;Game.UI.UISystemBootstrapper&gt;();
+bootstrapper.m_Url = &quot;gameui://main.html&quot;;
+bootstrapper.m_FatalUrl = &quot;fatal://error.html&quot;;
+bootstrapper.m_EnableFatalUI = true;
+
+// On play, Awake() will initialize the UI systems and create the views.
 </code></pre>
-<ul>
-<li><code>private Colossal.UI.IUIViewComponent.get_enabled() : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean Colossal.UI.IUIViewComponent.get_enabled();
-</code></pre>
-<ul>
-<li><code>private LateUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void LateUpdate()
-    {
-        m_UIInputSystem?.DispatchInputEvents();
-        m_FallbackUIInputSystem?.DispatchInputEvents();
-    }
-</code></pre>
-<ul>
-<li><code>private OnDestroy() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void OnDestroy()
-    {
-        if (m_View != null)
-        {
-            m_View.Listener.ReadyForBindings -= OnReadyForBindings;
-        }
-        m_InputBindings?.Detach();
-        m_InputBindings?.Dispose();
-        m_UIInputSystem?.Dispose();
-        m_FallbackUIInputSystem?.Dispose();
-        m_UIManager?.Dispose();
-        InputManager.DestroyInstance();
-    }
-</code></pre>
-<ul>
-<li><code>private OnReadyForBindings() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void OnReadyForBindings()
-    {
-        m_InputBindings?.Attach(m_View.View);
-    }
-</code></pre>
-<ul>
-<li><code>private Update() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void Update()
-    {
-        if (m_FatalView != null)
-        {
-            m_FatalView.enabled = m_EnableFatalUI;
-        }
-        InputManager.instance?.Update();
-        m_UIManager?.Update();
-        m_InputBindings?.Update();
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.UI.UISystemBootstrapper+&lt;&gt;c</code>  </li>
-<li><code>Game.UI.UISystemBootstrapper+&lt;Awake&gt;d__13</code>  </li>
-</ul>
+<p>Additional notes:
+- The component expects cohtml (cohtml.Net), Colossal.UI, and related game systems to be available.
+- Awake is async; it awaits Capabilities.CacheCapabilities() before creating UI systems.
+- This class is meant for development usage (enables debugger and logs a warning), and the fatal UI creates a debugger on port 9445 by default.</p>
 
 
 

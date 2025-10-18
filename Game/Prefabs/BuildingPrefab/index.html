@@ -37238,15 +37238,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -37277,6 +37268,15 @@
   <a href="#methods" class="md-nav__link">
     <span class="md-ellipsis">
       Methods
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
     </span>
   </a>
   
@@ -65320,6 +65320,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69751,6 +69774,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72563,6 +72609,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75553,6 +75622,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87145,6 +87237,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -117921,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117946,15 +118083,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -117992,6 +118120,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -118009,137 +118146,87 @@
 
 
 <h1 id="gameprefabsbuildingprefab">Game.Prefabs.BuildingPrefab</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Prefabs</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.Prefabs.StaticObjectPrefab</code><br />
-<strong>Implements:</strong> <code>Colossal.IO.AssetDatabase.IComponentBase</code>, <code>System.IComparable</code>, <code>UnityEngine.ISerializationCallbackReceiver</code>, <code>Colossal.IO.AssetDatabase.IPrefabBase</code>  </p>
-<p><strong>Attributes:</strong> <code>ComponentMenu</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class BuildingPrefab : Game.Prefabs.StaticObjectPrefab, Colossal.IO.AssetDatabase.IComponentBase, System.IComparable, UnityEngine.ISerializationCallbackReceiver, Colossal.IO.AssetDatabase.IPrefabBase
-{
-    public Game.Prefabs.BuildingAccessType m_AccessType;
-    public System.Int32 m_LotWidth;
-    public System.Int32 m_LotDepth;
-
-    public System.Int32 lotSize { get; }
-
-    public BuildingPrefab();
-
-    public System.Void AddUpgrade(Unity.Entities.EntityManager entityManager, Game.Prefabs.ServiceUpgrade upgrade);
-    public virtual System.Void GetArchetypeComponents(System.Collections.Generic.HashSet&lt;Unity.Entities.ComponentType&gt; components);
-    public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet&lt;Unity.Entities.ComponentType&gt; components);
-    protected virtual System.Void RefreshArchetype(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity);
-}
-</code></pre>
+<p><strong>Assembly:</strong> Game<br />
+<strong>Namespace:</strong> Game.Prefabs</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> StaticObjectPrefab</p>
+<p><strong>Summary:</strong><br />
+Represents the prefab definition for building objects in the game. This prefab class defines building-specific configuration (access type, lot size fields), and participates in creating the ECS archetype and component set used to instantiate building entities. It overrides prefab/archetype collection methods to ensure building-related components are present, and it supports adding service upgrades which modify the archetype when needed.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>public Game.Prefabs.BuildingAccessType m_AccessType</code>  </li>
+<li>
+<p><code>public BuildingAccessType m_AccessType</code><br />
+Defines how the building can be accessed (e.g., by road, pedestrian, special access rules). This is a public field set on the prefab asset and typically exposed in the editor.</p>
+</li>
+<li>
+<p><code>public int m_LotWidth = 4</code><br />
+[CustomField(typeof(BuildingLotWidthField))]<br />
+Lot width in tiles/units for the building's footprint. The CustomField attribute indicates this uses a custom editor field in the content editor. Default value in the prefab is 4.</p>
+</li>
+<li>
+<p><code>public int m_LotDepth = 4</code><br />
+[CustomField(typeof(BuildingLotDepthField))]<br />
+Lot depth in tiles/units for the building's footprint. The CustomField attribute indicates this uses a custom editor field in the content editor. Default value in the prefab is 4.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public Game.Prefabs.BuildingAccessType m_AccessType;
-</code></pre>
-<ul>
-<li><code>public System.Int32 m_LotWidth</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Int32 m_LotWidth;
-</code></pre>
-<ul>
-<li><code>public System.Int32 m_LotDepth</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Int32 m_LotDepth;
-</code></pre>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>public System.Int32 lotSize { get }</code>  </li>
+<li><code>public int lotSize { get; }</code><br />
+Computed read-only property that returns the total lot size as m_LotWidth * m_LotDepth. Useful for logic that needs the total footprint area (for zoning, placement, performance heuristics, etc).</li>
 </ul>
-<pre><code class="language-csharp">public System.Int32 lotSize { get; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public BuildingPrefab()</code>  </li>
+<li><code>public BuildingPrefab()</code><br />
+Default constructor (inherited behavior). Prefab instances are normally created/loaded by the game's asset/prefab system; you do not usually construct this directly in gameplay code.</li>
 </ul>
-<pre><code class="language-csharp">public BuildingPrefab();
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>public AddUpgrade(Unity.Entities.EntityManager entityManager, Game.Prefabs.ServiceUpgrade upgrade) : System.Void</code>  </li>
+<li>
+<p><code>public override void GetPrefabComponents(HashSet&lt;ComponentType&gt; components)</code><br />
+Collects ECS component types that should be present on the "prefab" entity (components that describe the prefab asset itself). This implementation calls base and then ensures BuildingData, PlaceableObjectData, BuildingTerraformData and Effect are included. Use: ensures the prefab entity stores the expected data components for building prefabs.</p>
+</li>
+<li>
+<p><code>public override void GetArchetypeComponents(HashSet&lt;ComponentType&gt; components)</code><br />
+Collects ECS component types that will be present on runtime building instances (archetype components). This method calls base and adds the standard set of components used by buildings (Building, CitizenPresence, SpawnLocationElement, CurrentDistrict, UpdateFrame, color/surface, modifiers, policies, sub-lane/sub-objects, lot data and enabled effects). This list is what determines the runtime behavior and systems that will process building entities.</p>
+</li>
+<li>
+<p><code>protected override void RefreshArchetype(EntityManager entityManager, Entity entity)</code><br />
+When the prefab's enabled component set changes (for example when upgrades are added or removed), this method rebuilds the archetype for the prefab entity. It:</p>
+</li>
+<li>Collects components from attached prefab components (via GetComponents).</li>
+<li>Adds extra component types when the prefab has BuildingUpgradeElement (InstalledUpgrade, SubNet, SubRoute).</li>
+<li>Adds standard Created/Updated flags.</li>
+<li>
+<p>Creates a new archetype with PrefabUtils.ToArray(hashSet) and writes it into the prefab's ObjectData.m_Archetype via SetComponentData.
+This is critical to keep the prefab's archetype in sync with dynamic changes (upgrades) so instances created from the prefab get the correct component layout.</p>
+</li>
+<li>
+<p><code>public void AddUpgrade(EntityManager entityManager, ServiceUpgrade upgrade)</code><br />
+Adds upgrade support to this prefab: it finds the prefab entity (via PrefabSystem.TryGetEntity for this prefab instance) and, if the prefab entity doesn't already have BuildingUpgradeElement, it adds a buffer<BuildingUpgradeElement> and refreshes the archetype if an archetype is already set. If the prefab entity cannot be found, it throws an Exception. Typical usage is to call this when a building gains optional upgrades (service upgrades) so the prefab and its archetype include the necessary components/buffers for runtime upgrading.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public void AddUpgrade(EntityManager entityManager, ServiceUpgrade upgrade)
-    {
-        if (entityManager.World.GetExistingSystemManaged&lt;PrefabSystem&gt;().TryGetEntity(this, out var entity))
-        {
-            if (!entityManager.HasComponent&lt;BuildingUpgradeElement&gt;(entity))
-            {
-                entityManager.AddBuffer&lt;BuildingUpgradeElement&gt;(entity);
-                if (entityManager.GetComponentData&lt;ObjectData&gt;(entity).m_Archetype.Valid)
-                {
-                    RefreshArchetype(entityManager, entity);
-                }
-            }
-            return;
-        }
-        throw new Exception(&quot;Building prefab entity not found for upgrade!&quot;);
-    }
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Example: Add a service upgrade to a BuildingPrefab during mod initialization.
+// 'world' is the Unity.Entities.World, 'entityManager' is world.EntityManager,
+// 'serviceUpgrade' is a ServiceUpgrade object you want to enable for the prefab.
+
+var prefabSystem = world.GetExistingSystemManaged&lt;PrefabSystem&gt;();
+if (prefabSystem.TryGetPrefab&lt;BuildingPrefab&gt;(&quot;MyCustomBuildingPrefabName&quot;, out var buildingPrefab))
+{
+    // This will find the prefab's entity and ensure it has a BuildingUpgradeElement buffer
+    // and refresh the archetype if necessary.
+    buildingPrefab.AddUpgrade(entityManager, serviceUpgrade);
+}
+else
+{
+    // Prefab not loaded/registered yet — handle accordingly (defer until prefab is available).
+}
 </code></pre>
-<ul>
-<li><code>public virtual GetArchetypeComponents(System.Collections.Generic.HashSet&lt;Unity.Entities.ComponentType&gt; components) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override void GetArchetypeComponents(HashSet&lt;ComponentType&gt; components)
-    {
-        base.GetArchetypeComponents(components);
-        components.Add(ComponentType.ReadWrite&lt;Building&gt;());
-        components.Add(ComponentType.ReadWrite&lt;CitizenPresence&gt;());
-        components.Add(ComponentType.ReadWrite&lt;SpawnLocationElement&gt;());
-        components.Add(ComponentType.ReadWrite&lt;CurrentDistrict&gt;());
-        components.Add(ComponentType.ReadWrite&lt;UpdateFrame&gt;());
-        components.Add(ComponentType.ReadWrite&lt;Game.Objects.Color&gt;());
-        components.Add(ComponentType.ReadWrite&lt;Game.Objects.Surface&gt;());
-        components.Add(ComponentType.ReadWrite&lt;BuildingModifier&gt;());
-        components.Add(ComponentType.ReadWrite&lt;Policy&gt;());
-        components.Add(ComponentType.ReadWrite&lt;Game.Net.SubLane&gt;());
-        components.Add(ComponentType.ReadWrite&lt;Game.Objects.SubObject&gt;());
-        components.Add(ComponentType.ReadWrite&lt;Game.Buildings.Lot&gt;());
-        components.Add(ComponentType.ReadWrite&lt;EnabledEffect&gt;());
-    }
-</code></pre>
-<ul>
-<li><code>public virtual GetPrefabComponents(System.Collections.Generic.HashSet&lt;Unity.Entities.ComponentType&gt; components) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override void GetPrefabComponents(HashSet&lt;ComponentType&gt; components)
-    {
-        base.GetPrefabComponents(components);
-        components.Add(ComponentType.ReadWrite&lt;BuildingData&gt;());
-        components.Add(ComponentType.ReadWrite&lt;PlaceableObjectData&gt;());
-        components.Add(ComponentType.ReadWrite&lt;BuildingTerraformData&gt;());
-        components.Add(ComponentType.ReadWrite&lt;Effect&gt;());
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual RefreshArchetype(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void RefreshArchetype(EntityManager entityManager, Entity entity)
-    {
-        List&lt;ComponentBase&gt; list = new List&lt;ComponentBase&gt;();
-        GetComponents(list);
-        HashSet&lt;ComponentType&gt; hashSet = new HashSet&lt;ComponentType&gt;();
-        if (entityManager.HasComponent&lt;BuildingUpgradeElement&gt;(entity))
-        {
-            hashSet.Add(ComponentType.ReadWrite&lt;InstalledUpgrade&gt;());
-            hashSet.Add(ComponentType.ReadWrite&lt;Game.Net.SubNet&gt;());
-            hashSet.Add(ComponentType.ReadWrite&lt;SubRoute&gt;());
-        }
-        for (int i = 0; i &lt; list.Count; i++)
-        {
-            list[i].GetArchetypeComponents(hashSet);
-        }
-        hashSet.Add(ComponentType.ReadWrite&lt;Created&gt;());
-        hashSet.Add(ComponentType.ReadWrite&lt;Updated&gt;());
-        entityManager.SetComponentData(entity, new ObjectData
-        {
-            m_Archetype = entityManager.CreateArchetype(PrefabUtils.ToArray(hashSet))
-        });
-    }
-</code></pre>
+<p>Notes and modding tips:
+- BuildingPrefab participates in the game's ECS-based prefab system. Changes to a prefab's component set require RefreshArchetype so instantiated entities get the correct archetype layout.
+- The CustomField attributes on m_LotWidth/m_LotDepth indicate editor UI customization; these fields affect placement and should match tile-based sizing used by placement/terraforming systems.
+- AddUpgrade expects a valid EntityManager and that the prefab has been registered in the PrefabSystem. Calling AddUpgrade before the prefab entity exists will throw — use PrefabSystem to obtain the entity or defer until the prefab is ready.</p>
 
 
 

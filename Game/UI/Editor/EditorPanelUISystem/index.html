@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87073,6 +87165,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Simulation/SurfaceWater/" class="md-nav__link">
         
   
@@ -97722,15 +97837,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -97761,6 +97867,15 @@
   <a href="#methods" class="md-nav__link">
     <span class="md-ellipsis">
       Methods
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
     </span>
   </a>
   
@@ -117923,6 +118038,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117948,15 +118085,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -117994,6 +118122,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -118011,234 +118148,124 @@
 
 
 <h1 id="gameuieditoreditorpaneluisystem">Game.UI.Editor.EditorPanelUISystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.UI.Editor</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.UI.UISystemBase</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class EditorPanelUISystem : Game.UI.UISystemBase
-{
-    private Game.UI.Editor.IEditorPanel m_LastPanel;
-    private Game.UI.Editor.IEditorPanel &lt;activePanel&gt;k__BackingField;
-    private Colossal.UI.Binding.ValueBinding&lt;System.Boolean&gt; m_ActiveBinding;
-    private Colossal.UI.Binding.ValueBinding&lt;System.Nullable&lt;Game.UI.Localization.LocalizedString&gt;&gt; m_TitleBinding;
-    private Game.UI.Widgets.WidgetBindings m_WidgetBindings;
-    private static const System.String kGroup;
-
-    public Game.GameMode gameMode { get; }
-    public Game.UI.Editor.IEditorPanel activePanel { get; set; }
-    private Game.UI.Editor.EditorPanelWidgetRenderer widgetRenderer { private get; }
-
-    public EditorPanelUISystem();
-
-    private System.Int32 &lt;OnCreate&gt;b__13_0();
-    public static System.Void AddEditorWidgetBindings(Game.UI.Widgets.WidgetBindings widgetBindings);
-    private System.Void Cancel();
-    private System.Void Close();
-    private System.Int32 GetWidth();
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnGameLoaded(Colossal.Serialization.Entities.Context serializationContext);
-    protected virtual System.Void OnUpdate();
-    public System.Void OnValueChanged(Game.UI.Widgets.IWidget widget);
-    private System.Void SetWidth(System.Int32 width);
-}
-</code></pre>
+<p><strong>Assembly:</strong> Game<br />
+<strong>Namespace:</strong> Game.UI.Editor</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> UISystemBase</p>
+<p><strong>Summary:</strong><br />
+Manages the in-game editor inspector panel UI. Tracks the currently active IEditorPanel, synchronizes UI bindings (active state, title, width, widget list, and widget renderer), forwards widget value changes to the active panel, and enables/disables underlying ComponentSystemBase implementations for panels when switching. Designed to operate in both Game and Editor modes (GameMode.GameOrEditor). Sets up common widget bindings used by editor inspector UIs.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.UI.Editor.IEditorPanel m_LastPanel</code>  </li>
+<li>
+<p><code>private IEditorPanel m_LastPanel</code><br />
+Tracks the previously active editor panel. Used to disable and update the previous panel's ComponentSystemBase (if the panel implements ComponentSystemBase) when switching panels.</p>
+</li>
+<li>
+<p><code>private ValueBinding&lt;bool&gt; m_ActiveBinding</code><br />
+Binding for the editor panel "active" flag ("editorPanel", "active"). Updated each frame to reflect whether an editor panel is active.</p>
+</li>
+<li>
+<p><code>private ValueBinding&lt;LocalizedString?&gt; m_TitleBinding</code><br />
+Binding for the editor panel title ("editorPanel", "title"). Holds a nullable LocalizedString and is updated to the active panel's title when present.</p>
+</li>
+<li>
+<p><code>private WidgetBindings m_WidgetBindings</code><br />
+Holds bindings for the child widgets of the active editor panel ("editorPanel"). Its children are set to activePanel.children each update; it also raises EventValueChanged which is handled by this system to forward widget changes.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.UI.Editor.IEditorPanel m_LastPanel;
-</code></pre>
-<ul>
-<li><code>private Game.UI.Editor.IEditorPanel &lt;activePanel&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.UI.Editor.IEditorPanel &lt;activePanel&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private Colossal.UI.Binding.ValueBinding&lt;System.Boolean&gt; m_ActiveBinding</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.UI.Binding.ValueBinding&lt;System.Boolean&gt; m_ActiveBinding;
-</code></pre>
-<ul>
-<li><code>private Colossal.UI.Binding.ValueBinding&lt;System.Nullable&lt;Game.UI.Localization.LocalizedString&gt;&gt; m_TitleBinding</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.UI.Binding.ValueBinding&lt;System.Nullable&lt;Game.UI.Localization.LocalizedString&gt;&gt; m_TitleBinding;
-</code></pre>
-<ul>
-<li><code>private Game.UI.Widgets.WidgetBindings m_WidgetBindings</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.UI.Widgets.WidgetBindings m_WidgetBindings;
-</code></pre>
-<ul>
-<li><code>private static const System.String kGroup</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static const System.String kGroup;
-</code></pre>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>public Game.GameMode gameMode { get }</code>  </li>
+<li>
+<p><code>public override GameMode gameMode { get; }</code><br />
+Returns GameMode.GameOrEditor, indicating the system runs in both regular game and editor contexts.</p>
+</li>
+<li>
+<p><code>[CanBeNull] public IEditorPanel activePanel { get; set; }</code><br />
+The currently active editor panel. Can be set by other code to open or close an inspector. When set to a different panel, OnUpdate will enable/disable underlying ComponentSystemBase implementations as needed.</p>
+</li>
+<li>
+<p><code>private EditorPanelWidgetRenderer widgetRenderer { get; }</code><br />
+Read-only helper property that returns the widget renderer for the active panel (activePanel.widgetRenderer) or EditorPanelWidgetRenderer.Editor when no panel is active. Used to publish the renderer type to bindings.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public Game.GameMode gameMode { get; }
-</code></pre>
-<ul>
-<li><code>public Game.UI.Editor.IEditorPanel activePanel { get; set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Game.UI.Editor.IEditorPanel activePanel { get; set; }
-</code></pre>
-<ul>
-<li><code>private Game.UI.Editor.EditorPanelWidgetRenderer widgetRenderer { private get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.UI.Editor.EditorPanelWidgetRenderer widgetRenderer { private get; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public EditorPanelUISystem()</code>  </li>
+<li><code>public EditorPanelUISystem()</code><br />
+Default constructor. Marked with [Preserve] to avoid stripping. Initialization of runtime state is handled in OnCreate.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public EditorPanelUISystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private &lt;OnCreate&gt;b__13_0() : System.Int32</code>  </li>
+<li><code>protected override void OnCreate()</code><br />
+Initializes bindings and widget bindings for the editor panel UI:</li>
+<li>Adds a boolean binding for "editorPanel/active".</li>
+<li>Adds a nullable LocalizedString binding for "editorPanel/title".</li>
+<li>Adds update bindings for "editorPanel/width" (via GetWidth) and "editorPanel/widgetRenderer".</li>
+<li>Constructs WidgetBindings ("editorPanel"), registers common editor widget bindings via AddEditorWidgetBindings, and subscribes to its EventValueChanged to call OnValueChanged.</li>
+<li>
+<p>Adds trigger bindings: "editorPanel/cancel" -&gt; Cancel, "editorPanel/close" -&gt; Close, and "editorPanel/setWidth" -&gt; SetWidth.</p>
+</li>
+<li>
+<p><code>public static void AddEditorWidgetBindings(WidgetBindings widgetBindings)</code><br />
+Registers standard and editor-specific widget binding types with the provided WidgetBindings instance. Includes default bindings and bindings for:</p>
+</li>
+<li>
+<p>EditorSection, SeasonsField, IItemPicker, PopupSearchField, AnimationCurveField, LocalizationField, FilterMenu, HierarchyMenu, ExternalLinkField, ListField.
+This centralizes binding registration so all editor inspector panels use the same widget behaviors.</p>
+</li>
+<li>
+<p><code>protected override void OnGameLoaded(Context serializationContext)</code><br />
+Called after game data is loaded; resets activePanel to null to ensure no stale panel remains active across loads.</p>
+</li>
+<li>
+<p><code>protected override void OnUpdate()</code><br />
+Core update loop for the UI system:</p>
+</li>
+<li>Detects when activePanel has changed. If the previous panel implemented ComponentSystemBase, it is disabled and updated once. The new panel (if a ComponentSystemBase) is enabled.</li>
+<li>If activePanel is present, updates its ComponentSystemBase (if any), sets m_ActiveBinding to true, updates the title binding, and assigns activePanel.children to m_WidgetBindings.children.</li>
+<li>If no activePanel, clears bindings (active false, null title) and sets m_WidgetBindings.children to an empty array.</li>
+<li>
+<p>Calls base.OnUpdate at the end.</p>
+</li>
+<li>
+<p><code>public void OnValueChanged(IWidget widget)</code><br />
+Forwarder that calls activePanel?.OnValueChanged(widget). Invoked by m_WidgetBindings.EventValueChanged when a widget's value changes.</p>
+</li>
+<li>
+<p><code>private int GetWidth()</code><br />
+Returns the inspector width to publish to the UI: uses SharedSettings.instance?.editor?.inspectorWidth with a fallback default of 450.</p>
+</li>
+<li>
+<p><code>private void SetWidth(int width)</code><br />
+Updates SharedSettings.instance.editor.inspectorWidth if settings exist. Invoked by the "editorPanel/setWidth" trigger binding.</p>
+</li>
+<li>
+<p><code>private void Cancel()</code><br />
+Invokes activePanel.OnCancel(); if that returns true (meaning the panel accepted the cancellation), clears activePanel (closes it).</p>
+</li>
+<li>
+<p><code>private void Close()</code><br />
+Invokes activePanel.OnClose(); if that returns true (meaning the panel agreed to close), clears activePanel.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private System.Int32 &lt;OnCreate&gt;b__13_0();
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Example: open a custom editor panel instance from some other system or UI command
+var inspectorSystem = World.DefaultGameObjectInjectionWorld?.GetExistingSystemManaged&lt;EditorPanelUISystem&gt;();
+if (inspectorSystem != null)
+{
+    // myPanel implements IEditorPanel (and optionally ComponentSystemBase)
+    inspectorSystem.activePanel = myPanel;
+}
+
+// The EditorPanelUISystem will:
+// - enable myPanel if it is a ComponentSystemBase,
+// - publish its title and widgets to the UI,
+// - forward widget changes to myPanel.OnValueChanged,
+// - and handle cancel/close triggers that call myPanel.OnCancel/OnClose.
 </code></pre>
-<ul>
-<li><code>public static AddEditorWidgetBindings(Game.UI.Widgets.WidgetBindings widgetBindings) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static void AddEditorWidgetBindings(WidgetBindings widgetBindings)
-    {
-        widgetBindings.AddDefaultBindings();
-        widgetBindings.AddBindings&lt;EditorSection.Bindings&gt;();
-        widgetBindings.AddBindings&lt;SeasonsField.Bindings&gt;();
-        widgetBindings.AddBindings&lt;IItemPicker.Bindings&gt;();
-        widgetBindings.AddBindings&lt;PopupSearchField.Bindings&gt;();
-        widgetBindings.AddBindings&lt;AnimationCurveField.Bindings&gt;();
-        widgetBindings.AddBindings&lt;LocalizationField.Bindings&gt;();
-        widgetBindings.AddBindings&lt;FilterMenu.Bindings&gt;();
-        widgetBindings.AddBindings&lt;HierarchyMenu.Bindings&gt;();
-        widgetBindings.AddBindings&lt;ExternalLinkField.Bindings&gt;();
-        widgetBindings.AddBindings&lt;ListField.Bindings&gt;();
-    }
-</code></pre>
-<ul>
-<li><code>private Cancel() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void Cancel()
-    {
-        if (activePanel != null &amp;&amp; activePanel.OnCancel())
-        {
-            activePanel = null;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private Close() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void Close()
-    {
-        if (activePanel != null &amp;&amp; activePanel.OnClose())
-        {
-            activePanel = null;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private GetWidth() : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">private int GetWidth()
-    {
-        return (SharedSettings.instance?.editor)?.inspectorWidth ?? 450;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        AddBinding(m_ActiveBinding = new ValueBinding&lt;bool&gt;(&quot;editorPanel&quot;, &quot;active&quot;, initialValue: false));
-        AddBinding(m_TitleBinding = new ValueBinding&lt;LocalizedString?&gt;(&quot;editorPanel&quot;, &quot;title&quot;, null, ValueWritersStruct.Nullable(new ValueWriter&lt;LocalizedString&gt;())));
-        AddUpdateBinding(new GetterValueBinding&lt;int&gt;(&quot;editorPanel&quot;, &quot;width&quot;, GetWidth));
-        AddUpdateBinding(new GetterValueBinding&lt;int&gt;(&quot;editorPanel&quot;, &quot;widgetRenderer&quot;, () =&gt; (int)widgetRenderer));
-        AddUpdateBinding(m_WidgetBindings = new WidgetBindings(&quot;editorPanel&quot;));
-        AddEditorWidgetBindings(m_WidgetBindings);
-        m_WidgetBindings.EventValueChanged += OnValueChanged;
-        AddBinding(new TriggerBinding(&quot;editorPanel&quot;, &quot;cancel&quot;, Cancel));
-        AddBinding(new TriggerBinding(&quot;editorPanel&quot;, &quot;close&quot;, Close));
-        AddBinding(new TriggerBinding&lt;int&gt;(&quot;editorPanel&quot;, &quot;setWidth&quot;, SetWidth));
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnGameLoaded(Colossal.Serialization.Entities.Context serializationContext) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnGameLoaded(Context serializationContext)
-    {
-        base.OnGameLoaded(serializationContext);
-        activePanel = null;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        if (activePanel != m_LastPanel)
-        {
-            if (m_LastPanel is ComponentSystemBase componentSystemBase)
-            {
-                componentSystemBase.Enabled = false;
-                componentSystemBase.Update();
-            }
-            m_LastPanel = activePanel;
-            if (activePanel is ComponentSystemBase componentSystemBase2)
-            {
-                componentSystemBase2.Enabled = true;
-            }
-        }
-        if (activePanel != null)
-        {
-            if (activePanel is ComponentSystemBase componentSystemBase3)
-            {
-                componentSystemBase3.Update();
-            }
-            m_ActiveBinding.Update(newValue: true);
-            m_TitleBinding.Update(activePanel.title);
-            m_WidgetBindings.children = activePanel.children;
-        }
-        else
-        {
-            m_ActiveBinding.Update(newValue: false);
-            m_TitleBinding.Update(null);
-            m_WidgetBindings.children = Array.Empty&lt;IWidget&gt;();
-        }
-        base.OnUpdate();
-    }
-</code></pre>
-<ul>
-<li><code>public OnValueChanged(Game.UI.Widgets.IWidget widget) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void OnValueChanged(IWidget widget)
-    {
-        activePanel?.OnValueChanged(widget);
-    }
-</code></pre>
-<ul>
-<li><code>private SetWidth(System.Int32 width) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void SetWidth(int width)
-    {
-        EditorSettings editorSettings = SharedSettings.instance?.editor;
-        if (editorSettings != null)
-        {
-            editorSettings.inspectorWidth = width;
-        }
-    }
-</code></pre>
+<p>Additional notes:
+- The system uses WidgetBindings to centralize widget handling; call AddEditorWidgetBindings when creating other inspector-like widget bindings to ensure consistent widget behavior.
+- The system relies on SharedSettings for persistent inspector width; mods can update SharedSettings.instance.editor.inspectorWidth to change the default width.</p>
 
 
 

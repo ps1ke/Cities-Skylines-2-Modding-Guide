@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87073,6 +87165,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Simulation/SurfaceWater/" class="md-nav__link">
         
   
@@ -97032,15 +97147,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -97077,9 +97183,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -117932,6 +118038,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117957,15 +118085,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -118004,9 +118123,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118029,575 +118148,204 @@
 
 
 <h1 id="gameuieditorassetimportpanel">Game.UI.Editor.AssetImportPanel</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.UI.Editor</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.UI.Editor.EditorPanelSystemBase</code><br />
-<strong>Implements:</strong> <code>Game.UI.Editor.IEditorPanel</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class AssetImportPanel : Game.UI.Editor.EditorPanelSystemBase, Game.UI.Editor.IEditorPanel
-{
-    private System.String m_SelectedProjectRoot;
-    private System.String m_SelectedDirectory;
-    private System.Boolean m_ProjectRootSelected;
-    private Game.UI.Widgets.DirectoryPickerButton m_OpenProjectRootButton;
-    private Game.UI.Widgets.DirectoryPickerButton m_OpenSelectedAssetPathButton;
-    private System.Collections.Generic.List&lt;Game.UI.Editor.FileItem&gt; m_Assets;
-    private System.Collections.Generic.List&lt;Game.UI.Editor.FileItem&gt; m_CachedAssets;
-    private Game.UI.Editor.FilePickerAdapter m_Adapter;
-    private Game.UI.Editor.ItemPicker&lt;Game.UI.Editor.FileItem&gt; m_AssetList;
-    private Game.UI.Editor.ItemPickerFooter m_ItemPickerFooter;
-    private Game.Prefabs.PrefabBase m_SelectedTemplate;
-    private Game.UI.Widgets.Button m_ImportButton;
-    private System.Boolean m_Importing;
-
-    private System.Boolean importing { private get; private set; }
-
-    public AssetImportPanel();
-
-    private Game.Prefabs.PrefabBase &lt;OnStartRunning&gt;b__16_0();
-    private System.Void &lt;OnStartRunning&gt;b__16_1(Game.Prefabs.PrefabBase prefab);
-    private System.Void CloseDirectoryBrowser();
-    private System.Collections.Generic.IEnumerable&lt;Game.UI.Editor.FileItem&gt; GetAssets();
-    private System.Void ImportAssets();
-    public static System.Threading.Tasks.Task&lt;Game.UI.Editor.AssetImportPanel+PrefabFactory&gt; ImportAssets(System.String selectedProjectRoot, System.String selectedDirectory, Game.Prefabs.PrefabBase selectedTemplate, Unity.Entities.World world, Colossal.Logging.ILog log);
-    private System.Boolean IsImportDisabled();
-    private System.Boolean IsSelectedAssetFolderDisabled();
-    private System.Void OnAssetSelected(Game.UI.Editor.FileItem item);
-    private System.Void OnLoadAsset(System.Guid guid);
-    private System.Void OnSelectDirectory(System.String directory);
-    private System.Void OnSelectProjectRoot(System.String directory);
-    protected virtual System.Void OnStartRunning();
-    private System.Void OpenAssetSubDirectory();
-    private System.Void OpenDirectory();
-    private static System.Boolean ReportProgress(System.String title, System.String info, System.Single progress);
-}
-</code></pre>
+<p><strong>Assembly:</strong><br />
+Assembly-CSharp (Game)</p>
+<p><strong>Namespace:</strong><br />
+Game.UI.Editor</p>
+<p><strong>Type:</strong><br />
+public class</p>
+<p><strong>Base:</strong><br />
+EditorPanelSystemBase</p>
+<p><strong>Summary:</strong><br />
+AssetImportPanel is the editor UI panel used by Cities: Skylines 2 to import art assets from an external project directory into the game's user asset database. It provides UI controls to pick a project root and an import subfolder, presents a file list, allows selecting a prefab template to apply to imported meshes, and runs the import pipeline (AssetImportPipeline) to create prefabs and add them to the game's prefab system. The panel persists the last-used project and import directories via SharedSettings and uses PrefabFactory (nested) to collect created prefabs during import. Import is performed asynchronously and supports parallel import settings.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private System.String m_SelectedProjectRoot</code>  </li>
+<li>
+<p><code>private readonly List&lt;(PrefabBase prefab, string source)&gt; m_RootPrefabs</code><br />
+Holds root prefabs collected by the nested PrefabFactory. Each entry pairs a created PrefabBase and the original source path.</p>
+</li>
+<li>
+<p><code>private readonly List&lt;PrefabBase&gt; m_CreatedPrefabs</code><br />
+List of all prefabs created by the nested PrefabFactory during an import session.</p>
+</li>
+<li>
+<p><code>private string m_SelectedProjectRoot</code><br />
+Full path to the selected project root directory (persisted via EditorSettings).</p>
+</li>
+<li>
+<p><code>private string m_SelectedDirectory</code><br />
+Full path to the currently selected import directory/subfolder (persisted via EditorSettings).</p>
+</li>
+<li>
+<p><code>private bool m_ProjectRootSelected</code><br />
+Flag indicating whether a valid project root has been selected in the UI.</p>
+</li>
+<li>
+<p><code>private DirectoryPickerButton m_OpenProjectRootButton</code><br />
+UI button widget that opens the project-root directory browser.</p>
+</li>
+<li>
+<p><code>private DirectoryPickerButton m_OpenSelectedAssetPathButton</code><br />
+UI button widget that opens the selected asset subdirectory browser.</p>
+</li>
+<li>
+<p><code>private List&lt;FileItem&gt; m_Assets</code><br />
+Current list of FileItem entries representing detected importable assets in the selected directory.</p>
+</li>
+<li>
+<p><code>private List&lt;FileItem&gt; m_CachedAssets</code><br />
+Reserved for caching asset list (present in class but not actively used in this file).</p>
+</li>
+<li>
+<p><code>private FilePickerAdapter m_Adapter</code><br />
+Adapter used by the item picker UI to display m_Assets.</p>
+</li>
+<li>
+<p><code>private ItemPicker&lt;FileItem&gt; m_AssetList</code><br />
+UI picker that shows available assets to import.</p>
+</li>
+<li>
+<p><code>private ItemPickerFooter m_ItemPickerFooter</code><br />
+Footer widget for the asset item picker.</p>
+</li>
+<li>
+<p><code>private PrefabBase m_SelectedTemplate</code><br />
+Optional prefab template chosen by the user to apply to imported meshes.</p>
+</li>
+<li>
+<p><code>private Button m_ImportButton</code><br />
+UI button that triggers the import process.</p>
+</li>
+<li>
+<p><code>private bool m_Importing</code><br />
+Backing field used by the private importing property to track whether an import is in progress.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private System.String m_SelectedProjectRoot;
-</code></pre>
-<ul>
-<li><code>private System.String m_SelectedDirectory</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.String m_SelectedDirectory;
-</code></pre>
-<ul>
-<li><code>private System.Boolean m_ProjectRootSelected</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean m_ProjectRootSelected;
-</code></pre>
-<ul>
-<li><code>private Game.UI.Widgets.DirectoryPickerButton m_OpenProjectRootButton</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.UI.Widgets.DirectoryPickerButton m_OpenProjectRootButton;
-</code></pre>
-<ul>
-<li><code>private Game.UI.Widgets.DirectoryPickerButton m_OpenSelectedAssetPathButton</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.UI.Widgets.DirectoryPickerButton m_OpenSelectedAssetPathButton;
-</code></pre>
-<ul>
-<li><code>private System.Collections.Generic.List&lt;Game.UI.Editor.FileItem&gt; m_Assets</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Collections.Generic.List&lt;Game.UI.Editor.FileItem&gt; m_Assets;
-</code></pre>
-<ul>
-<li><code>private System.Collections.Generic.List&lt;Game.UI.Editor.FileItem&gt; m_CachedAssets</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Collections.Generic.List&lt;Game.UI.Editor.FileItem&gt; m_CachedAssets;
-</code></pre>
-<ul>
-<li><code>private Game.UI.Editor.FilePickerAdapter m_Adapter</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.UI.Editor.FilePickerAdapter m_Adapter;
-</code></pre>
-<ul>
-<li><code>private Game.UI.Editor.ItemPicker&lt;Game.UI.Editor.FileItem&gt; m_AssetList</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.UI.Editor.ItemPicker&lt;Game.UI.Editor.FileItem&gt; m_AssetList;
-</code></pre>
-<ul>
-<li><code>private Game.UI.Editor.ItemPickerFooter m_ItemPickerFooter</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.UI.Editor.ItemPickerFooter m_ItemPickerFooter;
-</code></pre>
-<ul>
-<li><code>private Game.Prefabs.PrefabBase m_SelectedTemplate</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Prefabs.PrefabBase m_SelectedTemplate;
-</code></pre>
-<ul>
-<li><code>private Game.UI.Widgets.Button m_ImportButton</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.UI.Widgets.Button m_ImportButton;
-</code></pre>
-<ul>
-<li><code>private System.Boolean m_Importing</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean m_Importing;
-</code></pre>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>private System.Boolean importing { private get; private set }</code>  </li>
+<li>
+<p><code>private bool importing { get; set; }</code><br />
+Encapsulates m_Importing. Setting this updates the import button display name between "Editor.IMPORT" and "Editor.IMPORTING" and influences IsImportDisabled. Used to prevent reentrancy while an import runs.</p>
+</li>
+<li>
+<p><code>public IReadOnlyList&lt;(PrefabBase prefab, string source)&gt; rootPrefabs =&gt; m_RootPrefabs</code> (PrefabFactory)<br />
+Exposes root prefabs created for reference after import.</p>
+</li>
+<li>
+<p><code>public IReadOnlyList&lt;PrefabBase&gt; prefabs =&gt; m_CreatedPrefabs</code> (PrefabFactory)<br />
+Exposes all prefabs created by the factory during import.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private System.Boolean importing { private get; private set; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public AssetImportPanel()</code>  </li>
+<li>
+<p><code>public AssetImportPanel()</code><br />
+Default constructor. The panel initialization work is performed in OnStartRunning.</p>
+</li>
+<li>
+<p><code>public PrefabFactory()</code> (nested class PrefabFactory)<br />
+Default constructor for the nested factory used by the import pipeline to create/load prefab assets.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public AssetImportPanel()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private &lt;OnStartRunning&gt;b__16_0() : Game.Prefabs.PrefabBase</code>  </li>
+<li>
+<p><code>[Preserve] protected override void OnStartRunning()</code><br />
+Initializes the panel UI when the system starts running. Builds child widgets (directory pickers, asset list, template popup, import button), wires adapter events, loads last used editor settings (lastSelectedProjectRootDirectory and lastSelectedImportDirectory) and auto-selects directories when possible. Catches and logs exceptions while restoring selections.</p>
+</li>
+<li>
+<p><code>private void OnAssetSelected(FileItem item)</code><br />
+Callback invoked when the user selects an asset item in the list. Currently logs the selection.</p>
+</li>
+<li>
+<p><code>private void OpenDirectory()</code><br />
+Opens a DirectoryBrowserPanel to pick the project root.</p>
+</li>
+<li>
+<p><code>private void OpenAssetSubDirectory()</code><br />
+Opens a DirectoryBrowserPanel to pick the import subdirectory. Ensures the selected directory starts with the selected project root.</p>
+</li>
+<li>
+<p><code>private void CloseDirectoryBrowser()</code><br />
+Closes the directory browser subpanel.</p>
+</li>
+<li>
+<p><code>private void OnLoadAsset(Guid guid)</code><br />
+Placeholder callback invoked when an asset is loaded; closes subpanel. (Implementation in this file only closes the subpanel.)</p>
+</li>
+<li>
+<p><code>private void OnSelectProjectRoot(string directory)</code><br />
+Handler when a project root is selected. Updates button labels, persists the selection to EditorSettings, clears and reinitializes the asset adapter, and marks a project root as selected.</p>
+</li>
+<li>
+<p><code>private void OnSelectDirectory(string directory)</code><br />
+Handler when an import directory is selected. Updates UI labels, persists setting, collects assets from the selected directory and reinitializes adapters.</p>
+</li>
+<li>
+<p><code>private IEnumerable&lt;FileItem&gt; GetAssets()</code><br />
+Enumerates importable assets from the currently selected directory using AssetImportPipeline. It ensures post-processors and importer extensions are cached, calls AssetImportPipeline.CollectDataToImport and yields FileItem entries (path, displayName, tooltip) for each SourceAsset found.</p>
+</li>
+<li>
+<p><code>private bool IsImportDisabled()</code><br />
+UI helper to determine whether the Import button should be disabled. Returns true while import is in progress or when there are no assets to import.</p>
+</li>
+<li>
+<p><code>private bool IsSelectedAssetFolderDisabled()</code><br />
+UI helper to determine whether the "selected assets" button should be disabled. Button is enabled only when a project root has been chosen and a project root path is non-empty.</p>
+</li>
+<li>
+<p><code>private static bool ReportProgress(string title, string info, float progress)</code><br />
+Progress callback used during import. Logs completion when progress == 1.0. Returns false (the pipeline expects a bool return; usage here returns false).</p>
+</li>
+<li>
+<p><code>private async void ImportAssets()</code><br />
+UI-triggered async method. Sets importing = true, waits for the static ImportAssets helper to complete and finally sets importing = false even on exceptions. Passes base.World and base.log to the import routine.</p>
+</li>
+<li>
+<p><code>public static async Task&lt;PrefabFactory&gt; ImportAssets(string selectedProjectRoot, string selectedDirectory, PrefabBase selectedTemplate, World world, ILog log)</code><br />
+Core static import routine. Validates selected paths, checks for art-root path via AssetImportPipeline.IsArtRootPath, creates a PrefabFactory, configures AssetImportPipeline settings (parallel import, target database, texture compression override), calls AssetImportPipeline.ImportPath to perform import, and then integrates created prefabs into the game's PrefabSystem and optionally activates the prefab tool (ToolSystem). If a template is provided, it clones the template and attaches the imported mesh as m_Meshes[0] (for ObjectGeometryPrefab), strips out several components (ObjectSubObjects, subareas, lanes, nets, effects, obsolete identifiers), and saves/ registers the prefab in the target database. Errors are logged via the provided ILog. Returns the PrefabFactory that collected created prefabs, or null on failure.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.Prefabs.PrefabBase &lt;OnStartRunning&gt;b__16_0();
-</code></pre>
+<p>Nested PrefabFactory methods:</p>
 <ul>
-<li><code>private &lt;OnStartRunning&gt;b__16_1(Game.Prefabs.PrefabBase prefab) : System.Void</code>  </li>
+<li>
+<p><code>public T CreatePrefab&lt;T&gt;(string sourcePath, string rootMeshName, int lodLevel) where T : PrefabBase</code><br />
+Called by the import pipeline to create or reuse a prefab asset for a mesh. Loads an existing prefab asset if it matches a generated sub-path, otherwise creates a new ScriptableObject instance of T. Adds created prefab to internal lists and marks root prefabs when lodLevel == 0.</p>
+</li>
+<li>
+<p><code>private T LoadOrCreateAsset&lt;T&gt;(string sourcePath, string rootMeshName) where T : PrefabBase</code><br />
+Attempts to find an existing PrefabAsset in the user AssetDatabase whose subPath and name match the expected path. If found and it loads to type T, returns it; otherwise creates a new ScriptableObject of type T.</p>
+</li>
+<li>
+<p><code>private static bool PathCompare(string subPath1, string subPath2)</code><br />
+Helper to compare two paths after FullPath and trimming trailing backslashes in a case-insensitive invariant culture manner.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private System.Void &lt;OnStartRunning&gt;b__16_1(Game.Prefabs.PrefabBase prefab);
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Example: Invoking the static import helper from your mod/system code.
+// 'world' is the ECS World (e.g. base.World from a system) and 'log' is an implementation of ILog.
+// 'selectedTemplate' may be null to keep the imported prefab as-is.
+
+string projectRoot = @&quot;C:\MyArtProject\&quot;;
+string importSubDir = @&quot;C:\MyArtProject\Assets\Props\&quot;;
+PrefabBase selectedTemplate = myTemplate; // e.g., an ObjectGeometryPrefab or null
+
+PrefabFactory factory = await AssetImportPanel.ImportAssets(
+    selectedProjectRoot: projectRoot,
+    selectedDirectory: importSubDir,
+    selectedTemplate: selectedTemplate,
+    world: World.DefaultGameObjectInjectionWorld,
+    log: LogManager.GetLogger(&quot;AssetImport&quot;)
+);
+
+// After completion, use factory.rootPrefabs / factory.prefabs to inspect created prefabs.
 </code></pre>
-<ul>
-<li><code>private CloseDirectoryBrowser() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void CloseDirectoryBrowser()
-    {
-        CloseSubPanel();
-    }
-</code></pre>
-<ul>
-<li><code>private GetAssets() : System.Collections.Generic.IEnumerable&lt;Game.UI.Editor.FileItem&gt;</code>  </li>
-</ul>
-<pre><code class="language-csharp">private IEnumerable&lt;FileItem&gt; GetAssets()
-    {
-        if (m_SelectedDirectory == null)
-        {
-            yield break;
-        }
-        PostProcessorCache.CachePostProcessors();
-        ImporterCache.CacheSupportedExtensions();
-        Report report = new Report();
-        IDictionary&lt;SourceAssetCollector.AssetGroup&lt;SourceAssetCollector.Asset&gt;, Colossal.AssetPipeline.Settings&gt; dictionary = AssetImportPipeline.CollectDataToImport(m_SelectedProjectRoot, new string[1] { m_SelectedDirectory }, report);
-        foreach (KeyValuePair&lt;SourceAssetCollector.AssetGroup&lt;SourceAssetCollector.Asset&gt;, Colossal.AssetPipeline.Settings&gt; item in dictionary)
-        {
-            foreach (SourceAssetCollector.Asset item2 in item.Key)
-            {
-                yield return new FileItem
-                {
-                    path = item2.path,
-                    displayName = item2.name,
-                    tooltip = item2.path
-                };
-            }
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private ImportAssets() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static async Task&lt;PrefabFactory&gt; ImportAssets(string selectedProjectRoot, string selectedDirectory, PrefabBase selectedTemplate, World world, ILog log)
-    {
-        PrefabFactory prefabFactory = null;
-        try
-        {
-            EditorSettings editorSettings = SharedSettings.instance?.editor;
-            if (selectedProjectRoot == null)
-            {
-                throw new Exception(&quot;The path must contains ProjectFiles to act as the root folder of the art assets&quot;);
-            }
-            if (AssetImportPipeline.IsArtRootPath(selectedProjectRoot, new string[1] { selectedDirectory }, out var artProjectPath, out var artProjectRelativePaths))
-            {
-                prefabFactory = new PrefabFactory();
-                AssetImportPipeline.useParallelImport = editorSettings?.useParallelImport ?? true;
-                AssetImportPipeline.targetDatabase = AssetDatabase.user;
-                TextureImporter.overrideCompressionEffort = ((!(editorSettings?.lowQualityTextureCompression ?? true)) ? (-1) : 0);
-                await AssetImportPipeline.ImportPath(artProjectPath, artProjectRelativePaths, ImportMode.All, convertToVT: false, ReportProgress, prefabFactory);
-                PrefabSystem orCreateSystemManaged = world.GetOrCreateSystemManaged&lt;PrefabSystem&gt;();
-                ToolSystem orCreateSystemManaged2 = world.GetOrCreateSystemManaged&lt;ToolSystem&gt;();
-                foreach (var rootPrefab in prefabFactory.rootPrefabs)
-                {
-                    log.InfoFormat(&quot;Root prefab: {0} ({1})&quot;, rootPrefab.prefab.name, rootPrefab.source);
-                    string fileName = Path.GetFileName(rootPrefab.source);
-                    string subPath = &quot;StreamingData~/&quot; + fileName;
-                    if (selectedTemplate != null)
-                    {
-                        PrefabBase prefabBase = selectedTemplate.Clone(fileName);
-                        if (prefabBase is ObjectGeometryPrefab objectGeometryPrefab)
-                        {
-                            objectGeometryPrefab.m_Meshes = new ObjectMeshInfo[1]
-                            {
-                                new ObjectMeshInfo
-                                {
-                                    m_Mesh = (rootPrefab.prefab as RenderPrefabBase)
-                                }
-                            };
-                        }
-                        prefabBase.Remove&lt;ObjectSubObjects&gt;();
-                        prefabBase.Remove&lt;ObjectSubAreas&gt;();
-                        prefabBase.Remove&lt;ObjectSubLanes&gt;();
-                        prefabBase.Remove&lt;ObjectSubNets&gt;();
-                        prefabBase.Remove&lt;NetSubObjects&gt;();
-                        prefabBase.Remove&lt;AreaSubObjects&gt;();
-                        prefabBase.Remove&lt;EffectSource&gt;();
-                        prefabBase.Remove&lt;ObsoleteIdentifiers&gt;();
-                        AssetImportPipeline.targetDatabase.AddAsset(AssetDataPath.Create(subPath, prefabBase.name ?? &quot;&quot;), prefabBase).Save();
-                        orCreateSystemManaged.AddPrefab(prefabBase);
-                        orCreateSystemManaged2.ActivatePrefabTool(prefabBase);
-                    }
-                    else
-                    {
-                        if (rootPrefab.prefab.asset == null)
-                        {
-                            AssetImportPipeline.targetDatabase.AddAsset(AssetDataPath.Create(subPath, rootPrefab.prefab.name ?? &quot;&quot;), rootPrefab.prefab);
-                        }
-                        rootPrefab.prefab.asset.Save(force: true);
-                        orCreateSystemManaged.AddPrefab(rootPrefab.prefab);
-                    }
-                }
-            }
-            else
-            {
-                log.Error(&quot;The path must contains ProjectFiles to act as the root folder of the art assets&quot;);
-            }
-        }
-        catch (Exception exception)
-        {
-            log.Error(exception);
-        }
-        return prefabFactory;
-    }
-</code></pre>
-<ul>
-<li><code>public static ImportAssets(System.String selectedProjectRoot, System.String selectedDirectory, Game.Prefabs.PrefabBase selectedTemplate, Unity.Entities.World world, Colossal.Logging.ILog log) : System.Threading.Tasks.Task&lt;Game.UI.Editor.AssetImportPanel+PrefabFactory&gt;</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static async Task&lt;PrefabFactory&gt; ImportAssets(string selectedProjectRoot, string selectedDirectory, PrefabBase selectedTemplate, World world, ILog log)
-    {
-        PrefabFactory prefabFactory = null;
-        try
-        {
-            EditorSettings editorSettings = SharedSettings.instance?.editor;
-            if (selectedProjectRoot == null)
-            {
-                throw new Exception(&quot;The path must contains ProjectFiles to act as the root folder of the art assets&quot;);
-            }
-            if (AssetImportPipeline.IsArtRootPath(selectedProjectRoot, new string[1] { selectedDirectory }, out var artProjectPath, out var artProjectRelativePaths))
-            {
-                prefabFactory = new PrefabFactory();
-                AssetImportPipeline.useParallelImport = editorSettings?.useParallelImport ?? true;
-                AssetImportPipeline.targetDatabase = AssetDatabase.user;
-                TextureImporter.overrideCompressionEffort = ((!(editorSettings?.lowQualityTextureCompression ?? true)) ? (-1) : 0);
-                await AssetImportPipeline.ImportPath(artProjectPath, artProjectRelativePaths, ImportMode.All, convertToVT: false, ReportProgress, prefabFactory);
-                PrefabSystem orCreateSystemManaged = world.GetOrCreateSystemManaged&lt;PrefabSystem&gt;();
-                ToolSystem orCreateSystemManaged2 = world.GetOrCreateSystemManaged&lt;ToolSystem&gt;();
-                foreach (var rootPrefab in prefabFactory.rootPrefabs)
-                {
-                    log.InfoFormat(&quot;Root prefab: {0} ({1})&quot;, rootPrefab.prefab.name, rootPrefab.source);
-                    string fileName = Path.GetFileName(rootPrefab.source);
-                    string subPath = &quot;StreamingData~/&quot; + fileName;
-                    if (selectedTemplate != null)
-                    {
-                        PrefabBase prefabBase = selectedTemplate.Clone(fileName);
-                        if (prefabBase is ObjectGeometryPrefab objectGeometryPrefab)
-                        {
-                            objectGeometryPrefab.m_Meshes = new ObjectMeshInfo[1]
-                            {
-                                new ObjectMeshInfo
-                                {
-                                    m_Mesh = (rootPrefab.prefab as RenderPrefabBase)
-                                }
-                            };
-                        }
-                        prefabBase.Remove&lt;ObjectSubObjects&gt;();
-                        prefabBase.Remove&lt;ObjectSubAreas&gt;();
-                        prefabBase.Remove&lt;ObjectSubLanes&gt;();
-                        prefabBase.Remove&lt;ObjectSubNets&gt;();
-                        prefabBase.Remove&lt;NetSubObjects&gt;();
-                        prefabBase.Remove&lt;AreaSubObjects&gt;();
-                        prefabBase.Remove&lt;EffectSource&gt;();
-                        prefabBase.Remove&lt;ObsoleteIdentifiers&gt;();
-                        AssetImportPipeline.targetDatabase.AddAsset(AssetDataPath.Create(subPath, prefabBase.name ?? &quot;&quot;), prefabBase).Save();
-                        orCreateSystemManaged.AddPrefab(prefabBase);
-                        orCreateSystemManaged2.ActivatePrefabTool(prefabBase);
-                    }
-                    else
-                    {
-                        if (rootPrefab.prefab.asset == null)
-                        {
-                            AssetImportPipeline.targetDatabase.AddAsset(AssetDataPath.Create(subPath, rootPrefab.prefab.name ?? &quot;&quot;), rootPrefab.prefab);
-                        }
-                        rootPrefab.prefab.asset.Save(force: true);
-                        orCreateSystemManaged.AddPrefab(rootPrefab.prefab);
-                    }
-                }
-            }
-            else
-            {
-                log.Error(&quot;The path must contains ProjectFiles to act as the root folder of the art assets&quot;);
-            }
-        }
-        catch (Exception exception)
-        {
-            log.Error(exception);
-        }
-        return prefabFactory;
-    }
-</code></pre>
-<ul>
-<li><code>private IsImportDisabled() : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">private bool IsImportDisabled()
-    {
-        if (!importing)
-        {
-            return !m_Assets.Any();
-        }
-        return true;
-    }
-</code></pre>
-<ul>
-<li><code>private IsSelectedAssetFolderDisabled() : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">private bool IsSelectedAssetFolderDisabled()
-    {
-        if (!string.IsNullOrEmpty(m_SelectedProjectRoot))
-        {
-            return !m_ProjectRootSelected;
-        }
-        return true;
-    }
-</code></pre>
-<ul>
-<li><code>private OnAssetSelected(Game.UI.Editor.FileItem item) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void OnAssetSelected(FileItem item)
-    {
-        UnityEngine.Debug.Log(&quot;Asset selected &quot; + item.displayName);
-    }
-</code></pre>
-<ul>
-<li><code>private OnLoadAsset(System.Guid guid) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void OnLoadAsset(Guid guid)
-    {
-        CloseSubPanel();
-    }
-</code></pre>
-<ul>
-<li><code>private OnSelectDirectory(System.String directory) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void OnSelectDirectory(string directory)
-    {
-        CloseSubPanel();
-        string text = directory.Remove(directory.Length - 1);
-        if (text.LastIndexOf('/') != -1)
-        {
-            m_OpenSelectedAssetPathButton.displayValue = &quot;..&quot; + text.Substring(text.LastIndexOf('/')) + &quot;/&quot;;
-        }
-        else
-        {
-            m_OpenSelectedAssetPathButton.displayValue = text;
-        }
-        m_OpenSelectedAssetPathButton.tooltip = text;
-        m_SelectedDirectory = text;
-        EditorSettings editorSettings = SharedSettings.instance?.editor;
-        if (editorSettings != null)
-        {
-            editorSettings.lastSelectedImportDirectory = m_SelectedDirectory;
-            editorSettings.ApplyAndSave();
-        }
-        m_Assets = GetAssets().ToList();
-        m_Adapter = new FilePickerAdapter(m_Assets);
-        FilePickerAdapter adapter = m_Adapter;
-        adapter.EventItemSelected = (Action&lt;FileItem&gt;)Delegate.Combine(adapter.EventItemSelected, new Action&lt;FileItem&gt;(OnAssetSelected));
-        m_AssetList.adapter = m_Adapter;
-        m_ItemPickerFooter.adapter = m_Adapter;
-    }
-</code></pre>
-<ul>
-<li><code>private OnSelectProjectRoot(System.String directory) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void OnSelectProjectRoot(string directory)
-    {
-        CloseSubPanel();
-        string text = directory.Remove(directory.Length - 1);
-        if (text != m_SelectedProjectRoot)
-        {
-            m_SelectedDirectory = null;
-            m_OpenSelectedAssetPathButton.displayValue = &quot;&quot;;
-            m_OpenSelectedAssetPathButton.tooltip = &quot;Select asset folder&quot;;
-        }
-        if (text.LastIndexOf('/') != -1)
-        {
-            m_OpenProjectRootButton.displayValue = &quot;..&quot; + text.Substring(text.LastIndexOf('/')) + &quot;/&quot;;
-        }
-        else
-        {
-            m_OpenProjectRootButton.displayValue = text;
-        }
-        m_OpenProjectRootButton.tooltip = text;
-        m_SelectedProjectRoot = text;
-        EditorSettings editorSettings = SharedSettings.instance?.editor;
-        if (editorSettings != null)
-        {
-            editorSettings.lastSelectedProjectRootDirectory = m_SelectedProjectRoot;
-            editorSettings.ApplyAndSave();
-        }
-        m_Assets.Clear();
-        m_Adapter = new FilePickerAdapter(m_Assets);
-        FilePickerAdapter adapter = m_Adapter;
-        adapter.EventItemSelected = (Action&lt;FileItem&gt;)Delegate.Combine(adapter.EventItemSelected, new Action&lt;FileItem&gt;(OnAssetSelected));
-        m_AssetList.adapter = m_Adapter;
-        m_ItemPickerFooter.adapter = m_Adapter;
-        m_ProjectRootSelected = true;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnStartRunning() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnStartRunning()
-    {
-        base.OnStartRunning();
-        base.activeSubPanel = null;
-        m_Assets = GetAssets().ToList();
-        m_Adapter = new FilePickerAdapter(m_Assets);
-        FilePickerAdapter adapter = m_Adapter;
-        adapter.EventItemSelected = (Action&lt;FileItem&gt;)Delegate.Combine(adapter.EventItemSelected, new Action&lt;FileItem&gt;(OnAssetSelected));
-        m_OpenProjectRootButton = new DirectoryPickerButton
-        {
-            displayName = &quot;Editor.PROJECT_ROOT&quot;,
-            action = OpenDirectory,
-            tooltip = &quot;Editor.PROJECT_ROOT_TOOLTIP&quot;,
-            uiTag = &quot;UITagPrefab:SelectProjectRoot&quot;
-        };
-        m_OpenSelectedAssetPathButton = new DirectoryPickerButton
-        {
-            displayName = &quot;Editor.SELECTED_ASSETS&quot;,
-            action = OpenAssetSubDirectory,
-            disabled = IsSelectedAssetFolderDisabled,
-            tooltip = &quot;Editor.SELECTED_ASSETS_TOOLTIP&quot;,
-            uiTag = &quot;UITagPrefab:SelectAssets&quot;
-        };
-        m_AssetList = new ItemPicker&lt;FileItem&gt;
-        {
-            adapter = m_Adapter
-        };
-        m_ItemPickerFooter = new ItemPickerFooter
-        {
-            adapter = m_Adapter
-        };
-        title = &quot;Editor.TOOL[AssetImportTool]&quot;;
-        IWidget[] obj = new IWidget[7]
-        {
-            m_OpenProjectRootButton,
-            m_OpenSelectedAssetPathButton,
-            m_AssetList,
-            m_ItemPickerFooter,
-            new PopupValueField&lt;PrefabBase&gt;
-            {
-                displayName = &quot;Editor.SELECT_TEMPLATE&quot;,
-                uiTag = &quot;UITagPrefab:SelectTemplate&quot;,
-                accessor = new DelegateAccessor&lt;PrefabBase&gt;(() =&gt; m_SelectedTemplate, delegate(PrefabBase prefab)
-                {
-                    m_SelectedTemplate = prefab;
-                }),
-                disabled = IsImportDisabled,
-                popup = new PrefabPickerPopup(typeof(ObjectGeometryPrefab))
-                {
-                    nullable = true
-                }
-            },
-            null,
-            null
-        };
-        Button obj2 = new Button
-        {
-            displayName = &quot;Editor.IMPORT&quot;,
-            action = ImportAssets,
-            disabled = IsImportDisabled,
-            tooltip = &quot;Import selected assets&quot;,
-            uiTag = &quot;UITagPrefab:ImportButton&quot;
-        };
-        Button button = obj2;
-        m_ImportButton = obj2;
-        obj[5] = button;
-        obj[6] = new ImageField
-        {
-            m_URI = &quot;Media/Menu/InstaLOD-Logo-BW-WhiteOnBlack.svg&quot;,
-            m_Label = &quot;Editor.INSTALOD_LABEL&quot;
-        };
-        children = obj;
-        EditorSettings editorSettings = SharedSettings.instance?.editor;
-        m_SelectedProjectRoot = editorSettings?.lastSelectedProjectRootDirectory;
-        m_SelectedDirectory = editorSettings?.lastSelectedImportDirectory;
-        try
-        {
-            if (!string.IsNullOrEmpty(m_SelectedProjectRoot))
-            {
-                OnSelectProjectRoot(m_SelectedProjectRoot + &quot;/&quot;);
-                if (!string.IsNullOrEmpty(m_SelectedDirectory))
-                {
-                    OnSelectDirectory(m_SelectedDirectory + &quot;/&quot;);
-                }
-            }
-        }
-        catch (Exception exception)
-        {
-            base.log.Error(exception, &quot;Exception occured while trying to select project root or import directory &quot; + m_SelectedProjectRoot + &quot;, &quot; + m_SelectedDirectory);
-            m_SelectedProjectRoot = string.Empty;
-            m_SelectedDirectory = string.Empty;
-            OnSelectProjectRoot(m_SelectedProjectRoot + &quot;/&quot;);
-            OnSelectDirectory(m_SelectedDirectory + &quot;/&quot;);
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private OpenAssetSubDirectory() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void OpenAssetSubDirectory()
-    {
-        if (string.IsNullOrEmpty(m_SelectedDirectory) || !m_SelectedDirectory.StartsWith(m_SelectedProjectRoot))
-        {
-            m_SelectedDirectory = m_SelectedProjectRoot;
-        }
-        base.activeSubPanel = new DirectoryBrowserPanel(m_SelectedDirectory, m_SelectedProjectRoot, OnSelectDirectory, CloseDirectoryBrowser);
-    }
-</code></pre>
-<ul>
-<li><code>private OpenDirectory() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void OpenDirectory()
-    {
-        base.activeSubPanel = new DirectoryBrowserPanel(m_SelectedProjectRoot, null, OnSelectProjectRoot, CloseDirectoryBrowser);
-    }
-</code></pre>
-<ul>
-<li><code>private static ReportProgress(System.String title, System.String info, System.Single progress) : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static bool ReportProgress(string title, string info, float progress)
-    {
-        if (progress == 1f)
-        {
-            UnityEngine.Debug.Log(&quot;Import completed&quot;);
-        }
-        return false;
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.UI.Editor.AssetImportPanel+PrefabFactory</code>  </li>
-<li><code>Game.UI.Editor.AssetImportPanel+&lt;GetAssets&gt;d__24</code>  </li>
-<li><code>Game.UI.Editor.AssetImportPanel+&lt;ImportAssets&gt;d__29</code>  </li>
-<li><code>Game.UI.Editor.AssetImportPanel+&lt;ImportAssets&gt;d__30</code>  </li>
-</ul>
+<p>Notes and tips:
+- Import is asynchronous and can be long-running; the UI disables reentrant imports while one is in progress.
+- The import routine uses SharedSettings.instance.editor to read user preferences such as useParallelImport and texture compression settings.
+- When supplying a template, the code clones the template and sets mesh data so the template's other settings are used while replacing the visual mesh.
+- The method persists created prefabs into AssetDatabase.user (targetDatabase) and then registers them with the PrefabSystem so they are immediately available in the editor.</p>
 
 
 

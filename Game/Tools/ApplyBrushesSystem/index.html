@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87073,6 +87165,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Simulation/SurfaceWater/" class="md-nav__link">
         
   
@@ -90644,18 +90759,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -90680,9 +90795,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -117921,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117948,18 +118085,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -117984,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118009,226 +118146,181 @@
 
 
 <h1 id="gametoolsapplybrushessystem">Game.Tools.ApplyBrushesSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Tools</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class ApplyBrushesSystem : Game.GameSystemBase
-{
-    private Game.Tools.ToolOutputBarrier m_ToolOutputBarrier;
-    private Game.Simulation.NaturalResourceSystem m_NaturalResourceSystem;
-    private Game.Simulation.GroundWaterSystem m_GroundWaterSystem;
-    private Game.Simulation.TerrainSystem m_TerrainSystem;
-    private Game.Rendering.TerrainMaterialSystem m_TerrainMaterialSystem;
-    private Game.Prefabs.PrefabSystem m_PrefabSystem;
-    private Unity.Entities.EntityQuery m_TempQuery;
-    private Unity.Entities.ComponentTypeSet m_AppliedDeletedTypes;
-    private Game.Tools.ApplyBrushesSystem+TypeHandle __TypeHandle;
-
-    public ApplyBrushesSystem();
-
-    private System.Void __AssignQueries(Unity.Entities.SystemState&amp; state);
-    private Unity.Jobs.JobHandle ApplyCellMapBrush&lt;TCell, TModifier&gt;(Game.Simulation.CellMapSystem&lt;TCell&gt; cellMapSystem, TModifier modifier, Game.Tools.Brush brush, Unity.Entities.Entity prefab, Game.Prefabs.TerraformingType terraformingType, Game.Tools.ApplyBrushesSystem+ApplyCellMapBrushJob&lt;TCell, TModifier&gt; applyCellMapBrushJob);
-    private System.Void ApplyHeight(Game.Tools.Brush brush, Unity.Entities.Entity prefab, Game.Prefabs.TerraformingType terraformingType);
-    private System.Void ApplyMaterial(Game.Tools.Brush brush, Unity.Entities.Entity prefab);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnCreateForCompiler();
-    protected virtual System.Void OnUpdate();
-}
-</code></pre>
+<p><strong>Assembly:</strong><br />
+Assembly-CSharp (game assembly)</p>
+<p><strong>Namespace:</strong><br />
+Game.Tools</p>
+<p><strong>Type:</strong><br />
+class</p>
+<p><strong>Base:</strong><br />
+GameSystemBase</p>
+<p><strong>Summary:</strong><br />
+ApplyBrushesSystem is a GameSystem that processes temporary brush entities (Temp + Brush) created by tools and applies their effects to different in-game maps: natural resources (ore, oil, fertility), groundwater, terrain height, and terrain material. The system queries Temp brush entities each update, schedules parallel jobs to modify cell maps where appropriate, invokes terrain system calls for height/material changes, and marks processed Temp entities with Applied and Deleted components. It uses ECS type handles, cell-map systems, and a ToolOutputBarrier to produce command buffers that are played back safely with the simulation.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.Tools.ToolOutputBarrier m_ToolOutputBarrier</code>  </li>
+<li>
+<p><code>private ToolOutputBarrier m_ToolOutputBarrier</code><br />
+Reference to the ToolOutputBarrier system. Used to create an EntityCommandBuffer for marking processed Temp entities (adding Applied and Deleted components) and to synchronize output with tool-related systems.</p>
+</li>
+<li>
+<p><code>private NaturalResourceSystem m_NaturalResourceSystem</code><br />
+Reference to the NaturalResource system which provides access to the natural resource cell map (ore, oil, fertility). Used to read/write NaturalResourceCell data when applying brushes targeting natural resources.</p>
+</li>
+<li>
+<p><code>private GroundWaterSystem m_GroundWaterSystem</code><br />
+Reference to the GroundWater system providing access to groundwater cell map. Used when brushes target groundwater.</p>
+</li>
+<li>
+<p><code>private TerrainSystem m_TerrainSystem</code><br />
+Reference to the Terrain system. Used to apply height-related brush operations (level, slope, soften, etc.) via TerrainSystem.ApplyBrush.</p>
+</li>
+<li>
+<p><code>private TerrainMaterialSystem m_TerrainMaterialSystem</code><br />
+Reference to the TerrainMaterial system. Used when brush targets material—ensures the tool/material index is registered (GetOrAddMaterialIndex).</p>
+</li>
+<li>
+<p><code>private PrefabSystem m_PrefabSystem</code><br />
+Reference to the Prefab system. Used to lookup BrushPrefab data (texture, resolution) for a given brush prefab entity.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_TempQuery</code><br />
+EntityQuery that selects entities with Temp and Brush components. The system requires this query for update and iterates matching archetype chunks to process brush entities.</p>
+</li>
+<li>
+<p><code>private ComponentTypeSet m_AppliedDeletedTypes</code><br />
+ComponentTypeSet containing Applied and Deleted component types. Used to add these components to Temp entities once the brush has been processed (so the entity is marked for removal/cleanup by other systems).</p>
+</li>
+<li>
+<p><code>private TypeHandle __TypeHandle</code><br />
+Generated helper struct used to cache EntityTypeHandle, ComponentTypeHandle<Brush>, ComponentTypeHandle<PrefabRef>, ComponentLookup<BrushData>, BufferLookup<BrushCell>, etc., and to assign those handles from the SystemState. This is an internal optimization for burst/Jobs compatibility.</p>
+</li>
+<li>
+<p><code>private interface ICellModifier&lt;TCell&gt; where TCell : struct, ISerializable</code><br />
+Interface for cell modifiers that can apply a strength delta to a cell type TCell. Implementations map brush strength/area to concrete cell field modifications.</p>
+</li>
+<li>
+<p><code>private struct NaturalResourcesModifier : ICellModifier&lt;NaturalResourceCell&gt;</code><br />
+Modifier implementation for NaturalResourceCell. Maps MapFeature (Ore, Oil, FertileLand, Forest) to the appropriate field on NaturalResourceCell and adjusts the base value using strength. Note: Forest is present in enum but not implemented here.</p>
+</li>
+<li>
+<p><code>private struct GroundWaterModifier : ICellModifier&lt;GroundWater&gt;</code><br />
+Modifier implementation for GroundWater cells. Converts stored integer amount to float, applies strength, clamps and writes back amount and sets max equal to amount.</p>
+</li>
+<li>
+<p><code>private struct ApplyCellMapBrushJob&lt;TCell, TModifier&gt; : IJobParallelFor where TCell : struct, ISerializable where TModifier : ICellModifier&lt;TCell&gt;</code><br />
+Burst-compiled parallel job that iterates over a set of rows (y range) of a cell map texture and, per cell, computes the brush texture overlap area and accumulates effective strength to apply. Reads brush resolution/brush cells buffers via BufferLookup and BrushData via ComponentLookup, and writes to a NativeArray<TCell> buffer (m_Buffer) of the cell map. When the computed applied amount is non-negligible, it calls the modifier to change the cell and writes it back to the buffer.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.Tools.ToolOutputBarrier m_ToolOutputBarrier;
-</code></pre>
+<h2 id="properties">Properties</h2>
 <ul>
-<li><code>private Game.Simulation.NaturalResourceSystem m_NaturalResourceSystem</code>  </li>
+<li>(none public)<br />
+This system does not expose public properties.</li>
 </ul>
-<pre><code class="language-csharp">private Game.Simulation.NaturalResourceSystem m_NaturalResourceSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.GroundWaterSystem m_GroundWaterSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.GroundWaterSystem m_GroundWaterSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.TerrainSystem m_TerrainSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.TerrainSystem m_TerrainSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Rendering.TerrainMaterialSystem m_TerrainMaterialSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Rendering.TerrainMaterialSystem m_TerrainMaterialSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Prefabs.PrefabSystem m_PrefabSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Prefabs.PrefabSystem m_PrefabSystem;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_TempQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_TempQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.ComponentTypeSet m_AppliedDeletedTypes</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.ComponentTypeSet m_AppliedDeletedTypes;
-</code></pre>
-<ul>
-<li><code>private Game.Tools.ApplyBrushesSystem+TypeHandle __TypeHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Tools.ApplyBrushesSystem+TypeHandle __TypeHandle;
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public ApplyBrushesSystem()</code>  </li>
+<li><code>public ApplyBrushesSystem()</code><br />
+Default constructor. The system is created by the ECS world; most initialization happens in OnCreate.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public ApplyBrushesSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private __AssignQueries(Unity.Entities.SystemState&amp; state) : System.Void</code>  </li>
+<li>
+<p><code>protected override void OnCreate()</code><br />
+Initializes system references: gets or creates managed systems ToolOutputBarrier, NaturalResourceSystem, GroundWaterSystem, TerrainSystem, TerrainMaterialSystem, PrefabSystem. Builds the m_TempQuery to require Temp + Brush entities and sets m_AppliedDeletedTypes to contain Applied and Deleted component types. Calls RequireForUpdate(m_TempQuery) so the system only runs when matching entities exist.</p>
+</li>
+<li>
+<p><code>protected override void OnUpdate()</code><br />
+Main update loop:</p>
+</li>
+<li>Acquires entity and component type handles from cached TypeHandle.</li>
+<li>Creates an EntityCommandBuffer from the ToolOutputBarrier for marking processed entities.</li>
+<li>Collects archetype chunks matched by m_TempQuery into an array.</li>
+<li>Completes current dependencies to ensure safe access.</li>
+<li>Iterates chunks and each Temp entity (Entity e) with a Brush component and PrefabRef:<ul>
+<li>Reads TerraformingData (component on brush.m_Tool) to determine target and type.</li>
+<li>Depending on target:</li>
+<li>For Ore/Oil/FertileLand: schedules ApplyCellMapBrush against NaturalResourceSystem with NaturalResourcesModifier.</li>
+<li>For GroundWater: schedules ApplyCellMapBrush against GroundWaterSystem with GroundWaterModifier.</li>
+<li>For Height: calls ApplyHeight (immediate, non-job).</li>
+<li>For Material: calls ApplyMaterial (immediate).</li>
+<li>Combines job handles into a cumulative jobHandle and then adds Applied/Deleted components to entity using entityCommandBuffer.</li>
 </ul>
-<pre><code class="language-csharp">private void __AssignQueries(ref SystemState state)
-    {
-        new EntityQueryBuilder(Allocator.Temp).Dispose();
-    }
+</li>
+<li>
+<p>Ensures chunk array disposed in finally, and sets base.Dependency to the combined jobHandle so subsequent systems are aware of scheduled jobs.</p>
+</li>
+<li>
+<p><code>private void ApplyMaterial(Brush brush, Entity prefab)</code><br />
+Ensures the brush tool material is registered by calling m_TerrainMaterialSystem.GetOrAddMaterialIndex(brush.m_Tool). Material application itself is handled by TerrainMaterialSystem and related systems.</p>
+</li>
+<li>
+<p><code>private void ApplyHeight(Brush brush, Entity prefab, TerraformingType terraformingType)</code><br />
+Applies height changes via TerrainSystem.ApplyBrush. It:</p>
+</li>
+<li>Computes bounds via ToolUtils.GetBounds(brush).</li>
+<li>Looks up the BrushPrefab using m_PrefabSystem.GetPrefab<BrushPrefab>(prefab) to access the texture.</li>
+<li>Handles special cases: Level and Slope targets with negative strength are skipped; if terraformingType is Soften and strength is negative, it doubles the absolute strength.</li>
+<li>
+<p>Calls m_TerrainSystem.ApplyBrush(terraformingType, bounds, brush, prefab2.m_Texture).</p>
+</li>
+<li>
+<p><code>private JobHandle ApplyCellMapBrush&lt;TCell, TModifier&gt;(CellMapSystem&lt;TCell&gt; cellMapSystem, TModifier modifier, Brush brush, Entity prefab, TerraformingType terraformingType, ApplyCellMapBrushJob&lt;TCell, TModifier&gt; applyCellMapBrushJob) where TCell : struct, ISerializable where TModifier : ICellModifier&lt;TCell&gt;</code><br />
+Prepares and schedules an ApplyCellMapBrushJob:</p>
+</li>
+<li>Computes the brush bounds and converts to cell-space indices/clamped texture coordinates using cellSize and texture size from the passed CellMapSystem<TCell>.</li>
+<li>Builds and populates an ApplyCellMapBrushJob instance with coords, brush, prefab, modifier, texture/cell metadata, and component/buffer lookups for brush data and brush cells.</li>
+<li>Schedules the job as an IJobParallelFor over the vertical range (number of rows) and registers the returned JobHandle with the cellMapSystem via AddWriter so the cell map knows about scheduled writers.</li>
+<li>
+<p>Returns the scheduled JobHandle to the caller so it can be combined with other dependencies.</p>
+</li>
+<li>
+<p><code>private void __AssignQueries(ref SystemState state)</code><br />
+Generated stub for assigning queries. In this generated code it creates an EntityQueryBuilder and disposes it; used by the compiler-generated OnCreateForCompiler flow.</p>
+</li>
+<li>
+<p><code>protected override void OnCreateForCompiler()</code><br />
+Compiler-generated initialization where __AssignQueries is called and the __TypeHandle.__AssignHandles(ref base.CheckedStateRef) is invoked to cache type/component lookups for the system.</p>
+</li>
+<li>
+<p><code>private struct TypeHandle { ... public void __AssignHandles(ref SystemState state) }</code><br />
+Contains cached typed handles and a method to assign them from the SystemState:</p>
+</li>
+<li>EntityTypeHandle</li>
+<li>ComponentTypeHandle<Brush> (read-only)</li>
+<li>ComponentTypeHandle<PrefabRef> (read-only)</li>
+<li>ComponentLookup<BrushData> (read-only)</li>
+<li>BufferLookup<BrushCell> (read-only)</li>
+</ul>
+<p>Usage notes:
+  - The system expects Temp entities (short-lived) containing a Brush component and a PrefabRef referencing a BrushPrefab entity containing texture and BrushCell data. Typical workflow: a tool creates a Temp entity with Brush &amp; PrefabRef (pointing to a BrushPrefab) and the system applies the brush then marks the Temp entity Applied/Deleted.
+  - For cell-map modifications the system uses burst-parallel jobs to compute per-cell overlap area between the world-space cell bounds and individual brush texture quads, scales that by brush strength and cell area, and applies changes through a modifier (NaturalResourcesModifier or GroundWaterModifier).
+  - Height and material operations are applied synchronously through TerrainSystem / TerrainMaterialSystem.</p>
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Example: create a temporary brush entity (pseudocode)
+// The system will pick up this Temp + Brush entity and apply the brush effects automatically.
+
+Entity brushEntity = entityManager.CreateEntity(typeof(Temp), typeof(Brush), typeof(PrefabRef));
+entityManager.SetComponentData(brushEntity, new Brush {
+    m_Position = new float3(100f, 0f, 200f),
+    m_Size = new float2(30f, 30f),
+    m_Strength = 0.5f,
+    m_Angle = 0f,
+    m_Tool = toolEntity // an Entity that holds TerraformingData describing target/type
+});
+entityManager.SetComponentData(brushEntity, new PrefabRef { m_Prefab = brushPrefabEntity });
+
+// The ApplyBrushesSystem (runs automatically) will:
+//  - read TerraformingData from the toolEntity,
+//  - schedule jobs to modify cell maps for ore/oil/fertility/groundwater (if applicable),
+//  - call TerrainSystem.ApplyBrush for height changes,
+//  - call TerrainMaterialSystem.GetOrAddMaterialIndex for material changes,
+//  - and finally add Applied + Deleted components to the Temp entity via the ToolOutputBarrier's command buffer.
 </code></pre>
-<ul>
-<li><code>private ApplyCellMapBrush&lt;TCell, TModifier&gt;(Game.Simulation.CellMapSystem&lt;TCell&gt; cellMapSystem, TModifier modifier, Game.Tools.Brush brush, Unity.Entities.Entity prefab, Game.Prefabs.TerraformingType terraformingType, Game.Tools.ApplyBrushesSystem+ApplyCellMapBrushJob&lt;TCell, TModifier&gt; applyCellMapBrushJob) : Unity.Jobs.JobHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Jobs.JobHandle ApplyCellMapBrush&lt;TCell, TModifier&gt;(Game.Simulation.CellMapSystem&lt;TCell&gt; cellMapSystem, TModifier modifier, Game.Tools.Brush brush, Unity.Entities.Entity prefab, Game.Prefabs.TerraformingType terraformingType, Game.Tools.ApplyBrushesSystem+ApplyCellMapBrushJob&lt;TCell, TModifier&gt; applyCellMapBrushJob);
-</code></pre>
-<ul>
-<li><code>private ApplyHeight(Game.Tools.Brush brush, Unity.Entities.Entity prefab, Game.Prefabs.TerraformingType terraformingType) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void ApplyHeight(Brush brush, Entity prefab, TerraformingType terraformingType)
-    {
-        Bounds2 bounds = ToolUtils.GetBounds(brush);
-        BrushPrefab prefab2 = m_PrefabSystem.GetPrefab&lt;BrushPrefab&gt;(prefab);
-        if ((terraformingType != TerraformingType.Level &amp;&amp; terraformingType != TerraformingType.Slope) || !(brush.m_Strength &lt; 0f))
-        {
-            if (terraformingType == TerraformingType.Soften &amp;&amp; brush.m_Strength &lt; 0f)
-            {
-                brush.m_Strength = math.abs(brush.m_Strength) * 2f;
-            }
-            m_TerrainSystem.ApplyBrush(terraformingType, bounds, brush, prefab2.m_Texture);
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private ApplyMaterial(Game.Tools.Brush brush, Unity.Entities.Entity prefab) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void ApplyMaterial(Brush brush, Entity prefab)
-    {
-        m_TerrainMaterialSystem.GetOrAddMaterialIndex(brush.m_Tool);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_ToolOutputBarrier = base.World.GetOrCreateSystemManaged&lt;ToolOutputBarrier&gt;();
-        m_NaturalResourceSystem = base.World.GetOrCreateSystemManaged&lt;NaturalResourceSystem&gt;();
-        m_GroundWaterSystem = base.World.GetOrCreateSystemManaged&lt;GroundWaterSystem&gt;();
-        m_TerrainSystem = base.World.GetOrCreateSystemManaged&lt;TerrainSystem&gt;();
-        m_TerrainMaterialSystem = base.World.GetOrCreateSystemManaged&lt;TerrainMaterialSystem&gt;();
-        m_PrefabSystem = base.World.GetOrCreateSystemManaged&lt;PrefabSystem&gt;();
-        m_TempQuery = GetEntityQuery(ComponentType.ReadOnly&lt;Temp&gt;(), ComponentType.ReadOnly&lt;Brush&gt;());
-        m_AppliedDeletedTypes = new ComponentTypeSet(ComponentType.ReadWrite&lt;Applied&gt;(), ComponentType.ReadWrite&lt;Deleted&gt;());
-        RequireForUpdate(m_TempQuery);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreateForCompiler() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnCreateForCompiler()
-    {
-        base.OnCreateForCompiler();
-        __AssignQueries(ref base.CheckedStateRef);
-        __TypeHandle.__AssignHandles(ref base.CheckedStateRef);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        EntityTypeHandle entityTypeHandle = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef);
-        ComponentTypeHandle&lt;Brush&gt; typeHandle = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Tools_Brush_RO_ComponentTypeHandle, ref base.CheckedStateRef);
-        ComponentTypeHandle&lt;PrefabRef&gt; typeHandle2 = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentTypeHandle, ref base.CheckedStateRef);
-        EntityCommandBuffer entityCommandBuffer = m_ToolOutputBarrier.CreateCommandBuffer();
-        JobHandle jobHandle = default(JobHandle);
-        NativeArray&lt;ArchetypeChunk&gt; nativeArray = m_TempQuery.ToArchetypeChunkArray(Allocator.TempJob);
-        try
-        {
-            CompleteDependency();
-            for (int i = 0; i &lt; nativeArray.Length; i++)
-            {
-                ArchetypeChunk archetypeChunk = nativeArray[i];
-                NativeArray&lt;Entity&gt; nativeArray2 = archetypeChunk.GetNativeArray(entityTypeHandle);
-                NativeArray&lt;Brush&gt; nativeArray3 = archetypeChunk.GetNativeArray(ref typeHandle);
-                NativeArray&lt;PrefabRef&gt; nativeArray4 = archetypeChunk.GetNativeArray(ref typeHandle2);
-                for (int j = 0; j &lt; nativeArray2.Length; j++)
-                {
-                    Entity e = nativeArray2[j];
-                    Brush brush = nativeArray3[j];
-                    PrefabRef prefabRef = nativeArray4[j];
-                    if (base.EntityManager.TryGetComponent&lt;TerraformingData&gt;(brush.m_Tool, out var component))
-                    {
-                        switch (component.m_Target)
-                        {
-                        case TerraformingTarget.Ore:
-                            jobHandle = JobHandle.CombineDependencies(jobHandle, ApplyCellMapBrush(m_NaturalResourceSystem, new NaturalResourcesModifier(MapFeature.Ore), brush, prefabRef.m_Prefab, component.m_Type, default(ApplyCellMapBrushJob&lt;NaturalResourceCell, NaturalResourcesModifier&gt;)));
-                            break;
-                        case TerraformingTarget.Oil:
-                            jobHandle = JobHandle.CombineDependencies(jobHandle, ApplyCellMapBrush(m_NaturalResourceSystem, new NaturalResourcesModifier(MapFeature.Oil), brush, prefabRef.m_Prefab, component.m_Type, default(ApplyCellMapBrushJob&lt;NaturalResourceCell, NaturalResourcesModifier&gt;)));
-                            break;
-                        case TerraformingTarget.FertileLand:
-                            jobHandle = JobHandle.CombineDependencies(jobHandle, ApplyCellMapBrush(m_NaturalResourceSystem, new NaturalResourcesModifier(MapFeature.FertileLand), brush, prefabRef.m_Prefab, component.m_Type, default(ApplyCellMapBrushJob&lt;NaturalResourceCell, NaturalResourcesModifier&gt;)));
-                            break;
-                        case TerraformingTarget.GroundWater:
-                            jobHandle = JobHandle.CombineDependencies(jobHandle, ApplyCellMapBrush(m_GroundWaterSystem, default(GroundWaterModifier), brush, prefabRef.m_Prefab, component.m_Type, default(ApplyCellMapBrushJob&lt;GroundWater, GroundWaterModifier&gt;)));
-                            break;
-                        case TerraformingTarget.Height:
-                            ApplyHeight(brush, prefabRef.m_Prefab, component.m_Type);
-                            break;
-                        case TerraformingTarget.Material:
-                            ApplyMaterial(brush, prefabRef.m_Prefab);
-                            break;
-                        }
-                    }
-                    entityCommandBuffer.AddComponent(e, in m_AppliedDeletedTypes);
-                }
-            }
-        }
-        finally
-        {
-            nativeArray.Dispose();
-            base.Dependency = jobHandle;
-        }
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Tools.ApplyBrushesSystem+ICellModifier&lt;TCell&gt;</code>  </li>
-<li><code>Game.Tools.ApplyBrushesSystem+NaturalResourcesModifier</code>  </li>
-<li><code>Game.Tools.ApplyBrushesSystem+GroundWaterModifier</code>  </li>
-<li><code>Game.Tools.ApplyBrushesSystem+ApplyCellMapBrushJob&lt;TCell, TModifier&gt;</code>  </li>
-<li><code>Game.Tools.ApplyBrushesSystem+TypeHandle</code>  </li>
-</ul>
+<p>Notes and tips:
+- BrushPrefab must contain BrushData and a dynamic buffer of BrushCell items; if resolution or buffer is empty the cell-map job early-outs for that prefab.
+- Strength handling: cell modifiers convert stored integer cell data to normalized floats, add the computed strength, then clamp and convert back to stored integer form.
+- The ApplyCellMapBrushJob performs geometric overlap testing (quad vs cell bounds) to compute the exact area of the brush texture that affects each cell, giving spatially accurate influence even for rotated brushes.
+- Since many operations are scheduled as jobs, ensure you respect job dependencies if interacting with cell maps or terrain systems elsewhere. The system sets base.Dependency to the combined JobHandle to propagate dependencies.</p>
 
 
 

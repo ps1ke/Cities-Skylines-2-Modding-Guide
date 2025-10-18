@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87056,6 +87148,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -113184,15 +113299,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -113223,6 +113329,15 @@
   <a href="#methods" class="md-nav__link">
     <span class="md-ellipsis">
       Methods
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
     </span>
   </a>
   
@@ -117921,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117946,15 +118083,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -117992,6 +118120,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -118009,143 +118146,110 @@
 
 
 <h1 id="gameuiconfirmationdialogbase">Game.UI.ConfirmationDialogBase</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.UI</code>  </p>
-<p><strong>Type:</strong> class abstract public  </p>
-<p><strong>Base:</strong> <code>System.Object</code><br />
-<strong>Implements:</strong> <code>Colossal.UI.Binding.IJsonWritable</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public abstract class ConfirmationDialogBase : Colossal.UI.Binding.IJsonWritable
-{
-    private System.Nullable&lt;Game.UI.Localization.LocalizedString&gt; title;
-    private Game.UI.Localization.LocalizedString message;
-    private Game.UI.Localization.LocalizedString confirmAction;
-    private System.Nullable&lt;Game.UI.Localization.LocalizedString&gt; cancelAction;
-    private Game.UI.Localization.LocalizedString[] otherActions;
-    private System.Nullable&lt;Game.UI.Localization.LocalizedString&gt; details;
-    private System.Boolean copyButton;
-    protected static const System.String kDefaultSkin;
-    protected static const System.String kParadoxSkin;
-
-    protected System.String skin { protected get; }
-    protected System.Boolean dismissible { protected get; }
-
-    protected ConfirmationDialogBase(System.Nullable&lt;Game.UI.Localization.LocalizedString&gt; title, Game.UI.Localization.LocalizedString message, System.Nullable&lt;Game.UI.Localization.LocalizedString&gt; details, System.Boolean copyButton, Game.UI.Localization.LocalizedString confirmAction, System.Nullable&lt;Game.UI.Localization.LocalizedString&gt; cancelAction, Game.UI.Localization.LocalizedString[] otherActions);
-
-    public System.Void Write(Colossal.UI.Binding.IJsonWriter writer);
-}
-</code></pre>
+<p><strong>Assembly:</strong> Assembly-CSharp<br />
+<strong>Namespace:</strong> Game.UI</p>
+<p><strong>Type:</strong> abstract class</p>
+<p><strong>Base:</strong> IJsonWritable</p>
+<p><strong>Summary:</strong><br />
+A base class for confirmation/dialog UI payloads used by the game's UI system. Holds localized text for title, message, action buttons and optional details, supports different UI skins and a toggleable "copy" button. Implements IJsonWritable to serialize the dialog data into a JSON writer consumed by the UI layer. This class is intended to be subclassed to provide concrete dialog instances with specific localized content and behavior.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private System.Nullable&lt;Game.UI.Localization.LocalizedString&gt; title</code>  </li>
+<li>
+<p><code>protected const string kDefaultSkin = "Default"</code><br />
+Default skin identifier used by the dialog when no other skin is specified.</p>
+</li>
+<li>
+<p><code>protected const string kParadoxSkin = "Paradox"</code><br />
+Alternate skin identifier (likely used for a Paradox-branded appearance).</p>
+</li>
+<li>
+<p><code>private LocalizedString? title</code><br />
+Optional localized title text for the dialog. Nullable — dialog may omit a title.</p>
+</li>
+<li>
+<p><code>private LocalizedString message</code><br />
+Required localized main message/body of the dialog.</p>
+</li>
+<li>
+<p><code>private LocalizedString confirmAction</code><br />
+Localized label for the primary/confirm action button.</p>
+</li>
+<li>
+<p><code>private LocalizedString? cancelAction</code><br />
+Optional localized label for a cancel/secondary action button.</p>
+</li>
+<li>
+<p><code>[CanBeNull] private LocalizedString[] otherActions</code><br />
+Optional array of additional localized action labels (can be null). Marked with CanBeNull attribute.</p>
+</li>
+<li>
+<p><code>private LocalizedString? details</code><br />
+Optional localized details text (e.g., a longer explanation or technical details).</p>
+</li>
+<li>
+<p><code>private bool copyButton</code><br />
+When true, indicates the dialog should include a "copy" button (typically to copy details/error text).</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private System.Nullable&lt;Game.UI.Localization.LocalizedString&gt; title;
-</code></pre>
-<ul>
-<li><code>private Game.UI.Localization.LocalizedString message</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.UI.Localization.LocalizedString message;
-</code></pre>
-<ul>
-<li><code>private Game.UI.Localization.LocalizedString confirmAction</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.UI.Localization.LocalizedString confirmAction;
-</code></pre>
-<ul>
-<li><code>private System.Nullable&lt;Game.UI.Localization.LocalizedString&gt; cancelAction</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Nullable&lt;Game.UI.Localization.LocalizedString&gt; cancelAction;
-</code></pre>
-<ul>
-<li><code>private Game.UI.Localization.LocalizedString[] otherActions</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.UI.Localization.LocalizedString[] otherActions;
-</code></pre>
-<ul>
-<li><code>private System.Nullable&lt;Game.UI.Localization.LocalizedString&gt; details</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Nullable&lt;Game.UI.Localization.LocalizedString&gt; details;
-</code></pre>
-<ul>
-<li><code>private System.Boolean copyButton</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean copyButton;
-</code></pre>
-<ul>
-<li><code>protected static const System.String kDefaultSkin</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected static const System.String kDefaultSkin;
-</code></pre>
-<ul>
-<li><code>protected static const System.String kParadoxSkin</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected static const System.String kParadoxSkin;
-</code></pre>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>protected System.String skin { protected get }</code>  </li>
+<li>
+<p><code>protected virtual string skin { get; }</code><br />
+Default implementation returns "Default". Subclasses can override to select a different UI skin (for example "Paradox").</p>
+</li>
+<li>
+<p><code>protected virtual bool dismissible { get; }</code><br />
+Default implementation returns false. Subclasses can override to indicate whether the dialog can be dismissed without choosing an action.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">protected System.String skin { protected get; }
-</code></pre>
-<ul>
-<li><code>protected System.Boolean dismissible { protected get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected System.Boolean dismissible { protected get; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>protected ConfirmationDialogBase(System.Nullable&lt;Game.UI.Localization.LocalizedString&gt; title, Game.UI.Localization.LocalizedString message, System.Nullable&lt;Game.UI.Localization.LocalizedString&gt; details, System.Boolean copyButton, Game.UI.Localization.LocalizedString confirmAction, System.Nullable&lt;Game.UI.Localization.LocalizedString&gt; cancelAction, Game.UI.Localization.LocalizedString[] otherActions)</code>  </li>
+<li><code>protected ConfirmationDialogBase(LocalizedString? title, LocalizedString message, LocalizedString? details, bool copyButton, LocalizedString confirmAction, LocalizedString? cancelAction, [CanBeNull] params LocalizedString[] otherActions)</code><br />
+Creates a new confirmation dialog payload. Parameters:</li>
+<li>title: optional localized title.</li>
+<li>message: main localized message (required).</li>
+<li>details: optional longer details text.</li>
+<li>copyButton: whether to show a copy-to-clipboard button.</li>
+<li>confirmAction: label for the confirm button.</li>
+<li>cancelAction: optional label for the cancel button.</li>
+<li>otherActions: optional additional action labels.</li>
 </ul>
-<pre><code class="language-csharp">protected ConfirmationDialogBase(LocalizedString? title, LocalizedString message, LocalizedString? details, bool copyButton, LocalizedString confirmAction, LocalizedString? cancelAction, [CanBeNull] params LocalizedString[] otherActions)
-    {
-        this.title = title;
-        this.message = message;
-        this.confirmAction = confirmAction;
-        this.cancelAction = cancelAction;
-        this.otherActions = otherActions;
-        this.details = details;
-        this.copyButton = copyButton;
-    }
-</code></pre>
+<p>Initializes the backing fields used during JSON serialization.</p>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>public Write(Colossal.UI.Binding.IJsonWriter writer) : System.Void</code>  </li>
+<li><code>public void Write(IJsonWriter writer)</code><br />
+Serializes the dialog's data to the provided IJsonWriter. The method:</li>
+<li>Begins a typed object using the runtime type name (writer.TypeBegin(GetType().FullName)).</li>
+<li>Writes the following properties in order: dismissible, skin, title, message, confirmAction, cancelAction, otherActions, details, copyButton.</li>
+<li>For otherActions: writes an array of strings if present, otherwise writes an empty array.</li>
+<li>Ends the typed object (writer.TypeEnd()).</li>
 </ul>
-<pre><code class="language-csharp">public void Write(IJsonWriter writer)
+<p>This method is the implementation of IJsonWritable and is what the UI system uses to receive dialog payloads.</p>
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Example subclass and usage
+public class ConfirmDeleteDialog : ConfirmationDialogBase
+{
+    public ConfirmDeleteDialog(string itemName)
+        : base(
+            title: new LocalizedString(&quot;Confirm Delete&quot;),
+            message: new LocalizedString($&quot;Are you sure you want to delete {itemName}?&quot;),
+            details: null,
+            copyButton: false,
+            confirmAction: new LocalizedString(&quot;Delete&quot;),
+            cancelAction: new LocalizedString(&quot;Cancel&quot;))
     {
-        writer.TypeBegin(GetType().FullName);
-        writer.PropertyName(&quot;dismissible&quot;);
-        writer.Write(dismissible);
-        writer.PropertyName(&quot;skin&quot;);
-        writer.Write(skin);
-        writer.PropertyName(&quot;title&quot;);
-        writer.Write(title);
-        writer.PropertyName(&quot;message&quot;);
-        writer.Write(message);
-        writer.PropertyName(&quot;confirmAction&quot;);
-        writer.Write(confirmAction);
-        writer.PropertyName(&quot;cancelAction&quot;);
-        writer.Write(cancelAction);
-        writer.PropertyName(&quot;otherActions&quot;);
-        if (otherActions != null)
-        {
-            writer.ArrayBegin(otherActions.Length);
-            for (int i = 0; i &lt; otherActions.Length; i++)
-            {
-                writer.Write(otherActions[i]);
-            }
-            writer.ArrayEnd();
-        }
-        else
-        {
-            writer.WriteEmptyArray();
-        }
-        writer.PropertyName(&quot;details&quot;);
-        writer.Write(details);
-        writer.PropertyName(&quot;copyButton&quot;);
-        writer.Write(copyButton);
-        writer.TypeEnd();
     }
+
+    // Optionally override skin or dismissible:
+    protected override string skin =&gt; kParadoxSkin;
+    protected override bool dismissible =&gt; true;
+}
+
+// Writing the dialog to a JSON writer (IJsonWriter comes from the UI system)
+IJsonWriter writer = /* obtain writer from UI system */;
+var dialog = new ConfirmDeleteDialog(&quot;Road A&quot;);
+dialog.Write(writer);
 </code></pre>
 
 

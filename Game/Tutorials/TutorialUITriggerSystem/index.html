@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87073,6 +87165,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Simulation/SurfaceWater/" class="md-nav__link">
         
   
@@ -95865,18 +95980,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -95895,6 +96010,15 @@
   <a href="#methods" class="md-nav__link">
     <span class="md-ellipsis">
       Methods
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
     </span>
   </a>
   
@@ -117912,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117939,18 +118085,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -117974,6 +118120,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -117991,139 +118146,84 @@
 
 
 <h1 id="gametutorialstutorialuitriggersystem">Game.Tutorials.TutorialUITriggerSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Tutorials</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.Tutorials.TutorialTriggerSystemBase</code><br />
-<strong>Implements:</strong> <code>Game.Tutorials.ITutorialUITriggerSystem</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class TutorialUITriggerSystem : Game.Tutorials.TutorialTriggerSystemBase, Game.Tutorials.ITutorialUITriggerSystem
-{
-    private Game.Prefabs.PrefabSystem m_PrefabSystem;
-    private Unity.Entities.EntityArchetype m_UnlockEventArchetype;
-    private readonly System.Collections.Generic.HashSet&lt;System.String&gt; m_ActivatedTriggers;
-
-    public TutorialUITriggerSystem();
-
-    public System.Void ActivateTrigger(System.String trigger);
-    public System.Void DisactivateTrigger(System.String trigger);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnUpdate();
-}
-</code></pre>
+<p><strong>Assembly:</strong> Assembly-CSharp<br />
+<strong>Namespace:</strong> Game.Tutorials</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> TutorialTriggerSystemBase, ITutorialUITriggerSystem</p>
+<p><strong>Summary:</strong><br />
+System that drives UI-related tutorial triggers. It monitors active tutorial UI trigger entities (UITriggerData + TriggerActive and not TriggerCompleted), checks their configured UI tags against a runtime set of activated trigger strings, and marks triggers as completed, pre-completed, or transitions to another tutorial phase. The system depends on the PrefabSystem to read TutorialUITriggerPrefab data and creates unlock events via an EntityArchetype. Uses a command buffer from the barrier system to modify entities safely during update.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.Prefabs.PrefabSystem m_PrefabSystem</code>  </li>
+<li>
+<p><code>private PrefabSystem m_PrefabSystem</code><br />
+Used to access tutorial-related prefabs (TutorialUITriggerPrefab) and to translate prefab references to entities. Initialized in OnCreate via World.GetOrCreateSystemManaged<PrefabSystem>().</p>
+</li>
+<li>
+<p><code>private EntityArchetype m_UnlockEventArchetype</code><br />
+Archetype created in OnCreate with components <code>Event</code> and <code>Unlock</code>. Used when calling TutorialSystem.ManualUnlock to emit unlock events for completed triggers.</p>
+</li>
+<li>
+<p><code>private readonly HashSet&lt;string&gt; m_ActivatedTriggers = new HashSet&lt;string&gt;()</code><br />
+Runtime set of string trigger IDs that have been activated by external code. The system checks UI trigger prefab tags against this set to decide whether to complete a UI trigger. Thread-affine to the main thread; mutated via ActivateTrigger / DisactivateTrigger.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.Prefabs.PrefabSystem m_PrefabSystem;
-</code></pre>
+<h2 id="properties">Properties</h2>
 <ul>
-<li><code>private Unity.Entities.EntityArchetype m_UnlockEventArchetype</code>  </li>
+<li>(none)<br />
+This system does not expose public properties. Its API is provided via the ActivateTrigger / DisactivateTrigger methods.</li>
 </ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityArchetype m_UnlockEventArchetype;
-</code></pre>
-<ul>
-<li><code>private readonly System.Collections.Generic.HashSet&lt;System.String&gt; m_ActivatedTriggers</code>  </li>
-</ul>
-<pre><code class="language-csharp">private readonly System.Collections.Generic.HashSet&lt;System.String&gt; m_ActivatedTriggers;
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public TutorialUITriggerSystem()</code>  </li>
+<li><code>public TutorialUITriggerSystem()</code><br />
+Default constructor. Marked with [Preserve] (via attribute on the class methods) — the system relies on the ECS lifecycle methods (OnCreate/OnUpdate) to perform initialization.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public TutorialUITriggerSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>public ActivateTrigger(System.String trigger) : System.Void</code>  </li>
+<li>
+<p><code>public void ActivateTrigger(string trigger)</code><br />
+Add a trigger ID to the internal activated set. Call this from game code to notify the tutorial system that a specific UI-related event/tag has occurred (e.g., "build_button_clicked").</p>
+</li>
+<li>
+<p><code>public void DisactivateTrigger(string trigger)</code><br />
+Remove a trigger ID from the internal activated set. Useful to avoid re-processing the same activation or to reset state.</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnCreate()</code><br />
+Initializes subsystem references and ECS query/archetype:</p>
+</li>
+<li>Retrieves PrefabSystem via World.GetOrCreateSystemManaged<PrefabSystem>().</li>
+<li>Sets up the m_ActiveTriggerQuery to select entities with <code>UITriggerData</code> and <code>TriggerActive</code> and exclude <code>TriggerCompleted</code>.</li>
+<li>
+<p>Creates the <code>m_UnlockEventArchetype</code> for <code>Event</code> + <code>Unlock</code> components.
+Called once when the system is created.</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnUpdate()</code><br />
+Main runtime logic:</p>
+</li>
+<li>If there are no activated triggers or no active trigger entities, returns early.</li>
+<li>Iterates all matching entities (m_ActiveTriggerQuery) and reads the TutorialUITriggerPrefab data for each.</li>
+<li>For each UITriggerInfo in the prefab, splits <code>m_UITagProvider.uiTag</code> by '|' to support multiple tag alternatives.</li>
+<li>If any tag is found in <code>m_ActivatedTriggers</code>:<ul>
+<li>If <code>m_GoToPhase</code> is set, adds a <code>TutorialNextPhase</code> component (pointing to the phase entity) and marks the trigger as <code>TriggerPreCompleted</code>.</li>
+<li>Else if <code>m_CompleteManually</code> is true, marks <code>TriggerPreCompleted</code>.</li>
+<li>Else marks <code>TriggerCompleted</code>.</li>
+<li>Calls <code>TutorialSystem.ManualUnlock</code> to emit unlock event(s) using the archetype and command buffer.</li>
+<li>Removes the processed tag from <code>m_ActivatedTriggers</code> and stops processing further UITriggerInfo for that entity.</li>
 </ul>
-<pre><code class="language-csharp">public void ActivateTrigger(string trigger)
-    {
-        m_ActivatedTriggers.Add(trigger);
-    }
-</code></pre>
-<ul>
-<li><code>public DisactivateTrigger(System.String trigger) : System.Void</code>  </li>
+</li>
+<li>Disposes the temporary NativeArray of entities at the end.
+This method uses the barrier system's command buffer to safely add components to entities during the frame.</li>
 </ul>
-<pre><code class="language-csharp">public void DisactivateTrigger(string trigger)
-    {
-        m_ActivatedTriggers.Remove(trigger);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_PrefabSystem = base.World.GetOrCreateSystemManaged&lt;PrefabSystem&gt;();
-        m_ActiveTriggerQuery = GetEntityQuery(ComponentType.ReadOnly&lt;UITriggerData&gt;(), ComponentType.ReadOnly&lt;TriggerActive&gt;(), ComponentType.Exclude&lt;TriggerCompleted&gt;());
-        m_UnlockEventArchetype = base.EntityManager.CreateArchetype(ComponentType.ReadWrite&lt;Event&gt;(), ComponentType.ReadWrite&lt;Unlock&gt;());
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        base.OnUpdate();
-        if (m_ActivatedTriggers.Count &lt;= 0 || m_ActiveTriggerQuery.IsEmptyIgnoreFilter)
-        {
-            return;
-        }
-        NativeArray&lt;Entity&gt; nativeArray = m_ActiveTriggerQuery.ToEntityArray(Allocator.TempJob);
-        EntityCommandBuffer commandBuffer = m_BarrierSystem.CreateCommandBuffer();
-        for (int i = 0; i &lt; nativeArray.Length; i++)
-        {
-            TutorialUITriggerPrefab.UITriggerInfo[] uITriggers = m_PrefabSystem.GetPrefab&lt;TutorialUITriggerPrefab&gt;(nativeArray[i]).m_UITriggers;
-            foreach (TutorialUITriggerPrefab.UITriggerInfo uITriggerInfo in uITriggers)
-            {
-                string[] array = uITriggerInfo.m_UITagProvider.uiTag?.Split('|');
-                if (array == null)
-                {
-                    continue;
-                }
-                bool flag = false;
-                for (int k = 0; k &lt; array.Length; k++)
-                {
-                    if (m_ActivatedTriggers.Contains(array[k]))
-                    {
-                        if (uITriggerInfo.m_GoToPhase != null)
-                        {
-                            Entity entity = m_PrefabSystem.GetEntity(uITriggerInfo.m_GoToPhase);
-                            commandBuffer.AddComponent(nativeArray[i], new TutorialNextPhase
-                            {
-                                m_NextPhase = entity
-                            });
-                            commandBuffer.AddComponent&lt;TriggerPreCompleted&gt;(nativeArray[i]);
-                        }
-                        else if (uITriggerInfo.m_CompleteManually)
-                        {
-                            commandBuffer.AddComponent&lt;TriggerPreCompleted&gt;(nativeArray[i]);
-                        }
-                        else
-                        {
-                            commandBuffer.AddComponent&lt;TriggerCompleted&gt;(nativeArray[i]);
-                        }
-                        TutorialSystem.ManualUnlock(nativeArray[i], m_UnlockEventArchetype, base.EntityManager, commandBuffer);
-                        DisactivateTrigger(array[k]);
-                        flag = true;
-                        break;
-                    }
-                }
-                if (flag)
-                {
-                    break;
-                }
-            }
-        }
-        nativeArray.Dispose();
-    }
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Activating a UI trigger from game logic (e.g., when a specific UI element is used)
+var tutorialSystem = World.DefaultGameObjectInjectionWorld.GetExistingSystemManaged&lt;TutorialUITriggerSystem&gt;();
+tutorialSystem?.ActivateTrigger(&quot;build_button_clicked&quot;);
+
+// The system's OnUpdate will detect the activated tag, consult the prefab's UITriggerInfo
+// (splitting uiTag by '|'), and will add TriggerCompleted / TriggerPreCompleted or
+// TutorialNextPhase as configured, then emit unlock events via TutorialSystem.ManualUnlock.
 </code></pre>
 
 

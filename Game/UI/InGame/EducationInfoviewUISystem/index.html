@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87056,6 +87148,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -101632,15 +101747,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -101677,9 +101783,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -117932,6 +118038,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117957,15 +118085,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -118004,9 +118123,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118029,480 +118148,181 @@
 
 
 <h1 id="gameuiingameeducationinfoviewuisystem">Game.UI.InGame.EducationInfoviewUISystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.UI.InGame</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.UI.InGame.InfoviewUISystemBase</code><br />
-<strong>Implements:</strong> <code>Game.Serialization.IPreDeserialize</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class EducationInfoviewUISystem : Game.UI.InGame.InfoviewUISystemBase, Game.Serialization.IPreDeserialize
-{
-    private Game.Simulation.SimulationSystem m_SimulationSystem;
-    private Game.Simulation.CitySystem m_CitySystem;
-    private Colossal.UI.Binding.RawValueBinding m_EducationData;
-    private Colossal.UI.Binding.ValueBinding&lt;System.Int32&gt; m_ElementaryStudents;
-    private Colossal.UI.Binding.ValueBinding&lt;System.Int32&gt; m_HighSchoolStudents;
-    private Colossal.UI.Binding.ValueBinding&lt;System.Int32&gt; m_CollegeStudents;
-    private Colossal.UI.Binding.ValueBinding&lt;System.Int32&gt; m_UniversityStudents;
-    private Colossal.UI.Binding.ValueBinding&lt;System.Int32&gt; m_ElementaryEligible;
-    private Colossal.UI.Binding.ValueBinding&lt;System.Int32&gt; m_HighSchoolEligible;
-    private Colossal.UI.Binding.ValueBinding&lt;System.Int32&gt; m_CollegeEligible;
-    private Colossal.UI.Binding.ValueBinding&lt;System.Int32&gt; m_UniversityEligible;
-    private Colossal.UI.Binding.ValueBinding&lt;System.Int32&gt; m_ElementaryCapacity;
-    private Colossal.UI.Binding.ValueBinding&lt;System.Int32&gt; m_HighSchoolCapacity;
-    private Colossal.UI.Binding.ValueBinding&lt;System.Int32&gt; m_CollegeCapacity;
-    private Colossal.UI.Binding.ValueBinding&lt;System.Int32&gt; m_UniversityCapacity;
-    private Colossal.UI.Binding.GetterValueBinding&lt;Game.UI.InGame.IndicatorValue&gt; m_ElementaryAvailability;
-    private Colossal.UI.Binding.GetterValueBinding&lt;Game.UI.InGame.IndicatorValue&gt; m_HighSchoolAvailability;
-    private Colossal.UI.Binding.GetterValueBinding&lt;Game.UI.InGame.IndicatorValue&gt; m_CollegeAvailability;
-    private Colossal.UI.Binding.GetterValueBinding&lt;Game.UI.InGame.IndicatorValue&gt; m_UniversityAvailability;
-    private Unity.Entities.EntityQuery m_HouseholdQuery;
-    private Unity.Entities.EntityQuery m_SchoolQuery;
-    private Unity.Entities.EntityQuery m_SchoolModifiedQuery;
-    private Unity.Entities.EntityQuery m_EligibleQuery;
-    private Unity.Entities.EntityQuery m_TimeDataQuery;
-    private Unity.Collections.NativeArray&lt;System.Int32&gt; m_Results;
-    private Game.UI.InGame.EducationInfoviewUISystem+TypeHandle __TypeHandle;
-    private Unity.Entities.EntityQuery __query_607537787_0;
-    private Unity.Entities.EntityQuery __query_607537787_1;
-    private Unity.Entities.EntityQuery __query_607537787_2;
-    private static const System.String kGroup;
-
-    protected System.Boolean Active { protected get; }
-    protected System.Boolean Modified { protected get; }
-
-    public EducationInfoviewUISystem();
-
-    private System.Void __AssignQueries(Unity.Entities.SystemState&amp; state);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnCreateForCompiler();
-    protected virtual System.Void OnDestroy();
-    protected virtual System.Void PerformUpdate();
-    private System.Void ResetResults();
-    private Game.UI.InGame.IndicatorValue UpdateCollegeAvailability();
-    private System.Void UpdateEducationData(Colossal.UI.Binding.IJsonWriter binder);
-    private Game.UI.InGame.IndicatorValue UpdateElementaryAvailability();
-    private System.Void UpdateEligibility();
-    private Game.UI.InGame.IndicatorValue UpdateHighSchoolAvailability();
-    private System.Void UpdateStudentCounts();
-    private Game.UI.InGame.IndicatorValue UpdateUniversityAvailability();
-}
-</code></pre>
+<p><strong>Assembly:</strong> Game (runtime assembly containing game systems; equivalent to Assembly-CSharp in usual modding setups)<br />
+<strong>Namespace:</strong> Game.UI.InGame</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> InfoviewUISystemBase</p>
+<p><strong>Summary:</strong><br />
+EducationInfoviewUISystem is a UI system used by the in-game "Education" infoview. It gathers education-related statistics (population education levels, student counts, eligible students, and school capacities), runs Burst-compiled IJobChunk jobs to compute these aggregates on the ECS world, and exposes the results through UI bindings (RawValueBinding / ValueBinding / GetterValueBinding). The system maintains an internal NativeArray<int> (m_Results) to accumulate results from several jobs, updates UI bindings every frame in PerformUpdate, and computes availability indicators for each education tier (elementary → university). It relies on multiple EntityQuery definitions and reads various component lookups (citizens, households, school data, installed upgrades, city modifiers, etc.).</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.Simulation.SimulationSystem m_SimulationSystem</code>  </li>
+<li>
+<p><code>private enum Result</code><br />
+  Enum used as indexes into m_Results to identify stored counts (Uneducated, ElementaryEducated, HighSchoolEducated, ... , UniversityCapacity).</p>
+</li>
+<li>
+<p><code>private SimulationSystem m_SimulationSystem</code><br />
+  Reference to the SimulationSystem used to get the current simulation frame index.</p>
+</li>
+<li>
+<p><code>private CitySystem m_CitySystem</code><br />
+  Reference to the CitySystem used to get the city entity and its buffers (city modifiers, service fees).</p>
+</li>
+<li>
+<p><code>private RawValueBinding m_EducationData</code><br />
+  Raw binding used to provide detailed education distribution data (5-slice pie chart) to the infoview UI.</p>
+</li>
+<li>
+<p><code>private ValueBinding&lt;int&gt; m_ElementaryStudents, m_HighSchoolStudents, m_CollegeStudents, m_UniversityStudents</code><br />
+  Simple integer bindings exposing current student counts for each tier.</p>
+</li>
+<li>
+<p><code>private ValueBinding&lt;int&gt; m_ElementaryEligible, m_HighSchoolEligible, m_CollegeEligible, m_UniversityEligible</code><br />
+  Integer bindings exposing the number of citizens eligible (or expected) to enter each education tier.</p>
+</li>
+<li>
+<p><code>private ValueBinding&lt;int&gt; m_ElementaryCapacity, m_HighSchoolCapacity, m_CollegeCapacity, m_UniversityCapacity</code><br />
+  Integer bindings exposing student capacity per tier (sum of capacities of relevant school prefabs, combining installed upgrades if present).</p>
+</li>
+<li>
+<p><code>private GetterValueBinding&lt;IndicatorValue&gt; m_ElementaryAvailability, m_HighSchoolAvailability, m_CollegeAvailability, m_UniversityAvailability</code><br />
+  Getter bindings that compute an IndicatorValue (availability/shortage indicator) from capacity and eligible counts.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_HouseholdQuery</code><br />
+  Query used to iterate households and their citizens for education level counts.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_SchoolQuery</code><br />
+  Query used to iterate school buildings and their student buffers / efficiencies for student &amp; capacity counting.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_SchoolModifiedQuery</code><br />
+  Query used to detect when a school building was created/updated/deleted (affects Modified property).</p>
+</li>
+<li>
+<p><code>private EntityQuery m_EligibleQuery</code><br />
+  Query used to iterate citizens eligible for entering education (citizen components + UpdateFrame) and calculate entering probabilities.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_TimeDataQuery</code><br />
+  (Internal query assigned via __AssignQueries; used to fetch TimeData singleton when scheduling eligibility job.)</p>
+</li>
+<li>
+<p><code>private NativeArray&lt;int&gt; m_Results</code><br />
+  Native array of length 17 (as used in this system) used to accumulate intermediate and final counts: education distribution, eligible counts, student counts, capacities, etc. Allocated with Allocator.Persistent and disposed in OnDestroy — important to avoid leaks.</p>
+</li>
+<li>
+<p><code>private TypeHandle __TypeHandle</code><br />
+  Compiler-generated structure that caches ComponentTypeHandle/BufferTypeHandle/ComponentLookup/BufferLookup used by the jobs.</p>
+</li>
+<li>
+<p><code>private EntityQuery __query_607537787_0</code>, <code>__query_607537787_1</code>, <code>__query_607537787_2</code><br />
+  Compiler-generated EntityQuery instances used to fetch singletons like EconomyParameterData, EducationParameterData and TimeData.</p>
+</li>
+<li>
+<p>Several nested Burst-compiled job structs:</p>
+</li>
+<li><code>UpdateEducationDataJob</code> (IJobChunk) — iterates households and household citizens to count living citizens by education level and accumulates results into m_Results[0..4].</li>
+<li><code>UpdateStudentCountsJob</code> (IJobChunk) — iterates school buildings, checks efficiency &amp; installed upgrades, sums student buffer lengths and prefab student capacities into m_Results (student counts and capacities per tier).</li>
+<li><code>UpdateEligibilityJob</code> (IJobChunk) — iterates citizens to estimate how many will attempt to enter each tier (applies entering probability functions and city modifiers; uses economy/education/time singletons and building/household lookups).</li>
 </ul>
-<pre><code class="language-csharp">private Game.Simulation.SimulationSystem m_SimulationSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.CitySystem m_CitySystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.CitySystem m_CitySystem;
-</code></pre>
-<ul>
-<li><code>private Colossal.UI.Binding.RawValueBinding m_EducationData</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.UI.Binding.RawValueBinding m_EducationData;
-</code></pre>
-<ul>
-<li><code>private Colossal.UI.Binding.ValueBinding&lt;System.Int32&gt; m_ElementaryStudents</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.UI.Binding.ValueBinding&lt;System.Int32&gt; m_ElementaryStudents;
-</code></pre>
-<ul>
-<li><code>private Colossal.UI.Binding.ValueBinding&lt;System.Int32&gt; m_HighSchoolStudents</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.UI.Binding.ValueBinding&lt;System.Int32&gt; m_HighSchoolStudents;
-</code></pre>
-<ul>
-<li><code>private Colossal.UI.Binding.ValueBinding&lt;System.Int32&gt; m_CollegeStudents</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.UI.Binding.ValueBinding&lt;System.Int32&gt; m_CollegeStudents;
-</code></pre>
-<ul>
-<li><code>private Colossal.UI.Binding.ValueBinding&lt;System.Int32&gt; m_UniversityStudents</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.UI.Binding.ValueBinding&lt;System.Int32&gt; m_UniversityStudents;
-</code></pre>
-<ul>
-<li><code>private Colossal.UI.Binding.ValueBinding&lt;System.Int32&gt; m_ElementaryEligible</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.UI.Binding.ValueBinding&lt;System.Int32&gt; m_ElementaryEligible;
-</code></pre>
-<ul>
-<li><code>private Colossal.UI.Binding.ValueBinding&lt;System.Int32&gt; m_HighSchoolEligible</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.UI.Binding.ValueBinding&lt;System.Int32&gt; m_HighSchoolEligible;
-</code></pre>
-<ul>
-<li><code>private Colossal.UI.Binding.ValueBinding&lt;System.Int32&gt; m_CollegeEligible</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.UI.Binding.ValueBinding&lt;System.Int32&gt; m_CollegeEligible;
-</code></pre>
-<ul>
-<li><code>private Colossal.UI.Binding.ValueBinding&lt;System.Int32&gt; m_UniversityEligible</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.UI.Binding.ValueBinding&lt;System.Int32&gt; m_UniversityEligible;
-</code></pre>
-<ul>
-<li><code>private Colossal.UI.Binding.ValueBinding&lt;System.Int32&gt; m_ElementaryCapacity</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.UI.Binding.ValueBinding&lt;System.Int32&gt; m_ElementaryCapacity;
-</code></pre>
-<ul>
-<li><code>private Colossal.UI.Binding.ValueBinding&lt;System.Int32&gt; m_HighSchoolCapacity</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.UI.Binding.ValueBinding&lt;System.Int32&gt; m_HighSchoolCapacity;
-</code></pre>
-<ul>
-<li><code>private Colossal.UI.Binding.ValueBinding&lt;System.Int32&gt; m_CollegeCapacity</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.UI.Binding.ValueBinding&lt;System.Int32&gt; m_CollegeCapacity;
-</code></pre>
-<ul>
-<li><code>private Colossal.UI.Binding.ValueBinding&lt;System.Int32&gt; m_UniversityCapacity</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.UI.Binding.ValueBinding&lt;System.Int32&gt; m_UniversityCapacity;
-</code></pre>
-<ul>
-<li><code>private Colossal.UI.Binding.GetterValueBinding&lt;Game.UI.InGame.IndicatorValue&gt; m_ElementaryAvailability</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.UI.Binding.GetterValueBinding&lt;Game.UI.InGame.IndicatorValue&gt; m_ElementaryAvailability;
-</code></pre>
-<ul>
-<li><code>private Colossal.UI.Binding.GetterValueBinding&lt;Game.UI.InGame.IndicatorValue&gt; m_HighSchoolAvailability</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.UI.Binding.GetterValueBinding&lt;Game.UI.InGame.IndicatorValue&gt; m_HighSchoolAvailability;
-</code></pre>
-<ul>
-<li><code>private Colossal.UI.Binding.GetterValueBinding&lt;Game.UI.InGame.IndicatorValue&gt; m_CollegeAvailability</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.UI.Binding.GetterValueBinding&lt;Game.UI.InGame.IndicatorValue&gt; m_CollegeAvailability;
-</code></pre>
-<ul>
-<li><code>private Colossal.UI.Binding.GetterValueBinding&lt;Game.UI.InGame.IndicatorValue&gt; m_UniversityAvailability</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.UI.Binding.GetterValueBinding&lt;Game.UI.InGame.IndicatorValue&gt; m_UniversityAvailability;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_HouseholdQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_HouseholdQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_SchoolQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_SchoolQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_SchoolModifiedQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_SchoolModifiedQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_EligibleQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_EligibleQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_TimeDataQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_TimeDataQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeArray&lt;System.Int32&gt; m_Results</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeArray&lt;System.Int32&gt; m_Results;
-</code></pre>
-<ul>
-<li><code>private Game.UI.InGame.EducationInfoviewUISystem+TypeHandle __TypeHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.UI.InGame.EducationInfoviewUISystem+TypeHandle __TypeHandle;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery __query_607537787_0</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery __query_607537787_0;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery __query_607537787_1</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery __query_607537787_1;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery __query_607537787_2</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery __query_607537787_2;
-</code></pre>
-<ul>
-<li><code>private static const System.String kGroup</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static const System.String kGroup;
-</code></pre>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>protected System.Boolean Active { protected get }</code>  </li>
+<li>
+<p><code>protected override bool Active</code><br />
+  Returns whether the system should be considered active. The system is active if base.Active is true OR any of its UI bindings are active (checks many of the ValueBinding/RawValueBinding/GetterValueBinding .active flags). This lets the system avoid work when the education infoview isn't in use.</p>
+</li>
+<li>
+<p><code>protected override bool Modified</code><br />
+  Returns true when the m_SchoolModifiedQuery is non-empty (i.e., when a school building has been created/updated/deleted). Used to indicate the infoview needs updating if school data changed.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">protected System.Boolean Active { protected get; }
-</code></pre>
-<ul>
-<li><code>protected System.Boolean Modified { protected get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected System.Boolean Modified { protected get; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public EducationInfoviewUISystem()</code>  </li>
+<li><code>public EducationInfoviewUISystem()</code><br />
+  Default (compiler-generated) constructor. Initialization is done in OnCreate.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public EducationInfoviewUISystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private __AssignQueries(Unity.Entities.SystemState&amp; state) : System.Void</code>  </li>
+<li><code>[Preserve] protected override void OnCreate()</code><br />
+  Sets up the system: gets SimulationSystem and CitySystem references; declares RequireForUpdate for EconomyParameterData and TimeData; builds EntityQueries used by the system; registers UI bindings (RawValueBinding, ValueBinding, GetterValueBinding); allocates m_Results as a Persistent NativeArray<int>.</li>
 </ul>
-<pre><code class="language-csharp">private void __AssignQueries(ref SystemState state)
-    {
-        EntityQueryBuilder entityQueryBuilder = new EntityQueryBuilder(Allocator.Temp);
-        EntityQueryBuilder entityQueryBuilder2 = entityQueryBuilder.WithAll&lt;EconomyParameterData&gt;();
-        entityQueryBuilder2 = entityQueryBuilder2.WithOptions(EntityQueryOptions.IncludeSystems);
-        __query_607537787_0 = entityQueryBuilder2.Build(ref state);
-        entityQueryBuilder.Reset();
-        entityQueryBuilder2 = entityQueryBuilder.WithAll&lt;EducationParameterData&gt;();
-        entityQueryBuilder2 = entityQueryBuilder2.WithOptions(EntityQueryOptions.IncludeSystems);
-        __query_607537787_1 = entityQueryBuilder2.Build(ref state);
-        entityQueryBuilder.Reset();
-        entityQueryBuilder2 = entityQueryBuilder.WithAll&lt;TimeData&gt;();
-        entityQueryBuilder2 = entityQueryBuilder2.WithOptions(EntityQueryOptions.IncludeSystems);
-        __query_607537787_2 = entityQueryBuilder2.Build(ref state);
-        entityQueryBuilder.Reset();
-        entityQueryBuilder.Dispose();
-    }
-</code></pre>
+<p>Notes:
+  - Bindings registered here are:
+    - Raw "educationData" (pie chart distribution)
+    - integer counts for students, eligible and capacities per tier
+    - availability getters that compute IndicatorValue from capacity &amp; eligible</p>
 <ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
+<li>
+<p><code>[Preserve] protected override void OnDestroy()</code><br />
+  Disposes m_Results and calls base.OnDestroy. Always dispose the Persistent NativeArray to avoid memory leaks.</p>
+</li>
+<li>
+<p><code>protected override void PerformUpdate()</code><br />
+  Main per-frame update: resets m_Results, runs UpdateStudentCounts and UpdateEligibility (both schedule and complete job work), updates the Raw education data (UpdateEducationData), updates the ValueBinding integers from m_Results indices (student counts, capacities, eligible counts), and calls Update on each availability getter to compute IndicatorValues.</p>
+</li>
+<li>
+<p><code>private void ResetResults()</code><br />
+  Zeroes all entries in m_Results before each frame's aggregation.</p>
+</li>
+<li>
+<p><code>private void UpdateEducationData(IJsonWriter binder)</code><br />
+  Schedules and completes UpdateEducationDataJob against m_HouseholdQuery to count citizens by education level, then writes a five-slice pie chart data structure (InfoviewsUIUtils.UpdateFiveSlicePieChartData) into the provided binder using m_Results[0..4].</p>
+</li>
+<li>
+<p><code>private void UpdateStudentCounts()</code><br />
+  Schedules and completes UpdateStudentCountsJob against m_SchoolQuery to sum active students and capacities across schools (takes into account building efficiency and installed upgrades) and accumulates results into m_Results.</p>
+</li>
+<li>
+<p><code>private void UpdateEligibility()</code><br />
+  Schedules and completes UpdateEligibilityJob against m_EligibleQuery. The job fetches singletons (EconomyParameterData, EducationParameterData, TimeData) and uses city modifiers / service fees to estimate the numbers of eligible students per education tier, accumulating results into m_Results[5..8].</p>
+</li>
+<li>
+<p><code>private IndicatorValue UpdateElementaryAvailability()</code><br />
+  Returns IndicatorValue.Calculate(m_ElementaryCapacity.value, m_ElementaryEligible.value). IndicatorValue encodes whether capacity is sufficient or not and is used by the UI (green/yellow/red indicators).</p>
+</li>
+<li>
+<p><code>private IndicatorValue UpdateHighSchoolAvailability()</code><br />
+  Same as above for high school.</p>
+</li>
+<li>
+<p><code>private IndicatorValue UpdateCollegeAvailability()</code><br />
+  Same as above for college.</p>
+</li>
+<li>
+<p><code>private IndicatorValue UpdateUniversityAvailability()</code><br />
+  Same as above for university.</p>
+</li>
+<li>
+<p><code>[MethodImpl(MethodImplOptions.AggressiveInlining)] private void __AssignQueries(ref SystemState state)</code><br />
+  Compiler-generated helper that builds the internal queries used to fetch singletons (EconomyParameterData, EducationParameterData, TimeData). Called from OnCreateForCompiler.</p>
+</li>
+<li>
+<p><code>protected override void OnCreateForCompiler()</code><br />
+  Compiler hook that calls __AssignQueries and assigns component handles from __TypeHandle.</p>
+</li>
+<li>
+<p>Nested job structs also contain their Execute implementations (IJobChunk.Execute wrappers); these are Burst-compiled for performance.</p>
+</li>
 </ul>
+<h2 id="usage-example">Usage Example</h2>
 <pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_SimulationSystem = base.World.GetOrCreateSystemManaged&lt;SimulationSystem&gt;();
-        m_CitySystem = base.World.GetOrCreateSystemManaged&lt;CitySystem&gt;();
-        RequireForUpdate&lt;EconomyParameterData&gt;();
-        RequireForUpdate&lt;TimeData&gt;();
-        m_HouseholdQuery = GetEntityQuery(ComponentType.ReadOnly&lt;Household&gt;(), ComponentType.ReadOnly&lt;PropertyRenter&gt;(), ComponentType.ReadOnly&lt;HouseholdCitizen&gt;(), ComponentType.Exclude&lt;TouristHousehold&gt;(), ComponentType.Exclude&lt;CommuterHousehold&gt;(), ComponentType.Exclude&lt;MovingAway&gt;());
-        m_SchoolQuery = GetEntityQuery(ComponentType.ReadOnly&lt;Building&gt;(), ComponentType.ReadOnly&lt;Game.Buildings.School&gt;(), ComponentType.ReadOnly&lt;Game.Buildings.Student&gt;(), ComponentType.ReadOnly&lt;PrefabRef&gt;(), ComponentType.Exclude&lt;Temp&gt;(), ComponentType.Exclude&lt;Deleted&gt;());
-        m_SchoolModifiedQuery = GetEntityQuery(new EntityQueryDesc
-        {
-            All = new ComponentType[2]
-            {
-                ComponentType.ReadOnly&lt;Building&gt;(),
-                ComponentType.ReadOnly&lt;Game.Buildings.School&gt;()
-            },
-            Any = new ComponentType[3]
-            {
-                ComponentType.ReadOnly&lt;Deleted&gt;(),
-                ComponentType.ReadOnly&lt;Created&gt;(),
-                ComponentType.ReadOnly&lt;Updated&gt;()
-            },
-            None = new ComponentType[1] { ComponentType.ReadOnly&lt;Temp&gt;() }
-        });
-        m_EligibleQuery = GetEntityQuery(new EntityQueryDesc
-        {
-            All = new ComponentType[2]
-            {
-                ComponentType.ReadWrite&lt;Citizen&gt;(),
-                ComponentType.ReadOnly&lt;UpdateFrame&gt;()
-            },
-            None = new ComponentType[3]
-            {
-                ComponentType.ReadOnly&lt;HasJobSeeker&gt;(),
-                ComponentType.ReadOnly&lt;Temp&gt;(),
-                ComponentType.ReadOnly&lt;Deleted&gt;()
-            }
-        });
-        AddBinding(m_EducationData = new RawValueBinding(&quot;educationInfo&quot;, &quot;educationData&quot;, UpdateEducationData));
-        AddBinding(m_ElementaryStudents = new ValueBinding&lt;int&gt;(&quot;educationInfo&quot;, &quot;elementaryStudentCount&quot;, 0));
-        AddBinding(m_HighSchoolStudents = new ValueBinding&lt;int&gt;(&quot;educationInfo&quot;, &quot;highSchoolStudentCount&quot;, 0));
-        AddBinding(m_CollegeStudents = new ValueBinding&lt;int&gt;(&quot;educationInfo&quot;, &quot;collegeStudentCount&quot;, 0));
-        AddBinding(m_UniversityStudents = new ValueBinding&lt;int&gt;(&quot;educationInfo&quot;, &quot;universityStudentCount&quot;, 0));
-        AddBinding(m_ElementaryEligible = new ValueBinding&lt;int&gt;(&quot;educationInfo&quot;, &quot;elementaryEligible&quot;, 0));
-        AddBinding(m_HighSchoolEligible = new ValueBinding&lt;int&gt;(&quot;educationInfo&quot;, &quot;highSchoolEligible&quot;, 0));
-        AddBinding(m_CollegeEligible = new ValueBinding&lt;int&gt;(&quot;educationInfo&quot;, &quot;collegeEligible&quot;, 0));
-        AddBinding(m_UniversityEligible = new ValueBinding&lt;int&gt;(&quot;educationInfo&quot;, &quot;universityEligible&quot;, 0));
-        AddBinding(m_ElementaryCapacity = new ValueBinding&lt;int&gt;(&quot;educationInfo&quot;, &quot;elementaryCapacity&quot;, 0));
-        AddBinding(m_HighSchoolCapacity = new ValueBinding&lt;int&gt;(&quot;educationInfo&quot;, &quot;highSchoolCapacity&quot;, 0));
-        AddBinding(m_CollegeCapacity = new ValueBinding&lt;int&gt;(&quot;educationInfo&quot;, &quot;collegeCapacity&quot;, 0));
-        AddBinding(m_UniversityCapacity = new ValueBinding&lt;int&gt;(&quot;educationInfo&quot;, &quot;universityCapacity&quot;, 0));
-        AddBinding(m_ElementaryAvailability = new GetterValueBinding&lt;IndicatorValue&gt;(&quot;educationInfo&quot;, &quot;elementaryAvailability&quot;, UpdateElementaryAvailability, new ValueWriter&lt;IndicatorValue&gt;()));
-        AddBinding(m_HighSchoolAvailability = new GetterValueBinding&lt;IndicatorValue&gt;(&quot;educationInfo&quot;, &quot;highSchoolAvailability&quot;, UpdateHighSchoolAvailability, new ValueWriter&lt;IndicatorValue&gt;()));
-        AddBinding(m_CollegeAvailability = new GetterValueBinding&lt;IndicatorValue&gt;(&quot;educationInfo&quot;, &quot;collegeAvailability&quot;, UpdateCollegeAvailability, new ValueWriter&lt;IndicatorValue&gt;()));
-        AddBinding(m_UniversityAvailability = new GetterValueBinding&lt;IndicatorValue&gt;(&quot;educationInfo&quot;, &quot;universityAvailability&quot;, UpdateUniversityAvailability, new ValueWriter&lt;IndicatorValue&gt;()));
-        m_Results = new NativeArray&lt;int&gt;(17, Allocator.Persistent);
-    }
+protected override void OnCreate()
+{
+    base.OnCreate();
+    // The system registers UI bindings and allocates its native buffers in OnCreate.
+    // If you subclass this system (rare for mods), ensure you call base.OnCreate() so bindings are registered.
+    // Example: log that the education infoview system was created (useful when debugging mod interactions).
+    Debug.Log(&quot;EducationInfoviewUISystem created&quot;);
+}
 </code></pre>
-<ul>
-<li><code>protected virtual OnCreateForCompiler() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnCreateForCompiler()
-    {
-        base.OnCreateForCompiler();
-        __AssignQueries(ref base.CheckedStateRef);
-        __TypeHandle.__AssignHandles(ref base.CheckedStateRef);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnDestroy() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnDestroy()
-    {
-        m_Results.Dispose();
-        base.OnDestroy();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual PerformUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void PerformUpdate()
-    {
-        ResetResults();
-        UpdateStudentCounts();
-        UpdateEligibility();
-        m_EducationData.Update();
-        m_ElementaryStudents.Update(m_Results[9]);
-        m_ElementaryCapacity.Update(m_Results[13]);
-        m_ElementaryEligible.Update(m_Results[5]);
-        m_HighSchoolStudents.Update(m_Results[10]);
-        m_HighSchoolCapacity.Update(m_Results[14]);
-        m_HighSchoolEligible.Update(m_Results[6]);
-        m_CollegeStudents.Update(m_Results[11]);
-        m_CollegeCapacity.Update(m_Results[15]);
-        m_CollegeEligible.Update(m_Results[7]);
-        m_UniversityStudents.Update(m_Results[12]);
-        m_UniversityCapacity.Update(m_Results[16]);
-        m_UniversityEligible.Update(m_Results[8]);
-        m_ElementaryAvailability.Update();
-        m_HighSchoolAvailability.Update();
-        m_CollegeAvailability.Update();
-        m_UniversityAvailability.Update();
-    }
-</code></pre>
-<ul>
-<li><code>private ResetResults() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void ResetResults()
-    {
-        for (int i = 0; i &lt; m_Results.Length; i++)
-        {
-            m_Results[i] = 0;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private UpdateCollegeAvailability() : Game.UI.InGame.IndicatorValue</code>  </li>
-</ul>
-<pre><code class="language-csharp">private IndicatorValue UpdateCollegeAvailability()
-    {
-        return IndicatorValue.Calculate(m_CollegeCapacity.value, m_CollegeEligible.value);
-    }
-</code></pre>
-<ul>
-<li><code>private UpdateEducationData(Colossal.UI.Binding.IJsonWriter binder) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void UpdateEducationData(IJsonWriter binder)
-    {
-        JobChunkExtensions.Schedule(new UpdateEducationDataJob
-        {
-            m_HouseholdHandle = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Citizens_Household_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_HouseholdCitizenHandle = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Citizens_HouseholdCitizen_RO_BufferTypeHandle, ref base.CheckedStateRef),
-            m_CitizenFromEntity = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Citizens_Citizen_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_HealthProblemFromEntity = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Citizens_HealthProblem_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_Results = m_Results
-        }, m_HouseholdQuery, base.Dependency).Complete();
-        InfoviewsUIUtils.UpdateFiveSlicePieChartData(binder, m_Results[0], m_Results[1], m_Results[2], m_Results[3], m_Results[4]);
-    }
-</code></pre>
-<ul>
-<li><code>private UpdateElementaryAvailability() : Game.UI.InGame.IndicatorValue</code>  </li>
-</ul>
-<pre><code class="language-csharp">private IndicatorValue UpdateElementaryAvailability()
-    {
-        return IndicatorValue.Calculate(m_ElementaryCapacity.value, m_ElementaryEligible.value);
-    }
-</code></pre>
-<ul>
-<li><code>private UpdateEligibility() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void UpdateEligibility()
-    {
-        JobChunkExtensions.Schedule(new UpdateEligibilityJob
-        {
-            m_EntityHandle = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef),
-            m_CitizenHandle = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Citizens_Citizen_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_StudentHandle = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Citizens_Student_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_WorkerHandle = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Citizens_Worker_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_HouseholdMemberFromEntity = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Citizens_HouseholdMember_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_HouseholdFromEntity = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Citizens_Household_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_HealthProblemFromEntity = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Citizens_HealthProblem_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PropertyRenters = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Buildings_PropertyRenter_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_MovingAways = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Agents_MovingAway_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_ServiceFeeFromEntity = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_City_ServiceFee_RO_BufferLookup, ref base.CheckedStateRef),
-            m_CityModifierFromEntity = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_City_CityModifier_RO_BufferLookup, ref base.CheckedStateRef),
-            m_SimulationFrame = m_SimulationSystem.frameIndex,
-            m_City = m_CitySystem.City,
-            m_EconomyParameterData = __query_607537787_0.GetSingleton&lt;EconomyParameterData&gt;(),
-            m_EducationParameterData = __query_607537787_1.GetSingleton&lt;EducationParameterData&gt;(),
-            m_TimeData = __query_607537787_2.GetSingleton&lt;TimeData&gt;(),
-            m_Results = m_Results
-        }, m_EligibleQuery, base.Dependency).Complete();
-    }
-</code></pre>
-<ul>
-<li><code>private UpdateHighSchoolAvailability() : Game.UI.InGame.IndicatorValue</code>  </li>
-</ul>
-<pre><code class="language-csharp">private IndicatorValue UpdateHighSchoolAvailability()
-    {
-        return IndicatorValue.Calculate(m_HighSchoolCapacity.value, m_HighSchoolEligible.value);
-    }
-</code></pre>
-<ul>
-<li><code>private UpdateStudentCounts() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void UpdateStudentCounts()
-    {
-        JobChunkExtensions.Schedule(new UpdateStudentCountsJob
-        {
-            m_EntityHandle = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef),
-            m_StudentHandle = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Buildings_Student_RO_BufferTypeHandle, ref base.CheckedStateRef),
-            m_EfficiencyType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Buildings_Efficiency_RO_BufferTypeHandle, ref base.CheckedStateRef),
-            m_PrefabRefTypeHandle = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_PrefabRefFromEntity = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_SchoolDataFromEntity = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_SchoolData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_InstalledUpgradeFromEntity = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Buildings_InstalledUpgrade_RO_BufferLookup, ref base.CheckedStateRef),
-            m_Results = m_Results
-        }, m_SchoolQuery, base.Dependency).Complete();
-    }
-</code></pre>
-<ul>
-<li><code>private UpdateUniversityAvailability() : Game.UI.InGame.IndicatorValue</code>  </li>
-</ul>
-<pre><code class="language-csharp">private IndicatorValue UpdateUniversityAvailability()
-    {
-        return IndicatorValue.Calculate(m_UniversityCapacity.value, m_UniversityEligible.value);
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.UI.InGame.EducationInfoviewUISystem+Result</code>  </li>
-<li><code>Game.UI.InGame.EducationInfoviewUISystem+UpdateEducationDataJob</code>  </li>
-<li><code>Game.UI.InGame.EducationInfoviewUISystem+UpdateStudentCountsJob</code>  </li>
-<li><code>Game.UI.InGame.EducationInfoviewUISystem+UpdateEligibilityJob</code>  </li>
-<li><code>Game.UI.InGame.EducationInfoviewUISystem+TypeHandle</code>  </li>
-</ul>
+<p>Additional notes for modders:
+- This system performs heavy work via Burst IJobChunk jobs and uses Persistent NativeArray<int> for aggregation; if you modify or copy this pattern, remember to dispose persistent allocations in OnDestroy.
+- The jobs rely on many component lookups and buffer lookups — altering related component definitions or archetypes may require matching changes to the jobs' type handles.
+- The availability indicators are computed from capacity vs eligible counts; capacity accounts for installed upgrades via UpgradeUtils.CombineStats in UpdateStudentCountsJob.
+- The system completes scheduled jobs immediately (Complete()) before updating UI bindings — this simplifies UI consistency at the cost of potentially blocking the main thread for the duration of the jobs. If you change scheduling behavior, ensure UI bindings see consistent aggregated data.</p>
 
 
 

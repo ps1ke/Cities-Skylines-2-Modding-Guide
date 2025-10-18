@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#gamesimulationwaterstatisticssystem" class="md-skip">
+        <a href="#gamewaterstatisticssystem" class="md-skip">
           Skip to content
         </a>
       
@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87075,6 +87167,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../SurfaceWater/" class="md-nav__link">
         
   
@@ -89471,15 +89586,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -89516,9 +89622,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -117930,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117955,15 +118083,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -118002,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118026,314 +118145,195 @@
 
 
 
-<h1 id="gamesimulationwaterstatisticssystem">Game.Simulation.WaterStatisticsSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Simulation</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code><br />
-<strong>Implements:</strong> <code>Game.Simulation.IWaterStatisticsSystem</code>, <code>Colossal.Serialization.Entities.IDefaultSerializable</code>, <code>Colossal.Serialization.Entities.ISerializable</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class WaterStatisticsSystem : Game.GameSystemBase, Game.Simulation.IWaterStatisticsSystem, Colossal.Serialization.Entities.IDefaultSerializable, Colossal.Serialization.Entities.ISerializable
-{
-    private Unity.Entities.EntityQuery m_PumpGroup;
-    private Unity.Entities.EntityQuery m_OutletGroup;
-    private Unity.Entities.EntityQuery m_ConsumerGroup;
-    private Colossal.NativePerThreadSumInt m_FreshCapacity;
-    private Colossal.NativePerThreadSumInt m_SewageCapacity;
-    private Colossal.NativePerThreadSumInt m_Consumption;
-    private Colossal.NativePerThreadSumInt m_FulfilledFreshConsumption;
-    private Colossal.NativePerThreadSumInt m_FulfilledSewageConsumption;
-    private System.Int32 m_LastFreshCapacity;
-    private System.Int32 m_LastFreshConsumption;
-    private System.Int32 m_LastFulfilledFreshConsumption;
-    private System.Int32 m_LastSewageCapacity;
-    private System.Int32 m_LastSewageConsumption;
-    private System.Int32 m_LastFulfilledSewageConsumption;
-    private Game.Simulation.WaterStatisticsSystem+TypeHandle __TypeHandle;
-
-    public System.Int32 freshCapacity { get; }
-    public System.Int32 freshConsumption { get; }
-    public System.Int32 fulfilledFreshConsumption { get; }
-    public System.Int32 sewageCapacity { get; }
-    public System.Int32 sewageConsumption { get; }
-    public System.Int32 fulfilledSewageConsumption { get; }
-
-    public WaterStatisticsSystem();
-
-    private System.Void __AssignQueries(Unity.Entities.SystemState&amp; state);
-    public System.Void Deserialize&lt;TReader&gt;(TReader reader);
-    public virtual System.Int32 GetUpdateInterval(Game.SystemUpdatePhase phase);
-    public virtual System.Int32 GetUpdateOffset(Game.SystemUpdatePhase phase);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnCreateForCompiler();
-    protected virtual System.Void OnDestroy();
-    protected virtual System.Void OnUpdate();
-    public System.Void Serialize&lt;TWriter&gt;(TWriter writer);
-    public System.Void SetDefaults(Colossal.Serialization.Entities.Context context);
-}
-</code></pre>
+<h1 id="gamewaterstatisticssystem">Game.WaterStatisticsSystem</h1>
+<p><strong>Assembly:</strong> Game<br />
+<strong>Namespace:</strong> Game.Simulation</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> GameSystemBase</p>
+<p><strong>Summary:</strong><br />
+WaterStatisticsSystem is an ECS system that collects and caches aggregate water-related statistics for the city each update interval. It uses Burst-compiled IJobChunk jobs to sum capacities of water pumping stations and sewage outlets and to sum water consumption (wanted and fulfilled, fresh and sewage) from WaterConsumer components using NativePerThreadSumInt accumulators. The system stores the aggregated values in private "last" fields which are exposed via read-only properties. It also implements simple serialization (ISerializable/IDefaultSerializable) to persist the last cached values across saves/loads.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Unity.Entities.EntityQuery m_PumpGroup</code>  </li>
+<li>
+<p><code>private EntityQuery m_PumpGroup</code><br />
+Collects entities with WaterPumpingStation components (excluding Temp and Deleted). Used as the query target for pump capacity counting jobs.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_OutletGroup</code><br />
+Collects entities with SewageOutlet components (excluding Temp and Deleted). Used as the query target for sewage outlet capacity counting jobs.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_ConsumerGroup</code><br />
+Collects entities with WaterConsumer components (excluding Temp and Deleted). Used as the query target for water-consumer counting jobs.</p>
+</li>
+<li>
+<p><code>private NativePerThreadSumInt m_FreshCapacity</code><br />
+Thread-local accumulator used by the pump capacity job to aggregate fresh water capacity in parallel. Persistent allocator, disposed on system destroy.</p>
+</li>
+<li>
+<p><code>private NativePerThreadSumInt m_SewageCapacity</code><br />
+Thread-local accumulator used by the outlet capacity job to aggregate sewage capacity in parallel. Persistent allocator, disposed on system destroy.</p>
+</li>
+<li>
+<p><code>private NativePerThreadSumInt m_Consumption</code><br />
+Thread-local accumulator used by the consumer job to aggregate wanted water consumption (both fresh and sewage consumers combined).</p>
+</li>
+<li>
+<p><code>private NativePerThreadSumInt m_FulfilledFreshConsumption</code><br />
+Thread-local accumulator for how much fresh water consumption was fulfilled (summed across consumers).</p>
+</li>
+<li>
+<p><code>private NativePerThreadSumInt m_FulfilledSewageConsumption</code><br />
+Thread-local accumulator for how much sewage-related water consumption was fulfilled.</p>
+</li>
+<li>
+<p><code>private int m_LastFreshCapacity</code><br />
+Cached integer holding the last aggregated fresh capacity (copied from m_FreshCapacity.Count during OnUpdate).</p>
+</li>
+<li>
+<p><code>private int m_LastFreshConsumption</code><br />
+Cached integer holding the last aggregated fresh consumption (copied from m_Consumption.Count during OnUpdate).</p>
+</li>
+<li>
+<p><code>private int m_LastFulfilledFreshConsumption</code><br />
+Cached integer holding the last aggregated fulfilled fresh consumption (copied from m_FulfilledFreshConsumption.Count during OnUpdate).</p>
+</li>
+<li>
+<p><code>private int m_LastSewageCapacity</code><br />
+Cached integer holding the last aggregated sewage capacity (copied from m_SewageCapacity.Count during OnUpdate).</p>
+</li>
+<li>
+<p><code>private int m_LastSewageConsumption</code><br />
+Cached integer holding the last aggregated sewage consumption. (Note: implementation sets this from m_Consumption.Count — see "Gotchas" below.)</p>
+</li>
+<li>
+<p><code>private int m_LastFulfilledSewageConsumption</code><br />
+Cached integer holding the last aggregated fulfilled sewage consumption (copied from m_FulfilledSewageConsumption.Count during OnUpdate).</p>
+</li>
+<li>
+<p><code>private TypeHandle __TypeHandle</code><br />
+Internal struct storing ComponentTypeHandles used when scheduling jobs. Assigned in OnCreateForCompiler.</p>
+</li>
+<li>
+<p>Nested job types (Burst-compiled):</p>
+</li>
+<li>CountPumpCapacityJob : IJobChunk — sums WaterPumpingStation.m_Capacity into m_FreshCapacity.</li>
+<li>CountOutletCapacityJob : IJobChunk — sums SewageOutlet.m_Capacity into m_SewageCapacity.</li>
+<li>CountWaterConsumptionJob : IJobChunk — sums WaterConsumer fields (wanted, fulfilled fresh, fulfilled sewage) into respective accumulators.</li>
 </ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_PumpGroup;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_OutletGroup</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_OutletGroup;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_ConsumerGroup</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_ConsumerGroup;
-</code></pre>
-<ul>
-<li><code>private Colossal.NativePerThreadSumInt m_FreshCapacity</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.NativePerThreadSumInt m_FreshCapacity;
-</code></pre>
-<ul>
-<li><code>private Colossal.NativePerThreadSumInt m_SewageCapacity</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.NativePerThreadSumInt m_SewageCapacity;
-</code></pre>
-<ul>
-<li><code>private Colossal.NativePerThreadSumInt m_Consumption</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.NativePerThreadSumInt m_Consumption;
-</code></pre>
-<ul>
-<li><code>private Colossal.NativePerThreadSumInt m_FulfilledFreshConsumption</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.NativePerThreadSumInt m_FulfilledFreshConsumption;
-</code></pre>
-<ul>
-<li><code>private Colossal.NativePerThreadSumInt m_FulfilledSewageConsumption</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.NativePerThreadSumInt m_FulfilledSewageConsumption;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_LastFreshCapacity</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_LastFreshCapacity;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_LastFreshConsumption</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_LastFreshConsumption;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_LastFulfilledFreshConsumption</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_LastFulfilledFreshConsumption;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_LastSewageCapacity</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_LastSewageCapacity;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_LastSewageConsumption</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_LastSewageConsumption;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_LastFulfilledSewageConsumption</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_LastFulfilledSewageConsumption;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.WaterStatisticsSystem+TypeHandle __TypeHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.WaterStatisticsSystem+TypeHandle __TypeHandle;
-</code></pre>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>public System.Int32 freshCapacity { get }</code>  </li>
+<li>
+<p><code>public int freshCapacity { get; }</code><br />
+Returns the last sampled fresh water capacity (m_LastFreshCapacity). This value is updated in OnUpdate at the system's interval.</p>
+</li>
+<li>
+<p><code>public int freshConsumption { get; }</code><br />
+Returns the last sampled fresh water consumption (m_LastFreshConsumption).</p>
+</li>
+<li>
+<p><code>public int fulfilledFreshConsumption { get; }</code><br />
+Returns the last sampled fulfilled fresh consumption (m_LastFulfilledFreshConsumption).</p>
+</li>
+<li>
+<p><code>public int sewageCapacity { get; }</code><br />
+Returns the last sampled sewage capacity (m_LastSewageCapacity).</p>
+</li>
+<li>
+<p><code>public int sewageConsumption { get; }</code><br />
+Returns the last sampled sewage consumption (m_LastSewageConsumption).</p>
+</li>
+<li>
+<p><code>public int fulfilledSewageConsumption { get; }</code><br />
+Returns the last sampled fulfilled sewage consumption (m_LastFulfilledSewageConsumption).</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public System.Int32 freshCapacity { get; }
-</code></pre>
-<ul>
-<li><code>public System.Int32 freshConsumption { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Int32 freshConsumption { get; }
-</code></pre>
-<ul>
-<li><code>public System.Int32 fulfilledFreshConsumption { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Int32 fulfilledFreshConsumption { get; }
-</code></pre>
-<ul>
-<li><code>public System.Int32 sewageCapacity { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Int32 sewageCapacity { get; }
-</code></pre>
-<ul>
-<li><code>public System.Int32 sewageConsumption { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Int32 sewageConsumption { get; }
-</code></pre>
-<ul>
-<li><code>public System.Int32 fulfilledSewageConsumption { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Int32 fulfilledSewageConsumption { get; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public WaterStatisticsSystem()</code>  </li>
+<li><code>public WaterStatisticsSystem()</code><br />
+Default constructor. The actual set-up of queries, type handles and native accumulators happens in OnCreate. The constructor is preserved for serialization/compatibility.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public WaterStatisticsSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private __AssignQueries(Unity.Entities.SystemState&amp; state) : System.Void</code>  </li>
+<li>
+<p><code>public override int GetUpdateInterval(SystemUpdatePhase phase)</code><br />
+Returns 128. The system intends to run/refresh its cached statistics every 128 ticks (or the engine's scale for update intervals).</p>
+</li>
+<li>
+<p><code>public override int GetUpdateOffset(SystemUpdatePhase phase)</code><br />
+Returns 63. Used to offset update scheduling relative to other systems.</p>
+</li>
+<li>
+<p><code>protected override void OnCreate()</code><br />
+Initializes entity queries and allocates Persistent NativePerThreadSumInt accumulators:</p>
+</li>
+<li>Creates m_PumpGroup, m_OutletGroup, m_ConsumerGroup queries (read-only component types, excluding Temp and Deleted).</li>
+<li>
+<p>Allocates m_FreshCapacity, m_SewageCapacity, m_Consumption, m_FulfilledFreshConsumption, m_FulfilledSewageConsumption with Allocator.Persistent.</p>
+</li>
+<li>
+<p><code>protected override void OnDestroy()</code><br />
+Disposes the persistent NativePerThreadSumInt accumulators and calls base.OnDestroy.</p>
+</li>
+<li>
+<p><code>public void Serialize&lt;TWriter&gt;(TWriter writer) where TWriter : IWriter</code><br />
+Writes the cached m_Last* integer fields to the writer. Used for saving the system state.</p>
+</li>
+<li>
+<p><code>public void Deserialize&lt;TReader&gt;(TReader reader) where TReader : IReader</code><br />
+Reads and restores m_Last* integer fields from the reader. Used for loading saved state.</p>
+</li>
+<li>
+<p><code>public void SetDefaults(Context context)</code><br />
+Resets all cached m_Last* fields to zero. Called to initialize default state.</p>
+</li>
+<li>
+<p><code>protected override void OnUpdate()</code><br />
+Main update logic: copies current counters from the NativePerThreadSumInt accumulators into the m_Last* cached fields, resets the accumulators to zero, then schedules three parallel IJobChunk jobs (if respective entity queries are non-empty):</p>
+</li>
+<li>CountPumpCapacityJob populates m_FreshCapacity.</li>
+<li>CountOutletCapacityJob populates m_SewageCapacity.</li>
+<li>CountWaterConsumptionJob populates m_Consumption, m_FulfilledFreshConsumption, m_FulfilledSewageConsumption.
+  The jobs are scheduled with component type handles obtained from __TypeHandle via InternalCompilerInterface. The system combines job dependencies into base.Dependency.</li>
 </ul>
-<pre><code class="language-csharp">private void __AssignQueries(ref SystemState state)
+<p>Gotchas:
+  - The implementation sets both m_LastFreshConsumption and m_LastSewageConsumption from m_Consumption.Count (the same accumulator). This looks like a copy-paste mistake in the original code — m_LastSewageConsumption may be intended to come from a separate sewage-specific accumulator, but currently it mirrors the general m_Consumption value.</p>
+<ul>
+<li>
+<p><code>protected override void OnCreateForCompiler()</code><br />
+Called by generated code paths to assign queries and component type handles. Calls __AssignQueries and __TypeHandle.__AssignHandles.</p>
+</li>
+<li>
+<p><code>private void __AssignQueries(ref SystemState state)</code><br />
+Compiler helper; currently contains a placeholder creation/dispose of an EntityQueryBuilder (no runtime query assignment beyond the ones created in OnCreate). Present to satisfy compiler-generated code patterns.</p>
+</li>
+<li>
+<p>TypeHandle.__AssignHandles(ref SystemState state)<br />
+Assigns ComponentTypeHandle<T> instances for WaterPumpingStation, SewageOutlet and WaterConsumer via state.GetComponentTypeHandle<T>(isReadOnly: true). Used when scheduling jobs.</p>
+</li>
+</ul>
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Example: read last cached water stats from another system or mod component.
+// (Exact retrieval API depends on your DOTS / runtime; adjust to your version.)
+
+var world = World.DefaultGameObjectInjectionWorld;
+if (world != null)
+{
+    var stats = world.GetExistingSystemManaged&lt;Game.Simulation.WaterStatisticsSystem&gt;();
+    if (stats != null)
     {
-        new EntityQueryBuilder(Allocator.Temp).Dispose();
+        int freshCap = stats.freshCapacity;
+        int freshConsumption = stats.freshConsumption;
+        int fulfilledFresh = stats.fulfilledFreshConsumption;
+        Debug.Log($&quot;Fresh capacity: {freshCap}, Wanted: {freshConsumption}, Fulfilled: {fulfilledFresh}&quot;);
     }
+}
 </code></pre>
-<ul>
-<li><code>public Deserialize&lt;TReader&gt;(TReader reader) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Void Deserialize&lt;TReader&gt;(TReader reader);
-</code></pre>
-<ul>
-<li><code>public virtual GetUpdateInterval(Game.SystemUpdatePhase phase) : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override int GetUpdateInterval(SystemUpdatePhase phase)
-    {
-        return 128;
-    }
-</code></pre>
-<ul>
-<li><code>public virtual GetUpdateOffset(Game.SystemUpdatePhase phase) : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override int GetUpdateOffset(SystemUpdatePhase phase)
-    {
-        return 63;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_PumpGroup = GetEntityQuery(ComponentType.ReadOnly&lt;WaterPumpingStation&gt;(), ComponentType.Exclude&lt;Temp&gt;(), ComponentType.Exclude&lt;Deleted&gt;());
-        m_OutletGroup = GetEntityQuery(ComponentType.ReadOnly&lt;SewageOutlet&gt;(), ComponentType.Exclude&lt;Temp&gt;(), ComponentType.Exclude&lt;Deleted&gt;());
-        m_ConsumerGroup = GetEntityQuery(ComponentType.ReadOnly&lt;WaterConsumer&gt;(), ComponentType.Exclude&lt;Temp&gt;(), ComponentType.Exclude&lt;Deleted&gt;());
-        m_FreshCapacity = new NativePerThreadSumInt(Allocator.Persistent);
-        m_SewageCapacity = new NativePerThreadSumInt(Allocator.Persistent);
-        m_Consumption = new NativePerThreadSumInt(Allocator.Persistent);
-        m_FulfilledFreshConsumption = new NativePerThreadSumInt(Allocator.Persistent);
-        m_FulfilledSewageConsumption = new NativePerThreadSumInt(Allocator.Persistent);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreateForCompiler() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnCreateForCompiler()
-    {
-        base.OnCreateForCompiler();
-        __AssignQueries(ref base.CheckedStateRef);
-        __TypeHandle.__AssignHandles(ref base.CheckedStateRef);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnDestroy() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnDestroy()
-    {
-        m_FreshCapacity.Dispose();
-        m_SewageCapacity.Dispose();
-        m_Consumption.Dispose();
-        m_FulfilledFreshConsumption.Dispose();
-        m_FulfilledSewageConsumption.Dispose();
-        base.OnDestroy();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        m_LastFreshCapacity = m_FreshCapacity.Count;
-        m_LastFreshConsumption = m_Consumption.Count;
-        m_LastFulfilledFreshConsumption = m_FulfilledFreshConsumption.Count;
-        m_LastSewageCapacity = m_SewageCapacity.Count;
-        m_LastSewageConsumption = m_Consumption.Count;
-        m_LastFulfilledSewageConsumption = m_FulfilledSewageConsumption.Count;
-        m_FreshCapacity.Count = 0;
-        m_SewageCapacity.Count = 0;
-        m_Consumption.Count = 0;
-        m_FulfilledFreshConsumption.Count = 0;
-        m_FulfilledSewageConsumption.Count = 0;
-        JobHandle job = default(JobHandle);
-        if (!m_PumpGroup.IsEmptyIgnoreFilter)
-        {
-            job = JobChunkExtensions.ScheduleParallel(new CountPumpCapacityJob
-            {
-                m_PumpType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Buildings_WaterPumpingStation_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                m_Capacity = m_FreshCapacity.ToConcurrent()
-            }, m_PumpGroup, base.Dependency);
-        }
-        JobHandle job2 = default(JobHandle);
-        if (!m_PumpGroup.IsEmptyIgnoreFilter)
-        {
-            job2 = JobChunkExtensions.ScheduleParallel(new CountOutletCapacityJob
-            {
-                m_OutletType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Buildings_SewageOutlet_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                m_Capacity = m_SewageCapacity.ToConcurrent()
-            }, m_OutletGroup, base.Dependency);
-        }
-        JobHandle job3 = default(JobHandle);
-        if (!m_ConsumerGroup.IsEmptyIgnoreFilter)
-        {
-            job3 = JobChunkExtensions.ScheduleParallel(new CountWaterConsumptionJob
-            {
-                m_ConsumerType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Buildings_WaterConsumer_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                m_Consumption = m_Consumption.ToConcurrent(),
-                m_FulfilledFreshConsumption = m_FulfilledFreshConsumption.ToConcurrent(),
-                m_FulfilledSewageConsumption = m_FulfilledSewageConsumption.ToConcurrent()
-            }, m_ConsumerGroup, base.Dependency);
-        }
-        base.Dependency = JobHandle.CombineDependencies(job, job2, job3);
-    }
-</code></pre>
-<ul>
-<li><code>public Serialize&lt;TWriter&gt;(TWriter writer) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Void Serialize&lt;TWriter&gt;(TWriter writer);
-</code></pre>
-<ul>
-<li><code>public SetDefaults(Colossal.Serialization.Entities.Context context) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void SetDefaults(Context context)
-    {
-        m_LastFreshCapacity = 0;
-        m_LastFreshConsumption = 0;
-        m_LastFulfilledFreshConsumption = 0;
-        m_LastSewageCapacity = 0;
-        m_LastSewageConsumption = 0;
-        m_LastFulfilledSewageConsumption = 0;
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Simulation.WaterStatisticsSystem+CountPumpCapacityJob</code>  </li>
-<li><code>Game.Simulation.WaterStatisticsSystem+CountOutletCapacityJob</code>  </li>
-<li><code>Game.Simulation.WaterStatisticsSystem+CountWaterConsumptionJob</code>  </li>
-<li><code>Game.Simulation.WaterStatisticsSystem+TypeHandle</code>  </li>
-</ul>
+<p>Additional notes:
+- The system is Burst- and job-friendly: the counting work is parallelized via IJobChunk and uses NativePerThreadSumInt to avoid contention.
+- The serialized state only includes the cached m_Last* integers; transient per-frame accumulators are not serialized.
+- If you rely on sewage-specific consumption values, be aware of the potential bug where m_LastSewageConsumption is populated from the same accumulator as fresh consumption. Consider verifying or patching if needed.</p>
 
 
 

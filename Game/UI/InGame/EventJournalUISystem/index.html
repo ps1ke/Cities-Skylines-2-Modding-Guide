@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87056,6 +87148,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -101908,15 +102023,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -101947,6 +102053,15 @@
   <a href="#methods" class="md-nav__link">
     <span class="md-ellipsis">
       Methods
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
     </span>
   </a>
   
@@ -117923,6 +118038,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117948,15 +118085,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -117994,6 +118122,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -118011,247 +118148,151 @@
 
 
 <h1 id="gameuiingameeventjournaluisystem">Game.UI.InGame.EventJournalUISystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.UI.InGame</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.UI.UISystemBase</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class EventJournalUISystem : Game.UI.UISystemBase
-{
-    private Game.Events.IEventJournalSystem m_EventJournalSystem;
-    private Game.Prefabs.PrefabSystem m_PrefabSystem;
-    private Unity.Entities.EntityQuery m_TimeDataQuery;
-    private Colossal.UI.Binding.RawMapBinding&lt;Unity.Entities.Entity&gt; m_EventMap;
-    private Colossal.UI.Binding.RawValueBinding m_Events;
-    private System.Action &lt;eventJournalOpened&gt;k__BackingField;
-    private System.Action &lt;eventJournalClosed&gt;k__BackingField;
-    private static const System.String kGroup;
-    private static const System.Int32 kMaxMessages;
-
-    public System.Action eventJournalOpened { get; set; }
-    public System.Action eventJournalClosed { get; set; }
-
-    public EventJournalUISystem();
-
-    private System.Void &lt;OnCreate&gt;b__15_0();
-    private System.Void &lt;OnCreate&gt;b__15_1();
-    private System.Void &lt;OnCreate&gt;b__15_2(Colossal.UI.Binding.IJsonWriter binder, Unity.Entities.Entity entity);
-    private System.Void BindEvents(Colossal.UI.Binding.IJsonWriter binder);
-    private System.Void BindJournalEntry(Unity.Entities.Entity entity, Colossal.UI.Binding.IJsonWriter binder);
-    protected virtual System.Void OnCreate();
-    private System.Void OnEntryAdded();
-    private System.Void OnEventDataChanged(Unity.Entities.Entity entity);
-    protected virtual System.Void OnUpdate();
-}
-</code></pre>
+<p><strong>Assembly:</strong><br />
+Assembly-CSharp</p>
+<p><strong>Namespace:</strong><br />
+Game.UI.InGame</p>
+<p><strong>Type:</strong><br />
+class</p>
+<p><strong>Base:</strong><br />
+UISystemBase</p>
+<p><strong>Summary:</strong><br />
+EventJournalUISystem is a UI system that exposes the in-game event journal to the UI layer. It binds the recent event entries and individual event entry data to JSON bindings used by the UI. The system listens for changes in the EventJournalSystem (new entries and event data changes) and updates the UI bindings accordingly. It also exposes open/close triggers for the journal UI.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.Events.IEventJournalSystem m_EventJournalSystem</code>  </li>
+<li>
+<p><code>private const string kGroup = "eventJournal"</code><br />
+Group name used for UI bindings — all bindings created by this system are under the "eventJournal" group.</p>
+</li>
+<li>
+<p><code>private const int kMaxMessages = 100</code><br />
+Maximum number of messages the UI exposes for the events list (used when building the events array — bound to "events").</p>
+</li>
+<li>
+<p><code>private IEventJournalSystem m_EventJournalSystem</code><br />
+Reference to the EventJournalSystem (managed ECS system) that stores journal entries and their data. The system subscribes to this to receive notifications when entries are added or when entry data changes.</p>
+</li>
+<li>
+<p><code>private PrefabSystem m_PrefabSystem</code><br />
+Reference to the PrefabSystem used to resolve event prefabs and their JournalEventComponent (to read icons and other prefab-defined metadata).</p>
+</li>
+<li>
+<p><code>private EntityQuery m_TimeDataQuery</code><br />
+EntityQuery used to obtain the global TimeData singleton so the system can compute event dates relative to the city's first frame.</p>
+</li>
+<li>
+<p><code>private RawMapBinding&lt;Entity&gt; m_EventMap</code><br />
+RawMapBinding that provides per-entity bindings for individual journal entries. This writes a JSON object for a given event Entity (the binder calls BindJournalEntry).</p>
+</li>
+<li>
+<p><code>private RawValueBinding m_Events</code><br />
+RawValueBinding used to expose the events list (most recent events up to kMaxMessages) to the UI; this calls BindEvents.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.Events.IEventJournalSystem m_EventJournalSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Prefabs.PrefabSystem m_PrefabSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Prefabs.PrefabSystem m_PrefabSystem;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_TimeDataQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_TimeDataQuery;
-</code></pre>
-<ul>
-<li><code>private Colossal.UI.Binding.RawMapBinding&lt;Unity.Entities.Entity&gt; m_EventMap</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.UI.Binding.RawMapBinding&lt;Unity.Entities.Entity&gt; m_EventMap;
-</code></pre>
-<ul>
-<li><code>private Colossal.UI.Binding.RawValueBinding m_Events</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.UI.Binding.RawValueBinding m_Events;
-</code></pre>
-<ul>
-<li><code>private System.Action &lt;eventJournalOpened&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Action &lt;eventJournalOpened&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private System.Action &lt;eventJournalClosed&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Action &lt;eventJournalClosed&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private static const System.String kGroup</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static const System.String kGroup;
-</code></pre>
-<ul>
-<li><code>private static const System.Int32 kMaxMessages</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static const System.Int32 kMaxMessages;
-</code></pre>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>public System.Action eventJournalOpened { get; set }</code>  </li>
+<li>
+<p><code>public Action eventJournalOpened { get; set; }</code><br />
+Action invoked when the UI trigger "openJournal" fires. UI or other systems can subscribe to this to react when the journal is opened.</p>
+</li>
+<li>
+<p><code>public Action eventJournalClosed { get; set; }</code><br />
+Action invoked when the UI trigger "closeJournal" fires. UI or other systems can subscribe to this to react when the journal is closed.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public System.Action eventJournalOpened { get; set; }
-</code></pre>
-<ul>
-<li><code>public System.Action eventJournalClosed { get; set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Action eventJournalClosed { get; set; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public EventJournalUISystem()</code>  </li>
+<li><code>public EventJournalUISystem()</code><br />
+Default constructor. The system relies on OnCreate to set up bindings and references.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public EventJournalUISystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private &lt;OnCreate&gt;b__15_0() : System.Void</code>  </li>
+<li><code>protected override void OnCreate()</code> : System.Void<br />
+Initializes the system:</li>
+<li>Obtains PrefabSystem and EventJournalSystem from the World.</li>
+<li>Subscribes to EventJournalSystem events:<ul>
+<li>eventEventDataChanged -&gt; OnEventDataChanged(entity) to update a specific journal entry binding.</li>
+<li>eventEntryAdded -&gt; OnEntryAdded() to refresh the events list binding.</li>
 </ul>
-<pre><code class="language-csharp">private System.Void &lt;OnCreate&gt;b__15_0();
-</code></pre>
+</li>
+<li>Builds UI bindings:<ul>
+<li>TriggerBinding("eventJournal", "openJournal") -&gt; invokes eventJournalOpened.</li>
+<li>TriggerBinding("eventJournal", "closeJournal") -&gt; invokes eventJournalClosed.</li>
+<li>RawValueBinding("eventJournal", "events", BindEvents) -&gt; provides the array of recent events.</li>
+<li>RawMapBinding<Entity>("eventJournal", "eventMap", BindJournalEntry) -&gt; provides per-entity event info objects.</li>
+</ul>
+</li>
+</ul>
+<p>Note: methods and delegates are marked with [Preserve] to avoid stripping for AOT.</p>
 <ul>
-<li><code>private &lt;OnCreate&gt;b__15_1() : System.Void</code>  </li>
+<li>
+<p><code>protected override void OnUpdate()</code> : System.Void<br />
+Empty override. The system performs updates reactively via bindings and event callbacks rather than per-frame work here.</p>
+</li>
+<li>
+<p><code>private void OnEventDataChanged(Entity entity)</code> : System.Void<br />
+Callback invoked when an event entity's data changes. Calls m_EventMap.Update(entity) so the UI is updated for that entry.</p>
+</li>
+<li>
+<p><code>private void OnEntryAdded()</code> : System.Void<br />
+Callback invoked when a new event entry is added to the journal. Calls m_Events.Update() so the events list in the UI refreshes.</p>
+</li>
+<li>
+<p><code>private void BindEvents(IJsonWriter binder)</code> : System.Void<br />
+Writes a JSON array of recent events (most recent first) using the binder. The array length is the minimum of the journal length and kMaxMessages (100). Entries are written in reverse order (newest first).</p>
+</li>
+<li>
+<p><code>private void BindJournalEntry(Entity entity, IJsonWriter binder)</code> : System.Void<br />
+Writes a JSON object for a single journal entry with the following structure ("eventJournal.EventInfo"):</p>
+</li>
+<li>id: prefab name (string)</li>
+<li>icon: component.m_Icon (string or sprite reference as provided by JournalEventComponent)</li>
+<li>date: integer representing startFrame - TimeData.m_FirstFrame (city-relative frame index)</li>
+<li>data: an array of eventJournal.UIEventData objects (or null) — each entry contains:<ul>
+<li>type: name of EventDataTrackingType enum</li>
+<li>value: numeric value (raw value from tracking data)</li>
 </ul>
-<pre><code class="language-csharp">private System.Void &lt;OnCreate&gt;b__15_1();
-</code></pre>
-<ul>
-<li><code>private &lt;OnCreate&gt;b__15_2(Colossal.UI.Binding.IJsonWriter binder, Unity.Entities.Entity entity) : System.Void</code>  </li>
+</li>
+<li>effects: an array of eventJournal.UIEventData objects (or null) — each entry contains:<ul>
+<li>type: name of EventCityEffectTrackingType enum</li>
+<li>value: percentile change computed with EventJournalUtils.GetPercentileChange</li>
 </ul>
-<pre><code class="language-csharp">private System.Void &lt;OnCreate&gt;b__15_2(Colossal.UI.Binding.IJsonWriter binder, Unity.Entities.Entity entity);
-</code></pre>
-<ul>
-<li><code>private BindEvents(Colossal.UI.Binding.IJsonWriter binder) : System.Void</code>  </li>
+</li>
 </ul>
-<pre><code class="language-csharp">private void BindEvents(IJsonWriter binder)
-    {
-        binder.ArrayBegin(Math.Min(m_EventJournalSystem.eventJournal.Length, 100));
-        int num = m_EventJournalSystem.eventJournal.Length - 1;
-        while (num &gt;= 0 &amp;&amp; num &gt;= m_EventJournalSystem.eventJournal.Length - 100)
-        {
-            binder.Write(m_EventJournalSystem.eventJournal[num]);
-            num--;
-        }
-        binder.ArrayEnd();
-    }
+<p>Implementation details:
+  - Resolves EventJournalEntry info and associated prefab Entity.
+  - Gets EventPrefab from PrefabSystem and reads JournalEventComponent.
+  - Uses m_TimeDataQuery to convert frames to a date relative to the city's first frame.
+  - Uses m_EventJournalSystem.TryGetData and TryGetCityEffects to include optional arrays (writes null when absent).</p>
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Get the system instance and subscribe to open/close notifications:
+var uiSystem = World.GetOrCreateSystemManaged&lt;Game.UI.InGame.EventJournalUISystem&gt;();
+uiSystem.eventJournalOpened += () =&gt;
+{
+    // Called when the UI triggers &quot;openJournal&quot; (e.g. user opens the journal)
+    Debug.Log(&quot;Event journal opened&quot;);
+};
+uiSystem.eventJournalClosed += () =&gt;
+{
+    Debug.Log(&quot;Event journal closed&quot;);
+};
+
+// If you need to inspect or debug the JSON emitted by BindJournalEntry/BindEvents,
+// you can obtain the EventJournalSystem and iterate entries, or rely on the UI bindings.
+var eventJournalSystem = World.GetOrCreateSystemManaged&lt;Game.Events.EventJournalSystem&gt;();
+// Example: enumerate last entries (read-only)
+for (int i = eventJournalSystem.eventJournal.Length - 1; i &gt;= 0 &amp;&amp; i &gt;= eventJournalSystem.eventJournal.Length - 100; --i)
+{
+    var entry = eventJournalSystem.eventJournal[i];
+    // handle entry...
+}
 </code></pre>
-<ul>
-<li><code>private BindJournalEntry(Unity.Entities.Entity entity, Colossal.UI.Binding.IJsonWriter binder) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void BindJournalEntry(Entity entity, IJsonWriter binder)
-    {
-        EventJournalEntry info = m_EventJournalSystem.GetInfo(entity);
-        Entity prefab = m_EventJournalSystem.GetPrefab(entity);
-        EventPrefab prefab2 = m_PrefabSystem.GetPrefab&lt;EventPrefab&gt;(prefab);
-        JournalEventComponent component = prefab2.GetComponent&lt;JournalEventComponent&gt;();
-        binder.TypeBegin(&quot;eventJournal.EventInfo&quot;);
-        binder.PropertyName(&quot;id&quot;);
-        binder.Write(prefab2.name);
-        binder.PropertyName(&quot;icon&quot;);
-        binder.Write(component.m_Icon);
-        binder.PropertyName(&quot;date&quot;);
-        binder.Write(info.m_StartFrame - TimeData.GetSingleton(m_TimeDataQuery).m_FirstFrame);
-        binder.PropertyName(&quot;data&quot;);
-        if (m_EventJournalSystem.TryGetData(entity, out var data))
-        {
-            binder.ArrayBegin(data.Length);
-            for (int i = 0; i &lt; data.Length; i++)
-            {
-                binder.TypeBegin(&quot;eventJournal.UIEventData&quot;);
-                binder.PropertyName(&quot;type&quot;);
-                binder.Write(Enum.GetName(typeof(EventDataTrackingType), data[i].m_Type));
-                binder.PropertyName(&quot;value&quot;);
-                binder.Write(data[i].m_Value);
-                binder.TypeEnd();
-            }
-            binder.ArrayEnd();
-        }
-        else
-        {
-            binder.WriteNull();
-        }
-        binder.PropertyName(&quot;effects&quot;);
-        if (m_EventJournalSystem.TryGetCityEffects(entity, out var data2))
-        {
-            binder.ArrayBegin(data2.Length);
-            for (int j = 0; j &lt; data2.Length; j++)
-            {
-                binder.TypeBegin(&quot;eventJournal.UIEventData&quot;);
-                binder.PropertyName(&quot;type&quot;);
-                binder.Write(Enum.GetName(typeof(EventCityEffectTrackingType), data2[j].m_Type));
-                binder.PropertyName(&quot;value&quot;);
-                binder.Write(EventJournalUtils.GetPercentileChange(data2[j]));
-                binder.TypeEnd();
-            }
-            binder.ArrayEnd();
-        }
-        else
-        {
-            binder.WriteNull();
-        }
-        binder.TypeEnd();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_PrefabSystem = base.World.GetOrCreateSystemManaged&lt;PrefabSystem&gt;();
-        m_EventJournalSystem = base.World.GetOrCreateSystemManaged&lt;EventJournalSystem&gt;();
-        IEventJournalSystem eventJournalSystem = m_EventJournalSystem;
-        eventJournalSystem.eventEventDataChanged = (Action&lt;Entity&gt;)Delegate.Combine(eventJournalSystem.eventEventDataChanged, new Action&lt;Entity&gt;(OnEventDataChanged));
-        IEventJournalSystem eventJournalSystem2 = m_EventJournalSystem;
-        eventJournalSystem2.eventEntryAdded = (Action)Delegate.Combine(eventJournalSystem2.eventEntryAdded, new Action(OnEntryAdded));
-        m_TimeDataQuery = GetEntityQuery(ComponentType.ReadOnly&lt;TimeData&gt;());
-        AddBinding(new TriggerBinding(&quot;eventJournal&quot;, &quot;openJournal&quot;, delegate
-        {
-            eventJournalOpened?.Invoke();
-        }));
-        AddBinding(new TriggerBinding(&quot;eventJournal&quot;, &quot;closeJournal&quot;, delegate
-        {
-            eventJournalClosed?.Invoke();
-        }));
-        AddBinding(m_Events = new RawValueBinding(&quot;eventJournal&quot;, &quot;events&quot;, BindEvents));
-        AddBinding(m_EventMap = new RawMapBinding&lt;Entity&gt;(&quot;eventJournal&quot;, &quot;eventMap&quot;, delegate(IJsonWriter binder, Entity entity)
-        {
-            BindJournalEntry(entity, binder);
-        }));
-    }
-</code></pre>
-<ul>
-<li><code>private OnEntryAdded() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void OnEntryAdded()
-    {
-        m_Events.Update();
-    }
-</code></pre>
-<ul>
-<li><code>private OnEventDataChanged(Unity.Entities.Entity entity) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void OnEventDataChanged(Entity entity)
-    {
-        m_EventMap.Update(entity);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-    }
-</code></pre>
+<p>Additional notes and modding tips:
+- Bindings created use the "eventJournal" group. To add new UI fields, either extend BindJournalEntry or add new bindings under the same group name.
+- BindJournalEntry uses prefab metadata (JournalEventComponent) for icons and id. To customize appearance, add or modify JournalEventComponent on event prefabs.
+- The system updates UI reactively via event callbacks (eventEntryAdded and eventEventDataChanged). Those events are exposed by EventJournalSystem; you can raise or listen to them when modifying journal data.
+- kMaxMessages limits the number of events exposed to UI to avoid sending very large payloads to the UI layer.</p>
 
 
 

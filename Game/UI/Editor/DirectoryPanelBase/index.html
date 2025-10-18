@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87073,6 +87165,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Simulation/SurfaceWater/" class="md-nav__link">
         
   
@@ -97446,15 +97561,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -97485,6 +97591,15 @@
   <a href="#methods" class="md-nav__link">
     <span class="md-ellipsis">
       Methods
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
     </span>
   </a>
   
@@ -117923,6 +118038,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117948,15 +118085,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -117994,6 +118122,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -118011,151 +118148,114 @@
 
 
 <h1 id="gameuieditordirectorypanelbase">Game.UI.Editor.DirectoryPanelBase</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.UI.Editor</code>  </p>
-<p><strong>Type:</strong> class abstract public  </p>
-<p><strong>Base:</strong> <code>Game.UI.Editor.EditorPanelBase</code><br />
-<strong>Implements:</strong> <code>Game.UI.Editor.IEditorPanel</code>, <code>Game.UI.Editor.SearchField+IAdapter</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public abstract class DirectoryPanelBase : Game.UI.Editor.EditorPanelBase, Game.UI.Editor.IEditorPanel, Game.UI.Editor.SearchField+IAdapter
-{
-    protected System.Collections.Generic.List&lt;Game.UI.Editor.Item&gt; m_Items;
-    protected System.Collections.Generic.Dictionary&lt;System.String, Game.UI.Editor.Item&gt; m_Directories;
-    protected Game.UI.Localization.LocalizedString m_RootDirName;
-    protected Game.UI.Widgets.PageView m_PageView;
-    protected readonly System.Collections.Generic.List&lt;Game.UI.Editor.DirectoryAdapter&gt; m_Stack;
-    protected readonly System.Collections.Generic.List&lt;Game.UI.Widgets.IWidget&gt; m_Pages;
-    protected static Colossal.Logging.ILog log;
-    protected static const System.Char kDirSeparator;
-
-    private System.String Game.UI.Editor.SearchField.IAdapter.searchQuery { private get; private set; }
-
-    protected DirectoryPanelBase();
-
-    private Game.UI.Editor.DirectoryAdapter BuildAdapter(System.String dir);
-    private Game.UI.Widgets.IWidget BuildPage(Game.UI.Editor.DirectoryAdapter adapter);
-    protected virtual System.Void OnBack();
-    public abstract System.Void OnSelect(Game.UI.Editor.Item item);
-    protected virtual System.Void ShowSubDir(System.String dir);
-}
-</code></pre>
+<p><strong>Assembly:</strong> Assembly-CSharp<br />
+<strong>Namespace:</strong> Game.UI.Editor</p>
+<p><strong>Type:</strong> public abstract class</p>
+<p><strong>Base:</strong> EditorPanelBase, SearchField.IAdapter</p>
+<p><strong>Summary:</strong><br />
+Base class for directory-style item picker panels used in the editor UI. Manages a navigation stack of DirectoryAdapter instances and corresponding pages (PageLayout) displayed in a PageView. Implements SearchField.IAdapter by forwarding the search query to the current directory adapter. Handles building adapter/page pairs, navigating into sub-directories and back navigation.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>protected System.Collections.Generic.List&lt;Game.UI.Editor.Item&gt; m_Items</code>  </li>
+<li>
+<p><code>protected static ILog log = UIManager.log</code><br />
+Logging instance (static) reused by the panel. Sourced from the UIManager logger.</p>
+</li>
+<li>
+<p><code>protected const char kDirSeparator = '/'</code><br />
+Directory separator character used in directory path strings.</p>
+</li>
+<li>
+<p><code>protected List&lt;Item&gt; m_Items</code><br />
+The list of all items available to the panel. When building adapters the list is copied into adapter.items.</p>
+</li>
+<li>
+<p><code>protected Dictionary&lt;string, Item&gt; m_Directories = new Dictionary&lt;string, Item&gt;()</code><br />
+Mapping of directory path -&gt; Item (or metadata) used to get display names for directories when creating PageLayout titles.</p>
+</li>
+<li>
+<p><code>protected LocalizedString m_RootDirName</code><br />
+Localized display name used for the root directory page title (when adapter.directoryPath is null).</p>
+</li>
+<li>
+<p><code>protected PageView m_PageView</code><br />
+The PageView widget that hosts the pages created for each directory level. Children and currentPage are updated when navigating.</p>
+</li>
+<li>
+<p><code>protected readonly List&lt;DirectoryAdapter&gt; m_Stack = new List&lt;DirectoryAdapter&gt;()</code><br />
+Navigation stack of DirectoryAdapter instances. The last adapter is treated as the "current" directory.</p>
+</li>
+<li>
+<p><code>protected readonly List&lt;IWidget&gt; m_Pages = new List&lt;IWidget&gt;()</code><br />
+List of page widgets (PageLayout instances) corresponding to m_Stack. Kept in sync with m_Stack and assigned to m_PageView.children.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">protected System.Collections.Generic.List&lt;Game.UI.Editor.Item&gt; m_Items;
-</code></pre>
-<ul>
-<li><code>protected System.Collections.Generic.Dictionary&lt;System.String, Game.UI.Editor.Item&gt; m_Directories</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected System.Collections.Generic.Dictionary&lt;System.String, Game.UI.Editor.Item&gt; m_Directories;
-</code></pre>
-<ul>
-<li><code>protected Game.UI.Localization.LocalizedString m_RootDirName</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected Game.UI.Localization.LocalizedString m_RootDirName;
-</code></pre>
-<ul>
-<li><code>protected Game.UI.Widgets.PageView m_PageView</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected Game.UI.Widgets.PageView m_PageView;
-</code></pre>
-<ul>
-<li><code>protected readonly System.Collections.Generic.List&lt;Game.UI.Editor.DirectoryAdapter&gt; m_Stack</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected readonly System.Collections.Generic.List&lt;Game.UI.Editor.DirectoryAdapter&gt; m_Stack;
-</code></pre>
-<ul>
-<li><code>protected readonly System.Collections.Generic.List&lt;Game.UI.Widgets.IWidget&gt; m_Pages</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected readonly System.Collections.Generic.List&lt;Game.UI.Widgets.IWidget&gt; m_Pages;
-</code></pre>
-<ul>
-<li><code>protected static Colossal.Logging.ILog log</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected static Colossal.Logging.ILog log;
-</code></pre>
-<ul>
-<li><code>protected static const System.Char kDirSeparator</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected static const System.Char kDirSeparator;
-</code></pre>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>private System.String Game.UI.Editor.SearchField.IAdapter.searchQuery { private get; private set }</code>  </li>
+<li><code>string SearchField.IAdapter.searchQuery { get; private set }</code><br />
+Explicit implementation of SearchField.IAdapter.searchQuery. The getter and setter forward to the searchQuery of the current DirectoryAdapter: m_Stack.Last().searchQuery. Note: because this is an explicit interface implementation you must reference the panel via the interface to access it. If m_Stack is empty, calling this will throw (via Last()) — the adapter stack is expected to contain at least one adapter when search is used.</li>
 </ul>
-<pre><code class="language-csharp">private System.String Game.UI.Editor.SearchField.IAdapter.searchQuery { private get; private set; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>protected DirectoryPanelBase()</code>  </li>
+<li><code>public DirectoryPanelBase()</code><br />
+No explicit constructor is declared in the source; the parameterless default constructor is provided by the compiler. Several fields are initialized inline (m_Directories, m_Stack, m_Pages). Subclasses should initialize required widgets (e.g., m_PageView) and data (m_Items, m_RootDirName) before calling ShowSubDir or relying on the stack.</li>
 </ul>
-<pre><code class="language-csharp">protected DirectoryPanelBase();
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private BuildAdapter(System.String dir) : Game.UI.Editor.DirectoryAdapter</code>  </li>
+<li>
+<p><code>public abstract void OnSelect(Item item)</code><br />
+Abstract callback invoked when an item is selected from an ItemPicker on one of the pages. Implementations must define how selection is handled (e.g., placing an item, opening details, etc.).</p>
+</li>
+<li>
+<p><code>protected virtual void ShowSubDir(string dir)</code><br />
+Creates a DirectoryAdapter for the given directory path (dir may be null for the root), pushes it onto m_Stack, builds a corresponding page with BuildPage, appends it to m_Pages, updates m_PageView.children and sets m_PageView.currentPage to the new top of the stack. Use to navigate into a directory.</p>
+</li>
+<li>
+<p><code>private DirectoryAdapter BuildAdapter(string dir)</code><br />
+Creates and returns a new DirectoryAdapter bound to this panel. Sets adapter.directoryPath = dir and copies the current m_Items into adapter.items (m_Items.ToList()). The adapter is not automatically pushed — ShowSubDir wraps this to push and build the page.</p>
+</li>
+<li>
+<p><code>private IWidget BuildPage(DirectoryAdapter adapter)</code><br />
+Builds a PageLayout for the provided adapter. The page title is taken from m_Directories[adapter.directoryPath].displayName when adapter.directoryPath != null, otherwise m_RootDirName is used. If adapter.directoryPath != null a backAction (OnBack) is wired to the page. The page contains a single ItemPicker<Item> configured with the adapter, hasFavorites = true and hasImages = false.</p>
+</li>
+<li>
+<p><code>protected virtual void OnBack()</code><br />
+Handles back navigation. If there is more than one adapter on m_Stack, removes the top adapter and its corresponding page, clears selectedItem on the new top adapter, updates m_PageView.children and sets m_PageView.currentPage to the new top index. Does nothing if the stack has only one entry.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private DirectoryAdapter BuildAdapter(string dir)
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Minimal example subclass showing typical usage
+public class MyDirectoryPanel : DirectoryPanelBase
+{
+    public MyDirectoryPanel()
     {
-        return new DirectoryAdapter(this)
+        // Populate items and directories before showing pages
+        m_Items = new List&lt;Item&gt;()
         {
-            directoryPath = dir,
-            items = m_Items.ToList()
+            // populate with Item instances
         };
+
+        // Example: set localized root name
+        m_RootDirName = new LocalizedString(&quot;Root&quot;);
+
+        // PageView is typically created by the UI framework; ensure it's present
+        m_PageView = new PageView();
+
+        // Show the root page (pass null for root directoryPath)
+        ShowSubDir(null);
     }
-</code></pre>
-<ul>
-<li><code>private BuildPage(Game.UI.Editor.DirectoryAdapter adapter) : Game.UI.Widgets.IWidget</code>  </li>
-</ul>
-<pre><code class="language-csharp">private IWidget BuildPage(DirectoryAdapter adapter)
+
+    public override void OnSelect(Item item)
     {
-        PageLayout pageLayout = new PageLayout();
-        pageLayout.title = ((adapter.directoryPath != null) ? m_Directories[adapter.directoryPath].displayName : m_RootDirName);
-        pageLayout.backAction = ((adapter.directoryPath != null) ? new Action(OnBack) : null);
-        pageLayout.children = new IWidget[1]
-        {
-            new ItemPicker&lt;Item&gt;
-            {
-                adapter = adapter,
-                hasFavorites = true,
-                hasImages = false
-            }
-        };
-        return pageLayout;
+        // Handle item selection (called from ItemPicker)
+        // e.g., place item in editor or open details
     }
-</code></pre>
-<ul>
-<li><code>protected virtual OnBack() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected virtual void OnBack()
-    {
-        if (m_Stack.Count &gt; 1)
-        {
-            m_Stack.RemoveAt(m_Stack.Count - 1);
-            m_Stack.Last().selectedItem = null;
-            m_Pages.RemoveAt(m_Pages.Count - 1);
-            m_PageView.children = m_Pages.ToArray();
-            m_PageView.currentPage = m_Stack.Count - 1;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public abstract OnSelect(Game.UI.Editor.Item item) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public abstract System.Void OnSelect(Game.UI.Editor.Item item);
-</code></pre>
-<ul>
-<li><code>protected virtual ShowSubDir(System.String dir) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected virtual void ShowSubDir(string dir)
-    {
-        DirectoryAdapter directoryAdapter = BuildAdapter(dir);
-        m_Stack.Add(directoryAdapter);
-        m_Pages.Add(BuildPage(directoryAdapter));
-        m_PageView.children = m_Pages.ToArray();
-        m_PageView.currentPage = m_Stack.Count - 1;
-    }
+}
+
+// Example of using the search adapter (SearchField will use this):
+SearchField search = /* obtain search field */;
+search.adapter = (SearchField.IAdapter)myDirectoryPanel; // panel implements the adapter explicitly
+((SearchField.IAdapter)myDirectoryPanel).searchQuery = &quot;road&quot;;
 </code></pre>
 
 

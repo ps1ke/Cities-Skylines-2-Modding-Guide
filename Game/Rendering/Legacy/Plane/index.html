@@ -65233,6 +65233,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -65545,15 +65568,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -65584,6 +65598,15 @@
   <a href="#methods" class="md-nav__link">
     <span class="md-ellipsis">
       Methods
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
     </span>
   </a>
   
@@ -69753,6 +69776,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Skeleton/" class="md-nav__link">
         
   
@@ -72565,6 +72611,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75555,6 +75624,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87147,6 +87239,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -117923,6 +118038,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117948,15 +118085,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -117994,6 +118122,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -118011,186 +118148,137 @@
 
 
 <h1 id="gamerenderinglegacyplane">Game.Rendering.Legacy.Plane</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Rendering.Legacy</code>  </p>
-<p><strong>Type:</strong> struct sealed public  </p>
-<p><strong>Base:</strong> <code>System.ValueType</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public sealed struct Plane
-{
-    private Unity.Mathematics.float3 m_Normal;
-    private System.Single m_Distance;
-
-    public Unity.Mathematics.float3 normal { get; set; }
-    public System.Single distance { get; set; }
-    public Game.Rendering.Legacy.Plane flipped { get; }
-
-    public Plane(Unity.Mathematics.float3 inNormal, Unity.Mathematics.float3 inPoint);
-    public Plane(Unity.Mathematics.float3 inNormal, System.Single d);
-    public Plane(Unity.Mathematics.float3 a, Unity.Mathematics.float3 b, Unity.Mathematics.float3 c);
-
-    public Unity.Mathematics.float3 ClosestPointOnPlane(Unity.Mathematics.float3 point);
-    public System.Void Flip();
-    public System.Single GetDistanceToPoint(Unity.Mathematics.float3 point);
-    public System.Boolean GetSide(Unity.Mathematics.float3 point);
-    public System.Boolean SameSide(Unity.Mathematics.float3 inPt0, Unity.Mathematics.float3 inPt1);
-    public System.Void Set3Points(Unity.Mathematics.float3 a, Unity.Mathematics.float3 b, Unity.Mathematics.float3 c);
-    public System.Void SetNormalAndPosition(Unity.Mathematics.float3 inNormal, Unity.Mathematics.float3 inPoint);
-    public virtual System.String ToString();
-    public System.Void Translate(Unity.Mathematics.float3 translation);
-    public static Game.Rendering.Legacy.Plane Translate(Game.Rendering.Legacy.Plane plane, Unity.Mathematics.float3 translation);
-}
-</code></pre>
+<p><strong>Assembly:</strong><br />
+Assembly-CSharp (typical for game code / modding assemblies)</p>
+<p><strong>Namespace:</strong><br />
+Game.Rendering.Legacy</p>
+<p><strong>Type:</strong><br />
+struct</p>
+<p><strong>Base:</strong><br />
+System.ValueType</p>
+<p><strong>Summary:</strong><br />
+Represents a 3D plane using a normalized surface normal and a signed distance value that satisfies the plane equation: dot(normal, X) + distance = 0. The struct automatically normalizes provided normals in most constructors and setters. Provides utilities to construct a plane from a normal + point or from three points, flip or translate the plane, compute the closest point on the plane, and test point-sidedness.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Unity.Mathematics.float3 m_Normal</code>  </li>
+<li>
+<p><code>private Unity.Mathematics.float3 m_Normal</code><br />
+Stores the plane normal. The code normalizes inputs in most setters/constructors so this field should hold a unit-length vector in normal usage.</p>
+</li>
+<li>
+<p><code>private System.Single m_Distance</code><br />
+Signed distance term in the plane equation dot(normal, X) + distance = 0. Positive/negative depends on normal direction. Adjusted by translation operations.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Unity.Mathematics.float3 m_Normal;
-</code></pre>
-<ul>
-<li><code>private System.Single m_Distance</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Single m_Distance;
-</code></pre>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>public Unity.Mathematics.float3 normal { get; set }</code>  </li>
+<li>
+<p><code>public Unity.Mathematics.float3 normal { get; set; }</code><br />
+Gets or sets the plane normal. The getter returns m_Normal. The setter assigns the provided value directly to m_Normal (the code shows assignment without re-normalizing in the property setter itself; normalization happens in constructors and specific setters like SetNormalAndPosition).</p>
+</li>
+<li>
+<p><code>public System.Single distance { get; set; }</code><br />
+Gets or sets the plane distance term (m_Distance).</p>
+</li>
+<li>
+<p><code>public Game.Rendering.Legacy.Plane flipped { get; }</code><br />
+Read-only property that returns a new Plane with the normal and distance negated (i.e., reversed plane orientation). Equivalent to flipping the plane.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public Unity.Mathematics.float3 normal { get; set; }
-</code></pre>
-<ul>
-<li><code>public System.Single distance { get; set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Single distance { get; set; }
-</code></pre>
-<ul>
-<li><code>public Game.Rendering.Legacy.Plane flipped { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Game.Rendering.Legacy.Plane flipped { get; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public Plane(Unity.Mathematics.float3 inNormal, Unity.Mathematics.float3 inPoint)</code>  </li>
+<li>
+<p><code>public Plane(Unity.Mathematics.float3 inNormal, Unity.Mathematics.float3 inPoint)</code><br />
+Constructs a plane using a normal and a point on the plane. The constructor normalizes inNormal to store as m_Normal, and computes m_Distance = -dot(m_Normal, inPoint).</p>
+</li>
+<li>
+<p><code>public Plane(Unity.Mathematics.float3 inNormal, System.Single d)</code><br />
+Constructs a plane from a normal and an explicit distance. The normal is normalized before storing; the provided d is used as the distance value (no adjustment made for normalization of the normal).</p>
+</li>
+<li>
+<p><code>public Plane(Unity.Mathematics.float3 a, Unity.Mathematics.float3 b, Unity.Mathematics.float3 c)</code><br />
+Constructs a plane from three points (a, b, c). The normal is computed as normalize(cross(b - a, c - a)) and m_Distance = -dot(m_Normal, a).</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public Plane(float3 a, float3 b, float3 c)
-    {
-        m_Normal = math.normalize(math.cross(b - a, c - a));
-        m_Distance = 0f - math.dot(m_Normal, a);
-    }
-</code></pre>
-<ul>
-<li><code>public Plane(Unity.Mathematics.float3 inNormal, System.Single d)</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Plane(float3 a, float3 b, float3 c)
-    {
-        m_Normal = math.normalize(math.cross(b - a, c - a));
-        m_Distance = 0f - math.dot(m_Normal, a);
-    }
-</code></pre>
-<ul>
-<li><code>public Plane(Unity.Mathematics.float3 a, Unity.Mathematics.float3 b, Unity.Mathematics.float3 c)</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Plane(float3 a, float3 b, float3 c)
-    {
-        m_Normal = math.normalize(math.cross(b - a, c - a));
-        m_Distance = 0f - math.dot(m_Normal, a);
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>public ClosestPointOnPlane(Unity.Mathematics.float3 point) : Unity.Mathematics.float3</code>  </li>
+<li>
+<p><code>public void SetNormalAndPosition(Unity.Mathematics.float3 inNormal, Unity.Mathematics.float3 inPoint)</code><br />
+Sets the plane by a given normal and a point. The implementation normalizes the provided normal for m_Normal, then sets m_Distance = -dot(inNormal, inPoint). Note: the distance calculation uses the original inNormal (not the normalized m_Normal), which can produce incorrect distance if inNormal is not unit-length—this is an implementation detail to be aware of.</p>
+</li>
+<li>
+<p><code>public void Set3Points(Unity.Mathematics.float3 a, Unity.Mathematics.float3 b, Unity.Mathematics.float3 c)</code><br />
+Sets the plane from three points. Computes the normal as normalize(cross(b - a, c - a)) and m_Distance = -dot(m_Normal, a).</p>
+</li>
+<li>
+<p><code>public void Flip()</code><br />
+Negates the normal and distance in-place (m_Normal = -m_Normal; m_Distance = -m_Distance), reversing the plane's orientation.</p>
+</li>
+<li>
+<p><code>public void Translate(Unity.Mathematics.float3 translation)</code><br />
+Translates the plane in-place by adjusting m_Distance += dot(m_Normal, translation). Translation along normal moves the plane accordingly.</p>
+</li>
+<li>
+<p><code>public static Game.Rendering.Legacy.Plane Translate(Game.Rendering.Legacy.Plane plane, Unity.Mathematics.float3 translation)</code><br />
+Returns a new Plane which is the given plane translated by translation. Implementation returns a new Plane using the same normal and adjusted distance. (Note: the source uses an assignment expression on plane.m_Distance inside the constructor argument, which mutates the local copy before constructing the returned Plane.)</p>
+</li>
+<li>
+<p><code>public Unity.Mathematics.float3 ClosestPointOnPlane(Unity.Mathematics.float3 point)</code><br />
+Returns the closest point on the plane to the given point by projecting the point onto the plane: point - m_Normal * (dot(m_Normal, point) + m_Distance).</p>
+</li>
+<li>
+<p><code>public System.Single GetDistanceToPoint(Unity.Mathematics.float3 point)</code><br />
+Returns the signed distance from the point to the plane: dot(m_Normal, point) + m_Distance.</p>
+</li>
+<li>
+<p><code>public System.Boolean GetSide(Unity.Mathematics.float3 point)</code><br />
+Returns true when the point is on the side of the plane in the direction of the normal (i.e., signed distance &gt; 0), false otherwise.</p>
+</li>
+<li>
+<p><code>public System.Boolean SameSide(Unity.Mathematics.float3 inPt0, Unity.Mathematics.float3 inPt1)</code><br />
+Returns true if both points are on the same side of the plane (both positive distances or both non-positive). The implementation compares GetDistanceToPoint for both points and includes explicit branch logic; result effectively indicates if both are &gt; 0 or both &lt;= 0.</p>
+</li>
+<li>
+<p><code>public override System.String ToString()</code><br />
+Returns a formatted string representing the plane: "(normal:(x, y, z), distance:d)" where components are formatted to one decimal place.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public float3 ClosestPointOnPlane(float3 point)
-    {
-        float num = math.dot(m_Normal, point) + m_Distance;
-        return point - m_Normal * num;
-    }
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">using Unity.Mathematics;
+using Game.Rendering.Legacy;
+
+void Example()
+{
+    // Create from normal and point
+    float3 normal = new float3(0, 1, 0);
+    float3 pointOnPlane = new float3(0, 5, 0);
+    Plane p1 = new Plane(normal, pointOnPlane); // horizontal plane at y = 5
+
+    // Create from three points
+    Plane p2 = new Plane(new float3(0,0,0), new float3(1,0,0), new float3(0,0,1));
+
+    // Flip plane orientation
+    Plane flipped = p1.flipped;
+
+    // Translate plane up by 2 units
+    p1.Translate(new float3(0, 2, 0)); // modifies p1
+    Plane moved = Plane.Translate(p2, new float3(0, 3, 0)); // returns new plane
+
+    // Query distance and closest point
+    float distance = p1.GetDistanceToPoint(new float3(0, 10, 0));
+    float3 closest = p1.ClosestPointOnPlane(new float3(2, 10, -1));
+
+    // Side tests
+    bool onPositiveSide = p1.GetSide(new float3(0, 6, 0));
+    bool sameSide = p1.SameSide(new float3(0, 6, 0), new float3(0, 7, 0));
+
+    // Debug print
+    UnityEngine.Debug.Log(p1.ToString());
+}
 </code></pre>
-<ul>
-<li><code>public Flip() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void Flip()
-    {
-        m_Normal = -m_Normal;
-        m_Distance = 0f - m_Distance;
-    }
-</code></pre>
-<ul>
-<li><code>public GetDistanceToPoint(Unity.Mathematics.float3 point) : System.Single</code>  </li>
-</ul>
-<pre><code class="language-csharp">public float GetDistanceToPoint(float3 point)
-    {
-        return math.dot(m_Normal, point) + m_Distance;
-    }
-</code></pre>
-<ul>
-<li><code>public GetSide(Unity.Mathematics.float3 point) : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">public bool GetSide(float3 point)
-    {
-        return math.dot(m_Normal, point) + m_Distance &gt; 0f;
-    }
-</code></pre>
-<ul>
-<li><code>public SameSide(Unity.Mathematics.float3 inPt0, Unity.Mathematics.float3 inPt1) : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">public bool SameSide(float3 inPt0, float3 inPt1)
-    {
-        float distanceToPoint = GetDistanceToPoint(inPt0);
-        float distanceToPoint2 = GetDistanceToPoint(inPt1);
-        if (!(distanceToPoint &gt; 0f) || !(distanceToPoint2 &gt; 0f))
-        {
-            if (distanceToPoint &lt;= 0f)
-            {
-                return distanceToPoint2 &lt;= 0f;
-            }
-            return false;
-        }
-        return true;
-    }
-</code></pre>
-<ul>
-<li><code>public Set3Points(Unity.Mathematics.float3 a, Unity.Mathematics.float3 b, Unity.Mathematics.float3 c) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void Set3Points(float3 a, float3 b, float3 c)
-    {
-        m_Normal = math.normalize(math.cross(b - a, c - a));
-        m_Distance = 0f - math.dot(m_Normal, a);
-    }
-</code></pre>
-<ul>
-<li><code>public SetNormalAndPosition(Unity.Mathematics.float3 inNormal, Unity.Mathematics.float3 inPoint) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void SetNormalAndPosition(float3 inNormal, float3 inPoint)
-    {
-        m_Normal = math.normalize(inNormal);
-        m_Distance = 0f - math.dot(inNormal, inPoint);
-    }
-</code></pre>
-<ul>
-<li><code>public virtual ToString() : System.String</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override string ToString()
-    {
-        return $&quot;(normal:({m_Normal.x:F1}, {m_Normal.y:F1}, {m_Normal.z:F1}), distance:{m_Distance:F1})&quot;;
-    }
-</code></pre>
-<ul>
-<li><code>public Translate(Unity.Mathematics.float3 translation) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static Plane Translate(Plane plane, float3 translation)
-    {
-        return new Plane(plane.m_Normal, plane.m_Distance += math.dot(plane.m_Normal, translation));
-    }
-</code></pre>
-<ul>
-<li><code>public static Translate(Game.Rendering.Legacy.Plane plane, Unity.Mathematics.float3 translation) : Game.Rendering.Legacy.Plane</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static Plane Translate(Plane plane, float3 translation)
-    {
-        return new Plane(plane.m_Normal, plane.m_Distance += math.dot(plane.m_Normal, translation));
-    }
-</code></pre>
+<p>Notes and gotchas:
+- Constructors and Set3Points normalize the input normals; however SetNormalAndPosition uses the original (non-normalized) inNormal when computing m_Distance—this can lead to inconsistent distances if passing a non-unit inNormal. Prefer passing a unit normal or using constructor overloads that compute distance from a point.
+- The struct is value-type: operations like Translate(Plane, translation) work on copies; the static Translate returns a new Plane rather than modifying the original passed-in plane instance.</p>
 
 
 

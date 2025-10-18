@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -84319,15 +84411,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -84358,6 +84441,15 @@
   <a href="#methods" class="md-nav__link">
     <span class="md-ellipsis">
       Methods
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
     </span>
   </a>
   
@@ -87145,6 +87237,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -117921,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117946,15 +118083,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -117992,6 +118120,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -118009,269 +118146,174 @@
 
 
 <h1 id="gamesimulationmilestonesystem">Game.Simulation.MilestoneSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Simulation</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code><br />
-<strong>Implements:</strong> <code>Game.Simulation.IMilestoneSystem</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class MilestoneSystem : Game.GameSystemBase, Game.Simulation.IMilestoneSystem
-{
-    private System.Int32 m_LastRequired;
-    private System.Int32 m_NextRequired;
-    private System.Int32 m_Progress;
-    private System.Int32 m_NextMilestone;
-    private Game.Simulation.CitySystem m_CitySystem;
-    private Game.Common.ModificationEndBarrier m_ModificationEndBarrier;
-    private Unity.Entities.EntityArchetype m_UnlockEventArchetype;
-    private Unity.Entities.EntityArchetype m_MilestoneReachedEventArchetype;
-    private Unity.Entities.EntityQuery m_MilestoneLevelGroup;
-    private Unity.Entities.EntityQuery m_XPGroup;
-    private Unity.Entities.EntityQuery m_MilestoneGroup;
-
-    public System.Int32 currentXP { get; }
-    public System.Int32 requiredXP { get; }
-    public System.Int32 lastRequiredXP { get; }
-    public System.Int32 nextRequiredXP { get; }
-    public System.Single progress { get; }
-    public System.Int32 nextMilestone { get; }
-
-    public MilestoneSystem();
-
-    private System.Void NextMilestone(System.Int32 index);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnUpdate();
-    private System.Boolean TryGetMilestone(System.Int32 index, Unity.Entities.Entity&amp; entity, Game.Prefabs.MilestoneData&amp; milestone);
-    public System.Void UnlockAllMilestones();
-}
-</code></pre>
+<p><strong>Assembly:</strong> Game (runtime simulation assembly)<br />
+<strong>Namespace:</strong> Game.Simulation</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> GameSystemBase, IMilestoneSystem</p>
+<p><strong>Summary:</strong><br />
+Manages city milestone progression. The system tracks current XP and milestone thresholds, determines when the next milestone is reached, emits milestone-related events (MilestoneReachedEvent and Unlock), and grants milestone rewards and loan limit increases to the City entity. It uses ECS queries to read MilestoneData, the MilestoneLevel singleton and XP, and uses a ModificationEndBarrier to create event entities safely at the end of a simulation step. The system exposes properties to read current/required XP and progress.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private System.Int32 m_LastRequired</code>  </li>
+<li>
+<p><code>private int m_LastRequired</code><br />
+  Stores the XP threshold of the most recently achieved milestone (last required XP).</p>
+</li>
+<li>
+<p><code>private int m_NextRequired</code><br />
+  Stores the XP threshold required for the next milestone.</p>
+</li>
+<li>
+<p><code>private int m_Progress</code><br />
+  Current progress XP since last milestone (city XP minus last required).</p>
+</li>
+<li>
+<p><code>private int m_NextMilestone</code><br />
+  Index of the next milestone (achievedMilestone + 1).</p>
+</li>
+<li>
+<p><code>private CitySystem m_CitySystem</code><br />
+  Cached reference to the CitySystem used to read the city's XP and to obtain the City entity.</p>
+</li>
+<li>
+<p><code>private ModificationEndBarrier m_ModificationEndBarrier</code><br />
+  Barrier system used to create event entities (command buffer) at the end of modifications.</p>
+</li>
+<li>
+<p><code>private EntityArchetype m_UnlockEventArchetype</code><br />
+  Archetype for creating Unlock event entities (Event + Unlock components).</p>
+</li>
+<li>
+<p><code>private EntityArchetype m_MilestoneReachedEventArchetype</code><br />
+  Archetype for creating MilestoneReachedEvent entities (Event + MilestoneReachedEvent components).</p>
+</li>
+<li>
+<p><code>private EntityQuery m_MilestoneLevelGroup</code><br />
+  Query for the MilestoneLevel singleton (used to read and update achieved milestone index).</p>
+</li>
+<li>
+<p><code>private EntityQuery m_XPGroup</code><br />
+  Query that requires the presence of XP components (used to ensure system updates when XP exists).</p>
+</li>
+<li>
+<p><code>private EntityQuery m_MilestoneGroup</code><br />
+  Query for entities with MilestoneData (used to look up milestone definitions and rewards).</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private System.Int32 m_LastRequired;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_NextRequired</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_NextRequired;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_Progress</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_Progress;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_NextMilestone</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_NextMilestone;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.CitySystem m_CitySystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.CitySystem m_CitySystem;
-</code></pre>
-<ul>
-<li><code>private Game.Common.ModificationEndBarrier m_ModificationEndBarrier</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Common.ModificationEndBarrier m_ModificationEndBarrier;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityArchetype m_UnlockEventArchetype</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityArchetype m_UnlockEventArchetype;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityArchetype m_MilestoneReachedEventArchetype</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityArchetype m_MilestoneReachedEventArchetype;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_MilestoneLevelGroup</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_MilestoneLevelGroup;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_XPGroup</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_XPGroup;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_MilestoneGroup</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_MilestoneGroup;
-</code></pre>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>public System.Int32 currentXP { get }</code>  </li>
+<li>
+<p><code>public int currentXP =&gt; m_Progress</code><br />
+  Current XP progress since last achieved milestone.</p>
+</li>
+<li>
+<p><code>public int requiredXP =&gt; nextRequiredXP - math.max(0, lastRequiredXP)</code><br />
+  XP required to go from the last achieved milestone to the next milestone (handles lastRequiredXP being negative via max).</p>
+</li>
+<li>
+<p><code>public int lastRequiredXP =&gt; m_LastRequired</code><br />
+  The XP threshold of the last achieved milestone.</p>
+</li>
+<li>
+<p><code>public int nextRequiredXP =&gt; m_NextRequired</code><br />
+  The XP threshold for the next milestone.</p>
+</li>
+<li>
+<p><code>public float progress =&gt; (float)m_Progress / (float)requiredXP</code><br />
+  Normalized progress (0..1) toward the next milestone.</p>
+</li>
+<li>
+<p><code>public int nextMilestone =&gt; m_NextMilestone</code><br />
+  Index of the next milestone.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public System.Int32 currentXP { get; }
-</code></pre>
-<ul>
-<li><code>public System.Int32 requiredXP { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Int32 requiredXP { get; }
-</code></pre>
-<ul>
-<li><code>public System.Int32 lastRequiredXP { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Int32 lastRequiredXP { get; }
-</code></pre>
-<ul>
-<li><code>public System.Int32 nextRequiredXP { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Int32 nextRequiredXP { get; }
-</code></pre>
-<ul>
-<li><code>public System.Single progress { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Single progress { get; }
-</code></pre>
-<ul>
-<li><code>public System.Int32 nextMilestone { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Int32 nextMilestone { get; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public MilestoneSystem()</code>  </li>
+<li><code>public MilestoneSystem()</code><br />
+  Default constructor (no custom initialization beyond base).</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public MilestoneSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private NextMilestone(System.Int32 index) : System.Void</code>  </li>
+<li>
+<p><code>protected override void OnCreate()</code><br />
+  Initializes the system: caches CitySystem and ModificationEndBarrier, creates archetypes for milestone events, sets up EntityQueries for MilestoneLevel, XP, and MilestoneData, and calls RequireForUpdate on those queries so the system only runs when relevant components exist.</p>
+</li>
+<li>
+<p><code>protected override void OnUpdate()</code><br />
+  Core per-frame logic:</p>
+</li>
+<li>Reads the MilestoneLevel singleton to get the currently achieved milestone index.</li>
+<li>Updates m_LastRequired by finding the milestone data for the achieved milestone (if any).</li>
+<li>Checks if the next milestone exists and updates m_NextRequired.</li>
+<li>If the city's XP (from CitySystem) is greater than or equal to m_NextRequired, increments the achieved milestone, writes back the singleton, and calls NextMilestone to emit events and apply rewards.</li>
+<li>
+<p>Updates m_Progress (city XP minus last required) and m_NextMilestone.</p>
+</li>
+<li>
+<p><code>private void NextMilestone(int index)</code><br />
+  Called when a milestone is reached:</p>
+</li>
+<li>Creates a command buffer from m_ModificationEndBarrier.</li>
+<li>Tries to find the MilestoneData for the given index via TryGetMilestone.</li>
+<li>If found:<ul>
+<li>Creates a MilestoneReachedEvent entity and an Unlock event entity using the command buffer.</li>
+<li>Immediately updates the City entity's PlayerMoney (adds milestone reward) and Creditworthiness (increases loan limit).</li>
 </ul>
-<pre><code class="language-csharp">private void NextMilestone(int index)
-    {
-        EntityCommandBuffer entityCommandBuffer = m_ModificationEndBarrier.CreateCommandBuffer();
-        if (TryGetMilestone(index, out var entity, out var milestone))
-        {
-            Entity e = entityCommandBuffer.CreateEntity(m_MilestoneReachedEventArchetype);
-            entityCommandBuffer.SetComponent(e, new MilestoneReachedEvent(entity, index));
-            Entity e2 = entityCommandBuffer.CreateEntity(m_UnlockEventArchetype);
-            entityCommandBuffer.SetComponent(e2, new Unlock(entity));
-            PlayerMoney componentData = base.EntityManager.GetComponentData&lt;PlayerMoney&gt;(m_CitySystem.City);
-            componentData.Add(milestone.m_Reward);
-            base.EntityManager.SetComponentData(m_CitySystem.City, componentData);
-            Creditworthiness componentData2 = base.EntityManager.GetComponentData&lt;Creditworthiness&gt;(m_CitySystem.City);
-            componentData2.m_Amount += milestone.m_LoanLimit;
-            base.EntityManager.SetComponentData(m_CitySystem.City, componentData2);
-        }
-        else
-        {
-            Entity e3 = entityCommandBuffer.CreateEntity(m_MilestoneReachedEventArchetype);
-            entityCommandBuffer.SetComponent(e3, new MilestoneReachedEvent(Entity.Null, index));
-            UnityEngine.Debug.LogWarning(&quot;Warning: did not find data for milestone &quot; + index);
-        }
-    }
-</code></pre>
+</li>
+<li>If not found:<ul>
+<li>Creates a MilestoneReachedEvent with Entity.Null for the milestone entity and logs a warning.</li>
+</ul>
+</li>
+</ul>
+<p>Note: event entities are created via the command buffer to be processed safely later in the frame.</p>
 <ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
+<li><code>private bool TryGetMilestone(int index, out Entity entity, out MilestoneData milestone)</code><br />
+  Looks up milestone data by index:</li>
+<li>Reads all entities and MilestoneData components matched by m_MilestoneGroup into temporary NativeArrays (Allocator.TempJob).</li>
+<li>Iterates them to find one where m_Index == index.</li>
+<li>If found returns true and outputs the entity and data.</li>
+<li>Ensures NativeArrays are disposed in a finally block.</li>
+<li>
+<p>Returns false and sets outputs to default if not found.</p>
+</li>
+<li>
+<p><code>public void UnlockAllMilestones()</code><br />
+  Force-unlocks all remaining milestones:</p>
+</li>
+<li>Reads all MilestoneData and entities into temporary NativeArrays.</li>
+<li>Reads the MilestoneLevel singleton and City PlayerMoney and Creditworthiness components.</li>
+<li>From the current achieved milestone up through all milestone entries, creates Unlock event entities and:<ul>
+<li>Updates singleton.m_AchievedMilestone to the maximum index seen.</li>
+<li>Adds each milestone's reward to PlayerMoney.</li>
+<li>Adds each milestone's loan limit to Creditworthiness.m_Amount.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_CitySystem = base.World.GetOrCreateSystemManaged&lt;CitySystem&gt;();
-        m_ModificationEndBarrier = base.World.GetOrCreateSystemManaged&lt;ModificationEndBarrier&gt;();
-        m_UnlockEventArchetype = base.EntityManager.CreateArchetype(ComponentType.ReadWrite&lt;Game.Common.Event&gt;(), ComponentType.ReadWrite&lt;Unlock&gt;());
-        m_MilestoneReachedEventArchetype = base.EntityManager.CreateArchetype(ComponentType.ReadWrite&lt;Game.Common.Event&gt;(), ComponentType.ReadWrite&lt;MilestoneReachedEvent&gt;());
-        m_MilestoneLevelGroup = GetEntityQuery(ComponentType.ReadWrite&lt;MilestoneLevel&gt;());
-        m_XPGroup = GetEntityQuery(ComponentType.ReadOnly&lt;XP&gt;());
-        m_MilestoneGroup = GetEntityQuery(ComponentType.ReadOnly&lt;MilestoneData&gt;());
-        RequireForUpdate(m_MilestoneLevelGroup);
-        RequireForUpdate(m_XPGroup);
-        RequireForUpdate(m_MilestoneGroup);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
+</li>
+<li>Disposes the temporary arrays and writes back the updated singleton and City component data.</li>
+<li>Note: this method uses EntityManager.CreateEntity directly for Unlock events (immediate creation).</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        MilestoneLevel singleton = m_MilestoneLevelGroup.GetSingleton&lt;MilestoneLevel&gt;();
-        int achievedMilestone = singleton.m_AchievedMilestone;
-        m_LastRequired = (TryGetMilestone(achievedMilestone, out var entity, out var milestone) ? milestone.m_XpRequried : 0);
-        if (TryGetMilestone(achievedMilestone + 1, out entity, out var milestone2))
-        {
-            m_NextRequired = milestone2.m_XpRequried;
-            if (m_CitySystem.XP &gt;= m_NextRequired)
-            {
-                singleton.m_AchievedMilestone++;
-                m_MilestoneLevelGroup.SetSingleton(singleton);
-                NextMilestone(singleton.m_AchievedMilestone);
-            }
-        }
-        m_Progress = m_CitySystem.XP - math.max(0, m_LastRequired);
-        m_NextMilestone = singleton.m_AchievedMilestone + 1;
-    }
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Example: get the milestone system and force-unlock all milestones from a mod entry point
+var world = World.DefaultGameObjectInjectionWorld;
+var milestoneSystem = world.GetOrCreateSystemManaged&lt;Game.Simulation.MilestoneSystem&gt;();
+if (milestoneSystem != null)
+{
+    // Query current progress
+    float progressRatio = milestoneSystem.progress;
+    int currentXP = milestoneSystem.currentXP;
+    int needed = milestoneSystem.requiredXP;
+
+    // Force unlock all (gives all rewards and loan increases)
+    milestoneSystem.UnlockAllMilestones();
+}
 </code></pre>
-<ul>
-<li><code>private TryGetMilestone(System.Int32 index, Unity.Entities.Entity&amp; entity, Game.Prefabs.MilestoneData&amp; milestone) : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">private bool TryGetMilestone(int index, out Entity entity, out MilestoneData milestone)
-    {
-        NativeArray&lt;Entity&gt; nativeArray = m_MilestoneGroup.ToEntityArray(Allocator.TempJob);
-        NativeArray&lt;MilestoneData&gt; nativeArray2 = m_MilestoneGroup.ToComponentDataArray&lt;MilestoneData&gt;(Allocator.TempJob);
-        try
-        {
-            for (int i = 0; i &lt; nativeArray2.Length; i++)
-            {
-                if (nativeArray2[i].m_Index == index)
-                {
-                    entity = nativeArray[i];
-                    milestone = nativeArray2[i];
-                    return true;
-                }
-            }
-        }
-        finally
-        {
-            nativeArray.Dispose();
-            nativeArray2.Dispose();
-        }
-        entity = default(Entity);
-        milestone = default(MilestoneData);
-        return false;
-    }
-</code></pre>
-<ul>
-<li><code>public UnlockAllMilestones() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void UnlockAllMilestones()
-    {
-        NativeArray&lt;Entity&gt; nativeArray = m_MilestoneGroup.ToEntityArray(Allocator.TempJob);
-        NativeArray&lt;MilestoneData&gt; nativeArray2 = m_MilestoneGroup.ToComponentDataArray&lt;MilestoneData&gt;(Allocator.TempJob);
-        MilestoneLevel singleton = m_MilestoneLevelGroup.GetSingleton&lt;MilestoneLevel&gt;();
-        PlayerMoney componentData = base.EntityManager.GetComponentData&lt;PlayerMoney&gt;(m_CitySystem.City);
-        Creditworthiness componentData2 = base.EntityManager.GetComponentData&lt;Creditworthiness&gt;(m_CitySystem.City);
-        try
-        {
-            for (int i = singleton.m_AchievedMilestone; i &lt; nativeArray2.Length; i++)
-            {
-                Entity entity = base.EntityManager.CreateEntity(m_UnlockEventArchetype);
-                base.EntityManager.SetComponentData(entity, new Unlock(nativeArray[i]));
-                singleton.m_AchievedMilestone = math.max(singleton.m_AchievedMilestone, nativeArray2[i].m_Index);
-                componentData.Add(nativeArray2[i].m_Reward);
-                componentData2.m_Amount += nativeArray2[i].m_LoanLimit;
-            }
-        }
-        finally
-        {
-            nativeArray.Dispose();
-            nativeArray2.Dispose();
-        }
-        m_MilestoneLevelGroup.SetSingleton(singleton);
-        base.EntityManager.SetComponentData(m_CitySystem.City, componentData);
-        base.EntityManager.SetComponentData(m_CitySystem.City, componentData2);
-    }
-</code></pre>
+<p>Notes and implementation details:
+- The system relies on MilestoneData entities being present in the world (m_MilestoneGroup). If a milestone index is missing, the system logs a warning when that milestone is reached.
+- Milestone events created:
+  - Unlock (component) — created when a milestone is unlocked (other systems can consume to enable prefabs/features).
+  - MilestoneReachedEvent — indicates a milestone index was reached (provides the milestone entity or Entity.Null).
+  Both event entities are created so that other systems can respond in the same frame or at an end-of-frame processing stage.
+- Temporary allocations: TryGetMilestone and UnlockAllMilestones use ToEntityArray / ToComponentDataArray with Allocator.TempJob; arrays are disposed in finally blocks to avoid leaks.
+- The system updates the City entity's PlayerMoney and Creditworthiness directly; ensure those components exist and are used consistently by other systems.</p>
 
 
 

@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#gamesimulationbudgetsystem" class="md-skip">
+        <a href="#gamebudgetsystem" class="md-skip">
           Skip to content
         </a>
       
@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -78776,15 +78868,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -78821,9 +78904,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -87154,6 +87237,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -117930,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117955,15 +118083,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -118002,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118026,502 +118145,260 @@
 
 
 
-<h1 id="gamesimulationbudgetsystem">Game.Simulation.BudgetSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Simulation</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code><br />
-<strong>Implements:</strong> <code>Game.Simulation.IBudgetSystem</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class BudgetSystem : Game.GameSystemBase, Game.Simulation.IBudgetSystem
-{
-    private System.UInt32 m_LastUpdate;
-    private Game.Simulation.SimulationSystem m_SimulationSystem;
-    protected Unity.Collections.NativeArray&lt;System.Int32&gt; m_Trade;
-    protected Unity.Collections.NativeArray&lt;System.Int32&gt; m_TradeWorth;
-    protected Unity.Collections.NativeArray&lt;Unity.Mathematics.int2&gt; m_HouseholdWealth;
-    protected Unity.Collections.NativeArray&lt;Unity.Mathematics.int2&gt; m_ServiceWealth;
-    protected Unity.Collections.NativeArray&lt;Unity.Mathematics.int2&gt; m_ProcessingWealth;
-    protected System.Int32 m_TotalTradeWorth;
-    protected System.Int32 m_TotalTaxIncome;
-    private Unity.Collections.NativeArray&lt;System.Int32&gt; m_HouseholdCount;
-    private Unity.Collections.NativeArray&lt;System.Int32&gt; m_ServiceCount;
-    private Unity.Collections.NativeArray&lt;System.Int32&gt; m_ProcessingCount;
-    private Unity.Collections.NativeArray&lt;Unity.Mathematics.int2&gt; m_HouseholdWorkers;
-    private Unity.Collections.NativeArray&lt;Unity.Mathematics.int2&gt; m_ServiceWorkers;
-    private Unity.Collections.NativeArray&lt;Unity.Mathematics.int2&gt; m_ProcessingWorkers;
-    private Unity.Collections.NativeArray&lt;Unity.Mathematics.float2&gt; m_CitizenWellbeing;
-    private Unity.Collections.NativeArray&lt;System.Int32&gt; m_TouristCount;
-    private Unity.Collections.NativeArray&lt;System.Int32&gt; m_TouristIncome;
-    private Unity.Collections.NativeArray&lt;Unity.Mathematics.int2&gt; m_LodgingData;
-    private Game.Simulation.CityStatisticsSystem m_CityStatisticsSystem;
-    private Game.Prefabs.ResourceSystem m_ResourceSystem;
-    private Game.Simulation.BudgetSystem+TypeHandle __TypeHandle;
-
-    public System.Boolean HasData { get; }
-    public System.UInt32 LastUpdate { get; }
-
-    public BudgetSystem();
-
-    private System.Void __AssignQueries(Unity.Entities.SystemState&amp; state);
-    public Unity.Mathematics.float2 GetCitizenWellbeing();
-    public System.Int32 GetCompanyCount(System.Boolean service, Game.Economy.Resource resource);
-    public System.Int32 GetCompanyWealth(System.Boolean service, Game.Economy.Resource resource);
-    public Unity.Mathematics.int2 GetCompanyWorkers(System.Boolean service, Game.Economy.Resource resource);
-    public System.Int32 GetHouseholdCount();
-    public System.Int32 GetHouseholdWealth();
-    public Unity.Mathematics.int2 GetHouseholdWorkers();
-    public Unity.Mathematics.int2 GetLodgingData();
-    public System.Int32 GetTotalTradeWorth();
-    public System.Int32 GetTouristCount();
-    public System.Int32 GetTouristIncome();
-    public System.Int32 GetTrade(Game.Economy.Resource resource);
-    public System.Int32 GetTradeWorth(Game.Economy.Resource resource);
-    public virtual System.Int32 GetUpdateInterval(Game.SystemUpdatePhase phase);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnCreateForCompiler();
-    protected virtual System.Void OnDestroy();
-    protected virtual System.Void OnGameLoaded(Colossal.Serialization.Entities.Context serializationContext);
-    protected virtual System.Void OnUpdate();
-    private System.Void SetTradeWorth(Game.Economy.Resource resource, Game.Prefabs.ResourceData resourceData);
-    private System.Void UpdateData();
-    private System.Void UpdateTotalTradeWorth();
-}
-</code></pre>
+<h1 id="gamebudgetsystem">Game.BudgetSystem</h1>
+<p><strong>Assembly:</strong> Assembly-CSharp<br />
+<strong>Namespace:</strong> Game.Simulation</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> GameSystemBase, IBudgetSystem</p>
+<p><strong>Summary:</strong><br />
+BudgetSystem is a game simulation system that collects and caches city economic and budget-related statistics each update. It queries CityStatisticsSystem and ResourceSystem to populate arrays that represent trade volumes and values, household and company wealth, worker counts, tourist data, and overall trade worth. The system allocates persistent NativeArray storage for these aggregates and exposes a set of convenience getters for other systems/mods to read up-to-date summary information. It updates its cached data on OnUpdate and when a game is loaded. It is intended to be long-lived (uses Allocator.Persistent) and must be disposed via OnDestroy which the system implements.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private System.UInt32 m_LastUpdate</code>  </li>
+<li>
+<p><code>private struct TypeHandle</code><br />
+  Internal generated struct used to cache Entity query/handle lookups (here used for BufferLookup<CityStatistic>). Assigned during OnCreateForCompiler.</p>
+</li>
+<li>
+<p><code>private uint m_LastUpdate</code><br />
+  Frame index of the last update. Serves as a simple "HasData" indicator and a timestamp for when the cached values were last refreshed.</p>
+</li>
+<li>
+<p><code>private SimulationSystem m_SimulationSystem</code><br />
+  Reference to the SimulationSystem used to obtain the current frameIndex.</p>
+</li>
+<li>
+<p><code>protected NativeArray&lt;int&gt; m_Trade</code><br />
+  Per-resource array containing trade volumes for tradable resources. Length equals EconomyUtils.ResourceCount; allocated with Allocator.Persistent.</p>
+</li>
+<li>
+<p><code>protected NativeArray&lt;int&gt; m_TradeWorth</code><br />
+  Per-resource trade worth (value), computed from market prices * trade volume. Persistent storage.</p>
+</li>
+<li>
+<p><code>protected NativeArray&lt;int2&gt; m_HouseholdWealth</code><br />
+  Single-element array storing household wealth summary (x = total wealth, y = household count). int2 is used to keep sum and count.</p>
+</li>
+<li>
+<p><code>protected NativeArray&lt;int2&gt; m_ServiceWealth</code><br />
+  Per-resource array storing service-company wealth and counts (x = total wealth, y = count).</p>
+</li>
+<li>
+<p><code>protected NativeArray&lt;int2&gt; m_ProcessingWealth</code><br />
+  Per-resource array storing processing-company wealth and counts.</p>
+</li>
+<li>
+<p><code>protected int m_TotalTradeWorth</code><br />
+  Cached sum of all m_TradeWorth entries.</p>
+</li>
+<li>
+<p><code>protected int m_TotalTaxIncome</code><br />
+  Reserved/declared field for tax income (not explicitly set in this source; may be used elsewhere).</p>
+</li>
+<li>
+<p><code>private NativeArray&lt;int&gt; m_HouseholdCount</code><br />
+  Single-element persistent array storing household count.</p>
+</li>
+<li>
+<p><code>private NativeArray&lt;int&gt; m_ServiceCount</code><br />
+  Per-resource persistent array for service company counts.</p>
+</li>
+<li>
+<p><code>private NativeArray&lt;int&gt; m_ProcessingCount</code><br />
+  Per-resource persistent array for processing company counts.</p>
+</li>
+<li>
+<p><code>private NativeArray&lt;int2&gt; m_HouseholdWorkers</code><br />
+  Single-element array with household worker info (x = employed workers, y = employed + unemployed? used as (workers, max?)).</p>
+</li>
+<li>
+<p><code>private NativeArray&lt;int2&gt; m_ServiceWorkers</code><br />
+  Per-resource array storing current and max workers for service companies.</p>
+</li>
+<li>
+<p><code>private NativeArray&lt;int2&gt; m_ProcessingWorkers</code><br />
+  Per-resource array storing current and max workers for processing companies.</p>
+</li>
+<li>
+<p><code>private NativeArray&lt;float2&gt; m_CitizenWellbeing</code><br />
+  Single-element array storing citizen wellbeing metrics as float2: (average wellbeing, average health) computed from statistics.</p>
+</li>
+<li>
+<p><code>private NativeArray&lt;int&gt; m_TouristCount</code><br />
+  Single-element array storing tourist count.</p>
+</li>
+<li>
+<p><code>private NativeArray&lt;int&gt; m_TouristIncome</code><br />
+  Single-element array storing tourist income.</p>
+</li>
+<li>
+<p><code>private NativeArray&lt;int2&gt; m_LodgingData</code><br />
+  Single-element array storing lodging usage (x = Used, y = Total).</p>
+</li>
+<li>
+<p><code>private CityStatisticsSystem m_CityStatisticsSystem</code><br />
+  Reference to CityStatisticsSystem used to read many of the statistics.</p>
+</li>
+<li>
+<p><code>private ResourceSystem m_ResourceSystem</code><br />
+  Reference to ResourceSystem used to iterate available resources and resource prefabs.</p>
+</li>
+<li>
+<p><code>private TypeHandle __TypeHandle</code><br />
+  Instance of the generated TypeHandle for buffer/query lookups.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private System.UInt32 m_LastUpdate;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.SimulationSystem m_SimulationSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.SimulationSystem m_SimulationSystem;
-</code></pre>
-<ul>
-<li><code>protected Unity.Collections.NativeArray&lt;System.Int32&gt; m_Trade</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected Unity.Collections.NativeArray&lt;System.Int32&gt; m_Trade;
-</code></pre>
-<ul>
-<li><code>protected Unity.Collections.NativeArray&lt;System.Int32&gt; m_TradeWorth</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected Unity.Collections.NativeArray&lt;System.Int32&gt; m_TradeWorth;
-</code></pre>
-<ul>
-<li><code>protected Unity.Collections.NativeArray&lt;Unity.Mathematics.int2&gt; m_HouseholdWealth</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected Unity.Collections.NativeArray&lt;Unity.Mathematics.int2&gt; m_HouseholdWealth;
-</code></pre>
-<ul>
-<li><code>protected Unity.Collections.NativeArray&lt;Unity.Mathematics.int2&gt; m_ServiceWealth</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected Unity.Collections.NativeArray&lt;Unity.Mathematics.int2&gt; m_ServiceWealth;
-</code></pre>
-<ul>
-<li><code>protected Unity.Collections.NativeArray&lt;Unity.Mathematics.int2&gt; m_ProcessingWealth</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected Unity.Collections.NativeArray&lt;Unity.Mathematics.int2&gt; m_ProcessingWealth;
-</code></pre>
-<ul>
-<li><code>protected System.Int32 m_TotalTradeWorth</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected System.Int32 m_TotalTradeWorth;
-</code></pre>
-<ul>
-<li><code>protected System.Int32 m_TotalTaxIncome</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected System.Int32 m_TotalTaxIncome;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeArray&lt;System.Int32&gt; m_HouseholdCount</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeArray&lt;System.Int32&gt; m_HouseholdCount;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeArray&lt;System.Int32&gt; m_ServiceCount</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeArray&lt;System.Int32&gt; m_ServiceCount;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeArray&lt;System.Int32&gt; m_ProcessingCount</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeArray&lt;System.Int32&gt; m_ProcessingCount;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeArray&lt;Unity.Mathematics.int2&gt; m_HouseholdWorkers</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeArray&lt;Unity.Mathematics.int2&gt; m_HouseholdWorkers;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeArray&lt;Unity.Mathematics.int2&gt; m_ServiceWorkers</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeArray&lt;Unity.Mathematics.int2&gt; m_ServiceWorkers;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeArray&lt;Unity.Mathematics.int2&gt; m_ProcessingWorkers</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeArray&lt;Unity.Mathematics.int2&gt; m_ProcessingWorkers;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeArray&lt;Unity.Mathematics.float2&gt; m_CitizenWellbeing</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeArray&lt;Unity.Mathematics.float2&gt; m_CitizenWellbeing;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeArray&lt;System.Int32&gt; m_TouristCount</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeArray&lt;System.Int32&gt; m_TouristCount;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeArray&lt;System.Int32&gt; m_TouristIncome</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeArray&lt;System.Int32&gt; m_TouristIncome;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeArray&lt;Unity.Mathematics.int2&gt; m_LodgingData</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeArray&lt;Unity.Mathematics.int2&gt; m_LodgingData;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.CityStatisticsSystem m_CityStatisticsSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.CityStatisticsSystem m_CityStatisticsSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Prefabs.ResourceSystem m_ResourceSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Prefabs.ResourceSystem m_ResourceSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.BudgetSystem+TypeHandle __TypeHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.BudgetSystem+TypeHandle __TypeHandle;
-</code></pre>
+<p>Notes:
+- Most arrays are sized by EconomyUtils.ResourceCount or 1 and are allocated with Allocator.Persistent in OnCreate and disposed in OnDestroy.
+- Resource indices are resolved using EconomyUtils.GetResourceIndex(resource).</p>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>public System.Boolean HasData { get }</code>  </li>
+<li>
+<p><code>public bool HasData =&gt; m_LastUpdate != 0</code><br />
+  Returns true once UpdateData has run at least once. Useful to know if cached values are ready.</p>
+</li>
+<li>
+<p><code>public uint LastUpdate =&gt; m_LastUpdate</code><br />
+  The frame index (from SimulationSystem.frameIndex) of the last UpdateData call. Use to detect staleness.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public System.Boolean HasData { get; }
-</code></pre>
-<ul>
-<li><code>public System.UInt32 LastUpdate { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.UInt32 LastUpdate { get; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public BudgetSystem()</code>  </li>
+<li><code>public BudgetSystem()</code><br />
+  Default constructor. The class is compiler-generated annotated and relies on OnCreate to initialize its internal state and persistent arrays.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public BudgetSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private __AssignQueries(Unity.Entities.SystemState&amp; state) : System.Void</code>  </li>
+<li>
+<p><code>public override int GetUpdateInterval(SystemUpdatePhase phase)</code><br />
+  Returns 32768. This dictates the system update scheduling interval (used by the game engine/Systems infrastructure).</p>
+</li>
+<li>
+<p><code>public int GetTotalTradeWorth()</code><br />
+  Returns the cached m_TotalTradeWorth — sum of all per-resource trade worth values.</p>
+</li>
+<li>
+<p><code>public int GetHouseholdCount()</code><br />
+  Returns household count (from m_HouseholdCount[0]).</p>
+</li>
+<li>
+<p><code>public int GetCompanyCount(bool service, Resource resource)</code><br />
+  Returns company count for a given resource. Uses EconomyUtils.GetResourceIndex(resource) to index into either m_ServiceCount or m_ProcessingCount depending on the service flag.</p>
+</li>
+<li>
+<p><code>public int2 GetHouseholdWorkers()</code><br />
+  Returns household worker summary int2 from m_HouseholdWorkers[0].</p>
+</li>
+<li>
+<p><code>public int2 GetCompanyWorkers(bool service, Resource resource)</code><br />
+  Returns company worker stats for the given resource from either m_ServiceWorkers or m_ProcessingWorkers.</p>
+</li>
+<li>
+<p><code>public float2 GetCitizenWellbeing()</code><br />
+  Returns average citizen wellbeing and health as float2 from m_CitizenWellbeing[0].</p>
+</li>
+<li>
+<p><code>public int GetTrade(Resource resource)</code><br />
+  Returns trade volume for the specified resource from m_Trade.</p>
+</li>
+<li>
+<p><code>public int GetTradeWorth(Resource resource)</code><br />
+  Returns trade worth for the specified resource from m_TradeWorth.</p>
+</li>
+<li>
+<p><code>private void SetTradeWorth(Resource resource, ResourceData resourceData)</code><br />
+  Helper to compute and store trade worth for a resource: tradeWorth = RoundToInt(marketPrice * tradeVolume). Uses EconomyUtils.GetMarketPrice to get market price.</p>
+</li>
+<li>
+<p><code>public int GetHouseholdWealth()</code><br />
+  Returns average household wealth (total wealth / count) if count &gt; 0; otherwise 0.</p>
+</li>
+<li>
+<p><code>public int GetCompanyWealth(bool service, Resource resource)</code><br />
+  Returns average company wealth for the specified resource and sector (service vs processing) if count &gt; 0.</p>
+</li>
+<li>
+<p><code>public int GetTouristCount()</code><br />
+  Returns tourist count from m_TouristCount[0].</p>
+</li>
+<li>
+<p><code>public int2 GetLodgingData()</code><br />
+  Returns lodging used/total as int2 from m_LodgingData[0].</p>
+</li>
+<li>
+<p><code>public int GetTouristIncome()</code><br />
+  Returns tourist income from m_TouristIncome[0].</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnCreate()</code><br />
+  Initializes references to CityStatisticsSystem, SimulationSystem and ResourceSystem. Allocates all NativeArray fields with Allocator.Persistent sized according to EconomyUtils.ResourceCount or 1 as appropriate.</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnDestroy()</code><br />
+  Disposes all persistent NativeArray allocations and calls base.OnDestroy().</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnUpdate()</code><br />
+  Calls UpdateData() each scheduled update. Update scheduling is influenced by GetUpdateInterval.</p>
+</li>
+<li>
+<p><code>protected override void OnGameLoaded(Context serializationContext)</code><br />
+  Called when a game is loaded; calls UpdateData() to populate caches immediately after loading.</p>
+</li>
+<li>
+<p><code>private void UpdateData()</code><br />
+  Core routine that:</p>
+</li>
+<li>sets m_LastUpdate from SimulationSystem.frameIndex,</li>
+<li>updates BufferLookup handles via __TypeHandle,</li>
+<li>iterates resources and populates m_Trade and m_TradeWorth (for tradable resources),</li>
+<li>reads household, worker, wellbeing, service/processing wealth/workers/counts, tourist and lodging statistics from CityStatisticsSystem,</li>
+<li>calls UpdateTotalTradeWorth() to recalc the total.</li>
 </ul>
-<pre><code class="language-csharp">private void __AssignQueries(ref SystemState state)
-    {
-        new EntityQueryBuilder(Allocator.Temp).Dispose();
-    }
-</code></pre>
+<p>This method relies heavily on CityStatisticsSystem.GetStatisticValue(StatisticType, [resourceIndex]) and ResourceSystem prefabs.</p>
 <ul>
-<li><code>public GetCitizenWellbeing() : Unity.Mathematics.float2</code>  </li>
+<li>
+<p><code>private void UpdateTotalTradeWorth()</code><br />
+  Recomputes m_TotalTradeWorth by summing all elements of m_TradeWorth.</p>
+</li>
+<li>
+<p><code>[MethodImpl(MethodImplOptions.AggressiveInlining)] private void __AssignQueries(ref SystemState state)</code><br />
+  Compiler-generated method related to entity query initialization used by the ECS/IL post-compiler. Here it creates and disposes an EntityQueryBuilder; kept for compatibility with the generated system.</p>
+</li>
+<li>
+<p><code>protected override void OnCreateForCompiler()</code><br />
+  Called as part of the generated system bootstrap. Calls __AssignQueries and __TypeHandle.__AssignHandles to prepare lookups.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public float2 GetCitizenWellbeing()
+<p>Notes:
+- Many private/protected members use Unity.Collections.NativeArray and Unity.Mathematics types (int2, float2).
+- Resource iteration uses ResourceIterator and EconomyUtils helper functions to convert Resource enum -&gt; index and to obtain market price.
+- The system expects ResourceData components on resource prefabs to determine m_IsTradable and to read market data.</p>
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// From another system (GameSystemBase) or mod code with access to a World reference:
+protected override void OnSomeMethod()
+{
+    // Get the existing or create-managed BudgetSystem from the same World
+    var budget = base.World.GetExistingSystemManaged&lt;Game.Simulation.BudgetSystem&gt;()
+                 ?? base.World.GetOrCreateSystemManaged&lt;Game.Simulation.BudgetSystem&gt;();
+
+    if (budget != null &amp;&amp; budget.HasData)
     {
-        return m_CitizenWellbeing[0];
+        int totalTradeWorth = budget.GetTotalTradeWorth();
+        int householdCount = budget.GetHouseholdCount();
+        Unity.Mathematics.float2 wellbeing = budget.GetCitizenWellbeing();
+        int touristIncome = budget.GetTouristIncome();
+        int lumberTrade = budget.GetTrade(Game.Economy.Resource.Lumber); // example resource
+
+        // Use these values for UI, logging or additional calculations
+        Debug.Log($&quot;TradeWorth: {totalTradeWorth}, Households: {householdCount}, Wellbeing: {wellbeing.x}, TouristIncome: {touristIncome}&quot;);
     }
+}
 </code></pre>
-<ul>
-<li><code>public GetCompanyCount(System.Boolean service, Game.Economy.Resource resource) : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">public int GetCompanyCount(bool service, Resource resource)
-    {
-        int resourceIndex = EconomyUtils.GetResourceIndex(resource);
-        if (!service)
-        {
-            return m_ProcessingCount[resourceIndex];
-        }
-        return m_ServiceCount[resourceIndex];
-    }
-</code></pre>
-<ul>
-<li><code>public GetCompanyWealth(System.Boolean service, Game.Economy.Resource resource) : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">public int GetCompanyWealth(bool service, Resource resource)
-    {
-        int resourceIndex = EconomyUtils.GetResourceIndex(resource);
-        int2 @int = (service ? m_ServiceWealth[resourceIndex] : m_ProcessingWealth[resourceIndex]);
-        if (@int.y &gt; 0)
-        {
-            return @int.x / @int.y;
-        }
-        return 0;
-    }
-</code></pre>
-<ul>
-<li><code>public GetCompanyWorkers(System.Boolean service, Game.Economy.Resource resource) : Unity.Mathematics.int2</code>  </li>
-</ul>
-<pre><code class="language-csharp">public int2 GetCompanyWorkers(bool service, Resource resource)
-    {
-        int resourceIndex = EconomyUtils.GetResourceIndex(resource);
-        if (!service)
-        {
-            return m_ProcessingWorkers[resourceIndex];
-        }
-        return m_ServiceWorkers[resourceIndex];
-    }
-</code></pre>
-<ul>
-<li><code>public GetHouseholdCount() : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">public int GetHouseholdCount()
-    {
-        return m_HouseholdCount[0];
-    }
-</code></pre>
-<ul>
-<li><code>public GetHouseholdWealth() : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">public int GetHouseholdWealth()
-    {
-        if (m_HouseholdWealth[0].y &gt; 0)
-        {
-            return m_HouseholdWealth[0].x / m_HouseholdWealth[0].y;
-        }
-        return 0;
-    }
-</code></pre>
-<ul>
-<li><code>public GetHouseholdWorkers() : Unity.Mathematics.int2</code>  </li>
-</ul>
-<pre><code class="language-csharp">public int2 GetHouseholdWorkers()
-    {
-        return m_HouseholdWorkers[0];
-    }
-</code></pre>
-<ul>
-<li><code>public GetLodgingData() : Unity.Mathematics.int2</code>  </li>
-</ul>
-<pre><code class="language-csharp">public int2 GetLodgingData()
-    {
-        return m_LodgingData[0];
-    }
-</code></pre>
-<ul>
-<li><code>public GetTotalTradeWorth() : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">public int GetTotalTradeWorth()
-    {
-        return m_TotalTradeWorth;
-    }
-</code></pre>
-<ul>
-<li><code>public GetTouristCount() : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">public int GetTouristCount()
-    {
-        return m_TouristCount[0];
-    }
-</code></pre>
-<ul>
-<li><code>public GetTouristIncome() : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">public int GetTouristIncome()
-    {
-        return m_TouristIncome[0];
-    }
-</code></pre>
-<ul>
-<li><code>public GetTrade(Game.Economy.Resource resource) : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">public int GetTrade(Resource resource)
-    {
-        int resourceIndex = EconomyUtils.GetResourceIndex(resource);
-        return m_Trade[resourceIndex];
-    }
-</code></pre>
-<ul>
-<li><code>public GetTradeWorth(Game.Economy.Resource resource) : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">public int GetTradeWorth(Resource resource)
-    {
-        int resourceIndex = EconomyUtils.GetResourceIndex(resource);
-        return m_TradeWorth[resourceIndex];
-    }
-</code></pre>
-<ul>
-<li><code>public virtual GetUpdateInterval(Game.SystemUpdatePhase phase) : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override int GetUpdateInterval(SystemUpdatePhase phase)
-    {
-        return 32768;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_CityStatisticsSystem = base.World.GetOrCreateSystemManaged&lt;CityStatisticsSystem&gt;();
-        m_SimulationSystem = base.World.GetOrCreateSystemManaged&lt;SimulationSystem&gt;();
-        m_ResourceSystem = base.World.GetOrCreateSystemManaged&lt;ResourceSystem&gt;();
-        int resourceCount = EconomyUtils.ResourceCount;
-        m_Trade = new NativeArray&lt;int&gt;(resourceCount, Allocator.Persistent);
-        m_TradeWorth = new NativeArray&lt;int&gt;(resourceCount, Allocator.Persistent);
-        m_HouseholdWealth = new NativeArray&lt;int2&gt;(1, Allocator.Persistent);
-        m_ServiceWealth = new NativeArray&lt;int2&gt;(resourceCount, Allocator.Persistent);
-        m_ProcessingWealth = new NativeArray&lt;int2&gt;(resourceCount, Allocator.Persistent);
-        m_CitizenWellbeing = new NativeArray&lt;float2&gt;(1, Allocator.Persistent);
-        m_HouseholdCount = new NativeArray&lt;int&gt;(1, Allocator.Persistent);
-        m_HouseholdWorkers = new NativeArray&lt;int2&gt;(1, Allocator.Persistent);
-        m_ServiceCount = new NativeArray&lt;int&gt;(resourceCount, Allocator.Persistent);
-        m_ServiceWorkers = new NativeArray&lt;int2&gt;(resourceCount, Allocator.Persistent);
-        m_ProcessingCount = new NativeArray&lt;int&gt;(resourceCount, Allocator.Persistent);
-        m_ProcessingWorkers = new NativeArray&lt;int2&gt;(resourceCount, Allocator.Persistent);
-        m_TouristCount = new NativeArray&lt;int&gt;(1, Allocator.Persistent);
-        m_TouristIncome = new NativeArray&lt;int&gt;(1, Allocator.Persistent);
-        m_LodgingData = new NativeArray&lt;int2&gt;(1, Allocator.Persistent);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreateForCompiler() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnCreateForCompiler()
-    {
-        base.OnCreateForCompiler();
-        __AssignQueries(ref base.CheckedStateRef);
-        __TypeHandle.__AssignHandles(ref base.CheckedStateRef);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnDestroy() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnDestroy()
-    {
-        m_Trade.Dispose();
-        m_TradeWorth.Dispose();
-        m_HouseholdWealth.Dispose();
-        m_ServiceWealth.Dispose();
-        m_ProcessingWealth.Dispose();
-        m_CitizenWellbeing.Dispose();
-        m_HouseholdCount.Dispose();
-        m_HouseholdWorkers.Dispose();
-        m_ServiceCount.Dispose();
-        m_ServiceWorkers.Dispose();
-        m_ProcessingCount.Dispose();
-        m_ProcessingWorkers.Dispose();
-        m_TouristCount.Dispose();
-        m_TouristIncome.Dispose();
-        m_LodgingData.Dispose();
-        base.OnDestroy();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnGameLoaded(Colossal.Serialization.Entities.Context serializationContext) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnGameLoaded(Context serializationContext)
-    {
-        UpdateData();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        UpdateData();
-    }
-</code></pre>
-<ul>
-<li><code>private SetTradeWorth(Game.Economy.Resource resource, Game.Prefabs.ResourceData resourceData) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void SetTradeWorth(Resource resource, ResourceData resourceData)
-    {
-        int resourceIndex = EconomyUtils.GetResourceIndex(resource);
-        float marketPrice = EconomyUtils.GetMarketPrice(resourceData);
-        m_TradeWorth[resourceIndex] = Mathf.RoundToInt(marketPrice * (float)m_Trade[resourceIndex]);
-    }
-</code></pre>
-<ul>
-<li><code>private UpdateData() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void UpdateData()
-    {
-        m_LastUpdate = m_SimulationSystem.frameIndex;
-        InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_City_CityStatistic_RO_BufferLookup, ref base.CheckedStateRef);
-        ResourcePrefabs prefabs = m_ResourceSystem.GetPrefabs();
-        ResourceIterator iterator = ResourceIterator.GetIterator();
-        while (iterator.Next())
-        {
-            if (base.EntityManager.HasComponent&lt;ResourceData&gt;(prefabs[iterator.resource]) &amp;&amp; base.EntityManager.GetComponentData&lt;ResourceData&gt;(prefabs[iterator.resource]).m_IsTradable)
-            {
-                m_Trade[EconomyUtils.GetResourceIndex(iterator.resource)] = m_CityStatisticsSystem.GetStatisticValue(StatisticType.Trade, EconomyUtils.GetResourceIndex(iterator.resource));
-            }
-        }
-        iterator = ResourceIterator.GetIterator();
-        while (iterator.Next())
-        {
-            if (base.EntityManager.HasComponent&lt;ResourceData&gt;(prefabs[iterator.resource]))
-            {
-                ResourceData componentData = base.EntityManager.GetComponentData&lt;ResourceData&gt;(prefabs[iterator.resource]);
-                if (componentData.m_IsTradable)
-                {
-                    SetTradeWorth(iterator.resource, componentData);
-                }
-            }
-        }
-        int statisticValue = m_CityStatisticsSystem.GetStatisticValue(StatisticType.HouseholdCount);
-        m_HouseholdWealth[0] = new int2(m_CityStatisticsSystem.GetStatisticValue(StatisticType.HouseholdWealth), statisticValue);
-        m_HouseholdCount[0] = statisticValue;
-        int statisticValue2 = m_CityStatisticsSystem.GetStatisticValue(StatisticType.Population);
-        if (statisticValue2 &gt; 0)
-        {
-            m_CitizenWellbeing[0] = new float2((float)m_CityStatisticsSystem.GetStatisticValue(StatisticType.WellbeingLevel) / (float)statisticValue2, (float)m_CityStatisticsSystem.GetStatisticValue(StatisticType.HealthLevel) / (float)statisticValue2);
-        }
-        statisticValue = m_CityStatisticsSystem.GetStatisticValue(StatisticType.WorkerCount);
-        m_HouseholdWorkers[0] = new int2(statisticValue, statisticValue + m_CityStatisticsSystem.GetStatisticValue(StatisticType.Unemployed));
-        iterator = ResourceIterator.GetIterator();
-        while (iterator.Next())
-        {
-            int resourceIndex = EconomyUtils.GetResourceIndex(iterator.resource);
-            m_ServiceWealth[resourceIndex] = new int2(m_CityStatisticsSystem.GetStatisticValue(StatisticType.ServiceWealth, resourceIndex), m_CityStatisticsSystem.GetStatisticValue(StatisticType.ServiceCount, resourceIndex));
-            m_ProcessingWealth[resourceIndex] = new int2(m_CityStatisticsSystem.GetStatisticValue(StatisticType.ProcessingWealth, resourceIndex), m_CityStatisticsSystem.GetStatisticValue(StatisticType.ProcessingCount, resourceIndex));
-            m_ServiceCount[resourceIndex] = m_CityStatisticsSystem.GetStatisticValue(StatisticType.ServiceCount, resourceIndex);
-            m_ServiceWorkers[resourceIndex] = new int2(m_CityStatisticsSystem.GetStatisticValue(StatisticType.ServiceWorkers, resourceIndex), m_CityStatisticsSystem.GetStatisticValue(StatisticType.ServiceMaxWorkers, resourceIndex));
-            m_ProcessingCount[resourceIndex] = m_CityStatisticsSystem.GetStatisticValue(StatisticType.ProcessingCount, resourceIndex);
-            m_ProcessingWorkers[resourceIndex] = new int2(m_CityStatisticsSystem.GetStatisticValue(StatisticType.ProcessingWorkers, resourceIndex), m_CityStatisticsSystem.GetStatisticValue(StatisticType.ProcessingMaxWorkers, resourceIndex));
-        }
-        m_TouristIncome[0] = m_CityStatisticsSystem.GetStatisticValue(StatisticType.TouristIncome);
-        m_LodgingData[0] = new int2(m_CityStatisticsSystem.GetStatisticValue(StatisticType.LodgingUsed), m_CityStatisticsSystem.GetStatisticValue(StatisticType.LodgingTotal));
-        UpdateTotalTradeWorth();
-    }
-</code></pre>
-<ul>
-<li><code>private UpdateTotalTradeWorth() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void UpdateTotalTradeWorth()
-    {
-        m_TotalTradeWorth = 0;
-        for (int i = 0; i &lt; m_TradeWorth.Length; i++)
-        {
-            m_TotalTradeWorth += m_TradeWorth[i];
-        }
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Simulation.BudgetSystem+TypeHandle</code>  </li>
-</ul>
+<p>Notes and tips:
+- BudgetSystem caches values and only updates them when UpdateData runs. Check HasData/LastUpdate to avoid using stale data.
+- If you need per-frame immediacy, call UpdateData() only from systems that own BudgetSystem (not recommended to call internal private methods). Prefer to read cached values or request the system run earlier in the update order.
+- Be mindful of Allocator.Persistent arrays; BudgetSystem disposes them in OnDestroy. Do not attempt to free them yourself.</p>
 
 
 

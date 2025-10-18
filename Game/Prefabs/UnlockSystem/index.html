@@ -61089,18 +61089,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -61125,9 +61125,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -65310,6 +65310,29 @@
   
   <span class="md-ellipsis">
     InterpolatedProperties
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
     
   </span>
   
@@ -69751,6 +69774,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72563,6 +72609,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75553,6 +75622,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87145,6 +87237,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -117921,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117948,18 +118085,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -117984,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118009,257 +118146,167 @@
 
 
 <h1 id="gameprefabsunlocksystem">Game.Prefabs.UnlockSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Prefabs</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class UnlockSystem : Game.GameSystemBase
-{
-    private Game.Prefabs.PrefabSystem m_PrefabSystem;
-    private Unity.Entities.EntityQuery m_LockedQuery;
-    private Unity.Entities.EntityQuery m_UpdatedQuery;
-    private Unity.Entities.EntityQuery m_EventQuery;
-    private Unity.Entities.EntityArchetype m_UnlockEventArchetype;
-    private System.Boolean m_Loaded;
-    private Colossal.Logging.ILog m_Log;
-    private Game.Prefabs.UnlockSystem+TypeHandle __TypeHandle;
-
-    public UnlockSystem();
-
-    private System.Void __AssignQueries(Unity.Entities.SystemState&amp; state);
-    private System.Boolean GetLoaded();
-    public System.Boolean IsLocked(Game.Prefabs.PrefabBase prefab);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnCreateForCompiler();
-    protected virtual System.Void OnGameLoaded(Colossal.Serialization.Entities.Context context);
-    protected virtual System.Void OnGamePreload(Colossal.Serialization.Entities.Purpose purpose, Game.GameMode mode);
-    protected virtual System.Void OnUpdate();
-    private System.Boolean ProcessEvents();
-    private System.Void UnlockPrefab(Unity.Entities.Entity unlock, System.Boolean createEvent);
-}
-</code></pre>
+<p><strong>Assembly:</strong> Assembly-CSharp<br />
+<strong>Namespace:</strong> Game.Prefabs</p>
+<p><strong>Type:</strong> public class UnlockSystem</p>
+<p><strong>Base:</strong> GameSystemBase</p>
+<p><strong>Summary:</strong><br />
+UnlockSystem is an ECS system responsible for managing prefab "locked" state and processing unlock requirements and unlock events. It:
+- Scans entities with UnlockRequirement buffers and Locked components to determine when prefabs should be unlocked (via a parallel IJobChunk).
+- Processes explicit Unlock events that request unlocking a prefab.
+- Toggles the Locked component, emits Unlock event entities, and logs unlocks via a PrefabSystem instance.
+This system runs only in game mode and handles initial load detection to force processing on first frame after load.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.Prefabs.PrefabSystem m_PrefabSystem</code>  </li>
+<li>
+<p><code>private PrefabSystem m_PrefabSystem</code><br />
+Holds a reference to the PrefabSystem (retrieved from the world) used to query prefabs, get obsolete IDs, and check/convert prefab data.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_LockedQuery</code><br />
+Query that matches entities having Locked and UnlockRequirement — used by the job that checks unlock requirements.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_UpdatedQuery</code><br />
+Query that matches entities with Locked, UnlockRequirement and Updated — used to detect recently-updated prefabs and trigger re-checks.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_EventQuery</code><br />
+Query that matches entities with an Unlock component — used to process explicit unlock events.</p>
+</li>
+<li>
+<p><code>private EntityArchetype m_UnlockEventArchetype</code><br />
+Archetype used to create Unlock event entities (Event + Unlock components).</p>
+</li>
+<li>
+<p><code>private bool m_Loaded</code><br />
+Internal flag set when the game has finished loading to force a first processing pass.</p>
+</li>
+<li>
+<p><code>private ILog m_Log</code><br />
+Logger instance used for debug logging of unlock events.</p>
+</li>
+<li>
+<p><code>private TypeHandle __TypeHandle</code><br />
+Compiler-generated container holding entity/component type handles used by jobs and runtime methods.</p>
+</li>
+<li>
+<p><code>private struct CheckUnlockRequirementsJob.m_EntityType : EntityTypeHandle</code><br />
+(inside nested job) Type handle used by the job to fetch entity array from chunks.</p>
+</li>
+<li>
+<p><code>private struct CheckUnlockRequirementsJob.m_UnlockRequirementType : BufferTypeHandle&lt;UnlockRequirement&gt;</code><br />
+(inside nested job) Buffer type handle used to read UnlockRequirement buffers.</p>
+</li>
+<li>
+<p><code>private struct CheckUnlockRequirementsJob.m_LockedData : ComponentLookup&lt;Locked&gt;</code><br />
+(inside nested job) ComponentLookup for checking whether referenced prefabs are currently locked/enabled.</p>
+</li>
+<li>
+<p><code>private struct CheckUnlockRequirementsJob.m_UnlockQueue : NativeQueue&lt;Entity&gt;.ParallelWriter</code><br />
+(inside nested job) Parallel writer used to enqueue entities that should be unlocked.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.Prefabs.PrefabSystem m_PrefabSystem;
-</code></pre>
+<h2 id="properties">Properties</h2>
 <ul>
-<li><code>private Unity.Entities.EntityQuery m_LockedQuery</code>  </li>
+<li>This type exposes no public properties.<br />
+{{ The system exposes methods (like IsLocked) for external queries but no public auto-properties. }}</li>
 </ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_LockedQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_UpdatedQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_UpdatedQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_EventQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_EventQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityArchetype m_UnlockEventArchetype</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityArchetype m_UnlockEventArchetype;
-</code></pre>
-<ul>
-<li><code>private System.Boolean m_Loaded</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean m_Loaded;
-</code></pre>
-<ul>
-<li><code>private Colossal.Logging.ILog m_Log</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.Logging.ILog m_Log;
-</code></pre>
-<ul>
-<li><code>private Game.Prefabs.UnlockSystem+TypeHandle __TypeHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Prefabs.UnlockSystem+TypeHandle __TypeHandle;
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public UnlockSystem()</code>  </li>
+<li><code>public UnlockSystem()</code><br />
+Default constructor. The system is attributed with [Preserve] to avoid stripping. Initialization is done in OnCreate rather than constructor.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public UnlockSystem()
-    {
-    }
-</code></pre>
+<p>{{ OnCreate registers queries, fetches the PrefabSystem from the world and prepares the unlock event archetype and logger. The constructor itself is empty and preserved for runtime. }}</p>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private __AssignQueries(Unity.Entities.SystemState&amp; state) : System.Void</code>  </li>
+<li><code>protected override void OnCreate()</code><br />
+Initializes the system. Retrieves PrefabSystem from the world, builds entity queries:</li>
+<li>m_LockedQuery: Locked + UnlockRequirement</li>
+<li>m_UpdatedQuery: Locked + UnlockRequirement + Updated</li>
+<li>
+<p>m_EventQuery: Unlock
+Creates m_UnlockEventArchetype (Event + Unlock) and obtains a logger.</p>
+</li>
+<li>
+<p><code>protected override void OnGamePreload(Purpose purpose, GameMode mode)</code><br />
+Enables or disables the system depending on the provided game mode. The system is enabled only when mode.IsGame() is true to ensure it runs only in gameplay.</p>
+</li>
+<li>
+<p><code>protected override void OnGameLoaded(Context context)</code><br />
+Marks internal m_Loaded flag true so the next update will perform a forced processing pass (to handle initial unlocking after load).</p>
+</li>
+<li>
+<p><code>private bool GetLoaded()</code><br />
+Atomically checks and consumes the m_Loaded flag. Returns true once after OnGameLoaded has been called, false afterwards.</p>
+</li>
+<li>
+<p><code>protected override void OnUpdate()</code><br />
+Main update loop. Behavior:</p>
+</li>
+<li>If there are explicit Unlock events, ProcessEvents() will run to handle them.</li>
+<li>If no events and not just loaded and no updated Locked/UnlockRequirement entities, it returns early.</li>
+<li>Otherwise it constructs a NativeQueue<Entity>, schedules and immediately completes a parallel CheckUnlockRequirementsJob that enqueues prefabs that meet unlock conditions, then dequeues and calls UnlockPrefab for each.</li>
+<li>
+<p>Repeats scheduling-dequeue loop until no more queued unlocks (to handle cascaded unlocks).</p>
+</li>
+<li>
+<p><code>private bool ProcessEvents()</code><br />
+Processes existing Unlock event entities (m_EventQuery). For each Unlock component's prefab, if the prefab currently has Enabled Locked component, it calls UnlockPrefab(prefab, createEvent: false). Returns true if it processed at least one unlock; false otherwise.</p>
+</li>
+<li>
+<p><code>private void UnlockPrefab(Entity unlock, bool createEvent)</code><br />
+Performs the actual unlock:</p>
+</li>
+<li>Disables the Locked component on the prefab entity (EntityManager.SetComponentEnabled<Locked>(... false)).</li>
+<li>If createEvent is true, creates an Event+Unlock entity and sets Unlock to reference the unlocked prefab.</li>
+<li>
+<p>Logs the unlocked prefab. If the entity does not have PrefabData enabled, logs its obsolete ID via PrefabSystem.GetObsoleteID; otherwise gets PrefabBase and logs its name/ID.</p>
+</li>
+<li>
+<p><code>public bool IsLocked(PrefabBase prefab)</code><br />
+Public helper that queries PrefabSystem.HasEnabledComponent<Locked>(prefab) to determine whether a prefab is currently locked.</p>
+</li>
+<li>
+<p><code>private void __AssignQueries(ref SystemState state)</code><br />
+Compiler-generated method for assigning queries at compile-time; here it creates an EntityQueryBuilder and disposes it (placeholder for generated code). Used from OnCreateForCompiler.</p>
+</li>
+<li>
+<p><code>protected override void OnCreateForCompiler()</code><br />
+Compiler hook used to assign queries and type handles for the Burst/IJob chunk scheduling path by calling __AssignQueries and __TypeHandle.__AssignHandles.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private void __AssignQueries(ref SystemState state)
-    {
-        new EntityQueryBuilder(Allocator.Temp).Dispose();
-    }
-</code></pre>
+<p>Nested types / Jobs:</p>
 <ul>
-<li><code>private GetLoaded() : System.Boolean</code>  </li>
+<li>CheckUnlockRequirementsJob : IJobChunk (Burst-compiled)<br />
+Job iterates over chunks matching m_LockedQuery, reads each entity's UnlockRequirement dynamic buffer and decides whether that prefab should be unlocked:</li>
+<li>For each UnlockRequirement entry it checks whether the referenced prefab has an enabled Locked component.</li>
+<li>It evaluates flags UnlockFlags.RequireAll and UnlockFlags.RequireAny to determine whether all required prefabs are unlocked or any are unlocked (or the inverse) and enqueues the entity if conditions indicate it should be unlocked.</li>
+<li>Enqueues candidate entities into m_UnlockQueue.AsParallelWriter() to be consumed on main thread.</li>
 </ul>
-<pre><code class="language-csharp">private bool GetLoaded()
-    {
-        if (m_Loaded)
-        {
-            m_Loaded = false;
-            return true;
-        }
-        return false;
-    }
+<p>{{ The job uses ComponentLookup<Locked> to inspect the current locked state of other prefabs referenced by requirements. The job schedules in parallel and is completed synchronously in OnUpdate before dequeuing results. }}</p>
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Example: Query whether a prefab is currently locked from game code
+// (UnlockPrefab is private; external code should use IsLocked or emit an Unlock event)
+var unlockSystem = World.DefaultGameObjectInjectionWorld.GetOrCreateSystemManaged&lt;Game.Prefabs.UnlockSystem&gt;();
+PrefabBase somePrefab = ...;
+if (unlockSystem.IsLocked(somePrefab))
+{
+    // prefab is locked — you can create an Unlock event entity to request unlock:
+    EntityManager em = World.DefaultGameObjectInjectionWorld.EntityManager;
+    Entity archetypeEntity = em.CreateEntity(
+        ComponentType.ReadWrite&lt;Event&gt;(),
+        ComponentType.ReadWrite&lt;Unlock&gt;()
+    );
+    em.SetComponentData(archetypeEntity, new Unlock(em.GetPrimaryEntity(somePrefab)));
+}
 </code></pre>
-<ul>
-<li><code>public IsLocked(Game.Prefabs.PrefabBase prefab) : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">public bool IsLocked(PrefabBase prefab)
-    {
-        return m_PrefabSystem.HasEnabledComponent&lt;Locked&gt;(prefab);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_PrefabSystem = base.World.GetOrCreateSystemManaged&lt;PrefabSystem&gt;();
-        m_LockedQuery = GetEntityQuery(ComponentType.ReadOnly&lt;Locked&gt;(), ComponentType.ReadOnly&lt;UnlockRequirement&gt;());
-        m_UpdatedQuery = GetEntityQuery(ComponentType.ReadOnly&lt;Locked&gt;(), ComponentType.ReadOnly&lt;UnlockRequirement&gt;(), ComponentType.ReadOnly&lt;Updated&gt;());
-        m_EventQuery = GetEntityQuery(ComponentType.ReadOnly&lt;Unlock&gt;());
-        m_UnlockEventArchetype = base.EntityManager.CreateArchetype(ComponentType.ReadWrite&lt;Event&gt;(), ComponentType.ReadWrite&lt;Unlock&gt;());
-        m_Log = LogManager.GetLogger(&quot;Unlocking&quot;);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreateForCompiler() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnCreateForCompiler()
-    {
-        base.OnCreateForCompiler();
-        __AssignQueries(ref base.CheckedStateRef);
-        __TypeHandle.__AssignHandles(ref base.CheckedStateRef);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnGameLoaded(Colossal.Serialization.Entities.Context context) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnGameLoaded(Context context)
-    {
-        m_Loaded = true;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnGamePreload(Colossal.Serialization.Entities.Purpose purpose, Game.GameMode mode) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnGamePreload(Purpose purpose, GameMode mode)
-    {
-        base.OnGamePreload(purpose, mode);
-        base.Enabled = mode.IsGame();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        bool loaded = GetLoaded();
-        if (!ProcessEvents() &amp;&amp; !loaded &amp;&amp; m_UpdatedQuery.IsEmptyIgnoreFilter)
-        {
-            return;
-        }
-        NativeQueue&lt;Entity&gt; nativeQueue = new NativeQueue&lt;Entity&gt;(Allocator.TempJob);
-        try
-        {
-            while (true)
-            {
-                JobChunkExtensions.ScheduleParallel(new CheckUnlockRequirementsJob
-                {
-                    m_EntityType = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef),
-                    m_UnlockRequirementType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Prefabs_UnlockRequirement_RO_BufferTypeHandle, ref base.CheckedStateRef),
-                    m_LockedData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_Locked_RO_ComponentLookup, ref base.CheckedStateRef),
-                    m_UnlockQueue = nativeQueue.AsParallelWriter()
-                }, m_LockedQuery, default(JobHandle)).Complete();
-                if (nativeQueue.Count == 0)
-                {
-                    break;
-                }
-                Entity item;
-                while (nativeQueue.TryDequeue(out item))
-                {
-                    UnlockPrefab(item, createEvent: true);
-                }
-            }
-        }
-        finally
-        {
-            nativeQueue.Dispose();
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private ProcessEvents() : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">private bool ProcessEvents()
-    {
-        if (m_EventQuery.IsEmptyIgnoreFilter)
-        {
-            return false;
-        }
-        bool result = false;
-        NativeArray&lt;Unlock&gt; nativeArray = m_EventQuery.ToComponentDataArray&lt;Unlock&gt;(Allocator.TempJob);
-        try
-        {
-            for (int i = 0; i &lt; nativeArray.Length; i++)
-            {
-                Entity prefab = nativeArray[i].m_Prefab;
-                if (base.EntityManager.HasEnabledComponent&lt;Locked&gt;(prefab))
-                {
-                    UnlockPrefab(prefab, createEvent: false);
-                    result = true;
-                }
-            }
-            return result;
-        }
-        finally
-        {
-            nativeArray.Dispose();
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private UnlockPrefab(Unity.Entities.Entity unlock, System.Boolean createEvent) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void UnlockPrefab(Entity unlock, bool createEvent)
-    {
-        base.EntityManager.SetComponentEnabled&lt;Locked&gt;(unlock, value: false);
-        if (createEvent)
-        {
-            Entity entity = base.EntityManager.CreateEntity(m_UnlockEventArchetype);
-            base.EntityManager.SetComponentData(entity, new Unlock(unlock));
-        }
-        if (!base.EntityManager.HasEnabledComponent&lt;PrefabData&gt;(unlock))
-        {
-            PrefabID obsoleteID = m_PrefabSystem.GetObsoleteID(unlock);
-            m_Log.DebugFormat(&quot;Prefab unlocked: {0}&quot;, obsoleteID);
-        }
-        else
-        {
-            PrefabBase prefab = m_PrefabSystem.GetPrefab&lt;PrefabBase&gt;(unlock);
-            m_Log.DebugFormat(&quot;Prefab unlocked: {0}&quot;, prefab);
-        }
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Prefabs.UnlockSystem+CheckUnlockRequirementsJob</code>  </li>
-<li><code>Game.Prefabs.UnlockSystem+TypeHandle</code>  </li>
-</ul>
+<p>{{ Notes and tips:
+- Unlock requirements are evaluated on the main thread by scheduling and completing a Burst IJobChunk; this allows the system to test many entities in parallel but the final state changes (disabling Locked and creating events) happen on the main thread.
+- The system intentionally re-runs unlocking in a loop in OnUpdate to handle chains of unlocks (unlocking one prefab may satisfy another prefab’s requirements).
+- The system only runs in game mode and performs one forced pass immediately after a game load (m_Loaded).
+- Use the public IsLocked(PrefabBase) to check lock state from other game code; to request an unlock externally, create an entity with the Unlock component (the system will pick it up via m_EventQuery). }}</p>
 
 
 

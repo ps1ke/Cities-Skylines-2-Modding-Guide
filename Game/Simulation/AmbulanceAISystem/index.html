@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75481,6 +75550,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Settings/InputHintsType/" class="md-nav__link">
         
   
@@ -78109,18 +78201,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -78145,9 +78237,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -87145,6 +87237,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -117921,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117948,18 +118085,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -117984,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118009,229 +118146,150 @@
 
 
 <h1 id="gamesimulationambulanceaisystem">Game.Simulation.AmbulanceAISystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Simulation</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class AmbulanceAISystem : Game.GameSystemBase
-{
-    private Game.EndFrameBarrier m_EndFrameBarrier;
-    private Game.Simulation.PathfindSetupSystem m_PathfindSetupSystem;
-    private Game.Simulation.SimulationSystem m_SimulationSystem;
-    private Unity.Entities.EntityQuery m_VehicleQuery;
-    private Unity.Entities.EntityArchetype m_HealthcareRequestArchetype;
-    private Unity.Entities.EntityArchetype m_HandleRequestArchetype;
-    private Unity.Entities.ComponentTypeSet m_MovingToParkedCarRemoveTypes;
-    private Unity.Entities.ComponentTypeSet m_MovingToParkedAddTypes;
-    private Game.Simulation.AmbulanceAISystem+TypeHandle __TypeHandle;
-
-    public AmbulanceAISystem();
-
-    private System.Void __AssignQueries(Unity.Entities.SystemState&amp; state);
-    public virtual System.Int32 GetUpdateInterval(Game.SystemUpdatePhase phase);
-    public virtual System.Int32 GetUpdateOffset(Game.SystemUpdatePhase phase);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnCreateForCompiler();
-    protected virtual System.Void OnUpdate();
-}
-</code></pre>
+<p><strong>Assembly:</strong> Assembly-CSharp<br />
+<strong>Namespace:</strong> Game.Simulation</p>
+<p><strong>Type:</strong> public class AmbulanceAISystem</p>
+<p><strong>Base:</strong> GameSystemBase</p>
+<p><strong>Summary:</strong><br />
+AmbulanceAISystem is the Entity Component System (ECS) system that manages ambulance vehicles' AI and behaviour. It schedules a Burst-compiled parallel IJobChunk (AmbulanceTickJob) to process all ambulance entities: handling dispatches, pathfinding setup, loading/unloading patients, parking, returning to depot, emergency flags, and interacting with healthcare requests. The system integrates with PathfindSetupSystem (to enqueue pathfind tasks), EndFrameBarrier (for a parallel command buffer), and the SimulationSystem (for accessing the current simulation frame index and random seed). It runs at a reduced frequency (GetUpdateInterval returns 16) to limit how often ambulances are ticked.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.EndFrameBarrier m_EndFrameBarrier</code>  </li>
+<li>
+<p><code>private EndFrameBarrier m_EndFrameBarrier</code><br />
+Reference to the EndFrameBarrier system used to create a parallel EntityCommandBuffer for making structural changes safely at end of frame.</p>
+</li>
+<li>
+<p><code>private PathfindSetupSystem m_PathfindSetupSystem</code><br />
+Reference to the system used to enqueue pathfinding setup requests (provides the m_PathfindQueue).</p>
+</li>
+<li>
+<p><code>private SimulationSystem m_SimulationSystem</code><br />
+Reference to the SimulationSystem used to query the current simulation frame index and to obtain random seeds.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_VehicleQuery</code><br />
+Query used to select ambulance entities processed by this system (includes filters like excluding Deleted, Temp, TripSource, OutOfControl).</p>
+</li>
+<li>
+<p><code>private EntityArchetype m_HealthcareRequestArchetype</code><br />
+Archetype used when creating new healthcare request entities (ServiceRequest + HealthcareRequest + RequestGroup).</p>
+</li>
+<li>
+<p><code>private EntityArchetype m_HandleRequestArchetype</code><br />
+Archetype used for handle-request events (HandleRequest + Event).</p>
+</li>
+<li>
+<p><code>private ComponentTypeSet m_MovingToParkedCarRemoveTypes</code><br />
+Set of component types that are removed from a vehicle when it transitions from moving to parked state (e.g., Moving, TransformFrame, PathElement, PathInformation, ServiceDispatch, etc.).</p>
+</li>
+<li>
+<p><code>private ComponentTypeSet m_MovingToParkedAddTypes</code><br />
+Set of component types that are added when a vehicle becomes parked (e.g., ParkedCar, Stopped, Updated).</p>
+</li>
+<li>
+<p><code>private TypeHandle __TypeHandle</code><br />
+Internal container for the various Entity/Component/Buffer type handles and ComponentLookup/BufferLookup instances used by the AmbulanceTickJob. Populated in OnCreateForCompiler and used in OnUpdate to create the job's handles.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.EndFrameBarrier m_EndFrameBarrier;
-</code></pre>
+<h2 id="properties">Properties</h2>
 <ul>
-<li><code>private Game.Simulation.PathfindSetupSystem m_PathfindSetupSystem</code>  </li>
+<li>None (no public properties exposed by this system).</li>
 </ul>
-<pre><code class="language-csharp">private Game.Simulation.PathfindSetupSystem m_PathfindSetupSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.SimulationSystem m_SimulationSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.SimulationSystem m_SimulationSystem;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_VehicleQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_VehicleQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityArchetype m_HealthcareRequestArchetype</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityArchetype m_HealthcareRequestArchetype;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityArchetype m_HandleRequestArchetype</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityArchetype m_HandleRequestArchetype;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.ComponentTypeSet m_MovingToParkedCarRemoveTypes</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.ComponentTypeSet m_MovingToParkedCarRemoveTypes;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.ComponentTypeSet m_MovingToParkedAddTypes</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.ComponentTypeSet m_MovingToParkedAddTypes;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.AmbulanceAISystem+TypeHandle __TypeHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.AmbulanceAISystem+TypeHandle __TypeHandle;
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public AmbulanceAISystem()</code>  </li>
+<li><code>public AmbulanceAISystem()</code><br />
+Default constructor. Marked with [Preserve] attribute in the source to avoid stripping. Initialization of references and queries is performed in OnCreate.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public AmbulanceAISystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private __AssignQueries(Unity.Entities.SystemState&amp; state) : System.Void</code>  </li>
+<li>
+<p><code>public override int GetUpdateInterval(SystemUpdatePhase phase)</code><br />
+Returns 16 in source; the system is scheduled to update once every 16 simulation ticks (coarse-grained update).</p>
+</li>
+<li>
+<p><code>public override int GetUpdateOffset(SystemUpdatePhase phase)</code><br />
+Returns 0 in source; no offset is applied.</p>
+</li>
+<li>
+<p><code>protected override void OnCreate()</code><br />
+Sets up system references and entity query, creates required archetypes and ComponentTypeSets, and calls RequireForUpdate(m_VehicleQuery) to ensure the system only runs when ambulance entities exist. Retrieves EndFrameBarrier, PathfindSetupSystem and SimulationSystem instances.</p>
+</li>
+<li>
+<p><code>protected override void OnUpdate()</code><br />
+Creates and schedules the AmbulanceTickJob (Burst compiled) using the pre-populated type handles and lookups. The job gets a parallel writer command buffer from m_EndFrameBarrier, and a pathfind setup queue writer from m_PathfindSetupSystem. Adds the job handle to PathfindSetupSystem and EndFrameBarrier so the job producers are tracked.</p>
+</li>
+<li>
+<p><code>protected override void OnCreateForCompiler()</code><br />
+Internal helper used by generated code; assigns queries and type handles by calling __AssignQueries and __TypeHandle.__AssignHandles.</p>
+</li>
+<li>
+<p><code>private void __AssignQueries(ref SystemState state)</code><br />
+Internal method used at compile-time to assign any internal queries (generated code stub).</p>
+</li>
+<li>
+<p>Nested struct: <code>AmbulanceTickJob : IJobChunk</code> (Burst-compiled)  </p>
+</li>
+<li>Role: Processes chunks of ambulance entities in parallel. It contains many read-only and read/write component handles and lookups, a parallel command buffer, and a parallel pathfind-setup queue.</li>
+<li>Main per-entity flow implemented in Tick(...):<ul>
+<li>CheckServiceDispatches: Validate/trim dispatch queue and set Dispatched flag when applicable.</li>
+<li>RequestTargetIfNeeded: Periodically create a HealthcareRequest if ambulance has a pending target request but no registered request exists.</li>
+<li>ResetPath: Reinitialize path elements when an updated path is consumed and update car flags/parking status/effects.</li>
+<li>Path validity checks: If a target entity no longer exists or pathfinding failed, the vehicle is either deleted (if stuck/returning) or sent back to depot.</li>
+<li>Arrival handling: When an ambulance reaches path end / parking space / is at target, it handles unloading patients, parking, selecting next dispatch, or returning to depot.</li>
+<li>Parking and movement: ParkCar sets parked components and fixes parking location; StopVehicle/StartVehicle toggle movement components and ensure relevant lanes are marked PathfindUpdated.</li>
+<li>LoadPatients/UnloadPatients handle boarding/disembarking logic tied to HealthProblem and CurrentTransport/CurrentBuilding components (including random critical state decisions).</li>
+<li>FindNewPath constructs PathfindParameters and enqueues path setup via VehicleUtils/PathfindSetupSystem when a new path is required (takes into account flags like FindHospital, Dispatched, Transporting, Critical, owner-vs-foreign-target).</li>
+<li>SelectDispatch consumes service dispatches, validates request targets, may append precomputed path elements from the healthcare request to the vehicle's path, and sets path/flags accordingly.</li>
+<li>CheckParkingSpace validates/claims parking curves and parking spaces on the path.</li>
+<li>ResetPath recalculates ambulance.m_PathElementTime, resets parking lane status and effects, and propagates target/destination changes to passengers.</li>
 </ul>
-<pre><code class="language-csharp">private void __AssignQueries(ref SystemState state)
-    {
-        new EntityQueryBuilder(Allocator.Temp).Dispose();
-    }
-</code></pre>
+</li>
+<li>
+<p>Notable helper methods inside the job (signatures trimmed):</p>
 <ul>
-<li><code>public virtual GetUpdateInterval(Game.SystemUpdatePhase phase) : System.Int32</code>  </li>
+<li>void Execute(in ArchetypeChunk chunk, int unfilteredChunkIndex, bool useEnabledMask, in v128 chunkEnabledMask)</li>
+<li>private void Tick(...)</li>
+<li>private void ParkCar(int jobIndex, Entity entity, Owner owner, ref Ambulance ambulance, ref Car car, ref CarCurrentLane currentLane)</li>
+<li>private void StopVehicle(int jobIndex, Entity entity, ref CarCurrentLane currentLaneData)</li>
+<li>private void StartVehicle(int jobIndex, Entity entity, ref CarCurrentLane currentLaneData)</li>
+<li>private bool LoadPatients(...)</li>
+<li>private bool UnloadPatients(DynamicBuffer<Passenger> passengers, ref Ambulance ambulance)</li>
+<li>private void FindNewPath(...)</li>
+<li>private Entity FindDistrict(Entity building)</li>
+<li>private void TransportToHospital(...)</li>
+<li>private void ReturnToDepot(...)</li>
+<li>private void CheckServiceDispatches(...)</li>
+<li>private void RequestTargetIfNeeded(int jobIndex, Entity entity, ref Ambulance ambulance)</li>
+<li>private bool SelectDispatch(...)</li>
+<li>private void CheckParkingSpace(...)</li>
+<li>private void ResetPath(...)</li>
 </ul>
-<pre><code class="language-csharp">public override int GetUpdateInterval(SystemUpdatePhase phase)
-    {
-        return 16;
-    }
+</li>
+<li>
+<p>Notes: The job uses multiple ComponentLookup and BufferLookup instances (e.g., m_PathElements is NativeDisableParallelForRestriction) and requires careful interaction with the command buffer and pathfind queue. Most vehicle state transitions are implemented by adding/removing components via the parallel writer.</p>
+</li>
+</ul>
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Obtain the system from the default world (common usage in mods/tools)
+var ambulanceSystem = World.DefaultGameObjectInjectionWorld
+    .GetExistingSystemManaged&lt;Game.Simulation.AmbulanceAISystem&gt;();
+
+if (ambulanceSystem != null)
+{
+    // Query the configured update interval (system updates every 16 ticks by default)
+    int interval = ambulanceSystem.GetUpdateInterval(SystemUpdatePhase.Simulation);
+    UnityEngine.Debug.Log($&quot;AmbulanceAISystem update interval: {interval}&quot;);
+}
+
+// You typically don't call OnUpdate manually. To affect ambulances from a mod,
+// create/modify components (e.g., ServiceRequest, HealthcareRequest, ServiceDispatch)
+// on relevant entities and the system will pick them up on its scheduled ticks.
 </code></pre>
-<ul>
-<li><code>public virtual GetUpdateOffset(Game.SystemUpdatePhase phase) : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override int GetUpdateOffset(SystemUpdatePhase phase)
-    {
-        return 0;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_EndFrameBarrier = base.World.GetOrCreateSystemManaged&lt;EndFrameBarrier&gt;();
-        m_PathfindSetupSystem = base.World.GetOrCreateSystemManaged&lt;PathfindSetupSystem&gt;();
-        m_SimulationSystem = base.World.GetOrCreateSystemManaged&lt;SimulationSystem&gt;();
-        m_VehicleQuery = GetEntityQuery(ComponentType.ReadWrite&lt;Game.Vehicles.Ambulance&gt;(), ComponentType.ReadOnly&lt;CarCurrentLane&gt;(), ComponentType.ReadOnly&lt;Owner&gt;(), ComponentType.ReadOnly&lt;PrefabRef&gt;(), ComponentType.ReadWrite&lt;PathOwner&gt;(), ComponentType.ReadWrite&lt;Car&gt;(), ComponentType.ReadWrite&lt;Target&gt;(), ComponentType.Exclude&lt;Deleted&gt;(), ComponentType.Exclude&lt;Temp&gt;(), ComponentType.Exclude&lt;TripSource&gt;(), ComponentType.Exclude&lt;OutOfControl&gt;());
-        m_HealthcareRequestArchetype = base.EntityManager.CreateArchetype(ComponentType.ReadWrite&lt;ServiceRequest&gt;(), ComponentType.ReadWrite&lt;HealthcareRequest&gt;(), ComponentType.ReadWrite&lt;RequestGroup&gt;());
-        m_HandleRequestArchetype = base.EntityManager.CreateArchetype(ComponentType.ReadWrite&lt;HandleRequest&gt;(), ComponentType.ReadWrite&lt;Event&gt;());
-        m_MovingToParkedCarRemoveTypes = new ComponentTypeSet(new ComponentType[13]
-        {
-            ComponentType.ReadWrite&lt;Moving&gt;(),
-            ComponentType.ReadWrite&lt;TransformFrame&gt;(),
-            ComponentType.ReadWrite&lt;InterpolatedTransform&gt;(),
-            ComponentType.ReadWrite&lt;Swaying&gt;(),
-            ComponentType.ReadWrite&lt;CarNavigation&gt;(),
-            ComponentType.ReadWrite&lt;CarNavigationLane&gt;(),
-            ComponentType.ReadWrite&lt;CarCurrentLane&gt;(),
-            ComponentType.ReadWrite&lt;PathOwner&gt;(),
-            ComponentType.ReadWrite&lt;Target&gt;(),
-            ComponentType.ReadWrite&lt;Blocker&gt;(),
-            ComponentType.ReadWrite&lt;PathElement&gt;(),
-            ComponentType.ReadWrite&lt;PathInformation&gt;(),
-            ComponentType.ReadWrite&lt;ServiceDispatch&gt;()
-        });
-        m_MovingToParkedAddTypes = new ComponentTypeSet(ComponentType.ReadWrite&lt;ParkedCar&gt;(), ComponentType.ReadWrite&lt;Stopped&gt;(), ComponentType.ReadWrite&lt;Updated&gt;());
-        RequireForUpdate(m_VehicleQuery);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreateForCompiler() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnCreateForCompiler()
-    {
-        base.OnCreateForCompiler();
-        __AssignQueries(ref base.CheckedStateRef);
-        __TypeHandle.__AssignHandles(ref base.CheckedStateRef);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        JobHandle jobHandle = JobChunkExtensions.ScheduleParallel(new AmbulanceTickJob
-        {
-            m_EntityType = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef),
-            m_OwnerType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Common_Owner_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_UnspawnedType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Objects_Unspawned_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_PrefabRefType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_PathInformationType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Pathfind_PathInformation_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_StoppedType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Objects_Stopped_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_AmbulanceType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Vehicles_Ambulance_RW_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_CarType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Vehicles_Car_RW_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_CurrentLaneType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Vehicles_CarCurrentLane_RW_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_TargetType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Common_Target_RW_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_PathOwnerType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Pathfind_PathOwner_RW_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_CarNavigationLaneType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Vehicles_CarNavigationLane_RW_BufferTypeHandle, ref base.CheckedStateRef),
-            m_PassengerType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Vehicles_Passenger_RW_BufferTypeHandle, ref base.CheckedStateRef),
-            m_ServiceDispatchType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Simulation_ServiceDispatch_RW_BufferTypeHandle, ref base.CheckedStateRef),
-            m_EntityLookup = InternalCompilerInterface.GetEntityStorageInfoLookup(ref __TypeHandle.__EntityStorageInfoLookup, ref base.CheckedStateRef),
-            m_PathInformationData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Pathfind_PathInformation_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_OwnerData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Common_Owner_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_ParkedCarData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Vehicles_ParkedCar_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_BlockerData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Vehicles_Blocker_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_SpawnLocationData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Objects_SpawnLocation_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_UnspawnedData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Objects_Unspawned_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_HospitalData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Buildings_Hospital_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_CarLaneData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_CarLane_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_SlaveLaneData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_SlaveLane_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_ParkingLaneData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_ParkingLane_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_CurveData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_Curve_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_ConnectionLaneData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_ConnectionLane_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_GarageLaneData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_GarageLane_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabCarData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_CarData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabRefData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabObjectGeometryData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_ObjectGeometryData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabParkingLaneData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_ParkingLaneData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabSpawnLocationData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_SpawnLocationData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_CurrentBuildingData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Citizens_CurrentBuilding_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_CurrentTransportData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Citizens_CurrentTransport_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_HealthProblemData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Citizens_HealthProblem_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_TravelPurposeData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Citizens_TravelPurpose_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_CitizenData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Citizens_Citizen_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_CurrentVehicleData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Creatures_CurrentVehicle_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_CurrentDistrictData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Areas_CurrentDistrict_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_HealthcareRequestData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Simulation_HealthcareRequest_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_SubLanes = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Net_SubLane_RO_BufferLookup, ref base.CheckedStateRef),
-            m_LaneObjects = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Net_LaneObject_RO_BufferLookup, ref base.CheckedStateRef),
-            m_LaneOverlaps = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Net_LaneOverlap_RO_BufferLookup, ref base.CheckedStateRef),
-            m_PathElements = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Pathfind_PathElement_RW_BufferLookup, ref base.CheckedStateRef),
-            m_SimulationFrameIndex = m_SimulationSystem.frameIndex,
-            m_RandomSeed = RandomSeed.Next(),
-            m_HealthcareRequestArchetype = m_HealthcareRequestArchetype,
-            m_HandleRequestArchetype = m_HandleRequestArchetype,
-            m_MovingToParkedCarRemoveTypes = m_MovingToParkedCarRemoveTypes,
-            m_MovingToParkedAddTypes = m_MovingToParkedAddTypes,
-            m_CommandBuffer = m_EndFrameBarrier.CreateCommandBuffer().AsParallelWriter(),
-            m_PathfindQueue = m_PathfindSetupSystem.GetQueue(this, 64).AsParallelWriter()
-        }, m_VehicleQuery, base.Dependency);
-        m_PathfindSetupSystem.AddQueueWriter(jobHandle);
-        m_EndFrameBarrier.AddJobHandleForProducer(jobHandle);
-        base.Dependency = jobHandle;
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Simulation.AmbulanceAISystem+AmbulanceTickJob</code>  </li>
-<li><code>Game.Simulation.AmbulanceAISystem+TypeHandle</code>  </li>
-</ul>
+<p>Notes for modders:
+- The system depends on many internal game component types (HealthProblem, HealthcareRequest, ServiceDispatch, PathElement, etc.). Changing or creating requests must match the expected archetypes and component semantics.
+- Because the system uses a parallel command buffer (via EndFrameBarrier), structural changes are safe but deferred — expect changes to be applied at the end of the frame.
+- To influence pathfind behavior, consider interacting with PathfindSetupSystem queues or by setting appropriate component data (Targets, PathElements) on involved entities.</p>
 
 
 

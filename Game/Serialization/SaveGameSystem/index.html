@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#gameserializationsavegamesystem" class="md-skip">
+        <a href="#gamesavegamesystem" class="md-skip">
           Skip to content
         </a>
       
@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72491,6 +72537,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../SceneFlow/SaveHelpers/" class="md-nav__link">
         
   
@@ -74498,15 +74567,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -74543,9 +74603,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -75562,6 +75622,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87154,6 +87237,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -117930,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117955,15 +118083,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -118002,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118026,159 +118145,104 @@
 
 
 
-<h1 id="gameserializationsavegamesystem">Game.Serialization.SaveGameSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Serialization</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class SaveGameSystem : Game.GameSystemBase
-{
-    private System.IO.Stream &lt;stream&gt;k__BackingField;
-    private Unity.Collections.NativeArray&lt;Unity.Entities.Entity&gt; &lt;referencedContent&gt;k__BackingField;
-    private System.Threading.Tasks.TaskCompletionSource&lt;System.Boolean&gt; m_TaskCompletionSource;
-    private Game.UpdateSystem m_UpdateSystem;
-    private Game.Serialization.WriteSystem m_WriteSystem;
-    private System.Boolean m_Writing;
-    private Colossal.Serialization.Entities.Context m_Context;
-
-    public System.IO.Stream stream { get; set; }
-    public Colossal.Serialization.Entities.Context context { get; set; }
-    public Unity.Collections.NativeArray&lt;Unity.Entities.Entity&gt; referencedContent { get; set; }
-
-    public SaveGameSystem();
-
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnDestroy();
-    protected virtual System.Void OnUpdate();
-    public System.Threading.Tasks.Task RunOnce();
-}
-</code></pre>
+<h1 id="gamesavegamesystem">Game.SaveGameSystem</h1>
+<p><strong>Assembly:</strong> Game<br />
+<strong>Namespace:</strong> Game.Serialization</p>
+<p><strong>Type:</strong> public class SaveGameSystem</p>
+<p><strong>Base:</strong> GameSystemBase</p>
+<p><strong>Summary:</strong><br />
+System that coordinates a single save-game serialization pass. SaveGameSystem orchestrates the serialization update phase and the subsequent write job, exposing a simple async API (RunOnce) that completes when the write work has finished. It holds the output Stream, a serialization Context, and an optional NativeArray<Entity> of referenced content. The system caches references to the game's UpdateSystem and WriteSystem and is normally disabled; it is enabled only for the duration of a RunOnce operation.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private System.IO.Stream &lt;stream&gt;k__BackingField</code>  </li>
+<li>
+<p><code>private TaskCompletionSource&lt;bool&gt; m_TaskCompletionSource</code><br />
+Used internally to implement the async RunOnce() API. A TaskCompletionSource is created when a save run starts and its result is set when the write step completes.</p>
+</li>
+<li>
+<p><code>private UpdateSystem m_UpdateSystem</code><br />
+Cached reference to the game's UpdateSystem. The system calls m_UpdateSystem.Update(SystemUpdatePhase.Serialize) to trigger serialization of world state.</p>
+</li>
+<li>
+<p><code>private WriteSystem m_WriteSystem</code><br />
+Cached reference to the WriteSystem that performs the actual write job. SaveGameSystem inspects m_WriteSystem.writeDependency to detect when the write work has finished.</p>
+</li>
+<li>
+<p><code>private bool m_Writing</code><br />
+Internal flag indicating whether the save sequence has already started the writing stage (true) or is still triggering the serialize update (false).</p>
+</li>
+<li>
+<p><code>private Context m_Context</code><br />
+Serialization Context used during the save process. Note: the context is disposed when replaced via the context property setter and also on OnDestroy.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private System.IO.Stream &lt;stream&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeArray&lt;Unity.Entities.Entity&gt; &lt;referencedContent&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeArray&lt;Unity.Entities.Entity&gt; &lt;referencedContent&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private System.Threading.Tasks.TaskCompletionSource&lt;System.Boolean&gt; m_TaskCompletionSource</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Threading.Tasks.TaskCompletionSource&lt;System.Boolean&gt; m_TaskCompletionSource;
-</code></pre>
-<ul>
-<li><code>private Game.UpdateSystem m_UpdateSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.UpdateSystem m_UpdateSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Serialization.WriteSystem m_WriteSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Serialization.WriteSystem m_WriteSystem;
-</code></pre>
-<ul>
-<li><code>private System.Boolean m_Writing</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean m_Writing;
-</code></pre>
-<ul>
-<li><code>private Colossal.Serialization.Entities.Context m_Context</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.Serialization.Entities.Context m_Context;
-</code></pre>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>public System.IO.Stream stream { get; set }</code>  </li>
+<li>
+<p><code>public Stream stream { get; set; }</code><br />
+Stream where save data will be written. This should be set before calling RunOnce() and typically disposed by the caller after the save completes.</p>
+</li>
+<li>
+<p><code>public Context context { get; set; }</code><br />
+Serialization Context for the current save. The setter disposes the previous Context instance (m_Context.Dispose()) before assigning the new one. The context is also disposed in OnDestroy.</p>
+</li>
+<li>
+<p><code>public NativeArray&lt;Entity&gt; referencedContent { get; set; }</code><br />
+Optional NativeArray containing Entities that should be treated as referenced content during serialization. If created and assigned, it will be disposed in OnDestroy.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public System.IO.Stream stream { get; set; }
-</code></pre>
-<ul>
-<li><code>public Colossal.Serialization.Entities.Context context { get; set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Colossal.Serialization.Entities.Context context { get; set; }
-</code></pre>
-<ul>
-<li><code>public Unity.Collections.NativeArray&lt;Unity.Entities.Entity&gt; referencedContent { get; set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Unity.Collections.NativeArray&lt;Unity.Entities.Entity&gt; referencedContent { get; set; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public SaveGameSystem()</code>  </li>
+<li><code>public SaveGameSystem()</code><br />
+Parameterless constructor. The type includes a [Preserve] attribute on methods and the constructor in the original source to prevent stripping; no special initialization occurs here — initialization is done in OnCreate.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public SaveGameSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
+<li>
+<p><code>protected override void OnCreate() : System.Void</code><br />
+[Preserve] Called when the system is created. Caches references to UpdateSystem and WriteSystem via base.World.GetOrCreateSystemManaged<T>() and sets base.Enabled = false so the system is idle until RunOnce is invoked.</p>
+</li>
+<li>
+<p><code>protected override void OnDestroy() : System.Void</code><br />
+[Preserve] Called on system destruction. Disposes m_Context and, if referencedContent.IsCreated, disposes referencedContent. Calls base.OnDestroy().</p>
+</li>
+<li>
+<p><code>public async Task RunOnce() : System.Threading.Tasks.Task</code><br />
+Creates a TaskCompletionSource<bool>, enables the system (base.Enabled = true), and awaits the TaskCompletionSource.Task. The TaskCompletionSource is completed when the write job finishes (see OnUpdate). Use this method to start a single save operation and await its completion.</p>
+</li>
+<li>
+<p><code>protected override void OnUpdate() : System.Void</code><br />
+[Preserve] Core update logic invoked while the system is enabled. Behavior:</p>
+</li>
+<li>If m_Writing is true: check m_WriteSystem.writeDependency.IsCompleted. If completed, call Complete() on the dependency, set m_Writing = false, disable the system (base.Enabled = false), and set the TaskCompletionSource result to true (completing RunOnce).</li>
+<li>If m_Writing is false: set m_Writing = true and call m_UpdateSystem.Update(SystemUpdatePhase.Serialize) to trigger serialization which schedules the write job (the write job's dependency is tracked in m_WriteSystem).</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_UpdateSystem = base.World.GetOrCreateSystemManaged&lt;UpdateSystem&gt;();
-        m_WriteSystem = base.World.GetOrCreateSystemManaged&lt;WriteSystem&gt;();
-        base.Enabled = false;
-    }
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Example usage from a game/mod context: configure the SaveGameSystem, then await a single save run.
+[Preserve]
+public async void SaveToFile(string path, Context saveContext, NativeArray&lt;Entity&gt; referencedEntities)
+{
+    // Obtain the system from the World (example using Default world; adapt to your mod's world)
+    var world = Unity.Entities.World.DefaultGameObjectInjectionWorld;
+    var saveSystem = world.GetOrCreateSystemManaged&lt;Game.Serialization.SaveGameSystem&gt;();
+
+    // Configure the system
+    saveSystem.stream = System.IO.File.OpenWrite(path);
+    saveSystem.context = saveContext;
+    saveSystem.referencedContent = referencedEntities;
+
+    // Run a single save operation and await completion
+    await saveSystem.RunOnce();
+
+    // Cleanup the stream after save completes (context/referencedContent disposed by system's OnDestroy or managed by caller)
+    saveSystem.stream.Dispose();
+}
 </code></pre>
-<ul>
-<li><code>protected virtual OnDestroy() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnDestroy()
-    {
-        m_Context.Dispose();
-        if (referencedContent.IsCreated)
-        {
-            referencedContent.Dispose();
-        }
-        base.OnDestroy();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        if (m_Writing)
-        {
-            if (m_WriteSystem.writeDependency.IsCompleted)
-            {
-                m_WriteSystem.writeDependency.Complete();
-                m_Writing = false;
-                base.Enabled = false;
-                m_TaskCompletionSource?.SetResult(result: true);
-            }
-        }
-        else
-        {
-            m_Writing = true;
-            m_UpdateSystem.Update(SystemUpdatePhase.Serialize);
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public RunOnce() : System.Threading.Tasks.Task</code>  </li>
-</ul>
-<pre><code class="language-csharp">public async Task RunOnce()
-    {
-        m_TaskCompletionSource = new TaskCompletionSource&lt;bool&gt;();
-        base.Enabled = true;
-        await m_TaskCompletionSource.Task;
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Serialization.SaveGameSystem+&lt;RunOnce&gt;d__18</code>  </li>
-</ul>
+<p>Additional notes:
+- Ensure you set stream and context before calling RunOnce(). The context property will dispose any previously assigned Context instance automatically.
+- The system relies on WriteSystem.writeDependency to detect job completion — the WriteSystem is expected to schedule/own the job that writes serialized data.
+- referencedContent, if created and assigned, will be disposed by OnDestroy; if you allocate it for a single save you can also dispose it yourself after completion if appropriate.
+- Because the system enables itself only during a RunOnce call, you can call RunOnce multiple times to perform separate save operations.</p>
 
 
 

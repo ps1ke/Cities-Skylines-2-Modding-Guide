@@ -53315,15 +53315,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -53360,9 +53351,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -65329,6 +65320,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69760,6 +69774,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72572,6 +72609,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75562,6 +75622,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87154,6 +87237,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -117930,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117955,15 +118083,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -118002,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118027,294 +118146,179 @@
 
 
 <h1 id="gameprefabsrenderprefab">Game.Prefabs.RenderPrefab</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Prefabs</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.Prefabs.RenderPrefabBase</code><br />
-<strong>Implements:</strong> <code>Colossal.IO.AssetDatabase.IComponentBase</code>, <code>System.IComparable</code>, <code>UnityEngine.ISerializationCallbackReceiver</code>, <code>Colossal.IO.AssetDatabase.IPrefabBase</code>  </p>
-<p><strong>Attributes:</strong> <code>ComponentMenu</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class RenderPrefab : Game.Prefabs.RenderPrefabBase, Colossal.IO.AssetDatabase.IComponentBase, System.IComparable, UnityEngine.ISerializationCallbackReceiver, Colossal.IO.AssetDatabase.IPrefabBase
-{
-    private Colossal.IO.AssetDatabase.AssetReference&lt;Colossal.IO.AssetDatabase.GeometryAsset&gt; m_GeometryAsset;
-    private Colossal.IO.AssetDatabase.AssetReference&lt;Colossal.IO.AssetDatabase.SurfaceAsset&gt;[] m_SurfaceAssets;
-    private Colossal.Mathematics.Bounds3 m_Bounds;
-    private System.Single m_SurfaceArea;
-    private System.Int32 m_IndexCount;
-    private System.Int32 m_VertexCount;
-    private System.Int32 m_MeshCount;
-    private System.Boolean m_IsImpostor;
-    private System.Boolean m_ManualVTRequired;
-    private UnityEngine.Material[] m_MaterialsContainer;
-
-    public System.Boolean hasGeometryAsset { get; }
-    public Colossal.IO.AssetDatabase.GeometryAsset geometryAsset { get; set; }
-    public System.Collections.Generic.IEnumerable&lt;Colossal.IO.AssetDatabase.SurfaceAsset&gt; surfaceAssets { get; set; }
-    public Colossal.Mathematics.Bounds3 bounds { get; set; }
-    public System.Single surfaceArea { get; set; }
-    public System.Int32 indexCount { get; set; }
-    public System.Int32 vertexCount { get; set; }
-    public System.Int32 meshCount { get; set; }
-    public System.Boolean isImpostor { get; set; }
-    public System.Boolean manualVTRequired { get; set; }
-    public System.Int32 materialCount { get; }
-
-    public RenderPrefab();
-
-    public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet&lt;Unity.Entities.ComponentType&gt; components);
-    public Colossal.IO.AssetDatabase.SurfaceAsset GetSurfaceAsset(System.Int32 index);
-    public UnityEngine.Material ObtainMaterial(System.Int32 i, System.Boolean useVT);
-    public UnityEngine.Material[] ObtainMaterials(System.Boolean useVT);
-    public UnityEngine.Mesh ObtainMesh(System.Int32 materialIndex, System.Int32&amp; subMeshIndex);
-    public UnityEngine.Mesh[] ObtainMeshes();
-    public System.Void Release();
-    public System.Void ReleaseMaterials();
-    public System.Void ReleaseMeshes();
-    public System.Void SetSurfaceAsset(System.Int32 index, Colossal.IO.AssetDatabase.SurfaceAsset value);
-}
-</code></pre>
+<p><strong>Assembly:</strong> Assembly-CSharp<br />
+<strong>Namespace:</strong> Game.Prefabs</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> RenderPrefabBase</p>
+<p><strong>Summary:</strong><br />
+RenderPrefab is a Unity component/prefab class that links geometry (meshes) and surface assets (materials/textures) for rendering. It holds serialized references to a GeometryAsset and a list of SurfaceAsset references, stores bounding and mesh/statistics data (index/vertex/mesh counts and surface area), and provides runtime helpers to obtain/release Mesh and Material instances. It also exposes metadata flags (isImpostor, manualVTRequired) that affect ECS component composition via GetPrefabComponents. The class caches loaded Material instances in a runtime container to avoid repeated loads and logs operations via ComponentBase.baseLog.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Colossal.IO.AssetDatabase.AssetReference&lt;Colossal.IO.AssetDatabase.GeometryAsset&gt; m_GeometryAsset</code>  </li>
+<li>
+<p><code>private AssetReference&lt;GeometryAsset&gt; m_GeometryAsset</code><br />
+Reference to the geometry asset that provides the Mesh[] for this prefab. Used by ObtainMeshes/ObtainMesh and ReleaseMeshes. May be null if no geometry is assigned.</p>
+</li>
+<li>
+<p><code>private AssetReference&lt;SurfaceAsset&gt;[] m_SurfaceAssets</code><br />
+Array of references to surface assets. Each surface asset provides Material/texture data for a material slot. Serialized and used by ObtainMaterials/ObtainMaterial.</p>
+</li>
+<li>
+<p><code>private Bounds3 m_Bounds</code><br />
+Axis-aligned bounding box (Bounds3) for the prefab geometry.</p>
+</li>
+<li>
+<p><code>private float m_SurfaceArea</code><br />
+Surface area value for the prefab (float), likely used for LOD/streaming heuristics or stats.</p>
+</li>
+<li>
+<p><code>private int m_IndexCount</code><br />
+Index count of the geometry (serialized metadata).</p>
+</li>
+<li>
+<p><code>private int m_VertexCount</code><br />
+Vertex count of the geometry (serialized metadata).</p>
+</li>
+<li>
+<p><code>private int m_MeshCount</code><br />
+Number of meshes/sub-mesh groups in the geometry.</p>
+</li>
+<li>
+<p><code>private bool m_IsImpostor</code><br />
+Flag indicating this prefab should be treated as an impostor (billboard or simplified representation). Affects which ECS components are added in GetPrefabComponents.</p>
+</li>
+<li>
+<p><code>private bool m_ManualVTRequired</code><br />
+Flag indicating manual handling of virtual texturing is required for this prefab.</p>
+</li>
+<li>
+<p><code>private Material[] m_MaterialsContainer</code><br />
+Runtime cache for Material instances loaded from the SurfaceAssets. Allocated on demand in ObtainMaterials to avoid repeated loads.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Colossal.IO.AssetDatabase.AssetReference&lt;Colossal.IO.AssetDatabase.GeometryAsset&gt; m_GeometryAsset;
-</code></pre>
-<ul>
-<li><code>private Colossal.IO.AssetDatabase.AssetReference&lt;Colossal.IO.AssetDatabase.SurfaceAsset&gt;[] m_SurfaceAssets</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.IO.AssetDatabase.AssetReference&lt;Colossal.IO.AssetDatabase.SurfaceAsset&gt;[] m_SurfaceAssets;
-</code></pre>
-<ul>
-<li><code>private Colossal.Mathematics.Bounds3 m_Bounds</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.Mathematics.Bounds3 m_Bounds;
-</code></pre>
-<ul>
-<li><code>private System.Single m_SurfaceArea</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Single m_SurfaceArea;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_IndexCount</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_IndexCount;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_VertexCount</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_VertexCount;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_MeshCount</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_MeshCount;
-</code></pre>
-<ul>
-<li><code>private System.Boolean m_IsImpostor</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean m_IsImpostor;
-</code></pre>
-<ul>
-<li><code>private System.Boolean m_ManualVTRequired</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean m_ManualVTRequired;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.Material[] m_MaterialsContainer</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.Material[] m_MaterialsContainer;
-</code></pre>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>public System.Boolean hasGeometryAsset { get }</code>  </li>
+<li>
+<p><code>public bool hasGeometryAsset { get; }</code><br />
+True if a geometry asset reference is present (m_GeometryAsset != null). Read-only.</p>
+</li>
+<li>
+<p><code>public GeometryAsset geometryAsset { get; set; }</code><br />
+Get or set the GeometryAsset reference. Setting writes the AssetReference stored in m_GeometryAsset.</p>
+</li>
+<li>
+<p><code>public IEnumerable&lt;SurfaceAsset&gt; surfaceAssets { get; set; }</code><br />
+Enumerable view over the surface assets. Getter yields SurfaceAsset instances from the stored AssetReference array. Setter accepts a sequence of SurfaceAsset and converts them to AssetReference<SurfaceAsset> by id.</p>
+</li>
+<li>
+<p><code>public Bounds3 bounds { get; set; }</code><br />
+Get/set the prefab Bounds3 (m_Bounds).</p>
+</li>
+<li>
+<p><code>public float surfaceArea { get; set; }</code><br />
+Get/set the surface area (m_SurfaceArea).</p>
+</li>
+<li>
+<p><code>public int indexCount { get; set; }</code><br />
+Get/set index count metadata (m_IndexCount).</p>
+</li>
+<li>
+<p><code>public int vertexCount { get; set; }</code><br />
+Get/set vertex count metadata (m_VertexCount).</p>
+</li>
+<li>
+<p><code>public int meshCount { get; set; }</code><br />
+Get/set mesh count metadata (m_MeshCount).</p>
+</li>
+<li>
+<p><code>public bool isImpostor { get; set; }</code><br />
+Get/set the impostor flag (m_IsImpostor).</p>
+</li>
+<li>
+<p><code>public bool manualVTRequired { get; set; }</code><br />
+Get/set the manual virtual-texturing requirement flag (m_ManualVTRequired).</p>
+</li>
+<li>
+<p><code>public int materialCount { get; }</code><br />
+Computed property returning the number of surface assets (m_SurfaceAssets.Length). Useful to size arrays and validate material indices.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public System.Boolean hasGeometryAsset { get; }
-</code></pre>
-<ul>
-<li><code>public Colossal.IO.AssetDatabase.GeometryAsset geometryAsset { get; set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Colossal.IO.AssetDatabase.GeometryAsset geometryAsset { get; set; }
-</code></pre>
-<ul>
-<li><code>public System.Collections.Generic.IEnumerable&lt;Colossal.IO.AssetDatabase.SurfaceAsset&gt; surfaceAssets { get; set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Collections.Generic.IEnumerable&lt;Colossal.IO.AssetDatabase.SurfaceAsset&gt; surfaceAssets { get; set; }
-</code></pre>
-<ul>
-<li><code>public Colossal.Mathematics.Bounds3 bounds { get; set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Colossal.Mathematics.Bounds3 bounds { get; set; }
-</code></pre>
-<ul>
-<li><code>public System.Single surfaceArea { get; set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Single surfaceArea { get; set; }
-</code></pre>
-<ul>
-<li><code>public System.Int32 indexCount { get; set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Int32 indexCount { get; set; }
-</code></pre>
-<ul>
-<li><code>public System.Int32 vertexCount { get; set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Int32 vertexCount { get; set; }
-</code></pre>
-<ul>
-<li><code>public System.Int32 meshCount { get; set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Int32 meshCount { get; set; }
-</code></pre>
-<ul>
-<li><code>public System.Boolean isImpostor { get; set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Boolean isImpostor { get; set; }
-</code></pre>
-<ul>
-<li><code>public System.Boolean manualVTRequired { get; set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Boolean manualVTRequired { get; set; }
-</code></pre>
-<ul>
-<li><code>public System.Int32 materialCount { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Int32 materialCount { get; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public RenderPrefab()</code>  </li>
+<li><code>public RenderPrefab()</code><br />
+Default constructor (implicit). Initializes the MonoBehaviour-derived component using Unity's default construction; no special constructor logic is defined in the source.</li>
 </ul>
-<pre><code class="language-csharp">public RenderPrefab();
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>public virtual GetPrefabComponents(System.Collections.Generic.HashSet&lt;Unity.Entities.ComponentType&gt; components) : System.Void</code>  </li>
+<li>
+<p><code>public SurfaceAsset GetSurfaceAsset(int index)</code><br />
+Returns the SurfaceAsset at the given index from m_SurfaceAssets. Index must be within bounds of the array.</p>
+</li>
+<li>
+<p><code>public void SetSurfaceAsset(int index, SurfaceAsset value)</code><br />
+Sets the surface asset reference at the specified index. Stores the provided SurfaceAsset into the m_SurfaceAssets array (via AssetReference assignment).</p>
+</li>
+<li>
+<p><code>public Mesh[] ObtainMeshes()</code><br />
+Loads/returns the Mesh[] from the assigned GeometryAsset. Calls geometryAsset?.ObtainMeshes() and logs the operation. Returns null if no geometry asset is assigned or if the asset returns null.</p>
+</li>
+<li>
+<p><code>public Mesh ObtainMesh(int materialIndex, out int subMeshIndex)</code><br />
+Returns the Mesh that contains the requested materialIndex and sets subMeshIndex to the sub-mesh index within that Mesh. If the prefab has a geometry asset, it iterates meshes and their subMeshCount to resolve which Mesh holds the materialIndex. If not found, returns null. The method logs the operation. This is useful when material slots map across multiple Mesh objects.</p>
+</li>
+<li>
+<p><code>public void ReleaseMeshes()</code><br />
+Releases meshes loaded from the geometry asset by calling geometryAsset?.ReleaseMeshes() and logs the operation.</p>
+</li>
+<li>
+<p><code>public Material[] ObtainMaterials(bool useVT = true)</code><br />
+Ensures the runtime Material cache (m_MaterialsContainer) is allocated and loads Material instances from each SurfaceAsset via surfaceAsset.Load(...). The load uses loadTextures: true and respects the useVT parameter for virtual texturing. Returns the cached array of Materials. Logs the operation.</p>
+</li>
+<li>
+<p><code>public Material ObtainMaterial(int i, bool useVT = true)</code><br />
+Convenience accessor that returns the i-th Material from the cached material array (via ObtainMaterials). Throws IndexOutOfRangeException with a descriptive message if i is out of range.</p>
+</li>
+<li>
+<p><code>public void ReleaseMaterials()</code><br />
+Placeholder for releasing any loaded Material instances. In the current implementation this method logs the release but contains no explicit release logic (no-op). Materials are cached in m_MaterialsContainer; if material unloading is required, this method would be the hook to do so.</p>
+</li>
+<li>
+<p><code>public void Release()</code><br />
+Convenience method that calls ReleaseMeshes() and ReleaseMaterials() to release loaded runtime resources associated with this prefab.</p>
+</li>
+<li>
+<p><code>public override void GetPrefabComponents(HashSet&lt;ComponentType&gt; components)</code><br />
+Overrides the base to add ECS ComponentType requirements for the prefab. Adds MeshData, SharedMeshData, and BatchGroup (all ReadWrite). If isImpostor is true, also adds ImpostorData. This determines which ECS components are included when converting/instantiating this render prefab in an ECS context.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public override void GetPrefabComponents(HashSet&lt;ComponentType&gt; components)
-    {
-        base.GetPrefabComponents(components);
-        components.Add(ComponentType.ReadWrite&lt;MeshData&gt;());
-        components.Add(ComponentType.ReadWrite&lt;SharedMeshData&gt;());
-        components.Add(ComponentType.ReadWrite&lt;BatchGroup&gt;());
-        if (isImpostor)
-        {
-            components.Add(ComponentType.ReadWrite&lt;ImpostorData&gt;());
-        }
-    }
+<p>Notes: Methods include tracing via ComponentBase.baseLog.TraceFormat(this, "...", base.name) to help debugging/load traces.</p>
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Assume 'renderPrefab' is an instance of Game.Prefabs.RenderPrefab (from an asset or component)
+RenderPrefab renderPrefab = /* obtain reference */;
+
+// Obtain all meshes (may load or pin them in the GeometryAsset)
+Mesh[] meshes = renderPrefab.ObtainMeshes();
+if (meshes != null)
+{
+    // Use meshes...
+}
+
+// Obtain a specific mesh and subMesh index for material slot 2
+int subMeshIndex;
+Mesh meshForMaterial = renderPrefab.ObtainMesh(2, out subMeshIndex);
+if (meshForMaterial != null)
+{
+    // Render using meshForMaterial and subMeshIndex
+}
+
+// Obtain materials (loads textures and materials; useVT toggles virtual-texturing use)
+Material[] materials = renderPrefab.ObtainMaterials(useVT: true);
+Material firstMat = renderPrefab.ObtainMaterial(0);
+
+// After you're done with runtime resources, release them
+renderPrefab.Release(); // calls ReleaseMeshes() and ReleaseMaterials()
 </code></pre>
-<ul>
-<li><code>public GetSurfaceAsset(System.Int32 index) : Colossal.IO.AssetDatabase.SurfaceAsset</code>  </li>
-</ul>
-<pre><code class="language-csharp">public SurfaceAsset GetSurfaceAsset(int index)
-    {
-        return m_SurfaceAssets[index];
-    }
-</code></pre>
-<ul>
-<li><code>public ObtainMaterial(System.Int32 i, System.Boolean useVT = True) : UnityEngine.Material</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Material ObtainMaterial(int i, bool useVT = true)
-    {
-        Material[] array = ObtainMaterials(useVT);
-        if (i &lt; 0 || i &gt;= array.Length)
-        {
-            throw new IndexOutOfRangeException($&quot;i {i} is out of material range (length: {array.Length}) in {base.name}&quot;);
-        }
-        return array[i];
-    }
-</code></pre>
-<ul>
-<li><code>public ObtainMaterials(System.Boolean useVT = True) : UnityEngine.Material[]</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Material[] ObtainMaterials(bool useVT = true)
-    {
-        ComponentBase.baseLog.TraceFormat(this, &quot;ObtainMaterials {0}&quot;, base.name);
-        if (m_MaterialsContainer == null || m_MaterialsContainer.Length != materialCount)
-        {
-            m_MaterialsContainer = new Material[materialCount];
-        }
-        for (int i = 0; i &lt; materialCount; i++)
-        {
-            SurfaceAsset surfaceAsset = m_SurfaceAssets[i];
-            m_MaterialsContainer[i] = surfaceAsset.Load(-1, loadTextures: true, TextureAsset.KeepOnCPU.Dont, useVT);
-        }
-        return m_MaterialsContainer;
-    }
-</code></pre>
-<ul>
-<li><code>public ObtainMesh(System.Int32 materialIndex, System.Int32&amp; subMeshIndex) : UnityEngine.Mesh</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Mesh ObtainMesh(int materialIndex, out int subMeshIndex)
-    {
-        ComponentBase.baseLog.TraceFormat(this, &quot;ObtainMesh {0}&quot;, base.name);
-        subMeshIndex = materialIndex;
-        if (hasGeometryAsset)
-        {
-            Mesh[] array = geometryAsset?.ObtainMeshes();
-            if (array != null)
-            {
-                Mesh[] array2 = array;
-                foreach (Mesh mesh in array2)
-                {
-                    if (materialIndex &lt; mesh.subMeshCount)
-                    {
-                        subMeshIndex = materialIndex;
-                        return mesh;
-                    }
-                    materialIndex -= mesh.subMeshCount;
-                }
-            }
-        }
-        return null;
-    }
-</code></pre>
-<ul>
-<li><code>public ObtainMeshes() : UnityEngine.Mesh[]</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Mesh[] ObtainMeshes()
-    {
-        ComponentBase.baseLog.TraceFormat(this, &quot;ObtainMeshes {0}&quot;, base.name);
-        return geometryAsset?.ObtainMeshes();
-    }
-</code></pre>
-<ul>
-<li><code>public Release() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void Release()
-    {
-        ReleaseMeshes();
-        ReleaseMaterials();
-    }
-</code></pre>
-<ul>
-<li><code>public ReleaseMaterials() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void ReleaseMaterials()
-    {
-        ComponentBase.baseLog.TraceFormat(this, &quot;ReleaseMaterials {0}&quot;, base.name);
-    }
-</code></pre>
-<ul>
-<li><code>public ReleaseMeshes() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void ReleaseMeshes()
-    {
-        ComponentBase.baseLog.TraceFormat(this, &quot;ReleaseMeshes {0}&quot;, base.name);
-        geometryAsset?.ReleaseMeshes();
-    }
-</code></pre>
-<ul>
-<li><code>public SetSurfaceAsset(System.Int32 index, Colossal.IO.AssetDatabase.SurfaceAsset value) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void SetSurfaceAsset(int index, SurfaceAsset value)
-    {
-        m_SurfaceAssets[index] = value;
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Prefabs.RenderPrefab+&lt;&gt;c</code>  </li>
-</ul>
+<p>Note: ReleaseMaterials() is currently a no-op in this implementation, while ReleaseMeshes() calls into the GeometryAsset to release meshes. Always check the specific asset implementations if explicit unloading is required.</p>
 
 
 

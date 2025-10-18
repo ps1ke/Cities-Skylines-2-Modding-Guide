@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#gametoolsupgradetoolsystem" class="md-skip">
+        <a href="#gameupgradetoolsystem" class="md-skip">
           Skip to content
         </a>
       
@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87073,6 +87165,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Simulation/SurfaceWater/" class="md-nav__link">
         
   
@@ -93289,15 +93404,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -93334,9 +93440,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -117930,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117955,15 +118083,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -118002,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118026,417 +118145,221 @@
 
 
 
-<h1 id="gametoolsupgradetoolsystem">Game.Tools.UpgradeToolSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Tools</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.Tools.ObjectToolBaseSystem</code><br />
-<strong>Implements:</strong> <code>System.IEquatable&lt;Game.Tools.ToolBaseSystem&gt;</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class UpgradeToolSystem : Game.Tools.ObjectToolBaseSystem, System.IEquatable&lt;Game.Tools.ToolBaseSystem&gt;
-{
-    private Game.City.CityConfigurationSystem m_CityConfigurationSystem;
-    private Game.Audio.AudioManager m_AudioManager;
-    private Unity.Entities.EntityQuery m_DefinitionQuery;
-    private Unity.Entities.EntityQuery m_SoundQuery;
-    private Unity.Entities.EntityQuery m_ContainerQuery;
-    private Unity.Entities.Entity m_UpgradingObject;
-    private Unity.Collections.NativeList&lt;Game.Tools.ControlPoint&gt; m_ControlPoints;
-    private Game.Common.RandomSeed m_RandomSeed;
-    private System.Boolean m_AlreadyCreated;
-    private Game.Prefabs.ObjectPrefab m_Prefab;
-    private Game.Input.IProxyAction m_PlaceUpgrade;
-    private Game.Input.IProxyAction m_Rebuild;
-    private Game.Tools.UpgradeToolSystem+TypeHandle __TypeHandle;
-    public static const System.String kToolID;
-
-    public System.String toolID { get; }
-    public Game.Prefabs.ObjectPrefab prefab { get; set; }
-    private System.Collections.Generic.IEnumerable&lt;Game.Input.IProxyAction&gt; toolActions { private get; }
-
-    public UpgradeToolSystem();
-
-    private System.Void __AssignQueries(Unity.Entities.SystemState&amp; state);
-    private Unity.Jobs.JobHandle Apply(Unity.Jobs.JobHandle inputDeps);
-    private Unity.Jobs.JobHandle Cancel(Unity.Jobs.JobHandle inputDeps);
-    private Unity.Jobs.JobHandle Clear(Unity.Jobs.JobHandle inputDeps);
-    private Unity.Jobs.JobHandle CreateTempObject(Unity.Jobs.JobHandle inputDeps);
-    public virtual Game.Prefabs.PrefabBase GetPrefab();
-    public virtual System.Void InitializeRaycast();
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnCreateForCompiler();
-    protected virtual System.Void OnDestroy();
-    protected virtual System.Void OnStartRunning();
-    protected virtual Unity.Jobs.JobHandle OnUpdate(Unity.Jobs.JobHandle inputDeps);
-    public virtual System.Boolean TrySetPrefab(Game.Prefabs.PrefabBase prefab);
-    private Unity.Jobs.JobHandle Update(Unity.Jobs.JobHandle inputDeps);
-    private virtual System.Void UpdateActions();
-    private Unity.Jobs.JobHandle UpdateDefinitions(Unity.Jobs.JobHandle inputDeps);
-}
-</code></pre>
+<h1 id="gameupgradetoolsystem">Game.UpgradeToolSystem</h1>
+<p><strong>Assembly:</strong><br />
+<strong>Namespace:</strong> Game.Tools</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> ObjectToolBaseSystem</p>
+<p><strong>Summary:</strong><br />
+UpgradeToolSystem implements the in-game "Upgrade Tool" used to apply building/object upgrades (ServiceUpgrade prefabs) to existing placeable objects. It integrates with the ECS prefab/system infrastructure, handles user input actions (Place Upgrade / Rebuild), manages temporary visual definitions for preview, audio feedback, and telemetry for placement. The system also respects editor vs game modes and validates whether the selected object can accept upgrades before allowing placement.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.City.CityConfigurationSystem m_CityConfigurationSystem</code>  </li>
+<li>
+<p><code>public const string kToolID = "Upgrade Tool"</code><br />
+Identifier constant for the tool.</p>
+</li>
+<li>
+<p><code>private CityConfigurationSystem m_CityConfigurationSystem</code><br />
+Reference to the CityConfigurationSystem used for theme, traffic handedness and other city-level configuration used when creating visual definitions.</p>
+</li>
+<li>
+<p><code>private AudioManager m_AudioManager</code><br />
+Reference to the AudioManager, used to play UI sounds for successful/failing placement.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_DefinitionQuery</code><br />
+ECS EntityQuery used to find existing temporary/preview definitions that this tool creates and should destroy/recreate.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_SoundQuery</code><br />
+ECS EntityQuery used to fetch tool UX sound settings (ToolUXSoundSettingsData) for UI sounds played by the tool.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_ContainerQuery</code><br />
+EntityQuery used when in editor mode to obtain container entities (lane containers etc.) that may be needed when computing definitions.</p>
+</li>
+<li>
+<p><code>private Entity m_UpgradingObject</code><br />
+Entity currently selected for upgrade (the object being upgraded). Null if no valid selected object.</p>
+</li>
+<li>
+<p><code>private NativeList&lt;ControlPoint&gt; m_ControlPoints</code><br />
+NativeList (persistent allocator) holding one or more control points used by CreateDefinitions to compute preview geometry/placement. The list is created on OnCreate and disposed on OnDestroy.</p>
+</li>
+<li>
+<p><code>private RandomSeed m_RandomSeed</code><br />
+RandomSeed used to add deterministic variation to created definitions/previews.</p>
+</li>
+<li>
+<p><code>private bool m_AlreadyCreated</code><br />
+Flag tracking whether the temporary preview definitions have already been created for the current selection/state (avoids recreating each frame).</p>
+</li>
+<li>
+<p><code>private ObjectPrefab m_Prefab</code><br />
+Currently selected upgrade prefab (ObjectPrefab). When set this is used to create temporary preview definitions and to perform the actual upgrade placement.</p>
+</li>
+<li>
+<p><code>private IProxyAction m_PlaceUpgrade</code><br />
+Proxy action bound to the "Place Upgrade" input action (obtained from InputManager). Used as the primary apply action when an upgrade prefab is selected.</p>
+</li>
+<li>
+<p><code>private IProxyAction m_Rebuild</code><br />
+Proxy action bound to the "Rebuild" input action. Used as the apply action when no upgrade prefab is selected (rebuild mode).</p>
+</li>
+<li>
+<p><code>private TypeHandle __TypeHandle</code><br />
+Compiler-generated struct that holds ComponentLookup handles (currently PlaceableObjectData read-only). Used by TrySetPrefab to check for certain components on prefab entities.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.City.CityConfigurationSystem m_CityConfigurationSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Audio.AudioManager m_AudioManager</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Audio.AudioManager m_AudioManager;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_DefinitionQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_DefinitionQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_SoundQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_SoundQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_ContainerQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_ContainerQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.Entity m_UpgradingObject</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.Entity m_UpgradingObject;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeList&lt;Game.Tools.ControlPoint&gt; m_ControlPoints</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeList&lt;Game.Tools.ControlPoint&gt; m_ControlPoints;
-</code></pre>
-<ul>
-<li><code>private Game.Common.RandomSeed m_RandomSeed</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Common.RandomSeed m_RandomSeed;
-</code></pre>
-<ul>
-<li><code>private System.Boolean m_AlreadyCreated</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean m_AlreadyCreated;
-</code></pre>
-<ul>
-<li><code>private Game.Prefabs.ObjectPrefab m_Prefab</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Prefabs.ObjectPrefab m_Prefab;
-</code></pre>
-<ul>
-<li><code>private Game.Input.IProxyAction m_PlaceUpgrade</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Input.IProxyAction m_PlaceUpgrade;
-</code></pre>
-<ul>
-<li><code>private Game.Input.IProxyAction m_Rebuild</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Input.IProxyAction m_Rebuild;
-</code></pre>
-<ul>
-<li><code>private Game.Tools.UpgradeToolSystem+TypeHandle __TypeHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Tools.UpgradeToolSystem+TypeHandle __TypeHandle;
-</code></pre>
-<ul>
-<li><code>public static const System.String kToolID</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static const System.String kToolID;
-</code></pre>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>public System.String toolID { get }</code>  </li>
+<li>
+<p><code>public override string toolID =&gt; "Upgrade Tool"</code><br />
+Tool identifier exposed by the system. Matches kToolID constant.</p>
+</li>
+<li>
+<p><code>public ObjectPrefab prefab { get; set; }</code><br />
+Getter/Setter for the selected upgrade prefab. Setting a different prefab sets m_ForceUpdate = true to force recreation of previews. The setter stores the ObjectPrefab in m_Prefab.</p>
+</li>
+<li>
+<p><code>private protected override IEnumerable&lt;IProxyAction&gt; toolActions</code><br />
+Enumerates the actions exposed by this tool: yields m_PlaceUpgrade first then m_Rebuild. These actions are used by the base tool UI and input handling.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public System.String toolID { get; }
-</code></pre>
-<ul>
-<li><code>public Game.Prefabs.ObjectPrefab prefab { get; set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Game.Prefabs.ObjectPrefab prefab { get; set; }
-</code></pre>
-<ul>
-<li><code>private System.Collections.Generic.IEnumerable&lt;Game.Input.IProxyAction&gt; toolActions { private get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Collections.Generic.IEnumerable&lt;Game.Input.IProxyAction&gt; toolActions { private get; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public UpgradeToolSystem()</code>  </li>
+<li><code>public UpgradeToolSystem()</code><br />
+Default constructor (compiler generated). Primary initialization occurs in OnCreate.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public UpgradeToolSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private __AssignQueries(Unity.Entities.SystemState&amp; state) : System.Void</code>  </li>
+<li>
+<p><code>[Preserve] protected override void OnCreate()</code><br />
+Initializes system references (CityConfigurationSystem, AudioManager), queries (definition/container/sound), obtains input actions from InputManager, and creates the native list (m_ControlPoints) with Allocator.Persistent. Called once when the system is created.</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnDestroy()</code><br />
+Disposes m_ControlPoints and calls base.OnDestroy. Ensures native memory is released.</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnStartRunning()</code><br />
+Called when the system starts running: clears m_ControlPoints, seeds m_RandomSeed, clears m_AlreadyCreated flag, and sets requirements (requireZones, requireAreas) used by the base tool behavior. Prepares tool for use.</p>
+</li>
+<li>
+<p><code>private protected override void UpdateActions()</code><br />
+Updates the tool's current apply/cancel action bindings depending on whether an upgrade prefab is selected. If prefab != null, applyAction override is set to PlaceUpgrade; otherwise to Rebuild. Also enables/disables actions based on GetAllowApply and base.actionsEnabled. Uses ProxyAction.DeferStateUpdating() to batch state changes.</p>
+</li>
+<li>
+<p><code>public override PrefabBase GetPrefab()</code><br />
+Returns the currently set prefab (m_Prefab) as PrefabBase.</p>
+</li>
+<li>
+<p><code>public override bool TrySetPrefab(PrefabBase prefab)</code><br />
+Attempts to set the tool's prefab. Only succeeds if:</p>
+</li>
+<li>The tool is not in the editor-restricted path (checks m_ToolSystem.actionMode.IsEditor()),</li>
+<li>The provided PrefabBase is an ObjectPrefab and has a ServiceUpgrade component,</li>
+<li>
+<p>The target prefab entity does not contain PlaceableObjectData after dependency completion (checked via InternalCompilerInterface and __TypeHandle).
+On success sets this.prefab and returns true; otherwise returns false.</p>
+</li>
+<li>
+<p><code>public override void InitializeRaycast()</code><br />
+Overrides raycast initialization; currently calls base.InitializeRaycast (kept for potential future customization).</p>
+</li>
+<li>
+<p><code>[Preserve] protected override JobHandle OnUpdate(JobHandle inputDeps)</code><br />
+Main per-frame update. Key responsibilities:</p>
+</li>
+<li>Tracks the selected entity (m_UpgradingObject) and validates it (has InstalledUpgrade buffer when prefab != null; not destroyed when prefab == null).</li>
+<li>If selected prefab has BuildingExtensionData with underground elements it requires additional net layer (Layer.Road).</li>
+<li>Updates infoview depending on prefab presence.</li>
+<li>Computes snap masks via GetAvailableSnapMask and updates actions.</li>
+<li>If a valid m_UpgradingObject exists and no full update is required, responds to input:<ul>
+<li>cancelAction -&gt; Cancel()</li>
+<li>applyAction -&gt; Apply()</li>
+<li>otherwise -&gt; Update() to create/update preview</li>
 </ul>
-<pre><code class="language-csharp">private void __AssignQueries(ref SystemState state)
+</li>
+<li>
+<p>If not valid, calls Clear().</p>
+</li>
+<li>
+<p><code>private JobHandle Cancel(JobHandle inputDeps)</code><br />
+Cancels the tool action: switches the active tool back to default, sets applyMode to Clear, clears m_AlreadyCreated. Returns the inputDeps unchanged (no job scheduling).</p>
+</li>
+<li>
+<p><code>private JobHandle Apply(JobHandle inputDeps)</code><br />
+Handles applying the upgrade or rebuild:</p>
+</li>
+<li>If GetAllowApply() true: sets active tool to default, applyMode = Apply, reseeds m_RandomSeed, clears m_AlreadyCreated, plays place-upgrade sound, and if in game mode records telemetry (Telemtry.PlaceBuilding) with prefab and target position. Returns inputDeps.</li>
+<li>
+<p>If not allowed: plays place-fail sound and falls back to Update() to keep previews.</p>
+</li>
+<li>
+<p><code>private JobHandle Update(JobHandle inputDeps)</code><br />
+Creates or updates temporary preview definitions for the currently selected object:</p>
+</li>
+<li>If there is no selected object, sets applyMode.Clear and clears m_AlreadyCreated.</li>
+<li>If previews already created and no force update requested, does nothing (applyMode.None).</li>
+<li>
+<p>Otherwise sets applyMode.Clear, marks m_AlreadyCreated true, and calls CreateTempObject to build control points and schedule definition creation.</p>
+</li>
+<li>
+<p><code>private JobHandle Clear(JobHandle inputDeps)</code><br />
+Clears preview state (applyMode.Clear and m_AlreadyCreated = false). Returns inputDeps.</p>
+</li>
+<li>
+<p><code>private JobHandle CreateTempObject(JobHandle inputDeps)</code><br />
+Builds a ControlPoint from the selected object's Game.Objects.Transform (position + rotation). If the chosen prefab has BuildingExtensionData with a placement offset it transforms the local offset into world space and uses that as the control point position. Clears and populates m_ControlPoints and calls UpdateDefinitions to schedule create/destroy definition jobs.</p>
+</li>
+<li>
+<p><code>private JobHandle UpdateDefinitions(JobHandle inputDeps)</code><br />
+Schedules destruction of existing temporary definitions (DestroyDefinitions) and, if m_UpgradingObject != Entity.Null, schedules CreateDefinitions with the appropriate parameters:</p>
+</li>
+<li>objectPrefab: entity of selected upgrade prefab (or Entity.Null)</li>
+<li>lane container determined only in editor mode</li>
+<li>uses city theme from m_CityConfigurationSystem and other tool state (brushSize, brushAngle, brushStrength, stamping, removing)</li>
+<li>
+<p>passes m_ControlPoints, m_RandomSeed, snap settings and AgeMask.Sapling
+Returns a combined JobHandle representing scheduled work.</p>
+</li>
+<li>
+<p><code>[MethodImpl(MethodImplOptions.AggressiveInlining)] private void __AssignQueries(ref SystemState state)</code><br />
+Compiler-generated helper; here it creates and disposes a temporary EntityQueryBuilder. Used by OnCreateForCompiler; no runtime behavior beyond query assignment scaffolding.</p>
+</li>
+<li>
+<p><code>protected override void OnCreateForCompiler()</code><br />
+Compiler helper called when the system is created by generated code. Calls __AssignQueries and __TypeHandle.__AssignHandles to ensure required lookups are assigned.</p>
+</li>
+<li>
+<p><code>[Preserve] public UpgradeToolSystem()</code><br />
+Public constructor (kept for clarity, actual initialization via OnCreate).</p>
+</li>
+</ul>
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Example: Setting an upgrade prefab for the tool and forcing an update
+[Preserve]
+protected override void OnCreate()
+{
+    base.OnCreate();
+
+    // Obtain a prefab (example: by name, via the prefab system)
+    var prefabBase = m_PrefabSystem.GetPrefab(&quot;MyServiceUpgradePrefab&quot;);
+    if (prefabBase is ObjectPrefab objectPrefab &amp;&amp; TrySetPrefab(objectPrefab))
     {
-        new EntityQueryBuilder(Allocator.Temp).Dispose();
+        // Prefab is valid and accepted by the tool.
+        // The tool will now show preview definitions over the selected object
+        // and allow applying the upgrade with the configured input action.
     }
+}
 </code></pre>
-<ul>
-<li><code>private Apply(Unity.Jobs.JobHandle inputDeps) : Unity.Jobs.JobHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private JobHandle Apply(JobHandle inputDeps)
-    {
-        if (GetAllowApply())
-        {
-            m_ToolSystem.activeTool = m_DefaultToolSystem;
-            base.applyMode = ApplyMode.Apply;
-            m_RandomSeed = RandomSeed.Next();
-            m_AlreadyCreated = false;
-            m_AudioManager.PlayUISound(m_SoundQuery.GetSingleton&lt;ToolUXSoundSettingsData&gt;().m_PlaceUpgradeSound);
-            if (m_ToolSystem.actionMode.IsGame() &amp;&amp; prefab != null)
-            {
-                Game.Objects.Transform componentData = base.EntityManager.GetComponentData&lt;Game.Objects.Transform&gt;(m_UpgradingObject);
-                Telemetry.PlaceBuilding(m_UpgradingObject, prefab, componentData.m_Position);
-            }
-            return inputDeps;
-        }
-        m_AudioManager.PlayUISound(m_SoundQuery.GetSingleton&lt;ToolUXSoundSettingsData&gt;().m_PlaceBuildingFailSound);
-        return Update(inputDeps);
-    }
-</code></pre>
-<ul>
-<li><code>private Cancel(Unity.Jobs.JobHandle inputDeps) : Unity.Jobs.JobHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private JobHandle Cancel(JobHandle inputDeps)
-    {
-        m_ToolSystem.activeTool = m_DefaultToolSystem;
-        base.applyMode = ApplyMode.Clear;
-        m_AlreadyCreated = false;
-        return inputDeps;
-    }
-</code></pre>
-<ul>
-<li><code>private Clear(Unity.Jobs.JobHandle inputDeps) : Unity.Jobs.JobHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private JobHandle Clear(JobHandle inputDeps)
-    {
-        base.applyMode = ApplyMode.Clear;
-        m_AlreadyCreated = false;
-        return inputDeps;
-    }
-</code></pre>
-<ul>
-<li><code>private CreateTempObject(Unity.Jobs.JobHandle inputDeps) : Unity.Jobs.JobHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private JobHandle CreateTempObject(JobHandle inputDeps)
-    {
-        Game.Objects.Transform componentData = base.EntityManager.GetComponentData&lt;Game.Objects.Transform&gt;(m_UpgradingObject);
-        ControlPoint value = new ControlPoint
-        {
-            m_Position = componentData.m_Position,
-            m_Rotation = componentData.m_Rotation
-        };
-        if (prefab != null &amp;&amp; m_PrefabSystem.HasComponent&lt;BuildingExtensionData&gt;(prefab))
-        {
-            BuildingExtensionData componentData2 = m_PrefabSystem.GetComponentData&lt;BuildingExtensionData&gt;(prefab);
-            value.m_Position = ObjectUtils.LocalToWorld(componentData, componentData2.m_Position);
-        }
-        m_ControlPoints.Clear();
-        m_ControlPoints.Add(in value);
-        return UpdateDefinitions(inputDeps);
-    }
-</code></pre>
-<ul>
-<li><code>public virtual GetPrefab() : Game.Prefabs.PrefabBase</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override PrefabBase GetPrefab()
-    {
-        return prefab;
-    }
-</code></pre>
-<ul>
-<li><code>public virtual InitializeRaycast() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override void InitializeRaycast()
-    {
-        base.InitializeRaycast();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_CityConfigurationSystem = base.World.GetOrCreateSystemManaged&lt;CityConfigurationSystem&gt;();
-        m_AudioManager = base.World.GetOrCreateSystemManaged&lt;AudioManager&gt;();
-        m_DefinitionQuery = GetDefinitionQuery();
-        m_ContainerQuery = GetContainerQuery();
-        m_SoundQuery = GetEntityQuery(ComponentType.ReadOnly&lt;ToolUXSoundSettingsData&gt;());
-        m_PlaceUpgrade = InputManager.instance.toolActionCollection.GetActionState(&quot;Place Upgrade&quot;, &quot;UpgradeToolSystem&quot;);
-        m_Rebuild = InputManager.instance.toolActionCollection.GetActionState(&quot;Rebuild&quot;, &quot;UpgradeToolSystem&quot;);
-        m_ControlPoints = new NativeList&lt;ControlPoint&gt;(1, Allocator.Persistent);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreateForCompiler() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnCreateForCompiler()
-    {
-        base.OnCreateForCompiler();
-        __AssignQueries(ref base.CheckedStateRef);
-        __TypeHandle.__AssignHandles(ref base.CheckedStateRef);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnDestroy() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnDestroy()
-    {
-        m_ControlPoints.Dispose();
-        base.OnDestroy();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnStartRunning() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnStartRunning()
-    {
-        base.OnStartRunning();
-        m_ControlPoints.Clear();
-        m_RandomSeed = RandomSeed.Next();
-        m_AlreadyCreated = false;
-        base.requireZones = true;
-        base.requireAreas = AreaTypeMask.Lots;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate(Unity.Jobs.JobHandle inputDeps) : Unity.Jobs.JobHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override JobHandle OnUpdate(JobHandle inputDeps)
-    {
-        m_UpgradingObject = m_ToolSystem.selected;
-        if (prefab != null)
-        {
-            if (!base.EntityManager.HasBuffer&lt;InstalledUpgrade&gt;(m_UpgradingObject))
-            {
-                m_UpgradingObject = Entity.Null;
-            }
-            if (m_PrefabSystem.TryGetComponentData&lt;BuildingExtensionData&gt;(prefab, out var component) &amp;&amp; component.m_HasUndergroundElements)
-            {
-                base.requireNet |= Layer.Road;
-            }
-            UpdateInfoview(m_PrefabSystem.GetEntity(prefab));
-        }
-        else
-        {
-            if (!base.EntityManager.HasComponent&lt;Destroyed&gt;(m_UpgradingObject))
-            {
-                m_UpgradingObject = Entity.Null;
-            }
-            UpdateInfoview(Entity.Null);
-        }
-        GetAvailableSnapMask(out m_SnapOnMask, out m_SnapOffMask);
-        UpdateActions();
-        if (m_UpgradingObject != Entity.Null &amp;&amp; !m_ToolSystem.fullUpdateRequired &amp;&amp; (m_ToolRaycastSystem.raycastFlags &amp; (RaycastFlags.DebugDisable | RaycastFlags.UIDisable)) == 0)
-        {
-            if (base.cancelAction.WasPressedThisFrame())
-            {
-                return Cancel(inputDeps);
-            }
-            if (base.applyAction.WasPressedThisFrame())
-            {
-                return Apply(inputDeps);
-            }
-            return Update(inputDeps);
-        }
-        return Clear(inputDeps);
-    }
-</code></pre>
-<ul>
-<li><code>public virtual TrySetPrefab(Game.Prefabs.PrefabBase prefab) : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override bool TrySetPrefab(PrefabBase prefab)
-    {
-        if (!m_ToolSystem.actionMode.IsEditor() &amp;&amp; prefab is ObjectPrefab objectPrefab &amp;&amp; prefab.Has&lt;Game.Prefabs.ServiceUpgrade&gt;())
-        {
-            Entity entity = m_PrefabSystem.GetEntity(prefab);
-            if (InternalCompilerInterface.HasComponentAfterCompletingDependency(ref __TypeHandle.__Game_Prefabs_PlaceableObjectData_RO_ComponentLookup, ref base.CheckedStateRef, entity))
-            {
-                return false;
-            }
-            this.prefab = objectPrefab;
-            return true;
-        }
-        return false;
-    }
-</code></pre>
-<ul>
-<li><code>private Update(Unity.Jobs.JobHandle inputDeps) : Unity.Jobs.JobHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private JobHandle Update(JobHandle inputDeps)
-    {
-        if (m_ToolSystem.selected == Entity.Null)
-        {
-            base.applyMode = ApplyMode.Clear;
-            m_AlreadyCreated = false;
-            return inputDeps;
-        }
-        if (m_AlreadyCreated &amp;&amp; !m_ForceUpdate)
-        {
-            base.applyMode = ApplyMode.None;
-            return inputDeps;
-        }
-        base.applyMode = ApplyMode.Clear;
-        m_AlreadyCreated = true;
-        return CreateTempObject(inputDeps);
-    }
-</code></pre>
-<ul>
-<li><code>private virtual UpdateActions() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private protected override void UpdateActions()
-    {
-        using (ProxyAction.DeferStateUpdating())
-        {
-            base.applyActionOverride = ((prefab != null) ? m_PlaceUpgrade : m_Rebuild);
-            base.applyAction.enabled = base.actionsEnabled &amp;&amp; GetAllowApply();
-            base.cancelActionOverride = m_MouseCancel;
-            base.cancelAction.enabled = base.actionsEnabled;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private UpdateDefinitions(Unity.Jobs.JobHandle inputDeps) : Unity.Jobs.JobHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private JobHandle UpdateDefinitions(JobHandle inputDeps)
-    {
-        JobHandle jobHandle = DestroyDefinitions(m_DefinitionQuery, m_ToolOutputBarrier, inputDeps);
-        if (m_UpgradingObject != Entity.Null)
-        {
-            Entity objectPrefab = Entity.Null;
-            if (prefab != null)
-            {
-                objectPrefab = m_PrefabSystem.GetEntity(prefab);
-            }
-            Entity laneContainer = Entity.Null;
-            if (m_ToolSystem.actionMode.IsEditor())
-            {
-                GetContainers(m_ContainerQuery, out laneContainer, out var _);
-            }
-            jobHandle = JobHandle.CombineDependencies(jobHandle, CreateDefinitions(objectPrefab, Entity.Null, Entity.Null, m_UpgradingObject, Entity.Null, laneContainer, m_CityConfigurationSystem.defaultTheme, m_ControlPoints, default(NativeReference&lt;AttachmentData&gt;), m_ToolSystem.actionMode.IsEditor(), m_CityConfigurationSystem.leftHandTraffic, removing: false, stamping: false, base.brushSize, math.radians(base.brushAngle), base.brushStrength, 0f, UnityEngine.Time.deltaTime, m_RandomSeed, GetActualSnap(), AgeMask.Sapling, inputDeps));
-        }
-        return jobHandle;
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Tools.UpgradeToolSystem+TypeHandle</code>  </li>
-<li><code>Game.Tools.UpgradeToolSystem+&lt;get_toolActions&gt;d__19</code>  </li>
-</ul>
+<p>Notes and tips for modders:
+- TrySetPrefab enforces that prefabs are ServiceUpgrade object prefabs and performs internal checks (e.g., for PlaceableObjectData). Use TrySetPrefab rather than directly assigning prefab when integrating with existing tool logic.
+- The system creates temporary preview definitions via CreateDefinitions/DestroyDefinitions. Those are scheduled as jobs—be mindful of job dependencies when integrating additional logic.
+- Remember to call base.OnCreate/base.OnDestroy if overriding those lifecycle methods to preserve proper resource creation/disposal (m_ControlPoints is allocated with Allocator.Persistent).
+- Audio cues are played from ToolUXSoundSettingsData (queried via m_SoundQuery) — you can customize sounds by modifying that singleton data.</p>
 
 
 

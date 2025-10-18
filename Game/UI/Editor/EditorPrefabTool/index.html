@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87073,6 +87165,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Simulation/SurfaceWater/" class="md-nav__link">
         
   
@@ -97837,18 +97952,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -97867,6 +97982,15 @@
   <a href="#methods" class="md-nav__link">
     <span class="md-ellipsis">
       Methods
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
     </span>
   </a>
   
@@ -117914,6 +118038,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117941,18 +118087,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -117976,6 +118122,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -117993,59 +118148,67 @@
 
 
 <h1 id="gameuieditoreditorprefabtool">Game.UI.Editor.EditorPrefabTool</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.UI.Editor</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.UI.Editor.EditorTool</code><br />
-<strong>Implements:</strong> <code>Game.UI.Editor.IEditorTool</code>, <code>Colossal.UI.Binding.IJsonWritable</code>, <code>Game.UI.Widgets.IUITagProvider</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class EditorPrefabTool : Game.UI.Editor.EditorTool, Game.UI.Editor.IEditorTool, Colossal.UI.Binding.IJsonWritable, Game.UI.Widgets.IUITagProvider
-{
-    private Game.Prefabs.PrefabBase m_LastSelectedPrefab;
-    public static const System.String kToolId;
-
-    public EditorPrefabTool(Unity.Entities.World world);
-
-    protected virtual System.Void OnDisable();
-    protected virtual System.Void OnEnable();
-}
-</code></pre>
+<p><strong>Assembly:</strong> Assembly-CSharp<br />
+<strong>Namespace:</strong> Game.UI.Editor</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> EditorTool</p>
+<p><strong>Summary:</strong><br />
+EditorPrefabTool is an editor tool used by the in-game editor UI to handle prefab placement/selection. It remembers the last selected PrefabBase between enable/disable cycles and activates the prefab placement UI/panel when enabled. The constructor initializes the tool id, icon and associates the tool with the PrefabToolPanelSystem from the provided Unity.Entities.World.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.Prefabs.PrefabBase m_LastSelectedPrefab</code>  </li>
+<li>
+<p><code>public const string kToolId</code><br />
+Constant tool identifier with value "PrefabTool". Can be used when registering or referring to this tool.</p>
+</li>
+<li>
+<p><code>[CanBeNull] private PrefabBase m_LastSelectedPrefab</code><br />
+Stores the last selected prefab instance (may be null). Used to restore the user's last selection when the tool is re-enabled.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.Prefabs.PrefabBase m_LastSelectedPrefab;
-</code></pre>
+<h2 id="properties">Properties</h2>
 <ul>
-<li><code>public static const System.String kToolId</code>  </li>
+<li>None declared in this class.<br />
+(This class relies on inherited properties from EditorTool such as id, icon, panel and the tool system reference used at runtime.)</li>
 </ul>
-<pre><code class="language-csharp">public static const System.String kToolId;
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public EditorPrefabTool(Unity.Entities.World world)</code>  </li>
+<li><code>public EditorPrefabTool(World world)</code><br />
+Creates a new EditorPrefabTool associated with the supplied Unity.Entities.World. The constructor:</li>
+<li>Calls the base EditorTool(World) constructor.</li>
+<li>Sets base.id = "PrefabTool" (matches kToolId).</li>
+<li>Sets base.icon = "Media/Editor/Object.svg".</li>
+<li>Sets base.panel by retrieving or creating the PrefabToolPanelSystem from the world (world.GetOrCreateSystemManaged<PrefabToolPanelSystem>()).</li>
 </ul>
-<pre><code class="language-csharp">public EditorPrefabTool(Unity.Entities.World world);
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>protected virtual OnDisable() : System.Void</code>  </li>
+<li><code>protected override void OnEnable()</code><br />
+Called when the tool is enabled. This method:</li>
+<li>Calls base.OnEnable().</li>
+<li>
+<p>Activates the prefab tool through the tool system and passes m_LastSelectedPrefab so the previously selected prefab (if any) is restored.</p>
+</li>
+<li>
+<p><code>protected override void OnDisable()</code><br />
+Called when the tool is disabled. This method:</p>
+</li>
+<li>Saves the current active prefab from the tool system into m_LastSelectedPrefab so it can be restored later.</li>
+<li>Calls base.OnDisable().</li>
 </ul>
-<pre><code class="language-csharp">protected override void OnDisable()
-    {
-        m_LastSelectedPrefab = m_ToolSystem.activePrefab;
-        base.OnDisable();
-    }
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Typical creation from an editor/system that has a Unity.Entities.World reference:
+var prefabTool = new Game.UI.Editor.EditorPrefabTool(world);
+
+// The editor/tool manager would be responsible for enabling/disabling the tool.
+// When enabled, EditorPrefabTool will restore the last selected prefab (if any)
+// and activate the prefab tool UI. When disabled it will remember the active prefab.
 </code></pre>
-<ul>
-<li><code>protected virtual OnEnable() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnEnable()
-    {
-        base.OnEnable();
-        m_ToolSystem.ActivatePrefabTool(m_LastSelectedPrefab);
-    }
-</code></pre>
+<p>{{ Additional notes:
+- Depends on PrefabBase and PrefabToolPanelSystem (Game.Prefabs and editor panel system).
+- Uses Unity.Entities.World to find/create the corresponding panel/system.
+- Attributes: m_LastSelectedPrefab is annotated with [CanBeNull] indicating null is an expected value.
+- The class is intended to be used within the editor/tool framework and interacts with the tool system (m_ToolSystem) inherited from EditorTool.
+}}</p>
 
 
 

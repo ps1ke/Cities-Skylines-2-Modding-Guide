@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#gamesimulationterrainattractivenesssystem" class="md-skip">
+        <a href="#gameterrainattractivenesssystem" class="md-skip">
           Skip to content
         </a>
       
@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87075,6 +87167,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../SurfaceWater/" class="md-nav__link">
         
   
@@ -87539,15 +87654,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -87584,9 +87690,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -117930,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117955,15 +118083,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -118002,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118026,221 +118145,158 @@
 
 
 
-<h1 id="gamesimulationterrainattractivenesssystem">Game.Simulation.TerrainAttractivenessSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Simulation</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.Simulation.CellMapSystem&lt;Game.Simulation.TerrainAttractiveness&gt;</code><br />
-<strong>Implements:</strong> <code>Colossal.Serialization.Entities.IJobSerializable</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class TerrainAttractivenessSystem : Game.Simulation.CellMapSystem&lt;Game.Simulation.TerrainAttractiveness&gt;, Colossal.Serialization.Entities.IJobSerializable
-{
-    private Game.Simulation.TerrainSystem m_TerrainSystem;
-    private Game.Simulation.WaterSystem m_WaterSystem;
-    private Game.Simulation.ZoneAmbienceSystem m_ZoneAmbienceSystem;
-    private Unity.Entities.EntityQuery m_AttractivenessParameterGroup;
-    private Unity.Collections.NativeArray&lt;Unity.Mathematics.float3&gt; m_AttractFactorData;
-    public static readonly System.Int32 kTextureSize;
-    public static readonly System.Int32 kUpdatesPerDay;
-
-    public Unity.Mathematics.int2 TextureSize { get; }
-
-    public TerrainAttractivenessSystem();
-
-    public static System.Single EvaluateAttractiveness(System.Single terrainHeight, Game.Simulation.TerrainAttractiveness attractiveness, Game.Prefabs.AttractivenessParameterData parameters);
-    public static System.Single EvaluateAttractiveness(Unity.Mathematics.float3 position, Game.Simulation.CellMapData&lt;Game.Simulation.TerrainAttractiveness&gt; data, Game.Simulation.TerrainHeightData heightData, Game.Prefabs.AttractivenessParameterData parameters, Unity.Collections.NativeArray&lt;System.Int32&gt; factors);
-    public static Game.Simulation.TerrainAttractiveness GetAttractiveness(Unity.Mathematics.float3 position, Unity.Collections.NativeArray&lt;Game.Simulation.TerrainAttractiveness&gt; attractivenessMap);
-    public static Unity.Mathematics.float3 GetCellCenter(System.Int32 index);
-    public virtual System.Int32 GetUpdateInterval(Game.SystemUpdatePhase phase);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnDestroy();
-    protected virtual System.Void OnUpdate();
-}
-</code></pre>
+<h1 id="gameterrainattractivenesssystem">Game.TerrainAttractivenessSystem</h1>
+<p><strong>Assembly:</strong> Game<br />
+<strong>Namespace:</strong> Game.Simulation</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> CellMapSystem<TerrainAttractiveness>, IJobSerializable</p>
+<p><strong>Summary:</strong><br />
+TerrainAttractivenessSystem builds and maintains a 2D cell map (texture) of terrain attractiveness modifiers used by the Attraction/Building placement logic (e.g., forest and shore bonuses and height-based bonuses). It samples terrain height, water depth and zone ambience, and computes per-cell forest and shore bonus values on a fixed-size grid (kTextureSize x kTextureSize) using Unity Jobs (Burst compiled) for CPU parallelism. The system exposes helper methods to query and evaluate attractiveness for world positions and integrates with other systems by adding job readers/writers (TerrainSystem, WaterSystem, ZoneAmbienceSystem). The map is updated incrementally according to GetUpdateInterval.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.Simulation.TerrainSystem m_TerrainSystem</code>  </li>
+<li>
+<p><code>public static readonly int kTextureSize</code><br />
+Provides the resolution of the attractiveness cell map. Value: 128 (the map is kTextureSize x kTextureSize).</p>
+</li>
+<li>
+<p><code>public static readonly int kUpdatesPerDay</code><br />
+Determines how many times per in-game day the attractiveness map is intended to be updated. Value: 16.</p>
+</li>
+<li>
+<p><code>private TerrainSystem m_TerrainSystem</code><br />
+Reference to the TerrainSystem used to read terrain height data.</p>
+</li>
+<li>
+<p><code>private WaterSystem m_WaterSystem</code><br />
+Reference to the WaterSystem used to read water surface/depth data.</p>
+</li>
+<li>
+<p><code>private ZoneAmbienceSystem m_ZoneAmbienceSystem</code><br />
+Reference to the ZoneAmbienceSystem used to sample ambience data (used for forest contribution).</p>
+</li>
+<li>
+<p><code>private EntityQuery m_AttractivenessParameterGroup</code><br />
+EntityQuery used to access AttractivenessParameterData singleton (parameters that control distances/effects/height bonus).</p>
+</li>
+<li>
+<p><code>private NativeArray&lt;float3&gt; m_AttractFactorData</code><br />
+Persistent NativeArray used as an intermediate buffer. For each cell it stores a float3 where: x = sampled water depth, y = sampled terrain height, z = zone ambience (forest) value. Allocated in OnCreate and disposed in OnDestroy.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.Simulation.TerrainSystem m_TerrainSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.WaterSystem m_WaterSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.WaterSystem m_WaterSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.ZoneAmbienceSystem m_ZoneAmbienceSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.ZoneAmbienceSystem m_ZoneAmbienceSystem;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_AttractivenessParameterGroup</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_AttractivenessParameterGroup;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeArray&lt;Unity.Mathematics.float3&gt; m_AttractFactorData</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeArray&lt;Unity.Mathematics.float3&gt; m_AttractFactorData;
-</code></pre>
-<ul>
-<li><code>public static readonly System.Int32 kTextureSize</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static readonly System.Int32 kTextureSize;
-</code></pre>
-<ul>
-<li><code>public static readonly System.Int32 kUpdatesPerDay</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static readonly System.Int32 kUpdatesPerDay;
-</code></pre>
+<p>Note: The system also defines two nested job structs:
+- TerrainAttractivenessPrepareJob (IJobParallelForBatch, Burst) — samples terrain, water and zone ambience into m_AttractFactorData.
+- TerrainAttractivenessJob (IJobParallelForBatch, Burst) — computes forest/shore bonuses from prepared factor data and writes TerrainAttractiveness values into the cell map.</p>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>public Unity.Mathematics.int2 TextureSize { get }</code>  </li>
+<li><code>public int2 TextureSize { get; }</code><br />
+Returns the texture size as an int2 (kTextureSize, kTextureSize). Use this to obtain the grid resolution.</li>
 </ul>
-<pre><code class="language-csharp">public Unity.Mathematics.int2 TextureSize { get; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public TerrainAttractivenessSystem()</code>  </li>
+<li><code>public TerrainAttractivenessSystem()</code><br />
+Default parameterless constructor. Standard ECS system construction; initialization is performed in OnCreate.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public TerrainAttractivenessSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>public static EvaluateAttractiveness(System.Single terrainHeight, Game.Simulation.TerrainAttractiveness attractiveness, Game.Prefabs.AttractivenessParameterData parameters) : System.Single</code>  </li>
+<li>
+<p><code>public override int GetUpdateInterval(SystemUpdatePhase phase)</code><br />
+Returns the update interval in simulation ticks for this system. Implementation returns 262144 / kUpdatesPerDay. (262144 = 512 * 512; this value maps the update frequency to the total map area and the configured updates per day.)</p>
+</li>
+<li>
+<p><code>public static float3 GetCellCenter(int index)</code><br />
+Utility delegating to CellMapSystem<TerrainAttractiveness>.GetCellCenter(index, kTextureSize). Returns world position of the center of the cell at a flat index.</p>
+</li>
+<li>
+<p><code>public static float EvaluateAttractiveness(float terrainHeight, TerrainAttractiveness attractiveness, AttractivenessParameterData parameters)</code><br />
+Compute combined attractiveness value from a given terrainHeight and corresponding TerrainAttractiveness (structure with forest/shore bonuses) using the given parameters. The result sums:</p>
+</li>
+<li>forest effect * forest bonus</li>
+<li>shore effect * shore bonus</li>
+<li>
+<p>height bonus calculation: clamps and scales (uses parameters.m_HeightBonus components)</p>
+</li>
+<li>
+<p><code>public static float EvaluateAttractiveness(float3 position, CellMapData&lt;TerrainAttractiveness&gt; data, TerrainHeightData heightData, AttractivenessParameterData parameters, NativeArray&lt;int&gt; factors)</code><br />
+Higher-level evaluator that:</p>
+</li>
+<li>samples the terrain height at position,</li>
+<li>fetches interpolated TerrainAttractiveness for the position (GetAttractiveness),</li>
+<li>computes each attractiveness factor (forest, beach, height),</li>
+<li>writes individual factor values into the provided factors array via AttractionSystem.SetFactor,</li>
+<li>
+<p>returns the summed attractiveness value.</p>
+</li>
+<li>
+<p><code>public static TerrainAttractiveness GetAttractiveness(float3 position, NativeArray&lt;TerrainAttractiveness&gt; attractivenessMap)</code><br />
+Samples the map at a world position. Performs bilinear interpolation between up to 4 neighboring cells to produce a smooth TerrainAttractiveness result. If the position maps outside the grid, a default (zeroed) TerrainAttractiveness is returned.</p>
+</li>
+<li>
+<p><code>protected override void OnCreate()</code><br />
+Initializes the system:</p>
+</li>
+<li>Calls base.OnCreate(),</li>
+<li>Calls CreateTextures(kTextureSize) from CellMapSystem to allocate underlying textures/maps,</li>
+<li>Resolves TerrainSystem, WaterSystem, ZoneAmbienceSystem,</li>
+<li>Sets up m_AttractivenessParameterGroup to read AttractivenessParameterData,</li>
+<li>
+<p>Allocates m_AttractFactorData as a persistent NativeArray with length equal to the map buffer.</p>
+</li>
+<li>
+<p><code>protected override void OnDestroy()</code><br />
+Disposes m_AttractFactorData and calls base.OnDestroy().</p>
+</li>
+<li>
+<p><code>protected override void OnUpdate()</code><br />
+Core update logic that:</p>
+</li>
+<li>Obtains TerrainHeightData from TerrainSystem,</li>
+<li>Prepares and schedules two Burst jobs:<ul>
+<li>TerrainAttractivenessPrepareJob: fills m_AttractFactorData by sampling water depth, terrain height and zone ambience.</li>
+<li>TerrainAttractivenessJob: computes forest/shore bonuses per cell using m_AttractFactorData, AttractivenessParameterData, and writes results to the system's m_Map (CellMap).</li>
 </ul>
-<pre><code class="language-csharp">public static float EvaluateAttractiveness(float3 position, CellMapData&lt;TerrainAttractiveness&gt; data, TerrainHeightData heightData, AttractivenessParameterData parameters, NativeArray&lt;int&gt; factors)
-    {
-        float num = TerrainUtils.SampleHeight(ref heightData, position);
-        TerrainAttractiveness attractiveness = GetAttractiveness(position, data.m_Buffer);
-        float num2 = parameters.m_ForestEffect * attractiveness.m_ForestBonus;
-        AttractionSystem.SetFactor(factors, AttractionSystem.AttractivenessFactor.Forest, num2);
-        float num3 = parameters.m_ShoreEffect * attractiveness.m_ShoreBonus;
-        AttractionSystem.SetFactor(factors, AttractionSystem.AttractivenessFactor.Beach, num3);
-        float num4 = math.min(parameters.m_HeightBonus.z, math.max(0f, num - parameters.m_HeightBonus.x) * parameters.m_HeightBonus.y);
-        AttractionSystem.SetFactor(factors, AttractionSystem.AttractivenessFactor.Height, num4);
-        return num2 + num3 + num4;
-    }
-</code></pre>
-<ul>
-<li><code>public static EvaluateAttractiveness(Unity.Mathematics.float3 position, Game.Simulation.CellMapData&lt;Game.Simulation.TerrainAttractiveness&gt; data, Game.Simulation.TerrainHeightData heightData, Game.Prefabs.AttractivenessParameterData parameters, Unity.Collections.NativeArray&lt;System.Int32&gt; factors) : System.Single</code>  </li>
+</li>
+<li>Correctly composes job dependencies and registers readers with TerrainSystem, WaterSystem and ZoneAmbienceSystem (AddCPUHeightReader / AddReader / AddSurfaceReader) so those systems can track and synchronize access.</li>
+<li>
+<p>Adds writers and combines dependencies to ensure safe access to the map and other read/write sets.</p>
+</li>
+<li>
+<p><code>public TerrainAttractivenessSystem()</code><br />
+Parameterless system constructor (same as earlier constructor entry).</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public static float EvaluateAttractiveness(float3 position, CellMapData&lt;TerrainAttractiveness&gt; data, TerrainHeightData heightData, AttractivenessParameterData parameters, NativeArray&lt;int&gt; factors)
-    {
-        float num = TerrainUtils.SampleHeight(ref heightData, position);
-        TerrainAttractiveness attractiveness = GetAttractiveness(position, data.m_Buffer);
-        float num2 = parameters.m_ForestEffect * attractiveness.m_ForestBonus;
-        AttractionSystem.SetFactor(factors, AttractionSystem.AttractivenessFactor.Forest, num2);
-        float num3 = parameters.m_ShoreEffect * attractiveness.m_ShoreBonus;
-        AttractionSystem.SetFactor(factors, AttractionSystem.AttractivenessFactor.Beach, num3);
-        float num4 = math.min(parameters.m_HeightBonus.z, math.max(0f, num - parameters.m_HeightBonus.x) * parameters.m_HeightBonus.y);
-        AttractionSystem.SetFactor(factors, AttractionSystem.AttractivenessFactor.Height, num4);
-        return num2 + num3 + num4;
-    }
-</code></pre>
-<ul>
-<li><code>public static GetAttractiveness(Unity.Mathematics.float3 position, Unity.Collections.NativeArray&lt;Game.Simulation.TerrainAttractiveness&gt; attractivenessMap) : Game.Simulation.TerrainAttractiveness</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static TerrainAttractiveness GetAttractiveness(float3 position, NativeArray&lt;TerrainAttractiveness&gt; attractivenessMap)
-    {
-        TerrainAttractiveness result = default(TerrainAttractiveness);
-        int2 cell = CellMapSystem&lt;TerrainAttractiveness&gt;.GetCell(position, CellMapSystem&lt;TerrainAttractiveness&gt;.kMapSize, kTextureSize);
-        float2 cellCoords = CellMapSystem&lt;TerrainAttractiveness&gt;.GetCellCoords(position, CellMapSystem&lt;TerrainAttractiveness&gt;.kMapSize, kTextureSize);
-        if (cell.x &lt; 0 || cell.x &gt;= kTextureSize || cell.y &lt; 0 || cell.y &gt;= kTextureSize)
-        {
-            return result;
-        }
-        TerrainAttractiveness terrainAttractiveness = attractivenessMap[cell.x + kTextureSize * cell.y];
-        TerrainAttractiveness terrainAttractiveness2 = ((cell.x &lt; kTextureSize - 1) ? attractivenessMap[cell.x + 1 + kTextureSize * cell.y] : default(TerrainAttractiveness));
-        TerrainAttractiveness terrainAttractiveness3 = ((cell.y &lt; kTextureSize - 1) ? attractivenessMap[cell.x + kTextureSize * (cell.y + 1)] : default(TerrainAttractiveness));
-        TerrainAttractiveness terrainAttractiveness4 = ((cell.x &lt; kTextureSize - 1 &amp;&amp; cell.y &lt; kTextureSize - 1) ? attractivenessMap[cell.x + 1 + kTextureSize * (cell.y + 1)] : default(TerrainAttractiveness));
-        result.m_ForestBonus = (short)Mathf.RoundToInt(math.lerp(math.lerp(terrainAttractiveness.m_ForestBonus, terrainAttractiveness2.m_ForestBonus, cellCoords.x - (float)cell.x), math.lerp(terrainAttractiveness3.m_ForestBonus, terrainAttractiveness4.m_ForestBonus, cellCoords.x - (float)cell.x), cellCoords.y - (float)cell.y));
-        result.m_ShoreBonus = (short)Mathf.RoundToInt(math.lerp(math.lerp(terrainAttractiveness.m_ShoreBonus, terrainAttractiveness2.m_ShoreBonus, cellCoords.x - (float)cell.x), math.lerp(terrainAttractiveness3.m_ShoreBonus, terrainAttractiveness4.m_ShoreBonus, cellCoords.x - (float)cell.x), cellCoords.y - (float)cell.y));
-        return result;
-    }
-</code></pre>
-<ul>
-<li><code>public static GetCellCenter(System.Int32 index) : Unity.Mathematics.float3</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static float3 GetCellCenter(int index)
-    {
-        return CellMapSystem&lt;TerrainAttractiveness&gt;.GetCellCenter(index, kTextureSize);
-    }
-</code></pre>
-<ul>
-<li><code>public virtual GetUpdateInterval(Game.SystemUpdatePhase phase) : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override int GetUpdateInterval(SystemUpdatePhase phase)
-    {
-        return 262144 / kUpdatesPerDay;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
+<p>Notes about the job implementations:
+- TerrainAttractivenessPrepareJob (Burst, IJobParallelForBatch)
+  - Inputs: TerrainHeightData, WaterSurfaceData, CellMapData<ZoneAmbienceCell>
+  - Output: m_AttractFactorData (float3 per cell)
+  - For each cell: writes float3(depth, height, zoneAmbienceForestValue)
+- TerrainAttractivenessJob (Burst, IJobParallelForBatch)
+  - Inputs: m_AttractFactorData, scale, AttractivenessParameterData
+  - Output: m_AttractivenessMap (CellMap buffer)
+  - For each cell: searches a neighborhood sized by the max of forest/shores distances (converted to cell count using m_Scale), and computes per-cell forest and shore bonus as the maximum attenuated contribution from surrounding factor cells. Forest uses zone ambience (z), shore uses depth threshold (x &gt; 2f) and distance attenuation.</p>
+<p>Thread-safety / lifecycle:
+- m_AttractFactorData is allocated in OnCreate with Allocator.Persistent and disposed in OnDestroy — ensure systems that access this are alive during that lifetime.
+- The system uses Unity Jobs + Burst; data access synchronization is handled through JobHandle dependency composition and registration with other systems (AddReader/AddWriter).</p>
+<h2 id="usage-example">Usage Example</h2>
 <pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        CreateTextures(kTextureSize);
-        m_TerrainSystem = base.World.GetOrCreateSystemManaged&lt;TerrainSystem&gt;();
-        m_WaterSystem = base.World.GetOrCreateSystemManaged&lt;WaterSystem&gt;();
-        m_ZoneAmbienceSystem = base.World.GetOrCreateSystemManaged&lt;ZoneAmbienceSystem&gt;();
-        m_AttractivenessParameterGroup = GetEntityQuery(ComponentType.ReadOnly&lt;AttractivenessParameterData&gt;());
-        m_AttractFactorData = new NativeArray&lt;float3&gt;(m_Map.Length, Allocator.Persistent);
-    }
+protected override void OnCreate()
+{
+    base.OnCreate();
+    // Cell maps and intermediate buffers are created automatically by the system's OnCreate.
+    // The system will allocate m_AttractFactorData and create textures with resolution kTextureSize.
+}
+
+// Example: query attractiveness at a world position (outside the system — e.g., from another system or manager)
+public float GetAttractivenessAtPosition(float3 worldPos, CellMapData&lt;TerrainAttractiveness&gt; mapData, TerrainHeightData heightData, AttractivenessParameterData parameters)
+{
+    NativeArray&lt;int&gt; factors = new NativeArray&lt;int&gt;(AttractionSystem.kFactorCount, Allocator.Temp);
+    float total = TerrainAttractivenessSystem.EvaluateAttractiveness(worldPos, mapData, heightData, parameters, factors);
+    // use 'total' and optionally inspect individual factors in 'factors'
+    factors.Dispose();
+    return total;
+}
 </code></pre>
-<ul>
-<li><code>protected virtual OnDestroy() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnDestroy()
-    {
-        m_AttractFactorData.Dispose();
-        base.OnDestroy();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        TerrainHeightData heightData = m_TerrainSystem.GetHeightData();
-        JobHandle deps;
-        JobHandle dependencies;
-        TerrainAttractivenessPrepareJob jobData = new TerrainAttractivenessPrepareJob
-        {
-            m_AttractFactorData = m_AttractFactorData,
-            m_TerrainData = heightData,
-            m_WaterData = m_WaterSystem.GetSurfaceData(out deps),
-            m_ZoneAmbienceData = m_ZoneAmbienceSystem.GetData(readOnly: true, out dependencies)
-        };
-        TerrainAttractivenessJob jobData2 = new TerrainAttractivenessJob
-        {
-            m_Scale = heightData.scale.x * (float)kTextureSize,
-            m_AttractFactorData = m_AttractFactorData,
-            m_AttractivenessMap = m_Map,
-            m_AttractivenessParameters = m_AttractivenessParameterGroup.GetSingleton&lt;AttractivenessParameterData&gt;()
-        };
-        JobHandle jobHandle = jobData.ScheduleBatch(m_Map.Length, 4, JobHandle.CombineDependencies(deps, dependencies, base.Dependency));
-        m_TerrainSystem.AddCPUHeightReader(jobHandle);
-        m_ZoneAmbienceSystem.AddReader(jobHandle);
-        m_WaterSystem.AddSurfaceReader(jobHandle);
-        base.Dependency = jobData2.ScheduleBatch(m_Map.Length, 4, JobHandle.CombineDependencies(m_WriteDependencies, m_ReadDependencies, jobHandle));
-        AddWriter(base.Dependency);
-        base.Dependency = JobHandle.CombineDependencies(m_ReadDependencies, m_WriteDependencies, base.Dependency);
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Simulation.TerrainAttractivenessSystem+TerrainAttractivenessPrepareJob</code>  </li>
-<li><code>Game.Simulation.TerrainAttractivenessSystem+TerrainAttractivenessJob</code>  </li>
-</ul>
+<p>If you need the layout of TerrainAttractiveness or AttractivenessParameterData or how to obtain the CellMapData<TerrainAttractiveness> instance at runtime, I can add small reference snippets for those types and how they interoperate with this system.</p>
 
 
 

@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87073,6 +87165,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Simulation/SurfaceWater/" class="md-nav__link">
         
   
@@ -93013,18 +93128,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -93049,9 +93164,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -117921,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117948,18 +118085,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -117984,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118009,528 +118146,220 @@
 
 
 <h1 id="gametoolstoolfeedbacksystem">Game.Tools.ToolFeedbackSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Tools</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code><br />
-<strong>Implements:</strong> <code>Game.Serialization.IPostDeserialize</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class ToolFeedbackSystem : Game.GameSystemBase, Game.Serialization.IPostDeserialize
-{
-    private Game.Notifications.IconCommandSystem m_IconCommandSystem;
-    private Game.Pathfind.PathfindQueueSystem m_PathfindQueueSystem;
-    private Game.Net.AirwaySystem m_AirwaySystem;
-    private Game.Simulation.SimulationSystem m_SimulationSystem;
-    private Game.Simulation.TelecomCoverageSystem m_TelecomCoverageSystem;
-    private System.Collections.Generic.List&lt;Unity.Entities.Entity&gt; m_FeedbackContainers;
-    private System.Collections.Generic.List&lt;Unity.Entities.Entity&gt; m_PendingContainers;
-    private Unity.Collections.NativeParallelHashMap&lt;Game.Tools.ToolFeedbackSystem+RecentKey, Game.Tools.ToolFeedbackSystem+RecentValue&gt; m_RecentMap;
-    private Game.Pathfind.PathfindTargetSeekerData m_TargetSeekerData;
-    private Unity.Entities.EntityQuery m_ConfigurationQuery;
-    private Unity.Entities.EntityQuery m_AppliedQuery;
-    private Unity.Entities.EntityQuery m_TargetQuery;
-    private Unity.Entities.EntityQuery m_EventQuery;
-    private Unity.Jobs.JobHandle m_RecentDeps;
-    private Game.Tools.ToolFeedbackSystem+TypeHandle __TypeHandle;
-    private static const System.Single INFINITE_RANGE;
-
-    public ToolFeedbackSystem();
-
-    private System.Void __AssignQueries(Unity.Entities.SystemState&amp; state);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnCreateForCompiler();
-    protected virtual System.Void OnDestroy();
-    protected virtual System.Void OnGamePreload(Colossal.Serialization.Entities.Purpose purpose, Game.GameMode mode);
-    protected virtual System.Void OnUpdate();
-    public System.Void PostDeserialize(Colossal.Serialization.Entities.Context context);
-    private System.Void ProcessModifications();
-    private System.Void UpdatePending();
-}
-</code></pre>
+<p><strong>Assembly:</strong> Assembly-CSharp (game runtime assembly)<br />
+<strong>Namespace:</strong> Game.Tools</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> GameSystemBase, IPostDeserialize</p>
+<p><strong>Summary:</strong><br />
+ToolFeedbackSystem collects and processes feedback information for buildings and service-related objects in the game. It computes local and city-wide feedback contributions (coverage, capacity, pollution, transport, utilities, attractiveness, modifiers, etc.), enqueues pathfind/coverage searches, runs multiple Burst jobs (parallelized) to evaluate targets, and issues icon commands (happy/sad/info icons) and recent-feedback updates. The system maintains pools of temporary "feedback container" entities, a RecentMap to smooth/decay feedback deltas over time, and integrates with pathfinding, telecom coverage and icon command systems. Intended for modders: this is the core system that turns building/service stats into player-facing feedback icons and recent changes.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.Notifications.IconCommandSystem m_IconCommandSystem</code>  </li>
+<li>
+<p><code>private const float INFINITE_RANGE = 25000f</code><br />
+Used as a fallback range when a prefab has no CoverageData; represents effectively unlimited coverage radius for the coverage search logic.</p>
+</li>
+<li>
+<p><code>private IconCommandSystem m_IconCommandSystem</code><br />
+Reference to IconCommandSystem used to create command buffers for spawning feedback icons (happy/sad/info).</p>
+</li>
+<li>
+<p><code>private PathfindQueueSystem m_PathfindQueueSystem</code><br />
+Reference to PathfindQueueSystem used to enqueue coverage/pathfinding searches for feedback sources.</p>
+</li>
+<li>
+<p><code>private AirwaySystem m_AirwaySystem</code><br />
+Reference to AirwaySystem used to provide airway data when preparing target seekers.</p>
+</li>
+<li>
+<p><code>private SimulationSystem m_SimulationSystem</code><br />
+Reference to SimulationSystem used to read the current simulation frame (for RecentMap updates and timing).</p>
+</li>
+<li>
+<p><code>private TelecomCoverageSystem m_TelecomCoverageSystem</code><br />
+Reference to TelecomCoverageSystem used to sample network quality for telecom feedback.</p>
+</li>
+<li>
+<p><code>private List&lt;Entity&gt; m_FeedbackContainers</code><br />
+Pool of reusable feedback container entities that hold Feedback, ExtraFeedback and CoverageElement buffers while a coverage search is pending or being processed.</p>
+</li>
+<li>
+<p><code>private List&lt;Entity&gt; m_PendingContainers</code><br />
+List of feedback container entities currently pending completion of their coverage search results.</p>
+</li>
+<li>
+<p><code>private NativeParallelHashMap&lt;RecentKey, RecentValue&gt; m_RecentMap</code><br />
+Native hash map storing recent feedback per (entity + metric) key. Used to smooth and clamp feedback deltas so icons/updates are not spammed. Persistent allocator; must be disposed on system destroy.</p>
+</li>
+<li>
+<p><code>private PathfindTargetSeekerData m_TargetSeekerData</code><br />
+Pathfind target seeker configuration/state used for creating PathfindTargetSeeker instances when setting up coverage searches.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_ConfigurationQuery</code><br />
+Query to find FeedbackConfigurationData singleton and related configuration buffers.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_AppliedQuery</code><br />
+Query to detect newly applied/created objects (buildings/upgrades/stops) that require feedback evaluation or removal.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_TargetQuery</code><br />
+Query for all buildings (targets) to evaluate when processing a feedback container; excludes upgrades and invalid states (abandoned/condemned/destroyed/deleted/updated/temp).</p>
+</li>
+<li>
+<p><code>private EntityQuery m_EventQuery</code><br />
+Query to check for CoverageUpdated events (used to move containers from pending to processed).</p>
+</li>
+<li>
+<p><code>private JobHandle m_RecentDeps</code><br />
+JobHandle tracking UpdateRecentMapJob dependency when scheduled; used to correctly sequence Native collections disposal and further jobs.</p>
+</li>
+<li>
+<p><code>private TypeHandle __TypeHandle</code><br />
+Generated struct that holds ComponentLookup/ComponentType handles used by the Burst jobs and JobChunk scheduling. Assigned during OnCreateForCompiler.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.Notifications.IconCommandSystem m_IconCommandSystem;
-</code></pre>
+<hr />
+<h2 id="properties">Properties</h2>
 <ul>
-<li><code>private Game.Pathfind.PathfindQueueSystem m_PathfindQueueSystem</code>  </li>
+<li>None exposed (no public C# properties on this class). The system relies on fields and component queries.</li>
 </ul>
-<pre><code class="language-csharp">private Game.Pathfind.PathfindQueueSystem m_PathfindQueueSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Net.AirwaySystem m_AirwaySystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Net.AirwaySystem m_AirwaySystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.SimulationSystem m_SimulationSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.SimulationSystem m_SimulationSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.TelecomCoverageSystem m_TelecomCoverageSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.TelecomCoverageSystem m_TelecomCoverageSystem;
-</code></pre>
-<ul>
-<li><code>private System.Collections.Generic.List&lt;Unity.Entities.Entity&gt; m_FeedbackContainers</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Collections.Generic.List&lt;Unity.Entities.Entity&gt; m_FeedbackContainers;
-</code></pre>
-<ul>
-<li><code>private System.Collections.Generic.List&lt;Unity.Entities.Entity&gt; m_PendingContainers</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Collections.Generic.List&lt;Unity.Entities.Entity&gt; m_PendingContainers;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeParallelHashMap&lt;Game.Tools.ToolFeedbackSystem+RecentKey, Game.Tools.ToolFeedbackSystem+RecentValue&gt; m_RecentMap</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeParallelHashMap&lt;Game.Tools.ToolFeedbackSystem+RecentKey, Game.Tools.ToolFeedbackSystem+RecentValue&gt; m_RecentMap;
-</code></pre>
-<ul>
-<li><code>private Game.Pathfind.PathfindTargetSeekerData m_TargetSeekerData</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Pathfind.PathfindTargetSeekerData m_TargetSeekerData;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_ConfigurationQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_ConfigurationQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_AppliedQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_AppliedQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_TargetQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_TargetQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_EventQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_EventQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Jobs.JobHandle m_RecentDeps</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Jobs.JobHandle m_RecentDeps;
-</code></pre>
-<ul>
-<li><code>private Game.Tools.ToolFeedbackSystem+TypeHandle __TypeHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Tools.ToolFeedbackSystem+TypeHandle __TypeHandle;
-</code></pre>
-<ul>
-<li><code>private static const System.Single INFINITE_RANGE</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static const System.Single INFINITE_RANGE;
-</code></pre>
+<hr />
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public ToolFeedbackSystem()</code>  </li>
+<li><code>public ToolFeedbackSystem()</code><br />
+Parameterless constructor (marked with [Preserve] in source). Initializes the system instance; main initialization logic happens in OnCreate.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public ToolFeedbackSystem()
-    {
-    }
-</code></pre>
+<hr />
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private __AssignQueries(Unity.Entities.SystemState&amp; state) : System.Void</code>  </li>
+<li><code>[Preserve] protected override void OnCreate()</code><br />
+Initializes system references and data structures:</li>
+<li>Gets references to IconCommandSystem, PathfindQueueSystem, AirwaySystem, SimulationSystem and TelecomCoverageSystem.</li>
+<li>Creates pools/lists for feedback containers and pending containers.</li>
+<li>Allocates m_RecentMap (NativeParallelHashMap) with a Persistent allocator.</li>
+<li>Initializes PathfindTargetSeekerData and entity queries (configuration, applied, target, event).</li>
+<li>
+<p>Called by the ECS framework when the system is created.</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnDestroy()</code><br />
+Cleans up system resources:</p>
+</li>
+<li>Completes any outstanding m_RecentDeps job.</li>
+<li>Disposes m_RecentMap.</li>
+<li>
+<p>Calls base.OnDestroy().</p>
+</li>
+<li>
+<p><code>public void PostDeserialize(Context context)</code><br />
+IPostDeserialize implementation called after world serialization/deserialization:</p>
+</li>
+<li>Completes pending recent jobs and clears/reconciles m_RecentMap.</li>
+<li>
+<p>Moves any pending containers into the active feedback container list so they resume processing after load.</p>
+</li>
+<li>
+<p><code>protected override void OnGamePreload(Purpose purpose, GameMode mode)</code><br />
+Enables or disables the system depending on the current GameMode (only enabled for actual game mode). Called during game preload.</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnUpdate()</code><br />
+Main update tick:</p>
+</li>
+<li>If there are new applied entities and configuration exists, calls ProcessModifications to start new coverage searches.</li>
+<li>If there are pending containers and CoverageUpdated events exist, calls UpdatePending to process finished searches.</li>
+<li>
+<p>Schedules and chains jobs; updates base.Dependency appropriately.</p>
+</li>
+<li>
+<p><code>private void ProcessModifications()</code><br />
+Handles newly applied objects (buildings/objects/upgrades/stops):</p>
+</li>
+<li>Gathers applied entities and creates/allocates feedback container entities from the pool.</li>
+<li>Prepares PathfindTargetSeeker and CoverageAction for each source object, schedules a SetupCoverageSearchJob (IJob) to fill coverage parameters and drive the pathfind seeker.</li>
+<li>Enqueues coverage/pathfind actions to PathfindQueueSystem, marking containers as pending until results arrive.</li>
+<li>
+<p>Uses m_TargetSeekerData and feedback configuration to prepare pathfind parameters.</p>
+</li>
+<li>
+<p><code>private void UpdatePending()</code><br />
+Processes pending feedback containers when their coverage searches are ready:</p>
+</li>
+<li>For each pending container with CoverageElement buffer, builds a temporary NativeParallelHashMap of coverage values and runs FillCoverageMapJob (IJobParallelFor) to populate it.</li>
+<li>Schedules a TargetCheckJob (IJobChunk) to evaluate all targets/buildings against the coverage map and the feedback container. The job:<ul>
+<li>Reads many prefab/component lookups to compute per-target deltas for many feedback types (garbage, hospital, electricity, water, sewage, transport, pollution, attractiveness, local/city modifiers, etc.)</li>
+<li>Aggregates per-target totals and enqueues icon commands (happy/sad icons) using an IconCommandBuffer.</li>
+<li>Builds recent updates (RecentUpdate) into a NativeQueue used to update m_RecentMap.</li>
 </ul>
-<pre><code class="language-csharp">private void __AssignQueries(ref SystemState state)
-    {
-        new EntityQueryBuilder(Allocator.Temp).Dispose();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
+</li>
+<li>
+<p>After scheduling TargetCheckJob, schedules UpdateRecentMapJob (IJob) to apply, decay, and merge recent feedback deltas into m_RecentMap.</p>
+</li>
+<li>
+<p><code>private void __AssignQueries(ref SystemState state)</code><br />
+Generated helper (called in OnCreateForCompiler) to initialize entity query builders/assignments required by the compiled job code. Typically empty stub in decompiled form but required by compiled pipeline.</p>
+</li>
+<li>
+<p><code>protected override void OnCreateForCompiler()</code><br />
+Compiler-generated method used by the generated code to assign queries and component handles; it calls __AssignQueries and assigns handles inside __TypeHandle.</p>
+</li>
+<li>
+<p>Inner job structs and helper methods (documented briefly):</p>
+</li>
+<li>SetupCoverageSearchJob : IJob (BurstCompile)  <ul>
+<li>Prepares CoverageAction parameters and sets up PathfindTargetSeeker targets for a given feedback source/prefab/backside.</li>
 </ul>
+</li>
+<li>FillCoverageMapJob : IJobParallelFor (BurstCompile)  <ul>
+<li>Writes CoverageElement entries into a NativeParallelHashMap<Entity,float2> for fast lookup by TargetCheckJob.</li>
+</ul>
+</li>
+<li>TargetCheckJob : IJobChunk (BurstCompile)  <ul>
+<li>Core parallel evaluation: computes feedback contributions for each building/target, applies recent-map clamping logic, enqueues icon commands and collects RecentUpdate entries for later merging.</li>
+<li>Contains helper methods AddToTempListForUpgrade(...) and AddEffect(...) used to handle upgrade stacking and delta filtering/clamping against m_RecentMap.</li>
+</ul>
+</li>
+<li>UpdateRecentMapJob : IJob (BurstCompile)  <ul>
+<li>Applies time-based decay to existing entries in m_RecentMap and applies new RecentUpdate values from the NativeQueue, adding/removing entries as needed.</li>
+</ul>
+</li>
+<li>TypeHandle struct  <ul>
+<li>Holds component lookup/type handles (ComponentLookup, ComponentTypeHandle, BufferLookup) used by the Burst jobs; __AssignHandles populates these from SystemState.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="usage-example">Usage Example</h2>
 <pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_IconCommandSystem = base.World.GetOrCreateSystemManaged&lt;IconCommandSystem&gt;();
-        m_PathfindQueueSystem = base.World.GetOrCreateSystemManaged&lt;PathfindQueueSystem&gt;();
-        m_AirwaySystem = base.World.GetOrCreateSystemManaged&lt;AirwaySystem&gt;();
-        m_SimulationSystem = base.World.GetOrCreateSystemManaged&lt;SimulationSystem&gt;();
-        m_TelecomCoverageSystem = base.World.GetOrCreateSystemManaged&lt;TelecomCoverageSystem&gt;();
-        m_FeedbackContainers = new List&lt;Entity&gt;();
-        m_PendingContainers = new List&lt;Entity&gt;();
-        m_RecentMap = new NativeParallelHashMap&lt;RecentKey, RecentValue&gt;(1000, Allocator.Persistent);
-        m_TargetSeekerData = new PathfindTargetSeekerData(this);
-        m_ConfigurationQuery = GetEntityQuery(ComponentType.ReadOnly&lt;FeedbackConfigurationData&gt;());
-        m_AppliedQuery = GetEntityQuery(new EntityQueryDesc
-        {
-            All = new ComponentType[3]
-            {
-                ComponentType.ReadOnly&lt;Applied&gt;(),
-                ComponentType.ReadOnly&lt;Created&gt;(),
-                ComponentType.ReadOnly&lt;Game.Objects.Object&gt;()
-            },
-            Any = new ComponentType[3]
-            {
-                ComponentType.ReadOnly&lt;Building&gt;(),
-                ComponentType.ReadOnly&lt;Game.Buildings.ServiceUpgrade&gt;(),
-                ComponentType.ReadOnly&lt;Game.Routes.TransportStop&gt;()
-            },
-            None = new ComponentType[2]
-            {
-                ComponentType.ReadOnly&lt;Deleted&gt;(),
-                ComponentType.ReadOnly&lt;Temp&gt;()
-            }
-        }, new EntityQueryDesc
-        {
-            All = new ComponentType[2]
-            {
-                ComponentType.ReadOnly&lt;Deleted&gt;(),
-                ComponentType.ReadOnly&lt;Game.Objects.Object&gt;()
-            },
-            Any = new ComponentType[3]
-            {
-                ComponentType.ReadOnly&lt;Building&gt;(),
-                ComponentType.ReadOnly&lt;Game.Buildings.ServiceUpgrade&gt;(),
-                ComponentType.ReadOnly&lt;Game.Routes.TransportStop&gt;()
-            },
-            None = new ComponentType[4]
-            {
-                ComponentType.ReadOnly&lt;Abandoned&gt;(),
-                ComponentType.ReadOnly&lt;Condemned&gt;(),
-                ComponentType.ReadOnly&lt;Destroyed&gt;(),
-                ComponentType.ReadOnly&lt;Temp&gt;()
-            }
-        });
-        m_TargetQuery = GetEntityQuery(ComponentType.ReadOnly&lt;Building&gt;(), ComponentType.Exclude&lt;Game.Buildings.ServiceUpgrade&gt;(), ComponentType.Exclude&lt;Abandoned&gt;(), ComponentType.Exclude&lt;Condemned&gt;(), ComponentType.Exclude&lt;Destroyed&gt;(), ComponentType.Exclude&lt;Deleted&gt;(), ComponentType.Exclude&lt;Updated&gt;(), ComponentType.Exclude&lt;Temp&gt;());
-        m_EventQuery = GetEntityQuery(ComponentType.ReadOnly&lt;Event&gt;(), ComponentType.ReadOnly&lt;CoverageUpdated&gt;());
-    }
+protected override void OnCreate()
+{
+    base.OnCreate();
+
+    // Typical initialization logic from the system:
+    m_IconCommandSystem = World.GetOrCreateSystemManaged&lt;IconCommandSystem&gt;();
+    m_PathfindQueueSystem = World.GetOrCreateSystemManaged&lt;PathfindQueueSystem&gt;();
+    m_AirwaySystem = World.GetOrCreateSystemManaged&lt;AirwaySystem&gt;();
+    m_SimulationSystem = World.GetOrCreateSystemManaged&lt;SimulationSystem&gt;();
+    m_TelecomCoverageSystem = World.GetOrCreateSystemManaged&lt;TelecomCoverageSystem&gt;();
+
+    m_FeedbackContainers = new List&lt;Entity&gt;();
+    m_PendingContainers = new List&lt;Entity&gt;();
+
+    // Reserve recent feedback map (persistent; must be disposed in OnDestroy)
+    m_RecentMap = new NativeParallelHashMap&lt;RecentKey, RecentValue&gt;(1000, Allocator.Persistent);
+
+    // Prepare target seeker data and entity queries
+    m_TargetSeekerData = new PathfindTargetSeekerData(this);
+    m_ConfigurationQuery = GetEntityQuery(ComponentType.ReadOnly&lt;FeedbackConfigurationData&gt;());
+    // ...setup other queries similarly...
+}
 </code></pre>
-<ul>
-<li><code>protected virtual OnCreateForCompiler() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnCreateForCompiler()
-    {
-        base.OnCreateForCompiler();
-        __AssignQueries(ref base.CheckedStateRef);
-        __TypeHandle.__AssignHandles(ref base.CheckedStateRef);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnDestroy() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnDestroy()
-    {
-        m_RecentDeps.Complete();
-        m_RecentMap.Dispose();
-        base.OnDestroy();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnGamePreload(Colossal.Serialization.Entities.Purpose purpose, Game.GameMode mode) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnGamePreload(Purpose purpose, GameMode mode)
-    {
-        base.OnGamePreload(purpose, mode);
-        base.Enabled = mode.IsGame();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        if (!m_AppliedQuery.IsEmptyIgnoreFilter &amp;&amp; !m_ConfigurationQuery.IsEmptyIgnoreFilter)
-        {
-            ProcessModifications();
-        }
-        if (m_PendingContainers.Count != 0 &amp;&amp; !m_EventQuery.IsEmptyIgnoreFilter)
-        {
-            UpdatePending();
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public PostDeserialize(Colossal.Serialization.Entities.Context context) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void PostDeserialize(Context context)
-    {
-        m_RecentDeps.Complete();
-        m_RecentMap.Clear();
-        for (int i = 0; i &lt; m_PendingContainers.Count; i++)
-        {
-            Entity item = m_PendingContainers[i];
-            m_PendingContainers.RemoveAtSwapBack(i--);
-            m_FeedbackContainers.Add(item);
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private ProcessModifications() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void ProcessModifications()
-    {
-        NativeArray&lt;Entity&gt; nativeArray = m_AppliedQuery.ToEntityArray(Allocator.TempJob);
-        PathfindParameters pathfindParameters = new PathfindParameters
-        {
-            m_MaxSpeed = 111.111115f,
-            m_WalkSpeed = 5.555556f,
-            m_Weights = new PathfindWeights(1f, 1f, 1f, 1f),
-            m_PathfindFlags = (PathfindFlags.Stable | PathfindFlags.IgnoreFlow),
-            m_IgnoredRules = (RuleFlags.HasBlockage | RuleFlags.ForbidCombustionEngines | RuleFlags.ForbidTransitTraffic | RuleFlags.ForbidHeavyTraffic | RuleFlags.ForbidPrivateTraffic | RuleFlags.ForbidSlowTraffic)
-        };
-        SetupQueueTarget setupQueueTarget = default(SetupQueueTarget);
-        while (m_FeedbackContainers.Count &lt; nativeArray.Length)
-        {
-            m_FeedbackContainers.Add(base.EntityManager.CreateEntity(ComponentType.ReadWrite&lt;Feedback&gt;(), ComponentType.ReadWrite&lt;ExtraFeedback&gt;(), ComponentType.ReadWrite&lt;CoverageElement&gt;()));
-        }
-        m_TargetSeekerData.Update(this, m_AirwaySystem.GetAirwayData());
-        SetupCoverageSearchJob jobData = new SetupCoverageSearchJob
-        {
-            m_BackSideData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Buildings_BackSide_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabCoverageData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_CoverageData_RO_ComponentLookup, ref base.CheckedStateRef)
-        };
-        FeedbackConfigurationData feedbackConfigurationData = default(FeedbackConfigurationData);
-        IconCommandBuffer iconCommandBuffer = default(IconCommandBuffer);
-        JobHandle jobHandle = default(JobHandle);
-        bool flag = false;
-        for (int i = 0; i &lt; nativeArray.Length; i++)
-        {
-            Entity entity = nativeArray[i];
-            Entity entity2 = entity;
-            Owner component;
-            while (base.EntityManager.TryGetComponent&lt;Owner&gt;(entity2, out component))
-            {
-                entity2 = component.m_Owner;
-            }
-            bool flag2 = base.EntityManager.HasComponent&lt;Deleted&gt;(entity);
-            if (entity2 != entity)
-            {
-                if (flag2)
-                {
-                    if (base.EntityManager.HasComponent&lt;Deleted&gt;(entity2))
-                    {
-                        continue;
-                    }
-                }
-                else if (base.EntityManager.HasComponent&lt;Applied&gt;(entity2))
-                {
-                    continue;
-                }
-            }
-            Transform componentData = base.EntityManager.GetComponentData&lt;Transform&gt;(entity2);
-            PrefabRef componentData2 = base.EntityManager.GetComponentData&lt;PrefabRef&gt;(entity);
-            PrefabRef componentData3 = base.EntityManager.GetComponentData&lt;PrefabRef&gt;(entity2);
-            if (base.EntityManager.HasComponent&lt;SpawnableBuildingData&gt;(componentData2.m_Prefab))
-            {
-                if (flag2)
-                {
-                    if (feedbackConfigurationData.m_HappyFaceNotification == Entity.Null)
-                    {
-                        feedbackConfigurationData = m_ConfigurationQuery.GetSingleton&lt;FeedbackConfigurationData&gt;();
-                        iconCommandBuffer = m_IconCommandSystem.CreateCommandBuffer();
-                    }
-                    iconCommandBuffer.Add(entity, feedbackConfigurationData.m_SadFaceNotification, IconPriority.Info, IconClusterLayer.Transaction);
-                }
-                continue;
-            }
-            Entity entity3 = m_FeedbackContainers[m_FeedbackContainers.Count - 1];
-            m_FeedbackContainers.RemoveAt(m_FeedbackContainers.Count - 1);
-            m_PendingContainers.Add(entity3);
-            base.EntityManager.SetComponentData(entity3, new Feedback
-            {
-                m_Position = componentData.m_Position,
-                m_MainEntity = entity2,
-                m_Prefab = componentData2.m_Prefab,
-                m_MainPrefab = componentData3.m_Prefab,
-                m_IsDeleted = flag2
-            });
-            DynamicBuffer&lt;ExtraFeedback&gt; buffer = base.EntityManager.GetBuffer&lt;ExtraFeedback&gt;(entity3);
-            buffer.Clear();
-            if (base.EntityManager.TryGetBuffer(entity2, isReadOnly: true, out DynamicBuffer&lt;InstalledUpgrade&gt; buffer2))
-            {
-                for (int j = 0; j &lt; buffer2.Length; j++)
-                {
-                    InstalledUpgrade installedUpgrade = buffer2[j];
-                    if (!BuildingUtils.CheckOption(installedUpgrade, BuildingOption.Inactive))
-                    {
-                        buffer.Add(new ExtraFeedback
-                        {
-                            m_Prefab = base.EntityManager.GetComponentData&lt;PrefabRef&gt;(installedUpgrade.m_Upgrade).m_Prefab
-                        });
-                    }
-                }
-            }
-            base.EntityManager.GetBuffer&lt;CoverageElement&gt;(entity3).Clear();
-            if (!base.EntityManager.TryGetSharedComponent&lt;CoverageServiceType&gt;(entity2, out var component2))
-            {
-                component2.m_Service = CoverageService.Count;
-            }
-            Game.Simulation.ServiceCoverageSystem.SetupPathfindMethods(component2.m_Service, ref pathfindParameters, ref setupQueueTarget);
-            CoverageAction action = new CoverageAction(Allocator.Persistent);
-            jobData.m_Entity = entity2;
-            jobData.m_TargetSeeker = new PathfindTargetSeeker&lt;PathfindTargetBuffer&gt;(m_TargetSeekerData, pathfindParameters, setupQueueTarget, action.data.m_Sources.AsParallelWriter(), RandomSeed.Next(), isStartTarget: true);
-            jobData.m_Action = action;
-            JobHandle jobHandle2 = IJobExtensions.Schedule(jobData, base.Dependency);
-            jobHandle = JobHandle.CombineDependencies(jobHandle, jobHandle2);
-            m_PathfindQueueSystem.Enqueue(action, entity3, jobHandle2, uint.MaxValue, this, default(PathEventData), highPriority: true);
-            flag = true;
-        }
-        nativeArray.Dispose();
-        if (flag)
-        {
-            base.Dependency = jobHandle;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private UpdatePending() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void UpdatePending()
-    {
-        NativeArray&lt;CoverageUpdated&gt; nativeArray = m_EventQuery.ToComponentDataArray&lt;CoverageUpdated&gt;(Allocator.TempJob);
-        Entity singletonEntity = m_ConfigurationQuery.GetSingletonEntity();
-        TargetCheckJob jobData = new TargetCheckJob
-        {
-            m_EntityType = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef),
-            m_TransformType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Objects_Transform_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_BuildingType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Buildings_Building_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_GarbageProducerType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Buildings_GarbageProducer_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_ElectricityConsumerType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Buildings_ElectricityConsumer_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_WaterConsumerType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Buildings_WaterConsumer_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_MailProducerType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Buildings_MailProducer_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_CrimeProducerType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Buildings_CrimeProducer_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_PrefabCoverageData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_CoverageData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabGarbageFacilityData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_GarbageFacilityData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabHospitalData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_HospitalData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabDeathcareFacilityData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_DeathcareFacilityData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabPowerPlantData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_PowerPlantData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabWindPoweredData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_WindPoweredData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabSolarPoweredData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_SolarPoweredData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabTransformerData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_TransformerData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabWaterPumpingStationData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_WaterPumpingStationData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabSewageOutletData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_SewageOutletData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabWastewaterTreatmentPlantData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_WastewaterTreatmentPlantData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabTransportDepotData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_TransportDepotData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabTransportStationData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_TransportStationData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabPublicTransportStationData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_PublicTransportStationData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabCargoTransportStationData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_CargoTransportStationData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabTransportStopData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_TransportStopData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabPostFacilityData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_PostFacilityData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabTelecomFacilityData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_TelecomFacilityData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabSchoolData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_SchoolData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabParkingFacilityData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_ParkingFacilityData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabMaintenanceDepotData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_MaintenanceDepotData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabFireStationData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_FireStationData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabPoliceStationData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_PoliceStationData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabPrisonData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_PrisonData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabPollutionData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_PollutionData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabAttractionData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_AttractionData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_ServiceCoverages = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Net_ServiceCoverage_RO_BufferLookup, ref base.CheckedStateRef),
-            m_PrefabLocalModifierDatas = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Prefabs_LocalModifierData_RO_BufferLookup, ref base.CheckedStateRef),
-            m_PrefabCityModifierDatas = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Prefabs_CityModifierData_RO_BufferLookup, ref base.CheckedStateRef),
-            m_FeedbackConfigurationData = base.EntityManager.GetComponentData&lt;FeedbackConfigurationData&gt;(singletonEntity),
-            m_FeedbackLocalEffectFactors = base.EntityManager.GetBuffer&lt;FeedbackLocalEffectFactor&gt;(singletonEntity, isReadOnly: true),
-            m_FeedbackCityEffectFactors = base.EntityManager.GetBuffer&lt;FeedbackCityEffectFactor&gt;(singletonEntity, isReadOnly: true),
-            m_RecentMap = m_RecentMap
-        };
-        NativeQueue&lt;RecentUpdate&gt; recentUpdates = default(NativeQueue&lt;RecentUpdate&gt;);
-        JobHandle jobHandle = default(JobHandle);
-        bool flag = false;
-        for (int i = 0; i &lt; m_PendingContainers.Count; i++)
-        {
-            Entity entity = m_PendingContainers[i];
-            DynamicBuffer&lt;CoverageElement&gt; buffer = base.EntityManager.GetBuffer&lt;CoverageElement&gt;(entity, isReadOnly: true);
-            if (buffer.Length != 0)
-            {
-                m_PendingContainers.RemoveAtSwapBack(i--);
-                m_FeedbackContainers.Add(entity);
-                NativeParallelHashMap&lt;Entity, float2&gt; coverageMap = new NativeParallelHashMap&lt;Entity, float2&gt;(buffer.Length, Allocator.TempJob);
-                FillCoverageMapJob jobData2 = new FillCoverageMapJob
-                {
-                    m_CoverageElements = buffer.AsNativeArray(),
-                    m_CoverageMap = coverageMap.AsParallelWriter()
-                };
-                jobData.m_FeedbackData = base.EntityManager.GetComponentData&lt;Feedback&gt;(entity);
-                jobData.m_ExtraFeedbacks = base.EntityManager.GetBuffer&lt;ExtraFeedback&gt;(entity, isReadOnly: true);
-                jobData.m_RandomSeed = RandomSeed.Next();
-                jobData.m_CoverageMap = coverageMap;
-                if (!flag)
-                {
-                    recentUpdates = new NativeQueue&lt;RecentUpdate&gt;(Allocator.TempJob);
-                    jobData.m_TelecomCoverageData = m_TelecomCoverageSystem.GetData(readOnly: true, out var dependencies);
-                    jobData.m_IconCommandBuffer = m_IconCommandSystem.CreateCommandBuffer();
-                    jobData.m_RecentUpdates = recentUpdates.AsParallelWriter();
-                    jobHandle = JobHandle.CombineDependencies(base.Dependency, m_RecentDeps, dependencies);
-                }
-                JobHandle job = IJobParallelForExtensions.Schedule(jobData2, buffer.Length, 4);
-                JobHandle jobHandle2 = JobChunkExtensions.ScheduleParallel(jobData, m_TargetQuery, JobHandle.CombineDependencies(jobHandle, job));
-                coverageMap.Dispose(jobHandle2);
-                jobHandle = jobHandle2;
-                flag = true;
-            }
-        }
-        for (int j = 0; j &lt; nativeArray.Length; j++)
-        {
-            CoverageUpdated coverageUpdated = nativeArray[j];
-            for (int k = 0; k &lt; m_PendingContainers.Count; k++)
-            {
-                Entity entity2 = m_PendingContainers[k];
-                if (entity2 == coverageUpdated.m_Owner)
-                {
-                    m_PendingContainers.RemoveAtSwapBack(k--);
-                    m_FeedbackContainers.Add(entity2);
-                    jobData.m_FeedbackData = base.EntityManager.GetComponentData&lt;Feedback&gt;(entity2);
-                    jobData.m_ExtraFeedbacks = base.EntityManager.GetBuffer&lt;ExtraFeedback&gt;(entity2, isReadOnly: true);
-                    jobData.m_RandomSeed = RandomSeed.Next();
-                    jobData.m_CoverageMap = default(NativeParallelHashMap&lt;Entity, float2&gt;);
-                    if (!flag)
-                    {
-                        recentUpdates = new NativeQueue&lt;RecentUpdate&gt;(Allocator.TempJob);
-                        jobData.m_TelecomCoverageData = m_TelecomCoverageSystem.GetData(readOnly: true, out var dependencies2);
-                        jobData.m_IconCommandBuffer = m_IconCommandSystem.CreateCommandBuffer();
-                        jobData.m_RecentUpdates = recentUpdates.AsParallelWriter();
-                        jobHandle = JobHandle.CombineDependencies(base.Dependency, m_RecentDeps, dependencies2);
-                    }
-                    jobHandle = JobChunkExtensions.ScheduleParallel(jobData, m_TargetQuery, jobHandle);
-                    flag = true;
-                    break;
-                }
-            }
-        }
-        nativeArray.Dispose();
-        if (flag)
-        {
-            m_IconCommandSystem.AddCommandBufferWriter(jobHandle);
-            m_TelecomCoverageSystem.AddReader(jobHandle);
-            base.Dependency = jobHandle;
-            UpdateRecentMapJob jobData3 = new UpdateRecentMapJob
-            {
-                m_RecentMap = m_RecentMap,
-                m_RecentUpdates = recentUpdates,
-                m_SimulationFrame = m_SimulationSystem.frameIndex
-            };
-            m_RecentDeps = IJobExtensions.Schedule(jobData3, jobHandle);
-            recentUpdates.Dispose(m_RecentDeps);
-        }
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Tools.ToolFeedbackSystem+RecentKey</code>  </li>
-<li><code>Game.Tools.ToolFeedbackSystem+RecentValue</code>  </li>
-<li><code>Game.Tools.ToolFeedbackSystem+RecentUpdate</code>  </li>
-<li><code>Game.Tools.ToolFeedbackSystem+FeedbackType</code>  </li>
-<li><code>Game.Tools.ToolFeedbackSystem+SetupCoverageSearchJob</code>  </li>
-<li><code>Game.Tools.ToolFeedbackSystem+FillCoverageMapJob</code>  </li>
-<li><code>Game.Tools.ToolFeedbackSystem+TargetCheckJob</code>  </li>
-<li><code>Game.Tools.ToolFeedbackSystem+UpdateRecentMapJob</code>  </li>
-<li><code>Game.Tools.ToolFeedbackSystem+TypeHandle</code>  </li>
-</ul>
+<p>Notes for modders:
+- ToolFeedbackSystem is tightly coupled to the game's component types (CoverageData, various Prefab data types, building component types, and FeedbackConfigurationData). If you add new feedback metrics or change prefab component shapes, adjust TargetCheckJob calculations and RecentKey construction accordingly.
+- m_RecentMap uses a custom RecentKey (entity + typed discriminator) and RecentValue (frame + delta); UpdateRecentMapJob decays values each update and merges new RecentUpdate entries. To influence icon spam/clamping, tune FeedbackConfigurationData or the recent logic.
+- The system heavily uses Unity Jobs/Burst and Native collections; be careful when reading/writing related Native collections or scheduling jobs that depend on these (respect dependencies / complete JobHandles when accessing NativeParallelHashMap on the main thread).</p>
 
 
 

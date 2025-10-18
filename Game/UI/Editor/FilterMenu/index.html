@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87073,6 +87165,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Simulation/SurfaceWater/" class="md-nav__link">
         
   
@@ -98136,15 +98251,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -98181,9 +98287,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -117932,6 +118038,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117957,15 +118085,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -118004,9 +118123,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118029,109 +118148,122 @@
 
 
 <h1 id="gameuieditorfiltermenu">Game.UI.Editor.FilterMenu</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.UI.Editor</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.UI.Widgets.Widget</code><br />
-<strong>Implements:</strong> <code>Game.UI.Widgets.IWidget</code>, <code>Colossal.UI.Binding.IJsonWritable</code>, <code>Game.UI.Widgets.IVisibleWidget</code>, <code>Game.UI.Widgets.IDisableCallback</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class FilterMenu : Game.UI.Widgets.Widget, Game.UI.Widgets.IWidget, Colossal.UI.Binding.IJsonWritable, Game.UI.Widgets.IVisibleWidget, Game.UI.Widgets.IDisableCallback
-{
-    private System.Boolean m_Dirty;
-    private Game.UI.Editor.FilterMenu+IAdapter m_Adapter;
-
-    public Game.UI.Editor.FilterMenu+IAdapter adapter { get; set; }
-
-    public FilterMenu();
-
-    private System.Void OnAvailableFiltersChanged();
-    private System.Void OnClearFilters();
-    private System.Void OnToggleFilter(System.String filter, System.Boolean active);
-    protected virtual Game.UI.Widgets.WidgetChanges Update();
-    protected virtual System.Void WriteProperties(Colossal.UI.Binding.IJsonWriter writer);
-}
-</code></pre>
+<p><strong>Assembly:</strong> Game<br />
+<strong>Namespace:</strong> Game.UI.Editor</p>
+<p><strong>Type:</strong> public class FilterMenu</p>
+<p><strong>Base:</strong> Game.UI.Widgets.Widget</p>
+<p><strong>Summary:</strong><br />
+FilterMenu is a UI widget used by the editor to present and manage a list of filters. It relies on a pluggable IAdapter to provide the available filter names and the currently active filters, and to perform filter toggling / clearing operations. The widget exposes a Bindings factory that creates trigger bindings used by the UI system to call toggle and clear actions. Internally it marks itself dirty when the adapter signals that the available filters changed, causing properties to be re-emitted during the next Update cycle.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private System.Boolean m_Dirty</code>  </li>
+<li>
+<p><code>private bool m_Dirty</code><br />
+Tracks whether the widget's properties need to be re-sent to the UI (set when the adapter reports changes or when filters are changed).</p>
+</li>
+<li>
+<p><code>private IAdapter m_Adapter</code><br />
+Reference to the current adapter providing filter data and actions. The setter subscribes/unsubscribes to the adapter's onAvailableFiltersChanged callback.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private System.Boolean m_Dirty;
-</code></pre>
-<ul>
-<li><code>private Game.UI.Editor.FilterMenu+IAdapter m_Adapter</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.UI.Editor.FilterMenu+IAdapter m_Adapter;
-</code></pre>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>public Game.UI.Editor.FilterMenu+IAdapter adapter { get; set }</code>  </li>
+<li><code>public IAdapter adapter { get; private set }</code><br />
+Getter/setter for the adapter. On set, previous adapter's onAvailableFiltersChanged delegate is removed and the new adapter's delegate is combined with FilterMenu.OnAvailableFiltersChanged so the widget is notified when the available filters change.</li>
 </ul>
-<pre><code class="language-csharp">public Game.UI.Editor.FilterMenu+IAdapter adapter { get; set; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public FilterMenu()</code>  </li>
+<li><code>public FilterMenu()</code><br />
+No explicit constructor is defined in the source; the class uses the default parameterless constructor inherited from Widget.</li>
 </ul>
-<pre><code class="language-csharp">public FilterMenu();
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private OnAvailableFiltersChanged() : System.Void</code>  </li>
+<li>
+<p><code>private void OnAvailableFiltersChanged()</code><br />
+Called when the adapter signals available-filter changes. Marks the widget dirty so properties will be updated on the next Update().</p>
+</li>
+<li>
+<p><code>protected override WidgetChanges Update()</code><br />
+Overrides Widget.Update(). If m_Dirty is set, it adds WidgetChanges.Properties to the returned WidgetChanges so the UI system knows to fetch properties. Clears m_Dirty after use.</p>
+</li>
+<li>
+<p><code>protected override void WriteProperties(IJsonWriter writer)</code><br />
+Writes the following properties into the provided JSON writer:</p>
+</li>
+<li>"availableFilters": the adapter.availableFilters list</li>
+<li>
+<p>"activeFilters": the adapter.activeFilters list
+This is used by the UI system to serialize the widget's state to the front-end.</p>
+</li>
+<li>
+<p><code>private void OnToggleFilter(string filter, bool active)</code><br />
+Calls adapter.ToggleFilter(filter, active) and marks the widget dirty so changes will be published.</p>
+</li>
+<li>
+<p><code>private void OnClearFilters()</code><br />
+Calls adapter.ClearFilters() and marks the widget dirty.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private void OnAvailableFiltersChanged()
-    {
-        m_Dirty = true;
-    }
-</code></pre>
+<p>Nested types</p>
 <ul>
-<li><code>private OnClearFilters() : System.Void</code>  </li>
+<li><code>public interface IAdapter</code><br />
+  The adapter that the FilterMenu expects to interact with. Members:</li>
+<li><code>List&lt;string&gt; availableFilters { get; }</code> — list of filter names that can be applied.</li>
+<li><code>List&lt;string&gt; activeFilters { get; }</code> — list of currently active filters.</li>
+<li><code>Action onAvailableFiltersChanged { get; set; }</code> — callback the adapter should invoke when availableFilters changes.</li>
+<li><code>void ToggleFilter(string filter, bool active)</code> — toggle the specified filter on/off.</li>
+<li>
+<p><code>void ClearFilters()</code> — clear all active filters.</p>
+</li>
+<li>
+<p><code>public class Bindings : IWidgetBindingFactory</code><br />
+  Creates bindings so UI actions can trigger methods on the widget. Implementation details:</p>
+</li>
+<li>CreateBindings(...) yields a TriggerBinding for "toggleFilter" which expects (IWidget, string, bool). When triggered it checks widget is a FilterMenu, calls OnToggleFilter(filter, active), and invokes onValueChanged(widget).</li>
+<li>CreateBindings(...) also yields a TriggerBinding for "clearFilters" which expects (IWidget). When triggered it checks widget is a FilterMenu, calls OnClearFilters(), and invokes onValueChanged(widget).</li>
 </ul>
-<pre><code class="language-csharp">private void OnClearFilters()
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Example adapter implementing the IAdapter contract
+public class SimpleFilterAdapter : FilterMenu.IAdapter
+{
+    public List&lt;string&gt; availableFilters { get; } = new List&lt;string&gt; { &quot;Residential&quot;, &quot;Commercial&quot;, &quot;Industrial&quot; };
+    public List&lt;string&gt; activeFilters { get; } = new List&lt;string&gt;();
+
+    public Action onAvailableFiltersChanged { get; set; }
+
+    public void ToggleFilter(string filter, bool active)
     {
-        adapter.ClearFilters();
-        m_Dirty = true;
-    }
-</code></pre>
-<ul>
-<li><code>private OnToggleFilter(System.String filter, System.Boolean active) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void OnToggleFilter(string filter, bool active)
-    {
-        adapter.ToggleFilter(filter, active);
-        m_Dirty = true;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual Update() : Game.UI.Widgets.WidgetChanges</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override WidgetChanges Update()
-    {
-        WidgetChanges widgetChanges = base.Update();
-        if (m_Dirty)
+        if (active)
         {
-            widgetChanges |= WidgetChanges.Properties;
+            if (!activeFilters.Contains(filter)) activeFilters.Add(filter);
         }
-        m_Dirty = false;
-        return widgetChanges;
+        else
+        {
+            activeFilters.Remove(filter);
+        }
     }
-</code></pre>
-<ul>
-<li><code>protected virtual WriteProperties(Colossal.UI.Binding.IJsonWriter writer) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void WriteProperties(IJsonWriter writer)
+
+    public void ClearFilters()
     {
-        base.WriteProperties(writer);
-        writer.PropertyName(&quot;availableFilters&quot;);
-        writer.Write((IList&lt;string&gt;)adapter.availableFilters);
-        writer.PropertyName(&quot;activeFilters&quot;);
-        writer.Write((IList&lt;string&gt;)adapter.activeFilters);
+        activeFilters.Clear();
     }
+
+    // Call this if availableFilters is changed externally:
+    public void NotifyAvailableFiltersChanged() =&gt; onAvailableFiltersChanged?.Invoke();
+}
+
+// Using the FilterMenu in a widget creation lifecycle
+protected override void OnCreate()
+{
+    base.OnCreate();
+    var filterMenu = new FilterMenu();
+    filterMenu.adapter = new SimpleFilterAdapter();
+    // The UI system will use FilterMenu.Bindings to wire up toggle/clear triggers
+}
 </code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.UI.Editor.FilterMenu+IAdapter</code>  </li>
-<li><code>Game.UI.Editor.FilterMenu+Bindings</code>  </li>
-</ul>
+<p>Notes:
+- The widget relies on the adapter to invoke onAvailableFiltersChanged when availableFilters changes; otherwise the widget won't refresh availableFilters until another action sets m_Dirty.
+- Bindings yield TriggerBinding entries that expect front-end triggers named "toggleFilter" and "clearFilters". These are how UI events should be wired to control the FilterMenu.</p>
 
 
 

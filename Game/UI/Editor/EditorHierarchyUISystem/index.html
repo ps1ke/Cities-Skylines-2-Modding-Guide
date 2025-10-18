@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87073,6 +87165,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Simulation/SurfaceWater/" class="md-nav__link">
         
   
@@ -97653,15 +97768,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -97698,9 +97804,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -117932,6 +118038,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117957,15 +118085,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -118004,9 +118123,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118029,701 +118148,251 @@
 
 
 <h1 id="gameuieditoreditorhierarchyuisystem">Game.UI.Editor.EditorHierarchyUISystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.UI.Editor</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.UI.UISystemBase</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class EditorHierarchyUISystem : Game.UI.UISystemBase
-{
-    public System.Action&lt;Unity.Entities.Entity&gt; onSave;
-    public System.Action&lt;Unity.Entities.Entity&gt; onBulldoze;
-    private Game.Prefabs.PrefabSystem m_PrefabSystem;
-    private Game.Tools.ToolSystem m_ToolSystem;
-    private Game.UI.Editor.EditorToolUISystem m_EditorToolUISystem;
-    private Game.UI.Editor.EditorPanelUISystem m_EditorPanelUISystem;
-    private Game.Rendering.CameraUpdateSystem m_CameraUpdateSystem;
-    private Unity.Entities.EntityQuery m_ObjectQuery;
-    private Unity.Entities.EntityQuery m_ModifiedQuery;
-    private Colossal.UI.Binding.GetterValueBinding&lt;Game.UI.Editor.EditorHierarchyUISystem+Viewport&gt; m_ViewportBinding;
-    private System.Collections.Generic.List&lt;Game.UI.Editor.EditorHierarchyUISystem+PanelItem&gt; &lt;panelItems&gt;k__BackingField;
-    private Unity.Collections.NativeList&lt;Game.UI.Editor.EditorHierarchyUISystem+HierarchyItem&gt; m_Hierarchy;
-    private Unity.Collections.NativeParallelHashSet&lt;Game.UI.Editor.EditorHierarchyUISystem+ItemId&gt; m_ExpandedIds;
-    private System.Int32 m_TotalCount;
-    private Game.UI.Editor.EditorHierarchyUISystem+ItemId m_SelectedId;
-    private Game.UI.Editor.EditorHierarchyUISystem+Viewport m_Viewport;
-    private System.Int32 m_NextViewportStartIndex;
-    private System.Int32 m_NextViewportEndIndex;
-    private System.Boolean m_Dirty;
-    private Colossal.UI.Binding.ValueBinding&lt;System.Int32&gt; m_CameraMode;
-    private Game.UI.Editor.EditorHierarchyUISystem+TypeHandle __TypeHandle;
-    private static const System.String kGroup;
-
-    public Game.GameMode gameMode { get; }
-    public System.Collections.Generic.List&lt;Game.UI.Editor.EditorHierarchyUISystem+PanelItem&gt; panelItems { get; private set; }
-
-    public EditorHierarchyUISystem();
-
-    private System.Void __AssignQueries(Unity.Entities.SystemState&amp; state);
-    private System.Int32 &lt;OnCreate&gt;b__27_0();
-    private Game.UI.Editor.EditorHierarchyUISystem+ItemId &lt;OnCreate&gt;b__27_1();
-    private Game.UI.Editor.EditorHierarchyUISystem+Viewport &lt;OnCreate&gt;b__27_2();
-    private System.Void &lt;OnCreate&gt;b__27_3(System.Int32 mode);
-    private System.Boolean &lt;UpdateSelection&gt;b__32_0(Game.UI.Editor.EditorHierarchyUISystem+PanelItem p);
-    private System.Boolean &lt;UpdateSelection&gt;b__32_1(Game.UI.Editor.EditorHierarchyUISystem+PanelItem p);
-    private Game.UI.Editor.EditorHierarchyUISystem+ViewportItem BuildViewportItem(Game.UI.Editor.EditorHierarchyUISystem+HierarchyItem item);
-    private Unity.Jobs.JobHandle EditorHierarchyUISystem_4E004959_LambdaJob_0_Execute(Unity.Collections.NativeList&lt;Game.UI.Editor.EditorHierarchyUISystem+HierarchyItem&gt; hierarchy, Unity.Jobs.JobHandle __inputDependency);
-    private Game.UI.Localization.LocalizedString GetName(Game.UI.Editor.EditorHierarchyUISystem+ItemId id);
-    private Game.UI.Localization.LocalizedString GetTooltip(Game.UI.Editor.EditorHierarchyUISystem+ItemId id);
-    private System.Int32 GetWidth();
-    private System.Void OnBulldoze(Unity.Entities.Entity entity);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnCreateForCompiler();
-    protected virtual System.Void OnDestroy();
-    protected virtual System.Void OnGameLoaded(Colossal.Serialization.Entities.Context serializationContext);
-    private System.Void OnSave(Unity.Entities.Entity entity);
-    protected virtual System.Void OnStartRunning();
-    protected virtual System.Void OnUpdate();
-    private System.Void RefreshCameraController(Game.UI.Editor.EditorHierarchyUISystem+CameraMode mode);
-    private System.Void SetExpanded(Game.UI.Editor.EditorHierarchyUISystem+ItemId id, System.Boolean expanded);
-    public System.Void SetSelectedId(Game.UI.Editor.EditorHierarchyUISystem+ItemId id);
-    private System.Void SetViewportRange(System.Int32 startIndex, System.Int32 endIndex);
-    private System.Void SetWidth(System.Int32 width);
-    private System.Void ToggleCameraMode(Game.UI.Editor.EditorHierarchyUISystem+CameraMode cameraMode);
-    private System.Void UpdateHierarchy(Unity.Collections.NativeList&lt;Game.UI.Editor.EditorHierarchyUISystem+HierarchyItem&gt; hierarchy);
-    private System.Void UpdateSelection();
-    private System.Void UpdateViewport(System.Boolean force);
-    private System.Boolean ViewportChanged();
-}
-</code></pre>
+<p><strong>Assembly:</strong> Game<br />
+<strong>Namespace:</strong> Game.UI.Editor</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> UISystemBase</p>
+<p><strong>Summary:</strong><br />
+Manages the Editor Hierarchy UI in Editor mode. Builds and updates a hierarchical list of editor panels and placed objects (and their sub-meshes), exposes viewport data and UI bindings, handles selection, expansion state, save/bulldoze actions and camera-mode switching. Uses Unity.Entities queries/jobs to populate and sort the hierarchy and maintains native collections (NativeList, NativeParallelHashSet) for performance. Integrates with PrefabSystem, ToolSystem, EditorPanelUISystem and CameraUpdateSystem.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>public System.Action&lt;Unity.Entities.Entity&gt; onSave</code>  </li>
+<li>
+<p><code>private const string kGroup</code><br />
+Constant grouping key used for bindings ("editorHierarchy").</p>
+</li>
+<li>
+<p><code>public Action&lt;Entity&gt; onSave</code><br />
+Callback invoked when the UI issues a "save" command for an entity.</p>
+</li>
+<li>
+<p><code>public Action&lt;Entity&gt; onBulldoze</code><br />
+Callback invoked when the UI issues a "bulldoze" command for an entity.</p>
+</li>
+<li>
+<p><code>private PrefabSystem m_PrefabSystem</code><br />
+Reference to the game's PrefabSystem used to resolve PrefabRefs to PrefabBase objects.</p>
+</li>
+<li>
+<p><code>private ToolSystem m_ToolSystem</code><br />
+Reference to the ToolSystem (used to set/get selected entity).</p>
+</li>
+<li>
+<p><code>private EditorToolUISystem m_EditorToolUISystem</code><br />
+Reference to the editor tool UI system used to communicate selections/submesh selections.</p>
+</li>
+<li>
+<p><code>private EditorPanelUISystem m_EditorPanelUISystem</code><br />
+Reference to the editor panel UI system used to show/hide active panels.</p>
+</li>
+<li>
+<p><code>private CameraUpdateSystem m_CameraUpdateSystem</code><br />
+Reference to the camera system used to switch camera controllers (orbit, first-person, default).</p>
+</li>
+<li>
+<p><code>private EntityQuery m_ObjectQuery</code><br />
+EntityQuery that matches placed objects (PrefabRef + Game.Objects.Object, excluding Deleted/Owner/Temp).</p>
+</li>
+<li>
+<p><code>private EntityQuery m_ModifiedQuery</code><br />
+EntityQuery that matches modified objects (Created/Updated/Deleted) used to detect hierarchy changes.</p>
+</li>
+<li>
+<p><code>private GetterValueBinding&lt;Viewport&gt; m_ViewportBinding</code><br />
+UI binding for the viewport object; triggers UI updates when viewport changes.</p>
+</li>
+<li>
+<p><code>private NativeList&lt;HierarchyItem&gt; m_Hierarchy</code><br />
+Native list used to store the current built hierarchy (panels, objects, sub-meshes). Allocated with Allocator.Persistent and disposed in OnDestroy.</p>
+</li>
+<li>
+<p><code>private NativeParallelHashSet&lt;ItemId&gt; m_ExpandedIds</code><br />
+Native hash set storing which ItemIds are expanded in the UI (e.g. object container or individual object entries). Allocated with Allocator.Persistent and disposed in OnDestroy.</p>
+</li>
+<li>
+<p><code>private int m_TotalCount</code><br />
+Cached total number of hierarchy items (m_Hierarchy.Length).</p>
+</li>
+<li>
+<p><code>private ItemId m_SelectedId</code><br />
+Currently selected ItemId in the hierarchy (panel, object, submesh).</p>
+</li>
+<li>
+<p><code>private Viewport m_Viewport</code><br />
+Managed Viewport instance that holds the visible range and the ViewportItem list exposed to the UI.</p>
+</li>
+<li>
+<p><code>private int m_NextViewportStartIndex</code><br />
+Next requested viewport start index (set by UI).</p>
+</li>
+<li>
+<p><code>private int m_NextViewportEndIndex</code><br />
+Next requested viewport end index (set by UI).</p>
+</li>
+<li>
+<p><code>private bool m_Dirty</code><br />
+Flag indicating the hierarchy needs a rebuild (e.g. when toggling expansion or loading).</p>
+</li>
+<li>
+<p><code>private ValueBinding&lt;int&gt; m_CameraMode</code><br />
+Binding storing the current camera mode value used by the UI.</p>
+</li>
+<li>
+<p><code>private TypeHandle __TypeHandle</code><br />
+Internal struct holding entity/component/buffer handles used when scheduling jobs (populated in OnCreateForCompiler).</p>
+</li>
+<li>
+<p><code>private const (compiler-generated job types and lambda job) ...</code><br />
+This class contains a Burst-compiled IJobChunk (ObjectHierarchyJob) and an inline Job that sorts the native list. The job types are private/nested and used to build/sort the hierarchy in a multi-threaded way.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public System.Action&lt;Unity.Entities.Entity&gt; onSave;
-</code></pre>
-<ul>
-<li><code>public System.Action&lt;Unity.Entities.Entity&gt; onBulldoze</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Action&lt;Unity.Entities.Entity&gt; onBulldoze;
-</code></pre>
-<ul>
-<li><code>private Game.Prefabs.PrefabSystem m_PrefabSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Prefabs.PrefabSystem m_PrefabSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Tools.ToolSystem m_ToolSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Tools.ToolSystem m_ToolSystem;
-</code></pre>
-<ul>
-<li><code>private Game.UI.Editor.EditorToolUISystem m_EditorToolUISystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.UI.Editor.EditorToolUISystem m_EditorToolUISystem;
-</code></pre>
-<ul>
-<li><code>private Game.UI.Editor.EditorPanelUISystem m_EditorPanelUISystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.UI.Editor.EditorPanelUISystem m_EditorPanelUISystem;
-</code></pre>
-<ul>
-<li><code>private Game.Rendering.CameraUpdateSystem m_CameraUpdateSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Rendering.CameraUpdateSystem m_CameraUpdateSystem;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_ObjectQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_ObjectQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_ModifiedQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_ModifiedQuery;
-</code></pre>
-<ul>
-<li><code>private Colossal.UI.Binding.GetterValueBinding&lt;Game.UI.Editor.EditorHierarchyUISystem+Viewport&gt; m_ViewportBinding</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.UI.Binding.GetterValueBinding&lt;Game.UI.Editor.EditorHierarchyUISystem+Viewport&gt; m_ViewportBinding;
-</code></pre>
-<ul>
-<li><code>private System.Collections.Generic.List&lt;Game.UI.Editor.EditorHierarchyUISystem+PanelItem&gt; &lt;panelItems&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Collections.Generic.List&lt;Game.UI.Editor.EditorHierarchyUISystem+PanelItem&gt; &lt;panelItems&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeList&lt;Game.UI.Editor.EditorHierarchyUISystem+HierarchyItem&gt; m_Hierarchy</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeList&lt;Game.UI.Editor.EditorHierarchyUISystem+HierarchyItem&gt; m_Hierarchy;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeParallelHashSet&lt;Game.UI.Editor.EditorHierarchyUISystem+ItemId&gt; m_ExpandedIds</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeParallelHashSet&lt;Game.UI.Editor.EditorHierarchyUISystem+ItemId&gt; m_ExpandedIds;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_TotalCount</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_TotalCount;
-</code></pre>
-<ul>
-<li><code>private Game.UI.Editor.EditorHierarchyUISystem+ItemId m_SelectedId</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.UI.Editor.EditorHierarchyUISystem+ItemId m_SelectedId;
-</code></pre>
-<ul>
-<li><code>private Game.UI.Editor.EditorHierarchyUISystem+Viewport m_Viewport</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.UI.Editor.EditorHierarchyUISystem+Viewport m_Viewport;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_NextViewportStartIndex</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_NextViewportStartIndex;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_NextViewportEndIndex</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_NextViewportEndIndex;
-</code></pre>
-<ul>
-<li><code>private System.Boolean m_Dirty</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean m_Dirty;
-</code></pre>
-<ul>
-<li><code>private Colossal.UI.Binding.ValueBinding&lt;System.Int32&gt; m_CameraMode</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.UI.Binding.ValueBinding&lt;System.Int32&gt; m_CameraMode;
-</code></pre>
-<ul>
-<li><code>private Game.UI.Editor.EditorHierarchyUISystem+TypeHandle __TypeHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.UI.Editor.EditorHierarchyUISystem+TypeHandle __TypeHandle;
-</code></pre>
-<ul>
-<li><code>private static const System.String kGroup</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static const System.String kGroup;
-</code></pre>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>public Game.GameMode gameMode { get }</code>  </li>
+<li>
+<p><code>public override GameMode gameMode =&gt; GameMode.Editor</code><br />
+Indicates this UI system runs only in Editor game mode.</p>
+</li>
+<li>
+<p><code>public List&lt;PanelItem&gt; panelItems { get; private set; }</code><br />
+List of builtin editor panels exposed in the hierarchy (Map, Climate, Water, Resources). Populated in OnCreate with their associated IEditorPanel systems.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public Game.GameMode gameMode { get; }
-</code></pre>
-<ul>
-<li><code>public System.Collections.Generic.List&lt;Game.UI.Editor.EditorHierarchyUISystem+PanelItem&gt; panelItems { get; private set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Collections.Generic.List&lt;Game.UI.Editor.EditorHierarchyUISystem+PanelItem&gt; panelItems { get; private set; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public EditorHierarchyUISystem()</code>  </li>
+<li><code>public EditorHierarchyUISystem()</code><br />
+Default constructor (compiler-preserved). Initialization of runtime-managed fields happens in OnCreate.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public EditorHierarchyUISystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private __AssignQueries(Unity.Entities.SystemState&amp; state) : System.Void</code>  </li>
+<li>
+<p><code>protected override void OnCreate()</code><br />
+Initializes system references (PrefabSystem, ToolSystem, Editor subsystems), sets up EntityQuery instances, registers UI bindings/triggers, creates panelItems, and allocates native collections (m_Hierarchy, m_ExpandedIds). Called when the system is created.</p>
+</li>
+<li>
+<p><code>protected override void OnGameLoaded(Context serializationContext)</code><br />
+Marks the hierarchy as dirty so it will be rebuilt after a saved game is loaded.</p>
+</li>
+<li>
+<p><code>protected override void OnStartRunning()</code><br />
+Clears m_ExpandedIds when the system starts running.</p>
+</li>
+<li>
+<p><code>protected override void OnDestroy()</code><br />
+Disposes native collections (m_Hierarchy, m_ExpandedIds) and calls base.OnDestroy.</p>
+</li>
+<li>
+<p><code>protected override void OnUpdate()</code><br />
+Main per-frame update: determines if hierarchy should be refreshed (m_Dirty or modified query non-empty), updates selection, updates viewport, and schedules a hierarchy rebuild job if necessary.</p>
+</li>
+<li>
+<p><code>private void UpdateSelection()</code><br />
+Synchronizes selected ItemId with EditorPanelUISystem and ToolSystem. If an object or submesh is selected sets ToolSystem.selected and instructs EditorToolUISystem to select the entity/submesh. Also refreshes camera controller to match selection and camera mode.</p>
+</li>
+<li>
+<p><code>private void UpdateViewport(bool force)</code><br />
+Clamps requested viewport range, compares to current viewport via ViewportChanged, and if different (or forced) builds the visible ViewportItem list and triggers the UI binding update.</p>
+</li>
+<li>
+<p><code>private bool ViewportChanged()</code><br />
+Compares the requested viewport range and the current ViewportItem contents against m_Hierarchy to detect whether the viewport actually changed.</p>
+</li>
+<li>
+<p><code>private ViewportItem BuildViewportItem(HierarchyItem item)</code><br />
+Converts a HierarchyItem into a ViewportItem for UI consumption. Resolves localized name and tooltip; determines whether an object entry is saveable (non-builtin prefab).</p>
+</li>
+<li>
+<p><code>private LocalizedString GetName(ItemId id)</code><br />
+Returns a localized display name for the given ItemId. For object entries it resolves the prefab name; for submeshes it resolves the submesh prefab name; otherwise returns a fallback key like "Editor.{TYPE}".</p>
+</li>
+<li>
+<p><code>private LocalizedString GetTooltip(ItemId id)</code><br />
+Returns tooltip key for the given ItemId ("Editor.{TYPE}_TOOLTIP").</p>
+</li>
+<li>
+<p><code>private void UpdateHierarchy(NativeList&lt;HierarchyItem&gt; hierarchy)</code><br />
+Rebuilds the full hierarchy list. Adds the configured panelItems, then if there are placed objects and the ObjectContainer is expanded schedules ObjectHierarchyJob to append object and submesh entries. The job fills the native list and a subsequent lambda-job sorts it.</p>
+</li>
+<li>
+<p><code>private void SetViewportRange(int startIndex, int endIndex)</code><br />
+Called by UI trigger to update requested viewport start/end indexes.</p>
+</li>
+<li>
+<p><code>public void SetSelectedId(ItemId id)</code><br />
+Sets the selected item in the hierarchy. Updates ToolSystem.selected and EditorToolUISystem selection for objects/submeshes, or activates the appropriate editor panel for panel types. Also refreshes camera mode/controller.</p>
+</li>
+<li>
+<p><code>private void SetExpanded(ItemId id, bool expanded)</code><br />
+Marks the system dirty and adds/removes the ItemId from m_ExpandedIds to control what is expanded in the tree.</p>
+</li>
+<li>
+<p><code>private void ToggleCameraMode(CameraMode cameraMode)</code><br />
+Updates m_CameraMode binding and refreshes the camera controller to match the new mode.</p>
+</li>
+<li>
+<p><code>private void RefreshCameraController(CameraMode mode)</code><br />
+Switches the active camera controller on CameraUpdateSystem depending on mode and the current selection. If switching, preserves camera position by calling TryMatchPosition on the target controller.</p>
+</li>
+<li>
+<p><code>private int GetWidth()</code><br />
+Returns the stored editor hierarchy width from SharedSettings.instance?.editor?.hierarchyWidth (default fallback 350).</p>
+</li>
+<li>
+<p><code>private void SetWidth(int width)</code><br />
+Persists the supplied width into SharedSettings.instance.editor.hierarchyWidth (if settings exist).</p>
+</li>
+<li>
+<p><code>private void OnSave(Entity entity)</code><br />
+Saves the prefab of the given entity via EditorPrefabUtils.SavePrefab and unlocks a related achievement. Also invokes onSave callback if set.</p>
+</li>
+<li>
+<p><code>private void OnBulldoze(Entity entity)</code><br />
+Invokes onBulldoze callback with the given entity (UI trigger for deleting an object).</p>
+</li>
+<li>
+<p><code>private JobHandle EditorHierarchyUISystem_4E004959_LambdaJob_0_Execute(NativeList&lt;HierarchyItem&gt; hierarchy, JobHandle dependency)</code><br />
+Schedules a small job that sorts the hierarchy native list. (Compiler-generated helper for the inline lambda that calls hierarchy.Sort()).</p>
+</li>
+<li>
+<p><code>private void __AssignQueries(ref SystemState state)</code><br />
+Internal compiler helper used to initialize any queries for the generated code path. (Used by OnCreateForCompiler.)</p>
+</li>
+<li>
+<p><code>protected override void OnCreateForCompiler()</code><br />
+Compiler helper that assigns internal handles and queries; calls __AssignQueries and assigns TypeHandle handles.</p>
+</li>
+<li>
+<p>Nested types and jobs (summary):</p>
+</li>
+<li>ObjectHierarchyJob (Burst-compiled IJobChunk) — iterates over object chunks, adds HierarchyItem entries for each object and optionally for its submesh children if expanded.</li>
+<li>EditorHierarchyUISystem_4E004959_LambdaJob_0_Job — IJob wrapper that sorts the NativeList<HierarchyItem>.</li>
+<li>PanelItem — lightweight pairing of ItemType, level and IEditorPanel instance.</li>
+<li>Viewport / ViewportItem — serializable structures used as the UI viewport model.</li>
+<li>HierarchyItem / ItemId / ItemType — value types representing tree entries, identifiers and their kinds; ItemId supports JSON read/write and comparisons.</li>
 </ul>
-<pre><code class="language-csharp">private void __AssignQueries(ref SystemState state)
-    {
-        new EntityQueryBuilder(Allocator.Temp).Dispose();
-    }
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Example usage from mod code: subscribe to onSave/onBulldoze and programmatically select an object.
+var editorHierarchy = World.GetOrCreateSystemManaged&lt;Game.UI.Editor.EditorHierarchyUISystem&gt;();
+editorHierarchy.onSave += (Entity e) =&gt; {
+    // Custom logic after save (e.g. show notification)
+};
+editorHierarchy.onBulldoze += (Entity e) =&gt; {
+    // Custom logic before/after bulldoze
+};
+
+// Programmatically select an object entity (matching a placed prefab entity)
+var itemId = new Game.UI.Editor.EditorHierarchyUISystem.ItemId(Game.UI.Editor.EditorHierarchyUISystem.ItemType.Object, someEntity);
+editorHierarchy.SetSelectedId(itemId);
+
+// Expand the object container to see objects in the UI
+var containerId = new Game.UI.Editor.EditorHierarchyUISystem.ItemId(Game.UI.Editor.EditorHierarchyUISystem.ItemType.ObjectContainer);
+editorHierarchy.SetExpanded(containerId, true);
+
+// Toggle camera mode to Orbit
+editorHierarchy.ToggleCameraMode((Game.UI.Editor.EditorHierarchyUISystem.CameraMode)1); // or use named enum
 </code></pre>
-<ul>
-<li><code>private &lt;OnCreate&gt;b__27_0() : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 &lt;OnCreate&gt;b__27_0();
-</code></pre>
-<ul>
-<li><code>private &lt;OnCreate&gt;b__27_1() : Game.UI.Editor.EditorHierarchyUISystem+ItemId</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.UI.Editor.EditorHierarchyUISystem+ItemId &lt;OnCreate&gt;b__27_1();
-</code></pre>
-<ul>
-<li><code>private &lt;OnCreate&gt;b__27_2() : Game.UI.Editor.EditorHierarchyUISystem+Viewport</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.UI.Editor.EditorHierarchyUISystem+Viewport &lt;OnCreate&gt;b__27_2();
-</code></pre>
-<ul>
-<li><code>private &lt;OnCreate&gt;b__27_3(System.Int32 mode) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Void &lt;OnCreate&gt;b__27_3(System.Int32 mode);
-</code></pre>
-<ul>
-<li><code>private &lt;UpdateSelection&gt;b__32_0(Game.UI.Editor.EditorHierarchyUISystem+PanelItem p) : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean &lt;UpdateSelection&gt;b__32_0(Game.UI.Editor.EditorHierarchyUISystem+PanelItem p);
-</code></pre>
-<ul>
-<li><code>private &lt;UpdateSelection&gt;b__32_1(Game.UI.Editor.EditorHierarchyUISystem+PanelItem p) : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean &lt;UpdateSelection&gt;b__32_1(Game.UI.Editor.EditorHierarchyUISystem+PanelItem p);
-</code></pre>
-<ul>
-<li><code>private BuildViewportItem(Game.UI.Editor.EditorHierarchyUISystem+HierarchyItem item) : Game.UI.Editor.EditorHierarchyUISystem+ViewportItem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private ViewportItem BuildViewportItem(HierarchyItem item)
-    {
-        PrefabRef component;
-        PrefabBase prefab;
-        return new ViewportItem
-        {
-            id = item.id,
-            level = item.level,
-            expandable = item.expandable,
-            expanded = item.expanded,
-            name = GetName(item.id),
-            tooltip = GetTooltip(item.id),
-            selectable = item.selectable,
-            saveable = (item.id.type == ItemType.Object &amp;&amp; base.EntityManager.TryGetComponent&lt;PrefabRef&gt;(item.id.entity, out component) &amp;&amp; m_PrefabSystem.TryGetPrefab&lt;PrefabBase&gt;(component, out prefab) &amp;&amp; !prefab.builtin)
-        };
-    }
-</code></pre>
-<ul>
-<li><code>private EditorHierarchyUISystem_4E004959_LambdaJob_0_Execute(Unity.Collections.NativeList&lt;Game.UI.Editor.EditorHierarchyUISystem+HierarchyItem&gt; hierarchy, Unity.Jobs.JobHandle __inputDependency) : Unity.Jobs.JobHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private JobHandle EditorHierarchyUISystem_4E004959_LambdaJob_0_Execute(NativeList&lt;HierarchyItem&gt; hierarchy, JobHandle __inputDependency)
-    {
-        return IJobExtensions.Schedule(new EditorHierarchyUISystem_4E004959_LambdaJob_0_Job
-        {
-            hierarchy = hierarchy
-        }, __inputDependency);
-    }
-</code></pre>
-<ul>
-<li><code>private GetName(Game.UI.Editor.EditorHierarchyUISystem+ItemId id) : Game.UI.Localization.LocalizedString</code>  </li>
-</ul>
-<pre><code class="language-csharp">private LocalizedString GetName(ItemId id)
-    {
-        PrefabRef component2;
-        DynamicBuffer&lt;SubMesh&gt; buffer;
-        PrefabBase prefab2;
-        if (id.type == ItemType.Object)
-        {
-            if (base.EntityManager.TryGetComponent&lt;PrefabRef&gt;(id.entity, out var component) &amp;&amp; m_PrefabSystem.TryGetPrefab&lt;PrefabBase&gt;(component, out var prefab))
-            {
-                return LocalizedString.Value(prefab.name);
-            }
-        }
-        else if (id.type == ItemType.SubMesh &amp;&amp; base.EntityManager.TryGetComponent&lt;PrefabRef&gt;(id.entity, out component2) &amp;&amp; base.EntityManager.TryGetBuffer(component2.m_Prefab, isReadOnly: true, out buffer) &amp;&amp; id.subIndex &lt; buffer.Length &amp;&amp; m_PrefabSystem.TryGetPrefab&lt;PrefabBase&gt;(buffer[id.subIndex].m_SubMesh, out prefab2))
-        {
-            return LocalizedString.Value(prefab2.name);
-        }
-        return &quot;Editor.&quot; + id.type.ToString().ToUpper();
-    }
-</code></pre>
-<ul>
-<li><code>private GetTooltip(Game.UI.Editor.EditorHierarchyUISystem+ItemId id) : Game.UI.Localization.LocalizedString</code>  </li>
-</ul>
-<pre><code class="language-csharp">private LocalizedString GetTooltip(ItemId id)
-    {
-        return &quot;Editor.&quot; + id.type.ToString().ToUpper() + &quot;_TOOLTIP&quot;;
-    }
-</code></pre>
-<ul>
-<li><code>private GetWidth() : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">private int GetWidth()
-    {
-        return (SharedSettings.instance?.editor)?.hierarchyWidth ?? 350;
-    }
-</code></pre>
-<ul>
-<li><code>private OnBulldoze(Unity.Entities.Entity entity) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void OnBulldoze(Entity entity)
-    {
-        onBulldoze?.Invoke(entity);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_PrefabSystem = base.World.GetOrCreateSystemManaged&lt;PrefabSystem&gt;();
-        m_ToolSystem = base.World.GetOrCreateSystemManaged&lt;ToolSystem&gt;();
-        m_EditorToolUISystem = base.World.GetOrCreateSystemManaged&lt;EditorToolUISystem&gt;();
-        m_EditorPanelUISystem = base.World.GetOrCreateSystemManaged&lt;EditorPanelUISystem&gt;();
-        m_CameraUpdateSystem = base.World.GetOrCreateSystemManaged&lt;CameraUpdateSystem&gt;();
-        m_ObjectQuery = GetEntityQuery(new EntityQueryDesc
-        {
-            All = new ComponentType[2]
-            {
-                ComponentType.ReadOnly&lt;PrefabRef&gt;(),
-                ComponentType.ReadOnly&lt;Game.Objects.Object&gt;()
-            },
-            None = new ComponentType[3]
-            {
-                ComponentType.ReadOnly&lt;Deleted&gt;(),
-                ComponentType.ReadOnly&lt;Owner&gt;(),
-                ComponentType.ReadOnly&lt;Temp&gt;()
-            }
-        });
-        m_ModifiedQuery = GetEntityQuery(new EntityQueryDesc
-        {
-            All = new ComponentType[2]
-            {
-                ComponentType.ReadOnly&lt;PrefabRef&gt;(),
-                ComponentType.ReadOnly&lt;Game.Objects.Object&gt;()
-            },
-            Any = new ComponentType[3]
-            {
-                ComponentType.ReadOnly&lt;Created&gt;(),
-                ComponentType.ReadOnly&lt;Updated&gt;(),
-                ComponentType.ReadOnly&lt;Deleted&gt;()
-            },
-            None = new ComponentType[2]
-            {
-                ComponentType.ReadOnly&lt;Owner&gt;(),
-                ComponentType.ReadOnly&lt;Temp&gt;()
-            }
-        });
-        AddUpdateBinding(new GetterValueBinding&lt;int&gt;(&quot;editorHierarchy&quot;, &quot;width&quot;, GetWidth));
-        AddUpdateBinding(new GetterValueBinding&lt;int&gt;(&quot;editorHierarchy&quot;, &quot;totalCount&quot;, () =&gt; m_TotalCount));
-        AddUpdateBinding(new GetterValueBinding&lt;ItemId&gt;(&quot;editorHierarchy&quot;, &quot;selectedId&quot;, () =&gt; m_SelectedId, new ValueWriter&lt;ItemId&gt;()));
-        AddBinding(m_ViewportBinding = new GetterValueBinding&lt;Viewport&gt;(&quot;editorHierarchy&quot;, &quot;viewport&quot;, () =&gt; m_Viewport, new ValueWriter&lt;Viewport&gt;()));
-        AddBinding(m_CameraMode = new ValueBinding&lt;int&gt;(&quot;editorHierarchy&quot;, &quot;cameraMode&quot;, 0));
-        AddBinding(new TriggerBinding&lt;int&gt;(&quot;editorHierarchy&quot;, &quot;setWidth&quot;, SetWidth));
-        AddBinding(new TriggerBinding&lt;int, int&gt;(&quot;editorHierarchy&quot;, &quot;setViewportRange&quot;, SetViewportRange));
-        AddBinding(new TriggerBinding&lt;ItemId&gt;(&quot;editorHierarchy&quot;, &quot;setSelectedId&quot;, SetSelectedId, new ValueReader&lt;ItemId&gt;()));
-        AddBinding(new TriggerBinding&lt;ItemId, bool&gt;(&quot;editorHierarchy&quot;, &quot;setExpanded&quot;, SetExpanded, new ValueReader&lt;ItemId&gt;()));
-        AddBinding(new TriggerBinding&lt;int&gt;(&quot;editorHierarchy&quot;, &quot;toggleCameraMode&quot;, delegate(int mode)
-        {
-            ToggleCameraMode((CameraMode)mode);
-        }));
-        AddBinding(new TriggerBinding&lt;Entity&gt;(&quot;editorHierarchy&quot;, &quot;save&quot;, OnSave));
-        AddBinding(new TriggerBinding&lt;Entity&gt;(&quot;editorHierarchy&quot;, &quot;bulldoze&quot;, OnBulldoze));
-        panelItems = new List&lt;PanelItem&gt;
-        {
-            new PanelItem(ItemType.Map, 0, base.World.GetOrCreateSystemManaged&lt;MapPanelSystem&gt;()),
-            new PanelItem(ItemType.Climate, 1, base.World.GetOrCreateSystemManaged&lt;ClimatePanelSystem&gt;()),
-            new PanelItem(ItemType.Water, 1, base.World.GetOrCreateSystemManaged&lt;WaterPanelSystem&gt;()),
-            new PanelItem(ItemType.Resources, 1, base.World.GetOrCreateSystemManaged&lt;ResourcePanelSystem&gt;())
-        };
-        m_Hierarchy = new NativeList&lt;HierarchyItem&gt;(Allocator.Persistent);
-        m_ExpandedIds = new NativeParallelHashSet&lt;ItemId&gt;(128, Allocator.Persistent);
-        m_Viewport = new Viewport();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreateForCompiler() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnCreateForCompiler()
-    {
-        base.OnCreateForCompiler();
-        __AssignQueries(ref base.CheckedStateRef);
-        __TypeHandle.__AssignHandles(ref base.CheckedStateRef);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnDestroy() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnDestroy()
-    {
-        m_Hierarchy.Dispose();
-        m_ExpandedIds.Dispose();
-        base.OnDestroy();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnGameLoaded(Colossal.Serialization.Entities.Context serializationContext) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnGameLoaded(Context serializationContext)
-    {
-        m_Dirty = true;
-    }
-</code></pre>
-<ul>
-<li><code>private OnSave(Unity.Entities.Entity entity) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void OnSave(Entity entity)
-    {
-        PrefabRef componentData = base.EntityManager.GetComponentData&lt;PrefabRef&gt;(entity);
-        EditorPrefabUtils.SavePrefab(m_PrefabSystem.GetPrefab&lt;PrefabBase&gt;(componentData));
-        PlatformManager.instance.UnlockAchievement(Game.Achievements.Achievements.IMadeThis);
-        onSave?.Invoke(entity);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnStartRunning() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnStartRunning()
-    {
-        base.OnStartRunning();
-        m_ExpandedIds.Clear();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        bool flag = m_Dirty || !m_ModifiedQuery.IsEmptyIgnoreFilter;
-        m_Dirty = false;
-        m_TotalCount = m_Hierarchy.Length;
-        UpdateSelection();
-        base.OnUpdate();
-        UpdateViewport(flag);
-        if (flag)
-        {
-            UpdateHierarchy(m_Hierarchy);
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private RefreshCameraController(Game.UI.Editor.EditorHierarchyUISystem+CameraMode mode) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void RefreshCameraController(CameraMode mode)
-    {
-        if (mode == CameraMode.Default || (mode == CameraMode.Orbit &amp;&amp; m_SelectedId.entity == Entity.Null))
-        {
-            if (m_CameraUpdateSystem.activeCameraController != m_CameraUpdateSystem.gamePlayController)
-            {
-                m_CameraUpdateSystem.gamePlayController.TryMatchPosition(m_CameraUpdateSystem.activeCameraController);
-                m_CameraUpdateSystem.activeCameraController = m_CameraUpdateSystem.gamePlayController;
-            }
-            return;
-        }
-        switch (mode)
-        {
-        case CameraMode.Orbit:
-            m_CameraUpdateSystem.orbitCameraController.followedEntity = m_SelectedId.entity;
-            if (m_CameraUpdateSystem.activeCameraController != m_CameraUpdateSystem.orbitCameraController)
-            {
-                m_CameraUpdateSystem.orbitCameraController.TryMatchPosition(m_CameraUpdateSystem.activeCameraController);
-                m_CameraUpdateSystem.activeCameraController = m_CameraUpdateSystem.orbitCameraController;
-            }
-            break;
-        case CameraMode.FirstPerson:
-            if (m_CameraUpdateSystem.activeCameraController != m_CameraUpdateSystem.cinematicCameraController)
-            {
-                m_CameraUpdateSystem.cinematicCameraController.TryMatchPosition(m_CameraUpdateSystem.activeCameraController);
-                m_CameraUpdateSystem.activeCameraController = m_CameraUpdateSystem.cinematicCameraController;
-            }
-            break;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private SetExpanded(Game.UI.Editor.EditorHierarchyUISystem+ItemId id, System.Boolean expanded) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void SetExpanded(ItemId id, bool expanded)
-    {
-        m_Dirty = true;
-        if (expanded)
-        {
-            m_ExpandedIds.Add(id);
-        }
-        else
-        {
-            m_ExpandedIds.Remove(id);
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public SetSelectedId(Game.UI.Editor.EditorHierarchyUISystem+ItemId id) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void SetSelectedId(ItemId id)
-    {
-        m_SelectedId = id;
-        switch (id.type)
-        {
-        case ItemType.Object:
-            m_ToolSystem.selected = id.entity;
-            m_EditorToolUISystem.SelectEntity(id.entity);
-            break;
-        case ItemType.SubMesh:
-            m_ToolSystem.selected = id.entity;
-            m_EditorToolUISystem.SelectEntitySubMesh(id.entity, id.subIndex);
-            break;
-        default:
-            m_ToolSystem.selected = Entity.Null;
-            m_EditorPanelUISystem.activePanel = panelItems.FirstOrDefault((PanelItem p) =&gt; p.type == id.type)?.panel;
-            break;
-        }
-        RefreshCameraController((CameraMode)m_CameraMode.value);
-    }
-</code></pre>
-<ul>
-<li><code>private SetViewportRange(System.Int32 startIndex, System.Int32 endIndex) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void SetViewportRange(int startIndex, int endIndex)
-    {
-        m_NextViewportStartIndex = startIndex;
-        m_NextViewportEndIndex = endIndex;
-    }
-</code></pre>
-<ul>
-<li><code>private SetWidth(System.Int32 width) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void SetWidth(int width)
-    {
-        EditorSettings editorSettings = SharedSettings.instance?.editor;
-        if (editorSettings != null)
-        {
-            editorSettings.hierarchyWidth = width;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private ToggleCameraMode(Game.UI.Editor.EditorHierarchyUISystem+CameraMode cameraMode) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void ToggleCameraMode(CameraMode cameraMode)
-    {
-        m_CameraMode.Update((int)cameraMode);
-        RefreshCameraController(cameraMode);
-    }
-</code></pre>
-<ul>
-<li><code>private UpdateHierarchy(Unity.Collections.NativeList&lt;Game.UI.Editor.EditorHierarchyUISystem+HierarchyItem&gt; hierarchy) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void UpdateHierarchy(NativeList&lt;HierarchyItem&gt; hierarchy)
-    {
-        hierarchy.Clear();
-        foreach (PanelItem panelItem in panelItems)
-        {
-            hierarchy.Add(new HierarchyItem
-            {
-                id = new ItemId(panelItem.type),
-                level = panelItem.level,
-                selectable = true
-            });
-        }
-        if (!m_ObjectQuery.IsEmptyIgnoreFilter)
-        {
-            ItemId itemId = new ItemId(ItemType.ObjectContainer);
-            bool num = m_ExpandedIds.Contains(itemId);
-            HierarchyItem value = new HierarchyItem
-            {
-                id = itemId,
-                level = 0,
-                expandable = true,
-                expanded = m_ExpandedIds.Contains(itemId),
-                selectable = false
-            };
-            hierarchy.Add(in value);
-            if (num)
-            {
-                ObjectHierarchyJob jobData = new ObjectHierarchyJob
-                {
-                    m_EntityType = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef),
-                    m_PrefabRefType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                    m_SubMeshes = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Prefabs_SubMesh_RO_BufferLookup, ref base.CheckedStateRef),
-                    m_ExpandedIds = m_ExpandedIds,
-                    m_Hierarchy = hierarchy
-                };
-                base.Dependency = JobChunkExtensions.Schedule(jobData, m_ObjectQuery, base.Dependency);
-                base.Dependency = EditorHierarchyUISystem_4E004959_LambdaJob_0_Execute(hierarchy, base.Dependency);
-            }
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private UpdateSelection() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void UpdateSelection()
-    {
-        if (m_EditorPanelUISystem.activePanel == null)
-        {
-            if (!m_SelectedId.isContainer)
-            {
-                m_SelectedId = default(ItemId);
-            }
-            return;
-        }
-        if (m_ToolSystem.selected != Entity.Null)
-        {
-            if (m_SelectedId.entity != m_ToolSystem.selected)
-            {
-                m_SelectedId = new ItemId
-                {
-                    type = ItemType.Object,
-                    entity = m_ToolSystem.selected
-                };
-                RefreshCameraController((CameraMode)m_CameraMode.value);
-            }
-            return;
-        }
-        PanelItem panelItem = panelItems.FirstOrDefault((PanelItem p) =&gt; p.type == m_SelectedId.type);
-        if (m_EditorPanelUISystem.activePanel != panelItem?.panel)
-        {
-            PanelItem panelItem2 = panelItems.FirstOrDefault((PanelItem p) =&gt; p.panel == m_EditorPanelUISystem.activePanel);
-            m_SelectedId = ((panelItem2 != null) ? new ItemId(panelItem2.type) : default(ItemId));
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private UpdateViewport(System.Boolean force) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void UpdateViewport(bool force)
-    {
-        m_NextViewportStartIndex = math.clamp(m_NextViewportStartIndex, 0, m_Hierarchy.Length);
-        m_NextViewportEndIndex = math.clamp(m_NextViewportEndIndex, 0, m_Hierarchy.Length);
-        if (force || ViewportChanged())
-        {
-            m_Viewport.startIndex = m_NextViewportStartIndex;
-            m_Viewport.items.Clear();
-            for (int i = m_NextViewportStartIndex; i &lt; m_NextViewportEndIndex; i++)
-            {
-                m_Viewport.items.Add(BuildViewportItem(m_Hierarchy[i]));
-            }
-            m_ViewportBinding.TriggerUpdate();
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private ViewportChanged() : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">private bool ViewportChanged()
-    {
-        if (m_NextViewportStartIndex != m_Viewport.startIndex || m_NextViewportEndIndex != m_Viewport.startIndex + m_Viewport.items.Count)
-        {
-            return true;
-        }
-        for (int i = 0; i &lt; m_Viewport.items.Count; i++)
-        {
-            ViewportItem viewportItem = m_Viewport.items[i];
-            int num = m_Viewport.startIndex + i;
-            if (num &gt;= m_Hierarchy.Length)
-            {
-                return true;
-            }
-            if (!viewportItem.EqualsHierarchy(m_Hierarchy[num]))
-            {
-                return true;
-            }
-        }
-        return false;
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.UI.Editor.EditorHierarchyUISystem+CameraMode</code>  </li>
-<li><code>Game.UI.Editor.EditorHierarchyUISystem+ObjectHierarchyJob</code>  </li>
-<li><code>Game.UI.Editor.EditorHierarchyUISystem+PanelItem</code>  </li>
-<li><code>Game.UI.Editor.EditorHierarchyUISystem+Viewport</code>  </li>
-<li><code>Game.UI.Editor.EditorHierarchyUISystem+ViewportItem</code>  </li>
-<li><code>Game.UI.Editor.EditorHierarchyUISystem+HierarchyItem</code>  </li>
-<li><code>Game.UI.Editor.EditorHierarchyUISystem+ItemId</code>  </li>
-<li><code>Game.UI.Editor.EditorHierarchyUISystem+ItemType</code>  </li>
-<li><code>Game.UI.Editor.EditorHierarchyUISystem+EditorHierarchyUISystem_4E004959_LambdaJob_0_Job</code>  </li>
-<li><code>Game.UI.Editor.EditorHierarchyUISystem+TypeHandle</code>  </li>
-<li><code>Game.UI.Editor.EditorHierarchyUISystem+&lt;&gt;c__DisplayClass40_0</code>  </li>
-</ul>
+<p>Notes:
+- The system uses NativeList and NativeParallelHashSet; they are allocated in OnCreate and disposed in OnDestroy—do not duplicate or leak them.
+- The hierarchy rebuild uses Jobs/IJobChunk (Burst compiled) — changes to entity/component queries can mark the hierarchy dirty (m_ModifiedQuery).</p>
 
 
 

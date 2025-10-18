@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87056,6 +87148,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -101494,15 +101609,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -101539,9 +101645,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -117932,6 +118038,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117957,15 +118085,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -118004,9 +118123,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118029,213 +118148,144 @@
 
 
 <h1 id="gameuiingamedispatchedvehiclessection">Game.UI.InGame.DispatchedVehiclesSection</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.UI.InGame</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.UI.InGame.InfoSectionBase</code><br />
-<strong>Implements:</strong> <code>Game.UI.InGame.ISectionSource</code>, <code>Colossal.UI.Binding.IJsonWritable</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class DispatchedVehiclesSection : Game.UI.InGame.InfoSectionBase, Game.UI.InGame.ISectionSource, Colossal.UI.Binding.IJsonWritable
-{
-    private Unity.Entities.EntityQuery m_ServiceDispatchQuery;
-    private Unity.Collections.NativeList&lt;Unity.Entities.Entity&gt; m_VehiclesResult;
-    private Unity.Collections.NativeList&lt;Game.UI.InGame.VehiclesSection+UIVehicle&gt; &lt;vehicleList&gt;k__BackingField;
-    private Game.UI.InGame.DispatchedVehiclesSection+TypeHandle __TypeHandle;
-
-    protected System.String group { protected get; }
-    protected System.Boolean displayForDestroyedObjects { protected get; }
-    protected System.Boolean displayForUpgrades { protected get; }
-    private Unity.Collections.NativeList&lt;Game.UI.InGame.VehiclesSection+UIVehicle&gt; vehicleList { private get; private set; }
-
-    public DispatchedVehiclesSection();
-
-    private System.Void __AssignQueries(Unity.Entities.SystemState&amp; state);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnCreateForCompiler();
-    protected virtual System.Void OnDestroy();
-    protected virtual System.Void OnProcess();
-    protected virtual System.Void OnUpdate();
-    public virtual System.Void OnWriteProperties(Colossal.UI.Binding.IJsonWriter writer);
-    protected virtual System.Void Reset();
-    private System.Boolean Visible();
-}
-</code></pre>
+<p><strong>Assembly:</strong> Assembly-CSharp<br />
+<strong>Namespace:</strong> Game.UI.InGame</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> InfoSectionBase</p>
+<p><strong>Summary:</strong><br />
+Section that collects and displays vehicles currently dispatched to the selected entity (building/citizen/event). Uses a Burst-compiled IJobChunk (CollectDispatchedVehiclesJob) to scan entities with ServiceDispatch buffers and a set of request/vehicle components (fire, police, ambulance, hearse, maintenance, public transport, etc.), builds a list of vehicle entities that are actively dispatched for requests related to the selected entity, then converts those entities to UI vehicle entries (VehiclesSection.UIVehicle) for display. Designed to run inside the game's ECS/SystemState model and is compiler-generated with [Preserve] attributes for in-game usage.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Unity.Entities.EntityQuery m_ServiceDispatchQuery</code>  </li>
+<li>
+<p><code>private EntityQuery m_ServiceDispatchQuery</code><br />
+Holds the entity query used to enumerate entities that have Vehicle and ServiceDispatch components (and are not Deleted/Temp). Initialized in OnCreate.</p>
+</li>
+<li>
+<p><code>private NativeList&lt;Entity&gt; m_VehiclesResult</code><br />
+NativeList used by the job to accumulate matching vehicle entities. Allocated with Allocator.Persistent in OnCreate and disposed in OnDestroy.</p>
+</li>
+<li>
+<p><code>private TypeHandle __TypeHandle</code><br />
+Struct grouping all EntityTypeHandle / BufferTypeHandle / ComponentLookup handles used to execute the CollectDispatchedVehiclesJob. Populated in OnCreateForCompiler via __AssignHandles.</p>
+</li>
+<li>
+<p><code>private NativeList&lt;VehiclesSection.UIVehicle&gt; vehicleList { get; set; }</code><br />
+NativeList of the UI vehicle entries produced in OnProcess by calling VehiclesSection.AddVehicle for each vehicle entity found. Allocated in OnCreate and disposed in OnDestroy.</p>
+</li>
+<li>
+<p><code>private struct CollectDispatchedVehiclesJob</code><br />
+Nested Burst-compiled IJobChunk implementation that scans chunks for vehicles and their ServiceDispatch buffers, inspects request components and vehicle-specific data (request counts or Dispatched flags), and appends matching vehicles to m_VehiclesResult. Uses many ComponentLookup&lt;...&gt; fields in read-only mode.</p>
+</li>
+<li>
+<p><code>private struct TypeHandle</code><br />
+Nested struct that groups and assigns all required ECS handles (EntityTypeHandle, BufferTypeHandle<ServiceDispatch>, multiple ComponentLookup<T> for request and vehicle components). Has __AssignHandles(ref SystemState state) to initialize handles.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_ServiceDispatchQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeList&lt;Unity.Entities.Entity&gt; m_VehiclesResult</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeList&lt;Unity.Entities.Entity&gt; m_VehiclesResult;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeList&lt;Game.UI.InGame.VehiclesSection+UIVehicle&gt; &lt;vehicleList&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeList&lt;Game.UI.InGame.VehiclesSection+UIVehicle&gt; &lt;vehicleList&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private Game.UI.InGame.DispatchedVehiclesSection+TypeHandle __TypeHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.UI.InGame.DispatchedVehiclesSection+TypeHandle __TypeHandle;
-</code></pre>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>protected System.String group { protected get }</code>  </li>
+<li>
+<p><code>protected override string group =&gt; "DispatchedVehiclesSection"</code><br />
+Section grouping name used by the UI/InfoSection system.</p>
+</li>
+<li>
+<p><code>protected override bool displayForDestroyedObjects =&gt; true</code><br />
+Indicates the section should be shown for destroyed objects.</p>
+</li>
+<li>
+<p><code>protected override bool displayForUpgrades =&gt; true</code><br />
+Indicates the section should be shown for upgrade previews.</p>
+</li>
+<li>
+<p><code>private NativeList&lt;VehiclesSection.UIVehicle&gt; vehicleList { get; set; }</code><br />
+(See field entry) Backed property for the NativeList used to build the UI list.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">protected System.String group { protected get; }
-</code></pre>
-<ul>
-<li><code>protected System.Boolean displayForDestroyedObjects { protected get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected System.Boolean displayForDestroyedObjects { protected get; }
-</code></pre>
-<ul>
-<li><code>protected System.Boolean displayForUpgrades { protected get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected System.Boolean displayForUpgrades { protected get; }
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeList&lt;Game.UI.InGame.VehiclesSection+UIVehicle&gt; vehicleList { private get; private set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeList&lt;Game.UI.InGame.VehiclesSection+UIVehicle&gt; vehicleList { private get; private set; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public DispatchedVehiclesSection()</code>  </li>
+<li><code>public DispatchedVehiclesSection()</code><br />
+Default constructor (marked [Preserve] on lifecycle methods) — most initialization is done in OnCreate.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public DispatchedVehiclesSection()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private __AssignQueries(Unity.Entities.SystemState&amp; state) : System.Void</code>  </li>
+<li>
+<p><code>[Preserve] protected override void OnCreate()</code><br />
+Initializes the m_ServiceDispatchQuery (Vehicle + ServiceDispatch, excluding Deleted/Temp), allocates m_VehiclesResult and vehicleList as persistent NativeLists. Also calls base.OnCreate().</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnDestroy()</code><br />
+Disposes vehicleList and m_VehiclesResult, then calls base.OnDestroy(). Important to avoid native memory leaks.</p>
+</li>
+<li>
+<p><code>protected override void Reset()</code><br />
+Clears vehicleList and m_VehiclesResult. Called by the section lifecycle to reset state between uses.</p>
+</li>
+<li>
+<p><code>private bool Visible()</code><br />
+Returns true when there are any collected dispatched vehicles (m_VehiclesResult.Length &gt; 0). Used to set base.visible.</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnUpdate()</code><br />
+Creates and schedules the CollectDispatchedVehiclesJob (passing in the selectedEntity, all ComponentLookup/Handle instances via InternalCompilerInterface.Get... wrappers) against m_ServiceDispatchQuery, then calls Complete() to finish the job immediately. Sets base.visible according to Visible().</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private void __AssignQueries(ref SystemState state)
-    {
-        new EntityQueryBuilder(Allocator.Temp).Dispose();
-    }
-</code></pre>
+<p>Notes:
+  - The job is Burst-compiled and uses read-only ComponentLookup instances for safe multi-threaded access.
+  - The job copies results into the persistent NativeList m_VehiclesResult which is then consumed in OnProcess.</p>
 <ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
+<li>
+<p><code>protected override void OnProcess()</code><br />
+Iterates m_VehiclesResult, calls VehiclesSection.AddVehicle(EntityManager, vehicle, vehicleList) to produce UI vehicle entries, and then sorts vehicleList.</p>
+</li>
+<li>
+<p><code>public override void OnWriteProperties(IJsonWriter writer)</code><br />
+Serializes vehicleList into JSON by calling VehiclesSection.BindVehicle for each UIVehicle. Writes array under property name "vehicleList".</p>
+</li>
+<li>
+<p><code>[MethodImpl(MethodImplOptions.AggressiveInlining)] private void __AssignQueries(ref SystemState state)</code><br />
+Compiler helper; currently creates and disposes an EntityQueryBuilder(Allocator.Temp) — present to satisfy generated code patterns.</p>
+</li>
+<li>
+<p><code>protected override void OnCreateForCompiler()</code><br />
+Compiler-time initialization hook that calls __AssignQueries(ref base.CheckedStateRef) and __TypeHandle.__AssignHandles(ref base.CheckedStateRef) to set up type handles and queries for use by the job.</p>
+</li>
+<li>
+<p><code>private struct CollectDispatchedVehiclesJob.Execute(...)</code><br />
+Detailed implementation: iterates chunk entities, skips duplicate vehicle entities already in m_VehiclesResult, reads vehicle-specific request counts or dispatched flags (FireEngine.m_RequestCount, PoliceCar.m_RequestCount, Ambulance flags, Hearse flags, etc.), iterates the ServiceDispatch buffer up to min(buffer.Length, requestCount) and for each ServiceDispatch inspects the referenced request entity. If the request component matches the selected entity via direct target/citizen or via event links (OnFire.Event, Destroyed.Event, AccidentSite.Event, InDanger.Event, CurrentBuilding.CurrentBuilding), the vehicle entity is added to m_VehiclesResult.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_ServiceDispatchQuery = GetEntityQuery(ComponentType.ReadOnly&lt;Vehicle&gt;(), ComponentType.ReadOnly&lt;ServiceDispatch&gt;(), ComponentType.Exclude&lt;Deleted&gt;(), ComponentType.Exclude&lt;Temp&gt;());
-        m_VehiclesResult = new NativeList&lt;Entity&gt;(5, Allocator.Persistent);
-        vehicleList = new NativeList&lt;VehiclesSection.UIVehicle&gt;(5, Allocator.Persistent);
-    }
+<p>Important behavior:
+  - Supports multiple request types: FireRescueRequest, PoliceEmergencyRequest, HealthcareRequest, EvacuationRequest, GarbageCollectionRequest, MaintenanceRequest.
+  - Uses component relationships to detect whether a request is relevant to the currently selected entity (direct target/citizen or via event linking components).
+  - Avoids adding duplicate vehicle entities.</p>
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Example: how the section collects vehicles during the UI lifecycle.
+// You typically don't instantiate this directly — the InfoSection system creates it.
+// This snippet illustrates that OnCreate allocates lists and OnUpdate runs the job.
+
+[Preserve]
+protected override void OnCreate()
+{
+    base.OnCreate();
+    // m_VehiclesResult and vehicleList are allocated here by the section,
+    // so no extra setup is usually required in user code.
+}
+
+[Preserve]
+protected override void OnUpdate()
+{
+    base.OnUpdate();
+    // The section schedules the CollectDispatchedVehiclesJob and immediately completes it,
+    // then sets base.visible based on whether any dispatched vehicles were found.
+}
+
+// After the job completes, OnProcess will call VehiclesSection.AddVehicle(...) for each found vehicle,
+// and OnWriteProperties will serialize vehicleList into JSON for the UI.
 </code></pre>
-<ul>
-<li><code>protected virtual OnCreateForCompiler() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnCreateForCompiler()
-    {
-        base.OnCreateForCompiler();
-        __AssignQueries(ref base.CheckedStateRef);
-        __TypeHandle.__AssignHandles(ref base.CheckedStateRef);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnDestroy() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnDestroy()
-    {
-        vehicleList.Dispose();
-        m_VehiclesResult.Dispose();
-        base.OnDestroy();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnProcess() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnProcess()
-    {
-        for (int i = 0; i &lt; m_VehiclesResult.Length; i++)
-        {
-            Entity vehicle = m_VehiclesResult[i];
-            VehiclesSection.AddVehicle(base.EntityManager, vehicle, vehicleList);
-        }
-        vehicleList.Sort();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        JobChunkExtensions.Schedule(new CollectDispatchedVehiclesJob
-        {
-            m_SelectedEntity = selectedEntity,
-            m_EntityHandle = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef),
-            m_ServiceDispatchHandle = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Simulation_ServiceDispatch_RO_BufferTypeHandle, ref base.CheckedStateRef),
-            m_CurrentBuildingFromEntity = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Citizens_CurrentBuilding_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_FireRequestFromEntity = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Simulation_FireRescueRequest_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PoliceRequestFromEntity = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Simulation_PoliceEmergencyRequest_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_HealthcareRequestFromEntity = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Simulation_HealthcareRequest_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_EvacuationRequestFromEntity = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Simulation_EvacuationRequest_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_GarbageCollectionRequest = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Simulation_GarbageCollectionRequest_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_OnFireFromEntity = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Events_OnFire_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_DestroyedFromEntity = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Common_Destroyed_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_AccidentSiteFromEntity = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Events_AccidentSite_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_InDangerFromEntity = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Events_InDanger_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_FireEngineFromEntity = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Vehicles_FireEngine_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_AmbulanceFromEntity = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Vehicles_Ambulance_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PoliceCarFromEntity = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Vehicles_PoliceCar_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PublicTransportFromEntity = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Vehicles_PublicTransport_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_HearseFromEntity = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Vehicles_Hearse_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_MaintenanceVehicleFromEntity = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Vehicles_MaintenanceVehicle_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_MaintenanceRequest = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Simulation_MaintenanceRequest_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_VehiclesResult = m_VehiclesResult
-        }, m_ServiceDispatchQuery, base.Dependency).Complete();
-        base.visible = Visible();
-    }
-</code></pre>
-<ul>
-<li><code>public virtual OnWriteProperties(Colossal.UI.Binding.IJsonWriter writer) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override void OnWriteProperties(IJsonWriter writer)
-    {
-        writer.PropertyName(&quot;vehicleList&quot;);
-        writer.ArrayBegin(vehicleList.Length);
-        for (int i = 0; i &lt; vehicleList.Length; i++)
-        {
-            VehiclesSection.BindVehicle(m_NameSystem, writer, vehicleList[i]);
-        }
-        writer.ArrayEnd();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual Reset() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void Reset()
-    {
-        vehicleList.Clear();
-        m_VehiclesResult.Clear();
-    }
-</code></pre>
-<ul>
-<li><code>private Visible() : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">private bool Visible()
-    {
-        return m_VehiclesResult.Length &gt; 0;
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.UI.InGame.DispatchedVehiclesSection+CollectDispatchedVehiclesJob</code>  </li>
-<li><code>Game.UI.InGame.DispatchedVehiclesSection+TypeHandle</code>  </li>
-</ul>
+<p>{{ ADDITIONAL_INFO }}
+- Threading/memory: m_VehiclesResult and vehicleList are persistent NativeLists — ensure the section runs its OnDestroy to dispose them. The job is scheduled and then .Complete() is called in OnUpdate, so job results are available synchronously in OnProcess.
+- Extension points: If you need to customize which dispatched vehicles show up, consider modifying or replacing the CollectDispatchedVehiclesJob logic or filtering vehicleList in OnProcess before sorting/writing.
+- Dependencies: This section relies on VehiclesSection utility methods (AddVehicle, BindVehicle) and many request/event/vehicle component types present in the game's ECS.</p>
 
 
 

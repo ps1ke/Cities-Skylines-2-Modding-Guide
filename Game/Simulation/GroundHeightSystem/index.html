@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -82387,18 +82479,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -82423,9 +82515,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -87145,6 +87237,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -117921,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117948,18 +118085,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -117984,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118009,427 +118146,181 @@
 
 
 <h1 id="gamesimulationgroundheightsystem">Game.Simulation.GroundHeightSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Simulation</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code><br />
-<strong>Implements:</strong> <code>Colossal.Serialization.Entities.IJobSerializable</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class GroundHeightSystem : Game.GameSystemBase, Colossal.Serialization.Entities.IJobSerializable
-{
-    private Game.Simulation.TerrainSystem m_TerrainSystem;
-    private Game.Simulation.WaterSystem m_WaterSystem;
-    private Game.Common.ModificationBarrier2 m_ModificationBarrier;
-    private Game.Objects.SearchSystem m_ObjectSearchSystem;
-    private Game.Net.SearchSystem m_NetSearchSystem;
-    private Game.Areas.SearchSystem m_AreaSearchSystem;
-    private Game.Tools.ToolSystem m_ToolSystem;
-    private Game.Areas.GeometrySystem m_AreaGeometrySystem;
-    private Unity.Collections.NativeList&lt;Colossal.Mathematics.Bounds2&gt; m_NewUpdates;
-    private Unity.Collections.NativeList&lt;Colossal.Mathematics.Bounds2&gt; m_PendingUpdates;
-    private Unity.Collections.NativeList&lt;Colossal.Mathematics.Bounds2&gt; m_ReadingUpdates;
-    private Unity.Collections.NativeList&lt;Colossal.Mathematics.Bounds2&gt; m_ReadyUpdates;
-    private Unity.Jobs.JobHandle m_UpdateDeps;
-    private Game.Simulation.GroundHeightSystem+LoadHeightsState m_LoadHeightsState;
-    private Game.Simulation.GroundHeightSystem+TypeHandle __TypeHandle;
-
-    public GroundHeightSystem();
-
-    private System.Void __AssignQueries(Unity.Entities.SystemState&amp; state);
-    public System.Void AfterReadHeights();
-    public System.Void BeforeReadHeights();
-    public System.Void BeforeUpdateHeights();
-    public Unity.Jobs.JobHandle Deserialize&lt;TReader&gt;(Colossal.Serialization.Entities.EntityReaderData readerData, Unity.Jobs.JobHandle inputDeps);
-    public Unity.Collections.NativeList&lt;Colossal.Mathematics.Bounds2&gt; GetUpdateBuffer();
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnCreateForCompiler();
-    protected virtual System.Void OnDestroy();
-    protected virtual System.Void OnGameLoaded(Colossal.Serialization.Entities.Context serializationContext);
-    protected virtual System.Void OnUpdate();
-    public Unity.Jobs.JobHandle Serialize&lt;TWriter&gt;(Colossal.Serialization.Entities.EntityWriterData writerData, Unity.Jobs.JobHandle inputDeps);
-    public Unity.Jobs.JobHandle SetDefaults(Colossal.Serialization.Entities.Context context);
-}
-</code></pre>
+<p><strong>Assembly:</strong> Assembly-CSharp<br />
+<strong>Namespace:</strong> Game.Simulation</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> GameSystemBase, IJobSerializable</p>
+<p><strong>Summary:</strong><br />
+GroundHeightSystem is responsible for tracking regions of the world whose terrain/water heights may have changed and for updating entity positions (objects, nets, nodes, areas) to match the current terrain and water surface. It collects update regions as Bounds2 lists, finds affected entities using quadtrees (static objects, lanes, nets, areas), and schedules Burst-compiled jobs to adjust transforms, curves and area node positions. It also implements serialization hooks (Serialize/Deserialize/SetDefaults) so the update buffers are saved/loaded with the game and coordinates with TerrainSystem, WaterSystem, search systems and the modification barrier to produce the required entity update commands safely on worker threads. The system uses several NativeList<Bounds2> buffers to stage updates through distinct phases (New -&gt; Pending -&gt; Reading -&gt; Ready) and a LoadHeightsState to coordinate the loading lifecycle.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.Simulation.TerrainSystem m_TerrainSystem</code>  </li>
+<li>
+<p><code>private TerrainSystem m_TerrainSystem</code><br />
+Internal reference to the TerrainSystem used to read terrain height data during updates and to register readers for CPU height reads.</p>
+</li>
+<li>
+<p><code>private WaterSystem m_WaterSystem</code><br />
+Reference to the WaterSystem used to read water surface heights (used for objects/areas that care about water surface).</p>
+</li>
+<li>
+<p><code>private ModificationBarrier2 m_ModificationBarrier</code><br />
+Used to obtain an EntityCommandBuffer.ParallelWriter to apply component additions/updates as part of jobs.</p>
+</li>
+<li>
+<p><code>private Game.Objects.SearchSystem m_ObjectSearchSystem</code><br />
+Search tree provider for static object queries (quad-tree).</p>
+</li>
+<li>
+<p><code>private Game.Net.SearchSystem m_NetSearchSystem</code><br />
+Search tree provider for net/lanes queries.</p>
+</li>
+<li>
+<p><code>private Game.Areas.SearchSystem m_AreaSearchSystem</code><br />
+Search tree provider for area queries.</p>
+</li>
+<li>
+<p><code>private ToolSystem m_ToolSystem</code><br />
+Used to check editor/action mode (affects update behavior for objects/sub-objects).</p>
+</li>
+<li>
+<p><code>private Game.Areas.GeometrySystem m_AreaGeometrySystem</code><br />
+Used to notify area geometry once terrain heights are ready after loading.</p>
+</li>
+<li>
+<p><code>private NativeList&lt;Bounds2&gt; m_NewUpdates</code><br />
+NativeList storing newly requested update bounds. Returned to callers by GetUpdateBuffer() for adding new update regions. Allocated with Allocator.Persistent when needed.</p>
+</li>
+<li>
+<p><code>private NativeList&lt;Bounds2&gt; m_PendingUpdates</code><br />
+NativeList storing updates that were promoted from New and are awaiting the next phase (reading).</p>
+</li>
+<li>
+<p><code>private NativeList&lt;Bounds2&gt; m_ReadingUpdates</code><br />
+NativeList used when reading terrain heights. Regions moved here are read from terrain/water and then promoted to Ready.</p>
+</li>
+<li>
+<p><code>private NativeList&lt;Bounds2&gt; m_ReadyUpdates</code><br />
+NativeList of bounds that have finished the read phase and are ready to have affected entities found and heights updated.</p>
+</li>
+<li>
+<p><code>private JobHandle m_UpdateDeps</code><br />
+JobHandle tracking the last scheduled serialization/deserialization/setdefaults job or other internal job dependencies. Completed where necessary before modifying lists on the main thread.</p>
+</li>
+<li>
+<p><code>private LoadHeightsState m_LoadHeightsState</code><br />
+Enum value tracking the load lifecycle for heights (Loaded, Pending, Reading, Ready). Used when loading/saving games to trigger callbacks (e.g., TerrainHeightsReadyAfterLoading).</p>
+</li>
+<li>
+<p><code>private TypeHandle __TypeHandle</code><br />
+Generated type handle storing ComponentLookup/BufferLookup handles used to build jobs (assigned in OnCreateForCompiler).</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.Simulation.TerrainSystem m_TerrainSystem;
-</code></pre>
+<hr />
+<h2 id="properties">Properties</h2>
 <ul>
-<li><code>private Game.Simulation.WaterSystem m_WaterSystem</code>  </li>
+<li>None (no public properties)</li>
 </ul>
-<pre><code class="language-csharp">private Game.Simulation.WaterSystem m_WaterSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Common.ModificationBarrier2 m_ModificationBarrier</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Common.ModificationBarrier2 m_ModificationBarrier;
-</code></pre>
-<ul>
-<li><code>private Game.Objects.SearchSystem m_ObjectSearchSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Objects.SearchSystem m_ObjectSearchSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Net.SearchSystem m_NetSearchSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Net.SearchSystem m_NetSearchSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Areas.SearchSystem m_AreaSearchSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Areas.SearchSystem m_AreaSearchSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Tools.ToolSystem m_ToolSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Tools.ToolSystem m_ToolSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Areas.GeometrySystem m_AreaGeometrySystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Areas.GeometrySystem m_AreaGeometrySystem;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeList&lt;Colossal.Mathematics.Bounds2&gt; m_NewUpdates</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeList&lt;Colossal.Mathematics.Bounds2&gt; m_NewUpdates;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeList&lt;Colossal.Mathematics.Bounds2&gt; m_PendingUpdates</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeList&lt;Colossal.Mathematics.Bounds2&gt; m_PendingUpdates;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeList&lt;Colossal.Mathematics.Bounds2&gt; m_ReadingUpdates</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeList&lt;Colossal.Mathematics.Bounds2&gt; m_ReadingUpdates;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeList&lt;Colossal.Mathematics.Bounds2&gt; m_ReadyUpdates</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeList&lt;Colossal.Mathematics.Bounds2&gt; m_ReadyUpdates;
-</code></pre>
-<ul>
-<li><code>private Unity.Jobs.JobHandle m_UpdateDeps</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Jobs.JobHandle m_UpdateDeps;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.GroundHeightSystem+LoadHeightsState m_LoadHeightsState</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.GroundHeightSystem+LoadHeightsState m_LoadHeightsState;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.GroundHeightSystem+TypeHandle __TypeHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.GroundHeightSystem+TypeHandle __TypeHandle;
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public GroundHeightSystem()</code>  </li>
+<li><code>public GroundHeightSystem()</code><br />
+Default constructor. System initialization occurs in the OnCreate override where dependent systems and type handles are acquired.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public GroundHeightSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private __AssignQueries(Unity.Entities.SystemState&amp; state) : System.Void</code>  </li>
+<li>
+<p><code>protected override void OnCreate()</code> : System.Void<br />
+Initializes references to TerrainSystem, WaterSystem, ModificationBarrier2 and search/tool/area systems via World.GetOrCreateSystemManaged. Sets up the system for runtime use.</p>
+</li>
+<li>
+<p><code>protected override void OnDestroy()</code> : System.Void<br />
+Completes outstanding update jobs, disposes any created NativeList<Bounds2> lists, and calls base.OnDestroy. Ensures native allocations are cleaned up.</p>
+</li>
+<li>
+<p><code>protected override void OnGameLoaded(Context serializationContext)</code> : System.Void<br />
+Called after a game is loaded; sets the internal load state to Loaded so loading-related promotion of buffers can begin.</p>
+</li>
+<li>
+<p><code>public NativeList&lt;Bounds2&gt; GetUpdateBuffer()</code> : NativeList<Bounds2><br />
+Returns a NativeList<Bounds2> that callers can write bounds into to request height updates. Ensures outstanding jobs are completed and lazily allocates the New updates list (Allocator.Persistent). If a Ready list exists but is empty, it may reuse it for New to avoid extra allocation.</p>
+</li>
+<li>
+<p><code>public void BeforeUpdateHeights()</code> : System.Void<br />
+Promotes New updates into Pending (merging lists if needed) and, when in the Loaded state, moves the load state to Pending. Completes m_UpdateDeps before manipulating lists.</p>
+</li>
+<li>
+<p><code>public void BeforeReadHeights()</code> : System.Void<br />
+Promotes Pending updates into Reading and sets the load state to Reading if it was Pending. Completes m_UpdateDeps before manipulating lists.</p>
+</li>
+<li>
+<p><code>public void AfterReadHeights()</code> : System.Void<br />
+Promotes Reading updates into Ready and if load state was Reading sets it to Ready and notifies m_AreaGeometrySystem.TerrainHeightsReadyAfterLoading() and m_TerrainSystem.TerrainHeightsReadyAfterLoading(). Completes m_UpdateDeps before manipulating lists.</p>
+</li>
+<li>
+<p><code>public JobHandle Serialize&lt;TWriter&gt;(EntityWriterData writerData, JobHandle inputDeps) where TWriter : struct, IWriter</code> : JobHandle<br />
+Schedules a SerializeJob<TWriter> that writes all four update lists (New/Pending/Reading/Ready) to the provided writer. The scheduled job handle is stored in m_UpdateDeps and returned. Used by entity serialization.</p>
+</li>
+<li>
+<p><code>public JobHandle Deserialize&lt;TReader&gt;(EntityReaderData readerData, JobHandle inputDeps) where TReader : struct, IReader</code> : JobHandle<br />
+Schedules a DeserializeJob<TReader> to populate m_ReadingUpdates from serialized data (reads number of bounds and their min/max). Ensures m_ReadingUpdates exists. Stores and returns dependency in m_UpdateDeps.</p>
+</li>
+<li>
+<p><code>public JobHandle SetDefaults(Context context)</code> : JobHandle<br />
+Schedules a SetDefaultsJob that clears any created update lists (safe defaulting on new contexts). Stores the returned job handle in m_UpdateDeps.</p>
+</li>
+<li>
+<p><code>protected override void OnUpdate()</code> : System.Void<br />
+Main runtime update: if there are ready update bounds, it builds and schedules:</p>
+</li>
+<li>BoundsFindJob (IJobParallelFor) — scans quadtrees to find entities / area items that intersect the ready bounds and enqueues them into a NativeQueue.</li>
+<li>DequeueJob — drains and deduplicates the queue into a NativeList<Entity>.</li>
+<li>
+<p>UpdateHeightsJob (IJobParallelForDefer) — iterates the entity list and updates transforms/curve/node/area data using TerrainHeightData and WaterSurfaceData, and enqueues Updated/BatchesUpdated components via the command buffer. It registers readers with each search system and registers CPU readers with Terrain/Water systems and the modification barrier.
+  The OnUpdate completes and chains job dependencies appropriately and stores m_UpdateDeps for serialization jobs.</p>
+</li>
+<li>
+<p><code>private void __AssignQueries(ref SystemState state)</code> : System.Void<br />
+Compiler-generated placeholder that sets up any entity queries. (Called by OnCreateForCompiler.)</p>
+</li>
+<li>
+<p><code>protected override void OnCreateForCompiler()</code> : System.Void<br />
+Called by generated code path to assign queries and component lookups (via __TypeHandle.__AssignHandles).</p>
+</li>
+<li>
+<p><code>private JobHandle SerializeJob&lt;TWriter&gt;.Execute()</code> etc. (nested job/iterator types)<br />
+This class contains several nested Burst-compiled jobs and iterators used internally:</p>
+</li>
+<li>SerializeJob<TWriter> / DeserializeJob<TReader> — IJob serializers for the update buffers.</li>
+<li>SetDefaultsJob — clears lists.</li>
+<li>BoundsFindJob — parallel job which uses multiple quad-tree iterators (ObjectIterator, LaneIterator, NetIterator, AreaIterator) to find affected entities/area items for each ready bounds and enqueue them into a NativeQueue<Entity>.</li>
+<li>DequeueJob — converst the queue into a deduplicated NativeList<Entity>.</li>
+<li>UpdateHeightsJob — parallel update job that adjusts object transforms, net curves, nodes and area nodes according to terrain/water heights and adds Updated/BatchesUpdated/MovedLocation components using an EntityCommandBuffer.ParallelWriter. Contains helper methods to determine lot owners, fixed nodes and to handle sub-objects.</li>
+<li>TypeHandle (struct) — stores ComponentLookup/BufferLookup handles used to populate jobs.</li>
 </ul>
-<pre><code class="language-csharp">private void __AssignQueries(ref SystemState state)
-    {
-        new EntityQueryBuilder(Allocator.Temp).Dispose();
-    }
+<p>These nested types are internal implementation details used to parallelize and Burst-compile the heavy lifting.</p>
+<hr />
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Example: Requesting a terrain height update for a specific 2D area from a mod/system.
+var groundSystem = World.GetOrCreateSystemManaged&lt;Game.Simulation.GroundHeightSystem&gt;();
+
+// Get the update buffer and add a region to update (Bounds2 has min/max as float2)
+var updates = groundSystem.GetUpdateBuffer();
+updates.Add(new Bounds2 { min = new float2(100f, 200f), max = new float2(140f, 240f) });
+
+// Inform the GroundHeightSystem that we finished adding updates for this frame phase:
+groundSystem.BeforeUpdateHeights();
+
+// Later, when the game is about to read terrain heights:
+groundSystem.BeforeReadHeights();
+
+// After terrain/water height reading is done (promotes to Ready and triggers processing):
+groundSystem.AfterReadHeights();
 </code></pre>
-<ul>
-<li><code>public AfterReadHeights() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void AfterReadHeights()
-    {
-        m_UpdateDeps.Complete();
-        if (m_ReadingUpdates.IsCreated &amp;&amp; m_ReadingUpdates.Length != 0)
-        {
-            if (m_ReadyUpdates.IsCreated)
-            {
-                m_ReadyUpdates.AddRange(m_ReadingUpdates.AsArray());
-                m_ReadingUpdates.Clear();
-            }
-            else
-            {
-                m_ReadyUpdates = m_ReadingUpdates;
-                m_ReadingUpdates = default(NativeList&lt;Bounds2&gt;);
-            }
-        }
-        if (m_LoadHeightsState == LoadHeightsState.Reading)
-        {
-            m_LoadHeightsState = LoadHeightsState.Ready;
-            m_AreaGeometrySystem.TerrainHeightsReadyAfterLoading();
-            m_TerrainSystem.TerrainHeightsReadyAfterLoading();
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public BeforeReadHeights() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void BeforeReadHeights()
-    {
-        m_UpdateDeps.Complete();
-        if (m_PendingUpdates.IsCreated &amp;&amp; m_PendingUpdates.Length != 0)
-        {
-            if (m_ReadingUpdates.IsCreated)
-            {
-                m_ReadingUpdates.AddRange(m_PendingUpdates.AsArray());
-                m_PendingUpdates.Clear();
-            }
-            else
-            {
-                m_ReadingUpdates = m_PendingUpdates;
-                m_PendingUpdates = default(NativeList&lt;Bounds2&gt;);
-            }
-        }
-        if (m_LoadHeightsState == LoadHeightsState.Pending)
-        {
-            m_LoadHeightsState = LoadHeightsState.Reading;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public BeforeUpdateHeights() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void BeforeUpdateHeights()
-    {
-        m_UpdateDeps.Complete();
-        if (m_NewUpdates.IsCreated &amp;&amp; m_NewUpdates.Length != 0)
-        {
-            if (m_PendingUpdates.IsCreated)
-            {
-                m_PendingUpdates.AddRange(m_NewUpdates.AsArray());
-                m_NewUpdates.Clear();
-            }
-            else
-            {
-                m_PendingUpdates = m_NewUpdates;
-                m_NewUpdates = default(NativeList&lt;Bounds2&gt;);
-            }
-        }
-        if (m_LoadHeightsState == LoadHeightsState.Loaded)
-        {
-            m_LoadHeightsState = LoadHeightsState.Pending;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public Deserialize&lt;TReader&gt;(Colossal.Serialization.Entities.EntityReaderData readerData, Unity.Jobs.JobHandle inputDeps) : Unity.Jobs.JobHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Unity.Jobs.JobHandle Deserialize&lt;TReader&gt;(Colossal.Serialization.Entities.EntityReaderData readerData, Unity.Jobs.JobHandle inputDeps);
-</code></pre>
-<ul>
-<li><code>public GetUpdateBuffer() : Unity.Collections.NativeList&lt;Colossal.Mathematics.Bounds2&gt;</code>  </li>
-</ul>
-<pre><code class="language-csharp">public NativeList&lt;Bounds2&gt; GetUpdateBuffer()
-    {
-        m_UpdateDeps.Complete();
-        if (!m_NewUpdates.IsCreated)
-        {
-            if (m_ReadyUpdates.IsCreated &amp;&amp; m_ReadyUpdates.Length == 0)
-            {
-                m_NewUpdates = m_ReadyUpdates;
-                m_ReadyUpdates = default(NativeList&lt;Bounds2&gt;);
-            }
-            else
-            {
-                m_NewUpdates = new NativeList&lt;Bounds2&gt;(Allocator.Persistent);
-            }
-        }
-        return m_NewUpdates;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_TerrainSystem = base.World.GetOrCreateSystemManaged&lt;TerrainSystem&gt;();
-        m_WaterSystem = base.World.GetOrCreateSystemManaged&lt;WaterSystem&gt;();
-        m_ModificationBarrier = base.World.GetOrCreateSystemManaged&lt;ModificationBarrier2&gt;();
-        m_ObjectSearchSystem = base.World.GetOrCreateSystemManaged&lt;Game.Objects.SearchSystem&gt;();
-        m_NetSearchSystem = base.World.GetOrCreateSystemManaged&lt;Game.Net.SearchSystem&gt;();
-        m_AreaSearchSystem = base.World.GetOrCreateSystemManaged&lt;Game.Areas.SearchSystem&gt;();
-        m_ToolSystem = base.World.GetOrCreateSystemManaged&lt;ToolSystem&gt;();
-        m_AreaGeometrySystem = base.World.GetOrCreateSystemManaged&lt;Game.Areas.GeometrySystem&gt;();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreateForCompiler() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnCreateForCompiler()
-    {
-        base.OnCreateForCompiler();
-        __AssignQueries(ref base.CheckedStateRef);
-        __TypeHandle.__AssignHandles(ref base.CheckedStateRef);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnDestroy() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnDestroy()
-    {
-        m_UpdateDeps.Complete();
-        if (m_NewUpdates.IsCreated)
-        {
-            m_NewUpdates.Dispose();
-        }
-        if (m_PendingUpdates.IsCreated)
-        {
-            m_PendingUpdates.Dispose();
-        }
-        if (m_ReadingUpdates.IsCreated)
-        {
-            m_ReadingUpdates.Dispose();
-        }
-        if (m_ReadyUpdates.IsCreated)
-        {
-            m_ReadyUpdates.Dispose();
-        }
-        base.OnDestroy();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnGameLoaded(Colossal.Serialization.Entities.Context serializationContext) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnGameLoaded(Context serializationContext)
-    {
-        m_LoadHeightsState = LoadHeightsState.Loaded;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        m_UpdateDeps.Complete();
-        if (m_ReadyUpdates.IsCreated &amp;&amp; m_ReadyUpdates.Length != 0)
-        {
-            NativeQueue&lt;Entity&gt; queue = new NativeQueue&lt;Entity&gt;(Allocator.TempJob);
-            NativeList&lt;Entity&gt; list = new NativeList&lt;Entity&gt;(Allocator.TempJob);
-            JobHandle dependencies;
-            JobHandle dependencies2;
-            JobHandle dependencies3;
-            JobHandle dependencies4;
-            BoundsFindJob jobData = new BoundsFindJob
-            {
-                m_OwnerData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Common_Owner_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_ObjectElevationData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Objects_Elevation_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_BuildingLotData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Buildings_Lot_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_EdgeData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_Edge_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_NetElevationData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_Elevation_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_PrefabRefData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_PrefabObjectGeometryData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_ObjectGeometryData_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_PrefabNetGeometryData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_NetGeometryData_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_AreaNodes = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Areas_Node_RO_BufferLookup, ref base.CheckedStateRef),
-                m_Triangles = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Areas_Triangle_RO_BufferLookup, ref base.CheckedStateRef),
-                m_ReadyUpdates = m_ReadyUpdates,
-                m_StaticObjectSearchTree = m_ObjectSearchSystem.GetStaticSearchTree(readOnly: true, out dependencies),
-                m_LaneSearchTree = m_NetSearchSystem.GetLaneSearchTree(readOnly: true, out dependencies2),
-                m_NetSearchTree = m_NetSearchSystem.GetNetSearchTree(readOnly: true, out dependencies3),
-                m_AreaSearchTree = m_AreaSearchSystem.GetSearchTree(readOnly: true, out dependencies4),
-                m_Queue = queue.AsParallelWriter()
-            };
-            DequeueJob jobData2 = new DequeueJob
-            {
-                m_Queue = queue,
-                m_List = list,
-                m_ReadyUpdates = m_ReadyUpdates
-            };
-            JobHandle deps;
-            UpdateHeightsJob jobData3 = new UpdateHeightsJob
-            {
-                m_OwnerData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Common_Owner_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_EdgeData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_Edge_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_NetElevationData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_Elevation_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_ObjectElevationData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Objects_Elevation_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_SpawnLocationData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Objects_SpawnLocation_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_MovedLocationData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Objects_MovedLocation_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_BuildingLotData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Buildings_Lot_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_PrefabRefData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_PrefabPlaceableObjectData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_PlaceableObjectData_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_PrefabObjectGeometryData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_ObjectGeometryData_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_PrefabNetGeometryData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_NetGeometryData_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_PrefabBuildingData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_BuildingData_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_PrefabBuildingExtensionData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_BuildingExtensionData_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_PrefabBuildingTerraformData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_BuildingTerraformData_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_PrefabAreaGeometryData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_AreaGeometryData_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_ConnectedEdges = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Net_ConnectedEdge_RO_BufferLookup, ref base.CheckedStateRef),
-                m_SubObjects = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Objects_SubObject_RO_BufferLookup, ref base.CheckedStateRef),
-                m_InstalledUpgrades = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Buildings_InstalledUpgrade_RO_BufferLookup, ref base.CheckedStateRef),
-                m_TransformData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Objects_Transform_RW_ComponentLookup, ref base.CheckedStateRef),
-                m_CurveData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_Curve_RW_ComponentLookup, ref base.CheckedStateRef),
-                m_NodeData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_Node_RW_ComponentLookup, ref base.CheckedStateRef),
-                m_CullingInfoData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Rendering_CullingInfo_RW_ComponentLookup, ref base.CheckedStateRef),
-                m_AreaNodes = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Areas_Node_RW_BufferLookup, ref base.CheckedStateRef),
-                m_EditorMode = m_ToolSystem.actionMode.IsEditor(),
-                m_List = list,
-                m_TerrainHeightData = m_TerrainSystem.GetHeightData(),
-                m_WaterSurfaceData = m_WaterSystem.GetSurfaceData(out deps),
-                m_CommandBuffer = m_ModificationBarrier.CreateCommandBuffer().AsParallelWriter()
-            };
-            JobHandle jobHandle = IJobParallelForExtensions.Schedule(jobData, m_ReadyUpdates.Length, 1, JobHandle.CombineDependencies(base.Dependency, dependencies4, JobHandle.CombineDependencies(dependencies, dependencies2, dependencies3)));
-            JobHandle jobHandle2 = IJobExtensions.Schedule(jobData2, jobHandle);
-            JobHandle jobHandle3 = jobData3.Schedule(list, 4, JobHandle.CombineDependencies(jobHandle2, deps));
-            queue.Dispose(jobHandle2);
-            list.Dispose(jobHandle3);
-            m_ObjectSearchSystem.AddStaticSearchTreeReader(jobHandle);
-            m_NetSearchSystem.AddLaneSearchTreeReader(jobHandle);
-            m_NetSearchSystem.AddNetSearchTreeReader(jobHandle);
-            m_AreaSearchSystem.AddSearchTreeReader(jobHandle);
-            m_TerrainSystem.AddCPUHeightReader(jobHandle3);
-            m_WaterSystem.AddSurfaceReader(jobHandle3);
-            m_ModificationBarrier.AddJobHandleForProducer(jobHandle3);
-            base.Dependency = jobHandle3;
-            m_UpdateDeps = jobHandle2;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public Serialize&lt;TWriter&gt;(Colossal.Serialization.Entities.EntityWriterData writerData, Unity.Jobs.JobHandle inputDeps) : Unity.Jobs.JobHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Unity.Jobs.JobHandle Serialize&lt;TWriter&gt;(Colossal.Serialization.Entities.EntityWriterData writerData, Unity.Jobs.JobHandle inputDeps);
-</code></pre>
-<ul>
-<li><code>public SetDefaults(Colossal.Serialization.Entities.Context context) : Unity.Jobs.JobHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">public JobHandle SetDefaults(Context context)
-    {
-        SetDefaultsJob jobData = new SetDefaultsJob
-        {
-            m_NewUpdates = m_NewUpdates,
-            m_PendingUpdates = m_PendingUpdates,
-            m_ReadingUpdates = m_ReadingUpdates,
-            m_ReadyUpdates = m_ReadyUpdates
-        };
-        m_UpdateDeps = IJobExtensions.Schedule(jobData, m_UpdateDeps);
-        return m_UpdateDeps;
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Simulation.GroundHeightSystem+LoadHeightsState</code>  </li>
-<li><code>Game.Simulation.GroundHeightSystem+SerializeJob&lt;TWriter&gt;</code>  </li>
-<li><code>Game.Simulation.GroundHeightSystem+DeserializeJob&lt;TReader&gt;</code>  </li>
-<li><code>Game.Simulation.GroundHeightSystem+SetDefaultsJob</code>  </li>
-<li><code>Game.Simulation.GroundHeightSystem+BoundsFindJob</code>  </li>
-<li><code>Game.Simulation.GroundHeightSystem+DequeueJob</code>  </li>
-<li><code>Game.Simulation.GroundHeightSystem+UpdateHeightsJob</code>  </li>
-<li><code>Game.Simulation.GroundHeightSystem+TypeHandle</code>  </li>
-</ul>
+<p>Notes and modding tips:
+- GetUpdateBuffer() returns a NativeList<Bounds2> with Allocator.Persistent. Do not dispose this list yourself — GroundHeightSystem manages its lifetime and disposes it in OnDestroy.
+- Calls such as BeforeUpdateHeights/BeforeReadHeights/AfterReadHeights must be invoked at the appropriate game phases (matching main game loop behavior) to correctly move regions through the New -&gt; Pending -&gt; Reading -&gt; Ready pipeline.
+- Serialize/Deserialize/SetDefaults are used by the game's save/load machinery. If you interact with serialization, ensure you combine JobHandles correctly with the returned JobHandle from these methods.
+- The system schedules Burst jobs and uses EntityCommandBuffer.ParallelWriter. If you create jobs that depend on entity data or search trees, use the same reader registrations (or ensure ordering) to avoid race conditions.</p>
 
 
 

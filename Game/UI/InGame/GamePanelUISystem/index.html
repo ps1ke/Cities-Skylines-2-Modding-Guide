@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87056,6 +87148,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -102092,15 +102207,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -102131,6 +102237,15 @@
   <a href="#methods" class="md-nav__link">
     <span class="md-ellipsis">
       Methods
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
     </span>
   </a>
   
@@ -117923,6 +118038,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117948,15 +118085,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -117994,6 +118122,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -118011,435 +118148,234 @@
 
 
 <h1 id="gameuiingamegamepaneluisystem">Game.UI.InGame.GamePanelUISystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.UI.InGame</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.UI.UISystemBase</code><br />
-<strong>Implements:</strong> <code>Game.Serialization.IPreDeserialize</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class GamePanelUISystem : Game.UI.UISystemBase, Game.Serialization.IPreDeserialize
-{
-    private Game.Prefabs.PrefabSystem m_PrefabSystem;
-    private Game.Tools.ToolSystem m_ToolSystem;
-    private Game.Tools.DefaultToolSystem m_DefaultTool;
-    private Game.UI.InGame.SelectedInfoUISystem m_SelectedInfoUISystem;
-    private Game.UI.InGame.ToolbarUISystem m_ToolbarUISystem;
-    private Game.UI.InGame.PhotoModeUISystem m_PhotoModeUISystem;
-    private Unity.Entities.EntityQuery m_TransportConfigQuery;
-    private Game.Input.InputBarrier m_ToolBarrier;
-    private Colossal.UI.Binding.ValueBinding&lt;Game.UI.InGame.GamePanel&gt; m_ActivePanelBinding;
-    private System.Collections.Generic.Dictionary&lt;System.String, Game.UI.InGame.GamePanel&gt; m_defaultArgs;
-    public System.Action&lt;Game.UI.InGame.GamePanel&gt; eventPanelOpened;
-    public System.Action&lt;Game.UI.InGame.GamePanel&gt; eventPanelClosed;
-    private Unity.Entities.Entity m_PreviousSelectedEntity;
-    private Game.Prefabs.InfoviewPrefab m_PreviousInfoview;
-    private static const System.String kGroup;
-
-    public Game.UI.InGame.GamePanel activePanel { get; }
-    private System.Boolean NeedsClear { private get; }
-
-    public GamePanelUISystem();
-
-    private System.Boolean &lt;OnCreate&gt;b__15_0();
-    private System.Int32 &lt;OnCreate&gt;b__15_1();
-    private System.Void CloseActivePanel();
-    public System.Void ClosePanel(System.String panelType);
-    private System.Void InitializeDefaults();
-    private System.Boolean IsPanelAllowed(Game.UI.InGame.GamePanel panel);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnGameLoaded(Colossal.Serialization.Entities.Context serializationContext);
-    private System.Void OnPanelChanged(Game.UI.InGame.GamePanel previous, Game.UI.InGame.GamePanel next);
-    private System.Void OnPanelClosed(Game.UI.InGame.GamePanel panel);
-    private System.Void OnPanelOpened(Game.UI.InGame.GamePanel panel);
-    protected virtual System.Void OnUpdate();
-    public System.Void PreDeserialize(Colossal.Serialization.Entities.Context context);
-    public System.Void SetDefaultArgs(Game.UI.InGame.GamePanel defaultArgs);
-    public System.Void ShowPanel(System.String panelType);
-    public System.Void ShowPanel(Game.UI.InGame.GamePanel panel);
-    public System.Void ShowPanel&lt;T&gt;(System.Int32 tab);
-    public System.Void ShowPanel&lt;T&gt;(Unity.Entities.Entity selectedEntity);
-    public System.Void TogglePanel(System.String panelType);
-    private System.Boolean TryGetTransportConfig(Game.Prefabs.UITransportConfigurationPrefab&amp; config);
-}
-</code></pre>
+<p><strong>Assembly:</strong> Assembly-CSharp<br />
+<strong>Namespace:</strong> Game.UI.InGame</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> UISystemBase, IPreDeserialize</p>
+<p><strong>Summary:</strong><br />
+Manages the in-game UI panels: opening, closing, toggling and default arguments. Wires UI bindings (group "game") to the game state, blocks input tools when blocking panels are active, coordinates with other systems (ToolSystem, SelectedInfoUISystem, PrefabSystem, ToolbarUISystem, PhotoModeUISystem) and emits panel open/close events. Handles special-case rules (radio enabled, life-path follow state), selection retention, photo mode activation, and transport infoview substitution.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.Prefabs.PrefabSystem m_PrefabSystem</code>  </li>
+<li>
+<p><code>private const string kGroup = "game"</code><br />
+Constant string used as the UI binding group key for all bindings created by this system.</p>
+</li>
+<li>
+<p><code>private PrefabSystem m_PrefabSystem</code><br />
+Reference to the PrefabSystem used to query singleton prefabs such as UI transport configuration.</p>
+</li>
+<li>
+<p><code>private ToolSystem m_ToolSystem</code><br />
+Reference to the ToolSystem used to change active tools and infoviews when panels open/close.</p>
+</li>
+<li>
+<p><code>private DefaultToolSystem m_DefaultTool</code><br />
+Reference to the default tool system; used to reset tool when certain panels open.</p>
+</li>
+<li>
+<p><code>private SelectedInfoUISystem m_SelectedInfoUISystem</code><br />
+Reference to the system that manages the currently selected entity in the UI; used to clear or restore selection when panels open/close.</p>
+</li>
+<li>
+<p><code>private ToolbarUISystem m_ToolbarUISystem</code><br />
+Reference to toolbar system; used to clear asset selections when certain panels open.</p>
+</li>
+<li>
+<p><code>private PhotoModeUISystem m_PhotoModeUISystem</code><br />
+Reference to photo mode UI system; activated/deactivated when PhotoModePanel opens/closes.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_TransportConfigQuery</code><br />
+EntityQuery used to find UITransportConfigurationData to obtain transport infoview prefabs.</p>
+</li>
+<li>
+<p><code>private InputBarrier m_ToolBarrier</code><br />
+An InputBarrier created via InputManager to block tool input while blocking panels are active. The barrier's blocked flag is updated each frame.</p>
+</li>
+<li>
+<p><code>private ValueBinding&lt;GamePanel&gt; m_ActivePanelBinding</code><br />
+Binding that stores the currently active GamePanel in the UI binding group ("game", "activePanel"). Central source for the active panel.</p>
+</li>
+<li>
+<p><code>private Dictionary&lt;string, GamePanel&gt; m_defaultArgs</code><br />
+Maps panel type full name strings to default GamePanel instances used when ShowPanel is called by type string; used to preserve panel properties between openings.</p>
+</li>
+<li>
+<p><code>public Action&lt;GamePanel&gt; eventPanelOpened</code><br />
+Event invoked when a panel is opened (after it has been opened). Subscribers can react to the newly opened panel.</p>
+</li>
+<li>
+<p><code>public Action&lt;GamePanel&gt; eventPanelClosed</code><br />
+Event invoked when a panel is closed (after it has been closed). Subscribers can react to the closed panel.</p>
+</li>
+<li>
+<p><code>private Entity m_PreviousSelectedEntity</code><br />
+Stores the previously selected entity when a panel requests selection retention, so it can be restored when the panel closes.</p>
+</li>
+<li>
+<p><code>private InfoviewPrefab m_PreviousInfoview</code><br />
+Stores the previously active infoview prefab so it can be restored when certain panels close.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.Prefabs.PrefabSystem m_PrefabSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Tools.ToolSystem m_ToolSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Tools.ToolSystem m_ToolSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Tools.DefaultToolSystem m_DefaultTool</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Tools.DefaultToolSystem m_DefaultTool;
-</code></pre>
-<ul>
-<li><code>private Game.UI.InGame.SelectedInfoUISystem m_SelectedInfoUISystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.UI.InGame.SelectedInfoUISystem m_SelectedInfoUISystem;
-</code></pre>
-<ul>
-<li><code>private Game.UI.InGame.ToolbarUISystem m_ToolbarUISystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.UI.InGame.ToolbarUISystem m_ToolbarUISystem;
-</code></pre>
-<ul>
-<li><code>private Game.UI.InGame.PhotoModeUISystem m_PhotoModeUISystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.UI.InGame.PhotoModeUISystem m_PhotoModeUISystem;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_TransportConfigQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_TransportConfigQuery;
-</code></pre>
-<ul>
-<li><code>private Game.Input.InputBarrier m_ToolBarrier</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Input.InputBarrier m_ToolBarrier;
-</code></pre>
-<ul>
-<li><code>private Colossal.UI.Binding.ValueBinding&lt;Game.UI.InGame.GamePanel&gt; m_ActivePanelBinding</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.UI.Binding.ValueBinding&lt;Game.UI.InGame.GamePanel&gt; m_ActivePanelBinding;
-</code></pre>
-<ul>
-<li><code>private System.Collections.Generic.Dictionary&lt;System.String, Game.UI.InGame.GamePanel&gt; m_defaultArgs</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Collections.Generic.Dictionary&lt;System.String, Game.UI.InGame.GamePanel&gt; m_defaultArgs;
-</code></pre>
-<ul>
-<li><code>public System.Action&lt;Game.UI.InGame.GamePanel&gt; eventPanelOpened</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Action&lt;Game.UI.InGame.GamePanel&gt; eventPanelOpened;
-</code></pre>
-<ul>
-<li><code>public System.Action&lt;Game.UI.InGame.GamePanel&gt; eventPanelClosed</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Action&lt;Game.UI.InGame.GamePanel&gt; eventPanelClosed;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.Entity m_PreviousSelectedEntity</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.Entity m_PreviousSelectedEntity;
-</code></pre>
-<ul>
-<li><code>private Game.Prefabs.InfoviewPrefab m_PreviousInfoview</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Prefabs.InfoviewPrefab m_PreviousInfoview;
-</code></pre>
-<ul>
-<li><code>private static const System.String kGroup</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static const System.String kGroup;
-</code></pre>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>public Game.UI.InGame.GamePanel activePanel { get }</code>  </li>
+<li>
+<p><code>public GamePanel activePanel { get; private set }</code><br />
+Returns the currently active GamePanel (from m_ActivePanelBinding.value). May be null (annotated [CanBeNull] in source). This is the primary way other systems can query which panel is currently open.</p>
+</li>
+<li>
+<p><code>private bool NeedsClear { get; }</code><br />
+Internal helper that determines whether the currently active panel should be cleared due to selection/tool state changes. Logic:</p>
+</li>
+<li>If SelectedInfoUISystem has a selected entity -&gt; needs clear.</li>
+<li>If active panel is not an InfoviewMenu:<ul>
+<li>If the active tool is the default tool -&gt; needs clear if toolbar has an active asset selection.</li>
+<li>Otherwise (active tool is not default) -&gt; needs clear.</li>
 </ul>
-<pre><code class="language-csharp">public Game.UI.InGame.GamePanel activePanel { get; }
-</code></pre>
-<ul>
-<li><code>private System.Boolean NeedsClear { private get }</code>  </li>
+</li>
+<li>Otherwise, no clear needed.
+  Used each update to decide whether to automatically close the active panel.</li>
 </ul>
-<pre><code class="language-csharp">private System.Boolean NeedsClear { private get; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public GamePanelUISystem()</code>  </li>
+<li><code>public GamePanelUISystem()</code><br />
+Default constructor (annotated [Preserve]). Standard ECS/UISystem constructor; initialization of runtime state performed in OnCreate.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public GamePanelUISystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private &lt;OnCreate&gt;b__15_0() : System.Boolean</code>  </li>
+<li><code>protected override void OnCreate()</code><br />
+Initializes system references (PrefabSystem, ToolSystem, DefaultToolSystem, SelectedInfoUISystem, ToolbarUISystem, PhotoModeUISystem), creates the transport config EntityQuery, creates an InputBarrier ("Tool", "GamePanelUISystem"), and sets up UI bindings:</li>
+<li>m_ActivePanelBinding bound to "game"/"activePanel".</li>
+<li>Getter binding for "blockingPanelActive" (true when activePanel.blocking).</li>
+<li>Getter binding for "activePanelPosition" (active panel layout position as int).</li>
+<li>Trigger bindings for "togglePanel", "showPanel", "closePanel", "closeActivePanel".</li>
+<li>
+<p>Registers default panel instances via InitializeDefaults() and stores them in m_defaultArgs.</p>
+</li>
+<li>
+<p><code>protected override void OnUpdate()</code><br />
+Called each frame; closes the active panel if activePanel != null and (NeedsClear || !IsPanelAllowed(activePanel)). Also updates m_ToolBarrier.blocked to reflect whether the active panel is blocking (activePanel?.blocking ?? false).</p>
+</li>
+<li>
+<p><code>public void PreDeserialize(Context context)</code><br />
+Implementation of IPreDeserialize. If the active panel binding currently contains a PhotoModePanel, this method disables the photo mode UI system before deserialization. Then clears the active panel binding (updates to null) to avoid restoring photo mode state directly during deserialization.</p>
+</li>
+<li>
+<p><code>public void SetDefaultArgs(GamePanel defaultArgs)</code><br />
+Stores a default GamePanel instance indexed by its runtime type's full name in m_defaultArgs. Used by ShowPanel(string) to construct panels with preserved properties.</p>
+</li>
+<li>
+<p><code>public void TogglePanel([CanBeNull] string panelType)</code><br />
+Toggles a panel identified by its type full name: if the current active panel is of the same type, clears it; otherwise calls ShowPanel(panelType) to open the default instance for that type.</p>
+</li>
+<li>
+<p><code>public void ShowPanel(string panelType)</code><br />
+If a default instance exists in m_defaultArgs for panelType, calls ShowPanel(GamePanel) with that instance. Does not construct new instance itself — relies on InitializeDefaults or SetDefaultArgs to populate m_defaultArgs.</p>
+</li>
+<li>
+<p><code>public void ShowPanel(GamePanel panel)</code><br />
+Opens the provided panel instance if IsPanelAllowed(panel) returns true. Updates m_ActivePanelBinding to the panel and calls OnPanelChanged(previous, panel) to handle opening logic.</p>
+</li>
+<li>
+<p><code>public void ClosePanel(string panelType)</code><br />
+If the currently active panel is of the provided type full name, clears the active panel binding and calls OnPanelChanged(previous, null) to handle cleanup.</p>
+</li>
+<li>
+<p><code>private void CloseActivePanel()</code><br />
+Closes the currently active panel (if any) by setting the binding to null and invoking OnPanelChanged(previous, null).</p>
+</li>
+<li>
+<p><code>protected override void OnGameLoaded(Context serializationContext)</code><br />
+Invoked after game load; reinitializes default panel instances via InitializeDefaults() to ensure defaults are present post-load.</p>
+</li>
+<li>
+<p><code>private void InitializeDefaults()</code><br />
+Creates and registers default GamePanel instances for many UI panels used by the game (InfoviewMenu, ProgressionPanel, EconomyPanel, CityInfoPanel, StatisticsPanel, TransportationOverviewPanel, ChirperPanel, LifePathPanel, JournalPanel, RadioPanel, PhotoModePanel, CinematicCameraPanel, NotificationsPanel). Also adds trigger bindings to show certain panels (e.g., showProgressionPanel, showEconomyPanel, showCityInfoPanel, showTransportationOverviewPanel, showLifePathDetail). This centralizes which panels are available by name and supplies default instances.</p>
+</li>
+<li>
+<p><code>public void ShowPanel&lt;T&gt;(int tab) where T : TabbedGamePanel, new()</code><br />
+Convenience generic overload that constructs a new T, sets selectedTab to tab, and passes it to ShowPanel(GamePanel).</p>
+</li>
+<li>
+<p><code>public void ShowPanel&lt;T&gt;(Entity selectedEntity) where T : EntityGamePanel, new()</code><br />
+Convenience generic overload that constructs a new T, sets selectedEntity, and passes it to ShowPanel(GamePanel).</p>
+</li>
+<li>
+<p><code>private bool IsPanelAllowed(GamePanel panel)</code><br />
+Checks whether a panel is allowed to open:</p>
+</li>
+<li>RadioPanel: only if SharedSettings.instance.audio.radioActive is true.</li>
+<li>LifePathPanel with a specific selectedEntity: only if that entity has the Followed component in EntityManager.</li>
+<li>
+<p>Default: allowed.</p>
+</li>
+<li>
+<p><code>private void OnPanelChanged([CanBeNull] GamePanel previous, [CanBeNull] GamePanel next)</code><br />
+Centralized transition logic called after the binding is updated. If previous is closing (previous != null and previous type != next type or next is null):</p>
+</li>
+<li>Invokes eventPanelClosed(previous) and calls OnPanelClosed(previous).</li>
+<li>If next is null (fully closed), restores m_ToolSystem.infoview from m_PreviousInfoview unless previous was InfoviewMenu.</li>
+<li>Restores previously selected entity if the UI's SelectedInfoUISystem selection is currently Entity.Null.
+If next is opening (next != null and next type != previous type):</li>
+<li>
+<p>Calls OnPanelOpened(next) and invokes eventPanelOpened(next).</p>
+</li>
+<li>
+<p><code>private void OnPanelOpened(GamePanel panel)</code><br />
+Handles setup when a panel opens:</p>
+</li>
+<li>Stores current m_ToolSystem.activeInfoview into m_PreviousInfoview.</li>
+<li>Activates photo mode UI if panel is PhotoModePanel.</li>
+<li>If panel is not an InfoviewMenu:<ul>
+<li>Sets active tool to default tool.</li>
+<li>Clears toolbar asset selection.</li>
 </ul>
-<pre><code class="language-csharp">private System.Boolean &lt;OnCreate&gt;b__15_0();
-</code></pre>
-<ul>
-<li><code>private &lt;OnCreate&gt;b__15_1() : System.Int32</code>  </li>
+</li>
+<li>If panel is TransportationOverviewPanel and a transport config prefab is available, replaces tool system infoview with transport-specific infoview.</li>
+<li>Sends telemetry PanelOpened(panel).</li>
+<li>
+<p>If the panel requests retainSelection, stores current selected entity into m_PreviousSelectedEntity and clears selection by setting SelectedInfoUISystem selection to Entity.Null.</p>
+</li>
+<li>
+<p><code>private void OnPanelClosed(GamePanel panel)</code><br />
+Handles cleanup when a panel closes:</p>
+</li>
+<li>Deactivates photo mode UI if panel was PhotoModePanel.</li>
+<li>Sends telemetry PanelClosed(panel).</li>
+<li>
+<p>If panel.retainProperties is true, calls SetDefaultArgs(panel) to persist that panel's properties as defaults for future openings.</p>
+</li>
+<li>
+<p><code>private bool TryGetTransportConfig(out UITransportConfigurationPrefab config)</code><br />
+Queries m_PrefabSystem for the UITransportConfigurationPrefab singleton prefab using m_TransportConfigQuery and returns true if found, providing the config via out parameter.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private System.Int32 &lt;OnCreate&gt;b__15_1();
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Example: Wiring and opening a panel from code (within a system or mod)
+var panelSystem = World.GetOrCreateSystemManaged&lt;Game.UI.InGame.GamePanelUISystem&gt;();
+
+// Show the default progression panel instance (registered in InitializeDefaults)
+panelSystem.ShowPanel(typeof(ProgressionPanel).FullName);
+
+// Open a specific tab of a tabbed panel
+panelSystem.ShowPanel&lt;ProgressionPanel&gt;(tab: 2);
+
+// Open an entity-based panel for a specific entity
+Entity someCitizen = ...;
+panelSystem.ShowPanel&lt;LifePathPanel&gt;(someCitizen);
+
+// Toggle a panel by type full name
+panelSystem.TogglePanel(typeof(RadioPanel).FullName);
+
+// Subscribe to open/close events
+panelSystem.eventPanelOpened += panel =&gt; Debug.Log($&quot;Panel opened: {panel.GetType().FullName}&quot;);
+panelSystem.eventPanelClosed += panel =&gt; Debug.Log($&quot;Panel closed: {panel.GetType().FullName}&quot;);
 </code></pre>
-<ul>
-<li><code>private CloseActivePanel() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void CloseActivePanel()
-    {
-        GamePanel value = m_ActivePanelBinding.value;
-        if (value != null)
-        {
-            m_ActivePanelBinding.Update(null);
-            OnPanelChanged(value, null);
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public ClosePanel(System.String panelType) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void ClosePanel(string panelType)
-    {
-        GamePanel value = m_ActivePanelBinding.value;
-        if (value != null &amp;&amp; value.GetType().FullName == panelType)
-        {
-            m_ActivePanelBinding.Update(null);
-            OnPanelChanged(value, null);
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private InitializeDefaults() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void InitializeDefaults()
-    {
-        SetDefaultArgs(new InfoviewMenu());
-        SetDefaultArgs(new ProgressionPanel());
-        AddBinding(new TriggerBinding&lt;int&gt;(&quot;game&quot;, &quot;showProgressionPanel&quot;, ShowPanel&lt;ProgressionPanel&gt;));
-        SetDefaultArgs(new EconomyPanel());
-        AddBinding(new TriggerBinding&lt;int&gt;(&quot;game&quot;, &quot;showEconomyPanel&quot;, ShowPanel&lt;EconomyPanel&gt;));
-        SetDefaultArgs(new CityInfoPanel());
-        AddBinding(new TriggerBinding&lt;int&gt;(&quot;game&quot;, &quot;showCityInfoPanel&quot;, ShowPanel&lt;CityInfoPanel&gt;));
-        SetDefaultArgs(new StatisticsPanel());
-        SetDefaultArgs(new TransportationOverviewPanel());
-        AddBinding(new TriggerBinding&lt;int&gt;(&quot;game&quot;, &quot;showTransportationOverviewPanel&quot;, ShowPanel&lt;TransportationOverviewPanel&gt;));
-        SetDefaultArgs(new ChirperPanel());
-        SetDefaultArgs(new LifePathPanel());
-        AddBinding(new TriggerBinding&lt;Entity&gt;(&quot;game&quot;, &quot;showLifePathDetail&quot;, ShowPanel&lt;LifePathPanel&gt;));
-        SetDefaultArgs(new JournalPanel());
-        SetDefaultArgs(new RadioPanel());
-        SetDefaultArgs(new PhotoModePanel());
-        SetDefaultArgs(new CinematicCameraPanel());
-        SetDefaultArgs(new NotificationsPanel());
-    }
-</code></pre>
-<ul>
-<li><code>private IsPanelAllowed(Game.UI.InGame.GamePanel panel) : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">private bool IsPanelAllowed(GamePanel panel)
-    {
-        if (panel is RadioPanel)
-        {
-            return SharedSettings.instance.audio.radioActive;
-        }
-        if (panel is LifePathPanel lifePathPanel &amp;&amp; lifePathPanel.selectedEntity != Entity.Null)
-        {
-            return base.EntityManager.HasComponent&lt;Followed&gt;(lifePathPanel.selectedEntity);
-        }
-        return true;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_PrefabSystem = base.World.GetOrCreateSystemManaged&lt;PrefabSystem&gt;();
-        m_ToolSystem = base.World.GetOrCreateSystemManaged&lt;ToolSystem&gt;();
-        m_DefaultTool = base.World.GetOrCreateSystemManaged&lt;DefaultToolSystem&gt;();
-        m_SelectedInfoUISystem = base.World.GetOrCreateSystemManaged&lt;SelectedInfoUISystem&gt;();
-        m_ToolbarUISystem = base.World.GetOrCreateSystemManaged&lt;ToolbarUISystem&gt;();
-        m_PhotoModeUISystem = base.World.GetOrCreateSystemManaged&lt;PhotoModeUISystem&gt;();
-        m_TransportConfigQuery = GetEntityQuery(ComponentType.ReadOnly&lt;UITransportConfigurationData&gt;());
-        m_ToolBarrier = InputManager.instance.CreateMapBarrier(&quot;Tool&quot;, &quot;GamePanelUISystem&quot;);
-        AddBinding(m_ActivePanelBinding = new ValueBinding&lt;GamePanel&gt;(&quot;game&quot;, &quot;activePanel&quot;, null, ValueWriters.Nullable(new ValueWriter&lt;GamePanel&gt;())));
-        AddUpdateBinding(new GetterValueBinding&lt;bool&gt;(&quot;game&quot;, &quot;blockingPanelActive&quot;, () =&gt; activePanel?.blocking ?? false));
-        AddUpdateBinding(new GetterValueBinding&lt;int&gt;(&quot;game&quot;, &quot;activePanelPosition&quot;, () =&gt; (int)((activePanel != null) ? activePanel.position : GamePanel.LayoutPosition.Undefined)));
-        AddBinding(new TriggerBinding&lt;string&gt;(&quot;game&quot;, &quot;togglePanel&quot;, TogglePanel));
-        AddBinding(new TriggerBinding&lt;string&gt;(&quot;game&quot;, &quot;showPanel&quot;, ShowPanel));
-        AddBinding(new TriggerBinding&lt;string&gt;(&quot;game&quot;, &quot;closePanel&quot;, ClosePanel));
-        AddBinding(new TriggerBinding(&quot;game&quot;, &quot;closeActivePanel&quot;, CloseActivePanel));
-        m_defaultArgs = new Dictionary&lt;string, GamePanel&gt;();
-        InitializeDefaults();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnGameLoaded(Colossal.Serialization.Entities.Context serializationContext) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnGameLoaded(Context serializationContext)
-    {
-        base.OnGameLoaded(serializationContext);
-        InitializeDefaults();
-    }
-</code></pre>
-<ul>
-<li><code>private OnPanelChanged(Game.UI.InGame.GamePanel previous, Game.UI.InGame.GamePanel next) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void OnPanelChanged([CanBeNull] GamePanel previous, [CanBeNull] GamePanel next)
-    {
-        if (previous != null &amp;&amp; (next == null || next.GetType() != previous.GetType()))
-        {
-            eventPanelClosed?.Invoke(previous);
-            OnPanelClosed(previous);
-            if (next == null)
-            {
-                if (!(previous is InfoviewMenu))
-                {
-                    m_ToolSystem.infoview = ((m_PreviousInfoview != null) ? m_PreviousInfoview : m_ToolSystem.infoview);
-                    m_PreviousInfoview = null;
-                }
-                if (m_SelectedInfoUISystem.selectedEntity == Entity.Null)
-                {
-                    m_SelectedInfoUISystem.SetSelection(m_PreviousSelectedEntity);
-                    m_PreviousSelectedEntity = Entity.Null;
-                }
-            }
-        }
-        if (next != null &amp;&amp; (previous == null || next.GetType() != previous.GetType()))
-        {
-            OnPanelOpened(next);
-            eventPanelOpened?.Invoke(next);
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private OnPanelClosed(Game.UI.InGame.GamePanel panel) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void OnPanelClosed(GamePanel panel)
-    {
-        if (panel is PhotoModePanel)
-        {
-            m_PhotoModeUISystem.Activate(enabled: false);
-        }
-        Telemetry.PanelClosed(panel);
-        if (panel.retainProperties)
-        {
-            SetDefaultArgs(panel);
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private OnPanelOpened(Game.UI.InGame.GamePanel panel) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void OnPanelOpened(GamePanel panel)
-    {
-        m_PreviousInfoview = m_ToolSystem.activeInfoview;
-        if (panel is PhotoModePanel)
-        {
-            m_PhotoModeUISystem.Activate(enabled: true);
-        }
-        if (!(panel is InfoviewMenu))
-        {
-            m_ToolSystem.activeTool = m_DefaultTool;
-            m_ToolbarUISystem.ClearAssetSelection();
-        }
-        if (panel is TransportationOverviewPanel &amp;&amp; TryGetTransportConfig(out var config))
-        {
-            m_ToolSystem.infoview = config.m_TransportInfoview;
-        }
-        Telemetry.PanelOpened(panel);
-        if (panel.retainSelection)
-        {
-            m_PreviousSelectedEntity = m_SelectedInfoUISystem.selectedEntity;
-        }
-        m_SelectedInfoUISystem.SetSelection(Entity.Null);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        base.OnUpdate();
-        if (activePanel != null &amp;&amp; (NeedsClear || !IsPanelAllowed(activePanel)))
-        {
-            CloseActivePanel();
-        }
-        m_ToolBarrier.blocked = activePanel?.blocking ?? false;
-    }
-</code></pre>
-<ul>
-<li><code>public PreDeserialize(Colossal.Serialization.Entities.Context context) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void PreDeserialize(Context context)
-    {
-        if (m_ActivePanelBinding.value is PhotoModePanel)
-        {
-            m_PhotoModeUISystem.Activate(enabled: false);
-        }
-        m_ActivePanelBinding.Update(null);
-    }
-</code></pre>
-<ul>
-<li><code>public SetDefaultArgs(Game.UI.InGame.GamePanel defaultArgs) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void SetDefaultArgs(GamePanel defaultArgs)
-    {
-        m_defaultArgs[defaultArgs.GetType().FullName] = defaultArgs;
-    }
-</code></pre>
-<ul>
-<li><code>public ShowPanel(System.String panelType) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void ShowPanel(GamePanel panel)
-    {
-        if (IsPanelAllowed(panel))
-        {
-            GamePanel value = m_ActivePanelBinding.value;
-            m_ActivePanelBinding.Update(panel);
-            OnPanelChanged(value, panel);
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public ShowPanel(Game.UI.InGame.GamePanel panel) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void ShowPanel(GamePanel panel)
-    {
-        if (IsPanelAllowed(panel))
-        {
-            GamePanel value = m_ActivePanelBinding.value;
-            m_ActivePanelBinding.Update(panel);
-            OnPanelChanged(value, panel);
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public ShowPanel&lt;T&gt;(System.Int32 tab) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Void ShowPanel&lt;T&gt;(System.Int32 tab);
-</code></pre>
-<ul>
-<li><code>public ShowPanel&lt;T&gt;(Unity.Entities.Entity selectedEntity) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Void ShowPanel&lt;T&gt;(Unity.Entities.Entity selectedEntity);
-</code></pre>
-<ul>
-<li><code>public TogglePanel(System.String panelType) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void TogglePanel([CanBeNull] string panelType)
-    {
-        GamePanel value = m_ActivePanelBinding.value;
-        if (value != null &amp;&amp; value.GetType().FullName == panelType)
-        {
-            m_ActivePanelBinding.Update(null);
-            OnPanelChanged(value, null);
-        }
-        else
-        {
-            ShowPanel(panelType);
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private TryGetTransportConfig(Game.Prefabs.UITransportConfigurationPrefab&amp; config) : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">private bool TryGetTransportConfig(out UITransportConfigurationPrefab config)
-    {
-        return m_PrefabSystem.TryGetSingletonPrefab&lt;UITransportConfigurationPrefab&gt;(m_TransportConfigQuery, out config);
-    }
-</code></pre>
+<p>Notes:
+- Panel type comparisons use GetType().FullName; when calling ShowPanel(string) or TogglePanel(string) ensure you pass the full name string for the panel type (e.g., typeof(ProgressionPanel).FullName).
+- Some panels are blocked by gameplay conditions (radio disabled, life-path following not present) and will be prevented by IsPanelAllowed.
+- Panels that set retainSelection or retainProperties will preserve or restore selection/properties via m_PreviousSelectedEntity and m_defaultArgs.</p>
 
 
 

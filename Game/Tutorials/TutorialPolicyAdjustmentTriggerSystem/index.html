@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87073,6 +87165,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Simulation/SurfaceWater/" class="md-nav__link">
         
   
@@ -95635,18 +95750,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -95665,6 +95780,15 @@
   <a href="#methods" class="md-nav__link">
     <span class="md-ellipsis">
       Methods
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
     </span>
   </a>
   
@@ -117912,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117939,18 +118085,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -117974,6 +118120,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -117991,159 +118146,117 @@
 
 
 <h1 id="gametutorialstutorialpolicyadjustmenttriggersystem">Game.Tutorials.TutorialPolicyAdjustmentTriggerSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Tutorials</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.Tutorials.TutorialTriggerSystemBase</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class TutorialPolicyAdjustmentTriggerSystem : Game.Tutorials.TutorialTriggerSystemBase
-{
-    private Unity.Entities.EntityQuery m_AdjustmentQuery;
-    private Unity.Entities.EntityQuery m_PolicyQuery;
-    private Unity.Entities.EntityArchetype m_UnlockEventArchetype;
-
-    public TutorialPolicyAdjustmentTriggerSystem();
-
-    private System.Boolean AnyActive(Unity.Entities.DynamicBuffer&lt;Game.Policies.Policy&gt; policies);
-    private System.Boolean Check(Game.Tutorials.PolicyAdjustmentTriggerData data, Unity.Collections.NativeArray&lt;Game.Policies.Modify&gt; adjustments);
-    private System.Boolean FirstTimeCheck(Game.Tutorials.PolicyAdjustmentTriggerData data, Unity.Collections.NativeArray&lt;Unity.Entities.Entity&gt; policyEntities);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnUpdate();
-}
-</code></pre>
+<p><strong>Assembly:</strong> Assembly-CSharp<br />
+<strong>Namespace:</strong> Game.Tutorials</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> TutorialTriggerSystemBase</p>
+<p><strong>Summary:</strong><br />
+System that drives tutorial triggers related to policy adjustments. It monitors policy entities and policy-modify events to detect when a policy becomes active (or meets configured trigger conditions) and then marks tutorial triggers as pre-completed or completed and issues unlock events via the tutorial unlock archetype. The system uses EntityQueries and native arrays (Allocator.TempJob) and dispatches changes through an EntityCommandBuffer obtained from the barrier system.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Unity.Entities.EntityQuery m_AdjustmentQuery</code>  </li>
+<li>
+<p><code>private Unity.Entities.EntityQuery m_AdjustmentQuery</code><br />
+Internal query used to read Modify event components (Event + Modify) that indicate policy changes.</p>
+</li>
+<li>
+<p><code>private Unity.Entities.EntityQuery m_PolicyQuery</code><br />
+Query that finds Policy entities (Policy component) excluding Temp and Deleted; used for first-time detection of already active policies when triggers become active.</p>
+</li>
+<li>
+<p><code>private Unity.Entities.EntityArchetype m_UnlockEventArchetype</code><br />
+Archetype created to spawn unlock Event entities (Event + Unlock) that are used with TutorialSystem.ManualUnlock to notify the tutorial system of unlocks.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_AdjustmentQuery;
-</code></pre>
+<h2 id="properties">Properties</h2>
 <ul>
-<li><code>private Unity.Entities.EntityQuery m_PolicyQuery</code>  </li>
+<li>This class does not expose public properties.</li>
 </ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_PolicyQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityArchetype m_UnlockEventArchetype</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityArchetype m_UnlockEventArchetype;
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public TutorialPolicyAdjustmentTriggerSystem()</code>  </li>
+<li><code>public TutorialPolicyAdjustmentTriggerSystem()</code><br />
+Default constructor. Marked with Preserve in the source. No custom construction logic beyond Unity Entities system initialization.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public TutorialPolicyAdjustmentTriggerSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private AnyActive(Unity.Entities.DynamicBuffer&lt;Game.Policies.Policy&gt; policies) : System.Boolean</code>  </li>
+<li><code>protected override void OnCreate() : System.Void</code><br />
+Initializes the system:</li>
+<li>Builds m_ActiveTriggerQuery via GetEntityQuery(ComponentType.ReadOnly<PolicyAdjustmentTriggerData>(), ComponentType.ReadOnly<TriggerActive>(), ComponentType.Exclude<TriggerCompleted>).</li>
+<li>Initializes m_PolicyQuery (Policy, exclude Temp/Deleted).</li>
+<li>Initializes m_AdjustmentQuery (Event + Modify).</li>
+<li>Creates m_UnlockEventArchetype containing Event and Unlock components.</li>
+<li>
+<p>Calls RequireForUpdate(m_ActiveTriggerQuery) so the system runs only when active triggers exist.
+Notes: Runs once when the system is created; marked with Preserve in the original code.</p>
+</li>
+<li>
+<p><code>protected override void OnUpdate() : System.Void</code><br />
+Main update loop. Two major flows:</p>
+</li>
+<li>First-time check when triggers changed:<ul>
+<li>If base.triggersChanged and there are policy entities, it collects policy entities and active trigger data/entities into NativeArray<T> (Allocator.TempJob).</li>
+<li>For each active trigger it calls FirstTimeCheck; if true, it adds TriggerPreCompleted to the trigger entity and calls TutorialSystem.ManualUnlock to produce an unlock event.</li>
+<li>Disposes all NativeArray allocations after use.</li>
 </ul>
-<pre><code class="language-csharp">private bool AnyActive(DynamicBuffer&lt;Policy&gt; policies)
-    {
-        for (int i = 0; i &lt; policies.Length; i++)
-        {
-            if ((policies[i].m_Flags &amp; PolicyFlags.Active) != 0)
-            {
-                return true;
-            }
-        }
-        return false;
-    }
-</code></pre>
+</li>
+<li>
+<p>Adjustment detection:</p>
 <ul>
-<li><code>private Check(Game.Tutorials.PolicyAdjustmentTriggerData data, Unity.Collections.NativeArray&lt;Game.Policies.Modify&gt; adjustments) : System.Boolean</code>  </li>
+<li>If m_AdjustmentQuery is not empty, it collects active triggers, trigger entities, and Modify adjustments into NativeArray<T> (Allocator.TempJob).</li>
+<li>For each active trigger it calls Check(data, adjustments); if true, it adds TriggerCompleted to the trigger entity and calls TutorialSystem.ManualUnlock to produce an unlock event.</li>
+<li>Disposes all NativeArray allocations after use.
+Notes: Uses an EntityCommandBuffer obtained from m_BarrierSystem to perform entity changes safely in the ECS update.</li>
 </ul>
-<pre><code class="language-csharp">private bool Check(PolicyAdjustmentTriggerData data, NativeArray&lt;Modify&gt; adjustments)
-    {
-        for (int i = 0; i &lt; adjustments.Length; i++)
-        {
-            if ((data.m_TargetFlags &amp; PolicyAdjustmentTriggerTargetFlags.District) != 0 &amp;&amp; base.EntityManager.HasComponent&lt;District&gt;(adjustments[i].m_Entity) &amp;&amp; (adjustments[i].m_Flags &amp; PolicyFlags.Active) != 0 &amp;&amp; (data.m_Flags &amp; PolicyAdjustmentTriggerFlags.Activated) != 0)
-            {
-                return true;
-            }
-        }
-        return false;
-    }
-</code></pre>
-<ul>
-<li><code>private FirstTimeCheck(Game.Tutorials.PolicyAdjustmentTriggerData data, Unity.Collections.NativeArray&lt;Unity.Entities.Entity&gt; policyEntities) : System.Boolean</code>  </li>
+</li>
+<li>
+<p><code>private bool Check(PolicyAdjustmentTriggerData data, NativeArray&lt;Modify&gt; adjustments) : System.Boolean</code><br />
+Checks the Modify adjustment events to determine whether any matching adjustment fulfills the trigger:</p>
+</li>
+<li>Iterates adjustments and returns true when:<ul>
+<li>data.m_TargetFlags includes PolicyAdjustmentTriggerTargetFlags.District,</li>
+<li>the adjusted entity has a District component,</li>
+<li>the adjustment has the PolicyFlags.Active flag set,</li>
+<li>the trigger data requires the Activated flag (data.m_Flags includes PolicyAdjustmentTriggerFlags.Activated).</li>
 </ul>
-<pre><code class="language-csharp">private bool FirstTimeCheck(PolicyAdjustmentTriggerData data, NativeArray&lt;Entity&gt; policyEntities)
-    {
-        for (int i = 0; i &lt; policyEntities.Length; i++)
-        {
-            DynamicBuffer&lt;Policy&gt; buffer = base.EntityManager.GetBuffer&lt;Policy&gt;(policyEntities[i], isReadOnly: true);
-            if ((data.m_TargetFlags &amp; PolicyAdjustmentTriggerTargetFlags.District) != 0 &amp;&amp; base.EntityManager.HasComponent&lt;District&gt;(policyEntities[i]) &amp;&amp; AnyActive(buffer) &amp;&amp; (data.m_Flags &amp; PolicyAdjustmentTriggerFlags.Activated) != 0)
-            {
-                return true;
-            }
-        }
-        return false;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
+</li>
+<li>
+<p>Otherwise returns false.</p>
+</li>
+<li>
+<p><code>private bool FirstTimeCheck(PolicyAdjustmentTriggerData data, NativeArray&lt;Unity.Entities.Entity&gt; policyEntities) : System.Boolean</code><br />
+Checks existing policy entities (policies already present on entities) to detect if a trigger should be pre-completed immediately when it becomes active:</p>
+</li>
+<li>For each policy entity, reads the DynamicBuffer<Policy> (isReadOnly: true).</li>
+<li>If data targets Districts, the entity has a District component, AnyActive(buffer) is true, and the trigger requires Activated, returns true.</li>
+<li>
+<p>Otherwise returns false.</p>
+</li>
+<li>
+<p><code>private bool AnyActive(Unity.Entities.DynamicBuffer&lt;Policy&gt; policies) : System.Boolean</code><br />
+Scans a Policy buffer and returns true if any Policy entry has PolicyFlags.Active set.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_ActiveTriggerQuery = GetEntityQuery(ComponentType.ReadOnly&lt;PolicyAdjustmentTriggerData&gt;(), ComponentType.ReadOnly&lt;TriggerActive&gt;(), ComponentType.Exclude&lt;TriggerCompleted&gt;());
-        m_PolicyQuery = GetEntityQuery(ComponentType.ReadOnly&lt;Policy&gt;(), ComponentType.Exclude&lt;Temp&gt;(), ComponentType.Exclude&lt;Deleted&gt;());
-        m_AdjustmentQuery = GetEntityQuery(ComponentType.ReadOnly&lt;Event&gt;(), ComponentType.ReadOnly&lt;Modify&gt;());
-        m_UnlockEventArchetype = base.EntityManager.CreateArchetype(ComponentType.ReadWrite&lt;Event&gt;(), ComponentType.ReadWrite&lt;Unlock&gt;());
-        RequireForUpdate(m_ActiveTriggerQuery);
-    }
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Create a PolicyAdjustment trigger entity that watches for policy activations in districts
+var em = World.DefaultGameObjectInjectionWorld.EntityManager;
+var arch = em.CreateArchetype(typeof(PolicyAdjustmentTriggerData), typeof(TriggerActive));
+Entity trigger = em.CreateEntity(arch);
+
+// Configure the trigger to target districts and respond to Activations
+em.SetComponentData(trigger, new PolicyAdjustmentTriggerData {
+    m_TargetFlags = PolicyAdjustmentTriggerTargetFlags.District,
+    m_Flags = PolicyAdjustmentTriggerFlags.Activated
+});
+
+// When a policy is activated on a district, a Modify event should be produced
+// (example: create an Event + Modify entity with m_Entity = the district entity and m_Flags = PolicyFlags.Active).
+// The system will detect the Modify and add TriggerCompleted to `trigger`, and call TutorialSystem.ManualUnlock.
 </code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        base.OnUpdate();
-        if (base.triggersChanged &amp;&amp; !m_PolicyQuery.IsEmptyIgnoreFilter)
-        {
-            EntityCommandBuffer commandBuffer = m_BarrierSystem.CreateCommandBuffer();
-            NativeArray&lt;Entity&gt; policyEntities = m_PolicyQuery.ToEntityArray(Allocator.TempJob);
-            NativeArray&lt;PolicyAdjustmentTriggerData&gt; nativeArray = m_ActiveTriggerQuery.ToComponentDataArray&lt;PolicyAdjustmentTriggerData&gt;(Allocator.TempJob);
-            NativeArray&lt;Entity&gt; nativeArray2 = m_ActiveTriggerQuery.ToEntityArray(Allocator.TempJob);
-            for (int i = 0; i &lt; nativeArray2.Length; i++)
-            {
-                if (FirstTimeCheck(nativeArray[i], policyEntities))
-                {
-                    commandBuffer.AddComponent&lt;TriggerPreCompleted&gt;(nativeArray2[i]);
-                    TutorialSystem.ManualUnlock(nativeArray2[i], m_UnlockEventArchetype, base.EntityManager, commandBuffer);
-                }
-            }
-            nativeArray.Dispose();
-            nativeArray2.Dispose();
-            policyEntities.Dispose();
-        }
-        if (m_AdjustmentQuery.IsEmptyIgnoreFilter)
-        {
-            return;
-        }
-        EntityCommandBuffer commandBuffer2 = m_BarrierSystem.CreateCommandBuffer();
-        NativeArray&lt;PolicyAdjustmentTriggerData&gt; nativeArray3 = m_ActiveTriggerQuery.ToComponentDataArray&lt;PolicyAdjustmentTriggerData&gt;(Allocator.TempJob);
-        NativeArray&lt;Entity&gt; nativeArray4 = m_ActiveTriggerQuery.ToEntityArray(Allocator.TempJob);
-        NativeArray&lt;Modify&gt; adjustments = m_AdjustmentQuery.ToComponentDataArray&lt;Modify&gt;(Allocator.TempJob);
-        for (int j = 0; j &lt; nativeArray3.Length; j++)
-        {
-            if (Check(nativeArray3[j], adjustments))
-            {
-                commandBuffer2.AddComponent&lt;TriggerCompleted&gt;(nativeArray4[j]);
-                TutorialSystem.ManualUnlock(nativeArray4[j], m_UnlockEventArchetype, base.EntityManager, commandBuffer2);
-            }
-        }
-        nativeArray3.Dispose();
-        nativeArray4.Dispose();
-        adjustments.Dispose();
-    }
-</code></pre>
+<p>Notes and implementation details:
+- The system allocates NativeArray<T> with Allocator.TempJob in OnUpdate and disposes them within the same frame — ensure no leaks by following that pattern.
+- Changes to entities are enqueued through an EntityCommandBuffer from m_BarrierSystem to keep thread-safety and proper ordering.
+- Components referenced: PolicyAdjustmentTriggerData, TriggerActive, TriggerCompleted, TriggerPreCompleted, Policy, Temp, Deleted, Event, Modify, Unlock, District, PolicyFlags, PolicyAdjustmentTriggerTargetFlags, PolicyAdjustmentTriggerFlags.
+- The system relies on TutorialSystem.ManualUnlock to create tutorial unlock events using the m_UnlockEventArchetype.</p>
 
 
 

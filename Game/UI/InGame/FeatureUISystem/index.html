@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87056,6 +87148,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -101977,18 +102092,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -102007,6 +102122,15 @@
   <a href="#methods" class="md-nav__link">
     <span class="md-ellipsis">
       Methods
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
     </span>
   </a>
   
@@ -117914,6 +118038,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117941,18 +118087,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -117976,6 +118122,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -117993,127 +118148,105 @@
 
 
 <h1 id="gameuiingamefeatureuisystem">Game.UI.InGame.FeatureUISystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.UI.InGame</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.UI.UISystemBase</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class FeatureUISystem : Game.UI.UISystemBase
-{
-    private Game.Prefabs.PrefabSystem m_PrefabSystem;
-    private Game.UI.InGame.PrefabUISystem m_PrefabUISystem;
-    private Unity.Entities.EntityQuery m_UnlockedFeatureQuery;
-    private Unity.Entities.EntityQuery m_UnlocksQuery;
-    private Colossal.UI.Binding.RawValueBinding m_FeaturesBinding;
-    private static const System.String kGroup;
-
-    public FeatureUISystem();
-
-    private System.Void BindLockedFeatures(Colossal.UI.Binding.IJsonWriter writer);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnGameLoaded(Colossal.Serialization.Entities.Context serializationContext);
-    protected virtual System.Void OnUpdate();
-}
-</code></pre>
+<p><strong>Assembly:</strong><br />
+Game (inferred from file path Game\UI\InGame\FeatureUISystem.cs)<br />
+<strong>Namespace:</strong> Game.UI.InGame</p>
+<p><strong>Type:</strong><br />
+class</p>
+<p><strong>Base:</strong><br />
+UISystemBase</p>
+<p><strong>Summary:</strong><br />
+FeatureUISystem is a UI-oriented ECS system that exposes the game's locked feature prefabs to the UI layer via a JSON binding. It queries for feature prefabs that are currently locked and, when appropriate, writes their display data (name and requirements) into a RawValueBinding named "feature" -&gt; "lockedFeatures". The system depends on PrefabSystem and PrefabUISystem to resolve prefab information and to serialize requirements. It updates the binding when feature unlock state changes and on game load so the UI can display current locked features.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.Prefabs.PrefabSystem m_PrefabSystem</code>  </li>
+<li>
+<p><code>private const string kGroup = "feature"</code><br />
+This constant is used as the group/key for the binding (the code registers a RawValueBinding under the "feature" group).</p>
+</li>
+<li>
+<p><code>private PrefabSystem m_PrefabSystem</code><br />
+Reference to the PrefabSystem used to resolve PrefabData -&gt; Prefab objects (specifically FeaturePrefab instances).</p>
+</li>
+<li>
+<p><code>private PrefabUISystem m_PrefabUISystem</code><br />
+Reference to PrefabUISystem used to serialize a prefab's requirements into the UI JSON (calls BindPrefabRequirements).</p>
+</li>
+<li>
+<p><code>private EntityQuery m_UnlockedFeatureQuery</code><br />
+EntityQuery that selects feature prefabs that have PrefabData, FeatureData and Locked components. This query is used to enumerate locked features to present to the UI.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_UnlocksQuery</code><br />
+EntityQuery that selects Unlock components (used to determine if any unlock has occurred so the binding should be updated).</p>
+</li>
+<li>
+<p><code>private RawValueBinding m_FeaturesBinding</code><br />
+RawValueBinding instance registered in OnCreate under the "feature" group with the name "lockedFeatures". The binding uses BindLockedFeatures to produce JSON representing locked features.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.Prefabs.PrefabSystem m_PrefabSystem;
-</code></pre>
+<h2 id="properties">Properties</h2>
 <ul>
-<li><code>private Game.UI.InGame.PrefabUISystem m_PrefabUISystem</code>  </li>
+<li>This class defines no public properties. It uses private fields and overrides lifecycle methods on UISystemBase.</li>
 </ul>
-<pre><code class="language-csharp">private Game.UI.InGame.PrefabUISystem m_PrefabUISystem;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_UnlockedFeatureQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_UnlockedFeatureQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_UnlocksQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_UnlocksQuery;
-</code></pre>
-<ul>
-<li><code>private Colossal.UI.Binding.RawValueBinding m_FeaturesBinding</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.UI.Binding.RawValueBinding m_FeaturesBinding;
-</code></pre>
-<ul>
-<li><code>private static const System.String kGroup</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static const System.String kGroup;
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public FeatureUISystem()</code>  </li>
+<li><code>public FeatureUISystem()</code><br />
+Default parameterless constructor. Marked with [Preserve] on the lifecycle methods, but the constructor itself is empty and simply allows the ECS to construct the system.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public FeatureUISystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private BindLockedFeatures(Colossal.UI.Binding.IJsonWriter writer) : System.Void</code>  </li>
+<li>
+<p><code>protected override void OnCreate()</code> : System.Void<br />
+Initializes the system. Obtains references to PrefabSystem and PrefabUISystem from the world, creates two EntityQueries (one for locked features and one for unlock records), and registers a RawValueBinding named "feature"/"lockedFeatures" that points to BindLockedFeatures. This sets up the JSON binding the UI will consume.</p>
+</li>
+<li>
+<p><code>protected override void OnUpdate()</code> : System.Void<br />
+Called every frame; checks whether any prefabs of FeatureData have been unlocked via PrefabUtils.HasUnlockedPrefab using m_UnlocksQuery. If so, it calls m_FeaturesBinding.Update() to refresh the bound JSON (causing the UI to re-read locked features).</p>
+</li>
+<li>
+<p><code>protected override void OnGameLoaded(Context serializationContext)</code> : System.Void<br />
+Called after a game has been loaded. It calls the base implementation and triggers m_FeaturesBinding.Update() so the UI receives the current locked features state immediately after load.</p>
+</li>
+<li>
+<p><code>private void BindLockedFeatures(IJsonWriter writer)</code> : System.Void<br />
+The binding callback that writes the locked features array into the provided IJsonWriter. Implementation details:</p>
+</li>
+<li>Uses m_UnlockedFeatureQuery.ToEntityArray(Allocator.Temp) and ToComponentDataArray<PrefabData>(Allocator.Temp) to enumerate matching entities and their PrefabData.</li>
+<li>Writes a JSON array with one element per locked feature. For each element:<ul>
+<li>Resolves the FeaturePrefab instance via m_PrefabSystem.GetPrefab<FeaturePrefab>(prefabData).</li>
+<li>Writes an object with properties:</li>
+<li>"name": the prefab's name string.</li>
+<li>"requirements": delegated to m_PrefabUISystem.BindPrefabRequirements(writer, prefabEntity).</li>
 </ul>
-<pre><code class="language-csharp">private void BindLockedFeatures(IJsonWriter writer)
-    {
-        NativeArray&lt;Entity&gt; nativeArray = m_UnlockedFeatureQuery.ToEntityArray(Allocator.Temp);
-        NativeArray&lt;PrefabData&gt; nativeArray2 = m_UnlockedFeatureQuery.ToComponentDataArray&lt;PrefabData&gt;(Allocator.Temp);
-        writer.ArrayBegin(nativeArray2.Length);
-        for (int i = 0; i &lt; nativeArray.Length; i++)
-        {
-            Entity prefabEntity = nativeArray[i];
-            PrefabData prefabData = nativeArray2[i];
-            FeaturePrefab prefab = m_PrefabSystem.GetPrefab&lt;FeaturePrefab&gt;(prefabData);
-            writer.TypeBegin(&quot;Game.UI.InGame.LockedFeature&quot;);
-            writer.PropertyName(&quot;name&quot;);
-            writer.Write(prefab.name);
-            writer.PropertyName(&quot;requirements&quot;);
-            m_PrefabUISystem.BindPrefabRequirements(writer, prefabEntity);
-            writer.TypeEnd();
-        }
-        writer.ArrayEnd();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
+</li>
+<li>Ends the JSON array.</li>
+<li>Note: the method uses NativeArray&lt;...&gt;(Allocator.Temp) for temporary iteration — ensure these arrays are properly disposed to avoid NativeArray resource issues if modifying this method. In the current source they are created as Allocator.Temp; callers should ensure they are short-lived (same-frame) and disposed or rely on the environment's expectations for Allocator.Temp lifetime.</li>
 </ul>
+<h2 id="usage-example">Usage Example</h2>
 <pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_PrefabSystem = base.World.GetOrCreateSystemManaged&lt;PrefabSystem&gt;();
-        m_PrefabUISystem = base.World.GetOrCreateSystemManaged&lt;PrefabUISystem&gt;();
-        m_UnlockedFeatureQuery = GetEntityQuery(ComponentType.ReadOnly&lt;PrefabData&gt;(), ComponentType.ReadOnly&lt;FeatureData&gt;(), ComponentType.ReadOnly&lt;Locked&gt;());
-        m_UnlocksQuery = GetEntityQuery(ComponentType.ReadOnly&lt;Unlock&gt;());
-        AddBinding(m_FeaturesBinding = new RawValueBinding(&quot;feature&quot;, &quot;lockedFeatures&quot;, BindLockedFeatures));
-    }
+protected override void OnCreate()
+{
+    base.OnCreate();
+    // Typical initialization (as implemented in FeatureUISystem).
+    m_PrefabSystem = base.World.GetOrCreateSystemManaged&lt;PrefabSystem&gt;();
+    m_PrefabUISystem = base.World.GetOrCreateSystemManaged&lt;PrefabUISystem&gt;();
+    m_UnlockedFeatureQuery = GetEntityQuery(
+        ComponentType.ReadOnly&lt;PrefabData&gt;(),
+        ComponentType.ReadOnly&lt;FeatureData&gt;(),
+        ComponentType.ReadOnly&lt;Locked&gt;());
+    m_UnlocksQuery = GetEntityQuery(ComponentType.ReadOnly&lt;Unlock&gt;());
+    AddBinding(m_FeaturesBinding = new RawValueBinding(&quot;feature&quot;, &quot;lockedFeatures&quot;, BindLockedFeatures));
+}
 </code></pre>
-<ul>
-<li><code>protected virtual OnGameLoaded(Colossal.Serialization.Entities.Context serializationContext) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnGameLoaded(Context serializationContext)
-    {
-        base.OnGameLoaded(serializationContext);
-        m_FeaturesBinding.Update();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        if (PrefabUtils.HasUnlockedPrefab&lt;FeatureData&gt;(base.EntityManager, m_UnlocksQuery))
-        {
-            m_FeaturesBinding.Update();
-        }
-    }
-</code></pre>
+<p>Additional notes:
+- The JSON produced under the binding group "feature" with property "lockedFeatures" is an array of objects shaped like:
+  {
+    "name": "<feature prefab name>",
+    "requirements": { ... } // produced by PrefabUISystem.BindPrefabRequirements
+  }
+- The system relies on PrefabUtils.HasUnlockedPrefab to detect unlock changes; if integrating custom unlock logic, trigger the binding update (m_FeaturesBinding.Update()) when appropriate.
+- Be cautious with NativeArray allocation (Allocator.Temp) inside BindLockedFeatures — for robust code, ensure proper disposal or use Allocator.TempJob with guaranteed short lifetime per Unity recommendations.</p>
 
 
 

@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#gametoolsselectiontoolsystem" class="md-skip">
+        <a href="#gameselectiontoolsystem" class="md-skip">
           Skip to content
         </a>
       
@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87073,6 +87165,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Simulation/SurfaceWater/" class="md-nav__link">
         
   
@@ -92645,15 +92760,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -92690,9 +92796,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -117930,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117955,15 +118083,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -118002,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118026,958 +118145,304 @@
 
 
 
-<h1 id="gametoolsselectiontoolsystem">Game.Tools.SelectionToolSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Tools</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.Tools.ToolBaseSystem</code><br />
-<strong>Implements:</strong> <code>System.IEquatable&lt;Game.Tools.ToolBaseSystem&gt;</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class SelectionToolSystem : Game.Tools.ToolBaseSystem, System.IEquatable&lt;Game.Tools.ToolBaseSystem&gt;
-{
-    private Game.Tools.SelectionType &lt;selectionType&gt;k__BackingField;
-    private Unity.Entities.Entity &lt;selectionOwner&gt;k__BackingField;
-    private Game.Areas.SearchSystem m_AreaSearchSystem;
-    private Game.Areas.MapTileSystem m_MapTileSystem;
-    private Game.Simulation.MapTilePurchaseSystem m_MapTilePurchaseSystem;
-    private Game.Tools.ToolOutputBarrier m_ToolOutputBarrier;
-    private Game.Audio.AudioManager m_AudioManager;
-    private Game.Simulation.TerrainSystem m_TerrainSystem;
-    private Game.Simulation.WaterSystem m_WaterSystem;
-    private Unity.Entities.EntityQuery m_DefinitionGroup;
-    private Unity.Entities.EntityQuery m_TempGroup;
-    private Unity.Entities.EntityQuery m_SoundQuery;
-    private Unity.Entities.Entity m_SelectionEntity;
-    private Unity.Entities.Entity m_LastOwner;
-    private Game.Tools.SelectionType m_LastType;
-    private Unity.Entities.EntityArchetype m_SelectionArchetype;
-    private Game.Tools.SelectionToolSystem+State m_State;
-    private Game.Tools.ControlPoint m_StartPoint;
-    private Game.Tools.ControlPoint m_RaycastPoint;
-    private Game.Input.IProxyAction m_SelectArea;
-    private Game.Input.IProxyAction m_DeselectArea;
-    private Game.Input.IProxyAction m_DiscardSelect;
-    private Game.Input.IProxyAction m_DiscardDeselect;
-    private System.Boolean m_ApplyBlocked;
-    private Game.Tools.SelectionToolSystem+TypeHandle __TypeHandle;
-    public static const System.String kToolID;
-
-    public System.String toolID { get; }
-    public Game.Tools.SelectionType selectionType { get; set; }
-    public Unity.Entities.Entity selectionOwner { get; set; }
-    public Game.Tools.SelectionToolSystem+State state { get; }
-    private System.Collections.Generic.IEnumerable&lt;Game.Input.IProxyAction&gt; toolActions { private get; }
-
-    public SelectionToolSystem();
-
-    private System.Void __AssignQueries(Unity.Entities.SystemState&amp; state);
-    private Unity.Jobs.JobHandle Apply(Unity.Jobs.JobHandle inputDeps, System.Boolean singleFrameOnly);
-    private Unity.Jobs.JobHandle Cancel(Unity.Jobs.JobHandle inputDeps, System.Boolean singleFrameOnly);
-    private Unity.Jobs.JobHandle Clear(Unity.Jobs.JobHandle inputDeps);
-    private Unity.Jobs.JobHandle CopySelection(Unity.Jobs.JobHandle inputDeps);
-    private Unity.Jobs.JobHandle CopyServiceDistricts(Unity.Jobs.JobHandle inputDeps);
-    private Unity.Jobs.JobHandle CopyStartTiles(Unity.Jobs.JobHandle inputDeps);
-    private Game.Areas.AreaType GetAreaType(Game.Tools.SelectionType selectionType);
-    public virtual Game.Prefabs.PrefabBase GetPrefab();
-    protected virtual System.Boolean GetRaycastResult(Game.Tools.ControlPoint&amp; controlPoint);
-    protected virtual System.Boolean GetRaycastResult(Game.Tools.ControlPoint&amp; controlPoint, System.Boolean&amp; forceUpdate);
-    public System.Boolean GetSelectionQuad(Colossal.Mathematics.Quad3&amp; quad);
-    public virtual System.Void InitializeRaycast();
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnCreateForCompiler();
-    protected virtual System.Void OnStartRunning();
-    protected virtual System.Void OnStopRunning();
-    protected virtual Unity.Jobs.JobHandle OnUpdate(Unity.Jobs.JobHandle inputDeps);
-    private Unity.Jobs.JobHandle ToggleTempEntity(Unity.Jobs.JobHandle inputDeps, System.Boolean select);
-    public virtual System.Boolean TrySetPrefab(Game.Prefabs.PrefabBase prefab);
-    private Unity.Jobs.JobHandle Update(Unity.Jobs.JobHandle inputDeps);
-    private virtual System.Void UpdateActions();
-    private Unity.Jobs.JobHandle UpdateDefinitions(Unity.Jobs.JobHandle inputDeps);
-    private Unity.Jobs.JobHandle UpdateSelection(Unity.Jobs.JobHandle inputDeps);
-    private Unity.Jobs.JobHandle UpdateServiceDistricts(Unity.Jobs.JobHandle inputDeps);
-    private Unity.Jobs.JobHandle UpdateStartTiles(Unity.Jobs.JobHandle inputDeps);
-}
-</code></pre>
+<h1 id="gameselectiontoolsystem">Game.SelectionToolSystem</h1>
+<p><strong>Assembly:</strong><br />
+Game</p>
+<p><strong>Namespace:</strong><br />
+Game.Tools</p>
+<p><strong>Type:</strong><br />
+class</p>
+<p><strong>Base:</strong><br />
+ToolBaseSystem</p>
+<p><strong>Summary:</strong><br />
+SelectionToolSystem implements the in-game selection tool used to select and deselect area-based objects (currently Map Tiles and Service Districts). It integrates with the DOTS/ECS world, scheduling Burst-compiled jobs to find entities inside a marquee, create temporary "creation/definition" entities, and copy/update selection buffers. The system tracks a simple state machine (Default, Selecting, Deselecting), handles input actions and UI sound cues, and coordinates with systems such as SearchSystem (area quadtree), MapTileSystem, MapTilePurchaseSystem, TerrainSystem and WaterSystem to compute selection geometry (a 3D marquee quad) and valid targets.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.Tools.SelectionType &lt;selectionType&gt;k__BackingField</code>  </li>
+<li>
+<p><code>private SearchSystem m_AreaSearchSystem</code><br />
+Holds a reference to the SearchSystem used to query area spatial structures (native quadtrees) for area entities intersecting the selection quad.</p>
+</li>
+<li>
+<p><code>private MapTileSystem m_MapTileSystem</code><br />
+Reference to the MapTileSystem used to get the game's start tiles and other map-tile related information.</p>
+</li>
+<li>
+<p><code>private MapTilePurchaseSystem m_MapTilePurchaseSystem</code><br />
+Used to query how many map tiles are available for purchase when selectionType == MapTiles (game-mode restrictions).</p>
+</li>
+<li>
+<p><code>private ToolOutputBarrier m_ToolOutputBarrier</code><br />
+Command buffer barrier used when jobs produce ECS structural changes (CreateDefinition entities, buffer writes, etc).</p>
+</li>
+<li>
+<p><code>private AudioManager m_AudioManager</code><br />
+Used to play UI sounds for marquee start/end/clear events.</p>
+</li>
+<li>
+<p><code>private TerrainSystem m_TerrainSystem</code><br />
+Used when computing marquee geometry (sample terrain height).</p>
+</li>
+<li>
+<p><code>private WaterSystem m_WaterSystem</code><br />
+Used to sample water surface heights for marquee geometry so the selection quad follows water/terrain.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_DefinitionGroup</code><br />
+EntityQuery used to find and destroy previous "definition" entities created by this tool.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_TempGroup</code><br />
+EntityQuery that selects temporary entities that can be toggled during marquee selection.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_SoundQuery</code><br />
+Query used to read tool sound settings.</p>
+</li>
+<li>
+<p><code>private Entity m_SelectionEntity</code><br />
+An ECS entity created per-active tool instance to hold selection info (SelectionInfo) and selected elements (SelectionElement buffer).</p>
+</li>
+<li>
+<p><code>private Entity m_LastOwner</code><br />
+Tracks last selectionOwner to detect changes and recreate the selection entity.</p>
+</li>
+<li>
+<p><code>private SelectionType m_LastType</code><br />
+Tracks last selectionType to detect changes and recreate the selection entity.</p>
+</li>
+<li>
+<p><code>private EntityArchetype m_SelectionArchetype</code><br />
+Archetype used when creating the per-tool selection entity (SelectionInfo + SelectionElement buffer).</p>
+</li>
+<li>
+<p><code>private State m_State</code><br />
+Current tool state (Default / Selecting / Deselecting). Controls behavior and input handling.</p>
+</li>
+<li>
+<p><code>private ControlPoint m_StartPoint</code><br />
+Start point of the marquee (set on press when entering Selecting/Deselecting).</p>
+</li>
+<li>
+<p><code>private ControlPoint m_RaycastPoint</code><br />
+Current raycast point (mouse/cursor hit) used as marquee end or hover.</p>
+</li>
+<li>
+<p><code>private IProxyAction m_SelectArea</code><br />
+Proxy action mapping for the primary (apply) action for area selection.</p>
+</li>
+<li>
+<p><code>private IProxyAction m_DeselectArea</code><br />
+Proxy action mapping for the secondary (apply) action for area deselection.</p>
+</li>
+<li>
+<p><code>private IProxyAction m_DiscardSelect</code><br />
+Proxy action mapping for canceling a select marquee.</p>
+</li>
+<li>
+<p><code>private IProxyAction m_DiscardDeselect</code><br />
+Proxy action mapping for canceling a deselect marquee.</p>
+</li>
+<li>
+<p><code>private bool m_ApplyBlocked</code><br />
+Internal flag used to temporarily block apply inputs (used when canceling mid-marquee).</p>
+</li>
+<li>
+<p><code>private TypeHandle __TypeHandle</code><br />
+Struct that stores pre-fetched Component/Buffer lookup handles used by jobs. Assigned in OnCreateForCompiler to optimize access.</p>
+</li>
+<li>
+<p><code>private const string kToolID = "Selection Tool"</code><br />
+Identifier string for the tool.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.Tools.SelectionType &lt;selectionType&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.Entity &lt;selectionOwner&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.Entity &lt;selectionOwner&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private Game.Areas.SearchSystem m_AreaSearchSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Areas.SearchSystem m_AreaSearchSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Areas.MapTileSystem m_MapTileSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Areas.MapTileSystem m_MapTileSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.MapTilePurchaseSystem m_MapTilePurchaseSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.MapTilePurchaseSystem m_MapTilePurchaseSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Tools.ToolOutputBarrier m_ToolOutputBarrier</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Tools.ToolOutputBarrier m_ToolOutputBarrier;
-</code></pre>
-<ul>
-<li><code>private Game.Audio.AudioManager m_AudioManager</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Audio.AudioManager m_AudioManager;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.TerrainSystem m_TerrainSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.TerrainSystem m_TerrainSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.WaterSystem m_WaterSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.WaterSystem m_WaterSystem;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_DefinitionGroup</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_DefinitionGroup;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_TempGroup</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_TempGroup;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_SoundQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_SoundQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.Entity m_SelectionEntity</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.Entity m_SelectionEntity;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.Entity m_LastOwner</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.Entity m_LastOwner;
-</code></pre>
-<ul>
-<li><code>private Game.Tools.SelectionType m_LastType</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Tools.SelectionType m_LastType;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityArchetype m_SelectionArchetype</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityArchetype m_SelectionArchetype;
-</code></pre>
-<ul>
-<li><code>private Game.Tools.SelectionToolSystem+State m_State</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Tools.SelectionToolSystem+State m_State;
-</code></pre>
-<ul>
-<li><code>private Game.Tools.ControlPoint m_StartPoint</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Tools.ControlPoint m_StartPoint;
-</code></pre>
-<ul>
-<li><code>private Game.Tools.ControlPoint m_RaycastPoint</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Tools.ControlPoint m_RaycastPoint;
-</code></pre>
-<ul>
-<li><code>private Game.Input.IProxyAction m_SelectArea</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Input.IProxyAction m_SelectArea;
-</code></pre>
-<ul>
-<li><code>private Game.Input.IProxyAction m_DeselectArea</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Input.IProxyAction m_DeselectArea;
-</code></pre>
-<ul>
-<li><code>private Game.Input.IProxyAction m_DiscardSelect</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Input.IProxyAction m_DiscardSelect;
-</code></pre>
-<ul>
-<li><code>private Game.Input.IProxyAction m_DiscardDeselect</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Input.IProxyAction m_DiscardDeselect;
-</code></pre>
-<ul>
-<li><code>private System.Boolean m_ApplyBlocked</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean m_ApplyBlocked;
-</code></pre>
-<ul>
-<li><code>private Game.Tools.SelectionToolSystem+TypeHandle __TypeHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Tools.SelectionToolSystem+TypeHandle __TypeHandle;
-</code></pre>
-<ul>
-<li><code>public static const System.String kToolID</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static const System.String kToolID;
-</code></pre>
+<hr />
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>public System.String toolID { get }</code>  </li>
+<li>
+<p><code>public override string toolID =&gt; "Selection Tool"</code><br />
+Tool identifier. Overrides ToolBaseSystem.toolID.</p>
+</li>
+<li>
+<p><code>public SelectionType selectionType { get; set; }</code><br />
+Gets/sets the current selection type (MapTiles, ServiceDistrict, etc). Changing this triggers recreation of the selection entity and resets configuration used by the tool.</p>
+</li>
+<li>
+<p><code>public Entity selectionOwner { get; set; }</code><br />
+Gets/sets the owner entity context for the selection (used for service-district copying and ownership association).</p>
+</li>
+<li>
+<p><code>public State state =&gt; m_State</code><br />
+Read-only property exposing the current state of the selection tool (Default / Selecting / Deselecting).</p>
+</li>
+<li>
+<p><code>private protected override IEnumerable&lt;IProxyAction&gt; toolActions</code><br />
+Enumerable exposing the actions used by the tool (select, deselect, discard select/deselect). Used by UI to show/enable action bindings.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public System.String toolID { get; }
-</code></pre>
-<ul>
-<li><code>public Game.Tools.SelectionType selectionType { get; set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Game.Tools.SelectionType selectionType { get; set; }
-</code></pre>
-<ul>
-<li><code>public Unity.Entities.Entity selectionOwner { get; set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Unity.Entities.Entity selectionOwner { get; set; }
-</code></pre>
-<ul>
-<li><code>public Game.Tools.SelectionToolSystem+State state { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Game.Tools.SelectionToolSystem+State state { get; }
-</code></pre>
-<ul>
-<li><code>private System.Collections.Generic.IEnumerable&lt;Game.Input.IProxyAction&gt; toolActions { private get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Collections.Generic.IEnumerable&lt;Game.Input.IProxyAction&gt; toolActions { private get; }
-</code></pre>
+<hr />
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public SelectionToolSystem()</code>  </li>
+<li><code>public SelectionToolSystem()</code><br />
+Default constructor (marks class for preservation with [Preserve] attribute elsewhere). Initialization of many subsystems occurs in OnCreate, not here.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public SelectionToolSystem()
-    {
-    }
-</code></pre>
+<hr />
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private __AssignQueries(Unity.Entities.SystemState&amp; state) : System.Void</code>  </li>
+<li>
+<p><code>protected override void OnCreate()</code><br />
+Initializes references to required systems (SearchSystem, MapTileSystem, MapTilePurchaseSystem, ToolOutputBarrier, AudioManager, TerrainSystem, WaterSystem), creates entity archetype for selection, fetches input actions from InputManager, and prepares EntityQueries. Marked [Preserve].</p>
+</li>
+<li>
+<p><code>protected override void OnStartRunning()</code><br />
+Initializes per-run state: sets m_State = Default, clears m_StartPoint and m_ApplyBlocked.</p>
+</li>
+<li>
+<p><code>protected override void OnStopRunning()</code><br />
+Destroys the selection entity if present and performs base shutdown logic.</p>
+</li>
+<li>
+<p><code>private protected override void UpdateActions()</code><br />
+Updates the enabled/disabled state and overrides for the tool's proxy actions depending on selectionType, current m_State, whether there are editable temp entities, map-tile purchase availability and actionsEnabled. Controls which action triggers map tile select/deselect/discard.</p>
+</li>
+<li>
+<p><code>public override PrefabBase GetPrefab()</code><br />
+Tool-level prefab accessor, returns null — the selection tool does not expose a current prefab.</p>
+</li>
+<li>
+<p><code>public override bool TrySetPrefab(PrefabBase prefab)</code><br />
+Selection tool does not set a prefab for placement; always returns false.</p>
+</li>
+<li>
+<p><code>public override void InitializeRaycast()</code><br />
+Configures the tool raycast type mask and areaTypeMask based on selectionType (for MapTiles/ServiceDistrict uses terrain/areas/water raycasting and appropriate area masks).</p>
+</li>
+<li>
+<p><code>private AreaType GetAreaType(SelectionType selectionType)</code><br />
+Maps SelectionType enum to underlying AreaType used by area quadtrees (ServiceDistrict -&gt; District, MapTiles -&gt; MapTile, otherwise None).</p>
+</li>
+<li>
+<p><code>protected override JobHandle OnUpdate(JobHandle inputDeps)</code><br />
+Main update driver. Ensures selection entity exists and is configured for current selectionType/selectionOwner (creates and sets SelectionInfo and Owner). Updates actions and then handles state-specific input flows: reacting to apply/secondary/cancel proxy inputs to call Apply/Cancel/Update/Clear flows. Coordinates whether raycasts are allowed (disables when UI/debug flags present).</p>
+</li>
+<li>
+<p><code>private JobHandle Cancel(JobHandle inputDeps, bool singleFrameOnly = false)</code><br />
+Handles cancel behavior depending on m_State:</p>
+</li>
+<li>If Selecting: aborts select marquee, clears start point, sets state Default, plays end sound and calls UpdateDefinitions to refresh selection definitions.</li>
+<li>If Deselecting: toggles temp entities off (if allowed), updates selection, checks movement distance to play clear-end sound, clears state and updates definitions.</li>
+<li>
+<p>If Default: if a raycast point exists, enters Deselecting (unless singleFrameOnly) and plays clear-start sound, or toggles selection if singleFrameOnly and allowed.</p>
+</li>
+<li>
+<p><code>private JobHandle Apply(JobHandle inputDeps, bool singleFrameOnly = false)</code><br />
+Handles apply behavior depending on m_State:</p>
+</li>
+<li>If Selecting: toggles temp entities on and updates selection, plays end sound if marquee moved, clears state and updates definitions.</li>
+<li>If Deselecting: finishes clear marquee, resets start point/state and updates definitions.</li>
+<li>
+<p>If Default: if raycast point exists, enters Selecting (unless singleFrameOnly), plays marquee start sound, or toggles selection immediately if singleFrameOnly and allowed.</p>
+</li>
+<li>
+<p><code>private JobHandle Update(JobHandle inputDeps)</code><br />
+Updates current raycast point and marquee:</p>
+</li>
+<li>In Selecting/Deselecting: only re-schedules definition updates if the raycast point changed or forceUpdate occurs.</li>
+<li>
+<p>In Default: updates hover state and only re-generates definitions when underlying entity changed or forceUpdate.</p>
+</li>
+<li>
+<p><code>private JobHandle Clear(JobHandle inputDeps)</code><br />
+Sets applyMode = Clear and returns inputDeps; clears visual apply hints.</p>
+</li>
+<li>
+<p><code>private JobHandle UpdateDefinitions(JobHandle inputDeps)</code><br />
+Destroys previously created definition entities and (if in a marquee/hover) schedules jobs to find area entities intersecting the marquee and create CreationDefinition entities for those areas. Uses FindEntitiesJob + CreateDefinitionsJob. Coordinates dependencies with SearchSystem (quad-tree reader) and ToolOutputBarrier.</p>
+</li>
+<li>
+<p><code>protected override bool GetRaycastResult(out ControlPoint controlPoint)</code><br />
+Overrides to disallow raycasting when selectionType is MapTiles and in game mode with zero available purchase tiles. Otherwise delegates to base.GetRaycastResult.</p>
+</li>
+<li>
+<p><code>protected override bool GetRaycastResult(out ControlPoint controlPoint, out bool forceUpdate)</code><br />
+Same as above but returns forceUpdate flag from base.</p>
+</li>
+<li>
+<p><code>private JobHandle ToggleTempEntity(JobHandle inputDeps, bool select)</code><br />
+Schedules ToggleEntityJob across temp entities (m_TempGroup) to either add or remove entries in the selection buffer on the selection entity. Respects editor/game mode and map tile/native flags.</p>
+</li>
+<li>
+<p><code>private JobHandle CopySelection(JobHandle inputDeps)</code><br />
+Copies an initial selection into the selection entity when the tool is created or selection type/owner changes:</p>
+</li>
+<li>For ServiceDistrict: copies existing owner's service districts into the selection buffer.</li>
+<li>For MapTiles in editor mode: copies start tiles.</li>
+<li>
+<p>Otherwise returns inputDeps unchanged.</p>
+</li>
+<li>
+<p><code>private JobHandle UpdateSelection(JobHandle inputDeps)</code><br />
+Writes selection back to world buffers when applying:</p>
+</li>
+<li>For ServiceDistrict: writes selection buffer back to the owner's ServiceDistrict buffer.</li>
+<li>
+<p>For MapTiles in editor mode: updates the MapTile start tiles and marks Updated on affected tiles.</p>
+</li>
+<li>
+<p><code>private JobHandle CopyStartTiles(JobHandle inputDeps)</code><br />
+Schedules CopyStartTilesJob to copy start tiles from MapTileSystem into the selection buffer on the selection entity (editor only).</p>
+</li>
+<li>
+<p><code>private JobHandle UpdateStartTiles(JobHandle inputDeps)</code><br />
+Schedules UpdateStartTilesJob to update Updated components on start tiles and replace the MapTileSystem start tiles list with the selection buffer contents; uses ToolOutputBarrier for structural changes.</p>
+</li>
+<li>
+<p><code>private JobHandle CopyServiceDistricts(JobHandle inputDeps)</code><br />
+Schedules CopyServiceDistrictsJob to copy a service owner's service districts into the selection buffer and mark owner Updated.</p>
+</li>
+<li>
+<p><code>private JobHandle UpdateServiceDistricts(JobHandle inputDeps)</code><br />
+Schedules UpdateServiceDistrictsJob to copy the selection buffer back into the owner's ServiceDistrict buffer and mark owner Updated.</p>
+</li>
+<li>
+<p><code>public bool GetSelectionQuad(out Quad3 quad)</code><br />
+Computes the 3D marquee quad (Quad3) from m_StartPoint and m_RaycastPoint using the main Camera orientation. It projects the marquee corners on terrain/water heights (uses TerrainSystem.GetHeightData and WaterSystem.GetSurfaceData). Returns false if camera is missing or start/end points are not valid.</p>
+</li>
+<li>
+<p><code>private void __AssignQueries(ref SystemState state)</code><br />
+Compiler-time method to assign EntityQuery builders. In this file it constructs an empty builder and disposes; present for the generated ECS system pipeline.</p>
+</li>
+<li>
+<p><code>protected override void OnCreateForCompiler()</code><br />
+Called by the generated ECS bootstrap; assigns queries and component handles by calling __AssignQueries and __TypeHandle.__AssignHandles.</p>
+</li>
+<li>
+<p>Nested/burst jobs and helper structs:</p>
+</li>
+<li>FindEntitiesJob (IJob): Burst job that, given start/end ControlPoints, area search tree and other lookups, finds unique area entities intersecting the selection quad. Uses an AreaIterator to iterate quad-tree items and verify triangle/quad intersection. Results are sorted and deduplicated.</li>
+<li>CreateDefinitionsJob (IJobParallelForDefer): For each found entity, creates a CreationDefinition entity (with CreationFlags.Select) and copies node buffers into the created entity so the marquis can preview selection geometry.</li>
+<li>ToggleEntityJob (IJobChunk): Toggles entries in the SelectionElement buffer on the selection entity based on Temp buffer entries for temp entities; used to add/remove temporary selections during marquee operations.</li>
+<li>CopyStartTilesJob / UpdateStartTilesJob / CopyServiceDistrictsJob / UpdateServiceDistrictsJob: utility burst jobs to copy buffers between selection entity and world entities and to mark Updated components.</li>
 </ul>
-<pre><code class="language-csharp">private void __AssignQueries(ref SystemState state)
-    {
-        new EntityQueryBuilder(Allocator.Temp).Dispose();
-    }
+<hr />
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Typical minimal usage inside a custom derived tool system or when inspecting behavior:
+[Preserve]
+protected override void OnCreate()
+{
+    base.OnCreate();
+    // Set the selection type (MapTiles or ServiceDistrict) and optionally an owner entity
+    this.selectionType = SelectionType.MapTiles;
+    // selectionOwner = someOwnerEntity; // optional for ServiceDistrict mode
+
+    // Initialize raycasting (this is normally handled by the base tool lifecycle)
+    InitializeRaycast();
+}
+
+// During runtime, the system handles input and will create a per-tool selection entity
+// which contains SelectionInfo and a SelectionElement buffer. Use SelectionElement buffer
+// on the selection entity to query/set currently selected entities.
 </code></pre>
-<ul>
-<li><code>private Apply(Unity.Jobs.JobHandle inputDeps, System.Boolean singleFrameOnly = False) : Unity.Jobs.JobHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private JobHandle Apply(JobHandle inputDeps, bool singleFrameOnly = false)
-    {
-        switch (m_State)
-        {
-        case State.Selecting:
-            if (!m_RaycastPoint.Equals(default(ControlPoint)) &amp;&amp; GetAllowApply())
-            {
-                inputDeps = ToggleTempEntity(inputDeps, select: true);
-                inputDeps = UpdateSelection(inputDeps);
-            }
-            if (math.distance(m_StartPoint.m_Position, m_RaycastPoint.m_Position) &gt; 1f)
-            {
-                m_AudioManager.PlayUISound(m_SoundQuery.GetSingleton&lt;ToolUXSoundSettingsData&gt;().m_AreaMarqueeEndSound);
-            }
-            m_StartPoint = default(ControlPoint);
-            m_State = State.Default;
-            GetRaycastResult(out m_RaycastPoint);
-            base.applyMode = ApplyMode.Clear;
-            return UpdateDefinitions(inputDeps);
-        case State.Deselecting:
-            if (math.distance(m_StartPoint.m_Position, m_RaycastPoint.m_Position) &gt; 1f)
-            {
-                m_AudioManager.PlayUISound(m_SoundQuery.GetSingleton&lt;ToolUXSoundSettingsData&gt;().m_AreaMarqueeClearEndSound);
-            }
-            m_StartPoint = default(ControlPoint);
-            m_State = State.Default;
-            GetRaycastResult(out m_RaycastPoint);
-            base.applyMode = ApplyMode.Clear;
-            return UpdateDefinitions(inputDeps);
-        default:
-            if (!m_RaycastPoint.Equals(default(ControlPoint)))
-            {
-                if (singleFrameOnly)
-                {
-                    if (GetAllowApply())
-                    {
-                        inputDeps = ToggleTempEntity(inputDeps, select: true);
-                        inputDeps = UpdateSelection(inputDeps);
-                        GetRaycastResult(out m_RaycastPoint);
-                        base.applyMode = ApplyMode.Clear;
-                        return UpdateDefinitions(inputDeps);
-                    }
-                }
-                else
-                {
-                    m_StartPoint = m_RaycastPoint;
-                    m_State = State.Selecting;
-                }
-                m_AudioManager.PlayUISound(m_SoundQuery.GetSingleton&lt;ToolUXSoundSettingsData&gt;().m_AreaMarqueeStartSound);
-            }
-            return Update(inputDeps);
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private Cancel(Unity.Jobs.JobHandle inputDeps, System.Boolean singleFrameOnly = False) : Unity.Jobs.JobHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private JobHandle Cancel(JobHandle inputDeps, bool singleFrameOnly = false)
-    {
-        switch (m_State)
-        {
-        case State.Selecting:
-            m_StartPoint = default(ControlPoint);
-            m_State = State.Default;
-            GetRaycastResult(out m_RaycastPoint);
-            base.applyMode = ApplyMode.Clear;
-            m_AudioManager.PlayUISound(m_SoundQuery.GetSingleton&lt;ToolUXSoundSettingsData&gt;().m_AreaMarqueeEndSound);
-            return UpdateDefinitions(inputDeps);
-        case State.Deselecting:
-            if (!m_RaycastPoint.Equals(default(ControlPoint)) &amp;&amp; GetAllowApply())
-            {
-                inputDeps = ToggleTempEntity(inputDeps, select: false);
-                inputDeps = UpdateSelection(inputDeps);
-            }
-            if (math.distance(m_StartPoint.m_Position, m_RaycastPoint.m_Position) &gt; 1f)
-            {
-                m_AudioManager.PlayUISound(m_SoundQuery.GetSingleton&lt;ToolUXSoundSettingsData&gt;().m_AreaMarqueeClearEndSound);
-            }
-            m_StartPoint = default(ControlPoint);
-            m_State = State.Default;
-            GetRaycastResult(out m_RaycastPoint);
-            base.applyMode = ApplyMode.Clear;
-            return UpdateDefinitions(inputDeps);
-        default:
-            if (!m_RaycastPoint.Equals(default(ControlPoint)))
-            {
-                if (singleFrameOnly)
-                {
-                    if (GetAllowApply())
-                    {
-                        inputDeps = ToggleTempEntity(inputDeps, select: false);
-                        inputDeps = UpdateSelection(inputDeps);
-                        GetRaycastResult(out m_RaycastPoint);
-                        base.applyMode = ApplyMode.Clear;
-                        return UpdateDefinitions(inputDeps);
-                    }
-                }
-                else
-                {
-                    m_StartPoint = m_RaycastPoint;
-                    m_State = State.Deselecting;
-                }
-                m_AudioManager.PlayUISound(m_SoundQuery.GetSingleton&lt;ToolUXSoundSettingsData&gt;().m_AreaMarqueeClearStartSound);
-            }
-            return Update(inputDeps);
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private Clear(Unity.Jobs.JobHandle inputDeps) : Unity.Jobs.JobHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private JobHandle Clear(JobHandle inputDeps)
-    {
-        base.applyMode = ApplyMode.Clear;
-        return inputDeps;
-    }
-</code></pre>
-<ul>
-<li><code>private CopySelection(Unity.Jobs.JobHandle inputDeps) : Unity.Jobs.JobHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private JobHandle CopySelection(JobHandle inputDeps)
-    {
-        switch (selectionType)
-        {
-        case SelectionType.ServiceDistrict:
-            return CopyServiceDistricts(inputDeps);
-        case SelectionType.MapTiles:
-            if (m_ToolSystem.actionMode.IsEditor())
-            {
-                return CopyStartTiles(inputDeps);
-            }
-            return inputDeps;
-        default:
-            return inputDeps;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private CopyServiceDistricts(Unity.Jobs.JobHandle inputDeps) : Unity.Jobs.JobHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private JobHandle CopyServiceDistricts(JobHandle inputDeps)
-    {
-        JobHandle jobHandle = IJobExtensions.Schedule(new CopyServiceDistrictsJob
-        {
-            m_SelectionEntity = m_SelectionEntity,
-            m_OwnerData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Common_Owner_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabRefData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_ServiceDistricts = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Areas_ServiceDistrict_RO_BufferLookup, ref base.CheckedStateRef),
-            m_SelectionElements = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Tools_SelectionElement_RW_BufferLookup, ref base.CheckedStateRef),
-            m_CommandBuffer = m_ToolOutputBarrier.CreateCommandBuffer()
-        }, inputDeps);
-        m_ToolOutputBarrier.AddJobHandleForProducer(jobHandle);
-        return jobHandle;
-    }
-</code></pre>
-<ul>
-<li><code>private CopyStartTiles(Unity.Jobs.JobHandle inputDeps) : Unity.Jobs.JobHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private JobHandle CopyStartTiles(JobHandle inputDeps)
-    {
-        return IJobExtensions.Schedule(new CopyStartTilesJob
-        {
-            m_SelectionEntity = m_SelectionEntity,
-            m_StartTiles = m_MapTileSystem.GetStartTiles(),
-            m_PrefabRefData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_SelectionElements = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Tools_SelectionElement_RW_BufferLookup, ref base.CheckedStateRef)
-        }, inputDeps);
-    }
-</code></pre>
-<ul>
-<li><code>private GetAreaType(Game.Tools.SelectionType selectionType) : Game.Areas.AreaType</code>  </li>
-</ul>
-<pre><code class="language-csharp">private AreaType GetAreaType(SelectionType selectionType)
-    {
-        return selectionType switch
-        {
-            SelectionType.ServiceDistrict =&gt; AreaType.District, 
-            SelectionType.MapTiles =&gt; AreaType.MapTile, 
-            _ =&gt; AreaType.None, 
-        };
-    }
-</code></pre>
-<ul>
-<li><code>public virtual GetPrefab() : Game.Prefabs.PrefabBase</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override PrefabBase GetPrefab()
-    {
-        return null;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual GetRaycastResult(Game.Tools.ControlPoint&amp; controlPoint) : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override bool GetRaycastResult(out ControlPoint controlPoint, out bool forceUpdate)
-    {
-        if (selectionType == SelectionType.MapTiles &amp;&amp; m_ToolSystem.actionMode.IsGame() &amp;&amp; m_MapTilePurchaseSystem.GetAvailableTiles() == 0)
-        {
-            controlPoint = default(ControlPoint);
-            forceUpdate = false;
-            return false;
-        }
-        return base.GetRaycastResult(out controlPoint, out forceUpdate);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual GetRaycastResult(Game.Tools.ControlPoint&amp; controlPoint, System.Boolean&amp; forceUpdate) : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override bool GetRaycastResult(out ControlPoint controlPoint, out bool forceUpdate)
-    {
-        if (selectionType == SelectionType.MapTiles &amp;&amp; m_ToolSystem.actionMode.IsGame() &amp;&amp; m_MapTilePurchaseSystem.GetAvailableTiles() == 0)
-        {
-            controlPoint = default(ControlPoint);
-            forceUpdate = false;
-            return false;
-        }
-        return base.GetRaycastResult(out controlPoint, out forceUpdate);
-    }
-</code></pre>
-<ul>
-<li><code>public GetSelectionQuad(Colossal.Mathematics.Quad3&amp; quad) : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">public bool GetSelectionQuad(out Quad3 quad)
-    {
-        Camera main = Camera.main;
-        if (main == null)
-        {
-            quad = default(Quad3);
-            return false;
-        }
-        Transform transform = main.transform;
-        float3 @float = math.normalizesafe(new float3
-        {
-            xz = ((float3)transform.right).xz
-        });
-        float3 float2 = new float3
-        {
-            xz = MathUtils.Right(@float.xz)
-        };
-        float3 hitPosition = m_StartPoint.m_HitPosition;
-        float3 x = m_RaycastPoint.m_HitPosition - hitPosition;
-        float num = math.dot(x, @float);
-        float num2 = math.dot(x, float2);
-        if (num &lt; 0f)
-        {
-            @float = -@float;
-            num = 0f - num;
-        }
-        if (num2 &lt; 0f)
-        {
-            float2 = -float2;
-            num2 = 0f - num2;
-        }
-        quad.a = hitPosition;
-        quad.b = hitPosition + float2 * num2;
-        quad.c = hitPosition + @float * num + float2 * num2;
-        quad.d = hitPosition + @float * num;
-        TerrainHeightData terrainData = m_TerrainSystem.GetHeightData();
-        JobHandle deps;
-        WaterSurfaceData data = m_WaterSystem.GetSurfaceData(out deps);
-        deps.Complete();
-        quad.a.y = WaterUtils.SampleHeight(ref data, ref terrainData, quad.a);
-        quad.b.y = WaterUtils.SampleHeight(ref data, ref terrainData, quad.b);
-        quad.c.y = WaterUtils.SampleHeight(ref data, ref terrainData, quad.c);
-        quad.d.y = WaterUtils.SampleHeight(ref data, ref terrainData, quad.d);
-        if (!m_StartPoint.Equals(default(ControlPoint)))
-        {
-            return !m_RaycastPoint.Equals(default(ControlPoint));
-        }
-        return false;
-    }
-</code></pre>
-<ul>
-<li><code>public virtual InitializeRaycast() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override void InitializeRaycast()
-    {
-        base.InitializeRaycast();
-        SelectionType selectionType = this.selectionType;
-        if ((uint)(selectionType - 1) &lt;= 1u)
-        {
-            m_ToolRaycastSystem.typeMask = TypeMask.Terrain | TypeMask.Areas | TypeMask.Water;
-        }
-        else
-        {
-            m_ToolRaycastSystem.typeMask = TypeMask.None;
-        }
-        m_ToolRaycastSystem.areaTypeMask = AreaUtils.GetTypeMask(GetAreaType(this.selectionType));
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_AreaSearchSystem = base.World.GetOrCreateSystemManaged&lt;SearchSystem&gt;();
-        m_MapTileSystem = base.World.GetOrCreateSystemManaged&lt;MapTileSystem&gt;();
-        m_MapTilePurchaseSystem = base.World.GetOrCreateSystemManaged&lt;MapTilePurchaseSystem&gt;();
-        m_ToolOutputBarrier = base.World.GetOrCreateSystemManaged&lt;ToolOutputBarrier&gt;();
-        m_AudioManager = base.World.GetOrCreateSystemManaged&lt;AudioManager&gt;();
-        m_TerrainSystem = base.World.GetOrCreateSystemManaged&lt;TerrainSystem&gt;();
-        m_WaterSystem = base.World.GetOrCreateSystemManaged&lt;WaterSystem&gt;();
-        m_DefinitionGroup = GetDefinitionQuery();
-        m_TempGroup = GetEntityQuery(ComponentType.ReadOnly&lt;Temp&gt;());
-        m_SoundQuery = GetEntityQuery(ComponentType.ReadOnly&lt;ToolUXSoundSettingsData&gt;());
-        m_SelectionArchetype = base.EntityManager.CreateArchetype(ComponentType.ReadWrite&lt;SelectionInfo&gt;(), ComponentType.ReadWrite&lt;SelectionElement&gt;());
-        m_SelectArea = InputManager.instance.toolActionCollection.GetActionState(&quot;Select Area&quot;, &quot;SelectionToolSystem&quot;);
-        m_DeselectArea = InputManager.instance.toolActionCollection.GetActionState(&quot;Deselect Area&quot;, &quot;SelectionToolSystem&quot;);
-        m_DiscardSelect = InputManager.instance.toolActionCollection.GetActionState(&quot;Discard Select&quot;, &quot;SelectionToolSystem&quot;);
-        m_DiscardDeselect = InputManager.instance.toolActionCollection.GetActionState(&quot;Discard Deselect&quot;, &quot;SelectionToolSystem&quot;);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreateForCompiler() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnCreateForCompiler()
-    {
-        base.OnCreateForCompiler();
-        __AssignQueries(ref base.CheckedStateRef);
-        __TypeHandle.__AssignHandles(ref base.CheckedStateRef);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnStartRunning() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnStartRunning()
-    {
-        base.OnStartRunning();
-        m_State = State.Default;
-        m_StartPoint = default(ControlPoint);
-        m_ApplyBlocked = false;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnStopRunning() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnStopRunning()
-    {
-        if (m_SelectionEntity != Entity.Null)
-        {
-            base.EntityManager.DestroyEntity(m_SelectionEntity);
-            m_SelectionEntity = Entity.Null;
-        }
-        base.OnStopRunning();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate(Unity.Jobs.JobHandle inputDeps) : Unity.Jobs.JobHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override JobHandle OnUpdate(JobHandle inputDeps)
-    {
-        if (m_LastOwner != selectionOwner || m_LastType != selectionType || m_SelectionEntity == Entity.Null)
-        {
-            if (m_SelectionEntity != Entity.Null)
-            {
-                base.EntityManager.DestroyEntity(m_SelectionEntity);
-            }
-            m_SelectionEntity = base.EntityManager.CreateEntity(m_SelectionArchetype);
-            SelectionInfo componentData = default(SelectionInfo);
-            componentData.m_SelectionType = selectionType;
-            componentData.m_AreaType = GetAreaType(selectionType);
-            base.EntityManager.SetComponentData(m_SelectionEntity, componentData);
-            if (selectionOwner != Entity.Null)
-            {
-                base.EntityManager.AddComponentData(m_SelectionEntity, new Owner(selectionOwner));
-            }
-            m_LastOwner = selectionOwner;
-            m_LastType = selectionType;
-            base.requireAreas = m_ToolRaycastSystem.areaTypeMask;
-            inputDeps = CopySelection(inputDeps);
-        }
-        UpdateActions();
-        if (m_State != State.Default &amp;&amp; !base.applyAction.enabled &amp;&amp; !base.secondaryApplyAction.enabled)
-        {
-            m_State = State.Default;
-        }
-        if ((m_ToolRaycastSystem.raycastFlags &amp; (RaycastFlags.DebugDisable | RaycastFlags.UIDisable)) == 0)
-        {
-            switch (m_State)
-            {
-            case State.Default:
-                if (m_ApplyBlocked)
-                {
-                    if (base.applyAction.WasReleasedThisFrame() || base.secondaryApplyAction.WasReleasedThisFrame())
-                    {
-                        m_ApplyBlocked = false;
-                    }
-                    return Update(inputDeps);
-                }
-                if (base.secondaryApplyAction.WasPressedThisFrame())
-                {
-                    return Cancel(inputDeps, base.secondaryApplyAction.WasReleasedThisFrame());
-                }
-                if (base.applyAction.WasPressedThisFrame())
-                {
-                    return Apply(inputDeps, base.applyAction.WasReleasedThisFrame());
-                }
-                break;
-            case State.Selecting:
-                if (base.cancelAction.WasPressedThisFrame())
-                {
-                    m_ApplyBlocked = true;
-                    return Cancel(inputDeps);
-                }
-                if (base.applyAction.WasPressedThisFrame() || base.applyAction.WasReleasedThisFrame())
-                {
-                    return Apply(inputDeps);
-                }
-                break;
-            case State.Deselecting:
-                if (base.cancelAction.WasPressedThisFrame())
-                {
-                    m_ApplyBlocked = true;
-                    return Apply(inputDeps);
-                }
-                if (base.secondaryApplyAction.WasPressedThisFrame() || base.secondaryApplyAction.WasReleasedThisFrame())
-                {
-                    return Cancel(inputDeps);
-                }
-                break;
-            }
-            return Update(inputDeps);
-        }
-        if (m_State != State.Default &amp;&amp; (base.applyAction.WasReleasedThisFrame() || base.secondaryApplyAction.WasReleasedThisFrame()))
-        {
-            m_StartPoint = default(ControlPoint);
-            m_State = State.Default;
-        }
-        return Clear(inputDeps);
-    }
-</code></pre>
-<ul>
-<li><code>private ToggleTempEntity(Unity.Jobs.JobHandle inputDeps, System.Boolean select) : Unity.Jobs.JobHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private JobHandle ToggleTempEntity(JobHandle inputDeps, bool select)
-    {
-        if (m_TempGroup.IsEmptyIgnoreFilter)
-        {
-            return inputDeps;
-        }
-        return JobChunkExtensions.Schedule(new ToggleEntityJob
-        {
-            m_SelectionEntity = m_SelectionEntity,
-            m_Select = select,
-            m_EditorMode = m_ToolSystem.actionMode.IsEditor(),
-            m_TempType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Tools_Temp_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_NativeType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Common_Native_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_MapTileType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Areas_MapTile_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_SelectionElements = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Tools_SelectionElement_RW_BufferLookup, ref base.CheckedStateRef)
-        }, m_TempGroup, inputDeps);
-    }
-</code></pre>
-<ul>
-<li><code>public virtual TrySetPrefab(Game.Prefabs.PrefabBase prefab) : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override bool TrySetPrefab(PrefabBase prefab)
-    {
-        return false;
-    }
-</code></pre>
-<ul>
-<li><code>private Update(Unity.Jobs.JobHandle inputDeps) : Unity.Jobs.JobHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private JobHandle Update(JobHandle inputDeps)
-    {
-        State state = m_State;
-        if ((uint)(state - 1) &lt;= 1u)
-        {
-            if (GetRaycastResult(out ControlPoint controlPoint, out bool forceUpdate) &amp;&amp; controlPoint.Equals(m_RaycastPoint) &amp;&amp; !forceUpdate)
-            {
-                base.applyMode = ApplyMode.None;
-                return inputDeps;
-            }
-            m_RaycastPoint = controlPoint;
-            base.applyMode = ApplyMode.Clear;
-            return UpdateDefinitions(inputDeps);
-        }
-        if (GetRaycastResult(out ControlPoint controlPoint2, out bool forceUpdate2) &amp;&amp; controlPoint2.m_OriginalEntity == m_RaycastPoint.m_OriginalEntity &amp;&amp; !forceUpdate2 &amp;&amp; !base.EntityManager.HasComponent&lt;Updated&gt;(m_RaycastPoint.m_OriginalEntity))
-        {
-            m_RaycastPoint = controlPoint2;
-            base.applyMode = ApplyMode.None;
-            return inputDeps;
-        }
-        m_RaycastPoint = controlPoint2;
-        base.applyMode = ApplyMode.Clear;
-        return UpdateDefinitions(inputDeps);
-    }
-</code></pre>
-<ul>
-<li><code>private virtual UpdateActions() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private protected override void UpdateActions()
-    {
-        using (ProxyAction.DeferStateUpdating())
-        {
-            switch (selectionType)
-            {
-            case SelectionType.MapTiles:
-                if (m_ToolSystem.actionMode.IsGame() &amp;&amp; m_MapTilePurchaseSystem.GetAvailableTiles() == 0)
-                {
-                    base.applyAction.enabled = false;
-                    base.applyActionOverride = null;
-                    base.secondaryApplyAction.enabled = false;
-                    base.secondaryApplyActionOverride = null;
-                    base.cancelAction.enabled = false;
-                    base.cancelActionOverride = null;
-                    break;
-                }
-                if (m_TempGroup.CalculateEntityCount() &lt;= 1)
-                {
-                    base.applyAction.enabled = base.actionsEnabled;
-                    base.applyActionOverride = m_SelectArea;
-                    base.secondaryApplyAction.enabled = base.actionsEnabled;
-                    base.secondaryApplyActionOverride = m_DeselectArea;
-                    base.cancelAction.enabled = false;
-                    base.cancelActionOverride = null;
-                    break;
-                }
-                switch (m_State)
-                {
-                case State.Default:
-                    base.applyAction.enabled = base.actionsEnabled;
-                    base.applyActionOverride = m_SelectArea;
-                    base.secondaryApplyAction.enabled = base.actionsEnabled;
-                    base.secondaryApplyActionOverride = m_DeselectArea;
-                    base.cancelAction.enabled = false;
-                    base.cancelActionOverride = null;
-                    break;
-                case State.Selecting:
-                    base.applyAction.enabled = base.actionsEnabled;
-                    base.applyActionOverride = m_SelectArea;
-                    base.secondaryApplyAction.enabled = false;
-                    base.secondaryApplyActionOverride = null;
-                    base.cancelAction.enabled = base.actionsEnabled;
-                    base.cancelActionOverride = m_DiscardSelect;
-                    break;
-                case State.Deselecting:
-                    base.applyAction.enabled = false;
-                    base.applyActionOverride = null;
-                    base.secondaryApplyAction.enabled = base.actionsEnabled;
-                    base.secondaryApplyActionOverride = m_DeselectArea;
-                    base.cancelAction.enabled = base.actionsEnabled;
-                    base.cancelActionOverride = m_DiscardDeselect;
-                    break;
-                }
-                break;
-            case SelectionType.ServiceDistrict:
-                switch (m_State)
-                {
-                case State.Default:
-                    base.applyAction.enabled = base.actionsEnabled;
-                    base.applyActionOverride = m_SelectArea;
-                    base.secondaryApplyAction.enabled = base.actionsEnabled;
-                    base.secondaryApplyActionOverride = m_DeselectArea;
-                    base.cancelAction.enabled = false;
-                    base.cancelActionOverride = null;
-                    break;
-                case State.Selecting:
-                    base.applyAction.enabled = base.actionsEnabled;
-                    base.applyActionOverride = m_SelectArea;
-                    base.secondaryApplyAction.enabled = false;
-                    base.secondaryApplyActionOverride = null;
-                    base.cancelAction.enabled = base.actionsEnabled;
-                    base.cancelActionOverride = m_DiscardSelect;
-                    break;
-                case State.Deselecting:
-                    base.applyAction.enabled = false;
-                    base.applyActionOverride = null;
-                    base.secondaryApplyAction.enabled = base.actionsEnabled;
-                    base.secondaryApplyActionOverride = m_DeselectArea;
-                    base.cancelAction.enabled = base.actionsEnabled;
-                    base.cancelActionOverride = m_DiscardDeselect;
-                    break;
-                }
-                break;
-            default:
-                base.applyAction.enabled = false;
-                base.applyActionOverride = null;
-                base.secondaryApplyAction.enabled = false;
-                base.secondaryApplyActionOverride = null;
-                base.cancelAction.enabled = false;
-                base.cancelActionOverride = null;
-                break;
-            }
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private UpdateDefinitions(Unity.Jobs.JobHandle inputDeps) : Unity.Jobs.JobHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private JobHandle UpdateDefinitions(JobHandle inputDeps)
-    {
-        JobHandle jobHandle = DestroyDefinitions(m_DefinitionGroup, m_ToolOutputBarrier, inputDeps);
-        if (m_State != State.Default || m_RaycastPoint.m_OriginalEntity != Entity.Null)
-        {
-            NativeList&lt;Entity&gt; nativeList = new NativeList&lt;Entity&gt;(Allocator.TempJob);
-            GetSelectionQuad(out var quad);
-            JobHandle dependencies;
-            FindEntitiesJob jobData = new FindEntitiesJob
-            {
-                m_StartPoint = ((m_State != State.Default) ? m_StartPoint : default(ControlPoint)),
-                m_EndPoint = m_RaycastPoint,
-                m_AreaSearchTree = m_AreaSearchSystem.GetSearchTree(readOnly: true, out dependencies),
-                m_SelectionQuad = quad.xz,
-                m_AreaType = GetAreaType(selectionType),
-                m_PrefabRefData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_AreaGeometryData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_AreaGeometryData_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_Nodes = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Areas_Node_RO_BufferLookup, ref base.CheckedStateRef),
-                m_Triangles = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Areas_Triangle_RO_BufferLookup, ref base.CheckedStateRef),
-                m_Entities = nativeList
-            };
-            CreateDefinitionsJob jobData2 = new CreateDefinitionsJob
-            {
-                m_EditorMode = m_ToolSystem.actionMode.IsEditor(),
-                m_NativeData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Common_Native_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_MapTileData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Areas_MapTile_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_AreaNodes = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Areas_Node_RO_BufferLookup, ref base.CheckedStateRef),
-                m_Entities = nativeList.AsDeferredJobArray(),
-                m_CommandBuffer = m_ToolOutputBarrier.CreateCommandBuffer().AsParallelWriter()
-            };
-            JobHandle jobHandle2 = IJobExtensions.Schedule(jobData, JobHandle.CombineDependencies(inputDeps, dependencies));
-            JobHandle jobHandle3 = jobData2.Schedule(nativeList, 4, jobHandle2);
-            nativeList.Dispose(jobHandle3);
-            m_AreaSearchSystem.AddSearchTreeReader(jobHandle2);
-            m_ToolOutputBarrier.AddJobHandleForProducer(jobHandle3);
-            jobHandle = JobHandle.CombineDependencies(jobHandle, jobHandle3);
-        }
-        return jobHandle;
-    }
-</code></pre>
-<ul>
-<li><code>private UpdateSelection(Unity.Jobs.JobHandle inputDeps) : Unity.Jobs.JobHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private JobHandle UpdateSelection(JobHandle inputDeps)
-    {
-        switch (selectionType)
-        {
-        case SelectionType.ServiceDistrict:
-            return UpdateServiceDistricts(inputDeps);
-        case SelectionType.MapTiles:
-            if (m_ToolSystem.actionMode.IsEditor())
-            {
-                return UpdateStartTiles(inputDeps);
-            }
-            return inputDeps;
-        default:
-            return inputDeps;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private UpdateServiceDistricts(Unity.Jobs.JobHandle inputDeps) : Unity.Jobs.JobHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private JobHandle UpdateServiceDistricts(JobHandle inputDeps)
-    {
-        JobHandle jobHandle = IJobExtensions.Schedule(new UpdateServiceDistrictsJob
-        {
-            m_SelectionEntity = m_SelectionEntity,
-            m_OwnerData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Common_Owner_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_SelectionElements = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Tools_SelectionElement_RO_BufferLookup, ref base.CheckedStateRef),
-            m_ServiceDistricts = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Areas_ServiceDistrict_RW_BufferLookup, ref base.CheckedStateRef),
-            m_CommandBuffer = m_ToolOutputBarrier.CreateCommandBuffer()
-        }, inputDeps);
-        m_ToolOutputBarrier.AddJobHandleForProducer(jobHandle);
-        return jobHandle;
-    }
-</code></pre>
-<ul>
-<li><code>private UpdateStartTiles(Unity.Jobs.JobHandle inputDeps) : Unity.Jobs.JobHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private JobHandle UpdateStartTiles(JobHandle inputDeps)
-    {
-        JobHandle jobHandle = IJobExtensions.Schedule(new UpdateStartTilesJob
-        {
-            m_SelectionEntity = m_SelectionEntity,
-            m_PrefabRefData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_SelectionElements = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Tools_SelectionElement_RO_BufferLookup, ref base.CheckedStateRef),
-            m_StartTiles = m_MapTileSystem.GetStartTiles(),
-            m_CommandBuffer = m_ToolOutputBarrier.CreateCommandBuffer()
-        }, inputDeps);
-        m_ToolOutputBarrier.AddJobHandleForProducer(jobHandle);
-        return jobHandle;
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Tools.SelectionToolSystem+State</code>  </li>
-<li><code>Game.Tools.SelectionToolSystem+FindEntitiesJob</code>  </li>
-<li><code>Game.Tools.SelectionToolSystem+CreateDefinitionsJob</code>  </li>
-<li><code>Game.Tools.SelectionToolSystem+ToggleEntityJob</code>  </li>
-<li><code>Game.Tools.SelectionToolSystem+CopyStartTilesJob</code>  </li>
-<li><code>Game.Tools.SelectionToolSystem+UpdateStartTilesJob</code>  </li>
-<li><code>Game.Tools.SelectionToolSystem+CopyServiceDistrictsJob</code>  </li>
-<li><code>Game.Tools.SelectionToolSystem+UpdateServiceDistrictsJob</code>  </li>
-<li><code>Game.Tools.SelectionToolSystem+TypeHandle</code>  </li>
-<li><code>Game.Tools.SelectionToolSystem+&lt;get_toolActions&gt;d__37</code>  </li>
-</ul>
 
 
 

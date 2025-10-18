@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87073,6 +87165,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Simulation/SurfaceWater/" class="md-nav__link">
         
   
@@ -93910,18 +94025,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -93940,6 +94055,15 @@
   <a href="#methods" class="md-nav__link">
     <span class="md-ellipsis">
       Methods
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
     </span>
   </a>
   
@@ -117912,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117939,18 +118085,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -117974,6 +118120,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -117991,300 +118146,169 @@
 
 
 <h1 id="gametriggersradiotagsystem">Game.Triggers.RadioTagSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Triggers</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class RadioTagSystem : Game.GameSystemBase
-{
-    private Unity.Collections.NativeParallelHashMap&lt;Unity.Entities.Entity, System.UInt32&gt; m_RecentTags;
-    private Unity.Collections.NativeQueue&lt;Game.Triggers.RadioTag&gt; m_InputQueue;
-    private Unity.Collections.NativeQueue&lt;Game.Triggers.RadioTag&gt; m_EmergencyInputQueue;
-    private Unity.Collections.NativeQueue&lt;Game.Triggers.RadioTag&gt; m_EmergencyQueue;
-    private System.Collections.Generic.Dictionary&lt;Game.Audio.Radio.Radio+SegmentType, System.Collections.Generic.List&lt;Game.Triggers.RadioTag&gt;&gt; m_Events;
-    private Unity.Jobs.JobHandle m_InputDependencies;
-    private Unity.Jobs.JobHandle m_EmergencyInputDependencies;
-    private Unity.Jobs.JobHandle m_EmergencyDependencies;
-    private Game.Simulation.SimulationSystem m_SimulationSystem;
-    private static readonly System.Int32 kFrameDelay;
-    private static readonly System.Int32 kMaxBufferSize;
-
-    public RadioTagSystem();
-
-    public System.Void AddEmergencyInputQueueWriter(Unity.Jobs.JobHandle handle);
-    public System.Void AddInputQueueWriter(Unity.Jobs.JobHandle handle);
-    private System.Void Clear();
-    private System.Collections.Generic.List&lt;Game.Triggers.RadioTag&gt; EnsureList(Game.Audio.Radio.Radio+SegmentType segmentType);
-    public System.Void FlushEvents(Game.Audio.Radio.Radio+SegmentType segmentType);
-    public Unity.Collections.NativeQueue&lt;Game.Triggers.RadioTag&gt; GetEmergencyInputQueue(Unity.Jobs.JobHandle&amp; deps);
-    public Unity.Collections.NativeQueue&lt;Game.Triggers.RadioTag&gt; GetEmergencyQueue(Unity.Jobs.JobHandle&amp; deps);
-    public Unity.Collections.NativeQueue&lt;Game.Triggers.RadioTag&gt; GetInputQueue(Unity.Jobs.JobHandle&amp; deps);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnDestroy();
-    protected virtual System.Void OnGameLoaded(Colossal.Serialization.Entities.Context serializationContext);
-    protected virtual System.Void OnGamePreload(Colossal.Serialization.Entities.Purpose purpose, Game.GameMode mode);
-    protected virtual System.Void OnStopRunning();
-    protected virtual System.Void OnUpdate();
-    public System.Boolean TryPopEvent(Game.Audio.Radio.Radio+SegmentType segmentType, System.Boolean newestFirst, Game.Triggers.RadioTag&amp; radioTag);
-}
-</code></pre>
+<p><strong>Assembly:</strong> Game<br />
+<strong>Namespace:</strong> Game.Triggers</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> GameSystemBase</p>
+<p><strong>Summary:</strong><br />
+RadioTagSystem collects, buffers and deduplicates radio event tags produced by game code (usually from jobs). It maintains separate queues for normal and emergency radio tags, a buffer of recent events per radio segment type, and a RecentTags map to prevent the same event from being replaying too frequently. The system integrates with Unity job dependencies (JobHandle) so producers running in jobs can safely enqueue radio tags and report dependencies back to the system. It is enabled only in game mode and clears/disposes its native containers when stopped or destroyed.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Unity.Collections.NativeParallelHashMap&lt;Unity.Entities.Entity, System.UInt32&gt; m_RecentTags</code>  </li>
+<li>
+<p><code>private static readonly int kFrameDelay = 50000</code><br />
+  Default minimum frame delay between repeated non-emergency events for the same event tag (used with m_RecentTags).</p>
+</li>
+<li>
+<p><code>private static readonly int kMaxBufferSize = 10</code><br />
+  Maximum number of buffered RadioTag entries kept per Radio.SegmentType. Older entries are removed when the buffer exceeds this size.</p>
+</li>
+<li>
+<p><code>private NativeParallelHashMap&lt;Entity, uint&gt; m_RecentTags</code><br />
+  Map of recent event Entity -&gt; frameIndex when the event was last accepted. Used to deduplicate/reject rapid repeats.</p>
+</li>
+<li>
+<p><code>private NativeQueue&lt;RadioTag&gt; m_InputQueue</code><br />
+  Native queue for regular (non-emergency) radio tags written by producers (jobs or main thread). Producers should use GetInputQueue to obtain this queue and report their JobHandle via AddInputQueueWriter.</p>
+</li>
+<li>
+<p><code>private NativeQueue&lt;RadioTag&gt; m_EmergencyInputQueue</code><br />
+  Native queue for emergency radio tags written by producers. Emergency tags are subject to their own EmergencyFrameDelay per tag.</p>
+</li>
+<li>
+<p><code>private NativeQueue&lt;RadioTag&gt; m_EmergencyQueue</code><br />
+  Native queue of emergency tags that have passed deduplication and are ready for immediate consumption by consumers.</p>
+</li>
+<li>
+<p><code>private Dictionary&lt;Radio.SegmentType, List&lt;RadioTag&gt;&gt; m_Events</code><br />
+  Managed dictionary that stores buffered lists of radio events organized by Radio.SegmentType.</p>
+</li>
+<li>
+<p><code>private JobHandle m_InputDependencies</code><br />
+  Combined JobHandle representing dependencies of all producers that write to m_InputQueue. Completed at the beginning of OnUpdate to ensure producers finished.</p>
+</li>
+<li>
+<p><code>private JobHandle m_EmergencyInputDependencies</code><br />
+  Combined JobHandle for producers that write m_EmergencyInputQueue.</p>
+</li>
+<li>
+<p><code>private JobHandle m_EmergencyDependencies</code><br />
+  Combined JobHandle for producers that write m_EmergencyQueue.</p>
+</li>
+<li>
+<p><code>private SimulationSystem m_SimulationSystem</code><br />
+  Reference to the simulation system, used to get the current frameIndex for deduplication logic.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeParallelHashMap&lt;Unity.Entities.Entity, System.UInt32&gt; m_RecentTags;
-</code></pre>
+<h2 id="properties">Properties</h2>
 <ul>
-<li><code>private Unity.Collections.NativeQueue&lt;Game.Triggers.RadioTag&gt; m_InputQueue</code>  </li>
+<li>(none public)<br />
+  This system exposes no public get/set properties. Interaction is done via the provided Get<em>Queue and Add</em>Writer methods. Internally it stores JobHandle dependency fields (m_InputDependencies, m_EmergencyInputDependencies, m_EmergencyDependencies).</li>
 </ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeQueue&lt;Game.Triggers.RadioTag&gt; m_InputQueue;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeQueue&lt;Game.Triggers.RadioTag&gt; m_EmergencyInputQueue</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeQueue&lt;Game.Triggers.RadioTag&gt; m_EmergencyInputQueue;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeQueue&lt;Game.Triggers.RadioTag&gt; m_EmergencyQueue</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeQueue&lt;Game.Triggers.RadioTag&gt; m_EmergencyQueue;
-</code></pre>
-<ul>
-<li><code>private System.Collections.Generic.Dictionary&lt;Game.Audio.Radio.Radio+SegmentType, System.Collections.Generic.List&lt;Game.Triggers.RadioTag&gt;&gt; m_Events</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Collections.Generic.Dictionary&lt;Game.Audio.Radio.Radio+SegmentType, System.Collections.Generic.List&lt;Game.Triggers.RadioTag&gt;&gt; m_Events;
-</code></pre>
-<ul>
-<li><code>private Unity.Jobs.JobHandle m_InputDependencies</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Jobs.JobHandle m_InputDependencies;
-</code></pre>
-<ul>
-<li><code>private Unity.Jobs.JobHandle m_EmergencyInputDependencies</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Jobs.JobHandle m_EmergencyInputDependencies;
-</code></pre>
-<ul>
-<li><code>private Unity.Jobs.JobHandle m_EmergencyDependencies</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Jobs.JobHandle m_EmergencyDependencies;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.SimulationSystem m_SimulationSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.SimulationSystem m_SimulationSystem;
-</code></pre>
-<ul>
-<li><code>private static readonly System.Int32 kFrameDelay</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static readonly System.Int32 kFrameDelay;
-</code></pre>
-<ul>
-<li><code>private static readonly System.Int32 kMaxBufferSize</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static readonly System.Int32 kMaxBufferSize;
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public RadioTagSystem()</code>  </li>
+<li><code>public RadioTagSystem()</code><br />
+  Default constructor. The system performs the bulk of initialization in OnCreate.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public RadioTagSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>public AddEmergencyInputQueueWriter(Unity.Jobs.JobHandle handle) : System.Void</code>  </li>
+<li>
+<p><code>protected virtual OnCreate() : System.Void</code><br />
+  Initializes native queues and the recent-tags map, retrieves the SimulationSystem, creates the events dictionary, and disables the system by default (base.Enabled = false). Allocates NativeQueue and NativeParallelHashMap with Allocator.Persistent.</p>
+</li>
+<li>
+<p><code>protected override void OnGamePreload(Purpose purpose, GameMode mode)</code><br />
+  Enables or disables the system based on the provided GameMode. The system is enabled when mode.IsGame() is true.</p>
+</li>
+<li>
+<p><code>protected override void OnUpdate()</code><br />
+  Main update that:</p>
+</li>
+<li>Completes input and emergency input dependency JobHandles so it can safely read and dequeue from native queues.</li>
+<li>Drains m_InputQueue and, per RadioTag, checks m_RecentTags to enforce kFrameDelay deduplication. If accepted, the tag is inserted into the buffer list for its Radio.SegmentType and trimmed to kMaxBufferSize.</li>
+<li>
+<p>Drains m_EmergencyInputQueue and enqueues (to m_EmergencyQueue) only those emergency tags that pass their EmergencyFrameDelay check against m_RecentTags.
+  This method is where native queue data is transferred into managed buffers for consumption by other systems.</p>
+</li>
+<li>
+<p><code>private List&lt;RadioTag&gt; EnsureList(Radio.SegmentType segmentType)</code><br />
+  Helper that ensures a List<RadioTag> exists for the given segment type in m_Events and returns it.</p>
+</li>
+<li>
+<p><code>protected override void OnStopRunning()</code><br />
+  Called when the system stops running; clears all buffers and dependencies via Clear().</p>
+</li>
+<li>
+<p><code>protected override void OnDestroy()</code><br />
+  Disposes NativeQueue and NativeParallelHashMap containers (m_InputQueue, m_EmergencyInputQueue, m_EmergencyQueue, m_RecentTags) and calls base.OnDestroy().</p>
+</li>
+<li>
+<p><code>public bool TryPopEvent(Radio.SegmentType segmentType, bool newestFirst, out RadioTag radioTag)</code><br />
+  Attempts to pop a buffered radio event for the given segment type. If newestFirst is true, the most recent buffered entry is returned; otherwise the oldest is returned. Returns true if an event was available. On false, out param is default(RadioTag).</p>
+</li>
+<li>
+<p><code>public void FlushEvents(Radio.SegmentType segmentType)</code><br />
+  Clears the buffered events list for the given segment type.</p>
+</li>
+<li>
+<p><code>public NativeQueue&lt;RadioTag&gt; GetInputQueue(out JobHandle deps)</code><br />
+  Returns the input queue that producers should write to and outputs the current combined dependency (deps). Asserts that the system is Enabled (writing not allowed when disabled). Producers should combine their job handles via AddInputQueueWriter after scheduling any job that writes to this queue.</p>
+</li>
+<li>
+<p><code>public NativeQueue&lt;RadioTag&gt; GetEmergencyInputQueue(out JobHandle deps)</code><br />
+  Returns the emergency input queue and its current dependency JobHandle. Same enabled assertion applies.</p>
+</li>
+<li>
+<p><code>public NativeQueue&lt;RadioTag&gt; GetEmergencyQueue(out JobHandle deps)</code><br />
+  Returns the emergency (ready) queue and its dependency JobHandle.</p>
+</li>
+<li>
+<p><code>public void AddInputQueueWriter(JobHandle handle)</code><br />
+  Combine the provided JobHandle with internal m_InputDependencies. Call this from code that schedules jobs which write to the queue so the system can wait for them before dequeuing.</p>
+</li>
+<li>
+<p><code>public void AddEmergencyInputQueueWriter(JobHandle handle)</code><br />
+  Combines a job handle into m_EmergencyInputDependencies.</p>
+</li>
+<li>
+<p><code>protected override void OnGameLoaded(Context serializationContext)</code><br />
+  Called after game load; clears queues and buffers to ensure a clean state.</p>
+</li>
+<li>
+<p><code>private void Clear()</code><br />
+  Completes dependency JobHandles and clears all native queues, the recent tags map and the managed events dictionary. Used on stop, on reload, and on load to reset system state.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public void AddEmergencyInputQueueWriter(JobHandle handle)
-    {
-        m_EmergencyInputDependencies = JobHandle.CombineDependencies(m_EmergencyInputDependencies, handle);
-    }
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Example: Enqueue a RadioTag from a non-job (main thread) producer
+// Ensure the RadioTagSystem is running (enabled) before calling GetInputQueue.
+var radioSystem = World.GetExistingSystemManaged&lt;Game.Triggers.RadioTagSystem&gt;();
+JobHandle deps;
+var inputQueue = radioSystem.GetInputQueue(out deps);
+
+// If called from main thread, you can write directly:
+inputQueue.Enqueue(new RadioTag {
+    m_Event = someEntity,
+    m_SegmentType = Radio.SegmentType.SomeSegment,
+    m_EmergencyFrameDelay = 0u,
+    // ...other RadioTag fields...
+});
+
+// If you scheduled a job that writes to the queue, after scheduling it:
+// radioSystem.AddInputQueueWriter(yourJobHandle);
+
+// Consumers can pop buffered events:
+RadioTag tag;
+if (radioSystem.TryPopEvent(Radio.SegmentType.SomeSegment, newestFirst: true, out tag))
+{
+    // process tag
+}
 </code></pre>
-<ul>
-<li><code>public AddInputQueueWriter(Unity.Jobs.JobHandle handle) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void AddInputQueueWriter(JobHandle handle)
-    {
-        m_InputDependencies = JobHandle.CombineDependencies(m_InputDependencies, handle);
-    }
-</code></pre>
-<ul>
-<li><code>private Clear() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void Clear()
-    {
-        m_InputDependencies.Complete();
-        m_EmergencyInputDependencies.Complete();
-        m_EmergencyDependencies.Complete();
-        m_InputQueue.Clear();
-        m_EmergencyInputQueue.Clear();
-        m_EmergencyQueue.Clear();
-        m_RecentTags.Clear();
-        m_Events.Clear();
-    }
-</code></pre>
-<ul>
-<li><code>private EnsureList(Game.Audio.Radio.Radio+SegmentType segmentType) : System.Collections.Generic.List&lt;Game.Triggers.RadioTag&gt;</code>  </li>
-</ul>
-<pre><code class="language-csharp">private List&lt;RadioTag&gt; EnsureList(Radio.SegmentType segmentType)
-    {
-        if (!m_Events.ContainsKey(segmentType))
-        {
-            m_Events.Add(segmentType, new List&lt;RadioTag&gt;());
-        }
-        return m_Events[segmentType];
-    }
-</code></pre>
-<ul>
-<li><code>public FlushEvents(Game.Audio.Radio.Radio+SegmentType segmentType) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void FlushEvents(Radio.SegmentType segmentType)
-    {
-        EnsureList(segmentType).Clear();
-    }
-</code></pre>
-<ul>
-<li><code>public GetEmergencyInputQueue(Unity.Jobs.JobHandle&amp; deps) : Unity.Collections.NativeQueue&lt;Game.Triggers.RadioTag&gt;</code>  </li>
-</ul>
-<pre><code class="language-csharp">public NativeQueue&lt;RadioTag&gt; GetEmergencyInputQueue(out JobHandle deps)
-    {
-        Assert.IsTrue(base.Enabled, &quot;Can not write to queue when system isn't running&quot;);
-        deps = m_EmergencyInputDependencies;
-        return m_EmergencyInputQueue;
-    }
-</code></pre>
-<ul>
-<li><code>public GetEmergencyQueue(Unity.Jobs.JobHandle&amp; deps) : Unity.Collections.NativeQueue&lt;Game.Triggers.RadioTag&gt;</code>  </li>
-</ul>
-<pre><code class="language-csharp">public NativeQueue&lt;RadioTag&gt; GetEmergencyQueue(out JobHandle deps)
-    {
-        Assert.IsTrue(base.Enabled, &quot;Can not write to queue when system isn't running&quot;);
-        deps = m_EmergencyDependencies;
-        return m_EmergencyQueue;
-    }
-</code></pre>
-<ul>
-<li><code>public GetInputQueue(Unity.Jobs.JobHandle&amp; deps) : Unity.Collections.NativeQueue&lt;Game.Triggers.RadioTag&gt;</code>  </li>
-</ul>
-<pre><code class="language-csharp">public NativeQueue&lt;RadioTag&gt; GetInputQueue(out JobHandle deps)
-    {
-        Assert.IsTrue(base.Enabled, &quot;Can not write to queue when system isn't running&quot;);
-        deps = m_InputDependencies;
-        return m_InputQueue;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_InputQueue = new NativeQueue&lt;RadioTag&gt;(Allocator.Persistent);
-        m_EmergencyInputQueue = new NativeQueue&lt;RadioTag&gt;(Allocator.Persistent);
-        m_EmergencyQueue = new NativeQueue&lt;RadioTag&gt;(Allocator.Persistent);
-        m_RecentTags = new NativeParallelHashMap&lt;Entity, uint&gt;(0, Allocator.Persistent);
-        m_SimulationSystem = base.World.GetOrCreateSystemManaged&lt;SimulationSystem&gt;();
-        m_Events = new Dictionary&lt;Radio.SegmentType, List&lt;RadioTag&gt;&gt;();
-        base.Enabled = false;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnDestroy() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnDestroy()
-    {
-        m_InputQueue.Dispose();
-        m_EmergencyInputQueue.Dispose();
-        m_EmergencyQueue.Dispose();
-        m_RecentTags.Dispose();
-        base.OnDestroy();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnGameLoaded(Colossal.Serialization.Entities.Context serializationContext) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnGameLoaded(Context serializationContext)
-    {
-        base.OnGameLoaded(serializationContext);
-        Clear();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnGamePreload(Colossal.Serialization.Entities.Purpose purpose, Game.GameMode mode) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnGamePreload(Purpose purpose, GameMode mode)
-    {
-        base.OnGamePreload(purpose, mode);
-        base.Enabled = mode.IsGame();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnStopRunning() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnStopRunning()
-    {
-        base.OnStopRunning();
-        Clear();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        m_InputDependencies.Complete();
-        m_EmergencyInputDependencies.Complete();
-        m_EmergencyDependencies.Complete();
-        RadioTag item;
-        while (m_InputQueue.TryDequeue(out item))
-        {
-            List&lt;RadioTag&gt; list = EnsureList(item.m_SegmentType);
-            if (!m_RecentTags.TryGetValue(item.m_Event, out var item2) || m_SimulationSystem.frameIndex &gt;= item2 + kFrameDelay)
-            {
-                while (list.Contains(item))
-                {
-                    list.Remove(item);
-                }
-                list.Add(item);
-                list.RemoveRange(0, math.max(list.Count - kMaxBufferSize, 0));
-                m_RecentTags[item.m_Event] = m_SimulationSystem.frameIndex;
-            }
-        }
-        RadioTag item3;
-        while (m_EmergencyInputQueue.TryDequeue(out item3))
-        {
-            if (!m_RecentTags.TryGetValue(item3.m_Event, out var item4) || m_SimulationSystem.frameIndex &gt;= item4 + item3.m_EmergencyFrameDelay)
-            {
-                m_EmergencyQueue.Enqueue(item3);
-                m_RecentTags[item3.m_Event] = m_SimulationSystem.frameIndex;
-            }
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public TryPopEvent(Game.Audio.Radio.Radio+SegmentType segmentType, System.Boolean newestFirst, Game.Triggers.RadioTag&amp; radioTag) : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">public bool TryPopEvent(Radio.SegmentType segmentType, bool newestFirst, out RadioTag radioTag)
-    {
-        List&lt;RadioTag&gt; list = EnsureList(segmentType);
-        if (list.Count &gt; 0)
-        {
-            int index = (newestFirst ? (list.Count - 1) : 0);
-            radioTag = list[index];
-            list.RemoveAt(index);
-            return true;
-        }
-        radioTag = default(RadioTag);
-        return false;
-    }
-</code></pre>
+<p>Additional notes:
+- RadioTag and Radio.SegmentType are defined in Game.Audio.Radio. RadioTag contains m_Event (Entity), m_SegmentType and m_EmergencyFrameDelay among other fields.
+- Thread-safety: producers running in jobs must use the NativeQueue returned by GetInputQueue/GetEmergencyInputQueue and must report job dependencies via AddInputQueueWriter/AddEmergencyInputQueueWriter. The system completes those JobHandles in OnUpdate to safely drain the queues on the main thread.
+- Deduplication: m_RecentTags maps the event Entity to a frame index so repeated events are suppressed until the configured frame delay (kFrameDelay for normal tags or the tag's m_EmergencyFrameDelay for emergency tags) has passed. The system uses SimulationSystem.frameIndex for timing.
+- The system disables itself outside of game mode; writing to queues while disabled will assert.</p>
 
 
 

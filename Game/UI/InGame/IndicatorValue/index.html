@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87056,6 +87148,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -102414,15 +102529,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -102453,6 +102559,15 @@
   <a href="#methods" class="md-nav__link">
     <span class="md-ellipsis">
       Methods
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
     </span>
   </a>
   
@@ -117923,6 +118038,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117948,15 +118085,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -117994,6 +118122,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -118011,132 +118148,77 @@
 
 
 <h1 id="gameuiingameindicatorvalue">Game.UI.InGame.IndicatorValue</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.UI.InGame</code>  </p>
-<p><strong>Type:</strong> struct sealed public  </p>
-<p><strong>Base:</strong> <code>System.ValueType</code><br />
-<strong>Implements:</strong> <code>System.IEquatable&lt;Game.UI.InGame.IndicatorValue&gt;</code>, <code>Colossal.UI.Binding.IJsonWritable</code>  </p>
-<p><strong>Attributes:</strong> <code>IsReadOnly</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public sealed struct IndicatorValue : System.IEquatable&lt;Game.UI.InGame.IndicatorValue&gt;, Colossal.UI.Binding.IJsonWritable
-{
-    private readonly System.Single &lt;min&gt;k__BackingField;
-    private readonly System.Single &lt;max&gt;k__BackingField;
-    private readonly System.Single &lt;current&gt;k__BackingField;
-
-    public System.Single min { get; }
-    public System.Single max { get; }
-    public System.Single current { get; }
-
-    public IndicatorValue(System.Single min, System.Single max, System.Single current);
-
-    public static Game.UI.InGame.IndicatorValue Calculate(System.Single supply, System.Single demand, System.Single minRangeFactor, System.Single maxRangeFactor);
-    public System.Boolean Equals(Game.UI.InGame.IndicatorValue other);
-    public virtual System.Boolean Equals(System.Object obj);
-    public virtual System.Int32 GetHashCode();
-    public System.Void Write(Colossal.UI.Binding.IJsonWriter writer);
-}
-</code></pre>
+<p><strong>Assembly:</strong> Assembly-CSharp<br />
+<strong>Namespace:</strong> Game.UI.InGame</p>
+<p><strong>Type:</strong> readonly struct</p>
+<p><strong>Base:</strong> System.ValueType, IEquatable<IndicatorValue>, IJsonWritable</p>
+<p><strong>Summary:</strong><br />
+Represents a small immutable value object used by UI indicators to describe a numeric value constrained to a range. It stores a min and max range and a current value that is clamped into that range. Provides JSON serialization via IJsonWritable and a helper to calculate a normalized indicator from supply/demand values (useful for supply/demand UI bars in Cities: Skylines 2). The struct is immutable (readonly) and implements value equality.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private readonly System.Single &lt;min&gt;k__BackingField</code>  </li>
+<li>This type does not declare any explicit fields; it exposes three read-only properties (min, max, current) and relies on the compiler-generated backing (auto-)fields for those properties.</li>
 </ul>
-<pre><code class="language-csharp">private readonly System.Single &lt;min&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private readonly System.Single &lt;max&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private readonly System.Single &lt;max&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private readonly System.Single &lt;current&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private readonly System.Single &lt;current&gt;k__BackingField;
-</code></pre>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>public System.Single min { get }</code>  </li>
+<li>
+<p><code>public float min { get; }</code><br />
+Represents the lower bound of the indicator range. This is the minimum allowable value for current.</p>
+</li>
+<li>
+<p><code>public float max { get; }</code><br />
+Represents the upper bound of the indicator range. This is the maximum allowable value for current.</p>
+</li>
+<li>
+<p><code>public float current { get; }</code><br />
+The current indicator value. Constructed values are clamped to [min, max] using Unity.Mathematics.math.clamp, so current is always within the defined range.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public System.Single min { get; }
-</code></pre>
-<ul>
-<li><code>public System.Single max { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Single max { get; }
-</code></pre>
-<ul>
-<li><code>public System.Single current { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Single current { get; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public IndicatorValue(System.Single min, System.Single max, System.Single current)</code>  </li>
+<li><code>public IndicatorValue(float min, float max, float current)</code><br />
+Creates a new IndicatorValue with the given min/max bounds and a current value. The provided current is clamped to the [min, max] range before storage. This makes the struct safe to construct with out-of-range inputs.</li>
 </ul>
-<pre><code class="language-csharp">public IndicatorValue(float min, float max, float current)
-    {
-        this.min = min;
-        this.max = max;
-        this.current = math.clamp(current, min, max);
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>public static Calculate(System.Single supply, System.Single demand, System.Single minRangeFactor = -1, System.Single maxRangeFactor = 1) : Game.UI.InGame.IndicatorValue</code>  </li>
+<li>
+<p><code>public void Write(IJsonWriter writer)</code><br />
+Serializes the instance to a JSON writer. The method writes a type begin with the struct's name, then writes the properties "min", "max", and "current" in that order, and finishes the type. Useful for dumping UI state or saving indicator values.</p>
+</li>
+<li>
+<p><code>public static IndicatorValue Calculate(float supply, float demand, float minRangeFactor = -1f, float maxRangeFactor = 1f)</code><br />
+Helper that computes a normalized/current indicator value from supply and demand. If supply &gt; float.Epsilon it computes (supply - demand) / supply and clamps that result to [minRangeFactor, maxRangeFactor]; if supply is effectively zero it returns minRangeFactor as the current value. Returns a new IndicatorValue constructed with the supplied range factors and the computed current value. Commonly used to transform supply/demand ratios into UI indicator values.</p>
+</li>
+<li>
+<p><code>public bool Equals(IndicatorValue other)</code><br />
+Value equality implementation: returns true when min, max and current are all equal to the corresponding values in other.</p>
+</li>
+<li>
+<p><code>public override bool Equals(object obj)</code><br />
+Overrides Object.Equals to support boxed comparisons. If obj is an IndicatorValue it delegates to the strongly-typed Equals implementation.</p>
+</li>
+<li>
+<p><code>public override int GetHashCode()</code><br />
+Returns a hash code derived from the (min, max, current) tuple. Suitable for use in hash-based collections.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public static IndicatorValue Calculate(float supply, float demand, float minRangeFactor = -1f, float maxRangeFactor = 1f)
-    {
-        float num = ((supply &gt; float.Epsilon) ? math.clamp((supply - demand) / supply, minRangeFactor, maxRangeFactor) : minRangeFactor);
-        return new IndicatorValue(minRangeFactor, maxRangeFactor, num);
-    }
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Create an indicator directly (current will be clamped to the range)
+var indicator = new IndicatorValue(-1f, 1f, 0.75f);
+
+// Compute an indicator from supply/demand (e.g. for a UI bar)
+float supply = 100f;
+float demand = 80f;
+var computed = IndicatorValue.Calculate(supply, demand); // normalized (supply-demand)/supply, clamped to [-1,1]
+
+// Serialize to JSON using a provided IJsonWriter
+IJsonWriter writer = ...;
+computed.Write(writer);
 </code></pre>
-<ul>
-<li><code>public Equals(Game.UI.InGame.IndicatorValue other) : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override bool Equals(object obj)
-    {
-        if (obj is IndicatorValue indicatorValue)
-        {
-            return indicatorValue.Equals(this);
-        }
-        return false;
-    }
-</code></pre>
-<ul>
-<li><code>public virtual Equals(System.Object obj) : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override bool Equals(object obj)
-    {
-        if (obj is IndicatorValue indicatorValue)
-        {
-            return indicatorValue.Equals(this);
-        }
-        return false;
-    }
-</code></pre>
-<ul>
-<li><code>public virtual GetHashCode() : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override int GetHashCode()
-    {
-        return (min, max, current).GetHashCode();
-    }
-</code></pre>
-<ul>
-<li><code>public Write(Colossal.UI.Binding.IJsonWriter writer) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void Write(IJsonWriter writer)
-    {
-        writer.TypeBegin(GetType().Name);
-        writer.PropertyName(&quot;min&quot;);
-        writer.Write(min);
-        writer.PropertyName(&quot;max&quot;);
-        writer.Write(max);
-        writer.PropertyName(&quot;current&quot;);
-        writer.Write(current);
-        writer.TypeEnd();
-    }
-</code></pre>
+<p>Notes:
+- Uses Unity.Mathematics.math.clamp for clamping behavior.
+- Immutable/read-only pattern makes instances safe to share without defensive copying.
+- The Calculate method guards against division by (near) zero by returning the minimum factor when supply is effectively zero.</p>
 
 
 

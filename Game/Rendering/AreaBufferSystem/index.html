@@ -65233,6 +65233,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -66701,18 +66724,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -66737,9 +66760,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -69751,6 +69774,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../Skeleton/" class="md-nav__link">
         
   
@@ -72563,6 +72609,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75553,6 +75622,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87145,6 +87237,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -117921,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117948,18 +118085,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -117984,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118009,728 +118146,163 @@
 
 
 <h1 id="gamerenderingareabuffersystem">Game.Rendering.AreaBufferSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Rendering</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code><br />
-<strong>Implements:</strong> <code>Game.Serialization.IPreDeserialize</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class AreaBufferSystem : Game.GameSystemBase, Game.Serialization.IPreDeserialize
-{
-    private Unity.Entities.EntityQuery m_SettingsQuery;
-    private Game.Rendering.RenderingSystem m_RenderingSystem;
-    private Game.Rendering.OverlayRenderSystem m_OverlayRenderSystem;
-    private Game.Prefabs.PrefabSystem m_PrefabSystem;
-    private Game.Tools.ToolSystem m_ToolSystem;
-    private Game.UI.NameSystem m_NameSystem;
-    private Game.Rendering.AreaBufferSystem+AreaTypeData[] m_AreaTypeData;
-    private Game.Areas.AreaType m_LastSelectionAreaType;
-    private Unity.Entities.EntityQuery m_SelectionQuery;
-    private System.Boolean m_Loaded;
-    private System.Int32 m_AreaParameters;
-    private System.Collections.Generic.Dictionary&lt;Unity.Entities.Entity, System.String&gt; m_CachedLabels;
-    private Game.Rendering.AreaBufferSystem+TypeHandle __TypeHandle;
-
-    public AreaBufferSystem();
-
-    private System.Void __AssignQueries(Unity.Entities.SystemState&amp; state);
-    public System.Boolean GetAreaBuffer(Game.Areas.AreaType type, UnityEngine.ComputeBuffer&amp; buffer, UnityEngine.Material&amp; material, UnityEngine.Bounds&amp; bounds);
-    private System.Boolean GetLoaded();
-    public System.Boolean GetNameMaterial(Game.Areas.AreaType type, System.Int32 subMeshIndex, UnityEngine.Material&amp; material);
-    public System.Boolean GetNameMesh(Game.Areas.AreaType type, UnityEngine.Mesh&amp; mesh, System.Int32&amp; subMeshCount);
-    private Game.Rendering.AreaBufferSystem+AreaTypeData InitializeAreaData&lt;T&gt;();
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnCreateForCompiler();
-    protected virtual System.Void OnDestroy();
-    private System.Void OnDictionaryChanged();
-    protected virtual System.Void OnUpdate();
-    public System.Void PreDeserialize(Colossal.Serialization.Entities.Context context);
-    private System.Void UpdateLabelVertices(Game.Rendering.AreaBufferSystem+AreaTypeData data, System.Boolean isLoaded);
-}
-</code></pre>
+<p><strong>Assembly:</strong> Assembly-CSharp<br />
+<strong>Namespace:</strong> Game.Rendering</p>
+<p><strong>Type:</strong> Class</p>
+<p><strong>Base:</strong> GameSystemBase</p>
+<p><strong>Summary:</strong><br />
+AreaBufferSystem prepares GPU-friendly area visualization data for the game's overlay rendering. It collects area triangles (lots, districts, map tiles, space, surface), builds ComputeBuffers for GPU shaders, and assembles label/name meshes and materials for rendering area names. The system uses Unity's Entities/JOBS to gather geometry and label vertex data, supports live updates (selection, edit mode), and exposes methods to retrieve the generated ComputeBuffer, material, bounds, name mesh and name materials for each AreaType. It also handles resource lifecycle across deserialization and when area-type prefabs/settings change.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Unity.Entities.EntityQuery m_SettingsQuery</code>  </li>
+<li>
+<p><code>private EntityQuery m_SettingsQuery</code><br />
+Query used to fetch area type prefabs / settings (Created + AreaTypeData) for initializing materials and name-materials.</p>
+</li>
+<li>
+<p><code>private RenderingSystem m_RenderingSystem</code><br />
+Reference to the rendering system used to check overlay visibility and obtain text mesh for labels.</p>
+</li>
+<li>
+<p><code>private OverlayRenderSystem m_OverlayRenderSystem</code><br />
+Overlay helper for copying font atlas parameters and obtaining a TextMeshPro instance for label layout.</p>
+</li>
+<li>
+<p><code>private PrefabSystem m_PrefabSystem</code><br />
+Reference to the game's PrefabSystem used to retrieve AreaTypePrefab and related data.</p>
+</li>
+<li>
+<p><code>private ToolSystem m_ToolSystem</code><br />
+Tool system reference used to determine editor mode and which area types are required by the active tool.</p>
+</li>
+<li>
+<p><code>private NameSystem m_NameSystem</code><br />
+Name/label system used to get rendered label text for areas.</p>
+</li>
+<li>
+<p><code>private AreaTypeData[] m_AreaTypeData</code><br />
+Array holding per-area-type runtime data (buffers, materials, computed bounds, name meshes/materials, native lists, job dependencies, dirty flags, etc.). There are five entries corresponding to supported AreaType values.</p>
+</li>
+<li>
+<p><code>private AreaType m_LastSelectionAreaType</code><br />
+Tracks the last known selection area type to mark the appropriate area-type buffer as dirty when selection changes.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_SelectionQuery</code><br />
+Query to obtain the current SelectionInfo and selection elements used to highlight selected areas.</p>
+</li>
+<li>
+<p><code>private bool m_Loaded</code><br />
+Flag set during PreDeserialize to force a full rebuild on the next update.</p>
+</li>
+<li>
+<p><code>private int m_AreaParameters</code><br />
+Shader property ID used to pass area-related parameters (min node distance derived values) to materials.</p>
+</li>
+<li>
+<p><code>private Dictionary&lt;Entity, string&gt; m_CachedLabels</code><br />
+Cache mapping entities to the last rendered label string to avoid recomputing label meshes when the string hasn't changed.</p>
+</li>
+<li>
+<p><code>private TypeHandle __TypeHandle</code><br />
+Internal generated container of ComponentTypeHandle/BufferTypeHandle/ComponentLookup fields used when scheduling jobs and reading component data.</p>
+</li>
+<li>
+<p>(Note) There are many nested types inside AreaBufferSystem such as AreaTriangleData, AreaTypeData, ChunkData, job structs (ResetChunkDataJob, FillMeshDataJob, CalculateBoundsJob, FillNameDataJob), LabelVertexData and internal TypeHandle. These represent the data layout and jobs used to build buffers/meshes.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_SettingsQuery;
-</code></pre>
+<h2 id="properties">Properties</h2>
 <ul>
-<li><code>private Game.Rendering.RenderingSystem m_RenderingSystem</code>  </li>
+<li>This system exposes no public properties.</li>
 </ul>
-<pre><code class="language-csharp">private Game.Rendering.RenderingSystem m_RenderingSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Rendering.OverlayRenderSystem m_OverlayRenderSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Rendering.OverlayRenderSystem m_OverlayRenderSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Prefabs.PrefabSystem m_PrefabSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Prefabs.PrefabSystem m_PrefabSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Tools.ToolSystem m_ToolSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Tools.ToolSystem m_ToolSystem;
-</code></pre>
-<ul>
-<li><code>private Game.UI.NameSystem m_NameSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.UI.NameSystem m_NameSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Rendering.AreaBufferSystem+AreaTypeData[] m_AreaTypeData</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Rendering.AreaBufferSystem+AreaTypeData[] m_AreaTypeData;
-</code></pre>
-<ul>
-<li><code>private Game.Areas.AreaType m_LastSelectionAreaType</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Areas.AreaType m_LastSelectionAreaType;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_SelectionQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_SelectionQuery;
-</code></pre>
-<ul>
-<li><code>private System.Boolean m_Loaded</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean m_Loaded;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_AreaParameters</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_AreaParameters;
-</code></pre>
-<ul>
-<li><code>private System.Collections.Generic.Dictionary&lt;Unity.Entities.Entity, System.String&gt; m_CachedLabels</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Collections.Generic.Dictionary&lt;Unity.Entities.Entity, System.String&gt; m_CachedLabels;
-</code></pre>
-<ul>
-<li><code>private Game.Rendering.AreaBufferSystem+TypeHandle __TypeHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Rendering.AreaBufferSystem+TypeHandle __TypeHandle;
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public AreaBufferSystem()</code>  </li>
+<li><code>public AreaBufferSystem()</code><br />
+Default constructor (system created by world). Initialization of system-level references and arrays is performed in OnCreate.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public AreaBufferSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private __AssignQueries(Unity.Entities.SystemState&amp; state) : System.Void</code>  </li>
+<li>
+<p><code>protected override void OnCreate()</code><br />
+Initializes references to other systems (RenderingSystem, OverlayRenderSystem, PrefabSystem, ToolSystem, NameSystem), initializes m_AreaTypeData array and queries, registers localization dictionary change callback, and prepares shader property IDs. Also prepares per-area-type queries with InitializeAreaData<T>().</p>
+</li>
+<li>
+<p><code>protected override void OnDestroy()</code><br />
+Cleans up allocated resources: destroys materials and meshes, releases compute buffers, disposes native lists and mesh data arrays, and unregisters the dictionary change callback.</p>
+</li>
+<li>
+<p><code>private void OnDictionaryChanged()</code><br />
+Callback fired when localization changes; marks district (AreaType.District) entities as Updated so labels get rebuilt.</p>
+</li>
+<li>
+<p><code>private AreaTypeData InitializeAreaData&lt;T&gt;() where T : struct, IComponentData</code><br />
+Creates and returns an AreaTypeData instance for a specific area type T by building EntityQueries for either updated entities (Updated/BatchesUpdated/Deleted) or all existing areas of that type. Used during OnCreate.</p>
+</li>
+<li>
+<p><code>public void PreDeserialize(Context context)</code><br />
+Called before deserialization to release and clear runtime resources (native lists, compute buffers, meshes) so they can be recreated after load. Sets m_Loaded so the next update will perform a full rebuild.</p>
+</li>
+<li>
+<p><code>private bool GetLoaded()</code><br />
+Internal helper that returns true once immediately after PreDeserialize is called (consumes m_Loaded flag).</p>
+</li>
+<li>
+<p><code>protected override void OnUpdate()</code><br />
+Main system update. Checks settings queries and updates materials when area-type prefabs are created/changed. Tracks selection changes to mark dirty types. Schedules jobs (ResetChunkDataJob, FillMeshDataJob, CalculateBoundsJob and optionally FillNameDataJob) to collect triangle and label data into native lists / mesh data. Marks area type data as dirty so buffers / name meshes will be built in GetAreaBuffer/GetNameMesh. Uses Unity Jobs / Burst / ECS deferred arrays for performance.</p>
+</li>
+<li>
+<p><code>public unsafe bool GetAreaBuffer(AreaType type, out ComputeBuffer buffer, out Material material, out Bounds bounds)</code><br />
+Completes any pending data jobs for the specified AreaType and ensures the ComputeBuffer is created and populated from the native AreaTriangleData list. Returns buffer, the area material used for rendering, and the world Bounds covering the area data. Returns true if a valid (non-empty) buffer is available. This is the primary consumer-facing method to obtain GPU data to draw area overlays.</p>
+</li>
+<li>
+<p><code>private void UpdateLabelVertices(AreaTypeData data, bool isLoaded)</code><br />
+Builds/updates per-entity LabelVertex and LabelExtents buffers by using TextMeshPro to layout the rendered name text, copying vertex, UV and color info into entity dynamic buffers and collecting/getting/creating name-materials that match the font atlas textures. Updates the in-system cached label dictionary to avoid redundant rebuilds. Called by OnUpdate when name-materials are required or entities have been updated.</p>
+</li>
+<li>
+<p><code>public bool GetNameMesh(AreaType type, out Mesh mesh, out int subMeshCount)</code><br />
+If name mesh data is available (scheduled by UpdateLabelVertices via FillNameDataJob), completes job dependencies, applies and disposes the WritableMeshData to produce a Mesh instance, updates mesh bounds, and determines which sub-meshes (materials) actually have geometry. Returns the mesh and subMeshCount and a bool indicating whether any submesh had geometry (HasNameMesh).</p>
+</li>
+<li>
+<p><code>public bool GetNameMaterial(AreaType type, int subMeshIndex, out Material material)</code><br />
+Returns the material for the specified area type and sub-mesh index (font atlas-based materials created from the original name-material). Also returns whether that material has geometry associated (m_HasMesh).</p>
+</li>
+<li>
+<p><code>private void __AssignQueries(ref SystemState state)</code><br />
+Generated helper used by compiler-time scaffolding; noop in this decompiled listing.</p>
+</li>
+<li>
+<p><code>protected override void OnCreateForCompiler()</code><br />
+Generated initialization entry used for compiler-time wiring of queries/handles. Calls __AssignQueries and assigns __TypeHandle handles.</p>
+</li>
+<li>
+<p><code>private void UpdateLabelVertices(AreaTypeData data, bool isLoaded)</code> (private)<br />
+(See above) Builds label vertex buffers and extents per entity using TMP text layout.</p>
+</li>
+<li>
+<p>Several nested job structs and helper methods (ResetChunkDataJob, FillMeshDataJob, CalculateBoundsJob, FillNameDataJob) are used internally. Key points:</p>
+</li>
+<li>ResetChunkDataJob: counts triangles across archetype chunks and prepares ChunkData and the main AreaTriangleData native list.</li>
+<li>FillMeshDataJob: iterates chunks and entities to sample triangle geometry, colors (selection / disabled), builds AreaTriangleData entries, and accumulates chunk bounds.</li>
+<li>CalculateBoundsJob: aggregates chunk bounds into a single Bounds3 stored in the AreaTypeData.</li>
+<li>FillNameDataJob: constructs writable mesh data for area name vertex buffers (multi-submesh) and fills vertex &amp; index arrays from LabelVertex buffers for subsequent Apply to Mesh.</li>
 </ul>
-<pre><code class="language-csharp">private void __AssignQueries(ref SystemState state)
-    {
-        new EntityQueryBuilder(Allocator.Temp).Dispose();
-    }
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Example: drawing area overlay from another rendering system
+AreaBufferSystem areaBufferSystem = World.DefaultGameObjectInjectionWorld.GetExistingSystemManaged&lt;Game.Rendering.AreaBufferSystem&gt;();
+
+if (areaBufferSystem.GetAreaBuffer(AreaType.Lot, out ComputeBuffer areaBuffer, out Material areaMaterial, out Bounds areaBounds))
+{
+    // Bind buffer to material and issue draw (example: material expects structured buffer &quot;areaTriangles&quot;)
+    areaMaterial.SetBuffer(&quot;areaTriangles&quot;, areaBuffer);
+    // Set other per-draw shader parameters (e.g. camera matrices) as needed...
+    // Example using Graphics.DrawProcedural (setup with proper shader pass):
+    Graphics.DrawProcedural(areaMaterial, areaBounds, MeshTopology.Triangles, areaBuffer.count * 3);
+}
 </code></pre>
-<ul>
-<li><code>public GetAreaBuffer(Game.Areas.AreaType type, UnityEngine.ComputeBuffer&amp; buffer, UnityEngine.Material&amp; material, UnityEngine.Bounds&amp; bounds) : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">public unsafe bool GetAreaBuffer(AreaType type, out ComputeBuffer buffer, out Material material, out Bounds bounds)
-    {
-        AreaTypeData areaTypeData = m_AreaTypeData[(int)type];
-        if (areaTypeData.m_BufferDirty)
-        {
-            areaTypeData.m_BufferDirty = false;
-            areaTypeData.m_DataDependencies.Complete();
-            areaTypeData.m_DataDependencies = default(JobHandle);
-            if (areaTypeData.m_BufferData.IsCreated)
-            {
-                if (areaTypeData.m_Buffer != null &amp;&amp; areaTypeData.m_Buffer.count != areaTypeData.m_BufferData.Length)
-                {
-                    areaTypeData.m_Buffer.Release();
-                    areaTypeData.m_Buffer = null;
-                }
-                if (areaTypeData.m_BufferData.Length &gt; 0)
-                {
-                    if (areaTypeData.m_Buffer == null)
-                    {
-                        areaTypeData.m_Buffer = new ComputeBuffer(areaTypeData.m_BufferData.Length, sizeof(AreaTriangleData));
-                    }
-                    areaTypeData.m_Buffer.SetData(areaTypeData.m_BufferData.AsArray());
-                }
-                areaTypeData.m_BufferData.Dispose();
-            }
-        }
-        buffer = areaTypeData.m_Buffer;
-        material = areaTypeData.m_Material;
-        if (areaTypeData.m_Bounds.IsCreated)
-        {
-            bounds = RenderingUtils.ToBounds(areaTypeData.m_Bounds.value);
-        }
-        else
-        {
-            bounds = default(Bounds);
-        }
-        if (areaTypeData.m_Buffer != null)
-        {
-            return areaTypeData.m_Buffer.count != 0;
-        }
-        return false;
-    }
-</code></pre>
-<ul>
-<li><code>private GetLoaded() : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">private bool GetLoaded()
-    {
-        if (m_Loaded)
-        {
-            m_Loaded = false;
-            return true;
-        }
-        return false;
-    }
-</code></pre>
-<ul>
-<li><code>public GetNameMaterial(Game.Areas.AreaType type, System.Int32 subMeshIndex, UnityEngine.Material&amp; material) : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">public bool GetNameMaterial(AreaType type, int subMeshIndex, out Material material)
-    {
-        MaterialData materialData = m_AreaTypeData[(int)type].m_NameMaterials[subMeshIndex];
-        material = materialData.m_Material;
-        return materialData.m_HasMesh;
-    }
-</code></pre>
-<ul>
-<li><code>public GetNameMesh(Game.Areas.AreaType type, UnityEngine.Mesh&amp; mesh, System.Int32&amp; subMeshCount) : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">public bool GetNameMesh(AreaType type, out Mesh mesh, out int subMeshCount)
-    {
-        AreaTypeData areaTypeData = m_AreaTypeData[(int)type];
-        if (areaTypeData.m_NameMaterials != null)
-        {
-            subMeshCount = areaTypeData.m_NameMaterials.Count;
-        }
-        else
-        {
-            subMeshCount = 0;
-        }
-        if (areaTypeData.m_HasNameMeshData)
-        {
-            areaTypeData.m_HasNameMeshData = false;
-            areaTypeData.m_DataDependencies.Complete();
-            areaTypeData.m_DataDependencies = default(JobHandle);
-            if (areaTypeData.m_NameMesh == null)
-            {
-                areaTypeData.m_NameMesh = new Mesh();
-                areaTypeData.m_NameMesh.name = $&quot;Area names ({type})&quot;;
-            }
-            Mesh.ApplyAndDisposeWritableMeshData(areaTypeData.m_NameMeshData, areaTypeData.m_NameMesh, MeshUpdateFlags.DontValidateIndices | MeshUpdateFlags.DontRecalculateBounds);
-            if (areaTypeData.m_Bounds.IsCreated &amp;&amp; math.all(areaTypeData.m_Bounds.value.max &gt;= areaTypeData.m_Bounds.value.min))
-            {
-                areaTypeData.m_NameMesh.bounds = RenderingUtils.ToBounds(areaTypeData.m_Bounds.value);
-            }
-            else
-            {
-                areaTypeData.m_NameMesh.RecalculateBounds();
-            }
-            areaTypeData.m_HasNameMesh = false;
-            for (int i = 0; i &lt; subMeshCount; i++)
-            {
-                MaterialData value = areaTypeData.m_NameMaterials[i];
-                value.m_HasMesh = areaTypeData.m_NameMesh.GetSubMesh(i).vertexCount &gt; 0;
-                areaTypeData.m_HasNameMesh |= value.m_HasMesh;
-                areaTypeData.m_NameMaterials[i] = value;
-            }
-        }
-        mesh = areaTypeData.m_NameMesh;
-        return areaTypeData.m_HasNameMesh;
-    }
-</code></pre>
-<ul>
-<li><code>private InitializeAreaData&lt;T&gt;() : Game.Rendering.AreaBufferSystem+AreaTypeData</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Rendering.AreaBufferSystem+AreaTypeData InitializeAreaData&lt;T&gt;();
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_RenderingSystem = base.World.GetOrCreateSystemManaged&lt;RenderingSystem&gt;();
-        m_OverlayRenderSystem = base.World.GetOrCreateSystemManaged&lt;OverlayRenderSystem&gt;();
-        m_PrefabSystem = base.World.GetOrCreateSystemManaged&lt;PrefabSystem&gt;();
-        m_ToolSystem = base.World.GetOrCreateSystemManaged&lt;ToolSystem&gt;();
-        m_NameSystem = base.World.GetOrCreateSystemManaged&lt;NameSystem&gt;();
-        m_AreaTypeData = new AreaTypeData[5];
-        m_AreaTypeData[0] = InitializeAreaData&lt;Lot&gt;();
-        m_AreaTypeData[1] = InitializeAreaData&lt;District&gt;();
-        m_AreaTypeData[2] = InitializeAreaData&lt;MapTile&gt;();
-        m_AreaTypeData[3] = InitializeAreaData&lt;Game.Areas.Space&gt;();
-        m_AreaTypeData[4] = InitializeAreaData&lt;Surface&gt;();
-        m_SettingsQuery = GetEntityQuery(ComponentType.ReadOnly&lt;Created&gt;(), ComponentType.ReadOnly&lt;Game.Prefabs.AreaTypeData&gt;());
-        m_SelectionQuery = GetEntityQuery(ComponentType.ReadOnly&lt;SelectionInfo&gt;(), ComponentType.ReadOnly&lt;SelectionElement&gt;());
-        m_AreaParameters = Shader.PropertyToID(&quot;colossal_AreaParameters&quot;);
-        GameManager.instance.localizationManager.onActiveDictionaryChanged += OnDictionaryChanged;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreateForCompiler() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnCreateForCompiler()
-    {
-        base.OnCreateForCompiler();
-        __AssignQueries(ref base.CheckedStateRef);
-        __TypeHandle.__AssignHandles(ref base.CheckedStateRef);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnDestroy() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnDestroy()
-    {
-        for (int i = 0; i &lt; m_AreaTypeData.Length; i++)
-        {
-            AreaTypeData areaTypeData = m_AreaTypeData[i];
-            if (areaTypeData.m_NameMaterials != null)
-            {
-                for (int j = 0; j &lt; areaTypeData.m_NameMaterials.Count; j++)
-                {
-                    MaterialData materialData = areaTypeData.m_NameMaterials[j];
-                    if (materialData.m_Material != null)
-                    {
-                        Object.Destroy(materialData.m_Material);
-                    }
-                }
-            }
-            if (areaTypeData.m_BufferData.IsCreated)
-            {
-                areaTypeData.m_BufferData.Dispose();
-            }
-            if (areaTypeData.m_Bounds.IsCreated)
-            {
-                areaTypeData.m_Bounds.Dispose();
-            }
-            if (areaTypeData.m_Material != null)
-            {
-                Object.Destroy(areaTypeData.m_Material);
-            }
-            if (areaTypeData.m_NameMesh != null)
-            {
-                Object.Destroy(areaTypeData.m_NameMesh);
-            }
-            if (areaTypeData.m_Buffer != null)
-            {
-                areaTypeData.m_Buffer.Release();
-            }
-            if (areaTypeData.m_HasNameMeshData)
-            {
-                areaTypeData.m_NameMeshData.Dispose();
-            }
-        }
-        GameManager.instance.localizationManager.onActiveDictionaryChanged -= OnDictionaryChanged;
-        base.OnDestroy();
-    }
-</code></pre>
-<ul>
-<li><code>private OnDictionaryChanged() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void OnDictionaryChanged()
-    {
-        base.EntityManager.AddComponent&lt;Updated&gt;(m_AreaTypeData[1].m_AreaQuery);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        bool loaded = GetLoaded();
-        if (!m_SettingsQuery.IsEmptyIgnoreFilter)
-        {
-            NativeArray&lt;ArchetypeChunk&gt; nativeArray = m_SettingsQuery.ToArchetypeChunkArray(Allocator.TempJob);
-            ComponentTypeHandle&lt;PrefabData&gt; typeHandle = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_PrefabData_RO_ComponentTypeHandle, ref base.CheckedStateRef);
-            for (int i = 0; i &lt; nativeArray.Length; i++)
-            {
-                NativeArray&lt;PrefabData&gt; nativeArray2 = nativeArray[i].GetNativeArray(ref typeHandle);
-                for (int j = 0; j &lt; nativeArray2.Length; j++)
-                {
-                    AreaTypePrefab prefab = m_PrefabSystem.GetPrefab&lt;AreaTypePrefab&gt;(nativeArray2[j]);
-                    AreaTypeData areaTypeData = m_AreaTypeData[(int)prefab.m_Type];
-                    float minNodeDistance = AreaUtils.GetMinNodeDistance(prefab.m_Type);
-                    if (areaTypeData.m_Material != null)
-                    {
-                        Object.Destroy(areaTypeData.m_Material);
-                    }
-                    areaTypeData.m_Material = new Material(prefab.m_Material);
-                    areaTypeData.m_Material.name = &quot;Area buffer (&quot; + prefab.m_Material.name + &quot;)&quot;;
-                    areaTypeData.m_Material.SetVector(m_AreaParameters, new Vector4(minNodeDistance * (1f / 32f), minNodeDistance * 0.25f, minNodeDistance * 2f, 0f));
-                    if (areaTypeData.m_NameMaterials != null)
-                    {
-                        for (int k = 0; k &lt; areaTypeData.m_NameMaterials.Count; k++)
-                        {
-                            MaterialData materialData = areaTypeData.m_NameMaterials[k];
-                            if (materialData.m_Material != null)
-                            {
-                                Object.Destroy(materialData.m_Material);
-                            }
-                        }
-                        areaTypeData.m_NameMaterials = null;
-                    }
-                    areaTypeData.m_OriginalNameMaterial = prefab.m_NameMaterial;
-                    if (prefab.m_NameMaterial != null)
-                    {
-                        areaTypeData.m_NameMaterials = new List&lt;MaterialData&gt;(1);
-                    }
-                }
-            }
-            nativeArray.Dispose();
-        }
-        JobHandle jobHandle = default(JobHandle);
-        AreaType areaType = AreaType.None;
-        Entity entity = Entity.Null;
-        if (!m_SelectionQuery.IsEmptyIgnoreFilter)
-        {
-            entity = m_SelectionQuery.GetSingletonEntity();
-            areaType = base.EntityManager.GetComponentData&lt;SelectionInfo&gt;(entity).m_AreaType;
-        }
-        if (m_LastSelectionAreaType != AreaType.None)
-        {
-            m_AreaTypeData[(int)m_LastSelectionAreaType].m_BufferDataDirty = true;
-        }
-        if (areaType != AreaType.None)
-        {
-            m_AreaTypeData[(int)areaType].m_BufferDataDirty = true;
-        }
-        m_LastSelectionAreaType = areaType;
-        for (int l = 0; l &lt; m_AreaTypeData.Length; l++)
-        {
-            AreaTypeData areaTypeData2 = m_AreaTypeData[l];
-            EntityQuery entityQuery = (loaded ? areaTypeData2.m_AreaQuery : areaTypeData2.m_UpdatedQuery);
-            if (!areaTypeData2.m_BufferDataDirty &amp;&amp; entityQuery.IsEmptyIgnoreFilter)
-            {
-                continue;
-            }
-            if (areaTypeData2.m_AreaQuery.IsEmptyIgnoreFilter)
-            {
-                areaTypeData2.m_BufferDataDirty = false;
-                areaTypeData2.m_BufferDirty = false;
-                if (areaTypeData2.m_Buffer != null)
-                {
-                    areaTypeData2.m_Buffer.Release();
-                    areaTypeData2.m_Buffer = null;
-                }
-                if (areaTypeData2.m_NameMesh != null)
-                {
-                    Object.Destroy(areaTypeData2.m_NameMesh);
-                    areaTypeData2.m_NameMesh = null;
-                }
-            }
-            else
-            {
-                areaTypeData2.m_BufferDataDirty = true;
-            }
-            if (areaTypeData2.m_NameMaterials != null &amp;&amp; !entityQuery.IsEmptyIgnoreFilter)
-            {
-                UpdateLabelVertices(areaTypeData2, loaded);
-            }
-        }
-        if (!m_RenderingSystem.hideOverlay)
-        {
-            for (int m = 0; m &lt; m_AreaTypeData.Length; m++)
-            {
-                AreaTypeData areaTypeData3 = m_AreaTypeData[m];
-                if (!areaTypeData3.m_BufferDataDirty || (areaTypeData3.m_NameMaterials == null &amp;&amp; (m_ToolSystem.activeTool == null || ((uint)m_ToolSystem.activeTool.requireAreas &amp; (uint)(1 &lt;&lt; m)) == 0)))
-                {
-                    continue;
-                }
-                areaTypeData3.m_BufferDataDirty = false;
-                areaTypeData3.m_BufferDirty = true;
-                JobHandle outJobHandle;
-                NativeList&lt;ArchetypeChunk&gt; nativeList = areaTypeData3.m_AreaQuery.ToArchetypeChunkListAsync(Allocator.TempJob, out outJobHandle);
-                NativeList&lt;ChunkData&gt; chunkData = new NativeList&lt;ChunkData&gt;(0, Allocator.TempJob);
-                if (!areaTypeData3.m_BufferData.IsCreated)
-                {
-                    areaTypeData3.m_BufferData = new NativeList&lt;AreaTriangleData&gt;(Allocator.Persistent);
-                }
-                if (!areaTypeData3.m_Bounds.IsCreated)
-                {
-                    areaTypeData3.m_Bounds = new NativeValue&lt;Bounds3&gt;(Allocator.Persistent);
-                }
-                ResetChunkDataJob jobData = new ResetChunkDataJob
-                {
-                    m_Chunks = nativeList,
-                    m_AreaType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Areas_Area_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                    m_TempType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Tools_Temp_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                    m_HiddenType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Tools_Hidden_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                    m_TriangleType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Areas_Triangle_RO_BufferTypeHandle, ref base.CheckedStateRef),
-                    m_ChunkData = chunkData,
-                    m_AreaTriangleData = areaTypeData3.m_BufferData
-                };
-                FillMeshDataJob jobData2 = new FillMeshDataJob
-                {
-                    m_EntityType = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef),
-                    m_PrefabRefType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                    m_TempType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Tools_Temp_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                    m_HiddenType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Tools_Hidden_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                    m_AreaType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Areas_Area_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                    m_NativeType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Common_Native_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                    m_NodeType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Areas_Node_RO_BufferTypeHandle, ref base.CheckedStateRef),
-                    m_TriangleType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Areas_Triangle_RO_BufferTypeHandle, ref base.CheckedStateRef),
-                    m_GeometryData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_AreaGeometryData_RO_ComponentLookup, ref base.CheckedStateRef),
-                    m_ColorData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_AreaColorData_RO_ComponentLookup, ref base.CheckedStateRef),
-                    m_SelectionElements = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Tools_SelectionElement_RO_BufferLookup, ref base.CheckedStateRef),
-                    m_SelectionEntity = entity,
-                    m_EditorMode = m_ToolSystem.actionMode.IsEditor(),
-                    m_Chunks = nativeList.AsDeferredJobArray(),
-                    m_ChunkData = chunkData,
-                    m_AreaTriangleData = areaTypeData3.m_BufferData
-                };
-                CalculateBoundsJob jobData3 = new CalculateBoundsJob
-                {
-                    m_ChunkData = chunkData,
-                    m_Bounds = areaTypeData3.m_Bounds
-                };
-                JobHandle dependsOn = JobHandle.CombineDependencies(base.Dependency, outJobHandle);
-                JobHandle jobHandle2 = IJobParallelForDeferExtensions.Schedule(dependsOn: IJobExtensions.Schedule(jobData, dependsOn), jobData: jobData2, list: nativeList, innerloopBatchCount: 1);
-                JobHandle jobHandle3 = IJobExtensions.Schedule(jobData3, jobHandle2);
-                chunkData.Dispose(jobHandle3);
-                if (areaTypeData3.m_NameMaterials != null)
-                {
-                    if (!areaTypeData3.m_HasNameMeshData)
-                    {
-                        areaTypeData3.m_HasNameMeshData = true;
-                        areaTypeData3.m_NameMeshData = Mesh.AllocateWritableMeshData(1);
-                    }
-                    JobHandle job = IJobExtensions.Schedule(new FillNameDataJob
-                    {
-                        m_GeometryType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Areas_Geometry_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                        m_PrefabRefType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                        m_TempType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Tools_Temp_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                        m_HiddenType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Tools_Hidden_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                        m_LabelVertexType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Areas_LabelVertex_RO_BufferTypeHandle, ref base.CheckedStateRef),
-                        m_AreaNameData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_AreaNameData_RO_ComponentLookup, ref base.CheckedStateRef),
-                        m_Chunks = nativeList,
-                        m_SubMeshCount = areaTypeData3.m_NameMaterials.Count,
-                        m_NameMeshData = areaTypeData3.m_NameMeshData
-                    }, dependsOn);
-                    nativeList.Dispose(JobHandle.CombineDependencies(jobHandle2, job));
-                    areaTypeData3.m_DataDependencies = JobHandle.CombineDependencies(jobHandle3, job);
-                }
-                else
-                {
-                    nativeList.Dispose(jobHandle2);
-                    areaTypeData3.m_DataDependencies = jobHandle3;
-                }
-                jobHandle = JobHandle.CombineDependencies(jobHandle, areaTypeData3.m_DataDependencies);
-            }
-        }
-        base.Dependency = jobHandle;
-    }
-</code></pre>
-<ul>
-<li><code>public PreDeserialize(Colossal.Serialization.Entities.Context context) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void PreDeserialize(Context context)
-    {
-        for (int i = 0; i &lt; m_AreaTypeData.Length; i++)
-        {
-            AreaTypeData areaTypeData = m_AreaTypeData[i];
-            if (areaTypeData.m_BufferData.IsCreated)
-            {
-                areaTypeData.m_BufferData.Dispose();
-                areaTypeData.m_BufferData = default(NativeList&lt;AreaTriangleData&gt;);
-            }
-            if (areaTypeData.m_Buffer != null)
-            {
-                areaTypeData.m_Buffer.Release();
-                areaTypeData.m_Buffer = null;
-            }
-            if (areaTypeData.m_NameMesh != null)
-            {
-                Object.Destroy(areaTypeData.m_NameMesh);
-                areaTypeData.m_NameMesh = null;
-            }
-            if (areaTypeData.m_HasNameMeshData)
-            {
-                areaTypeData.m_NameMeshData.Dispose();
-                areaTypeData.m_HasNameMeshData = false;
-            }
-        }
-        if (m_CachedLabels != null)
-        {
-            m_CachedLabels.Clear();
-        }
-        m_Loaded = true;
-    }
-</code></pre>
-<ul>
-<li><code>private UpdateLabelVertices(Game.Rendering.AreaBufferSystem+AreaTypeData data, System.Boolean isLoaded) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void UpdateLabelVertices(AreaTypeData data, bool isLoaded)
-    {
-        NativeArray&lt;ArchetypeChunk&gt; nativeArray = (isLoaded ? data.m_AreaQuery : data.m_UpdatedQuery).ToArchetypeChunkArray(Allocator.TempJob);
-        try
-        {
-            TextMeshPro textMesh = m_OverlayRenderSystem.GetTextMesh();
-            textMesh.rectTransform.sizeDelta = new Vector2(250f, 100f);
-            textMesh.fontSize = 200f;
-            textMesh.alignment = TextAlignmentOptions.Center;
-            EntityTypeHandle entityTypeHandle = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef);
-            ComponentTypeHandle&lt;Updated&gt; typeHandle = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Common_Updated_RO_ComponentTypeHandle, ref base.CheckedStateRef);
-            ComponentTypeHandle&lt;BatchesUpdated&gt; typeHandle2 = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Common_BatchesUpdated_RO_ComponentTypeHandle, ref base.CheckedStateRef);
-            ComponentTypeHandle&lt;Temp&gt; typeHandle3 = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Tools_Temp_RO_ComponentTypeHandle, ref base.CheckedStateRef);
-            BufferTypeHandle&lt;LabelExtents&gt; bufferTypeHandle = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Areas_LabelExtents_RW_BufferTypeHandle, ref base.CheckedStateRef);
-            BufferTypeHandle&lt;LabelVertex&gt; bufferTypeHandle2 = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Areas_LabelVertex_RW_BufferTypeHandle, ref base.CheckedStateRef);
-            LabelVertex value2 = default(LabelVertex);
-            for (int i = 0; i &lt; nativeArray.Length; i++)
-            {
-                ArchetypeChunk archetypeChunk = nativeArray[i];
-                if (isLoaded || archetypeChunk.Has(ref typeHandle) || archetypeChunk.Has(ref typeHandle2))
-                {
-                    NativeArray&lt;Entity&gt; nativeArray2 = archetypeChunk.GetNativeArray(entityTypeHandle);
-                    NativeArray&lt;Temp&gt; nativeArray3 = archetypeChunk.GetNativeArray(ref typeHandle3);
-                    BufferAccessor&lt;LabelExtents&gt; bufferAccessor = archetypeChunk.GetBufferAccessor(ref bufferTypeHandle);
-                    BufferAccessor&lt;LabelVertex&gt; bufferAccessor2 = archetypeChunk.GetBufferAccessor(ref bufferTypeHandle2);
-                    for (int j = 0; j &lt; nativeArray2.Length; j++)
-                    {
-                        Entity entity = nativeArray2[j];
-                        DynamicBuffer&lt;LabelExtents&gt; dynamicBuffer = bufferAccessor[j];
-                        DynamicBuffer&lt;LabelVertex&gt; dynamicBuffer2 = bufferAccessor2[j];
-                        string renderedLabelName;
-                        if (nativeArray3.Length != 0)
-                        {
-                            Temp temp = nativeArray3[j];
-                            if (!(temp.m_Original != Entity.Null))
-                            {
-                                if (m_CachedLabels != null &amp;&amp; m_CachedLabels.ContainsKey(entity))
-                                {
-                                    m_CachedLabels.Remove(entity);
-                                }
-                                dynamicBuffer2.Clear();
-                                continue;
-                            }
-                            renderedLabelName = m_NameSystem.GetRenderedLabelName(temp.m_Original);
-                        }
-                        else
-                        {
-                            renderedLabelName = m_NameSystem.GetRenderedLabelName(entity);
-                        }
-                        if (m_CachedLabels != null)
-                        {
-                            if (m_CachedLabels.TryGetValue(entity, out var value))
-                            {
-                                if (value == renderedLabelName)
-                                {
-                                    continue;
-                                }
-                                m_CachedLabels[entity] = renderedLabelName;
-                            }
-                            else
-                            {
-                                m_CachedLabels.Add(entity, renderedLabelName);
-                            }
-                        }
-                        else
-                        {
-                            m_CachedLabels = new Dictionary&lt;Entity, string&gt;();
-                            m_CachedLabels.Add(entity, renderedLabelName);
-                        }
-                        TMP_TextInfo textInfo = textMesh.GetTextInfo(renderedLabelName);
-                        int num = 0;
-                        for (int k = 0; k &lt; textInfo.meshInfo.Length; k++)
-                        {
-                            TMP_MeshInfo tMP_MeshInfo = textInfo.meshInfo[k];
-                            num += tMP_MeshInfo.vertexCount;
-                        }
-                        dynamicBuffer2.ResizeUninitialized(num);
-                        num = 0;
-                        for (int l = 0; l &lt; textInfo.meshInfo.Length; l++)
-                        {
-                            TMP_MeshInfo tMP_MeshInfo2 = textInfo.meshInfo[l];
-                            if (tMP_MeshInfo2.vertexCount == 0)
-                            {
-                                continue;
-                            }
-                            Texture mainTexture = tMP_MeshInfo2.material.mainTexture;
-                            int num2 = -1;
-                            for (int m = 0; m &lt; data.m_NameMaterials.Count; m++)
-                            {
-                                if (data.m_NameMaterials[m].m_Material.mainTexture == mainTexture)
-                                {
-                                    num2 = m;
-                                    break;
-                                }
-                            }
-                            if (num2 == -1)
-                            {
-                                MaterialData item = new MaterialData
-                                {
-                                    m_Material = new Material(data.m_OriginalNameMaterial)
-                                };
-                                m_OverlayRenderSystem.CopyFontAtlasParameters(tMP_MeshInfo2.material, item.m_Material);
-                                num2 = data.m_NameMaterials.Count;
-                                data.m_NameMaterials.Add(item);
-                                item.m_Material.name = $&quot;Area names {num2} ({data.m_OriginalNameMaterial.name})&quot;;
-                            }
-                            Vector3[] vertices = tMP_MeshInfo2.vertices;
-                            Vector2[] uvs = tMP_MeshInfo2.uvs0;
-                            Vector2[] uvs2 = tMP_MeshInfo2.uvs2;
-                            Color32[] colors = tMP_MeshInfo2.colors32;
-                            for (int n = 0; n &lt; tMP_MeshInfo2.vertexCount; n++)
-                            {
-                                value2.m_Position = vertices[n];
-                                value2.m_Color = colors[n];
-                                value2.m_UV0 = uvs[n];
-                                value2.m_UV1 = uvs2[n];
-                                value2.m_Material = num2;
-                                dynamicBuffer2[num + n] = value2;
-                            }
-                            num += tMP_MeshInfo2.vertexCount;
-                        }
-                        dynamicBuffer.ResizeUninitialized(textInfo.lineCount);
-                        for (int num3 = 0; num3 &lt; textInfo.lineCount; num3++)
-                        {
-                            Extents lineExtents = textInfo.lineInfo[num3].lineExtents;
-                            dynamicBuffer[num3] = new LabelExtents(lineExtents.min, lineExtents.max);
-                        }
-                    }
-                }
-                else if (m_CachedLabels != null)
-                {
-                    NativeArray&lt;Entity&gt; nativeArray4 = archetypeChunk.GetNativeArray(entityTypeHandle);
-                    for (int num4 = 0; num4 &lt; nativeArray4.Length; num4++)
-                    {
-                        Entity key = nativeArray4[num4];
-                        m_CachedLabels.Remove(key);
-                    }
-                }
-            }
-        }
-        finally
-        {
-            nativeArray.Dispose();
-        }
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Rendering.AreaBufferSystem+AreaTriangleData</code>  </li>
-<li><code>Game.Rendering.AreaBufferSystem+MaterialData</code>  </li>
-<li><code>Game.Rendering.AreaBufferSystem+AreaTypeData</code>  </li>
-<li><code>Game.Rendering.AreaBufferSystem+ChunkData</code>  </li>
-<li><code>Game.Rendering.AreaBufferSystem+ResetChunkDataJob</code>  </li>
-<li><code>Game.Rendering.AreaBufferSystem+FillMeshDataJob</code>  </li>
-<li><code>Game.Rendering.AreaBufferSystem+CalculateBoundsJob</code>  </li>
-<li><code>Game.Rendering.AreaBufferSystem+LabelVertexData</code>  </li>
-<li><code>Game.Rendering.AreaBufferSystem+FillNameDataJob</code>  </li>
-<li><code>Game.Rendering.AreaBufferSystem+TypeHandle</code>  </li>
-</ul>
+<p>Notes and tips:
+- GetAreaBuffer completes jobs and disposes the native area triangle list; call it from a render/update context after OnUpdate has run and before rendering.
+- Name meshes/materials are driven by TextMeshPro layout; call GetNameMesh/GetNameMaterial to retrieve name geometry and corresponding materials for rendering area names.
+- AreaBufferSystem uses ECS/job patterns (Burst, Native containers); avoid calling its internal/private APIs from non-main threads.</p>
 
 
 

@@ -65233,6 +65233,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69392,18 +69415,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -69428,9 +69451,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -69734,6 +69757,29 @@
   
   <span class="md-ellipsis">
     ShaderID
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
     
   </span>
   
@@ -72563,6 +72609,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75553,6 +75622,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87145,6 +87237,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -117921,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117948,18 +118085,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -117984,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118009,332 +118146,245 @@
 
 
 <h1 id="gamerenderingproceduralemissivesystem">Game.Rendering.ProceduralEmissiveSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Rendering</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code><br />
-<strong>Implements:</strong> <code>Game.Serialization.IPreDeserialize</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class ProceduralEmissiveSystem : Game.GameSystemBase, Game.Serialization.IPreDeserialize
-{
-    private Game.Rendering.RenderingSystem m_RenderingSystem;
-    private Colossal.Collections.NativeHeapAllocator m_HeapAllocator;
-    private Colossal.Rendering.SparseUploader m_SparseUploader;
-    private Colossal.Rendering.ThreadedSparseUploader m_ThreadedSparseUploader;
-    private Unity.Collections.NativeReference&lt;Game.Rendering.ProceduralEmissiveSystem+AllocationInfo&gt; m_AllocationInfo;
-    private Unity.Collections.NativeQueue&lt;Game.Rendering.ProceduralEmissiveSystem+AllocationRemove&gt; m_AllocationRemoves;
-    private System.Boolean m_IsAllocating;
-    private System.Boolean m_IsUploading;
-    private UnityEngine.GraphicsBuffer m_ComputeBuffer;
-    private Unity.Jobs.JobHandle m_HeapDeps;
-    private Unity.Jobs.JobHandle m_UploadDeps;
-    private System.Int32 m_HeapAllocatorByteSize;
-    private System.Int32 m_CurrentTime;
-    public static const System.UInt32 EMISSIVE_MEMORY_DEFAULT;
-    public static const System.UInt32 EMISSIVE_MEMORY_INCREMENT;
-    public static const System.UInt32 UPLOADER_CHUNK_SIZE;
-
-    public ProceduralEmissiveSystem();
-
-    public System.Void AddHeapWriter(Unity.Jobs.JobHandle handle);
-    public System.Void AddUploadWriter(Unity.Jobs.JobHandle handle);
-    private System.Void AllocateIdentityEntry();
-    public Colossal.Rendering.ThreadedSparseUploader BeginUpload(System.Int32 opCount, System.UInt32 dataSize, System.UInt32 maxOpSize);
-    public System.Void CompleteUpload();
-    public static System.Void GetGpuLights(Game.Rendering.Emissive emissive, Unity.Entities.DynamicBuffer`1[[Game.Prefabs.ProceduralLight, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]&amp; proceduralLights, Unity.Entities.DynamicBuffer`1[[Game.Rendering.LightState, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]&amp; lights, Unity.Collections.NativeList&lt;Unity.Mathematics.float4&gt; gpuLights);
-    public Colossal.Collections.NativeHeapAllocator GetHeapAllocator(Unity.Collections.NativeReference`1[[Game.Rendering.ProceduralEmissiveSystem+AllocationInfo, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]&amp; allocationInfo, Unity.Collections.NativeQueue`1[[Game.Rendering.ProceduralEmissiveSystem+AllocationRemove, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]&amp; allocationRemoves, System.Int32&amp; currentTime, Unity.Jobs.JobHandle&amp; dependencies);
-    public System.Void GetMemoryStats(System.UInt32&amp; allocatedSize, System.UInt32&amp; bufferSize, System.UInt32&amp; currentUpload, System.UInt32&amp; uploadSize, System.Int32&amp; allocationCount);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnDestroy();
-    protected virtual System.Void OnUpdate();
-    public System.Void PreDeserialize(Colossal.Serialization.Entities.Context context);
-}
-</code></pre>
+<p><strong>Assembly:</strong> Assembly-CSharp (game)<br />
+<strong>Namespace:</strong> Game.Rendering</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> GameSystemBase, IPreDeserialize</p>
+<p><strong>Summary:</strong><br />
+ProceduralEmissiveSystem manages GPU-side storage and upload of procedurally generated emissive lights for the rendering pipeline. It uses a NativeHeapAllocator for compact allocation of float4 entries (each light encoded as float4), and a SparseUploader / ThreadedSparseUploader to perform sparse GPU uploads. The system keeps an "identity" entry at index 0 and exposes APIs for other systems/jobs to allocate GPU space, schedule uploads, and report memory statistics. It also defers freeing allocations via a removal queue to avoid race conditions with GPU usage and uses a small job (RemoveAllocationsJob) to process delayed frees.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.Rendering.RenderingSystem m_RenderingSystem</code>  </li>
+<li>
+<p><code>public const uint EMISSIVE_MEMORY_DEFAULT</code><br />
+Default GPU memory reserved for emissive storage (2097152 bytes).</p>
+</li>
+<li>
+<p><code>public const uint EMISSIVE_MEMORY_INCREMENT</code><br />
+Increment size used when growing emissive memory (1048576 bytes).</p>
+</li>
+<li>
+<p><code>public const uint UPLOADER_CHUNK_SIZE</code><br />
+Chunk size used by the SparseUploader (131072 bytes).</p>
+</li>
+<li>
+<p><code>private RenderingSystem m_RenderingSystem</code><br />
+Reference to the global RenderingSystem (used for time deltas and LOD timer).</p>
+</li>
+<li>
+<p><code>private NativeHeapAllocator m_HeapAllocator</code><br />
+Allocator that manages float4 slots used to store per-light GPU data. Allocations are in terms of float4 slots.</p>
+</li>
+<li>
+<p><code>private SparseUploader m_SparseUploader</code><br />
+Uploader that performs sparse/partial updates to the GPU buffer.</p>
+</li>
+<li>
+<p><code>private ThreadedSparseUploader m_ThreadedSparseUploader</code><br />
+Threaded handle returned by SparseUploader.Begin to write data from worker threads.</p>
+</li>
+<li>
+<p><code>private NativeReference&lt;AllocationInfo&gt; m_AllocationInfo</code><br />
+Native reference storing allocation metadata (AllocationInfo struct), primarily allocation count.</p>
+</li>
+<li>
+<p><code>private NativeQueue&lt;AllocationRemove&gt; m_AllocationRemoves</code><br />
+Queue of pending allocation removals. Entries are processed over time to delay freeing until safe.</p>
+</li>
+<li>
+<p><code>private bool m_IsAllocating</code><br />
+Flag indicating that allocations took place and buffer resize may be required on next update.</p>
+</li>
+<li>
+<p><code>private bool m_IsUploading</code><br />
+Flag indicating an upload is currently in progress (BeginUpload called and not yet completed).</p>
+</li>
+<li>
+<p><code>private GraphicsBuffer m_ComputeBuffer</code><br />
+GPU buffer (Raw) bound as global buffer "_LightInfo" to be read by shaders.</p>
+</li>
+<li>
+<p><code>private JobHandle m_HeapDeps</code><br />
+JobHandle tracking scheduled jobs that wrote to the heap allocator (must be completed before heap access / resize).</p>
+</li>
+<li>
+<p><code>private JobHandle m_UploadDeps</code><br />
+JobHandle tracking upload writer jobs; used by CompleteUpload to wait for upload work to finish.</p>
+</li>
+<li>
+<p><code>private int m_HeapAllocatorByteSize</code><br />
+Cached byte size of the underlying heap allocator (Size * sizeof(float4)) used to determine when buffer needs replacement.</p>
+</li>
+<li>
+<p><code>private int m_CurrentTime</code><br />
+Wrap-around (16-bit) time counter used to determine when queued removals can be freed.</p>
+</li>
+<li>
+<p><code>private consts and nested types (AllocationInfo, AllocationRemove, RemoveAllocationsJob)</code><br />
+See below for descriptions of the nested structs and the job used to process delayed frees.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.Rendering.RenderingSystem m_RenderingSystem;
-</code></pre>
+<p>Nested types (important):</p>
 <ul>
-<li><code>private Colossal.Collections.NativeHeapAllocator m_HeapAllocator</code>  </li>
+<li><code>public struct AllocationInfo</code><br />
+Holds allocation metadata:</li>
+<li>
+<p><code>uint m_AllocationCount</code> — number of active allocations (excluding the reserved identity entry).</p>
+</li>
+<li>
+<p><code>public struct AllocationRemove</code><br />
+Represents a pending removal:</p>
+</li>
+<li><code>NativeHeapBlock m_Allocation</code> — the heap block to be released.</li>
+<li>
+<p><code>int m_RemoveTime</code> — time when the removal was enqueued; removal is processed after a time threshold.</p>
+</li>
+<li>
+<p><code>[BurstCompile] private struct RemoveAllocationsJob : IJob</code><br />
+Job that processes m_AllocationRemoves queue, checking each removal against current time and freeing underlying heap blocks via m_HeapAllocator when safe. It decrements AllocationInfo.m_AllocationCount as removals are committed.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Colossal.Collections.NativeHeapAllocator m_HeapAllocator;
-</code></pre>
+<hr />
+<h2 id="properties">Properties</h2>
 <ul>
-<li><code>private Colossal.Rendering.SparseUploader m_SparseUploader</code>  </li>
+<li>None (this system exposes behavior via methods; internal state is private and exposed through out parameters in GetHeapAllocator/GetMemoryStats).</li>
 </ul>
-<pre><code class="language-csharp">private Colossal.Rendering.SparseUploader m_SparseUploader;
-</code></pre>
-<ul>
-<li><code>private Colossal.Rendering.ThreadedSparseUploader m_ThreadedSparseUploader</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.Rendering.ThreadedSparseUploader m_ThreadedSparseUploader;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeReference&lt;Game.Rendering.ProceduralEmissiveSystem+AllocationInfo&gt; m_AllocationInfo</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeReference&lt;Game.Rendering.ProceduralEmissiveSystem+AllocationInfo&gt; m_AllocationInfo;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeQueue&lt;Game.Rendering.ProceduralEmissiveSystem+AllocationRemove&gt; m_AllocationRemoves</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeQueue&lt;Game.Rendering.ProceduralEmissiveSystem+AllocationRemove&gt; m_AllocationRemoves;
-</code></pre>
-<ul>
-<li><code>private System.Boolean m_IsAllocating</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean m_IsAllocating;
-</code></pre>
-<ul>
-<li><code>private System.Boolean m_IsUploading</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean m_IsUploading;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.GraphicsBuffer m_ComputeBuffer</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.GraphicsBuffer m_ComputeBuffer;
-</code></pre>
-<ul>
-<li><code>private Unity.Jobs.JobHandle m_HeapDeps</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Jobs.JobHandle m_HeapDeps;
-</code></pre>
-<ul>
-<li><code>private Unity.Jobs.JobHandle m_UploadDeps</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Jobs.JobHandle m_UploadDeps;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_HeapAllocatorByteSize</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_HeapAllocatorByteSize;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_CurrentTime</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_CurrentTime;
-</code></pre>
-<ul>
-<li><code>public static const System.UInt32 EMISSIVE_MEMORY_DEFAULT</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static const System.UInt32 EMISSIVE_MEMORY_DEFAULT;
-</code></pre>
-<ul>
-<li><code>public static const System.UInt32 EMISSIVE_MEMORY_INCREMENT</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static const System.UInt32 EMISSIVE_MEMORY_INCREMENT;
-</code></pre>
-<ul>
-<li><code>public static const System.UInt32 UPLOADER_CHUNK_SIZE</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static const System.UInt32 UPLOADER_CHUNK_SIZE;
-</code></pre>
+<hr />
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public ProceduralEmissiveSystem()</code>  </li>
+<li><code>public ProceduralEmissiveSystem()</code><br />
+Default managed constructor. The real initialization happens in OnCreate override (the constructor is preserved for ECS system instantiation).</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public ProceduralEmissiveSystem()
-    {
-    }
-</code></pre>
+<hr />
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>public AddHeapWriter(Unity.Jobs.JobHandle handle) : System.Void</code>  </li>
+<li><code>protected override void OnCreate()</code><br />
+Initializes the system:</li>
+<li>Grabs RenderingSystem from world.</li>
+<li>Creates NativeHeapAllocator with default EMISSIVE_MEMORY_DEFAULT / sizeof(float4) slots.</li>
+<li>Creates SparseUploader and persistent NativeReference/NativeQueue.</li>
+<li>
+<p>Calls AllocateIdentityEntry to reserve entry 0 and initialize allocation metadata.
+Notes: marked with [Preserve] in original to ensure not stripped.</p>
+</li>
+<li>
+<p><code>protected override void OnDestroy()</code><br />
+Cleans up resources:</p>
+</li>
+<li>Completes outstanding upload and heap jobs.</li>
+<li>Disposes heap allocator, sparse uploader, native reference/queue.</li>
+<li>
+<p>Releases the GPU compute buffer if present.</p>
+</li>
+<li>
+<p><code>protected override void OnUpdate()</code><br />
+Runs each frame:</p>
+</li>
+<li>Completes ongoing uploads and heap jobs as needed.</li>
+<li>If allocations occurred (m_IsAllocating), compute new required buffer size and replace or create GraphicsBuffer, set it globally (_LightInfo), and tell m_SparseUploader to use it.</li>
+<li>
+<p>Schedules RemoveAllocationsJob if m_AllocationRemoves is not empty to process delayed frees.
+Notes: uses m_RenderingSystem.lodTimerDelta to update m_CurrentTime for removal timing.</p>
+</li>
+<li>
+<p><code>public ThreadedSparseUploader BeginUpload(int opCount, uint dataSize, uint maxOpSize)</code><br />
+Starts an upload session on the SparseUploader. Returns a ThreadedSparseUploader handle to write upload commands. Sets m_IsUploading true. Use AddUploadWriter with the job handle produced by threaded writers and then call CompleteUpload() to commit.</p>
+</li>
+<li>
+<p><code>public void AddUploadWriter(JobHandle handle)</code><br />
+Records a JobHandle (m_UploadDeps) representing jobs that produce upload data; CompleteUpload will wait on this handle.</p>
+</li>
+<li>
+<p><code>public void CompleteUpload()</code><br />
+If an upload is in progress:</p>
+</li>
+<li>Completes m_UploadDeps.</li>
+<li>Calls m_SparseUploader.EndAndCommit to finalize and commit the sparse uploads.</li>
+<li>
+<p>Clears m_IsUploading.</p>
+</li>
+<li>
+<p><code>public void PreDeserialize(Context context)</code><br />
+Called before deserialization (IPreDeserialize). Clears allocator state:</p>
+</li>
+<li>Completes outstanding heap jobs.</li>
+<li>Clears the heap allocator and removal queue.</li>
+<li>
+<p>Re-allocates the reserved identity entry.</p>
+</li>
+<li>
+<p><code>public NativeHeapAllocator GetHeapAllocator(out NativeReference&lt;AllocationInfo&gt; allocationInfo, out NativeQueue&lt;AllocationRemove&gt; allocationRemoves, out int currentTime, out JobHandle dependencies)</code><br />
+Provides callers direct access to the NativeHeapAllocator for making allocations. Outputs:</p>
+</li>
+<li>allocationInfo — native reference with AllocationInfo (for incrementing allocation count, etc).</li>
+<li>allocationRemoves — queue to enqueue AllocationRemove entries for delayed frees.</li>
+<li>currentTime — the system's m_CurrentTime (used to set remove time).</li>
+<li>
+<p>dependencies — current m_HeapDeps that callers should respect.
+This method marks m_IsAllocating true so OnUpdate will resize GPU buffer if allocator size changed.</p>
+</li>
+<li>
+<p><code>public void AddHeapWriter(JobHandle handle)</code><br />
+Records the job handle that modified the heap allocator (m_HeapDeps) so the system can wait on it before resizing/reading.</p>
+</li>
+<li>
+<p><code>public void GetMemoryStats(out uint allocatedSize, out uint bufferSize, out uint currentUpload, out uint uploadSize, out int allocationCount)</code><br />
+Fills out memory stats:</p>
+</li>
+<li>allocatedSize — UsedSpace * sizeof(float4)</li>
+<li>bufferSize — Size * sizeof(float4)</li>
+<li>currentUpload — current bytes being uploaded (from SparseUploader stats)</li>
+<li>uploadSize — total bytes used by SparseUploader</li>
+<li>
+<p>allocationCount — current allocation count from AllocationInfo
+Completes m_HeapDeps before reading allocator state.</p>
+</li>
+<li>
+<p><code>private void AllocateIdentityEntry()</code><br />
+Allocates a single float4 slot reserved as an identity/empty light at index 0 and resets AllocationInfo.m_AllocationCount = 0. Marks m_IsAllocating to ensure the GPU buffer exists.</p>
+</li>
+<li>
+<p><code>public static void GetGpuLights(Emissive emissive, in DynamicBuffer&lt;ProceduralLight&gt; proceduralLights, in DynamicBuffer&lt;LightState&gt; lights, NativeList&lt;float4&gt; gpuLights)</code><br />
+Helper to fill gpuLights (NativeList<float4>) with float4 entries representing GPU light data:</p>
+</li>
+<li>gpuLights[0] is set to default (reserved identity entry).</li>
+<li>
+<p>Iterates proceduralLights and corresponding LightState entries and computes a float4 color (lerp between two color values weighted by lightState.m_Color and multiplied in .w by intensity). Writes these into gpuLights starting at index 1.</p>
+</li>
+<li>
+<p>RemoveAllocationsJob.Execute() (in nested RemoveAllocationsJob)<br />
+Processes the m_AllocationRemoves queue, computing elapsed time relative to m_CurrentTime and freeing entries once they are older than the threshold (uses wrap-around math and threshold of 255 ticks). Decrements AllocationInfo.m_AllocationCount for each freed allocation.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public void AddHeapWriter(JobHandle handle)
-    {
-        m_HeapDeps = handle;
-    }
+<hr />
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Example: allocate GPU slots and schedule an upload (conceptual)
+ProceduralEmissiveSystem emissiveSystem = world.GetOrCreateSystemManaged&lt;ProceduralEmissiveSystem&gt;();
+
+// 1) Acquire heap allocator &amp; helpers to allocate blocks from a job or main thread.
+NativeReference&lt;ProceduralEmissiveSystem.AllocationInfo&gt; allocInfo;
+NativeQueue&lt;ProceduralEmissiveSystem.AllocationRemove&gt; allocRemoves;
+int currentTime;
+JobHandle heapDeps;
+NativeHeapAllocator allocator = emissiveSystem.GetHeapAllocator(out allocInfo, out allocRemoves, out currentTime, out heapDeps);
+
+// Use allocator.Allocate(...) to reserve float4 slots, enqueue removal entries into allocRemoves when freeing,
+// and update allocInfo.m_AllocationCount appropriately from job/main thread as needed.
+// Remember to call emissiveSystem.AddHeapWriter(jobHandle) if allocations are performed in jobs.
+
+// 2) Prepare GPU upload (from worker jobs)
+var uploader = emissiveSystem.BeginUpload(opCount: 1, dataSize: (uint)bytesToUpload, maxOpSize: (uint)maxChunk);
+ // write into uploader via ThreadedSparseUploader APIs on worker threads
+emissiveSystem.AddUploadWriter(uploadJobHandle);
+
+// 3) Finalize uploads (main thread, before render)
+emissiveSystem.CompleteUpload();
 </code></pre>
-<ul>
-<li><code>public AddUploadWriter(Unity.Jobs.JobHandle handle) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void AddUploadWriter(JobHandle handle)
-    {
-        m_UploadDeps = handle;
-    }
-</code></pre>
-<ul>
-<li><code>private AllocateIdentityEntry() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void AllocateIdentityEntry()
-    {
-        m_IsAllocating = true;
-        m_HeapAllocator.Allocate(1u);
-        m_AllocationInfo.Value = new AllocationInfo
-        {
-            m_AllocationCount = 0u
-        };
-    }
-</code></pre>
-<ul>
-<li><code>public BeginUpload(System.Int32 opCount, System.UInt32 dataSize, System.UInt32 maxOpSize) : Colossal.Rendering.ThreadedSparseUploader</code>  </li>
-</ul>
-<pre><code class="language-csharp">public ThreadedSparseUploader BeginUpload(int opCount, uint dataSize, uint maxOpSize)
-    {
-        m_ThreadedSparseUploader = m_SparseUploader.Begin((int)dataSize, (int)maxOpSize, opCount);
-        m_IsUploading = true;
-        return m_ThreadedSparseUploader;
-    }
-</code></pre>
-<ul>
-<li><code>public CompleteUpload() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void CompleteUpload()
-    {
-        if (m_IsUploading)
-        {
-            m_UploadDeps.Complete();
-            m_IsUploading = false;
-            m_SparseUploader.EndAndCommit(m_ThreadedSparseUploader);
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public static GetGpuLights(Game.Rendering.Emissive emissive, Unity.Entities.DynamicBuffer</code>1[[Game.Prefabs.ProceduralLight, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]&amp; proceduralLights, Unity.Entities.DynamicBuffer<code>1[[Game.Rendering.LightState, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]&amp; lights, Unity.Collections.NativeList&lt;Unity.Mathematics.float4&gt; gpuLights) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static void GetGpuLights(Emissive emissive, in DynamicBuffer&lt;ProceduralLight&gt; proceduralLights, in DynamicBuffer&lt;LightState&gt; lights, NativeList&lt;float4&gt; gpuLights)
-    {
-        gpuLights[0] = default(float4);
-        for (int i = 0; i &lt; proceduralLights.Length; i++)
-        {
-            ProceduralLight proceduralLight = proceduralLights[i];
-            LightState lightState = lights[emissive.m_LightOffset + i];
-            float4 value = math.lerp(proceduralLight.m_Color, proceduralLight.m_Color2, lightState.m_Color);
-            value.w *= lightState.m_Intensity;
-            gpuLights[i + 1] = value;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public GetHeapAllocator(Unity.Collections.NativeReference</code>1[[Game.Rendering.ProceduralEmissiveSystem+AllocationInfo, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]&amp; allocationInfo, Unity.Collections.NativeQueue<code>1[[Game.Rendering.ProceduralEmissiveSystem+AllocationRemove, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]&amp; allocationRemoves, System.Int32&amp; currentTime, Unity.Jobs.JobHandle&amp; dependencies) : Colossal.Collections.NativeHeapAllocator</code>  </li>
-</ul>
-<pre><code class="language-csharp">public NativeHeapAllocator GetHeapAllocator(out NativeReference&lt;AllocationInfo&gt; allocationInfo, out NativeQueue&lt;AllocationRemove&gt; allocationRemoves, out int currentTime, out JobHandle dependencies)
-    {
-        dependencies = m_HeapDeps;
-        allocationInfo = m_AllocationInfo;
-        allocationRemoves = m_AllocationRemoves;
-        currentTime = m_CurrentTime;
-        m_IsAllocating = true;
-        return m_HeapAllocator;
-    }
-</code></pre>
-<ul>
-<li><code>public GetMemoryStats(System.UInt32&amp; allocatedSize, System.UInt32&amp; bufferSize, System.UInt32&amp; currentUpload, System.UInt32&amp; uploadSize, System.Int32&amp; allocationCount) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public unsafe void GetMemoryStats(out uint allocatedSize, out uint bufferSize, out uint currentUpload, out uint uploadSize, out int allocationCount)
-    {
-        m_HeapDeps.Complete();
-        allocatedSize = m_HeapAllocator.UsedSpace * (uint)sizeof(float4);
-        bufferSize = m_HeapAllocator.Size * (uint)sizeof(float4);
-        allocationCount = (int)m_AllocationInfo.Value.m_AllocationCount;
-        SparseUploaderStats sparseUploaderStats = m_SparseUploader.ComputeStats();
-        currentUpload = (uint)sparseUploaderStats.BytesGPUMemoryUploadedCurr;
-        uploadSize = (uint)sparseUploaderStats.BytesGPUMemoryUsed;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected unsafe override void OnCreate()
-    {
-        base.OnCreate();
-        m_RenderingSystem = base.World.GetOrCreateSystemManaged&lt;RenderingSystem&gt;();
-        m_HeapAllocator = new NativeHeapAllocator(2097152u / (uint)sizeof(float4), 1u, Allocator.Persistent);
-        m_SparseUploader = new SparseUploader(&quot;Procedural emissive uploader&quot;, null, 131072);
-        m_AllocationInfo = new NativeReference&lt;AllocationInfo&gt;(Allocator.Persistent);
-        m_AllocationRemoves = new NativeQueue&lt;AllocationRemove&gt;(Allocator.Persistent);
-        AllocateIdentityEntry();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnDestroy() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnDestroy()
-    {
-        CompleteUpload();
-        m_HeapDeps.Complete();
-        if (m_HeapAllocator.IsCreated)
-        {
-            m_HeapAllocator.Dispose();
-            m_SparseUploader.Dispose();
-            m_AllocationInfo.Dispose();
-            m_AllocationRemoves.Dispose();
-        }
-        if (m_ComputeBuffer != null)
-        {
-            m_ComputeBuffer.Release();
-        }
-        base.OnDestroy();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected unsafe override void OnUpdate()
-    {
-        CompleteUpload();
-        m_HeapDeps.Complete();
-        if (m_IsAllocating)
-        {
-            m_IsAllocating = false;
-            m_HeapAllocatorByteSize = (int)m_HeapAllocator.Size * sizeof(float4);
-            int heapAllocatorByteSize = m_HeapAllocatorByteSize;
-            int num = ((m_ComputeBuffer != null) ? (m_ComputeBuffer.count * m_ComputeBuffer.stride) : 0);
-            if (heapAllocatorByteSize != num)
-            {
-                GraphicsBuffer graphicsBuffer = new GraphicsBuffer(GraphicsBuffer.Target.Raw, heapAllocatorByteSize / 4, 4);
-                graphicsBuffer.name = &quot;Procedural emissive buffer&quot;;
-                Shader.SetGlobalBuffer(&quot;_LightInfo&quot;, graphicsBuffer);
-                m_SparseUploader.ReplaceBuffer(graphicsBuffer, copyFromPrevious: true);
-                if (m_ComputeBuffer != null)
-                {
-                    m_ComputeBuffer.Release();
-                }
-                else
-                {
-                    graphicsBuffer.SetData(new List&lt;float4&gt; { float4.zero }, 0, 0, 1);
-                }
-                m_ComputeBuffer = graphicsBuffer;
-            }
-        }
-        if (!m_AllocationRemoves.IsEmpty())
-        {
-            m_CurrentTime = (m_CurrentTime + m_RenderingSystem.lodTimerDelta) &amp; 0xFFFF;
-            RemoveAllocationsJob jobData = new RemoveAllocationsJob
-            {
-                m_HeapAllocator = m_HeapAllocator,
-                m_AllocationInfo = m_AllocationInfo,
-                m_AllocationRemoves = m_AllocationRemoves,
-                m_CurrentTime = m_CurrentTime
-            };
-            m_HeapDeps = IJobExtensions.Schedule(jobData);
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public PreDeserialize(Colossal.Serialization.Entities.Context context) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void PreDeserialize(Context context)
-    {
-        m_HeapDeps.Complete();
-        m_HeapAllocator.Clear();
-        m_AllocationRemoves.Clear();
-        AllocateIdentityEntry();
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Rendering.ProceduralEmissiveSystem+AllocationInfo</code>  </li>
-<li><code>Game.Rendering.ProceduralEmissiveSystem+AllocationRemove</code>  </li>
-<li><code>Game.Rendering.ProceduralEmissiveSystem+RemoveAllocationsJob</code>  </li>
-</ul>
+<p>Notes and tips for modders:
+- The system reserves index 0 as a neutral/identity entry — user light arrays must write starting at index 1.
+- When allocating from jobs, keep track of and enqueue an AllocationRemove with a remove time (use currentTime returned by GetHeapAllocator) instead of freeing immediately to avoid GPU race conditions.
+- Always add job handles via AddHeapWriter / AddUploadWriter so the system can correctly synchronize and resize buffers safely.
+- Call CompleteUpload() on the main thread (or ensure uploads are committed) before relying on newly uploaded data in rendering.</p>
 
 
 

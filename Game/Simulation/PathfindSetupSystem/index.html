@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -84848,15 +84940,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -84893,9 +84976,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -87154,6 +87237,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -117930,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117955,15 +118083,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -118002,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118027,670 +118146,241 @@
 
 
 <h1 id="gamesimulationpathfindsetupsystem">Game.Simulation.PathfindSetupSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Simulation</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code><br />
-<strong>Implements:</strong> <code>Game.Serialization.IPreDeserialize</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class PathfindSetupSystem : Game.GameSystemBase, Game.Serialization.IPreDeserialize
-{
-    private Game.Pathfind.PathfindTargetSeekerData m_TargetSeekerData;
-    private Game.Simulation.CommonPathfindSetup m_CommonPathfindSetup;
-    private Game.Simulation.PostServicePathfindSetup m_PostServicePathfindSetup;
-    private Game.Simulation.GarbagePathfindSetup m_GarbagePathfindSetup;
-    private Game.Simulation.TransportPathfindSetup m_TransportPathfindSetup;
-    private Game.Simulation.PolicePathfindSetup m_PolicePathfindSetup;
-    private Game.Simulation.FirePathfindSetup m_FirePathfindSetup;
-    private Game.Simulation.HealthcarePathfindSetup m_HealthcarePathfindSetup;
-    private Game.Simulation.AreaPathfindSetup m_AreaPathfindSetup;
-    private Game.Simulation.RoadPathfindSetup m_RoadPathfindSetup;
-    private Game.Simulation.CitizenPathfindSetup m_CitizenPathfindSetup;
-    private Game.Simulation.ResourcePathfindSetup m_ResourcePathfindSetup;
-    private Game.Simulation.SimulationSystem m_SimulationSystem;
-    private Game.Pathfind.PathfindQueueSystem m_PathfindQueueSystem;
-    private Game.Net.AirwaySystem m_AirwaySystem;
-    private Unity.Collections.NativeList&lt;Game.Simulation.PathfindSetupSystem+SetupListItem&gt; m_SetupList;
-    private System.Collections.Generic.List&lt;Game.Simulation.PathfindSetupSystem+SetupQueue&gt; m_ActiveQueues;
-    private System.Collections.Generic.List&lt;Game.Simulation.PathfindSetupSystem+SetupQueue&gt; m_FreeQueues;
-    private System.Collections.Generic.List&lt;Game.Simulation.PathfindSetupSystem+ActionListItem&gt; m_ActionList;
-    private Unity.Jobs.JobHandle m_QueueDependencies;
-    private Unity.Jobs.JobHandle m_SetupDependencies;
-    private System.UInt32 m_QueueSimulationFrameIndex;
-    private System.UInt32 m_SetupSimulationFrameIndex;
-    private System.Int32 m_PendingRequestCount;
-
-    public System.UInt32 pendingSimulationFrame { get; }
-    public System.Int32 pendingRequestCount { get; }
-
-    public PathfindSetupSystem();
-
-    public System.Void AddQueueWriter(Unity.Jobs.JobHandle handle);
-    public System.Void CompleteSetup();
-    private System.Void FindTargets(System.Int32 startIndex, System.Int32 endIndex);
-    private Unity.Jobs.JobHandle FindTargets(Game.Pathfind.SetupTargetType targetType, Game.Simulation.PathfindSetupSystem+SetupData&amp; setupData);
-    public Unity.Collections.NativeQueue&lt;Game.Pathfind.SetupQueueItem&gt; GetQueue(System.Object system, System.Int32 maxDelayFrames, System.Int32 spreadFrames);
-    public Unity.Entities.EntityQuery GetSetupQuery(Unity.Entities.EntityQueryDesc[] entityQueryDesc);
-    public Unity.Entities.EntityQuery GetSetupQuery(Unity.Entities.ComponentType[] componentTypes);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnDestroy();
-    protected virtual System.Void OnUpdate();
-    public System.Void PreDeserialize(Colossal.Serialization.Entities.Context context);
-}
-</code></pre>
+<p><strong>Assembly:</strong> Assembly-CSharp (most game systems live in the main game assembly)<br />
+<strong>Namespace:</strong> Game.Simulation</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> GameSystemBase, IPreDeserialize</p>
+<p><strong>Summary:</strong><br />
+PathfindSetupSystem is responsible for preparing pathfinding "setup" data (start/end targets) for a wide variety of in-game services and agents (transport, emergency services, citizens, resources, garbage, post, etc.). It collects setup requests placed into queues, groups and sorts them by target type, schedules specific setup jobs (via a set of per-service setup helper objects), collects targets discovered by those jobs into per-request buffers, and finally enqueues completed PathfindAction requests into the global PathfindQueueSystem. The system is job-aware and uses Unity.Jobs and native containers; it tracks job dependencies to avoid race conditions and disposes native resources in OnDestroy and PreDeserialize.</p>
+<p>Key responsibilities &amp; notes:
+- Accepts incoming SetupQueueItem requests via NativeQueue<SetupQueueItem> obtained from GetQueue(...).
+- Groups requests by SetupTargetType and uses specialized setup helper classes (CommonPathfindSetup, PostServicePathfindSetup, GarbagePathfindSetup, TransportPathfindSetup, etc.) to find targets.
+- Uses a DequePathTargetsJob to move discovered PathfindSetupTarget items from parallel target producers into the per-request UnsafeList<PathTarget> buffers.
+- Combines job dependencies (m_QueueDependencies, m_SetupDependencies) so upstream writers/reader jobs are respected.
+- Cleans up native memory for queues, UnsafeLists and PathfindAction objects in OnDestroy and PreDeserialize — important for mods to avoid leaks.
+- Exposes monitoring properties pendingSimulationFrame and pendingRequestCount for other systems or debug usage.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.Pathfind.PathfindTargetSeekerData m_TargetSeekerData</code>  </li>
+<li>
+<p><code>private PathfindTargetSeekerData m_TargetSeekerData</code><br />
+Holds seeker metadata used to construct PathfindTargetSeeker instances for target searches. Created in OnCreate and used across FindTargets calls.</p>
+</li>
+<li>
+<p><code>private CommonPathfindSetup m_CommonPathfindSetup</code><br />
+Helper for common target setups such as current location, safety, accidents.</p>
+</li>
+<li>
+<p><code>private PostServicePathfindSetup m_PostServicePathfindSetup</code><br />
+Helper for post-related setups (post vans, mail transfer, mailboxes, requests).</p>
+</li>
+<li>
+<p><code>private GarbagePathfindSetup m_GarbagePathfindSetup</code><br />
+Helper for garbage-related setups (collectors, transfers, requests).</p>
+</li>
+<li>
+<p><code>private TransportPathfindSetup m_TransportPathfindSetup</code><br />
+Helper for transport-target setups (taxis, transport vehicles, route waypoints, requests).</p>
+</li>
+<li>
+<p><code>private PolicePathfindSetup m_PolicePathfindSetup</code><br />
+Helper for police-related setups (patrols, prisoner transport, requests).</p>
+</li>
+<li>
+<p><code>private FirePathfindSetup m_FirePathfindSetup</code><br />
+Helper for fire-related setups (engines, shelters, evacuation requests).</p>
+</li>
+<li>
+<p><code>private HealthcarePathfindSetup m_HealthcarePathfindSetup</code><br />
+Helper for healthcare-related setups (hospitals, ambulances, hearses, requests).</p>
+</li>
+<li>
+<p><code>private AreaPathfindSetup m_AreaPathfindSetup</code><br />
+Helper for area-based setups (area locations, wood resources).</p>
+</li>
+<li>
+<p><code>private RoadPathfindSetup m_RoadPathfindSetup</code><br />
+Helper for road and maintenance setups (maintenance, random traffic, outside connections, maintenance requests).</p>
+</li>
+<li>
+<p><code>private CitizenPathfindSetup m_CitizenPathfindSetup</code><br />
+Helper for citizen-target setups (tourist, leisure, school/job seekers, attractions, homeless shelters, find home).</p>
+</li>
+<li>
+<p><code>private ResourcePathfindSetup m_ResourcePathfindSetup</code><br />
+Helper for resource-related setups (sellers, exports, storage transfers).</p>
+</li>
+<li>
+<p><code>private SimulationSystem m_SimulationSystem</code><br />
+Reference to the global simulation system for accessing frame index and smoothSpeed.</p>
+</li>
+<li>
+<p><code>private PathfindQueueSystem m_PathfindQueueSystem</code><br />
+Reference to the PathfindQueueSystem for enqueuing completed PathfindAction requests.</p>
+</li>
+<li>
+<p><code>private AirwaySystem m_AirwaySystem</code><br />
+Reference used when target distribution depends on airway data.</p>
+</li>
+<li>
+<p><code>private NativeList&lt;SetupListItem&gt; m_SetupList</code><br />
+Accumulated list of all setup sub-requests for the current update. Each real request produces two SetupListItem entries (start and end) and stores results in UnsafeList<PathTarget> buffers.</p>
+</li>
+<li>
+<p><code>private List&lt;SetupQueue&gt; m_ActiveQueues</code><br />
+Active setup queues currently being serviced. Each SetupQueue contains a NativeQueue<SetupQueueItem> and timing metadata.</p>
+</li>
+<li>
+<p><code>private List&lt;SetupQueue&gt; m_FreeQueues</code><br />
+Pool of recycled SetupQueue objects (their NativeQueue is disposed when system destroyed or PreDeserialize, but queues can be reused between frames while alive).</p>
+</li>
+<li>
+<p><code>private List&lt;ActionListItem&gt; m_ActionList</code><br />
+Parallel list of PathfindAction wrappers corresponding to queued setup requests. Used to assign discovered start/end buffers back to actions.</p>
+</li>
+<li>
+<p><code>private JobHandle m_QueueDependencies</code><br />
+Combined job dependency for writers that enqueue into queue(s). AddQueueWriter merges external writer handles here to ensure correct ordering.</p>
+</li>
+<li>
+<p><code>private JobHandle m_SetupDependencies</code><br />
+Combined job dependency for internal setup jobs (the DequePathTargetsJob and other setup jobs). The system completes this handle in CompleteSetup before forwarding PathfindAction data.</p>
+</li>
+<li>
+<p><code>private uint m_QueueSimulationFrameIndex</code><br />
+Earliest result frame among active queues — used to provide pendingSimulationFrame.</p>
+</li>
+<li>
+<p><code>private uint m_SetupSimulationFrameIndex</code><br />
+Frame index used to track when setup work should be considered done; used for pendingSimulationFrame and resetting state.</p>
+</li>
+<li>
+<p><code>private int m_PendingRequestCount</code><br />
+Count of pending PathfindAction requests waiting for setup completion. Exposed via pendingRequestCount.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.Pathfind.PathfindTargetSeekerData m_TargetSeekerData;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.CommonPathfindSetup m_CommonPathfindSetup</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.CommonPathfindSetup m_CommonPathfindSetup;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.PostServicePathfindSetup m_PostServicePathfindSetup</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.PostServicePathfindSetup m_PostServicePathfindSetup;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.GarbagePathfindSetup m_GarbagePathfindSetup</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.GarbagePathfindSetup m_GarbagePathfindSetup;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.TransportPathfindSetup m_TransportPathfindSetup</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.TransportPathfindSetup m_TransportPathfindSetup;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.PolicePathfindSetup m_PolicePathfindSetup</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.PolicePathfindSetup m_PolicePathfindSetup;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.FirePathfindSetup m_FirePathfindSetup</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.FirePathfindSetup m_FirePathfindSetup;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.HealthcarePathfindSetup m_HealthcarePathfindSetup</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.HealthcarePathfindSetup m_HealthcarePathfindSetup;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.AreaPathfindSetup m_AreaPathfindSetup</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.AreaPathfindSetup m_AreaPathfindSetup;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.RoadPathfindSetup m_RoadPathfindSetup</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.RoadPathfindSetup m_RoadPathfindSetup;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.CitizenPathfindSetup m_CitizenPathfindSetup</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.CitizenPathfindSetup m_CitizenPathfindSetup;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.ResourcePathfindSetup m_ResourcePathfindSetup</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.ResourcePathfindSetup m_ResourcePathfindSetup;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.SimulationSystem m_SimulationSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.SimulationSystem m_SimulationSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Pathfind.PathfindQueueSystem m_PathfindQueueSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Pathfind.PathfindQueueSystem m_PathfindQueueSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Net.AirwaySystem m_AirwaySystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Net.AirwaySystem m_AirwaySystem;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeList&lt;Game.Simulation.PathfindSetupSystem+SetupListItem&gt; m_SetupList</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeList&lt;Game.Simulation.PathfindSetupSystem+SetupListItem&gt; m_SetupList;
-</code></pre>
-<ul>
-<li><code>private System.Collections.Generic.List&lt;Game.Simulation.PathfindSetupSystem+SetupQueue&gt; m_ActiveQueues</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Collections.Generic.List&lt;Game.Simulation.PathfindSetupSystem+SetupQueue&gt; m_ActiveQueues;
-</code></pre>
-<ul>
-<li><code>private System.Collections.Generic.List&lt;Game.Simulation.PathfindSetupSystem+SetupQueue&gt; m_FreeQueues</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Collections.Generic.List&lt;Game.Simulation.PathfindSetupSystem+SetupQueue&gt; m_FreeQueues;
-</code></pre>
-<ul>
-<li><code>private System.Collections.Generic.List&lt;Game.Simulation.PathfindSetupSystem+ActionListItem&gt; m_ActionList</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Collections.Generic.List&lt;Game.Simulation.PathfindSetupSystem+ActionListItem&gt; m_ActionList;
-</code></pre>
-<ul>
-<li><code>private Unity.Jobs.JobHandle m_QueueDependencies</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Jobs.JobHandle m_QueueDependencies;
-</code></pre>
-<ul>
-<li><code>private Unity.Jobs.JobHandle m_SetupDependencies</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Jobs.JobHandle m_SetupDependencies;
-</code></pre>
-<ul>
-<li><code>private System.UInt32 m_QueueSimulationFrameIndex</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.UInt32 m_QueueSimulationFrameIndex;
-</code></pre>
-<ul>
-<li><code>private System.UInt32 m_SetupSimulationFrameIndex</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.UInt32 m_SetupSimulationFrameIndex;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_PendingRequestCount</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_PendingRequestCount;
-</code></pre>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>public System.UInt32 pendingSimulationFrame { get }</code>  </li>
+<li>
+<p><code>public uint pendingSimulationFrame { get; }</code><br />
+Returns the minimum of m_QueueSimulationFrameIndex and m_SetupSimulationFrameIndex. Use to know the earliest simulation frame where pending pathfind setups will complete. Useful for scheduling or debugging.</p>
+</li>
+<li>
+<p><code>public int pendingRequestCount { get; }</code><br />
+Number of requests currently pending setup completion. Useful for metrics/debug or gating logic.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public System.UInt32 pendingSimulationFrame { get; }
-</code></pre>
-<ul>
-<li><code>public System.Int32 pendingRequestCount { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Int32 pendingRequestCount { get; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public PathfindSetupSystem()</code>  </li>
+<li><code>public PathfindSetupSystem()</code><br />
+Default constructor. The main initialization happens in OnCreate (system component creation pattern).</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public PathfindSetupSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>public AddQueueWriter(Unity.Jobs.JobHandle handle) : System.Void</code>  </li>
+<li><code>protected override void OnCreate()</code><br />
+Initialize all helper setup objects, fetch references to other systems (SimulationSystem, PathfindQueueSystem, AirwaySystem) via World, and create native containers (m_SetupList, lists for queues/actions). Called by framework when the system is instantiated.</li>
 </ul>
-<pre><code class="language-csharp">public void AddQueueWriter(JobHandle handle)
-    {
-        m_QueueDependencies = JobHandle.CombineDependencies(m_QueueDependencies, handle);
-    }
-</code></pre>
+<p>Important: Allocates NativeList<SetupListItem> with Allocator.Persistent and constructs helper objects that may themselves allocate. Modders should call base.OnCreate() when overriding.</p>
 <ul>
-<li><code>public CompleteSetup() : System.Void</code>  </li>
+<li>
+<p><code>protected override void OnDestroy()</code><br />
+Cleans up job dependencies, disposes all NativeQueue instances in active/free lists, completes setup job dependencies, disposes each SetupListItem unsafe buffer (m_Buffer), and disposes PathfindAction objects stored in action list. Clears managed lists and then calls base.OnDestroy(). Always ensure OnDestroy completes outstanding jobs and disposes native memory to avoid leaks.</p>
+</li>
+<li>
+<p><code>public void PreDeserialize(Context context)</code><br />
+Called before deserialization to tear down and reset native state safely. Completes dependencies m_QueueDependencies and m_SetupDependencies, disposes all active/free queues and buffers and clears lists, and resets indices and counters. Important during save/load to avoid carrying transient runtime state across serialization boundaries.</p>
+</li>
+<li>
+<p><code>protected override void OnUpdate()</code><br />
+Main per-frame logic:</p>
+</li>
+<li>If there are no active queues, returns early.</li>
+<li>Calls CompleteSetup() to finalize any previous setup work if needed.</li>
+<li>Updates target seeker data with airway information.</li>
+<li>Ensures queue writer job dependencies are completed.</li>
+<li>Iterates active queues, calculates how many items to dequeue per frame (supports spreading work over frames using spreadFrame and smoothSpeed), and moves dequeued SetupQueueItem objects into m_SetupList and m_ActionList.</li>
+<li>If queue becomes empty, moves it to m_FreeQueues; otherwise keeps it in m_ActiveQueues.</li>
+<li>Sorts m_SetupList by target type so targets are grouped and calls FindTargets on contiguous ranges of same SetupTargetType.</li>
+<li>
+<p>Sets m_PendingRequestCount and frame indices used for pendingSimulationFrame.</p>
+</li>
+<li>
+<p><code>public void CompleteSetup()</code><br />
+Completes setup-phase of the system:</p>
+</li>
+<li>Resets m_SetupSimulationFrameIndex and m_PendingRequestCount.</li>
+<li>Completes m_SetupDependencies (waits for setup jobs).</li>
+<li>Iterates m_SetupList and assigns each SetupListItem's discovered buffer to the corresponding PathfindAction (start or end).</li>
+<li>Enqueues each PathfindAction into m_PathfindQueueSystem with original owner/system/resultFrame.</li>
+<li>
+<p>Clears m_SetupList and m_ActionList.
+Call this if you need to force completion of pending setups early (e.g., before a save).</p>
+</li>
+<li>
+<p><code>public NativeQueue&lt;SetupQueueItem&gt; GetQueue(object system, int maxDelayFrames, int spreadFrames = 0)</code><br />
+Public accessor to create or reuse a SetupQueue, returning the NativeQueue<SetupQueueItem> where external systems should enqueue setup requests.</p>
+</li>
+<li>maxDelayFrames controls when results should be produced (m_ResultFrame = current frame + maxDelayFrames).</li>
+<li>spreadFrames is used to spread dequeuing work across frames.</li>
+<li>The returned NativeQueue is allocated with Allocator.Persistent and will be disposed by the PathfindSetupSystem in OnDestroy or PreDeserialize. Do not dispose it yourself.</li>
+<li>
+<p>The system updates its internal m_QueueSimulationFrameIndex to reflect the earliest result frame.</p>
+</li>
+<li>
+<p><code>public void AddQueueWriter(JobHandle handle)</code><br />
+When user code schedules a job that writes into any SetupQueue returned by GetQueue, call AddQueueWriter to combine the writer's JobHandle with m_QueueDependencies. This ensures PathfindSetupSystem will wait for those writers before dequeuing.</p>
+</li>
+<li>
+<p><code>public EntityQuery GetSetupQuery(params EntityQueryDesc[] entityQueryDesc)</code><br />
+Convenience wrapper to call GetEntityQuery with EntityQueryDesc[] from other setup helpers. Returns an EntityQuery for target selection.</p>
+</li>
+<li>
+<p><code>public EntityQuery GetSetupQuery(params ComponentType[] componentTypes)</code><br />
+Convenience wrapper to call GetEntityQuery with ComponentType[].</p>
+</li>
+<li>
+<p><code>private unsafe void FindTargets(int startIndex, int endIndex)</code><br />
+Internal: for a contiguous block of m_SetupList entries with the same SetupTargetType, prepares a temporary NativeQueue<PathfindSetupTarget> (Allocator.TempJob), constructs a SetupData object that references the subrange and the target queue's parallel writer, schedules a DequePathTargetsJob that drains that queue into the SetupListItem buffers, calls the type-specific FindTargets(targetType, setupData) to schedule the target-discovery job(s) for the block, combines dependencies and ensures the targetQueue is disposed after the dequeuing job completes. This is the central orchestration that connects per-type target finders with the per-request buffers.</p>
+</li>
+<li>
+<p><code>private JobHandle FindTargets(SetupTargetType targetType, in SetupData setupData)</code><br />
+Dispatches to the appropriate setup helper method based on targetType (huge switch). Each case returns a JobHandle that represents the scheduled target-discovery work. If the targetType is unknown, logs a warning and returns default JobHandle. This is where all service-specific setup code is invoked (CommonPathfindSetup, PostServicePathfindSetup, etc.).</p>
+</li>
+<li>
+<p>DequePathTargetsJob (private struct implementing IJob)<br />
+Dequeues PathfindSetupTarget items from a NativeQueue<PathfindSetupTarget> and writes them into the corresponding SetupListItem.m_Buffer entries. It:</p>
+</li>
+<li>Uses an unsafe pointer to an array of SetupListItem (m_SetupItems).</li>
+<li>For each dequeued PathfindSetupTarget, determines the SetupListItem by m_SetupIndex and either appends the PathTarget to the buffer or, if SkipPathfind is set in parameters, keeps only the lowest-cost PathTarget (special-case skip pathfinding behavior).</li>
+<li>Runs as a job scheduled after the main target-discovery jobs, then its completion is combined into m_SetupDependencies.</li>
 </ul>
-<pre><code class="language-csharp">public void CompleteSetup()
-    {
-        m_SetupSimulationFrameIndex = uint.MaxValue;
-        m_PendingRequestCount = 0;
-        m_SetupDependencies.Complete();
-        m_SetupDependencies = default(JobHandle);
-        for (int i = 0; i &lt; m_SetupList.Length; i++)
-        {
-            SetupListItem setupListItem = m_SetupList[i];
-            ActionListItem value = m_ActionList[setupListItem.m_ActionIndex];
-            if (setupListItem.m_ActionStart)
-            {
-                value.m_Action.data.m_StartTargets = setupListItem.m_Buffer;
-            }
-            else
-            {
-                value.m_Action.data.m_EndTargets = setupListItem.m_Buffer;
-            }
-            m_ActionList[setupListItem.m_ActionIndex] = value;
-        }
-        for (int j = 0; j &lt; m_ActionList.Count; j++)
-        {
-            ActionListItem actionListItem = m_ActionList[j];
-            m_PathfindQueueSystem.Enqueue(actionListItem.m_Action, actionListItem.m_Owner, m_SetupDependencies, actionListItem.m_ResultFrame, actionListItem.m_System);
-        }
-        m_SetupList.Clear();
-        m_ActionList.Clear();
-    }
+<p>Notes about job safety and memory:
+- SetupListItem contains an UnsafeList<PathTarget> (m_Buffer) allocated with Allocator.Persistent. Those buffers are disposed in OnDestroy/PreDeserialize; modders must not dispose them elsewhere.
+- When calling GetQueue and enqueuing via other jobs, ensure those jobs' handles are passed to AddQueueWriter to avoid racing with the system's queue drain.
+- The system frequently uses JobHandle.CombineDependencies to maintain correct ordering.</p>
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Example from another game system that wants to request pathfind setup work:
+protected override void OnCreate()
+{
+    base.OnCreate();
+    // Acquire the PathfindSetupSystem reference
+    var pathfindSetup = World.GetExistingSystemManaged&lt;PathfindSetupSystem&gt;();
+
+    // Request a queue where our system will enqueue SetupQueueItem requests.
+    // maxDelayFrames: how many frames before results are expected.
+    // spreadFrames: number of frames to spread processing across (optional).
+    var queue = pathfindSetup.GetQueue(this, maxDelayFrames: 2, spreadFrames: 1);
+
+    // If you will write to 'queue' from a Job, capture the JobHandle and call:
+    // pathfindSetup.AddQueueWriter(jobHandle);
+}
+
+// Enqueuing a SetupQueueItem is done by filling the struct and calling queue.Enqueue(...)
+// (SetupQueueItem is defined elsewhere in the game's codebase). Example (conceptual):
+// var item = new SetupQueueItem { m_Origin = originTarget, m_Destination = destTarget, m_Parameters = parameters, m_Owner = ownerEntity };
+// queue.Enqueue(item);
+// If enqueuing from a job, ensure that job's handle is passed to pathfindSetup.AddQueueWriter(...)
 </code></pre>
-<ul>
-<li><code>private FindTargets(System.Int32 startIndex, System.Int32 endIndex) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private JobHandle FindTargets(SetupTargetType targetType, in SetupData setupData)
-    {
-        switch (targetType)
-        {
-        case SetupTargetType.CurrentLocation:
-            return m_CommonPathfindSetup.SetupCurrentLocation(this, setupData, base.Dependency);
-        case SetupTargetType.AccidentLocation:
-            return m_CommonPathfindSetup.SetupAccidentLocation(this, setupData, base.Dependency);
-        case SetupTargetType.Safety:
-            return m_CommonPathfindSetup.SetupSafety(this, setupData, base.Dependency);
-        case SetupTargetType.PostVan:
-            return m_PostServicePathfindSetup.SetupPostVans(this, setupData, base.Dependency);
-        case SetupTargetType.MailTransfer:
-            return m_PostServicePathfindSetup.SetupMailTransfer(this, setupData, base.Dependency);
-        case SetupTargetType.MailBox:
-            return m_PostServicePathfindSetup.SetupMailBoxes(this, setupData, base.Dependency);
-        case SetupTargetType.PostVanRequest:
-            return m_PostServicePathfindSetup.SetupPostVanRequest(this, setupData, base.Dependency);
-        case SetupTargetType.GarbageCollector:
-            return m_GarbagePathfindSetup.SetupGarbageCollector(this, setupData, base.Dependency);
-        case SetupTargetType.GarbageTransfer:
-            return m_GarbagePathfindSetup.SetupGarbageTransfer(this, setupData, base.Dependency);
-        case SetupTargetType.GarbageCollectorRequest:
-            return m_GarbagePathfindSetup.SetupGarbageCollectorRequest(this, setupData, base.Dependency);
-        case SetupTargetType.Taxi:
-            return m_TransportPathfindSetup.SetupTaxi(this, setupData, base.Dependency);
-        case SetupTargetType.TransportVehicle:
-            return m_TransportPathfindSetup.SetupTransportVehicle(this, setupData, base.Dependency);
-        case SetupTargetType.RouteWaypoints:
-            return m_TransportPathfindSetup.SetupRouteWaypoints(this, setupData, base.Dependency);
-        case SetupTargetType.TransportVehicleRequest:
-            return m_TransportPathfindSetup.SetupTransportVehicleRequest(this, setupData, base.Dependency);
-        case SetupTargetType.TaxiRequest:
-            return m_TransportPathfindSetup.SetupTaxiRequest(this, setupData, base.Dependency);
-        case SetupTargetType.CrimeProducer:
-            return m_PolicePathfindSetup.SetupCrimeProducer(this, setupData, base.Dependency);
-        case SetupTargetType.PolicePatrol:
-            return m_PolicePathfindSetup.SetupPolicePatrols(this, setupData, base.Dependency);
-        case SetupTargetType.PrisonerTransport:
-            return m_PolicePathfindSetup.SetupPrisonerTransport(this, setupData, base.Dependency);
-        case SetupTargetType.PrisonerTransportRequest:
-            return m_PolicePathfindSetup.SetupPrisonerTransportRequest(this, setupData, base.Dependency);
-        case SetupTargetType.PoliceRequest:
-            return m_PolicePathfindSetup.SetupPoliceRequest(this, setupData, base.Dependency);
-        case SetupTargetType.EmergencyShelter:
-            return m_FirePathfindSetup.SetupEmergencyShelters(this, setupData, base.Dependency);
-        case SetupTargetType.EvacuationTransport:
-            return m_FirePathfindSetup.SetupEvacuationTransport(this, setupData, base.Dependency);
-        case SetupTargetType.FireEngine:
-            return m_FirePathfindSetup.SetupFireEngines(this, setupData, base.Dependency);
-        case SetupTargetType.EvacuationRequest:
-            return m_FirePathfindSetup.SetupEvacuationRequest(this, setupData, base.Dependency);
-        case SetupTargetType.FireRescueRequest:
-            return m_FirePathfindSetup.SetupFireRescueRequest(this, setupData, base.Dependency);
-        case SetupTargetType.Ambulance:
-            return m_HealthcarePathfindSetup.SetupAmbulances(this, setupData, base.Dependency);
-        case SetupTargetType.Hospital:
-            return m_HealthcarePathfindSetup.SetupHospitals(this, setupData, base.Dependency);
-        case SetupTargetType.Hearse:
-            return m_HealthcarePathfindSetup.SetupHearses(this, setupData, base.Dependency);
-        case SetupTargetType.HealthcareRequest:
-            return m_HealthcarePathfindSetup.SetupHealthcareRequest(this, setupData, base.Dependency);
-        case SetupTargetType.AreaLocation:
-            return m_AreaPathfindSetup.SetupAreaLocation(this, setupData, base.Dependency);
-        case SetupTargetType.WoodResource:
-            return m_AreaPathfindSetup.SetupWoodResource(this, setupData, base.Dependency);
-        case SetupTargetType.Maintenance:
-            return m_RoadPathfindSetup.SetupMaintenanceProviders(this, setupData, base.Dependency);
-        case SetupTargetType.RandomTraffic:
-            return m_RoadPathfindSetup.SetupRandomTraffic(this, setupData, base.Dependency);
-        case SetupTargetType.OutsideConnection:
-            return m_RoadPathfindSetup.SetupOutsideConnections(this, setupData, base.Dependency);
-        case SetupTargetType.MaintenanceRequest:
-            return m_RoadPathfindSetup.SetupMaintenanceRequest(this, setupData, base.Dependency);
-        case SetupTargetType.TouristFindTarget:
-            return m_CitizenPathfindSetup.SetupTouristTarget(this, setupData, base.Dependency);
-        case SetupTargetType.Leisure:
-            return m_CitizenPathfindSetup.SetupLeisureTarget(this, setupData, base.Dependency);
-        case SetupTargetType.SchoolSeekerTo:
-            return m_CitizenPathfindSetup.SetupSchoolSeekerTo(this, setupData, base.Dependency);
-        case SetupTargetType.JobSeekerTo:
-            return m_CitizenPathfindSetup.SetupJobSeekerTo(this, setupData, base.Dependency);
-        case SetupTargetType.Attraction:
-            return m_CitizenPathfindSetup.SetupAttraction(this, setupData, base.Dependency);
-        case SetupTargetType.HomelessShelter:
-            return m_CitizenPathfindSetup.SetupHomeless(this, setupData, base.Dependency);
-        case SetupTargetType.FindHome:
-            return m_CitizenPathfindSetup.SetupFindHome(this, setupData, base.Dependency);
-        case SetupTargetType.Sightseeing:
-            return default(JobHandle);
-        case SetupTargetType.ResourceSeller:
-            return m_ResourcePathfindSetup.SetupResourceSeller(this, setupData, base.Dependency);
-        case SetupTargetType.ResourceExport:
-            return m_ResourcePathfindSetup.SetupResourceExport(this, setupData, base.Dependency);
-        case SetupTargetType.StorageTransfer:
-            return m_ResourcePathfindSetup.SetupStorageTransfer(this, setupData, base.Dependency);
-        default:
-            UnityEngine.Debug.LogWarning(&quot;Invalid target type in Pathfind setup &quot; + targetType);
-            return default(JobHandle);
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private FindTargets(Game.Pathfind.SetupTargetType targetType, Game.Simulation.PathfindSetupSystem+SetupData&amp; setupData) : Unity.Jobs.JobHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private JobHandle FindTargets(SetupTargetType targetType, in SetupData setupData)
-    {
-        switch (targetType)
-        {
-        case SetupTargetType.CurrentLocation:
-            return m_CommonPathfindSetup.SetupCurrentLocation(this, setupData, base.Dependency);
-        case SetupTargetType.AccidentLocation:
-            return m_CommonPathfindSetup.SetupAccidentLocation(this, setupData, base.Dependency);
-        case SetupTargetType.Safety:
-            return m_CommonPathfindSetup.SetupSafety(this, setupData, base.Dependency);
-        case SetupTargetType.PostVan:
-            return m_PostServicePathfindSetup.SetupPostVans(this, setupData, base.Dependency);
-        case SetupTargetType.MailTransfer:
-            return m_PostServicePathfindSetup.SetupMailTransfer(this, setupData, base.Dependency);
-        case SetupTargetType.MailBox:
-            return m_PostServicePathfindSetup.SetupMailBoxes(this, setupData, base.Dependency);
-        case SetupTargetType.PostVanRequest:
-            return m_PostServicePathfindSetup.SetupPostVanRequest(this, setupData, base.Dependency);
-        case SetupTargetType.GarbageCollector:
-            return m_GarbagePathfindSetup.SetupGarbageCollector(this, setupData, base.Dependency);
-        case SetupTargetType.GarbageTransfer:
-            return m_GarbagePathfindSetup.SetupGarbageTransfer(this, setupData, base.Dependency);
-        case SetupTargetType.GarbageCollectorRequest:
-            return m_GarbagePathfindSetup.SetupGarbageCollectorRequest(this, setupData, base.Dependency);
-        case SetupTargetType.Taxi:
-            return m_TransportPathfindSetup.SetupTaxi(this, setupData, base.Dependency);
-        case SetupTargetType.TransportVehicle:
-            return m_TransportPathfindSetup.SetupTransportVehicle(this, setupData, base.Dependency);
-        case SetupTargetType.RouteWaypoints:
-            return m_TransportPathfindSetup.SetupRouteWaypoints(this, setupData, base.Dependency);
-        case SetupTargetType.TransportVehicleRequest:
-            return m_TransportPathfindSetup.SetupTransportVehicleRequest(this, setupData, base.Dependency);
-        case SetupTargetType.TaxiRequest:
-            return m_TransportPathfindSetup.SetupTaxiRequest(this, setupData, base.Dependency);
-        case SetupTargetType.CrimeProducer:
-            return m_PolicePathfindSetup.SetupCrimeProducer(this, setupData, base.Dependency);
-        case SetupTargetType.PolicePatrol:
-            return m_PolicePathfindSetup.SetupPolicePatrols(this, setupData, base.Dependency);
-        case SetupTargetType.PrisonerTransport:
-            return m_PolicePathfindSetup.SetupPrisonerTransport(this, setupData, base.Dependency);
-        case SetupTargetType.PrisonerTransportRequest:
-            return m_PolicePathfindSetup.SetupPrisonerTransportRequest(this, setupData, base.Dependency);
-        case SetupTargetType.PoliceRequest:
-            return m_PolicePathfindSetup.SetupPoliceRequest(this, setupData, base.Dependency);
-        case SetupTargetType.EmergencyShelter:
-            return m_FirePathfindSetup.SetupEmergencyShelters(this, setupData, base.Dependency);
-        case SetupTargetType.EvacuationTransport:
-            return m_FirePathfindSetup.SetupEvacuationTransport(this, setupData, base.Dependency);
-        case SetupTargetType.FireEngine:
-            return m_FirePathfindSetup.SetupFireEngines(this, setupData, base.Dependency);
-        case SetupTargetType.EvacuationRequest:
-            return m_FirePathfindSetup.SetupEvacuationRequest(this, setupData, base.Dependency);
-        case SetupTargetType.FireRescueRequest:
-            return m_FirePathfindSetup.SetupFireRescueRequest(this, setupData, base.Dependency);
-        case SetupTargetType.Ambulance:
-            return m_HealthcarePathfindSetup.SetupAmbulances(this, setupData, base.Dependency);
-        case SetupTargetType.Hospital:
-            return m_HealthcarePathfindSetup.SetupHospitals(this, setupData, base.Dependency);
-        case SetupTargetType.Hearse:
-            return m_HealthcarePathfindSetup.SetupHearses(this, setupData, base.Dependency);
-        case SetupTargetType.HealthcareRequest:
-            return m_HealthcarePathfindSetup.SetupHealthcareRequest(this, setupData, base.Dependency);
-        case SetupTargetType.AreaLocation:
-            return m_AreaPathfindSetup.SetupAreaLocation(this, setupData, base.Dependency);
-        case SetupTargetType.WoodResource:
-            return m_AreaPathfindSetup.SetupWoodResource(this, setupData, base.Dependency);
-        case SetupTargetType.Maintenance:
-            return m_RoadPathfindSetup.SetupMaintenanceProviders(this, setupData, base.Dependency);
-        case SetupTargetType.RandomTraffic:
-            return m_RoadPathfindSetup.SetupRandomTraffic(this, setupData, base.Dependency);
-        case SetupTargetType.OutsideConnection:
-            return m_RoadPathfindSetup.SetupOutsideConnections(this, setupData, base.Dependency);
-        case SetupTargetType.MaintenanceRequest:
-            return m_RoadPathfindSetup.SetupMaintenanceRequest(this, setupData, base.Dependency);
-        case SetupTargetType.TouristFindTarget:
-            return m_CitizenPathfindSetup.SetupTouristTarget(this, setupData, base.Dependency);
-        case SetupTargetType.Leisure:
-            return m_CitizenPathfindSetup.SetupLeisureTarget(this, setupData, base.Dependency);
-        case SetupTargetType.SchoolSeekerTo:
-            return m_CitizenPathfindSetup.SetupSchoolSeekerTo(this, setupData, base.Dependency);
-        case SetupTargetType.JobSeekerTo:
-            return m_CitizenPathfindSetup.SetupJobSeekerTo(this, setupData, base.Dependency);
-        case SetupTargetType.Attraction:
-            return m_CitizenPathfindSetup.SetupAttraction(this, setupData, base.Dependency);
-        case SetupTargetType.HomelessShelter:
-            return m_CitizenPathfindSetup.SetupHomeless(this, setupData, base.Dependency);
-        case SetupTargetType.FindHome:
-            return m_CitizenPathfindSetup.SetupFindHome(this, setupData, base.Dependency);
-        case SetupTargetType.Sightseeing:
-            return default(JobHandle);
-        case SetupTargetType.ResourceSeller:
-            return m_ResourcePathfindSetup.SetupResourceSeller(this, setupData, base.Dependency);
-        case SetupTargetType.ResourceExport:
-            return m_ResourcePathfindSetup.SetupResourceExport(this, setupData, base.Dependency);
-        case SetupTargetType.StorageTransfer:
-            return m_ResourcePathfindSetup.SetupStorageTransfer(this, setupData, base.Dependency);
-        default:
-            UnityEngine.Debug.LogWarning(&quot;Invalid target type in Pathfind setup &quot; + targetType);
-            return default(JobHandle);
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public GetQueue(System.Object system, System.Int32 maxDelayFrames, System.Int32 spreadFrames = 0) : Unity.Collections.NativeQueue&lt;Game.Pathfind.SetupQueueItem&gt;</code>  </li>
-</ul>
-<pre><code class="language-csharp">public NativeQueue&lt;SetupQueueItem&gt; GetQueue(object system, int maxDelayFrames, int spreadFrames = 0)
-    {
-        SetupQueue item;
-        if (m_FreeQueues.Count != 0)
-        {
-            item = m_FreeQueues[m_FreeQueues.Count - 1];
-            m_FreeQueues.RemoveAt(m_FreeQueues.Count - 1);
-        }
-        else
-        {
-            item = new SetupQueue
-            {
-                m_Queue = new NativeQueue&lt;SetupQueueItem&gt;(Allocator.Persistent)
-            };
-        }
-        item.m_ResultFrame = m_SimulationSystem.frameIndex + (uint)maxDelayFrames;
-        item.m_SpreadFrame = m_SimulationSystem.frameIndex + (uint)spreadFrames;
-        if (item.m_ResultFrame &lt; m_SimulationSystem.frameIndex)
-        {
-            item.m_ResultFrame = uint.MaxValue;
-        }
-        m_QueueSimulationFrameIndex = math.min(m_QueueSimulationFrameIndex, item.m_ResultFrame);
-        item.m_System = system;
-        m_ActiveQueues.Add(item);
-        return item.m_Queue;
-    }
-</code></pre>
-<ul>
-<li><code>public GetSetupQuery(Unity.Entities.EntityQueryDesc[] entityQueryDesc) : Unity.Entities.EntityQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">public EntityQuery GetSetupQuery(params ComponentType[] componentTypes)
-    {
-        return GetEntityQuery(componentTypes);
-    }
-</code></pre>
-<ul>
-<li><code>public GetSetupQuery(Unity.Entities.ComponentType[] componentTypes) : Unity.Entities.EntityQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">public EntityQuery GetSetupQuery(params ComponentType[] componentTypes)
-    {
-        return GetEntityQuery(componentTypes);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_TargetSeekerData = new PathfindTargetSeekerData(this);
-        m_CommonPathfindSetup = new CommonPathfindSetup(this);
-        m_PostServicePathfindSetup = new PostServicePathfindSetup(this);
-        m_GarbagePathfindSetup = new GarbagePathfindSetup(this);
-        m_TransportPathfindSetup = new TransportPathfindSetup(this);
-        m_PolicePathfindSetup = new PolicePathfindSetup(this);
-        m_FirePathfindSetup = new FirePathfindSetup(this);
-        m_HealthcarePathfindSetup = new HealthcarePathfindSetup(this);
-        m_AreaPathfindSetup = new AreaPathfindSetup(this);
-        m_RoadPathfindSetup = new RoadPathfindSetup(this);
-        m_CitizenPathfindSetup = new CitizenPathfindSetup(this);
-        m_ResourcePathfindSetup = new ResourcePathfindSetup(this);
-        m_SimulationSystem = base.World.GetOrCreateSystemManaged&lt;SimulationSystem&gt;();
-        m_PathfindQueueSystem = base.World.GetOrCreateSystemManaged&lt;PathfindQueueSystem&gt;();
-        m_AirwaySystem = base.World.GetOrCreateSystemManaged&lt;AirwaySystem&gt;();
-        m_SetupList = new NativeList&lt;SetupListItem&gt;(100, Allocator.Persistent);
-        m_ActiveQueues = new List&lt;SetupQueue&gt;(10);
-        m_FreeQueues = new List&lt;SetupQueue&gt;(10);
-        m_ActionList = new List&lt;ActionListItem&gt;(50);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnDestroy() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnDestroy()
-    {
-        m_QueueDependencies.Complete();
-        for (int i = 0; i &lt; m_ActiveQueues.Count; i++)
-        {
-            m_ActiveQueues[i].m_Queue.Dispose();
-        }
-        for (int j = 0; j &lt; m_FreeQueues.Count; j++)
-        {
-            m_FreeQueues[j].m_Queue.Dispose();
-        }
-        m_ActiveQueues.Clear();
-        m_FreeQueues.Clear();
-        m_SetupDependencies.Complete();
-        for (int k = 0; k &lt; m_SetupList.Length; k++)
-        {
-            m_SetupList[k].m_Buffer.Dispose();
-        }
-        for (int l = 0; l &lt; m_ActionList.Count; l++)
-        {
-            m_ActionList[l].m_Action.Dispose();
-        }
-        m_SetupList.Dispose();
-        m_ActionList.Clear();
-        base.OnDestroy();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        if (m_ActiveQueues.Count == 0)
-        {
-            return;
-        }
-        CompleteSetup();
-        m_TargetSeekerData.Update(this, m_AirwaySystem.GetAirwayData());
-        m_QueueDependencies.Complete();
-        m_QueueDependencies = default(JobHandle);
-        int num = 0;
-        for (int i = 0; i &lt; m_ActiveQueues.Count; i++)
-        {
-            SetupQueue setupQueue = m_ActiveQueues[i];
-            int num2 = int.MaxValue;
-            if (setupQueue.m_SpreadFrame &gt; m_SimulationSystem.frameIndex)
-            {
-                float num3 = ((m_SimulationSystem.smoothSpeed == 0f) ? 1f : (UnityEngine.Time.deltaTime * m_SimulationSystem.smoothSpeed * 60f));
-                float num4 = (float)(setupQueue.m_SpreadFrame - m_SimulationSystem.frameIndex) + num3;
-                num2 = (int)math.ceil((float)setupQueue.m_Queue.Count * (num3 / num4));
-            }
-            SetupQueueItem item;
-            while (num2-- != 0 &amp;&amp; setupQueue.m_Queue.TryDequeue(out item))
-            {
-                if (item.m_Parameters.m_ParkingTarget != Entity.Null &amp;&amp; base.EntityManager.HasComponent&lt;ConnectionLane&gt;(item.m_Parameters.m_ParkingTarget))
-                {
-                    item.m_Parameters.m_ParkingDelta = -1f;
-                }
-                PathfindAction action = new PathfindAction(0, 0, Allocator.Persistent, item.m_Parameters, item.m_Origin.m_Type, item.m_Destination.m_Type);
-                m_SetupList.Add(new SetupListItem(item.m_Origin, item.m_Parameters, item.m_Owner, RandomSeed.Next(), m_ActionList.Count, actionStart: true));
-                m_SetupList.Add(new SetupListItem(item.m_Destination, item.m_Parameters, item.m_Owner, RandomSeed.Next(), m_ActionList.Count, actionStart: false));
-                m_ActionList.Add(new ActionListItem(action, item.m_Owner, setupQueue.m_ResultFrame, setupQueue.m_System));
-            }
-            if (setupQueue.m_Queue.IsEmpty())
-            {
-                m_FreeQueues.Add(setupQueue);
-            }
-            else
-            {
-                m_ActiveQueues[num++] = setupQueue;
-            }
-        }
-        if (m_ActiveQueues.Count &gt; num)
-        {
-            m_ActiveQueues.RemoveRange(num, m_ActiveQueues.Count - num);
-        }
-        if (m_SetupList.Length == 0)
-        {
-            m_QueueSimulationFrameIndex = uint.MaxValue;
-            return;
-        }
-        m_SetupList.Sort();
-        m_SetupSimulationFrameIndex = m_QueueSimulationFrameIndex;
-        m_QueueSimulationFrameIndex = uint.MaxValue;
-        m_PendingRequestCount = m_ActionList.Count;
-        int num5 = 0;
-        int j = 1;
-        SetupTargetType setupTargetType = m_SetupList[num5].m_Target.m_Type;
-        for (; j &lt; m_SetupList.Length; j++)
-        {
-            SetupTargetType type = m_SetupList[j].m_Target.m_Type;
-            if (setupTargetType != type)
-            {
-                FindTargets(num5, j);
-                num5 = j;
-                setupTargetType = type;
-            }
-        }
-        FindTargets(num5, j);
-    }
-</code></pre>
-<ul>
-<li><code>public PreDeserialize(Colossal.Serialization.Entities.Context context) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void PreDeserialize(Context context)
-    {
-        m_QueueDependencies.Complete();
-        for (int i = 0; i &lt; m_ActiveQueues.Count; i++)
-        {
-            m_ActiveQueues[i].m_Queue.Dispose();
-        }
-        for (int j = 0; j &lt; m_FreeQueues.Count; j++)
-        {
-            m_FreeQueues[j].m_Queue.Dispose();
-        }
-        m_ActiveQueues.Clear();
-        m_FreeQueues.Clear();
-        m_SetupDependencies.Complete();
-        for (int k = 0; k &lt; m_SetupList.Length; k++)
-        {
-            m_SetupList[k].m_Buffer.Dispose();
-        }
-        for (int l = 0; l &lt; m_ActionList.Count; l++)
-        {
-            m_ActionList[l].m_Action.Dispose();
-        }
-        m_SetupList.Clear();
-        m_ActionList.Clear();
-        m_QueueSimulationFrameIndex = uint.MaxValue;
-        m_SetupSimulationFrameIndex = uint.MaxValue;
-        m_PendingRequestCount = 0;
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Simulation.PathfindSetupSystem+SetupData</code>  </li>
-<li><code>Game.Simulation.PathfindSetupSystem+SetupListItem</code>  </li>
-<li><code>Game.Simulation.PathfindSetupSystem+ActionListItem</code>  </li>
-<li><code>Game.Simulation.PathfindSetupSystem+SetupQueue</code>  </li>
-<li><code>Game.Simulation.PathfindSetupSystem+DequePathTargetsJob</code>  </li>
-</ul>
 
 
 

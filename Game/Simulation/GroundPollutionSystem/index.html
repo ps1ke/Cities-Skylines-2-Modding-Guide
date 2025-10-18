@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -82433,15 +82525,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -82478,9 +82561,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -87154,6 +87237,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -117930,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117955,15 +118083,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -118002,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118027,139 +118146,113 @@
 
 
 <h1 id="gamesimulationgroundpollutionsystem">Game.Simulation.GroundPollutionSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Simulation</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.Simulation.CellMapSystem&lt;Game.Simulation.GroundPollution&gt;</code><br />
-<strong>Implements:</strong> <code>Colossal.Serialization.Entities.IJobSerializable</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class GroundPollutionSystem : Game.Simulation.CellMapSystem&lt;Game.Simulation.GroundPollution&gt;, Colossal.Serialization.Entities.IJobSerializable
-{
-    private Game.Simulation.SimulationSystem m_SimulationSystem;
-    private Unity.Entities.EntityQuery m_PollutionParameterGroup;
-    public static readonly System.Int32 kTextureSize;
-    public static readonly System.Int32 kUpdatesPerDay;
-
-    public Unity.Mathematics.int2 TextureSize { get; }
-
-    public GroundPollutionSystem();
-
-    public static Unity.Mathematics.float3 GetCellCenter(System.Int32 index);
-    public static Game.Simulation.GroundPollution GetPollution(Unity.Mathematics.float3 position, Unity.Collections.NativeArray&lt;Game.Simulation.GroundPollution&gt; pollutionMap);
-    public virtual System.Int32 GetUpdateInterval(Game.SystemUpdatePhase phase);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnUpdate();
-}
-</code></pre>
+<p><strong>Assembly:</strong> Assembly-CSharp (in-game)<br />
+<strong>Namespace:</strong> Game.Simulation</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> CellMapSystem<GroundPollution>, IJobSerializable</p>
+<p><strong>Summary:</strong><br />
+Manages the ground pollution cell map used by the simulation. This system holds a 256×256 cell texture of GroundPollution values, updates (fades) pollution over time using a Burst-compiled IJob, provides sampling helpers (including bilinear interpolation), and ties into the SimulationSystem frame index and PollutionParameterData singleton. The system schedules a PollutionFadeJob each update tick to reduce pollution values according to configured parameters and per-frame randomness.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.Simulation.SimulationSystem m_SimulationSystem</code>  </li>
+<li>
+<p><code>public static readonly int kTextureSize = 256</code><br />
+Defines the pollution texture width and height (map is kTextureSize × kTextureSize = 256×256 cells). Used by sampling and for creating the cell textures.</p>
+</li>
+<li>
+<p><code>public static readonly int kUpdatesPerDay = 128</code><br />
+Number of update steps per simulated day. Used in calculations for fade amount and to compute the update interval.</p>
+</li>
+<li>
+<p><code>private SimulationSystem m_SimulationSystem</code><br />
+Reference to the SimulationSystem instance (retrieved in OnCreate) used to read the current simulation frame index (m_SimulationSystem.frameIndex) for deterministic randomness in the job scheduling.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_PollutionParameterGroup</code><br />
+EntityQuery used to obtain the PollutionParameterData singleton. The system requires this query for updates (RequireForUpdate is called).</p>
+</li>
+<li>
+<p><code>private struct PollutionFadeJob</code> (private nested, Burst compiled)<br />
+A private nested IJob (annotated with [BurstCompile]) that performs the per-cell pollution fade. It contains:</p>
+</li>
+<li><code>NativeArray&lt;GroundPollution&gt; m_PollutionMap</code> — the cell map to mutate.</li>
+<li><code>PollutionParameterData m_PollutionParameters</code> — parameters (e.g., m_GroundFade) driving fade amount.</li>
+<li><code>RandomSeed m_Random</code> — seed provider used to create a Random instance per-frame for randomized rounding.</li>
+<li><code>uint m_Frame</code> — frame index used to derive deterministic Random instance.
+  The job iterates the map and reduces each cell's m_Pollution by a randomized rounded amount: RoundToIntRandom((float)m_GroundFade / kUpdatesPerDay), clamped to zero.</li>
 </ul>
-<pre><code class="language-csharp">private Game.Simulation.SimulationSystem m_SimulationSystem;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_PollutionParameterGroup</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_PollutionParameterGroup;
-</code></pre>
-<ul>
-<li><code>public static readonly System.Int32 kTextureSize</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static readonly System.Int32 kTextureSize;
-</code></pre>
-<ul>
-<li><code>public static readonly System.Int32 kUpdatesPerDay</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static readonly System.Int32 kUpdatesPerDay;
-</code></pre>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>public Unity.Mathematics.int2 TextureSize { get }</code>  </li>
+<li><code>public int2 TextureSize =&gt; new int2(kTextureSize, kTextureSize)</code><br />
+Returns the cell map texture size as an int2 (256, 256). Useful when interacting with other systems that need the map resolution.</li>
 </ul>
-<pre><code class="language-csharp">public Unity.Mathematics.int2 TextureSize { get; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public GroundPollutionSystem()</code>  </li>
+<li><code>public GroundPollutionSystem()</code><br />
+Default constructor. The system relies on OnCreate to perform initialization.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public GroundPollutionSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>public static GetCellCenter(System.Int32 index) : Unity.Mathematics.float3</code>  </li>
+<li>
+<p><code>public override int GetUpdateInterval(SystemUpdatePhase phase)</code><br />
+Returns the update interval for the system in simulation ticks: 262144 / kUpdatesPerDay. This controls how often the system is scheduled in a full simulation tick cycle relative to its updates-per-day setting.</p>
+</li>
+<li>
+<p><code>public static float3 GetCellCenter(int index)</code><br />
+Utility to get the world-space center for a given cell index. Delegates to CellMapSystem<GroundPollution>.GetCellCenter with kTextureSize.</p>
+</li>
+<li>
+<p><code>public static GroundPollution GetPollution(float3 position, NativeArray&lt;GroundPollution&gt; pollutionMap)</code><br />
+Samples pollution at an arbitrary world position. Uses:</p>
+</li>
+<li>CellMapSystem<GroundPollution>.GetCell to locate the integer cell,</li>
+<li>CellMapSystem<GroundPollution>.GetCellCoords to compute fractional coordinates within the cell,</li>
+<li>
+<p>Bilinear interpolation across the four surrounding cell values to return a sampled GroundPollution with interpolated m_Pollution (rounded to nearest int).
+  Returns a default GroundPollution (all-zero) if position maps outside the texture bounds.</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnCreate()</code><br />
+Initialization:</p>
+</li>
+<li>Calls base.OnCreate().</li>
+<li>Retrieves the SimulationSystem instance (m_SimulationSystem = base.World.GetOrCreateSystemManaged<SimulationSystem>()) for frame index access.</li>
+<li>Calls CreateTextures(kTextureSize) (inherited from CellMapSystem) to create the underlying cell textures.</li>
+<li>
+<p>Sets up m_PollutionParameterGroup = GetEntityQuery(ComponentType.ReadOnly<PollutionParameterData>()) and calls RequireForUpdate(m_PollutionParameterGroup) so the system runs only when the PollutionParameterData singleton is present.</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnUpdate()</code><br />
+Schedules the PollutionFadeJob:</p>
+</li>
+<li>Constructs PollutionFadeJob with the map (m_Map from base), PollutionParameterData singleton, a RandomSeed.Next() instance, and the current simulation frame index.</li>
+<li>Schedules the job with JobHandle.CombineDependencies(m_WriteDependencies, m_ReadDependencies, base.Dependency) and adds the resulting dependency as a writer via AddWriter(base.Dependency).</li>
+<li>
+<p>Combines read/write dependencies into base.Dependency for proper synchronization with other systems.</p>
+</li>
+<li>
+<p><code>private struct PollutionFadeJob.Execute()</code><br />
+The job Execute method runs on worker threads (Burst):</p>
+</li>
+<li>Creates a Unity.Mathematics.Random from m_Random and m_Frame.</li>
+<li>Iterates all cells in m_PollutionMap and, for each cell with m_Pollution &gt; 0, reduces pollution by a randomized rounded amount based on m_PollutionParameters.m_GroundFade / kUpdatesPerDay, clamped to zero, then writes the new value back into the array.</li>
 </ul>
-<pre><code class="language-csharp">public static float3 GetCellCenter(int index)
-    {
-        return CellMapSystem&lt;GroundPollution&gt;.GetCellCenter(index, kTextureSize);
-    }
-</code></pre>
-<ul>
-<li><code>public static GetPollution(Unity.Mathematics.float3 position, Unity.Collections.NativeArray&lt;Game.Simulation.GroundPollution&gt; pollutionMap) : Game.Simulation.GroundPollution</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static GroundPollution GetPollution(float3 position, NativeArray&lt;GroundPollution&gt; pollutionMap)
-    {
-        GroundPollution result = default(GroundPollution);
-        int2 cell = CellMapSystem&lt;GroundPollution&gt;.GetCell(position, CellMapSystem&lt;GroundPollution&gt;.kMapSize, kTextureSize);
-        float2 cellCoords = CellMapSystem&lt;GroundPollution&gt;.GetCellCoords(position, CellMapSystem&lt;GroundPollution&gt;.kMapSize, kTextureSize);
-        if (cell.x &lt; 0 || cell.x &gt;= kTextureSize || cell.y &lt; 0 || cell.y &gt;= kTextureSize)
-        {
-            return result;
-        }
-        GroundPollution groundPollution = pollutionMap[cell.x + kTextureSize * cell.y];
-        GroundPollution groundPollution2 = ((cell.x &lt; kTextureSize - 1) ? pollutionMap[cell.x + 1 + kTextureSize * cell.y] : default(GroundPollution));
-        GroundPollution groundPollution3 = ((cell.y &lt; kTextureSize - 1) ? pollutionMap[cell.x + kTextureSize * (cell.y + 1)] : default(GroundPollution));
-        GroundPollution groundPollution4 = ((cell.x &lt; kTextureSize - 1 &amp;&amp; cell.y &lt; kTextureSize - 1) ? pollutionMap[cell.x + 1 + kTextureSize * (cell.y + 1)] : default(GroundPollution));
-        result.m_Pollution = (short)Mathf.RoundToInt(math.lerp(math.lerp(groundPollution.m_Pollution, groundPollution2.m_Pollution, cellCoords.x - (float)cell.x), math.lerp(groundPollution3.m_Pollution, groundPollution4.m_Pollution, cellCoords.x - (float)cell.x), cellCoords.y - (float)cell.y));
-        return result;
-    }
-</code></pre>
-<ul>
-<li><code>public virtual GetUpdateInterval(Game.SystemUpdatePhase phase) : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override int GetUpdateInterval(SystemUpdatePhase phase)
-    {
-        return 262144 / kUpdatesPerDay;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
+<h2 id="usage-example">Usage Example</h2>
 <pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_SimulationSystem = base.World.GetOrCreateSystemManaged&lt;SimulationSystem&gt;();
-        CreateTextures(kTextureSize);
-        m_PollutionParameterGroup = GetEntityQuery(ComponentType.ReadOnly&lt;PollutionParameterData&gt;());
-        RequireForUpdate(m_PollutionParameterGroup);
-    }
+protected override void OnCreate()
+{
+    base.OnCreate();
+    m_SimulationSystem = base.World.GetOrCreateSystemManaged&lt;SimulationSystem&gt;();
+    CreateTextures(kTextureSize);
+    m_PollutionParameterGroup = GetEntityQuery(ComponentType.ReadOnly&lt;PollutionParameterData&gt;());
+    RequireForUpdate(m_PollutionParameterGroup);
+}
 </code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        PollutionFadeJob jobData = new PollutionFadeJob
-        {
-            m_PollutionMap = m_Map,
-            m_PollutionParameters = m_PollutionParameterGroup.GetSingleton&lt;PollutionParameterData&gt;(),
-            m_Random = RandomSeed.Next(),
-            m_Frame = m_SimulationSystem.frameIndex
-        };
-        base.Dependency = IJobExtensions.Schedule(jobData, JobHandle.CombineDependencies(m_WriteDependencies, m_ReadDependencies, base.Dependency));
-        AddWriter(base.Dependency);
-        base.Dependency = JobHandle.CombineDependencies(m_ReadDependencies, m_WriteDependencies, base.Dependency);
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Simulation.GroundPollutionSystem+PollutionFadeJob</code>  </li>
-</ul>
+<p>Additional notes for modders:
+- Use GetPollution(position, pollutionMap) to sample pollution at arbitrary positions; ensure you pass the correct NativeArray<GroundPollution> (for read access within jobs or main thread with correct dependencies).
+- The system uses deterministic randomness derived from the SimulationSystem frame index so results are stable across simulation frames.
+- To affect fade behavior, modify PollutionParameterData.m_GroundFade (this system reads that singleton via its EntityQuery).
+- The job is Burst-compiled for performance and scheduled with explicit read/write dependency handling; when interacting with this map from other jobs/systems be sure to manage JobHandles and call AddWriter/AddReader as appropriate (following pattern used here).</p>
 
 
 

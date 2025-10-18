@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -79190,18 +79282,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -79226,9 +79318,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -87145,6 +87237,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -117921,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117948,18 +118085,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -117984,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118009,409 +118146,215 @@
 
 
 <h1 id="gamesimulationcitizenbehaviorsystem">Game.Simulation.CitizenBehaviorSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Simulation</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class CitizenBehaviorSystem : Game.GameSystemBase
-{
-    private Unity.Jobs.JobHandle m_CarReserveWriters;
-    private Unity.Entities.EntityQuery m_CitizenQuery;
-    private Unity.Entities.EntityQuery m_OutsideConnectionQuery;
-    private Unity.Entities.EntityQuery m_EconomyParameterQuery;
-    private Unity.Entities.EntityQuery m_LeisureParameterQuery;
-    private Unity.Entities.EntityQuery m_TimeDataQuery;
-    private Unity.Entities.EntityQuery m_PopulationQuery;
-    private Game.Simulation.SimulationSystem m_SimulationSystem;
-    private Game.Simulation.TimeSystem m_TimeSystem;
-    private Game.EndFrameBarrier m_EndFrameBarrier;
-    private Unity.Entities.EntityArchetype m_HouseholdArchetype;
-    private Unity.Collections.NativeQueue&lt;Unity.Entities.Entity&gt; m_CarReserveQueue;
-    private Unity.Collections.NativeQueue&lt;Unity.Entities.Entity&gt; m_ParallelCarReserveQueue;
-    private Game.Simulation.CitizenBehaviorSystem+TypeHandle __TypeHandle;
-    public static readonly System.Single kMaxPathfindCost;
-    public static readonly System.Single kMaxMovingAwayCost;
-    public static readonly System.Int32 kMinLeisurePossibility;
-
-    public CitizenBehaviorSystem();
-
-    private System.Void __AssignQueries(Unity.Entities.SystemState&amp; state);
-    public System.Void AddCarReserveWriter(Unity.Jobs.JobHandle writer);
-    public Unity.Collections.NativeQueue&lt;Unity.Entities.Entity&gt; GetCarReserveQueue(Unity.Jobs.JobHandle&amp; deps);
-    public static Unity.Mathematics.float2 GetSleepTime(Unity.Entities.Entity entity, Game.Citizens.Citizen citizen, Game.Prefabs.EconomyParameterData&amp; economyParameters, Unity.Entities.ComponentLookup`1[[Game.Citizens.Worker, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]&amp; workers, Unity.Entities.ComponentLookup`1[[Game.Citizens.Student, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]&amp; students);
-    public virtual System.Int32 GetUpdateInterval(Game.SystemUpdatePhase phase);
-    public virtual System.Int32 GetUpdateOffset(Game.SystemUpdatePhase phase);
-    public static System.Boolean IsSleepTime(Unity.Entities.Entity entity, Game.Citizens.Citizen citizen, Game.Prefabs.EconomyParameterData&amp; economyParameters, System.Single normalizedTime, Unity.Entities.ComponentLookup`1[[Game.Citizens.Worker, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]&amp; workers, Unity.Entities.ComponentLookup`1[[Game.Citizens.Student, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]&amp; students);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnCreateForCompiler();
-    protected virtual System.Void OnDestroy();
-    protected virtual System.Void OnUpdate();
-}
-</code></pre>
+<p><strong>Assembly:</strong><br />
+{{ This class is part of the game's runtime simulation assembly (Cities: Skylines 2 game code). }}</p>
+<p><strong>Namespace:</strong> Game.Simulation</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> GameSystemBase</p>
+<p><strong>Summary:</strong><br />
+{{ CitizenBehaviorSystem is the ECS system that drives high-level citizen AI decisions each simulation tick. It evaluates citizens' states (sleep, work/study, leisure, shopping, meetings, moving away, traveling outside connections, mail collection, car reservation/release, etc.), schedules and runs several Burst-compiled jobs (AI tick, car reservation, mail collection, sleep updates), and issues commands through an EndFrameBarrier command buffer. The system queries various parameter singletons (economy, leisure, time, population) and many component lookups/buffers required by citizen logic. It batches AI work into parallel jobs to scale for large populations. }}</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Unity.Jobs.JobHandle m_CarReserveWriters</code>  </li>
+<li>
+<p><code>public static readonly float kMaxPathfindCost</code><br />
+{{ Max cost used by pathfinding/heuristics for some citizen decisions. Value: 17000f. }}</p>
+</li>
+<li>
+<p><code>public static readonly float kMaxMovingAwayCost</code><br />
+{{ Derived constant for "moving away" cost checks (kMaxPathfindCost * 10). }}</p>
+</li>
+<li>
+<p><code>public static readonly int kMinLeisurePossibility</code><br />
+{{ Tunable minimum leisure chance constant used by the leisure decision logic. Value: 80. }}</p>
+</li>
+<li>
+<p><code>private JobHandle m_CarReserveWriters</code><br />
+{{ Accumulated JobHandle dependencies for jobs that produce writes to the car-reserve queue. Used to combine dependencies before scheduling the car-reserve consumer job. }}</p>
+</li>
+<li>
+<p><code>private EntityQuery m_CitizenQuery</code><br />
+{{ EntityQuery used to select citizens to process (reads/writes Citizen, CurrentBuilding, HouseholdMember, UpdateFrame and excludes TravelPurpose / ResourceBuyer / Deleted / Temp). }}</p>
+</li>
+<li>
+<p><code>private EntityQuery m_OutsideConnectionQuery</code><br />
+{{ Query that gathers outside connection entities (used to pick random outside connection targets). }}</p>
+</li>
+<li>
+<p><code>private EntityQuery m_EconomyParameterQuery</code><br />
+{{ Query for fetching the EconomyParameterData singleton. }}</p>
+</li>
+<li>
+<p><code>private EntityQuery m_LeisureParameterQuery</code><br />
+{{ Query for fetching the LeisureParametersData singleton. }}</p>
+</li>
+<li>
+<p><code>private EntityQuery m_TimeDataQuery</code><br />
+{{ Query for fetching the TimeData singleton. }}</p>
+</li>
+<li>
+<p><code>private EntityQuery m_PopulationQuery</code><br />
+{{ Query for fetching Population singleton/entity used to read current population. }}</p>
+</li>
+<li>
+<p><code>private SimulationSystem m_SimulationSystem</code><br />
+{{ Cached reference to SimulationSystem (frame index etc.). }}</p>
+</li>
+<li>
+<p><code>private TimeSystem m_TimeSystem</code><br />
+{{ Cached reference to TimeSystem (normalized day time). }}</p>
+</li>
+<li>
+<p><code>private EndFrameBarrier m_EndFrameBarrier</code><br />
+{{ Command buffer barrier used to record structural/component changes from jobs (producer). }}</p>
+</li>
+<li>
+<p><code>private EntityArchetype m_HouseholdArchetype</code><br />
+{{ Archetype used when creating household entities for malformed citizens that lacked a household. }}</p>
+</li>
+<li>
+<p><code>private NativeQueue&lt;Entity&gt; m_CarReserveQueue</code><br />
+{{ Persistent native queue (single-producer) used to enqueue citizens that want to reserve a household car. Consumers run on the main-thread job to assign vehicles. }}</p>
+</li>
+<li>
+<p><code>private NativeQueue&lt;Entity&gt;.ParallelWriter m_ParallelCarReserveQueue</code><br />
+{{ ParallelWriter view of m_CarReserveQueue used by parallel jobs to enqueue car reservation requests. }}</p>
+</li>
+<li>
+<p><code>private TypeHandle __TypeHandle</code><br />
+{{ Internal struct instance containing ComponentTypeHandle/Lookup/Buffer handles used by jobs. It is assigned during OnCreateForCompiler. }}</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Unity.Jobs.JobHandle m_CarReserveWriters;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_CitizenQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_CitizenQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_OutsideConnectionQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_OutsideConnectionQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_EconomyParameterQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_EconomyParameterQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_LeisureParameterQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_LeisureParameterQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_TimeDataQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_TimeDataQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_PopulationQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_PopulationQuery;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.SimulationSystem m_SimulationSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.SimulationSystem m_SimulationSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.TimeSystem m_TimeSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.TimeSystem m_TimeSystem;
-</code></pre>
-<ul>
-<li><code>private Game.EndFrameBarrier m_EndFrameBarrier</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.EndFrameBarrier m_EndFrameBarrier;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityArchetype m_HouseholdArchetype</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityArchetype m_HouseholdArchetype;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeQueue&lt;Unity.Entities.Entity&gt; m_CarReserveQueue</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeQueue&lt;Unity.Entities.Entity&gt; m_CarReserveQueue;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeQueue&lt;Unity.Entities.Entity&gt; m_ParallelCarReserveQueue</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeQueue&lt;Unity.Entities.Entity&gt; m_ParallelCarReserveQueue;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.CitizenBehaviorSystem+TypeHandle __TypeHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.CitizenBehaviorSystem+TypeHandle __TypeHandle;
-</code></pre>
-<ul>
-<li><code>public static readonly System.Single kMaxPathfindCost</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static readonly System.Single kMaxPathfindCost;
-</code></pre>
-<ul>
-<li><code>public static readonly System.Single kMaxMovingAwayCost</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static readonly System.Single kMaxMovingAwayCost;
-</code></pre>
-<ul>
-<li><code>public static readonly System.Int32 kMinLeisurePossibility</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static readonly System.Int32 kMinLeisurePossibility;
-</code></pre>
+<hr />
+<h2 id="properties">Properties</h2>
+<p>{{ This system does not expose public properties. Core accessors are exposed via methods (GetCarReserveQueue, AddCarReserveWriter). }}</p>
+<hr />
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public CitizenBehaviorSystem()</code>  </li>
+<li><code>public CitizenBehaviorSystem()</code><br />
+{{ Default constructor. The real initialization happens in OnCreate; constructor is preserved for ECS system instantiation. }}</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public CitizenBehaviorSystem()
-    {
-    }
-</code></pre>
+<hr />
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private __AssignQueries(Unity.Entities.SystemState&amp; state) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void __AssignQueries(ref SystemState state)
-    {
-        new EntityQueryBuilder(Allocator.Temp).Dispose();
-    }
-</code></pre>
+<li>
+<p><code>public override int GetUpdateInterval(SystemUpdatePhase phase)</code><br />
+{{ Returns the update interval in frames for this system. This system uses an interval of 16. }}</p>
+</li>
+<li>
+<p><code>public override int GetUpdateOffset(SystemUpdatePhase phase)</code><br />
+{{ Returns the update offset. This system uses offset 11 to stagger updates. }}</p>
+</li>
+<li>
+<p><code>public static float2 GetSleepTime(Entity entity, Citizen citizen, ref EconomyParameterData economyParameters, ref ComponentLookup&lt;Worker&gt; workers, ref ComponentLookup&lt;Game.Citizens.Student&gt; students)</code><br />
+{{ Computes the normalized time interval [start, end) during which the given citizen should be sleeping. Takes into account age, per-citizen pseudo-random offset, and worker/student schedules (shifts/school). Returns a wrapped float2 in normalized day-time coordinates (0..1). Useful for mods that need to determine a citizen's sleep window. }}</p>
+</li>
+<li>
+<p><code>public static bool IsSleepTime(Entity entity, Citizen citizen, ref EconomyParameterData economyParameters, float normalizedTime, ref ComponentLookup&lt;Worker&gt; workers, ref ComponentLookup&lt;Game.Citizens.Student&gt; students)</code><br />
+{{ Convenience check: returns true if the provided normalizedTime falls inside the citizen's sleep interval computed by GetSleepTime. }}</p>
+</li>
+<li>
+<p><code>public NativeQueue&lt;Entity&gt;.ParallelWriter GetCarReserveQueue(out JobHandle deps)</code><br />
+{{ Returns a ParallelWriter to the internal car-reserve queue that jobs can use to enqueue reservation requests. The out parameter 'deps' is the JobHandle representing current writers' dependencies; callers should chain or combine dependencies correctly when scheduling writers. }}</p>
+</li>
+<li>
+<p><code>public void AddCarReserveWriter(JobHandle writer)</code><br />
+{{ Allows external code to add a writer JobHandle dependency to the system's internal m_CarReserveWriters. This prevents the car assignment job from running until all writers have completed. Mods scheduling jobs that write to the car-reserve queue should call this to register their writer dependency. }}</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnCreate()</code><br />
+{{ System initialization: caches references to SimulationSystem/TimeSystem/EndFrameBarrier, creates persistent NativeQueue for car reservations and its ParallelWriter, prepares EntityQuery instances, creates the Household archetype, and calls RequireForUpdate on required queries. Also sets up handles used by compiled jobs in OnCreateForCompiler. }}</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnDestroy()</code><br />
+{{ Disposes the persistent m_CarReserveQueue and performs any superclass cleanup. Must be called to avoid leaks. }}</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnUpdate()</code><br />
+{{ The main scheduler: computes the current update frame index, creates temporary queues for mail and sleep updates, constructs and schedules several jobs:</p>
+</li>
+<li>CitizenAITickJob (IJobChunk, Burst) — the main per-citizen AI logic (leisure, work/study checks, meetings, travel/GoHome/GoShopping, car reserve enqueueing, etc.). Runs in parallel with many ComponentLookup/BufferLookup usages.</li>
+<li>CitizenReserveHouseholdCarJob (IJob) — processes the car-reserve queue, assigns household cars to citizens (sets CarKeeper component), updates PersonalCar.m_Keeper.</li>
+<li>CitizenTryCollectMailJob (IJob) — tries to collect mail from the citizen's current building into MailSender component.</li>
+<li>
+<p>CitizeSleepJob (IJob) — updates building CitizenPresence when citizens go to sleep.
+The method wires up job dependencies, registers producer jobs with m_EndFrameBarrier, disposes temporary queues when done, and updates base.Dependency. }}</p>
+</li>
+<li>
+<p><code>private void __AssignQueries(ref SystemState state)</code><br />
+{{ Internal helper used by compiler-generated code to assign queries; not intended for modders to call. }}</p>
+</li>
+<li>
+<p><code>protected override void OnCreateForCompiler()</code><br />
+{{ Internal initialization used by the generated code path for assigning handles and queries at compile time. }}</p>
+</li>
+<li>
+<p><code>[MethodImpl(MethodImplOptions.AggressiveInlining)] private void __AssignHandles(ref SystemState state)</code> (inside TypeHandle)<br />
+{{ Internal: assigns component/buffer/lookup handles used by jobs. }}</p>
+</li>
+<li>
+<p><code>private struct TypeHandle</code><br />
+{{ Compiler-generated container storing all ComponentTypeHandle, ComponentLookup and BufferLookup handles used by the system's jobs. It's assigned during system initialization. }}</p>
+</li>
+<li>
+<p>Nested job types (Burst-compiled):</p>
+</li>
+<li>
+<p><code>CitizenBehaviorSystem.CitizenReserveHouseholdCarJob : IJob</code><br />
+    {{ Consumes the car reserve queue. For each enqueued citizen, if the citizen belongs to a household and is eligible (not a child, doesn't already have CarKeeper enabled), attempts to assign a free household car by checking OwnedVehicle buffers and PersonalCar components. If successful, enables and sets CarKeeper on the citizen and updates PersonalCar.m_Keeper. Runs as a single IJob (not chunked). }}</p>
+</li>
+<li>
+<p><code>CitizenBehaviorSystem.CitizenTryCollectMailJob : IJob</code><br />
+    {{ Reads citizen current building and building mail producer data: if the building has mail to send and the building/prefab requires collection, transfers up to capacity into the citizen's MailSender component and enables it. Uses PrefabRef/SpawnableBuildingData/MailAccumulationData/ServiceObjectData to determine if the building's mail must be collected. }}</p>
+</li>
+<li>
+<p><code>CitizenBehaviorSystem.CitizeSleepJob : IJob</code><br />
+    {{ Decrements CitizenPresence.m_Delta for the building when citizens go to sleep (queued by CitizenAITickJob). Helps track presence changes for building behavior/visuals. }}</p>
+</li>
+<li>
+<p><code>CitizenBehaviorSystem.CitizenAITickJob : IJobChunk</code><br />
+    {{ The core per-citizen AI chunked job. Responsibilities include:</p>
 <ul>
-<li><code>public AddCarReserveWriter(Unity.Jobs.JobHandle writer) : System.Void</code>  </li>
+<li>Skipping citizens not matching the current UpdateFrame shared component.</li>
+<li>Handling missing or invalid household/citizen situations (creating households for malformed citizens, marking deleted).</li>
+<li>Processing moving-away households (GoToOutsideConnection / mark structures removed).</li>
+<li>Attending coordinated meetings (AttendMeeting).</li>
+<li>Evaluating work/study schedules, leisure decisions (DoLeisure), sleeping (CheckSleep / GoHome / ReleaseCar), shopping (GoShopping), traveling to outside connections (GoToOutsideConnection).</li>
+<li>Enqueuing car reservation, mail collection, and sleep queue entries via parallel writers.</li>
+<li>Adding TravelPurpose, ResourceBuyer, Leisure components and other command buffer operations via EndFrameBarrier parallel writer.
+The job uses many ComponentLookup / BufferLookup handles, singleton parameters (economy, leisure), time data, and random seeds. It schedules sub-actions by adding TripNeeded buffer elements or adding components to citizens via the command buffer. }}</li>
 </ul>
-<pre><code class="language-csharp">public void AddCarReserveWriter(JobHandle writer)
-    {
-        m_CarReserveWriters = JobHandle.CombineDependencies(m_CarReserveWriters, writer);
-    }
+</li>
+</ul>
+<hr />
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Example: how another system/job can get the car-reserve queue and register job dependencies.
+protected override void OnUpdate()
+{
+    // Get the running CitizenBehaviorSystem instance
+    var citizenBehavior = World.GetExistingSystemManaged&lt;Game.Simulation.CitizenBehaviorSystem&gt;();
+
+    // Retrieve the ParallelWriter for the car-reserve queue and the current writer dependencies
+    JobHandle currentWriterDeps;
+    NativeQueue&lt;Entity&gt;.ParallelWriter carReserveWriter = citizenBehavior.GetCarReserveQueue(out currentWriterDeps);
+
+    // If scheduling a job that will enqueue to the car-reserve queue, combine dependencies and register the writer:
+    var enqueueJob = new EnqueueCarReserveJob { /* ... fields ... */, m_Queue = carReserveWriter };
+    JobHandle enqueueHandle = enqueueJob.Schedule(currentWriterDeps);
+
+    // Inform the CitizenBehaviorSystem about our writer so its consumer won't run before our job finishes
+    citizenBehavior.AddCarReserveWriter(enqueueHandle);
+
+    // Ensure this system's dependency chain includes our enqueue job
+    Dependency = JobHandle.CombineDependencies(Dependency, enqueueHandle);
+}
 </code></pre>
-<ul>
-<li><code>public GetCarReserveQueue(Unity.Jobs.JobHandle&amp; deps) : Unity.Collections.NativeQueue&lt;Unity.Entities.Entity&gt;</code>  </li>
-</ul>
-<pre><code class="language-csharp">public NativeQueue&lt;Entity&gt;.ParallelWriter GetCarReserveQueue(out JobHandle deps)
-    {
-        deps = m_CarReserveWriters;
-        return m_ParallelCarReserveQueue;
-    }
-</code></pre>
-<ul>
-<li><code>public static GetSleepTime(Unity.Entities.Entity entity, Game.Citizens.Citizen citizen, Game.Prefabs.EconomyParameterData&amp; economyParameters, Unity.Entities.ComponentLookup</code>1[[Game.Citizens.Worker, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]&amp; workers, Unity.Entities.ComponentLookup<code>1[[Game.Citizens.Student, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]&amp; students) : Unity.Mathematics.float2</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static float2 GetSleepTime(Entity entity, Citizen citizen, ref EconomyParameterData economyParameters, ref ComponentLookup&lt;Worker&gt; workers, ref ComponentLookup&lt;Game.Citizens.Student&gt; students)
-    {
-        CitizenAge age = citizen.GetAge();
-        float2 x = new float2(0.875f, 0.175f);
-        float num = x.y - x.x;
-        x += citizen.GetPseudoRandom(CitizenPseudoRandom.SleepOffset).NextFloat(0f, 0.2f);
-        if (age == CitizenAge.Elderly)
-        {
-            x -= 0.05f;
-        }
-        if (age == CitizenAge.Child)
-        {
-            x -= 0.1f;
-        }
-        if (age == CitizenAge.Teen)
-        {
-            x += 0.05f;
-        }
-        x = math.frac(x);
-        float2 @float;
-        if (workers.HasComponent(entity))
-        {
-            @float = WorkerSystem.GetTimeToWork(citizen, workers[entity], ref economyParameters, includeCommute: true);
-        }
-        else
-        {
-            if (!students.HasComponent(entity))
-            {
-                return x;
-            }
-            @float = StudentSystem.GetTimeToStudy(citizen, students[entity], ref economyParameters);
-        }
-        if (@float.x &lt; @float.y)
-        {
-            if (x.x &gt; x.y &amp;&amp; @float.y &gt; x.x)
-            {
-                x += @float.y - x.x;
-            }
-            else if (x.y &gt; @float.x)
-            {
-                x += 1f - (x.y - @float.x);
-            }
-        }
-        else
-        {
-            x = new float2(@float.y, @float.y + num);
-        }
-        return math.frac(x);
-    }
-</code></pre>
-<ul>
-<li><code>public virtual GetUpdateInterval(Game.SystemUpdatePhase phase) : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override int GetUpdateInterval(SystemUpdatePhase phase)
-    {
-        return 16;
-    }
-</code></pre>
-<ul>
-<li><code>public virtual GetUpdateOffset(Game.SystemUpdatePhase phase) : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override int GetUpdateOffset(SystemUpdatePhase phase)
-    {
-        return 11;
-    }
-</code></pre>
-<ul>
-<li><code>public static IsSleepTime(Unity.Entities.Entity entity, Game.Citizens.Citizen citizen, Game.Prefabs.EconomyParameterData&amp; economyParameters, System.Single normalizedTime, Unity.Entities.ComponentLookup</code>1[[Game.Citizens.Worker, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]&amp; workers, Unity.Entities.ComponentLookup<code>1[[Game.Citizens.Student, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]&amp; students) : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static bool IsSleepTime(Entity entity, Citizen citizen, ref EconomyParameterData economyParameters, float normalizedTime, ref ComponentLookup&lt;Worker&gt; workers, ref ComponentLookup&lt;Game.Citizens.Student&gt; students)
-    {
-        float2 sleepTime = GetSleepTime(entity, citizen, ref economyParameters, ref workers, ref students);
-        if (sleepTime.y &lt; sleepTime.x)
-        {
-            if (!(normalizedTime &gt; sleepTime.x))
-            {
-                return normalizedTime &lt; sleepTime.y;
-            }
-            return true;
-        }
-        if (normalizedTime &gt; sleepTime.x)
-        {
-            return normalizedTime &lt; sleepTime.y;
-        }
-        return false;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_SimulationSystem = base.World.GetOrCreateSystemManaged&lt;SimulationSystem&gt;();
-        m_TimeSystem = base.World.GetOrCreateSystemManaged&lt;TimeSystem&gt;();
-        m_EndFrameBarrier = base.World.GetOrCreateSystemManaged&lt;EndFrameBarrier&gt;();
-        m_CarReserveQueue = new NativeQueue&lt;Entity&gt;(Allocator.Persistent);
-        m_ParallelCarReserveQueue = m_CarReserveQueue.AsParallelWriter();
-        m_EconomyParameterQuery = GetEntityQuery(ComponentType.ReadOnly&lt;EconomyParameterData&gt;());
-        m_LeisureParameterQuery = GetEntityQuery(ComponentType.ReadOnly&lt;LeisureParametersData&gt;());
-        m_PopulationQuery = GetEntityQuery(ComponentType.ReadOnly&lt;Population&gt;());
-        m_CitizenQuery = GetEntityQuery(ComponentType.ReadWrite&lt;Citizen&gt;(), ComponentType.Exclude&lt;TravelPurpose&gt;(), ComponentType.Exclude&lt;ResourceBuyer&gt;(), ComponentType.ReadOnly&lt;CurrentBuilding&gt;(), ComponentType.ReadOnly&lt;HouseholdMember&gt;(), ComponentType.ReadOnly&lt;UpdateFrame&gt;(), ComponentType.Exclude&lt;Deleted&gt;(), ComponentType.Exclude&lt;Temp&gt;());
-        m_OutsideConnectionQuery = GetEntityQuery(ComponentType.ReadOnly&lt;Game.Objects.OutsideConnection&gt;(), ComponentType.Exclude&lt;Game.Objects.ElectricityOutsideConnection&gt;(), ComponentType.Exclude&lt;Game.Objects.WaterPipeOutsideConnection&gt;(), ComponentType.Exclude&lt;Deleted&gt;(), ComponentType.Exclude&lt;Temp&gt;());
-        m_TimeDataQuery = GetEntityQuery(ComponentType.ReadOnly&lt;TimeData&gt;());
-        m_HouseholdArchetype = base.World.EntityManager.CreateArchetype(ComponentType.ReadWrite&lt;Household&gt;(), ComponentType.ReadWrite&lt;HouseholdNeed&gt;(), ComponentType.ReadWrite&lt;HouseholdCitizen&gt;(), ComponentType.ReadWrite&lt;TaxPayer&gt;(), ComponentType.ReadWrite&lt;Game.Economy.Resources&gt;(), ComponentType.ReadWrite&lt;UpdateFrame&gt;(), ComponentType.ReadWrite&lt;Created&gt;());
-        RequireForUpdate(m_CitizenQuery);
-        RequireForUpdate(m_EconomyParameterQuery);
-        RequireForUpdate(m_LeisureParameterQuery);
-        RequireForUpdate(m_TimeDataQuery);
-        RequireForUpdate(m_PopulationQuery);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreateForCompiler() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnCreateForCompiler()
-    {
-        base.OnCreateForCompiler();
-        __AssignQueries(ref base.CheckedStateRef);
-        __TypeHandle.__AssignHandles(ref base.CheckedStateRef);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnDestroy() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnDestroy()
-    {
-        m_CarReserveQueue.Dispose();
-        base.OnDestroy();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        uint updateFrameWithInterval = SimulationUtils.GetUpdateFrameWithInterval(m_SimulationSystem.frameIndex, (uint)GetUpdateInterval(SystemUpdatePhase.GameSimulation), 16);
-        NativeQueue&lt;Entity&gt; mailSenderQueue = new NativeQueue&lt;Entity&gt;(Allocator.TempJob);
-        NativeQueue&lt;Entity&gt; sleepQueue = new NativeQueue&lt;Entity&gt;(Allocator.TempJob);
-        JobHandle outJobHandle;
-        CitizenAITickJob jobData = new CitizenAITickJob
-        {
-            m_CitizenType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Citizens_Citizen_RW_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_CurrentBuildingType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Citizens_CurrentBuilding_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_EntityType = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef),
-            m_HouseholdMemberType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Citizens_HouseholdMember_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_UpdateFrameType = InternalCompilerInterface.GetSharedComponentTypeHandle(ref __TypeHandle.__Game_Simulation_UpdateFrame_SharedComponentTypeHandle, ref base.CheckedStateRef),
-            m_HealthProblemType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Citizens_HealthProblem_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_TripType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Citizens_TripNeeded_RW_BufferTypeHandle, ref base.CheckedStateRef),
-            m_LeisureType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Citizens_Leisure_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_HouseholdNeeds = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Citizens_HouseholdNeed_RW_ComponentLookup, ref base.CheckedStateRef),
-            m_Households = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Citizens_Household_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PropertyRenters = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Buildings_PropertyRenter_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_Transforms = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Objects_Transform_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_CarKeepers = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Citizens_CarKeeper_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PersonalCars = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Vehicles_PersonalCar_RW_ComponentLookup, ref base.CheckedStateRef),
-            m_MovingAway = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Agents_MovingAway_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_Workers = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Citizens_Worker_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_Students = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Citizens_Student_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_TouristHouseholds = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Citizens_TouristHousehold_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_HomelessHouseholds = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Citizens_HomelessHousehold_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_OutsideConnections = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Objects_OutsideConnection_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_InDangerData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Events_InDanger_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_Attendees = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Citizens_CoordinatedMeetingAttendee_RO_BufferLookup, ref base.CheckedStateRef),
-            m_Meetings = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Citizens_CoordinatedMeeting_RW_ComponentLookup, ref base.CheckedStateRef),
-            m_AttendingMeetings = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Citizens_AttendingMeeting_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_MeetingDatas = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Prefabs_HaveCoordinatedMeetingData_RO_BufferLookup, ref base.CheckedStateRef),
-            m_Prefabs = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_BuildingStudents = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Buildings_Student_RO_BufferLookup, ref base.CheckedStateRef),
-            m_PopulationData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_City_Population_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_OutsideConnectionDatas = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_OutsideConnectionData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_OwnedVehicles = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Vehicles_OwnedVehicle_RO_BufferLookup, ref base.CheckedStateRef),
-            m_CommuterHouseholds = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Citizens_CommuterHousehold_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_EmployeeBufs = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Companies_Employee_RO_BufferLookup, ref base.CheckedStateRef),
-            m_HouseholdArchetype = m_HouseholdArchetype,
-            m_OutsideConnectionEntities = m_OutsideConnectionQuery.ToEntityListAsync(Allocator.TempJob, out outJobHandle),
-            m_EconomyParameters = m_EconomyParameterQuery.GetSingleton&lt;EconomyParameterData&gt;(),
-            m_LeisureParameters = m_LeisureParameterQuery.GetSingleton&lt;LeisureParametersData&gt;(),
-            m_CommandBuffer = m_EndFrameBarrier.CreateCommandBuffer().AsParallelWriter(),
-            m_UpdateFrameIndex = updateFrameWithInterval,
-            m_SimulationFrame = m_SimulationSystem.frameIndex,
-            m_NormalizedTime = m_TimeSystem.normalizedTime,
-            m_TimeData = m_TimeDataQuery.GetSingleton&lt;TimeData&gt;(),
-            m_PopulationEntity = m_PopulationQuery.GetSingletonEntity(),
-            m_CarReserverQueue = m_ParallelCarReserveQueue,
-            m_MailSenderQueue = mailSenderQueue.AsParallelWriter(),
-            m_SleepQueue = sleepQueue.AsParallelWriter(),
-            m_RandomSeed = RandomSeed.Next()
-        };
-        JobHandle jobHandle = JobChunkExtensions.ScheduleParallel(jobData, m_CitizenQuery, JobHandle.CombineDependencies(m_CarReserveWriters, JobHandle.CombineDependencies(base.Dependency, outJobHandle)));
-        jobData.m_OutsideConnectionEntities.Dispose(jobHandle);
-        m_EndFrameBarrier.AddJobHandleForProducer(jobHandle);
-        AddCarReserveWriter(jobHandle);
-        JobHandle jobHandle2 = IJobExtensions.Schedule(new CitizenReserveHouseholdCarJob
-        {
-            m_CarKeepers = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Citizens_CarKeeper_RW_ComponentLookup, ref base.CheckedStateRef),
-            m_HouseholdMembers = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Citizens_HouseholdMember_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_OwnedVehicles = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Vehicles_OwnedVehicle_RO_BufferLookup, ref base.CheckedStateRef),
-            m_PersonalCars = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Vehicles_PersonalCar_RW_ComponentLookup, ref base.CheckedStateRef),
-            m_Citizens = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Citizens_Citizen_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_ReserverQueue = m_CarReserveQueue
-        }, JobHandle.CombineDependencies(jobHandle, m_CarReserveWriters));
-        m_EndFrameBarrier.AddJobHandleForProducer(jobHandle2);
-        AddCarReserveWriter(jobHandle2);
-        JobHandle jobHandle3 = IJobExtensions.Schedule(new CitizenTryCollectMailJob
-        {
-            m_CurrentBuildingData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Citizens_CurrentBuilding_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabRefData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_SpawnableBuildingData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_SpawnableBuildingData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_MailAccumulationData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_MailAccumulationData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_ServiceObjectData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_ServiceObjectData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_MailSenderData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Citizens_MailSender_RW_ComponentLookup, ref base.CheckedStateRef),
-            m_MailProducerData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Buildings_MailProducer_RW_ComponentLookup, ref base.CheckedStateRef),
-            m_MailSenderQueue = mailSenderQueue
-        }, jobHandle);
-        m_EndFrameBarrier.AddJobHandleForProducer(jobHandle3);
-        mailSenderQueue.Dispose(jobHandle3);
-        JobHandle jobHandle4 = IJobExtensions.Schedule(new CitizeSleepJob
-        {
-            m_CurrentBuildingData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Citizens_CurrentBuilding_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_CitizenPresenceData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Buildings_CitizenPresence_RW_ComponentLookup, ref base.CheckedStateRef),
-            m_SleepQueue = sleepQueue
-        }, jobHandle);
-        sleepQueue.Dispose(jobHandle4);
-        base.Dependency = JobHandle.CombineDependencies(jobHandle2, jobHandle3, jobHandle4);
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Simulation.CitizenBehaviorSystem+CitizenReserveHouseholdCarJob</code>  </li>
-<li><code>Game.Simulation.CitizenBehaviorSystem+CitizenTryCollectMailJob</code>  </li>
-<li><code>Game.Simulation.CitizenBehaviorSystem+CitizeSleepJob</code>  </li>
-<li><code>Game.Simulation.CitizenBehaviorSystem+CitizenAITickJob</code>  </li>
-<li><code>Game.Simulation.CitizenBehaviorSystem+TypeHandle</code>  </li>
-</ul>
+<p>{{ Notes:
+- This system is conservative about structural changes: all structural changes from jobs are performed via m_EndFrameBarrier command buffers and scheduled as producers.
+- Many types (Citizen, Household, TripNeeded, CarKeeper, PersonalCar, Worker, Student, MailSender, MailProducer, etc.) are read/updated by the jobs — consult their component definitions when modifying or extending behavior.
+- Use GetSleepTime / IsSleepTime helpers when making logic that needs to align with citizen sleep windows.
+- When writing jobs that enqueue to the car-reserve queue, always call AddCarReserveWriter with the job handle so the system can combine dependencies safely.
+}}</p>
 
 
 

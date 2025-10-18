@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -79489,15 +79581,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -79534,9 +79617,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -87154,6 +87237,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -117930,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117955,15 +118083,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -118002,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118027,813 +118146,293 @@
 
 
 <h1 id="gamesimulationcitystatisticssystem">Game.Simulation.CityStatisticsSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Simulation</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code><br />
-<strong>Implements:</strong> <code>Game.Simulation.ICityStatisticsSystem</code>, <code>Colossal.Serialization.Entities.IDefaultSerializable</code>, <code>Colossal.Serialization.Entities.ISerializable</code>, <code>Game.Serialization.IPostDeserialize</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class CityStatisticsSystem : Game.GameSystemBase, Game.Simulation.ICityStatisticsSystem, Colossal.Serialization.Entities.IDefaultSerializable, Colossal.Serialization.Entities.ISerializable, Game.Serialization.IPostDeserialize
-{
-    private Game.Simulation.CitySystem m_CitySystem;
-    private Game.EndFrameBarrier m_EndFrameBarrier;
-    private Game.Simulation.SimulationSystem m_SimulationSystem;
-    private Game.Simulation.CountHouseholdDataSystem m_CountHouseholdDataSystem;
-    private Game.Triggers.TriggerSystem m_TriggerSystem;
-    private Unity.Entities.EntityQuery m_StatisticsPrefabQuery;
-    private Unity.Entities.EntityQuery m_StatisticsQuery;
-    private Unity.Entities.EntityQuery m_CityQuery;
-    private Unity.Collections.NativeParallelHashMap&lt;Game.Simulation.CityStatisticsSystem+StatisticsKey, Unity.Entities.Entity&gt; m_StatisticsLookup;
-    private Unity.Collections.NativeQueue&lt;Game.City.StatisticsEvent&gt; m_StatisticsEventQueue;
-    private Unity.Jobs.JobHandle m_Writers;
-    private System.Boolean m_Initialized;
-    private System.Int32 m_SampleCount;
-    private System.UInt32 m_LastSampleFrameIndex;
-    private System.Action &lt;eventStatisticsUpdated&gt;k__BackingField;
-    private Game.Simulation.CityStatisticsSystem+TypeHandle __TypeHandle;
-    public static const System.Int32 kUpdatesPerDay;
-
-    public System.Int32 sampleCount { get; }
-    public System.Action eventStatisticsUpdated { get; set; }
-
-    public CityStatisticsSystem();
-
-    private System.Void __AssignQueries(Unity.Entities.SystemState&amp; state);
-    public System.Void AddWriter(Unity.Jobs.JobHandle writer);
-    public System.Void CompleteWriters();
-    public System.Void Deserialize&lt;TReader&gt;(TReader reader);
-    public System.Void DiscardStatistics();
-    public Unity.Collections.NativeParallelHashMap&lt;Game.Simulation.CityStatisticsSystem+StatisticsKey, Unity.Entities.Entity&gt; GetLookup();
-    public Game.Simulation.CityStatisticsSystem+SafeStatisticQueue GetSafeStatisticsQueue(Unity.Jobs.JobHandle&amp; deps);
-    public System.UInt32 GetSampleFrameIndex(System.Int32 index);
-    public Unity.Collections.NativeArray&lt;Game.City.CityStatistic&gt; GetStatisticArray(Game.City.StatisticType type, System.Int32 parameter);
-    public static Unity.Collections.NativeArray&lt;System.Int32&gt; GetStatisticDataArray(Unity.Collections.NativeParallelHashMap&lt;Game.Simulation.CityStatisticsSystem+StatisticsKey, Unity.Entities.Entity&gt; statisticsLookup, Unity.Entities.BufferLookup&lt;Game.City.CityStatistic&gt; stats, Game.City.StatisticType type, System.Int32 parameter);
-    public Unity.Collections.NativeArray&lt;System.Int32&gt; GetStatisticDataArray(Unity.Entities.BufferLookup&lt;Game.City.CityStatistic&gt; stats, Game.City.StatisticType type, System.Int32 parameter);
-    public Unity.Collections.NativeArray&lt;System.Int32&gt; GetStatisticDataArray(Game.City.StatisticType type, System.Int32 parameter);
-    public static Unity.Collections.NativeArray&lt;System.Int64&gt; GetStatisticDataArrayLong(Unity.Collections.NativeParallelHashMap&lt;Game.Simulation.CityStatisticsSystem+StatisticsKey, Unity.Entities.Entity&gt; statisticsLookup, Unity.Entities.BufferLookup&lt;Game.City.CityStatistic&gt; stats, Game.City.StatisticType type, System.Int32 parameter);
-    public Unity.Collections.NativeArray&lt;System.Int64&gt; GetStatisticDataArrayLong(Unity.Entities.BufferLookup&lt;Game.City.CityStatistic&gt; stats, Game.City.StatisticType type, System.Int32 parameter);
-    public Unity.Collections.NativeArray&lt;System.Int64&gt; GetStatisticDataArrayLong(Game.City.StatisticType type, System.Int32 parameter);
-    public Unity.Collections.NativeQueue&lt;Game.City.StatisticsEvent&gt; GetStatisticsEventQueue(Unity.Jobs.JobHandle&amp; deps);
-    public static System.Int32 GetStatisticValue(Unity.Collections.NativeParallelHashMap&lt;Game.Simulation.CityStatisticsSystem+StatisticsKey, Unity.Entities.Entity&gt; statisticsLookup, Unity.Entities.BufferLookup&lt;Game.City.CityStatistic&gt; stats, Game.City.StatisticType type, System.Int32 parameter);
-    public System.Int32 GetStatisticValue(Unity.Entities.BufferLookup&lt;Game.City.CityStatistic&gt; stats, Game.City.StatisticType type, System.Int32 parameter);
-    public System.Int32 GetStatisticValue(Game.City.StatisticType type, System.Int32 parameter);
-    private static System.Double GetStatisticValueDouble(Unity.Collections.NativeParallelHashMap&lt;Game.Simulation.CityStatisticsSystem+StatisticsKey, Unity.Entities.Entity&gt; statisticsLookup, Unity.Entities.BufferLookup&lt;Game.City.CityStatistic&gt; stats, Game.City.StatisticType type, System.Int32 parameter);
-    private System.Double GetStatisticValueDouble(Game.City.StatisticType type, System.Int32 parameter);
-    public static System.Int64 GetStatisticValueLong(Unity.Collections.NativeParallelHashMap&lt;Game.Simulation.CityStatisticsSystem+StatisticsKey, Unity.Entities.Entity&gt; statisticsLookup, Unity.Entities.BufferLookup&lt;Game.City.CityStatistic&gt; stats, Game.City.StatisticType type, System.Int32 parameter);
-    public System.Int64 GetStatisticValueLong(Unity.Entities.BufferLookup&lt;Game.City.CityStatistic&gt; stats, Game.City.StatisticType type, System.Int32 parameter);
-    public System.Int64 GetStatisticValueLong(Game.City.StatisticType type, System.Int32 parameter);
-    public virtual System.Int32 GetUpdateInterval(Game.SystemUpdatePhase phase);
-    public virtual System.Int32 GetUpdateOffset(Game.SystemUpdatePhase phase);
-    private System.Void InitializeLookup();
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnCreateForCompiler();
-    protected virtual System.Void OnDestroy();
-    protected virtual System.Void OnGamePreload(Colossal.Serialization.Entities.Purpose purpose, Game.GameMode mode);
-    protected virtual System.Void OnUpdate();
-    public System.Void PostDeserialize(Colossal.Serialization.Entities.Context context);
-    public System.Void Serialize&lt;TWriter&gt;(TWriter writer);
-    public System.Void SetDefaults(Colossal.Serialization.Entities.Context context);
-}
-</code></pre>
+<p><strong>Assembly:</strong><br />
+Assembly-CSharp.dll</p>
+<p><strong>Namespace:</strong><br />
+Game.Simulation</p>
+<p><strong>Type:</strong><br />
+class</p>
+<p><strong>Base:</strong><br />
+GameSystemBase</p>
+<p><strong>Summary:</strong><br />
+Manages city-level statistics (population, money, lodging, education, age groups, etc.) for Cities: Skylines 2. The system collects per-frame/sample statistics via job producers, stores them in DynamicBuffers on statistic entities, provides lookup/utility methods to read current and historical data, and handles serialization/deserialization of pending statistic events and sample metadata. It exposes a safe queue API for other systems/jobs to enqueue statistic events and ensures proper job dependency tracking for writers.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.Simulation.CitySystem m_CitySystem</code>  </li>
+<li>
+<p><code>public readonly struct StatisticsKey : IEquatable&lt;StatisticsKey&gt;</code><br />
+Helper struct used as the key in the statistics lookup map. Combines a <code>StatisticType</code> and an integer <code>parameter</code> to identify unique statistic entities.</p>
+</li>
+<li>
+<p><code>public struct SafeStatisticQueue</code><br />
+Thread-safe wrapper around a NativeQueue<StatisticsEvent>. Provides <code>Enqueue</code> that only enqueues when statistics are enabled. Returned via <code>GetSafeStatisticsQueue</code>.</p>
+</li>
+<li>
+<p><code>private const int kUpdatesPerDay = 32</code><br />
+Number of statistic updates that make up a day (used by ResetEntityJob and sampling logic).</p>
+</li>
+<li>
+<p><code>private CitySystem m_CitySystem</code><br />
+Reference to the CitySystem used for city-level data (money, city entity, etc).</p>
+</li>
+<li>
+<p><code>private EndFrameBarrier m_EndFrameBarrier</code><br />
+End-of-frame barrier used for scheduling producer jobs that write to Unity containers.</p>
+</li>
+<li>
+<p><code>private SimulationSystem m_SimulationSystem</code><br />
+Reference to the simulation system (used for retrieving frameIndex for sample timestamps).</p>
+</li>
+<li>
+<p><code>private CountHouseholdDataSystem m_CountHouseholdDataSystem</code><br />
+Reference to the household counting system which provides household/population counts used by the CityStatisticsJob.</p>
+</li>
+<li>
+<p><code>private TriggerSystem m_TriggerSystem</code><br />
+Trigger system used to register job writers for triggers.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_StatisticsPrefabQuery</code><br />
+Query for statistic prefabs (StatisticsData).</p>
+</li>
+<li>
+<p><code>private EntityQuery m_StatisticsQuery</code><br />
+Query for statistic entities (CityStatistic buffer instances).</p>
+</li>
+<li>
+<p><code>private EntityQuery m_CityQuery</code><br />
+Query used to require city data for this system to update.</p>
+</li>
+<li>
+<p><code>private NativeParallelHashMap&lt;StatisticsKey, Entity&gt; m_StatisticsLookup</code><br />
+Lookup mapping StatisticsKey → statistic entity. Populated/initialized by InitializeLookup and used to find the entity/buffer for a given statistic.</p>
+</li>
+<li>
+<p><code>private NativeQueue&lt;StatisticsEvent&gt; m_StatisticsEventQueue</code><br />
+Queue of pending statistic events produced by jobs/systems. Processed during OnUpdate by ProcessStatisticsJob.</p>
+</li>
+<li>
+<p><code>private JobHandle m_Writers</code><br />
+Combined JobHandle that tracks all writer dependencies that have produced to the statistics queue. Used to ensure completion before reading/serialization.</p>
+</li>
+<li>
+<p><code>private bool m_Initialized</code><br />
+Flag indicating whether InitializeLookup has been run.</p>
+</li>
+<li>
+<p><code>private int m_SampleCount = 1</code><br />
+Number of samples collected (used for historical arrays and sampling). Serialized/deserialized.</p>
+</li>
+<li>
+<p><code>private uint m_LastSampleFrameIndex</code><br />
+Frame index of the last sample. Serialized/deserialized.</p>
+</li>
+<li>
+<p><code>private TypeHandle __TypeHandle</code><br />
+Generated container for ComponentLookup/BufferLookup handles used by jobs.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.Simulation.CitySystem m_CitySystem;
-</code></pre>
-<ul>
-<li><code>private Game.EndFrameBarrier m_EndFrameBarrier</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.EndFrameBarrier m_EndFrameBarrier;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.SimulationSystem m_SimulationSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.SimulationSystem m_SimulationSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.CountHouseholdDataSystem m_CountHouseholdDataSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.CountHouseholdDataSystem m_CountHouseholdDataSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Triggers.TriggerSystem m_TriggerSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Triggers.TriggerSystem m_TriggerSystem;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_StatisticsPrefabQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_StatisticsPrefabQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_StatisticsQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_StatisticsQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_CityQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_CityQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeParallelHashMap&lt;Game.Simulation.CityStatisticsSystem+StatisticsKey, Unity.Entities.Entity&gt; m_StatisticsLookup</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeParallelHashMap&lt;Game.Simulation.CityStatisticsSystem+StatisticsKey, Unity.Entities.Entity&gt; m_StatisticsLookup;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeQueue&lt;Game.City.StatisticsEvent&gt; m_StatisticsEventQueue</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeQueue&lt;Game.City.StatisticsEvent&gt; m_StatisticsEventQueue;
-</code></pre>
-<ul>
-<li><code>private Unity.Jobs.JobHandle m_Writers</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Jobs.JobHandle m_Writers;
-</code></pre>
-<ul>
-<li><code>private System.Boolean m_Initialized</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean m_Initialized;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_SampleCount</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_SampleCount;
-</code></pre>
-<ul>
-<li><code>private System.UInt32 m_LastSampleFrameIndex</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.UInt32 m_LastSampleFrameIndex;
-</code></pre>
-<ul>
-<li><code>private System.Action &lt;eventStatisticsUpdated&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Action &lt;eventStatisticsUpdated&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.CityStatisticsSystem+TypeHandle __TypeHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.CityStatisticsSystem+TypeHandle __TypeHandle;
-</code></pre>
-<ul>
-<li><code>public static const System.Int32 kUpdatesPerDay</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static const System.Int32 kUpdatesPerDay;
-</code></pre>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>public System.Int32 sampleCount { get }</code>  </li>
+<li>
+<p><code>public int sampleCount =&gt; m_SampleCount</code><br />
+Current number of samples recorded. Incremented each OnUpdate when system runs.</p>
+</li>
+<li>
+<p><code>public Action eventStatisticsUpdated { get; set; }</code><br />
+Event invoked at the end of OnUpdate when statistics are processed. Useful for UI or other systems that need to refresh after stats update.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public System.Int32 sampleCount { get; }
-</code></pre>
-<ul>
-<li><code>public System.Action eventStatisticsUpdated { get; set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Action eventStatisticsUpdated { get; set; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public CityStatisticsSystem()</code>  </li>
+<li><code>public CityStatisticsSystem()</code><br />
+Default constructor (empty). Initialization occurs in <code>OnCreate</code>.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public CityStatisticsSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private __AssignQueries(Unity.Entities.SystemState&amp; state) : System.Void</code>  </li>
+<li>
+<p><code>public override int GetUpdateInterval(SystemUpdatePhase phase)</code><br />
+Returns the system update interval. This implementation returns 8192 (used for sample frame calculations).</p>
+</li>
+<li>
+<p><code>public override int GetUpdateOffset(SystemUpdatePhase phase)</code><br />
+Returns the update offset (0 here).</p>
+</li>
+<li>
+<p><code>public NativeParallelHashMap&lt;StatisticsKey, Entity&gt; GetLookup()</code><br />
+Returns the internal statistics lookup map. Useful for other systems that want direct access to the map.</p>
+</li>
+<li>
+<p><code>protected override void OnCreate()</code><br />
+Initializes references to other systems, sets up entity queries and allocates the statistics lookup and event queue. Disables the system by default until game-mode enables it.</p>
+</li>
+<li>
+<p><code>protected override void OnGamePreload(Purpose purpose, GameMode mode)</code><br />
+Enables or disables the system based on GameMode (only enabled for game).</p>
+</li>
+<li>
+<p><code>protected override void OnDestroy()</code><br />
+Disposes native containers (lookup, queue) and cleans up.</p>
+</li>
+<li>
+<p><code>protected override void OnUpdate()</code><br />
+Main update loop:</p>
+</li>
+<li>Ensures lookup is initialized.</li>
+<li>Schedules CityStatisticsJob (producer) to enqueue current metrics.</li>
+<li>Schedules ProcessStatisticsJob to apply queued events to CityStatistic buffers.</li>
+<li>Schedules ResetEntityJob to advance/roll buffers according to collection type (Cumulative/Point/Daily).</li>
+<li>Adds writer dependencies to TriggerSystem and EndFrameBarrier.</li>
+<li>
+<p>Increments sample count, updates last sample frame index, and invokes eventStatisticsUpdated.</p>
+</li>
+<li>
+<p><code>public static int GetStatisticValue(NativeParallelHashMap&lt;StatisticsKey, Entity&gt; statisticsLookup, BufferLookup&lt;CityStatistic&gt; stats, StatisticType type, int parameter = 0)</code><br />
+Helper to read a statistic's current total as int (clamped to int range) using a provided lookup &amp; BufferLookup.</p>
+</li>
+<li>
+<p><code>public static long GetStatisticValueLong(...)</code><br />
+Same as above but returns long (clamped).</p>
+</li>
+<li>
+<p><code>private static double GetStatisticValueDouble(...)</code><br />
+Returns the statistic total as a rounded double (internal). Returns 0 if missing.</p>
+</li>
+<li>
+<p><code>public int GetStatisticValue(BufferLookup&lt;CityStatistic&gt; stats, StatisticType type, int parameter = 0)</code><br />
+Instance wrapper that calls static helper using this system's lookup.</p>
+</li>
+<li>
+<p><code>public long GetStatisticValueLong(BufferLookup&lt;CityStatistic&gt; stats, StatisticType type, int parameter = 0)</code><br />
+Instance wrapper for long.</p>
+</li>
+<li>
+<p><code>private double GetStatisticValueDouble(StatisticType type, int parameter = 0)</code><br />
+Instance method that completes writers and reads the current total value from the entity manager buffers.</p>
+</li>
+<li>
+<p><code>public int GetStatisticValue(StatisticType type, int parameter = 0)</code><br />
+Instance convenience method to get int value (clamped).</p>
+</li>
+<li>
+<p><code>public long GetStatisticValueLong(StatisticType type, int parameter = 0)</code><br />
+Instance convenience to get long value.</p>
+</li>
+<li>
+<p><code>public static NativeArray&lt;long&gt; GetStatisticDataArrayLong(NativeParallelHashMap&lt;StatisticsKey, Entity&gt; statisticsLookup, BufferLookup&lt;CityStatistic&gt; stats, StatisticType type, int parameter = 0)</code><br />
+Returns a NativeArray<long> containing the historical totals of the statistic (rounded and clamped). If not found returns a single-element array.</p>
+</li>
+<li>
+<p><code>public static NativeArray&lt;int&gt; GetStatisticDataArray(...)</code><br />
+Same as above but int array (clamped to int range).</p>
+</li>
+<li>
+<p><code>public NativeArray&lt;long&gt; GetStatisticDataArrayLong(BufferLookup&lt;CityStatistic&gt; stats, StatisticType type, int parameter = 0)</code><br />
+Instance wrapper.</p>
+</li>
+<li>
+<p><code>public NativeArray&lt;int&gt; GetStatisticDataArray(BufferLookup&lt;CityStatistic&gt; stats, StatisticType type, int parameter = 0)</code><br />
+Instance wrapper.</p>
+</li>
+<li>
+<p><code>public NativeArray&lt;long&gt; GetStatisticDataArrayLong(StatisticType type, int parameter = 0)</code><br />
+Reads historical data via EntityManager (instance).</p>
+</li>
+<li>
+<p><code>public NativeArray&lt;int&gt; GetStatisticDataArray(StatisticType type, int parameter = 0)</code><br />
+Reads historical data as ints via EntityManager.</p>
+</li>
+<li>
+<p><code>public NativeArray&lt;CityStatistic&gt; GetStatisticArray(StatisticType type, int parameter = 0)</code><br />
+Gets the full DynamicBuffer as a NativeArray<CityStatistic>. Completes writers before reading.</p>
+</li>
+<li>
+<p><code>public uint GetSampleFrameIndex(int index)</code><br />
+Returns the frame index corresponding to the sample at <code>index</code> (0 is latest).</p>
+</li>
+<li>
+<p><code>private void InitializeLookup()</code><br />
+Builds m_StatisticsLookup by:</p>
+</li>
+<li>Reading all StatisticsData prefabs and their StatisticParameterData buffers to determine keys,</li>
+<li>Searching existing statistic entities to see if any match existing prefab parameters; if not, creates instances of statistic prefabs via StatisticsPrefab.CreateInstance,</li>
+<li>
+<p>Clears the map of missing entries and sets m_Initialized = true.
+This method also resets the event queue if prefab/parameter mismatch occurs (legacy save handling).</p>
+</li>
+<li>
+<p><code>public void CompleteWriters()</code><br />
+Completes any outstanding writer JobHandles.</p>
+</li>
+<li>
+<p><code>public NativeQueue&lt;StatisticsEvent&gt; GetStatisticsEventQueue(out JobHandle deps)</code><br />
+Returns the raw NativeQueue for producers and outputs the current writer dependencies. Asserts that the system is enabled.</p>
+</li>
+<li>
+<p><code>public SafeStatisticQueue GetSafeStatisticsQueue(out JobHandle deps)</code><br />
+Returns a SafeStatisticQueue wrapper that will only enqueue if the system is enabled. Also returns writer dependencies to be combined by producers.</p>
+</li>
+<li>
+<p><code>public void AddWriter(JobHandle writer)</code><br />
+Combine the provided writer JobHandle into the internal m_Writers dependency (call after scheduling a producing job).</p>
+</li>
+<li>
+<p><code>public void DiscardStatistics()</code><br />
+Completes writers and clears the event queue (useful when resetting city or discarding partial data).</p>
+</li>
+<li>
+<p><code>public void Serialize&lt;TWriter&gt;(TWriter writer) where TWriter : IWriter</code><br />
+Serializes sample count, last sample frame index and pending statistics events (writes event count then each StatisticsEvent). Completes writers before serialization.</p>
+</li>
+<li>
+<p><code>public void Deserialize&lt;TReader&gt;(TReader reader) where TReader : IReader</code><br />
+Deserializes sampleCount, last sample frame index and pending events (handles multiple legacy save versions). Clears and repopulates event queue accordingly.</p>
+</li>
+<li>
+<p><code>public void SetDefaults(Context context)</code><br />
+Reset defaults for serialization: sets sampleCount to 0 and clears event queue.</p>
+</li>
+<li>
+<p><code>public void PostDeserialize(Context context)</code><br />
+Called after deserialization: clears and reinitializes the lookup (calls InitializeLookup).</p>
+</li>
+<li>
+<p><code>protected override void OnCreateForCompiler()</code><br />
+Generated method used by the ECS compiler to assign queries/handles.</p>
+</li>
+<li>
+<p>Additional internal methods / generated helpers:</p>
+</li>
+<li><code>private void __AssignQueries(ref SystemState state)</code> (compiler helper)</li>
+<li><code>private struct TypeHandle.__AssignHandles(ref SystemState state)</code> (assigns ComponentLookup/BufferLookup used in jobs)</li>
 </ul>
-<pre><code class="language-csharp">private void __AssignQueries(ref SystemState state)
-    {
-        new EntityQueryBuilder(Allocator.Temp).Dispose();
-    }
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Example: Get system and enqueue a statistic event from a Job or system.
+// 1) Get the system
+var statsSystem = World.GetOrCreateSystemManaged&lt;Game.Simulation.CityStatisticsSystem&gt;();
+
+// 2) When scheduling a job that will produce statistics:
+//    get a SafeStatisticQueue and the writer dependencies from the system.
+JobHandle writerDeps;
+var safeQueue = statsSystem.GetSafeStatisticsQueue(out writerDeps);
+
+// In your producer job or job setup you can enqueue events via safeQueue.Enqueue(...)
+// After scheduling your producer job, make sure to add its handle:
+JobHandle myProducerHandle = /* the JobHandle returned when scheduling your producer */;
+statsSystem.AddWriter(myProducerHandle);
+
+// If you need to read a statistic on the main thread:
+int population = statsSystem.GetStatisticValue(StatisticType.Population);
+long money = statsSystem.GetStatisticValueLong(StatisticType.Money);
+
+// To get the historical array of a statistic:
+var history = statsSystem.GetStatisticDataArray(StatisticType.Population);
 </code></pre>
-<ul>
-<li><code>public AddWriter(Unity.Jobs.JobHandle writer) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void AddWriter(JobHandle writer)
-    {
-        m_Writers = JobHandle.CombineDependencies(m_Writers, writer);
-    }
-</code></pre>
-<ul>
-<li><code>public CompleteWriters() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void CompleteWriters()
-    {
-        m_Writers.Complete();
-    }
-</code></pre>
-<ul>
-<li><code>public Deserialize&lt;TReader&gt;(TReader reader) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Void Deserialize&lt;TReader&gt;(TReader reader);
-</code></pre>
-<ul>
-<li><code>public DiscardStatistics() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void DiscardStatistics()
-    {
-        m_Writers.Complete();
-        m_StatisticsEventQueue.Clear();
-    }
-</code></pre>
-<ul>
-<li><code>public GetLookup() : Unity.Collections.NativeParallelHashMap&lt;Game.Simulation.CityStatisticsSystem+StatisticsKey, Unity.Entities.Entity&gt;</code>  </li>
-</ul>
-<pre><code class="language-csharp">public NativeParallelHashMap&lt;StatisticsKey, Entity&gt; GetLookup()
-    {
-        return m_StatisticsLookup;
-    }
-</code></pre>
-<ul>
-<li><code>public GetSafeStatisticsQueue(Unity.Jobs.JobHandle&amp; deps) : Game.Simulation.CityStatisticsSystem+SafeStatisticQueue</code>  </li>
-</ul>
-<pre><code class="language-csharp">public SafeStatisticQueue GetSafeStatisticsQueue(out JobHandle deps)
-    {
-        deps = m_Writers;
-        return new SafeStatisticQueue(m_StatisticsEventQueue, base.Enabled);
-    }
-</code></pre>
-<ul>
-<li><code>public GetSampleFrameIndex(System.Int32 index) : System.UInt32</code>  </li>
-</ul>
-<pre><code class="language-csharp">public uint GetSampleFrameIndex(int index)
-    {
-        int num = (sampleCount - index - 1) * 8192;
-        return m_LastSampleFrameIndex - (uint)num;
-    }
-</code></pre>
-<ul>
-<li><code>public GetStatisticArray(Game.City.StatisticType type, System.Int32 parameter = 0) : Unity.Collections.NativeArray&lt;Game.City.CityStatistic&gt;</code>  </li>
-</ul>
-<pre><code class="language-csharp">public NativeArray&lt;CityStatistic&gt; GetStatisticArray(StatisticType type, int parameter = 0)
-    {
-        StatisticsKey key = new StatisticsKey(type, parameter);
-        m_Writers.Complete();
-        if (m_StatisticsLookup.ContainsKey(key))
-        {
-            Entity entity = m_StatisticsLookup[key];
-            if (base.EntityManager.TryGetBuffer(entity, isReadOnly: true, out DynamicBuffer&lt;CityStatistic&gt; buffer))
-            {
-                return buffer.AsNativeArray();
-            }
-        }
-        return new NativeArray&lt;CityStatistic&gt;(1, Allocator.Temp);
-    }
-</code></pre>
-<ul>
-<li><code>public static GetStatisticDataArray(Unity.Collections.NativeParallelHashMap&lt;Game.Simulation.CityStatisticsSystem+StatisticsKey, Unity.Entities.Entity&gt; statisticsLookup, Unity.Entities.BufferLookup&lt;Game.City.CityStatistic&gt; stats, Game.City.StatisticType type, System.Int32 parameter = 0) : Unity.Collections.NativeArray&lt;System.Int32&gt;</code>  </li>
-</ul>
-<pre><code class="language-csharp">public NativeArray&lt;int&gt; GetStatisticDataArray(StatisticType type, int parameter = 0)
-    {
-        StatisticsKey key = new StatisticsKey(type, parameter);
-        if (m_StatisticsLookup.ContainsKey(key))
-        {
-            Entity entity = m_StatisticsLookup[key];
-            if (base.EntityManager.TryGetBuffer(entity, isReadOnly: true, out DynamicBuffer&lt;CityStatistic&gt; buffer))
-            {
-                NativeArray&lt;int&gt; result = new NativeArray&lt;int&gt;(buffer.Length, Allocator.Temp);
-                for (int i = 0; i &lt; buffer.Length; i++)
-                {
-                    double num = Math.Round(buffer[i].m_TotalValue, MidpointRounding.AwayFromZero);
-                    result[i] = ((num &gt; 2147483647.0) ? int.MaxValue : ((num &lt; -2147483648.0) ? int.MinValue : ((int)num)));
-                }
-                return result;
-            }
-        }
-        return new NativeArray&lt;int&gt;(1, Allocator.Temp);
-    }
-</code></pre>
-<ul>
-<li><code>public GetStatisticDataArray(Unity.Entities.BufferLookup&lt;Game.City.CityStatistic&gt; stats, Game.City.StatisticType type, System.Int32 parameter = 0) : Unity.Collections.NativeArray&lt;System.Int32&gt;</code>  </li>
-</ul>
-<pre><code class="language-csharp">public NativeArray&lt;int&gt; GetStatisticDataArray(StatisticType type, int parameter = 0)
-    {
-        StatisticsKey key = new StatisticsKey(type, parameter);
-        if (m_StatisticsLookup.ContainsKey(key))
-        {
-            Entity entity = m_StatisticsLookup[key];
-            if (base.EntityManager.TryGetBuffer(entity, isReadOnly: true, out DynamicBuffer&lt;CityStatistic&gt; buffer))
-            {
-                NativeArray&lt;int&gt; result = new NativeArray&lt;int&gt;(buffer.Length, Allocator.Temp);
-                for (int i = 0; i &lt; buffer.Length; i++)
-                {
-                    double num = Math.Round(buffer[i].m_TotalValue, MidpointRounding.AwayFromZero);
-                    result[i] = ((num &gt; 2147483647.0) ? int.MaxValue : ((num &lt; -2147483648.0) ? int.MinValue : ((int)num)));
-                }
-                return result;
-            }
-        }
-        return new NativeArray&lt;int&gt;(1, Allocator.Temp);
-    }
-</code></pre>
-<ul>
-<li><code>public GetStatisticDataArray(Game.City.StatisticType type, System.Int32 parameter = 0) : Unity.Collections.NativeArray&lt;System.Int32&gt;</code>  </li>
-</ul>
-<pre><code class="language-csharp">public NativeArray&lt;int&gt; GetStatisticDataArray(StatisticType type, int parameter = 0)
-    {
-        StatisticsKey key = new StatisticsKey(type, parameter);
-        if (m_StatisticsLookup.ContainsKey(key))
-        {
-            Entity entity = m_StatisticsLookup[key];
-            if (base.EntityManager.TryGetBuffer(entity, isReadOnly: true, out DynamicBuffer&lt;CityStatistic&gt; buffer))
-            {
-                NativeArray&lt;int&gt; result = new NativeArray&lt;int&gt;(buffer.Length, Allocator.Temp);
-                for (int i = 0; i &lt; buffer.Length; i++)
-                {
-                    double num = Math.Round(buffer[i].m_TotalValue, MidpointRounding.AwayFromZero);
-                    result[i] = ((num &gt; 2147483647.0) ? int.MaxValue : ((num &lt; -2147483648.0) ? int.MinValue : ((int)num)));
-                }
-                return result;
-            }
-        }
-        return new NativeArray&lt;int&gt;(1, Allocator.Temp);
-    }
-</code></pre>
-<ul>
-<li><code>public static GetStatisticDataArrayLong(Unity.Collections.NativeParallelHashMap&lt;Game.Simulation.CityStatisticsSystem+StatisticsKey, Unity.Entities.Entity&gt; statisticsLookup, Unity.Entities.BufferLookup&lt;Game.City.CityStatistic&gt; stats, Game.City.StatisticType type, System.Int32 parameter = 0) : Unity.Collections.NativeArray&lt;System.Int64&gt;</code>  </li>
-</ul>
-<pre><code class="language-csharp">public NativeArray&lt;long&gt; GetStatisticDataArrayLong(StatisticType type, int parameter = 0)
-    {
-        StatisticsKey key = new StatisticsKey(type, parameter);
-        if (m_StatisticsLookup.ContainsKey(key))
-        {
-            Entity entity = m_StatisticsLookup[key];
-            if (base.EntityManager.TryGetBuffer(entity, isReadOnly: true, out DynamicBuffer&lt;CityStatistic&gt; buffer))
-            {
-                NativeArray&lt;long&gt; result = new NativeArray&lt;long&gt;(buffer.Length, Allocator.Temp);
-                for (int i = 0; i &lt; buffer.Length; i++)
-                {
-                    double num = Math.Round(buffer[i].m_TotalValue, MidpointRounding.AwayFromZero);
-                    result[i] = ((num &gt; 9.223372036854776E+18) ? long.MaxValue : ((num &lt; -9.223372036854776E+18) ? long.MinValue : ((long)num)));
-                }
-                return result;
-            }
-        }
-        return new NativeArray&lt;long&gt;(1, Allocator.Temp);
-    }
-</code></pre>
-<ul>
-<li><code>public GetStatisticDataArrayLong(Unity.Entities.BufferLookup&lt;Game.City.CityStatistic&gt; stats, Game.City.StatisticType type, System.Int32 parameter = 0) : Unity.Collections.NativeArray&lt;System.Int64&gt;</code>  </li>
-</ul>
-<pre><code class="language-csharp">public NativeArray&lt;long&gt; GetStatisticDataArrayLong(StatisticType type, int parameter = 0)
-    {
-        StatisticsKey key = new StatisticsKey(type, parameter);
-        if (m_StatisticsLookup.ContainsKey(key))
-        {
-            Entity entity = m_StatisticsLookup[key];
-            if (base.EntityManager.TryGetBuffer(entity, isReadOnly: true, out DynamicBuffer&lt;CityStatistic&gt; buffer))
-            {
-                NativeArray&lt;long&gt; result = new NativeArray&lt;long&gt;(buffer.Length, Allocator.Temp);
-                for (int i = 0; i &lt; buffer.Length; i++)
-                {
-                    double num = Math.Round(buffer[i].m_TotalValue, MidpointRounding.AwayFromZero);
-                    result[i] = ((num &gt; 9.223372036854776E+18) ? long.MaxValue : ((num &lt; -9.223372036854776E+18) ? long.MinValue : ((long)num)));
-                }
-                return result;
-            }
-        }
-        return new NativeArray&lt;long&gt;(1, Allocator.Temp);
-    }
-</code></pre>
-<ul>
-<li><code>public GetStatisticDataArrayLong(Game.City.StatisticType type, System.Int32 parameter = 0) : Unity.Collections.NativeArray&lt;System.Int64&gt;</code>  </li>
-</ul>
-<pre><code class="language-csharp">public NativeArray&lt;long&gt; GetStatisticDataArrayLong(StatisticType type, int parameter = 0)
-    {
-        StatisticsKey key = new StatisticsKey(type, parameter);
-        if (m_StatisticsLookup.ContainsKey(key))
-        {
-            Entity entity = m_StatisticsLookup[key];
-            if (base.EntityManager.TryGetBuffer(entity, isReadOnly: true, out DynamicBuffer&lt;CityStatistic&gt; buffer))
-            {
-                NativeArray&lt;long&gt; result = new NativeArray&lt;long&gt;(buffer.Length, Allocator.Temp);
-                for (int i = 0; i &lt; buffer.Length; i++)
-                {
-                    double num = Math.Round(buffer[i].m_TotalValue, MidpointRounding.AwayFromZero);
-                    result[i] = ((num &gt; 9.223372036854776E+18) ? long.MaxValue : ((num &lt; -9.223372036854776E+18) ? long.MinValue : ((long)num)));
-                }
-                return result;
-            }
-        }
-        return new NativeArray&lt;long&gt;(1, Allocator.Temp);
-    }
-</code></pre>
-<ul>
-<li><code>public GetStatisticsEventQueue(Unity.Jobs.JobHandle&amp; deps) : Unity.Collections.NativeQueue&lt;Game.City.StatisticsEvent&gt;</code>  </li>
-</ul>
-<pre><code class="language-csharp">public NativeQueue&lt;StatisticsEvent&gt; GetStatisticsEventQueue(out JobHandle deps)
-    {
-        Assert.IsTrue(base.Enabled, &quot;Can not write to queue when system isn't running&quot;);
-        deps = m_Writers;
-        return m_StatisticsEventQueue;
-    }
-</code></pre>
-<ul>
-<li><code>public static GetStatisticValue(Unity.Collections.NativeParallelHashMap&lt;Game.Simulation.CityStatisticsSystem+StatisticsKey, Unity.Entities.Entity&gt; statisticsLookup, Unity.Entities.BufferLookup&lt;Game.City.CityStatistic&gt; stats, Game.City.StatisticType type, System.Int32 parameter = 0) : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">public int GetStatisticValue(StatisticType type, int parameter = 0)
-    {
-        long statisticValueLong = GetStatisticValueLong(type, parameter);
-        if (statisticValueLong &lt;= int.MaxValue)
-        {
-            if (statisticValueLong &gt;= int.MinValue)
-            {
-                return (int)statisticValueLong;
-            }
-            return int.MinValue;
-        }
-        return int.MaxValue;
-    }
-</code></pre>
-<ul>
-<li><code>public GetStatisticValue(Unity.Entities.BufferLookup&lt;Game.City.CityStatistic&gt; stats, Game.City.StatisticType type, System.Int32 parameter = 0) : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">public int GetStatisticValue(StatisticType type, int parameter = 0)
-    {
-        long statisticValueLong = GetStatisticValueLong(type, parameter);
-        if (statisticValueLong &lt;= int.MaxValue)
-        {
-            if (statisticValueLong &gt;= int.MinValue)
-            {
-                return (int)statisticValueLong;
-            }
-            return int.MinValue;
-        }
-        return int.MaxValue;
-    }
-</code></pre>
-<ul>
-<li><code>public GetStatisticValue(Game.City.StatisticType type, System.Int32 parameter = 0) : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">public int GetStatisticValue(StatisticType type, int parameter = 0)
-    {
-        long statisticValueLong = GetStatisticValueLong(type, parameter);
-        if (statisticValueLong &lt;= int.MaxValue)
-        {
-            if (statisticValueLong &gt;= int.MinValue)
-            {
-                return (int)statisticValueLong;
-            }
-            return int.MinValue;
-        }
-        return int.MaxValue;
-    }
-</code></pre>
-<ul>
-<li><code>private static GetStatisticValueDouble(Unity.Collections.NativeParallelHashMap&lt;Game.Simulation.CityStatisticsSystem+StatisticsKey, Unity.Entities.Entity&gt; statisticsLookup, Unity.Entities.BufferLookup&lt;Game.City.CityStatistic&gt; stats, Game.City.StatisticType type, System.Int32 parameter = 0) : System.Double</code>  </li>
-</ul>
-<pre><code class="language-csharp">private double GetStatisticValueDouble(StatisticType type, int parameter = 0)
-    {
-        StatisticsKey key = new StatisticsKey(type, parameter);
-        m_Writers.Complete();
-        if (m_StatisticsLookup.ContainsKey(key))
-        {
-            Entity entity = m_StatisticsLookup[key];
-            if (base.EntityManager.TryGetBuffer(entity, isReadOnly: true, out DynamicBuffer&lt;CityStatistic&gt; buffer) &amp;&amp; buffer.Length &gt; 0)
-            {
-                return Math.Round(buffer[buffer.Length - 1].m_TotalValue, MidpointRounding.AwayFromZero);
-            }
-        }
-        return 0.0;
-    }
-</code></pre>
-<ul>
-<li><code>private GetStatisticValueDouble(Game.City.StatisticType type, System.Int32 parameter = 0) : System.Double</code>  </li>
-</ul>
-<pre><code class="language-csharp">private double GetStatisticValueDouble(StatisticType type, int parameter = 0)
-    {
-        StatisticsKey key = new StatisticsKey(type, parameter);
-        m_Writers.Complete();
-        if (m_StatisticsLookup.ContainsKey(key))
-        {
-            Entity entity = m_StatisticsLookup[key];
-            if (base.EntityManager.TryGetBuffer(entity, isReadOnly: true, out DynamicBuffer&lt;CityStatistic&gt; buffer) &amp;&amp; buffer.Length &gt; 0)
-            {
-                return Math.Round(buffer[buffer.Length - 1].m_TotalValue, MidpointRounding.AwayFromZero);
-            }
-        }
-        return 0.0;
-    }
-</code></pre>
-<ul>
-<li><code>public static GetStatisticValueLong(Unity.Collections.NativeParallelHashMap&lt;Game.Simulation.CityStatisticsSystem+StatisticsKey, Unity.Entities.Entity&gt; statisticsLookup, Unity.Entities.BufferLookup&lt;Game.City.CityStatistic&gt; stats, Game.City.StatisticType type, System.Int32 parameter = 0) : System.Int64</code>  </li>
-</ul>
-<pre><code class="language-csharp">public long GetStatisticValueLong(StatisticType type, int parameter = 0)
-    {
-        double statisticValueDouble = GetStatisticValueDouble(type, parameter);
-        if (!(statisticValueDouble &gt; 9.223372036854776E+18))
-        {
-            if (!(statisticValueDouble &lt; -9.223372036854776E+18))
-            {
-                return (long)statisticValueDouble;
-            }
-            return long.MinValue;
-        }
-        return long.MaxValue;
-    }
-</code></pre>
-<ul>
-<li><code>public GetStatisticValueLong(Unity.Entities.BufferLookup&lt;Game.City.CityStatistic&gt; stats, Game.City.StatisticType type, System.Int32 parameter = 0) : System.Int64</code>  </li>
-</ul>
-<pre><code class="language-csharp">public long GetStatisticValueLong(StatisticType type, int parameter = 0)
-    {
-        double statisticValueDouble = GetStatisticValueDouble(type, parameter);
-        if (!(statisticValueDouble &gt; 9.223372036854776E+18))
-        {
-            if (!(statisticValueDouble &lt; -9.223372036854776E+18))
-            {
-                return (long)statisticValueDouble;
-            }
-            return long.MinValue;
-        }
-        return long.MaxValue;
-    }
-</code></pre>
-<ul>
-<li><code>public GetStatisticValueLong(Game.City.StatisticType type, System.Int32 parameter = 0) : System.Int64</code>  </li>
-</ul>
-<pre><code class="language-csharp">public long GetStatisticValueLong(StatisticType type, int parameter = 0)
-    {
-        double statisticValueDouble = GetStatisticValueDouble(type, parameter);
-        if (!(statisticValueDouble &gt; 9.223372036854776E+18))
-        {
-            if (!(statisticValueDouble &lt; -9.223372036854776E+18))
-            {
-                return (long)statisticValueDouble;
-            }
-            return long.MinValue;
-        }
-        return long.MaxValue;
-    }
-</code></pre>
-<ul>
-<li><code>public virtual GetUpdateInterval(Game.SystemUpdatePhase phase) : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override int GetUpdateInterval(SystemUpdatePhase phase)
-    {
-        return 8192;
-    }
-</code></pre>
-<ul>
-<li><code>public virtual GetUpdateOffset(Game.SystemUpdatePhase phase) : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override int GetUpdateOffset(SystemUpdatePhase phase)
-    {
-        return 0;
-    }
-</code></pre>
-<ul>
-<li><code>private InitializeLookup() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void InitializeLookup()
-    {
-        m_StatisticsLookup.Clear();
-        NativeArray&lt;Entity&gt; nativeArray = m_StatisticsPrefabQuery.ToEntityArray(Allocator.TempJob);
-        NativeArray&lt;StatisticsData&gt; nativeArray2 = m_StatisticsPrefabQuery.ToComponentDataArray&lt;StatisticsData&gt;(Allocator.TempJob);
-        for (int i = 0; i &lt; nativeArray.Length; i++)
-        {
-            StatisticType statisticType = nativeArray2[i].m_StatisticType;
-            if (base.EntityManager.TryGetBuffer(nativeArray[i], isReadOnly: true, out DynamicBuffer&lt;StatisticParameterData&gt; buffer))
-            {
-                for (int j = 0; j &lt; buffer.Length; j++)
-                {
-                    m_StatisticsLookup.Add(new StatisticsKey(statisticType, buffer[j].m_Value), Entity.Null);
-                }
-            }
-            else
-            {
-                m_StatisticsLookup.Add(new StatisticsKey(statisticType, 0), Entity.Null);
-            }
-        }
-        NativeArray&lt;Entity&gt; nativeArray3 = m_StatisticsQuery.ToEntityArray(Allocator.TempJob);
-        bool flag = true;
-        for (int k = 0; k &lt; nativeArray3.Length; k++)
-        {
-            if (!base.EntityManager.TryGetComponent&lt;PrefabRef&gt;(nativeArray3[k], out var component))
-            {
-                continue;
-            }
-            int num = 0;
-            if (base.EntityManager.TryGetComponent&lt;StatisticParameter&gt;(nativeArray3[k], out var component2))
-            {
-                num = component2.m_Value;
-            }
-            if (!base.EntityManager.TryGetBuffer(component.m_Prefab, isReadOnly: true, out DynamicBuffer&lt;StatisticParameterData&gt; buffer2))
-            {
-                continue;
-            }
-            flag = false;
-            for (int l = 0; l &lt; buffer2.Length; l++)
-            {
-                if (num == buffer2[l].m_Value)
-                {
-                    flag = true;
-                    break;
-                }
-            }
-            if (!flag)
-            {
-                break;
-            }
-        }
-        if (flag)
-        {
-            for (int m = 0; m &lt; nativeArray3.Length; m++)
-            {
-                if (base.EntityManager.TryGetComponent&lt;PrefabRef&gt;(nativeArray3[m], out var component3) &amp;&amp; base.EntityManager.TryGetComponent&lt;StatisticsData&gt;(component3.m_Prefab, out var component4))
-                {
-                    int parameter = 0;
-                    if (base.EntityManager.TryGetComponent&lt;StatisticParameter&gt;(nativeArray3[m], out var component5))
-                    {
-                        parameter = component5.m_Value;
-                    }
-                    StatisticsKey key = new StatisticsKey(component4.m_StatisticType, parameter);
-                    if (m_StatisticsLookup.ContainsKey(key))
-                    {
-                        m_StatisticsLookup[key] = nativeArray3[m];
-                    }
-                }
-            }
-        }
-        else
-        {
-            base.EntityManager.DestroyEntity(m_StatisticsQuery);
-            m_SampleCount = 0;
-            m_StatisticsEventQueue.Clear();
-        }
-        nativeArray3.Dispose();
-        NativeKeyValueArrays&lt;StatisticsKey, Entity&gt; keyValueArrays = m_StatisticsLookup.GetKeyValueArrays(Allocator.Temp);
-        for (int n = 0; n &lt; keyValueArrays.Length; n++)
-        {
-            if (!(keyValueArrays.Values[n] == Entity.Null))
-            {
-                continue;
-            }
-            StatisticsKey key2 = keyValueArrays.Keys[n];
-            StatisticType type = key2.type;
-            for (int num2 = 0; num2 &lt; nativeArray.Length; num2++)
-            {
-                Entity entity = nativeArray[num2];
-                DynamicBuffer&lt;StatisticParameterData&gt; buffer3;
-                bool flag2 = base.EntityManager.TryGetBuffer(entity, isReadOnly: true, out buffer3);
-                if (!base.EntityManager.TryGetComponent&lt;StatisticsData&gt;(entity, out var component6) || component6.m_StatisticType != type)
-                {
-                    continue;
-                }
-                if (flag2)
-                {
-                    bool flag3 = false;
-                    for (int num3 = 0; num3 &lt; buffer3.Length; num3++)
-                    {
-                        if (buffer3[num3].m_Value == key2.parameter)
-                        {
-                            flag3 = true;
-                        }
-                    }
-                    if (!flag3)
-                    {
-                        continue;
-                    }
-                }
-                ArchetypeData componentData = base.EntityManager.GetComponentData&lt;ArchetypeData&gt;(entity);
-                m_StatisticsLookup[key2] = StatisticsPrefab.CreateInstance(base.World.EntityManager, entity, componentData, key2.parameter);
-                break;
-            }
-        }
-        m_Initialized = true;
-        nativeArray.Dispose();
-        nativeArray2.Dispose();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_CitySystem = base.World.GetOrCreateSystemManaged&lt;CitySystem&gt;();
-        m_EndFrameBarrier = base.World.GetOrCreateSystemManaged&lt;EndFrameBarrier&gt;();
-        m_SimulationSystem = base.World.GetOrCreateSystemManaged&lt;SimulationSystem&gt;();
-        m_TriggerSystem = base.World.GetOrCreateSystemManaged&lt;TriggerSystem&gt;();
-        m_CountHouseholdDataSystem = base.World.GetOrCreateSystemManaged&lt;CountHouseholdDataSystem&gt;();
-        m_StatisticsPrefabQuery = GetEntityQuery(ComponentType.ReadOnly&lt;StatisticsData&gt;());
-        m_StatisticsQuery = GetEntityQuery(ComponentType.ReadOnly&lt;CityStatistic&gt;());
-        m_CityQuery = GetEntityQuery(ComponentType.ReadOnly&lt;EconomyParameterData&gt;());
-        RequireForUpdate(m_CityQuery);
-        m_StatisticsLookup = new NativeParallelHashMap&lt;StatisticsKey, Entity&gt;(64, Allocator.Persistent);
-        m_StatisticsEventQueue = new NativeQueue&lt;StatisticsEvent&gt;(Allocator.Persistent);
-        base.Enabled = false;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreateForCompiler() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnCreateForCompiler()
-    {
-        base.OnCreateForCompiler();
-        __AssignQueries(ref base.CheckedStateRef);
-        __TypeHandle.__AssignHandles(ref base.CheckedStateRef);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnDestroy() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnDestroy()
-    {
-        m_StatisticsLookup.Dispose();
-        m_StatisticsEventQueue.Dispose();
-        base.OnDestroy();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnGamePreload(Colossal.Serialization.Entities.Purpose purpose, Game.GameMode mode) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnGamePreload(Purpose purpose, GameMode mode)
-    {
-        base.OnGamePreload(purpose, mode);
-        base.Enabled = mode.IsGame();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        if (!m_Initialized)
-        {
-            InitializeLookup();
-        }
-        JobHandle job = IJobExtensions.Schedule(new CityStatisticsJob
-        {
-            m_StatisticsEventQueue = m_StatisticsEventQueue,
-            m_HouseholdData = m_CountHouseholdDataSystem.GetHouseholdCountData(),
-            m_Tourisms = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_City_Tourism_RW_ComponentLookup, ref base.CheckedStateRef),
-            m_City = m_CitySystem.City,
-            m_Money = m_CitySystem.moneyAmount
-        }, JobHandle.CombineDependencies(base.Dependency, m_Writers));
-        JobHandle dependsOn = IJobExtensions.Schedule(new ProcessStatisticsJob
-        {
-            m_Statistics = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_City_CityStatistic_RW_BufferLookup, ref base.CheckedStateRef),
-            m_StatisticsLookup = m_StatisticsLookup,
-            m_Queue = m_StatisticsEventQueue
-        }, JobHandle.CombineDependencies(job, base.Dependency));
-        JobHandle dependency = IJobExtensions.Schedule(new ResetEntityJob
-        {
-            m_Money = m_CitySystem.moneyAmount,
-            m_Prefabs = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabStats = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_StatisticsData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_Statistics = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_City_CityStatistic_RW_BufferLookup, ref base.CheckedStateRef),
-            m_StatisticsLookup = m_StatisticsLookup
-        }, dependsOn);
-        base.Dependency = dependency;
-        m_TriggerSystem.AddActionBufferWriter(base.Dependency);
-        m_EndFrameBarrier.AddJobHandleForProducer(base.Dependency);
-        AddWriter(base.Dependency);
-        m_SampleCount++;
-        m_LastSampleFrameIndex = m_SimulationSystem.frameIndex;
-        eventStatisticsUpdated?.Invoke();
-    }
-</code></pre>
-<ul>
-<li><code>public PostDeserialize(Colossal.Serialization.Entities.Context context) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void PostDeserialize(Context context)
-    {
-        m_StatisticsLookup.Clear();
-        InitializeLookup();
-    }
-</code></pre>
-<ul>
-<li><code>public Serialize&lt;TWriter&gt;(TWriter writer) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Void Serialize&lt;TWriter&gt;(TWriter writer);
-</code></pre>
-<ul>
-<li><code>public SetDefaults(Colossal.Serialization.Entities.Context context) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void SetDefaults(Context context)
-    {
-        m_SampleCount = 0;
-        m_StatisticsEventQueue.Clear();
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Simulation.CityStatisticsSystem+StatisticsKey</code>  </li>
-<li><code>Game.Simulation.CityStatisticsSystem+SafeStatisticQueue</code>  </li>
-<li><code>Game.Simulation.CityStatisticsSystem+CityStatisticsJob</code>  </li>
-<li><code>Game.Simulation.CityStatisticsSystem+ProcessStatisticsJob</code>  </li>
-<li><code>Game.Simulation.CityStatisticsSystem+ResetEntityJob</code>  </li>
-<li><code>Game.Simulation.CityStatisticsSystem+TypeHandle</code>  </li>
-</ul>
+<p>Notes and tips:
+- Producers must call statsSystem.AddWriter(jobHandle) so the system can wait for those writers before reading or serializing.
+- Use <code>GetSafeStatisticsQueue</code> from jobs to safely enqueue without checking system enabled state; combine job handles with <code>AddWriter</code>.
+- Call <code>CompleteWriters()</code> before directly accessing the underlying NativeQueue or before serializing to ensure all producers are finished.
+- <code>InitializeLookup</code> creates statistic entities from statistic prefabs when needed; it runs automatically on first update and after deserialization (via PostDeserialize).</p>
 
 
 

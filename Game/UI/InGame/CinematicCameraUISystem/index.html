@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87056,6 +87148,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -100459,15 +100574,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -100504,9 +100610,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -117932,6 +118038,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117957,15 +118085,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -118004,9 +118123,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118029,772 +118148,274 @@
 
 
 <h1 id="gameuiingamecinematiccamerauisystem">Game.UI.InGame.CinematicCameraUISystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.UI.InGame</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.UI.UISystemBase</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class CinematicCameraUISystem : Game.UI.UISystemBase
-{
-    private Game.Rendering.PhotoModeRenderSystem m_PhotoModeRenderSystem;
-    private Game.Tutorials.TutorialUITriggerSystem m_TutorialUITriggerSystem;
-    private Game.Rendering.CameraUpdateSystem m_CameraUpdateSystem;
-    private Colossal.UI.Binding.GetterValueBinding&lt;Game.Assets.CinematicCameraAsset[]&gt; m_Assets;
-    private Colossal.UI.Binding.ValueBinding&lt;Game.Assets.CinematicCameraAsset&gt; m_LastLoaded;
-    private Colossal.UI.Binding.ValueBinding&lt;Game.CinematicCamera.CinematicCameraSequence+CinematicCameraCurveModifier[]&gt; m_TransformAnimationCurveBinding;
-    private Colossal.UI.Binding.ValueBinding&lt;Game.CinematicCamera.CinematicCameraSequence+CinematicCameraCurveModifier[]&gt; m_ModifierAnimationCurveBinding;
-    private Colossal.UI.Binding.GetterValueBinding&lt;System.Collections.Generic.List&lt;System.String&gt;&gt; m_AvailableCloudTargetsBinding;
-    private Colossal.UI.Binding.GetterValueBinding&lt;System.String&gt; m_SelectedCloudTargetBinding;
-    private Game.CinematicCamera.CinematicCameraSequence &lt;activeSequence&gt;k__BackingField;
-    private Game.CinematicCamera.CinematicCameraSequence m_ActiveAutoplaySequence;
-    private Game.Rendering.IGameCameraController m_PreviousController;
-    private Game.Input.ProxyAction m_MoveAction;
-    private Game.Input.ProxyAction m_ZoomAction;
-    private Game.Input.ProxyAction m_RotateAction;
-    private System.Single &lt;t&gt;k__BackingField;
-    private System.Boolean m_Playing;
-    private static readonly System.String kGroup;
-    private static readonly Game.CinematicCamera.CinematicCameraSequence+CinematicCameraCurveModifier[] kEmptyModifierArray;
-    private static readonly System.String kCaptureKeyframeTutorialTag;
-
-    public Game.CinematicCamera.CinematicCameraSequence activeSequence { get; set; }
-    private System.Single m_TimelinePositionBindingValue { private get; }
-    private System.Single t { private get; private set; }
-    private System.Boolean playing { private get; private set; }
-
-    public CinematicCameraUISystem();
-
-    private System.Void &lt;OnAssetsChanged&gt;b__46_0();
-    private System.Void &lt;OnCloudTargetsChanged&gt;b__47_0();
-    private System.Boolean &lt;OnCreate&gt;b__31_0();
-    private System.Single &lt;OnCreate&gt;b__31_1();
-    private System.Void &lt;OnCreate&gt;b__31_2();
-    private System.Single &lt;OnCreate&gt;b__31_3();
-    private System.Single &lt;OnCreate&gt;b__31_4();
-    private System.Boolean &lt;OnCreate&gt;b__31_5();
-    public System.Void Autoplay(Game.Assets.CinematicCameraAsset sequence);
-    private System.Void Delete(System.String hash, System.String storage);
-    private System.Single[] GetControllerDelta();
-    private System.Single[] GetControllerPanDelta();
-    private System.Single GetControllerZoomDelta();
-    private System.Void GetData(System.String id, Game.CinematicCamera.CinematicCameraSequence+CinematicCameraCurveModifier[]&amp; modifiers, Colossal.UI.Binding.ValueBinding`1[[Game.CinematicCamera.CinematicCameraSequence+CinematicCameraCurveModifier[], Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]&amp; binding);
-    private Game.CinematicCamera.CinematicCameraSequence+CinematicCameraCurveModifier[] GetTransformCurves();
-    private System.Void Load(System.String hash, System.String storage);
-    private System.Int32 OnAddKeyFrame(System.String id, System.Single time, System.Single value, System.Int32 curveIndex);
-    private System.Void OnAssetsChanged(Colossal.IO.AssetDatabase.AssetChangedEventArgs args);
-    private System.Void OnCapture(System.String id, System.String property);
-    private System.Void OnCaptureTransform();
-    private System.Void OnCloudTargetsChanged(Colossal.IO.AssetDatabase.AssetChangedEventArgs args);
-    protected virtual System.Void OnCreate();
-    private System.Void OnCurveEditorFocusChange(System.Boolean focused);
-    protected virtual System.Void OnDestroy();
-    protected virtual System.Void OnGameLoaded(Colossal.Serialization.Entities.Context serializationContext);
-    private System.Int32 OnMoveKeyFrame(System.String id, System.Int32 curveIndex, System.Int32 index, UnityEngine.Keyframe keyframe);
-    private System.Void OnRemoveKeyFrame(System.String id, System.Int32 curveIndex, System.Int32 index);
-    private System.Void OnRemoveSelectedTransform(System.Int32 curveIndex, System.Int32 index);
-    private System.Void OnSetPlaybackDuration(System.Single duration);
-    private System.Void OnSetTimelinePosition(System.Single position);
-    private System.Void OnToggleLoop(System.Boolean loop);
-    protected virtual System.Void OnUpdate();
-    private System.Void PausePlayback();
-    private System.Void Reset();
-    private System.Void Save(System.String name, System.String hash);
-    public System.Void StopAutoplay();
-    private System.Void StopPlayback();
-    public System.Void ToggleModifier(Game.Rendering.CinematicCamera.PhotoModeProperty p);
-    private System.Void TogglePlayback();
-    private Game.Assets.CinematicCameraAsset[] UpdateAssets();
-    private System.Void UpdatePlayback();
-}
-</code></pre>
+<p><strong>Assembly:</strong><br />
+Game</p>
+<p><strong>Namespace:</strong><br />
+Game.UI.InGame</p>
+<p><strong>Type:</strong><br />
+class</p>
+<p><strong>Base:</strong><br />
+UISystemBase</p>
+<p><strong>Summary:</strong><br />
+Manages the in-game cinematic camera UI and the interaction between UI bindings and the cinematic camera systems. Provides functionality to create, edit, play, save/load, and autoplay CinematicCameraSequence assets; handles keyframe capture and manipulation for both camera transforms and photo-mode properties; coordinates input enable/disable between cinematic and orbit/photo-mode controllers; and exposes controller deltas and other values to the UI layer via bindings.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.Rendering.PhotoModeRenderSystem m_PhotoModeRenderSystem</code>  </li>
+<li>
+<p><code>private static readonly string kGroup = "cinematicCamera"</code><br />
+Used as the UI binding group name sent to the binding system for all triggers, getters and updaters related to cinematic camera UI.</p>
+</li>
+<li>
+<p><code>private static readonly CinematicCameraSequence.CinematicCameraCurveModifier[] kEmptyModifierArray = Array.Empty&lt;CinematicCameraSequence.CinematicCameraCurveModifier&gt;()</code><br />
+A reusable empty array used when there are no curves/modifiers to return to avoid allocations.</p>
+</li>
+<li>
+<p><code>private static readonly string kCaptureKeyframeTutorialTag = "CinematicCameraPanelCaptureKey"</code><br />
+Tutorial trigger tag used to activate capture-related tutorial hints.</p>
+</li>
+<li>
+<p><code>private PhotoModeRenderSystem m_PhotoModeRenderSystem</code><br />
+Reference to the PhotoModeRenderSystem (used to access photo-mode properties for modifier capture and refresh).</p>
+</li>
+<li>
+<p><code>private TutorialUITriggerSystem m_TutorialUITriggerSystem</code><br />
+Reference to the TutorialUITriggerSystem used to activate tutorial tips (e.g., when capturing keyframes).</p>
+</li>
+<li>
+<p><code>private CameraUpdateSystem m_CameraUpdateSystem</code><br />
+Reference to CameraUpdateSystem for interacting with camera controllers (cinematic/orbit/etc.), reading camera position/rotation and toggling input.</p>
+</li>
+<li>
+<p><code>private GetterValueBinding&lt;CinematicCameraAsset[]&gt; m_Assets</code><br />
+Getter binding that supplies the list of available CinematicCameraAsset objects to the UI.</p>
+</li>
+<li>
+<p><code>private ValueBinding&lt;CinematicCameraAsset&gt; m_LastLoaded</code><br />
+Value binding used to store the last loaded/created CinematicCameraAsset so the UI can show it.</p>
+</li>
+<li>
+<p><code>private ValueBinding&lt;CinematicCameraSequence.CinematicCameraCurveModifier[]&gt; m_TransformAnimationCurveBinding</code><br />
+Binding used to expose camera transform animation curves to the UI curve editor.</p>
+</li>
+<li>
+<p><code>private ValueBinding&lt;CinematicCameraSequence.CinematicCameraCurveModifier[]&gt; m_ModifierAnimationCurveBinding</code><br />
+Binding used to expose photo-mode property modifier curves to the UI curve editor.</p>
+</li>
+<li>
+<p><code>private GetterValueBinding&lt;List&lt;string&gt;&gt; m_AvailableCloudTargetsBinding</code><br />
+Getter binding that provides the list of storage/cloud targets (e.g., local, cloud) where assets can be saved/loaded.</p>
+</li>
+<li>
+<p><code>private GetterValueBinding&lt;string&gt; m_SelectedCloudTargetBinding</code><br />
+Getter binding for the currently selected cloud target name.</p>
+</li>
+<li>
+<p><code>private CinematicCameraSequence m_ActiveAutoplaySequence</code><br />
+Reference to a sequence that is currently autoplaying (distinct from activeSequence used for editing).</p>
+</li>
+<li>
+<p><code>private IGameCameraController m_PreviousController</code><br />
+Keeps the previously active camera controller so it can be restored after playback stops.</p>
+</li>
+<li>
+<p><code>private ProxyAction m_MoveAction</code><br />
+Input action proxy used to read camera move input for controller deltas.</p>
+</li>
+<li>
+<p><code>private ProxyAction m_ZoomAction</code><br />
+Input action proxy used to read camera zoom input for controller deltas.</p>
+</li>
+<li>
+<p><code>private ProxyAction m_RotateAction</code><br />
+Input action proxy used to read camera rotate input for controller deltas.</p>
+</li>
+<li>
+<p><code>private bool m_Playing</code><br />
+Backing field for the playing state (used by the playing property).</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.Rendering.PhotoModeRenderSystem m_PhotoModeRenderSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Tutorials.TutorialUITriggerSystem m_TutorialUITriggerSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Tutorials.TutorialUITriggerSystem m_TutorialUITriggerSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Rendering.CameraUpdateSystem m_CameraUpdateSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Rendering.CameraUpdateSystem m_CameraUpdateSystem;
-</code></pre>
-<ul>
-<li><code>private Colossal.UI.Binding.GetterValueBinding&lt;Game.Assets.CinematicCameraAsset[]&gt; m_Assets</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.UI.Binding.GetterValueBinding&lt;Game.Assets.CinematicCameraAsset[]&gt; m_Assets;
-</code></pre>
-<ul>
-<li><code>private Colossal.UI.Binding.ValueBinding&lt;Game.Assets.CinematicCameraAsset&gt; m_LastLoaded</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.UI.Binding.ValueBinding&lt;Game.Assets.CinematicCameraAsset&gt; m_LastLoaded;
-</code></pre>
-<ul>
-<li><code>private Colossal.UI.Binding.ValueBinding&lt;Game.CinematicCamera.CinematicCameraSequence+CinematicCameraCurveModifier[]&gt; m_TransformAnimationCurveBinding</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.UI.Binding.ValueBinding&lt;Game.CinematicCamera.CinematicCameraSequence+CinematicCameraCurveModifier[]&gt; m_TransformAnimationCurveBinding;
-</code></pre>
-<ul>
-<li><code>private Colossal.UI.Binding.ValueBinding&lt;Game.CinematicCamera.CinematicCameraSequence+CinematicCameraCurveModifier[]&gt; m_ModifierAnimationCurveBinding</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.UI.Binding.ValueBinding&lt;Game.CinematicCamera.CinematicCameraSequence+CinematicCameraCurveModifier[]&gt; m_ModifierAnimationCurveBinding;
-</code></pre>
-<ul>
-<li><code>private Colossal.UI.Binding.GetterValueBinding&lt;System.Collections.Generic.List&lt;System.String&gt;&gt; m_AvailableCloudTargetsBinding</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.UI.Binding.GetterValueBinding&lt;System.Collections.Generic.List&lt;System.String&gt;&gt; m_AvailableCloudTargetsBinding;
-</code></pre>
-<ul>
-<li><code>private Colossal.UI.Binding.GetterValueBinding&lt;System.String&gt; m_SelectedCloudTargetBinding</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.UI.Binding.GetterValueBinding&lt;System.String&gt; m_SelectedCloudTargetBinding;
-</code></pre>
-<ul>
-<li><code>private Game.CinematicCamera.CinematicCameraSequence &lt;activeSequence&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.CinematicCamera.CinematicCameraSequence &lt;activeSequence&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private Game.CinematicCamera.CinematicCameraSequence m_ActiveAutoplaySequence</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.CinematicCamera.CinematicCameraSequence m_ActiveAutoplaySequence;
-</code></pre>
-<ul>
-<li><code>private Game.Rendering.IGameCameraController m_PreviousController</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Rendering.IGameCameraController m_PreviousController;
-</code></pre>
-<ul>
-<li><code>private Game.Input.ProxyAction m_MoveAction</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Input.ProxyAction m_MoveAction;
-</code></pre>
-<ul>
-<li><code>private Game.Input.ProxyAction m_ZoomAction</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Input.ProxyAction m_ZoomAction;
-</code></pre>
-<ul>
-<li><code>private Game.Input.ProxyAction m_RotateAction</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Input.ProxyAction m_RotateAction;
-</code></pre>
-<ul>
-<li><code>private System.Single &lt;t&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Single &lt;t&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private System.Boolean m_Playing</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean m_Playing;
-</code></pre>
-<ul>
-<li><code>private static readonly System.String kGroup</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static readonly System.String kGroup;
-</code></pre>
-<ul>
-<li><code>private static readonly Game.CinematicCamera.CinematicCameraSequence+CinematicCameraCurveModifier[] kEmptyModifierArray</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static readonly Game.CinematicCamera.CinematicCameraSequence+CinematicCameraCurveModifier[] kEmptyModifierArray;
-</code></pre>
-<ul>
-<li><code>private static readonly System.String kCaptureKeyframeTutorialTag</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static readonly System.String kCaptureKeyframeTutorialTag;
-</code></pre>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>public Game.CinematicCamera.CinematicCameraSequence activeSequence { get; set }</code>  </li>
+<li>
+<p><code>public CinematicCameraSequence activeSequence { get; set; } = new CinematicCameraSequence()</code><br />
+The sequence currently being edited in the UI. Initialized to a new CinematicCameraSequence by default.</p>
+</li>
+<li>
+<p><code>private float m_TimelinePositionBindingValue =&gt; MathUtils.Snap(t, 0.05f)</code><br />
+Private read-only property used by the UI binding to report the snapped timeline position (snapped to 0.05 increments).</p>
+</li>
+<li>
+<p><code>private float t { get; set; }</code><br />
+Current timeline/playback time (in seconds) used when scrubbing or playing a sequence.</p>
+</li>
+<li>
+<p><code>private bool playing</code><br />
+Property wrapping m_Playing with custom logic. When set it enables/disables camera input for cinematic/orbit controllers and swaps the active camera controller between cinematic and the previously active controller. Setting this to true will disable typical camera input and route control to cinematic controller; setting false restores previous controller.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public Game.CinematicCamera.CinematicCameraSequence activeSequence { get; set; }
-</code></pre>
-<ul>
-<li><code>private System.Single m_TimelinePositionBindingValue { private get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Single m_TimelinePositionBindingValue { private get; }
-</code></pre>
-<ul>
-<li><code>private System.Single t { private get; private set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Single t { private get; private set; }
-</code></pre>
-<ul>
-<li><code>private System.Boolean playing { private get; private set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean playing { private get; private set; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public CinematicCameraUISystem()</code>  </li>
+<li><code>public CinematicCameraUISystem()</code><br />
+Default constructor. Marked with Preserve attribute in class; initialization occurs in OnCreate (bindings and system references are set up there).</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public CinematicCameraUISystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private &lt;OnAssetsChanged&gt;b__46_0() : System.Void</code>  </li>
+<li>
+<p><code>protected virtual OnCreate() : System.Void</code><br />
+Initializes UI bindings and references to required systems. Adds many Trigger/Call/Getter/Value bindings for timeline control, keyframe editing, asset save/load/delete, cloud targets, curve editor focus, controller delta queries, and loop toggling. Subscribes to AssetDatabase change events and resets the active sequence.</p>
+</li>
+<li>
+<p><code>public void ToggleModifier(PhotoModeProperty p)</code><br />
+Captures the current value of one or multiple photo-mode properties (supports multi-property extraction) and adds modifier keyframes at the current timeline time (t). Activates the capture tutorial trigger and updates the modifier animation curve binding so UI reflects new keys.</p>
+</li>
+<li>
+<p><code>protected override void OnGameLoaded(Context serializationContext)</code><br />
+Attaches PausePlayback event handlers to the cinematic and orbit camera controllers so camera movement pauses playback. Resets or clears autoplay sequence depending on serialization context. Stops playback and calls Reset to ensure UI and sequence are in a known state.</p>
+</li>
+<li>
+<p><code>protected override void OnUpdate()</code><br />
+Updates the system each frame. If playing is true it calls UpdatePlayback to advance time and refresh the active sequence.</p>
+</li>
+<li>
+<p><code>protected override void OnDestroy()</code><br />
+Removes PausePlayback handlers from camera controllers and performs base cleanup.</p>
+</li>
+<li>
+<p><code>private void OnToggleLoop(bool loop)</code><br />
+Sets activeSequence.loop. If enabling loop it updates modifier and transform curve bindings so the curve editors have the wrapped curves visible.</p>
+</li>
+<li>
+<p><code>private int OnAddKeyFrame(string id, float time, float value, int curveIndex)</code><br />
+Adds either a modifier key (when id == "Property") or a transform key (for camera transform curves) at the specified time/value. Updates the corresponding UI binding and returns the added key index.</p>
+</li>
+<li>
+<p><code>private void Reset()</code><br />
+Resets activeSequence to default (clears transforms and modifiers) and updates transform/modifier UI bindings.</p>
+</li>
+<li>
+<p><code>private void OnSetTimelinePosition(float position)</code><br />
+Sets playing to false, updates t to the supplied position, and refreshes the activeSequence at that time so the camera and properties update to the new frame.</p>
+</li>
+<li>
+<p><code>private void OnSetPlaybackDuration(float duration)</code><br />
+Sets activeSequence.playbackDuration to the provided duration, clamped to at least the activeSequence.timelineLength.</p>
+</li>
+<li>
+<p><code>private void OnCapture(string id, string property)</code><br />
+Entry point for capture operations from UI: if id == "Property", finds the corresponding PhotoModeProperty and toggles its modifier capture; otherwise captures the active camera transform.</p>
+</li>
+<li>
+<p><code>private void OnCaptureTransform()</code><br />
+Captures the current camera position and rotation at the current timeline time (t), adds a camera transform key to activeSequence, and updates the transform curves binding. Also activates the capture tutorial trigger.</p>
+</li>
+<li>
+<p><code>private void Save(string name, string hash = null)</code><br />
+Saves the current activeSequence to the selected cloud target. If hash is null a new asset is created; otherwise it overwrites the existing asset with the given hash/guid. Handles local special path resolution for CinematicCameraAsset and updates m_LastLoaded and m_Assets after saving.</p>
+</li>
+<li>
+<p><code>private void Load(string hash, string storage)</code><br />
+Loads a CinematicCameraAsset by guid/hash from the specified storage target. If successful, replaces activeSequence with the asset's target sequence and updates relevant bindings.</p>
+</li>
+<li>
+<p><code>private void Delete(string hash, string storage)</code><br />
+Deletes a CinematicCameraAsset from the specified storage target and updates the assets binding.</p>
+</li>
+<li>
+<p><code>private void OnAssetsChanged(AssetChangedEventArgs args)</code><br />
+Callback for asset changes that triggers m_Assets.Update() on the main thread.</p>
+</li>
+<li>
+<p><code>private void OnCloudTargetsChanged(AssetChangedEventArgs args)</code><br />
+Callback for changes to available cloud storage targets that updates the UI bindings for available and selected cloud targets on the main thread.</p>
+</li>
+<li>
+<p><code>private CinematicCameraAsset[] UpdateAssets()</code><br />
+Fetches all CinematicCameraAsset entries from the global AssetDatabase and returns them as an array for the m_Assets binding.</p>
+</li>
+<li>
+<p><code>private void OnRemoveSelectedTransform(int curveIndex, int index)</code><br />
+Convenience method that removes a transform keyframe by delegating to OnRemoveKeyFrame with id "Transform".</p>
+</li>
+<li>
+<p><code>private void OnRemoveKeyFrame(string id, int curveIndex, int index)</code><br />
+Removes either a modifier key (id == "Property") or a transform key depending on id, then updates the relevant binding to reflect the change.</p>
+</li>
+<li>
+<p><code>private void GetData(string id, out CinematicCameraSequence.CinematicCameraCurveModifier[] modifiers, out ValueBinding&lt;CinematicCameraSequence.CinematicCameraCurveModifier[]&gt; binding)</code><br />
+Helper that returns either transform modifiers and transform binding (when id == "Position") or property modifiers and modifier binding otherwise. Used by keyframe move operations.</p>
+</li>
+<li>
+<p><code>private int OnMoveKeyFrame(string id, int curveIndex, int index, Keyframe keyframe)</code><br />
+Moves a keyframe on the specified modifier/curve. Uses GetData to obtain the correct modifier set and binding. Returns the new key index and updates bindings; also refreshes the sequence at current time t.</p>
+</li>
+<li>
+<p><code>private void UpdatePlayback()</code><br />
+Advances the local time t by unscaledDeltaTime, selects the correct sequence (m_ActiveAutoplaySequence if present else activeSequence), enforces loop or stops playback at end, clamps t to playback duration, and refreshes the sequence (camera and photo properties) for the new time.</p>
+</li>
+<li>
+<p><code>private void PausePlayback()</code><br />
+Called when camera movement is detected. If currently playing and the active controller is cinematic or photo-mode orbit it will stop playback (set playing = false).</p>
+</li>
+<li>
+<p><code>private void TogglePlayback()</code><br />
+Toggles playing. If the current time is near the end of playback duration it resets t to 0 when toggled on.</p>
+</li>
+<li>
+<p><code>private void StopPlayback()</code><br />
+Stops playback and resets t to 0, refreshing the sequence so the camera snaps to the start frame.</p>
+</li>
+<li>
+<p><code>public void Autoplay(CinematicCameraAsset sequence)</code><br />
+Starts autoplay of the provided CinematicCameraAsset (sets m_ActiveAutoplaySequence, forces loop, resets t, and begins playing).</p>
+</li>
+<li>
+<p><code>public void StopAutoplay()</code><br />
+Stops any autoplay sequence, clears m_ActiveAutoplaySequence, resets t and stops playing.</p>
+</li>
+<li>
+<p><code>private CinematicCameraSequence.CinematicCameraCurveModifier[] GetTransformCurves()</code><br />
+Returns an array of transform curve modifiers that are valid (curve != null). If sequence has no transforms, returns an empty modifier array to avoid nulls.</p>
+</li>
+<li>
+<p><code>private float[] GetControllerDelta()</code><br />
+Reads the Move input action (Vector2) scaled by Time.deltaTime and returns it as a float[2] for the UI to use (e.g., when previewing controller input in editors).</p>
+</li>
+<li>
+<p><code>private float[] GetControllerPanDelta()</code><br />
+Reads the Rotate input action (Vector2) scaled by Time.deltaTime and returns it as float[2] for the UI.</p>
+</li>
+<li>
+<p><code>private float GetControllerZoomDelta()</code><br />
+Reads the Zoom input action (float) scaled by Time.deltaTime and returns it for the UI.</p>
+</li>
+<li>
+<p><code>private void OnCurveEditorFocusChange(bool focused)</code><br />
+Called when the curve editor gains/loses focus. Disables or enables input on orbit and cinematic controllers to prevent camera motion while editing curves.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private System.Void &lt;OnAssetsChanged&gt;b__46_0();
-</code></pre>
-<ul>
-<li><code>private &lt;OnCloudTargetsChanged&gt;b__47_0() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Void &lt;OnCloudTargetsChanged&gt;b__47_0();
-</code></pre>
-<ul>
-<li><code>private &lt;OnCreate&gt;b__31_0() : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean &lt;OnCreate&gt;b__31_0();
-</code></pre>
-<ul>
-<li><code>private &lt;OnCreate&gt;b__31_1() : System.Single</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Single &lt;OnCreate&gt;b__31_1();
-</code></pre>
-<ul>
-<li><code>private &lt;OnCreate&gt;b__31_2() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Void &lt;OnCreate&gt;b__31_2();
-</code></pre>
-<ul>
-<li><code>private &lt;OnCreate&gt;b__31_3() : System.Single</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Single &lt;OnCreate&gt;b__31_3();
-</code></pre>
-<ul>
-<li><code>private &lt;OnCreate&gt;b__31_4() : System.Single</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Single &lt;OnCreate&gt;b__31_4();
-</code></pre>
-<ul>
-<li><code>private &lt;OnCreate&gt;b__31_5() : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean &lt;OnCreate&gt;b__31_5();
-</code></pre>
-<ul>
-<li><code>public Autoplay(Game.Assets.CinematicCameraAsset sequence) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void Autoplay(CinematicCameraAsset sequence)
-    {
-        m_ActiveAutoplaySequence = sequence.target;
-        m_ActiveAutoplaySequence.loop = true;
-        t = 0f;
-        playing = true;
-    }
-</code></pre>
-<ul>
-<li><code>private Delete(System.String hash, System.String storage) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void Delete(string hash, string storage)
-    {
-        Colossal.Hash128 guid = new Colossal.Hash128(hash);
-        MenuHelpers.GetSanitizedCloudTarget(storage).db.DeleteAsset(guid);
-        m_Assets.Update();
-    }
-</code></pre>
-<ul>
-<li><code>private GetControllerDelta() : System.Single[]</code>  </li>
-</ul>
-<pre><code class="language-csharp">private float[] GetControllerDelta()
-    {
-        Vector2 vector = m_MoveAction.ReadValue&lt;Vector2&gt;() * UnityEngine.Time.deltaTime;
-        return new float[2] { vector.x, vector.y };
-    }
-</code></pre>
-<ul>
-<li><code>private GetControllerPanDelta() : System.Single[]</code>  </li>
-</ul>
-<pre><code class="language-csharp">private float[] GetControllerPanDelta()
-    {
-        Vector2 vector = m_RotateAction.ReadValue&lt;Vector2&gt;() * UnityEngine.Time.deltaTime;
-        return new float[2] { vector.x, vector.y };
-    }
-</code></pre>
-<ul>
-<li><code>private GetControllerZoomDelta() : System.Single</code>  </li>
-</ul>
-<pre><code class="language-csharp">private float GetControllerZoomDelta()
-    {
-        return m_ZoomAction.ReadValue&lt;float&gt;() * UnityEngine.Time.deltaTime;
-    }
-</code></pre>
-<ul>
-<li><code>private GetData(System.String id, Game.CinematicCamera.CinematicCameraSequence+CinematicCameraCurveModifier[]&amp; modifiers, Colossal.UI.Binding.ValueBinding</code>1[[Game.CinematicCamera.CinematicCameraSequence+CinematicCameraCurveModifier[], Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]&amp; binding) : System.Void`  </li>
-</ul>
-<pre><code class="language-csharp">private void GetData(string id, out CinematicCameraSequence.CinematicCameraCurveModifier[] modifiers, out ValueBinding&lt;CinematicCameraSequence.CinematicCameraCurveModifier[]&gt; binding)
-    {
-        if (id == &quot;Position&quot;)
-        {
-            modifiers = activeSequence.transforms.ToArray();
-            binding = m_TransformAnimationCurveBinding;
-        }
-        else
-        {
-            modifiers = activeSequence.modifiers.ToArray();
-            binding = m_ModifierAnimationCurveBinding;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private GetTransformCurves() : Game.CinematicCamera.CinematicCameraSequence+CinematicCameraCurveModifier[]</code>  </li>
-</ul>
-<pre><code class="language-csharp">private CinematicCameraSequence.CinematicCameraCurveModifier[] GetTransformCurves()
-    {
-        if (activeSequence.transformCount &gt; 0)
-        {
-            List&lt;CinematicCameraSequence.CinematicCameraCurveModifier&gt; list = new List&lt;CinematicCameraSequence.CinematicCameraCurveModifier&gt;();
-            CinematicCameraSequence.CinematicCameraCurveModifier[] transforms = activeSequence.transforms;
-            for (int i = 0; i &lt; transforms.Length; i++)
-            {
-                CinematicCameraSequence.CinematicCameraCurveModifier item = transforms[i];
-                if (item.curve != null)
-                {
-                    list.Add(item);
-                }
-            }
-            return list.ToArray();
-        }
-        return kEmptyModifierArray;
-    }
-</code></pre>
-<ul>
-<li><code>private Load(System.String hash, System.String storage) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void Load(string hash, string storage)
-    {
-        Colossal.Hash128 guid = new Colossal.Hash128(hash);
-        CinematicCameraAsset asset = MenuHelpers.GetSanitizedCloudTarget(storage).db.GetAsset&lt;CinematicCameraAsset&gt;(guid);
-        if (asset != null)
-        {
-            asset.Load();
-            if (asset.target != null)
-            {
-                activeSequence = asset.target;
-                m_LastLoaded.Update(asset);
-                m_TransformAnimationCurveBinding.Update(GetTransformCurves());
-                m_ModifierAnimationCurveBinding.Update(activeSequence.modifiers.ToArray());
-            }
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private OnAddKeyFrame(System.String id, System.Single time, System.Single value, System.Int32 curveIndex) : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">private int OnAddKeyFrame(string id, float time, float value, int curveIndex)
-    {
-        if (id == &quot;Property&quot;)
-        {
-            CinematicCameraSequence.CinematicCameraCurveModifier cinematicCameraCurveModifier = activeSequence.modifiers[curveIndex];
-            string id2 = cinematicCameraCurveModifier.id;
-            int result = activeSequence.AddModifierKey(id2, time, value, cinematicCameraCurveModifier.min, cinematicCameraCurveModifier.max);
-            m_ModifierAnimationCurveBinding.Update(activeSequence.modifiers.ToArray());
-            return result;
-        }
-        int result2 = activeSequence.transforms[curveIndex].curve.AddKey(time, value);
-        m_TransformAnimationCurveBinding.Update(GetTransformCurves());
-        return result2;
-    }
-</code></pre>
-<ul>
-<li><code>private OnAssetsChanged(Colossal.IO.AssetDatabase.AssetChangedEventArgs args) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void OnAssetsChanged(AssetChangedEventArgs args)
-    {
-        GameManager.instance.RunOnMainThread(delegate
-        {
-            m_Assets.Update();
-        });
-    }
-</code></pre>
-<ul>
-<li><code>private OnCapture(System.String id, System.String property) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void OnCapture(string id, string property)
-    {
-        if (id == &quot;Property&quot;)
-        {
-            foreach (PhotoModeProperty value in m_PhotoModeRenderSystem.photoModeProperties.Values)
-            {
-                if (PhotoModeUtils.ExtractPropertyID(value) == property)
-                {
-                    ToggleModifier(value);
-                    break;
-                }
-            }
-            return;
-        }
-        OnCaptureTransform();
-    }
-</code></pre>
-<ul>
-<li><code>private OnCaptureTransform() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void OnCaptureTransform()
-    {
-        m_TutorialUITriggerSystem.ActivateTrigger(kCaptureKeyframeTutorialTag);
-        Vector3 position = m_CameraUpdateSystem.activeCameraController.position;
-        Vector3 rotation = m_CameraUpdateSystem.activeCameraController.rotation;
-        activeSequence.AddCameraTransform(t, position, rotation);
-        m_TransformAnimationCurveBinding.Update(GetTransformCurves());
-    }
-</code></pre>
-<ul>
-<li><code>private OnCloudTargetsChanged(Colossal.IO.AssetDatabase.AssetChangedEventArgs args) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void OnCloudTargetsChanged(AssetChangedEventArgs args)
-    {
-        GameManager.instance.RunOnMainThread(delegate
-        {
-            m_AvailableCloudTargetsBinding.Update();
-            m_SelectedCloudTargetBinding.Update();
-        });
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
+<h2 id="usage-example">Usage Example</h2>
 <pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        AddBinding(new TriggerBinding&lt;float&gt;(kGroup, &quot;setPlaybackDuration&quot;, OnSetPlaybackDuration));
-        AddBinding(new TriggerBinding&lt;float&gt;(kGroup, &quot;setTimelinePosition&quot;, OnSetTimelinePosition));
-        AddBinding(new TriggerBinding(kGroup, &quot;togglePlayback&quot;, TogglePlayback));
-        AddBinding(new TriggerBinding(kGroup, &quot;stopPlayback&quot;, StopPlayback));
-        AddBinding(new TriggerBinding&lt;string, string&gt;(kGroup, &quot;captureKey&quot;, OnCapture));
-        AddBinding(new TriggerBinding&lt;int, int&gt;(kGroup, &quot;removeCameraTransformKey&quot;, OnRemoveSelectedTransform));
-        AddBinding(new CallBinding&lt;string, int, int, Keyframe, int&gt;(kGroup, &quot;moveKeyFrame&quot;, OnMoveKeyFrame));
-        AddBinding(new TriggerBinding&lt;string, int, int&gt;(kGroup, &quot;removeKeyFrame&quot;, OnRemoveKeyFrame));
-        AddBinding(new CallBinding&lt;string, float, float, int, int&gt;(kGroup, &quot;addKeyFrame&quot;, OnAddKeyFrame));
-        AddBinding(new TriggerBinding(kGroup, &quot;reset&quot;, Reset));
-        AddUpdateBinding(new GetterValueBinding&lt;bool&gt;(kGroup, &quot;loop&quot;, () =&gt; activeSequence.loop));
-        AddBinding(new TriggerBinding&lt;bool&gt;(kGroup, &quot;toggleLoop&quot;, OnToggleLoop));
-        AddBinding(new CallBinding&lt;float[]&gt;(kGroup, &quot;getControllerDelta&quot;, GetControllerDelta));
-        AddBinding(new CallBinding&lt;float[]&gt;(kGroup, &quot;getControllerPanDelta&quot;, GetControllerPanDelta));
-        AddBinding(new CallBinding&lt;float&gt;(kGroup, &quot;getControllerZoomDelta&quot;, GetControllerZoomDelta));
-        AddBinding(new TriggerBinding&lt;bool&gt;(kGroup, &quot;toggleCurveEditorFocus&quot;, OnCurveEditorFocusChange));
-        AddUpdateBinding(new GetterValueBinding&lt;float&gt;(kGroup, &quot;playbackDuration&quot;, () =&gt; activeSequence.playbackDuration));
-        AddBinding(new TriggerBinding(kGroup, &quot;onAfterPlaybackDurationChange&quot;, delegate
-        {
-            activeSequence.AfterModifications();
-        }));
-        AddUpdateBinding(new GetterValueBinding&lt;float&gt;(kGroup, &quot;timelinePosition&quot;, () =&gt; m_TimelinePositionBindingValue));
-        AddUpdateBinding(new GetterValueBinding&lt;float&gt;(kGroup, &quot;timelineLength&quot;, () =&gt; activeSequence.timelineLength));
-        AddUpdateBinding(new GetterValueBinding&lt;bool&gt;(kGroup, &quot;playing&quot;, () =&gt; playing));
-        AddBinding(new TriggerBinding&lt;string, string&gt;(kGroup, &quot;save&quot;, Save));
-        AddBinding(new TriggerBinding&lt;string, string&gt;(kGroup, &quot;load&quot;, Load));
-        AddBinding(m_LastLoaded = new ValueBinding&lt;CinematicCameraAsset&gt;(kGroup, &quot;lastLoaded&quot;, null, ValueWriters.Nullable(new ValueWriter&lt;CinematicCameraAsset&gt;())));
-        AddBinding(m_Assets = new GetterValueBinding&lt;CinematicCameraAsset[]&gt;(kGroup, &quot;assets&quot;, UpdateAssets, new ArrayWriter&lt;CinematicCameraAsset&gt;(new ValueWriter&lt;CinematicCameraAsset&gt;())));
-        AddBinding(new TriggerBinding&lt;string, string&gt;(kGroup, &quot;delete&quot;, Delete));
-        AddBinding(m_TransformAnimationCurveBinding = new ValueBinding&lt;CinematicCameraSequence.CinematicCameraCurveModifier[]&gt;(kGroup, &quot;transformAnimationCurves&quot;, kEmptyModifierArray, new ListWriter&lt;CinematicCameraSequence.CinematicCameraCurveModifier&gt;(new ValueWriter&lt;CinematicCameraSequence.CinematicCameraCurveModifier&gt;())));
-        AddBinding(m_ModifierAnimationCurveBinding = new ValueBinding&lt;CinematicCameraSequence.CinematicCameraCurveModifier[]&gt;(kGroup, &quot;modifierAnimationCurves&quot;, kEmptyModifierArray, new ListWriter&lt;CinematicCameraSequence.CinematicCameraCurveModifier&gt;(new ValueWriter&lt;CinematicCameraSequence.CinematicCameraCurveModifier&gt;())));
-        AddBinding(m_AvailableCloudTargetsBinding = new GetterValueBinding&lt;List&lt;string&gt;&gt;(kGroup, &quot;availableCloudTargets&quot;, MenuHelpers.GetAvailableCloudTargets, new ListWriter&lt;string&gt;()));
-        AddUpdateBinding(m_SelectedCloudTargetBinding = new GetterValueBinding&lt;string&gt;(kGroup, &quot;selectedCloudTarget&quot;, () =&gt; MenuHelpers.GetSanitizedCloudTarget(SharedSettings.instance.userState.lastCloudTarget).name));
-        AddBinding(new TriggerBinding&lt;string&gt;(kGroup, &quot;selectCloudTarget&quot;, delegate(string cloudTarget)
-        {
-            SharedSettings.instance.userState.lastCloudTarget = cloudTarget;
-        }));
-        m_TutorialUITriggerSystem = base.World.GetOrCreateSystemManaged&lt;TutorialUITriggerSystem&gt;();
-        m_CameraUpdateSystem = base.World.GetOrCreateSystemManaged&lt;CameraUpdateSystem&gt;();
-        m_PhotoModeRenderSystem = base.World.GetOrCreateSystemManaged&lt;PhotoModeRenderSystem&gt;();
-        m_MoveAction = InputManager.instance.FindAction(&quot;Camera&quot;, &quot;Move&quot;);
-        m_ZoomAction = InputManager.instance.FindAction(&quot;Camera&quot;, &quot;Zoom&quot;);
-        m_RotateAction = InputManager.instance.FindAction(&quot;Camera&quot;, &quot;Rotate&quot;);
-        AssetDatabase.global.onAssetDatabaseChanged.Subscribe(OnCloudTargetsChanged, delegate(AssetChangedEventArgs args)
-        {
-            ChangeType change = args.change;
-            return change == ChangeType.DatabaseRegistered || change == ChangeType.DatabaseUnregistered || change == ChangeType.BulkAssetsChange;
-        }, AssetChangedEventArgs.Default);
-        AssetDatabase.global.onAssetDatabaseChanged.Subscribe&lt;CinematicCameraAsset&gt;(OnAssetsChanged, AssetChangedEventArgs.Default);
-        Reset();
-    }
+protected override void OnCreate()
+{
+    base.OnCreate();
+
+    // Example: Bindings and systems are created in OnCreate by the system itself.
+    // This snippet demonstrates programmatic capture of the current camera transform
+    // into the activeSequence at time 0 and then starting playback.
+
+    // Ensure sequence is cleared
+    activeSequence.Reset();
+
+    // Capture the current camera transform at time 0
+    float captureTime = 0f;
+    Vector3 pos = m_CameraUpdateSystem.activeCameraController.position;
+    Vector3 rot = m_CameraUpdateSystem.activeCameraController.rotation;
+    activeSequence.AddCameraTransform(captureTime, pos, rot);
+
+    // Start playback (will route input and camera to cinematic controller)
+    TogglePlayback();
+}
 </code></pre>
-<ul>
-<li><code>private OnCurveEditorFocusChange(System.Boolean focused) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void OnCurveEditorFocusChange(bool focused)
-    {
-        m_CameraUpdateSystem.orbitCameraController.inputEnabled = !focused;
-        m_CameraUpdateSystem.cinematicCameraController.inputEnabled = !focused;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnDestroy() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnDestroy()
-    {
-        if (m_CameraUpdateSystem?.cinematicCameraController != null)
-        {
-            CinematicCameraController cinematicCameraController = m_CameraUpdateSystem.cinematicCameraController;
-            cinematicCameraController.eventCameraMove = (Action)Delegate.Remove(cinematicCameraController.eventCameraMove, new Action(PausePlayback));
-        }
-        if (m_CameraUpdateSystem?.orbitCameraController != null)
-        {
-            OrbitCameraController orbitCameraController = m_CameraUpdateSystem.orbitCameraController;
-            orbitCameraController.EventCameraMove = (Action)Delegate.Remove(orbitCameraController.EventCameraMove, new Action(PausePlayback));
-        }
-        base.OnDestroy();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnGameLoaded(Colossal.Serialization.Entities.Context serializationContext) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnGameLoaded(Context serializationContext)
-    {
-        if (m_CameraUpdateSystem.cinematicCameraController != null)
-        {
-            CinematicCameraController cinematicCameraController = m_CameraUpdateSystem.cinematicCameraController;
-            cinematicCameraController.eventCameraMove = (Action)Delegate.Remove(cinematicCameraController.eventCameraMove, new Action(PausePlayback));
-            CinematicCameraController cinematicCameraController2 = m_CameraUpdateSystem.cinematicCameraController;
-            cinematicCameraController2.eventCameraMove = (Action)Delegate.Combine(cinematicCameraController2.eventCameraMove, new Action(PausePlayback));
-        }
-        if (m_CameraUpdateSystem.orbitCameraController != null)
-        {
-            OrbitCameraController orbitCameraController = m_CameraUpdateSystem.orbitCameraController;
-            orbitCameraController.EventCameraMove = (Action)Delegate.Remove(orbitCameraController.EventCameraMove, new Action(PausePlayback));
-            OrbitCameraController orbitCameraController2 = m_CameraUpdateSystem.orbitCameraController;
-            orbitCameraController2.EventCameraMove = (Action)Delegate.Combine(orbitCameraController2.EventCameraMove, new Action(PausePlayback));
-        }
-        if (serializationContext.purpose != Purpose.Cleanup)
-        {
-            m_ActiveAutoplaySequence = null;
-        }
-        m_Playing = false;
-        Reset();
-    }
-</code></pre>
-<ul>
-<li><code>private OnMoveKeyFrame(System.String id, System.Int32 curveIndex, System.Int32 index, UnityEngine.Keyframe keyframe) : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">private int OnMoveKeyFrame(string id, int curveIndex, int index, Keyframe keyframe)
-    {
-        GetData(id, out var modifiers, out var binding);
-        CinematicCameraSequence.CinematicCameraCurveModifier modifier = modifiers[curveIndex];
-        int result = activeSequence.MoveKeyframe(modifier, index, keyframe);
-        binding.Update(modifiers);
-        activeSequence.Refresh(t, m_PhotoModeRenderSystem.photoModeProperties, m_CameraUpdateSystem.activeCameraController);
-        return result;
-    }
-</code></pre>
-<ul>
-<li><code>private OnRemoveKeyFrame(System.String id, System.Int32 curveIndex, System.Int32 index) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void OnRemoveKeyFrame(string id, int curveIndex, int index)
-    {
-        if (id == &quot;Property&quot;)
-        {
-            string id2 = activeSequence.modifiers[curveIndex].id;
-            activeSequence.RemoveModifierKey(id2, index);
-            m_ModifierAnimationCurveBinding.Update(activeSequence.modifiers.ToArray());
-        }
-        else
-        {
-            activeSequence.RemoveCameraTransform(curveIndex, index);
-            m_TransformAnimationCurveBinding.Update(GetTransformCurves());
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private OnRemoveSelectedTransform(System.Int32 curveIndex, System.Int32 index) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void OnRemoveSelectedTransform(int curveIndex, int index)
-    {
-        OnRemoveKeyFrame(&quot;Transform&quot;, curveIndex, index);
-    }
-</code></pre>
-<ul>
-<li><code>private OnSetPlaybackDuration(System.Single duration) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void OnSetPlaybackDuration(float duration)
-    {
-        activeSequence.playbackDuration = Mathf.Max(duration, activeSequence.timelineLength);
-    }
-</code></pre>
-<ul>
-<li><code>private OnSetTimelinePosition(System.Single position) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void OnSetTimelinePosition(float position)
-    {
-        playing = false;
-        t = position;
-        activeSequence.Refresh(position, m_PhotoModeRenderSystem.photoModeProperties, m_CameraUpdateSystem.activeCameraController);
-    }
-</code></pre>
-<ul>
-<li><code>private OnToggleLoop(System.Boolean loop) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void OnToggleLoop(bool loop)
-    {
-        activeSequence.loop = loop;
-        if (loop)
-        {
-            m_ModifierAnimationCurveBinding.Update(activeSequence.modifiers.ToArray());
-            m_TransformAnimationCurveBinding.Update(GetTransformCurves());
-        }
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        base.OnUpdate();
-        if (playing)
-        {
-            UpdatePlayback();
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private PausePlayback() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void PausePlayback()
-    {
-        if (playing &amp;&amp; (m_CameraUpdateSystem.activeCameraController is CinematicCameraController || (m_CameraUpdateSystem.activeCameraController is OrbitCameraController &amp;&amp; m_CameraUpdateSystem.orbitCameraController.mode == OrbitCameraController.Mode.PhotoMode)))
-        {
-            playing = false;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private Reset() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void Reset()
-    {
-        activeSequence.Reset();
-        m_TransformAnimationCurveBinding.Update(GetTransformCurves());
-        m_ModifierAnimationCurveBinding.Update(activeSequence.modifiers.ToArray());
-    }
-</code></pre>
-<ul>
-<li><code>private Save(System.String name, System.String hash = null) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void Save(string name, string hash = null)
-    {
-        ILocalAssetDatabase item = MenuHelpers.GetSanitizedCloudTarget(SharedSettings.instance.userState.lastCloudTarget).db;
-        if (string.IsNullOrEmpty(hash))
-        {
-            AssetDataPath name2 = name;
-            if (!item.dataSource.isRemoteStorageSource)
-            {
-                string specialPath = EnvPath.GetSpecialPath&lt;CinematicCameraAsset&gt;();
-                if (specialPath != null)
-                {
-                    name2 = AssetDataPath.Create(specialPath, name);
-                }
-            }
-            CinematicCameraAsset cinematicCameraAsset = item.AddAsset&lt;CinematicCameraAsset&gt;(name2);
-            cinematicCameraAsset.target = activeSequence;
-            cinematicCameraAsset.Save();
-            m_LastLoaded.Update(cinematicCameraAsset);
-            m_Assets.Update();
-        }
-        else
-        {
-            Colossal.Hash128 guid = new Colossal.Hash128(hash);
-            CinematicCameraAsset asset = item.GetAsset&lt;CinematicCameraAsset&gt;(guid);
-            if (asset != null)
-            {
-                asset.target = activeSequence;
-                asset.Save();
-                m_LastLoaded.Update(asset);
-                m_Assets.Update();
-            }
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public StopAutoplay() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void StopAutoplay()
-    {
-        m_ActiveAutoplaySequence = null;
-        t = 0f;
-        playing = false;
-    }
-</code></pre>
-<ul>
-<li><code>private StopPlayback() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void StopPlayback()
-    {
-        t = 0f;
-        activeSequence.Refresh(t, m_PhotoModeRenderSystem.photoModeProperties, m_CameraUpdateSystem.activeCameraController);
-        playing = false;
-    }
-</code></pre>
-<ul>
-<li><code>public ToggleModifier(Game.Rendering.CinematicCamera.PhotoModeProperty p) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void ToggleModifier(PhotoModeProperty p)
-    {
-        m_TutorialUITriggerSystem.ActivateTrigger(kCaptureKeyframeTutorialTag);
-        foreach (PhotoModeProperty item in PhotoModeUtils.ExtractMultiPropertyComponents(p, m_PhotoModeRenderSystem.photoModeProperties))
-        {
-            float min = item.min?.Invoke() ?? (-10000f);
-            float max = item.max?.Invoke() ?? 10000f;
-            activeSequence.AddModifierKey(item.id, t, item.getValue(), min, max);
-        }
-        m_ModifierAnimationCurveBinding.Update(activeSequence.modifiers.ToArray());
-    }
-</code></pre>
-<ul>
-<li><code>private TogglePlayback() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void TogglePlayback()
-    {
-        playing = !playing;
-        if (t &gt; activeSequence.playbackDuration - 0.1f)
-        {
-            t = 0f;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private UpdateAssets() : Game.Assets.CinematicCameraAsset[]</code>  </li>
-</ul>
-<pre><code class="language-csharp">private CinematicCameraAsset[] UpdateAssets()
-    {
-        return AssetDatabase.global.GetAssets(default(SearchFilter&lt;CinematicCameraAsset&gt;)).ToArray();
-    }
-</code></pre>
-<ul>
-<li><code>private UpdatePlayback() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void UpdatePlayback()
-    {
-        t += UnityEngine.Time.unscaledDeltaTime;
-        CinematicCameraSequence cinematicCameraSequence = m_ActiveAutoplaySequence ?? activeSequence;
-        if (t &gt;= cinematicCameraSequence.playbackDuration)
-        {
-            if (cinematicCameraSequence.loop)
-            {
-                t -= cinematicCameraSequence.playbackDuration;
-            }
-            else
-            {
-                playing = false;
-            }
-        }
-        t = Mathf.Min(t, cinematicCameraSequence.playbackDuration);
-        cinematicCameraSequence.Refresh(t, m_PhotoModeRenderSystem.photoModeProperties, m_CameraUpdateSystem.activeCameraController);
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.UI.InGame.CinematicCameraUISystem+&lt;&gt;c</code>  </li>
-</ul>
 
 
 

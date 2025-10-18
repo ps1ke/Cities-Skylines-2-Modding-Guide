@@ -60928,18 +60928,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -60958,6 +60958,15 @@
   <a href="#methods" class="md-nav__link">
     <span class="md-ellipsis">
       Methods
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
     </span>
   </a>
   
@@ -65301,6 +65310,29 @@
   
   <span class="md-ellipsis">
     InterpolatedProperties
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
     
   </span>
   
@@ -69742,6 +69774,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72554,6 +72609,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75544,6 +75622,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87136,6 +87237,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -117912,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117939,18 +118085,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -117974,6 +118120,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -117991,114 +118146,89 @@
 
 
 <h1 id="gameprefabsunlockallsystem">Game.Prefabs.UnlockAllSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Prefabs</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class UnlockAllSystem : Game.GameSystemBase
-{
-    private Game.Simulation.MilestoneSystem m_MilestoneSystem;
-    private Game.Common.ModificationBarrier1 m_ModificationBarrier;
-    private Game.UI.InGame.UIHighlightSystem m_UIHighlightSystem;
-    private Game.UI.InGame.SignatureBuildingUISystem m_SignatureBuildingUISystem;
-    private Unity.Entities.EntityQuery m_LockedQuery;
-    private Unity.Entities.EntityArchetype m_UnlockEventArchetype;
-
-    public UnlockAllSystem();
-
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnUpdate();
-    private System.Void UnlockAllImpl();
-}
-</code></pre>
+<p><strong>Assembly:</strong> Assembly-CSharp<br />
+<strong>Namespace:</strong> Game.Prefabs</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> Game.Common.GameSystemBase</p>
+<p><strong>Summary:</strong><br />
+System that unlocks every locked prefab in the world by issuing Unlock events. On creation it caches references to several dependent systems (MilestoneSystem, a modification barrier for command buffers, UI highlight and signature-building UI systems), builds an entity query for entities with the Locked component (excluding MilestoneData), and prepares an archetype for Unlock event entities. When run, it creates Unlock event entities for each locked prefab, asks the MilestoneSystem to unlock all milestones, and tells UI systems to skip their next update. The system disables itself after performing its operation.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.Simulation.MilestoneSystem m_MilestoneSystem</code>  </li>
+<li>
+<p><code>private MilestoneSystem m_MilestoneSystem</code><br />
+Reference to the MilestoneSystem; used to call UnlockAllMilestones() after generating unlock events.</p>
+</li>
+<li>
+<p><code>private ModificationBarrier1 m_ModificationBarrier</code><br />
+Barrier system used to create an EntityCommandBuffer for safe structural changes (creating Unlock event entities) from the system.</p>
+</li>
+<li>
+<p><code>private UIHighlightSystem m_UIHighlightSystem</code><br />
+Reference to the UI highlight system; SkipUpdate() is called so UI highlight logic doesn't run immediately after unlocking.</p>
+</li>
+<li>
+<p><code>private SignatureBuildingUISystem m_SignatureBuildingUISystem</code><br />
+Reference to the signature building UI system; SkipUpdate() is called to prevent immediate UI updates that would conflict with the unlock operation.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_LockedQuery</code><br />
+EntityQuery that matches entities/components with Locked (read-only) and excludes MilestoneData. Used to find all locked prefabs to unlock.</p>
+</li>
+<li>
+<p><code>private EntityArchetype m_UnlockEventArchetype</code><br />
+Archetype used to create Unlock event entities. It contains at least Event and Unlock component types.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.Simulation.MilestoneSystem m_MilestoneSystem;
-</code></pre>
+<h2 id="properties">Properties</h2>
 <ul>
-<li><code>private Game.Common.ModificationBarrier1 m_ModificationBarrier</code>  </li>
+<li>None. This system exposes no public properties.</li>
 </ul>
-<pre><code class="language-csharp">private Game.Common.ModificationBarrier1 m_ModificationBarrier;
-</code></pre>
-<ul>
-<li><code>private Game.UI.InGame.UIHighlightSystem m_UIHighlightSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.UI.InGame.UIHighlightSystem m_UIHighlightSystem;
-</code></pre>
-<ul>
-<li><code>private Game.UI.InGame.SignatureBuildingUISystem m_SignatureBuildingUISystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.UI.InGame.SignatureBuildingUISystem m_SignatureBuildingUISystem;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_LockedQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_LockedQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityArchetype m_UnlockEventArchetype</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityArchetype m_UnlockEventArchetype;
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public UnlockAllSystem()</code>  </li>
+<li><code>public UnlockAllSystem()</code><br />
+Default constructor. The system uses the OnCreate override to initialize internal state and dependencies; the constructor itself is empty and marked [Preserve] in compiled code.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public UnlockAllSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
+<li><code>protected override void OnCreate()</code><br />
+Initializes the system:</li>
+<li>Retrieves/creates dependent systems (MilestoneSystem, ModificationBarrier1, UIHighlightSystem, SignatureBuildingUISystem) from the World.</li>
+<li>Builds m_LockedQuery to select entities with Locked and without MilestoneData.</li>
+<li>Creates m_UnlockEventArchetype for Event + Unlock components.</li>
+<li>Calls RequireForUpdate(m_LockedQuery) so the system only updates when there are matching locked entities.</li>
+<li>
+<p>Disables the system (base.Enabled = false) so it only runs when explicitly enabled or when the query becomes non-empty.</p>
+</li>
+<li>
+<p><code>protected override void OnUpdate()</code><br />
+Called when the system runs. It calls UnlockAllImpl() to perform the unlocking and then disables itself (base.Enabled = false) so it doesn't continuously run.</p>
+</li>
+<li>
+<p><code>private void UnlockAllImpl()</code><br />
+Main implementation:</p>
+</li>
+<li>Creates an EntityCommandBuffer via the modification barrier.</li>
+<li>Converts m_LockedQuery to a NativeArray<Entity> (Allocator.TempJob) to enumerate all locked prefab entities.</li>
+<li>For each locked entity, creates a new entity using m_UnlockEventArchetype and sets an Unlock component referring to the locked prefab.</li>
+<li>Disposes the NativeArray.</li>
+<li>Calls m_MilestoneSystem.UnlockAllMilestones() to force milestone state changes.</li>
+<li>Calls SkipUpdate() on m_UIHighlightSystem and m_SignatureBuildingUISystem to avoid immediate UI work that could conflict with the unlock operation.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_MilestoneSystem = base.World.GetOrCreateSystemManaged&lt;MilestoneSystem&gt;();
-        m_ModificationBarrier = base.World.GetOrCreateSystemManaged&lt;ModificationBarrier1&gt;();
-        m_UIHighlightSystem = base.World.GetOrCreateSystemManaged&lt;UIHighlightSystem&gt;();
-        m_SignatureBuildingUISystem = base.World.GetOrCreateSystemManaged&lt;SignatureBuildingUISystem&gt;();
-        m_LockedQuery = GetEntityQuery(ComponentType.ReadOnly&lt;Locked&gt;(), ComponentType.Exclude&lt;MilestoneData&gt;());
-        m_UnlockEventArchetype = base.EntityManager.CreateArchetype(ComponentType.ReadWrite&lt;Event&gt;(), ComponentType.ReadWrite&lt;Unlock&gt;());
-        RequireForUpdate(m_LockedQuery);
-        base.Enabled = false;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        UnlockAllImpl();
-        base.Enabled = false;
-    }
-</code></pre>
-<ul>
-<li><code>private UnlockAllImpl() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void UnlockAllImpl()
-    {
-        EntityCommandBuffer entityCommandBuffer = m_ModificationBarrier.CreateCommandBuffer();
-        NativeArray&lt;Entity&gt; nativeArray = m_LockedQuery.ToEntityArray(Allocator.TempJob);
-        for (int i = 0; i &lt; nativeArray.Length; i++)
-        {
-            Entity prefab = nativeArray[i];
-            Entity e = entityCommandBuffer.CreateEntity(m_UnlockEventArchetype);
-            entityCommandBuffer.SetComponent(e, new Unlock(prefab));
-        }
-        nativeArray.Dispose();
-        m_MilestoneSystem.UnlockAllMilestones();
-        m_UIHighlightSystem.SkipUpdate();
-        m_SignatureBuildingUISystem.SkipUpdate();
-    }
+<p>Notes:
+  - Structural changes are queued via the EntityCommandBuffer; they will be played back by the barrier system at the appropriate synchronization point.
+  - The query uses Allocator.TempJob for listing entities; the array is disposed manually.
+  - The system is written to run once (or when explicitly enabled) and then disable itself.</p>
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Example: trigger the UnlockAllSystem to run once.
+// This can be called from other systems or mod code that has access to the World.
+[Preserve]
+public void TriggerUnlockAll(World world)
+{
+    var unlockAll = world.GetOrCreateSystemManaged&lt;Game.Prefabs.UnlockAllSystem&gt;();
+    // Enabling the system will make it execute OnUpdate on the next simulation tick.
+    unlockAll.Enabled = true;
+}
 </code></pre>
 
 

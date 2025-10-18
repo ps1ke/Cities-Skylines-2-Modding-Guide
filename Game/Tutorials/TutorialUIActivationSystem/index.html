@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87073,6 +87165,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Simulation/SurfaceWater/" class="md-nav__link">
         
   
@@ -95819,18 +95934,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -95849,6 +95964,15 @@
   <a href="#methods" class="md-nav__link">
     <span class="md-ellipsis">
       Methods
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
     </span>
   </a>
   
@@ -117912,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117939,18 +118085,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -117974,6 +118120,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -117991,163 +118146,79 @@
 
 
 <h1 id="gametutorialstutorialuiactivationsystem">Game.Tutorials.TutorialUIActivationSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Tutorials</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code><br />
-<strong>Implements:</strong> <code>Game.Tutorials.ITutorialUIActivationSystem</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class TutorialUIActivationSystem : Game.GameSystemBase, Game.Tutorials.ITutorialUIActivationSystem
-{
-    protected Unity.Entities.EntityCommandBufferSystem m_BarrierSystem;
-    private readonly System.Collections.Generic.Dictionary&lt;System.String, System.Collections.Generic.List&lt;Unity.Entities.Entity&gt;&gt; m_TutorialMap;
-    private readonly System.Collections.Generic.List&lt;System.String&gt; m_ActiveTags;
-    private Unity.Entities.EntityQuery m_TutorialQuery;
-
-    public TutorialUIActivationSystem();
-
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnGameLoaded(Colossal.Serialization.Entities.Context serializationContext);
-    protected virtual System.Void OnUpdate();
-    private System.Void RebuildTutorialMap();
-    public System.Void SetTag(System.String tag, System.Boolean active);
-}
-</code></pre>
+<p><strong>Assembly:</strong> Game<br />
+<strong>Namespace:</strong> Game.Tutorials</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> GameSystemBase, ITutorialUIActivationSystem</p>
+<p><strong>Summary:</strong><br />
+Manages activation of tutorial UI prefabs based on string tags. The system builds a mapping from UI tags (provided by Tutorial prefabs) to Entity instances, tracks active tags, and activates associated tutorial UI entities by adding TutorialActivated and, when required, ForceActivation components. The mapping is rebuilt when the system is created or when a game is loaded.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>protected Unity.Entities.EntityCommandBufferSystem m_BarrierSystem</code>  </li>
+<li>
+<p><code>protected Unity.Entities.EntityCommandBufferSystem m_BarrierSystem</code><br />
+Holds a reference to a command buffer system (ModificationBarrier4) used to queue structural changes (such as adding components) safely from the system's update.</p>
+</li>
+<li>
+<p><code>private readonly System.Collections.Generic.Dictionary&lt;string, System.Collections.Generic.List&lt;Unity.Entities.Entity&gt;&gt; m_TutorialMap</code><br />
+Dictionary mapping UI tag strings to lists of tutorial Entities that expose that tag. Built from Tutorial prefabs' TutorialUIActivation component's uiTag values (split on '|').</p>
+</li>
+<li>
+<p><code>private readonly System.Collections.Generic.List&lt;string&gt; m_ActiveTags</code><br />
+List of currently active tags. Used during OnUpdate to determine which tutorial entities should be activated.</p>
+</li>
+<li>
+<p><code>private Unity.Entities.EntityQuery m_TutorialQuery</code><br />
+EntityQuery used to find all entities that have UIActivationData and PrefabData components (i.e., tutorial prefab instances).</p>
+</li>
 </ul>
-<pre><code class="language-csharp">protected Unity.Entities.EntityCommandBufferSystem m_BarrierSystem;
-</code></pre>
+<h2 id="properties">Properties</h2>
 <ul>
-<li><code>private readonly System.Collections.Generic.Dictionary&lt;System.String, System.Collections.Generic.List&lt;Unity.Entities.Entity&gt;&gt; m_TutorialMap</code>  </li>
+<li>None (no public properties are declared on this type).</li>
 </ul>
-<pre><code class="language-csharp">private readonly System.Collections.Generic.Dictionary&lt;System.String, System.Collections.Generic.List&lt;Unity.Entities.Entity&gt;&gt; m_TutorialMap;
-</code></pre>
-<ul>
-<li><code>private readonly System.Collections.Generic.List&lt;System.String&gt; m_ActiveTags</code>  </li>
-</ul>
-<pre><code class="language-csharp">private readonly System.Collections.Generic.List&lt;System.String&gt; m_ActiveTags;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_TutorialQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_TutorialQuery;
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public TutorialUIActivationSystem()</code>  </li>
+<li><code>public TutorialUIActivationSystem()</code><br />
+Default parameterless constructor. The class relies on OnCreate to initialize runtime state (barrier system, query, and builds the tutorial map).</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public TutorialUIActivationSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
+<li>
+<p><code>protected override void OnCreate()</code> : System.Void<br />
+Initializes the system: obtains the ModificationBarrier4 command buffer system, creates the EntityQuery for tutorial UI prefabs (UIActivationData + PrefabData), and calls RebuildTutorialMap() to populate m_TutorialMap.</p>
+</li>
+<li>
+<p><code>protected override void OnGameLoaded(Context serializationContext)</code> : System.Void<br />
+Called when a game is loaded. Rebuilds the tutorial map and clears any active tags to ensure state is consistent with the loaded save.</p>
+</li>
+<li>
+<p><code>private void RebuildTutorialMap()</code> : System.Void<br />
+Scans entities matching the tutorial query, retrieves their TutorialPrefab via PrefabSystem, reads the TutorialUIActivation component's m_UITagProvider.uiTag string, splits it by '|' to get multiple tags, trims them, and populates m_TutorialMap mapping tags to entity lists. Skips entries without tags. Uses a temporary NativeArray for the query result and disposes it.</p>
+</li>
+<li>
+<p><code>public void SetTag(string tag, bool active)</code> : System.Void<br />
+Marks a tag as active or inactive. Only affects m_ActiveTags if the tag exists in the m_TutorialMap (i.e., known from prefabs). If active is true the tag is added to m_ActiveTags; if false it is removed.</p>
+</li>
+<li>
+<p><code>protected override void OnUpdate()</code> : System.Void<br />
+If m_ActiveTags is empty, does nothing. Otherwise creates an EntityCommandBuffer from m_BarrierSystem and iterates all active tags: for each mapped entity that is not already marked with TutorialCompleted, it adds a TutorialActivated component immediately (via EntityManager) and, if the entity's UIActivationData.m_CanDeactivate is false, schedules adding ForceActivation using the command buffer. This triggers the tutorial UI activation behavior for matching prefabs.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_BarrierSystem = base.World.GetOrCreateSystemManaged&lt;ModificationBarrier4&gt;();
-        m_TutorialQuery = GetEntityQuery(ComponentType.ReadOnly&lt;UIActivationData&gt;(), ComponentType.ReadOnly&lt;PrefabData&gt;());
-        RebuildTutorialMap();
-    }
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Example: enable a tutorial UI tag at runtime
+var tutorialSystem = World.GetOrCreateSystemManaged&lt;Game.Tutorials.TutorialUIActivationSystem&gt;();
+// Enable activation for the &quot;build_mode&quot; tag (only works if that tag exists in any tutorial prefab)
+tutorialSystem.SetTag(&quot;build_mode&quot;, true);
+
+// Typical system initialization occurs internally in OnCreate:
+// [Preserve]
+// protected override void OnCreate()
+// {
+//     base.OnCreate();
+//     // m_BarrierSystem, query and map are initialized automatically
+// }
 </code></pre>
-<ul>
-<li><code>protected virtual OnGameLoaded(Colossal.Serialization.Entities.Context serializationContext) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnGameLoaded(Context serializationContext)
-    {
-        RebuildTutorialMap();
-        m_ActiveTags.Clear();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        if (m_ActiveTags.Count &lt;= 0)
-        {
-            return;
-        }
-        EntityCommandBuffer entityCommandBuffer = m_BarrierSystem.CreateCommandBuffer();
-        foreach (string item in m_ActiveTags)
-        {
-            if (!m_TutorialMap.TryGetValue(item, out var value))
-            {
-                continue;
-            }
-            foreach (Entity item2 in value)
-            {
-                if (!base.EntityManager.HasComponent&lt;TutorialCompleted&gt;(item2))
-                {
-                    base.EntityManager.AddComponent&lt;TutorialActivated&gt;(item2);
-                    if (!base.EntityManager.GetComponentData&lt;UIActivationData&gt;(item2).m_CanDeactivate)
-                    {
-                        entityCommandBuffer.AddComponent&lt;ForceActivation&gt;(item2);
-                    }
-                }
-            }
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private RebuildTutorialMap() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void RebuildTutorialMap()
-    {
-        m_TutorialMap.Clear();
-        if (m_TutorialQuery.IsEmptyIgnoreFilter)
-        {
-            return;
-        }
-        NativeArray&lt;Entity&gt; nativeArray = m_TutorialQuery.ToEntityArray(Allocator.TempJob);
-        PrefabSystem orCreateSystemManaged = base.World.GetOrCreateSystemManaged&lt;PrefabSystem&gt;();
-        for (int i = 0; i &lt; nativeArray.Length; i++)
-        {
-            Entity item = nativeArray[i];
-            string[] array = orCreateSystemManaged.GetPrefab&lt;TutorialPrefab&gt;(nativeArray[i]).GetComponent&lt;TutorialUIActivation&gt;().m_UITagProvider?.uiTag?.Split('|');
-            if (array == null)
-            {
-                continue;
-            }
-            for (int j = 0; j &lt; array.Length; j++)
-            {
-                string key = array[j].Trim();
-                if (!m_TutorialMap.ContainsKey(key))
-                {
-                    m_TutorialMap[key] = new List&lt;Entity&gt;();
-                }
-                if (!m_TutorialMap[key].Contains(item))
-                {
-                    m_TutorialMap[key].Add(item);
-                }
-            }
-        }
-        nativeArray.Dispose();
-    }
-</code></pre>
-<ul>
-<li><code>public SetTag(System.String tag, System.Boolean active) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void SetTag(string tag, bool active)
-    {
-        if (m_TutorialMap.ContainsKey(tag))
-        {
-            m_ActiveTags.Remove(tag);
-            if (active)
-            {
-                m_ActiveTags.Add(tag);
-            }
-        }
-    }
-</code></pre>
+<hr />
 
 
 

@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87073,6 +87165,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Simulation/SurfaceWater/" class="md-nav__link">
         
   
@@ -97400,15 +97515,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -97439,6 +97545,15 @@
   <a href="#methods" class="md-nav__link">
     <span class="md-ellipsis">
       Methods
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
     </span>
   </a>
   
@@ -117923,6 +118038,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117948,15 +118085,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -117994,6 +118122,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -118011,127 +118148,118 @@
 
 
 <h1 id="gameuieditordirectoryadapter">Game.UI.Editor.DirectoryAdapter</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.UI.Editor</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>System.Object</code><br />
-<strong>Implements:</strong> <code>Game.UI.Editor.ItemPicker&lt;Game.UI.Editor.Item&gt;</code>, <code>Game.UI.Editor.SearchField+IAdapter</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class DirectoryAdapter : Game.UI.Editor.ItemPicker&lt;Game.UI.Editor.Item&gt;, Game.UI.Editor.SearchField+IAdapter
-{
-    private Game.UI.Editor.DirectoryPanelBase m_Panel;
-    private Game.UI.Editor.Item m_SelectedItem;
-    private System.Collections.Generic.List&lt;Game.UI.Editor.Item&gt; m_Items;
-    private System.Boolean m_Dirty;
-    private System.Collections.Generic.HashSet&lt;System.String&gt; m_FavoriteIds;
-    public System.String searchQuery;
-    private System.String m_SearchQuery;
-    private System.String &lt;directoryPath&gt;k__BackingField;
-
-    public System.String directoryPath { get; set; }
-    public Game.UI.Editor.Item selectedItem { get; set; }
-    public System.Collections.Generic.List&lt;Game.UI.Editor.Item&gt; items { get; set; }
-    private System.Int32 Game.UI.Editor.ItemPicker&lt;Game.UI.Editor.Item&gt;.IAdapter.columnCount { private get; }
-    private System.String Game.UI.Editor.SearchField.IAdapter.searchQuery { private get; private set; }
-
-    public DirectoryAdapter(Game.UI.Editor.DirectoryPanelBase panel);
-
-    private System.Boolean &lt;get_items&gt;b__16_0(Game.UI.Editor.Item item);
-    private System.Void Game.UI.Editor.ItemPicker&lt;Game.UI.Editor.Item&gt;.IAdapter.SetFavorite(System.Int32 index, System.Boolean favorite);
-    private System.Boolean Game.UI.Editor.ItemPicker&lt;Game.UI.Editor.Item&gt;.IAdapter.Update();
-}
-</code></pre>
+<p><strong>Assembly:</strong><br />
+Game</p>
+<p><strong>Namespace:</strong><br />
+Game.UI.Editor</p>
+<p><strong>Type:</strong><br />
+public class DirectoryAdapter : ItemPicker<Item>.IAdapter, SearchField.IAdapter</p>
+<p><strong>Base:</strong><br />
+Implements: ItemPicker<Item>.IAdapter, SearchField.IAdapter</p>
+<p><strong>Summary:</strong><br />
+Adapter used by DirectoryPanelBase to provide and manage a list of file/directory items for a directory picker UI. Handles selection, filtering by directory and search query, favorites state (persisted via SharedSettings.instance.editor.directoryPickerFavorites), and notifies the panel on selection changes. Designed to be consumed via the ItemPicker<Item>.IAdapter and SearchField.IAdapter interfaces.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.UI.Editor.DirectoryPanelBase m_Panel</code>  </li>
+<li>
+<p><code>private DirectoryPanelBase m_Panel</code><br />
+Reference to the owning DirectoryPanelBase instance. Used to notify the panel when selection changes (calls m_Panel.OnSelect).</p>
+</li>
+<li>
+<p><code>private Item m_SelectedItem</code><br />
+Backer for the selectedItem property. Holds the currently selected Item.</p>
+</li>
+<li>
+<p><code>private List&lt;Item&gt; m_Items</code><br />
+Backer for the items collection. Stores the full list of items; the public getter returns a filtered view based on directoryPath and searchQuery.</p>
+</li>
+<li>
+<p><code>private bool m_Dirty</code><br />
+Flag indicating that the adapter's data changed and needs refreshing. Returned by ItemPicker<Item>.IAdapter.Update and cleared by that method.</p>
+</li>
+<li>
+<p><code>private HashSet&lt;string&gt; m_FavoriteIds = new HashSet&lt;string&gt;()</code><br />
+Set of relative paths marked as favorites. Used to quickly check and update Item.favorite and persisted to editor settings.</p>
+</li>
+<li>
+<p><code>public string searchQuery = string.Empty</code><br />
+Public searchQuery field (note: the SearchField.IAdapter implementation uses a separate private m_SearchQuery). This field is used by the items getter in filtering (case-insensitive substring match on item.name).</p>
+</li>
+<li>
+<p><code>private string m_SearchQuery = string.Empty</code><br />
+Backer for the explicit SearchField.IAdapter.searchQuery property (exposed through the interface).</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.UI.Editor.DirectoryPanelBase m_Panel;
-</code></pre>
-<ul>
-<li><code>private Game.UI.Editor.Item m_SelectedItem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.UI.Editor.Item m_SelectedItem;
-</code></pre>
-<ul>
-<li><code>private System.Collections.Generic.List&lt;Game.UI.Editor.Item&gt; m_Items</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Collections.Generic.List&lt;Game.UI.Editor.Item&gt; m_Items;
-</code></pre>
-<ul>
-<li><code>private System.Boolean m_Dirty</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean m_Dirty;
-</code></pre>
-<ul>
-<li><code>private System.Collections.Generic.HashSet&lt;System.String&gt; m_FavoriteIds</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Collections.Generic.HashSet&lt;System.String&gt; m_FavoriteIds;
-</code></pre>
-<ul>
-<li><code>public System.String searchQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.String searchQuery;
-</code></pre>
-<ul>
-<li><code>private System.String m_SearchQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.String m_SearchQuery;
-</code></pre>
-<ul>
-<li><code>private System.String &lt;directoryPath&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.String &lt;directoryPath&gt;k__BackingField;
-</code></pre>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>public System.String directoryPath { get; set }</code>  </li>
+<li>
+<p><code>public string directoryPath { get; set; }</code><br />
+Directory path used by the items getter to filter items to the current directory scope. When null, some search behavior in the getter differs (it allows prefix matching on fullName).</p>
+</li>
+<li>
+<p><code>public Item selectedItem { get; set; }</code><br />
+Getter returns m_SelectedItem. Setter updates m_SelectedItem and, if changed, calls m_Panel.OnSelect(value) to notify the panel about the selection change.</p>
+</li>
+<li>
+<p><code>public List&lt;Item&gt; items { get; set; }</code><br />
+Getter: returns a filtered list based on the current directoryPath and searchQuery. Filtering logic:</p>
+</li>
+<li>If searchQuery is empty: item.parentDir must equal directoryPath.</li>
+<li>If searchQuery is non-empty: allows items whose fullName starts with directoryPath (when directoryPath is not null) and ensures item.name + "/" != directoryPath (exclusion check).</li>
+<li>Also requires item.name to contain searchQuery (case-insensitive).</li>
+<li>
+<p>The result is returned as a new List<Item>.
+Setter: assigns m_Items, rebuilds m_FavoriteIds from SharedSettings.instance?.editor.directoryPickerFavorites (if present), updates each item.favorite based on m_FavoriteIds, sorts m_Items (using Item.CompareTo or IComparable implemented by Item), and sets m_Dirty = true.</p>
+</li>
+<li>
+<p><code>int ItemPicker&lt;Item&gt;.IAdapter.columnCount =&gt; 1</code><br />
+Explicit interface property returning the number of columns used by the picker (fixed to 1).</p>
+</li>
+<li>
+<p><code>string SearchField.IAdapter.searchQuery { get; set; }</code><br />
+Explicit interface property mapped to m_SearchQuery. Setter only updates the internal value when changed.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public System.String directoryPath { get; set; }
-</code></pre>
-<ul>
-<li><code>public Game.UI.Editor.Item selectedItem { get; set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Game.UI.Editor.Item selectedItem { get; set; }
-</code></pre>
-<ul>
-<li><code>public System.Collections.Generic.List&lt;Game.UI.Editor.Item&gt; items { get; set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Collections.Generic.List&lt;Game.UI.Editor.Item&gt; items { get; set; }
-</code></pre>
-<ul>
-<li><code>private System.Int32 Game.UI.Editor.ItemPicker&lt;Game.UI.Editor.Item&gt;.IAdapter.columnCount { private get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 Game.UI.Editor.ItemPicker&lt;Game.UI.Editor.Item&gt;.IAdapter.columnCount { private get; }
-</code></pre>
-<ul>
-<li><code>private System.String Game.UI.Editor.SearchField.IAdapter.searchQuery { private get; private set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.String Game.UI.Editor.SearchField.IAdapter.searchQuery { private get; private set; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public DirectoryAdapter(Game.UI.Editor.DirectoryPanelBase panel)</code>  </li>
+<li><code>public DirectoryAdapter(DirectoryPanelBase panel)</code><br />
+Constructs a DirectoryAdapter bound to the given DirectoryPanelBase. Stores the reference in m_Panel.</li>
 </ul>
-<pre><code class="language-csharp">public DirectoryAdapter(DirectoryPanelBase panel)
-    {
-        m_Panel = panel;
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private &lt;get_items&gt;b__16_0(Game.UI.Editor.Item item) : System.Boolean</code>  </li>
+<li>
+<p><code>bool ItemPicker&lt;Item&gt;.IAdapter.Update()</code><br />
+Explicit interface method. Returns the current m_Dirty value and resets m_Dirty to false. Used by the UI to know when to refresh.</p>
+</li>
+<li>
+<p><code>void ItemPicker&lt;Item&gt;.IAdapter.SetFavorite(int index, bool favorite)</code><br />
+Explicit interface method. Toggles favorite state for the item at the given index in the filtered items list:</p>
+</li>
+<li>Retrieves item = items[index].</li>
+<li>Adds or removes item.relativePath from m_FavoriteIds based on favorite argument.</li>
+<li>Persists m_FavoriteIds to SharedSettings.instance?.editor.directoryPickerFavorites (as an array) if editor settings exist.</li>
+<li>Updates item.favorite to the new state, re-sorts m_Items, reassigns items = m_Items (to refresh favorites/ordering) and sets m_Dirty = true.</li>
 </ul>
-<pre><code class="language-csharp">private System.Boolean &lt;get_items&gt;b__16_0(Game.UI.Editor.Item item);
-</code></pre>
-<ul>
-<li><code>private Game.UI.Editor.ItemPicker&lt;Game.UI.Editor.Item&gt;.IAdapter.SetFavorite(System.Int32 index, System.Boolean favorite) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Void Game.UI.Editor.ItemPicker&lt;Game.UI.Editor.Item&gt;.IAdapter.SetFavorite(System.Int32 index, System.Boolean favorite);
-</code></pre>
-<ul>
-<li><code>private Game.UI.Editor.ItemPicker&lt;Game.UI.Editor.Item&gt;.IAdapter.Update() : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean Game.UI.Editor.ItemPicker&lt;Game.UI.Editor.Item&gt;.IAdapter.Update();
+<p>Notes:
+- The items getter allocates and returns a new List<Item> each time; callers should avoid repeatedly enumerating it unless necessary.
+- Persistence uses SharedSettings.instance?.editor.directoryPickerFavorites — if SharedSettings or editor is null, favorites are not persisted.
+- Filter logic mixes searchQuery (public field) and SearchField.IAdapter.searchQuery (m_SearchQuery). The items getter reads the public searchQuery field.</p>
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Assume 'panel' is an existing DirectoryPanelBase instance
+var adapter = new DirectoryAdapter(panel);
+
+// Set the backing items list (populates favorites from editor settings)
+adapter.items = loadedItems; // loadedItems: List&lt;Item&gt;
+
+// Set the directory to show
+adapter.directoryPath = &quot;Assets/Models/Buildings/&quot;;
+
+// Set a search term (the adapter's getter uses the public searchQuery field)
+adapter.searchQuery = &quot;warehouse&quot;;
+
+// Notify UI to refresh: the picker will call ((ItemPicker&lt;Item&gt;.IAdapter)adapter).Update()
+// To mark an item as favorite via the adapter interface:
+((ItemPicker&lt;Item&gt;.IAdapter)adapter).SetFavorite(0, true);
 </code></pre>
 
 

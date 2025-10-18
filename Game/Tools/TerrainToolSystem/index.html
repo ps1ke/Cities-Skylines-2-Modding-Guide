@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87073,6 +87165,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Simulation/SurfaceWater/" class="md-nav__link">
         
   
@@ -92921,9 +93036,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#nested-types" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Nested Types
     </span>
   </a>
   
@@ -92966,9 +93081,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -117930,6 +118045,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117957,9 +118094,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#nested-types" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Nested Types
     </span>
   </a>
   
@@ -118002,9 +118139,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118027,728 +118164,270 @@
 
 
 <h1 id="gametoolsterraintoolsystem">Game.Tools.TerrainToolSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Tools</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.Tools.ToolBaseSystem</code><br />
-<strong>Implements:</strong> <code>System.IEquatable&lt;Game.Tools.ToolBaseSystem&gt;</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class TerrainToolSystem : Game.Tools.ToolBaseSystem, System.IEquatable&lt;Game.Tools.ToolBaseSystem&gt;
-{
-    private Game.Prefabs.TerraformingPrefab &lt;prefab&gt;k__BackingField;
-    private Game.Audio.AudioManager m_AudioManager;
-    private UnityEngine.AudioSource m_AudioSource;
-    private Game.Tools.ToolOutputBarrier m_ToolOutputBarrier;
-    private Unity.Entities.EntityQuery m_DefinitionQuery;
-    private Unity.Entities.EntityQuery m_BrushQuery;
-    private Unity.Entities.EntityQuery m_TempQuery;
-    private Unity.Entities.EntityQuery m_SoundQuery;
-    private Unity.Entities.EntityQuery m_VisibleQuery;
-    private Game.Input.IProxyAction m_EraseMaterial;
-    private Game.Input.IProxyAction m_EraseResource;
-    private Game.Input.IProxyAction m_FastSoften;
-    private Game.Input.IProxyAction m_LevelTerrain;
-    private Game.Input.IProxyAction m_LowerTerrain;
-    private Game.Input.IProxyAction m_PaintMaterial;
-    private Game.Input.IProxyAction m_PaintResource;
-    private Game.Input.IProxyAction m_RaiseTerrain;
-    private Game.Input.IProxyAction m_SetLevelTarget;
-    private Game.Input.IProxyAction m_SetSlopeTarget;
-    private Game.Input.IProxyAction m_SlopeTerrain;
-    private Game.Input.IProxyAction m_SoftenTerrain;
-    private Game.Tools.ControlPoint m_RaycastPoint;
-    private Game.Tools.ControlPoint m_StartPoint;
-    private Unity.Mathematics.float3 m_TargetPosition;
-    private Unity.Mathematics.float3 m_ApplyPosition;
-    private System.Boolean m_TargetSet;
-    private Game.Tools.TerrainToolSystem+State m_State;
-    private Game.Tools.TerrainToolSystem+TypeHandle __TypeHandle;
-    public static const System.String kToolID;
-    public static const System.String kTerrainToolKeyGroup;
-
-    public System.String toolID { get; }
-    public Game.Prefabs.TerraformingPrefab prefab { get; private set; }
-    public System.Boolean brushing { get; }
-    private System.Collections.Generic.IEnumerable&lt;Game.Input.IProxyAction&gt; toolActions { private get; }
-    public System.Single brushHeight { get; set; }
-
-    public TerrainToolSystem();
-
-    private System.Void __AssignQueries(Unity.Entities.SystemState&amp; state);
-    private Unity.Jobs.JobHandle Apply(Unity.Jobs.JobHandle inputDeps, System.Boolean singleFrameOnly);
-    private Unity.Jobs.JobHandle Cancel(Unity.Jobs.JobHandle inputDeps, System.Boolean singleFrameOnly);
-    private Unity.Jobs.JobHandle Clear(Unity.Jobs.JobHandle inputDeps);
-    public virtual System.Void GetAvailableSnapMask(Game.Tools.Snap&amp; onMask, Game.Tools.Snap&amp; offMask);
-    public virtual Game.Prefabs.PrefabBase GetPrefab();
-    private System.Boolean HaveBrushSettingsChanged();
-    public virtual System.Void InitializeRaycast();
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnCreateForCompiler();
-    protected virtual System.Void OnGameLoaded(Colossal.Serialization.Entities.Context serializationContext);
-    protected virtual System.Void OnStartRunning();
-    protected virtual Unity.Jobs.JobHandle OnUpdate(Unity.Jobs.JobHandle inputDeps);
-    public System.Void SetDisableFX();
-    public System.Void SetPrefab(Game.Prefabs.TerraformingPrefab value);
-    public virtual System.Boolean TrySetPrefab(Game.Prefabs.PrefabBase prefab);
-    private Unity.Jobs.JobHandle Update(Unity.Jobs.JobHandle inputDeps);
-    private virtual System.Void UpdateActions();
-    private Unity.Jobs.JobHandle UpdateDefinitions(Unity.Jobs.JobHandle inputDeps);
-}
-</code></pre>
+<p><strong>Assembly:</strong> Game (Assembly-CSharp)<br />
+<strong>Namespace:</strong> Game.Tools</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> ToolBaseSystem</p>
+<p><strong>Summary:</strong><br />
+TerrainToolSystem implements the gameplay tool that handles all terrain/terraforming interactions (raise/lower/level/slope/soften, paint/erase materials and resources) in Cities: Skylines 2. It integrates raycasting, brush management, UI sound feedback, and creates entity "creation definitions" that are consumed by other systems to apply terrain changes. The system uses Unity's ECS jobs (including a Burst-compiled job) and works with the tool input/action system to map player input to terrain operations.</p>
+<hr />
+<h2 id="nested-types">Nested Types</h2>
+<ul>
+<li>
+<p><code>private enum State</code><br />
+Represents the current interaction state of the tool: Default (idle), Adding (applying terrain), Removing (erasing/inverting).</p>
+</li>
+<li>
+<p><code>[BurstCompile] private struct CreateDefinitionsJob : IJob</code><br />
+Burst-compiled job that creates CreationDefinition and BrushDefinition entities when called. The job is read-only for its inputs and writes via an EntityCommandBuffer. It packages brush/prefab references, brush parameters (size, angle, strength, time), the target/line to apply and will create an entity with CreationDefinition, BrushDefinition and Updated components for downstream processing.</p>
+</li>
+<li>
+<p><code>private struct TypeHandle</code><br />
+Holds a ComponentTypeHandle<Brush> for efficient chunk reads in jobs. Provides __AssignHandles(ref SystemState) to initialize the handle from a SystemState.</p>
+</li>
+</ul>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.Prefabs.TerraformingPrefab &lt;prefab&gt;k__BackingField</code>  </li>
+<li>
+<p><code>private AudioManager m_AudioManager</code><br />
+Holds reference to the game's AudioManager system used to play UI/terraforming sounds.</p>
+</li>
+<li>
+<p><code>private UnityEngine.AudioSource m_AudioSource</code><br />
+The currently playing AudioSource for the exclusive terraform UI sound (if any). Used to stop sound when finishing/canceling.</p>
+</li>
+<li>
+<p><code>private ToolOutputBarrier m_ToolOutputBarrier</code><br />
+Barrier system used to create entities (CreationDefinition / BrushDefinition) in a job-safe manner with an EntityCommandBuffer.</p>
+</li>
+<li>
+<p><code>private Unity.Entities.EntityQuery m_DefinitionQuery</code><br />
+EntityQuery used to find and destroy existing definition entities (CreationDefinition/BrushDefinition) before creating new ones.</p>
+</li>
+<li>
+<p><code>private Unity.Entities.EntityQuery m_BrushQuery</code><br />
+EntityQuery used to find available brush prefabs.</p>
+</li>
+<li>
+<p><code>private Unity.Entities.EntityQuery m_TempQuery</code><br />
+EntityQuery selecting temporary brush entities (Component<Temp>) — used when inverting brushes (e.g., cancel path).</p>
+</li>
+<li>
+<p><code>private Unity.Entities.EntityQuery m_SoundQuery</code><br />
+Query used to fetch ToolUXSoundSettingsData for the terraform UI sound.</p>
+</li>
+<li>
+<p><code>private Unity.Entities.EntityQuery m_VisibleQuery</code><br />
+Query selecting all visible Brush components (Brush &amp;&amp; !Hidden &amp;&amp; !Deleted) used to detect brush setting changes.</p>
+</li>
+<li>
+<p><code>private IProxyAction m_EraseMaterial</code><br />
+Input action proxy for "Erase Material" (tool action mapping).</p>
+</li>
+<li>
+<p><code>private IProxyAction m_EraseResource</code><br />
+Input action proxy for "Erase Resource".</p>
+</li>
+<li>
+<p><code>private IProxyAction m_FastSoften</code><br />
+Input action proxy for "Fast Soften".</p>
+</li>
+<li>
+<p><code>private IProxyAction m_LevelTerrain</code><br />
+Input action proxy for "Level Terrain".</p>
+</li>
+<li>
+<p><code>private IProxyAction m_LowerTerrain</code><br />
+Input action proxy for "Lower Terrain".</p>
+</li>
+<li>
+<p><code>private IProxyAction m_PaintMaterial</code><br />
+Input action proxy for "Paint Material".</p>
+</li>
+<li>
+<p><code>private IProxyAction m_PaintResource</code><br />
+Input action proxy for "Paint Resource".</p>
+</li>
+<li>
+<p><code>private IProxyAction m_RaiseTerrain</code><br />
+Input action proxy for "Raise Terrain".</p>
+</li>
+<li>
+<p><code>private IProxyAction m_SetLevelTarget</code><br />
+Input action proxy for "Set Level Target".</p>
+</li>
+<li>
+<p><code>private IProxyAction m_SetSlopeTarget</code><br />
+Input action proxy for "Set Slope Target".</p>
+</li>
+<li>
+<p><code>private IProxyAction m_SlopeTerrain</code><br />
+Input action proxy for "Slope Terrain".</p>
+</li>
+<li>
+<p><code>private IProxyAction m_SoftenTerrain</code><br />
+Input action proxy for "Soften Terrain".</p>
+</li>
+<li>
+<p><code>private ControlPoint m_RaycastPoint</code><br />
+Stores the latest raycast ControlPoint (hit information) from the tool raycast system.</p>
+</li>
+<li>
+<p><code>private ControlPoint m_StartPoint</code><br />
+Start ControlPoint for a drag/application operation (used to form a line for brush application).</p>
+</li>
+<li>
+<p><code>private float3 m_TargetPosition</code><br />
+Optional explicit target height/position for certain terraform operations. If set, brush uses this target Y instead of raycast Y.</p>
+</li>
+<li>
+<p><code>private float3 m_ApplyPosition</code><br />
+Position at the time Apply was initiated (used by CreateDefinitionsJob.m_ApplyStart).</p>
+</li>
+<li>
+<p><code>private bool m_TargetSet</code><br />
+Flag indicating whether m_TargetPosition has been set by the user.</p>
+</li>
+<li>
+<p><code>private State m_State</code><br />
+Current tool state (Default, Adding, Removing).</p>
+</li>
+<li>
+<p><code>private TypeHandle __TypeHandle</code><br />
+Cached TypeHandle wrapper used by internal methods for fast component access (holds Brush ComponentTypeHandle).</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.Prefabs.TerraformingPrefab &lt;prefab&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private Game.Audio.AudioManager m_AudioManager</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Audio.AudioManager m_AudioManager;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.AudioSource m_AudioSource</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.AudioSource m_AudioSource;
-</code></pre>
-<ul>
-<li><code>private Game.Tools.ToolOutputBarrier m_ToolOutputBarrier</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Tools.ToolOutputBarrier m_ToolOutputBarrier;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_DefinitionQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_DefinitionQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_BrushQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_BrushQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_TempQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_TempQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_SoundQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_SoundQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_VisibleQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_VisibleQuery;
-</code></pre>
-<ul>
-<li><code>private Game.Input.IProxyAction m_EraseMaterial</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Input.IProxyAction m_EraseMaterial;
-</code></pre>
-<ul>
-<li><code>private Game.Input.IProxyAction m_EraseResource</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Input.IProxyAction m_EraseResource;
-</code></pre>
-<ul>
-<li><code>private Game.Input.IProxyAction m_FastSoften</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Input.IProxyAction m_FastSoften;
-</code></pre>
-<ul>
-<li><code>private Game.Input.IProxyAction m_LevelTerrain</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Input.IProxyAction m_LevelTerrain;
-</code></pre>
-<ul>
-<li><code>private Game.Input.IProxyAction m_LowerTerrain</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Input.IProxyAction m_LowerTerrain;
-</code></pre>
-<ul>
-<li><code>private Game.Input.IProxyAction m_PaintMaterial</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Input.IProxyAction m_PaintMaterial;
-</code></pre>
-<ul>
-<li><code>private Game.Input.IProxyAction m_PaintResource</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Input.IProxyAction m_PaintResource;
-</code></pre>
-<ul>
-<li><code>private Game.Input.IProxyAction m_RaiseTerrain</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Input.IProxyAction m_RaiseTerrain;
-</code></pre>
-<ul>
-<li><code>private Game.Input.IProxyAction m_SetLevelTarget</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Input.IProxyAction m_SetLevelTarget;
-</code></pre>
-<ul>
-<li><code>private Game.Input.IProxyAction m_SetSlopeTarget</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Input.IProxyAction m_SetSlopeTarget;
-</code></pre>
-<ul>
-<li><code>private Game.Input.IProxyAction m_SlopeTerrain</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Input.IProxyAction m_SlopeTerrain;
-</code></pre>
-<ul>
-<li><code>private Game.Input.IProxyAction m_SoftenTerrain</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Input.IProxyAction m_SoftenTerrain;
-</code></pre>
-<ul>
-<li><code>private Game.Tools.ControlPoint m_RaycastPoint</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Tools.ControlPoint m_RaycastPoint;
-</code></pre>
-<ul>
-<li><code>private Game.Tools.ControlPoint m_StartPoint</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Tools.ControlPoint m_StartPoint;
-</code></pre>
-<ul>
-<li><code>private Unity.Mathematics.float3 m_TargetPosition</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Mathematics.float3 m_TargetPosition;
-</code></pre>
-<ul>
-<li><code>private Unity.Mathematics.float3 m_ApplyPosition</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Mathematics.float3 m_ApplyPosition;
-</code></pre>
-<ul>
-<li><code>private System.Boolean m_TargetSet</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean m_TargetSet;
-</code></pre>
-<ul>
-<li><code>private Game.Tools.TerrainToolSystem+State m_State</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Tools.TerrainToolSystem+State m_State;
-</code></pre>
-<ul>
-<li><code>private Game.Tools.TerrainToolSystem+TypeHandle __TypeHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Tools.TerrainToolSystem+TypeHandle __TypeHandle;
-</code></pre>
-<ul>
-<li><code>public static const System.String kToolID</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static const System.String kToolID;
-</code></pre>
-<ul>
-<li><code>public static const System.String kTerrainToolKeyGroup</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static const System.String kTerrainToolKeyGroup;
-</code></pre>
+<hr />
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>public System.String toolID { get }</code>  </li>
+<li>
+<p><code>public override string toolID { get; }</code><br />
+Returns the tool identifier string: "Terrain Tool". Used by the tool manager and UI to identify this tool.</p>
+</li>
+<li>
+<p><code>public TerraformingPrefab prefab { get; private set; }</code><br />
+Currently selected TerraformingPrefab (the prefab which defines type of operation — Shift/Level/Slope/Soften and target). Setter is private; SetPrefab or TrySetPrefab should be used.</p>
+</li>
+<li>
+<p><code>public override bool brushing { get; }</code><br />
+Overrides base to indicate this tool uses brushing (true).</p>
+</li>
+<li>
+<p><code>private protected override IEnumerable&lt;IProxyAction&gt; toolActions { get; }</code><br />
+Enumerates all IProxyAction instances used by this tool. The system yields actions in a deterministic order so the tool framework can register and show them in UI.</p>
+</li>
+<li>
+<p><code>public float brushHeight { get; set; }</code><br />
+Gets or sets the explicit brush height Y. Getter returns WaterSystem.SeaLevel when no target set; setter sets m_TargetPosition.y and flips m_TargetSet to true.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public System.String toolID { get; }
-</code></pre>
-<ul>
-<li><code>public Game.Prefabs.TerraformingPrefab prefab { get; private set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Game.Prefabs.TerraformingPrefab prefab { get; private set; }
-</code></pre>
-<ul>
-<li><code>public System.Boolean brushing { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Boolean brushing { get; }
-</code></pre>
-<ul>
-<li><code>private System.Collections.Generic.IEnumerable&lt;Game.Input.IProxyAction&gt; toolActions { private get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Collections.Generic.IEnumerable&lt;Game.Input.IProxyAction&gt; toolActions { private get; }
-</code></pre>
-<ul>
-<li><code>public System.Single brushHeight { get; set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Single brushHeight { get; set; }
-</code></pre>
+<hr />
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public TerrainToolSystem()</code>  </li>
+<li><code>[Preserve] public TerrainToolSystem()</code><br />
+Default constructor. Marked with Preserve attribute to avoid stripping. Initialization of most runtime state happens in OnCreate/OnStartRunning.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public TerrainToolSystem()
-    {
-    }
-</code></pre>
+<hr />
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private __AssignQueries(Unity.Entities.SystemState&amp; state) : System.Void</code>  </li>
+<li>
+<p><code>[Preserve] protected override void OnCreate()</code><br />
+Initializes system references when the system is created. Retrieves the AudioManager, ToolOutputBarrier, sets up the EntityQueries (definition, brush, visible, temp, sound), and fetches IProxyAction instances from InputManager. Also sets default brush size/angle/strength.</p>
+</li>
+<li>
+<p><code>protected override void OnGameLoaded(Context serializationContext)</code><br />
+Called when a saved game is loaded. Ensures a default brush is selected and resets brush size/angle/strength to defaults appropriate for the tool.</p>
+</li>
+<li>
+<p><code>public void SetDisableFX()</code><br />
+Stops any currently playing exclusive terraform UI sound (via m_AudioManager) and clears m_AudioSource. Call when applying/canceling operations to stop sound effects.</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnStartRunning()</code><br />
+Called when the system starts running. Resets ControlPoints and tool state (m_RaycastPoint, m_StartPoint, m_State).</p>
+</li>
+<li>
+<p><code>private protected override void UpdateActions()</code><br />
+Updates proxy action overrides (applyActionOverride and secondaryApplyActionOverride) according to the currently selected prefab (TerraformingType and TerraformingTarget). Uses ProxyAction.DeferStateUpdating() to batch updates. Called whenever prefab or action availability changes.</p>
+</li>
+<li>
+<p><code>public override PrefabBase GetPrefab()</code><br />
+Returns the prefab currently used by the tool (casts TerraformingPrefab to PrefabBase).</p>
+</li>
+<li>
+<p><code>public override bool TrySetPrefab(PrefabBase prefab)</code><br />
+Attempts to set the tool's prefab. If the provided prefab is a TerraformingPrefab, SetPrefab is called and true returned. Otherwise returns false.</p>
+</li>
+<li>
+<p><code>public override void InitializeRaycast()</code><br />
+Configures the internal tool raycast system according to whether a prefab and brush type are selected. When valid, sets the raycast TypeMask to Terrain and enables RaycastFlags.Outside; otherwise disables raycasting.</p>
+</li>
+<li>
+<p><code>[Preserve] protected override JobHandle OnUpdate(JobHandle inputDeps)</code><br />
+Main per-frame update. Validates brush selection, sets requirements for networked layers and pipelines, handles focus/state transitions, processes input (apply/secondary apply) and routes to Apply/Cancel/Update/Clear flows. Creates/updates definitions when necessary and updates infoview. Returns combined JobHandle for any scheduled jobs.</p>
+</li>
+<li>
+<p><code>public override void GetAvailableSnapMask(out Snap onMask, out Snap offMask)</code><br />
+Extends base snap mask behavior: when prefab target is Height, it adds ContourLines snapping to both on and off masks.</p>
+</li>
+<li>
+<p><code>private JobHandle Clear(JobHandle inputDeps)</code><br />
+Sets applyMode to Clear and disables FX (stops audio). Returns the passed inputDeps (no jobs scheduled).</p>
+</li>
+<li>
+<p><code>private JobHandle Cancel(JobHandle inputDeps, bool singleFrameOnly = false)</code><br />
+Handles the secondary-apply (cancel) behavior. If starting a cancel interaction from Default, switches to Removing state and plays sound, sets target, inverts temporary brushes and schedules definition updates. If ending a cancel, reverts to Default, stops sound and schedules definition updates. Returns a JobHandle combining any scheduled jobs.</p>
+</li>
+<li>
+<p><code>private JobHandle Apply(JobHandle inputDeps, bool singleFrameOnly = false)</code><br />
+Handles the primary apply behavior. From Default initiates Adding state (unless singleFrameOnly), plays audio, records apply start position and schedules definition updates. When finishing, reverts to Default and stops FX. Returns JobHandle for scheduled jobs.</p>
+</li>
+<li>
+<p><code>private JobHandle Update(JobHandle inputDeps)</code><br />
+Handles pointer movement/hover updates. If raycast produces a new ControlPoint, updates m_RaycastPoint and generates new definitions as needed. Also ensures applyMode is set appropriately (Apply/Clear/None) depending on state. Returns the JobHandle from UpdateDefinitions if definitions are changed, otherwise returns inputDeps.</p>
+</li>
+<li>
+<p><code>private bool HaveBrushSettingsChanged()</code><br />
+Checks visible brush entities to determine whether the brush size stored in the Brush components matches base.brushSize. Used to detect when brush prefab settings changed externally and force definition updates. Iterates chunks with a ComponentTypeHandle<Brush>.</p>
+</li>
+<li>
+<p><code>private JobHandle UpdateDefinitions(JobHandle inputDeps)</code><br />
+Destroys existing creation definitions via DestroyDefinitions(m_DefinitionQuery, m_ToolOutputBarrier, inputDeps) and, if a prefab and brush type are selected, schedules a CreateDefinitionsJob (populating CreationDefinition/BrushDefinition) using the ToolOutputBarrier command buffer. Combines dependencies and ensures cached brush data if applyMode == ApplyMode.Apply. Returns combined JobHandle.</p>
+</li>
+<li>
+<p><code>[MethodImpl(MethodImplOptions.AggressiveInlining)] private void __AssignQueries(ref SystemState state)</code><br />
+Compiler-generated helper (empty in decompiled form) intended to initialize EntityQueryBuilder usage during compilation. Called from OnCreateForCompiler.</p>
+</li>
+<li>
+<p><code>protected override void OnCreateForCompiler()</code><br />
+Compiler helper invoked to assign query handles and component type handles in the compiled system; it calls __AssignQueries and __TypeHandle.__AssignHandles.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private void __AssignQueries(ref SystemState state)
-    {
-        new EntityQueryBuilder(Allocator.Temp).Dispose();
-    }
+<hr />
+<h2 id="usage-example">Usage Example</h2>
+<p>A minimal example showing typical interactions you might call from editor code or another mod system:</p>
+<pre><code class="language-csharp">// Obtain the system (example from a system method)
+var terrainTool = World.GetExistingSystemManaged&lt;TerrainToolSystem&gt;();
+
+// Select a TerraformingPrefab (prefab lookup via PrefabSystem)
+var terraformPrefab = PrefabCollection&lt;TerraformingPrefab&gt;.FindLoaded(&quot;MyRaisePrefab&quot;);
+if (terraformPrefab != null)
+{
+    terrainTool.SetPrefab(terraformPrefab);
+}
+
+// Optionally set an explicit brush height (e.g., set level target)
+terrainTool.brushHeight = 30.0f; // sets m_TargetPosition.y and marks target as set
+
+// Start tool usage: the tool handles input internally during OnUpdate.
+// To cancel any in-progress FX programmatically:
+terrainTool.SetDisableFX();
 </code></pre>
-<ul>
-<li><code>private Apply(Unity.Jobs.JobHandle inputDeps, System.Boolean singleFrameOnly = False) : Unity.Jobs.JobHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private JobHandle Apply(JobHandle inputDeps, bool singleFrameOnly = false)
-    {
-        if (m_State == State.Default)
-        {
-            base.applyMode = ((prefab.m_Type != TerraformingType.Slope &amp;&amp; GetAllowApply()) ? ApplyMode.Apply : ApplyMode.Clear);
-            if (!singleFrameOnly)
-            {
-                m_StartPoint = m_RaycastPoint;
-                m_State = State.Adding;
-            }
-            if (m_AudioSource == null &amp;&amp; !m_ToolSystem.actionMode.IsEditor())
-            {
-                m_AudioSource = m_AudioManager.PlayExclusiveUISound(m_SoundQuery.GetSingleton&lt;ToolUXSoundSettingsData&gt;().m_TerraformSound);
-            }
-            GetRaycastResult(out m_RaycastPoint);
-            m_ApplyPosition = m_RaycastPoint.m_HitPosition;
-            return UpdateDefinitions(inputDeps);
-        }
-        if (m_State == State.Adding)
-        {
-            base.applyMode = (GetAllowApply() ? ApplyMode.Apply : ApplyMode.Clear);
-            m_StartPoint = default(ControlPoint);
-            m_State = State.Default;
-            GetRaycastResult(out m_RaycastPoint);
-            SetDisableFX();
-            return UpdateDefinitions(inputDeps);
-        }
-        base.applyMode = ApplyMode.Clear;
-        m_StartPoint = default(ControlPoint);
-        m_State = State.Default;
-        GetRaycastResult(out m_RaycastPoint);
-        SetDisableFX();
-        return UpdateDefinitions(inputDeps);
-    }
-</code></pre>
-<ul>
-<li><code>private Cancel(Unity.Jobs.JobHandle inputDeps, System.Boolean singleFrameOnly = False) : Unity.Jobs.JobHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private JobHandle Cancel(JobHandle inputDeps, bool singleFrameOnly = false)
-    {
-        if (m_State == State.Default)
-        {
-            base.applyMode = ((prefab.m_Type != TerraformingType.Slope &amp;&amp; GetAllowApply()) ? ApplyMode.Apply : ApplyMode.Clear);
-            if (!singleFrameOnly)
-            {
-                m_StartPoint = m_RaycastPoint;
-                m_State = State.Removing;
-            }
-            if (m_AudioSource == null &amp;&amp; !m_ToolSystem.actionMode.IsEditor())
-            {
-                m_AudioSource = m_AudioManager.PlayExclusiveUISound(m_SoundQuery.GetSingleton&lt;ToolUXSoundSettingsData&gt;().m_TerraformSound);
-            }
-            GetRaycastResult(out m_RaycastPoint);
-            m_TargetSet = true;
-            m_TargetPosition = m_RaycastPoint.m_HitPosition;
-            inputDeps = InvertBrushes(m_TempQuery, inputDeps);
-            return UpdateDefinitions(inputDeps);
-        }
-        if (m_State == State.Removing)
-        {
-            base.applyMode = (GetAllowApply() ? ApplyMode.Apply : ApplyMode.Clear);
-            m_StartPoint = default(ControlPoint);
-            m_State = State.Default;
-            GetRaycastResult(out m_RaycastPoint);
-            SetDisableFX();
-            return UpdateDefinitions(inputDeps);
-        }
-        base.applyMode = ApplyMode.Clear;
-        m_StartPoint = default(ControlPoint);
-        m_State = State.Default;
-        GetRaycastResult(out m_RaycastPoint);
-        SetDisableFX();
-        return UpdateDefinitions(inputDeps);
-    }
-</code></pre>
-<ul>
-<li><code>private Clear(Unity.Jobs.JobHandle inputDeps) : Unity.Jobs.JobHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private JobHandle Clear(JobHandle inputDeps)
-    {
-        base.applyMode = ApplyMode.Clear;
-        SetDisableFX();
-        return inputDeps;
-    }
-</code></pre>
-<ul>
-<li><code>public virtual GetAvailableSnapMask(Game.Tools.Snap&amp; onMask, Game.Tools.Snap&amp; offMask) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override void GetAvailableSnapMask(out Snap onMask, out Snap offMask)
-    {
-        base.GetAvailableSnapMask(out onMask, out offMask);
-        if (prefab != null &amp;&amp; prefab.m_Target == TerraformingTarget.Height)
-        {
-            onMask |= Snap.ContourLines;
-            offMask |= Snap.ContourLines;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public virtual GetPrefab() : Game.Prefabs.PrefabBase</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override PrefabBase GetPrefab()
-    {
-        return prefab;
-    }
-</code></pre>
-<ul>
-<li><code>private HaveBrushSettingsChanged() : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">private bool HaveBrushSettingsChanged()
-    {
-        NativeArray&lt;ArchetypeChunk&gt; nativeArray = m_VisibleQuery.ToArchetypeChunkArray(Allocator.TempJob);
-        try
-        {
-            ComponentTypeHandle&lt;Brush&gt; typeHandle = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Tools_Brush_RO_ComponentTypeHandle, ref base.CheckedStateRef);
-            for (int i = 0; i &lt; nativeArray.Length; i++)
-            {
-                NativeArray&lt;Brush&gt; nativeArray2 = nativeArray[i].GetNativeArray(ref typeHandle);
-                for (int j = 0; j &lt; nativeArray2.Length; j++)
-                {
-                    if (!nativeArray2[j].m_Size.Equals(base.brushSize))
-                    {
-                        return true;
-                    }
-                }
-            }
-            return false;
-        }
-        finally
-        {
-            nativeArray.Dispose();
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public virtual InitializeRaycast() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override void InitializeRaycast()
-    {
-        base.InitializeRaycast();
-        if (prefab != null &amp;&amp; base.brushType != null)
-        {
-            m_ToolRaycastSystem.typeMask = TypeMask.Terrain;
-            m_ToolRaycastSystem.raycastFlags |= RaycastFlags.Outside;
-        }
-        else
-        {
-            m_ToolRaycastSystem.typeMask = TypeMask.None;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_AudioManager = base.World.GetOrCreateSystemManaged&lt;AudioManager&gt;();
-        m_ToolOutputBarrier = base.World.GetOrCreateSystemManaged&lt;ToolOutputBarrier&gt;();
-        m_DefinitionQuery = GetDefinitionQuery();
-        m_BrushQuery = GetBrushQuery();
-        m_VisibleQuery = GetEntityQuery(ComponentType.ReadOnly&lt;Brush&gt;(), ComponentType.Exclude&lt;Hidden&gt;(), ComponentType.Exclude&lt;Deleted&gt;());
-        m_TempQuery = GetEntityQuery(ComponentType.ReadOnly&lt;Brush&gt;(), ComponentType.ReadOnly&lt;Temp&gt;());
-        m_SoundQuery = GetEntityQuery(ComponentType.ReadOnly&lt;ToolUXSoundSettingsData&gt;());
-        m_EraseMaterial = InputManager.instance.toolActionCollection.GetActionState(&quot;Erase Material&quot;, &quot;TerrainToolSystem&quot;);
-        m_EraseResource = InputManager.instance.toolActionCollection.GetActionState(&quot;Erase Resource&quot;, &quot;TerrainToolSystem&quot;);
-        m_FastSoften = InputManager.instance.toolActionCollection.GetActionState(&quot;Fast Soften&quot;, &quot;TerrainToolSystem&quot;);
-        m_LevelTerrain = InputManager.instance.toolActionCollection.GetActionState(&quot;Level Terrain&quot;, &quot;TerrainToolSystem&quot;);
-        m_LowerTerrain = InputManager.instance.toolActionCollection.GetActionState(&quot;Lower Terrain&quot;, &quot;TerrainToolSystem&quot;);
-        m_PaintMaterial = InputManager.instance.toolActionCollection.GetActionState(&quot;Paint Material&quot;, &quot;TerrainToolSystem&quot;);
-        m_PaintResource = InputManager.instance.toolActionCollection.GetActionState(&quot;Paint Resource&quot;, &quot;TerrainToolSystem&quot;);
-        m_RaiseTerrain = InputManager.instance.toolActionCollection.GetActionState(&quot;Raise Terrain&quot;, &quot;TerrainToolSystem&quot;);
-        m_SetLevelTarget = InputManager.instance.toolActionCollection.GetActionState(&quot;Set Level Target&quot;, &quot;TerrainToolSystem&quot;);
-        m_SetSlopeTarget = InputManager.instance.toolActionCollection.GetActionState(&quot;Set Slope Target&quot;, &quot;TerrainToolSystem&quot;);
-        m_SlopeTerrain = InputManager.instance.toolActionCollection.GetActionState(&quot;Slope Terrain&quot;, &quot;TerrainToolSystem&quot;);
-        m_SoftenTerrain = InputManager.instance.toolActionCollection.GetActionState(&quot;Soften Terrain&quot;, &quot;TerrainToolSystem&quot;);
-        base.brushSize = 100f;
-        base.brushAngle = 0f;
-        base.brushStrength = 0.5f;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreateForCompiler() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnCreateForCompiler()
-    {
-        base.OnCreateForCompiler();
-        __AssignQueries(ref base.CheckedStateRef);
-        __TypeHandle.__AssignHandles(ref base.CheckedStateRef);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnGameLoaded(Colossal.Serialization.Entities.Context serializationContext) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnGameLoaded(Context serializationContext)
-    {
-        base.OnGameLoaded(serializationContext);
-        base.brushType = FindDefaultBrush(m_BrushQuery);
-        base.brushSize = 100f;
-        base.brushAngle = 0f;
-        base.brushStrength = 0.5f;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnStartRunning() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnStartRunning()
-    {
-        base.OnStartRunning();
-        m_RaycastPoint = default(ControlPoint);
-        m_StartPoint = default(ControlPoint);
-        m_State = State.Default;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate(Unity.Jobs.JobHandle inputDeps) : Unity.Jobs.JobHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override JobHandle OnUpdate(JobHandle inputDeps)
-    {
-        if (base.brushType == null)
-        {
-            base.brushType = FindDefaultBrush(m_BrushQuery);
-        }
-        base.requireNet = Layer.Road | Layer.TrainTrack | Layer.Pathway | Layer.TramTrack | Layer.SubwayTrack | Layer.PublicTransportRoad;
-        base.requirePipelines = true;
-        if (m_FocusChanged)
-        {
-            return inputDeps;
-        }
-        if (prefab != null &amp;&amp; base.brushType != null &amp;&amp; m_HasFocus)
-        {
-            UpdateInfoview(m_PrefabSystem.GetEntity(prefab));
-            GetAvailableSnapMask(out m_SnapOnMask, out m_SnapOffMask);
-            if (m_State != State.Default &amp;&amp; !base.applyAction.enabled)
-            {
-                m_State = State.Default;
-            }
-            if ((m_ToolRaycastSystem.raycastFlags &amp; (RaycastFlags.DebugDisable | RaycastFlags.UIDisable)) == 0)
-            {
-                if (m_State != State.Default)
-                {
-                    if (base.applyAction.WasPressedThisFrame() || base.applyAction.WasReleasedThisFrame())
-                    {
-                        return Apply(inputDeps);
-                    }
-                    if (base.secondaryApplyAction.WasPressedThisFrame() || base.secondaryApplyAction.WasReleasedThisFrame())
-                    {
-                        return Cancel(inputDeps);
-                    }
-                    return Update(inputDeps);
-                }
-                if (base.secondaryApplyAction.WasPressedThisFrame())
-                {
-                    return Cancel(inputDeps, base.secondaryApplyAction.WasReleasedThisFrame());
-                }
-                if (base.applyAction.WasPressedThisFrame())
-                {
-                    return Apply(inputDeps, base.applyAction.WasReleasedThisFrame());
-                }
-                return Update(inputDeps);
-            }
-        }
-        else
-        {
-            UpdateInfoview(Entity.Null);
-        }
-        if (m_State != State.Default &amp;&amp; (base.applyAction.WasReleasedThisFrame() || base.secondaryApplyAction.WasReleasedThisFrame() || !m_HasFocus))
-        {
-            m_StartPoint = default(ControlPoint);
-            m_State = State.Default;
-        }
-        return Clear(inputDeps);
-    }
-</code></pre>
-<ul>
-<li><code>public SetDisableFX() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void SetDisableFX()
-    {
-        if (m_AudioSource != null)
-        {
-            m_AudioManager.StopExclusiveUISound(m_AudioSource);
-            m_AudioSource = null;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public SetPrefab(Game.Prefabs.TerraformingPrefab value) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void SetPrefab(TerraformingPrefab value)
-    {
-        m_TargetSet = false;
-        m_TargetPosition = new float3(0f, 0f, 0f);
-        m_ApplyPosition = new float3(0f, 0f, 0f);
-        prefab = value;
-        if (base.Enabled)
-        {
-            UpdateActions();
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public virtual TrySetPrefab(Game.Prefabs.PrefabBase prefab) : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override bool TrySetPrefab(PrefabBase prefab)
-    {
-        if (prefab is TerraformingPrefab terraformingPrefab)
-        {
-            SetPrefab(terraformingPrefab);
-            return true;
-        }
-        return false;
-    }
-</code></pre>
-<ul>
-<li><code>private Update(Unity.Jobs.JobHandle inputDeps) : Unity.Jobs.JobHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private JobHandle Update(JobHandle inputDeps)
-    {
-        if (GetRaycastResult(out var controlPoint))
-        {
-            if (m_State != State.Default)
-            {
-                base.applyMode = (GetAllowApply() ? ApplyMode.Apply : ApplyMode.Clear);
-                m_StartPoint = m_RaycastPoint;
-                m_RaycastPoint = controlPoint;
-                return UpdateDefinitions(inputDeps);
-            }
-            if (m_RaycastPoint.Equals(controlPoint))
-            {
-                if (HaveBrushSettingsChanged())
-                {
-                    base.applyMode = ApplyMode.Clear;
-                    return UpdateDefinitions(inputDeps);
-                }
-                base.applyMode = ApplyMode.None;
-                return inputDeps;
-            }
-            base.applyMode = ApplyMode.Clear;
-            m_StartPoint = controlPoint;
-            m_RaycastPoint = controlPoint;
-            return UpdateDefinitions(inputDeps);
-        }
-        if (m_RaycastPoint.Equals(default(ControlPoint)))
-        {
-            base.applyMode = ApplyMode.None;
-            return inputDeps;
-        }
-        if (m_State != State.Default)
-        {
-            base.applyMode = (GetAllowApply() ? ApplyMode.Apply : ApplyMode.Clear);
-            m_StartPoint = m_RaycastPoint;
-            m_RaycastPoint = default(ControlPoint);
-        }
-        else
-        {
-            base.applyMode = ApplyMode.Clear;
-            m_StartPoint = default(ControlPoint);
-            m_RaycastPoint = default(ControlPoint);
-        }
-        return UpdateDefinitions(inputDeps);
-    }
-</code></pre>
-<ul>
-<li><code>private virtual UpdateActions() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private protected override void UpdateActions()
-    {
-        using (ProxyAction.DeferStateUpdating())
-        {
-            base.applyAction.enabled = base.actionsEnabled;
-            base.secondaryApplyAction.enabled = base.actionsEnabled;
-            if (prefab.m_Type == TerraformingType.Shift)
-            {
-                if (prefab.m_Target == TerraformingTarget.Height)
-                {
-                    base.applyActionOverride = m_RaiseTerrain;
-                    base.secondaryApplyActionOverride = m_LowerTerrain;
-                }
-                else if (prefab.m_Target == TerraformingTarget.Material)
-                {
-                    base.applyActionOverride = m_PaintMaterial;
-                    base.secondaryApplyActionOverride = m_EraseMaterial;
-                }
-                else
-                {
-                    base.applyActionOverride = m_PaintResource;
-                    base.secondaryApplyActionOverride = m_EraseResource;
-                }
-            }
-            else if (prefab.m_Type == TerraformingType.Level)
-            {
-                base.applyActionOverride = m_LevelTerrain;
-                base.secondaryApplyActionOverride = m_SetLevelTarget;
-            }
-            else if (prefab.m_Type == TerraformingType.Slope)
-            {
-                base.applyActionOverride = m_SlopeTerrain;
-                base.secondaryApplyActionOverride = m_SetSlopeTarget;
-            }
-            else if (prefab.m_Type == TerraformingType.Soften)
-            {
-                base.applyActionOverride = m_SoftenTerrain;
-                base.secondaryApplyActionOverride = m_FastSoften;
-            }
-            else
-            {
-                base.applyActionOverride = null;
-                base.secondaryApplyActionOverride = null;
-            }
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private UpdateDefinitions(Unity.Jobs.JobHandle inputDeps) : Unity.Jobs.JobHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private JobHandle UpdateDefinitions(JobHandle inputDeps)
-    {
-        JobHandle jobHandle = DestroyDefinitions(m_DefinitionQuery, m_ToolOutputBarrier, inputDeps);
-        if (prefab != null &amp;&amp; base.brushType != null)
-        {
-            JobHandle jobHandle2 = IJobExtensions.Schedule(new CreateDefinitionsJob
-            {
-                m_Prefab = m_PrefabSystem.GetEntity(prefab),
-                m_Brush = m_PrefabSystem.GetEntity(base.brushType),
-                m_Size = base.brushSize,
-                m_Angle = math.radians(base.brushAngle),
-                m_Strength = ((m_State == State.Removing) ? (0f - base.brushStrength) : base.brushStrength),
-                m_Time = UnityEngine.Time.deltaTime,
-                m_StartPoint = m_StartPoint,
-                m_EndPoint = m_RaycastPoint,
-                m_Target = (m_TargetSet ? m_TargetPosition : m_RaycastPoint.m_HitPosition),
-                m_ApplyStart = m_ApplyPosition,
-                m_CommandBuffer = m_ToolOutputBarrier.CreateCommandBuffer()
-            }, inputDeps);
-            m_ToolOutputBarrier.AddJobHandleForProducer(jobHandle2);
-            jobHandle = JobHandle.CombineDependencies(jobHandle, jobHandle2);
-            if (base.applyMode == ApplyMode.Apply)
-            {
-                EnsureCachedBrushData();
-            }
-        }
-        return jobHandle;
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Tools.TerrainToolSystem+State</code>  </li>
-<li><code>Game.Tools.TerrainToolSystem+CreateDefinitionsJob</code>  </li>
-<li><code>Game.Tools.TerrainToolSystem+TypeHandle</code>  </li>
-<li><code>Game.Tools.TerrainToolSystem+&lt;get_toolActions&gt;d__32</code>  </li>
-</ul>
+<p>Notes:
+- The system schedules CreateDefinitionsJob which produces CreationDefinition/BrushDefinition entities; another system consumes those to perform the actual terrain modification. Do not try to directly manipulate those entities here.
+- This system relies on the InputManager tool action mappings; to add new actions or change bindings, use InputManager.instance.toolActionCollection.
+- Because the CreateDefinitionsJob is Burst-compiled and scheduled, be careful to only pass blittable data to it and respect job scheduling patterns (it uses ToolOutputBarrier's EntityCommandBuffer).</p>
 
 
 

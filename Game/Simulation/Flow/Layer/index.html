@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75481,6 +75550,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Settings/InputHintsType/" class="md-nav__link">
         
   
@@ -77574,15 +77666,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -77613,6 +77696,15 @@
   <a href="#methods" class="md-nav__link">
     <span class="md-ellipsis">
       Methods
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
     </span>
   </a>
   
@@ -87147,6 +87239,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -117923,6 +118038,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117948,15 +118085,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -117994,6 +118122,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -118011,359 +118148,143 @@
 
 
 <h1 id="gamesimulationflowlayer">Game.Simulation.Flow.Layer</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Simulation.Flow</code>  </p>
-<p><strong>Type:</strong> struct sealed public  </p>
-<p><strong>Base:</strong> <code>System.ValueType</code><br />
-<strong>Implements:</strong> <code>System.IDisposable</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public sealed struct Layer : System.IDisposable
-{
-    public Unity.Collections.LowLevel.Unsafe.UnsafeList&lt;Game.Simulation.Flow.CutElement&gt; m_Elements;
-    public Unity.Collections.LowLevel.Unsafe.UnsafeList&lt;Game.Simulation.Flow.CutElementRef&gt; m_ElementRefs;
-    private System.Int32 m_UsedElementCount;
-    private System.Int32 m_UsedElementRefCount;
-    private System.Int32 m_FreeElementIndex;
-    private System.Int32 m_FreeElementRefIndex;
-
-    public System.Boolean isEmpty { get; }
-    public System.Int32 usedElementCount { get; }
-    public System.Int32 usedElementRefCount { get; }
-
-    public Layer(System.Int32 initialLength, Unity.Collections.Allocator allocator);
-
-    public System.Int32 AddCutElement(Game.Simulation.Flow.CutElement&amp; element);
-    public System.Int32 AddCutElementRef(Game.Simulation.Flow.CutElementRef&amp; elementRef);
-    private static System.Void AddRange&lt;T&gt;(UnsafeList`1&amp; unsafeList, Unity.Collections.NativeSlice&lt;T&gt; slice);
-    private static System.Void AddRange&lt;T&gt;(Unity.Collections.NativeList&lt;T&gt; list, Unity.Collections.LowLevel.Unsafe.UnsafeList&lt;T&gt; unsafeList);
-    public System.Boolean ContainsCutElement(Game.Simulation.Flow.Identifier id);
-    public System.Boolean ContainsCutElementForConnection(Game.Simulation.Flow.Identifier id, Game.Simulation.Flow.Connection connection, System.Boolean admissible);
-    public System.Void Dispose();
-    public System.Void FreeCutElement(System.Int32 index);
-    public System.Void FreeCutElementRef(System.Int32 index);
-    public Game.Simulation.Flow.CutElement&amp; GetCutElement(System.Int32 index);
-    public Game.Simulation.Flow.CutElementRef&amp; GetCutElementRef(System.Int32 index);
-    public static Game.Simulation.Flow.Layer Load(Game.Simulation.Flow.LayerState state, Unity.Collections.NativeArray&lt;Game.Simulation.Flow.CutElement&gt; layerElements, System.Int32&amp; elementIndex, Unity.Collections.NativeArray&lt;Game.Simulation.Flow.CutElementRef&gt; layerElementRefs, System.Int32&amp; elementRefIndex);
-    public System.Void MergeGroups(System.Int32 elementId1, System.Int32 elementId2);
-    public System.Void RemoveElementLink(System.Int32 elementIndex, System.Int32 upperLayerIndex, System.Int32 upperLayerElementIndex);
-    public System.Void Save(Unity.Collections.NativeList&lt;Game.Simulation.Flow.LayerState&gt; layerStates, Unity.Collections.NativeList&lt;Game.Simulation.Flow.CutElement&gt; layerElements, Unity.Collections.NativeList&lt;Game.Simulation.Flow.CutElementRef&gt; layerElementRefs);
-}
-</code></pre>
+<p><strong>Assembly:</strong> Assembly-CSharp<br />
+<strong>Namespace:</strong> Game.Simulation.Flow</p>
+<p><strong>Type:</strong> struct</p>
+<p><strong>Base:</strong> System.ValueType, implements System.IDisposable</p>
+<p><strong>Summary:</strong><br />
+Represents a single "layer" of cut elements used by the simulation flow system. Layer stores CutElement and CutElementRef entries in Unity UnsafeList containers, manages free lists for reuse, and tracks usage counts. It provides low-level add/free operations, group merging, linking management, and (de)serialization helpers to save/load layer state into contiguous native arrays. Because it uses Unity.Collections low-level containers (UnsafeList / NativeList / NativeArray), callers must manage allocator lifetimes and call Dispose to release native memory.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>public Unity.Collections.LowLevel.Unsafe.UnsafeList&lt;Game.Simulation.Flow.CutElement&gt; m_Elements</code>  </li>
+<li>
+<p><code>public UnsafeList&lt;CutElement&gt; m_Elements</code><br />
+Stores the underlying array of CutElement instances. This UnsafeList represents the allocated slots (capacity). Individual elements may be active or part of a free list. The list's Length is used as the current capacity and is resized automatically when adding beyond capacity.</p>
+</li>
+<li>
+<p><code>public UnsafeList&lt;CutElementRef&gt; m_ElementRefs</code><br />
+Stores the underlying array of CutElementRef instances. Works the same way as m_Elements but for references/links between layers.</p>
+</li>
+<li>
+<p><code>private int m_UsedElementCount</code><br />
+Count of currently active (in-use) CutElement entries. Useful to quickly check if the layer is empty or for statistics.</p>
+</li>
+<li>
+<p><code>private int m_UsedElementRefCount</code><br />
+Count of currently active CutElementRef entries.</p>
+</li>
+<li>
+<p><code>private int m_FreeElementIndex</code><br />
+Head index of the free list for m_Elements. -1 indicates no free entries. Freed element slots are pushed onto this list for reuse.</p>
+</li>
+<li>
+<p><code>private int m_FreeElementRefIndex</code><br />
+Head index of the free list for m_ElementRefs. -1 indicates none available.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public Unity.Collections.LowLevel.Unsafe.UnsafeList&lt;Game.Simulation.Flow.CutElement&gt; m_Elements;
-</code></pre>
-<ul>
-<li><code>public Unity.Collections.LowLevel.Unsafe.UnsafeList&lt;Game.Simulation.Flow.CutElementRef&gt; m_ElementRefs</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Unity.Collections.LowLevel.Unsafe.UnsafeList&lt;Game.Simulation.Flow.CutElementRef&gt; m_ElementRefs;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_UsedElementCount</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_UsedElementCount;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_UsedElementRefCount</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_UsedElementRefCount;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_FreeElementIndex</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_FreeElementIndex;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_FreeElementRefIndex</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_FreeElementRefIndex;
-</code></pre>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>public System.Boolean isEmpty { get }</code>  </li>
+<li>
+<p><code>public bool isEmpty { get; }</code><br />
+Returns true when m_UsedElementCount == 0. Quick check to determine whether the layer contains any active elements.</p>
+</li>
+<li>
+<p><code>public int usedElementCount { get; }</code><br />
+Returns the current number of active CutElement entries (m_UsedElementCount).</p>
+</li>
+<li>
+<p><code>public int usedElementRefCount { get; }</code><br />
+Returns the current number of active CutElementRef entries (m_UsedElementRefCount).</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public System.Boolean isEmpty { get; }
-</code></pre>
-<ul>
-<li><code>public System.Int32 usedElementCount { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Int32 usedElementCount { get; }
-</code></pre>
-<ul>
-<li><code>public System.Int32 usedElementRefCount { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Int32 usedElementRefCount { get; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public Layer(System.Int32 initialLength, Unity.Collections.Allocator allocator)</code>  </li>
+<li><code>public Layer(int initialLength, Allocator allocator)</code><br />
+Creates a layer with initial capacity initialLength using the provided Unity.Collections.Allocator. Both m_Elements and m_ElementRefs are allocated and their slots initialized into a free list (each slot's m_NextIndex is chained). If initialLength is zero, free list heads are set to -1. The lists are created with NativeArrayOptions.ClearMemory so slots start zeroed.</li>
 </ul>
-<pre><code class="language-csharp">public Layer(int initialLength, Allocator allocator)
-    {
-        m_Elements = new UnsafeList&lt;CutElement&gt;(initialLength, allocator, NativeArrayOptions.ClearMemory);
-        m_Elements.Length = initialLength;
-        m_ElementRefs = new UnsafeList&lt;CutElementRef&gt;(initialLength, allocator, NativeArrayOptions.ClearMemory);
-        m_ElementRefs.Length = initialLength;
-        m_UsedElementCount = 0;
-        m_UsedElementRefCount = 0;
-        if (initialLength &gt; 0)
-        {
-            m_FreeElementIndex = 0;
-            m_FreeElementRefIndex = 0;
-            int num = initialLength - 1;
-            for (int i = 0; i &lt; initialLength; i++)
-            {
-                int nextIndex = ((i == num) ? (-1) : (i + 1));
-                CutElement value = m_Elements[i];
-                value.m_NextIndex = nextIndex;
-                m_Elements[i] = value;
-                CutElementRef value2 = m_ElementRefs[i];
-                value2.m_NextIndex = nextIndex;
-                m_ElementRefs[i] = value2;
-            }
-        }
-        else
-        {
-            m_FreeElementIndex = -1;
-            m_FreeElementRefIndex = -1;
-        }
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>public AddCutElement(Game.Simulation.Flow.CutElement&amp; element) : System.Int32</code>  </li>
+<li>
+<p><code>public bool ContainsCutElement(Identifier id)</code><br />
+Checks whether the given Identifier references a valid, created CutElement in this layer: index must not be -1, element must be marked as created and have a matching version. Returns true when the referenced element exists and matches the version.</p>
+</li>
+<li>
+<p><code>public bool ContainsCutElementForConnection(Identifier id, Connection connection, bool admissible)</code><br />
+Greater validation compared to ContainsCutElement — additionally checks that the element matches the provided connection fields (edge, start/end node) and the admissible flag. Also validates index bounds (index &lt; m_Elements.Length).</p>
+</li>
+<li>
+<p><code>public ref CutElement GetCutElement(int index)</code><br />
+Returns a by-ref access to the CutElement at the given index using UnsafeList.ElementAt. Caller is responsible for ensuring the index is valid before calling.</p>
+</li>
+<li>
+<p><code>public int AddCutElement(in CutElement element)</code><br />
+Adds a new CutElement into the layer. If there is a free slot (m_FreeElementIndex != -1), it reuses that slot; otherwise it resizes m_Elements (Length++) and uses the new slot. The element is copied into the slot and m_UsedElementCount is incremented. Returns the index of the added element.</p>
+</li>
+<li>
+<p><code>public void FreeCutElement(int index)</code><br />
+Frees the element at index: resets its flags to None, pushes the slot onto the element free-list (m_FreeElementIndex), and decrements m_UsedElementCount. The element's m_NextIndex is set to the previous free head.</p>
+</li>
+<li>
+<p><code>public ref CutElementRef GetCutElementRef(int index)</code><br />
+Returns a by-ref access to the CutElementRef at the specified index. Caller must ensure index validity.</p>
+</li>
+<li>
+<p><code>public int AddCutElementRef(in CutElementRef elementRef)</code><br />
+Adds a CutElementRef, reusing a free slot when available or growing m_ElementRefs otherwise. Increments m_UsedElementRefCount. Returns the index of the inserted ref.</p>
+</li>
+<li>
+<p><code>public void FreeCutElementRef(int index)</code><br />
+Frees the CutElementRef at index by resetting its m_Layer and m_Index to -1, pushing the slot on the ref free-list, and decrementing m_UsedElementRefCount.</p>
+</li>
+<li>
+<p><code>public void MergeGroups(int elementId1, int elementId2)</code><br />
+Merges the group of elementId2 into the group of elementId1. This method relinks the internal m_NextIndex chain and updates m_Group for all elements in elementId2's group so they point to elementId1's group. No-op if both elements are already in the same group.</p>
+</li>
+<li>
+<p><code>public void RemoveElementLink(int elementIndex, int upperLayerIndex, int upperLayerElementIndex)</code><br />
+Removes a link from the specified element's linked-elements list that points to a CutElementRef identifying (upperLayerIndex, upperLayerElementIndex). Traverses the link chain, unlinks the found CutElementRef, and frees that CutElementRef slot.</p>
+</li>
+<li>
+<p><code>public static Layer Load(LayerState state, NativeArray&lt;CutElement&gt; layerElements, ref int elementIndex, NativeArray&lt;CutElementRef&gt; layerElementRefs, ref int elementRefIndex)</code><br />
+Deserializes a Layer from a LayerState and slices of contiguous arrays of CutElement and CutElementRef. It creates temporary UnsafeList instances (Allocator.Temp) and copies the slices into them using AddRange, advances elementIndex and elementRefIndex by the lengths consumed, and returns a Layer populated with the loaded lists and bookkeeping values taken from state. Note: the created UnsafeLists use Allocator.Temp in this implementation — exercise care with lifetime; Allocator.Temp is only valid for a short duration (same frame).</p>
+</li>
+<li>
+<p><code>private unsafe static void AddRange&lt;T&gt;(ref UnsafeList&lt;T&gt; unsafeList, NativeSlice&lt;T&gt; slice) where T : unmanaged</code><br />
+Low-level helper that adds the contents of a NativeSlice into an UnsafeList via unsafe pointer copy. Used by Load to fill temporary UnsafeLists.</p>
+</li>
+<li>
+<p><code>public void Save(NativeList&lt;LayerState&gt; layerStates, NativeList&lt;CutElement&gt; layerElements, NativeList&lt;CutElementRef&gt; layerElementRefs)</code><br />
+Serializes the layer state and appends it to the provided NativeLists. LayerState captures lengths, usage counts, and free list heads. Element and element-ref contents are appended using AddRange helpers.</p>
+</li>
+<li>
+<p><code>private unsafe static void AddRange&lt;T&gt;(NativeList&lt;T&gt; list, UnsafeList&lt;T&gt; unsafeList) where T : unmanaged</code><br />
+Low-level helper to append an UnsafeList's memory contents into a NativeList via pointer copy.</p>
+</li>
+<li>
+<p><code>public void Dispose()</code><br />
+Disposes m_Elements and m_ElementRefs native containers to release native memory. Must be called when the Layer is no longer needed to avoid memory leaks. After Dispose, the UnsafeLists become invalid.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public int AddCutElement(in CutElement element)
-    {
-        int num = m_FreeElementIndex;
-        if (num != -1)
-        {
-            m_FreeElementIndex = m_Elements[num].m_NextIndex;
-        }
-        else
-        {
-            num = m_Elements.Length;
-            m_Elements.Resize(num + 1, NativeArrayOptions.ClearMemory);
-        }
-        m_Elements[num] = element;
-        m_UsedElementCount++;
-        return num;
-    }
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Example: create a persistent layer, add an element, then dispose
+var layer = new Layer(16, Allocator.Persistent);
+
+CutElement element = default;
+// Initialize element fields (m_Group, m_Flags, etc.) as required by your mod
+int index = layer.AddCutElement(in element);
+
+// Access element by ref and modify
+ref CutElement eRef = ref layer.GetCutElement(index);
+eRef.m_Flags |= CutElementFlags.SomeFlag; // example
+
+// When done with this layer:
+layer.Dispose();
 </code></pre>
-<ul>
-<li><code>public AddCutElementRef(Game.Simulation.Flow.CutElementRef&amp; elementRef) : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">public int AddCutElementRef(in CutElementRef elementRef)
-    {
-        int num = m_FreeElementRefIndex;
-        if (num != -1)
-        {
-            m_FreeElementRefIndex = m_ElementRefs[num].m_NextIndex;
-        }
-        else
-        {
-            num = m_ElementRefs.Length;
-            m_ElementRefs.Resize(num + 1, NativeArrayOptions.ClearMemory);
-        }
-        m_ElementRefs[num] = elementRef;
-        m_UsedElementRefCount++;
-        return num;
-    }
-</code></pre>
-<ul>
-<li><code>private static AddRange&lt;T&gt;(UnsafeList</code>1&amp; unsafeList, Unity.Collections.NativeSlice<T> slice) : System.Void`  </li>
-</ul>
-<pre><code class="language-csharp">private static System.Void AddRange&lt;T&gt;(UnsafeList`1&amp; unsafeList, Unity.Collections.NativeSlice&lt;T&gt; slice);
-</code></pre>
-<ul>
-<li><code>private static AddRange&lt;T&gt;(Unity.Collections.NativeList&lt;T&gt; list, Unity.Collections.LowLevel.Unsafe.UnsafeList&lt;T&gt; unsafeList) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static System.Void AddRange&lt;T&gt;(Unity.Collections.NativeList&lt;T&gt; list, Unity.Collections.LowLevel.Unsafe.UnsafeList&lt;T&gt; unsafeList);
-</code></pre>
-<ul>
-<li><code>public ContainsCutElement(Game.Simulation.Flow.Identifier id) : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">public bool ContainsCutElement(Identifier id)
-    {
-        if (id.m_Index != -1)
-        {
-            CutElement cutElement = m_Elements[id.m_Index];
-            if (cutElement.isCreated &amp;&amp; cutElement.m_Version == id.m_Version)
-            {
-                return true;
-            }
-        }
-        return false;
-    }
-</code></pre>
-<ul>
-<li><code>public ContainsCutElementForConnection(Game.Simulation.Flow.Identifier id, Game.Simulation.Flow.Connection connection, System.Boolean admissible) : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">public bool ContainsCutElementForConnection(Identifier id, Connection connection, bool admissible)
-    {
-        if (id.m_Index != -1 &amp;&amp; id.m_Index &lt; m_Elements.Length)
-        {
-            CutElement cutElement = m_Elements[id.m_Index];
-            if (cutElement.isCreated &amp;&amp; cutElement.m_Version == id.m_Version &amp;&amp; cutElement.m_Edge == connection.m_Edge &amp;&amp; cutElement.m_StartNode == connection.m_StartNode &amp;&amp; cutElement.m_EndNode == connection.m_EndNode &amp;&amp; cutElement.isAdmissible == admissible)
-            {
-                return true;
-            }
-        }
-        return false;
-    }
-</code></pre>
-<ul>
-<li><code>public Dispose() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void Dispose()
-    {
-        m_Elements.Dispose();
-        m_ElementRefs.Dispose();
-    }
-</code></pre>
-<ul>
-<li><code>public FreeCutElement(System.Int32 index) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void FreeCutElement(int index)
-    {
-        ref CutElement reference = ref m_Elements.ElementAt(index);
-        reference.m_Flags = CutElementFlags.None;
-        reference.m_NextIndex = m_FreeElementIndex;
-        m_FreeElementIndex = index;
-        m_UsedElementCount--;
-    }
-</code></pre>
-<ul>
-<li><code>public FreeCutElementRef(System.Int32 index) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void FreeCutElementRef(int index)
-    {
-        ref CutElementRef reference = ref m_ElementRefs.ElementAt(index);
-        reference.m_Layer = -1;
-        reference.m_Index = -1;
-        reference.m_NextIndex = m_FreeElementRefIndex;
-        m_FreeElementRefIndex = index;
-        m_UsedElementRefCount--;
-    }
-</code></pre>
-<ul>
-<li><code>public GetCutElement(System.Int32 index) : Game.Simulation.Flow.CutElement&amp;</code>  </li>
-</ul>
-<pre><code class="language-csharp">public ref CutElement GetCutElement(int index)
-    {
-        return ref m_Elements.ElementAt(index);
-    }
-</code></pre>
-<ul>
-<li><code>public GetCutElementRef(System.Int32 index) : Game.Simulation.Flow.CutElementRef&amp;</code>  </li>
-</ul>
-<pre><code class="language-csharp">public ref CutElementRef GetCutElementRef(int index)
-    {
-        return ref m_ElementRefs.ElementAt(index);
-    }
-</code></pre>
-<ul>
-<li><code>public static Load(Game.Simulation.Flow.LayerState state, Unity.Collections.NativeArray&lt;Game.Simulation.Flow.CutElement&gt; layerElements, System.Int32&amp; elementIndex, Unity.Collections.NativeArray&lt;Game.Simulation.Flow.CutElementRef&gt; layerElementRefs, System.Int32&amp; elementRefIndex) : Game.Simulation.Flow.Layer</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static Layer Load(LayerState state, NativeArray&lt;CutElement&gt; layerElements, ref int elementIndex, NativeArray&lt;CutElementRef&gt; layerElementRefs, ref int elementRefIndex)
-    {
-        UnsafeList&lt;CutElement&gt; unsafeList = new UnsafeList&lt;CutElement&gt;(state.m_ElementsLength, Allocator.Temp);
-        AddRange(ref unsafeList, layerElements.Slice(elementIndex, state.m_ElementsLength));
-        UnsafeList&lt;CutElementRef&gt; unsafeList2 = new UnsafeList&lt;CutElementRef&gt;(state.m_ElementRefsLength, Allocator.Temp);
-        AddRange(ref unsafeList2, layerElementRefs.Slice(elementRefIndex, state.m_ElementRefsLength));
-        elementIndex += state.m_ElementsLength;
-        elementRefIndex += state.m_ElementRefsLength;
-        return new Layer
-        {
-            m_Elements = unsafeList,
-            m_ElementRefs = unsafeList2,
-            m_UsedElementCount = state.m_UsedElementCount,
-            m_UsedElementRefCount = state.m_UsedElementRefCount,
-            m_FreeElementIndex = state.m_FreeElementIndex,
-            m_FreeElementRefIndex = state.m_FreeElementRefIndex
-        };
-    }
-</code></pre>
-<ul>
-<li><code>public MergeGroups(System.Int32 elementId1, System.Int32 elementId2) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void MergeGroups(int elementId1, int elementId2)
-    {
-        ref CutElement cutElement = ref GetCutElement(elementId1);
-        CutElement cutElement2 = GetCutElement(elementId2);
-        int num = cutElement.m_Group;
-        int num2 = cutElement2.m_Group;
-        if (num == num2)
-        {
-            return;
-        }
-        int nextIndex = cutElement.m_NextIndex;
-        cutElement.m_NextIndex = num2;
-        int num3 = num2;
-        do
-        {
-            ref CutElement cutElement3 = ref GetCutElement(num3);
-            cutElement3.m_Group = num;
-            num3 = cutElement3.m_NextIndex;
-            if (num3 == -1)
-            {
-                cutElement3.m_NextIndex = nextIndex;
-            }
-        }
-        while (num3 != -1);
-    }
-</code></pre>
-<ul>
-<li><code>public RemoveElementLink(System.Int32 elementIndex, System.Int32 upperLayerIndex, System.Int32 upperLayerElementIndex) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void RemoveElementLink(int elementIndex, int upperLayerIndex, int upperLayerElementIndex)
-    {
-        ref CutElement cutElement = ref GetCutElement(elementIndex);
-        int num = -1;
-        int num2 = cutElement.m_LinkedElements;
-        while (num2 != -1)
-        {
-            CutElementRef cutElementRef = GetCutElementRef(num2);
-            if (cutElementRef.m_Layer == upperLayerIndex &amp;&amp; cutElementRef.m_Index == upperLayerElementIndex)
-            {
-                break;
-            }
-            num = num2;
-            num2 = cutElementRef.m_NextIndex;
-        }
-        ref CutElementRef cutElementRef2 = ref GetCutElementRef(num2);
-        if (num == -1)
-        {
-            cutElement.m_LinkedElements = cutElementRef2.m_NextIndex;
-        }
-        else
-        {
-            GetCutElementRef(num).m_NextIndex = cutElementRef2.m_NextIndex;
-        }
-        FreeCutElementRef(num2);
-    }
-</code></pre>
-<ul>
-<li><code>public Save(Unity.Collections.NativeList&lt;Game.Simulation.Flow.LayerState&gt; layerStates, Unity.Collections.NativeList&lt;Game.Simulation.Flow.CutElement&gt; layerElements, Unity.Collections.NativeList&lt;Game.Simulation.Flow.CutElementRef&gt; layerElementRefs) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void Save(NativeList&lt;LayerState&gt; layerStates, NativeList&lt;CutElement&gt; layerElements, NativeList&lt;CutElementRef&gt; layerElementRefs)
-    {
-        LayerState value = new LayerState
-        {
-            m_ElementsLength = m_Elements.Length,
-            m_ElementRefsLength = m_ElementRefs.Length,
-            m_UsedElementCount = m_UsedElementCount,
-            m_UsedElementRefCount = m_UsedElementRefCount,
-            m_FreeElementIndex = m_FreeElementIndex,
-            m_FreeElementRefIndex = m_FreeElementRefIndex
-        };
-        layerStates.Add(in value);
-        AddRange(layerElements, m_Elements);
-        AddRange(layerElementRefs, m_ElementRefs);
-    }
-</code></pre>
+<p>Notes and tips:
+- This struct uses Unity.Collections UnsafeList and Native containers. Respect allocator semantics: Allocator.Temp is only valid inside a single frame, Allocator.Persistent must be disposed explicitly, and Allocator.TempJob has limited lifetime as well.
+- Many methods return or accept refs into the UnsafeList; ensure indices are valid before calling GetCutElement / GetCutElementRef to avoid undefined behavior.
+- Layer is not thread-safe for concurrent writes. If using in jobs, adhere to Unity's native container job safety requirements and scheduling (JobHandles) or make copies per job.
+- Be cautious with Load: it currently constructs the returned Layer with UnsafeLists created using Allocator.Temp — if you need persistent layers, copy data into lists allocated with Allocator.Persistent or allocate differently.</p>
 
 
 

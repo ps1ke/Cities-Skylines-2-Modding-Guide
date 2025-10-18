@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87073,6 +87165,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Simulation/SurfaceWater/" class="md-nav__link">
         
   
@@ -93979,18 +94094,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -94015,9 +94130,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -117921,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117948,18 +118085,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -117984,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118009,331 +118146,193 @@
 
 
 <h1 id="gametriggerstriggersystem">Game.Triggers.TriggerSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Triggers</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code><br />
-<strong>Implements:</strong> <code>Colossal.Serialization.Entities.IDefaultSerializable</code>, <code>Colossal.Serialization.Entities.ISerializable</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class TriggerSystem : Game.GameSystemBase, Colossal.Serialization.Entities.IDefaultSerializable, Colossal.Serialization.Entities.ISerializable
-{
-    private Game.Simulation.SimulationSystem m_SimulationSystem;
-    private Game.Prefabs.TriggerPrefabSystem m_TriggerPrefabSystem;
-    private Game.Common.ModificationEndBarrier m_ModificationBarrier;
-    private System.Collections.Generic.List&lt;Unity.Collections.NativeQueue&lt;Game.Triggers.TriggerAction&gt;&gt; m_Queues;
-    private Unity.Jobs.JobHandle m_Dependencies;
-    private Game.Triggers.CreateChirpSystem m_CreateChirpSystem;
-    private Game.Triggers.LifePathEventSystem m_LifePathEventSystem;
-    private Game.Triggers.RadioTagSystem m_RadioTagSystem;
-    private Game.Tutorials.TutorialEventActivationSystem m_TutorialEventActivationSystem;
-    private System.DateTime m_LastTimedEventTime;
-    private System.TimeSpan m_TimedEventInterval;
-    private Unity.Entities.EntityQuery m_EDWSBuildingQuery;
-    private Unity.Collections.NativeParallelHashMap&lt;Unity.Entities.Entity, System.UInt32&gt; m_TriggerFrames;
-    private Game.Triggers.TriggerSystem+TypeHandle __TypeHandle;
-
-    public TriggerSystem();
-
-    private System.Void __AssignQueries(Unity.Entities.SystemState&amp; state);
-    public System.Void AddActionBufferWriter(Unity.Jobs.JobHandle handle);
-    public Unity.Collections.NativeQueue&lt;Game.Triggers.TriggerAction&gt; CreateActionBuffer();
-    public System.Void Deserialize&lt;TReader&gt;(TReader reader);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnCreateForCompiler();
-    protected virtual System.Void OnDestroy();
-    protected virtual System.Void OnGamePreload(Colossal.Serialization.Entities.Purpose purpose, Game.GameMode mode);
-    protected virtual System.Void OnStopRunning();
-    protected virtual System.Void OnUpdate();
-    public System.Void Serialize&lt;TWriter&gt;(TWriter writer);
-    public System.Void SetDefaults(Colossal.Serialization.Entities.Context context);
-}
-</code></pre>
+<p><strong>Assembly:</strong> Assembly-CSharp (game)<br />
+<strong>Namespace:</strong> Game.Triggers</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> GameSystemBase, IDefaultSerializable, ISerializable</p>
+<p><strong>Summary:</strong><br />
+TriggerSystem collects trigger actions (queued by other systems and jobs), evaluates them against trigger prefabs and conditions, and enqueues concrete creations such as chirps, life‑path events, radio tags and tutorial activations. It runs a Burst-compiled IJob (TriggerActionJob) over a NativeArray of TriggerAction items, respects per‑prefab frequency limits, checks trigger conditions, and dispatches creation requests to the appropriate producer systems. The system also persists a map of last-created frames per trigger prefab for interval limiting and periodically triggers telemetry for city stats.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.Simulation.SimulationSystem m_SimulationSystem</code>  </li>
+<li>
+<p><code>private SimulationSystem m_SimulationSystem</code><br />
+System reference providing the current simulation frame index.</p>
+</li>
+<li>
+<p><code>private TriggerPrefabSystem m_TriggerPrefabSystem</code><br />
+System providing trigger prefab lookup / metadata used to map trigger actions to concrete prefabs.</p>
+</li>
+<li>
+<p><code>private ModificationEndBarrier m_ModificationBarrier</code><br />
+Modification barrier used to register producer job handles when the job enqueues work that will modify entity state later.</p>
+</li>
+<li>
+<p><code>private List&lt;NativeQueue&lt;TriggerAction&gt;&gt; m_Queues</code><br />
+List of temporary NativeQueue<TriggerAction> instances that external writers create via CreateActionBuffer(). These are drained each update.</p>
+</li>
+<li>
+<p><code>private JobHandle m_Dependencies</code><br />
+Accumulated job dependencies from external writers that the system must wait on before consuming their queues.</p>
+</li>
+<li>
+<p><code>private CreateChirpSystem m_CreateChirpSystem</code><br />
+Producer system for chirp creation; TriggerSystem enqueues chirp creation requests here.</p>
+</li>
+<li>
+<p><code>private LifePathEventSystem m_LifePathEventSystem</code><br />
+Producer system for life-path events; TriggerSystem enqueues life-path event creation requests here.</p>
+</li>
+<li>
+<p><code>private RadioTagSystem m_RadioTagSystem</code><br />
+Producer system for radio tag events; TriggerSystem enqueues normal and emergency radio tags here.</p>
+</li>
+<li>
+<p><code>private TutorialEventActivationSystem m_TutorialEventActivationSystem</code><br />
+Producer system for tutorial activations; TriggerSystem enqueues tutorial activation requests here.</p>
+</li>
+<li>
+<p><code>private DateTime m_LastTimedEventTime</code><br />
+Timestamp used to track when the last timed telemetry (city stats) event fired.</p>
+</li>
+<li>
+<p><code>private TimeSpan m_TimedEventInterval</code><br />
+Interval between telemetry/timed events (default is 15 minutes).</p>
+</li>
+<li>
+<p><code>private EntityQuery m_EDWSBuildingQuery</code><br />
+EntityQuery used internally (constructed on OnCreate) — here it queries Early Disaster Warning System buildings (used for early-disaster related triggers).</p>
+</li>
+<li>
+<p><code>private NativeParallelHashMap&lt;Entity, uint&gt; m_TriggerFrames</code><br />
+Persistent map of trigger prefab entity -&gt; last simulation frame when it was created. Used to enforce frame-interval limits per prefab.</p>
+</li>
+<li>
+<p><code>private TypeHandle __TypeHandle</code><br />
+Compiler-generated holder of ComponentLookup/BufferLookup handles used when scheduling the Burst job.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.Simulation.SimulationSystem m_SimulationSystem;
-</code></pre>
+<h2 id="properties">Properties</h2>
 <ul>
-<li><code>private Game.Prefabs.TriggerPrefabSystem m_TriggerPrefabSystem</code>  </li>
+<li>None (no public properties defined on this type)</li>
 </ul>
-<pre><code class="language-csharp">private Game.Prefabs.TriggerPrefabSystem m_TriggerPrefabSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Common.ModificationEndBarrier m_ModificationBarrier</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Common.ModificationEndBarrier m_ModificationBarrier;
-</code></pre>
-<ul>
-<li><code>private System.Collections.Generic.List&lt;Unity.Collections.NativeQueue&lt;Game.Triggers.TriggerAction&gt;&gt; m_Queues</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Collections.Generic.List&lt;Unity.Collections.NativeQueue&lt;Game.Triggers.TriggerAction&gt;&gt; m_Queues;
-</code></pre>
-<ul>
-<li><code>private Unity.Jobs.JobHandle m_Dependencies</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Jobs.JobHandle m_Dependencies;
-</code></pre>
-<ul>
-<li><code>private Game.Triggers.CreateChirpSystem m_CreateChirpSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Triggers.CreateChirpSystem m_CreateChirpSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Triggers.LifePathEventSystem m_LifePathEventSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Triggers.LifePathEventSystem m_LifePathEventSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Triggers.RadioTagSystem m_RadioTagSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Triggers.RadioTagSystem m_RadioTagSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Tutorials.TutorialEventActivationSystem m_TutorialEventActivationSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Tutorials.TutorialEventActivationSystem m_TutorialEventActivationSystem;
-</code></pre>
-<ul>
-<li><code>private System.DateTime m_LastTimedEventTime</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.DateTime m_LastTimedEventTime;
-</code></pre>
-<ul>
-<li><code>private System.TimeSpan m_TimedEventInterval</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.TimeSpan m_TimedEventInterval;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_EDWSBuildingQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_EDWSBuildingQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeParallelHashMap&lt;Unity.Entities.Entity, System.UInt32&gt; m_TriggerFrames</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeParallelHashMap&lt;Unity.Entities.Entity, System.UInt32&gt; m_TriggerFrames;
-</code></pre>
-<ul>
-<li><code>private Game.Triggers.TriggerSystem+TypeHandle __TypeHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Triggers.TriggerSystem+TypeHandle __TypeHandle;
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public TriggerSystem()</code>  </li>
+<li><code>public TriggerSystem()</code><br />
+Default public constructor. System initialization logic is performed in OnCreate.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public TriggerSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private __AssignQueries(Unity.Entities.SystemState&amp; state) : System.Void</code>  </li>
+<li>
+<p><code>protected override void OnCreate()</code><br />
+Initializes system references (SimulationSystem, TriggerPrefabSystem, producer systems), allocates m_Queues and m_TriggerFrames, sets defaults for timed events and queries, and disables the system by default. Called by the framework when the system is created.</p>
+</li>
+<li>
+<p><code>protected override void OnGamePreload(Colossal.Serialization.Entities.Purpose purpose, GameMode mode)</code><br />
+Enables the system only when the game mode is a normal game (mode.IsGame()).</p>
+</li>
+<li>
+<p><code>protected override void OnStopRunning()</code><br />
+Completes outstanding dependencies, disposes any leftover queues and clears the list. Called when system stops running.</p>
+</li>
+<li>
+<p><code>public NativeQueue&lt;TriggerAction&gt; CreateActionBuffer()</code><br />
+Creates and returns a new NativeQueue<TriggerAction> (Allocator.TempJob) for producers to enqueue TriggerAction items. The queue is tracked in m_Queues and will be consumed on the next update. Asserts that the system is enabled.</p>
+</li>
+<li>
+<p><code>public void AddActionBufferWriter(JobHandle handle)</code><br />
+Registers an external job handle (writer) dependency so TriggerSystem will wait for writers to finish before consuming queues.</p>
+</li>
+<li>
+<p><code>protected override void OnUpdate()</code><br />
+Main update: completes dependencies, collects all queued TriggerAction items into a NativeArray, sets up and schedules the Burst TriggerActionJob (providing many read-only component lookups and producer queues), registers the job handle with producer systems and the modification barrier, and periodically triggers telemetry (Telemetry.CityStats) using m_TimedEventInterval. Also disposes temporary queues and clears m_Queues.</p>
+</li>
+<li>
+<p><code>protected override void OnDestroy()</code><br />
+Disposes the persistent m_TriggerFrames map.</p>
+</li>
+<li>
+<p><code>public void SetDefaults(Context context)</code><br />
+Resets runtime defaults; currently clears m_TriggerFrames.</p>
+</li>
+<li>
+<p><code>public void Serialize&lt;TWriter&gt;(TWriter writer) where TWriter : IWriter</code><br />
+Serializes m_TriggerFrames (keys and last-frame values) to the provided writer. Writes count and then each pair.</p>
+</li>
+<li>
+<p><code>public void Deserialize&lt;TReader&gt;(TReader reader) where TReader : IReader</code><br />
+Deserializes m_TriggerFrames from reader. Clears current map and reads count entries; skips Entity.Null entries.</p>
+</li>
+<li>
+<p><code>private void __AssignQueries(ref SystemState state)</code><br />
+Compiler-generated query assignment stub (no runtime query assignments required here).</p>
+</li>
+<li>
+<p><code>protected override void OnCreateForCompiler()</code><br />
+Compiler helper invoked at build time to assign queries and type handles used by the Burst job.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private void __AssignQueries(ref SystemState state)
+<p>Nested type: TriggerActionJob (Burst-compiled IJob)</p>
+<ul>
+<li><code>TriggerActionJob.Execute()</code><br />
+Iterates over the provided m_Actions array, for each TriggerAction:</li>
+<li>Determines target type (building, citizen, road, policy, service building, etc.) by checking component presence on the target entities.</li>
+<li>Uses m_TriggerPrefabData to find matching prefabs for the trigger type / target type / trigger prefab id.</li>
+<li>For each prefab candidate, checks per-prefab interval limit (CheckInterval) and trigger conditions buffer (CheckConditions).</li>
+<li>If passed, calls CreateEntity to enqueue creation into the correct producer queue (chirp, life-path event, radio tag (emergency vs normal), tutorial activation), and records the last-frame into m_TriggerFrames if the prefab has TriggerLimitData.</li>
+<li>
+<p>For road traffic-accident triggers, may compute distance to camera using CullingInfo and m_CameraPosition and set triggerAction.m_Value accordingly.</p>
+</li>
+<li>
+<p><code>TriggerActionJob.CheckInterval(Entity prefab) : bool</code><br />
+Returns whether enough frames have passed since last creation of this prefab according to TriggerLimitData. Reads m_TriggerFrames and returns true if no limit or frame interval satisfied.</p>
+</li>
+<li>
+<p><code>TriggerActionJob.CheckConditions(Entity prefab, TriggerAction action) : bool</code><br />
+If prefab has a TriggerConditionData buffer, iterates conditions (Equals, GreaterThan, LessThan) and validates action.m_Value against each. Returns false if any condition fails.</p>
+</li>
+<li>
+<p><code>TriggerActionJob.CreateEntity(ref Random random, Entity prefab, TriggerAction triggerAction)</code><br />
+Enqueues the actual creation request: chirps go to m_ChirpQueue, life-path events to m_LifePathEventQueue, radio events to m_RadioTagQueue or m_EmergencyRadioTagQueue depending on RadioEventData, and tutorial activation events to m_TutorialTriggerQueue. Also updates m_TriggerFrames when the prefab has TriggerLimitData.</p>
+</li>
+</ul>
+<p>TypeHandle (nested struct)</p>
+<ul>
+<li><code>public void __AssignHandles(ref SystemState state)</code><br />
+Initializes a set of ComponentLookup/BufferLookup fields used by the TriggerActionJob. This is a compiler-generated helper tying the job's lookups to the world state.</li>
+</ul>
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Example: enqueueing a trigger action from some system or job context
+[Preserve]
+protected override void OnCreate()
+{
+    base.OnCreate();
+
+    // Get the TriggerSystem (game world)
+    var triggerSystem = World.GetOrCreateSystemManaged&lt;Game.Triggers.TriggerSystem&gt;();
+
+    // Create a temporary action queue (NativeQueue&lt;TriggerAction&gt;) that this producer can write to.
+    var queue = triggerSystem.CreateActionBuffer();
+
+    // Build a TriggerAction (fields shown as example — actual available fields are used by game code).
+    // You must fill valid Entity references and trigger identifiers from your mod context.
+    queue.Enqueue(new TriggerAction
     {
-        new EntityQueryBuilder(Allocator.Temp).Dispose();
-    }
+        m_TriggerType = /* e.g. TriggerType.Event */,
+        m_TriggerPrefab = /* prefab Entity or identifier */,
+        m_PrimaryTarget = /* sender entity */,
+        m_SecondaryTarget = /* target entity */,
+        m_Value = 0f
+    });
+
+    // If you wrote to the queue from a job, call triggerSystem.AddActionBufferWriter(jobHandle)
+    // to register the writer dependency so TriggerSystem waits before reading the queue.
+}
 </code></pre>
-<ul>
-<li><code>public AddActionBufferWriter(Unity.Jobs.JobHandle handle) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void AddActionBufferWriter(JobHandle handle)
-    {
-        m_Dependencies = JobHandle.CombineDependencies(m_Dependencies, handle);
-    }
-</code></pre>
-<ul>
-<li><code>public CreateActionBuffer() : Unity.Collections.NativeQueue&lt;Game.Triggers.TriggerAction&gt;</code>  </li>
-</ul>
-<pre><code class="language-csharp">public NativeQueue&lt;TriggerAction&gt; CreateActionBuffer()
-    {
-        Assert.IsTrue(base.Enabled, &quot;Can not write to queue when system isn't running&quot;);
-        NativeQueue&lt;TriggerAction&gt; nativeQueue = new NativeQueue&lt;TriggerAction&gt;(Allocator.TempJob);
-        m_Queues.Add(nativeQueue);
-        return nativeQueue;
-    }
-</code></pre>
-<ul>
-<li><code>public Deserialize&lt;TReader&gt;(TReader reader) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Void Deserialize&lt;TReader&gt;(TReader reader);
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_SimulationSystem = base.World.GetOrCreateSystemManaged&lt;SimulationSystem&gt;();
-        m_TriggerPrefabSystem = base.World.GetOrCreateSystemManaged&lt;TriggerPrefabSystem&gt;();
-        m_ModificationBarrier = base.World.GetOrCreateSystemManaged&lt;ModificationEndBarrier&gt;();
-        m_CreateChirpSystem = base.World.GetOrCreateSystemManaged&lt;CreateChirpSystem&gt;();
-        m_LifePathEventSystem = base.World.GetOrCreateSystemManaged&lt;LifePathEventSystem&gt;();
-        m_RadioTagSystem = base.World.GetOrCreateSystemManaged&lt;RadioTagSystem&gt;();
-        m_TutorialEventActivationSystem = base.World.GetOrCreateSystemManaged&lt;TutorialEventActivationSystem&gt;();
-        m_Queues = new List&lt;NativeQueue&lt;TriggerAction&gt;&gt;();
-        m_LastTimedEventTime = DateTime.MinValue;
-        m_TimedEventInterval = new TimeSpan(0, 15, 0);
-        m_TriggerFrames = new NativeParallelHashMap&lt;Entity, uint&gt;(32, Allocator.Persistent);
-        m_EDWSBuildingQuery = GetEntityQuery(ComponentType.ReadOnly&lt;Game.Buildings.EarlyDisasterWarningSystem&gt;(), ComponentType.Exclude&lt;Deleted&gt;(), ComponentType.Exclude&lt;Temp&gt;());
-        base.Enabled = false;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreateForCompiler() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnCreateForCompiler()
-    {
-        base.OnCreateForCompiler();
-        __AssignQueries(ref base.CheckedStateRef);
-        __TypeHandle.__AssignHandles(ref base.CheckedStateRef);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnDestroy() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnDestroy()
-    {
-        base.OnDestroy();
-        m_TriggerFrames.Dispose();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnGamePreload(Colossal.Serialization.Entities.Purpose purpose, Game.GameMode mode) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnGamePreload(Colossal.Serialization.Entities.Purpose purpose, GameMode mode)
-    {
-        base.OnGamePreload(purpose, mode);
-        base.Enabled = mode.IsGame();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnStopRunning() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnStopRunning()
-    {
-        m_Dependencies.Complete();
-        for (int i = 0; i &lt; m_Queues.Count; i++)
-        {
-            m_Queues[i].Dispose();
-        }
-        m_Queues.Clear();
-        base.OnStopRunning();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        base.Dependency.Complete();
-        m_Dependencies.Complete();
-        int num = 0;
-        for (int i = 0; i &lt; m_Queues.Count; i++)
-        {
-            num += m_Queues[i].Count;
-        }
-        if (num == 0)
-        {
-            for (int j = 0; j &lt; m_Queues.Count; j++)
-            {
-                m_Queues[j].Dispose();
-            }
-            m_Queues.Clear();
-        }
-        NativeArray&lt;TriggerAction&gt; actions = new NativeArray&lt;TriggerAction&gt;(num, Allocator.TempJob, NativeArrayOptions.UninitializedMemory);
-        num = 0;
-        for (int k = 0; k &lt; m_Queues.Count; k++)
-        {
-            NativeQueue&lt;TriggerAction&gt; nativeQueue = m_Queues[k];
-            int count = nativeQueue.Count;
-            for (int l = 0; l &lt; count; l++)
-            {
-                actions[num++] = nativeQueue.Dequeue();
-            }
-            nativeQueue.Dispose();
-        }
-        m_Queues.Clear();
-        JobHandle dependencies;
-        JobHandle deps;
-        JobHandle deps2;
-        JobHandle deps3;
-        JobHandle deps4;
-        JobHandle dependency;
-        TriggerActionJob jobData = new TriggerActionJob
-        {
-            m_SimulationFrame = m_SimulationSystem.frameIndex,
-            m_RandomSeed = RandomSeed.Next(),
-            m_TriggerPrefabData = m_TriggerPrefabSystem.ReadTriggerPrefabData(out dependencies),
-            m_Actions = actions,
-            m_ChirpQueue = m_CreateChirpSystem.GetQueue(out deps),
-            m_TriggerFrames = m_TriggerFrames,
-            m_LifePathEventQueue = m_LifePathEventSystem.GetQueue(out deps2),
-            m_RadioTagQueue = m_RadioTagSystem.GetInputQueue(out deps3),
-            m_EmergencyRadioTagQueue = m_RadioTagSystem.GetEmergencyInputQueue(out deps4),
-            m_TutorialTriggerQueue = m_TutorialEventActivationSystem.GetQueue(out dependency),
-            m_PrefabRefData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_ServiceObjectData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_ServiceObjectData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_ChirpData = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Prefabs_TriggerChirpData_RO_BufferLookup, ref base.CheckedStateRef),
-            m_LifePathEventData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_LifePathEventData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_RadioEventData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_RadioEventData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_TutorialEventData = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Prefabs_TutorialActivationEventData_RO_BufferLookup, ref base.CheckedStateRef),
-            m_CitizenData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Citizens_Citizen_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_BuildingData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Buildings_Building_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PolicyData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_PolicyData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_RoadData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_Road_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_TriggerConditions = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Prefabs_TriggerConditionData_RO_BufferLookup, ref base.CheckedStateRef),
-            m_CullingInfo = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Rendering_CullingInfo_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_TrafficAccidentData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_TrafficAccidentData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_TriggerLimitData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_TriggerLimitData_RO_ComponentLookup, ref base.CheckedStateRef)
-        };
-        Camera main = Camera.main;
-        if (main != null)
-        {
-            jobData.m_CameraPosition = main.transform.position;
-        }
-        JobHandle jobHandle = IJobExtensions.Schedule(jobData, JobUtils.CombineDependencies(base.Dependency, dependencies, deps2, deps, deps3, deps4, dependency));
-        m_CreateChirpSystem.AddQueueWriter(jobHandle);
-        m_LifePathEventSystem.AddQueueWriter(jobHandle);
-        m_RadioTagSystem.AddInputQueueWriter(jobHandle);
-        m_RadioTagSystem.AddEmergencyInputQueueWriter(jobHandle);
-        m_TriggerPrefabSystem.AddReader(jobHandle);
-        m_TutorialEventActivationSystem.AddQueueWriter(jobHandle);
-        m_ModificationBarrier.AddJobHandleForProducer(jobHandle);
-        base.Dependency = jobHandle;
-        if (DateTime.Now - m_LastTimedEventTime &gt;= m_TimedEventInterval)
-        {
-            Telemetry.CityStats();
-            m_LastTimedEventTime = DateTime.Now;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public Serialize&lt;TWriter&gt;(TWriter writer) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Void Serialize&lt;TWriter&gt;(TWriter writer);
-</code></pre>
-<ul>
-<li><code>public SetDefaults(Colossal.Serialization.Entities.Context context) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void SetDefaults(Context context)
-    {
-        m_TriggerFrames.Clear();
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Triggers.TriggerSystem+TriggerActionJob</code>  </li>
-<li><code>Game.Triggers.TriggerSystem+TypeHandle</code>  </li>
-</ul>
+<p>Notes:
+- TriggerSystem relies heavily on the Unity Jobs + Burst + Entities world. When enqueuing from a job, register the job handle with AddActionBufferWriter so the system waits for producers to finish.
+- TriggerAction, TriggerPrefabData, TriggerConditionData, RadioEventData and other component types referenced here are defined elsewhere in the game's codebase; consult their docs for field semantics when creating TriggerAction items.
+- The system persists last-trigger frames in m_TriggerFrames and serializes them via Serialize/Deserialize to maintain interval limits across saves.</p>
 
 
 

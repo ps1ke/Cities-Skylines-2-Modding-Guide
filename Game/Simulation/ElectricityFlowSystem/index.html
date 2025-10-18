@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#gamesimulationelectricityflowsystem" class="md-skip">
+        <a href="#gameelectricityflowsystem" class="md-skip">
           Skip to content
         </a>
       
@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -81053,15 +81145,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -81098,9 +81181,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -87154,6 +87237,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -117930,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117955,15 +118083,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -118002,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118026,643 +118145,244 @@
 
 
 
-<h1 id="gamesimulationelectricityflowsystem">Game.Simulation.ElectricityFlowSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Simulation</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code><br />
-<strong>Implements:</strong> <code>Colossal.Serialization.Entities.IDefaultSerializable</code>, <code>Colossal.Serialization.Entities.ISerializable</code>, <code>Game.Serialization.IPostDeserialize</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class ElectricityFlowSystem : Game.GameSystemBase, Colossal.Serialization.Entities.IDefaultSerializable, Colossal.Serialization.Entities.ISerializable, Game.Serialization.IPostDeserialize
-{
-    private Game.Simulation.SimulationSystem m_SimulationSystem;
-    private Unity.Entities.EntityQuery m_NodeGroup;
-    private Unity.Entities.EntityQuery m_EdgeGroup;
-    private Unity.Entities.EntityArchetype m_NodeArchetype;
-    private Unity.Entities.EntityArchetype m_ChargeNodeArchetype;
-    private Unity.Entities.EntityArchetype m_DischargeNodeArchetype;
-    private Unity.Entities.EntityArchetype m_EdgeArchetype;
-    private Unity.Collections.NativeList&lt;Game.Simulation.Flow.Node&gt; m_Nodes;
-    private Unity.Collections.NativeList&lt;Game.Simulation.Flow.Edge&gt; m_Edges;
-    private Unity.Collections.NativeList&lt;Game.Simulation.Flow.Connection&gt; m_Connections;
-    private Unity.Collections.NativeReference&lt;Game.Simulation.Flow.NodeIndices&gt; m_NodeIndices;
-    private Unity.Collections.NativeList&lt;System.Int32&gt; m_ChargeNodes;
-    private Unity.Collections.NativeList&lt;System.Int32&gt; m_DischargeNodes;
-    private Unity.Collections.NativeList&lt;System.Int32&gt; m_TradeNodes;
-    private Unity.Collections.NativeReference&lt;Game.Simulation.ElectricityFlowJob+State&gt; m_FlowJobState;
-    private Unity.Collections.NativeReference&lt;Game.Simulation.Flow.MaxFlowSolverState&gt; m_SolverState;
-    private Unity.Collections.NativeList&lt;Game.Simulation.Flow.LayerState&gt; m_LayerStates;
-    private Unity.Collections.NativeList&lt;Game.Simulation.Flow.CutElement&gt; m_LayerElements;
-    private Unity.Collections.NativeList&lt;Game.Simulation.Flow.CutElementRef&gt; m_LayerElementRefs;
-    private Unity.Entities.Entity m_SourceNode;
-    private Unity.Entities.Entity m_SinkNode;
-    private Unity.Entities.Entity m_LegacyOutsideSourceNode;
-    private Unity.Entities.Entity m_LegacyOutsideSinkNode;
-    private Game.Simulation.ElectricityFlowSystem+Phase m_NextPhase;
-    private Unity.Jobs.JobHandle m_DataDependency;
-    private System.Boolean &lt;ready&gt;k__BackingField;
-    private Game.Simulation.ElectricityFlowSystem+TypeHandle __TypeHandle;
-    public static const System.Int32 kUpdateInterval;
-    public static const System.Int32 kUpdatesPerDay;
-    public static const System.Int32 kUpdatesPerHour;
-    public static const System.Int32 kStartFrames;
-    public static const System.Int32 kAdjustFrame;
-    public static const System.Int32 kPrepareFrame;
-    public static const System.Int32 kFlowFrames;
-    public static const System.Int32 kFlowCompletionFrame;
-    public static const System.Int32 kEndFrames;
-    public static const System.Int32 kApplyFrame;
-    public static const System.Int32 kStatusFrame;
-    public static const System.Int32 kMaxEdgeCapacity;
-    private static const System.Int32 kLayerHeight;
-
-    public System.Boolean ready { get; private set; }
-    public Unity.Entities.EntityArchetype nodeArchetype { get; }
-    public Unity.Entities.EntityArchetype chargeNodeArchetype { get; }
-    public Unity.Entities.EntityArchetype dischargeNodeArchetype { get; }
-    public Unity.Entities.EntityArchetype edgeArchetype { get; }
-    public Unity.Entities.Entity sourceNode { get; }
-    public Unity.Entities.Entity sinkNode { get; }
-
-    public ElectricityFlowSystem();
-
-    private System.Void __AssignQueries(Unity.Entities.SystemState&amp; state);
-    private System.Void ApplyPhase();
-    public System.Void Deserialize&lt;TReader&gt;(TReader reader);
-    private System.Void FlowPhase();
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnCreateForCompiler();
-    protected virtual System.Void OnDestroy();
-    protected virtual System.Void OnUpdate();
-    public System.Void PostDeserialize(Colossal.Serialization.Entities.Context context);
-    private System.Void PreparePhase();
-    public System.Void Reset();
-    public System.Void Serialize&lt;TWriter&gt;(TWriter writer);
-    public System.Void SetDefaults(Colossal.Serialization.Entities.Context context);
-}
-</code></pre>
+<h1 id="gameelectricityflowsystem">Game.ElectricityFlowSystem</h1>
+<p><strong>Assembly:</strong> Assembly-CSharp<br />
+<strong>Namespace:</strong> Game.Simulation</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> GameSystemBase, IDefaultSerializable, ISerializable, IPostDeserialize</p>
+<p><strong>Summary:</strong><br />
+ElectricityFlowSystem is the ECS/System that prepares, runs and applies the electricity flow (max-flow / trade / battery charge/discharge) simulation for the game. It builds an internal flow graph (nodes, edges, connections) from ECS components, schedules Burst jobs to compute flows across multiple frames (split into Prepare → Flow → Apply phases to spread work across frames), and writes the computed flow values back to ElectricityFlowEdge components. The system also manages serialization/deserialization, legacy migration of "outside" nodes, and exposes archetypes used when creating flow nodes/edges. Several nested Burst-compiled job structs implement the chunked preparation and application phases as well as the distributed solver job.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.Simulation.SimulationSystem m_SimulationSystem</code>  </li>
+<li>
+<p><code>private SimulationSystem m_SimulationSystem</code><br />
+Reference to the main SimulationSystem used for frame indexing and scheduling.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_NodeGroup</code><br />
+EntityQuery selecting entities that represent flow nodes (ElectricityFlowNode + ConnectedFlowEdge).</p>
+</li>
+<li>
+<p><code>private EntityQuery m_EdgeGroup</code><br />
+EntityQuery selecting flow edge entities (ElectricityFlowEdge).</p>
+</li>
+<li>
+<p><code>private EntityArchetype m_NodeArchetype</code><br />
+Archetype used when creating a plain node entity.</p>
+</li>
+<li>
+<p><code>private EntityArchetype m_ChargeNodeArchetype</code><br />
+Archetype used for battery charge nodes.</p>
+</li>
+<li>
+<p><code>private EntityArchetype m_DischargeNodeArchetype</code><br />
+Archetype used for battery discharge nodes.</p>
+</li>
+<li>
+<p><code>private EntityArchetype m_EdgeArchetype</code><br />
+Archetype used when creating flow edge entities.</p>
+</li>
+<li>
+<p><code>private NativeList&lt;Game.Simulation.Flow.Node&gt; m_Nodes</code><br />
+Native list holding constructed graph nodes for the solver (allocated persistent).</p>
+</li>
+<li>
+<p><code>private NativeList&lt;Game.Simulation.Flow.Edge&gt; m_Edges</code><br />
+Native list holding constructed graph edges for the solver.</p>
+</li>
+<li>
+<p><code>private NativeList&lt;Connection&gt; m_Connections</code><br />
+Native list holding connections (adjacency) between nodes.</p>
+</li>
+<li>
+<p><code>private NativeReference&lt;NodeIndices&gt; m_NodeIndices</code><br />
+Native reference used to pass source/sink indices into jobs.</p>
+</li>
+<li>
+<p><code>private NativeList&lt;int&gt; m_ChargeNodes</code><br />
+List of node indices that are battery charge nodes.</p>
+</li>
+<li>
+<p><code>private NativeList&lt;int&gt; m_DischargeNodes</code><br />
+List of node indices that are battery discharge nodes.</p>
+</li>
+<li>
+<p><code>private NativeList&lt;int&gt; m_TradeNodes</code><br />
+List of node indices that participate in trading/outside connections.</p>
+</li>
+<li>
+<p><code>private NativeReference&lt;ElectricityFlowJob.State&gt; m_FlowJobState</code><br />
+Native reference holding mutable state used by repeated Flow jobs (solver state, buffers, etc).</p>
+</li>
+<li>
+<p><code>private NativeReference&lt;MaxFlowSolverState&gt; m_SolverState</code><br />
+Native reference storing solver-specific state for max-flow computation.</p>
+</li>
+<li>
+<p><code>private NativeList&lt;LayerState&gt; m_LayerStates</code><br />
+Native list used by the layered solver (internal layers bookkeeping).</p>
+</li>
+<li>
+<p><code>private NativeList&lt;CutElement&gt; m_LayerElements</code><br />
+Native list of cut elements used by solver internals.</p>
+</li>
+<li>
+<p><code>private NativeList&lt;CutElementRef&gt; m_LayerElementRefs</code><br />
+Native list of references into layer elements.</p>
+</li>
+<li>
+<p><code>private Entity m_SourceNode</code><br />
+Entity that acts as the virtual source node in the flow graph.</p>
+</li>
+<li>
+<p><code>private Entity m_SinkNode</code><br />
+Entity that acts as the virtual sink node in the flow graph.</p>
+</li>
+<li>
+<p><code>private Entity m_LegacyOutsideSourceNode</code><br />
+Temporary storage used during deserialization for older save formats (legacy outside source).</p>
+</li>
+<li>
+<p><code>private Entity m_LegacyOutsideSinkNode</code><br />
+Temporary storage used during deserialization for older save formats (legacy outside sink).</p>
+</li>
+<li>
+<p><code>private Phase m_NextPhase</code><br />
+Internal state machine phase (Prepare, Flow, Apply) used to spread the simulation across frames.</p>
+</li>
+<li>
+<p><code>private JobHandle m_DataDependency</code><br />
+JobHandle used to track scheduled job dependencies between phases.</p>
+</li>
+<li>
+<p><code>private TypeHandle __TypeHandle</code><br />
+Internal struct caching ComponentTypeHandle/BufferTypeHandle/ComponentLookup references for job scheduling.</p>
+</li>
+<li>
+<p><code>public const int kUpdateInterval = 128</code><br />
+Frame interval used to schedule the full electricity update cycle (Prepare+Flow+Apply spread across 128 frames).</p>
+</li>
+<li>
+<p>(other public constants present: kUpdatesPerDay, kUpdatesPerHour, kStartFrames, kAdjustFrame, kPrepareFrame, kFlowFrames, kFlowCompletionFrame, kEndFrames, kApplyFrame, kStatusFrame, kMaxEdgeCapacity, etc.)<br />
+Constants controlling scheduling, frame indices and maximum capacity sentinel used by the flow system.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.Simulation.SimulationSystem m_SimulationSystem;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_NodeGroup</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_NodeGroup;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_EdgeGroup</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_EdgeGroup;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityArchetype m_NodeArchetype</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityArchetype m_NodeArchetype;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityArchetype m_ChargeNodeArchetype</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityArchetype m_ChargeNodeArchetype;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityArchetype m_DischargeNodeArchetype</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityArchetype m_DischargeNodeArchetype;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityArchetype m_EdgeArchetype</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityArchetype m_EdgeArchetype;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeList&lt;Game.Simulation.Flow.Node&gt; m_Nodes</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeList&lt;Game.Simulation.Flow.Node&gt; m_Nodes;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeList&lt;Game.Simulation.Flow.Edge&gt; m_Edges</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeList&lt;Game.Simulation.Flow.Edge&gt; m_Edges;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeList&lt;Game.Simulation.Flow.Connection&gt; m_Connections</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeList&lt;Game.Simulation.Flow.Connection&gt; m_Connections;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeReference&lt;Game.Simulation.Flow.NodeIndices&gt; m_NodeIndices</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeReference&lt;Game.Simulation.Flow.NodeIndices&gt; m_NodeIndices;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeList&lt;System.Int32&gt; m_ChargeNodes</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeList&lt;System.Int32&gt; m_ChargeNodes;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeList&lt;System.Int32&gt; m_DischargeNodes</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeList&lt;System.Int32&gt; m_DischargeNodes;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeList&lt;System.Int32&gt; m_TradeNodes</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeList&lt;System.Int32&gt; m_TradeNodes;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeReference&lt;Game.Simulation.ElectricityFlowJob+State&gt; m_FlowJobState</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeReference&lt;Game.Simulation.ElectricityFlowJob+State&gt; m_FlowJobState;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeReference&lt;Game.Simulation.Flow.MaxFlowSolverState&gt; m_SolverState</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeReference&lt;Game.Simulation.Flow.MaxFlowSolverState&gt; m_SolverState;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeList&lt;Game.Simulation.Flow.LayerState&gt; m_LayerStates</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeList&lt;Game.Simulation.Flow.LayerState&gt; m_LayerStates;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeList&lt;Game.Simulation.Flow.CutElement&gt; m_LayerElements</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeList&lt;Game.Simulation.Flow.CutElement&gt; m_LayerElements;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeList&lt;Game.Simulation.Flow.CutElementRef&gt; m_LayerElementRefs</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeList&lt;Game.Simulation.Flow.CutElementRef&gt; m_LayerElementRefs;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.Entity m_SourceNode</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.Entity m_SourceNode;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.Entity m_SinkNode</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.Entity m_SinkNode;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.Entity m_LegacyOutsideSourceNode</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.Entity m_LegacyOutsideSourceNode;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.Entity m_LegacyOutsideSinkNode</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.Entity m_LegacyOutsideSinkNode;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.ElectricityFlowSystem+Phase m_NextPhase</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.ElectricityFlowSystem+Phase m_NextPhase;
-</code></pre>
-<ul>
-<li><code>private Unity.Jobs.JobHandle m_DataDependency</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Jobs.JobHandle m_DataDependency;
-</code></pre>
-<ul>
-<li><code>private System.Boolean &lt;ready&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean &lt;ready&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.ElectricityFlowSystem+TypeHandle __TypeHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.ElectricityFlowSystem+TypeHandle __TypeHandle;
-</code></pre>
-<ul>
-<li><code>public static const System.Int32 kUpdateInterval</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static const System.Int32 kUpdateInterval;
-</code></pre>
-<ul>
-<li><code>public static const System.Int32 kUpdatesPerDay</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static const System.Int32 kUpdatesPerDay;
-</code></pre>
-<ul>
-<li><code>public static const System.Int32 kUpdatesPerHour</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static const System.Int32 kUpdatesPerHour;
-</code></pre>
-<ul>
-<li><code>public static const System.Int32 kStartFrames</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static const System.Int32 kStartFrames;
-</code></pre>
-<ul>
-<li><code>public static const System.Int32 kAdjustFrame</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static const System.Int32 kAdjustFrame;
-</code></pre>
-<ul>
-<li><code>public static const System.Int32 kPrepareFrame</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static const System.Int32 kPrepareFrame;
-</code></pre>
-<ul>
-<li><code>public static const System.Int32 kFlowFrames</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static const System.Int32 kFlowFrames;
-</code></pre>
-<ul>
-<li><code>public static const System.Int32 kFlowCompletionFrame</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static const System.Int32 kFlowCompletionFrame;
-</code></pre>
-<ul>
-<li><code>public static const System.Int32 kEndFrames</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static const System.Int32 kEndFrames;
-</code></pre>
-<ul>
-<li><code>public static const System.Int32 kApplyFrame</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static const System.Int32 kApplyFrame;
-</code></pre>
-<ul>
-<li><code>public static const System.Int32 kStatusFrame</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static const System.Int32 kStatusFrame;
-</code></pre>
-<ul>
-<li><code>public static const System.Int32 kMaxEdgeCapacity</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static const System.Int32 kMaxEdgeCapacity;
-</code></pre>
-<ul>
-<li><code>private static const System.Int32 kLayerHeight</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static const System.Int32 kLayerHeight;
-</code></pre>
+<hr />
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>public System.Boolean ready { get; private set }</code>  </li>
+<li>
+<p><code>public bool ready { get; private set; }</code><br />
+Indicates whether the last compute cycle has finished and the results have been applied (true after the Apply phase completes for a cycle).</p>
+</li>
+<li>
+<p><code>public EntityArchetype nodeArchetype =&gt; m_NodeArchetype</code><br />
+Getter for the node archetype; useful for creating flow nodes from other systems or tools.</p>
+</li>
+<li>
+<p><code>public EntityArchetype chargeNodeArchetype =&gt; m_ChargeNodeArchetype</code><br />
+Getter for battery charge node archetype.</p>
+</li>
+<li>
+<p><code>public EntityArchetype dischargeNodeArchetype =&gt; m_DischargeNodeArchetype</code><br />
+Getter for battery discharge node archetype.</p>
+</li>
+<li>
+<p><code>public EntityArchetype edgeArchetype =&gt; m_EdgeArchetype</code><br />
+Getter for the edge archetype; useful when creating flow edge entities.</p>
+</li>
+<li>
+<p><code>public Entity sourceNode =&gt; m_SourceNode</code><br />
+Getter for the internal virtual source node entity.</p>
+</li>
+<li>
+<p><code>public Entity sinkNode =&gt; m_SinkNode</code><br />
+Getter for the internal virtual sink node entity.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public System.Boolean ready { get; private set; }
-</code></pre>
-<ul>
-<li><code>public Unity.Entities.EntityArchetype nodeArchetype { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Unity.Entities.EntityArchetype nodeArchetype { get; }
-</code></pre>
-<ul>
-<li><code>public Unity.Entities.EntityArchetype chargeNodeArchetype { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Unity.Entities.EntityArchetype chargeNodeArchetype { get; }
-</code></pre>
-<ul>
-<li><code>public Unity.Entities.EntityArchetype dischargeNodeArchetype { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Unity.Entities.EntityArchetype dischargeNodeArchetype { get; }
-</code></pre>
-<ul>
-<li><code>public Unity.Entities.EntityArchetype edgeArchetype { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Unity.Entities.EntityArchetype edgeArchetype { get; }
-</code></pre>
-<ul>
-<li><code>public Unity.Entities.Entity sourceNode { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Unity.Entities.Entity sourceNode { get; }
-</code></pre>
-<ul>
-<li><code>public Unity.Entities.Entity sinkNode { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Unity.Entities.Entity sinkNode { get; }
-</code></pre>
+<hr />
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public ElectricityFlowSystem()</code>  </li>
+<li><code>public ElectricityFlowSystem()</code><br />
+Default constructor. The system initializes native containers and archetypes in OnCreate rather than here; the constructor is present so the runtime can instantiate the system.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public ElectricityFlowSystem()
-    {
-    }
-</code></pre>
+<hr />
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private __AssignQueries(Unity.Entities.SystemState&amp; state) : System.Void</code>  </li>
+<li>
+<p><code>protected override void OnCreate()</code><br />
+Initializes entity queries, archetypes and allocates all persistent Native containers and NativeReferences used by the system. Also retrieves SimulationSystem reference. Marked with [Preserve].</p>
+</li>
+<li>
+<p><code>protected override void OnDestroy()</code><br />
+Completes outstanding jobs and disposes all persistent Native containers and references. Cleans up job dependencies before disposal. Marked with [Preserve].</p>
+</li>
+<li>
+<p><code>public void Reset()</code><br />
+Resets internal scheduling state: completes any outstanding jobs, resets the flow job state to initial capacity and marks system not ready. Sets next phase to Prepare.</p>
+</li>
+<li>
+<p><code>protected override void OnUpdate()</code><br />
+State-machine loop: dispatches PreparePhase, FlowPhase or ApplyPhase depending on m_NextPhase. Called every frame by ECS.</p>
+</li>
+<li>
+<p><code>private void PreparePhase()</code><br />
+Executed during the Prepare phase (frame % 128 == 1). Gathers node and edge chunk counts, resizes and prepares m_Nodes/m_Edges/m_Connections, schedules PrepareNodesJob, PrepareEdgesJob, PrepareConnectionsJob and PopulateNodeIndicesJob. Sets up m_DataDependency and advances to Phase.Flow.</p>
+</li>
+<li>
+<p><code>private void FlowPhase()</code><br />
+Runs the electricity flow solver job(s). Assembles ElectricityFlowJob with persistent state, node/edge/connection arrays and other solver state; schedules the job and tracks dependency. The flow phase may run across many frames (m_FrameCount used by the job); on the final flow frame it transitions to Phase.Apply.</p>
+</li>
+<li>
+<p><code>private void ApplyPhase()</code><br />
+Applied at frame % 128 == 126. Schedules ApplyEdgesJob which writes computed flows and bottleneck flags back to ElectricityFlowEdge components. Marks system as ready and advances back to Phase.Prepare.</p>
+</li>
+<li>
+<p><code>public void Serialize&lt;TWriter&gt;(TWriter writer) where TWriter : IWriter</code><br />
+Writes minimal state required for save games: the source and sink node Entities and the flow job state's last total steps. Ensures outstanding jobs are completed before serialization.</p>
+</li>
+<li>
+<p><code>public void Deserialize&lt;TReader&gt;(TReader reader) where TReader : IReader</code><br />
+Reads previously serialized state handling multiple historical save-version formats. Completes outstanding jobs before modifying internal entities/state. Handles legacy outside nodes for older versions and conditionally reads older-formatted lists/integers. Restores last total steps for newer versions.</p>
+</li>
+<li>
+<p><code>public void SetDefaults(Context context)</code><br />
+Called when creating a new map or as default initialization. Calls Reset and clears source/sink Entities (they will be created in PostDeserialize or OnCreate as needed).</p>
+</li>
+<li>
+<p><code>public void PostDeserialize(Context context)</code><br />
+After deserialization, ensures source/sink nodes exist for new maps or new games with older versions; migrates or deletes legacy outside nodes and recreates trading edges for outside electricity connections in newer formats. Finally resets the system to start fresh.</p>
+</li>
+<li>
+<p><code>private void __AssignQueries(ref SystemState state)</code><br />
+Compiler helper used in OnCreateForCompiler; prepares any EntityQueryBuilders used at compile-time.</p>
+</li>
+<li>
+<p><code>protected override void OnCreateForCompiler()</code><br />
+Compiler helper which calls __AssignQueries and assigns cached TypeHandles (component type handles / lookups) used by jobs.</p>
+</li>
+<li>
+<p>(Nested job structs) PrepareNetworkJob, PrepareNodesJob, PrepareEdgesJob, PrepareConnectionsJob, PopulateNodeIndicesJob, ApplyEdgesJob and the ElectricityFlowJob (not shown in this file) implement the detailed chunked/burst-parallel preparation, population and application steps used by the system. Each is Burst-compiled and designed to run in ECS job pipelines.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private void __AssignQueries(ref SystemState state)
-    {
-        new EntityQueryBuilder(Allocator.Temp).Dispose();
-    }
-</code></pre>
-<ul>
-<li><code>private ApplyPhase() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void ApplyPhase()
-    {
-        Assert.IsFalse(m_SimulationSystem.frameIndex % 128 &gt; 126);
-        if (m_SimulationSystem.frameIndex % 128 == 126)
-        {
-            JobHandle dataDependency = JobChunkExtensions.ScheduleParallel(new ApplyEdgesJob
-            {
-                m_FlowEdgeType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Simulation_ElectricityFlowEdge_RW_ComponentTypeHandle, ref base.CheckedStateRef),
-                m_Edges = m_Edges.AsDeferredJobArray()
-            }, m_EdgeGroup, JobHandle.CombineDependencies(base.Dependency, m_DataDependency));
-            base.Dependency = (m_DataDependency = dataDependency);
-            m_NextPhase = Phase.Prepare;
-            ready = true;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public Deserialize&lt;TReader&gt;(TReader reader) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Void Deserialize&lt;TReader&gt;(TReader reader);
-</code></pre>
-<ul>
-<li><code>private FlowPhase() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void FlowPhase()
-    {
-        uint num = m_SimulationSystem.frameIndex % 128;
-        Assert.IsTrue(num != 0 &amp;&amp; num != 1 &amp;&amp; num != 126 &amp;&amp; num != 127);
-        bool flag = num &gt;= 125;
-        ElectricityFlowJob jobData = new ElectricityFlowJob
-        {
-            m_State = m_FlowJobState,
-            m_Nodes = m_Nodes.AsDeferredJobArray(),
-            m_Edges = m_Edges.AsDeferredJobArray(),
-            m_Connections = m_Connections.AsDeferredJobArray(),
-            m_NodeIndices = m_NodeIndices,
-            m_ChargeNodes = m_ChargeNodes.AsDeferredJobArray(),
-            m_DischargeNodes = m_DischargeNodes.AsDeferredJobArray(),
-            m_TradeNodes = m_TradeNodes.AsDeferredJobArray(),
-            m_SolverState = m_SolverState,
-            m_LayerStates = m_LayerStates,
-            m_LayerElements = m_LayerElements,
-            m_LayerElementRefs = m_LayerElementRefs,
-            m_LabelQueue = new NativeQueue&lt;int&gt;(Allocator.TempJob),
-            m_LayerHeight = 20,
-            m_FrameCount = 1,
-            m_FinalFrame = flag
-        };
-        JobHandle jobHandle = IJobExtensions.Schedule(jobData, m_DataDependency);
-        jobData.m_LabelQueue.Dispose(jobHandle);
-        m_DataDependency = jobHandle;
-        if (flag)
-        {
-            m_NextPhase = Phase.Apply;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
+<hr />
+<h2 id="usage-example">Usage Example</h2>
 <pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_SimulationSystem = base.World.GetOrCreateSystemManaged&lt;SimulationSystem&gt;();
-        m_NodeGroup = GetEntityQuery(ComponentType.ReadWrite&lt;ElectricityFlowNode&gt;(), ComponentType.ReadOnly&lt;ConnectedFlowEdge&gt;(), ComponentType.Exclude&lt;Deleted&gt;());
-        m_EdgeGroup = GetEntityQuery(ComponentType.ReadWrite&lt;ElectricityFlowEdge&gt;(), ComponentType.Exclude&lt;Deleted&gt;());
-        m_NodeArchetype = base.EntityManager.CreateArchetype(ComponentType.ReadOnly&lt;ElectricityFlowNode&gt;(), ComponentType.ReadOnly&lt;ConnectedFlowEdge&gt;());
-        m_ChargeNodeArchetype = base.EntityManager.CreateArchetype(ComponentType.ReadOnly&lt;ElectricityFlowNode&gt;(), ComponentType.ReadOnly&lt;ConnectedFlowEdge&gt;(), ComponentType.ReadOnly&lt;BatteryChargeNode&gt;());
-        m_DischargeNodeArchetype = base.EntityManager.CreateArchetype(ComponentType.ReadOnly&lt;ElectricityFlowNode&gt;(), ComponentType.ReadOnly&lt;ConnectedFlowEdge&gt;(), ComponentType.ReadOnly&lt;BatteryDischargeNode&gt;());
-        m_EdgeArchetype = base.EntityManager.CreateArchetype(ComponentType.ReadOnly&lt;ElectricityFlowEdge&gt;());
-        m_Nodes = new NativeList&lt;Game.Simulation.Flow.Node&gt;(Allocator.Persistent);
-        m_Edges = new NativeList&lt;Game.Simulation.Flow.Edge&gt;(Allocator.Persistent);
-        m_Connections = new NativeList&lt;Connection&gt;(Allocator.Persistent);
-        m_NodeIndices = new NativeReference&lt;NodeIndices&gt;(Allocator.Persistent);
-        m_ChargeNodes = new NativeList&lt;int&gt;(Allocator.Persistent);
-        m_DischargeNodes = new NativeList&lt;int&gt;(Allocator.Persistent);
-        m_TradeNodes = new NativeList&lt;int&gt;(Allocator.Persistent);
-        m_FlowJobState = new NativeReference&lt;ElectricityFlowJob.State&gt;(new ElectricityFlowJob.State(20000), Allocator.Persistent);
-        m_SolverState = new NativeReference&lt;MaxFlowSolverState&gt;(default(MaxFlowSolverState), Allocator.Persistent);
-        m_LayerStates = new NativeList&lt;LayerState&gt;(Allocator.Persistent);
-        m_LayerElements = new NativeList&lt;CutElement&gt;(Allocator.Persistent);
-        m_LayerElementRefs = new NativeList&lt;CutElementRef&gt;(Allocator.Persistent);
-    }
+protected override void OnCreate()
+{
+    base.OnCreate();
+
+    // Typical system will call the base initialization and then let the ElectricityFlowSystem
+    // prepare its internal archetypes and native containers.
+    // If you need to create flow nodes/edges from another system/tool, use the provided archetypes:
+    // var node = EntityManager.CreateEntity(electricityFlowSystem.nodeArchetype);
+    // var edge = EntityManager.CreateEntity(electricityFlowSystem.edgeArchetype);
+}
 </code></pre>
-<ul>
-<li><code>protected virtual OnCreateForCompiler() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnCreateForCompiler()
-    {
-        base.OnCreateForCompiler();
-        __AssignQueries(ref base.CheckedStateRef);
-        __TypeHandle.__AssignHandles(ref base.CheckedStateRef);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnDestroy() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnDestroy()
-    {
-        m_DataDependency.Complete();
-        m_Nodes.Dispose();
-        m_Edges.Dispose();
-        m_Connections.Dispose();
-        m_NodeIndices.Dispose();
-        m_ChargeNodes.Dispose();
-        m_DischargeNodes.Dispose();
-        m_TradeNodes.Dispose();
-        m_FlowJobState.Dispose();
-        m_SolverState.Dispose();
-        m_LayerStates.Dispose();
-        m_LayerElements.Dispose();
-        m_LayerElementRefs.Dispose();
-        base.OnDestroy();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        if (m_NextPhase == Phase.Prepare)
-        {
-            PreparePhase();
-        }
-        else if (m_NextPhase == Phase.Flow)
-        {
-            FlowPhase();
-        }
-        else if (m_NextPhase == Phase.Apply)
-        {
-            ApplyPhase();
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public PostDeserialize(Colossal.Serialization.Entities.Context context) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void PostDeserialize(Context context)
-    {
-        if (context.purpose == Purpose.NewMap || (context.purpose == Purpose.NewGame &amp;&amp; context.version &lt; Version.timoSerializationFlow) || (context.purpose == Purpose.LoadMap &amp;&amp; m_SourceNode == Entity.Null))
-        {
-            m_SourceNode = base.EntityManager.CreateEntity(m_NodeArchetype);
-            m_SinkNode = base.EntityManager.CreateEntity(m_NodeArchetype);
-        }
-        if (m_LegacyOutsideSourceNode != Entity.Null || m_LegacyOutsideSinkNode != Entity.Null)
-        {
-            if (m_LegacyOutsideSourceNode != Entity.Null)
-            {
-                ElectricityGraphUtils.DeleteFlowNode(base.EntityManager, m_LegacyOutsideSourceNode);
-            }
-            if (m_LegacyOutsideSinkNode != Entity.Null)
-            {
-                ElectricityGraphUtils.DeleteFlowNode(base.EntityManager, m_LegacyOutsideSinkNode);
-            }
-            NativeArray&lt;Entity&gt; nativeArray = m_EdgeGroup.ToEntityArray(Allocator.TempJob);
-            NativeArray&lt;ElectricityFlowEdge&gt; nativeArray2 = m_EdgeGroup.ToComponentDataArray&lt;ElectricityFlowEdge&gt;(Allocator.TempJob);
-            try
-            {
-                for (int i = 0; i &lt; nativeArray.Length; i++)
-                {
-                    Entity entity = nativeArray[i];
-                    ElectricityFlowEdge electricityFlowEdge = nativeArray2[i];
-                    if (electricityFlowEdge.m_Start == m_LegacyOutsideSourceNode || electricityFlowEdge.m_End == m_LegacyOutsideSourceNode)
-                    {
-                        base.EntityManager.AddComponent&lt;Deleted&gt;(entity);
-                    }
-                    else if (electricityFlowEdge.m_Start == m_LegacyOutsideSinkNode || electricityFlowEdge.m_End == m_LegacyOutsideSinkNode)
-                    {
-                        base.EntityManager.AddComponent&lt;Deleted&gt;(entity);
-                    }
-                }
-            }
-            finally
-            {
-                nativeArray.Dispose();
-                nativeArray2.Dispose();
-            }
-            m_LegacyOutsideSourceNode = Entity.Null;
-            m_LegacyOutsideSinkNode = Entity.Null;
-            EntityQuery entityQuery = base.EntityManager.CreateEntityQuery(ComponentType.ReadOnly&lt;ElectricityOutsideConnection&gt;(), ComponentType.ReadOnly&lt;Owner&gt;(), ComponentType.Exclude&lt;Temp&gt;());
-            NativeArray&lt;Owner&gt; nativeArray3 = entityQuery.ToComponentDataArray&lt;Owner&gt;(Allocator.TempJob);
-            try
-            {
-                foreach (Owner item in nativeArray3)
-                {
-                    if (base.EntityManager.TryGetComponent&lt;ElectricityNodeConnection&gt;(item.m_Owner, out var component))
-                    {
-                        base.EntityManager.AddComponent&lt;TradeNode&gt;(component.m_ElectricityNode);
-                        ElectricityGraphUtils.CreateFlowEdge(base.EntityManager, m_EdgeArchetype, m_SourceNode, component.m_ElectricityNode, FlowDirection.None, 1073741823);
-                        ElectricityGraphUtils.CreateFlowEdge(base.EntityManager, m_EdgeArchetype, component.m_ElectricityNode, m_SinkNode, FlowDirection.None, 1073741823);
-                    }
-                }
-            }
-            finally
-            {
-                entityQuery.Dispose();
-                nativeArray3.Dispose();
-            }
-        }
-        Reset();
-    }
-</code></pre>
-<ul>
-<li><code>private PreparePhase() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void PreparePhase()
-    {
-        if (m_SimulationSystem.frameIndex % 128 == 1)
-        {
-            int chunkCapacity = m_NodeArchetype.ChunkCapacity;
-            int chunkCapacity2 = m_EdgeArchetype.ChunkCapacity;
-            int nodeCount = chunkCapacity * m_NodeGroup.CalculateChunkCountWithoutFiltering();
-            int edgeCount = chunkCapacity2 * m_EdgeGroup.CalculateChunkCountWithoutFiltering();
-            JobHandle dependsOn = IJobExtensions.Schedule(new PrepareNetworkJob
-            {
-                m_Nodes = m_Nodes,
-                m_Edges = m_Edges,
-                m_Connections = m_Connections,
-                m_ChargeNodes = m_ChargeNodes,
-                m_DischargeNodes = m_DischargeNodes,
-                m_TradeNodes = m_TradeNodes,
-                m_NodeCount = nodeCount,
-                m_EdgeCount = edgeCount
-            }, JobHandle.CombineDependencies(base.Dependency, m_DataDependency));
-            JobHandle job = JobChunkExtensions.ScheduleParallel(new PrepareNodesJob
-            {
-                m_FlowNodeType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Simulation_ElectricityFlowNode_RW_ComponentTypeHandle, ref base.CheckedStateRef),
-                m_MaxChunkCapacity = chunkCapacity
-            }, m_NodeGroup, base.Dependency);
-            JobHandle job2 = JobChunkExtensions.ScheduleParallel(new PrepareEdgesJob
-            {
-                m_FlowEdgeType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Simulation_ElectricityFlowEdge_RW_ComponentTypeHandle, ref base.CheckedStateRef),
-                m_Edges = m_Edges.AsDeferredJobArray(),
-                m_MaxChunkCapacity = chunkCapacity2
-            }, m_EdgeGroup, dependsOn);
-            JobHandle job3 = JobChunkExtensions.Schedule(new PrepareConnectionsJob
-            {
-                m_EntityType = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef),
-                m_ConnectedFlowEdgeType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Simulation_ConnectedFlowEdge_RO_BufferTypeHandle, ref base.CheckedStateRef),
-                m_ChargeNodeType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Simulation_BatteryChargeNode_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                m_DischargeNodeType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Simulation_BatteryDischargeNode_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                m_TradeNodeType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Simulation_TradeNode_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                m_FlowNodes = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Simulation_ElectricityFlowNode_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_FlowEdges = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Simulation_ElectricityFlowEdge_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_Nodes = m_Nodes.AsDeferredJobArray(),
-                m_Connections = m_Connections,
-                m_ChargeNodes = m_ChargeNodes,
-                m_DischargeNodes = m_DischargeNodes,
-                m_TradeNodes = m_TradeNodes,
-                m_MaxChunkCapacity = chunkCapacity
-            }, m_NodeGroup, JobHandle.CombineDependencies(job, job2));
-            JobHandle job4 = IJobExtensions.Schedule(new PopulateNodeIndicesJob
-            {
-                m_FlowNodes = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Simulation_ElectricityFlowNode_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_NodeIndices = m_NodeIndices,
-                m_SourceNode = m_SourceNode,
-                m_SinkNode = m_SinkNode
-            }, JobHandle.CombineDependencies(job, m_DataDependency));
-            base.Dependency = (m_DataDependency = JobHandle.CombineDependencies(job3, job4));
-            m_NextPhase = Phase.Flow;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public Reset() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void Reset()
-    {
-        m_DataDependency.Complete();
-        m_NextPhase = Phase.Prepare;
-        m_FlowJobState.Value = new ElectricityFlowJob.State(20000);
-        ready = false;
-    }
-</code></pre>
-<ul>
-<li><code>public Serialize&lt;TWriter&gt;(TWriter writer) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Void Serialize&lt;TWriter&gt;(TWriter writer);
-</code></pre>
-<ul>
-<li><code>public SetDefaults(Colossal.Serialization.Entities.Context context) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void SetDefaults(Context context)
-    {
-        Reset();
-        m_SourceNode = Entity.Null;
-        m_SinkNode = Entity.Null;
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Simulation.ElectricityFlowSystem+Phase</code>  </li>
-<li><code>Game.Simulation.ElectricityFlowSystem+PrepareNetworkJob</code>  </li>
-<li><code>Game.Simulation.ElectricityFlowSystem+PrepareNodesJob</code>  </li>
-<li><code>Game.Simulation.ElectricityFlowSystem+PrepareEdgesJob</code>  </li>
-<li><code>Game.Simulation.ElectricityFlowSystem+PrepareConnectionsJob</code>  </li>
-<li><code>Game.Simulation.ElectricityFlowSystem+PopulateNodeIndicesJob</code>  </li>
-<li><code>Game.Simulation.ElectricityFlowSystem+ApplyEdgesJob</code>  </li>
-<li><code>Game.Simulation.ElectricityFlowSystem+TypeHandle</code>  </li>
-</ul>
+<p>Notes:
+- The system spreads expensive computation across 128-frame cycles (kUpdateInterval) to keep per-frame work small.
+- The flow algorithm is implemented as a staged job (Prepare → Flow → Apply) so the job pipeline and dependencies must be respected if interacting directly with the system's native containers.
+- If you modify the ECS components involved (ElectricityFlowNode, ElectricityFlowEdge, ConnectedFlowEdge) at runtime, ensure you respect the system's scheduling and complete dependencies where appropriate to avoid race conditions.</p>
 
 
 

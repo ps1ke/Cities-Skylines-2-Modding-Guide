@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87056,6 +87148,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -101540,15 +101655,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -101579,6 +101685,15 @@
   <a href="#methods" class="md-nav__link">
     <span class="md-ellipsis">
       Methods
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
     </span>
   </a>
   
@@ -117923,6 +118038,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117948,15 +118085,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -117994,6 +118122,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -118011,315 +118148,174 @@
 
 
 <h1 id="gameuiingamedistrictssection">Game.UI.InGame.DistrictsSection</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.UI.InGame</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.UI.InGame.InfoSectionBase</code><br />
-<strong>Implements:</strong> <code>Game.UI.InGame.ISectionSource</code>, <code>Colossal.UI.Binding.IJsonWritable</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class DistrictsSection : Game.UI.InGame.InfoSectionBase, Game.UI.InGame.ISectionSource, Colossal.UI.Binding.IJsonWritable
-{
-    private Game.Tools.ToolSystem m_ToolSystem;
-    private Game.Tools.AreaToolSystem m_AreaToolSystem;
-    private Game.Tools.DefaultToolSystem m_DefaultToolSystem;
-    private Game.Tools.SelectionToolSystem m_SelectionToolSystem;
-    private Unity.Entities.EntityQuery m_ConfigQuery;
-    private Unity.Entities.EntityQuery m_DistrictQuery;
-    private Unity.Entities.EntityQuery m_DistrictPrefabQuery;
-    private Unity.Entities.EntityQuery m_DistrictModifiedQuery;
-    private Colossal.UI.Binding.ValueBinding&lt;System.Boolean&gt; m_Selecting;
-    private Unity.Collections.NativeList&lt;Unity.Entities.Entity&gt; &lt;districts&gt;k__BackingField;
-    private System.Boolean &lt;districtMissing&gt;k__BackingField;
-
-    protected System.String group { protected get; }
-    private Unity.Collections.NativeList&lt;Unity.Entities.Entity&gt; districts { private get; private set; }
-    private System.Boolean districtMissing { private get; private set; }
-
-    public DistrictsSection();
-
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnDestroy();
-    protected virtual System.Void OnPreUpdate();
-    protected virtual System.Void OnProcess();
-    private System.Void OnToolChanged(Game.Tools.ToolBaseSystem tool);
-    protected virtual System.Void OnUpdate();
-    public virtual System.Void OnWriteProperties(Colossal.UI.Binding.IJsonWriter writer);
-    public System.Void RemoveServiceDistrict(Unity.Entities.Entity district);
-    protected virtual System.Void Reset();
-    private System.Void ToggleDistrictTool();
-    private System.Void ToggleSelectionTool();
-    private System.Boolean Visible();
-}
-</code></pre>
+<p><strong>Assembly:</strong> Game<br />
+<strong>Namespace:</strong> Game.UI.InGame</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> InfoSectionBase</p>
+<p><strong>Summary:</strong><br />
+DistrictsSection is an in-game UI info section used to display and manage service districts associated with the currently selected entity (typically a service building). It integrates with the game's ECS (Unity.Entities) to query district data, listens to tool changes to maintain selection state, exposes UI bindings for toggling tools and removing districts, and writes out the district list for the UI. The class uses several tool systems (ToolSystem, AreaToolSystem, DefaultToolSystem, SelectionToolSystem) and Prefab/Config queries to toggle the district creation tool and selection tool. It also maintains a NativeList<Entity> to collect district entities for the selected item and properly disposes it on destroy.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.Tools.ToolSystem m_ToolSystem</code>  </li>
+<li>
+<p><code>private ToolSystem m_ToolSystem</code><br />
+Handles switching between and interacting with different editing tools (selection/default/area).</p>
+</li>
+<li>
+<p><code>private AreaToolSystem m_AreaToolSystem</code><br />
+Tool used for creating/editing area-based districts.</p>
+</li>
+<li>
+<p><code>private DefaultToolSystem m_DefaultToolSystem</code><br />
+Fallback/default tool used when no special tool is active.</p>
+</li>
+<li>
+<p><code>private SelectionToolSystem m_SelectionToolSystem</code><br />
+Tool used to select districts for the selected entity; selection type is set to SelectionType.ServiceDistrict when in use.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_ConfigQuery</code><br />
+EntityQuery for retrieving area/district configuration (AreasConfigurationData) singleton.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_DistrictQuery</code><br />
+EntityQuery for querying existing District components (excludes Temp).</p>
+</li>
+<li>
+<p><code>private EntityQuery m_DistrictPrefabQuery</code><br />
+EntityQuery for district prefabs (DistrictData) used to determine whether district prefabs are available.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_DistrictModifiedQuery</code><br />
+EntityQuery described to detect created/deleted District events (used to request UI updates).</p>
+</li>
+<li>
+<p><code>private ValueBinding&lt;bool&gt; m_Selecting</code><br />
+Binding that reflects whether the selection tool (for service districts) is currently active for this UI section.</p>
+</li>
+<li>
+<p><code>private NativeList&lt;Entity&gt; districts { get; set; }</code><br />
+A NativeList used to accumulate district entities associated with the selectedEntity each frame. Allocated with Allocator.Persistent and disposed in OnDestroy.</p>
+</li>
+<li>
+<p><code>private bool districtMissing { get; set; }</code><br />
+Internal flag indicating whether any districts exist at all (based on m_DistrictQuery.IsEmptyIgnoreFilter).</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.Tools.ToolSystem m_ToolSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Tools.AreaToolSystem m_AreaToolSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Tools.AreaToolSystem m_AreaToolSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Tools.DefaultToolSystem m_DefaultToolSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Tools.DefaultToolSystem m_DefaultToolSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Tools.SelectionToolSystem m_SelectionToolSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Tools.SelectionToolSystem m_SelectionToolSystem;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_ConfigQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_ConfigQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_DistrictQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_DistrictQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_DistrictPrefabQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_DistrictPrefabQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_DistrictModifiedQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_DistrictModifiedQuery;
-</code></pre>
-<ul>
-<li><code>private Colossal.UI.Binding.ValueBinding&lt;System.Boolean&gt; m_Selecting</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.UI.Binding.ValueBinding&lt;System.Boolean&gt; m_Selecting;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeList&lt;Unity.Entities.Entity&gt; &lt;districts&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeList&lt;Unity.Entities.Entity&gt; &lt;districts&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private System.Boolean &lt;districtMissing&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean &lt;districtMissing&gt;k__BackingField;
-</code></pre>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>protected System.String group { protected get }</code>  </li>
+<li>
+<p><code>protected override string group =&gt; "DistrictsSection"</code><br />
+Property overriding the InfoSectionBase.group to provide the UI group name used for binding keys and bindings.</p>
+</li>
+<li>
+<p><code>private NativeList&lt;Entity&gt; districts { get; set; }</code><br />
+(See Fields) Exposed as a private auto-property; the list is cleared during Reset() and filled in OnProcess().</p>
+</li>
+<li>
+<p><code>private bool districtMissing { get; set; }</code><br />
+(See Fields) Written in OnUpdate() and serialized to UI via OnWriteProperties.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">protected System.String group { protected get; }
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeList&lt;Unity.Entities.Entity&gt; districts { private get; private set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeList&lt;Unity.Entities.Entity&gt; districts { private get; private set; }
-</code></pre>
-<ul>
-<li><code>private System.Boolean districtMissing { private get; private set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean districtMissing { private get; private set; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public DistrictsSection()</code>  </li>
+<li><code>public DistrictsSection()</code><br />
+Default parameterless ctor. The real initialization happens in OnCreate.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public DistrictsSection()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
+<li>
+<p><code>protected override void Reset()</code><br />
+Clears the internal districts NativeList. Called by the base lifecycle to reset per-frame/section state.</p>
+</li>
+<li>
+<p><code>protected override void OnCreate()</code><br />
+Initializes the section: grabs references to required systems from the Entity World (ToolSystem, AreaToolSystem, DefaultToolSystem, SelectionToolSystem), subscribes to tool change events, allocates the NativeList<Entity> (Allocator.Persistent), creates EntityQueries (config, district, district prefab, district modification detection), and registers UI bindings/triggers:</p>
+</li>
+<li>"removeDistrict" -&gt; RemoveServiceDistrict(Entity)</li>
+<li>"toggleSelectionTool" -&gt; ToggleSelectionTool()</li>
+<li>"toggleDistrictTool" -&gt; ToggleDistrictTool()</li>
+<li>
+<p>"selecting" ValueBinding<bool> for reflecting selection tool state</p>
+</li>
+<li>
+<p><code>private void OnToolChanged(ToolBaseSystem tool)</code><br />
+Handler for tool changes. Updates m_Selecting binding and resets selection state on the SelectionToolSystem when the section had been selecting but tool changed away from the service-district selection tool.</p>
+</li>
+<li>
+<p><code>protected override void OnDestroy()</code><br />
+Disposes the NativeList<Entity> and calls base.OnDestroy to clean up.</p>
+</li>
+<li>
+<p><code>private bool Visible()</code><br />
+Returns whether the section should be visible: true if the selectedEntity has a ServiceDistrict buffer component and there are district prefabs available (m_DistrictPrefabQuery not empty). Used to set base.visible in OnUpdate.</p>
+</li>
+<li>
+<p><code>protected override void OnPreUpdate()</code><br />
+Checks m_DistrictModifiedQuery for changes (created/deleted events). If any are present, requests an update of the UI (RequestUpdate()) so the displayed district list stays in sync.</p>
+</li>
+<li>
+<p><code>protected override void OnUpdate()</code><br />
+Updates base.visible using Visible() and updates districtMissing based on whether m_DistrictQuery.IsEmptyIgnoreFilter.</p>
+</li>
+<li>
+<p><code>protected override void OnProcess()</code><br />
+Reads the ServiceDistrict buffer from selectedEntity and populates the private districts NativeList with the referenced district Entity values so they can be serialized to the UI.</p>
+</li>
+<li>
+<p><code>public override void OnWriteProperties(IJsonWriter writer)</code><br />
+Serializes the UI state for the frontend:</p>
+</li>
+<li>Writes boolean "districtMissing".</li>
+<li>
+<p>Writes an array "districts" where each entry contains:</p>
+<ul>
+<li>"name": bound via m_NameSystem.BindName(writer, entity)</li>
+<li>"entity": the Entity id
+  This is used by the UI layer to render district entries.</li>
 </ul>
+</li>
+<li>
+<p><code>public void RemoveServiceDistrict(Entity district)</code><br />
+Removes the specified district Entity from the ServiceDistrict buffer on selectedEntity. If removal occurred, requests an Info UI update via m_InfoUISystem.RequestUpdate().</p>
+</li>
+<li>
+<p><code>private void ToggleSelectionTool()</code><br />
+Toggles the selection tool: if the active tool is the selection tool it switches back to default; otherwise sets the SelectionToolSystem to select ServiceDistricts for this selectedEntity and activates the selection tool.</p>
+</li>
+<li>
+<p><code>private void ToggleDistrictTool()</code><br />
+Toggles the area/district creation tool: if currently active, revert to default; otherwise reads the AreasConfigurationPrefab singleton to get the default district prefab and assigns it to the AreaToolSystem.prefab, then activates the AreaToolSystem.</p>
+</li>
+</ul>
+<h2 id="usage-example">Usage Example</h2>
 <pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_ToolSystem = base.World.GetOrCreateSystemManaged&lt;ToolSystem&gt;();
-        m_AreaToolSystem = base.World.GetOrCreateSystemManaged&lt;AreaToolSystem&gt;();
-        m_DefaultToolSystem = base.World.GetOrCreateSystemManaged&lt;DefaultToolSystem&gt;();
-        m_SelectionToolSystem = base.World.GetOrCreateSystemManaged&lt;SelectionToolSystem&gt;();
-        ToolSystem toolSystem = m_ToolSystem;
-        toolSystem.EventToolChanged = (Action&lt;ToolBaseSystem&gt;)Delegate.Combine(toolSystem.EventToolChanged, new Action&lt;ToolBaseSystem&gt;(OnToolChanged));
-        districts = new NativeList&lt;Entity&gt;(Allocator.Persistent);
-        m_ConfigQuery = GetEntityQuery(ComponentType.ReadOnly&lt;AreasConfigurationData&gt;());
-        m_DistrictQuery = GetEntityQuery(ComponentType.ReadOnly&lt;District&gt;(), ComponentType.Exclude&lt;Temp&gt;());
-        m_DistrictPrefabQuery = GetEntityQuery(ComponentType.ReadOnly&lt;DistrictData&gt;(), ComponentType.Exclude&lt;Locked&gt;());
-        m_DistrictModifiedQuery = GetEntityQuery(new EntityQueryDesc
-        {
-            All = new ComponentType[1] { ComponentType.ReadOnly&lt;District&gt;() },
-            Any = new ComponentType[2]
-            {
-                ComponentType.ReadOnly&lt;Created&gt;(),
-                ComponentType.ReadOnly&lt;Deleted&gt;()
-            },
-            None = new ComponentType[1] { ComponentType.ReadOnly&lt;Temp&gt;() }
-        });
-        AddBinding(new TriggerBinding&lt;Entity&gt;(group, &quot;removeDistrict&quot;, RemoveServiceDistrict));
-        AddBinding(new TriggerBinding(group, &quot;toggleSelectionTool&quot;, ToggleSelectionTool));
-        AddBinding(new TriggerBinding(group, &quot;toggleDistrictTool&quot;, ToggleDistrictTool));
-        AddBinding(m_Selecting = new ValueBinding&lt;bool&gt;(group, &quot;selecting&quot;, initialValue: false));
-    }
+protected override void OnCreate()
+{
+    base.OnCreate();
+
+    // bind to tool systems and create native list (simplified, matching the real class)
+    m_ToolSystem = base.World.GetOrCreateSystemManaged&lt;ToolSystem&gt;();
+    m_AreaToolSystem = base.World.GetOrCreateSystemManaged&lt;AreaToolSystem&gt;();
+    m_DefaultToolSystem = base.World.GetOrCreateSystemManaged&lt;DefaultToolSystem&gt;();
+    m_SelectionToolSystem = base.World.GetOrCreateSystemManaged&lt;SelectionToolSystem&gt;();
+
+    // subscribe to tool changes so UI reflects selection tool state
+    m_ToolSystem.EventToolChanged = (Action&lt;ToolBaseSystem&gt;)Delegate.Combine(
+        m_ToolSystem.EventToolChanged,
+        new Action&lt;ToolBaseSystem&gt;(OnToolChanged)
+    );
+
+    // allocate list used to collect district entities for serialization to UI
+    districts = new NativeList&lt;Entity&gt;(Allocator.Persistent);
+
+    // create entity queries and add UI bindings (remove, toggle tools, selecting flag)
+}
 </code></pre>
-<ul>
-<li><code>protected virtual OnDestroy() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnDestroy()
-    {
-        districts.Dispose();
-        base.OnDestroy();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnPreUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnPreUpdate()
-    {
-        base.OnPreUpdate();
-        if (!m_DistrictModifiedQuery.IsEmptyIgnoreFilter)
-        {
-            RequestUpdate();
-        }
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnProcess() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnProcess()
-    {
-        DynamicBuffer&lt;ServiceDistrict&gt; buffer = base.EntityManager.GetBuffer&lt;ServiceDistrict&gt;(selectedEntity, isReadOnly: true);
-        for (int i = 0; i &lt; buffer.Length; i++)
-        {
-            NativeList&lt;Entity&gt; nativeList = districts;
-            ServiceDistrict serviceDistrict = buffer[i];
-            nativeList.Add(in serviceDistrict.m_District);
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private OnToolChanged(Game.Tools.ToolBaseSystem tool) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void OnToolChanged(ToolBaseSystem tool)
-    {
-        bool flag = tool == m_SelectionToolSystem &amp;&amp; m_SelectionToolSystem.selectionType == SelectionType.ServiceDistrict;
-        if (m_Selecting.value &amp;&amp; !flag)
-        {
-            m_SelectionToolSystem.selectionOwner = Entity.Null;
-            m_SelectionToolSystem.selectionType = SelectionType.None;
-        }
-        m_Selecting.Update(flag);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        base.visible = Visible();
-        districtMissing = m_DistrictQuery.IsEmptyIgnoreFilter;
-    }
-</code></pre>
-<ul>
-<li><code>public virtual OnWriteProperties(Colossal.UI.Binding.IJsonWriter writer) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override void OnWriteProperties(IJsonWriter writer)
-    {
-        writer.PropertyName(&quot;districtMissing&quot;);
-        writer.Write(districtMissing);
-        writer.PropertyName(&quot;districts&quot;);
-        writer.ArrayBegin(districts.Length);
-        for (int i = 0; i &lt; districts.Length; i++)
-        {
-            Entity entity = districts[i];
-            writer.TypeBegin(&quot;selectedInfo.District&quot;);
-            writer.PropertyName(&quot;name&quot;);
-            m_NameSystem.BindName(writer, entity);
-            writer.PropertyName(&quot;entity&quot;);
-            writer.Write(entity);
-            writer.TypeEnd();
-        }
-        writer.ArrayEnd();
-    }
-</code></pre>
-<ul>
-<li><code>public RemoveServiceDistrict(Unity.Entities.Entity district) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void RemoveServiceDistrict(Entity district)
-    {
-        DynamicBuffer&lt;ServiceDistrict&gt; buffer = base.EntityManager.GetBuffer&lt;ServiceDistrict&gt;(selectedEntity);
-        bool flag = false;
-        for (int i = 0; i &lt; buffer.Length; i++)
-        {
-            if (buffer[i].m_District == district)
-            {
-                buffer.RemoveAt(i);
-                flag = true;
-            }
-        }
-        if (flag)
-        {
-            m_InfoUISystem.RequestUpdate();
-        }
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual Reset() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void Reset()
-    {
-        districts.Clear();
-    }
-</code></pre>
-<ul>
-<li><code>private ToggleDistrictTool() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void ToggleDistrictTool()
-    {
-        if (m_ToolSystem.activeTool == m_AreaToolSystem)
-        {
-            m_ToolSystem.activeTool = m_DefaultToolSystem;
-            return;
-        }
-        AreasConfigurationPrefab prefab = m_PrefabSystem.GetPrefab&lt;AreasConfigurationPrefab&gt;(m_ConfigQuery.GetSingletonEntity());
-        m_AreaToolSystem.prefab = prefab.m_DefaultDistrictPrefab;
-        m_ToolSystem.activeTool = m_AreaToolSystem;
-    }
-</code></pre>
-<ul>
-<li><code>private ToggleSelectionTool() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void ToggleSelectionTool()
-    {
-        if (m_ToolSystem.activeTool == m_SelectionToolSystem)
-        {
-            m_ToolSystem.activeTool = m_DefaultToolSystem;
-            return;
-        }
-        m_SelectionToolSystem.selectionType = SelectionType.ServiceDistrict;
-        m_SelectionToolSystem.selectionOwner = selectedEntity;
-        m_ToolSystem.activeTool = m_SelectionToolSystem;
-    }
-</code></pre>
-<ul>
-<li><code>private Visible() : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">private bool Visible()
-    {
-        if (base.EntityManager.HasComponent&lt;ServiceDistrict&gt;(selectedEntity))
-        {
-            return !m_DistrictPrefabQuery.IsEmpty;
-        }
-        return false;
-    }
-</code></pre>
+<p>Notes and tips:
+- Ensure districts NativeList is disposed (the class does this in OnDestroy).
+- The class relies on the existence of a ServiceDistrict dynamic buffer on the selected entity; it is not safe to call OnProcess or OnWriteProperties for entities without that buffer.
+- ToggleDistrictTool reads the areas configuration singleton; if your mod introduces custom area prefabs you can influence what is set as the area tool's prefab.</p>
 
 
 

@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -81559,18 +81651,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -81595,9 +81687,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -87145,6 +87237,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -117921,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117948,18 +118085,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -117984,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118009,193 +118146,146 @@
 
 
 <h1 id="gamesimulationfindeventattendantssystem">Game.Simulation.FindEventAttendantsSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Simulation</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class FindEventAttendantsSystem : Game.GameSystemBase
-{
-    private Game.Simulation.SimulationSystem m_SimulationSystem;
-    private Game.EndFrameBarrier m_EndFrameBarrier;
-    private Unity.Entities.EntityQuery m_EventQuery;
-    private Unity.Entities.EntityQuery m_HouseholdQuery;
-    private Unity.Collections.NativeQueue&lt;Game.Simulation.FindEventAttendantsSystem+Attend&gt; m_AttendQueue;
-    private Unity.Entities.EntityArchetype m_MeetingArchetype;
-    private Unity.Entities.EntityArchetype m_JournalDataArchetype;
-    private Game.Simulation.FindEventAttendantsSystem+TypeHandle __TypeHandle;
-    private static const System.UInt32 UPDATE_INTERVAL;
-
-    public FindEventAttendantsSystem();
-
-    private System.Void __AssignQueries(Unity.Entities.SystemState&amp; state);
-    public virtual System.Int32 GetUpdateInterval(Game.SystemUpdatePhase phase);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnCreateForCompiler();
-    protected virtual System.Void OnDestroy();
-    protected virtual System.Void OnUpdate();
-}
-</code></pre>
+<p><strong>Assembly:</strong><br />
+Game (Assembly-CSharp) — part of the game's simulation assemblies (managed code for Cities: Skylines 2).<br />
+<strong>Namespace:</strong><br />
+Game.Simulation</p>
+<p><strong>Type:</strong><br />
+class</p>
+<p><strong>Base:</strong><br />
+GameSystemBase</p>
+<p><strong>Summary:</strong><br />
+System that finds and processes attendees for calendar events. It runs on a fixed interval (16 frames), iterates households, decides which households will attend events (especially "couple" type events), enqueues attendance work and then processes that queue to create CoordinatedMeeting entities and optional journal data. Uses Unity DOTS ECS patterns (IJobChunk, IJob, NativeQueue, EntityCommandBuffer) and Burst where appropriate. Handles removal of FindingEventParticipants once an event has aged past a threshold.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.Simulation.SimulationSystem m_SimulationSystem</code>  </li>
+<li>
+<p><code>private const uint UPDATE_INTERVAL = 16u</code><br />
+System update interval in simulation frames. The system returns this value from GetUpdateInterval to run every 16 frames.</p>
+</li>
+<li>
+<p><code>private SimulationSystem m_SimulationSystem</code><br />
+Reference to the SimulationSystem used to read the current simulation frame index.</p>
+</li>
+<li>
+<p><code>private EndFrameBarrier m_EndFrameBarrier</code><br />
+Barrier system used to create an EntityCommandBuffer for producing entity changes (meetings, journal data) at end-of-frame.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_EventQuery</code><br />
+Query selecting CalendarEvent entities that are currently finding participants (has CalendarEvent &amp; FindingEventParticipants, excludes Deleted/Temp).</p>
+</li>
+<li>
+<p><code>private EntityQuery m_HouseholdQuery</code><br />
+Query selecting Households that can be considered for attendance (includes UpdateFrame and HouseholdCitizen buffers; excludes AttendingEvent and Deleted).</p>
+</li>
+<li>
+<p><code>private NativeQueue&lt;Attend&gt; m_AttendQueue</code><br />
+Concurrent queue used by the ConsiderAttendanceJob to enqueue Attend items for the AttendJob to consume.</p>
+</li>
+<li>
+<p><code>private EntityArchetype m_MeetingArchetype</code><br />
+Archetype used to create CoordinatedMeeting entities and associated buffers/components.</p>
+</li>
+<li>
+<p><code>private EntityArchetype m_JournalDataArchetype</code><br />
+Archetype used to create AddEventJournalData entities for event journaling.</p>
+</li>
+<li>
+<p><code>private TypeHandle __TypeHandle</code><br />
+Generated container holding the various Entity/Component/Buffer type handles used for job scheduling.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.Simulation.SimulationSystem m_SimulationSystem;
-</code></pre>
+<h2 id="properties">Properties</h2>
 <ul>
-<li><code>private Game.EndFrameBarrier m_EndFrameBarrier</code>  </li>
+<li>None (this system exposes no public properties).</li>
 </ul>
-<pre><code class="language-csharp">private Game.EndFrameBarrier m_EndFrameBarrier;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_EventQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_EventQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_HouseholdQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_HouseholdQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeQueue&lt;Game.Simulation.FindEventAttendantsSystem+Attend&gt; m_AttendQueue</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeQueue&lt;Game.Simulation.FindEventAttendantsSystem+Attend&gt; m_AttendQueue;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityArchetype m_MeetingArchetype</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityArchetype m_MeetingArchetype;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityArchetype m_JournalDataArchetype</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityArchetype m_JournalDataArchetype;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.FindEventAttendantsSystem+TypeHandle __TypeHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.FindEventAttendantsSystem+TypeHandle __TypeHandle;
-</code></pre>
-<ul>
-<li><code>private static const System.UInt32 UPDATE_INTERVAL</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static const System.UInt32 UPDATE_INTERVAL;
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public FindEventAttendantsSystem()</code>  </li>
+<li><code>public FindEventAttendantsSystem()</code><br />
+Default constructor (preserved). Initialization of the system is done in OnCreate.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public FindEventAttendantsSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private __AssignQueries(Unity.Entities.SystemState&amp; state) : System.Void</code>  </li>
+<li>
+<p><code>public override int GetUpdateInterval(SystemUpdatePhase phase)</code><br />
+Returns the update interval for the system. This system returns 16, meaning it runs every 16 simulation frames.</p>
+</li>
+<li>
+<p><code>protected override void OnCreate()</code><br />
+Initializes queries, allocates the NativeQueue, sets up archetypes and subsystem references (SimulationSystem, EndFrameBarrier). Calls RequireForUpdate(m_EventQuery) so the system only runs when there are relevant event entities.</p>
+</li>
+<li>
+<p><code>protected override void OnDestroy()</code><br />
+Disposes of the NativeQueue and performs cleanup.</p>
+</li>
+<li>
+<p><code>protected override void OnUpdate()</code><br />
+Main update flow: computes an update frame with interval, schedules ConsiderAttendanceJob (IJobChunk) to inspect households and enqueue attendance for eligible events, then schedules AttendJob (IJob) to consume the queue and create CoordinatedMeeting entities / journal data. Uses m_EndFrameBarrier.EntityCommandBuffer and adds job dependencies to the barrier.</p>
+</li>
+<li>
+<p><code>protected override void OnCreateForCompiler()</code><br />
+Compiler-time helper that assigns entity/component handles; used by generated code paths.</p>
+</li>
+<li>
+<p><code>private void __AssignQueries(ref SystemState state)</code><br />
+Generated helper for query assignment (stubbed/disposed in this compiled form).</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private void __AssignQueries(ref SystemState state)
-    {
-        new EntityQueryBuilder(Allocator.Temp).Dispose();
-    }
-</code></pre>
+<p>Inner job types (summarized):</p>
 <ul>
-<li><code>public virtual GetUpdateInterval(Game.SystemUpdatePhase phase) : System.Int32</code>  </li>
+<li><code>ConsiderAttendanceJob : IJobChunk</code><br />
+Burst-compiled chunk job. Runs over household chunks on the configured update frame index. For each household chunk:</li>
+<li>Builds a temporary list of calendar event entities that target couples (EventTargetType.Couple) and are eligible.</li>
+<li>For each household in the chunk, counts adult vs child citizens and skips households that don't meet constraints.</li>
+<li>Uses randomness and CalendarEventData.m_AffectedProbability to decide if the household attends an event. When attending:<ul>
+<li>Enqueues an Attend { m_Event, m_Participant } into the NativeQueue (AsParallelWriter).</li>
+<li>Adds an AttendingEvent component to the household (via parallel EntityCommandBuffer).</li>
 </ul>
-<pre><code class="language-csharp">public override int GetUpdateInterval(SystemUpdatePhase phase)
-    {
-        return 16;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
+</li>
+<li>
+<p>Uses RandomSeed.Next() to create per-chunk Unity.Mathematics.Random.</p>
+</li>
+<li>
+<p><code>AttendJob : IJob</code><br />
+Burst-compiled single-threaded job that consumes the Attend NativeQueue:</p>
+</li>
+<li>For each dequeued Attend item:<ul>
+<li>Validates the event has a PrefabRef and that the prefab includes HaveCoordinatedMeetingData.</li>
+<li>Creates a CoordinatedMeeting entity with PrefabRef and CoordinatedMeeting component (phase 0, status Waiting).</li>
+<li>If the event's CalendarEventData.m_RandomTargetType == EventTargetType.Couple and the participant has a HouseholdCitizen buffer, adds household members to the event's TargetElement buffer and to the CoordinatedMeetingAttendee buffer on the new meeting entity.</li>
+<li>Adds journal data (AddEventJournalData) if attendees were added.</li>
 </ul>
+</li>
+<li>After draining the queue, iterates the list of event entities and removes FindingEventParticipants for events that are older than 240 frames past their Duration.m_StartFrame.</li>
+</ul>
+<p>Notes on Burst/ECS usage:
+- Both jobs are decorated as BurstCompile for performance.
+- ConsiderAttendanceJob is scheduled via JobChunkExtensions.ScheduleParallel to iterate households in parallel.
+- AttendJob runs as an IJob after the chunk job completes and uses a single-threaded EntityCommandBuffer to create meeting entities and buffers.
+- The system uses entity lookup/access utilities (ComponentLookup/BufferLookup/BufferTypeHandle/SharedComponentTypeHandle) via the generated __TypeHandle.</p>
+<h2 id="usage-example">Usage Example</h2>
 <pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_SimulationSystem = base.World.GetOrCreateSystemManaged&lt;SimulationSystem&gt;();
-        m_EndFrameBarrier = base.World.GetOrCreateSystemManaged&lt;EndFrameBarrier&gt;();
-        m_EventQuery = GetEntityQuery(ComponentType.ReadWrite&lt;Game.Events.CalendarEvent&gt;(), ComponentType.ReadWrite&lt;FindingEventParticipants&gt;(), ComponentType.Exclude&lt;Deleted&gt;(), ComponentType.Exclude&lt;Temp&gt;());
-        m_HouseholdQuery = GetEntityQuery(ComponentType.ReadWrite&lt;Household&gt;(), ComponentType.ReadWrite&lt;UpdateFrame&gt;(), ComponentType.ReadWrite&lt;HouseholdCitizen&gt;(), ComponentType.Exclude&lt;AttendingEvent&gt;(), ComponentType.Exclude&lt;Deleted&gt;());
-        m_AttendQueue = new NativeQueue&lt;Attend&gt;(Allocator.Persistent);
-        m_MeetingArchetype = base.EntityManager.CreateArchetype(ComponentType.ReadWrite&lt;CoordinatedMeeting&gt;(), ComponentType.ReadWrite&lt;CoordinatedMeetingAttendee&gt;(), ComponentType.ReadWrite&lt;PrefabRef&gt;(), ComponentType.ReadWrite&lt;Created&gt;());
-        m_JournalDataArchetype = base.EntityManager.CreateArchetype(ComponentType.ReadWrite&lt;AddEventJournalData&gt;(), ComponentType.ReadWrite&lt;Game.Common.Event&gt;());
-        RequireForUpdate(m_EventQuery);
-    }
+protected override void OnCreate()
+{
+    base.OnCreate();
+    // Typical initialization inside the system (this system creates an attendee queue):
+    m_AttendQueue = new NativeQueue&lt;Attend&gt;(Allocator.Persistent);
+
+    // Set up queries and archetypes as needed (simplified):
+    m_EventQuery = GetEntityQuery(ComponentType.ReadWrite&lt;Game.Events.CalendarEvent&gt;(),
+                                  ComponentType.ReadWrite&lt;FindingEventParticipants&gt;(),
+                                  ComponentType.Exclude&lt;Deleted&gt;(),
+                                  ComponentType.Exclude&lt;Temp&gt;());
+
+    m_MeetingArchetype = EntityManager.CreateArchetype(
+        ComponentType.ReadWrite&lt;CoordinatedMeeting&gt;(),
+        ComponentType.ReadWrite&lt;CoordinatedMeetingAttendee&gt;(),
+        ComponentType.ReadWrite&lt;PrefabRef&gt;(),
+        ComponentType.ReadWrite&lt;Created&gt;());
+}
 </code></pre>
-<ul>
-<li><code>protected virtual OnCreateForCompiler() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnCreateForCompiler()
-    {
-        base.OnCreateForCompiler();
-        __AssignQueries(ref base.CheckedStateRef);
-        __TypeHandle.__AssignHandles(ref base.CheckedStateRef);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnDestroy() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnDestroy()
-    {
-        base.OnDestroy();
-        m_AttendQueue.Dispose();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        uint updateFrameWithInterval = SimulationUtils.GetUpdateFrameWithInterval(m_SimulationSystem.frameIndex, (uint)GetUpdateInterval(SystemUpdatePhase.GameSimulation), 16);
-        JobHandle outJobHandle;
-        ConsiderAttendanceJob jobData = new ConsiderAttendanceJob
-        {
-            m_EventEntities = m_EventQuery.ToEntityListAsync(base.World.UpdateAllocator.ToAllocator, out outJobHandle),
-            m_EntityType = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef),
-            m_UpdateFrameType = InternalCompilerInterface.GetSharedComponentTypeHandle(ref __TypeHandle.__Game_Simulation_UpdateFrame_SharedComponentTypeHandle, ref base.CheckedStateRef),
-            m_HouseholdCitizenType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Citizens_HouseholdCitizen_RO_BufferTypeHandle, ref base.CheckedStateRef),
-            m_CommuterHouseholdType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Citizens_CommuterHousehold_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_UpdateFrameIndex = updateFrameWithInterval,
-            m_CitizenDatas = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Citizens_Citizen_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_Events = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_CalendarEventData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_Prefabs = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_AttendQueue = m_AttendQueue.AsParallelWriter(),
-            m_RandomSeed = RandomSeed.Next(),
-            m_CommandBuffer = m_EndFrameBarrier.CreateCommandBuffer().AsParallelWriter()
-        };
-        base.Dependency = JobChunkExtensions.ScheduleParallel(jobData, m_HouseholdQuery, JobHandle.CombineDependencies(outJobHandle, base.Dependency));
-        AttendJob jobData2 = new AttendJob
-        {
-            m_EventEntities = m_EventQuery.ToEntityListAsync(base.World.UpdateAllocator.ToAllocator, out outJobHandle),
-            m_AttendQueue = m_AttendQueue,
-            m_TargetElements = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Events_TargetElement_RW_BufferLookup, ref base.CheckedStateRef),
-            m_Durations = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Events_Duration_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_Prefabs = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_Citizens = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Citizens_HouseholdCitizen_RO_BufferLookup, ref base.CheckedStateRef),
-            m_HaveCoordinatedMeetings = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Prefabs_HaveCoordinatedMeetingData_RO_BufferLookup, ref base.CheckedStateRef),
-            m_CalendarEventDatas = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_CalendarEventData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_MeetingArchetype = m_MeetingArchetype,
-            m_JournalDataArchetype = m_JournalDataArchetype,
-            m_SimulationFrame = m_SimulationSystem.frameIndex,
-            m_CommandBuffer = m_EndFrameBarrier.CreateCommandBuffer()
-        };
-        base.Dependency = IJobExtensions.Schedule(jobData2, JobHandle.CombineDependencies(base.Dependency, outJobHandle));
-        m_EndFrameBarrier.AddJobHandleForProducer(base.Dependency);
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Simulation.FindEventAttendantsSystem+Attend</code>  </li>
-<li><code>Game.Simulation.FindEventAttendantsSystem+AttendJob</code>  </li>
-<li><code>Game.Simulation.FindEventAttendantsSystem+ConsiderAttendanceJob</code>  </li>
-<li><code>Game.Simulation.FindEventAttendantsSystem+TypeHandle</code>  </li>
-</ul>
+<p>If you want, I can also produce a brief diagram of the job flow (ConsiderAttendanceJob -&gt; NativeQueue -&gt; AttendJob) or extract exact component definitions referenced by this system (e.g., CoordinatedMeeting, AttendingEvent, CalendarEventData) into additional documentation sections.</p>
 
 
 

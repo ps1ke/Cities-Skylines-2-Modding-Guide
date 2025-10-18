@@ -65233,6 +65233,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -67368,18 +67391,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -67404,9 +67427,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -69734,6 +69757,29 @@
   
   <span class="md-ellipsis">
     ShaderID
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
     
   </span>
   
@@ -72563,6 +72609,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75553,6 +75622,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87145,6 +87237,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -117921,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117948,18 +118085,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -117984,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118009,742 +118146,177 @@
 
 
 <h1 id="gamerenderingcameracollisionsystem">Game.Rendering.CameraCollisionSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Rendering</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class CameraCollisionSystem : Game.GameSystemBase
-{
-    private Game.City.CityConfigurationSystem m_CityConfigurationSystem;
-    private Game.Tools.ToolSystem m_ToolSystem;
-    private Game.Objects.SearchSystem m_ObjectSearchSystem;
-    private Game.Simulation.TerrainSystem m_TerrainSystem;
-    private Game.Simulation.WaterSystem m_WaterSystem;
-    private Unity.Mathematics.float3 m_PreviousPosition;
-    private Unity.Mathematics.quaternion m_Rotation;
-    private System.Single m_MaxForwardOffset;
-    private System.Single m_MaxBackwardOffset;
-    private System.Single m_MinClearDistance;
-    private System.Single m_NearPlane;
-    private System.Single m_Smoothing;
-    private Unity.Mathematics.float2 m_FieldOfView;
-    private Unity.Collections.NativeReference&lt;Game.Rendering.CameraCollisionSystem+Result&gt; m_Result;
-    private Game.Rendering.CameraCollisionSystem+TypeHandle __TypeHandle;
-
-    public CameraCollisionSystem();
-
-    private System.Void __AssignQueries(Unity.Entities.SystemState&amp; state);
-    public System.Void CheckCollisions(Unity.Mathematics.float3&amp; position, Unity.Mathematics.float3 previousPosition, Unity.Mathematics.quaternion rotation, System.Single maxForwardOffset, System.Single maxBackwardOffset, System.Single minClearDistance, System.Single nearPlane, System.Single smoothing, Unity.Mathematics.float2 fieldOfView);
-    private static System.Void CheckCollisions(Unity.Collections.NativeList&lt;Game.Rendering.CameraCollisionSystem+Collision&gt; collisions, System.Single minClearRange, Unity.Mathematics.float2 limits);
-    private static System.Void CheckMeshIntersect(Game.Rendering.CameraCollisionSystem+Line line, Unity.Entities.DynamicBuffer&lt;Game.Prefabs.MeshVertex&gt; vertices, Unity.Entities.DynamicBuffer&lt;Game.Prefabs.MeshIndex&gt; indices, Unity.Collections.NativeList&lt;Game.Rendering.CameraCollisionSystem+Collision&gt; collisions);
-    private static System.Void CheckMeshIntersect(Game.Rendering.CameraCollisionSystem+Line line, Unity.Entities.DynamicBuffer&lt;Game.Prefabs.MeshVertex&gt; vertices, Unity.Entities.DynamicBuffer&lt;Game.Prefabs.MeshIndex&gt; indices, Unity.Entities.DynamicBuffer&lt;Game.Prefabs.MeshNode&gt; nodes, Unity.Collections.NativeList&lt;Game.Rendering.CameraCollisionSystem+Collision&gt; collisions);
-    private static System.Void CheckMeshIntersect(Game.Rendering.CameraCollisionSystem+Line line, Unity.Entities.DynamicBuffer&lt;Game.Prefabs.MeshVertex&gt; vertices, Unity.Entities.DynamicBuffer&lt;Game.Prefabs.MeshIndex&gt; indices, Unity.Entities.DynamicBuffer&lt;Game.Prefabs.MeshNode&gt; nodes, Unity.Entities.DynamicBuffer&lt;Game.Prefabs.ProceduralBone&gt; prefabBones, Unity.Collections.NativeList&lt;Game.Rendering.CameraCollisionSystem+Collision&gt; collisions);
-    private static System.Void CheckMeshIntersect(Game.Rendering.CameraCollisionSystem+Line line, Unity.Entities.DynamicBuffer&lt;Game.Prefabs.MeshVertex&gt; vertices, Unity.Entities.DynamicBuffer&lt;Game.Prefabs.MeshIndex&gt; indices, Unity.Entities.DynamicBuffer&lt;Game.Prefabs.MeshNode&gt; nodes, Unity.Entities.DynamicBuffer&lt;Game.Prefabs.ProceduralBone&gt; prefabBones, Unity.Entities.DynamicBuffer&lt;Game.Rendering.Bone&gt; bones, Game.Rendering.Skeleton skeleton, Unity.Collections.NativeList&lt;Game.Rendering.CameraCollisionSystem+Collision&gt; collisions);
-    private static System.Void CheckTriangleIntersect(Game.Rendering.CameraCollisionSystem+Line line, Colossal.Mathematics.Triangle3 triangle, Unity.Collections.NativeList&lt;Game.Rendering.CameraCollisionSystem+Collision&gt; collisions);
-    private static System.Boolean Intersect(Game.Rendering.CameraCollisionSystem+Line line, Colossal.Mathematics.Bounds3 bounds, Unity.Mathematics.float2&amp; t);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnCreateForCompiler();
-    protected virtual System.Void OnDestroy();
-    protected virtual System.Void OnUpdate();
-}
-</code></pre>
+<p><strong>Assembly:</strong> Assembly-CSharp<br />
+<strong>Namespace:</strong> Game.Rendering</p>
+<p><strong>Type:</strong> Class</p>
+<p><strong>Base:</strong> GameSystemBase</p>
+<p><strong>Summary:</strong><br />
+CameraCollisionSystem performs collision detection for the in-game camera to prevent clipping into world geometry. It queries nearby scene entities using a static quad-tree, raycasts against mesh geometry (including handling LODs, cached/shared meshes, stacks, procedural bones and skeletons), merges collision intervals and selects a camera position that keeps the view clear of terrain and water. The system is implemented with Unity Jobs + Burst for performance and integrates with TerrainSystem, WaterSystem and the engine's search system. It exposes a CheckCollisions API that other systems or tools can call to request a safe camera position. It is intended for internal use in the rendering/camera pipeline but can be used by mods that want to replicate or hook into Skylines 2 camera collision behavior.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.City.CityConfigurationSystem m_CityConfigurationSystem</code>  </li>
+<li>
+<p><code>private CityConfigurationSystem m_CityConfigurationSystem</code><br />
+Holds a reference to the CityConfigurationSystem for configuration flags (e.g. left/right-hand traffic).</p>
+</li>
+<li>
+<p><code>private ToolSystem m_ToolSystem</code><br />
+Reference to the ToolSystem used to check editor/action mode (camera behavior differs in editor).</p>
+</li>
+<li>
+<p><code>private SearchSystem m_ObjectSearchSystem</code><br />
+Reference to the SearchSystem to get the static search/quad-tree for nearby entities.</p>
+</li>
+<li>
+<p><code>private TerrainSystem m_TerrainSystem</code><br />
+Reference to TerrainSystem used to sample terrain heights for water/terrain clearance checks.</p>
+</li>
+<li>
+<p><code>private WaterSystem m_WaterSystem</code><br />
+Reference to WaterSystem used to sample water surface height to avoid placing camera under water.</p>
+</li>
+<li>
+<p><code>private float3 m_PreviousPosition</code><br />
+Cached previous camera position used for smoothing and selecting an optimal new camera position.</p>
+</li>
+<li>
+<p><code>private quaternion m_Rotation</code><br />
+Cached camera rotation used to project camera frustum line and field-of-view offsets.</p>
+</li>
+<li>
+<p><code>private float m_MaxForwardOffset</code><br />
+Maximum forward offset (how far forward the camera can go) used to compute search line.</p>
+</li>
+<li>
+<p><code>private float m_MaxBackwardOffset</code><br />
+Maximum backward offset used to compute search line.</p>
+</li>
+<li>
+<p><code>private float m_MinClearDistance</code><br />
+Minimum clearance distance (near clipping clear range) used in collision checks and camera placement.</p>
+</li>
+<li>
+<p><code>private float m_NearPlane</code><br />
+Near plane distance (in world units) used to compute near-plane bounds along the search line.</p>
+</li>
+<li>
+<p><code>private float m_Smoothing</code><br />
+Smoothing factor applied to camera offset changes over time (exponential smoothing).</p>
+</li>
+<li>
+<p><code>private float2 m_FieldOfView</code><br />
+Camera field-of-view in degrees (X and Y) used to expand search corridor based on frustum.</p>
+</li>
+<li>
+<p><code>private NativeReference&lt;Result&gt; m_Result</code><br />
+Native persistent storage for the computed Result struct (position + offset). Allocator.Persistent; disposed in OnDestroy.</p>
+</li>
+<li>
+<p><code>private TypeHandle __TypeHandle</code><br />
+Generated container containing ComponentLookup / BufferLookup handles used when scheduling jobs.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.City.CityConfigurationSystem m_CityConfigurationSystem;
-</code></pre>
+<h2 id="properties">Properties</h2>
 <ul>
-<li><code>private Game.Tools.ToolSystem m_ToolSystem</code>  </li>
+<li>No public properties exposed.</li>
 </ul>
-<pre><code class="language-csharp">private Game.Tools.ToolSystem m_ToolSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Objects.SearchSystem m_ObjectSearchSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Objects.SearchSystem m_ObjectSearchSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.TerrainSystem m_TerrainSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.TerrainSystem m_TerrainSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.WaterSystem m_WaterSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.WaterSystem m_WaterSystem;
-</code></pre>
-<ul>
-<li><code>private Unity.Mathematics.float3 m_PreviousPosition</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Mathematics.float3 m_PreviousPosition;
-</code></pre>
-<ul>
-<li><code>private Unity.Mathematics.quaternion m_Rotation</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Mathematics.quaternion m_Rotation;
-</code></pre>
-<ul>
-<li><code>private System.Single m_MaxForwardOffset</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Single m_MaxForwardOffset;
-</code></pre>
-<ul>
-<li><code>private System.Single m_MaxBackwardOffset</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Single m_MaxBackwardOffset;
-</code></pre>
-<ul>
-<li><code>private System.Single m_MinClearDistance</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Single m_MinClearDistance;
-</code></pre>
-<ul>
-<li><code>private System.Single m_NearPlane</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Single m_NearPlane;
-</code></pre>
-<ul>
-<li><code>private System.Single m_Smoothing</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Single m_Smoothing;
-</code></pre>
-<ul>
-<li><code>private Unity.Mathematics.float2 m_FieldOfView</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Mathematics.float2 m_FieldOfView;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeReference&lt;Game.Rendering.CameraCollisionSystem+Result&gt; m_Result</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeReference&lt;Game.Rendering.CameraCollisionSystem+Result&gt; m_Result;
-</code></pre>
-<ul>
-<li><code>private Game.Rendering.CameraCollisionSystem+TypeHandle __TypeHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Rendering.CameraCollisionSystem+TypeHandle __TypeHandle;
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public CameraCollisionSystem()</code>  </li>
+<li><code>public CameraCollisionSystem()</code><br />
+Default constructor (marked [Preserve] in compiled code). System initialization logic is performed in OnCreate; the constructor does not allocate native resources directly.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public CameraCollisionSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private __AssignQueries(Unity.Entities.SystemState&amp; state) : System.Void</code>  </li>
+<li>
+<p><code>[Preserve] protected override void OnCreate()</code><br />
+Initializes system references (CityConfigurationSystem, ToolSystem, SearchSystem, TerrainSystem, WaterSystem) and allocates the persistent NativeReference<Result>. Called when the system is created.</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnDestroy()</code><br />
+Disposes the persistent NativeReference<Result> and performs base cleanup.</p>
+</li>
+<li>
+<p><code>public void CheckCollisions(ref float3 position, float3 previousPosition, quaternion rotation, float maxForwardOffset, float maxBackwardOffset, float minClearDistance, float nearPlane, float smoothing, float2 fieldOfView)</code><br />
+Primary API to request camera collision handling. If not in editor mode, this sets up internal parameters, schedules jobs (FindEntitiesFromTreeJob, ObjectCollisionJob, SelectCameraPositionJob) and updates the position parameter with the computed safe camera position. It blocks until the scheduled jobs complete (jobs are scheduled and completed inside Update).</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnUpdate()</code><br />
+Internal update used when CheckCollisions has been invoked. Builds the search line, computes FOV offsets and normalized ranges, creates native lists/queues, schedules the three main jobs, registers readers with ObjectSearchSystem/TerrainSystem/WaterSystem, and completes the job chain. After completion, result is stored in m_Result.</p>
+</li>
+<li>
+<p><code>private void __AssignQueries(ref SystemState state)</code><br />
+Generated helper used in compiled systems. Here it constructs/disposes an EntityQueryBuilder (no persistent queries in this system).</p>
+</li>
+<li>
+<p><code>protected override void OnCreateForCompiler()</code><br />
+Generated method that initializes queries and assigns component/buffer handles via __TypeHandle.__AssignHandles. Used by the runtime when compiling IL to system state.</p>
+</li>
+<li>
+<p><code>private static void CheckCollisions(NativeList&lt;Collision&gt; collisions, float minClearRange, float2 limits)</code><br />
+Static helper that merges and filters an unsorted list of Collision entries into consolidated collision intervals, respects minimum clear range and ensures clipping limits (limits represent normalized near/far bounds).</p>
+</li>
+<li>
+<p><code>private static bool Intersect(Line line, Bounds3 bounds, out float2 t)</code><br />
+Utility to test intersection between an expanded/scaled bounding box and line segment, outputting normalized min/max t on the line.</p>
+</li>
+<li>
+<p><code>private static void CheckTriangleIntersect(Line line, Triangle3 triangle, NativeList&lt;Collision&gt; collisions)</code><br />
+Projects triangle into the line/frustum plane space, computes intersection area and line bounds and adds Collision entries when intersections occur.</p>
+</li>
+<li>
+<p><code>private static void CheckMeshIntersect(Line line, DynamicBuffer&lt;MeshVertex&gt; vertices, DynamicBuffer&lt;MeshIndex&gt; indices, NativeList&lt;Collision&gt; collisions)</code><br />
+Iterates indices in simple mesh and tests each triangle with CheckTriangleIntersect.</p>
+</li>
+<li>
+<p><code>private static void CheckMeshIntersect(Line line, DynamicBuffer&lt;MeshVertex&gt; vertices, DynamicBuffer&lt;MeshIndex&gt; indices, DynamicBuffer&lt;MeshNode&gt; nodes, NativeList&lt;Collision&gt; collisions)</code><br />
+Spatially accelerated mesh intersection using mesh nodes; traverses node tree using a manual stack and tests triangles only where node bounds intersect the line.</p>
+</li>
+<li>
+<p><code>private static void CheckMeshIntersect(Line line, DynamicBuffer&lt;MeshVertex&gt; vertices, DynamicBuffer&lt;MeshIndex&gt; indices, DynamicBuffer&lt;MeshNode&gt; nodes, DynamicBuffer&lt;ProceduralBone&gt; prefabBones, NativeList&lt;Collision&gt; collisions)</code><br />
+Handles procedurally skinned meshes where multiple bind nodes exist. Iterates procedural bones and tests subtrees.</p>
+</li>
+<li>
+<p><code>private static void CheckMeshIntersect(Line line, DynamicBuffer&lt;MeshVertex&gt; vertices, DynamicBuffer&lt;MeshIndex&gt; indices, DynamicBuffer&lt;MeshNode&gt; nodes, DynamicBuffer&lt;ProceduralBone&gt; prefabBones, DynamicBuffer&lt;Bone&gt; bones, Skeleton skeleton, NativeList&lt;Collision&gt; collisions)</code><br />
+Full skinned-mesh handling that transforms the camera line into bone-local space (using bind poses and bone hierarchy), then traverses nodes to compute collisions for animated/skinned meshes.</p>
+</li>
+<li>
+<p>Nested Job types (Burst-compiled):</p>
+</li>
+<li>FindEntitiesFromTreeJob : IJob<br />
+    Collects Entity IDs from the static search tree whose expanded quad-tree bounds intersect the camera search line (considering FOV expansion). Writes to a NativeList<Entity>.</li>
+<li>ObjectCollisionJob : IJobParallelForDefer<br />
+    For each candidate entity, obtains transform/prefab/flags and early-exits for non-physical or marker-only geometry; constructs a Line in object-local space, computes object bounds, and if they intersect schedules per-mesh raycasts (via the CheckMeshIntersect variants). Enqueues Collision results into a native queue (parallel writer). Handles many prefab flags: stacks, quantity objects, growth scale (trees), LODs, shared meshes, impostors, etc.</li>
+<li>SelectCameraPositionJob : IJob<br />
+    Dequeues collisions, runs CheckCollisions to merge intervals, determines the best candidate normalized position along the search line respecting minClearRange, near plane, terrain and water heights, performs smoothing against previous position and writes final Result (position and offset).</li>
 </ul>
-<pre><code class="language-csharp">private void __AssignQueries(ref SystemState state)
-    {
-        new EntityQueryBuilder(Allocator.Temp).Dispose();
-    }
+<p>Notes:
+- Jobs use many ComponentLookup and BufferLookup handles (stored in TypeHandle). The system uses InternalCompilerInterface to get handles at scheduling time.
+- The system samples water and terrain heights via WaterSystem and TerrainSystem; SelectCameraPositionJob uses these to ensure the chosen camera position is above water/terrain by minClearRange.
+- The algorithm uses normalized distances (0..1 along a precomputed search line) and then maps them back to world positions.</p>
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Example: call from a camera controller or mod to get a safe camera position.
+// Assume 'world' is the ECS World and 'system' is obtained via World.GetExistingSystemManaged&lt;CameraCollisionSystem&gt;()
+
+var cameraSystem = world.GetOrCreateSystemManaged&lt;Game.Rendering.CameraCollisionSystem&gt;();
+
+float3 currentPos = cameraTransform.position;
+float3 previousPos = lastCameraPosition;
+quaternion rotation = cameraTransform.rotation;
+
+float maxForward = 100f;    // max forward offset
+float maxBackward = 10f;    // max backward offset
+float minClear = 1.5f;      // minimum clearance from geometry
+float nearPlane = 0.3f;     // near plane distance
+float smoothing = 0.9f;     // smoothing factor
+float2 fov = new float2(60f, 40f); // horizontal/vertical FOV in degrees
+
+// This will update currentPos to a safe position when the method returns (if not in editor mode)
+cameraSystem.CheckCollisions(ref currentPos, previousPos, rotation, maxForward, maxBackward, minClear, nearPlane, smoothing, fov);
+
+// Apply the adjusted camera position
+cameraTransform.position = currentPos;
 </code></pre>
-<ul>
-<li><code>public CheckCollisions(Unity.Mathematics.float3&amp; position, Unity.Mathematics.float3 previousPosition, Unity.Mathematics.quaternion rotation, System.Single maxForwardOffset, System.Single maxBackwardOffset, System.Single minClearDistance, System.Single nearPlane, System.Single smoothing, Unity.Mathematics.float2 fieldOfView) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static void CheckCollisions(NativeList&lt;Collision&gt; collisions, float minClearRange, float2 limits)
-    {
-        if (collisions.Length == 0)
-        {
-            return;
-        }
-        collisions.Sort();
-        int num = 0;
-        Collision value = collisions[0];
-        for (int i = 1; i &lt; collisions.Length; i++)
-        {
-            Collision collision = collisions[i];
-            if (collision.m_LineBounds.min - value.m_LineBounds.max &lt; minClearRange)
-            {
-                value.m_LineBounds.max = math.max(value.m_LineBounds.max, collision.m_LineBounds.max);
-                value.m_CoverAreas += collision.m_CoverAreas;
-                value.m_StartEnd |= collision.m_StartEnd;
-            }
-            else
-            {
-                value.m_StartEnd &amp;= value.m_CoverAreas &gt;= value.m_CoverAreas.yx * 0.5f;
-                collisions[num++] = value;
-                value = collision;
-            }
-        }
-        value.m_StartEnd &amp;= value.m_CoverAreas &gt;= value.m_CoverAreas.yx * 0.5f;
-        collisions[num++] = value;
-        collisions.RemoveRange(num, collisions.Length - num);
-        num = 0;
-        value = collisions[0];
-        if (!value.m_StartEnd.x)
-        {
-            value.m_LineBounds.min = math.min(value.m_LineBounds.min, limits.x);
-            value.m_StartEnd.x = true;
-        }
-        for (int j = 1; j &lt; collisions.Length; j++)
-        {
-            Collision collision2 = collisions[j];
-            if (!value.m_StartEnd.y || !collision2.m_StartEnd.x)
-            {
-                value.m_LineBounds.max = collision2.m_LineBounds.max;
-                value.m_CoverAreas += collision2.m_CoverAreas;
-                value.m_StartEnd.y = collision2.m_StartEnd.y;
-            }
-            else
-            {
-                collisions[num++] = value;
-                value = collision2;
-            }
-        }
-        if (!value.m_StartEnd.y)
-        {
-            value.m_LineBounds.max = math.max(value.m_LineBounds.max, limits.y);
-            value.m_StartEnd.y = true;
-        }
-        collisions[num++] = value;
-        collisions.RemoveRange(num, collisions.Length - num);
-    }
-</code></pre>
-<ul>
-<li><code>private static CheckCollisions(Unity.Collections.NativeList&lt;Game.Rendering.CameraCollisionSystem+Collision&gt; collisions, System.Single minClearRange, Unity.Mathematics.float2 limits) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static void CheckCollisions(NativeList&lt;Collision&gt; collisions, float minClearRange, float2 limits)
-    {
-        if (collisions.Length == 0)
-        {
-            return;
-        }
-        collisions.Sort();
-        int num = 0;
-        Collision value = collisions[0];
-        for (int i = 1; i &lt; collisions.Length; i++)
-        {
-            Collision collision = collisions[i];
-            if (collision.m_LineBounds.min - value.m_LineBounds.max &lt; minClearRange)
-            {
-                value.m_LineBounds.max = math.max(value.m_LineBounds.max, collision.m_LineBounds.max);
-                value.m_CoverAreas += collision.m_CoverAreas;
-                value.m_StartEnd |= collision.m_StartEnd;
-            }
-            else
-            {
-                value.m_StartEnd &amp;= value.m_CoverAreas &gt;= value.m_CoverAreas.yx * 0.5f;
-                collisions[num++] = value;
-                value = collision;
-            }
-        }
-        value.m_StartEnd &amp;= value.m_CoverAreas &gt;= value.m_CoverAreas.yx * 0.5f;
-        collisions[num++] = value;
-        collisions.RemoveRange(num, collisions.Length - num);
-        num = 0;
-        value = collisions[0];
-        if (!value.m_StartEnd.x)
-        {
-            value.m_LineBounds.min = math.min(value.m_LineBounds.min, limits.x);
-            value.m_StartEnd.x = true;
-        }
-        for (int j = 1; j &lt; collisions.Length; j++)
-        {
-            Collision collision2 = collisions[j];
-            if (!value.m_StartEnd.y || !collision2.m_StartEnd.x)
-            {
-                value.m_LineBounds.max = collision2.m_LineBounds.max;
-                value.m_CoverAreas += collision2.m_CoverAreas;
-                value.m_StartEnd.y = collision2.m_StartEnd.y;
-            }
-            else
-            {
-                collisions[num++] = value;
-                value = collision2;
-            }
-        }
-        if (!value.m_StartEnd.y)
-        {
-            value.m_LineBounds.max = math.max(value.m_LineBounds.max, limits.y);
-            value.m_StartEnd.y = true;
-        }
-        collisions[num++] = value;
-        collisions.RemoveRange(num, collisions.Length - num);
-    }
-</code></pre>
-<ul>
-<li><code>private static CheckMeshIntersect(Game.Rendering.CameraCollisionSystem+Line line, Unity.Entities.DynamicBuffer&lt;Game.Prefabs.MeshVertex&gt; vertices, Unity.Entities.DynamicBuffer&lt;Game.Prefabs.MeshIndex&gt; indices, Unity.Collections.NativeList&lt;Game.Rendering.CameraCollisionSystem+Collision&gt; collisions) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private unsafe static void CheckMeshIntersect(Line line, DynamicBuffer&lt;MeshVertex&gt; vertices, DynamicBuffer&lt;MeshIndex&gt; indices, DynamicBuffer&lt;MeshNode&gt; nodes, DynamicBuffer&lt;ProceduralBone&gt; prefabBones, DynamicBuffer&lt;Bone&gt; bones, Skeleton skeleton, NativeList&lt;Collision&gt; collisions)
-    {
-        int* ptr = stackalloc int[128];
-        for (int i = 0; i &lt; prefabBones.Length; i++)
-        {
-            int num = 0;
-            Line line2 = line;
-            ProceduralBone proceduralBone = prefabBones[i];
-            if (math.any(MathUtils.Size(nodes[proceduralBone.m_BindIndex].m_Bounds) &gt; 0f))
-            {
-                ptr[num++] = proceduralBone.m_BindIndex;
-                Bone bone = bones[skeleton.m_BoneOffset + i];
-                float4x4 float4x = float4x4.TRS(bone.m_Position, bone.m_Rotation, bone.m_Scale);
-                int parentIndex = proceduralBone.m_ParentIndex;
-                while (parentIndex &gt;= 0)
-                {
-                    Bone bone2 = bones[skeleton.m_BoneOffset + parentIndex];
-                    ProceduralBone proceduralBone2 = prefabBones[parentIndex];
-                    float4x = math.mul(float4x4.TRS(bone2.m_Position, bone2.m_Rotation, bone2.m_Scale), float4x);
-                    parentIndex = proceduralBone2.m_ParentIndex;
-                }
-                float4x = math.mul(float4x, proceduralBone.m_BindPose);
-                float4x = math.inverse(float4x);
-                line2.m_Line.a = math.mul(float4x, new float4(line.m_Line.a, 1f)).xyz;
-                line2.m_Line.b = math.mul(float4x, new float4(line.m_Line.b, 1f)).xyz;
-                line2.m_XVector = math.mul(float4x, new float4(line.m_XVector, 0f)).xyz;
-                line2.m_YVector = math.mul(float4x, new float4(line.m_YVector, 0f)).xyz;
-                line2.m_Expand = math.abs(line2.m_XVector) + math.abs(line2.m_YVector);
-            }
-            while (--num &gt;= 0)
-            {
-                int index = ptr[num];
-                MeshNode meshNode = nodes[index];
-                if (Intersect(line2, meshNode.m_Bounds, out var _))
-                {
-                    for (int j = meshNode.m_IndexRange.x; j &lt; meshNode.m_IndexRange.y; j += 3)
-                    {
-                        CheckTriangleIntersect(triangle: new Triangle3(vertices[indices[j].m_Index].m_Vertex, vertices[indices[j + 1].m_Index].m_Vertex, vertices[indices[j + 2].m_Index].m_Vertex), line: line2, collisions: collisions);
-                    }
-                    ptr[num] = meshNode.m_SubNodes1.x;
-                    num = math.select(num, num + 1, meshNode.m_SubNodes1.x != -1);
-                    ptr[num] = meshNode.m_SubNodes1.y;
-                    num = math.select(num, num + 1, meshNode.m_SubNodes1.y != -1);
-                    ptr[num] = meshNode.m_SubNodes1.z;
-                    num = math.select(num, num + 1, meshNode.m_SubNodes1.z != -1);
-                    ptr[num] = meshNode.m_SubNodes1.w;
-                    num = math.select(num, num + 1, meshNode.m_SubNodes1.w != -1);
-                    ptr[num] = meshNode.m_SubNodes2.x;
-                    num = math.select(num, num + 1, meshNode.m_SubNodes2.x != -1);
-                    ptr[num] = meshNode.m_SubNodes2.y;
-                    num = math.select(num, num + 1, meshNode.m_SubNodes2.y != -1);
-                    ptr[num] = meshNode.m_SubNodes2.z;
-                    num = math.select(num, num + 1, meshNode.m_SubNodes2.z != -1);
-                    ptr[num] = meshNode.m_SubNodes2.w;
-                    num = math.select(num, num + 1, meshNode.m_SubNodes2.w != -1);
-                }
-            }
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private static CheckMeshIntersect(Game.Rendering.CameraCollisionSystem+Line line, Unity.Entities.DynamicBuffer&lt;Game.Prefabs.MeshVertex&gt; vertices, Unity.Entities.DynamicBuffer&lt;Game.Prefabs.MeshIndex&gt; indices, Unity.Entities.DynamicBuffer&lt;Game.Prefabs.MeshNode&gt; nodes, Unity.Collections.NativeList&lt;Game.Rendering.CameraCollisionSystem+Collision&gt; collisions) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private unsafe static void CheckMeshIntersect(Line line, DynamicBuffer&lt;MeshVertex&gt; vertices, DynamicBuffer&lt;MeshIndex&gt; indices, DynamicBuffer&lt;MeshNode&gt; nodes, DynamicBuffer&lt;ProceduralBone&gt; prefabBones, DynamicBuffer&lt;Bone&gt; bones, Skeleton skeleton, NativeList&lt;Collision&gt; collisions)
-    {
-        int* ptr = stackalloc int[128];
-        for (int i = 0; i &lt; prefabBones.Length; i++)
-        {
-            int num = 0;
-            Line line2 = line;
-            ProceduralBone proceduralBone = prefabBones[i];
-            if (math.any(MathUtils.Size(nodes[proceduralBone.m_BindIndex].m_Bounds) &gt; 0f))
-            {
-                ptr[num++] = proceduralBone.m_BindIndex;
-                Bone bone = bones[skeleton.m_BoneOffset + i];
-                float4x4 float4x = float4x4.TRS(bone.m_Position, bone.m_Rotation, bone.m_Scale);
-                int parentIndex = proceduralBone.m_ParentIndex;
-                while (parentIndex &gt;= 0)
-                {
-                    Bone bone2 = bones[skeleton.m_BoneOffset + parentIndex];
-                    ProceduralBone proceduralBone2 = prefabBones[parentIndex];
-                    float4x = math.mul(float4x4.TRS(bone2.m_Position, bone2.m_Rotation, bone2.m_Scale), float4x);
-                    parentIndex = proceduralBone2.m_ParentIndex;
-                }
-                float4x = math.mul(float4x, proceduralBone.m_BindPose);
-                float4x = math.inverse(float4x);
-                line2.m_Line.a = math.mul(float4x, new float4(line.m_Line.a, 1f)).xyz;
-                line2.m_Line.b = math.mul(float4x, new float4(line.m_Line.b, 1f)).xyz;
-                line2.m_XVector = math.mul(float4x, new float4(line.m_XVector, 0f)).xyz;
-                line2.m_YVector = math.mul(float4x, new float4(line.m_YVector, 0f)).xyz;
-                line2.m_Expand = math.abs(line2.m_XVector) + math.abs(line2.m_YVector);
-            }
-            while (--num &gt;= 0)
-            {
-                int index = ptr[num];
-                MeshNode meshNode = nodes[index];
-                if (Intersect(line2, meshNode.m_Bounds, out var _))
-                {
-                    for (int j = meshNode.m_IndexRange.x; j &lt; meshNode.m_IndexRange.y; j += 3)
-                    {
-                        CheckTriangleIntersect(triangle: new Triangle3(vertices[indices[j].m_Index].m_Vertex, vertices[indices[j + 1].m_Index].m_Vertex, vertices[indices[j + 2].m_Index].m_Vertex), line: line2, collisions: collisions);
-                    }
-                    ptr[num] = meshNode.m_SubNodes1.x;
-                    num = math.select(num, num + 1, meshNode.m_SubNodes1.x != -1);
-                    ptr[num] = meshNode.m_SubNodes1.y;
-                    num = math.select(num, num + 1, meshNode.m_SubNodes1.y != -1);
-                    ptr[num] = meshNode.m_SubNodes1.z;
-                    num = math.select(num, num + 1, meshNode.m_SubNodes1.z != -1);
-                    ptr[num] = meshNode.m_SubNodes1.w;
-                    num = math.select(num, num + 1, meshNode.m_SubNodes1.w != -1);
-                    ptr[num] = meshNode.m_SubNodes2.x;
-                    num = math.select(num, num + 1, meshNode.m_SubNodes2.x != -1);
-                    ptr[num] = meshNode.m_SubNodes2.y;
-                    num = math.select(num, num + 1, meshNode.m_SubNodes2.y != -1);
-                    ptr[num] = meshNode.m_SubNodes2.z;
-                    num = math.select(num, num + 1, meshNode.m_SubNodes2.z != -1);
-                    ptr[num] = meshNode.m_SubNodes2.w;
-                    num = math.select(num, num + 1, meshNode.m_SubNodes2.w != -1);
-                }
-            }
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private static CheckMeshIntersect(Game.Rendering.CameraCollisionSystem+Line line, Unity.Entities.DynamicBuffer&lt;Game.Prefabs.MeshVertex&gt; vertices, Unity.Entities.DynamicBuffer&lt;Game.Prefabs.MeshIndex&gt; indices, Unity.Entities.DynamicBuffer&lt;Game.Prefabs.MeshNode&gt; nodes, Unity.Entities.DynamicBuffer&lt;Game.Prefabs.ProceduralBone&gt; prefabBones, Unity.Collections.NativeList&lt;Game.Rendering.CameraCollisionSystem+Collision&gt; collisions) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private unsafe static void CheckMeshIntersect(Line line, DynamicBuffer&lt;MeshVertex&gt; vertices, DynamicBuffer&lt;MeshIndex&gt; indices, DynamicBuffer&lt;MeshNode&gt; nodes, DynamicBuffer&lt;ProceduralBone&gt; prefabBones, DynamicBuffer&lt;Bone&gt; bones, Skeleton skeleton, NativeList&lt;Collision&gt; collisions)
-    {
-        int* ptr = stackalloc int[128];
-        for (int i = 0; i &lt; prefabBones.Length; i++)
-        {
-            int num = 0;
-            Line line2 = line;
-            ProceduralBone proceduralBone = prefabBones[i];
-            if (math.any(MathUtils.Size(nodes[proceduralBone.m_BindIndex].m_Bounds) &gt; 0f))
-            {
-                ptr[num++] = proceduralBone.m_BindIndex;
-                Bone bone = bones[skeleton.m_BoneOffset + i];
-                float4x4 float4x = float4x4.TRS(bone.m_Position, bone.m_Rotation, bone.m_Scale);
-                int parentIndex = proceduralBone.m_ParentIndex;
-                while (parentIndex &gt;= 0)
-                {
-                    Bone bone2 = bones[skeleton.m_BoneOffset + parentIndex];
-                    ProceduralBone proceduralBone2 = prefabBones[parentIndex];
-                    float4x = math.mul(float4x4.TRS(bone2.m_Position, bone2.m_Rotation, bone2.m_Scale), float4x);
-                    parentIndex = proceduralBone2.m_ParentIndex;
-                }
-                float4x = math.mul(float4x, proceduralBone.m_BindPose);
-                float4x = math.inverse(float4x);
-                line2.m_Line.a = math.mul(float4x, new float4(line.m_Line.a, 1f)).xyz;
-                line2.m_Line.b = math.mul(float4x, new float4(line.m_Line.b, 1f)).xyz;
-                line2.m_XVector = math.mul(float4x, new float4(line.m_XVector, 0f)).xyz;
-                line2.m_YVector = math.mul(float4x, new float4(line.m_YVector, 0f)).xyz;
-                line2.m_Expand = math.abs(line2.m_XVector) + math.abs(line2.m_YVector);
-            }
-            while (--num &gt;= 0)
-            {
-                int index = ptr[num];
-                MeshNode meshNode = nodes[index];
-                if (Intersect(line2, meshNode.m_Bounds, out var _))
-                {
-                    for (int j = meshNode.m_IndexRange.x; j &lt; meshNode.m_IndexRange.y; j += 3)
-                    {
-                        CheckTriangleIntersect(triangle: new Triangle3(vertices[indices[j].m_Index].m_Vertex, vertices[indices[j + 1].m_Index].m_Vertex, vertices[indices[j + 2].m_Index].m_Vertex), line: line2, collisions: collisions);
-                    }
-                    ptr[num] = meshNode.m_SubNodes1.x;
-                    num = math.select(num, num + 1, meshNode.m_SubNodes1.x != -1);
-                    ptr[num] = meshNode.m_SubNodes1.y;
-                    num = math.select(num, num + 1, meshNode.m_SubNodes1.y != -1);
-                    ptr[num] = meshNode.m_SubNodes1.z;
-                    num = math.select(num, num + 1, meshNode.m_SubNodes1.z != -1);
-                    ptr[num] = meshNode.m_SubNodes1.w;
-                    num = math.select(num, num + 1, meshNode.m_SubNodes1.w != -1);
-                    ptr[num] = meshNode.m_SubNodes2.x;
-                    num = math.select(num, num + 1, meshNode.m_SubNodes2.x != -1);
-                    ptr[num] = meshNode.m_SubNodes2.y;
-                    num = math.select(num, num + 1, meshNode.m_SubNodes2.y != -1);
-                    ptr[num] = meshNode.m_SubNodes2.z;
-                    num = math.select(num, num + 1, meshNode.m_SubNodes2.z != -1);
-                    ptr[num] = meshNode.m_SubNodes2.w;
-                    num = math.select(num, num + 1, meshNode.m_SubNodes2.w != -1);
-                }
-            }
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private static CheckMeshIntersect(Game.Rendering.CameraCollisionSystem+Line line, Unity.Entities.DynamicBuffer&lt;Game.Prefabs.MeshVertex&gt; vertices, Unity.Entities.DynamicBuffer&lt;Game.Prefabs.MeshIndex&gt; indices, Unity.Entities.DynamicBuffer&lt;Game.Prefabs.MeshNode&gt; nodes, Unity.Entities.DynamicBuffer&lt;Game.Prefabs.ProceduralBone&gt; prefabBones, Unity.Entities.DynamicBuffer&lt;Game.Rendering.Bone&gt; bones, Game.Rendering.Skeleton skeleton, Unity.Collections.NativeList&lt;Game.Rendering.CameraCollisionSystem+Collision&gt; collisions) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private unsafe static void CheckMeshIntersect(Line line, DynamicBuffer&lt;MeshVertex&gt; vertices, DynamicBuffer&lt;MeshIndex&gt; indices, DynamicBuffer&lt;MeshNode&gt; nodes, DynamicBuffer&lt;ProceduralBone&gt; prefabBones, DynamicBuffer&lt;Bone&gt; bones, Skeleton skeleton, NativeList&lt;Collision&gt; collisions)
-    {
-        int* ptr = stackalloc int[128];
-        for (int i = 0; i &lt; prefabBones.Length; i++)
-        {
-            int num = 0;
-            Line line2 = line;
-            ProceduralBone proceduralBone = prefabBones[i];
-            if (math.any(MathUtils.Size(nodes[proceduralBone.m_BindIndex].m_Bounds) &gt; 0f))
-            {
-                ptr[num++] = proceduralBone.m_BindIndex;
-                Bone bone = bones[skeleton.m_BoneOffset + i];
-                float4x4 float4x = float4x4.TRS(bone.m_Position, bone.m_Rotation, bone.m_Scale);
-                int parentIndex = proceduralBone.m_ParentIndex;
-                while (parentIndex &gt;= 0)
-                {
-                    Bone bone2 = bones[skeleton.m_BoneOffset + parentIndex];
-                    ProceduralBone proceduralBone2 = prefabBones[parentIndex];
-                    float4x = math.mul(float4x4.TRS(bone2.m_Position, bone2.m_Rotation, bone2.m_Scale), float4x);
-                    parentIndex = proceduralBone2.m_ParentIndex;
-                }
-                float4x = math.mul(float4x, proceduralBone.m_BindPose);
-                float4x = math.inverse(float4x);
-                line2.m_Line.a = math.mul(float4x, new float4(line.m_Line.a, 1f)).xyz;
-                line2.m_Line.b = math.mul(float4x, new float4(line.m_Line.b, 1f)).xyz;
-                line2.m_XVector = math.mul(float4x, new float4(line.m_XVector, 0f)).xyz;
-                line2.m_YVector = math.mul(float4x, new float4(line.m_YVector, 0f)).xyz;
-                line2.m_Expand = math.abs(line2.m_XVector) + math.abs(line2.m_YVector);
-            }
-            while (--num &gt;= 0)
-            {
-                int index = ptr[num];
-                MeshNode meshNode = nodes[index];
-                if (Intersect(line2, meshNode.m_Bounds, out var _))
-                {
-                    for (int j = meshNode.m_IndexRange.x; j &lt; meshNode.m_IndexRange.y; j += 3)
-                    {
-                        CheckTriangleIntersect(triangle: new Triangle3(vertices[indices[j].m_Index].m_Vertex, vertices[indices[j + 1].m_Index].m_Vertex, vertices[indices[j + 2].m_Index].m_Vertex), line: line2, collisions: collisions);
-                    }
-                    ptr[num] = meshNode.m_SubNodes1.x;
-                    num = math.select(num, num + 1, meshNode.m_SubNodes1.x != -1);
-                    ptr[num] = meshNode.m_SubNodes1.y;
-                    num = math.select(num, num + 1, meshNode.m_SubNodes1.y != -1);
-                    ptr[num] = meshNode.m_SubNodes1.z;
-                    num = math.select(num, num + 1, meshNode.m_SubNodes1.z != -1);
-                    ptr[num] = meshNode.m_SubNodes1.w;
-                    num = math.select(num, num + 1, meshNode.m_SubNodes1.w != -1);
-                    ptr[num] = meshNode.m_SubNodes2.x;
-                    num = math.select(num, num + 1, meshNode.m_SubNodes2.x != -1);
-                    ptr[num] = meshNode.m_SubNodes2.y;
-                    num = math.select(num, num + 1, meshNode.m_SubNodes2.y != -1);
-                    ptr[num] = meshNode.m_SubNodes2.z;
-                    num = math.select(num, num + 1, meshNode.m_SubNodes2.z != -1);
-                    ptr[num] = meshNode.m_SubNodes2.w;
-                    num = math.select(num, num + 1, meshNode.m_SubNodes2.w != -1);
-                }
-            }
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private static CheckTriangleIntersect(Game.Rendering.CameraCollisionSystem+Line line, Colossal.Mathematics.Triangle3 triangle, Unity.Collections.NativeList&lt;Game.Rendering.CameraCollisionSystem+Collision&gt; collisions) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static void CheckTriangleIntersect(Line line, Triangle3 triangle, NativeList&lt;Collision&gt; collisions)
-    {
-        triangle *= line.m_Scale;
-        if (!MathUtils.Intersect(MathUtils.Expand(MathUtils.Bounds(triangle), line.m_Expand), line.m_Line, out var _))
-        {
-            return;
-        }
-        float3 x = triangle.a - line.m_Line.a;
-        float3 x2 = triangle.b - line.m_Line.a;
-        float3 x3 = triangle.c - line.m_Line.a;
-        Bounds2 bounds = default(Bounds2);
-        bounds.max = new float2(math.lengthsq(line.m_XVector), math.lengthsq(line.m_YVector));
-        bounds.min = -bounds.max;
-        Triangle2 triangle2 = default(Triangle2);
-        triangle2.a = new float2(math.dot(x, line.m_XVector), math.dot(x, line.m_YVector));
-        triangle2.b = new float2(math.dot(x2, line.m_XVector), math.dot(x2, line.m_YVector));
-        triangle2.c = new float2(math.dot(x3, line.m_XVector), math.dot(x3, line.m_YVector));
-        if (!MathUtils.Intersect(bounds, triangle2, out var area))
-        {
-            return;
-        }
-        float3 @float = line.m_Line.b - line.m_Line.a;
-        float3 y = @float * (1f / math.lengthsq(@float));
-        Triangle1 triangle3 = default(Triangle1);
-        triangle3.a = math.dot(x, y);
-        triangle3.b = math.dot(x2, y);
-        triangle3.c = math.dot(x3, y);
-        Bounds1 bounds2 = new Bounds1(float.MaxValue, float.MinValue);
-        if (MathUtils.Intersect(bounds, triangle2.ab, out var t2))
-        {
-            t2 = math.lerp(triangle3.a, triangle3.b, t2);
-            bounds2.min = math.min(bounds2.min, math.cmin(t2));
-            bounds2.max = math.max(bounds2.max, math.cmax(t2));
-        }
-        if (MathUtils.Intersect(bounds, triangle2.bc, out t2))
-        {
-            t2 = math.lerp(triangle3.b, triangle3.c, t2);
-            bounds2.min = math.min(bounds2.min, math.cmin(t2));
-            bounds2.max = math.max(bounds2.max, math.cmax(t2));
-        }
-        if (MathUtils.Intersect(bounds, triangle2.ca, out t2))
-        {
-            t2 = math.lerp(triangle3.c, triangle3.a, t2);
-            bounds2.min = math.min(bounds2.min, math.cmin(t2));
-            bounds2.max = math.max(bounds2.max, math.cmax(t2));
-        }
-        if (MathUtils.Intersect(triangle2, bounds.min, out t2))
-        {
-            bounds2 |= MathUtils.Position(triangle3, t2);
-        }
-        if (MathUtils.Intersect(triangle2, new float2(bounds.max.x, bounds.min.y), out t2))
-        {
-            bounds2 |= MathUtils.Position(triangle3, t2);
-        }
-        if (MathUtils.Intersect(triangle2, new float2(bounds.min.x, bounds.max.y), out t2))
-        {
-            bounds2 |= MathUtils.Position(triangle3, t2);
-        }
-        if (MathUtils.Intersect(triangle2, bounds.max, out t2))
-        {
-            bounds2 |= MathUtils.Position(triangle3, t2);
-        }
-        if (bounds2.min &lt;= 1f &amp;&amp; bounds2.max &gt;= 0f)
-        {
-            Collision value = default(Collision);
-            value.m_LineBounds.min = math.lerp(line.m_CutOffset.x, line.m_CutOffset.y, bounds2.min);
-            value.m_LineBounds.max = math.lerp(line.m_CutOffset.x, line.m_CutOffset.y, bounds2.max);
-            if (MathUtils.IsClockwise(triangle2))
-            {
-                value.m_CoverAreas = new float2(area, 0f);
-                value.m_StartEnd = new bool2(x: true, y: false);
-            }
-            else
-            {
-                value.m_CoverAreas = new float2(0f, area);
-                value.m_StartEnd = new bool2(x: false, y: true);
-            }
-            collisions.Add(in value);
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private static Intersect(Game.Rendering.CameraCollisionSystem+Line line, Colossal.Mathematics.Bounds3 bounds, Unity.Mathematics.float2&amp; t) : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static bool Intersect(Line line, Bounds3 bounds, out float2 t)
-    {
-        bounds = MathUtils.Expand(bounds, line.m_Expand) * line.m_Scale;
-        return MathUtils.Intersect(bounds, line.m_Line, out t);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_CityConfigurationSystem = base.World.GetOrCreateSystemManaged&lt;CityConfigurationSystem&gt;();
-        m_ToolSystem = base.World.GetOrCreateSystemManaged&lt;ToolSystem&gt;();
-        m_ObjectSearchSystem = base.World.GetOrCreateSystemManaged&lt;SearchSystem&gt;();
-        m_TerrainSystem = base.World.GetOrCreateSystemManaged&lt;TerrainSystem&gt;();
-        m_WaterSystem = base.World.GetOrCreateSystemManaged&lt;WaterSystem&gt;();
-        m_Result = new NativeReference&lt;Result&gt;(Allocator.Persistent);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreateForCompiler() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnCreateForCompiler()
-    {
-        base.OnCreateForCompiler();
-        __AssignQueries(ref base.CheckedStateRef);
-        __TypeHandle.__AssignHandles(ref base.CheckedStateRef);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnDestroy() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnDestroy()
-    {
-        m_Result.Dispose();
-        base.OnDestroy();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        float3 @float = m_Result.Value.m_Position;
-        float3 float2 = math.forward(m_Rotation);
-        float num = m_MaxForwardOffset + m_MinClearDistance;
-        float num2 = m_MaxBackwardOffset;
-        Line3.Segment line = new Line3.Segment(@float - float2 * num2, @float + float2 * num);
-        float2 fovOffset = math.tan(math.radians(m_FieldOfView) * 0.5f) * m_MinClearDistance;
-        float minClearRange = m_MinClearDistance / (num + num2);
-        float nearPlaneRange = m_NearPlane / (num + num2);
-        NativeList&lt;Entity&gt; nativeList = new NativeList&lt;Entity&gt;(Allocator.TempJob);
-        NativeQueue&lt;Collision&gt; collisions = new NativeQueue&lt;Collision&gt;(Allocator.TempJob);
-        JobHandle dependencies;
-        FindEntitiesFromTreeJob jobData = new FindEntitiesFromTreeJob
-        {
-            m_Line = line,
-            m_Rotation = m_Rotation,
-            m_FovOffset = fovOffset,
-            m_SearchTree = m_ObjectSearchSystem.GetStaticSearchTree(readOnly: true, out dependencies),
-            m_EntityList = nativeList
-        };
-        ObjectCollisionJob jobData2 = new ObjectCollisionJob
-        {
-            m_DestroyedData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Common_Destroyed_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_TransformData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Objects_Transform_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_TreeData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Objects_Tree_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_NetObjectData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Objects_NetObject_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_QuantityData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Objects_Quantity_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_StackData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Objects_Stack_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_UnderConstructionData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Objects_UnderConstruction_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_OutsideConnectionData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Objects_OutsideConnection_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabRefData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabObjectGeometryData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_ObjectGeometryData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabMeshData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_MeshData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabImpostorData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_ImpostorData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabSharedMeshData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_SharedMeshData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabGrowthScaleData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_GrowthScaleData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabQuantityObjectData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_QuantityObjectData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabStackData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_StackData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_MeshGroups = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Rendering_MeshGroup_RO_BufferLookup, ref base.CheckedStateRef),
-            m_Skeletons = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Rendering_Skeleton_RO_BufferLookup, ref base.CheckedStateRef),
-            m_Bones = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Rendering_Bone_RO_BufferLookup, ref base.CheckedStateRef),
-            m_Meshes = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Prefabs_SubMesh_RO_BufferLookup, ref base.CheckedStateRef),
-            m_SubMeshGroups = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Prefabs_SubMeshGroup_RO_BufferLookup, ref base.CheckedStateRef),
-            m_Lods = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Prefabs_LodMesh_RO_BufferLookup, ref base.CheckedStateRef),
-            m_Vertices = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Prefabs_MeshVertex_RO_BufferLookup, ref base.CheckedStateRef),
-            m_Indices = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Prefabs_MeshIndex_RO_BufferLookup, ref base.CheckedStateRef),
-            m_Nodes = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Prefabs_MeshNode_RO_BufferLookup, ref base.CheckedStateRef),
-            m_ProceduralBones = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Prefabs_ProceduralBone_RO_BufferLookup, ref base.CheckedStateRef),
-            m_Line = line,
-            m_Rotation = m_Rotation,
-            m_FovOffset = fovOffset,
-            m_MinClearRange = minClearRange,
-            m_LeftHandTraffic = m_CityConfigurationSystem.leftHandTraffic,
-            m_EditorMode = m_ToolSystem.actionMode.IsEditor(),
-            m_EntityList = nativeList,
-            m_Collisions = collisions.AsParallelWriter()
-        };
-        JobHandle deps;
-        SelectCameraPositionJob jobData3 = new SelectCameraPositionJob
-        {
-            m_Line = line,
-            m_PreviousPosition = m_PreviousPosition,
-            m_MinClearRange = minClearRange,
-            m_NearPlaneRange = nearPlaneRange,
-            m_Smoothing = m_Smoothing,
-            m_DeltaTime = UnityEngine.Time.deltaTime,
-            m_TerrainData = m_TerrainSystem.GetHeightData(),
-            m_WaterData = m_WaterSystem.GetSurfaceData(out deps),
-            m_Collisions = collisions,
-            m_Result = m_Result
-        };
-        JobHandle jobHandle = IJobExtensions.Schedule(jobData, dependencies);
-        JobHandle jobHandle2 = jobData2.Schedule(nativeList, 1, JobHandle.CombineDependencies(base.Dependency, jobHandle));
-        JobHandle jobHandle3 = IJobExtensions.Schedule(jobData3, JobHandle.CombineDependencies(jobHandle2, deps));
-        m_ObjectSearchSystem.AddStaticSearchTreeReader(jobHandle);
-        m_TerrainSystem.AddCPUHeightReader(jobHandle3);
-        m_WaterSystem.AddSurfaceReader(jobHandle3);
-        nativeList.Dispose(jobHandle2);
-        collisions.Dispose(jobHandle3);
-        jobHandle3.Complete();
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Rendering.CameraCollisionSystem+FindEntitiesFromTreeJob</code>  </li>
-<li><code>Game.Rendering.CameraCollisionSystem+ObjectCollisionJob</code>  </li>
-<li><code>Game.Rendering.CameraCollisionSystem+SelectCameraPositionJob</code>  </li>
-<li><code>Game.Rendering.CameraCollisionSystem+Line</code>  </li>
-<li><code>Game.Rendering.CameraCollisionSystem+Collision</code>  </li>
-<li><code>Game.Rendering.CameraCollisionSystem+Result</code>  </li>
-<li><code>Game.Rendering.CameraCollisionSystem+TypeHandle</code>  </li>
-</ul>
+<p>{{ The CameraCollisionSystem is designed to be used from game code that manages the camera. It is high-performance (Burst + Jobs) and interacts with low-level mesh/vertex buffers; take care when modifying or scheduling similar jobs in mods to avoid unsafe concurrent access to component buffers. If you need to extend or override behavior, prefer using the public CheckCollisions API rather than calling internal job types directly. }}</p>
 
 
 

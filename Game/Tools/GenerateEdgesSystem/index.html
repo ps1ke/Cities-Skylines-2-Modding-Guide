@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87073,6 +87165,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Simulation/SurfaceWater/" class="md-nav__link">
         
   
@@ -91679,18 +91794,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -91715,9 +91830,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -117921,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117948,18 +118085,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -117984,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118009,323 +118146,209 @@
 
 
 <h1 id="gametoolsgenerateedgessystem">Game.Tools.GenerateEdgesSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Tools</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class GenerateEdgesSystem : Game.GameSystemBase
-{
-    private Game.Simulation.TerrainSystem m_TerrainSystem;
-    private Game.Simulation.WaterSystem m_WaterSystem;
-    private Game.Tools.GenerateObjectsSystem m_GenerateObjectsSystem;
-    private Game.Tools.ToolSystem m_ToolSystem;
-    private Game.Common.ModificationBarrier2 m_TempEdgesBarrier;
-    private Colossal.Collections.NativeValue&lt;System.UInt32&gt; m_BuildOrder;
-    private Unity.Entities.EntityQuery m_CreatedEdgesQuery;
-    private Unity.Entities.EntityQuery m_DefinitionQuery;
-    private Unity.Entities.EntityQuery m_DeletedQuery;
-    private Game.Tools.GenerateEdgesSystem+TypeHandle __TypeHandle;
-
-    public GenerateEdgesSystem();
-
-    private System.Void __AssignQueries(Unity.Entities.SystemState&amp; state);
-    public Colossal.Collections.NativeValue&lt;System.UInt32&gt; GetBuildOrder();
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnCreateForCompiler();
-    protected virtual System.Void OnDestroy();
-    protected virtual System.Void OnUpdate();
-}
-</code></pre>
+<p><strong>Assembly:</strong> Game (Assembly-CSharp)<br />
+<strong>Namespace:</strong> Game.Tools</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> GameSystemBase</p>
+<p><strong>Summary:</strong><br />
+GenerateEdgesSystem is an ECS system responsible for converting high-level creation definitions (CreationDefinition + NetCourse) into concrete network edges (Edge entities) in the world. It collects nodes and local connect points, reuses or creates edge entities, handles splitting/duplicating of existing edges, applies geometry/elevation adjustments, sets up connected nodes, manages build order indices, and schedules the work using several Burst-compiled jobs. The system coordinates with TerrainSystem, WaterSystem, GenerateObjectsSystem and a ModificationBarrier (m_TempEdgesBarrier) to safely write entity changes from jobs.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.Simulation.TerrainSystem m_TerrainSystem</code>  </li>
+<li>
+<p><code>private TerrainSystem m_TerrainSystem</code><br />
+Holds a reference to the TerrainSystem used to read terrain height data for edge placement and adjustment.</p>
+</li>
+<li>
+<p><code>private WaterSystem m_WaterSystem</code><br />
+Reference to the WaterSystem used to read water surface data (used for on-water geometry adjustments).</p>
+</li>
+<li>
+<p><code>private GenerateObjectsSystem m_GenerateObjectsSystem</code><br />
+Reference used to get reused owner mapping and other object-generation helpers.</p>
+</li>
+<li>
+<p><code>private ToolSystem m_ToolSystem</code><br />
+Reference used to detect editor/action mode (editor vs runtime behavior).</p>
+</li>
+<li>
+<p><code>private ModificationBarrier2 m_TempEdgesBarrier</code><br />
+A barrier used to create a parallel command buffer for safely creating/updating temporary edge entities from jobs.</p>
+</li>
+<li>
+<p><code>private NativeValue&lt;uint&gt; m_BuildOrder</code><br />
+NativeValue used to store and increment a build-order counter for newly created edges; persisted across the system lifecycle.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_CreatedEdgesQuery</code><br />
+Query that matches newly created edge entities (Created + Edge + BuildOrder, excluding Temp) — used to update/track build order.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_DefinitionQuery</code><br />
+Query for creation definitions to process (CreationDefinition + NetCourse + Updated and additional constraints). Primary driver for GenerateEdges job pipeline.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_DeletedQuery</code><br />
+Query for deleted edges (Edge + Deleted + Temp + PrefabRef) used when building the old-edge map.</p>
+</li>
+<li>
+<p><code>private TypeHandle __TypeHandle</code><br />
+Internal generated holder for component/entity type handles used for scheduling jobs (populated in OnCreateForCompiler).</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.Simulation.TerrainSystem m_TerrainSystem;
-</code></pre>
+<hr />
+<h2 id="properties">Properties</h2>
 <ul>
-<li><code>private Game.Simulation.WaterSystem m_WaterSystem</code>  </li>
+<li>(none)</li>
 </ul>
-<pre><code class="language-csharp">private Game.Simulation.WaterSystem m_WaterSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Tools.GenerateObjectsSystem m_GenerateObjectsSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Tools.GenerateObjectsSystem m_GenerateObjectsSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Tools.ToolSystem m_ToolSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Tools.ToolSystem m_ToolSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Common.ModificationBarrier2 m_TempEdgesBarrier</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Common.ModificationBarrier2 m_TempEdgesBarrier;
-</code></pre>
-<ul>
-<li><code>private Colossal.Collections.NativeValue&lt;System.UInt32&gt; m_BuildOrder</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.Collections.NativeValue&lt;System.UInt32&gt; m_BuildOrder;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_CreatedEdgesQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_CreatedEdgesQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_DefinitionQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_DefinitionQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_DeletedQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_DeletedQuery;
-</code></pre>
-<ul>
-<li><code>private Game.Tools.GenerateEdgesSystem+TypeHandle __TypeHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Tools.GenerateEdgesSystem+TypeHandle __TypeHandle;
-</code></pre>
+<p>Notes: The system exposes GetBuildOrder() as a method returning the NativeValue<uint> storing the build-order counter instead of a public property.</p>
+<hr />
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public GenerateEdgesSystem()</code>  </li>
+<li><code>public GenerateEdgesSystem()</code><br />
+Default constructor. The system initializes references and native state in OnCreate; the constructor itself is empty/standard for ECS systems.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public GenerateEdgesSystem()
-    {
-    }
-</code></pre>
+<hr />
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private __AssignQueries(Unity.Entities.SystemState&amp; state) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void __AssignQueries(ref SystemState state)
-    {
-        new EntityQueryBuilder(Allocator.Temp).Dispose();
-    }
-</code></pre>
+<li><code>protected override void OnCreate()</code><br />
+Initializes native resources and acquires references to other systems:</li>
+<li>Allocates the persistent NativeValue<uint> m_BuildOrder.</li>
+<li>Fetches TerrainSystem, WaterSystem, GenerateObjectsSystem, ToolSystem, and ModificationBarrier2 from the World.</li>
+<li>Creates and configures EntityQueries (m_CreatedEdgesQuery, m_DefinitionQuery, m_DeletedQuery).</li>
+<li>
+<p>Calls RequireAnyForUpdate to avoid running unless there are relevant changes.
+Important: This method registers the system dependencies and persistent native allocations.</p>
+</li>
+<li>
+<p><code>protected override void OnDestroy()</code><br />
+Disposes of persistent resources (m_BuildOrder.Dispose()) and performs base cleanup. Ensures no native leak of the persistent build order.</p>
+</li>
+<li>
+<p><code>public NativeValue&lt;uint&gt; GetBuildOrder()</code><br />
+Returns the internal NativeValue<uint> that holds the build-order counter. Modders can read/modify (careful: this is a native type and must be used from correct thread/context) to influence build ordering.</p>
+</li>
+<li>
+<p><code>protected override void OnUpdate()</code><br />
+Main runtime method. If there are CreationDefinition/NetCourse updates (m_DefinitionQuery) it builds and schedules a pipeline of Burst jobs:</p>
+</li>
+<li>Creates temporary collections: nodeMap, localConnectQueue/list, oldEdgeMap, reusedOwnerMap.</li>
+<li>Schedules jobs: CheckNodesJob (collects nodes &amp; local connects), FillOldEdgesJob (maps old edges), CheckDefinitionsJob, CollectLocalConnectItemsJob, and GenerateEdgesJob which performs most of the creation/splitting/duplication logic and writes to entities through m_TempEdgesBarrier's command buffer.</li>
+<li>Adds readers to Terrain/Water/GenerateObjects systems and registers job handles with the modification barrier.</li>
+<li>
+<p>Also updates build-order via UpdateBuildOrderJob if created edges are found.
+This method coordinates job dependencies and disposes temporary native containers once their dependent jobs complete.</p>
+</li>
+<li>
+<p><code>protected override void OnCreateForCompiler()</code><br />
+Internal helper called by the generated code path to assign queries and to populate __TypeHandle with component type/lookup handles. Used by the ECS code generator/IL2CPP compilation pathway.</p>
+</li>
+<li>
+<p><code>private void __AssignQueries(ref SystemState state)</code><br />
+Internal method used during OnCreateForCompiler to setup any extra queries (here it creates and disposes an EntityQueryBuilder — used by codegen).</p>
+</li>
+<li>
+<p>(Numerous nested job/struct types)<br />
+  The system contains several Burst-compiled nested types (jobs) implementing the heavy-lifting logic. Brief summary of the main nested jobs and structs:</p>
+</li>
+<li>
+<p>NodeMapKey (struct)  </p>
 <ul>
-<li><code>public GetBuildOrder() : Colossal.Collections.NativeValue&lt;System.UInt32&gt;</code>  </li>
+<li>Key used for mapping nodes (permanent/editor/position/original entity) in a NativeParallelMultiHashMap.</li>
 </ul>
-<pre><code class="language-csharp">public NativeValue&lt;uint&gt; GetBuildOrder()
-    {
-        return m_BuildOrder;
-    }
-</code></pre>
+</li>
+<li>
+<p>LocalConnectItem (struct)  </p>
 <ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
+<li>Represents a potential connection candidate (position, radius, node entity, layers, height range, flags) collected from nodes for local edge-node connection checks.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
+</li>
+<li>
+<p>OldEdgeKey (struct)  </p>
+<ul>
+<li>Key used to look up existing (old) edges that can be reused when generating/updating edges.</li>
+</ul>
+</li>
+<li>
+<p>CheckNodesJob : IJobChunk (Burst)  </p>
+<ul>
+<li>Scans node archetypes (Node) and populates m_NodeMap and m_LocalConnectQueue for later processing. Determines if nodes are permanent or temp and enqueues LocalConnectItem entries.</li>
+</ul>
+</li>
+<li>
+<p>FillOldEdgesJob : IJobChunk (Burst)  </p>
+<ul>
+<li>Iterates existing Edge entities (and associated metadata) and builds m_OldEdgeMap (OldEdgeKey -&gt; Entity) for reuse-checks when generating new edges.</li>
+</ul>
+</li>
+<li>
+<p>CheckDefinitionsJob : IJobChunk (Burst)  </p>
+<ul>
+<li>Inspects CreationDefinition chunks and adds NodeMapKey entries for definitions that reference existing original edge entities, enabling detection of definitions that should map to existing nodes.</li>
+</ul>
+</li>
+<li>
+<p>CollectLocalConnectItemsJob : IJob (Burst)  </p>
+<ul>
+<li>Simple consolidation job that dequeues m_LocalConnectQueue into a contiguous NativeList m_LocalConnectList for random access during edge generation.</li>
+</ul>
+</li>
+<li>
+<p>GenerateEdgesJob : IJobChunk (Burst)  </p>
+<ul>
+<li>Core job performing creation, duplication, splitting and updating of edges:</li>
+<li>For CreationDefinition entries: resolves start/end nodes (TryGetNode), checks for existing connections (ConnectionExists), computes Curve info (use straight edges vs cut from course), adjusts elevation/terrain, produces Temp flags, attempts to reuse old entities (TryGetOldEntity) or creates new edge entities, sets many components (Curve, PrefabRef, Elevation, Owner, Fixed, Upgraded, SubReplacement, Road, Condition, TramTrack, Native, ElectricityConnection, etc.), and computes connected nodes via FindNodeConnections.</li>
+<li>For Temp nodes/edges: may SplitEdge or DuplicateEdge when required based on node/temp flags and existing mappings.</li>
+<li>Uses m_NodeMap, m_LocalConnectList, m_OldEdgeMap, m_ReusedOwnerMap extensively.</li>
+<li>Writes commands through the EntityCommandBuffer.ParallelWriter provided by m_TempEdgesBarrier.</li>
+</ul>
+<p>The job also contains helper methods:
+  - UpdateNodeConnections, ShouldDuplicate, DuplicateEdge, TryGetNodes, SplitEdge, CreateTempEdge, TryGetNode, TryGetOldEntity, CheckRoadAlignment, SetRoadAlignment, ConnectionExists, FindNodeConnections.</p>
+<p>Important: This job uses many ComponentLookup and BufferLookup handles and depends on terrain/water/build-order/prefab data.</p>
+</li>
+<li>
+<p>UpdateBuildOrderJob : IJob (Burst)  </p>
+<ul>
+<li>Scans newly created edge chunks to update the global m_BuildOrder counter to avoid build-order collisions.</li>
+</ul>
+</li>
+</ul>
+<p>Notes on memory and threading:
+  - The system creates various temporary Native containers (NativeQueue, NativeList, NativeParallelMultiHashMap, NativeHashMap) with Allocator.TempJob and disposes them after scheduling dependent jobs.
+  - Several jobs are Burst-compiled for performance and scheduled in parallel. All job handles are correctly joined and associated with the modification barrier to produce structural entity changes safely.</p>
+<hr />
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Example: reading the BuildOrder counter from a mod or another system
+public class MySystem : SystemBase
+{
+    private GenerateEdgesSystem m_GenerateEdges;
+
     protected override void OnCreate()
     {
-        base.OnCreate();
-        m_BuildOrder = new NativeValue&lt;uint&gt;(Allocator.Persistent);
-        m_TerrainSystem = base.World.GetOrCreateSystemManaged&lt;TerrainSystem&gt;();
-        m_WaterSystem = base.World.GetOrCreateSystemManaged&lt;WaterSystem&gt;();
-        m_GenerateObjectsSystem = base.World.GetOrCreateSystemManaged&lt;GenerateObjectsSystem&gt;();
-        m_ToolSystem = base.World.GetOrCreateSystemManaged&lt;ToolSystem&gt;();
-        m_TempEdgesBarrier = base.World.GetOrCreateSystemManaged&lt;ModificationBarrier2&gt;();
-        m_CreatedEdgesQuery = GetEntityQuery(ComponentType.ReadOnly&lt;Created&gt;(), ComponentType.ReadOnly&lt;Edge&gt;(), ComponentType.ReadOnly&lt;Game.Net.BuildOrder&gt;(), ComponentType.Exclude&lt;Temp&gt;());
-        m_DefinitionQuery = GetEntityQuery(new EntityQueryDesc
-        {
-            All = new ComponentType[3]
-            {
-                ComponentType.ReadOnly&lt;CreationDefinition&gt;(),
-                ComponentType.ReadOnly&lt;NetCourse&gt;(),
-                ComponentType.ReadOnly&lt;Updated&gt;()
-            }
-        }, new EntityQueryDesc
-        {
-            All = new ComponentType[1] { ComponentType.ReadOnly&lt;Updated&gt;() },
-            Any = new ComponentType[2]
-            {
-                ComponentType.ReadOnly&lt;Node&gt;(),
-                ComponentType.ReadOnly&lt;Edge&gt;()
-            },
-            None = new ComponentType[1] { ComponentType.ReadOnly&lt;Deleted&gt;() }
-        });
-        m_DeletedQuery = GetEntityQuery(ComponentType.ReadOnly&lt;Edge&gt;(), ComponentType.ReadOnly&lt;Deleted&gt;(), ComponentType.ReadOnly&lt;Temp&gt;(), ComponentType.ReadOnly&lt;PrefabRef&gt;());
-        RequireAnyForUpdate(m_CreatedEdgesQuery, m_DefinitionQuery);
+        m_GenerateEdges = World.GetExistingSystemManaged&lt;GenerateEdgesSystem&gt;();
     }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreateForCompiler() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnCreateForCompiler()
-    {
-        base.OnCreateForCompiler();
-        __AssignQueries(ref base.CheckedStateRef);
-        __TypeHandle.__AssignHandles(ref base.CheckedStateRef);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnDestroy() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnDestroy()
-    {
-        m_BuildOrder.Dispose();
-        base.OnDestroy();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
+
     protected override void OnUpdate()
     {
-        JobHandle jobHandle = base.Dependency;
-        if (!m_DefinitionQuery.IsEmptyIgnoreFilter)
+        if (m_GenerateEdges != null)
         {
-            NativeQueue&lt;LocalConnectItem&gt; localConnectQueue = new NativeQueue&lt;LocalConnectItem&gt;(Allocator.TempJob);
-            NativeList&lt;LocalConnectItem&gt; localConnectList = new NativeList&lt;LocalConnectItem&gt;(Allocator.TempJob);
-            NativeParallelMultiHashMap&lt;NodeMapKey, Entity&gt; nodeMap = new NativeParallelMultiHashMap&lt;NodeMapKey, Entity&gt;(m_DefinitionQuery.CalculateEntityCount(), Allocator.TempJob);
-            NativeHashMap&lt;OldEdgeKey, Entity&gt; oldEdgeMap = new NativeHashMap&lt;OldEdgeKey, Entity&gt;(32, Allocator.TempJob);
-            JobHandle dependencies;
-            NativeHashMap&lt;OwnerDefinition, Entity&gt; reusedOwnerMap = m_GenerateObjectsSystem.GetReusedOwnerMap(out dependencies);
-            TerrainHeightData heightData = m_TerrainSystem.GetHeightData();
-            JobHandle deps;
-            WaterSurfaceData surfaceData = m_WaterSystem.GetSurfaceData(out deps);
-            CheckNodesJob jobData = new CheckNodesJob
-            {
-                m_EntityType = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef),
-                m_TempType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Tools_Temp_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                m_OwnerType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Common_Owner_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                m_EditorContainerType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Tools_EditorContainer_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                m_LocalConnectType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Net_LocalConnect_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                m_ElevationType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Net_Elevation_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                m_PrefabRefType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                m_NodeType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Net_Node_RW_ComponentTypeHandle, ref base.CheckedStateRef),
-                m_LocalConnectData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_LocalConnectData_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_NetData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_NetData_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_NetGeometryData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_NetGeometryData_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_TerrainHeightData = heightData,
-                m_NodeMap = nodeMap.AsParallelWriter(),
-                m_LocalConnectQueue = localConnectQueue.AsParallelWriter()
-            };
-            FillOldEdgesJob jobData2 = new FillOldEdgesJob
-            {
-                m_EntityType = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef),
-                m_OwnerType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Common_Owner_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                m_TempType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Tools_Temp_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                m_EdgeType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Net_Edge_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                m_EditorContainerType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Tools_EditorContainer_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                m_PrefabRefType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                m_OldEdgeMap = oldEdgeMap
-            };
-            CheckDefinitionsJob jobData3 = new CheckDefinitionsJob
-            {
-                m_CreationDefinitionType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Tools_CreationDefinition_RW_ComponentTypeHandle, ref base.CheckedStateRef),
-                m_DeletedData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Common_Deleted_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_EdgeData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_Edge_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_NodeMap = nodeMap.AsParallelWriter()
-            };
-            CollectLocalConnectItemsJob jobData4 = new CollectLocalConnectItemsJob
-            {
-                m_LocalConnectQueue = localConnectQueue,
-                m_LocalConnectList = localConnectList
-            };
-            JobHandle dependsOn = JobChunkExtensions.ScheduleParallel(jobData, m_DefinitionQuery, base.Dependency);
-            JobHandle job = JobChunkExtensions.Schedule(jobData2, m_DeletedQuery, base.Dependency);
-            JobHandle job2 = JobChunkExtensions.ScheduleParallel(jobData3, m_DefinitionQuery, dependsOn);
-            JobHandle jobHandle2 = IJobExtensions.Schedule(jobData4, dependsOn);
-            JobHandle outJobHandle;
-            NativeArray&lt;int&gt; chunkBaseEntityIndices = m_DefinitionQuery.CalculateBaseEntityIndexArrayAsync(Allocator.TempJob, JobHandle.CombineDependencies(job2, jobHandle2, deps), out outJobHandle);
-            JobHandle jobHandle3 = JobChunkExtensions.ScheduleParallel(new GenerateEdgesJob
-            {
-                m_ChunkBaseEntityIndices = chunkBaseEntityIndices,
-                m_EntityType = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef),
-                m_CreationDefinitionType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Tools_CreationDefinition_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                m_OwnerDefinitionType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Tools_OwnerDefinition_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                m_NetCourseType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Tools_NetCourse_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                m_LocalCurveCacheType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Tools_LocalCurveCache_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                m_UpgradedType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Net_Upgraded_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                m_TempType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Tools_Temp_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                m_EdgeType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Net_Edge_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                m_SubReplacementType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Net_SubReplacement_RO_BufferTypeHandle, ref base.CheckedStateRef),
-                m_TempData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Tools_Temp_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_EdgeData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_Edge_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_NodeData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_Node_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_OwnerData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Common_Owner_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_NativeData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Common_Native_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_DeletedData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Common_Deleted_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_CurveData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_Curve_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_ElevationData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_Elevation_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_UpgradedData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_Upgraded_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_BuildOrderData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_BuildOrder_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_TramTrackData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_TramTrack_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_EditorContainerData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Tools_EditorContainer_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_RoadData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_Road_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_ConditionData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_NetCondition_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_FixedData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_Fixed_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_AggregatedData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_Aggregated_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_RoundaboutData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_Roundabout_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_ElectricityConnectionData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_ElectricityConnection_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_PseudoRandomSeedData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Common_PseudoRandomSeed_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_ServiceUpgradeData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Buildings_ServiceUpgrade_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_PrefabRefData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_NetData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_NetData_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_NetGeometryData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_NetGeometryData_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_LocalConnectData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_LocalConnectData_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_PrefabTrackData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_TrackData_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_PrefabRoadData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_RoadData_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_PrefabElectricityConnectionData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_ElectricityConnectionData_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_PrefabData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_PrefabData_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_ConnectedNodes = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Net_ConnectedNode_RO_BufferLookup, ref base.CheckedStateRef),
-                m_ConnectedEdges = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Net_ConnectedEdge_RO_BufferLookup, ref base.CheckedStateRef),
-                m_SubReplacements = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Net_SubReplacement_RO_BufferLookup, ref base.CheckedStateRef),
-                m_EditorMode = m_ToolSystem.actionMode.IsEditor(),
-                m_BuildOrder = m_BuildOrder.value,
-                m_NodeMap = nodeMap,
-                m_ReusedOwnerMap = reusedOwnerMap,
-                m_OldEdgeMap = oldEdgeMap,
-                m_LocalConnectList = localConnectList.AsDeferredJobArray(),
-                m_TerrainHeightData = heightData,
-                m_WaterSurfaceData = surfaceData,
-                m_CommandBuffer = m_TempEdgesBarrier.CreateCommandBuffer().AsParallelWriter()
-            }, m_DefinitionQuery, JobHandle.CombineDependencies(outJobHandle, job, dependencies));
-            localConnectQueue.Dispose(jobHandle2);
-            localConnectList.Dispose(jobHandle3);
-            nodeMap.Dispose(jobHandle3);
-            oldEdgeMap.Dispose(jobHandle3);
-            m_TerrainSystem.AddCPUHeightReader(jobHandle3);
-            m_WaterSystem.AddSurfaceReader(jobHandle3);
-            m_GenerateObjectsSystem.AddOwnerMapReader(jobHandle3);
-            m_TempEdgesBarrier.AddJobHandleForProducer(jobHandle3);
-            jobHandle = jobHandle3;
+            // Get the NativeValue&lt;uint&gt; that stores build order.
+            NativeValue&lt;uint&gt; buildOrder = m_GenerateEdges.GetBuildOrder();
+
+            // Read current value (safe on main thread)
+            uint current = buildOrder.value;
+
+            // Example: reserve 16 build order IDs (careful: must consider thread-safety)
+            buildOrder.value = current + 16;
         }
-        if (!m_CreatedEdgesQuery.IsEmptyIgnoreFilter)
-        {
-            JobHandle outJobHandle2;
-            NativeList&lt;ArchetypeChunk&gt; chunks = m_CreatedEdgesQuery.ToArchetypeChunkListAsync(Allocator.TempJob, out outJobHandle2);
-            JobHandle jobHandle4 = IJobExtensions.Schedule(new UpdateBuildOrderJob
-            {
-                m_Chunks = chunks,
-                m_BuildOrderType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Net_BuildOrder_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                m_BuildOrder = m_BuildOrder
-            }, JobHandle.CombineDependencies(base.Dependency, outJobHandle2));
-            chunks.Dispose(jobHandle4);
-            jobHandle = JobHandle.CombineDependencies(jobHandle, jobHandle4);
-        }
-        base.Dependency = jobHandle;
     }
+}
 </code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Tools.GenerateEdgesSystem+NodeMapKey</code>  </li>
-<li><code>Game.Tools.GenerateEdgesSystem+LocalConnectItem</code>  </li>
-<li><code>Game.Tools.GenerateEdgesSystem+OldEdgeKey</code>  </li>
-<li><code>Game.Tools.GenerateEdgesSystem+CheckNodesJob</code>  </li>
-<li><code>Game.Tools.GenerateEdgesSystem+FillOldEdgesJob</code>  </li>
-<li><code>Game.Tools.GenerateEdgesSystem+CheckDefinitionsJob</code>  </li>
-<li><code>Game.Tools.GenerateEdgesSystem+CollectLocalConnectItemsJob</code>  </li>
-<li><code>Game.Tools.GenerateEdgesSystem+GenerateEdgesJob</code>  </li>
-<li><code>Game.Tools.GenerateEdgesSystem+UpdateBuildOrderJob</code>  </li>
-<li><code>Game.Tools.GenerateEdgesSystem+TypeHandle</code>  </li>
-</ul>
+<p>Additional notes for modders:
+- GenerateEdgesSystem is tightly coupled to the game's ECS component set (Edge, Node, CreationDefinition, NetCourse, PrefabRef, NetData, NetGeometryData, etc.). When creating or modifying components that influence network generation, ensure compatibility with its expectations (layer flags, geometry flags, LocalConnectData, etc.).
+- When interacting with native containers returned by GetBuildOrder or other native handles, respect thread-safety and lifetime (NativeValue is persistent and must not be disposed by callers).
+- This system performs structural changes to entities via a ModificationBarrier (m_TempEdgesBarrier). If your mod needs to create/update edges in the same frame, coordinate with or run after this system to avoid race conditions.
+- Many nested jobs are Burst-compiled—if you modify them, ensure Burst/Burst-compatible constructs are used (no managed references captured by jobs).</p>
 
 
 

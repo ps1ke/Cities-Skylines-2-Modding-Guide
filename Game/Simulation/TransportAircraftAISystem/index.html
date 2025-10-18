@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87075,6 +87167,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../SurfaceWater/" class="md-nav__link">
         
   
@@ -88183,18 +88298,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -88219,9 +88334,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -117921,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117948,18 +118085,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -117984,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118009,239 +118146,125 @@
 
 
 <h1 id="gamesimulationtransportaircraftaisystem">Game.Simulation.TransportAircraftAISystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Simulation</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class TransportAircraftAISystem : Game.GameSystemBase
-{
-    private Game.EndFrameBarrier m_EndFrameBarrier;
-    private Game.Simulation.SimulationSystem m_SimulationSystem;
-    private Game.Simulation.PathfindSetupSystem m_PathfindSetupSystem;
-    private Game.Simulation.CityStatisticsSystem m_CityStatisticsSystem;
-    private Game.Achievements.AchievementTriggerSystem m_AchievementTriggerSystem;
-    private Unity.Entities.EntityQuery m_VehicleQuery;
-    private Unity.Entities.EntityArchetype m_TransportVehicleRequestArchetype;
-    private Unity.Entities.EntityArchetype m_HandleRequestArchetype;
-    private Game.Simulation.TransportBoardingHelpers+BoardingLookupData m_BoardingLookupData;
-    private Game.Simulation.TransportAircraftAISystem+TypeHandle __TypeHandle;
-
-    public TransportAircraftAISystem();
-
-    private System.Void __AssignQueries(Unity.Entities.SystemState&amp; state);
-    public virtual System.Int32 GetUpdateInterval(Game.SystemUpdatePhase phase);
-    public virtual System.Int32 GetUpdateOffset(Game.SystemUpdatePhase phase);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnCreateForCompiler();
-    protected virtual System.Void OnUpdate();
-}
-</code></pre>
+<p><strong>Assembly:</strong> Assembly-CSharp.dll<br />
+<strong>Namespace:</strong> Game.Simulation</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> GameSystemBase</p>
+<p><strong>Summary:</strong><br />
+System responsible for AI and runtime behaviour of transport aircraft (airplanes and helicopters). It updates aircraft entities on a fixed interval (scheduling a Burst-compiled IJobChunk), handling pathfinding setup, boarding/dispatch logic, maintenance/refueling checks, returning to depot, dummy-vehicle resource handling, and lifecycle (spawn/unspawn/delete) decisions. The heavy per-entity work is done inside the nested TransportAircraftTickJob which interacts with pathfinding, route/waypoint buffers, boarding helpers and various component lookups.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.EndFrameBarrier m_EndFrameBarrier</code>  </li>
+<li>
+<p><code>private EndFrameBarrier m_EndFrameBarrier</code><br />
+Holds the EndFrameBarrier system used to create a parallel command buffer for structural changes applied by the job (add/remove components, create entities, etc).</p>
+</li>
+<li>
+<p><code>private SimulationSystem m_SimulationSystem</code><br />
+Reference to the simulation system used for accessing the current simulation frame index.</p>
+</li>
+<li>
+<p><code>private PathfindSetupSystem m_PathfindSetupSystem</code><br />
+Reference to the pathfinding setup system used to enqueue pathfind setup requests (m_PathfindQueue).</p>
+</li>
+<li>
+<p><code>private CityStatisticsSystem m_CityStatisticsSystem</code><br />
+Reference used by boarding/boarding results to update city statistics.</p>
+</li>
+<li>
+<p><code>private AchievementTriggerSystem m_AchievementTriggerSystem</code><br />
+Reference used by boarding/boarding results to trigger achievements.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_VehicleQuery</code><br />
+EntityQuery used to select aircraft entities that the system updates (requires AircraftCurrentLane, Owner, PrefabRef, PathOwner, Target and either CargoTransport or PublicTransport).</p>
+</li>
+<li>
+<p><code>private EntityArchetype m_TransportVehicleRequestArchetype</code><br />
+Archetype used by this system for creating transport vehicle request entities.</p>
+</li>
+<li>
+<p><code>private EntityArchetype m_HandleRequestArchetype</code><br />
+Archetype used for request-handling bookkeeping entities.</p>
+</li>
+<li>
+<p><code>private TransportBoardingHelpers.BoardingLookupData m_BoardingLookupData</code><br />
+Lookup data used to accelerate boarding-related operations in the boarding job.</p>
+</li>
+<li>
+<p><code>private TypeHandle __TypeHandle</code><br />
+Generated helper containing component &amp; buffer type handles and component lookups used by the scheduled job.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.EndFrameBarrier m_EndFrameBarrier;
-</code></pre>
+<h2 id="properties">Properties</h2>
 <ul>
-<li><code>private Game.Simulation.SimulationSystem m_SimulationSystem</code>  </li>
+<li>None (no public properties exposed by this system).</li>
 </ul>
-<pre><code class="language-csharp">private Game.Simulation.SimulationSystem m_SimulationSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.PathfindSetupSystem m_PathfindSetupSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.PathfindSetupSystem m_PathfindSetupSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.CityStatisticsSystem m_CityStatisticsSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.CityStatisticsSystem m_CityStatisticsSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Achievements.AchievementTriggerSystem m_AchievementTriggerSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Achievements.AchievementTriggerSystem m_AchievementTriggerSystem;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_VehicleQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_VehicleQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityArchetype m_TransportVehicleRequestArchetype</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityArchetype m_TransportVehicleRequestArchetype;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityArchetype m_HandleRequestArchetype</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityArchetype m_HandleRequestArchetype;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.TransportBoardingHelpers+BoardingLookupData m_BoardingLookupData</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.TransportBoardingHelpers+BoardingLookupData m_BoardingLookupData;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.TransportAircraftAISystem+TypeHandle __TypeHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.TransportAircraftAISystem+TypeHandle __TypeHandle;
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public TransportAircraftAISystem()</code>  </li>
+<li><code>public TransportAircraftAISystem()</code><br />
+Default constructor. The system is initialized by the framework; real setup happens in OnCreate.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public TransportAircraftAISystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private __AssignQueries(Unity.Entities.SystemState&amp; state) : System.Void</code>  </li>
+<li>
+<p><code>public override int GetUpdateInterval(SystemUpdatePhase phase)</code><br />
+Returns the system update interval in frames. This system updates every 16 frames (returns 16).</p>
+</li>
+<li>
+<p><code>public override int GetUpdateOffset(SystemUpdatePhase phase)</code><br />
+Returns the system update offset. This system uses an offset of 10.</p>
+</li>
+<li>
+<p><code>protected override void OnCreate()</code><br />
+Sets up references to other systems (EndFrameBarrier, SimulationSystem, PathfindSetupSystem, CityStatisticsSystem, AchievementTriggerSystem), creates the boarding lookup data and entity archetypes, builds the m_VehicleQuery and calls RequireForUpdate to ensure the system only runs when vehicles exist.</p>
+</li>
+<li>
+<p><code>protected override void OnUpdate()</code><br />
+Main update entry. Prepares a TransportBoardingHelpers.BoardingData (temporary Job data), updates boarding lookup data, schedules TransportAircraftTickJob as a parallel IJobChunk (Burst compiled) to process aircraft entities, schedules and completes boarding jobs, registers the pathfind queue writer, and registers the job handle with EndFrameBarrier. This method assembles all required type handles, component lookups and buffers and passes them to the job.</p>
+</li>
+<li>
+<p><code>protected override void OnCreateForCompiler()</code><br />
+Compiler-specific setup used by generated code: assigns queries and type handles for the system (internal).</p>
+</li>
+<li>
+<p><code>private void __AssignQueries(ref SystemState state)</code><br />
+Internal helper used by generated code to assign and validate queries (empty in this class except for a placeholder).</p>
+</li>
+<li>
+<p><code>private struct TransportAircraftTickJob : IJobChunk</code> (nested)<br />
+Burst-compiled job that performs per-chunk and per-entity updates for aircraft. Responsibilities include:</p>
+</li>
+<li>Handling unspawned/stopped state and starting vehicles.</li>
+<li>Resetting/clearing paths when needed and adjusting aircraft flags (taxiway / mid-air behavior).</li>
+<li>Checking maintenance/refuel needs via prefab vehicle data and odometer.</li>
+<li>Managing service dispatches and transport vehicle requests (creating request entities when needed).</li>
+<li>Starting/stopping boarding via TransportBoardingHelpers.BoardingData (begins/ends boarding, manages passengers).</li>
+<li>Selecting next dispatch/route and appending path elements when available.</li>
+<li>Returning vehicle to depot when route/target invalid or stuck.</li>
+<li>Finding and requesting new paths when VehicleUtils.RequireNewPath indicates.</li>
+<li>Handling dummy traffic resources (loading Resources for cargo dummy vehicles).</li>
+<li>Many small utility routines: FindNextLane, CheckNavigationLanes, SetNextWaypointTarget, GetTransportStationFromStop, GetStorageCompanyFromStop, GetNextStorageCompany, etc.</li>
 </ul>
-<pre><code class="language-csharp">private void __AssignQueries(ref SystemState state)
-    {
-        new EntityQueryBuilder(Allocator.Temp).Dispose();
-    }
-</code></pre>
+<p>The job uses many ComponentLookup and BufferLookup references (read-only and read-write) to operate without main-thread structural changes, and writes structural changes through a parallel EntityCommandBuffer.</p>
 <ul>
-<li><code>public virtual GetUpdateInterval(Game.SystemUpdatePhase phase) : System.Int32</code>  </li>
+<li><code>private void __AssignHandles(ref SystemState state)</code> (in TypeHandle)<br />
+Generated method that caches component type handles and buffer lookups required by the job. This is invoked during system initialization (OnCreateForCompiler).</li>
 </ul>
-<pre><code class="language-csharp">public override int GetUpdateInterval(SystemUpdatePhase phase)
-    {
-        return 16;
-    }
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Typical way to get the system instance from your mod code:
+var transportAircraftSystem = World.DefaultGameObjectInjectionWorld
+    .GetOrCreateSystemManaged&lt;Game.Simulation.TransportAircraftAISystem&gt;();
+
+// You can read its update interval and offset:
+int interval = transportAircraftSystem.GetUpdateInterval(SystemUpdatePhase.Simulation);
+int offset = transportAircraftSystem.GetUpdateOffset(SystemUpdatePhase.Simulation);
+
+// Note: The system manages aircraft automatically; to influence behaviour you typically
+// add/remove components like CurrentRoute, ServiceRequest or TransportVehicleRequest
+// to entities (via ECS) so this system responds on its next scheduled update.
 </code></pre>
-<ul>
-<li><code>public virtual GetUpdateOffset(Game.SystemUpdatePhase phase) : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override int GetUpdateOffset(SystemUpdatePhase phase)
-    {
-        return 10;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_EndFrameBarrier = base.World.GetOrCreateSystemManaged&lt;EndFrameBarrier&gt;();
-        m_SimulationSystem = base.World.GetOrCreateSystemManaged&lt;SimulationSystem&gt;();
-        m_PathfindSetupSystem = base.World.GetOrCreateSystemManaged&lt;PathfindSetupSystem&gt;();
-        m_CityStatisticsSystem = base.World.GetOrCreateSystemManaged&lt;CityStatisticsSystem&gt;();
-        m_AchievementTriggerSystem = base.World.GetOrCreateSystemManaged&lt;AchievementTriggerSystem&gt;();
-        m_BoardingLookupData = new TransportBoardingHelpers.BoardingLookupData(this);
-        m_VehicleQuery = GetEntityQuery(new EntityQueryDesc
-        {
-            All = new ComponentType[5]
-            {
-                ComponentType.ReadWrite&lt;AircraftCurrentLane&gt;(),
-                ComponentType.ReadOnly&lt;Owner&gt;(),
-                ComponentType.ReadOnly&lt;PrefabRef&gt;(),
-                ComponentType.ReadWrite&lt;PathOwner&gt;(),
-                ComponentType.ReadWrite&lt;Target&gt;()
-            },
-            Any = new ComponentType[2]
-            {
-                ComponentType.ReadWrite&lt;Game.Vehicles.CargoTransport&gt;(),
-                ComponentType.ReadWrite&lt;Game.Vehicles.PublicTransport&gt;()
-            },
-            None = new ComponentType[5]
-            {
-                ComponentType.ReadOnly&lt;Deleted&gt;(),
-                ComponentType.ReadOnly&lt;Temp&gt;(),
-                ComponentType.ReadOnly&lt;TripSource&gt;(),
-                ComponentType.ReadOnly&lt;OutOfControl&gt;(),
-                ComponentType.ReadOnly&lt;Produced&gt;()
-            }
-        });
-        m_TransportVehicleRequestArchetype = base.EntityManager.CreateArchetype(ComponentType.ReadWrite&lt;ServiceRequest&gt;(), ComponentType.ReadWrite&lt;TransportVehicleRequest&gt;(), ComponentType.ReadWrite&lt;RequestGroup&gt;());
-        m_HandleRequestArchetype = base.EntityManager.CreateArchetype(ComponentType.ReadWrite&lt;HandleRequest&gt;(), ComponentType.ReadWrite&lt;Event&gt;());
-        RequireForUpdate(m_VehicleQuery);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreateForCompiler() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnCreateForCompiler()
-    {
-        base.OnCreateForCompiler();
-        __AssignQueries(ref base.CheckedStateRef);
-        __TypeHandle.__AssignHandles(ref base.CheckedStateRef);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        TransportBoardingHelpers.BoardingData boardingData = new TransportBoardingHelpers.BoardingData(Allocator.TempJob);
-        m_BoardingLookupData.Update(this);
-        JobHandle jobHandle = JobChunkExtensions.ScheduleParallel(new TransportAircraftTickJob
-        {
-            m_EntityType = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef),
-            m_OwnerType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Common_Owner_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_UnspawnedType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Objects_Unspawned_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_PrefabRefType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_CurrentRouteType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Routes_CurrentRoute_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_StoppedType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Objects_Stopped_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_PassengerType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Vehicles_Passenger_RO_BufferTypeHandle, ref base.CheckedStateRef),
-            m_CargoTransportType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Vehicles_CargoTransport_RW_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_PublicTransportType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Vehicles_PublicTransport_RW_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_AircraftType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Vehicles_Aircraft_RW_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_CurrentLaneType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Vehicles_AircraftCurrentLane_RW_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_TargetType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Common_Target_RW_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_PathOwnerType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Pathfind_PathOwner_RW_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_OdometerType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Vehicles_Odometer_RW_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_AircraftNavigationLaneType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Vehicles_AircraftNavigationLane_RW_BufferTypeHandle, ref base.CheckedStateRef),
-            m_ServiceDispatchType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Simulation_ServiceDispatch_RW_BufferTypeHandle, ref base.CheckedStateRef),
-            m_OwnerData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Common_Owner_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PathInformationData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Pathfind_PathInformation_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_TransportVehicleRequestData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Simulation_TransportVehicleRequest_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabAircraftData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_AircraftData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabHelicopterData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_HelicopterData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabAirplaneData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_AirplaneData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PublicTransportVehicleData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_PublicTransportVehicleData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_CargoTransportVehicleData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_CargoTransportVehicleData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabRefData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_WaypointData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Routes_Waypoint_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_ConnectedData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Routes_Connected_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_BoardingVehicleData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Routes_BoardingVehicle_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_RouteLaneData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Routes_RouteLane_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_RouteColorData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Routes_Color_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_StorageCompanyData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Companies_StorageCompany_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_TransportStationData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Buildings_TransportStation_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_LaneData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_Lane_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_CurrentVehicleData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Creatures_CurrentVehicle_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_RouteWaypoints = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Routes_RouteWaypoint_RO_BufferLookup, ref base.CheckedStateRef),
-            m_SubLanes = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Net_SubLane_RO_BufferLookup, ref base.CheckedStateRef),
-            m_PathElements = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Pathfind_PathElement_RW_BufferLookup, ref base.CheckedStateRef),
-            m_LoadingResources = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Vehicles_LoadingResources_RW_BufferLookup, ref base.CheckedStateRef),
-            m_SimulationFrameIndex = m_SimulationSystem.frameIndex,
-            m_TransportVehicleRequestArchetype = m_TransportVehicleRequestArchetype,
-            m_HandleRequestArchetype = m_HandleRequestArchetype,
-            m_CommandBuffer = m_EndFrameBarrier.CreateCommandBuffer().AsParallelWriter(),
-            m_PathfindQueue = m_PathfindSetupSystem.GetQueue(this, 64).AsParallelWriter(),
-            m_BoardingData = boardingData.ToConcurrent()
-        }, m_VehicleQuery, base.Dependency);
-        JobHandle jobHandle2 = boardingData.ScheduleBoarding(this, m_CityStatisticsSystem, m_AchievementTriggerSystem, m_BoardingLookupData, m_SimulationSystem.frameIndex, jobHandle);
-        boardingData.Dispose(jobHandle2);
-        m_PathfindSetupSystem.AddQueueWriter(jobHandle);
-        m_EndFrameBarrier.AddJobHandleForProducer(jobHandle);
-        base.Dependency = jobHandle2;
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Simulation.TransportAircraftAISystem+TransportAircraftTickJob</code>  </li>
-<li><code>Game.Simulation.TransportAircraftAISystem+TypeHandle</code>  </li>
-</ul>
+<p>(If you want detail on the nested TransportAircraftTickJob's per-entity logic or any specific helper functions like StartBoarding/StopBoarding/FindPathIfNeeded, tell me which function and I can produce a focused breakdown with parameter/return semantics and relevant components used.)</p>
 
 
 

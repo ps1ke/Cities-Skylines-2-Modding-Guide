@@ -65233,6 +65233,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -66074,15 +66097,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -66119,9 +66133,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -69762,6 +69776,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Skeleton/" class="md-nav__link">
         
   
@@ -72574,6 +72611,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75564,6 +75624,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87156,6 +87239,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -117932,6 +118038,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117957,15 +118085,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -118004,9 +118123,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118029,509 +118148,204 @@
 
 
 <h1 id="gamerenderingutilitiesheapallocator">Game.Rendering.Utilities.HeapAllocator</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Rendering.Utilities</code>  </p>
-<p><strong>Type:</strong> struct sealed public  </p>
-<p><strong>Base:</strong> <code>System.ValueType</code><br />
-<strong>Implements:</strong> <code>System.IDisposable</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public sealed struct HeapAllocator : System.IDisposable
-{
-    private Unity.Collections.NativeList&lt;Game.Rendering.Utilities.HeapAllocator+SizeBin&gt; m_SizeBins;
-    private Unity.Collections.NativeList&lt;Game.Rendering.Utilities.HeapAllocator+BlocksOfSize&gt; m_Blocks;
-    private Unity.Collections.NativeList&lt;System.Int32&gt; m_BlocksFreelist;
-    private Unity.Collections.NativeParallelHashMap&lt;System.UInt64, System.UInt64&gt; m_FreeEndpoints;
-    private System.UInt64 m_Size;
-    private System.UInt64 m_Free;
-    private readonly System.Int32 m_MinimumAlignmentLog2;
-    private System.Boolean m_IsCreated;
-    public static const System.Int32 MaxAlignmentLog2;
-    public static const System.Int32 AlignmentBits;
-
-    public System.UInt32 MinimumAlignment { get; }
-    public System.UInt64 FreeSpace { get; }
-    public System.UInt64 UsedSpace { get; }
-    public System.UInt64 OnePastHighestUsedAddress { get; }
-    public System.UInt64 Size { get; }
-    public System.Boolean Empty { get; }
-    public System.Boolean Full { get; }
-    public System.Boolean IsCreated { get; }
-
-    public HeapAllocator(System.UInt64 size, System.UInt32 minimumAlignment);
-
-    private System.Int32 AddNewBin(Game.Rendering.Utilities.HeapAllocator+SizeBin&amp; bin, System.Int32 index);
-    public Game.Rendering.Utilities.HeapBlock Allocate(System.UInt64 size, System.UInt32 alignment);
-    private System.Boolean CanFitAllocation(Game.Rendering.Utilities.HeapAllocator+SizeBin allocation, Game.Rendering.Utilities.HeapAllocator+SizeBin bin);
-    public System.Void Clear();
-    private Game.Rendering.Utilities.HeapBlock Coalesce(Game.Rendering.Utilities.HeapBlock block, System.UInt64 endpoint);
-    private Game.Rendering.Utilities.HeapBlock Coalesce(Game.Rendering.Utilities.HeapBlock block);
-    private Game.Rendering.Utilities.HeapBlock CutAllocationFromBlock(Game.Rendering.Utilities.HeapAllocator+SizeBin allocation, Game.Rendering.Utilities.HeapBlock block);
-    public System.Void DebugValidateInternalState();
-    public System.Void Dispose();
-    private System.Int32 FindSmallestSufficientBin(Game.Rendering.Utilities.HeapAllocator+SizeBin needle);
-    private static System.UInt64 NextAligned(System.UInt64 offset, System.Int32 alignmentLog2);
-    private Game.Rendering.Utilities.HeapBlock PopBlockFromBin(Game.Rendering.Utilities.HeapAllocator+SizeBin bin, System.Int32 index);
-    public System.Void Release(Game.Rendering.Utilities.HeapBlock block);
-    private System.Void RemoveBinIfEmpty(Game.Rendering.Utilities.HeapAllocator+SizeBin bin, System.Int32 index);
-    private System.Void RemoveEndpoints(Game.Rendering.Utilities.HeapBlock block);
-    private System.Void RemoveFreeBlock(Game.Rendering.Utilities.HeapBlock block);
-    public System.Boolean Resize(System.UInt64 newSize);
-}
-</code></pre>
+<p><strong>Assembly:</strong> Game<br />
+<strong>Namespace:</strong> Game.Rendering.Utilities</p>
+<p><strong>Type:</strong> public struct</p>
+<p><strong>Base:</strong> System.IDisposable</p>
+<p><strong>Summary:</strong><br />
+HeapAllocator is a compact, persistent heap manager used for allocating and releasing variable-sized blocks inside a fixed logical heap. It groups free ranges into size/alignment bins (SizeBin) and keeps quick lookup endpoints in a NativeParallelHashMap so adjacent free blocks can be coalesced on release. The allocator is designed for use with Unity's low-level collections (NativeList, NativeParallelHashMap, UnsafeUtility) and uses persistent memory allocations internally. It supports aligned allocations, resizing the logical heap (only increasing), inspection via DebugValidateInternalState, and explicit disposal to free native resources. This struct is not inherently thread-safe and is intended for use on a single thread or with external synchronization.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Unity.Collections.NativeList&lt;Game.Rendering.Utilities.HeapAllocator+SizeBin&gt; m_SizeBins</code>  </li>
+<li>
+<p><code>public const int MaxAlignmentLog2</code><br />
+Description: Maximum alignment expressed as log2 (63). Used to bound alignment encoding.</p>
+</li>
+<li>
+<p><code>public const int AlignmentBits</code><br />
+Description: Number of bits used to encode alignment in SizeBin (6).</p>
+</li>
+<li>
+<p><code>private Unity.Collections.NativeList&lt;SizeBin&gt; m_SizeBins</code><br />
+Description: Sorted list of SizeBin entries. Each SizeBin encodes a size class and an alignment log2 and points to a BlocksOfSize list.</p>
+</li>
+<li>
+<p><code>private Unity.Collections.NativeList&lt;BlocksOfSize&gt; m_Blocks</code><br />
+Description: Parallel array of BlocksOfSize lists. Each entry holds the free HeapBlock entries for the corresponding size bin.</p>
+</li>
+<li>
+<p><code>private Unity.Collections.NativeList&lt;int&gt; m_BlocksFreelist</code><br />
+Description: Free-list of indices in m_Blocks that are currently unused (empty) and can be recycled when adding a new bin.</p>
+</li>
+<li>
+<p><code>private Unity.Collections.NativeParallelHashMap&lt;ulong, ulong&gt; m_FreeEndpoints</code><br />
+Description: Maps each free-block endpoint (begin or end) to its counterpart. Used to find adjacent free blocks during coalescing.</p>
+</li>
+<li>
+<p><code>private ulong m_Size</code><br />
+Description: Total logical heap size managed by the allocator.</p>
+</li>
+<li>
+<p><code>private ulong m_Free</code><br />
+Description: Total free space currently available in the heap.</p>
+</li>
+<li>
+<p><code>private readonly int m_MinimumAlignmentLog2</code><br />
+Description: Minimum alignment encoded as log2 (derived from constructor minimumAlignment). All allocations are rounded up to this alignment.</p>
+</li>
+<li>
+<p><code>private bool m_IsCreated</code><br />
+Description: Whether the allocator has been created/initialized (used to guard disposal).</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeList&lt;Game.Rendering.Utilities.HeapAllocator+SizeBin&gt; m_SizeBins;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeList&lt;Game.Rendering.Utilities.HeapAllocator+BlocksOfSize&gt; m_Blocks</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeList&lt;Game.Rendering.Utilities.HeapAllocator+BlocksOfSize&gt; m_Blocks;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeList&lt;System.Int32&gt; m_BlocksFreelist</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeList&lt;System.Int32&gt; m_BlocksFreelist;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeParallelHashMap&lt;System.UInt64, System.UInt64&gt; m_FreeEndpoints</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeParallelHashMap&lt;System.UInt64, System.UInt64&gt; m_FreeEndpoints;
-</code></pre>
-<ul>
-<li><code>private System.UInt64 m_Size</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.UInt64 m_Size;
-</code></pre>
-<ul>
-<li><code>private System.UInt64 m_Free</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.UInt64 m_Free;
-</code></pre>
-<ul>
-<li><code>private readonly System.Int32 m_MinimumAlignmentLog2</code>  </li>
-</ul>
-<pre><code class="language-csharp">private readonly System.Int32 m_MinimumAlignmentLog2;
-</code></pre>
-<ul>
-<li><code>private System.Boolean m_IsCreated</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean m_IsCreated;
-</code></pre>
-<ul>
-<li><code>public static const System.Int32 MaxAlignmentLog2</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static const System.Int32 MaxAlignmentLog2;
-</code></pre>
-<ul>
-<li><code>public static const System.Int32 AlignmentBits</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static const System.Int32 AlignmentBits;
-</code></pre>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>public System.UInt32 MinimumAlignment { get }</code>  </li>
+<li>
+<p><code>public uint MinimumAlignment { get; }</code><br />
+Description: The minimum alignment in bytes (1 &lt;&lt; m_MinimumAlignmentLog2). All allocations will be at least this aligned.</p>
+</li>
+<li>
+<p><code>public ulong FreeSpace { get; }</code><br />
+Description: The amount of free space currently available in the heap (m_Free).</p>
+</li>
+<li>
+<p><code>public ulong UsedSpace { get; }</code><br />
+Description: The amount of used space in the heap (m_Size - m_Free).</p>
+</li>
+<li>
+<p><code>public ulong OnePastHighestUsedAddress { get; }</code><br />
+Description: Returns the one-past-highest used address. If the top of the heap (m_Size) is part of a free block, this reads its endpoint from m_FreeEndpoints to compute the true one-past-used address.</p>
+</li>
+<li>
+<p><code>public ulong Size { get; }</code><br />
+Description: Total logical heap size.</p>
+</li>
+<li>
+<p><code>public bool Empty { get; }</code><br />
+Description: True if the entire heap is free (m_Free == m_Size).</p>
+</li>
+<li>
+<p><code>public bool Full { get; }</code><br />
+Description: True if there is no free space left (m_Free == 0).</p>
+</li>
+<li>
+<p><code>public bool IsCreated { get; }</code><br />
+Description: True if the allocator has been initialized and not yet disposed.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public System.UInt32 MinimumAlignment { get; }
-</code></pre>
-<ul>
-<li><code>public System.UInt64 FreeSpace { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.UInt64 FreeSpace { get; }
-</code></pre>
-<ul>
-<li><code>public System.UInt64 UsedSpace { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.UInt64 UsedSpace { get; }
-</code></pre>
-<ul>
-<li><code>public System.UInt64 OnePastHighestUsedAddress { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.UInt64 OnePastHighestUsedAddress { get; }
-</code></pre>
-<ul>
-<li><code>public System.UInt64 Size { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.UInt64 Size { get; }
-</code></pre>
-<ul>
-<li><code>public System.Boolean Empty { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Boolean Empty { get; }
-</code></pre>
-<ul>
-<li><code>public System.Boolean Full { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Boolean Full { get; }
-</code></pre>
-<ul>
-<li><code>public System.Boolean IsCreated { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Boolean IsCreated { get; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public HeapAllocator(System.UInt64 size = 0, System.UInt32 minimumAlignment = 1)</code>  </li>
+<li><code>public HeapAllocator(ulong size = 0uL, uint minimumAlignment = 1u)</code><br />
+Description: Creates a new HeapAllocator. Allocates the internal NativeList/NativeParallelHashMap structures with Allocator.Persistent and sets the minimum alignment. If size &gt; 0 the internal heap is resized and an initial free block covering [0, size) is released into the free pool. The constructor sets m_IsCreated = true; call Dispose() when finished to release internal native memory.</li>
 </ul>
-<pre><code class="language-csharp">public HeapAllocator(ulong size = 0uL, uint minimumAlignment = 1u)
-    {
-        m_SizeBins = new NativeList&lt;SizeBin&gt;(Allocator.Persistent);
-        m_Blocks = new NativeList&lt;BlocksOfSize&gt;(Allocator.Persistent);
-        m_BlocksFreelist = new NativeList&lt;int&gt;(Allocator.Persistent);
-        m_FreeEndpoints = new NativeParallelHashMap&lt;ulong, ulong&gt;(0, Allocator.Persistent);
-        m_Size = 0uL;
-        m_Free = 0uL;
-        m_MinimumAlignmentLog2 = math.tzcnt(minimumAlignment);
-        m_IsCreated = true;
-        Resize(size);
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private AddNewBin(Game.Rendering.Utilities.HeapAllocator+SizeBin&amp; bin, System.Int32 index) : System.Int32</code>  </li>
+<li>
+<p><code>public void Clear()</code><br />
+Description: Clears all bins and free lists, resets bookkeeping and then Resizes the heap back to the previous size (releasing a single free block covering the whole heap). Useful to reset state while keeping the logical heap size.</p>
+</li>
+<li>
+<p><code>public void Dispose()</code><br />
+Description: Disposes all internal Native* containers and any BlocksOfSize contents. After calling Dispose the allocator is no longer IsCreated.</p>
+</li>
+<li>
+<p><code>public bool Resize(ulong newSize)</code><br />
+Description: Increases the logical heap size to newSize. Only supports growing; shrinking returns false. When growing it releases a new free block covering the newly added range.</p>
+</li>
+<li>
+<p><code>public HeapBlock Allocate(ulong size, uint alignment = 1u)</code><br />
+Description: Allocate a block of the requested size with the requested alignment (alignment is rounded up to MinimumAlignment). Returns a HeapBlock representing the allocated region; if allocation fails returns default(HeapBlock) (Length == 0). The allocator searches for the smallest sufficient size bin with compatible alignment, pops a free block, and cuts the requested allocation out of it (releasing any leftover pieces back as smaller free blocks).</p>
+</li>
+<li>
+<p><code>public void Release(HeapBlock block)</code><br />
+Description: Releases a previously-used block back into the free pool. Coalesces with adjacent free blocks using m_FreeEndpoints, inserts the resulting block into the appropriate size/alignment bin, updates m_Free and m_FreeEndpoints.</p>
+</li>
+<li>
+<p><code>public void DebugValidateInternalState()</code><br />
+Description: Runtime validation (assertions) of internal invariants. Checks: exactly one non-empty block list per size bin, free lists consistency, stored endpoints correspond to blocks, total free matches m_Free, each free block contributes two endpoints. This uses UnityEngine.Assertions and is intended for debugging under UNITY_ASSERTIONS.</p>
+</li>
+<li>
+<p><code>private int FindSmallestSufficientBin(SizeBin needle)</code><br />
+Description: Binary-search to find the index of the smallest size bin that is &gt;= needle. Returns insertion position if not found.</p>
+</li>
+<li>
+<p><code>private unsafe int AddNewBin(ref SizeBin bin, int index)</code><br />
+Description: Adds a new SizeBin at the given index, obtaining/allocating a BlocksOfSize entry (from freelist or by appending). Shifts m_SizeBins to make room.</p>
+</li>
+<li>
+<p><code>private unsafe void RemoveBinIfEmpty(SizeBin bin, int index)</code><br />
+Description: If the bin's BlocksOfSize has become empty, remove the SizeBin and add its blocksId to the free-list for reuse.</p>
+</li>
+<li>
+<p><code>private HeapBlock PopBlockFromBin(SizeBin bin, int index)</code><br />
+Description: Pop a free HeapBlock from the indicated bin, remove its endpoints, decrement m_Free, and possibly remove the bin if empty afterwards.</p>
+</li>
+<li>
+<p><code>private void RemoveEndpoints(HeapBlock block)</code><br />
+Description: Removes the begin and end entries for a block from m_FreeEndpoints.</p>
+</li>
+<li>
+<p><code>private void RemoveFreeBlock(HeapBlock block)</code><br />
+Description: Remove an arbitrary free block from its bin and update bookkeeping (endpoints, m_Free).</p>
+</li>
+<li>
+<p><code>private HeapBlock Coalesce(HeapBlock block, ulong endpoint)</code><br />
+Description: Attempt to coalesce <code>block</code> with a neighboring free block identified by <code>endpoint</code>. If endpoint is adjacent, removes the neighbor free-block and returns the combined block.</p>
+</li>
+<li>
+<p><code>private HeapBlock Coalesce(HeapBlock block)</code><br />
+Description: Convenience overload that attempts to coalesce both at begin and end of <code>block</code>.</p>
+</li>
+<li>
+<p><code>private bool CanFitAllocation(SizeBin allocation, SizeBin bin)</code><br />
+Description: Predicate determining whether a free block in <code>bin</code> can satisfy <code>allocation</code>. It returns true if the bin's alignment is compatible, or if the bin's size is large enough to accommodate the allocation plus additional padding needed for alignment.</p>
+</li>
+<li>
+<p><code>private static ulong NextAligned(ulong offset, int alignmentLog2)</code><br />
+Description: Aligns the given offset up to the alignment (1 &lt;&lt; alignmentLog2). Internal utility used to compute aligned addresses.</p>
+</li>
+<li>
+<p><code>private HeapBlock CutAllocationFromBlock(SizeBin allocation, HeapBlock block)</code><br />
+Description: Carves out an aligned allocation range from the given free block. Releases any leftover prefix/suffix back to the free pool. Returns the allocated HeapBlock.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private unsafe int AddNewBin(ref SizeBin bin, int index)
+<p>Note: Nested types SizeBin and BlocksOfSize implement encoding/decoding of size+alignment and manage the internal list of HeapBlock for each bin; BlocksOfSize itself uses UnsafeUtility + UnsafeList to allocate its own internal array with Allocator.Persistent.</p>
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">using Game.Rendering.Utilities;
+
+// Create a heap of 64 KiB with a minimum alignment of 16 bytes
+var allocator = new HeapAllocator(64 * 1024, minimumAlignment: 16u);
+
+try
+{
+    // Allocate 1024 bytes aligned to 16
+    HeapBlock block = allocator.Allocate(1024, 16u);
+    if (block.Length != 0)
     {
-        if (m_BlocksFreelist.IsEmpty)
-        {
-            bin.blocksId = m_Blocks.Length;
-            m_Blocks.Add(new BlocksOfSize(0));
-        }
-        else
-        {
-            int num = m_BlocksFreelist.Length - 1;
-            bin.blocksId = m_BlocksFreelist[num];
-            m_BlocksFreelist.ResizeUninitialized(num);
-        }
-        int num2 = m_SizeBins.Length - index;
-        m_SizeBins.ResizeUninitialized(m_SizeBins.Length + 1);
-        SizeBin* unsafePtr = m_SizeBins.GetUnsafePtr();
-        UnsafeUtility.MemMove(unsafePtr + (index + 1), unsafePtr + index, num2 * UnsafeUtility.SizeOf&lt;SizeBin&gt;());
-        unsafePtr[index] = bin;
-        return index;
+        // Use block.begin..block.end for whatever indexing/offsets the consumer expects.
+        // ... perform work ...
+
+        // Release when done
+        allocator.Release(block);
     }
+
+    // Grow the heap later if needed
+    allocator.Resize(128 * 1024);
+
+    // (Optional) validate internal state in debug builds
+    allocator.DebugValidateInternalState();
+}
+finally
+{
+    // Must dispose to free internal Native containers
+    allocator.Dispose();
+}
 </code></pre>
-<ul>
-<li><code>public Allocate(System.UInt64 size, System.UInt32 alignment = 1) : Game.Rendering.Utilities.HeapBlock</code>  </li>
-</ul>
-<pre><code class="language-csharp">public HeapBlock Allocate(ulong size, uint alignment = 1u)
-    {
-        size = NextAligned(size, m_MinimumAlignmentLog2);
-        alignment = math.max(alignment, MinimumAlignment);
-        SizeBin sizeBin = new SizeBin(size, alignment);
-        for (int i = FindSmallestSufficientBin(sizeBin); i &lt; m_SizeBins.Length; i++)
-        {
-            SizeBin bin = m_SizeBins[i];
-            if (CanFitAllocation(sizeBin, bin))
-            {
-                HeapBlock block = PopBlockFromBin(bin, i);
-                return CutAllocationFromBlock(sizeBin, block);
-            }
-        }
-        return default(HeapBlock);
-    }
-</code></pre>
-<ul>
-<li><code>private CanFitAllocation(Game.Rendering.Utilities.HeapAllocator+SizeBin allocation, Game.Rendering.Utilities.HeapAllocator+SizeBin bin) : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">private bool CanFitAllocation(SizeBin allocation, SizeBin bin)
-    {
-        if (m_Blocks[bin.blocksId].Empty)
-        {
-            return false;
-        }
-        if (bin.HasCompatibleAlignment(allocation))
-        {
-            return true;
-        }
-        return bin.Size &gt;= allocation.Size + allocation.Alignment;
-    }
-</code></pre>
-<ul>
-<li><code>public Clear() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void Clear()
-    {
-        ulong size = m_Size;
-        m_SizeBins.Clear();
-        m_Blocks.Clear();
-        m_BlocksFreelist.Clear();
-        m_FreeEndpoints.Clear();
-        m_Size = 0uL;
-        m_Free = 0uL;
-        Resize(size);
-    }
-</code></pre>
-<ul>
-<li><code>private Coalesce(Game.Rendering.Utilities.HeapBlock block, System.UInt64 endpoint) : Game.Rendering.Utilities.HeapBlock</code>  </li>
-</ul>
-<pre><code class="language-csharp">private HeapBlock Coalesce(HeapBlock block)
-    {
-        block = Coalesce(block, block.begin);
-        block = Coalesce(block, block.end);
-        return block;
-    }
-</code></pre>
-<ul>
-<li><code>private Coalesce(Game.Rendering.Utilities.HeapBlock block) : Game.Rendering.Utilities.HeapBlock</code>  </li>
-</ul>
-<pre><code class="language-csharp">private HeapBlock Coalesce(HeapBlock block)
-    {
-        block = Coalesce(block, block.begin);
-        block = Coalesce(block, block.end);
-        return block;
-    }
-</code></pre>
-<ul>
-<li><code>private CutAllocationFromBlock(Game.Rendering.Utilities.HeapAllocator+SizeBin allocation, Game.Rendering.Utilities.HeapBlock block) : Game.Rendering.Utilities.HeapBlock</code>  </li>
-</ul>
-<pre><code class="language-csharp">private HeapBlock CutAllocationFromBlock(SizeBin allocation, HeapBlock block)
-    {
-        if (allocation.Size == block.Length)
-        {
-            return block;
-        }
-        ulong num = NextAligned(block.begin, allocation.AlignmentLog2);
-        ulong num2 = num + allocation.Size;
-        if (num &gt; block.begin)
-        {
-            Release(new HeapBlock(block.begin, num));
-        }
-        if (num2 &lt; block.end)
-        {
-            Release(new HeapBlock(num2, block.end));
-        }
-        return new HeapBlock(num, num2);
-    }
-</code></pre>
-<ul>
-<li><code>public DebugValidateInternalState() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void DebugValidateInternalState()
-    {
-        int length = m_SizeBins.Length;
-        int length2 = m_BlocksFreelist.Length;
-        int num = 0;
-        int num2 = 0;
-        for (int i = 0; i &lt; m_Blocks.Length; i++)
-        {
-            if (m_Blocks[i].Empty)
-            {
-                num++;
-            }
-            else
-            {
-                num2++;
-            }
-        }
-        Assert.AreEqual(length, num2, &quot;There should be exactly one non-empty block list per size bin&quot;);
-        Assert.AreEqual(num, length2, &quot;All empty block lists should be in the free list&quot;);
-        for (int j = 0; j &lt; m_BlocksFreelist.Length; j++)
-        {
-            int index = m_BlocksFreelist[j];
-            Assert.IsTrue(m_Blocks[index].Empty, &quot;There should be only empty block lists in the free list&quot;);
-        }
-        ulong num3 = 0uL;
-        int num4 = 0;
-        for (int k = 0; k &lt; m_SizeBins.Length; k++)
-        {
-            SizeBin sizeBin = m_SizeBins[k];
-            ulong size = sizeBin.Size;
-            uint alignment = sizeBin.Alignment;
-            BlocksOfSize blocksOfSize = m_Blocks[sizeBin.blocksId];
-            Assert.IsFalse(blocksOfSize.Empty, &quot;All block lists should be non-empty, empty lists should be removed&quot;);
-            int length3 = blocksOfSize.Length;
-            for (int l = 0; l &lt; length3; l++)
-            {
-                HeapBlock block = blocksOfSize.Block(l);
-                SizeBin sizeBin2 = new SizeBin(block);
-                Assert.AreEqual(size, sizeBin2.Size, &quot;Block size should match its bin&quot;);
-                Assert.AreEqual(alignment, sizeBin2.Alignment, &quot;Block alignment should match its bin&quot;);
-                num3 += block.Length;
-                if (m_FreeEndpoints.TryGetValue(block.begin, out var item))
-                {
-                    Assert.AreEqual(block.end, item, &quot;Free block end does not match stored endpoint&quot;);
-                }
-                else
-                {
-                    Assert.IsTrue(condition: false, &quot;No end endpoint found for free block&quot;);
-                }
-                if (m_FreeEndpoints.TryGetValue(block.end, out var item2))
-                {
-                    Assert.AreEqual(block.begin, item2, &quot;Free block begin does not match stored endpoint&quot;);
-                }
-                else
-                {
-                    Assert.IsTrue(condition: false, &quot;No begin endpoint found for free block&quot;);
-                }
-                num4++;
-            }
-        }
-        Assert.AreEqual(num3, FreeSpace, &quot;Free size reported incorrectly&quot;);
-        Assert.IsTrue(num3 &lt;= Size, &quot;Amount of free size larger than maximum&quot;);
-        Assert.AreEqual(2 * num4, m_FreeEndpoints.Count(), &quot;Each free block should have exactly 2 stored endpoints&quot;);
-    }
-</code></pre>
-<ul>
-<li><code>public Dispose() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void Dispose()
-    {
-        if (IsCreated)
-        {
-            for (int i = 0; i &lt; m_Blocks.Length; i++)
-            {
-                m_Blocks[i].Dispose();
-            }
-            m_FreeEndpoints.Dispose();
-            m_Blocks.Dispose();
-            m_BlocksFreelist.Dispose();
-            m_SizeBins.Dispose();
-            m_IsCreated = false;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private FindSmallestSufficientBin(Game.Rendering.Utilities.HeapAllocator+SizeBin needle) : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">private int FindSmallestSufficientBin(SizeBin needle)
-    {
-        if (m_SizeBins.Length == 0)
-        {
-            return 0;
-        }
-        int num = 0;
-        int num2 = m_SizeBins.Length;
-        int num4;
-        while (true)
-        {
-            int num3 = (num2 - num) / 2;
-            if (num3 == 0)
-            {
-                if (needle.CompareTo(m_SizeBins[num]) &lt;= 0)
-                {
-                    return num;
-                }
-                return num + 1;
-            }
-            num4 = num + num3;
-            int num5 = needle.CompareTo(m_SizeBins[num4]);
-            if (num5 &lt; 0)
-            {
-                num2 = num4;
-                continue;
-            }
-            if (num5 &lt;= 0)
-            {
-                break;
-            }
-            num = num4;
-        }
-        return num4;
-    }
-</code></pre>
-<ul>
-<li><code>private static NextAligned(System.UInt64 offset, System.Int32 alignmentLog2) : System.UInt64</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static ulong NextAligned(ulong offset, int alignmentLog2)
-    {
-        int num = (1 &lt;&lt; alignmentLog2) - 1;
-        return (ulong)((long)offset + (long)num &gt;&gt;&gt; alignmentLog2 &lt;&lt; alignmentLog2);
-    }
-</code></pre>
-<ul>
-<li><code>private PopBlockFromBin(Game.Rendering.Utilities.HeapAllocator+SizeBin bin, System.Int32 index) : Game.Rendering.Utilities.HeapBlock</code>  </li>
-</ul>
-<pre><code class="language-csharp">private HeapBlock PopBlockFromBin(SizeBin bin, int index)
-    {
-        HeapBlock heapBlock = m_Blocks[bin.blocksId].Pop();
-        RemoveEndpoints(heapBlock);
-        m_Free -= heapBlock.Length;
-        RemoveBinIfEmpty(bin, index);
-        return heapBlock;
-    }
-</code></pre>
-<ul>
-<li><code>public Release(Game.Rendering.Utilities.HeapBlock block) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void Release(HeapBlock block)
-    {
-        block = Coalesce(block);
-        SizeBin bin = new SizeBin(block);
-        int num = FindSmallestSufficientBin(bin);
-        if (num &gt;= m_SizeBins.Length || bin.CompareTo(m_SizeBins[num]) != 0)
-        {
-            num = AddNewBin(ref bin, num);
-        }
-        m_Blocks[m_SizeBins[num].blocksId].Push(block);
-        m_Free += block.Length;
-        m_FreeEndpoints[block.begin] = block.end;
-        m_FreeEndpoints[block.end] = block.begin;
-    }
-</code></pre>
-<ul>
-<li><code>private RemoveBinIfEmpty(Game.Rendering.Utilities.HeapAllocator+SizeBin bin, System.Int32 index) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private unsafe void RemoveBinIfEmpty(SizeBin bin, int index)
-    {
-        if (m_Blocks[bin.blocksId].Empty)
-        {
-            int num = m_SizeBins.Length - (index + 1);
-            SizeBin* unsafePtr = m_SizeBins.GetUnsafePtr();
-            UnsafeUtility.MemMove(unsafePtr + index, unsafePtr + (index + 1), num * UnsafeUtility.SizeOf&lt;SizeBin&gt;());
-            m_SizeBins.ResizeUninitialized(m_SizeBins.Length - 1);
-            m_BlocksFreelist.Add(in bin.blocksId);
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private RemoveEndpoints(Game.Rendering.Utilities.HeapBlock block) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void RemoveEndpoints(HeapBlock block)
-    {
-        m_FreeEndpoints.Remove(block.begin);
-        m_FreeEndpoints.Remove(block.end);
-    }
-</code></pre>
-<ul>
-<li><code>private RemoveFreeBlock(Game.Rendering.Utilities.HeapBlock block) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void RemoveFreeBlock(HeapBlock block)
-    {
-        RemoveEndpoints(block);
-        SizeBin needle = new SizeBin(block);
-        int index = FindSmallestSufficientBin(needle);
-        m_Blocks[m_SizeBins[index].blocksId].Remove(block);
-        RemoveBinIfEmpty(m_SizeBins[index], index);
-        m_Free -= block.Length;
-    }
-</code></pre>
-<ul>
-<li><code>public Resize(System.UInt64 newSize) : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">public bool Resize(ulong newSize)
-    {
-        if (newSize == m_Size)
-        {
-            return true;
-        }
-        if (newSize &gt; m_Size)
-        {
-            ulong size = newSize - m_Size;
-            HeapBlock block = HeapBlock.OfSize(m_Size, size);
-            Release(block);
-            m_Size = newSize;
-            return true;
-        }
-        return false;
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Rendering.Utilities.HeapAllocator+SizeBin</code>  </li>
-<li><code>Game.Rendering.Utilities.HeapAllocator+BlocksOfSize</code>  </li>
-</ul>
+<p>Notes and tips:
+- HeapBlock is the value type used by this allocator and exposes at least begin, end, and Length (Length == end - begin). Ensure you use the correct HeapBlock definition from the codebase.
+- This allocator uses persistent native memory (Allocator.Persistent) and UnsafeUtility for internal structures—always call Dispose to avoid leaks.
+- The allocator only supports growing the heap via Resize; shrinking is not implemented.
+- DebugValidateInternalState uses Unity assertions and is intended for debugging only (requires UNITY_ASSERTIONS).</p>
 
 
 

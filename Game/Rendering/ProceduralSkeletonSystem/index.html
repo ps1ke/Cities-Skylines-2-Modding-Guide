@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#gamerenderingproceduralskeletonsystem" class="md-skip">
+        <a href="#gameproceduralskeletonsystem" class="md-skip">
           Skip to content
         </a>
       
@@ -65233,6 +65233,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69415,15 +69438,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -69460,9 +69474,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -69743,6 +69757,29 @@
   
   <span class="md-ellipsis">
     ShaderID
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
     
   </span>
   
@@ -72572,6 +72609,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75562,6 +75622,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87154,6 +87237,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -117930,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117955,15 +118083,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -118002,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118026,380 +118145,247 @@
 
 
 
-<h1 id="gamerenderingproceduralskeletonsystem">Game.Rendering.ProceduralSkeletonSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Rendering</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code><br />
-<strong>Implements:</strong> <code>Game.Serialization.IPreDeserialize</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class ProceduralSkeletonSystem : Game.GameSystemBase, Game.Serialization.IPreDeserialize
-{
-    private Game.Rendering.RenderingSystem m_RenderingSystem;
-    private Colossal.Collections.NativeHeapAllocator m_HeapAllocator;
-    private Colossal.Rendering.SparseUploader m_SparseUploader;
-    private Colossal.Rendering.ThreadedSparseUploader m_ThreadedSparseUploader;
-    private Unity.Collections.NativeReference&lt;Game.Rendering.ProceduralSkeletonSystem+AllocationInfo&gt; m_AllocationInfo;
-    private Unity.Collections.NativeQueue&lt;Game.Rendering.ProceduralSkeletonSystem+AllocationRemove&gt; m_AllocationRemoves;
-    private System.Boolean m_IsAllocating;
-    private System.Boolean m_IsUploading;
-    private UnityEngine.GraphicsBuffer m_ComputeBuffer;
-    private Unity.Jobs.JobHandle m_HeapDeps;
-    private Unity.Jobs.JobHandle m_UploadDeps;
-    private System.Int32 m_HeapAllocatorByteSize;
-    private System.Int32 m_CurrentTime;
-    private System.Boolean m_AreMotionVectorsEnabled;
-    private System.Boolean m_ForceHistoryUpdate;
-    public static const System.UInt32 SKELETON_MEMORY_DEFAULT;
-    public static const System.UInt32 SKELETON_MEMORY_INCREMENT;
-    public static const System.UInt32 UPLOADER_CHUNK_SIZE;
-
-    public System.Boolean isMotionBlurEnabled { get; }
-    public System.Boolean forceHistoryUpdate { get; }
-
-    public ProceduralSkeletonSystem();
-
-    public System.Void AddHeapWriter(Unity.Jobs.JobHandle handle);
-    public System.Void AddUploadWriter(Unity.Jobs.JobHandle handle);
-    private System.Void AllocateIdentityEntry();
-    public Colossal.Rendering.ThreadedSparseUploader BeginUpload(System.Int32 opCount, System.UInt32 dataSize, System.UInt32 maxOpSize, System.Int32&amp; historyByteOffset);
-    public System.Void CompleteUpload();
-    public Colossal.Collections.NativeHeapAllocator GetHeapAllocator(Unity.Collections.NativeReference`1[[Game.Rendering.ProceduralSkeletonSystem+AllocationInfo, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]&amp; allocationInfo, Unity.Collections.NativeQueue`1[[Game.Rendering.ProceduralSkeletonSystem+AllocationRemove, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]&amp; allocationRemoves, System.Int32&amp; currentTime, Unity.Jobs.JobHandle&amp; dependencies);
-    public System.Void GetMemoryStats(System.UInt32&amp; allocatedSize, System.UInt32&amp; bufferSize, System.UInt32&amp; currentUpload, System.UInt32&amp; uploadSize, System.Int32&amp; allocationCount);
-    public static System.Void GetSkinMatrices(Game.Rendering.Skeleton skeleton, Unity.Entities.DynamicBuffer`1[[Game.Prefabs.ProceduralBone, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]&amp; proceduralBones, Unity.Entities.DynamicBuffer`1[[Game.Rendering.Bone, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]&amp; bones, Unity.Collections.NativeList&lt;Unity.Mathematics.float4x4&gt; tempMatrices);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnDestroy();
-    protected virtual System.Void OnUpdate();
-    public System.Void PreDeserialize(Colossal.Serialization.Entities.Context context);
-}
-</code></pre>
+<h1 id="gameproceduralskeletonsystem">Game.ProceduralSkeletonSystem</h1>
+<p><strong>Assembly:</strong> Assembly-CSharp<br />
+<strong>Namespace:</strong> Game.Rendering</p>
+<p><strong>Type:</strong> class ProceduralSkeletonSystem</p>
+<p><strong>Base:</strong> GameSystemBase, IPreDeserialize</p>
+<p><strong>Summary:</strong><br />
+ProceduralSkeletonSystem manages GPU-side storage and upload of procedural skeleton (bone) matrices used for skinned/procedural animation in the rendering pipeline. It owns a NativeHeapAllocator that allocates blocks of float4x4 matrices, a SparseUploader (and its threaded variant) to stream data to a GraphicsBuffer, and logic to retire/release allocations after a time window. The system also handles motion-vector (history) support by maintaining previous-frame bone matrices and coordinating buffer replacement when motion vector settings change. It schedules a Burst-compiled job (RemoveAllocationsJob) to release aged allocations from the native heap.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.Rendering.RenderingSystem m_RenderingSystem</code>  </li>
+<li>
+<p><code>public struct AllocationInfo</code><br />
+  Container struct used in a NativeReference to track the number of active allocations (m_AllocationCount).</p>
+</li>
+<li>
+<p><code>public struct AllocationRemove</code><br />
+  Used to enqueue allocations that should be released later. Contains:</p>
+</li>
+<li><code>NativeHeapBlock m_Allocation</code></li>
+<li>
+<p><code>int m_RemoveTime</code></p>
+</li>
+<li>
+<p><code>[BurstCompile] private struct RemoveAllocationsJob : IJob</code><br />
+  Burst job that processes m_AllocationRemoves queue, releasing heap blocks whose age has exceeded the threshold and decrementing m_AllocationInfo.m_AllocationCount.</p>
+</li>
+<li>
+<p><code>public const uint SKELETON_MEMORY_DEFAULT</code><br />
+  Default heap memory size in bytes for skeletons (4194304).</p>
+</li>
+<li>
+<p><code>public const uint SKELETON_MEMORY_INCREMENT</code><br />
+  Increment size for skeleton memory growth (1048576).</p>
+</li>
+<li>
+<p><code>public const uint UPLOADER_CHUNK_SIZE</code><br />
+  Chunk size used by the SparseUploader (524288).</p>
+</li>
+<li>
+<p><code>private RenderingSystem m_RenderingSystem</code><br />
+  Reference to the game's RenderingSystem (used for motion vector and LOD timing info).</p>
+</li>
+<li>
+<p><code>private NativeHeapAllocator m_HeapAllocator</code><br />
+  Native heap allocator that allocates blocks of float4x4 matrices for skeletons.</p>
+</li>
+<li>
+<p><code>private SparseUploader m_SparseUploader</code><br />
+  Uploader that handles GPU-side sparse updates to the GraphicsBuffer.</p>
+</li>
+<li>
+<p><code>private ThreadedSparseUploader m_ThreadedSparseUploader</code><br />
+  Threaded handle returned by the SparseUploader when beginning an upload.</p>
+</li>
+<li>
+<p><code>private NativeReference&lt;AllocationInfo&gt; m_AllocationInfo</code><br />
+  NativeReference used to store allocation counts and shared between jobs.</p>
+</li>
+<li>
+<p><code>private NativeQueue&lt;AllocationRemove&gt; m_AllocationRemoves</code><br />
+  Queue of allocations scheduled for deferred removal.</p>
+</li>
+<li>
+<p><code>private bool m_IsAllocating</code><br />
+  Flag set when allocations were requested (used to ensure buffer updates).</p>
+</li>
+<li>
+<p><code>private bool m_IsUploading</code><br />
+  Flag set while an upload is in progress.</p>
+</li>
+<li>
+<p><code>private GraphicsBuffer m_ComputeBuffer</code><br />
+  The GPU buffer used to hold bone transform data; set as a global shader buffer (_BoneTransforms).</p>
+</li>
+<li>
+<p><code>private JobHandle m_HeapDeps</code><br />
+  JobHandle for dependencies that write to the heap (used to synchronize heap access).</p>
+</li>
+<li>
+<p><code>private JobHandle m_UploadDeps</code><br />
+  JobHandle for dependencies that perform upload work (used to synchronize uploads).</p>
+</li>
+<li>
+<p><code>private int m_HeapAllocatorByteSize</code><br />
+  Cached byte-size of the heap allocator (in bytes, based on allocator.Size * sizeof(float4x4)).</p>
+</li>
+<li>
+<p><code>private int m_CurrentTime</code><br />
+  Current time counter (used for timed release of allocations).</p>
+</li>
+<li>
+<p><code>private bool m_AreMotionVectorsEnabled</code><br />
+  Cached value of whether motion vectors were enabled last update.</p>
+</li>
+<li>
+<p><code>private bool m_ForceHistoryUpdate</code><br />
+  True when the history (previous transforms) must be updated/recreated due to changes in motion-vector setting.</p>
+</li>
+<li>
+<p><code>public bool isMotionBlurEnabled =&gt; m_AreMotionVectorsEnabled</code><br />
+  Read-only property exposing whether motion vectors (motion blur) are enabled (cached).</p>
+</li>
+<li>
+<p><code>public bool forceHistoryUpdate =&gt; m_ForceHistoryUpdate</code><br />
+  Read-only property exposing whether a forced history (previous transforms) update is pending.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.Rendering.RenderingSystem m_RenderingSystem;
-</code></pre>
-<ul>
-<li><code>private Colossal.Collections.NativeHeapAllocator m_HeapAllocator</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.Collections.NativeHeapAllocator m_HeapAllocator;
-</code></pre>
-<ul>
-<li><code>private Colossal.Rendering.SparseUploader m_SparseUploader</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.Rendering.SparseUploader m_SparseUploader;
-</code></pre>
-<ul>
-<li><code>private Colossal.Rendering.ThreadedSparseUploader m_ThreadedSparseUploader</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.Rendering.ThreadedSparseUploader m_ThreadedSparseUploader;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeReference&lt;Game.Rendering.ProceduralSkeletonSystem+AllocationInfo&gt; m_AllocationInfo</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeReference&lt;Game.Rendering.ProceduralSkeletonSystem+AllocationInfo&gt; m_AllocationInfo;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeQueue&lt;Game.Rendering.ProceduralSkeletonSystem+AllocationRemove&gt; m_AllocationRemoves</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeQueue&lt;Game.Rendering.ProceduralSkeletonSystem+AllocationRemove&gt; m_AllocationRemoves;
-</code></pre>
-<ul>
-<li><code>private System.Boolean m_IsAllocating</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean m_IsAllocating;
-</code></pre>
-<ul>
-<li><code>private System.Boolean m_IsUploading</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean m_IsUploading;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.GraphicsBuffer m_ComputeBuffer</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.GraphicsBuffer m_ComputeBuffer;
-</code></pre>
-<ul>
-<li><code>private Unity.Jobs.JobHandle m_HeapDeps</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Jobs.JobHandle m_HeapDeps;
-</code></pre>
-<ul>
-<li><code>private Unity.Jobs.JobHandle m_UploadDeps</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Jobs.JobHandle m_UploadDeps;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_HeapAllocatorByteSize</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_HeapAllocatorByteSize;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_CurrentTime</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_CurrentTime;
-</code></pre>
-<ul>
-<li><code>private System.Boolean m_AreMotionVectorsEnabled</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean m_AreMotionVectorsEnabled;
-</code></pre>
-<ul>
-<li><code>private System.Boolean m_ForceHistoryUpdate</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean m_ForceHistoryUpdate;
-</code></pre>
-<ul>
-<li><code>public static const System.UInt32 SKELETON_MEMORY_DEFAULT</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static const System.UInt32 SKELETON_MEMORY_DEFAULT;
-</code></pre>
-<ul>
-<li><code>public static const System.UInt32 SKELETON_MEMORY_INCREMENT</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static const System.UInt32 SKELETON_MEMORY_INCREMENT;
-</code></pre>
-<ul>
-<li><code>public static const System.UInt32 UPLOADER_CHUNK_SIZE</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static const System.UInt32 UPLOADER_CHUNK_SIZE;
-</code></pre>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>public System.Boolean isMotionBlurEnabled { get }</code>  </li>
+<li><code>public Unity.Jobs.JobHandle producerHandle { get; private set }</code><br />
+  (Not present in this type; included in the template example. ProceduralSkeletonSystem exposes job handles through methods/fields such as m_HeapDeps and m_UploadDeps rather than a producerHandle property.)</li>
 </ul>
-<pre><code class="language-csharp">public System.Boolean isMotionBlurEnabled { get; }
-</code></pre>
-<ul>
-<li><code>public System.Boolean forceHistoryUpdate { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Boolean forceHistoryUpdate { get; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public ProceduralSkeletonSystem()</code>  </li>
+<li><code>public ProceduralSkeletonSystem()</code><br />
+  Default constructor. The class is also annotated with [Preserve] on lifecycle methods. The system performs its core initialization in OnCreate rather than in the constructor.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public ProceduralSkeletonSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>public AddHeapWriter(Unity.Jobs.JobHandle handle) : System.Void</code>  </li>
+<li><code>[Preserve] protected unsafe override void OnCreate() : System.Void</code><br />
+  Initializes internal resources:</li>
+<li>Obtains RenderingSystem reference.</li>
+<li>Creates NativeHeapAllocator with default size (SKELETON_MEMORY_DEFAULT / sizeof(float4x4)).</li>
+<li>Creates a SparseUploader for streaming bone data to the GPU.</li>
+<li>Creates NativeReference<AllocationInfo> and NativeQueue<AllocationRemove>.</li>
+<li>
+<p>Calls AllocateIdentityEntry() to reserve the first (identity) matrix entry.
+  Note: method is unsafe due to interactions with low-level native memory.</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnDestroy() : System.Void</code><br />
+  Cleans up resources:</p>
+</li>
+<li>Completes outstanding uploads and heap jobs.</li>
+<li>Disposes NativeHeapAllocator, SparseUploader, NativeReference and NativeQueue if created.</li>
+<li>Releases the GraphicsBuffer if it exists.</li>
+<li>
+<p>Calls base.OnDestroy().</p>
+</li>
+<li>
+<p><code>[Preserve] protected unsafe override void OnUpdate() : System.Void</code><br />
+  Main update loop:</p>
+</li>
+<li>Detects motion vector setting changes and toggles m_ForceHistoryUpdate accordingly.</li>
+<li>Completes pending uploads and heap dependency jobs as needed.</li>
+<li>If allocations are pending or history must be updated, recreates or resizes the GPU GraphicsBuffer (_BoneTransforms) to match heap size × (1 or 2) depending on motion-vector support and coordinates copying previous data where applicable.</li>
+<li>Sets global shader int "_BonePreviousTransformsByteOffset".</li>
+<li>
+<p>If there are queued allocation removals, schedules the Burst RemoveAllocationsJob to retire aged allocations.</p>
+</li>
+<li>
+<p><code>public ThreadedSparseUploader BeginUpload(int opCount, uint dataSize, uint maxOpSize, out int historyByteOffset)</code><br />
+  Begins a sparse uploader session:</p>
+</li>
+<li>Calls m_SparseUploader.Begin to prepare the threaded uploader.</li>
+<li>Sets m_IsUploading = true.</li>
+<li>Outputs historyByteOffset which is the byte offset of previous-frame transforms (m_HeapAllocatorByteSize).</li>
+<li>
+<p>Returns the ThreadedSparseUploader to be used by worker threads to write upload ops.</p>
+</li>
+<li>
+<p><code>public void AddUploadWriter(JobHandle handle)</code><br />
+  Adds a JobHandle dependency for upload writers; stored in m_UploadDeps and later waited on during CompleteUpload.</p>
+</li>
+<li>
+<p><code>public void CompleteUpload()</code><br />
+  Completes any active upload sequence:</p>
+</li>
+<li>
+<p>If m_IsUploading is true, waits on m_UploadDeps, clears m_IsUploading, and calls m_SparseUploader.EndAndCommit with the threaded uploader to finalize GPU uploads.</p>
+</li>
+<li>
+<p><code>public void PreDeserialize(Context context)</code><br />
+  IPreDeserialize implementation used before deserialization:</p>
+</li>
+<li>
+<p>Completes heap jobs, clears the heap allocator and allocation removal queue, and re-allocates the identity entry. This ensures a clean allocator state before loading serialized data.</p>
+</li>
+<li>
+<p><code>public NativeHeapAllocator GetHeapAllocator(out NativeReference&lt;AllocationInfo&gt; allocationInfo, out NativeQueue&lt;AllocationRemove&gt; allocationRemoves, out int currentTime, out JobHandle dependencies)</code><br />
+  Provides callers access to the NativeHeapAllocator and related synchronization primitives:</p>
+</li>
+<li>Returns m_HeapAllocator.</li>
+<li>Outputs m_AllocationInfo, m_AllocationRemoves, m_CurrentTime and current m_HeapDeps JobHandle as dependencies.</li>
+<li>
+<p>Sets m_IsAllocating = true to indicate allocations are expected/occurred.</p>
+</li>
+<li>
+<p><code>public void AddHeapWriter(JobHandle handle)</code><br />
+  Stores a JobHandle for a writer that modified the heap (m_HeapDeps) so the system can wait on it before performing operations that must see completed heap writes.</p>
+</li>
+<li>
+<p><code>public unsafe void GetMemoryStats(out uint allocatedSize, out uint bufferSize, out uint currentUpload, out uint uploadSize, out int allocationCount)</code><br />
+  Gathers runtime memory statistics:</p>
+</li>
+<li>Completes m_HeapDeps to get consistent stats.</li>
+<li>Computes allocatedSize (used heap space × sizeof(float4x4) × (1 or 2 depending on motion vectors)).</li>
+<li>Computes bufferSize (allocator total size × sizeof(float4x4) × (1 or 2)).</li>
+<li>Returns allocationCount from m_AllocationInfo.</li>
+<li>
+<p>Queries SparseUploader.ComputeStats() to return currentUpload (bytes uploaded this frame) and uploadSize (total bytes used by uploader).</p>
+</li>
+<li>
+<p><code>private void AllocateIdentityEntry()</code><br />
+  Ensures an identity transform entry is present at index 0:</p>
+</li>
+<li>Sets m_IsAllocating = true, allocates a single matrix in the heap, and initializes m_AllocationInfo.Value.m_AllocationCount to 0.</li>
+<li>
+<p>This reserved identity entry is used when a skeleton has no bones or needs an identity fallback.</p>
+</li>
+<li>
+<p><code>public static void GetSkinMatrices(Skeleton skeleton, in DynamicBuffer&lt;ProceduralBone&gt; proceduralBones, in DynamicBuffer&lt;Bone&gt; bones, NativeList&lt;float4x4&gt; tempMatrices)</code><br />
+  Helper that computes model-space and skin matrices for a procedural skeleton:</p>
+</li>
+<li>Iterates proceduralBones, computes local TRS matrix from Bone data, multiplies by parent matrix if parent exists, writes the result into tempMatrices at index i.</li>
+<li>Also computes final skin matrix by multiplying model-space transform by the bone's bind pose and stores at tempMatrices[proceduralBones.Length + proceduralBone.m_BindIndex].</li>
+<li>Useful for preparing the float4x4 arrays that will be uploaded to the GPU.</li>
 </ul>
-<pre><code class="language-csharp">public void AddHeapWriter(JobHandle handle)
-    {
-        m_HeapDeps = handle;
-    }
-</code></pre>
-<ul>
-<li><code>public AddUploadWriter(Unity.Jobs.JobHandle handle) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void AddUploadWriter(JobHandle handle)
-    {
-        m_UploadDeps = handle;
-    }
-</code></pre>
-<ul>
-<li><code>private AllocateIdentityEntry() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void AllocateIdentityEntry()
-    {
-        m_IsAllocating = true;
-        m_HeapAllocator.Allocate(1u);
-        m_AllocationInfo.Value = new AllocationInfo
-        {
-            m_AllocationCount = 0u
-        };
-    }
-</code></pre>
-<ul>
-<li><code>public BeginUpload(System.Int32 opCount, System.UInt32 dataSize, System.UInt32 maxOpSize, System.Int32&amp; historyByteOffset) : Colossal.Rendering.ThreadedSparseUploader</code>  </li>
-</ul>
-<pre><code class="language-csharp">public ThreadedSparseUploader BeginUpload(int opCount, uint dataSize, uint maxOpSize, out int historyByteOffset)
-    {
-        m_ThreadedSparseUploader = m_SparseUploader.Begin((int)dataSize, (int)maxOpSize, opCount);
-        m_IsUploading = true;
-        historyByteOffset = m_HeapAllocatorByteSize;
-        return m_ThreadedSparseUploader;
-    }
-</code></pre>
-<ul>
-<li><code>public CompleteUpload() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void CompleteUpload()
-    {
-        if (m_IsUploading)
-        {
-            m_UploadDeps.Complete();
-            m_IsUploading = false;
-            m_SparseUploader.EndAndCommit(m_ThreadedSparseUploader);
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public GetHeapAllocator(Unity.Collections.NativeReference</code>1[[Game.Rendering.ProceduralSkeletonSystem+AllocationInfo, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]&amp; allocationInfo, Unity.Collections.NativeQueue<code>1[[Game.Rendering.ProceduralSkeletonSystem+AllocationRemove, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]&amp; allocationRemoves, System.Int32&amp; currentTime, Unity.Jobs.JobHandle&amp; dependencies) : Colossal.Collections.NativeHeapAllocator</code>  </li>
-</ul>
-<pre><code class="language-csharp">public NativeHeapAllocator GetHeapAllocator(out NativeReference&lt;AllocationInfo&gt; allocationInfo, out NativeQueue&lt;AllocationRemove&gt; allocationRemoves, out int currentTime, out JobHandle dependencies)
-    {
-        dependencies = m_HeapDeps;
-        allocationInfo = m_AllocationInfo;
-        allocationRemoves = m_AllocationRemoves;
-        currentTime = m_CurrentTime;
-        m_IsAllocating = true;
-        return m_HeapAllocator;
-    }
-</code></pre>
-<ul>
-<li><code>public GetMemoryStats(System.UInt32&amp; allocatedSize, System.UInt32&amp; bufferSize, System.UInt32&amp; currentUpload, System.UInt32&amp; uploadSize, System.Int32&amp; allocationCount) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public unsafe void GetMemoryStats(out uint allocatedSize, out uint bufferSize, out uint currentUpload, out uint uploadSize, out int allocationCount)
-    {
-        m_HeapDeps.Complete();
-        int num = ((!m_RenderingSystem.motionVectors) ? 1 : 2);
-        allocatedSize = (uint)((int)m_HeapAllocator.UsedSpace * sizeof(float4x4) * num);
-        bufferSize = (uint)((int)m_HeapAllocator.Size * sizeof(float4x4) * num);
-        allocationCount = (int)m_AllocationInfo.Value.m_AllocationCount;
-        SparseUploaderStats sparseUploaderStats = m_SparseUploader.ComputeStats();
-        currentUpload = (uint)sparseUploaderStats.BytesGPUMemoryUploadedCurr;
-        uploadSize = (uint)sparseUploaderStats.BytesGPUMemoryUsed;
-    }
-</code></pre>
-<ul>
-<li><code>public static GetSkinMatrices(Game.Rendering.Skeleton skeleton, Unity.Entities.DynamicBuffer</code>1[[Game.Prefabs.ProceduralBone, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]&amp; proceduralBones, Unity.Entities.DynamicBuffer<code>1[[Game.Rendering.Bone, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]&amp; bones, Unity.Collections.NativeList&lt;Unity.Mathematics.float4x4&gt; tempMatrices) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static void GetSkinMatrices(Skeleton skeleton, in DynamicBuffer&lt;ProceduralBone&gt; proceduralBones, in DynamicBuffer&lt;Bone&gt; bones, NativeList&lt;float4x4&gt; tempMatrices)
-    {
-        for (int i = 0; i &lt; proceduralBones.Length; i++)
-        {
-            ProceduralBone proceduralBone = proceduralBones[i];
-            Bone bone = bones[skeleton.m_BoneOffset + i];
-            float4x4 float4x = float4x4.TRS(bone.m_Position, bone.m_Rotation, bone.m_Scale);
-            if (proceduralBone.m_ParentIndex &gt;= 0)
-            {
-                float4x = math.mul(tempMatrices[proceduralBone.m_ParentIndex], float4x);
-            }
-            tempMatrices[i] = float4x;
-            tempMatrices[proceduralBones.Length + proceduralBone.m_BindIndex] = math.mul(float4x, proceduralBone.m_BindPose);
-        }
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
+<h2 id="usage-example">Usage Example</h2>
 <pre><code class="language-csharp">[Preserve]
-    protected unsafe override void OnCreate()
-    {
-        base.OnCreate();
-        m_RenderingSystem = base.World.GetOrCreateSystemManaged&lt;RenderingSystem&gt;();
-        m_HeapAllocator = new NativeHeapAllocator(4194304u / (uint)sizeof(float4x4), 1u, Allocator.Persistent);
-        m_SparseUploader = new SparseUploader(&quot;Procedural skeleton uploader&quot;, null, 524288);
-        m_AllocationInfo = new NativeReference&lt;AllocationInfo&gt;(Allocator.Persistent);
-        m_AllocationRemoves = new NativeQueue&lt;AllocationRemove&gt;(Allocator.Persistent);
-        AllocateIdentityEntry();
-    }
+protected override void OnCreate()
+{
+    base.OnCreate();
+    // Example: Begin a threaded sparse upload for bone data.
+    int historyByteOffset;
+    // opCount: number of GPU upload operations, dataSize: total bytes to upload, maxOpSize: max bytes per op
+    var threadedUploader = ProceduralSkeletonSystemInstance.BeginUpload(opCount: 1, dataSize: 1024, maxOpSize: 1024, out historyByteOffset);
+
+    // Worker jobs can write upload ops into threadedUploader here.
+    // When those jobs are scheduled, register their JobHandle:
+    // ProceduralSkeletonSystemInstance.AddUploadWriter(myJobHandle);
+
+    // After writers complete, finalize:
+    // ProceduralSkeletonSystemInstance.CompleteUpload();
+}
 </code></pre>
-<ul>
-<li><code>protected virtual OnDestroy() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnDestroy()
-    {
-        CompleteUpload();
-        m_HeapDeps.Complete();
-        if (m_HeapAllocator.IsCreated)
-        {
-            m_HeapAllocator.Dispose();
-            m_SparseUploader.Dispose();
-            m_AllocationInfo.Dispose();
-            m_AllocationRemoves.Dispose();
-        }
-        if (m_ComputeBuffer != null)
-        {
-            m_ComputeBuffer.Release();
-        }
-        base.OnDestroy();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected unsafe override void OnUpdate()
-    {
-        bool motionVectors = m_RenderingSystem.motionVectors;
-        int num = ((!motionVectors) ? 1 : 2);
-        m_ForceHistoryUpdate = m_AreMotionVectorsEnabled != motionVectors;
-        CompleteUpload();
-        m_HeapDeps.Complete();
-        if (m_IsAllocating || m_ForceHistoryUpdate)
-        {
-            m_IsAllocating = false;
-            m_AreMotionVectorsEnabled = motionVectors;
-            m_HeapAllocatorByteSize = (int)m_HeapAllocator.Size * sizeof(float4x4);
-            int num2 = m_HeapAllocatorByteSize * num;
-            int num3 = ((m_ComputeBuffer != null) ? (m_ComputeBuffer.count * m_ComputeBuffer.stride) : 0);
-            if (num2 != num3)
-            {
-                GraphicsBuffer graphicsBuffer = new GraphicsBuffer(GraphicsBuffer.Target.Raw, num2 / 4, 4);
-                graphicsBuffer.name = &quot;Procedural bone buffer&quot;;
-                Shader.SetGlobalBuffer(&quot;_BoneTransforms&quot;, graphicsBuffer);
-                if (motionVectors &amp;&amp; !m_ForceHistoryUpdate)
-                {
-                    m_SparseUploader.ReplaceBuffer(graphicsBuffer, copyFromPrevious: true, num3 / 2);
-                }
-                else
-                {
-                    m_SparseUploader.ReplaceBuffer(graphicsBuffer, copyFromPrevious: true);
-                }
-                if (m_ComputeBuffer == null)
-                {
-                    graphicsBuffer.SetData(new List&lt;float4x4&gt; { float4x4.identity }, 0, 0, 1);
-                }
-                if (motionVectors &amp;&amp; (m_ComputeBuffer == null || m_ForceHistoryUpdate))
-                {
-                    graphicsBuffer.SetData(new List&lt;float4x4&gt; { float4x4.identity }, 0, (int)m_HeapAllocator.Size, 1);
-                }
-                if (m_ComputeBuffer != null)
-                {
-                    m_ComputeBuffer.Release();
-                }
-                m_ComputeBuffer = graphicsBuffer;
-            }
-            Shader.SetGlobalInt(&quot;_BonePreviousTransformsByteOffset&quot;, m_HeapAllocatorByteSize);
-        }
-        if (!m_AllocationRemoves.IsEmpty())
-        {
-            m_CurrentTime = (m_CurrentTime + m_RenderingSystem.lodTimerDelta) &amp; 0xFFFF;
-            RemoveAllocationsJob jobData = new RemoveAllocationsJob
-            {
-                m_HeapAllocator = m_HeapAllocator,
-                m_AllocationInfo = m_AllocationInfo,
-                m_AllocationRemoves = m_AllocationRemoves,
-                m_CurrentTime = m_CurrentTime
-            };
-            m_HeapDeps = IJobExtensions.Schedule(jobData);
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public PreDeserialize(Colossal.Serialization.Entities.Context context) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void PreDeserialize(Context context)
-    {
-        m_HeapDeps.Complete();
-        m_HeapAllocator.Clear();
-        m_AllocationRemoves.Clear();
-        AllocateIdentityEntry();
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Rendering.ProceduralSkeletonSystem+AllocationInfo</code>  </li>
-<li><code>Game.Rendering.ProceduralSkeletonSystem+AllocationRemove</code>  </li>
-<li><code>Game.Rendering.ProceduralSkeletonSystem+RemoveAllocationsJob</code>  </li>
-</ul>
+<p>Notes and tips:
+- Always call AddHeapWriter/AddUploadWriter with the JobHandle of any job that writes to the heap or upload buffers so the system can synchronize before resizing or committing.
+- Use GetHeapAllocator to obtain the allocator and the allocation queues when performing multi-threaded allocation; respect the returned dependencies JobHandle.
+- When motion vectors are enabled the system maintains two sets of transforms (current and previous). The historyByteOffset returned by BeginUpload can be used when writing data into the GPU buffer to place previous-frame transforms at the correct byte offset.
+- PreDeserialize is invoked to reset the allocator state before loading serialized data; do not rely on heap contents across a deserialize call.</p>
 
 
 

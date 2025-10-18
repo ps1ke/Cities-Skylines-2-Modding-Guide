@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87056,6 +87148,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -100321,9 +100436,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
@@ -100351,6 +100466,15 @@
   <a href="#methods" class="md-nav__link">
     <span class="md-ellipsis">
       Methods
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
     </span>
   </a>
   
@@ -117914,6 +118038,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117941,9 +118087,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
@@ -117976,6 +118122,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -117993,70 +118148,58 @@
 
 
 <h1 id="gameuiingamecargotransportvehiclesection">Game.UI.InGame.CargoTransportVehicleSection</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.UI.InGame</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.UI.InGame.VehicleWithLineSection</code><br />
-<strong>Implements:</strong> <code>Game.UI.InGame.ISectionSource</code>, <code>Colossal.UI.Binding.IJsonWritable</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class CargoTransportVehicleSection : Game.UI.InGame.VehicleWithLineSection, Game.UI.InGame.ISectionSource, Colossal.UI.Binding.IJsonWritable
-{
-    protected System.String group { protected get; }
-
-    public CargoTransportVehicleSection();
-
-    protected virtual System.Void OnProcess();
-    protected virtual System.Void OnUpdate();
-    private System.Boolean Visible();
-}
-</code></pre>
+<p><strong>Assembly:</strong> Assembly-CSharp<br />
+<strong>Namespace:</strong> Game.UI.InGame</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> VehicleWithLineSection</p>
+<p><strong>Summary:</strong><br />
+UI section used in the in-game vehicle inspector for cargo transport vehicles. This class controls visibility of the section based on entity components (Vehicle, CargoTransport and Owner), and populates UI state information by reading the CargoTransport component and computing a state key via VehicleUIUtils. It overrides OnUpdate and OnProcess to integrate with the UI lifecycle.</p>
+<hr />
+<h2 id="fields">Fields</h2>
+<ul>
+<li>None declared in this class.<br />
+This class does not declare private fields; it relies on inherited members from VehicleWithLineSection (such as selectedEntity, stateKey, visible and EntityManager) to perform its work.</li>
+</ul>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>protected System.String group { protected get }</code>  </li>
+<li><code>protected override string group { get; }</code><br />
+Returns the UI grouping identifier for this section. This override yields the literal "CargoTransportVehicleSection", which is used by the UI system to identify or group this section.</li>
 </ul>
-<pre><code class="language-csharp">protected System.String group { protected get; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public CargoTransportVehicleSection()</code>  </li>
+<li><code>public CargoTransportVehicleSection()</code><br />
+Parameterless constructor. Marked with [Preserve] in source to prevent stripping by Unity's managed code stripping. No custom initialization logic is performed here.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public CargoTransportVehicleSection()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>protected virtual OnProcess() : System.Void</code>  </li>
+<li>
+<p><code>private bool Visible()</code><br />
+Determines whether this UI section should be visible for the currently selected entity. Returns true only when the selected entity has the Vehicle and CargoTransport components and also has an Owner component. Otherwise returns false.</p>
+</li>
+<li>
+<p><code>protected override void OnUpdate()</code><br />
+Called during the UI update step. This override sets base.visible to the result of Visible(), controlling whether the section is rendered.</p>
+</li>
+<li>
+<p><code>protected override void OnProcess()</code><br />
+Called when the UI system processes the section's content. Retrieves the CargoTransport component data for selectedEntity, computes a state key by calling VehicleUIUtils.GetStateKey(selectedEntity, componentData, base.EntityManager), assigns it to base.stateKey, and then calls base.OnProcess() to continue standard processing.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">protected override void OnProcess()
-    {
-        CargoTransport componentData = base.EntityManager.GetComponentData&lt;CargoTransport&gt;(selectedEntity);
-        base.stateKey = VehicleUIUtils.GetStateKey(selectedEntity, componentData, base.EntityManager);
-        base.OnProcess();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
+<h2 id="usage-example">Usage Example</h2>
 <pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        base.visible = Visible();
-    }
-</code></pre>
-<ul>
-<li><code>private Visible() : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">private bool Visible()
-    {
-        if (base.EntityManager.HasComponent&lt;Vehicle&gt;(selectedEntity) &amp;&amp; base.EntityManager.HasComponent&lt;CargoTransport&gt;(selectedEntity))
-        {
-            return base.EntityManager.HasComponent&lt;Owner&gt;(selectedEntity);
-        }
-        return false;
-    }
+protected override void OnUpdate()
+{
+    // Toggle visibility based on entity components
+    base.visible = Visible();
+}
+
+protected override void OnProcess()
+{
+    // Read cargo transport component and set the UI state key before processing
+    CargoTransport componentData = base.EntityManager.GetComponentData&lt;CargoTransport&gt;(selectedEntity);
+    base.stateKey = VehicleUIUtils.GetStateKey(selectedEntity, componentData, base.EntityManager);
+    base.OnProcess();
+}
 </code></pre>
 
 

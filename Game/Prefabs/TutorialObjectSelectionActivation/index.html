@@ -59272,15 +59272,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -59311,6 +59302,15 @@
   <a href="#methods" class="md-nav__link">
     <span class="md-ellipsis">
       Methods
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
     </span>
   </a>
   
@@ -65320,6 +65320,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69751,6 +69774,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72563,6 +72609,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75553,6 +75622,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87145,6 +87237,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -117921,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117946,15 +118083,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -117992,6 +118120,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -118009,113 +118146,85 @@
 
 
 <h1 id="gameprefabstutorialobjectselectionactivation">Game.Prefabs.TutorialObjectSelectionActivation</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Prefabs</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.Prefabs.TutorialActivation</code><br />
-<strong>Implements:</strong> <code>Colossal.IO.AssetDatabase.IComponentBase</code>, <code>System.IComparable</code>  </p>
-<p><strong>Attributes:</strong> <code>ComponentMenu</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class TutorialObjectSelectionActivation : Game.Prefabs.TutorialActivation, Colossal.IO.AssetDatabase.IComponentBase, System.IComparable
-{
-    public Game.Prefabs.PrefabBase[] m_Prefabs;
-    public System.Boolean m_AllowTool;
-
-    public System.Boolean ignoreUnlockDependencies { get; }
-
-    public TutorialObjectSelectionActivation();
-
-    public virtual System.Void GenerateTutorialLinks(Unity.Entities.EntityManager entityManager, Unity.Collections.NativeParallelHashSet&lt;Unity.Entities.Entity&gt; linkedPrefabs);
-    public virtual System.Void GetArchetypeComponents(System.Collections.Generic.HashSet&lt;Unity.Entities.ComponentType&gt; components);
-    public virtual System.Void GetDependencies(System.Collections.Generic.List&lt;Game.Prefabs.PrefabBase&gt; prefabs);
-    public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet&lt;Unity.Entities.ComponentType&gt; components);
-    public virtual System.Void LateInitialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity);
-}
-</code></pre>
+<p><strong>Assembly:</strong><br />
+Assembly-CSharp.dll</p>
+<p><strong>Namespace:</strong><br />
+Game.Prefabs</p>
+<p><strong>Type:</strong><br />
+class</p>
+<p><strong>Base:</strong><br />
+TutorialActivation</p>
+<p><strong>Summary:</strong><br />
+A tutorial activation component used by the game's tutorial system to require or watch for the selection of specific prefabs (game objects). Placed on tutorial prefabs via the ComponentMenu attribute, it populates an ObjectSelectionActivationData buffer for the tutorial entity with references to the target prefab entities and whether the in-game tool is allowed. It also contributes prefab dependencies and generates links from the tutorial to the referenced prefabs.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>public Game.Prefabs.PrefabBase[] m_Prefabs</code>  </li>
+<li>
+<p><code>public PrefabBase[] m_Prefabs</code><br />
+[NotNull] Array of prefab references configured in the inspector. These are the prefabs that the tutorial activation will target. During initialization each PrefabBase is resolved to a runtime Entity via the PrefabSystem so that selection checks can be done against entities.</p>
+</li>
+<li>
+<p><code>public bool m_AllowTool</code><br />
+Flag indicating whether the tool (selection mode) is allowed/enabled for this activation. This value is stored in the ObjectSelectionActivationData entries created during LateInitialize.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public Game.Prefabs.PrefabBase[] m_Prefabs;
-</code></pre>
-<ul>
-<li><code>public System.Boolean m_AllowTool</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Boolean m_AllowTool;
-</code></pre>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>public System.Boolean ignoreUnlockDependencies { get }</code>  </li>
+<li><code>public override bool ignoreUnlockDependencies { get; }</code><br />
+Always returns true (overridden). This tells the tutorial system to ignore unlock dependencies for this activation — the activation should not be gated by normal prefab unlock requirements.</li>
 </ul>
-<pre><code class="language-csharp">public System.Boolean ignoreUnlockDependencies { get; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public TutorialObjectSelectionActivation()</code>  </li>
+<li><code>public TutorialObjectSelectionActivation()</code><br />
+Default constructor (implicit). Typical usage is to add and configure this component on a Tutorial prefab in the editor; no special runtime construction logic is implemented in this class.</li>
 </ul>
-<pre><code class="language-csharp">public TutorialObjectSelectionActivation();
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>public virtual GenerateTutorialLinks(Unity.Entities.EntityManager entityManager, Unity.Collections.NativeParallelHashSet&lt;Unity.Entities.Entity&gt; linkedPrefabs) : System.Void</code>  </li>
+<li>
+<p><code>public override void GetDependencies(List&lt;PrefabBase&gt; prefabs)</code><br />
+Adds the m_Prefabs entries to the provided prefabs list. Calls base.GetDependencies(prefabs) first to preserve any base class dependencies. Use: ensures the tutorial system knows the tutorial depends on the listed prefabs.</p>
+</li>
+<li>
+<p><code>public override void GetArchetypeComponents(HashSet&lt;ComponentType&gt; components)</code><br />
+Empty override. The class does not add any entity archetype components here.</p>
+</li>
+<li>
+<p><code>public override void GetPrefabComponents(HashSet&lt;ComponentType&gt; components)</code><br />
+Calls base.GetPrefabComponents(components) and then adds ComponentType.ReadWrite<ObjectSelectionActivationData>(). This declares that tutorial prefab entities spawned from this component will include a DynamicBuffer<ObjectSelectionActivationData> component.</p>
+</li>
+<li>
+<p><code>public override void LateInitialize(EntityManager entityManager, Entity entity)</code><br />
+Resolves each PrefabBase in m_Prefabs to an Entity via the PrefabSystem and appends an ObjectSelectionActivationData entry (entity reference + m_AllowTool) into the tutorial entity's DynamicBuffer<ObjectSelectionActivationData>. This sets up the runtime data the tutorial runtime will use to track required selections.</p>
+</li>
+<li>
+<p><code>public override void GenerateTutorialLinks(EntityManager entityManager, NativeParallelHashSet&lt;Entity&gt; linkedPrefabs)</code><br />
+Adds each referenced prefab entity to linkedPrefabs using PrefabSystem.GetEntity(prefab). This creates tutorial links to the prefabs for dependency/tracking purposes.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public override void GenerateTutorialLinks(EntityManager entityManager, NativeParallelHashSet&lt;Entity&gt; linkedPrefabs)
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Example: when a custom tutorial prefab is created, this component will be configured in the editor
+// with m_Prefabs pointing to one or more PrefabBase assets and m_AllowTool set as needed.
+
+// LateInitialize shows how the runtime buffer is populated:
+protected override void LateInitialize(EntityManager entityManager, Entity entity)
+{
+    base.LateInitialize(entityManager, entity);
+    DynamicBuffer&lt;ObjectSelectionActivationData&gt; buffer = entityManager.GetBuffer&lt;ObjectSelectionActivationData&gt;(entity);
+    PrefabSystem prefabSystem = entityManager.World.GetExistingSystemManaged&lt;PrefabSystem&gt;();
+
+    foreach (PrefabBase prefab in m_Prefabs)
     {
-        base.GenerateTutorialLinks(entityManager, linkedPrefabs);
-        PrefabSystem existingSystemManaged = entityManager.World.GetExistingSystemManaged&lt;PrefabSystem&gt;();
-        for (int i = 0; i &lt; m_Prefabs.Length; i++)
+        if (prefabSystem.TryGetEntity(prefab, out var prefabEntity))
         {
-            linkedPrefabs.Add(existingSystemManaged.GetEntity(m_Prefabs[i]));
+            buffer.Add(new ObjectSelectionActivationData(prefabEntity, m_AllowTool));
         }
     }
+}
 </code></pre>
-<ul>
-<li><code>public virtual GetArchetypeComponents(System.Collections.Generic.HashSet&lt;Unity.Entities.ComponentType&gt; components) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override void GetArchetypeComponents(HashSet&lt;ComponentType&gt; components)
-    {
-    }
-</code></pre>
-<ul>
-<li><code>public virtual GetDependencies(System.Collections.Generic.List&lt;Game.Prefabs.PrefabBase&gt; prefabs) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override void GetDependencies(List&lt;PrefabBase&gt; prefabs)
-    {
-        base.GetDependencies(prefabs);
-        PrefabBase[] prefabs2 = m_Prefabs;
-        foreach (PrefabBase item in prefabs2)
-        {
-            prefabs.Add(item);
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public virtual GetPrefabComponents(System.Collections.Generic.HashSet&lt;Unity.Entities.ComponentType&gt; components) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override void GetPrefabComponents(HashSet&lt;ComponentType&gt; components)
-    {
-        base.GetPrefabComponents(components);
-        components.Add(ComponentType.ReadWrite&lt;ObjectSelectionActivationData&gt;());
-    }
-</code></pre>
-<ul>
-<li><code>public virtual LateInitialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override void LateInitialize(EntityManager entityManager, Entity entity)
-    {
-        base.LateInitialize(entityManager, entity);
-        DynamicBuffer&lt;ObjectSelectionActivationData&gt; buffer = entityManager.GetBuffer&lt;ObjectSelectionActivationData&gt;(entity);
-        PrefabSystem existingSystemManaged = entityManager.World.GetExistingSystemManaged&lt;PrefabSystem&gt;();
-        PrefabBase[] prefabs = m_Prefabs;
-        foreach (PrefabBase prefabBase in prefabs)
-        {
-            if (existingSystemManaged.TryGetEntity(prefabBase, out var entity2))
-            {
-                buffer.Add(new ObjectSelectionActivationData(entity2, m_AllowTool));
-            }
-        }
-    }
-</code></pre>
+<p>Additional notes:
+- The component uses PrefabSystem to resolve PrefabBase -&gt; Entity; ensure the PrefabSystem is available in the World when LateInitialize runs.
+- The ObjectSelectionActivationData type is expected to be defined elsewhere in the tutorial/activation systems and contains at least an Entity reference and the tool-allowed flag.
+- Configure m_Prefabs in the Unity editor on the Tutorial prefab; failing to assign entries will result in no activation targets being added.</p>
 
 
 

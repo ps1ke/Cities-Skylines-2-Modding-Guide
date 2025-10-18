@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -82042,15 +82134,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -82087,9 +82170,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -87154,6 +87237,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -117930,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117955,15 +118083,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -118002,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118027,473 +118146,194 @@
 
 
 <h1 id="gamesimulationgarbageaccumulationsystem">Game.Simulation.GarbageAccumulationSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Simulation</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code><br />
-<strong>Implements:</strong> <code>Colossal.Serialization.Entities.IDefaultSerializable</code>, <code>Colossal.Serialization.Entities.ISerializable</code>, <code>Game.Serialization.IPreDeserialize</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class GarbageAccumulationSystem : Game.GameSystemBase, Colossal.Serialization.Entities.IDefaultSerializable, Colossal.Serialization.Entities.ISerializable, Game.Serialization.IPreDeserialize
-{
-    private Game.Simulation.SimulationSystem m_SimulationSystem;
-    private Game.Notifications.IconCommandSystem m_IconCommandSystem;
-    private Game.Simulation.CitySystem m_CitySystem;
-    private Game.EndFrameBarrier m_EndFrameBarrier;
-    private Unity.Entities.EntityQuery m_GarbageProducerQuery;
-    private Unity.Entities.EntityArchetype m_CollectionRequestArchetype;
-    private Unity.Collections.NativeArray&lt;System.Int64&gt; m_GarbageAccumulation;
-    private Unity.Jobs.JobHandle m_AccumulationDeps;
-    private System.Int64 m_Accumulation;
-    private Game.Simulation.GarbageAccumulationSystem+TypeHandle __TypeHandle;
-    private Unity.Entities.EntityQuery __query_2138252455_0;
-    private Unity.Entities.EntityQuery __query_2138252455_1;
-    public static readonly System.Int32 kUpdatesPerDay;
-
-    public System.Int64 garbageAccumulation { get; }
-
-    public GarbageAccumulationSystem();
-
-    private System.Void __AssignQueries(Unity.Entities.SystemState&amp; state);
-    public System.Void Deserialize&lt;TReader&gt;(TReader reader);
-    public static System.Void GetGarbage(Game.Prefabs.ConsumptionData&amp; consumption, Unity.Entities.Entity building, Unity.Entities.Entity prefab, Unity.Entities.BufferLookup&lt;Game.Buildings.Renter&gt; renters, Unity.Entities.BufferLookup&lt;Game.Buildings.Student&gt; students, Unity.Entities.BufferLookup&lt;Game.Buildings.Occupant&gt; occupants, Unity.Entities.ComponentLookup&lt;Game.Citizens.HomelessHousehold&gt; homelessHouseholds, Unity.Entities.BufferLookup&lt;Game.Citizens.HouseholdCitizen&gt; householdCitizens, Unity.Entities.ComponentLookup&lt;Game.Citizens.Citizen&gt; citizens, Unity.Entities.BufferLookup&lt;Game.Companies.Employee&gt; employees, Unity.Entities.BufferLookup&lt;Game.Buildings.Patient&gt; patients, Unity.Entities.ComponentLookup&lt;Game.Prefabs.SpawnableBuildingData&gt; spawnableDatas, Unity.Entities.ComponentLookup&lt;Game.Areas.CurrentDistrict&gt; currentDistricts, Unity.Entities.BufferLookup&lt;Game.Areas.DistrictModifier&gt; districtModifiers, Unity.Entities.ComponentLookup&lt;Game.Prefabs.ZoneData&gt; zoneDatas, Unity.Entities.DynamicBuffer&lt;Game.City.CityModifier&gt; cityModifiers, Game.Prefabs.GarbageParameterData&amp; garbageParameter);
-    public static System.Void GetGarbageAccumulation(Unity.Entities.Entity building, Unity.Entities.Entity prefab, Game.Prefabs.ConsumptionData&amp; consumption, Game.Areas.CurrentDistrict currentDistrict, Unity.Entities.DynamicBuffer&lt;Game.City.CityModifier&gt; cityModifiers, Unity.Entities.ComponentLookup&lt;Game.Citizens.Citizen&gt; citizens, Unity.Entities.ComponentLookup&lt;Game.Prefabs.SpawnableBuildingData&gt; spawnableDatas, Unity.Entities.ComponentLookup&lt;Game.Prefabs.ZoneData&gt; zoneDatas, Unity.Entities.ComponentLookup&lt;Game.Citizens.HomelessHousehold&gt; homelessHousehold, Unity.Entities.BufferLookup&lt;Game.Citizens.HouseholdCitizen&gt; householdCitizens, Unity.Entities.BufferLookup&lt;Game.Buildings.Renter&gt; renters, Unity.Entities.BufferLookup&lt;Game.Companies.Employee&gt; employees, Unity.Entities.BufferLookup&lt;Game.Buildings.Student&gt; students, Unity.Entities.BufferLookup&lt;Game.Buildings.Occupant&gt; occupants, Unity.Entities.BufferLookup&lt;Game.Buildings.Patient&gt; patients, Unity.Entities.BufferLookup&lt;Game.Areas.DistrictModifier&gt; districtModifiers, Game.Prefabs.GarbageParameterData&amp; garbageParameter);
-    public static System.Single GetGarbageEfficiencyFactor(System.Int32 garbage, Game.Prefabs.GarbageParameterData garbageParameters, System.Single maxPenalty);
-    public virtual System.Int32 GetUpdateInterval(Game.SystemUpdatePhase phase);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnCreateForCompiler();
-    protected virtual System.Void OnDestroy();
-    protected virtual System.Void OnUpdate();
-    public System.Void PreDeserialize(Colossal.Serialization.Entities.Context context);
-    public System.Void Serialize&lt;TWriter&gt;(TWriter writer);
-    public System.Void SetDefaults(Colossal.Serialization.Entities.Context context);
-}
-</code></pre>
+<p><strong>Assembly:</strong> Assembly-CSharp<br />
+<strong>Namespace:</strong> Game.Simulation</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> GameSystemBase, IDefaultSerializable, ISerializable, IPreDeserialize</p>
+<p><strong>Summary:</strong><br />
+Manages per-building garbage accumulation and triggers garbage collection requests and warning icons. Runs on a staggered update schedule (kUpdatesPerDay slices) to spread workload across frames. Calculates daily garbage production for buildings based on ConsumptionData, building level, occupant/worker education, homeless population, district and city modifiers, and applies efficiency penalties to building performance based on piled-up garbage. Handles serialization of internal accumulation buffers used for bookkeeping across save/load.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.Simulation.SimulationSystem m_SimulationSystem</code>  </li>
+<li>
+<p><code>public static readonly int kUpdatesPerDay</code><br />
+Constant number of update slices per day (16). Used to partition updates across frames.</p>
+</li>
+<li>
+<p><code>private SimulationSystem m_SimulationSystem</code><br />
+Reference to the SimulationSystem used to obtain frame timing and other simulation-wide data.</p>
+</li>
+<li>
+<p><code>private IconCommandSystem m_IconCommandSystem</code><br />
+Reference to the IconCommandSystem used to spawn or remove UI icons (e.g., garbage warning icons).</p>
+</li>
+<li>
+<p><code>private CitySystem m_CitySystem</code><br />
+Reference to the CitySystem; used to access the city entity and city-level modifiers.</p>
+</li>
+<li>
+<p><code>private EndFrameBarrier m_EndFrameBarrier</code><br />
+Barrier used to create an EntityCommandBuffer for deferred entity commands produced by jobs.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_GarbageProducerQuery</code><br />
+Query selecting buildings that produce garbage (components: GarbageProducer, PrefabRef, UpdateFrame) and excluding Deleted/Destroyed/Temp.</p>
+</li>
+<li>
+<p><code>private EntityArchetype m_CollectionRequestArchetype</code><br />
+Archetype for creating garbage collection request entities (ServiceRequest + GarbageCollectionRequest + RequestGroup).</p>
+</li>
+<li>
+<p><code>private NativeArray&lt;long&gt; m_GarbageAccumulation</code><br />
+Ring buffer (length 16) used to accumulate garbage totals produced per update slice. Serialized and persisted across saves.</p>
+</li>
+<li>
+<p><code>private JobHandle m_AccumulationDeps</code><br />
+JobHandle tracking the currently running garbage accumulation job dependencies.</p>
+</li>
+<li>
+<p><code>private long m_Accumulation</code><br />
+Sum of the values in m_GarbageAccumulation (total accumulated garbage for the tracked period).</p>
+</li>
+<li>
+<p><code>private TypeHandle __TypeHandle</code><br />
+Generated type handle wrapper holding the various Entity/Component type handles used by the job system.</p>
+</li>
+<li>
+<p><code>private EntityQuery __query_2138252455_0</code><br />
+Generated query for GarbageParameterData (used to fetch garbage parameters singleton).</p>
+</li>
+<li>
+<p><code>private EntityQuery __query_2138252455_1</code><br />
+Generated query for BuildingEfficiencyParameterData (used to fetch garbage penalty parameter).</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.Simulation.SimulationSystem m_SimulationSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Notifications.IconCommandSystem m_IconCommandSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Notifications.IconCommandSystem m_IconCommandSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.CitySystem m_CitySystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.CitySystem m_CitySystem;
-</code></pre>
-<ul>
-<li><code>private Game.EndFrameBarrier m_EndFrameBarrier</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.EndFrameBarrier m_EndFrameBarrier;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_GarbageProducerQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_GarbageProducerQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityArchetype m_CollectionRequestArchetype</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityArchetype m_CollectionRequestArchetype;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeArray&lt;System.Int64&gt; m_GarbageAccumulation</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeArray&lt;System.Int64&gt; m_GarbageAccumulation;
-</code></pre>
-<ul>
-<li><code>private Unity.Jobs.JobHandle m_AccumulationDeps</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Jobs.JobHandle m_AccumulationDeps;
-</code></pre>
-<ul>
-<li><code>private System.Int64 m_Accumulation</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int64 m_Accumulation;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.GarbageAccumulationSystem+TypeHandle __TypeHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.GarbageAccumulationSystem+TypeHandle __TypeHandle;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery __query_2138252455_0</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery __query_2138252455_0;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery __query_2138252455_1</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery __query_2138252455_1;
-</code></pre>
-<ul>
-<li><code>public static readonly System.Int32 kUpdatesPerDay</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static readonly System.Int32 kUpdatesPerDay;
-</code></pre>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>public System.Int64 garbageAccumulation { get }</code>  </li>
+<li><code>public long garbageAccumulation { get; }</code><br />
+Returns m_Accumulation multiplied by kUpdatesPerDay. This maps the stored accumulation to a per-day scale. Useful for UI or debug purposes to get an estimated daily garbage production value.</li>
 </ul>
-<pre><code class="language-csharp">public System.Int64 garbageAccumulation { get; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public GarbageAccumulationSystem()</code>  </li>
+<li><code>public GarbageAccumulationSystem()</code><br />
+Default constructor (generated). The real initialization happens in the protected override OnCreate() where systems and resources are fetched and the NativeArray m_GarbageAccumulation is allocated.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public GarbageAccumulationSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private __AssignQueries(Unity.Entities.SystemState&amp; state) : System.Void</code>  </li>
+<li>
+<p><code>public override int GetUpdateInterval(SystemUpdatePhase phase)</code><br />
+Returns the system update interval (determined by kUpdatesPerDay). Used to control how often the system is ticked relative to other systems.</p>
+</li>
+<li>
+<p><code>public static void GetGarbage(ref ConsumptionData consumption, Entity building, Entity prefab, BufferLookup&lt;Renter&gt; renters, BufferLookup&lt;Game.Buildings.Student&gt; students, BufferLookup&lt;Occupant&gt; occupants, ComponentLookup&lt;HomelessHousehold&gt; homelessHouseholds, BufferLookup&lt;HouseholdCitizen&gt; householdCitizens, ComponentLookup&lt;Citizen&gt; citizens, BufferLookup&lt;Employee&gt; employees, BufferLookup&lt;Patient&gt; patients, ComponentLookup&lt;SpawnableBuildingData&gt; spawnableDatas, ComponentLookup&lt;CurrentDistrict&gt; currentDistricts, BufferLookup&lt;DistrictModifier&gt; districtModifiers, ComponentLookup&lt;ZoneData&gt; zoneDatas, DynamicBuffer&lt;CityModifier&gt; cityModifiers, ref GarbageParameterData garbageParameter)</code><br />
+Convenience wrapper that computes and updates consumption.m_GarbageAccumulation for the given building by calling GetGarbageAccumulation with data fetched from various component lookups and buffers.</p>
+</li>
+<li>
+<p><code>public static void GetGarbageAccumulation(Entity building, Entity prefab, ref ConsumptionData consumption, CurrentDistrict currentDistrict, DynamicBuffer&lt;CityModifier&gt; cityModifiers, ComponentLookup&lt;Citizen&gt; citizens, ComponentLookup&lt;SpawnableBuildingData&gt; spawnableDatas, ComponentLookup&lt;ZoneData&gt; zoneDatas, ComponentLookup&lt;HomelessHousehold&gt; homelessHousehold, BufferLookup&lt;HouseholdCitizen&gt; householdCitizens, BufferLookup&lt;Renter&gt; renters, BufferLookup&lt;Employee&gt; employees, BufferLookup&lt;Game.Buildings.Student&gt; students, BufferLookup&lt;Occupant&gt; occupants, BufferLookup&lt;Patient&gt; patients, BufferLookup&lt;DistrictModifier&gt; districtModifiers, ref GarbageParameterData garbageParameter)</code><br />
+Core deterministic calculation of per-update garbage accumulation for a single building. Factors considered:</p>
+</li>
+<li>Base consumption.m_GarbageAccumulation from prefab/consumption data.</li>
+<li>Building spawn level (spawnable building level).</li>
+<li>Average education level of occupants/workers/students (education reduces garbage production).</li>
+<li>Homeless household count (adds fixed garbage per homeless).</li>
+<li>
+<p>District and city modifiers (e.g., district garbage production modifiers, industrial garbage multiplier).
+Result is stored back in consumption.m_GarbageAccumulation.</p>
+</li>
+<li>
+<p><code>public static float GetGarbageEfficiencyFactor(int garbage, GarbageParameterData garbageParameters, float maxPenalty)</code><br />
+Computes and returns an efficiency factor (0..1) applied to building efficiency buffers based on current garbage piled up. Scales linearly from warning limit to max garbage accumulation and applies maxPenalty.</p>
+</li>
+<li>
+<p><code>protected override void OnCreate()</code><br />
+Initializes references to other systems (SimulationSystem, IconCommandSystem, CitySystem, EndFrameBarrier), allocates m_GarbageAccumulation (length 16), creates the m_GarbageProducerQuery and m_CollectionRequestArchetype, and registers update requirements. Also asserts minimum scheduling constraints.</p>
+</li>
+<li>
+<p><code>protected override void OnDestroy()</code><br />
+Disposes of the NativeArray m_GarbageAccumulation.</p>
+</li>
+<li>
+<p><code>public void PreDeserialize(Context context)</code><br />
+Resets m_Accumulation and zeroes the m_GarbageAccumulation buffer before loading to ensure a clean state.</p>
+</li>
+<li>
+<p><code>protected override void OnUpdate()</code><br />
+Main update entry. Steps performed:</p>
+</li>
+<li>Determine current updateFrame (stagger slice).</li>
+<li>Complete previous accumulation job dependencies.</li>
+<li>Sum the m_GarbageAccumulation buffer into m_Accumulation and zero the current slice entry.</li>
+<li>Read GarbageParameterData and BuildingEfficiencyParameterData singletons.</li>
+<li>If garbage service isn't locked, schedule the Burst-compiled GarbageAccumulationJob in parallel for buildings that match the current UpdateFrame slice. The job:<ul>
+<li>Computes per-building garbage increase (randomized rounding).</li>
+<li>Caps garbage at the configured maximum.</li>
+<li>Requests collection by creating a GarbageCollectionRequest entity when limits are exceeded.</li>
+<li>Adds warning icons and sets flags when warning thresholds are crossed.</li>
+<li>Updates building efficiency factors in building efficiency buffers.</li>
+<li>Accumulates produced garbage into the m_GarbageAccumulation NativeArray (per-slice) using thread-safe Interlocked.Add via an unsafe pointer.</li>
 </ul>
-<pre><code class="language-csharp">private void __AssignQueries(ref SystemState state)
-    {
-        EntityQueryBuilder entityQueryBuilder = new EntityQueryBuilder(Allocator.Temp);
-        EntityQueryBuilder entityQueryBuilder2 = entityQueryBuilder.WithAll&lt;GarbageParameterData&gt;();
-        entityQueryBuilder2 = entityQueryBuilder2.WithOptions(EntityQueryOptions.IncludeSystems);
-        __query_2138252455_0 = entityQueryBuilder2.Build(ref state);
-        entityQueryBuilder.Reset();
-        entityQueryBuilder2 = entityQueryBuilder.WithAll&lt;BuildingEfficiencyParameterData&gt;();
-        entityQueryBuilder2 = entityQueryBuilder2.WithOptions(EntityQueryOptions.IncludeSystems);
-        __query_2138252455_1 = entityQueryBuilder2.Build(ref state);
-        entityQueryBuilder.Reset();
-        entityQueryBuilder.Dispose();
-    }
+</li>
+<li>
+<p>Connects job handles to EndFrameBarrier and IconCommandSystem for proper synchronization.</p>
+</li>
+<li>
+<p><code>public void Serialize&lt;TWriter&gt;(TWriter writer) where TWriter : IWriter</code><br />
+Writes the length of the accumulation buffer and each long value to persistent storage for saves.</p>
+</li>
+<li>
+<p><code>public void Deserialize&lt;TReader&gt;(TReader reader) where TReader : IReader</code><br />
+Reads buffer length and values back into m_GarbageAccumulation, recomputing m_Accumulation as values are read. Any remaining buffer slots are zeroed.</p>
+</li>
+<li>
+<p><code>public void SetDefaults(Context context)</code><br />
+Resets accumulation state (m_Accumulation = 0 and zeroes m_GarbageAccumulation) — used to initialize default save data.</p>
+</li>
+<li>
+<p><code>private void __AssignQueries(ref SystemState state)</code><br />
+Generated helper to build internal queries for retrieving garbage and building-efficiency parameter singletons. (Compiler-generated, internal use.)</p>
+</li>
+<li>
+<p>Inner types of note:</p>
+</li>
+<li><code>GarbageAccumulationJob</code> (IJobChunk, BurstCompile): the parallel chunk job that performs per-building accumulation, creates collection requests via EntityCommandBuffer.ParallelWriter, and writes to the NativeArray<long> m_GarbageAccumulation using an unsafe pointer + Interlocked.Add for thread-safety.</li>
+<li><code>TypeHandle</code> (private struct): generated wrapper for all component/ buffer lookups and type handles used by the job.</li>
+</ul>
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Example: reading today's (estimated) garbage accumulation reported by the system
+var garbageSystem = World.DefaultGameObjectInjectionWorld.GetExistingSystemManaged&lt;Game.Simulation.GarbageAccumulationSystem&gt;();
+if (garbageSystem != null)
+{
+    long estimatedDailyGarbage = garbageSystem.garbageAccumulation;
+    Debug.Log($&quot;Estimated daily garbage accumulation: {estimatedDailyGarbage}&quot;);
+}
+
+// Example: computing a building's garbage accumulation value (static helper).
+// Requires valid component lookups/buffers from a System or Job context.
+ConsumptionData consumption = default;
+Game.Simulation.GarbageParameterData garbageParams = /* get singleton */;
+CurrentDistrict district = /* get CurrentDistrict for building */;
+DynamicBuffer&lt;CityModifier&gt; cityModifiers = /* get city modifiers buffer */;
+Game.Simulation.GarbageAccumulationSystem.GetGarbageAccumulation(
+    buildingEntity,
+    prefabEntity,
+    ref consumption,
+    district,
+    cityModifiers,
+    citizensLookup,
+    spawnableDatasLookup,
+    zoneDatasLookup,
+    homelessLookup,
+    householdCitizensBufferLookup,
+    rentersBufferLookup,
+    employeesBufferLookup,
+    studentsBufferLookup,
+    occupantsBufferLookup,
+    patientsBufferLookup,
+    districtModifiersBufferLookup,
+    ref garbageParams
+);
+// consumption.m_GarbageAccumulation now contains the per-update garbage value for this building.
 </code></pre>
-<ul>
-<li><code>public Deserialize&lt;TReader&gt;(TReader reader) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Void Deserialize&lt;TReader&gt;(TReader reader);
-</code></pre>
-<ul>
-<li><code>public static GetGarbage(Game.Prefabs.ConsumptionData&amp; consumption, Unity.Entities.Entity building, Unity.Entities.Entity prefab, Unity.Entities.BufferLookup&lt;Game.Buildings.Renter&gt; renters, Unity.Entities.BufferLookup&lt;Game.Buildings.Student&gt; students, Unity.Entities.BufferLookup&lt;Game.Buildings.Occupant&gt; occupants, Unity.Entities.ComponentLookup&lt;Game.Citizens.HomelessHousehold&gt; homelessHouseholds, Unity.Entities.BufferLookup&lt;Game.Citizens.HouseholdCitizen&gt; householdCitizens, Unity.Entities.ComponentLookup&lt;Game.Citizens.Citizen&gt; citizens, Unity.Entities.BufferLookup&lt;Game.Companies.Employee&gt; employees, Unity.Entities.BufferLookup&lt;Game.Buildings.Patient&gt; patients, Unity.Entities.ComponentLookup&lt;Game.Prefabs.SpawnableBuildingData&gt; spawnableDatas, Unity.Entities.ComponentLookup&lt;Game.Areas.CurrentDistrict&gt; currentDistricts, Unity.Entities.BufferLookup&lt;Game.Areas.DistrictModifier&gt; districtModifiers, Unity.Entities.ComponentLookup&lt;Game.Prefabs.ZoneData&gt; zoneDatas, Unity.Entities.DynamicBuffer&lt;Game.City.CityModifier&gt; cityModifiers, Game.Prefabs.GarbageParameterData&amp; garbageParameter) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static void GetGarbage(ref ConsumptionData consumption, Entity building, Entity prefab, BufferLookup&lt;Renter&gt; renters, BufferLookup&lt;Game.Buildings.Student&gt; students, BufferLookup&lt;Occupant&gt; occupants, ComponentLookup&lt;HomelessHousehold&gt; homelessHouseholds, BufferLookup&lt;HouseholdCitizen&gt; householdCitizens, ComponentLookup&lt;Citizen&gt; citizens, BufferLookup&lt;Employee&gt; employees, BufferLookup&lt;Patient&gt; patients, ComponentLookup&lt;SpawnableBuildingData&gt; spawnableDatas, ComponentLookup&lt;CurrentDistrict&gt; currentDistricts, BufferLookup&lt;DistrictModifier&gt; districtModifiers, ComponentLookup&lt;ZoneData&gt; zoneDatas, DynamicBuffer&lt;CityModifier&gt; cityModifiers, ref GarbageParameterData garbageParameter)
-    {
-        CurrentDistrict currentDistrict = currentDistricts[building];
-        GetGarbageAccumulation(building, prefab, ref consumption, currentDistrict, cityModifiers, citizens, spawnableDatas, zoneDatas, homelessHouseholds, householdCitizens, renters, employees, students, occupants, patients, districtModifiers, ref garbageParameter);
-    }
-</code></pre>
-<ul>
-<li><code>public static GetGarbageAccumulation(Unity.Entities.Entity building, Unity.Entities.Entity prefab, Game.Prefabs.ConsumptionData&amp; consumption, Game.Areas.CurrentDistrict currentDistrict, Unity.Entities.DynamicBuffer&lt;Game.City.CityModifier&gt; cityModifiers, Unity.Entities.ComponentLookup&lt;Game.Citizens.Citizen&gt; citizens, Unity.Entities.ComponentLookup&lt;Game.Prefabs.SpawnableBuildingData&gt; spawnableDatas, Unity.Entities.ComponentLookup&lt;Game.Prefabs.ZoneData&gt; zoneDatas, Unity.Entities.ComponentLookup&lt;Game.Citizens.HomelessHousehold&gt; homelessHousehold, Unity.Entities.BufferLookup&lt;Game.Citizens.HouseholdCitizen&gt; householdCitizens, Unity.Entities.BufferLookup&lt;Game.Buildings.Renter&gt; renters, Unity.Entities.BufferLookup&lt;Game.Companies.Employee&gt; employees, Unity.Entities.BufferLookup&lt;Game.Buildings.Student&gt; students, Unity.Entities.BufferLookup&lt;Game.Buildings.Occupant&gt; occupants, Unity.Entities.BufferLookup&lt;Game.Buildings.Patient&gt; patients, Unity.Entities.BufferLookup&lt;Game.Areas.DistrictModifier&gt; districtModifiers, Game.Prefabs.GarbageParameterData&amp; garbageParameter) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static void GetGarbageAccumulation(Entity building, Entity prefab, ref ConsumptionData consumption, CurrentDistrict currentDistrict, DynamicBuffer&lt;CityModifier&gt; cityModifiers, ComponentLookup&lt;Citizen&gt; citizens, ComponentLookup&lt;SpawnableBuildingData&gt; spawnableDatas, ComponentLookup&lt;ZoneData&gt; zoneDatas, ComponentLookup&lt;HomelessHousehold&gt; homelessHousehold, BufferLookup&lt;HouseholdCitizen&gt; householdCitizens, BufferLookup&lt;Renter&gt; renters, BufferLookup&lt;Employee&gt; employees, BufferLookup&lt;Game.Buildings.Student&gt; students, BufferLookup&lt;Occupant&gt; occupants, BufferLookup&lt;Patient&gt; patients, BufferLookup&lt;DistrictModifier&gt; districtModifiers, ref GarbageParameterData garbageParameter)
-    {
-        float num = 0f;
-        int num2 = 0;
-        float num3 = 0f;
-        if (renters.HasBuffer(building))
-        {
-            DynamicBuffer&lt;Renter&gt; dynamicBuffer = renters[building];
-            for (int i = 0; i &lt; dynamicBuffer.Length; i++)
-            {
-                Entity renter = dynamicBuffer[i].m_Renter;
-                if (householdCitizens.HasBuffer(renter))
-                {
-                    DynamicBuffer&lt;HouseholdCitizen&gt; dynamicBuffer2 = householdCitizens[renter];
-                    if (homelessHousehold.HasComponent(renter))
-                    {
-                        num2 += dynamicBuffer2.Length;
-                        continue;
-                    }
-                    for (int j = 0; j &lt; dynamicBuffer2.Length; j++)
-                    {
-                        Entity citizen = dynamicBuffer2[j].m_Citizen;
-                        if (citizens.HasComponent(citizen))
-                        {
-                            num3 += (float)citizens[citizen].GetEducationLevel();
-                            num += 1f;
-                        }
-                    }
-                }
-                else
-                {
-                    if (!employees.HasBuffer(renter))
-                    {
-                        continue;
-                    }
-                    DynamicBuffer&lt;Employee&gt; dynamicBuffer3 = employees[renter];
-                    for (int k = 0; k &lt; dynamicBuffer3.Length; k++)
-                    {
-                        Entity worker = dynamicBuffer3[k].m_Worker;
-                        if (citizens.HasComponent(worker))
-                        {
-                            num3 += (float)citizens[worker].GetEducationLevel();
-                            num += 1f;
-                        }
-                    }
-                }
-            }
-            if (employees.HasBuffer(building))
-            {
-                DynamicBuffer&lt;Employee&gt; dynamicBuffer4 = employees[building];
-                for (int l = 0; l &lt; dynamicBuffer4.Length; l++)
-                {
-                    Entity worker2 = dynamicBuffer4[l].m_Worker;
-                    if (citizens.HasComponent(worker2))
-                    {
-                        num3 += (float)citizens[worker2].GetEducationLevel();
-                        num += 1f;
-                    }
-                }
-            }
-        }
-        else
-        {
-            if (employees.HasBuffer(building))
-            {
-                DynamicBuffer&lt;Employee&gt; dynamicBuffer5 = employees[building];
-                for (int m = 0; m &lt; dynamicBuffer5.Length; m++)
-                {
-                    Entity worker3 = dynamicBuffer5[m].m_Worker;
-                    if (citizens.HasComponent(worker3))
-                    {
-                        num3 += (float)citizens[worker3].GetEducationLevel();
-                        num += 1f;
-                    }
-                }
-            }
-            if (students.HasBuffer(building))
-            {
-                DynamicBuffer&lt;Game.Buildings.Student&gt; dynamicBuffer6 = students[building];
-                for (int n = 0; n &lt; dynamicBuffer6.Length; n++)
-                {
-                    Entity entity = dynamicBuffer6[n];
-                    if (citizens.HasComponent(entity))
-                    {
-                        num3 += (float)citizens[entity].GetEducationLevel();
-                        num += 1f;
-                    }
-                }
-            }
-            if (occupants.HasBuffer(building))
-            {
-                DynamicBuffer&lt;Occupant&gt; dynamicBuffer7 = occupants[building];
-                for (int num4 = 0; num4 &lt; dynamicBuffer7.Length; num4++)
-                {
-                    Entity entity2 = dynamicBuffer7[num4];
-                    if (citizens.HasComponent(entity2))
-                    {
-                        num3 += (float)citizens[entity2].GetEducationLevel();
-                        num += 1f;
-                    }
-                }
-            }
-            if (patients.HasBuffer(building))
-            {
-                DynamicBuffer&lt;Patient&gt; dynamicBuffer8 = patients[building];
-                for (int num5 = 0; num5 &lt; dynamicBuffer8.Length; num5++)
-                {
-                    Entity patient = dynamicBuffer8[num5].m_Patient;
-                    if (citizens.HasComponent(patient))
-                    {
-                        num3 += (float)citizens[patient].GetEducationLevel();
-                        num += 1f;
-                    }
-                }
-            }
-        }
-        float num6 = 0f;
-        if (spawnableDatas.HasComponent(prefab))
-        {
-            num6 = (int)spawnableDatas[prefab].m_Level;
-        }
-        float num7 = 0f;
-        num7 = ((!(num &gt; 0f)) ? (consumption.m_GarbageAccumulation - num6 * garbageParameter.m_BuildingLevelBalance) : (math.max(0f, consumption.m_GarbageAccumulation - (num6 * garbageParameter.m_BuildingLevelBalance + num3 / num * garbageParameter.m_EducationBalance)) * num));
-        if (num2 &gt; 0)
-        {
-            num7 += (float)(garbageParameter.m_HomelessGarbageProduce * num2);
-        }
-        if (districtModifiers.HasBuffer(currentDistrict.m_District))
-        {
-            DynamicBuffer&lt;DistrictModifier&gt; modifiers = districtModifiers[currentDistrict.m_District];
-            AreaUtils.ApplyModifier(ref num7, modifiers, DistrictModifierType.GarbageProduction);
-        }
-        if (spawnableDatas.HasComponent(prefab))
-        {
-            SpawnableBuildingData spawnableBuildingData = spawnableDatas[prefab];
-            if (zoneDatas.HasComponent(spawnableBuildingData.m_ZonePrefab) &amp;&amp; zoneDatas[spawnableBuildingData.m_ZonePrefab].m_AreaType == Game.Zones.AreaType.Industrial &amp;&amp; (zoneDatas[spawnableBuildingData.m_ZonePrefab].m_ZoneFlags &amp; ZoneFlags.Office) == 0)
-            {
-                CityUtils.ApplyModifier(ref num7, cityModifiers, CityModifierType.IndustrialGarbage);
-            }
-        }
-        consumption.m_GarbageAccumulation = num7;
-    }
-</code></pre>
-<ul>
-<li><code>public static GetGarbageEfficiencyFactor(System.Int32 garbage, Game.Prefabs.GarbageParameterData garbageParameters, System.Single maxPenalty) : System.Single</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static float GetGarbageEfficiencyFactor(int garbage, GarbageParameterData garbageParameters, float maxPenalty)
-    {
-        float num = math.saturate((float)(garbage - garbageParameters.m_WarningGarbageLimit) / (float)(garbageParameters.m_MaxGarbageAccumulation - garbageParameters.m_WarningGarbageLimit));
-        return 1f - maxPenalty * num;
-    }
-</code></pre>
-<ul>
-<li><code>public virtual GetUpdateInterval(Game.SystemUpdatePhase phase) : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override int GetUpdateInterval(SystemUpdatePhase phase)
-    {
-        return 262144 / (kUpdatesPerDay * 16);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_SimulationSystem = base.World.GetOrCreateSystemManaged&lt;SimulationSystem&gt;();
-        m_IconCommandSystem = base.World.GetOrCreateSystemManaged&lt;IconCommandSystem&gt;();
-        m_EndFrameBarrier = base.World.GetOrCreateSystemManaged&lt;EndFrameBarrier&gt;();
-        m_CitySystem = base.World.GetOrCreateSystemManaged&lt;CitySystem&gt;();
-        m_GarbageAccumulation = new NativeArray&lt;long&gt;(16, Allocator.Persistent);
-        m_GarbageProducerQuery = GetEntityQuery(new EntityQueryDesc
-        {
-            All = new ComponentType[3]
-            {
-                ComponentType.ReadOnly&lt;GarbageProducer&gt;(),
-                ComponentType.ReadOnly&lt;PrefabRef&gt;(),
-                ComponentType.ReadOnly&lt;UpdateFrame&gt;()
-            },
-            None = new ComponentType[3]
-            {
-                ComponentType.ReadOnly&lt;Deleted&gt;(),
-                ComponentType.ReadOnly&lt;Destroyed&gt;(),
-                ComponentType.ReadOnly&lt;Temp&gt;()
-            }
-        });
-        m_CollectionRequestArchetype = base.EntityManager.CreateArchetype(ComponentType.ReadWrite&lt;ServiceRequest&gt;(), ComponentType.ReadWrite&lt;GarbageCollectionRequest&gt;(), ComponentType.ReadWrite&lt;RequestGroup&gt;());
-        RequireForUpdate(m_GarbageProducerQuery);
-        RequireForUpdate&lt;GarbageParameterData&gt;();
-        RequireForUpdate&lt;BuildingEfficiencyParameterData&gt;();
-        Assert.IsTrue((long)(262144 / kUpdatesPerDay) &gt;= 512L);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreateForCompiler() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnCreateForCompiler()
-    {
-        base.OnCreateForCompiler();
-        __AssignQueries(ref base.CheckedStateRef);
-        __TypeHandle.__AssignHandles(ref base.CheckedStateRef);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnDestroy() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnDestroy()
-    {
-        base.OnDestroy();
-        m_GarbageAccumulation.Dispose();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        uint updateFrame = SimulationUtils.GetUpdateFrame(m_SimulationSystem.frameIndex, kUpdatesPerDay, 16);
-        m_AccumulationDeps.Complete();
-        long num = 0L;
-        for (int i = 0; i &lt; 16; i++)
-        {
-            num += m_GarbageAccumulation[i];
-        }
-        m_Accumulation = num;
-        m_GarbageAccumulation[(int)updateFrame] = 0L;
-        GarbageParameterData singleton = __query_2138252455_0.GetSingleton&lt;GarbageParameterData&gt;();
-        if (!base.EntityManager.HasEnabledComponent&lt;Locked&gt;(singleton.m_GarbageServicePrefab))
-        {
-            m_GarbageProducerQuery.ResetFilter();
-            m_GarbageProducerQuery.SetSharedComponentFilter(new UpdateFrame(updateFrame));
-            JobHandle jobHandle = JobChunkExtensions.ScheduleParallel(new GarbageAccumulationJob
-            {
-                m_EntityType = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef),
-                m_CurrentDistrictType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Areas_CurrentDistrict_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                m_InstalledUpgradeType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Buildings_InstalledUpgrade_RO_BufferTypeHandle, ref base.CheckedStateRef),
-                m_EfficiencyType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Buildings_Efficiency_RW_BufferTypeHandle, ref base.CheckedStateRef),
-                m_GarbageProducerType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Buildings_GarbageProducer_RW_ComponentTypeHandle, ref base.CheckedStateRef),
-                m_GarbageCollectionRequestData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Simulation_GarbageCollectionRequest_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_Citizens = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Citizens_Citizen_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_QuantityData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Objects_Quantity_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_Prefabs = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_ConsumptionDatas = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_ConsumptionData_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_SpawnableDatas = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_SpawnableBuildingData_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_ZoneDatas = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_ZoneData_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_HomelessHousehold = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Citizens_HomelessHousehold_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_HouseholdCitizens = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Citizens_HouseholdCitizen_RO_BufferLookup, ref base.CheckedStateRef),
-                m_Employees = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Companies_Employee_RO_BufferLookup, ref base.CheckedStateRef),
-                m_Renters = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Buildings_Renter_RO_BufferLookup, ref base.CheckedStateRef),
-                m_Students = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Buildings_Student_RO_BufferLookup, ref base.CheckedStateRef),
-                m_Occupants = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Buildings_Occupant_RO_BufferLookup, ref base.CheckedStateRef),
-                m_Patients = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Buildings_Patient_RO_BufferLookup, ref base.CheckedStateRef),
-                m_DistrictModifiers = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Areas_DistrictModifier_RO_BufferLookup, ref base.CheckedStateRef),
-                m_CityModifiers = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_City_CityModifier_RO_BufferLookup, ref base.CheckedStateRef),
-                m_SubObjects = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Objects_SubObject_RO_BufferLookup, ref base.CheckedStateRef),
-                m_City = m_CitySystem.City,
-                m_UpdateFrame = (int)updateFrame,
-                m_RandomSeed = RandomSeed.Next(),
-                m_CollectionRequestArchetype = m_CollectionRequestArchetype,
-                m_GarbageParameters = singleton,
-                m_GarbageEfficiencyPenalty = __query_2138252455_1.GetSingleton&lt;BuildingEfficiencyParameterData&gt;().m_GarbagePenalty,
-                m_CommandBuffer = m_EndFrameBarrier.CreateCommandBuffer().AsParallelWriter(),
-                m_IconCommandBuffer = m_IconCommandSystem.CreateCommandBuffer(),
-                m_GarbageAccumulation = m_GarbageAccumulation
-            }, m_GarbageProducerQuery, base.Dependency);
-            m_EndFrameBarrier.AddJobHandleForProducer(jobHandle);
-            m_IconCommandSystem.AddCommandBufferWriter(jobHandle);
-            base.Dependency = jobHandle;
-            m_AccumulationDeps = jobHandle;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public PreDeserialize(Colossal.Serialization.Entities.Context context) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void PreDeserialize(Context context)
-    {
-        m_Accumulation = 0L;
-        for (int i = 0; i &lt; m_GarbageAccumulation.Length; i++)
-        {
-            m_GarbageAccumulation[i] = 0L;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public Serialize&lt;TWriter&gt;(TWriter writer) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Void Serialize&lt;TWriter&gt;(TWriter writer);
-</code></pre>
-<ul>
-<li><code>public SetDefaults(Colossal.Serialization.Entities.Context context) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void SetDefaults(Context context)
-    {
-        m_Accumulation = 0L;
-        for (int i = 0; i &lt; m_GarbageAccumulation.Length; i++)
-        {
-            m_GarbageAccumulation[i] = 0L;
-        }
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Simulation.GarbageAccumulationSystem+GarbageAccumulationJob</code>  </li>
-<li><code>Game.Simulation.GarbageAccumulationSystem+TypeHandle</code>  </li>
-</ul>
 
 
 

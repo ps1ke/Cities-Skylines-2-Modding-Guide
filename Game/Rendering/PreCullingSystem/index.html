@@ -65233,6 +65233,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69323,15 +69346,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -69368,9 +69382,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -69743,6 +69757,29 @@
   
   <span class="md-ellipsis">
     ShaderID
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
     
   </span>
   
@@ -72572,6 +72609,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75562,6 +75622,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87154,6 +87237,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -117930,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117955,15 +118083,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -118002,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118027,887 +118146,275 @@
 
 
 <h1 id="gamerenderingprecullingsystem">Game.Rendering.PreCullingSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Rendering</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code><br />
-<strong>Implements:</strong> <code>Game.Serialization.IPostDeserialize</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class PreCullingSystem : Game.GameSystemBase, Game.Serialization.IPostDeserialize
-{
-    private Game.Common.BoundsMask &lt;visibleMask&gt;k__BackingField;
-    private Game.Common.BoundsMask &lt;becameVisible&gt;k__BackingField;
-    private Game.Common.BoundsMask &lt;becameHidden&gt;k__BackingField;
-    private Game.Rendering.RenderingSystem m_RenderingSystem;
-    private Game.Rendering.UndergroundViewSystem m_UndergroundViewSystem;
-    private Game.Rendering.BatchMeshSystem m_BatchMeshSystem;
-    private Game.Rendering.BatchDataSystem m_BatchDataSystem;
-    private Game.Objects.SearchSystem m_ObjectSearchSystem;
-    private Game.Net.SearchSystem m_NetSearchSystem;
-    private Game.Tools.ToolSystem m_ToolSystem;
-    private Game.Rendering.CameraUpdateSystem m_CameraUpdateSystem;
-    private Game.Simulation.TerrainSystem m_TerrainSystem;
-    private Unity.Entities.EntityQuery m_InitializeQuery;
-    private Unity.Entities.EntityQuery m_EventQuery;
-    private Unity.Entities.EntityQuery m_CullingInfoQuery;
-    private Unity.Entities.EntityQuery m_TempQuery;
-    private Unity.Mathematics.float3 m_PrevCameraPosition;
-    private Unity.Mathematics.float3 m_PrevCameraDirection;
-    private Unity.Mathematics.float4 m_PrevLodParameters;
-    private Game.Common.BoundsMask m_PrevVisibleMask;
-    private Game.Rendering.PreCullingSystem+QueryFlags m_PrevQueryFlags;
-    private System.Collections.Generic.Dictionary&lt;Game.Rendering.PreCullingSystem+QueryFlags, Unity.Entities.EntityQuery&gt; m_CullingQueries;
-    private System.Collections.Generic.Dictionary&lt;Game.Rendering.PreCullingSystem+QueryFlags, Unity.Entities.EntityQuery&gt; m_RelativeQueries;
-    private System.Collections.Generic.Dictionary&lt;Game.Rendering.PreCullingSystem+QueryFlags, Unity.Entities.EntityQuery&gt; m_RemoveQueries;
-    private Unity.Collections.NativeList&lt;Game.Rendering.PreCullingData&gt; m_CullingData;
-    private Unity.Collections.NativeList&lt;Game.Rendering.PreCullingData&gt; m_UpdatedData;
-    private Unity.Entities.Entity m_FadeContainer;
-    private Unity.Jobs.JobHandle m_WriteDependencies;
-    private Unity.Jobs.JobHandle m_ReadDependencies;
-    private System.Boolean m_ResetPrevious;
-    private System.Boolean m_Loaded;
-    private Game.Rendering.PreCullingSystem+TypeHandle __TypeHandle;
-
-    public Game.Common.BoundsMask visibleMask { get; private set; }
-    public Game.Common.BoundsMask becameVisible { get; private set; }
-    public Game.Common.BoundsMask becameHidden { get; private set; }
-
-    public PreCullingSystem();
-
-    private System.Void __AssignQueries(Unity.Entities.SystemState&amp; state);
-    public System.Void AddCullingDataReader(Unity.Jobs.JobHandle dependencies);
-    public System.Void AddCullingDataWriter(Unity.Jobs.JobHandle dependencies);
-    public Unity.Collections.NativeList&lt;Game.Rendering.PreCullingData&gt; GetCullingData(System.Boolean readOnly, Unity.Jobs.JobHandle&amp; dependencies);
-    private Unity.Entities.EntityQuery GetCullingQuery(Game.Rendering.PreCullingSystem+QueryFlags flags);
-    public Unity.Entities.Entity GetFadeContainer();
-    private System.Boolean GetLoaded();
-    private Game.Rendering.PreCullingSystem+QueryFlags GetQueryFlags();
-    private Unity.Entities.EntityQuery GetRelativeQuery(Game.Rendering.PreCullingSystem+QueryFlags flags);
-    private Unity.Entities.EntityQuery GetRemoveQuery(Game.Rendering.PreCullingSystem+QueryFlags flags);
-    public Unity.Collections.NativeList&lt;Game.Rendering.PreCullingData&gt; GetUpdatedData(System.Boolean readOnly, Unity.Jobs.JobHandle&amp; dependencies);
-    private System.Void InitializeCullingData();
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnCreateForCompiler();
-    protected virtual System.Void OnDestroy();
-    protected virtual System.Void OnUpdate();
-    public System.Void PostDeserialize(Colossal.Serialization.Entities.Context context);
-    public System.Void ResetCulling();
-}
-</code></pre>
+<p><strong>Assembly:</strong> Game (runtime assembly containing game systems)<br />
+<strong>Namespace:</strong> Game.Rendering</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> GameSystemBase, IPostDeserialize</p>
+<p><strong>Summary:</strong><br />
+PreCullingSystem collects and maintains per-entity culling metadata used by the rendering pipeline. It runs a set of Burst jobs to determine which entities pass or fail distance/LOD &amp; layer visibility tests ("pre-culling"), populates a compact PreCullingData list for near-camera processing, and exposes that list for other systems (readers/writers). It integrates with search trees (static objects, nets, lanes), schedules and combines many jobs (initialize, query, relative/temp handling, tree culling, action processing, resize/filter updates) and manages state that tracks changes between frames (previous camera/LOD/visibility masks). The system also exposes a fade container entity used for fade batch management.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.Common.BoundsMask &lt;visibleMask&gt;k__BackingField</code>  </li>
+<li>
+<p><code>private RenderingSystem m_RenderingSystem</code><br />
+The rendering system this pre-culling system queries for frame LOD, frame index/time and other rendering state.</p>
+</li>
+<li>
+<p><code>private UndergroundViewSystem m_UndergroundViewSystem</code><br />
+Tracks underground pipeline/subpipeline/waterway visibility and utility types used to influence culling masks.</p>
+</li>
+<li>
+<p><code>private BatchMeshSystem m_BatchMeshSystem</code><br />
+Used to coordinate batch caching/completion with the culling update.</p>
+</li>
+<li>
+<p><code>private BatchDataSystem m_BatchDataSystem</code><br />
+Provides level-of-detail and other batch-related parameters used by LOD calculations.</p>
+</li>
+<li>
+<p><code>private Game.Objects.SearchSystem m_ObjectSearchSystem</code><br />
+Provides static object search tree (quad-tree) used by tree-based culling.</p>
+</li>
+<li>
+<p><code>private Game.Net.SearchSystem m_NetSearchSystem</code><br />
+Provides net and lane search trees used by tree-based culling for roads/lanes.</p>
+</li>
+<li>
+<p><code>private ToolSystem m_ToolSystem</code><br />
+Used to detect editor/tools state (e.g., whether zones are required).</p>
+</li>
+<li>
+<p><code>private CameraUpdateSystem m_CameraUpdateSystem</code><br />
+Used to read camera/view parameters (viewer forward, LOD parameters, camera position).</p>
+</li>
+<li>
+<p><code>private TerrainSystem m_TerrainSystem</code><br />
+Provides terrain height data when computing object bounds that depend on terrain.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_InitializeQuery</code><br />
+EntityQuery used for initialization pass over culling info components.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_EventQuery</code><br />
+EntityQuery used to process events that influence culling (e.g., renters/color updates).</p>
+</li>
+<li>
+<p><code>private EntityQuery m_CullingInfoQuery</code><br />
+Main query that targets entities with CullingInfo for normal runtime updates.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_TempQuery</code><br />
+Query for temp/interpolated entities that need special handling.</p>
+</li>
+<li>
+<p><code>private float3 m_PrevCameraPosition</code><br />
+Previous-frame camera position used to compute cross-frame LOD/visibility diffs.</p>
+</li>
+<li>
+<p><code>private float3 m_PrevCameraDirection</code><br />
+Previous-frame camera forward vector used for cross-frame LOD/visibility diffs.</p>
+</li>
+<li>
+<p><code>private float4 m_PrevLodParameters</code><br />
+Previous-frame LOD parameters (packed floats) used to detect LOD transitions.</p>
+</li>
+<li>
+<p><code>private BoundsMask m_PrevVisibleMask</code><br />
+Mask of layers that were visible previous frame (to identify becameVisible/becameHidden).</p>
+</li>
+<li>
+<p><code>private QueryFlags m_PrevQueryFlags</code><br />
+Previously used query flags (Unspawned/Zones) used to pick entity queries.</p>
+</li>
+<li>
+<p><code>private Dictionary&lt;QueryFlags, EntityQuery&gt; m_CullingQueries</code><br />
+Cache of entity queries for different QueryFlags combinations for the main culling pass.</p>
+</li>
+<li>
+<p><code>private Dictionary&lt;QueryFlags, EntityQuery&gt; m_RelativeQueries</code><br />
+Cache of entity queries for "relative" entity updates (entities that follow parent bounds).</p>
+</li>
+<li>
+<p><code>private Dictionary&lt;QueryFlags, EntityQuery&gt; m_RemoveQueries</code><br />
+Cache of entity queries for remove/deleted handling.</p>
+</li>
+<li>
+<p><code>private NativeList&lt;PreCullingData&gt; m_CullingData</code><br />
+Main native list holding PreCullingData entries for entities that currently passed culling.</p>
+</li>
+<li>
+<p><code>private NativeList&lt;PreCullingData&gt; m_UpdatedData</code><br />
+Native list collected each frame of pre-culling entries that need to be processed/updated.</p>
+</li>
+<li>
+<p><code>private Entity m_FadeContainer</code><br />
+An Entity created to hold fade batches (FadeContainer), included as a permanent entry in m_CullingData.</p>
+</li>
+<li>
+<p><code>private JobHandle m_WriteDependencies</code><br />
+Handle used to track jobs that write to the culling data; callers can combine with this to ensure safe reads.</p>
+</li>
+<li>
+<p><code>private JobHandle m_ReadDependencies</code><br />
+Handle used to track readers of culling data and combined for writers.</p>
+</li>
+<li>
+<p><code>private bool m_ResetPrevious</code><br />
+When true, previous-frame state is reset so that everything is treated as newly visible/changed.</p>
+</li>
+<li>
+<p><code>private bool m_Loaded</code><br />
+Flag set during PostDeserialize to indicate the system was (re)loaded and needs a full update.</p>
+</li>
+<li>
+<p><code>private TypeHandle __TypeHandle</code><br />
+Internal struct used to store Component/Buffer/Shared handles required by jobs. (auto-generated helper)</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.Common.BoundsMask &lt;visibleMask&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private Game.Common.BoundsMask &lt;becameVisible&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Common.BoundsMask &lt;becameVisible&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private Game.Common.BoundsMask &lt;becameHidden&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Common.BoundsMask &lt;becameHidden&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private Game.Rendering.RenderingSystem m_RenderingSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Rendering.RenderingSystem m_RenderingSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Rendering.UndergroundViewSystem m_UndergroundViewSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Rendering.UndergroundViewSystem m_UndergroundViewSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Rendering.BatchMeshSystem m_BatchMeshSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Rendering.BatchMeshSystem m_BatchMeshSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Rendering.BatchDataSystem m_BatchDataSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Rendering.BatchDataSystem m_BatchDataSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Objects.SearchSystem m_ObjectSearchSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Objects.SearchSystem m_ObjectSearchSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Net.SearchSystem m_NetSearchSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Net.SearchSystem m_NetSearchSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Tools.ToolSystem m_ToolSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Tools.ToolSystem m_ToolSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Rendering.CameraUpdateSystem m_CameraUpdateSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Rendering.CameraUpdateSystem m_CameraUpdateSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.TerrainSystem m_TerrainSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.TerrainSystem m_TerrainSystem;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_InitializeQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_InitializeQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_EventQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_EventQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_CullingInfoQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_CullingInfoQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_TempQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_TempQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Mathematics.float3 m_PrevCameraPosition</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Mathematics.float3 m_PrevCameraPosition;
-</code></pre>
-<ul>
-<li><code>private Unity.Mathematics.float3 m_PrevCameraDirection</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Mathematics.float3 m_PrevCameraDirection;
-</code></pre>
-<ul>
-<li><code>private Unity.Mathematics.float4 m_PrevLodParameters</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Mathematics.float4 m_PrevLodParameters;
-</code></pre>
-<ul>
-<li><code>private Game.Common.BoundsMask m_PrevVisibleMask</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Common.BoundsMask m_PrevVisibleMask;
-</code></pre>
-<ul>
-<li><code>private Game.Rendering.PreCullingSystem+QueryFlags m_PrevQueryFlags</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Rendering.PreCullingSystem+QueryFlags m_PrevQueryFlags;
-</code></pre>
-<ul>
-<li><code>private System.Collections.Generic.Dictionary&lt;Game.Rendering.PreCullingSystem+QueryFlags, Unity.Entities.EntityQuery&gt; m_CullingQueries</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Collections.Generic.Dictionary&lt;Game.Rendering.PreCullingSystem+QueryFlags, Unity.Entities.EntityQuery&gt; m_CullingQueries;
-</code></pre>
-<ul>
-<li><code>private System.Collections.Generic.Dictionary&lt;Game.Rendering.PreCullingSystem+QueryFlags, Unity.Entities.EntityQuery&gt; m_RelativeQueries</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Collections.Generic.Dictionary&lt;Game.Rendering.PreCullingSystem+QueryFlags, Unity.Entities.EntityQuery&gt; m_RelativeQueries;
-</code></pre>
-<ul>
-<li><code>private System.Collections.Generic.Dictionary&lt;Game.Rendering.PreCullingSystem+QueryFlags, Unity.Entities.EntityQuery&gt; m_RemoveQueries</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Collections.Generic.Dictionary&lt;Game.Rendering.PreCullingSystem+QueryFlags, Unity.Entities.EntityQuery&gt; m_RemoveQueries;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeList&lt;Game.Rendering.PreCullingData&gt; m_CullingData</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeList&lt;Game.Rendering.PreCullingData&gt; m_CullingData;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeList&lt;Game.Rendering.PreCullingData&gt; m_UpdatedData</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeList&lt;Game.Rendering.PreCullingData&gt; m_UpdatedData;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.Entity m_FadeContainer</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.Entity m_FadeContainer;
-</code></pre>
-<ul>
-<li><code>private Unity.Jobs.JobHandle m_WriteDependencies</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Jobs.JobHandle m_WriteDependencies;
-</code></pre>
-<ul>
-<li><code>private Unity.Jobs.JobHandle m_ReadDependencies</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Jobs.JobHandle m_ReadDependencies;
-</code></pre>
-<ul>
-<li><code>private System.Boolean m_ResetPrevious</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean m_ResetPrevious;
-</code></pre>
-<ul>
-<li><code>private System.Boolean m_Loaded</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean m_Loaded;
-</code></pre>
-<ul>
-<li><code>private Game.Rendering.PreCullingSystem+TypeHandle __TypeHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Rendering.PreCullingSystem+TypeHandle __TypeHandle;
-</code></pre>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>public Game.Common.BoundsMask visibleMask { get; private set }</code>  </li>
+<li>
+<p><code>public BoundsMask visibleMask { get; private set; }</code><br />
+Current computed visible mask (which layers are visible this frame). Updated during OnUpdate.</p>
+</li>
+<li>
+<p><code>public BoundsMask becameVisible { get; private set; }</code><br />
+Mask of layers that became visible this frame (visibleMask &amp; ~previousVisibleMask). Useful to force checks when layers turn on.</p>
+</li>
+<li>
+<p><code>public BoundsMask becameHidden { get; private set; }</code><br />
+Mask of layers that became hidden this frame (previousVisibleMask &amp; ~visibleMask). Used to force removals/cross-fades.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public Game.Common.BoundsMask visibleMask { get; private set; }
-</code></pre>
-<ul>
-<li><code>public Game.Common.BoundsMask becameVisible { get; private set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Game.Common.BoundsMask becameVisible { get; private set; }
-</code></pre>
-<ul>
-<li><code>public Game.Common.BoundsMask becameHidden { get; private set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Game.Common.BoundsMask becameHidden { get; private set; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public PreCullingSystem()</code>  </li>
+<li><code>public PreCullingSystem()</code><br />
+Default constructor. The system sets up native lists and creates a fade container entity during OnCreate.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public PreCullingSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private __AssignQueries(Unity.Entities.SystemState&amp; state) : System.Void</code>  </li>
+<li>
+<p><code>[Preserve] protected override void OnCreate()</code> : System.Void<br />
+Initializes references to other systems, creates entity queries, allocates native lists (m_CullingData, m_UpdatedData), creates m_FadeContainer, and sets initial previous-camera/LOD state.</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnDestroy()</code> : System.Void<br />
+Completes outstanding write/read dependencies and disposes native lists. Cleans up resources when the system is destroyed.</p>
+</li>
+<li>
+<p><code>public void PostDeserialize(Context context)</code> : System.Void<br />
+Implements IPostDeserialize. Called after serialization load; ensures pending job handles complete, clears fade containers' buffers, re-initializes culling data and resets culling state. Sets m_Loaded = true to request full initialization.</p>
+</li>
+<li>
+<p><code>public void ResetCulling()</code> : System.Void<br />
+Flags the system to reset previous-frame state on next update (m_ResetPrevious = true). Useful if external state changes require treating all entities as newly visible.</p>
+</li>
+<li>
+<p><code>public Entity GetFadeContainer()</code> : Entity<br />
+Returns the fade container entity managed by the system. This entity holds fade/batch buffers for cross-fading.</p>
+</li>
+<li>
+<p><code>public NativeList&lt;PreCullingData&gt; GetCullingData(bool readOnly, out JobHandle dependencies)</code> : NativeList<PreCullingData><br />
+Provides access to the underlying m_CullingData. Also returns job dependency that must be respected by callers. If readOnly is true the returned dependency ensures writers are complete; otherwise both read/write dependencies are combined.</p>
+</li>
+<li>
+<p><code>public NativeList&lt;PreCullingData&gt; GetUpdatedData(bool readOnly, out JobHandle dependencies)</code> : NativeList<PreCullingData><br />
+Provides access to m_UpdatedData and dependency similar to GetCullingData.</p>
+</li>
+<li>
+<p><code>public void AddCullingDataReader(JobHandle dependencies)</code> : System.Void<br />
+Register an external read dependency (combines into m_ReadDependencies) so the system can avoid overwriting data while readers run.</p>
+</li>
+<li>
+<p><code>public void AddCullingDataWriter(JobHandle dependencies)</code> : System.Void<br />
+Register an external writer dependency; replaces m_WriteDependencies. Used to synchronize writers.</p>
+</li>
+<li>
+<p><code>private bool GetLoaded()</code> : bool<br />
+Internal helper used in OnUpdate to consume the m_Loaded flag once (returns true once after PostDeserialize).</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnUpdate()</code> : System.Void<br />
+Main per-frame update. Steps:</p>
+</li>
+<li>Ensure previous write/read dependencies are complete.</li>
+<li>Query camera/LOD parameters (via CameraUpdateSystem and BatchDataSystem).</li>
+<li>Compute the visible layer mask (incl. underground toggles &amp; markers).</li>
+<li>Build and schedule multiple jobs:<ul>
+<li>Tree-based culling jobs (TreeCullingJob1/2) operating on quadtrees for static objects, nets and lanes.</li>
+<li>InitializeCullingJob: fills/updates CullingInfo for entities and sets flags.</li>
+<li>EventCullingJob: processes building/route events that affect culling.</li>
+<li>QueryCullingJob: processes standard culling queries for entities (with/without TransformFrame buffers).</li>
+<li>QueryRemoveJob: handles deleted/applied removal actions.</li>
+<li>RelativeCullingJob: updates bounds for entities that follow a parent (owner or current vehicle).</li>
+<li>TempCullingJob: handles temporary entities and interpolation cases.</li>
+<li>VerifyVisibleJob (optional when resetting or layers hide): ensures previously visible items are validated/removed.</li>
+<li>CullingActionJob: consumes produced CullingAction queue and updates CullingInfo / m_CullingData / handles overflow.</li>
+<li>ResizeCullingDataJob + FilterUpdatesJob: finalize and filter updated data.</li>
 </ul>
-<pre><code class="language-csharp">private void __AssignQueries(ref SystemState state)
-    {
-        new EntityQueryBuilder(Allocator.Temp).Dispose();
-    }
+</li>
+<li>
+<p>Registers tree/terrain readers with respective systems and updates internal previous-frame state.
+  This method orchestrates all pre-culling work and arranges dependencies so results are safe to read.</p>
+</li>
+<li>
+<p><code>private void InitializeCullingData()</code> : System.Void<br />
+Clears m_CullingData and inserts a permanent entry for the fade container (m_FadeContainer) marked as PassedCulling &amp; FadeContainer. Ensures the fade container is always present in the list.</p>
+</li>
+<li>
+<p><code>private EntityQuery GetCullingQuery(QueryFlags flags)</code> : EntityQuery<br />
+Returns (and caches) an EntityQuery configured for the main culling pass, adjusted by flags (include/exclude Unspawned, include zones or not). The query selects entities with CullingInfo and a set of Any and None components appropriate for the flags.</p>
+</li>
+<li>
+<p><code>private EntityQuery GetRelativeQuery(QueryFlags flags)</code> : EntityQuery<br />
+Returns (and caches) an EntityQuery for entities that have Relative components and need to copy parent's bounds. Flags control inclusion of Unspawned.</p>
+</li>
+<li>
+<p><code>private EntityQuery GetRemoveQuery(QueryFlags flags)</code> : EntityQuery<br />
+Returns (and caches) a query used to detect entities that need removal handling (Deleted, optionally Block/Unspawned depending on flags).</p>
+</li>
+<li>
+<p><code>private QueryFlags GetQueryFlags()</code> : QueryFlags<br />
+Computes QueryFlags bitmask for the current frame based on m_RenderingSystem.unspawnedVisible and whether current active tool requires zones.</p>
+</li>
+<li>
+<p><code>[MethodImpl(MethodImplOptions.AggressiveInlining)] private void __AssignQueries(ref SystemState state)</code> : System.Void<br />
+Internal helper used by compiled-once path; assigns queries (auto-generated, no-op here).</p>
+</li>
+<li>
+<p><code>protected override void OnCreateForCompiler()</code> : System.Void<br />
+Auto-generated hookup used by the compiled environment to assign handles; calls __AssignQueries and populates __TypeHandle.</p>
+</li>
+<li>
+<p><code>private void PostDeserialize(Context context)</code><br />
+(Already listed above under IPostDeserialize — retains responsibility for resetting culling after load.)</p>
+</li>
+</ul>
+<p>Note: The class defines many nested Burst jobs and helper structs (TreeCullingJob1/2, TreeCullingIterator, InitializeCullingJob, EventCullingJob, QueryCullingJob, QueryRemoveJob, RelativeCullingJob, TempCullingJob, VerifyVisibleJob, CullingActionJob, ResizeCullingDataJob, FilterUpdatesJob, and others). These are the worker units that perform the parallel culling evaluation and update m_CullingData.</p>
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Get the PreCullingSystem from the world (managed system)
+var preCulling = World.DefaultGameObjectInjectionWorld.GetExistingSystemManaged&lt;Game.Rendering.PreCullingSystem&gt;();
+
+// Ensure any pending writers are complete before reading
+JobHandle readDeps;
+var cullingData = preCulling.GetCullingData(readOnly: true, out readDeps);
+readDeps.Complete(); // ensure the system has finished writing
+
+// Iterate current pre-culling entries (example)
+for (int i = 0; i &lt; cullingData.Length; i++)
+{
+    var entry = cullingData[i];
+    // process entry.m_Entity / entry.m_Flags / etc.
+}
+
+// If external changes require re-evaluating culling from scratch:
+preCulling.ResetCulling();
+
+// Access the fade container entity (used for fade batches)
+Entity fadeContainer = preCulling.GetFadeContainer();
 </code></pre>
-<ul>
-<li><code>public AddCullingDataReader(Unity.Jobs.JobHandle dependencies) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void AddCullingDataReader(JobHandle dependencies)
-    {
-        m_ReadDependencies = JobHandle.CombineDependencies(m_ReadDependencies, dependencies);
-    }
-</code></pre>
-<ul>
-<li><code>public AddCullingDataWriter(Unity.Jobs.JobHandle dependencies) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void AddCullingDataWriter(JobHandle dependencies)
-    {
-        m_WriteDependencies = dependencies;
-    }
-</code></pre>
-<ul>
-<li><code>public GetCullingData(System.Boolean readOnly, Unity.Jobs.JobHandle&amp; dependencies) : Unity.Collections.NativeList&lt;Game.Rendering.PreCullingData&gt;</code>  </li>
-</ul>
-<pre><code class="language-csharp">public NativeList&lt;PreCullingData&gt; GetCullingData(bool readOnly, out JobHandle dependencies)
-    {
-        dependencies = (readOnly ? m_WriteDependencies : JobHandle.CombineDependencies(m_WriteDependencies, m_ReadDependencies));
-        return m_CullingData;
-    }
-</code></pre>
-<ul>
-<li><code>private GetCullingQuery(Game.Rendering.PreCullingSystem+QueryFlags flags) : Unity.Entities.EntityQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private EntityQuery GetCullingQuery(QueryFlags flags)
-    {
-        if (!m_CullingQueries.TryGetValue(flags, out var value))
-        {
-            List&lt;ComponentType&gt; list = new List&lt;ComponentType&gt;
-            {
-                ComponentType.ReadOnly&lt;Moving&gt;(),
-                ComponentType.ReadOnly&lt;Stopped&gt;(),
-                ComponentType.ReadOnly&lt;Updated&gt;()
-            };
-            List&lt;ComponentType&gt; list2 = new List&lt;ComponentType&gt;
-            {
-                ComponentType.ReadOnly&lt;Relative&gt;(),
-                ComponentType.ReadOnly&lt;Temp&gt;(),
-                ComponentType.ReadOnly&lt;Deleted&gt;()
-            };
-            if ((flags &amp; QueryFlags.Unspawned) == 0)
-            {
-                list2.Add(ComponentType.ReadOnly&lt;Unspawned&gt;());
-            }
-            if ((flags &amp; QueryFlags.Zones) != 0)
-            {
-                list.Add(ComponentType.ReadOnly&lt;Block&gt;());
-            }
-            else
-            {
-                list2.Add(ComponentType.ReadOnly&lt;Block&gt;());
-            }
-            value = GetEntityQuery(new EntityQueryDesc
-            {
-                All = new ComponentType[1] { ComponentType.ReadWrite&lt;CullingInfo&gt;() },
-                Any = list.ToArray(),
-                None = list2.ToArray()
-            });
-            m_CullingQueries.Add(flags, value);
-        }
-        return value;
-    }
-</code></pre>
-<ul>
-<li><code>public GetFadeContainer() : Unity.Entities.Entity</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Entity GetFadeContainer()
-    {
-        return m_FadeContainer;
-    }
-</code></pre>
-<ul>
-<li><code>private GetLoaded() : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">private bool GetLoaded()
-    {
-        if (m_Loaded)
-        {
-            m_Loaded = false;
-            return true;
-        }
-        return false;
-    }
-</code></pre>
-<ul>
-<li><code>private GetQueryFlags() : Game.Rendering.PreCullingSystem+QueryFlags</code>  </li>
-</ul>
-<pre><code class="language-csharp">private QueryFlags GetQueryFlags()
-    {
-        QueryFlags queryFlags = (QueryFlags)0;
-        if (m_RenderingSystem.unspawnedVisible)
-        {
-            queryFlags |= QueryFlags.Unspawned;
-        }
-        if (m_ToolSystem.activeTool != null &amp;&amp; m_ToolSystem.activeTool.requireZones)
-        {
-            queryFlags |= QueryFlags.Zones;
-        }
-        return queryFlags;
-    }
-</code></pre>
-<ul>
-<li><code>private GetRelativeQuery(Game.Rendering.PreCullingSystem+QueryFlags flags) : Unity.Entities.EntityQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private EntityQuery GetRelativeQuery(QueryFlags flags)
-    {
-        flags &amp;= QueryFlags.Unspawned;
-        if (!m_RelativeQueries.TryGetValue(flags, out var value))
-        {
-            List&lt;ComponentType&gt; list = new List&lt;ComponentType&gt;
-            {
-                ComponentType.ReadOnly&lt;Temp&gt;(),
-                ComponentType.ReadOnly&lt;Deleted&gt;()
-            };
-            if ((flags &amp; QueryFlags.Unspawned) == 0)
-            {
-                list.Add(ComponentType.ReadOnly&lt;Unspawned&gt;());
-            }
-            value = GetEntityQuery(new EntityQueryDesc
-            {
-                All = new ComponentType[2]
-                {
-                    ComponentType.ReadOnly&lt;Relative&gt;(),
-                    ComponentType.ReadWrite&lt;CullingInfo&gt;()
-                },
-                None = list.ToArray()
-            });
-            m_RelativeQueries.Add(flags, value);
-        }
-        return value;
-    }
-</code></pre>
-<ul>
-<li><code>private GetRemoveQuery(Game.Rendering.PreCullingSystem+QueryFlags flags) : Unity.Entities.EntityQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private EntityQuery GetRemoveQuery(QueryFlags flags)
-    {
-        if (!m_RemoveQueries.TryGetValue(flags, out var value))
-        {
-            List&lt;ComponentType&gt; list = new List&lt;ComponentType&gt; { ComponentType.ReadOnly&lt;Deleted&gt;() };
-            if ((flags &amp; QueryFlags.Zones) != 0)
-            {
-                list.Add(ComponentType.ReadOnly&lt;Block&gt;());
-            }
-            if ((flags &amp; QueryFlags.Unspawned) != 0)
-            {
-                list.Add(ComponentType.ReadOnly&lt;Unspawned&gt;());
-            }
-            value = GetEntityQuery(new EntityQueryDesc
-            {
-                All = new ComponentType[1] { ComponentType.ReadWrite&lt;CullingInfo&gt;() },
-                Any = list.ToArray()
-            });
-            m_RemoveQueries.Add(flags, value);
-        }
-        return value;
-    }
-</code></pre>
-<ul>
-<li><code>public GetUpdatedData(System.Boolean readOnly, Unity.Jobs.JobHandle&amp; dependencies) : Unity.Collections.NativeList&lt;Game.Rendering.PreCullingData&gt;</code>  </li>
-</ul>
-<pre><code class="language-csharp">public NativeList&lt;PreCullingData&gt; GetUpdatedData(bool readOnly, out JobHandle dependencies)
-    {
-        dependencies = (readOnly ? m_WriteDependencies : JobHandle.CombineDependencies(m_WriteDependencies, m_ReadDependencies));
-        return m_UpdatedData;
-    }
-</code></pre>
-<ul>
-<li><code>private InitializeCullingData() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void InitializeCullingData()
-    {
-        m_CullingData.Clear();
-        ref NativeList&lt;PreCullingData&gt; reference = ref m_CullingData;
-        PreCullingData value = new PreCullingData
-        {
-            m_Entity = m_FadeContainer,
-            m_Flags = (PreCullingFlags.PassedCulling | PreCullingFlags.NearCamera | PreCullingFlags.FadeContainer)
-        };
-        reference.Add(in value);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_RenderingSystem = base.World.GetOrCreateSystemManaged&lt;RenderingSystem&gt;();
-        m_UndergroundViewSystem = base.World.GetOrCreateSystemManaged&lt;UndergroundViewSystem&gt;();
-        m_BatchMeshSystem = base.World.GetOrCreateSystemManaged&lt;BatchMeshSystem&gt;();
-        m_BatchDataSystem = base.World.GetOrCreateSystemManaged&lt;BatchDataSystem&gt;();
-        m_ObjectSearchSystem = base.World.GetOrCreateSystemManaged&lt;Game.Objects.SearchSystem&gt;();
-        m_NetSearchSystem = base.World.GetOrCreateSystemManaged&lt;Game.Net.SearchSystem&gt;();
-        m_ToolSystem = base.World.GetOrCreateSystemManaged&lt;ToolSystem&gt;();
-        m_CameraUpdateSystem = base.World.GetOrCreateSystemManaged&lt;CameraUpdateSystem&gt;();
-        m_TerrainSystem = base.World.GetOrCreateSystemManaged&lt;TerrainSystem&gt;();
-        m_InitializeQuery = GetEntityQuery(new EntityQueryDesc
-        {
-            All = new ComponentType[1] { ComponentType.ReadOnly&lt;CullingInfo&gt;() },
-            Any = new ComponentType[2]
-            {
-                ComponentType.ReadOnly&lt;Updated&gt;(),
-                ComponentType.ReadOnly&lt;BatchesUpdated&gt;()
-            },
-            None = new ComponentType[1] { ComponentType.ReadOnly&lt;Deleted&gt;() }
-        });
-        m_EventQuery = GetEntityQuery(new EntityQueryDesc
-        {
-            All = new ComponentType[1] { ComponentType.ReadOnly&lt;Game.Common.Event&gt;() },
-            Any = new ComponentType[2]
-            {
-                ComponentType.ReadOnly&lt;RentersUpdated&gt;(),
-                ComponentType.ReadOnly&lt;ColorUpdated&gt;()
-            }
-        });
-        m_CullingInfoQuery = GetEntityQuery(ComponentType.ReadOnly&lt;CullingInfo&gt;(), ComponentType.Exclude&lt;Deleted&gt;());
-        m_TempQuery = GetEntityQuery(new EntityQueryDesc
-        {
-            All = new ComponentType[2]
-            {
-                ComponentType.ReadOnly&lt;Temp&gt;(),
-                ComponentType.ReadWrite&lt;CullingInfo&gt;()
-            },
-            None = new ComponentType[1] { ComponentType.ReadOnly&lt;Deleted&gt;() }
-        });
-        m_CullingQueries = new Dictionary&lt;QueryFlags, EntityQuery&gt;();
-        m_RelativeQueries = new Dictionary&lt;QueryFlags, EntityQuery&gt;();
-        m_RemoveQueries = new Dictionary&lt;QueryFlags, EntityQuery&gt;();
-        m_PrevCameraDirection = math.forward();
-        m_PrevLodParameters = 1f;
-        m_CullingData = new NativeList&lt;PreCullingData&gt;(10000, Allocator.Persistent);
-        m_UpdatedData = new NativeList&lt;PreCullingData&gt;(10000, Allocator.Persistent);
-        m_FadeContainer = base.EntityManager.CreateEntity(ComponentType.ReadWrite&lt;MeshBatch&gt;(), ComponentType.ReadWrite&lt;FadeBatch&gt;());
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreateForCompiler() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnCreateForCompiler()
-    {
-        base.OnCreateForCompiler();
-        __AssignQueries(ref base.CheckedStateRef);
-        __TypeHandle.__AssignHandles(ref base.CheckedStateRef);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnDestroy() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnDestroy()
-    {
-        m_WriteDependencies.Complete();
-        m_ReadDependencies.Complete();
-        m_CullingData.Dispose();
-        m_UpdatedData.Dispose();
-        base.OnDestroy();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        bool loaded = GetLoaded();
-        m_WriteDependencies.Complete();
-        m_ReadDependencies.Complete();
-        float3 @float = m_PrevCameraPosition;
-        float3 float2 = m_PrevCameraDirection;
-        float4 float3 = m_PrevLodParameters;
-        if (m_CameraUpdateSystem.TryGetLODParameters(out var lodParameters))
-        {
-            @float = lodParameters.cameraPosition;
-            IGameCameraController activeCameraController = m_CameraUpdateSystem.activeCameraController;
-            float3 = RenderingUtils.CalculateLodParameters(m_BatchDataSystem.GetLevelOfDetail(m_RenderingSystem.frameLod, activeCameraController), lodParameters);
-            float2 = m_CameraUpdateSystem.activeViewer.forward;
-        }
-        BoundsMask boundsMask = BoundsMask.NormalLayers;
-        if (m_UndergroundViewSystem.pipelinesOn)
-        {
-            boundsMask |= BoundsMask.PipelineLayer;
-        }
-        if (m_UndergroundViewSystem.subPipelinesOn)
-        {
-            boundsMask |= BoundsMask.SubPipelineLayer;
-        }
-        if (m_UndergroundViewSystem.waterwaysOn)
-        {
-            boundsMask |= BoundsMask.WaterwayLayer;
-        }
-        if (m_RenderingSystem.markersVisible)
-        {
-            boundsMask |= BoundsMask.Debug;
-        }
-        if (m_ResetPrevious)
-        {
-            m_PrevCameraPosition = @float;
-            m_PrevCameraDirection = float2;
-            m_PrevLodParameters = float3;
-            m_PrevVisibleMask = (BoundsMask)0;
-            visibleMask = boundsMask;
-            becameVisible = boundsMask;
-            becameHidden = (BoundsMask)0;
-        }
-        else
-        {
-            visibleMask = boundsMask;
-            becameVisible = (BoundsMask)((uint)boundsMask &amp; (uint)(ushort)(~(int)m_PrevVisibleMask));
-            becameHidden = (BoundsMask)((uint)m_PrevVisibleMask &amp; (uint)(ushort)(~(int)boundsMask));
-        }
-        int length = m_CullingData.Length;
-        NativeParallelQueue&lt;CullingAction&gt; nativeParallelQueue = new NativeParallelQueue&lt;CullingAction&gt;(Allocator.TempJob);
-        NativeReference&lt;int&gt; cullingDataIndex = new NativeReference&lt;int&gt;(length, Allocator.TempJob);
-        NativeQueue&lt;OverflowAction&gt; overflowActions = new NativeQueue&lt;OverflowAction&gt;(Allocator.TempJob);
-        NativeArray&lt;int&gt; nodeBuffer = new NativeArray&lt;int&gt;(1536, Allocator.TempJob, NativeArrayOptions.UninitializedMemory);
-        NativeArray&lt;int&gt; subDataBuffer = new NativeArray&lt;int&gt;(1536, Allocator.TempJob, NativeArrayOptions.UninitializedMemory);
-        JobHandle dependencies;
-        JobHandle dependencies2;
-        JobHandle dependencies3;
-        TreeCullingJob1 jobData = new TreeCullingJob1
-        {
-            m_StaticObjectSearchTree = m_ObjectSearchSystem.GetStaticSearchTree(readOnly: true, out dependencies),
-            m_NetSearchTree = m_NetSearchSystem.GetNetSearchTree(readOnly: true, out dependencies2),
-            m_LaneSearchTree = m_NetSearchSystem.GetLaneSearchTree(readOnly: true, out dependencies3),
-            m_LodParameters = float3,
-            m_PrevLodParameters = m_PrevLodParameters,
-            m_CameraPosition = @float,
-            m_PrevCameraPosition = m_PrevCameraPosition,
-            m_CameraDirection = float2,
-            m_PrevCameraDirection = m_PrevCameraDirection,
-            m_VisibleMask = boundsMask,
-            m_PrevVisibleMask = m_PrevVisibleMask,
-            m_NodeBuffer = nodeBuffer,
-            m_SubDataBuffer = subDataBuffer,
-            m_ActionQueue = nativeParallelQueue.AsWriter()
-        };
-        JobHandle jobHandle = new TreeCullingJob2
-        {
-            m_StaticObjectSearchTree = jobData.m_StaticObjectSearchTree,
-            m_NetSearchTree = jobData.m_NetSearchTree,
-            m_LaneSearchTree = jobData.m_LaneSearchTree,
-            m_LodParameters = float3,
-            m_PrevLodParameters = m_PrevLodParameters,
-            m_CameraPosition = @float,
-            m_PrevCameraPosition = m_PrevCameraPosition,
-            m_CameraDirection = float2,
-            m_PrevCameraDirection = m_PrevCameraDirection,
-            m_VisibleMask = boundsMask,
-            m_PrevVisibleMask = m_PrevVisibleMask,
-            m_NodeBuffer = nodeBuffer,
-            m_SubDataBuffer = subDataBuffer,
-            m_ActionQueue = nativeParallelQueue.AsWriter()
-        }.Schedule(dependsOn: IJobParallelForExtensions.Schedule(jobData, 3, 1, JobHandle.CombineDependencies(dependencies, dependencies2, dependencies3)), arrayLength: nodeBuffer.Length, innerloopBatchCount: 1);
-        JobHandle.ScheduleBatchedJobs();
-        m_BatchMeshSystem.CompleteCaching();
-        QueryFlags queryFlags = GetQueryFlags();
-        InitializeCullingJob jobData2 = new InitializeCullingJob
-        {
-            m_UpdateFrameType = InternalCompilerInterface.GetSharedComponentTypeHandle(ref __TypeHandle.__Game_Simulation_UpdateFrame_SharedComponentTypeHandle, ref base.CheckedStateRef),
-            m_OwnerType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Common_Owner_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_UpdatedType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Common_Updated_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_BatchesUpdatedType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Common_BatchesUpdated_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_OverriddenType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Common_Overridden_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_TransformType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Objects_Transform_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_StackType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Objects_Stack_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_ObjectMarkerType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Objects_Marker_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_OutsideConnectionType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Objects_OutsideConnection_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_UnspawnedType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Objects_Unspawned_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_NodeType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Net_Node_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_EdgeType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Net_Edge_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_NodeGeometryType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Net_NodeGeometry_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_EdgeGeometryType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Net_EdgeGeometry_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_StartNodeGeometryType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Net_StartNodeGeometry_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_EndNodeGeometryType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Net_EndNodeGeometry_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_CompositionType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Net_Composition_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_OrphanType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Net_Orphan_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_CurveType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Net_Curve_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_UtilityLaneType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Net_UtilityLane_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_NetMarkerType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Net_Marker_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_ZoneBlockType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Zones_Block_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_PrefabRefType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_TransformFrameType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Objects_TransformFrame_RO_BufferTypeHandle, ref base.CheckedStateRef),
-            m_CullingInfoType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Rendering_CullingInfo_RW_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_PrefabRefData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabObjectGeometryData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_ObjectGeometryData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabStackData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_StackData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabLaneGeometryData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_NetLaneGeometryData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabUtilityLaneData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_UtilityLaneData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabCompositionData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_NetCompositionData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabCompositionMeshRef = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_NetCompositionMeshRef_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabCompositionMeshData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_NetCompositionMeshData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabNetData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_NetData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabNetGeometryData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_NetGeometryData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_EditorMode = m_ToolSystem.actionMode.IsEditor(),
-            m_UpdateAll = loaded,
-            m_UnspawnedVisible = m_RenderingSystem.unspawnedVisible,
-            m_DilatedUtilityTypes = m_UndergroundViewSystem.utilityTypes,
-            m_TerrainHeightData = m_TerrainSystem.GetHeightData(),
-            m_CullingData = m_CullingData
-        };
-        EventCullingJob jobData3 = new EventCullingJob
-        {
-            m_RentersUpdatedType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Buildings_RentersUpdated_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_ColorUpdatedType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Routes_ColorUpdated_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_CullingInfoData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Rendering_CullingInfo_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_SubObjects = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Objects_SubObject_RO_BufferLookup, ref base.CheckedStateRef),
-            m_SubLanes = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Net_SubLane_RO_BufferLookup, ref base.CheckedStateRef),
-            m_RouteVehicles = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Routes_RouteVehicle_RO_BufferLookup, ref base.CheckedStateRef),
-            m_LayoutElements = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Vehicles_LayoutElement_RO_BufferLookup, ref base.CheckedStateRef),
-            m_CullingData = m_CullingData
-        };
-        QueryCullingJob jobData4 = new QueryCullingJob
-        {
-            m_EntityType = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef),
-            m_UpdateFrameType = InternalCompilerInterface.GetSharedComponentTypeHandle(ref __TypeHandle.__Game_Simulation_UpdateFrame_SharedComponentTypeHandle, ref base.CheckedStateRef),
-            m_TransformType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Objects_Transform_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_TransformFrameType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Objects_TransformFrame_RO_BufferTypeHandle, ref base.CheckedStateRef),
-            m_CullingInfoType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Rendering_CullingInfo_RW_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_LodParameters = float3,
-            m_CameraPosition = @float,
-            m_CameraDirection = float2,
-            m_FrameIndex = m_RenderingSystem.frameIndex,
-            m_FrameTime = m_RenderingSystem.frameTime,
-            m_VisibleMask = boundsMask,
-            m_ActionQueue = nativeParallelQueue.AsWriter()
-        };
-        QueryRemoveJob jobData5 = new QueryRemoveJob
-        {
-            m_EntityType = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef),
-            m_DeletedType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Common_Deleted_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_AppliedType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Common_Applied_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_UpdateFrameType = InternalCompilerInterface.GetSharedComponentTypeHandle(ref __TypeHandle.__Game_Simulation_UpdateFrame_SharedComponentTypeHandle, ref base.CheckedStateRef),
-            m_TransformFrameType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Objects_TransformFrame_RO_BufferTypeHandle, ref base.CheckedStateRef),
-            m_CullingInfoType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Rendering_CullingInfo_RW_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_ActionQueue = nativeParallelQueue.AsWriter()
-        };
-        RelativeCullingJob jobData6 = new RelativeCullingJob
-        {
-            m_EntityType = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef),
-            m_OwnerType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Common_Owner_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_CurrentVehicleType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Creatures_CurrentVehicle_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_CullingInfoData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Rendering_CullingInfo_RW_ComponentLookup, ref base.CheckedStateRef),
-            m_LodParameters = float3,
-            m_CameraPosition = @float,
-            m_CameraDirection = float2,
-            m_VisibleMask = boundsMask,
-            m_ActionQueue = nativeParallelQueue.AsWriter()
-        };
-        TempCullingJob jobData7 = new TempCullingJob
-        {
-            m_EntityType = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef),
-            m_InterpolatedTransformType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Rendering_InterpolatedTransform_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_TransformType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Objects_Transform_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_StackType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Objects_Stack_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_StaticType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Objects_Static_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_StoppedType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Objects_Stopped_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_TempType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Tools_Temp_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_PrefabRefType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_PrefabObjectGeometryData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_ObjectGeometryData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabStackData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_StackData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_CullingInfoData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Rendering_CullingInfo_RW_ComponentLookup, ref base.CheckedStateRef),
-            m_LodParameters = float3,
-            m_CameraPosition = @float,
-            m_CameraDirection = float2,
-            m_VisibleMask = boundsMask,
-            m_TerrainHeightData = jobData2.m_TerrainHeightData,
-            m_ActionQueue = nativeParallelQueue.AsWriter()
-        };
-        EntityQuery query = (loaded ? m_CullingInfoQuery : m_InitializeQuery);
-        EntityQuery cullingQuery = GetCullingQuery(queryFlags);
-        EntityQuery relativeQuery = GetRelativeQuery(queryFlags);
-        EntityQuery removeQuery = GetRemoveQuery(m_PrevQueryFlags &amp; ~queryFlags);
-        JobHandle dependsOn = JobChunkExtensions.Schedule(dependsOn: JobChunkExtensions.ScheduleParallel(jobData2, query, base.Dependency), jobData: jobData3, query: m_EventQuery);
-        JobHandle dependsOn2 = JobChunkExtensions.ScheduleParallel(jobData4, cullingQuery, dependsOn);
-        JobHandle dependsOn3 = JobChunkExtensions.ScheduleParallel(jobData5, removeQuery, dependsOn2);
-        JobHandle jobHandle2 = JobChunkExtensions.ScheduleParallel(dependsOn: JobChunkExtensions.ScheduleParallel(jobData6, relativeQuery, dependsOn3), jobData: jobData7, query: m_TempQuery);
-        if (m_ResetPrevious || becameHidden != 0)
-        {
-            JobHandle job = IJobParallelForExtensions.Schedule(new VerifyVisibleJob
-            {
-                m_CullingInfoData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Rendering_CullingInfo_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_LodParameters = float3,
-                m_CameraPosition = @float,
-                m_CameraDirection = float2,
-                m_VisibleMask = boundsMask,
-                m_CullingData = m_CullingData,
-                m_ActionQueue = nativeParallelQueue.AsWriter()
-            }, length, 16, jobHandle2);
-            m_WriteDependencies = JobHandle.CombineDependencies(jobHandle, job);
-        }
-        else
-        {
-            m_WriteDependencies = JobHandle.CombineDependencies(jobHandle, jobHandle2);
-        }
-        CullingActionJob jobData8 = new CullingActionJob
-        {
-            m_CullingActions = nativeParallelQueue.AsReader(),
-            m_OverflowActions = overflowActions.AsParallelWriter(),
-            m_CullingInfo = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Rendering_CullingInfo_RW_ComponentLookup, ref base.CheckedStateRef),
-            m_CullingData = m_CullingData,
-            m_CullingDataIndex = cullingDataIndex
-        };
-        ResizeCullingDataJob jobData9 = new ResizeCullingDataJob
-        {
-            m_CullingDataIndex = cullingDataIndex,
-            m_CullingData = m_CullingData,
-            m_UpdatedData = m_UpdatedData,
-            m_OverflowActions = overflowActions
-        };
-        FilterUpdatesJob jobData10 = new FilterUpdatesJob
-        {
-            m_CreatedData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Common_Created_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_UpdatedData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Common_Updated_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_AppliedData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Common_Applied_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_BatchesUpdatedData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Common_BatchesUpdated_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_InterpolatedTransformData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Rendering_InterpolatedTransform_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_OwnerData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Common_Owner_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_TempData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Tools_Temp_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_ObjectData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Objects_Object_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_ObjectGeometryData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Objects_ObjectGeometry_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_ObjectColorData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Objects_Color_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PlantData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Objects_Plant_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_TreeData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Objects_Tree_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_RelativeData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Objects_Relative_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_DamagedData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Objects_Damaged_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_BuildingData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Buildings_Building_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_ExtensionData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Buildings_Extension_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_EdgeData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_Edge_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_NodeData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_Node_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_LaneData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_Lane_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_NodeColorData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_NodeColor_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_EdgeColorData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_EdgeColor_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_LaneColorData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_LaneColor_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_LaneConditionData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_LaneCondition_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_ZoneData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Zones_Block_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_OnFireData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Events_OnFire_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_AnimatedData = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Rendering_Animated_RO_BufferLookup, ref base.CheckedStateRef),
-            m_SkeletonData = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Rendering_Skeleton_RO_BufferLookup, ref base.CheckedStateRef),
-            m_EmissiveData = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Rendering_Emissive_RO_BufferLookup, ref base.CheckedStateRef),
-            m_MeshColorData = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Rendering_MeshColor_RO_BufferLookup, ref base.CheckedStateRef),
-            m_LayoutElements = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Vehicles_LayoutElement_RO_BufferLookup, ref base.CheckedStateRef),
-            m_EffectInstances = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Effects_EnabledEffect_RO_BufferLookup, ref base.CheckedStateRef),
-            m_TimerDelta = m_RenderingSystem.lodTimerDelta,
-            m_CullingData = m_CullingData,
-            m_UpdatedCullingData = m_UpdatedData.AsParallelWriter()
-        };
-        JobHandle jobHandle3 = IJobParallelForExtensions.Schedule(jobData8, nativeParallelQueue.HashRange, 1, m_WriteDependencies);
-        JobHandle jobHandle4 = IJobExtensions.Schedule(jobData9, jobHandle3);
-        JobHandle jobHandle5 = jobData10.Schedule(m_CullingData, 16, jobHandle4);
-        m_ObjectSearchSystem.AddStaticSearchTreeReader(jobHandle);
-        m_NetSearchSystem.AddNetSearchTreeReader(jobHandle);
-        m_NetSearchSystem.AddLaneSearchTreeReader(jobHandle);
-        m_TerrainSystem.AddCPUHeightReader(jobHandle2);
-        nativeParallelQueue.Dispose(jobHandle3);
-        cullingDataIndex.Dispose(jobHandle4);
-        overflowActions.Dispose(jobHandle4);
-        nodeBuffer.Dispose(jobHandle);
-        subDataBuffer.Dispose(jobHandle);
-        m_PrevCameraPosition = @float;
-        m_PrevCameraDirection = float2;
-        m_PrevLodParameters = float3;
-        m_PrevVisibleMask = boundsMask;
-        m_PrevQueryFlags = queryFlags;
-        m_ResetPrevious = false;
-        m_WriteDependencies = jobHandle5;
-        m_ReadDependencies = default(JobHandle);
-        base.Dependency = jobHandle5;
-    }
-</code></pre>
-<ul>
-<li><code>public PostDeserialize(Colossal.Serialization.Entities.Context context) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void PostDeserialize(Context context)
-    {
-        m_WriteDependencies.Complete();
-        m_ReadDependencies.Complete();
-        base.EntityManager.GetBuffer&lt;MeshBatch&gt;(m_FadeContainer).Clear();
-        base.EntityManager.GetBuffer&lt;FadeBatch&gt;(m_FadeContainer).Clear();
-        InitializeCullingData();
-        ResetCulling();
-        m_Loaded = true;
-    }
-</code></pre>
-<ul>
-<li><code>public ResetCulling() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void ResetCulling()
-    {
-        m_ResetPrevious = true;
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Rendering.PreCullingSystem+QueryFlags</code>  </li>
-<li><code>Game.Rendering.PreCullingSystem+TreeCullingJob1</code>  </li>
-<li><code>Game.Rendering.PreCullingSystem+TreeCullingJob2</code>  </li>
-<li><code>Game.Rendering.PreCullingSystem+TreeCullingIterator</code>  </li>
-<li><code>Game.Rendering.PreCullingSystem+InitializeCullingJob</code>  </li>
-<li><code>Game.Rendering.PreCullingSystem+EventCullingJob</code>  </li>
-<li><code>Game.Rendering.PreCullingSystem+QueryCullingJob</code>  </li>
-<li><code>Game.Rendering.PreCullingSystem+QueryRemoveJob</code>  </li>
-<li><code>Game.Rendering.PreCullingSystem+RelativeCullingJob</code>  </li>
-<li><code>Game.Rendering.PreCullingSystem+TempCullingJob</code>  </li>
-<li><code>Game.Rendering.PreCullingSystem+VerifyVisibleJob</code>  </li>
-<li><code>Game.Rendering.PreCullingSystem+ActionFlags</code>  </li>
-<li><code>Game.Rendering.PreCullingSystem+CullingAction</code>  </li>
-<li><code>Game.Rendering.PreCullingSystem+OverflowAction</code>  </li>
-<li><code>Game.Rendering.PreCullingSystem+CullingActionJob</code>  </li>
-<li><code>Game.Rendering.PreCullingSystem+ResizeCullingDataJob</code>  </li>
-<li><code>Game.Rendering.PreCullingSystem+FilterUpdatesJob</code>  </li>
-<li><code>Game.Rendering.PreCullingSystem+TypeHandle</code>  </li>
-</ul>
+<p>If you need documentation for any of the nested job structs, the QueryFlags enum, or the PreCullingData/ CullingInfo data layouts referenced by this system, tell me which item and I will add a focused section.</p>
 
 
 

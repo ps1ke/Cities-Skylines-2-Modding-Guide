@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87056,6 +87148,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -99010,18 +99125,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -99046,9 +99161,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -117923,6 +118038,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117950,18 +118087,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -117986,9 +118123,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118011,451 +118148,212 @@
 
 
 <h1 id="gameuieditorresourcepanelsystem">Game.UI.Editor.ResourcePanelSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.UI.Editor</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.UI.Editor.EditorPanelSystemBase</code><br />
-<strong>Implements:</strong> <code>Game.UI.Editor.IEditorPanel</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class ResourcePanelSystem : Game.UI.Editor.EditorPanelSystemBase, Game.UI.Editor.IEditorPanel
-{
-    private Game.Prefabs.PrefabSystem m_PrefabSystem;
-    private Game.Tools.ToolSystem m_ToolSystem;
-    private Game.Simulation.NaturalResourceSystem m_NaturalResourceSystem;
-    private Game.Simulation.GroundWaterSystem m_GroundWaterSystem;
-    private Unity.Entities.EntityQuery m_PrefabQuery;
-    private Game.UI.Widgets.IconButtonGroup m_ToolButtonGroup;
-    private Game.UI.Editor.EditorSection m_TextureImportButtons;
-    private System.Collections.Generic.List&lt;Game.Prefabs.PrefabBase&gt; m_ToolPrefabs;
-    private static readonly System.String kTextureImportFolder;
-
-    public ResourcePanelSystem();
-
-    private Game.Simulation.NaturalResourceCell ApplyFertile(Game.Simulation.NaturalResourceCell cell, System.UInt16 amount);
-    private System.Void ApplyGroundWater(UnityEngine.Texture2D texture, Game.Simulation.CellMapData&lt;Game.Simulation.GroundWater&gt; data, System.Int32 x, System.Int32 y, System.Func&lt;Game.Simulation.GroundWater, System.UInt16, Game.Simulation.GroundWater&gt; _);
-    private Game.Simulation.NaturalResourceCell ApplyOil(Game.Simulation.NaturalResourceCell cell, System.UInt16 amount);
-    private Game.Simulation.NaturalResourceCell ApplyOre(Game.Simulation.NaturalResourceCell cell, System.UInt16 amount);
-    private System.Void ApplyResource&lt;TCell&gt;(UnityEngine.Texture2D texture, Game.Simulation.CellMapData&lt;TCell&gt; data, System.Int32 x, System.Int32 y, System.Func&lt;TCell, System.UInt16, TCell&gt; applyCallback);
-    private System.Void ApplyTexture(UnityEngine.Texture2D texture, Game.Prefabs.TerraformingTarget target);
-    private System.Void ApplyTexture&lt;TCell&gt;(UnityEngine.Texture2D texture, Game.Simulation.CellMapSystem&lt;TCell&gt; cellMapSystem, System.Action&lt;UnityEngine.Texture2D, Game.Simulation.CellMapData&lt;TCell&gt;, System.Int32, System.Int32, System.Func&lt;TCell, System.UInt16, TCell&gt;&gt; applyCallback, System.Func&lt;TCell, System.UInt16, TCell&gt; resourceCallback);
-    private System.Void Clear(Game.Prefabs.TerraformingTarget target);
-    private Game.Simulation.NaturalResourceCell ClearFertile(Game.Simulation.NaturalResourceCell cell);
-    private Game.Simulation.GroundWater ClearGroundWater(Game.Simulation.GroundWater _);
-    private System.Void ClearMap&lt;TCell&gt;(Game.Simulation.CellMapSystem&lt;TCell&gt; cellMapSystem, System.Func&lt;TCell, TCell&gt; clearCallback);
-    private Game.Simulation.NaturalResourceCell ClearOil(Game.Simulation.NaturalResourceCell cell);
-    private Game.Simulation.NaturalResourceCell ClearOre(Game.Simulation.NaturalResourceCell cell);
-    private static System.Collections.Generic.IEnumerable&lt;Game.UI.Editor.AssetItem&gt; GetTextures();
-    private System.Void ImportTexture(Game.Prefabs.TerraformingTarget target);
-    private static System.Boolean IsResourceTerraformingPrefab(Game.Prefabs.TerraformingPrefab prefab);
-    protected virtual System.Boolean OnCancel();
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnGameLoaded(Colossal.Serialization.Entities.Context serializationContext);
-    private System.Void OnLoadTexture(Colossal.Hash128 guid, Game.Prefabs.TerraformingTarget target);
-    protected virtual System.Void OnStopRunning();
-    private System.Int32 Sample&lt;TCell&gt;(UnityEngine.Texture2D texture, Game.Simulation.CellMapData&lt;TCell&gt; data, System.Int32 x, System.Int32 y, System.Int32 max);
-}
-</code></pre>
+<p><strong>Assembly:</strong> Game<br />
+<strong>Namespace:</strong> Game.UI.Editor</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> EditorPanelSystemBase</p>
+<p><strong>Summary:</strong><br />
+ResourcePanelSystem provides the Editor UI panel used to manage terraforming resource tools in the editor. It gathers terraformable prefabs that represent resources (ore, oil, fertile land, groundwater), builds the UI (tool icons and import/clear buttons), and implements texture import and clear operations that write into the game's cell maps (resource and groundwater maps). It supports importing textures from the project's "Heightmaps" folder and samples texture values into underlying CellMapData structures, completing any outstanding jobs before writing.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.Prefabs.PrefabSystem m_PrefabSystem</code>  </li>
+<li>
+<p><code>private static readonly string kTextureImportFolder = "Heightmaps"</code><br />
+Constant subpath used to filter image assets for texture import. Only ImageAssets whose meta subPath starts with this value are listed for import.</p>
+</li>
+<li>
+<p><code>private PrefabSystem m_PrefabSystem</code><br />
+Reference to the game's PrefabSystem, used to enumerate and retrieve terraformable prefabs.</p>
+</li>
+<li>
+<p><code>private ToolSystem m_ToolSystem</code><br />
+Reference to the ToolSystem used to activate/deactivate prefab tools when the user selects resource tools in the UI.</p>
+</li>
+<li>
+<p><code>private NaturalResourceSystem m_NaturalResourceSystem</code><br />
+Reference to the NaturalResourceSystem (cell map system) used for ore, oil and fertility maps.</p>
+</li>
+<li>
+<p><code>private GroundWaterSystem m_GroundWaterSystem</code><br />
+Reference to the GroundWaterSystem used for the groundwater map.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_PrefabQuery</code><br />
+EntityQuery used to find UI-enabled terraform prefabs (PrefabData + TerraformingData + UIObjectData), excluding Deleted and Temp entities.</p>
+</li>
+<li>
+<p><code>private IconButtonGroup m_ToolButtonGroup</code><br />
+UI widget that hosts the resource tool icon buttons.</p>
+</li>
+<li>
+<p><code>private EditorSection m_TextureImportButtons</code><br />
+EditorSection that hosts the import/clear button rows for each resource type.</p>
+</li>
+<li>
+<p><code>private List&lt;PrefabBase&gt; m_ToolPrefabs = new List&lt;PrefabBase&gt;()</code><br />
+Cached list of terraform prefabs that represent resources. Used to check whether the currently active prefab tool belongs to this panel.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.Prefabs.PrefabSystem m_PrefabSystem;
-</code></pre>
+<h2 id="properties">Properties</h2>
 <ul>
-<li><code>private Game.Tools.ToolSystem m_ToolSystem</code>  </li>
+<li>None (there are no public properties declared on this type).</li>
 </ul>
-<pre><code class="language-csharp">private Game.Tools.ToolSystem m_ToolSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.NaturalResourceSystem m_NaturalResourceSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.NaturalResourceSystem m_NaturalResourceSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.GroundWaterSystem m_GroundWaterSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.GroundWaterSystem m_GroundWaterSystem;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_PrefabQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_PrefabQuery;
-</code></pre>
-<ul>
-<li><code>private Game.UI.Widgets.IconButtonGroup m_ToolButtonGroup</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.UI.Widgets.IconButtonGroup m_ToolButtonGroup;
-</code></pre>
-<ul>
-<li><code>private Game.UI.Editor.EditorSection m_TextureImportButtons</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.UI.Editor.EditorSection m_TextureImportButtons;
-</code></pre>
-<ul>
-<li><code>private System.Collections.Generic.List&lt;Game.Prefabs.PrefabBase&gt; m_ToolPrefabs</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Collections.Generic.List&lt;Game.Prefabs.PrefabBase&gt; m_ToolPrefabs;
-</code></pre>
-<ul>
-<li><code>private static readonly System.String kTextureImportFolder</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static readonly System.String kTextureImportFolder;
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public ResourcePanelSystem()</code>  </li>
+<li><code>public ResourcePanelSystem()</code><br />
+Default constructor. Marked with [Preserve] in the source to prevent stripping; performs no additional runtime initialization (initialization happens in OnCreate).</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public ResourcePanelSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private ApplyFertile(Game.Simulation.NaturalResourceCell cell, System.UInt16 amount) : Game.Simulation.NaturalResourceCell</code>  </li>
+<li>
+<p><code>protected override void OnCreate()</code><br />
+Initializes the panel: obtains required systems (PrefabSystem, ToolSystem, NaturalResourceSystem, GroundWaterSystem), creates the EntityQuery to find terraformable UI objects, sets the panel title, and constructs the UI skeleton (an EditorSection for resource tools with an IconButtonGroup and an EditorSection for texture import buttons). This method sets up fields but does not populate the tool list — that occurs when a game is loaded.</p>
+</li>
+<li>
+<p><code>protected override void OnGameLoaded(Context serializationContext)</code><br />
+Called when a save or game is loaded. Enumerates all UI terraform prefabs via UIObjectInfo.GetSortedObjects(m_PrefabQuery). For each prefab that IsResourceTerraformingPrefab returns true, it:</p>
+</li>
+<li>Adds the prefab to m_ToolPrefabs,</li>
+<li>Creates an IconButton entry to toggle the prefab tool (uses ImageSystem.GetIcon and localized tooltip),</li>
+<li>
+<p>Creates a ButtonRow containing an "Import" and "Clear" button wired to ImportTexture and Clear respectively.
+After enumeration it assigns the icon buttons to m_ToolButtonGroup.children and the import/clear rows to m_TextureImportButtons.children.</p>
+</li>
+<li>
+<p><code>private static bool IsResourceTerraformingPrefab(TerraformingPrefab prefab)</code><br />
+Returns true if the prefab's TerraformingTarget is a resource target (GroundWater, Ore, Oil, FertileLand). It excludes Height and Material targets and treats None as non-resource.</p>
+</li>
+<li>
+<p><code>protected override void OnStopRunning()</code><br />
+When the editor panel stops running, if the currently active prefab tool is one of this panel's resource prefabs, deactivates it via m_ToolSystem.ActivatePrefabTool(null).</p>
+</li>
+<li>
+<p><code>protected override bool OnCancel()</code><br />
+Handles cancel (e.g., ESC). If the active tool belongs to this panel's prefabs, deactivate it and return false (indicating the cancel was handled). Otherwise delegates to base.OnCancel().</p>
+</li>
+<li>
+<p><code>private void ImportTexture(TerraformingTarget target)</code><br />
+Opens a LoadAssetPanel that lists textures returned by GetTextures() and calls OnLoadTexture on selection. The panel title is "Import " + target. The delegate passed to the LoadAssetPanel will call OnLoadTexture with the selected asset GUID and the resource target.</p>
+</li>
+<li>
+<p><code>private static IEnumerable&lt;AssetItem&gt; GetTextures()</code><br />
+Enumerates ImageAsset assets from AssetDatabase.global filtered by meta.subPath starting with kTextureImportFolder. For each matching ImageAsset yields an AssetItem with guid, fileName, displayName and image URI. This is used to populate the LoadAssetPanel.</p>
+</li>
+<li>
+<p><code>private void OnLoadTexture(Colossal.Hash128 guid, TerraformingTarget target)</code><br />
+Closes the sub-panel and attempts to load the selected ImageAsset from the AssetDatabase. If found, loads the Texture2D (srgb: true) and passes it to ApplyTexture for the requested target. The ImageAsset is disposed after use (using block ensures proper release).</p>
+</li>
+<li>
+<p><code>private void ApplyTexture(Texture2D texture, TerraformingTarget target)</code><br />
+Dispatches to the appropriate ApplyTexture overload, depending on the target:</p>
+</li>
+<li>GroundWater -&gt; ApplyTexture(texture, m_GroundWaterSystem, ApplyGroundWater, null)</li>
+<li>Ore -&gt; ApplyTexture(texture, m_NaturalResourceSystem, ApplyResource, ApplyOre)</li>
+<li>Oil -&gt; ApplyTexture(texture, m_NaturalResourceSystem, ApplyResource, ApplyOil)</li>
+<li>
+<p>FertileLand -&gt; ApplyTexture(texture, m_NaturalResourceSystem, ApplyResource, ApplyFertile)</p>
+</li>
+<li>
+<p><code>private void ApplyTexture&lt;TCell&gt;(Texture2D texture, CellMapSystem&lt;TCell&gt; cellMapSystem, Action&lt;Texture2D, CellMapData&lt;TCell&gt;, int, int, Func&lt;TCell, ushort, TCell&gt;&gt; applyCallback, Func&lt;TCell, ushort, TCell&gt; resourceCallback) where TCell : struct, ISerializable</code><br />
+Generic method that gets writable CellMapData<TCell> via cellMapSystem.GetData(readOnly: false, out JobHandle dependencies). It completes any returned dependencies before writing. Iterates over every cell (x,y) of the cell map texture size and calls applyCallback to update the cell using sampled texture data.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private NaturalResourceCell ApplyFertile(NaturalResourceCell cell, ushort amount)
-    {
-        cell.m_Fertility = new NaturalResourceAmount
-        {
-            m_Base = amount
-        };
-        return cell;
-    }
-</code></pre>
+<p>Notes:
+  - It calls dependencies.Complete() — this will synchronize and wait for any jobs that need to finish before modifying the cell buffer.
+  - The applyCallback is responsible for sampling and writing into data.m_Buffer at index computed from x,y.</p>
 <ul>
-<li><code>private ApplyGroundWater(UnityEngine.Texture2D texture, Game.Simulation.CellMapData&lt;Game.Simulation.GroundWater&gt; data, System.Int32 x, System.Int32 y, System.Func&lt;Game.Simulation.GroundWater, System.UInt16, Game.Simulation.GroundWater&gt; _) : System.Void</code>  </li>
+<li>
+<p><code>private void ApplyResource&lt;TCell&gt;(Texture2D texture, CellMapData&lt;TCell&gt; data, int x, int y, Func&lt;TCell, ushort, TCell&gt; applyCallback) where TCell : struct, ISerializable</code><br />
+Generic helper used for natural-resource-like maps (ore/oil/fertility). Samples texture at (x,y) into an integer amount (scaled by 10000), casts to ushort, and replaces data.m_Buffer[index] by applying applyCallback(originalCell, sampledAmount).</p>
+</li>
+<li>
+<p><code>private void ApplyGroundWater(Texture2D texture, CellMapData&lt;GroundWater&gt; data, int x, int y, Func&lt;GroundWater, ushort, GroundWater&gt; _)</code><br />
+Samples texture into a short value (range up to 10000) and writes a GroundWater struct setting both m_Amount and m_Max to that value.</p>
+</li>
+<li>
+<p><code>private NaturalResourceCell ApplyOre(NaturalResourceCell cell, ushort amount)</code><br />
+Sets cell.m_Ore.m_Base to the sampled amount (wrapped in NaturalResourceAmount) and returns the modified cell.</p>
+</li>
+<li>
+<p><code>private NaturalResourceCell ApplyOil(NaturalResourceCell cell, ushort amount)</code><br />
+Sets cell.m_Oil.m_Base to the sampled amount and returns the modified cell.</p>
+</li>
+<li>
+<p><code>private NaturalResourceCell ApplyFertile(NaturalResourceCell cell, ushort amount)</code><br />
+Sets cell.m_Fertility.m_Base to the sampled amount and returns the modified cell.</p>
+</li>
+<li>
+<p><code>private int Sample&lt;TCell&gt;(Texture2D texture, CellMapData&lt;TCell&gt; data, int x, int y, int max) where TCell : struct, ISerializable</code><br />
+Samples the red channel of the texture using Texture2D.GetPixelBilinear at normalized coordinates corresponding to the data's texture size, clamps it (math.saturate), multiplies by max and rounds to nearest int. Used to produce the resource/groundwater amount from texture grayscale values.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private void ApplyGroundWater(Texture2D texture, CellMapData&lt;GroundWater&gt; data, int x, int y, Func&lt;GroundWater, ushort, GroundWater&gt; _)
-    {
-        int index = y * data.m_TextureSize.x + x;
-        short num = (short)Sample(texture, data, x, y, 10000);
-        data.m_Buffer[index] = new GroundWater
-        {
-            m_Amount = num,
-            m_Max = num
-        };
-    }
-</code></pre>
+<p>Note: This method uses floating bilinear sampling for smoother mapping between texture and cell map.</p>
 <ul>
-<li><code>private ApplyOil(Game.Simulation.NaturalResourceCell cell, System.UInt16 amount) : Game.Simulation.NaturalResourceCell</code>  </li>
+<li><code>private void Clear(TerraformingTarget target)</code><br />
+Dispatches to ClearMap depending on the target:</li>
+<li>GroundWater -&gt; ClearMap(m_GroundWaterSystem, ClearGroundWater)</li>
+<li>Ore -&gt; ClearMap(m_NaturalResourceSystem, ClearOre)</li>
+<li>Oil -&gt; ClearMap(m_NaturalResourceSystem, ClearOil)</li>
+<li>
+<p>FertileLand -&gt; ClearMap(m_NaturalResourceSystem, ClearFertile)</p>
+</li>
+<li>
+<p><code>private void ClearMap&lt;TCell&gt;(CellMapSystem&lt;TCell&gt; cellMapSystem, Func&lt;TCell, TCell&gt; clearCallback) where TCell : struct, ISerializable</code><br />
+Gets writable CellMapData<TCell> (completing any dependencies) and then iterates over the entire data.m_Buffer clearing each cell using clearCallback.</p>
+</li>
+<li>
+<p><code>private NaturalResourceCell ClearOre(NaturalResourceCell cell)</code><br />
+Resets cell.m_Ore to default(NaturalResourceAmount) and returns the cell.</p>
+</li>
+<li>
+<p><code>private NaturalResourceCell ClearOil(NaturalResourceCell cell)</code><br />
+Resets cell.m_Oil to default(NaturalResourceAmount) and returns the cell.</p>
+</li>
+<li>
+<p><code>private NaturalResourceCell ClearFertile(NaturalResourceCell cell)</code><br />
+Resets cell.m_Fertility to default(NaturalResourceAmount) and returns the cell.</p>
+</li>
+<li>
+<p><code>private GroundWater ClearGroundWater(GroundWater _)</code><br />
+Returns default(GroundWater), effectively clearing groundwater data.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private NaturalResourceCell ApplyOil(NaturalResourceCell cell, ushort amount)
-    {
-        cell.m_Oil = new NaturalResourceAmount
-        {
-            m_Base = amount
-        };
-        return cell;
-    }
-</code></pre>
-<ul>
-<li><code>private ApplyOre(Game.Simulation.NaturalResourceCell cell, System.UInt16 amount) : Game.Simulation.NaturalResourceCell</code>  </li>
-</ul>
-<pre><code class="language-csharp">private NaturalResourceCell ApplyOre(NaturalResourceCell cell, ushort amount)
-    {
-        cell.m_Ore = new NaturalResourceAmount
-        {
-            m_Base = amount
-        };
-        return cell;
-    }
-</code></pre>
-<ul>
-<li><code>private ApplyResource&lt;TCell&gt;(UnityEngine.Texture2D texture, Game.Simulation.CellMapData&lt;TCell&gt; data, System.Int32 x, System.Int32 y, System.Func&lt;TCell, System.UInt16, TCell&gt; applyCallback) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Void ApplyResource&lt;TCell&gt;(UnityEngine.Texture2D texture, Game.Simulation.CellMapData&lt;TCell&gt; data, System.Int32 x, System.Int32 y, System.Func&lt;TCell, System.UInt16, TCell&gt; applyCallback);
-</code></pre>
-<ul>
-<li><code>private ApplyTexture(UnityEngine.Texture2D texture, Game.Prefabs.TerraformingTarget target) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void ApplyTexture(Texture2D texture, TerraformingTarget target)
-    {
-        switch (target)
-        {
-        case TerraformingTarget.GroundWater:
-            ApplyTexture(texture, m_GroundWaterSystem, ApplyGroundWater, null);
-            break;
-        case TerraformingTarget.Ore:
-            ApplyTexture(texture, m_NaturalResourceSystem, ApplyResource, ApplyOre);
-            break;
-        case TerraformingTarget.Oil:
-            ApplyTexture(texture, m_NaturalResourceSystem, ApplyResource, ApplyOil);
-            break;
-        case TerraformingTarget.FertileLand:
-            ApplyTexture(texture, m_NaturalResourceSystem, ApplyResource, ApplyFertile);
-            break;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private ApplyTexture&lt;TCell&gt;(UnityEngine.Texture2D texture, Game.Simulation.CellMapSystem&lt;TCell&gt; cellMapSystem, System.Action&lt;UnityEngine.Texture2D, Game.Simulation.CellMapData&lt;TCell&gt;, System.Int32, System.Int32, System.Func&lt;TCell, System.UInt16, TCell&gt;&gt; applyCallback, System.Func&lt;TCell, System.UInt16, TCell&gt; resourceCallback) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Void ApplyTexture&lt;TCell&gt;(UnityEngine.Texture2D texture, Game.Simulation.CellMapSystem&lt;TCell&gt; cellMapSystem, System.Action&lt;UnityEngine.Texture2D, Game.Simulation.CellMapData&lt;TCell&gt;, System.Int32, System.Int32, System.Func&lt;TCell, System.UInt16, TCell&gt;&gt; applyCallback, System.Func&lt;TCell, System.UInt16, TCell&gt; resourceCallback);
-</code></pre>
-<ul>
-<li><code>private Clear(Game.Prefabs.TerraformingTarget target) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void Clear(TerraformingTarget target)
-    {
-        switch (target)
-        {
-        case TerraformingTarget.GroundWater:
-            ClearMap(m_GroundWaterSystem, ClearGroundWater);
-            break;
-        case TerraformingTarget.Ore:
-            ClearMap(m_NaturalResourceSystem, ClearOre);
-            break;
-        case TerraformingTarget.Oil:
-            ClearMap(m_NaturalResourceSystem, ClearOil);
-            break;
-        case TerraformingTarget.FertileLand:
-            ClearMap(m_NaturalResourceSystem, ClearFertile);
-            break;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private ClearFertile(Game.Simulation.NaturalResourceCell cell) : Game.Simulation.NaturalResourceCell</code>  </li>
-</ul>
-<pre><code class="language-csharp">private NaturalResourceCell ClearFertile(NaturalResourceCell cell)
-    {
-        cell.m_Fertility = default(NaturalResourceAmount);
-        return cell;
-    }
-</code></pre>
-<ul>
-<li><code>private ClearGroundWater(Game.Simulation.GroundWater _) : Game.Simulation.GroundWater</code>  </li>
-</ul>
-<pre><code class="language-csharp">private GroundWater ClearGroundWater(GroundWater _)
-    {
-        return default(GroundWater);
-    }
-</code></pre>
-<ul>
-<li><code>private ClearMap&lt;TCell&gt;(Game.Simulation.CellMapSystem&lt;TCell&gt; cellMapSystem, System.Func&lt;TCell, TCell&gt; clearCallback) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Void ClearMap&lt;TCell&gt;(Game.Simulation.CellMapSystem&lt;TCell&gt; cellMapSystem, System.Func&lt;TCell, TCell&gt; clearCallback);
-</code></pre>
-<ul>
-<li><code>private ClearOil(Game.Simulation.NaturalResourceCell cell) : Game.Simulation.NaturalResourceCell</code>  </li>
-</ul>
-<pre><code class="language-csharp">private NaturalResourceCell ClearOil(NaturalResourceCell cell)
-    {
-        cell.m_Oil = default(NaturalResourceAmount);
-        return cell;
-    }
-</code></pre>
-<ul>
-<li><code>private ClearOre(Game.Simulation.NaturalResourceCell cell) : Game.Simulation.NaturalResourceCell</code>  </li>
-</ul>
-<pre><code class="language-csharp">private NaturalResourceCell ClearOre(NaturalResourceCell cell)
-    {
-        cell.m_Ore = default(NaturalResourceAmount);
-        return cell;
-    }
-</code></pre>
-<ul>
-<li><code>private static GetTextures() : System.Collections.Generic.IEnumerable&lt;Game.UI.Editor.AssetItem&gt;</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static IEnumerable&lt;AssetItem&gt; GetTextures()
-    {
-        foreach (ImageAsset asset in AssetDatabase.global.GetAssets(SearchFilter&lt;ImageAsset&gt;.ByCondition((ImageAsset a) =&gt; a.GetMeta().subPath?.StartsWith(kTextureImportFolder) ?? false)))
-        {
-            yield return new AssetItem
-            {
-                guid = asset.id,
-                fileName = asset.name,
-                displayName = asset.name,
-                image = asset.ToUri()
-            };
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private ImportTexture(Game.Prefabs.TerraformingTarget target) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void ImportTexture(TerraformingTarget target)
-    {
-        base.activeSubPanel = new LoadAssetPanel(&quot;Import &quot; + target, GetTextures(), delegate(Colossal.Hash128 guid)
-        {
-            OnLoadTexture(guid, target);
-        }, base.CloseSubPanel);
-    }
-</code></pre>
-<ul>
-<li><code>private static IsResourceTerraformingPrefab(Game.Prefabs.TerraformingPrefab prefab) : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static bool IsResourceTerraformingPrefab(TerraformingPrefab prefab)
-    {
-        if (prefab.m_Target != TerraformingTarget.Height &amp;&amp; prefab.m_Target != TerraformingTarget.Material)
-        {
-            return prefab.m_Target != TerraformingTarget.None;
-        }
-        return false;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCancel() : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override bool OnCancel()
-    {
-        if (m_ToolPrefabs.Contains(m_ToolSystem.activePrefab))
-        {
-            m_ToolSystem.ActivatePrefabTool(null);
-            return false;
-        }
-        return base.OnCancel();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
+<h2 id="usage-example">Usage Example</h2>
 <pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
+protected override void OnCreate()
+{
+    base.OnCreate();
+    // obtain references to the systems used by the panel
+    m_PrefabSystem = base.World.GetOrCreateSystemManaged&lt;PrefabSystem&gt;();
+    m_ToolSystem = base.World.GetOrCreateSystemManaged&lt;ToolSystem&gt;();
+    m_NaturalResourceSystem = base.World.GetOrCreateSystemManaged&lt;NaturalResourceSystem&gt;();
+    m_GroundWaterSystem = base.World.GetExistingSystemManaged&lt;GroundWaterSystem&gt;();
+
+    // build UI skeleton (title, tool group, texture import section)
+    title = &quot;Editor.RESOURCES&quot;;
+    m_ToolButtonGroup = new IconButtonGroup();
+    m_TextureImportButtons = new EditorSection
     {
-        base.OnCreate();
-        m_PrefabSystem = base.World.GetOrCreateSystemManaged&lt;PrefabSystem&gt;();
-        m_ToolSystem = base.World.GetOrCreateSystemManaged&lt;ToolSystem&gt;();
-        m_NaturalResourceSystem = base.World.GetOrCreateSystemManaged&lt;NaturalResourceSystem&gt;();
-        m_GroundWaterSystem = base.World.GetExistingSystemManaged&lt;GroundWaterSystem&gt;();
-        m_PrefabQuery = GetEntityQuery(new EntityQueryDesc
-        {
-            All = new ComponentType[3]
-            {
-                ComponentType.ReadOnly&lt;PrefabData&gt;(),
-                ComponentType.ReadOnly&lt;TerraformingData&gt;(),
-                ComponentType.ReadOnly&lt;UIObjectData&gt;()
-            },
-            None = new ComponentType[2]
-            {
-                ComponentType.ReadOnly&lt;Deleted&gt;(),
-                ComponentType.ReadOnly&lt;Temp&gt;()
-            }
-        });
-        title = &quot;Editor.RESOURCES&quot;;
-        IWidget[] array = new IWidget[1];
-        IWidget[] obj = new IWidget[2]
-        {
-            new EditorSection
-            {
-                displayName = &quot;Editor.RESOURCE_TOOLS&quot;,
-                tooltip = &quot;Editor.RESOURCE_TOOLS_TOOLTIP&quot;,
-                expanded = true,
-                children = new IWidget[1] { m_ToolButtonGroup = new IconButtonGroup() }
-            },
-            null
-        };
-        EditorSection obj2 = new EditorSection
-        {
-            displayName = &quot;Editor.RESOURCE_TEXTURE_LABEL&quot;,
-            tooltip = &quot;Editor.RESOURCE_TEXTURE_LABEL_TOOLTIP&quot;,
-            expanded = true
-        };
-        EditorSection editorSection = obj2;
-        m_TextureImportButtons = obj2;
-        obj[1] = editorSection;
-        array[0] = Scrollable.WithChildren(obj);
-        children = array;
-    }
+        displayName = &quot;Editor.RESOURCE_TEXTURE_LABEL&quot;,
+        tooltip = &quot;Editor.RESOURCE_TEXTURE_LABEL_TOOLTIP&quot;,
+        expanded = true
+    };
+    children = new IWidget[] { Scrollable.WithChildren(new IWidget[] {
+        new EditorSection {
+            displayName = &quot;Editor.RESOURCE_TOOLS&quot;,
+            tooltip = &quot;Editor.RESOURCE_TOOLS_TOOLTIP&quot;,
+            expanded = true,
+            children = new IWidget[] { m_ToolButtonGroup }
+        },
+        m_TextureImportButtons
+    })};
+}
 </code></pre>
-<ul>
-<li><code>protected virtual OnGameLoaded(Colossal.Serialization.Entities.Context serializationContext) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnGameLoaded(Context serializationContext)
-    {
-        base.OnGameLoaded(serializationContext);
-        m_ToolPrefabs.Clear();
-        List&lt;IconButton&gt; list = new List&lt;IconButton&gt;();
-        List&lt;IWidget&gt; list2 = new List&lt;IWidget&gt;();
-        using NativeList&lt;UIObjectInfo&gt; nativeList = UIObjectInfo.GetSortedObjects(m_PrefabQuery, Allocator.Temp);
-        foreach (UIObjectInfo item in nativeList)
-        {
-            TerraformingPrefab prefab = m_PrefabSystem.GetPrefab&lt;TerraformingPrefab&gt;(item.prefabData);
-            if (IsResourceTerraformingPrefab(prefab))
-            {
-                m_ToolPrefabs.Add(prefab);
-                list.Add(new IconButton
-                {
-                    icon = (ImageSystem.GetIcon(prefab) ?? &quot;Media/Editor/Terrain.svg&quot;),
-                    tooltip = LocalizedString.Id(&quot;Assets.NAME[&quot; + prefab.name + &quot;]&quot;),
-                    action = delegate
-                    {
-                        m_ToolSystem.ActivatePrefabTool((m_ToolSystem.activePrefab != prefab) ? prefab : null);
-                    },
-                    selected = () =&gt; m_ToolSystem.activePrefab == prefab
-                });
-                list2.Add(new ButtonRow
-                {
-                    children = new Button[2]
-                    {
-                        new Button
-                        {
-                            displayName = $&quot;Editor.IMPORT_RESOURCE[{prefab.m_Target}]&quot;,
-                            tooltip = $&quot;Editor.IMPORT_RESOURCE_TOOLTIP[{prefab.m_Target}]&quot;,
-                            action = delegate
-                            {
-                                ImportTexture(prefab.m_Target);
-                            }
-                        },
-                        new Button
-                        {
-                            displayName = $&quot;Editor.CLEAR_RESOURCE[{prefab.m_Target}]&quot;,
-                            tooltip = $&quot;Editor.CLEAR_RESOURCE_TOOLTIP[{prefab.m_Target}]&quot;,
-                            action = delegate
-                            {
-                                Clear(prefab.m_Target);
-                            }
-                        }
-                    }
-                });
-            }
-        }
-        m_ToolButtonGroup.children = list.ToArray();
-        m_TextureImportButtons.children = list2;
-    }
-</code></pre>
-<ul>
-<li><code>private OnLoadTexture(Colossal.Hash128 guid, Game.Prefabs.TerraformingTarget target) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void OnLoadTexture(Colossal.Hash128 guid, TerraformingTarget target)
-    {
-        CloseSubPanel();
-        if (AssetDatabase.global.TryGetAsset(guid, out ImageAsset asset))
-        {
-            using (asset)
-            {
-                Texture2D texture = asset.Load(srgb: true);
-                ApplyTexture(texture, target);
-            }
-        }
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnStopRunning() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnStopRunning()
-    {
-        base.OnStopRunning();
-        if (m_ToolPrefabs.Contains(m_ToolSystem.activePrefab))
-        {
-            m_ToolSystem.ActivatePrefabTool(null);
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private Sample&lt;TCell&gt;(UnityEngine.Texture2D texture, Game.Simulation.CellMapData&lt;TCell&gt; data, System.Int32 x, System.Int32 y, System.Int32 max) : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 Sample&lt;TCell&gt;(UnityEngine.Texture2D texture, Game.Simulation.CellMapData&lt;TCell&gt; data, System.Int32 x, System.Int32 y, System.Int32 max);
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.UI.Editor.ResourcePanelSystem+&lt;&gt;c</code>  </li>
-<li><code>Game.UI.Editor.ResourcePanelSystem+&lt;&gt;c__DisplayClass10_0</code>  </li>
-<li><code>Game.UI.Editor.ResourcePanelSystem+&lt;&gt;c__DisplayClass14_0</code>  </li>
-<li><code>Game.UI.Editor.ResourcePanelSystem+&lt;GetTextures&gt;d__15</code>  </li>
-</ul>
+<p>Notes and tips:
+- Import textures should be placed in the project's "Heightmaps" asset folder (kTextureImportFolder) to be discoverable by the import dialog.
+- ApplyTexture and ClearMap force-completion of any outstanding job dependencies returned by CellMapSystem.GetData; these operations are synchronous and may be costly for large maps.
+- The texture sampling scales the red channel to the range [0, max] using bilinear sampling and saturate; the code uses a max of 10000 for resource/groundwater amounts.
+- When loading ImageAsset via AssetDatabase.global.TryGetAsset, the ImageAsset is disposed after Load is called to avoid leaks.</p>
 
 
 

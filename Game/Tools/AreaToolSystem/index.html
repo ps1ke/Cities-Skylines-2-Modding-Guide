@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87073,6 +87165,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Simulation/SurfaceWater/" class="md-nav__link">
         
   
@@ -90851,15 +90966,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -90896,9 +91002,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -117930,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117955,15 +118083,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -118002,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118027,1702 +118146,263 @@
 
 
 <h1 id="gametoolsareatoolsystem">Game.Tools.AreaToolSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Tools</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.Tools.ToolBaseSystem</code><br />
-<strong>Implements:</strong> <code>System.IEquatable&lt;Game.Tools.ToolBaseSystem&gt;</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class AreaToolSystem : Game.Tools.ToolBaseSystem, System.IEquatable&lt;Game.Tools.ToolBaseSystem&gt;
-{
-    private Game.Tools.AreaToolSystem+Mode &lt;mode&gt;k__BackingField;
-    private Unity.Entities.Entity &lt;recreate&gt;k__BackingField;
-    private System.Boolean &lt;underground&gt;k__BackingField;
-    private System.Boolean &lt;allowGenerate&gt;k__BackingField;
-    private Game.Tools.ObjectToolSystem m_ObjectToolSystem;
-    private Game.Areas.SearchSystem m_AreaSearchSystem;
-    private Game.Net.SearchSystem m_NetSearchSystem;
-    private Game.Objects.SearchSystem m_ObjectSearchSystem;
-    private Game.Tools.ToolOutputBarrier m_ToolOutputBarrier;
-    private Game.Audio.AudioManager m_AudioManager;
-    private Game.Input.IProxyAction m_AddAreaNode;
-    private Game.Input.IProxyAction m_InsertAreaNode;
-    private Game.Input.IProxyAction m_MergeAreaNode;
-    private Game.Input.IProxyAction m_MoveAreaNode;
-    private Game.Input.IProxyAction m_DeleteAreaNode;
-    private Game.Input.IProxyAction m_UndoAreaNode;
-    private Game.Input.IProxyAction m_CompleteArea;
-    private Game.Input.IProxyAction m_CreateArea;
-    private Game.Input.IProxyAction m_DeleteArea;
-    private Game.Input.IProxyAction m_DiscardInsertAreaNode;
-    private Game.Input.IProxyAction m_DiscardMoveAreaNode;
-    private Game.Input.IProxyAction m_DiscardMergeAreaNode;
-    private Game.Input.IProxyAction m_CreateAreaOrMoveAreaNode;
-    private Game.Input.IProxyAction m_CreateAreaOrInsertAreaNode;
-    private System.Boolean m_ApplyBlocked;
-    private Unity.Entities.EntityQuery m_DefinitionQuery;
-    private Unity.Entities.EntityQuery m_TempAreaQuery;
-    private Unity.Entities.EntityQuery m_TempBuildingQuery;
-    private Unity.Entities.EntityQuery m_MapTileQuery;
-    private Unity.Entities.EntityQuery m_SoundQuery;
-    private Game.Tools.ControlPoint m_LastRaycastPoint;
-    private Unity.Collections.NativeList&lt;Game.Tools.ControlPoint&gt; m_ControlPoints;
-    private Unity.Collections.NativeList&lt;Game.Tools.ControlPoint&gt; m_MoveStartPositions;
-    private Colossal.Collections.NativeValue&lt;Game.Tools.AreaToolSystem+Tooltip&gt; m_Tooltip;
-    private Game.Tools.AreaToolSystem+Mode m_LastMode;
-    private Game.Tools.AreaToolSystem+State m_State;
-    private Game.Prefabs.AreaPrefab m_Prefab;
-    private System.Boolean m_ControlPointsMoved;
-    private System.Boolean m_AllowCreateArea;
-    private System.Boolean m_ForceCancel;
-    private Game.Tools.AreaToolSystem+TypeHandle __TypeHandle;
-    public static const System.String kToolID;
-
-    public System.String toolID { get; }
-    public System.Int32 uiModeIndex { get; }
-    public Game.Tools.AreaToolSystem+Mode mode { get; set; }
-    public Game.Tools.AreaToolSystem+Mode actualMode { get; }
-    public Unity.Entities.Entity recreate { get; set; }
-    public System.Boolean underground { get; set; }
-    public System.Boolean allowGenerate { get; private set; }
-    public Game.Tools.AreaToolSystem+State state { get; }
-    public Game.Tools.AreaToolSystem+Tooltip tooltip { get; }
-    public Game.Prefabs.AreaPrefab prefab { get; set; }
-    private System.Collections.Generic.IEnumerable&lt;Game.Input.IProxyAction&gt; toolActions { private get; }
-
-    public AreaToolSystem();
-
-    private System.Void __AssignQueries(Unity.Entities.SystemState&amp; state);
-    private Unity.Jobs.JobHandle Apply(Unity.Jobs.JobHandle inputDeps, System.Boolean singleFrameOnly);
-    private Unity.Jobs.JobHandle Cancel(Unity.Jobs.JobHandle inputDeps, System.Boolean singleFrameOnly);
-    private Unity.Jobs.JobHandle Clear(Unity.Jobs.JobHandle inputDeps);
-    public virtual System.Void ElevationDown();
-    public virtual System.Void ElevationScroll();
-    public virtual System.Void ElevationUp();
-    public virtual System.Void GetAvailableSnapMask(Game.Tools.Snap&amp; onMask, Game.Tools.Snap&amp; offMask);
-    private static System.Void GetAvailableSnapMask(Game.Prefabs.AreaGeometryData prefabAreaData, System.Boolean editorMode, Game.Tools.Snap&amp; onMask, Game.Tools.Snap&amp; offMask);
-    public Unity.Collections.NativeList&lt;Game.Tools.ControlPoint&gt; GetControlPoints(Unity.Collections.NativeList`1[[Game.Tools.ControlPoint, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]&amp; moveStartPositions, Unity.Jobs.JobHandle&amp; dependencies);
-    public virtual Game.Prefabs.PrefabBase GetPrefab();
-    public virtual System.Void GetUIModes(System.Collections.Generic.List&lt;Game.Tools.ToolMode&gt; modes);
-    public virtual System.Void InitializeRaycast();
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnCreateForCompiler();
-    protected virtual System.Void OnDestroy();
-    protected virtual System.Void OnStartRunning();
-    protected virtual System.Void OnStopRunning();
-    protected virtual Unity.Jobs.JobHandle OnUpdate(Unity.Jobs.JobHandle inputDeps);
-    public virtual System.Void SetUnderground(System.Boolean underground);
-    private Unity.Jobs.JobHandle SnapControlPoints(Unity.Jobs.JobHandle inputDeps, Unity.Collections.NativeArray&lt;Unity.Entities.Entity&gt; applyTempAreas);
-    public virtual System.Boolean TrySetPrefab(Game.Prefabs.PrefabBase prefab);
-    private Unity.Jobs.JobHandle Update(Unity.Jobs.JobHandle inputDeps, System.Boolean fullUpdate);
-    private virtual System.Void UpdateActions();
-    private System.Void UpdateApplyAction();
-    private System.Void UpdateCancelAction();
-    private Unity.Jobs.JobHandle UpdateDefinitions(Unity.Jobs.JobHandle inputDeps, Unity.Collections.NativeArray&lt;Unity.Entities.Entity&gt; applyTempAreas, Unity.Collections.NativeArray&lt;Unity.Entities.Entity&gt; applyTempBuildings);
-    private System.Void UpdateSecondaryApplyAction();
-}
-</code></pre>
+<p><strong>Assembly:</strong><br />
+<strong>Namespace:</strong> Game.Tools</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> ToolBaseSystem</p>
+<p><strong>Summary:</strong><br />
+AreaToolSystem is the main tool system used by the Area (polygon) editing and generation tools in Cities: Skylines 2. It provides functionality for creating, modifying and removing Areas (lots, districts, spaces, surfaces and map tiles), handles user input, snapping logic, raycasting, and jobified search/definition creation. The system coordinates multiple subsystems (area/net/object search systems, tool output barrier, audio manager) and schedules Burst-compiled jobs (SnapJob, RemoveMapTilesJob, CreateDefinitionsJob) to keep UI responsive while computing snapping, temporary area definitions and apply/clear operations. It exposes mode/state/tooltip enums for UI and supports editor vs gameplay mode differences (auto-parenting, lot grid snapping, etc.).<br />
+This class is intended for use by the in-game tool framework and can be referenced by mods that need to interact with or extend area editing behavior (e.g. custom area prefabs, tool actions, or hooking into apply/clear flows).</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.Tools.AreaToolSystem+Mode &lt;mode&gt;k__BackingField</code>  </li>
+<li>
+<p><code>private ObjectToolSystem m_ObjectToolSystem</code><br />
+This stores a reference to the ObjectToolSystem obtained from the World; used to switch back to the object tool or coordinate behavior when area editing is combined with object operations.</p>
+</li>
+<li>
+<p><code>private Game.Areas.SearchSystem m_AreaSearchSystem</code><br />
+Reference to the area search system used to retrieve existing area geometry for snapping and queries. SnapJob and CreateDefinitionsJob use search trees provided by this system.</p>
+</li>
+<li>
+<p><code>private Game.Net.SearchSystem m_NetSearchSystem</code><br />
+Reference to network search system used when snapping to network geometry (roads, rails, etc.).</p>
+</li>
+<li>
+<p><code>private Game.Objects.SearchSystem m_ObjectSearchSystem</code><br />
+Reference to object search system used when snapping to objects (buildings, props).</p>
+</li>
+<li>
+<p><code>private ToolOutputBarrier m_ToolOutputBarrier</code><br />
+Command buffer barrier used to emit creation/clear commands (CreationDefinition, ObjectDefinition, OwnerDefinition, etc.) produced by CreateDefinitionsJob and other jobs.</p>
+</li>
+<li>
+<p><code>private AudioManager m_AudioManager</code><br />
+Reference to audio manager to play UI sounds for actions like drop point, remove point, finish area, fail place.</p>
+</li>
+<li>
+<p><code>private IProxyAction m_AddAreaNode</code> (and many more IProxyAction fields)<br />
+Proxy actions fetched from InputManager for mapping UI/keyboard/controller actions to tool actions (Add Area Node, Insert Area Node, Merge Area Node, Move Area Node, etc.). These are used for apply/secondary/cancel overrides.</p>
+</li>
+<li>
+<p><code>private bool m_ApplyBlocked</code><br />
+Flag used to temporarily block apply actions (used when canceling modifications etc.).</p>
+</li>
+<li>
+<p><code>private EntityQuery m_DefinitionQuery</code><br />
+Query identifying previously created temporary definition entities that the tool uses to show preview definitions.</p>
+</li>
+<li>
+<p><code>private ControlPoint m_LastRaycastPoint</code><br />
+Last raycast result (ControlPoint) used to detect changes and avoid unnecessary updates.</p>
+</li>
+<li>
+<p><code>private NativeList&lt;ControlPoint&gt; m_ControlPoints</code><br />
+Native list storing the current control points (the points that define the polygon being created or the currently selected control point).</p>
+</li>
+<li>
+<p><code>private NativeList&lt;ControlPoint&gt; m_MoveStartPositions</code><br />
+Native list storing the original positions used when entering Modify/Remove states (to support cancel/undo semantics).</p>
+</li>
+<li>
+<p><code>private NativeValue&lt;Tooltip&gt; m_Tooltip</code><br />
+Native value storing the currently computed Tooltip enum for the UI.</p>
+</li>
+<li>
+<p><code>private Mode m_LastMode</code><br />
+Stores the last actual mode to detect mode changes.</p>
+</li>
+<li>
+<p><code>private State m_State</code><br />
+Current internal state of the tool (Default, Create, Modify, Remove).</p>
+</li>
+<li>
+<p><code>private AreaPrefab m_Prefab</code><br />
+Currently selected area prefab object (nullable). Setting this influences available snapping, whether generation mode is allowed, etc.</p>
+</li>
+<li>
+<p><code>private bool m_ControlPointsMoved</code><br />
+Flag indicating control points have moved since selection (used to decide apply behavior).</p>
+</li>
+<li>
+<p><code>private bool m_AllowCreateArea</code><br />
+Computed flag indicating whether creation of areas is allowed given current prefab and mode.</p>
+</li>
+<li>
+<p><code>private bool m_ForceCancel</code><br />
+Used to force a cancel for only a single frame (internal control).</p>
+</li>
+<li>
+<p><code>private TypeHandle __TypeHandle</code><br />
+Struct holding ComponentLookup/BufferLookup/TypeHandle references used by jobs and scheduled work.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.Tools.AreaToolSystem+Mode &lt;mode&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.Entity &lt;recreate&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.Entity &lt;recreate&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private System.Boolean &lt;underground&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean &lt;underground&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private System.Boolean &lt;allowGenerate&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean &lt;allowGenerate&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private Game.Tools.ObjectToolSystem m_ObjectToolSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Tools.ObjectToolSystem m_ObjectToolSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Areas.SearchSystem m_AreaSearchSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Areas.SearchSystem m_AreaSearchSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Net.SearchSystem m_NetSearchSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Net.SearchSystem m_NetSearchSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Objects.SearchSystem m_ObjectSearchSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Objects.SearchSystem m_ObjectSearchSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Tools.ToolOutputBarrier m_ToolOutputBarrier</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Tools.ToolOutputBarrier m_ToolOutputBarrier;
-</code></pre>
-<ul>
-<li><code>private Game.Audio.AudioManager m_AudioManager</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Audio.AudioManager m_AudioManager;
-</code></pre>
-<ul>
-<li><code>private Game.Input.IProxyAction m_AddAreaNode</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Input.IProxyAction m_AddAreaNode;
-</code></pre>
-<ul>
-<li><code>private Game.Input.IProxyAction m_InsertAreaNode</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Input.IProxyAction m_InsertAreaNode;
-</code></pre>
-<ul>
-<li><code>private Game.Input.IProxyAction m_MergeAreaNode</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Input.IProxyAction m_MergeAreaNode;
-</code></pre>
-<ul>
-<li><code>private Game.Input.IProxyAction m_MoveAreaNode</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Input.IProxyAction m_MoveAreaNode;
-</code></pre>
-<ul>
-<li><code>private Game.Input.IProxyAction m_DeleteAreaNode</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Input.IProxyAction m_DeleteAreaNode;
-</code></pre>
-<ul>
-<li><code>private Game.Input.IProxyAction m_UndoAreaNode</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Input.IProxyAction m_UndoAreaNode;
-</code></pre>
-<ul>
-<li><code>private Game.Input.IProxyAction m_CompleteArea</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Input.IProxyAction m_CompleteArea;
-</code></pre>
-<ul>
-<li><code>private Game.Input.IProxyAction m_CreateArea</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Input.IProxyAction m_CreateArea;
-</code></pre>
-<ul>
-<li><code>private Game.Input.IProxyAction m_DeleteArea</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Input.IProxyAction m_DeleteArea;
-</code></pre>
-<ul>
-<li><code>private Game.Input.IProxyAction m_DiscardInsertAreaNode</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Input.IProxyAction m_DiscardInsertAreaNode;
-</code></pre>
-<ul>
-<li><code>private Game.Input.IProxyAction m_DiscardMoveAreaNode</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Input.IProxyAction m_DiscardMoveAreaNode;
-</code></pre>
-<ul>
-<li><code>private Game.Input.IProxyAction m_DiscardMergeAreaNode</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Input.IProxyAction m_DiscardMergeAreaNode;
-</code></pre>
-<ul>
-<li><code>private Game.Input.IProxyAction m_CreateAreaOrMoveAreaNode</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Input.IProxyAction m_CreateAreaOrMoveAreaNode;
-</code></pre>
-<ul>
-<li><code>private Game.Input.IProxyAction m_CreateAreaOrInsertAreaNode</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Input.IProxyAction m_CreateAreaOrInsertAreaNode;
-</code></pre>
-<ul>
-<li><code>private System.Boolean m_ApplyBlocked</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean m_ApplyBlocked;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_DefinitionQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_DefinitionQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_TempAreaQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_TempAreaQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_TempBuildingQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_TempBuildingQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_MapTileQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_MapTileQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_SoundQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_SoundQuery;
-</code></pre>
-<ul>
-<li><code>private Game.Tools.ControlPoint m_LastRaycastPoint</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Tools.ControlPoint m_LastRaycastPoint;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeList&lt;Game.Tools.ControlPoint&gt; m_ControlPoints</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeList&lt;Game.Tools.ControlPoint&gt; m_ControlPoints;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeList&lt;Game.Tools.ControlPoint&gt; m_MoveStartPositions</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeList&lt;Game.Tools.ControlPoint&gt; m_MoveStartPositions;
-</code></pre>
-<ul>
-<li><code>private Colossal.Collections.NativeValue&lt;Game.Tools.AreaToolSystem+Tooltip&gt; m_Tooltip</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.Collections.NativeValue&lt;Game.Tools.AreaToolSystem+Tooltip&gt; m_Tooltip;
-</code></pre>
-<ul>
-<li><code>private Game.Tools.AreaToolSystem+Mode m_LastMode</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Tools.AreaToolSystem+Mode m_LastMode;
-</code></pre>
-<ul>
-<li><code>private Game.Tools.AreaToolSystem+State m_State</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Tools.AreaToolSystem+State m_State;
-</code></pre>
-<ul>
-<li><code>private Game.Prefabs.AreaPrefab m_Prefab</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Prefabs.AreaPrefab m_Prefab;
-</code></pre>
-<ul>
-<li><code>private System.Boolean m_ControlPointsMoved</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean m_ControlPointsMoved;
-</code></pre>
-<ul>
-<li><code>private System.Boolean m_AllowCreateArea</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean m_AllowCreateArea;
-</code></pre>
-<ul>
-<li><code>private System.Boolean m_ForceCancel</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean m_ForceCancel;
-</code></pre>
-<ul>
-<li><code>private Game.Tools.AreaToolSystem+TypeHandle __TypeHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Tools.AreaToolSystem+TypeHandle __TypeHandle;
-</code></pre>
-<ul>
-<li><code>public static const System.String kToolID</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static const System.String kToolID;
-</code></pre>
+<p>(Above are key/representative fields — the class contains many more fields for queries, actions, and Component/Buffer lookups used by the jobs.)</p>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>public System.String toolID { get }</code>  </li>
+<li>
+<p><code>public override string toolID { get; }</code><br />
+Returns "Area Tool". Used by UI/tool registry.</p>
+</li>
+<li>
+<p><code>public override int uiModeIndex { get; }</code><br />
+UI mode index for tool mode selection (maps to Mode values).</p>
+</li>
+<li>
+<p><code>public Mode mode { get; set; }</code><br />
+Currently selected tool mode (Edit or Generate). Note: actualMode can restrict to Edit when generation is not allowed.</p>
+</li>
+<li>
+<p><code>public Mode actualMode { get; }</code><br />
+Read-only property that returns the effective mode used (if generation isn't allowed, returns Edit regardless of mode).</p>
+</li>
+<li>
+<p><code>public Entity recreate { get; set; }</code><br />
+If set, area recreate flow is used (start create from an existing area).</p>
+</li>
+<li>
+<p><code>public bool underground { get; set; }</code><br />
+Whether the tool's raycast should prefer underground surfaces for object surface snapping.</p>
+</li>
+<li>
+<p><code>public bool allowGenerate { get; private set; }</code><br />
+Indicates whether generation mode is available for the current prefab / action mode.</p>
+</li>
+<li>
+<p><code>public State state { get; }</code><br />
+Read-only current tool State (Default/Create/Modify/Remove).</p>
+</li>
+<li>
+<p><code>public Tooltip tooltip { get; }</code><br />
+Current tooltip to display to the user (CreateArea, ModifyNode, etc.), computed every update in CreateDefinitionsJob.</p>
+</li>
+<li>
+<p><code>public AreaPrefab prefab { get; set; }</code><br />
+Selected AreaPrefab (managed property). Setting this updates allowGenerate and fires EventPrefabChanged on the tool system.</p>
+</li>
+<li>
+<p><code>private protected override IEnumerable&lt;IProxyAction&gt; toolActions { get; }</code><br />
+Enumeration of actions the tool exposes (Add/Insert/Merge/Move/Delete/Undo/Complete/Create/Delete/Discard/Combined actions). These are used to present UI action hints and bind behavior.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public System.String toolID { get; }
-</code></pre>
-<ul>
-<li><code>public System.Int32 uiModeIndex { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Int32 uiModeIndex { get; }
-</code></pre>
-<ul>
-<li><code>public Game.Tools.AreaToolSystem+Mode mode { get; set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Game.Tools.AreaToolSystem+Mode mode { get; set; }
-</code></pre>
-<ul>
-<li><code>public Game.Tools.AreaToolSystem+Mode actualMode { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Game.Tools.AreaToolSystem+Mode actualMode { get; }
-</code></pre>
-<ul>
-<li><code>public Unity.Entities.Entity recreate { get; set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Unity.Entities.Entity recreate { get; set; }
-</code></pre>
-<ul>
-<li><code>public System.Boolean underground { get; set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Boolean underground { get; set; }
-</code></pre>
-<ul>
-<li><code>public System.Boolean allowGenerate { get; private set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Boolean allowGenerate { get; private set; }
-</code></pre>
-<ul>
-<li><code>public Game.Tools.AreaToolSystem+State state { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Game.Tools.AreaToolSystem+State state { get; }
-</code></pre>
-<ul>
-<li><code>public Game.Tools.AreaToolSystem+Tooltip tooltip { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Game.Tools.AreaToolSystem+Tooltip tooltip { get; }
-</code></pre>
-<ul>
-<li><code>public Game.Prefabs.AreaPrefab prefab { get; set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Game.Prefabs.AreaPrefab prefab { get; set; }
-</code></pre>
-<ul>
-<li><code>private System.Collections.Generic.IEnumerable&lt;Game.Input.IProxyAction&gt; toolActions { private get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Collections.Generic.IEnumerable&lt;Game.Input.IProxyAction&gt; toolActions { private get; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public AreaToolSystem()</code>  </li>
+<li><code>public AreaToolSystem()</code><br />
+Default constructor. The system is a managed SystemBase-derived tool system; real initialization is done in OnCreate. The constructor is kept for ECS/system instantiation but does not perform heavy initialization (that happens in OnCreate/OnStartRunning).</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public AreaToolSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private __AssignQueries(Unity.Entities.SystemState&amp; state) : System.Void</code>  </li>
+<li>
+<p><code>[Preserve] protected override void OnCreate()</code><br />
+Initializes referenced systems (ObjectToolSystem, SearchSystems), creates queries, fetches input actions from InputManager, configures initial snap mask, and allocates persistent Native containers (m_ControlPoints, m_MoveStartPositions, m_Tooltip). Called once when the system is created.</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnDestroy()</code><br />
+Disposes native containers and calls base.OnDestroy.</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnStartRunning()</code><br />
+Reset runtime state when the system starts running: clears control points, resets last raycast points, mode/state/tooltips and flags.</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnStopRunning()</code><br />
+Clears recreate and calls base.OnStopRunning.</p>
+</li>
+<li>
+<p><code>private protected override void UpdateActions()</code><br />
+Updates apply/secondary/cancel action enabled states and overrides using current tool state and control points. Uses ProxyAction.DeferStateUpdating to defer state changes during evaluation.</p>
+</li>
+<li>
+<p><code>public NativeList&lt;ControlPoint&gt; GetControlPoints(out NativeList&lt;ControlPoint&gt; moveStartPositions, out JobHandle dependencies)</code><br />
+Accessor for other systems to read current control points and move start positions plus dependency handle.</p>
+</li>
+<li>
+<p><code>public override PrefabBase GetPrefab()</code><br />
+Returns current PrefabBase (AreaPrefab) used by the tool.</p>
+</li>
+<li>
+<p><code>public override bool TrySetPrefab(PrefabBase prefab)</code><br />
+Try to set the tool's prefab. Accepts AreaPrefab types only and returns true on success.</p>
+</li>
+<li>
+<p><code>public override void SetUnderground(bool underground)</code> / <code>ElevationUp()</code> / <code>ElevationDown()</code> / <code>ElevationScroll()</code><br />
+Methods to control underground/elevation toggle used by UI bindings.</p>
+</li>
+<li>
+<p><code>public override void InitializeRaycast()</code><br />
+Set up ToolRaycastSystem flags, type masks and area type masks according to the currently selected prefab and snap options. Ensures the raycast includes sub-elements, water, static objects, placeholders (editor mode) and handles underground collision mask when ObjectSurface snap is used.</p>
+</li>
+<li>
+<p><code>[Preserve] protected override JobHandle OnUpdate(JobHandle inputDeps)</code><br />
+Main update loop of the system. Handles mode switches, action input handling (apply/cancel/secondary), sets up state transitions (Default/Create/Modify/Remove), triggers SnapControlPoints (schedules SnapJob) and UpdateDefinitions (schedules CreateDefinitionsJob / RemoveMapTilesJob and writes to m_ToolOutputBarrier), and manages apply/clear logic.</p>
+</li>
+<li>
+<p><code>private JobHandle SnapControlPoints(JobHandle inputDeps, NativeArray&lt;Entity&gt; applyTempAreas)</code><br />
+Schedules and configures the Burst-compiled SnapJob which computes snapping for the active control point(s). The job reads search trees (area, net, object), component lookups and writes updated control points / best snap positions. It adds the job handle as a reader to the corresponding search systems.</p>
+</li>
+<li>
+<p><code>private JobHandle UpdateDefinitions(JobHandle inputDeps, NativeArray&lt;Entity&gt; applyTempAreas, NativeArray&lt;Entity&gt; applyTempBuildings)</code><br />
+Destroys previous preview definitions and schedules CreateDefinitionsJob (and RemoveMapTilesJob for generation mode) to create preview definitions (CreationDefinition entities) describing what will be placed or cleared. CommandBuffer writes are done through ToolOutputBarrier.</p>
+</li>
+<li>
+<p><code>private JobHandle Clear(JobHandle inputDeps)</code><br />
+Helper to set apply mode to Clear and return without scheduling further work.</p>
+</li>
+<li>
+<p><code>private JobHandle Cancel(JobHandle inputDeps, bool singleFrameOnly = false)</code><br />
+Handles cancel logic for each state: transitions between Default/Create/Modify/Remove and schedules snap/definition updates as needed. Sets base.applyMode accordingly (Apply vs Clear) and plays UI sounds via AudioManager.</p>
+</li>
+<li>
+<p><code>private JobHandle Apply(JobHandle inputDeps, bool singleFrameOnly = false)</code><br />
+Handles apply logic for each state. For Create it validates min node distances, checks Temp Area completeness and either applies (generates CreationDefinitions to creation buffer) or clears previews. For Modify it may start a create subflow or finalize modifications. For Generate mode it may create grid map tiles. Plays UI sounds and uses m_ToolOutputBarrier for command emission.</p>
+</li>
+<li>
+<p><code>private JobHandle Update(JobHandle inputDeps, bool fullUpdate)</code><br />
+Updates control points using the latest raycast result (GetRaycastResult), triggers SnapControlPoints and UpdateDefinitions where required, and sets applyMode appropriately.</p>
+</li>
+<li>
+<p><code>private static void GetAvailableSnapMask(AreaGeometryData prefabAreaData, bool editorMode, out Snap onMask, out Snap offMask)</code><br />
+Static helper computing which Snap bits are available for a given Area type and whether the tool is in editor mode (includes AutoParent and LotGrid when in editor).</p>
+</li>
+<li>
+<p>Various private helper methods used by CreateDefinitionsJob (GetControlPoints, Edit, Generate, GetSourceArea, CheckSubObjects, GetOwnerDefinition, UpdateOwnerObject, UpdateSubNets, UpdateSubAreas, HasEdgeStartOrEnd, FindParentMesh, FixControlPointPosition, AddControlPoints, FindControlPoint, FindParent).<br />
+These helpers encapsulate the detailed geometry, ownership and creation-definition logic used when assembling CreationDefinition/ObjectDefinition/OwnerDefinition entities for the tool output.</p>
+</li>
+<li>
+<p>Several nested Burst-compiled job structs:</p>
+</li>
+<li><code>SnapJob : IJob</code> — performs spatial queries (area/net/object search trees) to compute snapping (snap positions, snap lines, best snap priority) for control points. Uses several iterators (ParentObjectIterator, AreaIterator2, AreaIterator, NetIterator, ObjectIterator) that implement INativeQuadTreeIterator to traverse quadtrees and gather snap candidates.</li>
+<li><code>RemoveMapTilesJob : IJobChunk</code> — used in Generate mode to convert existing MapTile areas to temporary CreationDefinition entities marked for deletion (so they get removed when generating new tiles).</li>
+<li>
+<p><code>CreateDefinitionsJob : IJob</code> — composes CreationDefinition entities (and related OwnerDefinition/ObjectDefinition/NetCourse data) based on the current m_ControlPoints and state. Decides tooltips and whether a preview entity should be created as Delete/Recreate/Relocate/Upgrade etc. Handles sub-objects, sub-nets and owner object updates for the preview application step.</p>
+</li>
+<li>
+<p><code>protected override void OnCreateForCompiler()</code><br />
+Internal wiring used by source-gen / ECS compiler to assign queries and type handles.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private void __AssignQueries(ref SystemState state)
-    {
-        new EntityQueryBuilder(Allocator.Temp).Dispose();
-    }
+<p>(There are many more private helper methods and nested iterator structs in the class; above are the primary public/important internal methods and job entry points.)</p>
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Example: hooking into the tool to set an area prefab and initialize behavior
+[Preserve]
+protected override void OnCreate()
+{
+    base.OnCreate();
+    // Get the AreaToolSystem instance from the world (if you are inside another system
+    // or use your mod to fetch the existing tool system)
+    var areaTool = World.GetOrCreateSystemManaged&lt;Game.Tools.AreaToolSystem&gt;();
+    // Set a prefab by trying to assign a PrefabBase that is an AreaPrefab.
+    // This will update snapping masks and allowGenerate accordingly.
+    areaTool.TrySetPrefab(myAreaPrefab);
+    // Optionally switch to Generate mode if allowed
+    areaTool.mode = Game.Tools.AreaToolSystem.Mode.Generate;
+}
 </code></pre>
-<ul>
-<li><code>private Apply(Unity.Jobs.JobHandle inputDeps, System.Boolean singleFrameOnly = False) : Unity.Jobs.JobHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private JobHandle Apply(JobHandle inputDeps, bool singleFrameOnly = false)
-    {
-        switch (m_State)
-        {
-        case State.Default:
-            if (actualMode == Mode.Generate)
-            {
-                if (GetAllowApply() &amp;&amp; !m_TempAreaQuery.IsEmptyIgnoreFilter)
-                {
-                    NativeArray&lt;Entity&gt; applyTempAreas = m_TempAreaQuery.ToEntityArray(Allocator.TempJob);
-                    base.applyMode = ApplyMode.Apply;
-                    m_ControlPoints.Clear();
-                    if (GetRaycastResult(out var controlPoint2))
-                    {
-                        m_LastRaycastPoint = controlPoint2;
-                        m_ControlPoints.Add(in controlPoint2);
-                        m_AudioManager.PlayUISound(m_SoundQuery.GetSingleton&lt;ToolUXSoundSettingsData&gt;().m_PolygonToolDropPointSound);
-                        inputDeps = SnapControlPoints(inputDeps, applyTempAreas);
-                        inputDeps = UpdateDefinitions(inputDeps, applyTempAreas, default(NativeArray&lt;Entity&gt;));
-                    }
-                    if (applyTempAreas.IsCreated)
-                    {
-                        applyTempAreas.Dispose(inputDeps);
-                    }
-                    return inputDeps;
-                }
-                return Update(inputDeps, fullUpdate: false);
-            }
-            if (m_ControlPoints.Length &gt; 0)
-            {
-                base.applyMode = ApplyMode.Clear;
-                ControlPoint value = m_ControlPoints[0];
-                if (base.EntityManager.HasComponent&lt;Area&gt;(value.m_OriginalEntity) &amp;&amp; math.any(value.m_ElementIndex &gt;= 0) &amp;&amp; !singleFrameOnly)
-                {
-                    m_State = State.Modify;
-                    m_ControlPointsMoved = false;
-                    m_MoveStartPositions.Clear();
-                    m_MoveStartPositions.AddRange(m_ControlPoints.AsArray());
-                    m_ControlPoints.Clear();
-                    if (GetRaycastResult(out var controlPoint3))
-                    {
-                        m_LastRaycastPoint = controlPoint3;
-                        m_ControlPoints.Add(in controlPoint3);
-                        m_AudioManager.PlayUISound(m_SoundQuery.GetSingleton&lt;ToolUXSoundSettingsData&gt;().m_PolygonToolSelectPointSound);
-                        inputDeps = SnapControlPoints(inputDeps, default(NativeArray&lt;Entity&gt;));
-                        JobHandle.ScheduleBatchedJobs();
-                        inputDeps.Complete();
-                        ControlPoint other = m_ControlPoints[0];
-                        if (!m_MoveStartPositions[0].Equals(other))
-                        {
-                            float minNodeDistance = AreaUtils.GetMinNodeDistance(m_PrefabSystem.GetComponentData&lt;AreaGeometryData&gt;(prefab));
-                            if (math.distance(m_MoveStartPositions[0].m_Position, other.m_Position) &lt; minNodeDistance * 0.5f)
-                            {
-                                m_ControlPoints[0] = m_MoveStartPositions[0];
-                            }
-                            else
-                            {
-                                m_ControlPointsMoved = true;
-                            }
-                        }
-                        inputDeps = UpdateDefinitions(inputDeps, default(NativeArray&lt;Entity&gt;), default(NativeArray&lt;Entity&gt;));
-                    }
-                    else
-                    {
-                        m_ControlPoints.Add(in value);
-                    }
-                    return inputDeps;
-                }
-                if (GetAllowApply() &amp;&amp; !value.Equals(default(ControlPoint)) &amp;&amp; m_AllowCreateArea)
-                {
-                    m_State = State.Create;
-                    m_MoveStartPositions.Clear();
-                    m_ControlPoints.Clear();
-                    m_ControlPoints.Add(in value);
-                    m_AudioManager.PlayUISound(m_SoundQuery.GetSingleton&lt;ToolUXSoundSettingsData&gt;().m_PolygonToolDropPointSound);
-                    if (GetRaycastResult(out var controlPoint4))
-                    {
-                        m_LastRaycastPoint = controlPoint4;
-                        m_ControlPoints.Add(in controlPoint4);
-                        inputDeps = SnapControlPoints(inputDeps, default(NativeArray&lt;Entity&gt;));
-                        inputDeps = UpdateDefinitions(inputDeps, default(NativeArray&lt;Entity&gt;), default(NativeArray&lt;Entity&gt;));
-                    }
-                    else
-                    {
-                        m_ControlPoints.Add(in value);
-                    }
-                    return inputDeps;
-                }
-                return Update(inputDeps, fullUpdate: false);
-            }
-            return Update(inputDeps, fullUpdate: false);
-        case State.Create:
-            if (!m_TempAreaQuery.IsEmptyIgnoreFilter)
-            {
-                if (!GetAllowApply())
-                {
-                    m_AudioManager.PlayUISound(m_SoundQuery.GetSingleton&lt;ToolUXSoundSettingsData&gt;().m_PlaceBuildingFailSound);
-                }
-                else
-                {
-                    AreaGeometryData componentData = m_PrefabSystem.GetComponentData&lt;AreaGeometryData&gt;(prefab);
-                    float num = math.distance(m_ControlPoints[m_ControlPoints.Length - 2].m_Position, m_ControlPoints[m_ControlPoints.Length - 1].m_Position);
-                    float minNodeDistance2 = AreaUtils.GetMinNodeDistance(componentData);
-                    if (num &gt;= minNodeDistance2)
-                    {
-                        bool flag = true;
-                        NativeArray&lt;Area&gt; nativeArray = m_TempAreaQuery.ToComponentDataArray&lt;Area&gt;(Allocator.TempJob);
-                        for (int i = 0; i &lt; nativeArray.Length; i++)
-                        {
-                            flag &amp;= (nativeArray[i].m_Flags &amp; AreaFlags.Complete) != 0;
-                        }
-                        nativeArray.Dispose();
-                        NativeArray&lt;Entity&gt; applyTempAreas2 = default(NativeArray&lt;Entity&gt;);
-                        if (flag)
-                        {
-                            m_AudioManager.PlayUISound(m_SoundQuery.GetSingleton&lt;ToolUXSoundSettingsData&gt;().m_PolygonToolFinishAreaSound);
-                            base.applyMode = ApplyMode.Apply;
-                            m_State = State.Default;
-                            m_ControlPoints.Clear();
-                            if (recreate != Entity.Null)
-                            {
-                                if (m_ObjectToolSystem.mode == ObjectToolSystem.Mode.Move)
-                                {
-                                    m_ToolSystem.activeTool = m_DefaultToolSystem;
-                                }
-                                else
-                                {
-                                    m_ToolSystem.activeTool = m_ObjectToolSystem;
-                                }
-                                return inputDeps;
-                            }
-                            applyTempAreas2 = m_TempAreaQuery.ToEntityArray(Allocator.TempJob);
-                        }
-                        else
-                        {
-                            m_AudioManager.PlayUISound(m_SoundQuery.GetSingleton&lt;ToolUXSoundSettingsData&gt;().m_PolygonToolDropPointSound);
-                            base.applyMode = ApplyMode.Clear;
-                        }
-                        if (GetRaycastResult(out var controlPoint5))
-                        {
-                            m_LastRaycastPoint = controlPoint5;
-                            m_ControlPoints.Add(in controlPoint5);
-                            inputDeps = SnapControlPoints(inputDeps, applyTempAreas2);
-                            inputDeps = UpdateDefinitions(inputDeps, applyTempAreas2, default(NativeArray&lt;Entity&gt;));
-                        }
-                        if (applyTempAreas2.IsCreated)
-                        {
-                            applyTempAreas2.Dispose(inputDeps);
-                        }
-                        return inputDeps;
-                    }
-                }
-            }
-            return Update(inputDeps, fullUpdate: false);
-        case State.Modify:
-        {
-            if (!m_ControlPointsMoved &amp;&amp; GetAllowApply() &amp;&amp; m_ControlPoints.Length &gt; 0)
-            {
-                if (m_AllowCreateArea)
-                {
-                    ControlPoint value2 = m_ControlPoints[0];
-                    base.applyMode = ApplyMode.Clear;
-                    m_State = State.Create;
-                    m_MoveStartPositions.Clear();
-                    m_ControlPoints.Clear();
-                    m_ControlPoints.Add(in value2);
-                    m_AudioManager.PlayUISound(m_SoundQuery.GetSingleton&lt;ToolUXSoundSettingsData&gt;().m_PolygonToolDropPointSound);
-                    if (GetRaycastResult(out var controlPoint6))
-                    {
-                        m_LastRaycastPoint = controlPoint6;
-                        m_ControlPoints.Add(in controlPoint6);
-                        inputDeps = SnapControlPoints(inputDeps, default(NativeArray&lt;Entity&gt;));
-                        inputDeps = UpdateDefinitions(inputDeps, default(NativeArray&lt;Entity&gt;), default(NativeArray&lt;Entity&gt;));
-                    }
-                    else
-                    {
-                        m_ControlPoints.Add(in value2);
-                    }
-                    return inputDeps;
-                }
-                base.applyMode = ApplyMode.Clear;
-                m_State = State.Default;
-                m_ControlPoints.Clear();
-                if (GetRaycastResult(out var controlPoint7))
-                {
-                    m_LastRaycastPoint = controlPoint7;
-                    m_ControlPoints.Add(in controlPoint7);
-                    m_AudioManager.PlayUISound(m_SoundQuery.GetSingleton&lt;ToolUXSoundSettingsData&gt;().m_PolygonToolDropPointSound);
-                    inputDeps = SnapControlPoints(inputDeps, default(NativeArray&lt;Entity&gt;));
-                    inputDeps = UpdateDefinitions(inputDeps, default(NativeArray&lt;Entity&gt;), default(NativeArray&lt;Entity&gt;));
-                }
-                return inputDeps;
-            }
-            NativeArray&lt;Entity&gt; applyTempAreas3 = default(NativeArray&lt;Entity&gt;);
-            NativeArray&lt;Entity&gt; applyTempBuildings = default(NativeArray&lt;Entity&gt;);
-            if (GetAllowApply() &amp;&amp; !m_TempAreaQuery.IsEmptyIgnoreFilter)
-            {
-                base.applyMode = ApplyMode.Apply;
-                applyTempAreas3 = m_TempAreaQuery.ToEntityArray(Allocator.TempJob);
-                applyTempBuildings = m_TempBuildingQuery.ToEntityArray(Allocator.TempJob);
-            }
-            else
-            {
-                base.applyMode = ApplyMode.Clear;
-            }
-            m_State = State.Default;
-            m_ControlPoints.Clear();
-            if (GetRaycastResult(out var controlPoint8))
-            {
-                m_LastRaycastPoint = controlPoint8;
-                m_ControlPoints.Add(in controlPoint8);
-                m_AudioManager.PlayUISound(m_SoundQuery.GetSingleton&lt;ToolUXSoundSettingsData&gt;().m_PolygonToolDropPointSound);
-                inputDeps = SnapControlPoints(inputDeps, applyTempAreas3);
-                inputDeps = UpdateDefinitions(inputDeps, applyTempAreas3, applyTempBuildings);
-            }
-            if (applyTempAreas3.IsCreated)
-            {
-                applyTempAreas3.Dispose(inputDeps);
-            }
-            if (applyTempBuildings.IsCreated)
-            {
-                applyTempBuildings.Dispose(inputDeps);
-            }
-            return inputDeps;
-        }
-        case State.Remove:
-        {
-            m_ControlPoints.Clear();
-            base.applyMode = ApplyMode.Clear;
-            m_State = State.Default;
-            if (GetRaycastResult(out var controlPoint))
-            {
-                m_LastRaycastPoint = controlPoint;
-                m_ControlPoints.Add(in controlPoint);
-                m_AudioManager.PlayUISound(m_SoundQuery.GetSingleton&lt;ToolUXSoundSettingsData&gt;().m_PolygonToolRemovePointSound);
-                inputDeps = SnapControlPoints(inputDeps, default(NativeArray&lt;Entity&gt;));
-                inputDeps = UpdateDefinitions(inputDeps, default(NativeArray&lt;Entity&gt;), default(NativeArray&lt;Entity&gt;));
-            }
-            return inputDeps;
-        }
-        default:
-            return Update(inputDeps, fullUpdate: false);
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private Cancel(Unity.Jobs.JobHandle inputDeps, System.Boolean singleFrameOnly = False) : Unity.Jobs.JobHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private JobHandle Cancel(JobHandle inputDeps, bool singleFrameOnly = false)
-    {
-        switch (m_State)
-        {
-        case State.Default:
-            if (actualMode == Mode.Generate)
-            {
-                return Update(inputDeps, fullUpdate: false);
-            }
-            if (GetAllowApply() &amp;&amp; m_ControlPoints.Length &gt; 0)
-            {
-                base.applyMode = ApplyMode.Clear;
-                ControlPoint value = m_ControlPoints[0];
-                if (base.EntityManager.HasComponent&lt;Area&gt;(value.m_OriginalEntity) &amp;&amp; value.m_ElementIndex.x &gt;= 0)
-                {
-                    if (base.EntityManager.TryGetBuffer(value.m_OriginalEntity, isReadOnly: true, out DynamicBuffer&lt;Game.Areas.Node&gt; buffer) &amp;&amp; buffer.Length &lt;= 3)
-                    {
-                        m_AudioManager.PlayUISound(m_SoundQuery.GetSingleton&lt;ToolUXSoundSettingsData&gt;().m_PolygonToolDeleteAreaSound);
-                    }
-                    else
-                    {
-                        m_AudioManager.PlayUISound(m_SoundQuery.GetSingleton&lt;ToolUXSoundSettingsData&gt;().m_PolygonToolRemovePointSound);
-                    }
-                    m_State = State.Remove;
-                    m_ControlPointsMoved = false;
-                    m_ForceCancel = singleFrameOnly;
-                    m_MoveStartPositions.Clear();
-                    m_MoveStartPositions.AddRange(m_ControlPoints.AsArray());
-                    m_ControlPoints.Clear();
-                    if (GetRaycastResult(out var controlPoint2))
-                    {
-                        m_LastRaycastPoint = controlPoint2;
-                        m_ControlPoints.Add(in controlPoint2);
-                        inputDeps = SnapControlPoints(inputDeps, default(NativeArray&lt;Entity&gt;));
-                        inputDeps = UpdateDefinitions(inputDeps, default(NativeArray&lt;Entity&gt;), default(NativeArray&lt;Entity&gt;));
-                    }
-                    else
-                    {
-                        m_ControlPoints.Add(in value);
-                    }
-                    return inputDeps;
-                }
-                return Update(inputDeps, fullUpdate: false);
-            }
-            return Update(inputDeps, fullUpdate: false);
-        case State.Create:
-        {
-            m_ControlPoints.RemoveAtSwapBack(m_ControlPoints.Length - 1);
-            base.applyMode = ApplyMode.Clear;
-            if (m_ControlPoints.Length &lt;= 1)
-            {
-                m_State = State.Default;
-            }
-            if (recreate != Entity.Null &amp;&amp; m_ControlPoints.Length &lt;= 2)
-            {
-                m_ToolSystem.activeTool = m_ObjectToolSystem;
-                return inputDeps;
-            }
-            m_AudioManager.PlayUISound(m_SoundQuery.GetSingleton&lt;ToolUXSoundSettingsData&gt;().m_PolygonToolRemovePointSound);
-            if (GetRaycastResult(out var controlPoint4))
-            {
-                m_LastRaycastPoint = controlPoint4;
-                m_ControlPoints[m_ControlPoints.Length - 1] = controlPoint4;
-                inputDeps = SnapControlPoints(inputDeps, default(NativeArray&lt;Entity&gt;));
-                inputDeps = UpdateDefinitions(inputDeps, default(NativeArray&lt;Entity&gt;), default(NativeArray&lt;Entity&gt;));
-            }
-            else if (m_ControlPoints.Length &gt;= 2)
-            {
-                m_ControlPoints[m_ControlPoints.Length - 1] = m_ControlPoints[m_ControlPoints.Length - 2];
-                inputDeps = UpdateDefinitions(inputDeps, default(NativeArray&lt;Entity&gt;), default(NativeArray&lt;Entity&gt;));
-            }
-            return inputDeps;
-        }
-        case State.Modify:
-        {
-            m_ControlPoints.Clear();
-            base.applyMode = ApplyMode.Clear;
-            m_State = State.Default;
-            if (GetRaycastResult(out var controlPoint3))
-            {
-                m_LastRaycastPoint = controlPoint3;
-                m_ControlPoints.Add(in controlPoint3);
-                inputDeps = SnapControlPoints(inputDeps, default(NativeArray&lt;Entity&gt;));
-                inputDeps = UpdateDefinitions(inputDeps, default(NativeArray&lt;Entity&gt;), default(NativeArray&lt;Entity&gt;));
-            }
-            return inputDeps;
-        }
-        case State.Remove:
-        {
-            NativeArray&lt;Entity&gt; applyTempAreas = default(NativeArray&lt;Entity&gt;);
-            NativeArray&lt;Entity&gt; applyTempBuildings = default(NativeArray&lt;Entity&gt;);
-            if (GetAllowApply() &amp;&amp; !m_TempAreaQuery.IsEmptyIgnoreFilter)
-            {
-                base.applyMode = ApplyMode.Apply;
-                applyTempAreas = m_TempAreaQuery.ToEntityArray(Allocator.TempJob);
-                applyTempBuildings = m_TempBuildingQuery.ToEntityArray(Allocator.TempJob);
-            }
-            else
-            {
-                base.applyMode = ApplyMode.Clear;
-            }
-            m_State = State.Default;
-            m_ControlPoints.Clear();
-            if (GetRaycastResult(out var controlPoint))
-            {
-                m_LastRaycastPoint = controlPoint;
-                m_ControlPoints.Add(in controlPoint);
-                inputDeps = SnapControlPoints(inputDeps, applyTempAreas);
-                inputDeps = UpdateDefinitions(inputDeps, applyTempAreas, applyTempBuildings);
-            }
-            if (applyTempAreas.IsCreated)
-            {
-                applyTempAreas.Dispose(inputDeps);
-            }
-            if (applyTempBuildings.IsCreated)
-            {
-                applyTempBuildings.Dispose(inputDeps);
-            }
-            return inputDeps;
-        }
-        default:
-            return Update(inputDeps, fullUpdate: false);
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private Clear(Unity.Jobs.JobHandle inputDeps) : Unity.Jobs.JobHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private JobHandle Clear(JobHandle inputDeps)
-    {
-        base.applyMode = ApplyMode.Clear;
-        return inputDeps;
-    }
-</code></pre>
-<ul>
-<li><code>public virtual ElevationDown() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override void ElevationDown()
-    {
-        underground = true;
-    }
-</code></pre>
-<ul>
-<li><code>public virtual ElevationScroll() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override void ElevationScroll()
-    {
-        underground = !underground;
-    }
-</code></pre>
-<ul>
-<li><code>public virtual ElevationUp() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override void ElevationUp()
-    {
-        underground = false;
-    }
-</code></pre>
-<ul>
-<li><code>public virtual GetAvailableSnapMask(Game.Tools.Snap&amp; onMask, Game.Tools.Snap&amp; offMask) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static void GetAvailableSnapMask(AreaGeometryData prefabAreaData, bool editorMode, out Snap onMask, out Snap offMask)
-    {
-        onMask = Snap.ExistingGeometry | Snap.StraightDirection;
-        offMask = onMask;
-        switch (prefabAreaData.m_Type)
-        {
-        case Game.Areas.AreaType.Lot:
-            onMask |= Snap.NetSide | Snap.ObjectSide;
-            offMask |= Snap.NetSide | Snap.ObjectSide;
-            if (editorMode)
-            {
-                onMask |= Snap.LotGrid | Snap.AutoParent;
-                offMask |= Snap.LotGrid | Snap.AutoParent;
-            }
-            break;
-        case Game.Areas.AreaType.District:
-            onMask |= Snap.NetMiddle;
-            offMask |= Snap.NetMiddle;
-            break;
-        case Game.Areas.AreaType.Space:
-            onMask |= Snap.NetSide | Snap.ObjectSide | Snap.ObjectSurface;
-            offMask |= Snap.NetSide | Snap.ObjectSide | Snap.ObjectSurface;
-            if (editorMode)
-            {
-                onMask |= Snap.LotGrid | Snap.AutoParent;
-                offMask |= Snap.LotGrid | Snap.AutoParent;
-            }
-            break;
-        case Game.Areas.AreaType.Surface:
-            onMask |= Snap.NetSide | Snap.ObjectSide;
-            offMask |= Snap.NetSide | Snap.ObjectSide;
-            if (editorMode)
-            {
-                onMask |= Snap.LotGrid | Snap.AutoParent;
-                offMask |= Snap.LotGrid | Snap.AutoParent;
-            }
-            break;
-        case Game.Areas.AreaType.MapTile:
-            break;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private static GetAvailableSnapMask(Game.Prefabs.AreaGeometryData prefabAreaData, System.Boolean editorMode, Game.Tools.Snap&amp; onMask, Game.Tools.Snap&amp; offMask) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static void GetAvailableSnapMask(AreaGeometryData prefabAreaData, bool editorMode, out Snap onMask, out Snap offMask)
-    {
-        onMask = Snap.ExistingGeometry | Snap.StraightDirection;
-        offMask = onMask;
-        switch (prefabAreaData.m_Type)
-        {
-        case Game.Areas.AreaType.Lot:
-            onMask |= Snap.NetSide | Snap.ObjectSide;
-            offMask |= Snap.NetSide | Snap.ObjectSide;
-            if (editorMode)
-            {
-                onMask |= Snap.LotGrid | Snap.AutoParent;
-                offMask |= Snap.LotGrid | Snap.AutoParent;
-            }
-            break;
-        case Game.Areas.AreaType.District:
-            onMask |= Snap.NetMiddle;
-            offMask |= Snap.NetMiddle;
-            break;
-        case Game.Areas.AreaType.Space:
-            onMask |= Snap.NetSide | Snap.ObjectSide | Snap.ObjectSurface;
-            offMask |= Snap.NetSide | Snap.ObjectSide | Snap.ObjectSurface;
-            if (editorMode)
-            {
-                onMask |= Snap.LotGrid | Snap.AutoParent;
-                offMask |= Snap.LotGrid | Snap.AutoParent;
-            }
-            break;
-        case Game.Areas.AreaType.Surface:
-            onMask |= Snap.NetSide | Snap.ObjectSide;
-            offMask |= Snap.NetSide | Snap.ObjectSide;
-            if (editorMode)
-            {
-                onMask |= Snap.LotGrid | Snap.AutoParent;
-                offMask |= Snap.LotGrid | Snap.AutoParent;
-            }
-            break;
-        case Game.Areas.AreaType.MapTile:
-            break;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public GetControlPoints(Unity.Collections.NativeList</code>1[[Game.Tools.ControlPoint, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]&amp; moveStartPositions, Unity.Jobs.JobHandle&amp; dependencies) : Unity.Collections.NativeList<Game.Tools.ControlPoint>`  </li>
-</ul>
-<pre><code class="language-csharp">public NativeList&lt;ControlPoint&gt; GetControlPoints(out NativeList&lt;ControlPoint&gt; moveStartPositions, out JobHandle dependencies)
-    {
-        moveStartPositions = m_MoveStartPositions;
-        dependencies = base.Dependency;
-        return m_ControlPoints;
-    }
-</code></pre>
-<ul>
-<li><code>public virtual GetPrefab() : Game.Prefabs.PrefabBase</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override PrefabBase GetPrefab()
-    {
-        return prefab;
-    }
-</code></pre>
-<ul>
-<li><code>public virtual GetUIModes(System.Collections.Generic.List&lt;Game.Tools.ToolMode&gt; modes) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override void GetUIModes(List&lt;ToolMode&gt; modes)
-    {
-        modes.Add(new ToolMode(Mode.Edit.ToString(), 0));
-        if (allowGenerate)
-        {
-            modes.Add(new ToolMode(Mode.Generate.ToString(), 1));
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public virtual InitializeRaycast() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override void InitializeRaycast()
-    {
-        base.InitializeRaycast();
-        if (prefab != null)
-        {
-            AreaGeometryData componentData = m_PrefabSystem.GetComponentData&lt;AreaGeometryData&gt;(prefab);
-            GetAvailableSnapMask(out var onMask, out var offMask);
-            Snap actualSnap = ToolBaseSystem.GetActualSnap(selectedSnap, onMask, offMask);
-            m_ToolRaycastSystem.raycastFlags |= RaycastFlags.SubElements;
-            m_ToolRaycastSystem.typeMask = TypeMask.Terrain | TypeMask.Areas;
-            m_ToolRaycastSystem.areaTypeMask = AreaUtils.GetTypeMask(componentData.m_Type);
-            if ((componentData.m_Flags &amp; Game.Areas.GeometryFlags.OnWaterSurface) != 0)
-            {
-                m_ToolRaycastSystem.typeMask |= TypeMask.Water;
-            }
-            if ((actualSnap &amp; Snap.ObjectSurface) != Snap.None)
-            {
-                m_ToolRaycastSystem.typeMask |= TypeMask.StaticObjects;
-                if (m_ToolSystem.actionMode.IsEditor())
-                {
-                    m_ToolRaycastSystem.raycastFlags |= RaycastFlags.Placeholders;
-                }
-                if (underground)
-                {
-                    m_ToolRaycastSystem.collisionMask = CollisionMask.Underground;
-                    m_ToolRaycastSystem.typeMask &amp;= ~(TypeMask.Terrain | TypeMask.Water);
-                    m_ToolRaycastSystem.raycastFlags |= RaycastFlags.PartialSurface;
-                }
-            }
-            if ((actualSnap &amp; Snap.ExistingGeometry) == 0 &amp;&amp; m_State != State.Default)
-            {
-                m_ToolRaycastSystem.typeMask &amp;= ~TypeMask.Areas;
-            }
-        }
-        else
-        {
-            m_ToolRaycastSystem.typeMask = TypeMask.Terrain | TypeMask.Areas;
-            m_ToolRaycastSystem.areaTypeMask = AreaTypeMask.None;
-        }
-        if (m_ToolSystem.actionMode.IsEditor())
-        {
-            m_ToolRaycastSystem.raycastFlags |= RaycastFlags.UpgradeIsMain;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_ObjectToolSystem = base.World.GetOrCreateSystemManaged&lt;ObjectToolSystem&gt;();
-        m_AreaSearchSystem = base.World.GetOrCreateSystemManaged&lt;Game.Areas.SearchSystem&gt;();
-        m_NetSearchSystem = base.World.GetOrCreateSystemManaged&lt;Game.Net.SearchSystem&gt;();
-        m_ObjectSearchSystem = base.World.GetOrCreateSystemManaged&lt;Game.Objects.SearchSystem&gt;();
-        m_ToolOutputBarrier = base.World.GetOrCreateSystemManaged&lt;ToolOutputBarrier&gt;();
-        m_AudioManager = base.World.GetOrCreateSystemManaged&lt;AudioManager&gt;();
-        m_DefinitionQuery = GetDefinitionQuery();
-        m_TempAreaQuery = GetEntityQuery(ComponentType.ReadOnly&lt;Area&gt;(), ComponentType.ReadOnly&lt;Temp&gt;());
-        m_TempBuildingQuery = GetEntityQuery(ComponentType.ReadOnly&lt;Building&gt;(), ComponentType.ReadOnly&lt;Temp&gt;());
-        m_MapTileQuery = GetEntityQuery(ComponentType.ReadOnly&lt;MapTile&gt;(), ComponentType.Exclude&lt;Temp&gt;(), ComponentType.Exclude&lt;Deleted&gt;());
-        m_SoundQuery = GetEntityQuery(ComponentType.ReadOnly&lt;ToolUXSoundSettingsData&gt;());
-        m_AddAreaNode = InputManager.instance.toolActionCollection.GetActionState(&quot;Add Area Node&quot;, &quot;AreaToolSystem&quot;);
-        m_InsertAreaNode = InputManager.instance.toolActionCollection.GetActionState(&quot;Insert Area Node&quot;, &quot;AreaToolSystem&quot;);
-        m_MergeAreaNode = InputManager.instance.toolActionCollection.GetActionState(&quot;Merge Area Node&quot;, &quot;AreaToolSystem&quot;);
-        m_MoveAreaNode = InputManager.instance.toolActionCollection.GetActionState(&quot;Move Area Node&quot;, &quot;AreaToolSystem&quot;);
-        m_DeleteAreaNode = InputManager.instance.toolActionCollection.GetActionState(&quot;Delete Area Node&quot;, &quot;AreaToolSystem&quot;);
-        m_UndoAreaNode = InputManager.instance.toolActionCollection.GetActionState(&quot;Undo Area Node&quot;, &quot;AreaToolSystem&quot;);
-        m_CompleteArea = InputManager.instance.toolActionCollection.GetActionState(&quot;Complete Area&quot;, &quot;AreaToolSystem&quot;);
-        m_CreateArea = InputManager.instance.toolActionCollection.GetActionState(&quot;Create Area&quot;, &quot;AreaToolSystem&quot;);
-        m_DeleteArea = InputManager.instance.toolActionCollection.GetActionState(&quot;Delete Area&quot;, &quot;AreaToolSystem&quot;);
-        m_DiscardInsertAreaNode = InputManager.instance.toolActionCollection.GetActionState(&quot;Discard Insert Area Node&quot;, &quot;AreaToolSystem&quot;);
-        m_DiscardMoveAreaNode = InputManager.instance.toolActionCollection.GetActionState(&quot;Discard Move Area Node&quot;, &quot;AreaToolSystem&quot;);
-        m_DiscardMergeAreaNode = InputManager.instance.toolActionCollection.GetActionState(&quot;Discard Merge Area Node&quot;, &quot;AreaToolSystem&quot;);
-        m_CreateAreaOrMoveAreaNode = InputManager.instance.toolActionCollection.GetActionState(&quot;Create Area Or Move Area Node&quot;, &quot;AreaToolSystem&quot;);
-        m_CreateAreaOrInsertAreaNode = InputManager.instance.toolActionCollection.GetActionState(&quot;Create Area Or Insert Area Node&quot;, &quot;AreaToolSystem&quot;);
-        selectedSnap &amp;= ~Snap.AutoParent;
-        m_ControlPoints = new NativeList&lt;ControlPoint&gt;(20, Allocator.Persistent);
-        m_MoveStartPositions = new NativeList&lt;ControlPoint&gt;(10, Allocator.Persistent);
-        m_Tooltip = new NativeValue&lt;Tooltip&gt;(Allocator.Persistent);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreateForCompiler() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnCreateForCompiler()
-    {
-        base.OnCreateForCompiler();
-        __AssignQueries(ref base.CheckedStateRef);
-        __TypeHandle.__AssignHandles(ref base.CheckedStateRef);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnDestroy() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnDestroy()
-    {
-        m_ControlPoints.Dispose();
-        m_MoveStartPositions.Dispose();
-        m_Tooltip.Dispose();
-        base.OnDestroy();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnStartRunning() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnStartRunning()
-    {
-        base.OnStartRunning();
-        m_ControlPoints.Clear();
-        m_MoveStartPositions.Clear();
-        m_LastRaycastPoint = default(ControlPoint);
-        m_LastMode = actualMode;
-        m_State = State.Default;
-        m_Tooltip.value = Tooltip.None;
-        m_AllowCreateArea = false;
-        m_ForceCancel = false;
-        m_ApplyBlocked = false;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnStopRunning() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnStopRunning()
-    {
-        recreate = Entity.Null;
-        base.OnStopRunning();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate(Unity.Jobs.JobHandle inputDeps) : Unity.Jobs.JobHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override JobHandle OnUpdate(JobHandle inputDeps)
-    {
-        if (m_FocusChanged)
-        {
-            return inputDeps;
-        }
-        if (actualMode != m_LastMode)
-        {
-            m_ControlPoints.Clear();
-            m_MoveStartPositions.Clear();
-            m_LastRaycastPoint = default(ControlPoint);
-            m_LastMode = actualMode;
-            m_State = State.Default;
-            m_Tooltip.value = Tooltip.None;
-            m_AllowCreateArea = false;
-        }
-        bool flag = m_ForceCancel;
-        m_ForceCancel = false;
-        if (base.EntityManager.TryGetBuffer(recreate, isReadOnly: true, out DynamicBuffer&lt;Game.Areas.Node&gt; buffer))
-        {
-            m_State = State.Create;
-            if (m_ControlPoints.Length &lt; 3 &amp;&amp; buffer.Length &gt;= 2)
-            {
-                ref NativeList&lt;ControlPoint&gt; reference = ref m_ControlPoints;
-                ControlPoint value = new ControlPoint
-                {
-                    m_OriginalEntity = recreate,
-                    m_ElementIndex = new int2(0, -1),
-                    m_Position = buffer[0].m_Position,
-                    m_HitPosition = buffer[0].m_Position
-                };
-                reference.Add(in value);
-                ref NativeList&lt;ControlPoint&gt; reference2 = ref m_ControlPoints;
-                value = new ControlPoint
-                {
-                    m_OriginalEntity = recreate,
-                    m_ElementIndex = new int2(1, -1),
-                    m_Position = buffer[1].m_Position,
-                    m_HitPosition = buffer[1].m_Position
-                };
-                reference2.Add(in value);
-                ref NativeList&lt;ControlPoint&gt; reference3 = ref m_ControlPoints;
-                value = new ControlPoint
-                {
-                    m_ElementIndex = new int2(-1, -1),
-                    m_Position = math.lerp(buffer[0].m_Position, buffer[1].m_Position, 0.5f),
-                    m_HitPosition = math.lerp(buffer[0].m_Position, buffer[1].m_Position, 0.5f)
-                };
-                reference3.Add(in value);
-            }
-        }
-        UpdateActions();
-        if (prefab != null)
-        {
-            AreaGeometryData componentData = m_PrefabSystem.GetComponentData&lt;AreaGeometryData&gt;(prefab);
-            base.requireAreas = AreaUtils.GetTypeMask(componentData.m_Type);
-            base.requireZones = componentData.m_Type == Game.Areas.AreaType.Lot;
-            base.requireNet = Layer.None;
-            if ((componentData.m_Flags &amp; Game.Areas.GeometryFlags.PhysicalGeometry) != 0 &amp;&amp; (componentData.m_Flags &amp; Game.Areas.GeometryFlags.OnWaterSurface) != 0)
-            {
-                base.requireNet |= Layer.Waterway;
-            }
-            m_AllowCreateArea = (m_ToolSystem.actionMode.IsEditor() || componentData.m_Type != Game.Areas.AreaType.Lot) &amp;&amp; (componentData.m_Type != Game.Areas.AreaType.Surface || (componentData.m_Flags &amp; Game.Areas.GeometryFlags.ClipTerrain) != 0 || m_PrefabSystem.HasComponent&lt;RenderedAreaData&gt;(prefab));
-            Entity entity = Entity.Null;
-            if (base.EntityManager.TryGetComponent&lt;Owner&gt;(recreate, out var component) &amp;&amp; base.EntityManager.TryGetComponent&lt;PrefabRef&gt;(component.m_Owner, out var component2))
-            {
-                entity = component2.m_Prefab;
-            }
-            else if (!m_ToolSystem.actionMode.IsEditor())
-            {
-                entity = m_PrefabSystem.GetEntity(prefab);
-            }
-            UpdateInfoview(entity);
-            GetAvailableSnapMask(componentData, m_ToolSystem.actionMode.IsEditor(), out m_SnapOnMask, out m_SnapOffMask);
-            allowUnderground = (ToolBaseSystem.GetActualSnap(selectedSnap, m_SnapOnMask, m_SnapOffMask) &amp; Snap.ObjectSurface) != 0;
-            base.requireUnderground = allowUnderground &amp;&amp; underground;
-            if (m_State != State.Default &amp;&amp; base.actionsEnabled &amp;&amp; !base.applyAction.enabled)
-            {
-                m_State = State.Default;
-                return Clear(inputDeps);
-            }
-            if ((m_ToolRaycastSystem.raycastFlags &amp; (RaycastFlags.DebugDisable | RaycastFlags.UIDisable)) == 0)
-            {
-                switch (m_State)
-                {
-                case State.Default:
-                case State.Create:
-                    if (m_ApplyBlocked)
-                    {
-                        if (base.applyAction.WasReleasedThisFrame() || base.secondaryApplyAction.WasReleasedThisFrame())
-                        {
-                            m_ApplyBlocked = false;
-                        }
-                        return Update(inputDeps, fullUpdate: false);
-                    }
-                    if (base.applyAction.WasPressedThisFrame())
-                    {
-                        return Apply(inputDeps, base.applyAction.WasReleasedThisFrame());
-                    }
-                    if (base.secondaryApplyAction.WasPressedThisFrame())
-                    {
-                        return Cancel(inputDeps, base.secondaryApplyAction.WasReleasedThisFrame());
-                    }
-                    break;
-                case State.Modify:
-                    if (base.cancelAction.WasPressedThisFrame())
-                    {
-                        m_ApplyBlocked = true;
-                        m_State = State.Default;
-                        return Update(inputDeps, fullUpdate: true);
-                    }
-                    if (base.applyAction.WasReleasedThisFrame())
-                    {
-                        return Apply(inputDeps);
-                    }
-                    break;
-                case State.Remove:
-                    if (flag || base.cancelAction.WasPressedThisFrame())
-                    {
-                        m_ApplyBlocked = true;
-                        m_State = State.Default;
-                        return Update(inputDeps, fullUpdate: true);
-                    }
-                    if (base.secondaryApplyAction.WasReleasedThisFrame())
-                    {
-                        return Cancel(inputDeps);
-                    }
-                    break;
-                }
-                return Update(inputDeps, fullUpdate: false);
-            }
-        }
-        else
-        {
-            base.requireAreas = AreaTypeMask.None;
-            base.requireZones = false;
-            base.requireNet = Layer.None;
-            base.requireUnderground = false;
-            m_AllowCreateArea = false;
-            allowUnderground = false;
-            UpdateInfoview(Entity.Null);
-        }
-        if (m_State == State.Modify &amp;&amp; base.applyAction.WasReleasedThisFrame())
-        {
-            if ((m_ToolRaycastSystem.raycastFlags &amp; (RaycastFlags.DebugDisable | RaycastFlags.UIDisable)) == 0)
-            {
-                return Cancel(inputDeps);
-            }
-            m_ControlPoints.Clear();
-            m_State = State.Default;
-        }
-        else if (m_State == State.Remove &amp;&amp; base.secondaryApplyAction.WasReleasedThisFrame())
-        {
-            if ((m_ToolRaycastSystem.raycastFlags &amp; (RaycastFlags.DebugDisable | RaycastFlags.UIDisable)) == 0)
-            {
-                return Apply(inputDeps);
-            }
-            m_ControlPoints.Clear();
-            m_State = State.Default;
-        }
-        return Clear(inputDeps);
-    }
-</code></pre>
-<ul>
-<li><code>public virtual SetUnderground(System.Boolean underground) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override void SetUnderground(bool underground)
-    {
-        this.underground = underground;
-    }
-</code></pre>
-<ul>
-<li><code>private SnapControlPoints(Unity.Jobs.JobHandle inputDeps, Unity.Collections.NativeArray&lt;Unity.Entities.Entity&gt; applyTempAreas) : Unity.Jobs.JobHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private JobHandle SnapControlPoints(JobHandle inputDeps, NativeArray&lt;Entity&gt; applyTempAreas)
-    {
-        JobHandle dependencies;
-        JobHandle dependencies2;
-        JobHandle dependencies3;
-        SnapJob jobData = new SnapJob
-        {
-            m_AllowCreateArea = m_AllowCreateArea,
-            m_ControlPointsMoved = m_ControlPointsMoved,
-            m_EditorMode = m_ToolSystem.actionMode.IsEditor(),
-            m_Snap = GetActualSnap(),
-            m_State = m_State,
-            m_Prefab = m_PrefabSystem.GetEntity(prefab),
-            m_ApplyTempAreas = applyTempAreas,
-            m_MoveStartPositions = m_MoveStartPositions,
-            m_PrefabRefData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabAreaData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_AreaGeometryData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_TempData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Tools_Temp_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_OwnerData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Common_Owner_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_BuildingData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Buildings_Building_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_CurveData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_Curve_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_EdgeGeometryData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_EdgeGeometry_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_StartGeometryData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_StartNodeGeometry_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_EndGeometryData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_EndNodeGeometry_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_CompositionData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_Composition_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_TransformData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Objects_Transform_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabBuildingData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_BuildingData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_BuildingExtensionData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_BuildingExtensionData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_AssetStampData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_AssetStampData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_ObjectGeometryData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_ObjectGeometryData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabCompositionData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_NetCompositionData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_LotData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Areas_Lot_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_Nodes = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Areas_Node_RO_BufferLookup, ref base.CheckedStateRef),
-            m_CachedNodes = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Tools_LocalNodeCache_RO_BufferLookup, ref base.CheckedStateRef),
-            m_Triangles = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Areas_Triangle_RO_BufferLookup, ref base.CheckedStateRef),
-            m_InstalledUpgrades = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Buildings_InstalledUpgrade_RO_BufferLookup, ref base.CheckedStateRef),
-            m_AreaSearchTree = m_AreaSearchSystem.GetSearchTree(readOnly: true, out dependencies),
-            m_NetSearchTree = m_NetSearchSystem.GetNetSearchTree(readOnly: true, out dependencies2),
-            m_ObjectSearchTree = m_ObjectSearchSystem.GetStaticSearchTree(readOnly: true, out dependencies3),
-            m_ControlPoints = m_ControlPoints
-        };
-        inputDeps = JobHandle.CombineDependencies(inputDeps, JobHandle.CombineDependencies(dependencies, dependencies2, dependencies3));
-        JobHandle jobHandle = IJobExtensions.Schedule(jobData, inputDeps);
-        m_AreaSearchSystem.AddSearchTreeReader(jobHandle);
-        m_NetSearchSystem.AddNetSearchTreeReader(jobHandle);
-        m_ObjectSearchSystem.AddStaticSearchTreeReader(jobHandle);
-        return jobHandle;
-    }
-</code></pre>
-<ul>
-<li><code>public virtual TrySetPrefab(Game.Prefabs.PrefabBase prefab) : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override bool TrySetPrefab(PrefabBase prefab)
-    {
-        if (prefab is AreaPrefab areaPrefab)
-        {
-            this.prefab = areaPrefab;
-            return true;
-        }
-        return false;
-    }
-</code></pre>
-<ul>
-<li><code>private Update(Unity.Jobs.JobHandle inputDeps, System.Boolean fullUpdate) : Unity.Jobs.JobHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private JobHandle Update(JobHandle inputDeps, bool fullUpdate)
-    {
-        if (GetRaycastResult(out ControlPoint controlPoint, out bool forceUpdate))
-        {
-            forceUpdate = forceUpdate || fullUpdate;
-            if (m_ControlPoints.Length == 0)
-            {
-                m_LastRaycastPoint = controlPoint;
-                m_ControlPoints.Add(in controlPoint);
-                inputDeps = SnapControlPoints(inputDeps, default(NativeArray&lt;Entity&gt;));
-                base.applyMode = ApplyMode.Clear;
-                return UpdateDefinitions(inputDeps, default(NativeArray&lt;Entity&gt;), default(NativeArray&lt;Entity&gt;));
-            }
-            if (m_LastRaycastPoint.Equals(controlPoint) &amp;&amp; !forceUpdate)
-            {
-                base.applyMode = ApplyMode.None;
-                return inputDeps;
-            }
-            m_LastRaycastPoint = controlPoint;
-            int index = math.select(0, m_ControlPoints.Length - 1, m_State == State.Create);
-            ControlPoint value = m_ControlPoints[index];
-            m_ControlPoints[index] = controlPoint;
-            inputDeps = SnapControlPoints(inputDeps, default(NativeArray&lt;Entity&gt;));
-            JobHandle.ScheduleBatchedJobs();
-            inputDeps.Complete();
-            ControlPoint other = m_ControlPoints[index];
-            if (value.EqualsIgnoreHit(other))
-            {
-                base.applyMode = ApplyMode.None;
-            }
-            else
-            {
-                float minNodeDistance = AreaUtils.GetMinNodeDistance(m_PrefabSystem.GetComponentData&lt;AreaGeometryData&gt;(prefab));
-                if (m_State == State.Modify &amp;&amp; !m_ControlPointsMoved &amp;&amp; math.distance(value.m_Position, other.m_Position) &lt; minNodeDistance * 0.5f)
-                {
-                    m_ControlPoints[index] = value;
-                    base.applyMode = ApplyMode.None;
-                }
-                else
-                {
-                    m_ControlPointsMoved = true;
-                    base.applyMode = ApplyMode.Clear;
-                    inputDeps = UpdateDefinitions(inputDeps, default(NativeArray&lt;Entity&gt;), default(NativeArray&lt;Entity&gt;));
-                }
-            }
-            return inputDeps;
-        }
-        if (m_LastRaycastPoint.Equals(controlPoint))
-        {
-            if (forceUpdate || fullUpdate)
-            {
-                base.applyMode = ApplyMode.Clear;
-                return UpdateDefinitions(inputDeps, default(NativeArray&lt;Entity&gt;), default(NativeArray&lt;Entity&gt;));
-            }
-            base.applyMode = ApplyMode.None;
-            return inputDeps;
-        }
-        m_LastRaycastPoint = controlPoint;
-        if (m_State == State.Default &amp;&amp; m_ControlPoints.Length &gt;= 1)
-        {
-            base.applyMode = ApplyMode.Clear;
-            m_ControlPoints.Clear();
-            m_ControlPoints.Add(default(ControlPoint));
-            return UpdateDefinitions(inputDeps, default(NativeArray&lt;Entity&gt;), default(NativeArray&lt;Entity&gt;));
-        }
-        if (m_State == State.Modify &amp;&amp; m_ControlPoints.Length &gt;= 1)
-        {
-            m_ControlPointsMoved = true;
-            base.applyMode = ApplyMode.Clear;
-            m_ControlPoints[0] = m_MoveStartPositions[0];
-            return UpdateDefinitions(inputDeps, default(NativeArray&lt;Entity&gt;), default(NativeArray&lt;Entity&gt;));
-        }
-        if (m_State == State.Remove &amp;&amp; m_ControlPoints.Length &gt;= 1)
-        {
-            m_ControlPointsMoved = true;
-            base.applyMode = ApplyMode.Clear;
-            m_ControlPoints[0] = m_MoveStartPositions[0];
-            return UpdateDefinitions(inputDeps, default(NativeArray&lt;Entity&gt;), default(NativeArray&lt;Entity&gt;));
-        }
-        if (m_ControlPoints.Length &gt;= 2)
-        {
-            m_ControlPointsMoved = true;
-            base.applyMode = ApplyMode.Clear;
-            m_ControlPoints[m_ControlPoints.Length - 1] = m_ControlPoints[m_ControlPoints.Length - 2];
-            return UpdateDefinitions(inputDeps, default(NativeArray&lt;Entity&gt;), default(NativeArray&lt;Entity&gt;));
-        }
-        return inputDeps;
-    }
-</code></pre>
-<ul>
-<li><code>private virtual UpdateActions() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private protected override void UpdateActions()
-    {
-        using (ProxyAction.DeferStateUpdating())
-        {
-            UpdateApplyAction();
-            UpdateSecondaryApplyAction();
-            UpdateCancelAction();
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private UpdateApplyAction() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void UpdateApplyAction()
-    {
-        switch (state)
-        {
-        case State.Default:
-        {
-            if (m_ControlPoints.Length &lt; 1 || m_ControlPoints[0].Equals(default(ControlPoint)))
-            {
-                base.applyAction.enabled = base.actionsEnabled;
-                base.applyActionOverride = null;
-                break;
-            }
-            for (int k = 0; k &lt; m_ControlPoints.Length; k++)
-            {
-                if (!base.EntityManager.TryGetComponent&lt;Area&gt;(m_ControlPoints[k].m_OriginalEntity, out var component2) || (component2.m_Flags &amp; AreaFlags.Complete) == 0 || !base.EntityManager.TryGetBuffer(m_ControlPoints[k].m_OriginalEntity, isReadOnly: true, out DynamicBuffer&lt;Game.Areas.Node&gt; buffer2))
-                {
-                    continue;
-                }
-                for (int l = 0; l &lt; buffer2.Length; l++)
-                {
-                    if (buffer2[l].m_Position.Equals(m_ControlPoints[k].m_Position))
-                    {
-                        base.applyAction.enabled = base.actionsEnabled;
-                        base.applyActionOverride = (base.EntityManager.HasComponent&lt;Game.Areas.Lot&gt;(m_ControlPoints[k].m_OriginalEntity) ? m_MoveAreaNode : m_CreateAreaOrMoveAreaNode);
-                        return;
-                    }
-                }
-                base.applyAction.enabled = base.actionsEnabled;
-                base.applyActionOverride = (base.EntityManager.HasComponent&lt;Game.Areas.Lot&gt;(m_ControlPoints[k].m_OriginalEntity) ? m_InsertAreaNode : m_CreateAreaOrInsertAreaNode);
-                return;
-            }
-            if (!base.EntityManager.HasComponent&lt;Game.Areas.Node&gt;(m_ControlPoints[0].m_OriginalEntity) || !math.any(m_ControlPoints[0].m_ElementIndex &gt;= 0))
-            {
-                base.applyAction.enabled = base.actionsEnabled;
-                base.applyActionOverride = m_CreateArea;
-            }
-            else
-            {
-                base.applyAction.enabled = false;
-                base.applyActionOverride = null;
-            }
-            break;
-        }
-        case State.Create:
-        {
-            ref NativeList&lt;ControlPoint&gt; reference = ref m_ControlPoints;
-            if (reference[reference.Length - 1].Equals(default(ControlPoint)))
-            {
-                base.applyAction.enabled = base.actionsEnabled;
-                base.applyActionOverride = null;
-                break;
-            }
-            ref NativeList&lt;ControlPoint&gt; reference2 = ref m_ControlPoints;
-            ControlPoint controlPoint = reference2[reference2.Length - 1];
-            ref float3 position = ref controlPoint.m_Position;
-            ref NativeList&lt;ControlPoint&gt; reference3 = ref m_ControlPoints;
-            if (!position.Equals(reference3[reference3.Length - 2].m_Position))
-            {
-                ref NativeList&lt;ControlPoint&gt; reference4 = ref m_ControlPoints;
-                if (!reference4[reference4.Length - 1].m_Position.Equals(m_ControlPoints[0].m_Position))
-                {
-                    base.applyAction.enabled = base.actionsEnabled;
-                    base.applyActionOverride = (GetAllowApply() ? m_AddAreaNode : null);
-                    break;
-                }
-            }
-            if (m_ControlPoints.Length &gt;= 3)
-            {
-                ref NativeList&lt;ControlPoint&gt; reference5 = ref m_ControlPoints;
-                if (reference5[reference5.Length - 1].m_Position.Equals(m_ControlPoints[0].m_Position))
-                {
-                    base.applyAction.enabled = base.actionsEnabled;
-                    base.applyActionOverride = (GetAllowApply() ? m_CompleteArea : null);
-                    break;
-                }
-            }
-            base.applyAction.enabled = base.actionsEnabled;
-            base.applyActionOverride = null;
-            break;
-        }
-        case State.Modify:
-        {
-            for (int i = 0; i &lt; m_MoveStartPositions.Length; i++)
-            {
-                if (!base.EntityManager.TryGetComponent&lt;Area&gt;(m_MoveStartPositions[i].m_OriginalEntity, out var component) || (component.m_Flags &amp; AreaFlags.Complete) == 0 || !base.EntityManager.TryGetBuffer(m_MoveStartPositions[i].m_OriginalEntity, isReadOnly: true, out DynamicBuffer&lt;Game.Areas.Node&gt; buffer))
-                {
-                    continue;
-                }
-                for (int j = 0; j &lt; buffer.Length; j++)
-                {
-                    if (!buffer[j].m_Position.Equals(m_MoveStartPositions[i].m_Position) &amp;&amp; buffer[j].m_Position.Equals(m_ControlPoints[0].m_Position))
-                    {
-                        base.applyAction.enabled = base.actionsEnabled;
-                        base.applyActionOverride = m_MergeAreaNode;
-                        return;
-                    }
-                    if (buffer[j].m_Position.Equals(m_MoveStartPositions[i].m_Position))
-                    {
-                        base.applyAction.enabled = base.actionsEnabled;
-                        base.applyActionOverride = m_MoveAreaNode;
-                        return;
-                    }
-                }
-                base.applyAction.enabled = base.actionsEnabled;
-                base.applyActionOverride = m_InsertAreaNode;
-                return;
-            }
-            base.applyAction.enabled = false;
-            base.applyActionOverride = null;
-            break;
-        }
-        case State.Remove:
-            base.applyAction.enabled = base.actionsEnabled;
-            base.applyActionOverride = null;
-            break;
-        default:
-            base.applyAction.enabled = false;
-            base.applyActionOverride = null;
-            break;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private UpdateCancelAction() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void UpdateCancelAction()
-    {
-        if (state == State.Modify)
-        {
-            for (int i = 0; i &lt; m_MoveStartPositions.Length; i++)
-            {
-                if (!base.EntityManager.TryGetComponent&lt;Area&gt;(m_MoveStartPositions[i].m_OriginalEntity, out var component) || (component.m_Flags &amp; AreaFlags.Complete) == 0 || !base.EntityManager.TryGetBuffer(m_MoveStartPositions[i].m_OriginalEntity, isReadOnly: true, out DynamicBuffer&lt;Game.Areas.Node&gt; buffer))
-                {
-                    continue;
-                }
-                for (int j = 0; j &lt; buffer.Length; j++)
-                {
-                    if (!buffer[j].m_Position.Equals(m_MoveStartPositions[i].m_Position) &amp;&amp; buffer[j].m_Position.Equals(m_ControlPoints[0].m_Position))
-                    {
-                        base.cancelAction.enabled = base.actionsEnabled;
-                        base.cancelActionOverride = m_DiscardMergeAreaNode;
-                        return;
-                    }
-                    if (buffer[j].m_Position.Equals(m_MoveStartPositions[i].m_Position))
-                    {
-                        base.cancelAction.enabled = base.actionsEnabled;
-                        base.cancelActionOverride = m_DiscardMoveAreaNode;
-                        return;
-                    }
-                }
-                base.cancelAction.enabled = base.actionsEnabled;
-                base.cancelActionOverride = m_DiscardInsertAreaNode;
-                return;
-            }
-            base.cancelAction.enabled = false;
-            base.cancelActionOverride = null;
-        }
-        else
-        {
-            base.cancelAction.enabled = false;
-            base.cancelActionOverride = null;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private UpdateDefinitions(Unity.Jobs.JobHandle inputDeps, Unity.Collections.NativeArray&lt;Unity.Entities.Entity&gt; applyTempAreas, Unity.Collections.NativeArray&lt;Unity.Entities.Entity&gt; applyTempBuildings) : Unity.Jobs.JobHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private JobHandle UpdateDefinitions(JobHandle inputDeps, NativeArray&lt;Entity&gt; applyTempAreas, NativeArray&lt;Entity&gt; applyTempBuildings)
-    {
-        JobHandle jobHandle = DestroyDefinitions(m_DefinitionQuery, m_ToolOutputBarrier, inputDeps);
-        if (prefab != null)
-        {
-            if (mode == Mode.Generate)
-            {
-                JobHandle jobHandle2 = JobChunkExtensions.ScheduleParallel(new RemoveMapTilesJob
-                {
-                    m_EntityType = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef),
-                    m_NodeType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Areas_Node_RO_BufferTypeHandle, ref base.CheckedStateRef),
-                    m_CacheType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Tools_LocalNodeCache_RO_BufferTypeHandle, ref base.CheckedStateRef),
-                    m_ControlPoints = m_ControlPoints,
-                    m_CommandBuffer = m_ToolOutputBarrier.CreateCommandBuffer().AsParallelWriter()
-                }, m_MapTileQuery, inputDeps);
-                m_ToolOutputBarrier.AddJobHandleForProducer(jobHandle2);
-                jobHandle = JobHandle.CombineDependencies(jobHandle, jobHandle2);
-            }
-            JobHandle jobHandle3 = IJobExtensions.Schedule(new CreateDefinitionsJob
-            {
-                m_AllowCreateArea = m_AllowCreateArea,
-                m_EditorMode = m_ToolSystem.actionMode.IsEditor(),
-                m_Mode = actualMode,
-                m_State = m_State,
-                m_Prefab = m_PrefabSystem.GetEntity(prefab),
-                m_Recreate = recreate,
-                m_ApplyTempAreas = applyTempAreas,
-                m_ApplyTempBuildings = applyTempBuildings,
-                m_MoveStartPositions = m_MoveStartPositions,
-                m_TempData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Tools_Temp_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_OwnerData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Common_Owner_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_ClearData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Areas_Clear_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_SpaceData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Areas_Space_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_AreaData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Areas_Area_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_NodeData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_Node_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_EdgeData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_Edge_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_CurveData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_Curve_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_NetElevationData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_Elevation_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_EditorContainerData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Tools_EditorContainer_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_LocalTransformCacheData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Tools_LocalTransformCache_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_TransformData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Objects_Transform_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_BuildingData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Buildings_Building_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_PrefabRefData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_PrefabAreaData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_AreaGeometryData_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_PrefabObjectGeometryData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_ObjectGeometryData_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_Nodes = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Areas_Node_RO_BufferLookup, ref base.CheckedStateRef),
-                m_Triangles = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Areas_Triangle_RO_BufferLookup, ref base.CheckedStateRef),
-                m_SubAreas = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Areas_SubArea_RO_BufferLookup, ref base.CheckedStateRef),
-                m_CachedNodes = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Tools_LocalNodeCache_RO_BufferLookup, ref base.CheckedStateRef),
-                m_SubNets = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Net_SubNet_RO_BufferLookup, ref base.CheckedStateRef),
-                m_ConnectedEdges = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Net_ConnectedEdge_RO_BufferLookup, ref base.CheckedStateRef),
-                m_SubObjects = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Objects_SubObject_RO_BufferLookup, ref base.CheckedStateRef),
-                m_InstalledUpgrades = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Buildings_InstalledUpgrade_RO_BufferLookup, ref base.CheckedStateRef),
-                m_ControlPoints = m_ControlPoints,
-                m_Tooltip = m_Tooltip,
-                m_CommandBuffer = m_ToolOutputBarrier.CreateCommandBuffer()
-            }, inputDeps);
-            m_ToolOutputBarrier.AddJobHandleForProducer(jobHandle3);
-            jobHandle = JobHandle.CombineDependencies(jobHandle, jobHandle3);
-        }
-        return jobHandle;
-    }
-</code></pre>
-<ul>
-<li><code>private UpdateSecondaryApplyAction() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void UpdateSecondaryApplyAction()
-    {
-        switch (state)
-        {
-        case State.Default:
-        {
-            if (m_ControlPoints.Length == 1 &amp;&amp; base.EntityManager.TryGetComponent&lt;Area&gt;(m_ControlPoints[0].m_OriginalEntity, out var component) &amp;&amp; (component.m_Flags &amp; AreaFlags.Complete) != 0 &amp;&amp; base.EntityManager.TryGetBuffer(m_ControlPoints[0].m_OriginalEntity, isReadOnly: true, out DynamicBuffer&lt;Game.Areas.Node&gt; buffer))
-            {
-                for (int i = 0; i &lt; buffer.Length; i++)
-                {
-                    if (buffer[i].m_Position.Equals(m_ControlPoints[0].m_Position))
-                    {
-                        if (buffer.Length &gt; 3)
-                        {
-                            base.secondaryApplyAction.enabled = base.actionsEnabled;
-                            base.secondaryApplyActionOverride = m_DeleteAreaNode;
-                        }
-                        else if (!base.EntityManager.HasComponent&lt;Owner&gt;(m_ControlPoints[0].m_OriginalEntity))
-                        {
-                            base.secondaryApplyAction.enabled = base.actionsEnabled;
-                            base.secondaryApplyActionOverride = m_DeleteArea;
-                        }
-                        else
-                        {
-                            base.secondaryApplyAction.enabled = false;
-                            base.secondaryApplyActionOverride = null;
-                        }
-                        return;
-                    }
-                }
-            }
-            base.secondaryApplyAction.enabled = false;
-            base.secondaryApplyActionOverride = null;
-            break;
-        }
-        case State.Create:
-            if (m_ControlPoints.Length &gt; 1)
-            {
-                base.secondaryApplyAction.enabled = base.actionsEnabled;
-                base.secondaryApplyActionOverride = m_UndoAreaNode;
-            }
-            else
-            {
-                base.secondaryApplyAction.enabled = base.actionsEnabled;
-                base.secondaryApplyActionOverride = null;
-            }
-            break;
-        case State.Remove:
-            base.secondaryApplyAction.enabled = base.actionsEnabled;
-            base.secondaryApplyActionOverride = m_DeleteAreaNode;
-            break;
-        default:
-            base.secondaryApplyAction.enabled = false;
-            base.secondaryApplyActionOverride = null;
-            break;
-        }
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Tools.AreaToolSystem+Mode</code>  </li>
-<li><code>Game.Tools.AreaToolSystem+State</code>  </li>
-<li><code>Game.Tools.AreaToolSystem+Tooltip</code>  </li>
-<li><code>Game.Tools.AreaToolSystem+SnapJob</code>  </li>
-<li><code>Game.Tools.AreaToolSystem+RemoveMapTilesJob</code>  </li>
-<li><code>Game.Tools.AreaToolSystem+CreateDefinitionsJob</code>  </li>
-<li><code>Game.Tools.AreaToolSystem+TypeHandle</code>  </li>
-<li><code>Game.Tools.AreaToolSystem+&lt;get_toolActions&gt;d__56</code>  </li>
-</ul>
+<p>Notes / tips for modders:
+- The tool heavily relies on ECS ComponentLookup/BufferLookup and Native containers. If you need to call into or schedule similar jobs, mirror the pattern used for TypeHandle and internal lookups.
+- SnapJob and CreateDefinitionsJob are Burst-compiled and read many component lookups; when modifying or extending, ensure thread-safety and proper read-only annotations.
+- To create or remove preview items programmatically, you can inspect CreationDefinition / OwnerDefinition / ObjectDefinition components emitted by CreateDefinitionsJob (they are created through the ToolOutputBarrier command buffer).
+- Use the tool's public API (TrySetPrefab, GetControlPoints) and input proxy actions to integrate custom UI or tooling flows.</p>
 
 
 

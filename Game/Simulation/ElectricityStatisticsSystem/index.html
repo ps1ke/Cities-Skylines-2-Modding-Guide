@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -81214,15 +81306,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -81259,9 +81342,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -87154,6 +87237,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -117930,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117955,15 +118083,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -118002,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118027,299 +118146,181 @@
 
 
 <h1 id="gamesimulationelectricitystatisticssystem">Game.Simulation.ElectricityStatisticsSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Simulation</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code><br />
-<strong>Implements:</strong> <code>Game.Simulation.IElectricityStatisticsSystem</code>, <code>Colossal.Serialization.Entities.IDefaultSerializable</code>, <code>Colossal.Serialization.Entities.ISerializable</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class ElectricityStatisticsSystem : Game.GameSystemBase, Game.Simulation.IElectricityStatisticsSystem, Colossal.Serialization.Entities.IDefaultSerializable, Colossal.Serialization.Entities.ISerializable
-{
-    private Unity.Entities.EntityQuery m_ProducerGroup;
-    private Unity.Entities.EntityQuery m_ConsumerGroup;
-    private Unity.Entities.EntityQuery m_BatteryGroup;
-    private Colossal.NativePerThreadSumInt m_Production;
-    private Colossal.NativePerThreadSumInt m_Consumption;
-    private Colossal.NativePerThreadSumInt m_FulfilledConsumption;
-    private Colossal.NativePerThreadSumInt m_BatteryCharge;
-    private Colossal.NativePerThreadSumInt m_BatteryCapacity;
-    private System.Int32 m_LastProduction;
-    private System.Int32 m_LastConsumption;
-    private System.Int32 m_LastFulfilledConsumption;
-    private System.Int32 m_LastBatteryCharge;
-    private System.Int32 m_LastBatteryCapacity;
-    private Game.Simulation.ElectricityStatisticsSystem+TypeHandle __TypeHandle;
-
-    public System.Int32 production { get; }
-    public System.Int32 consumption { get; }
-    public System.Int32 fulfilledConsumption { get; }
-    public System.Int32 batteryCharge { get; }
-    public System.Int32 batteryCapacity { get; }
-
-    public ElectricityStatisticsSystem();
-
-    private System.Void __AssignQueries(Unity.Entities.SystemState&amp; state);
-    public System.Void Deserialize&lt;TReader&gt;(TReader reader);
-    public virtual System.Int32 GetUpdateInterval(Game.SystemUpdatePhase phase);
-    public virtual System.Int32 GetUpdateOffset(Game.SystemUpdatePhase phase);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnCreateForCompiler();
-    protected virtual System.Void OnDestroy();
-    protected virtual System.Void OnUpdate();
-    public System.Void Serialize&lt;TWriter&gt;(TWriter writer);
-    public System.Void SetDefaults(Colossal.Serialization.Entities.Context context);
-}
-</code></pre>
+<p><strong>Assembly:</strong> Game (Cities: Skylines 2)<br />
+<strong>Namespace:</strong> Game.Simulation</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> GameSystemBase, implements IElectricityStatisticsSystem, IDefaultSerializable, ISerializable</p>
+<p><strong>Summary:</strong><br />
+ElectricityStatisticsSystem collects aggregated electricity statistics for the simulation using DOTS ECS jobs. It counts total production capacity, wanted and fulfilled consumption, and battery stored energy and capacity across all building entities that expose ElectricityProducer, ElectricityConsumer and Battery components. The system uses burst-compiled IJobChunk jobs and NativePerThreadSumInt accumulators for parallel counting, runs on a fixed update schedule (interval/offset), and supports save/load via ISerializable patterns.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Unity.Entities.EntityQuery m_ProducerGroup</code>  </li>
+<li>
+<p><code>private EntityQuery m_ProducerGroup</code><br />
+Holds the query selecting entities that have ElectricityProducer (excluding Temp and Deleted). Used to schedule the production counting job.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_ConsumerGroup</code><br />
+Holds the query selecting entities that have ElectricityConsumer (excluding Temp and Deleted). Used to schedule the consumption counting job.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_BatteryGroup</code><br />
+Holds the query selecting entities that have Battery (excluding Temp and Deleted). Used to schedule the battery counting job.</p>
+</li>
+<li>
+<p><code>private NativePerThreadSumInt m_Production</code><br />
+Parallel accumulator for production capacity totals across threads/chunks. Allocated persistent and reset each update.</p>
+</li>
+<li>
+<p><code>private NativePerThreadSumInt m_Consumption</code><br />
+Parallel accumulator for wanted consumption totals.</p>
+</li>
+<li>
+<p><code>private NativePerThreadSumInt m_FulfilledConsumption</code><br />
+Parallel accumulator for fulfilled consumption totals.</p>
+</li>
+<li>
+<p><code>private NativePerThreadSumInt m_BatteryCharge</code><br />
+Parallel accumulator for stored energy in batteries (storedEnergyHours).</p>
+</li>
+<li>
+<p><code>private NativePerThreadSumInt m_BatteryCapacity</code><br />
+Parallel accumulator for battery capacity totals.</p>
+</li>
+<li>
+<p><code>private int m_LastProduction</code><br />
+Cached integer representing the last computed total production (read by public property).</p>
+</li>
+<li>
+<p><code>private int m_LastConsumption</code><br />
+Cached integer representing the last computed total consumption (read by public property).</p>
+</li>
+<li>
+<p><code>private int m_LastFulfilledConsumption</code><br />
+Cached integer representing the last computed total fulfilled consumption.</p>
+</li>
+<li>
+<p><code>private int m_LastBatteryCharge</code><br />
+Cached integer representing the last computed total battery stored energy.</p>
+</li>
+<li>
+<p><code>private int m_LastBatteryCapacity</code><br />
+Cached integer representing the last computed total battery capacity.</p>
+</li>
+<li>
+<p><code>private TypeHandle __TypeHandle</code><br />
+Internal struct bundling ComponentTypeHandle instances for ElectricityProducer, ElectricityConsumer and Battery. Used to get type handles for chunk jobs efficiently.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_ProducerGroup;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_ConsumerGroup</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_ConsumerGroup;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_BatteryGroup</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_BatteryGroup;
-</code></pre>
-<ul>
-<li><code>private Colossal.NativePerThreadSumInt m_Production</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.NativePerThreadSumInt m_Production;
-</code></pre>
-<ul>
-<li><code>private Colossal.NativePerThreadSumInt m_Consumption</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.NativePerThreadSumInt m_Consumption;
-</code></pre>
-<ul>
-<li><code>private Colossal.NativePerThreadSumInt m_FulfilledConsumption</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.NativePerThreadSumInt m_FulfilledConsumption;
-</code></pre>
-<ul>
-<li><code>private Colossal.NativePerThreadSumInt m_BatteryCharge</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.NativePerThreadSumInt m_BatteryCharge;
-</code></pre>
-<ul>
-<li><code>private Colossal.NativePerThreadSumInt m_BatteryCapacity</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.NativePerThreadSumInt m_BatteryCapacity;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_LastProduction</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_LastProduction;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_LastConsumption</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_LastConsumption;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_LastFulfilledConsumption</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_LastFulfilledConsumption;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_LastBatteryCharge</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_LastBatteryCharge;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_LastBatteryCapacity</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_LastBatteryCapacity;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.ElectricityStatisticsSystem+TypeHandle __TypeHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.ElectricityStatisticsSystem+TypeHandle __TypeHandle;
-</code></pre>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>public System.Int32 production { get }</code>  </li>
+<li>
+<p><code>public int production { get; }</code><br />
+Returns the last computed total electricity production capacity (m_LastProduction). This is updated once per system update in OnUpdate.</p>
+</li>
+<li>
+<p><code>public int consumption { get; }</code><br />
+Returns the last computed total wanted electricity consumption (m_LastConsumption).</p>
+</li>
+<li>
+<p><code>public int fulfilledConsumption { get; }</code><br />
+Returns the last computed total fulfilled electricity consumption (m_LastFulfilledConsumption).</p>
+</li>
+<li>
+<p><code>public int batteryCharge { get; }</code><br />
+Returns the last computed total battery stored energy (m_LastBatteryCharge).</p>
+</li>
+<li>
+<p><code>public int batteryCapacity { get; }</code><br />
+Returns the last computed total battery capacity (m_LastBatteryCapacity).</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public System.Int32 production { get; }
-</code></pre>
-<ul>
-<li><code>public System.Int32 consumption { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Int32 consumption { get; }
-</code></pre>
-<ul>
-<li><code>public System.Int32 fulfilledConsumption { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Int32 fulfilledConsumption { get; }
-</code></pre>
-<ul>
-<li><code>public System.Int32 batteryCharge { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Int32 batteryCharge { get; }
-</code></pre>
-<ul>
-<li><code>public System.Int32 batteryCapacity { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Int32 batteryCapacity { get; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public ElectricityStatisticsSystem()</code>  </li>
+<li><code>public ElectricityStatisticsSystem()</code><br />
+Default constructor. The system is created by the ECS/serialization framework; initialization of queries and accumulators occurs in OnCreate.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public ElectricityStatisticsSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private __AssignQueries(Unity.Entities.SystemState&amp; state) : System.Void</code>  </li>
+<li>
+<p><code>public override int GetUpdateInterval(SystemUpdatePhase phase)</code><br />
+Returns the system's update interval. Implementation returns 128 — the system updates once every 128 ticks.</p>
+</li>
+<li>
+<p><code>public override int GetUpdateOffset(SystemUpdatePhase phase)</code><br />
+Returns the system's update offset. Implementation returns 127 to offset the update schedule.</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnCreate()</code><br />
+Initializes the system: creates entity queries for producers, consumers and batteries and allocates the NativePerThreadSumInt accumulators (with Allocator.Persistent). This method is annotated [Preserve] to survive code stripping.</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnDestroy()</code><br />
+Disposes the NativePerThreadSumInt accumulators and calls base.OnDestroy to clean up resources.</p>
+</li>
+<li>
+<p><code>public void Serialize&lt;TWriter&gt;(TWriter writer) where TWriter : IWriter</code><br />
+Writes the last cached integer statistics (production, consumption, fulfilled consumption, battery charge, battery capacity) to the provided writer for save games.</p>
+</li>
+<li>
+<p><code>public void Deserialize&lt;TReader&gt;(TReader reader) where TReader : IReader</code><br />
+Reads saved statistics back from a reader. Handles multiple save-version cases: newer versions include battery stats; older version branches are also handled to preserve compatibility.</p>
+</li>
+<li>
+<p><code>public void SetDefaults(Context context)</code><br />
+Resets cached statistics to zero. Called to initialize defaults for a new save/context.</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnUpdate()</code><br />
+Main work: transfers current accumulators into the cached m_Last* fields, resets accumulators to zero, and schedules three Burst-compiled IJobChunk jobs (CountElectricityProductionJob, CountElectricityConsumptionJob, CountBatteryCapacityJob) to populate accumulators in parallel. Jobs are scheduled only if their corresponding entity queries are non-empty, and dependencies are combined into base.Dependency.</p>
+</li>
+<li>
+<p><code>protected override void OnCreateForCompiler()</code><br />
+Internal helper used by generated/compiled code to assign component type handles via __TypeHandle.__AssignHandles and to assign queries.</p>
+</li>
+<li>
+<p><code>private void __AssignQueries(ref SystemState state)</code><br />
+Compiler-generated helper (no-op in this class except creating/disposing a temporary EntityQueryBuilder). Kept for compatibility with generated initialization flow.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private void __AssignQueries(ref SystemState state)
-    {
-        new EntityQueryBuilder(Allocator.Temp).Dispose();
-    }
+<p>Other internal types/methods:
+- CountElectricityProductionJob (Burst-compiled, IJobChunk) — counts ElectricityProducer.m_Capacity into m_Production concurrent accumulator.
+- CountElectricityConsumptionJob (Burst-compiled, IJobChunk) — sums ElectricityConsumer.m_WantedConsumption into m_Consumption and m_FulfilledConsumption into m_FulfilledConsumption accumulator.
+- CountBatteryCapacityJob (Burst-compiled, IJobChunk) — sums Battery.storedEnergyHours into m_BatteryCharge and Battery.m_Capacity into m_BatteryCapacity.
+- TypeHandle.__AssignHandles — obtains ComponentTypeHandle<T> instances from SystemState for each component type (read-only).</p>
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Typical system initialization (as implemented in the system)
+[Preserve]
+protected override void OnCreate()
+{
+    base.OnCreate();
+    m_ProducerGroup = GetEntityQuery(ComponentType.ReadOnly&lt;ElectricityProducer&gt;(), ComponentType.Exclude&lt;Temp&gt;(), ComponentType.Exclude&lt;Deleted&gt;());
+    m_ConsumerGroup = GetEntityQuery(ComponentType.ReadOnly&lt;ElectricityConsumer&gt;(), ComponentType.Exclude&lt;Temp&gt;(), ComponentType.Exclude&lt;Deleted&gt;());
+    m_BatteryGroup = GetEntityQuery(ComponentType.ReadOnly&lt;Battery&gt;(), ComponentType.Exclude&lt;Temp&gt;(), ComponentType.Exclude&lt;Deleted&gt;());
+    m_Production = new NativePerThreadSumInt(Allocator.Persistent);
+    m_Consumption = new NativePerThreadSumInt(Allocator.Persistent);
+    m_FulfilledConsumption = new NativePerThreadSumInt(Allocator.Persistent);
+    m_BatteryCharge = new NativePerThreadSumInt(Allocator.Persistent);
+    m_BatteryCapacity = new NativePerThreadSumInt(Allocator.Persistent);
+}
+
+// Reading the statistics from another part of the simulation:
+// (actual retrieval method depends on your modding/runtime setup)
+var stats = World.DefaultGameObjectInjectionWorld.GetExistingSystemManaged&lt;ElectricityStatisticsSystem&gt;();
+if (stats != null)
+{
+    int prod = stats.production;
+    int want = stats.consumption;
+    int fulfilled = stats.fulfilledConsumption;
+    int batteryStored = stats.batteryCharge;
+    int batteryCap = stats.batteryCapacity;
+    // use values for UI, logging, decisions, etc.
+}
 </code></pre>
-<ul>
-<li><code>public Deserialize&lt;TReader&gt;(TReader reader) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Void Deserialize&lt;TReader&gt;(TReader reader);
-</code></pre>
-<ul>
-<li><code>public virtual GetUpdateInterval(Game.SystemUpdatePhase phase) : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override int GetUpdateInterval(SystemUpdatePhase phase)
-    {
-        return 128;
-    }
-</code></pre>
-<ul>
-<li><code>public virtual GetUpdateOffset(Game.SystemUpdatePhase phase) : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override int GetUpdateOffset(SystemUpdatePhase phase)
-    {
-        return 127;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_ProducerGroup = GetEntityQuery(ComponentType.ReadOnly&lt;ElectricityProducer&gt;(), ComponentType.Exclude&lt;Temp&gt;(), ComponentType.Exclude&lt;Deleted&gt;());
-        m_ConsumerGroup = GetEntityQuery(ComponentType.ReadOnly&lt;ElectricityConsumer&gt;(), ComponentType.Exclude&lt;Temp&gt;(), ComponentType.Exclude&lt;Deleted&gt;());
-        m_BatteryGroup = GetEntityQuery(ComponentType.ReadOnly&lt;Battery&gt;(), ComponentType.Exclude&lt;Temp&gt;(), ComponentType.Exclude&lt;Deleted&gt;());
-        m_Production = new NativePerThreadSumInt(Allocator.Persistent);
-        m_Consumption = new NativePerThreadSumInt(Allocator.Persistent);
-        m_FulfilledConsumption = new NativePerThreadSumInt(Allocator.Persistent);
-        m_BatteryCharge = new NativePerThreadSumInt(Allocator.Persistent);
-        m_BatteryCapacity = new NativePerThreadSumInt(Allocator.Persistent);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreateForCompiler() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnCreateForCompiler()
-    {
-        base.OnCreateForCompiler();
-        __AssignQueries(ref base.CheckedStateRef);
-        __TypeHandle.__AssignHandles(ref base.CheckedStateRef);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnDestroy() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnDestroy()
-    {
-        m_Production.Dispose();
-        m_Consumption.Dispose();
-        m_FulfilledConsumption.Dispose();
-        m_BatteryCharge.Dispose();
-        m_BatteryCapacity.Dispose();
-        base.OnDestroy();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        m_LastProduction = m_Production.Count;
-        m_LastConsumption = m_Consumption.Count;
-        m_LastFulfilledConsumption = m_FulfilledConsumption.Count;
-        m_LastBatteryCharge = m_BatteryCharge.Count;
-        m_LastBatteryCapacity = m_BatteryCapacity.Count;
-        m_Production.Count = 0;
-        m_Consumption.Count = 0;
-        m_FulfilledConsumption.Count = 0;
-        m_BatteryCharge.Count = 0;
-        m_BatteryCapacity.Count = 0;
-        JobHandle job = default(JobHandle);
-        if (!m_ProducerGroup.IsEmptyIgnoreFilter)
-        {
-            job = JobChunkExtensions.ScheduleParallel(new CountElectricityProductionJob
-            {
-                m_ProducerType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Buildings_ElectricityProducer_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                m_Production = m_Production.ToConcurrent()
-            }, m_ProducerGroup, base.Dependency);
-        }
-        JobHandle job2 = default(JobHandle);
-        if (!m_ConsumerGroup.IsEmptyIgnoreFilter)
-        {
-            job2 = JobChunkExtensions.ScheduleParallel(new CountElectricityConsumptionJob
-            {
-                m_ConsumerType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Buildings_ElectricityConsumer_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                m_Consumption = m_Consumption.ToConcurrent(),
-                m_FulfilledConsumption = m_FulfilledConsumption.ToConcurrent()
-            }, m_ConsumerGroup, base.Dependency);
-        }
-        JobHandle job3 = default(JobHandle);
-        if (!m_ConsumerGroup.IsEmptyIgnoreFilter)
-        {
-            job3 = JobChunkExtensions.ScheduleParallel(new CountBatteryCapacityJob
-            {
-                m_BatteryType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Buildings_Battery_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                m_Charge = m_BatteryCharge.ToConcurrent(),
-                m_Capacity = m_BatteryCapacity.ToConcurrent()
-            }, m_BatteryGroup, base.Dependency);
-        }
-        base.Dependency = JobHandle.CombineDependencies(job, job2, job3);
-    }
-</code></pre>
-<ul>
-<li><code>public Serialize&lt;TWriter&gt;(TWriter writer) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Void Serialize&lt;TWriter&gt;(TWriter writer);
-</code></pre>
-<ul>
-<li><code>public SetDefaults(Colossal.Serialization.Entities.Context context) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void SetDefaults(Context context)
-    {
-        m_LastProduction = 0;
-        m_LastConsumption = 0;
-        m_LastFulfilledConsumption = 0;
-        m_LastBatteryCharge = 0;
-        m_LastBatteryCapacity = 0;
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Simulation.ElectricityStatisticsSystem+CountElectricityProductionJob</code>  </li>
-<li><code>Game.Simulation.ElectricityStatisticsSystem+CountElectricityConsumptionJob</code>  </li>
-<li><code>Game.Simulation.ElectricityStatisticsSystem+CountBatteryCapacityJob</code>  </li>
-<li><code>Game.Simulation.ElectricityStatisticsSystem+TypeHandle</code>  </li>
-</ul>
+<p>Notes:
+- The system uses NativePerThreadSumInt for lock-free parallel accumulation; values are folded to m_Last* once per system update.
+- Jobs are Burst-compiled for performance and operate via ComponentTypeHandle<T> extracted from the SystemState.
+- Serialization supports older save versions for backward compatibility; battery stats are only deserialized if the save version includes them.</p>
 
 
 

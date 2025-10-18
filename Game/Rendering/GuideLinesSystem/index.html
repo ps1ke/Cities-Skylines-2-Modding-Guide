@@ -65233,6 +65233,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -68058,18 +68081,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -68094,9 +68117,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -69734,6 +69757,29 @@
   
   <span class="md-ellipsis">
     ShaderID
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
     
   </span>
   
@@ -72563,6 +72609,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75553,6 +75622,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87145,6 +87237,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -117921,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117948,18 +118085,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -117984,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118009,743 +118146,194 @@
 
 
 <h1 id="gamerenderingguidelinessystem">Game.Rendering.GuideLinesSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Rendering</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class GuideLinesSystem : Game.GameSystemBase
-{
-    private Unity.Entities.EntityQuery m_DefinitionQuery;
-    private Unity.Entities.EntityQuery m_MarkerNodeQuery;
-    private Unity.Entities.EntityQuery m_TempNodeQuery;
-    private Unity.Entities.EntityQuery m_WaterSourceQuery;
-    private Unity.Entities.EntityQuery m_RenderingSettingsQuery;
-    private Game.Simulation.TerrainSystem m_TerrainSystem;
-    private Game.Simulation.WaterSystem m_WaterSystem;
-    private Game.Tools.ToolSystem m_ToolSystem;
-    private Game.Tools.NetToolSystem m_NetToolSystem;
-    private Game.Tools.RouteToolSystem m_RouteToolSystem;
-    private Game.Tools.ZoneToolSystem m_ZoneToolSystem;
-    private Game.Tools.SelectionToolSystem m_SelectionToolSystem;
-    private Game.Tools.AreaToolSystem m_AreaToolSystem;
-    private Game.Tools.ObjectToolSystem m_ObjectToolSystem;
-    private Game.Tools.WaterToolSystem m_WaterToolSystem;
-    private Game.Rendering.OverlayRenderSystem m_OverlayRenderSystem;
-    private Game.Rendering.CameraUpdateSystem m_CameraUpdateSystem;
-    private Game.Tools.ToolRaycastSystem m_ToolRaycastSystem;
-    private Game.Prefabs.PrefabSystem m_PrefabSystem;
-    private Unity.Collections.NativeList&lt;System.Boolean&gt; m_AngleSides;
-    private Unity.Collections.NativeList&lt;Game.Rendering.GuideLinesSystem+TooltipInfo&gt; m_Tooltips;
-    private Unity.Jobs.JobHandle m_TooltipDeps;
-    private Game.Rendering.GuideLinesSystem+TypeHandle __TypeHandle;
-
-    public GuideLinesSystem();
-
-    private System.Void __AssignQueries(Unity.Entities.SystemState&amp; state);
-    private static System.Void CheckDirection(Unity.Mathematics.float2 startDir, Unity.Mathematics.float2 checkDir, Unity.Mathematics.float2&amp; leftDir, Unity.Mathematics.float2&amp; rightDir, System.Int32&amp; bestLeft, System.Int32&amp; bestRight, Unity.Mathematics.float2&amp; leftDir2, Unity.Mathematics.float2&amp; rightDir2, System.Int32&amp; bestLeft2, System.Int32&amp; bestRight2);
-    private static System.Void DrawAngleIndicator(Game.Rendering.OverlayRenderSystem+Buffer buffer, Unity.Collections.NativeList&lt;Game.Rendering.GuideLinesSystem+TooltipInfo&gt; tooltips, Game.Prefabs.GuideLineSettingsData guideLineSettings, Colossal.Mathematics.Line3+Segment line1, Colossal.Mathematics.Line3+Segment line2, Unity.Mathematics.float2 dir1, Unity.Mathematics.float2 dir2, System.Single size, System.Single lineWidth, System.Int32 angle, System.Boolean angleSide);
-    private static System.Void DrawAreaRange(Game.Rendering.OverlayRenderSystem+Buffer buffer, Unity.Mathematics.quaternion rotation, Unity.Mathematics.float3 position, Game.Prefabs.LotData lotData);
-    private static System.Void DrawNetCourse(Game.Rendering.OverlayRenderSystem+Buffer buffer, Game.Tools.NetCourse netCourse, Game.Simulation.TerrainHeightData&amp; terrainHeightData, Game.Simulation.WaterSurfaceData&amp; waterSurfaceData, Game.Prefabs.NetGeometryData netGeometryData, Game.Prefabs.GuideLineSettingsData guideLineSettings);
-    private static System.Void DrawNetCourse(Game.Rendering.OverlayRenderSystem+Buffer buffer, Game.Tools.NetCourse netCourse, Game.Rendering.OverlayRenderSystem+StyleFlags styleFlags, Game.Prefabs.NetGeometryData netGeometryData, Game.Prefabs.GuideLineSettingsData guideLineSettings);
-    private static System.Void DrawUpgradeRange(Game.Rendering.OverlayRenderSystem+Buffer buffer, Unity.Mathematics.quaternion rotation, Unity.Mathematics.float3 position, Game.Prefabs.GuideLineSettingsData guideLineSettings, Game.Prefabs.BuildingData ownerBuildingData, Game.Prefabs.BuildingData buildingData, Game.Prefabs.ServiceUpgradeData serviceUpgradeData);
-    public Unity.Collections.NativeList&lt;Game.Rendering.GuideLinesSystem+TooltipInfo&gt; GetTooltips(Unity.Jobs.JobHandle&amp; dependencies);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnCreateForCompiler();
-    protected virtual System.Void OnDestroy();
-    protected virtual System.Void OnUpdate();
-}
-</code></pre>
+<p><strong>Assembly:</strong> Game<br />
+<strong>Namespace:</strong> Game.Rendering</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> GameSystemBase</p>
+<p><strong>Summary:</strong><br />
+GuideLinesSystem is a rendering/utility system that draws guide lines, helper overlays and tooltips for in-game placement and editing tools (net/road tool, route tool, object tool, area/zone tool, selection, water tools, etc.). It collects control points, snap lines, temporary nodes and prefab definitions via EntityQueries and schedules multiple Burst-compiled IJob structs to produce overlay draw commands into an OverlayRenderSystem.Buffer. The system also collects tooltip info (angles and lengths) for use by UI or other systems. It interacts with many other game systems (TerrainSystem, WaterSystem, Tool systems, PrefabSystem) and uses Unity.Entities/ECS patterns with async archetype chunk list retrieval and dependency combination to keep work off the main thread when possible.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Unity.Entities.EntityQuery m_DefinitionQuery</code>  </li>
+<li>
+<p><code>private EntityQuery m_DefinitionQuery</code><br />
+Holds entity query that finds CreationDefinition entities and any related buffers/components used to draw guide lines (NetCourse, WaypointDefinition, Zoning, Areas nodes, ObjectDefinition). Used to gather archetype chunks for jobs.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_MarkerNodeQuery</code><br />
+Query for marker nodes (orphan marker nodes) used by net tool marker drawing.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_TempNodeQuery</code><br />
+Query for temporary net nodes (Temp + Node) used to draw node connection feedback while placing or replacing nets.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_WaterSourceQuery</code><br />
+Query for water source entities used by the water tool guide-line job.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_RenderingSettingsQuery</code><br />
+Query used to read GuideLineSettingsData singleton (colors / style settings for guide lines).</p>
+</li>
+<li>
+<p><code>private TerrainSystem m_TerrainSystem</code><br />
+Cached reference to the TerrainSystem used to sample heights and get terrain-related data for overlay placement.</p>
+</li>
+<li>
+<p><code>private WaterSystem m_WaterSystem</code><br />
+Cached reference to the WaterSystem used to read water surface/depth and sample water heights.</p>
+</li>
+<li>
+<p><code>private ToolSystem m_ToolSystem</code><br />
+Reference to the global ToolSystem to determine the currently active tool.</p>
+</li>
+<li>
+<p><code>private NetToolSystem m_NetToolSystem</code><br />
+Reference to the Net tool system used to get control points, snap lines and prefab selection for road placement overlays.</p>
+</li>
+<li>
+<p><code>private RouteToolSystem m_RouteToolSystem</code><br />
+Reference to the route tool (public transit route editor) used to draw route-related overlays.</p>
+</li>
+<li>
+<p><code>private ZoneToolSystem m_ZoneToolSystem</code><br />
+Reference to the zone tool (zoning overlays).</p>
+</li>
+<li>
+<p><code>private SelectionToolSystem m_SelectionToolSystem</code><br />
+Reference used to draw selection quad overlays.</p>
+</li>
+<li>
+<p><code>private AreaToolSystem m_AreaToolSystem</code><br />
+Reference used to draw area tool overlays.</p>
+</li>
+<li>
+<p><code>private ObjectToolSystem m_ObjectToolSystem</code><br />
+Reference to object placement tool; used to draw object-specific guide lines like sub-snap points and upgrade ranges.</p>
+</li>
+<li>
+<p><code>private WaterToolSystem m_WaterToolSystem</code><br />
+Reference to water tool used to draw water source overlays.</p>
+</li>
+<li>
+<p><code>private OverlayRenderSystem m_OverlayRenderSystem</code><br />
+Reference to overlay render system; provides the Buffer writer used by jobs to emit draw commands.</p>
+</li>
+<li>
+<p><code>private CameraUpdateSystem m_CameraUpdateSystem</code><br />
+Used to get camera viewer info (e.g., camera right vector) required by some overlay computations.</p>
+</li>
+<li>
+<p><code>private ToolRaycastSystem m_ToolRaycastSystem</code><br />
+Contains raycast flags (DebugDisable/UIDisable) that can disable drawing while debugging or UI operations require it.</p>
+</li>
+<li>
+<p><code>private PrefabSystem m_PrefabSystem</code><br />
+Used to translate editor prefabs into ECS entities for certain jobs.</p>
+</li>
+<li>
+<p><code>private NativeList&lt;bool&gt; m_AngleSides</code><br />
+Persistent NativeList storing preferred angle sides for angle indicators between consecutive control points. Updated by jobs and persisted across frames.</p>
+</li>
+<li>
+<p><code>private NativeList&lt;TooltipInfo&gt; m_Tooltips</code><br />
+Persistent NativeList where jobs append TooltipInfo (angle or length) entries. Accessible via GetTooltips() after job completion.</p>
+</li>
+<li>
+<p><code>private JobHandle m_TooltipDeps</code><br />
+JobHandle for the last scheduled job that produced tooltips — callers should use this handle to coordinate reading m_Tooltips on main thread.</p>
+</li>
+<li>
+<p><code>private TypeHandle __TypeHandle</code><br />
+Internal struct storing ComponentTypeHandle / BufferTypeHandle / ComponentLookup handles used to set up jobs quickly. Populated in OnCreateForCompiler / __AssignHandles.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_DefinitionQuery;
-</code></pre>
+<h2 id="properties">Properties</h2>
 <ul>
-<li><code>private Unity.Entities.EntityQuery m_MarkerNodeQuery</code>  </li>
+<li>None (this system exposes behavior via methods, not public properties).</li>
 </ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_MarkerNodeQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_TempNodeQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_TempNodeQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_WaterSourceQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_WaterSourceQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_RenderingSettingsQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_RenderingSettingsQuery;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.TerrainSystem m_TerrainSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.TerrainSystem m_TerrainSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.WaterSystem m_WaterSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.WaterSystem m_WaterSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Tools.ToolSystem m_ToolSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Tools.ToolSystem m_ToolSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Tools.NetToolSystem m_NetToolSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Tools.NetToolSystem m_NetToolSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Tools.RouteToolSystem m_RouteToolSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Tools.RouteToolSystem m_RouteToolSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Tools.ZoneToolSystem m_ZoneToolSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Tools.ZoneToolSystem m_ZoneToolSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Tools.SelectionToolSystem m_SelectionToolSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Tools.SelectionToolSystem m_SelectionToolSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Tools.AreaToolSystem m_AreaToolSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Tools.AreaToolSystem m_AreaToolSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Tools.ObjectToolSystem m_ObjectToolSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Tools.ObjectToolSystem m_ObjectToolSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Tools.WaterToolSystem m_WaterToolSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Tools.WaterToolSystem m_WaterToolSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Rendering.OverlayRenderSystem m_OverlayRenderSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Rendering.OverlayRenderSystem m_OverlayRenderSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Rendering.CameraUpdateSystem m_CameraUpdateSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Rendering.CameraUpdateSystem m_CameraUpdateSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Tools.ToolRaycastSystem m_ToolRaycastSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Tools.ToolRaycastSystem m_ToolRaycastSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Prefabs.PrefabSystem m_PrefabSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Prefabs.PrefabSystem m_PrefabSystem;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeList&lt;System.Boolean&gt; m_AngleSides</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeList&lt;System.Boolean&gt; m_AngleSides;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeList&lt;Game.Rendering.GuideLinesSystem+TooltipInfo&gt; m_Tooltips</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeList&lt;Game.Rendering.GuideLinesSystem+TooltipInfo&gt; m_Tooltips;
-</code></pre>
-<ul>
-<li><code>private Unity.Jobs.JobHandle m_TooltipDeps</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Jobs.JobHandle m_TooltipDeps;
-</code></pre>
-<ul>
-<li><code>private Game.Rendering.GuideLinesSystem+TypeHandle __TypeHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Rendering.GuideLinesSystem+TypeHandle __TypeHandle;
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public GuideLinesSystem()</code>  </li>
+<li><code>public GuideLinesSystem()</code><br />
+Default constructor. The system performs initialization of NativeLists and sets up entity queries in OnCreate rather than the constructor. The constructor is preserved for ECS usage.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public GuideLinesSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private __AssignQueries(Unity.Entities.SystemState&amp; state) : System.Void</code>  </li>
+<li>
+<p><code>protected override void OnCreate()</code><br />
+Initializes references to other world-managed systems (TerrainSystem, WaterSystem, tool systems, overlay render system, etc.), creates entity queries (definition, temp/maker node queries, water source query, rendering settings query), and allocates persistent NativeLists (m_AngleSides, m_Tooltips).</p>
+</li>
+<li>
+<p><code>protected override void OnDestroy()</code><br />
+Disposes persistent NativeLists (m_AngleSides, m_Tooltips) and calls base.OnDestroy().</p>
+</li>
+<li>
+<p><code>public NativeList&lt;TooltipInfo&gt; GetTooltips(out JobHandle dependencies)</code><br />
+Returns the NativeList<TooltipInfo> containing tooltips collected during the last frame and outputs the associated JobHandle (dependencies) that must be completed before reading the list on the main thread.</p>
+</li>
+<li>
+<p><code>protected override void OnUpdate()</code><br />
+Main update method: clears the tooltip list, checks whether drawing is allowed (raycast flags), determines active tool and schedules the appropriate Burst IJob (NetToolGuideLinesJob, RouteToolGuideLinesJob, ZoneToolGuideLinesJob, SelectionToolGuideLinesJob, AreaToolGuideLinesJob, ObjectToolGuideLinesJob, WaterToolGuideLinesJob). The method prepares job data including retrieving archetype chunk lists (async), control points, snap lines, terrain/water data, overlay buffer handles and combines dependencies. It registers read/write dependencies with TerrainSystem, WaterSystem and OverlayRenderSystem as needed.</p>
+</li>
+<li>
+<p><code>private static void CheckDirection(float2 startDir, float2 checkDir, ref float2 leftDir, ref float2 rightDir, ref int bestLeft, ref int bestRight, ref float2 leftDir2, ref float2 rightDir2, ref int bestLeft2, ref int bestRight2)</code><br />
+Utility that compares a candidate direction (checkDir) against a starting direction (startDir) and updates best-left / best-right best angles and the corresponding direction vectors. Used by several jobs to find best snapping/angle directions.</p>
+</li>
+<li>
+<p><code>private static void DrawAngleIndicator(OverlayRenderSystem.Buffer buffer, NativeList&lt;TooltipInfo&gt; tooltips, GuideLineSettingsData guideLineSettings, Line3.Segment line1, Line3.Segment line2, float2 dir1, float2 dir2, float size, float lineWidth, int angle, bool angleSide)</code><br />
+Draws an angle indicator overlay between two line segments and appends a TooltipInfo entry describing the angle. Handles multiple cases (straight 180°, &gt;90°, 90°, and &lt;90°) and uses curves/lines accordingly.</p>
+</li>
+<li>
+<p><code>private static void DrawAreaRange(OverlayRenderSystem.Buffer buffer, quaternion rotation, float3 position, LotData lotData)</code><br />
+Draws a circular area range overlay for lots (sale/placement ranges) using LotData.m_MaxRadius and LotData.m_RangeColor.</p>
+</li>
+<li>
+<p><code>private static void DrawUpgradeRange(OverlayRenderSystem.Buffer buffer, quaternion rotation, float3 position, GuideLineSettingsData guideLineSettings, BuildingData ownerBuildingData, BuildingData buildingData, ServiceUpgradeData serviceUpgradeData)</code><br />
+Draws the upgrade/service-range overlay for service upgrade prefabs (rectangular or circular shapes) based on building and service upgrade data.</p>
+</li>
+<li>
+<p><code>private static void DrawNetCourse(OverlayRenderSystem.Buffer buffer, NetCourse netCourse, ref TerrainHeightData terrainHeightData, ref WaterSurfaceData waterSurfaceData, NetGeometryData netGeometryData, GuideLineSettingsData guideLineSettings)</code><br />
+Draws a NetCourse (part of a placeable network's curve) as projected or world-space curves, sampling terrain/water heights and splitting the curve into segments as needed (to account for intersections with water surface). Used by net-related jobs.</p>
+</li>
+<li>
+<p>Nested types:  </p>
+</li>
+<li><code>TooltipInfo</code> struct and <code>TooltipType</code> enum: small POD types used to record tooltip position, type (Angle or Length) and numeric value.  </li>
+<li>Several Burst-compiled job structs implementing IJob: WaterToolGuideLinesJob, ObjectToolGuideLinesJob, AreaToolGuideLinesJob, SelectionToolGuideLinesJob, ZoneToolGuideLinesJob, RouteToolGuideLinesJob, NetToolGuideLinesJob. Each job encapsulates overlay-drawing logic for the respective tool and writes commands into OverlayRenderSystem.Buffer. They make extensive use of ComponentTypeHandle / ComponentLookup / BufferLookup and NativeList/archtype chunk lists.  </li>
+<li>
+<p><code>TypeHandle</code> struct: holds per-frame ComponentTypeHandle/BufferTypeHandle/ComponentLookup handles and provides a __AssignHandles method to populate them from a SystemState.</p>
+</li>
+<li>
+<p>Compiler / helper methods:  </p>
+</li>
+<li><code>protected override void OnCreateForCompiler()</code> and <code>private void __AssignQueries(ref SystemState state)</code> / <code>__AssignHandles</code> — internal plumbing used by the compiled ECS system to setup handles and queries.</li>
 </ul>
-<pre><code class="language-csharp">private void __AssignQueries(ref SystemState state)
-    {
-        new EntityQueryBuilder(Allocator.Temp).Dispose();
-    }
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Example: reading tooltips produced by GuideLinesSystem.
+// Must complete the job handle returned by GetTooltips before accessing the NativeList on the main thread.
+
+GuideLinesSystem guideLines = World.DefaultGameObjectInjectionWorld.GetExistingSystemManaged&lt;GuideLinesSystem&gt;();
+
+// get tooltip list and dependency (job handle)
+JobHandle deps;
+NativeList&lt;GuideLinesSystem.TooltipInfo&gt; tooltips = guideLines.GetTooltips(out deps);
+
+// wait for scheduled job(s) that produce tooltips to finish
+deps.Complete();
+
+// iterate tooltips (angle/length info). Each TooltipInfo contains:
+// - m_Type (TooltipType.Angle or TooltipType.Length)
+// - m_Position (world position to place the tooltip)
+// - m_Value (angle in degrees or length in map units)
+for (int i = 0; i &lt; tooltips.Length; i++)
+{
+    var t = tooltips[i];
+    // use t.m_Type, t.m_Position, t.m_Value for UI rendering or debug printing
+}
 </code></pre>
-<ul>
-<li><code>private static CheckDirection(Unity.Mathematics.float2 startDir, Unity.Mathematics.float2 checkDir, Unity.Mathematics.float2&amp; leftDir, Unity.Mathematics.float2&amp; rightDir, System.Int32&amp; bestLeft, System.Int32&amp; bestRight, Unity.Mathematics.float2&amp; leftDir2, Unity.Mathematics.float2&amp; rightDir2, System.Int32&amp; bestLeft2, System.Int32&amp; bestRight2) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static void CheckDirection(float2 startDir, float2 checkDir, ref float2 leftDir, ref float2 rightDir, ref int bestLeft, ref int bestRight, ref float2 leftDir2, ref float2 rightDir2, ref int bestLeft2, ref int bestRight2)
-    {
-        if (!MathUtils.TryNormalize(ref checkDir))
-        {
-            return;
-        }
-        int num = Mathf.RoundToInt(math.degrees(math.acos(math.clamp(math.dot(startDir, checkDir), -1f, 1f))));
-        if (num == 0)
-        {
-            return;
-        }
-        bool num2 = math.dot(MathUtils.Right(startDir), checkDir) &gt; 0f;
-        if (num2 || num == 180)
-        {
-            if (num &lt; bestRight)
-            {
-                rightDir = checkDir;
-                bestRight = num;
-            }
-            if ((num == 90 || num == 180) &amp;&amp; num &lt; bestRight2)
-            {
-                rightDir2 = checkDir;
-                bestRight2 = num;
-            }
-        }
-        if (!num2 || num == 180)
-        {
-            if (num &lt; bestLeft)
-            {
-                leftDir = checkDir;
-                bestLeft = num;
-            }
-            if ((num == 90 || num == 180) &amp;&amp; num &lt; bestLeft2)
-            {
-                leftDir2 = checkDir;
-                bestLeft2 = num;
-            }
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private static DrawAngleIndicator(Game.Rendering.OverlayRenderSystem+Buffer buffer, Unity.Collections.NativeList&lt;Game.Rendering.GuideLinesSystem+TooltipInfo&gt; tooltips, Game.Prefabs.GuideLineSettingsData guideLineSettings, Colossal.Mathematics.Line3+Segment line1, Colossal.Mathematics.Line3+Segment line2, Unity.Mathematics.float2 dir1, Unity.Mathematics.float2 dir2, System.Single size, System.Single lineWidth, System.Int32 angle, System.Boolean angleSide) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static void DrawAngleIndicator(OverlayRenderSystem.Buffer buffer, NativeList&lt;TooltipInfo&gt; tooltips, GuideLineSettingsData guideLineSettings, Line3.Segment line1, Line3.Segment line2, float2 dir1, float2 dir2, float size, float lineWidth, int angle, bool angleSide)
-    {
-        if (angle == 180)
-        {
-            float2 @float = (angleSide ? MathUtils.Right(dir1) : MathUtils.Left(dir1));
-            float2 float2 = (angleSide ? MathUtils.Right(dir2) : MathUtils.Left(dir2));
-            float3 b = line1.b;
-            b.xz -= dir1 * size;
-            float3 b2 = line1.b;
-            float3 b3 = line1.b;
-            b2.xz += @float * (size - lineWidth * 0.5f) - dir1 * size;
-            b3.xz += @float * size - dir1 * (size + lineWidth * 0.5f);
-            float3 a = line2.a;
-            float3 a2 = line2.a;
-            a.xz -= float2 * size + dir2 * (size + lineWidth * 0.5f);
-            a2.xz -= float2 * (size - lineWidth * 0.5f) + dir2 * size;
-            float3 a3 = line2.a;
-            a3.xz -= dir2 * size;
-            buffer.DrawLine(guideLineSettings.m_HighPriorityColor, new Line3.Segment(b, b2), lineWidth);
-            buffer.DrawLine(guideLineSettings.m_HighPriorityColor, new Line3.Segment(b3, a), lineWidth);
-            buffer.DrawLine(guideLineSettings.m_HighPriorityColor, new Line3.Segment(a2, a3), lineWidth);
-            float3 b4 = line1.b;
-            b4.xz += @float * (size * 1.5f);
-            tooltips.Add(new TooltipInfo(TooltipType.Angle, b4, angle));
-        }
-        else if (angle &gt; 90)
-        {
-            float2 float3 = math.normalize(dir1 + dir2);
-            float3 b5 = line1.b;
-            b5.xz -= dir1 * size;
-            float3 startTangent = new float3
-            {
-                xz = (angleSide ? MathUtils.Right(dir1) : MathUtils.Left(dir1))
-            };
-            float3 b6 = line1.b;
-            b6.xz -= float3 * size;
-            float3 float4 = new float3
-            {
-                xz = (angleSide ? MathUtils.Right(float3) : MathUtils.Left(float3))
-            };
-            float3 a4 = line2.a;
-            a4.xz -= dir2 * size;
-            float3 endTangent = new float3
-            {
-                xz = (angleSide ? MathUtils.Right(dir2) : MathUtils.Left(dir2))
-            };
-            buffer.DrawCurve(guideLineSettings.m_HighPriorityColor, NetUtils.FitCurve(b5, startTangent, float4, b6), lineWidth);
-            buffer.DrawCurve(guideLineSettings.m_HighPriorityColor, NetUtils.FitCurve(b6, float4, endTangent, a4), lineWidth);
-            float3 b7 = line1.b;
-            b7.xz -= float3 * (size * 1.5f);
-            tooltips.Add(new TooltipInfo(TooltipType.Angle, b7, angle));
-        }
-        else if (angle == 90)
-        {
-            float3 b8 = line1.b;
-            b8.xz -= dir1 * size;
-            float3 b9 = line1.b;
-            float3 b10 = line1.b;
-            b9.xz -= dir2 * (size - lineWidth * 0.5f) + dir1 * size;
-            b10.xz -= dir2 * size + dir1 * (size + lineWidth * 0.5f);
-            float3 a5 = line2.a;
-            a5.xz -= dir2 * size;
-            buffer.DrawLine(guideLineSettings.m_HighPriorityColor, new Line3.Segment(b8, b9), lineWidth);
-            buffer.DrawLine(guideLineSettings.m_HighPriorityColor, new Line3.Segment(b10, a5), lineWidth);
-            float3 b11 = line1.b;
-            b11.xz -= math.normalizesafe(dir1 + dir2) * (size * 1.5f);
-            tooltips.Add(new TooltipInfo(TooltipType.Angle, b11, angle));
-        }
-        else if (angle &gt; 0)
-        {
-            float3 b12 = line1.b;
-            b12.xz -= dir1 * size;
-            float3 startTangent2 = new float3
-            {
-                xz = (angleSide ? MathUtils.Right(dir1) : MathUtils.Left(dir1))
-            };
-            float3 a6 = line2.a;
-            a6.xz -= dir2 * size;
-            float3 endTangent2 = new float3
-            {
-                xz = (angleSide ? MathUtils.Right(dir2) : MathUtils.Left(dir2))
-            };
-            buffer.DrawCurve(guideLineSettings.m_HighPriorityColor, NetUtils.FitCurve(b12, startTangent2, endTangent2, a6), lineWidth);
-            float3 b13 = line1.b;
-            b13.xz -= math.normalizesafe(dir1 + dir2) * (size * 1.5f);
-            tooltips.Add(new TooltipInfo(TooltipType.Angle, b13, angle));
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private static DrawAreaRange(Game.Rendering.OverlayRenderSystem+Buffer buffer, Unity.Mathematics.quaternion rotation, Unity.Mathematics.float3 position, Game.Prefabs.LotData lotData) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static void DrawAreaRange(OverlayRenderSystem.Buffer buffer, quaternion rotation, float3 position, LotData lotData)
-    {
-        float3 @float = math.forward(rotation);
-        UnityEngine.Color color = lotData.m_RangeColor;
-        UnityEngine.Color fillColor = color;
-        fillColor.a = 0f;
-        OverlayRenderSystem.StyleFlags styleFlags = ((!lotData.m_OnWater) ? OverlayRenderSystem.StyleFlags.Projected : ((OverlayRenderSystem.StyleFlags)0));
-        buffer.DrawCircle(color, fillColor, lotData.m_MaxRadius * 0.02f, styleFlags, @float.xz, position, lotData.m_MaxRadius * 2f);
-    }
-</code></pre>
-<ul>
-<li><code>private static DrawNetCourse(Game.Rendering.OverlayRenderSystem+Buffer buffer, Game.Tools.NetCourse netCourse, Game.Simulation.TerrainHeightData&amp; terrainHeightData, Game.Simulation.WaterSurfaceData&amp; waterSurfaceData, Game.Prefabs.NetGeometryData netGeometryData, Game.Prefabs.GuideLineSettingsData guideLineSettings) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static void DrawNetCourse(OverlayRenderSystem.Buffer buffer, NetCourse netCourse, OverlayRenderSystem.StyleFlags styleFlags, NetGeometryData netGeometryData, GuideLineSettingsData guideLineSettings)
-    {
-        math.select(0f, 1f, new bool2((netCourse.m_StartPosition.m_Flags &amp; (CoursePosFlags.IsFirst | CoursePosFlags.IsLast)) != 0, (netCourse.m_EndPosition.m_Flags &amp; (CoursePosFlags.IsFirst | CoursePosFlags.IsLast)) != 0));
-    }
-</code></pre>
-<ul>
-<li><code>private static DrawNetCourse(Game.Rendering.OverlayRenderSystem+Buffer buffer, Game.Tools.NetCourse netCourse, Game.Rendering.OverlayRenderSystem+StyleFlags styleFlags, Game.Prefabs.NetGeometryData netGeometryData, Game.Prefabs.GuideLineSettingsData guideLineSettings) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static void DrawNetCourse(OverlayRenderSystem.Buffer buffer, NetCourse netCourse, OverlayRenderSystem.StyleFlags styleFlags, NetGeometryData netGeometryData, GuideLineSettingsData guideLineSettings)
-    {
-        math.select(0f, 1f, new bool2((netCourse.m_StartPosition.m_Flags &amp; (CoursePosFlags.IsFirst | CoursePosFlags.IsLast)) != 0, (netCourse.m_EndPosition.m_Flags &amp; (CoursePosFlags.IsFirst | CoursePosFlags.IsLast)) != 0));
-    }
-</code></pre>
-<ul>
-<li><code>private static DrawUpgradeRange(Game.Rendering.OverlayRenderSystem+Buffer buffer, Unity.Mathematics.quaternion rotation, Unity.Mathematics.float3 position, Game.Prefabs.GuideLineSettingsData guideLineSettings, Game.Prefabs.BuildingData ownerBuildingData, Game.Prefabs.BuildingData buildingData, Game.Prefabs.ServiceUpgradeData serviceUpgradeData) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static void DrawUpgradeRange(OverlayRenderSystem.Buffer buffer, quaternion rotation, float3 position, GuideLineSettingsData guideLineSettings, BuildingData ownerBuildingData, BuildingData buildingData, ServiceUpgradeData serviceUpgradeData)
-    {
-        UnityEngine.Color lowPriorityColor = guideLineSettings.m_LowPriorityColor;
-        UnityEngine.Color fillColor = lowPriorityColor;
-        fillColor.a = 0f;
-        BuildingUtils.CalculateUpgradeRangeValues(rotation, ownerBuildingData, buildingData, serviceUpgradeData, out var forward, out var width, out var length, out var roundness, out var circular);
-        roundness *= 2f;
-        length -= roundness;
-        roundness /= width;
-        if (circular)
-        {
-            buffer.DrawCircle(lowPriorityColor, fillColor, width * 0.01f, OverlayRenderSystem.StyleFlags.Projected, forward.xz, position, width);
-        }
-        else
-        {
-            buffer.DrawLine(line: new Line3.Segment(position - forward * (length * 0.5f), position + forward * (length * 0.5f)), outlineColor: lowPriorityColor, fillColor: fillColor, outlineWidth: width * 0.01f, styleFlags: OverlayRenderSystem.StyleFlags.Projected, width: width, roundness: roundness);
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public GetTooltips(Unity.Jobs.JobHandle&amp; dependencies) : Unity.Collections.NativeList&lt;Game.Rendering.GuideLinesSystem+TooltipInfo&gt;</code>  </li>
-</ul>
-<pre><code class="language-csharp">public NativeList&lt;TooltipInfo&gt; GetTooltips(out JobHandle dependencies)
-    {
-        dependencies = m_TooltipDeps;
-        return m_Tooltips;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_TerrainSystem = base.World.GetOrCreateSystemManaged&lt;TerrainSystem&gt;();
-        m_WaterSystem = base.World.GetOrCreateSystemManaged&lt;WaterSystem&gt;();
-        m_ToolSystem = base.World.GetOrCreateSystemManaged&lt;ToolSystem&gt;();
-        m_NetToolSystem = base.World.GetOrCreateSystemManaged&lt;NetToolSystem&gt;();
-        m_RouteToolSystem = base.World.GetOrCreateSystemManaged&lt;RouteToolSystem&gt;();
-        m_ZoneToolSystem = base.World.GetOrCreateSystemManaged&lt;ZoneToolSystem&gt;();
-        m_SelectionToolSystem = base.World.GetOrCreateSystemManaged&lt;SelectionToolSystem&gt;();
-        m_AreaToolSystem = base.World.GetOrCreateSystemManaged&lt;AreaToolSystem&gt;();
-        m_ObjectToolSystem = base.World.GetOrCreateSystemManaged&lt;ObjectToolSystem&gt;();
-        m_WaterToolSystem = base.World.GetOrCreateSystemManaged&lt;WaterToolSystem&gt;();
-        m_OverlayRenderSystem = base.World.GetOrCreateSystemManaged&lt;OverlayRenderSystem&gt;();
-        m_CameraUpdateSystem = base.World.GetOrCreateSystemManaged&lt;CameraUpdateSystem&gt;();
-        m_ToolRaycastSystem = base.World.GetOrCreateSystemManaged&lt;ToolRaycastSystem&gt;();
-        m_PrefabSystem = base.World.GetOrCreateSystemManaged&lt;PrefabSystem&gt;();
-        m_DefinitionQuery = GetEntityQuery(new EntityQueryDesc
-        {
-            All = new ComponentType[1] { ComponentType.ReadOnly&lt;CreationDefinition&gt;() },
-            Any = new ComponentType[5]
-            {
-                ComponentType.ReadOnly&lt;NetCourse&gt;(),
-                ComponentType.ReadOnly&lt;WaypointDefinition&gt;(),
-                ComponentType.ReadOnly&lt;Zoning&gt;(),
-                ComponentType.ReadOnly&lt;Game.Areas.Node&gt;(),
-                ComponentType.ReadOnly&lt;ObjectDefinition&gt;()
-            },
-            None = new ComponentType[0]
-        });
-        m_TempNodeQuery = GetEntityQuery(ComponentType.ReadOnly&lt;Game.Net.Node&gt;(), ComponentType.ReadOnly&lt;Temp&gt;(), ComponentType.Exclude&lt;Deleted&gt;());
-        m_MarkerNodeQuery = GetEntityQuery(ComponentType.ReadOnly&lt;Game.Net.Marker&gt;(), ComponentType.ReadOnly&lt;Orphan&gt;(), ComponentType.ReadOnly&lt;Game.Net.Node&gt;(), ComponentType.Exclude&lt;Hidden&gt;(), ComponentType.Exclude&lt;Temp&gt;(), ComponentType.Exclude&lt;Deleted&gt;());
-        m_WaterSourceQuery = GetEntityQuery(ComponentType.ReadOnly&lt;Game.Simulation.WaterSourceData&gt;(), ComponentType.Exclude&lt;PrefabRef&gt;(), ComponentType.Exclude&lt;Hidden&gt;(), ComponentType.Exclude&lt;Deleted&gt;());
-        m_RenderingSettingsQuery = GetEntityQuery(ComponentType.ReadOnly&lt;GuideLineSettingsData&gt;());
-        m_AngleSides = new NativeList&lt;bool&gt;(4, Allocator.Persistent);
-        m_Tooltips = new NativeList&lt;TooltipInfo&gt;(8, Allocator.Persistent);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreateForCompiler() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnCreateForCompiler()
-    {
-        base.OnCreateForCompiler();
-        __AssignQueries(ref base.CheckedStateRef);
-        __TypeHandle.__AssignHandles(ref base.CheckedStateRef);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnDestroy() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnDestroy()
-    {
-        m_AngleSides.Dispose();
-        m_Tooltips.Dispose();
-        base.OnDestroy();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        m_Tooltips.Clear();
-        bool flag = (m_ToolRaycastSystem.raycastFlags &amp; (RaycastFlags.DebugDisable | RaycastFlags.UIDisable)) != 0;
-        if (m_ToolSystem.activeTool == m_NetToolSystem)
-        {
-            if (flag)
-            {
-                return;
-            }
-            JobHandle outJobHandle;
-            JobHandle dependencies;
-            JobHandle dependencies2;
-            JobHandle deps;
-            JobHandle dependencies3;
-            NetToolGuideLinesJob jobData = new NetToolGuideLinesJob
-            {
-                m_CreationDefinitionType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Tools_CreationDefinition_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                m_EntityType = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef),
-                m_NetCourseType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Tools_NetCourse_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                m_NodeType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Net_Node_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                m_TempType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Tools_Temp_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                m_PrefabRefType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                m_ConnectedEdgeType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Net_ConnectedEdge_RO_BufferTypeHandle, ref base.CheckedStateRef),
-                m_EdgeData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_Edge_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_NodeData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_Node_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_CurveData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_Curve_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_TransformData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Objects_Transform_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_TempData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Tools_Temp_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_PrefabRefData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_NetGeometryData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_NetGeometryData_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_PlaceableNetData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_PlaceableNetData_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_RoadData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_RoadData_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_ElectricityConnectionData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_ElectricityConnectionData_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_WaterPipeConnectionData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_WaterPipeConnectionData_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_ResourceConnectionData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_ResourceConnectionData_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_ConnectedEdges = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Net_ConnectedEdge_RO_BufferLookup, ref base.CheckedStateRef),
-                m_ConnectedNodes = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Net_ConnectedNode_RO_BufferLookup, ref base.CheckedStateRef),
-                m_DefinitionChunks = m_DefinitionQuery.ToArchetypeChunkListAsync(Allocator.TempJob, out outJobHandle),
-                m_ControlPoints = m_NetToolSystem.GetControlPoints(out dependencies),
-                m_SnapLines = m_NetToolSystem.GetSnapLines(out dependencies2),
-                m_TerrainHeightData = m_TerrainSystem.GetHeightData(),
-                m_WaterSurfaceData = m_WaterSystem.GetSurfaceData(out deps),
-                m_Mode = m_NetToolSystem.actualMode,
-                m_HighlightVoltage = Game.Prefabs.ElectricityConnection.Voltage.Invalid,
-                m_HighlightWater = false,
-                m_HighResourceLine = false,
-                m_Prefab = ((m_NetToolSystem.prefab != null) ? m_PrefabSystem.GetEntity(m_NetToolSystem.prefab) : Entity.Null),
-                m_GuideLineSettingsData = m_RenderingSettingsQuery.GetSingleton&lt;GuideLineSettingsData&gt;(),
-                m_AngleSides = m_AngleSides,
-                m_Tooltips = m_Tooltips,
-                m_OverlayBuffer = m_OverlayRenderSystem.GetBuffer(out dependencies3)
-            };
-            JobHandle jobHandle = JobUtils.CombineDependencies(dependencies, dependencies2, deps, dependencies3);
-            if (m_NetToolSystem.prefab is PowerLinePrefab)
-            {
-                if (m_NetToolSystem.prefab.TryGet&lt;Game.Prefabs.ElectricityConnection&gt;(out var component))
-                {
-                    jobData.m_MarkerNodeChunks = m_MarkerNodeQuery.ToArchetypeChunkListAsync(Allocator.TempJob, out var outJobHandle2);
-                    jobData.m_TempNodeChunks = m_TempNodeQuery.ToArchetypeChunkListAsync(Allocator.TempJob, out var outJobHandle3);
-                    jobData.m_HighlightVoltage = component.m_Voltage;
-                    jobHandle = JobHandle.CombineDependencies(jobHandle, outJobHandle2, outJobHandle3);
-                }
-            }
-            else if (m_NetToolSystem.prefab is PipelinePrefab)
-            {
-                jobData.m_MarkerNodeChunks = m_MarkerNodeQuery.ToArchetypeChunkListAsync(Allocator.TempJob, out var outJobHandle4);
-                jobData.m_TempNodeChunks = m_TempNodeQuery.ToArchetypeChunkListAsync(Allocator.TempJob, out var outJobHandle5);
-                jobHandle = JobHandle.CombineDependencies(jobHandle, outJobHandle4, outJobHandle5);
-                if (m_NetToolSystem.prefab.TryGet&lt;Game.Prefabs.WaterPipeConnection&gt;(out var component2))
-                {
-                    jobData.m_HighlightWater.x = component2.m_FreshCapacity &gt; 0;
-                    jobData.m_HighlightWater.y = component2.m_SewageCapacity &gt; 0;
-                }
-                else
-                {
-                    jobData.m_HighResourceLine = true;
-                }
-            }
-            JobHandle jobHandle2 = IJobExtensions.Schedule(jobData, JobHandle.CombineDependencies(base.Dependency, outJobHandle, jobHandle));
-            if (jobData.m_MarkerNodeChunks.IsCreated)
-            {
-                jobData.m_MarkerNodeChunks.Dispose(jobHandle2);
-            }
-            if (jobData.m_TempNodeChunks.IsCreated)
-            {
-                jobData.m_TempNodeChunks.Dispose(jobHandle2);
-            }
-            jobData.m_DefinitionChunks.Dispose(jobHandle2);
-            m_TerrainSystem.AddCPUHeightReader(jobHandle2);
-            m_WaterSystem.AddSurfaceReader(jobHandle2);
-            m_OverlayRenderSystem.AddBufferWriter(jobHandle2);
-            m_TooltipDeps = jobHandle2;
-            base.Dependency = jobHandle2;
-        }
-        else if (m_ToolSystem.activeTool == m_RouteToolSystem)
-        {
-            if (!flag)
-            {
-                JobHandle outJobHandle6;
-                JobHandle dependencies4;
-                JobHandle dependencies5;
-                RouteToolGuideLinesJob jobData2 = new RouteToolGuideLinesJob
-                {
-                    m_CreationDefinitionType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Tools_CreationDefinition_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                    m_WaypointDefinitionType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Routes_WaypointDefinition_RO_BufferTypeHandle, ref base.CheckedStateRef),
-                    m_RouteData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Routes_Route_RO_ComponentLookup, ref base.CheckedStateRef),
-                    m_PrefabRefData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentLookup, ref base.CheckedStateRef),
-                    m_PrefabRouteData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_RouteData_RO_ComponentLookup, ref base.CheckedStateRef),
-                    m_DefinitionChunks = m_DefinitionQuery.ToArchetypeChunkListAsync(Allocator.TempJob, out outJobHandle6),
-                    m_ControlPoints = m_RouteToolSystem.GetControlPoints(out dependencies4),
-                    m_MoveStartPosition = m_RouteToolSystem.moveStartPosition,
-                    m_State = m_RouteToolSystem.state,
-                    m_GuideLineSettingsData = m_RenderingSettingsQuery.GetSingleton&lt;GuideLineSettingsData&gt;(),
-                    m_OverlayBuffer = m_OverlayRenderSystem.GetBuffer(out dependencies5)
-                };
-                JobHandle job = JobHandle.CombineDependencies(dependencies4, dependencies5);
-                JobHandle jobHandle3 = IJobExtensions.Schedule(jobData2, JobHandle.CombineDependencies(base.Dependency, outJobHandle6, job));
-                jobData2.m_DefinitionChunks.Dispose(jobHandle3);
-                m_OverlayRenderSystem.AddBufferWriter(jobHandle3);
-                base.Dependency = jobHandle3;
-            }
-        }
-        else if (m_ToolSystem.activeTool == m_ZoneToolSystem)
-        {
-            if (!flag)
-            {
-                JobHandle outJobHandle7;
-                JobHandle dependencies6;
-                ZoneToolGuideLinesJob jobData3 = new ZoneToolGuideLinesJob
-                {
-                    m_CreationDefinitionType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Tools_CreationDefinition_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                    m_ZoningType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Tools_Zoning_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                    m_DefinitionChunks = m_DefinitionQuery.ToArchetypeChunkListAsync(Allocator.TempJob, out outJobHandle7),
-                    m_GuideLineSettingsData = m_RenderingSettingsQuery.GetSingleton&lt;GuideLineSettingsData&gt;(),
-                    m_OverlayBuffer = m_OverlayRenderSystem.GetBuffer(out dependencies6)
-                };
-                JobHandle jobHandle4 = IJobExtensions.Schedule(jobData3, JobHandle.CombineDependencies(base.Dependency, outJobHandle7, dependencies6));
-                jobData3.m_DefinitionChunks.Dispose(jobHandle4);
-                m_OverlayRenderSystem.AddBufferWriter(jobHandle4);
-                base.Dependency = jobHandle4;
-            }
-        }
-        else if (m_ToolSystem.activeTool == m_SelectionToolSystem)
-        {
-            if (!flag)
-            {
-                Quad3 quad;
-                bool selectionQuad = m_SelectionToolSystem.GetSelectionQuad(out quad);
-                JobHandle dependencies7;
-                JobHandle jobHandle5 = IJobExtensions.Schedule(new SelectionToolGuideLinesJob
-                {
-                    m_State = m_SelectionToolSystem.state,
-                    m_SelectionType = m_SelectionToolSystem.selectionType,
-                    m_SelectionQuadIsValid = selectionQuad,
-                    m_SelectionQuad = quad,
-                    m_GuideLineSettingsData = m_RenderingSettingsQuery.GetSingleton&lt;GuideLineSettingsData&gt;(),
-                    m_OverlayBuffer = m_OverlayRenderSystem.GetBuffer(out dependencies7)
-                }, JobHandle.CombineDependencies(base.Dependency, dependencies7));
-                m_OverlayRenderSystem.AddBufferWriter(jobHandle5);
-                base.Dependency = jobHandle5;
-            }
-        }
-        else if (m_ToolSystem.activeTool == m_AreaToolSystem)
-        {
-            if (!flag)
-            {
-                JobHandle outJobHandle8;
-                NativeList&lt;ControlPoint&gt; moveStartPositions;
-                JobHandle dependencies8;
-                JobHandle dependencies9;
-                AreaToolGuideLinesJob jobData4 = new AreaToolGuideLinesJob
-                {
-                    m_CreationDefinitionType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Tools_CreationDefinition_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                    m_NodeType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Areas_Node_RO_BufferTypeHandle, ref base.CheckedStateRef),
-                    m_OwnerData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Common_Owner_RO_ComponentLookup, ref base.CheckedStateRef),
-                    m_TransformData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Objects_Transform_RO_ComponentLookup, ref base.CheckedStateRef),
-                    m_PrefabRefData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentLookup, ref base.CheckedStateRef),
-                    m_PrefabGeometryData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_AreaGeometryData_RO_ComponentLookup, ref base.CheckedStateRef),
-                    m_PrefabLotData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_LotData_RO_ComponentLookup, ref base.CheckedStateRef),
-                    m_Nodes = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Areas_Node_RO_BufferLookup, ref base.CheckedStateRef),
-                    m_DefinitionChunks = m_DefinitionQuery.ToArchetypeChunkListAsync(Allocator.TempJob, out outJobHandle8),
-                    m_ControlPoints = m_AreaToolSystem.GetControlPoints(out moveStartPositions, out dependencies8),
-                    m_MoveStartPositions = moveStartPositions,
-                    m_State = m_AreaToolSystem.state,
-                    m_Prefab = ((m_AreaToolSystem.prefab != null) ? m_PrefabSystem.GetEntity(m_AreaToolSystem.prefab) : Entity.Null),
-                    m_GuideLineSettingsData = m_RenderingSettingsQuery.GetSingleton&lt;GuideLineSettingsData&gt;(),
-                    m_AngleSides = m_AngleSides,
-                    m_Tooltips = m_Tooltips,
-                    m_OverlayBuffer = m_OverlayRenderSystem.GetBuffer(out dependencies9)
-                };
-                JobHandle job2 = JobHandle.CombineDependencies(dependencies8, dependencies9);
-                JobHandle jobHandle6 = IJobExtensions.Schedule(jobData4, JobHandle.CombineDependencies(base.Dependency, outJobHandle8, job2));
-                jobData4.m_DefinitionChunks.Dispose(jobHandle6);
-                m_OverlayRenderSystem.AddBufferWriter(jobHandle6);
-                m_TooltipDeps = jobHandle6;
-                base.Dependency = jobHandle6;
-            }
-        }
-        else if (m_ToolSystem.activeTool == m_ObjectToolSystem)
-        {
-            if (!flag)
-            {
-                JobHandle outJobHandle9;
-                JobHandle dependencies10;
-                JobHandle dependencies11;
-                JobHandle deps2;
-                JobHandle dependencies12;
-                JobHandle dependencies13;
-                ObjectToolGuideLinesJob jobData5 = new ObjectToolGuideLinesJob
-                {
-                    m_CreationDefinitionType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Tools_CreationDefinition_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                    m_ObjectDefinitionType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Tools_ObjectDefinition_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                    m_OwnerDefinitionType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Tools_OwnerDefinition_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                    m_NetCourseType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Tools_NetCourse_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                    m_TransformData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Objects_Transform_RO_ComponentLookup, ref base.CheckedStateRef),
-                    m_PrefabObjectGeometryData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_ObjectGeometryData_RO_ComponentLookup, ref base.CheckedStateRef),
-                    m_PrefabPlaceableObjectData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_PlaceableObjectData_RO_ComponentLookup, ref base.CheckedStateRef),
-                    m_PrefabServiceUpgradeData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_ServiceUpgradeData_RO_ComponentLookup, ref base.CheckedStateRef),
-                    m_PrefabBuildingData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_BuildingData_RO_ComponentLookup, ref base.CheckedStateRef),
-                    m_PrefabLotData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_LotData_RO_ComponentLookup, ref base.CheckedStateRef),
-                    m_PrefabPlaceableNetData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_PlaceableNetData_RO_ComponentLookup, ref base.CheckedStateRef),
-                    m_PrefabNetGeometryData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_NetGeometryData_RO_ComponentLookup, ref base.CheckedStateRef),
-                    m_PrefabSubAreas = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Prefabs_SubArea_RO_BufferLookup, ref base.CheckedStateRef),
-                    m_PrefabSubNets = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Prefabs_SubNet_RO_BufferLookup, ref base.CheckedStateRef),
-                    m_DefinitionChunks = m_DefinitionQuery.ToArchetypeChunkListAsync(Allocator.TempJob, out outJobHandle9),
-                    m_ControlPoints = m_ObjectToolSystem.GetControlPoints(out dependencies10),
-                    m_SubSnapPoints = m_ObjectToolSystem.GetSubSnapPoints(out dependencies11),
-                    m_TerrainHeightData = m_TerrainSystem.GetHeightData(),
-                    m_WaterSurfaceData = m_WaterSystem.GetSurfaceData(out deps2),
-                    m_NetUpgradeState = m_ObjectToolSystem.GetNetUpgradeStates(out dependencies12),
-                    m_GuideLineSettingsData = m_RenderingSettingsQuery.GetSingleton&lt;GuideLineSettingsData&gt;(),
-                    m_Mode = m_ObjectToolSystem.actualMode,
-                    m_State = m_ObjectToolSystem.state,
-                    m_Prefab = ((m_ObjectToolSystem.prefab != null) ? m_PrefabSystem.GetEntity(m_ObjectToolSystem.prefab) : Entity.Null),
-                    m_DistanceScale = m_ObjectToolSystem.distanceScale,
-                    m_AngleSides = m_AngleSides,
-                    m_Tooltips = m_Tooltips,
-                    m_OverlayBuffer = m_OverlayRenderSystem.GetBuffer(out dependencies13)
-                };
-                JobHandle jobHandle7 = IJobExtensions.Schedule(jobData5, JobUtils.CombineDependencies(base.Dependency, outJobHandle9, dependencies10, dependencies11, deps2, dependencies12, dependencies13));
-                jobData5.m_DefinitionChunks.Dispose(jobHandle7);
-                m_TerrainSystem.AddCPUHeightReader(jobHandle7);
-                m_WaterSystem.AddSurfaceReader(jobHandle7);
-                m_OverlayRenderSystem.AddBufferWriter(jobHandle7);
-                m_TooltipDeps = jobHandle7;
-                base.Dependency = jobHandle7;
-            }
-        }
-        else if (m_ToolSystem.activeTool == m_WaterToolSystem)
-        {
-            float3 cameraRight = default(float3);
-            if (m_CameraUpdateSystem.TryGetViewer(out var viewer))
-            {
-                cameraRight = viewer.right;
-            }
-            JobHandle outJobHandle10;
-            JobHandle dependencies14;
-            WaterToolGuideLinesJob jobData6 = new WaterToolGuideLinesJob
-            {
-                m_WaterSourceDataType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Simulation_WaterSourceData_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                m_TransformType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Objects_Transform_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                m_TempType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Tools_Temp_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                m_GuideLineSettingsData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_GuideLineSettingsData_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_WaterSourceColors = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Prefabs_WaterSourceColorElement_RO_BufferLookup, ref base.CheckedStateRef),
-                m_Attribute = m_WaterToolSystem.attribute,
-                m_PositionOffset = m_TerrainSystem.positionOffset,
-                m_CameraRight = cameraRight,
-                m_TerrainHeightData = m_TerrainSystem.GetHeightData(),
-                m_WaterSourceChunks = m_WaterSourceQuery.ToArchetypeChunkListAsync(Allocator.TempJob, out outJobHandle10),
-                m_GuideLineSettingsEntity = m_RenderingSettingsQuery.GetSingletonEntity(),
-                m_OverlayBuffer = m_OverlayRenderSystem.GetBuffer(out dependencies14)
-            };
-            JobHandle jobHandle8 = IJobExtensions.Schedule(jobData6, JobHandle.CombineDependencies(base.Dependency, outJobHandle10, dependencies14));
-            jobData6.m_WaterSourceChunks.Dispose(jobHandle8);
-            m_OverlayRenderSystem.AddBufferWriter(jobHandle8);
-            base.Dependency = jobHandle8;
-        }
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Rendering.GuideLinesSystem+TooltipInfo</code>  </li>
-<li><code>Game.Rendering.GuideLinesSystem+TooltipType</code>  </li>
-<li><code>Game.Rendering.GuideLinesSystem+WaterToolGuideLinesJob</code>  </li>
-<li><code>Game.Rendering.GuideLinesSystem+ObjectToolGuideLinesJob</code>  </li>
-<li><code>Game.Rendering.GuideLinesSystem+AreaToolGuideLinesJob</code>  </li>
-<li><code>Game.Rendering.GuideLinesSystem+SelectionToolGuideLinesJob</code>  </li>
-<li><code>Game.Rendering.GuideLinesSystem+ZoneToolGuideLinesJob</code>  </li>
-<li><code>Game.Rendering.GuideLinesSystem+RouteToolGuideLinesJob</code>  </li>
-<li><code>Game.Rendering.GuideLinesSystem+NetToolGuideLinesJob</code>  </li>
-<li><code>Game.Rendering.GuideLinesSystem+TypeHandle</code>  </li>
-</ul>
+<p>Notes and tips:
+- GuideLinesSystem is tightly coupled to the game's internal data types (CreationDefinition, NetCourse, ControlPoint, SnapLine, LotData, etc.) and to the OverlayRenderSystem. Modifying or extending its behavior usually requires creating compatible OverlayRenderSystem.Buffer draw calls or adding custom job logic that follows the same dependency/reader/writer registration patterns (TerrainSystem.AddCPUHeightReader, WaterSystem.AddSurfaceReader, OverlayRenderSystem.AddBufferWriter).
+- Many of the per-tool drawing routines are implemented as Burst-compiled IJob structs to run off the main thread — when adding or changing code, respect thread-safety rules and use ComponentLookup/BufferLookup and ToArchetypeChunkListAsync for chunk access.</p>
 
 
 

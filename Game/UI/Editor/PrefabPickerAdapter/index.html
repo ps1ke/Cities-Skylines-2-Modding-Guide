@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87056,6 +87148,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -98895,15 +99010,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -98940,9 +99046,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -117932,6 +118038,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117957,15 +118085,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -118004,9 +118123,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118029,535 +118148,246 @@
 
 
 <h1 id="gameuieditorprefabpickeradapter">Game.UI.Editor.PrefabPickerAdapter</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.UI.Editor</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>System.Object</code><br />
-<strong>Implements:</strong> <code>Game.UI.Editor.ItemPicker&lt;Game.UI.Editor.PrefabItem&gt;</code>, <code>Game.UI.Editor.PopupSearchField+IAdapter</code>, <code>Game.UI.Editor.SearchField+IAdapter</code>, <code>Game.UI.Editor.ItemPickerFooter+IAdapter</code>, <code>Game.UI.Editor.FilterMenu+IAdapter</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class PrefabPickerAdapter : Game.UI.Editor.ItemPicker&lt;Game.UI.Editor.PrefabItem&gt;, Game.UI.Editor.PopupSearchField+IAdapter, Game.UI.Editor.SearchField+IAdapter, Game.UI.Editor.ItemPickerFooter+IAdapter, Game.UI.Editor.FilterMenu+IAdapter
-{
-    private System.Boolean &lt;displayPrefabTypeTooltip&gt;k__BackingField;
-    private Game.UI.ImageSystem m_ImageSystem;
-    private System.String m_SearchQuery;
-    private System.Boolean m_SearchQueryIsFavorite;
-    private System.Boolean m_SearchQueryChanged;
-    private System.Collections.Generic.List&lt;Game.UI.Editor.PrefabItem&gt; m_Items;
-    private System.Boolean m_ItemsChanged;
-    private System.Collections.Generic.List&lt;System.String&gt; m_AvailableFilters;
-    private System.Collections.Generic.List&lt;System.String&gt; m_ActiveFilters;
-    private System.Boolean m_ActiveFiltersChanged;
-    private System.Collections.Generic.List&lt;Game.UI.Editor.PrefabItem&gt; m_FilteredItems;
-    private System.Boolean m_FilteredItemsChanged;
-    private Game.UI.Editor.PrefabItem m_SelectedItem;
-    private Game.Prefabs.PrefabBase m_SelectedPrefab;
-    private System.Collections.Generic.List&lt;System.String&gt; m_SearchHistory;
-    private System.Collections.Generic.HashSet&lt;System.String&gt; m_SearchFavorites;
-    private System.Collections.Generic.List&lt;Game.UI.Editor.PopupSearchField+Suggestion&gt; m_SearchSuggestions;
-    private System.Collections.Generic.HashSet&lt;System.String&gt; m_FavoriteIds;
-    private System.Int32 m_ColumnCount;
-    private System.Action &lt;onAvailableFiltersChanged&gt;k__BackingField;
-    public System.Action&lt;Game.Prefabs.PrefabBase&gt; EventPrefabSelected;
-    public static const System.Int32 kMaxHistoryLength;
-    public static const System.Int32 kMaxHistoryDisplayLength;
-
-    public System.Boolean displayPrefabTypeTooltip { get; set; }
-    public Game.Prefabs.PrefabBase selectedPrefab { get; set; }
-    public System.Collections.Generic.List&lt;System.String&gt; availableFilters { get; }
-    public System.Collections.Generic.List&lt;System.String&gt; activeFilters { get; }
-    public System.Action onAvailableFiltersChanged { get; set; }
-    private Game.UI.Editor.PrefabItem Game.UI.Editor.ItemPicker&lt;Game.UI.Editor.PrefabItem&gt;.IAdapter.selectedItem { private get; private set; }
-    private System.Collections.Generic.List&lt;Game.UI.Editor.PrefabItem&gt; Game.UI.Editor.ItemPicker&lt;Game.UI.Editor.PrefabItem&gt;.IAdapter.items { private get; }
-    public System.String searchQuery { get; set; }
-    public System.Boolean searchQueryIsFavorite { get; }
-    private System.Collections.Generic.IEnumerable&lt;Game.UI.Editor.PopupSearchField+Suggestion&gt; Game.UI.Editor.PopupSearchField.IAdapter.searchSuggestions { private get; }
-    private System.Int32 Game.UI.Editor.ItemPickerFooter.IAdapter.length { private get; }
-    public System.Int32 columnCount { get; set; }
-
-    public PrefabPickerAdapter();
-
-    private System.Boolean &lt;Update&gt;b__40_0(Game.UI.Editor.PrefabItem item);
-    public System.Void ClearFilters();
-    private System.Void Game.UI.Editor.ItemPicker&lt;Game.UI.Editor.PrefabItem&gt;.IAdapter.SetFavorite(System.Int32 index, System.Boolean favorite);
-    private System.Boolean Game.UI.Editor.ItemPicker&lt;Game.UI.Editor.PrefabItem&gt;.IAdapter.Update();
-    private System.Void Game.UI.Editor.PopupSearchField.IAdapter.SetFavorite(System.String query, System.Boolean favorite);
-    private static System.String GetIncompleteTag(System.String[] searchParts);
-    public System.Void LoadSettings();
-    public Game.Prefabs.PrefabBase SelectPrefabByName(System.String name, System.StringComparison comparisonType);
-    public System.Void SetPrefabs(System.Collections.Generic.ICollection&lt;Game.Prefabs.PrefabBase&gt; prefabs);
-    public System.Void ToggleFilter(System.String filter, System.Boolean active);
-    private System.Boolean TryGetDLCBadge(Game.Prefabs.PrefabBase prefab, System.String&amp; icon);
-    public System.Void Update();
-    private System.Void UpdateFilteredItems();
-}
-</code></pre>
+<p><strong>Assembly:</strong> Assembly-CSharp.dll<br />
+<strong>Namespace:</strong> Game.UI.Editor</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> ItemPicker<PrefabItem>.IAdapter, PopupSearchField.IAdapter, SearchField.IAdapter, ItemPickerFooter.IAdapter, FilterMenu.IAdapter</p>
+<p><strong>Summary:</strong><br />
+Adapter implementation that bridges prefab data (PrefabBase) to the editor UI prefab picker controls. Responsible for:
+- managing the full prefab list and a filtered subset used by the picker,
+- handling search query parsing (including tag search using '#' prefix),
+- maintaining search history and favorites (persisted via SharedSettings.instance.editor),
+- managing per-prefab favorites and thumbnail/badge lookups,
+- providing search suggestions and filter lists derived from prefab tags,
+- notifying when a prefab is selected via EventPrefabSelected,
+- storing column count and other UI-related settings.
+This class is used by the editor UI to present, filter and select prefabs in Cities: Skylines 2 mod tooling.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private System.Boolean &lt;displayPrefabTypeTooltip&gt;k__BackingField</code>  </li>
+<li>
+<p><code>public const int kMaxHistoryLength = 100</code><br />
+Maximum number of search history entries stored. History is trimmed to this length when new entries are added.</p>
+</li>
+<li>
+<p><code>public const int kMaxHistoryDisplayLength = 20</code><br />
+Maximum number of history suggestions displayed in the search popup.</p>
+</li>
+<li>
+<p><code>private ImageSystem m_ImageSystem</code><br />
+Cached reference to the image/thumbnail system used to obtain prefab thumbnails (not assigned in the class source; present for potential image lookups).</p>
+</li>
+<li>
+<p><code>private string m_SearchQuery = string.Empty</code><br />
+Current search query string entered by the user.</p>
+</li>
+<li>
+<p><code>private bool m_SearchQueryIsFavorite</code><br />
+Whether the current query is marked as a favorite.</p>
+</li>
+<li>
+<p><code>private bool m_SearchQueryChanged</code><br />
+Flag used to indicate the search query changed and filtered items need updating.</p>
+</li>
+<li>
+<p><code>private List&lt;PrefabItem&gt; m_Items = new List&lt;PrefabItem&gt;()</code><br />
+Complete list of all PrefabItem entries constructed from provided prefabs.</p>
+</li>
+<li>
+<p><code>private bool m_ItemsChanged</code><br />
+Flag indicating the underlying items changed and the filtered list should be recomputed.</p>
+</li>
+<li>
+<p><code>private List&lt;string&gt; m_AvailableFilters = new List&lt;string&gt;()</code><br />
+All available filter tags derived from the prefab set (used to populate filter menu).</p>
+</li>
+<li>
+<p><code>private List&lt;string&gt; m_ActiveFilters = new List&lt;string&gt;()</code><br />
+Currently active filters selected by the user.</p>
+</li>
+<li>
+<p><code>private bool m_ActiveFiltersChanged</code><br />
+Flag indicating active filters changed and filter update is required.</p>
+</li>
+<li>
+<p><code>private List&lt;PrefabItem&gt; m_FilteredItems = new List&lt;PrefabItem&gt;()</code><br />
+Current list of items after applying search and active filters (presented to the UI).</p>
+</li>
+<li>
+<p><code>private bool m_FilteredItemsChanged</code><br />
+Flag set when filtered items have changed (used to signal the UI to refresh).</p>
+</li>
+<li>
+<p><code>private PrefabItem m_SelectedItem</code><br />
+Selected PrefabItem (UI-level selection).</p>
+</li>
+<li>
+<p><code>private PrefabBase m_SelectedPrefab</code><br />
+Selected PrefabBase (data-level selection). kept in sync with m_SelectedItem.</p>
+</li>
+<li>
+<p><code>private List&lt;string&gt; m_SearchHistory = new List&lt;string&gt;()</code><br />
+Ordered search history (most recent first), persisted to EditorSettings when loaded/changed.</p>
+</li>
+<li>
+<p><code>private HashSet&lt;string&gt; m_SearchFavorites = new HashSet&lt;string&gt;()</code><br />
+Set of favorite search queries (persisted).</p>
+</li>
+<li>
+<p><code>private List&lt;PopupSearchField.Suggestion&gt; m_SearchSuggestions = new List&lt;PopupSearchField.Suggestion&gt;()</code><br />
+Current suggestions shown by the popup search field, derived from history and favorites.</p>
+</li>
+<li>
+<p><code>private HashSet&lt;string&gt; m_FavoriteIds = new HashSet&lt;string&gt;()</code><br />
+Set of prefab IDs that are marked as favorites (persisted into EditorSettings.prefabPickerFavorites).</p>
+</li>
+<li>
+<p><code>private int m_ColumnCount</code><br />
+Number of columns used by the picker grid; persisted to EditorSettings.</p>
+</li>
+<li>
+<p><code>public Action&lt;PrefabBase&gt; EventPrefabSelected</code><br />
+Event invoked when a prefab is selected. Subscribe to handle selection actions in the editor UI.</p>
+</li>
+<li>
+<p><code>public bool displayPrefabTypeTooltip { get; set; }</code><br />
+When true, a tooltip showing the prefab type name is assigned to PrefabItem.tooltip when SetPrefabs builds items.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private System.Boolean &lt;displayPrefabTypeTooltip&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private Game.UI.ImageSystem m_ImageSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.UI.ImageSystem m_ImageSystem;
-</code></pre>
-<ul>
-<li><code>private System.String m_SearchQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.String m_SearchQuery;
-</code></pre>
-<ul>
-<li><code>private System.Boolean m_SearchQueryIsFavorite</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean m_SearchQueryIsFavorite;
-</code></pre>
-<ul>
-<li><code>private System.Boolean m_SearchQueryChanged</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean m_SearchQueryChanged;
-</code></pre>
-<ul>
-<li><code>private System.Collections.Generic.List&lt;Game.UI.Editor.PrefabItem&gt; m_Items</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Collections.Generic.List&lt;Game.UI.Editor.PrefabItem&gt; m_Items;
-</code></pre>
-<ul>
-<li><code>private System.Boolean m_ItemsChanged</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean m_ItemsChanged;
-</code></pre>
-<ul>
-<li><code>private System.Collections.Generic.List&lt;System.String&gt; m_AvailableFilters</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Collections.Generic.List&lt;System.String&gt; m_AvailableFilters;
-</code></pre>
-<ul>
-<li><code>private System.Collections.Generic.List&lt;System.String&gt; m_ActiveFilters</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Collections.Generic.List&lt;System.String&gt; m_ActiveFilters;
-</code></pre>
-<ul>
-<li><code>private System.Boolean m_ActiveFiltersChanged</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean m_ActiveFiltersChanged;
-</code></pre>
-<ul>
-<li><code>private System.Collections.Generic.List&lt;Game.UI.Editor.PrefabItem&gt; m_FilteredItems</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Collections.Generic.List&lt;Game.UI.Editor.PrefabItem&gt; m_FilteredItems;
-</code></pre>
-<ul>
-<li><code>private System.Boolean m_FilteredItemsChanged</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean m_FilteredItemsChanged;
-</code></pre>
-<ul>
-<li><code>private Game.UI.Editor.PrefabItem m_SelectedItem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.UI.Editor.PrefabItem m_SelectedItem;
-</code></pre>
-<ul>
-<li><code>private Game.Prefabs.PrefabBase m_SelectedPrefab</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Prefabs.PrefabBase m_SelectedPrefab;
-</code></pre>
-<ul>
-<li><code>private System.Collections.Generic.List&lt;System.String&gt; m_SearchHistory</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Collections.Generic.List&lt;System.String&gt; m_SearchHistory;
-</code></pre>
-<ul>
-<li><code>private System.Collections.Generic.HashSet&lt;System.String&gt; m_SearchFavorites</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Collections.Generic.HashSet&lt;System.String&gt; m_SearchFavorites;
-</code></pre>
-<ul>
-<li><code>private System.Collections.Generic.List&lt;Game.UI.Editor.PopupSearchField+Suggestion&gt; m_SearchSuggestions</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Collections.Generic.List&lt;Game.UI.Editor.PopupSearchField+Suggestion&gt; m_SearchSuggestions;
-</code></pre>
-<ul>
-<li><code>private System.Collections.Generic.HashSet&lt;System.String&gt; m_FavoriteIds</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Collections.Generic.HashSet&lt;System.String&gt; m_FavoriteIds;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_ColumnCount</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_ColumnCount;
-</code></pre>
-<ul>
-<li><code>private System.Action &lt;onAvailableFiltersChanged&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Action &lt;onAvailableFiltersChanged&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>public System.Action&lt;Game.Prefabs.PrefabBase&gt; EventPrefabSelected</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Action&lt;Game.Prefabs.PrefabBase&gt; EventPrefabSelected;
-</code></pre>
-<ul>
-<li><code>public static const System.Int32 kMaxHistoryLength</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static const System.Int32 kMaxHistoryLength;
-</code></pre>
-<ul>
-<li><code>public static const System.Int32 kMaxHistoryDisplayLength</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static const System.Int32 kMaxHistoryDisplayLength;
-</code></pre>
+<hr />
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>public System.Boolean displayPrefabTypeTooltip { get; set }</code>  </li>
+<li>
+<p><code>[CanBeNull] public PrefabBase selectedPrefab { get; set; }</code><br />
+Gets or sets the currently selected PrefabBase. Setting updates the internal selected prefab reference (m_SelectedPrefab). When selection changes it will be reflected in the picker via Update() which attempts to set the corresponding PrefabItem.</p>
+</li>
+<li>
+<p><code>public List&lt;string&gt; availableFilters =&gt; m_AvailableFilters</code><br />
+Read-only accessor for available filters (tags) discovered from the loaded prefabs.</p>
+</li>
+<li>
+<p><code>public List&lt;string&gt; activeFilters =&gt; m_ActiveFilters</code><br />
+Read-only accessor for the currently active filter tags.</p>
+</li>
+<li>
+<p><code>public Action onAvailableFiltersChanged { get; set; }</code><br />
+Callback invoked when available filters are recomputed (for example after SetPrefabs).</p>
+</li>
+<li>
+<p><code>PrefabItem ItemPicker&lt;PrefabItem&gt;.IAdapter.selectedItem { get; set; }</code><br />
+Explicit interface implementation for ItemPicker adapter selected item. Setting this also updates m_SelectedPrefab, invokes EventPrefabSelected, and records the search query to history when appropriate (persisted to EditorSettings).</p>
+</li>
+<li>
+<p><code>List&lt;PrefabItem&gt; ItemPicker&lt;PrefabItem&gt;.IAdapter.items =&gt; m_FilteredItems</code><br />
+Explicit interface accessor returning the current filtered items used by the picker UI.</p>
+</li>
+<li>
+<p><code>public string searchQuery { get; set; }</code><br />
+Search query string. Setting this flags the query as changed and updates searchQueryIsFavorite accordingly.</p>
+</li>
+<li>
+<p><code>public bool searchQueryIsFavorite =&gt; m_SearchQueryIsFavorite</code><br />
+Indicates whether the current search query is marked as a favorite.</p>
+</li>
+<li>
+<p><code>IEnumerable&lt;PopupSearchField.Suggestion&gt; PopupSearchField.IAdapter.searchSuggestions =&gt; m_SearchSuggestions</code><br />
+Explicit adapter property providing current search suggestions (history and favorites) to the popup search UI.</p>
+</li>
+<li>
+<p><code>int ItemPickerFooter.IAdapter.length =&gt; m_FilteredItems.Count</code><br />
+Footer adapter property exposing the number of filtered items (used for display counts / paging).</p>
+</li>
+<li>
+<p><code>public int columnCount { get; set; }</code><br />
+Number of columns in the picker grid. Setting persists the value to EditorSettings.prefabPickerColumnCount.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public System.Boolean displayPrefabTypeTooltip { get; set; }
-</code></pre>
-<ul>
-<li><code>public Game.Prefabs.PrefabBase selectedPrefab { get; set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Game.Prefabs.PrefabBase selectedPrefab { get; set; }
-</code></pre>
-<ul>
-<li><code>public System.Collections.Generic.List&lt;System.String&gt; availableFilters { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Collections.Generic.List&lt;System.String&gt; availableFilters { get; }
-</code></pre>
-<ul>
-<li><code>public System.Collections.Generic.List&lt;System.String&gt; activeFilters { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Collections.Generic.List&lt;System.String&gt; activeFilters { get; }
-</code></pre>
-<ul>
-<li><code>public System.Action onAvailableFiltersChanged { get; set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Action onAvailableFiltersChanged { get; set; }
-</code></pre>
-<ul>
-<li><code>private Game.UI.Editor.PrefabItem Game.UI.Editor.ItemPicker&lt;Game.UI.Editor.PrefabItem&gt;.IAdapter.selectedItem { private get; private set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.UI.Editor.PrefabItem Game.UI.Editor.ItemPicker&lt;Game.UI.Editor.PrefabItem&gt;.IAdapter.selectedItem { private get; private set; }
-</code></pre>
-<ul>
-<li><code>private System.Collections.Generic.List&lt;Game.UI.Editor.PrefabItem&gt; Game.UI.Editor.ItemPicker&lt;Game.UI.Editor.PrefabItem&gt;.IAdapter.items { private get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Collections.Generic.List&lt;Game.UI.Editor.PrefabItem&gt; Game.UI.Editor.ItemPicker&lt;Game.UI.Editor.PrefabItem&gt;.IAdapter.items { private get; }
-</code></pre>
-<ul>
-<li><code>public System.String searchQuery { get; set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.String searchQuery { get; set; }
-</code></pre>
-<ul>
-<li><code>public System.Boolean searchQueryIsFavorite { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Boolean searchQueryIsFavorite { get; }
-</code></pre>
-<ul>
-<li><code>private System.Collections.Generic.IEnumerable&lt;Game.UI.Editor.PopupSearchField+Suggestion&gt; Game.UI.Editor.PopupSearchField.IAdapter.searchSuggestions { private get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Collections.Generic.IEnumerable&lt;Game.UI.Editor.PopupSearchField+Suggestion&gt; Game.UI.Editor.PopupSearchField.IAdapter.searchSuggestions { private get; }
-</code></pre>
-<ul>
-<li><code>private System.Int32 Game.UI.Editor.ItemPickerFooter.IAdapter.length { private get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 Game.UI.Editor.ItemPickerFooter.IAdapter.length { private get; }
-</code></pre>
-<ul>
-<li><code>public System.Int32 columnCount { get; set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Int32 columnCount { get; set; }
-</code></pre>
+<hr />
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public PrefabPickerAdapter()</code>  </li>
+<li><code>public PrefabPickerAdapter()</code><br />
+No explicit constructor is defined in the source; the default constructor initializes internal fields to their defaults. Typical usage: construct the adapter, call LoadSettings(), then SetPrefabs(...) to populate.</li>
 </ul>
-<pre><code class="language-csharp">public PrefabPickerAdapter();
-</code></pre>
+<hr />
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private &lt;Update&gt;b__40_0(Game.UI.Editor.PrefabItem item) : System.Boolean</code>  </li>
+<li>
+<p><code>public void LoadSettings()</code><br />
+Loads persisted settings from SharedSettings.instance.editor (if available). Restores search history, favorites (both search favorites and prefab favorites), and column count. Clears internal collections before loading. Use this during initialization to restore the user's previous picker state.</p>
+</li>
+<li>
+<p><code>public void SetPrefabs([ItemCanBeNull] ICollection&lt;PrefabBase&gt; prefabs)</code><br />
+Populates the adapter from a collection of PrefabBase objects. Builds PrefabItem entries (displayName, tooltip when displayPrefabTypeTooltip is true, tags, badge, image and favorite state). Accumulates available filter tags from prefab tags and notifies onAvailableFiltersChanged. Sorts items and marks items changed so an Update() will refresh filtered list.</p>
+</li>
+<li>
+<p><code>private bool TryGetDLCBadge(PrefabBase prefab, out string icon)</code><br />
+Attempts to discover a DLC/pack badge icon path for the prefab by inspecting AssetPackItem or ContentPrerequisite components. Returns true and sets icon if found. Used when building PrefabItem.badge in SetPrefabs.</p>
+</li>
+<li>
+<p><code>public PrefabBase SelectPrefabByName(string name, StringComparison comparisonType)</code><br />
+Selects and returns the first PrefabBase whose name matches the provided name using the given StringComparison. Updates m_SelectedPrefab accordingly.</p>
+</li>
+<li>
+<p><code>public void Update()</code><br />
+Should be called periodically (for example, each frame or when UI updates). Synchronizes m_SelectedItem with m_SelectedPrefab if needed. If items, search query, or active filters changed, recomputes filtered items by calling UpdateFilteredItems() and clears the corresponding change flags.</p>
+</li>
+<li>
+<p><code>private void UpdateFilteredItems()</code><br />
+Core filtering logic. Clears search suggestions and filtered items, parses the search query into words and tag tokens (tags start with '#'), merges active filters with explicit tags, and computes filtered item list. Also populates search suggestions from history and favorites (respecting kMaxHistoryDisplayLength). Performs case-insensitive substring matching on prefab names and supports type-name matching as well as tag matching and incomplete-tag suggestions.</p>
+</li>
+<li>
+<p><code>[CanBeNull] private static string GetIncompleteTag(string[] searchParts)</code><br />
+Helper that checks the last token in the search parts and returns the incomplete tag (without the '#' prefix) if the last token begins with '#' and has length &gt; 1; otherwise returns null. Used to provide tag autocompletion behavior.</p>
+</li>
+<li>
+<p><code>bool ItemPicker&lt;PrefabItem&gt;.IAdapter.Update()</code><br />
+Explicit interface implementation used by the item picker to determine whether filtered items changed since the last update. Returns true if filtered items changed (and resets the changed flag).</p>
+</li>
+<li>
+<p><code>void ItemPicker&lt;PrefabItem&gt;.IAdapter.SetFavorite(int index, bool favorite)</code><br />
+Marks the prefab at the provided index in the filtered items as favorite or not. Updates internal favorite ID set, persists EditorSettings.prefabPickerFavorites, updates item favorite flags, re-sorts lists and marks filtered items changed.</p>
+</li>
+<li>
+<p><code>void PopupSearchField.IAdapter.SetFavorite(string query, bool favorite)</code><br />
+Marks a search query as favorite (or removes it). Updates m_SearchFavorites and persisted EditorSettings.prefabPickerSearchFavorites and prefabPickerSearchHistory. If the query equals the current searchQuery, updates the searchQueryIsFavorite flag. Calls UpdateFilteredItems() to refresh suggestions.</p>
+</li>
+<li>
+<p><code>public void ToggleFilter(string filter, bool active)</code><br />
+Activates or deactivates a filter tag in m_ActiveFilters. Sets m_ActiveFiltersChanged to request a filter update.</p>
+</li>
+<li>
+<p><code>public void ClearFilters()</code><br />
+Clears all active filters and flags that the active filters changed (forces a recompute of filtered items on next Update()).</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private System.Boolean &lt;Update&gt;b__40_0(Game.UI.Editor.PrefabItem item);
-</code></pre>
-<ul>
-<li><code>public ClearFilters() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void ClearFilters()
+<hr />
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Example initialization for an editor window / picker
+var adapter = new PrefabPickerAdapter();
+adapter.LoadSettings(); // restore persisted user settings
+
+// supply all prefabs (from game content) to populate the picker
+adapter.SetPrefabs(prefabCollection); // prefabCollection: ICollection&lt;PrefabBase&gt;
+
+// respond to selection events
+adapter.EventPrefabSelected += prefab =&gt;
+{
+    if (prefab != null)
     {
-        m_ActiveFilters.Clear();
-        m_ActiveFiltersChanged = true;
+        Debug.Log(&quot;Prefab selected: &quot; + prefab.name);
     }
+};
+
+// set search query (updates suggestions and marks for refresh)
+adapter.searchQuery = &quot;park #decoration&quot;;
+
+// update from your UI loop to recompute filtered items when needed
+adapter.Update();
+
+// access filtered items when rendering the picker UI (via explicit interface)
+var items = ((ItemPicker&lt;PrefabItem&gt;.IAdapter)adapter).items;
+int count = ((ItemPickerFooter.IAdapter)adapter).length;
 </code></pre>
-<ul>
-<li><code>private Game.UI.Editor.ItemPicker&lt;Game.UI.Editor.PrefabItem&gt;.IAdapter.SetFavorite(System.Int32 index, System.Boolean favorite) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Void Game.UI.Editor.ItemPicker&lt;Game.UI.Editor.PrefabItem&gt;.IAdapter.SetFavorite(System.Int32 index, System.Boolean favorite);
-</code></pre>
-<ul>
-<li><code>private Game.UI.Editor.ItemPicker&lt;Game.UI.Editor.PrefabItem&gt;.IAdapter.Update() : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void Update()
-    {
-        if (m_SelectedPrefab != m_SelectedItem?.prefab)
-        {
-            m_SelectedItem = m_Items.FirstOrDefault((PrefabItem item) =&gt; item.prefab == m_SelectedPrefab);
-        }
-        if (m_ItemsChanged || m_SearchQueryChanged || m_ActiveFiltersChanged)
-        {
-            m_ItemsChanged = false;
-            m_SearchQueryChanged = false;
-            m_ActiveFiltersChanged = false;
-            UpdateFilteredItems();
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private Game.UI.Editor.PopupSearchField.IAdapter.SetFavorite(System.String query, System.Boolean favorite) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Void Game.UI.Editor.PopupSearchField.IAdapter.SetFavorite(System.String query, System.Boolean favorite);
-</code></pre>
-<ul>
-<li><code>private static GetIncompleteTag(System.String[] searchParts) : System.String</code>  </li>
-</ul>
-<pre><code class="language-csharp">[CanBeNull]
-    private static string GetIncompleteTag(string[] searchParts)
-    {
-        if (searchParts.Length == 0)
-        {
-            return null;
-        }
-        string text = searchParts[^1];
-        if (text.Length &lt;= 1 || !text.StartsWith(&quot;#&quot;))
-        {
-            return null;
-        }
-        return text.Substring(1);
-    }
-</code></pre>
-<ul>
-<li><code>public LoadSettings() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void LoadSettings()
-    {
-        m_SearchHistory.Clear();
-        m_SearchFavorites.Clear();
-        m_ColumnCount = 1;
-        m_FavoriteIds.Clear();
-        EditorSettings editorSettings = SharedSettings.instance?.editor;
-        if (editorSettings == null)
-        {
-            return;
-        }
-        if (editorSettings.prefabPickerSearchHistory != null)
-        {
-            m_SearchHistory.AddRange(editorSettings.prefabPickerSearchHistory);
-        }
-        if (editorSettings.prefabPickerSearchFavorites != null)
-        {
-            string[] prefabPickerSearchFavorites = editorSettings.prefabPickerSearchFavorites;
-            foreach (string item in prefabPickerSearchFavorites)
-            {
-                m_SearchFavorites.Add(item);
-            }
-        }
-        m_ColumnCount = editorSettings.prefabPickerColumnCount;
-        if (editorSettings.prefabPickerFavorites != null)
-        {
-            string[] prefabPickerSearchFavorites = editorSettings.prefabPickerFavorites;
-            foreach (string item2 in prefabPickerSearchFavorites)
-            {
-                m_FavoriteIds.Add(item2);
-            }
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public SelectPrefabByName(System.String name, System.StringComparison comparisonType) : Game.Prefabs.PrefabBase</code>  </li>
-</ul>
-<pre><code class="language-csharp">public PrefabBase SelectPrefabByName(string name, StringComparison comparisonType)
-    {
-        m_SelectedPrefab = m_Items.Select((PrefabItem item) =&gt; item.prefab).FirstOrDefault((PrefabBase prefab) =&gt; prefab.name.Equals(name, comparisonType));
-        return m_SelectedPrefab;
-    }
-</code></pre>
-<ul>
-<li><code>public SetPrefabs(System.Collections.Generic.ICollection&lt;Game.Prefabs.PrefabBase&gt; prefabs) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void SetPrefabs([ItemCanBeNull] ICollection&lt;PrefabBase&gt; prefabs)
-    {
-        m_Items.Clear();
-        m_Items.Capacity = prefabs.Count;
-        m_ItemsChanged = true;
-        m_SelectedItem = null;
-        m_AvailableFilters.Clear();
-        m_ActiveFilters.Clear();
-        HashSet&lt;string&gt; hashSet = new HashSet&lt;string&gt;();
-        foreach (PrefabBase prefab in prefabs)
-        {
-            string prefabID = EditorPrefabUtils.GetPrefabID(prefab);
-            PrefabItem prefabItem = new PrefabItem
-            {
-                prefab = prefab,
-                displayName = EditorPrefabUtils.GetPrefabLabel(prefab)
-            };
-            if (prefab != null &amp;&amp; displayPrefabTypeTooltip)
-            {
-                prefabItem.tooltip = LocalizedString.Value(prefab.GetType().Name);
-            }
-            if (prefab != null)
-            {
-                prefabItem.tags.AddRange(EditorPrefabUtils.GetPrefabTags(prefab.GetType()));
-                foreach (ComponentBase component in prefab.components)
-                {
-                    prefabItem.tags.Add(component.GetType().Name.ToLowerInvariant());
-                }
-                foreach (string tag in prefabItem.tags)
-                {
-                    hashSet.Add(tag);
-                }
-                prefabItem.image = ImageSystem.GetThumbnail(prefab);
-                if (TryGetDLCBadge(prefab, out var icon))
-                {
-                    prefabItem.badge = icon;
-                }
-            }
-            if (prefabID != null)
-            {
-                prefabItem.favorite = m_FavoriteIds.Contains(prefabID);
-            }
-            m_Items.Add(prefabItem);
-        }
-        m_AvailableFilters.AddRange(hashSet);
-        m_AvailableFilters.Sort();
-        onAvailableFiltersChanged?.Invoke();
-        m_Items.Sort();
-    }
-</code></pre>
-<ul>
-<li><code>public ToggleFilter(System.String filter, System.Boolean active) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void ToggleFilter(string filter, bool active)
-    {
-        if (active)
-        {
-            if (!m_ActiveFilters.Contains(filter))
-            {
-                m_ActiveFilters.Add(filter);
-            }
-        }
-        else
-        {
-            m_ActiveFilters.Remove(filter);
-        }
-        m_ActiveFiltersChanged = true;
-    }
-</code></pre>
-<ul>
-<li><code>private TryGetDLCBadge(Game.Prefabs.PrefabBase prefab, System.String&amp; icon) : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">private bool TryGetDLCBadge(PrefabBase prefab, out string icon)
-    {
-        if (prefab.TryGet&lt;AssetPackItem&gt;(out var component) &amp;&amp; component.m_Packs != null)
-        {
-            AssetPackPrefab[] packs = component.m_Packs;
-            for (int i = 0; i &lt; packs.Length; i++)
-            {
-                if (packs[i].TryGet&lt;UIObject&gt;(out var component2) &amp;&amp; !string.IsNullOrEmpty(component2.m_Icon))
-                {
-                    icon = component2.m_Icon;
-                    return true;
-                }
-            }
-        }
-        if (prefab.TryGet&lt;ContentPrerequisite&gt;(out var component3))
-        {
-            ContentPrefab contentPrerequisite = component3.m_ContentPrerequisite;
-            if (contentPrerequisite.TryGet&lt;UIObject&gt;(out var component4) &amp;&amp; !string.IsNullOrEmpty(component4.m_Icon))
-            {
-                icon = component4.m_Icon;
-                return true;
-            }
-            if (contentPrerequisite.TryGet&lt;DlcRequirement&gt;(out var component5))
-            {
-                string dlcName = PlatformManager.instance.GetDlcName(component5.m_Dlc);
-                if (!string.IsNullOrEmpty(dlcName))
-                {
-                    icon = &quot;Media/DLC/&quot; + dlcName + &quot;.svg&quot;;
-                    return true;
-                }
-            }
-        }
-        icon = null;
-        return false;
-    }
-</code></pre>
-<ul>
-<li><code>public Update() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void Update()
-    {
-        if (m_SelectedPrefab != m_SelectedItem?.prefab)
-        {
-            m_SelectedItem = m_Items.FirstOrDefault((PrefabItem item) =&gt; item.prefab == m_SelectedPrefab);
-        }
-        if (m_ItemsChanged || m_SearchQueryChanged || m_ActiveFiltersChanged)
-        {
-            m_ItemsChanged = false;
-            m_SearchQueryChanged = false;
-            m_ActiveFiltersChanged = false;
-            UpdateFilteredItems();
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private UpdateFilteredItems() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void UpdateFilteredItems()
-    {
-        m_SearchSuggestions.Clear();
-        m_FilteredItems.Clear();
-        m_FilteredItemsChanged = true;
-        string[] array = m_SearchQuery.Split(' ');
-        string[] words = array.Where((string p) =&gt; p.Length &gt; 0 &amp;&amp; !p.StartsWith(&quot;#&quot;)).ToArray();
-        string[] tags = (from p in array.Take(array.Length - 1)
-            where p.Length &gt; 1 &amp;&amp; p.StartsWith(&quot;#&quot;)
-            select p.Substring(1)).Concat(m_ActiveFilters).ToArray();
-        string incompleteTag = GetIncompleteTag(array);
-        if (words.Length != 0 || tags.Length != 0 || incompleteTag != null)
-        {
-            m_SearchSuggestions.AddRange(m_SearchHistory.Where((string s) =&gt; !m_SearchFavorites.Contains(s) &amp;&amp; s.StartsWith(m_SearchQuery, StringComparison.OrdinalIgnoreCase)).Take(20).Select(PopupSearchField.Suggestion.NonFavorite));
-            m_SearchSuggestions.AddRange(m_SearchFavorites.Where((string s) =&gt; s.StartsWith(m_SearchQuery, StringComparison.OrdinalIgnoreCase)).Select(PopupSearchField.Suggestion.Favorite));
-            m_FilteredItems.AddRange(m_Items.Where(delegate(PrefabItem item)
-            {
-                if (item.prefab == null)
-                {
-                    return false;
-                }
-                bool num = words.Length == 0 || words.All((string word) =&gt; item.prefab.name.IndexOf(word, StringComparison.OrdinalIgnoreCase) != -1);
-                string typeName = item.prefab.GetType().Name;
-                bool flag = words.Any((string word) =&gt; word.IndexOf(typeName, StringComparison.OrdinalIgnoreCase) != -1);
-                bool flag2 = tags.Length == 0 || tags.Any((string tag) =&gt; item.tags.Contains(tag, StringComparer.OrdinalIgnoreCase));
-                bool flag3 = incompleteTag == null || item.tags.Any((string tag) =&gt; tag.StartsWith(incompleteTag, StringComparison.OrdinalIgnoreCase));
-                return ((num || flag) &amp;&amp; flag2 &amp;&amp; flag3) ? true : false;
-            }));
-        }
-        else
-        {
-            m_SearchSuggestions.AddRange(m_SearchHistory.Where((string s) =&gt; !m_SearchFavorites.Contains(s)).Take(20).Select(PopupSearchField.Suggestion.NonFavorite));
-            m_SearchSuggestions.AddRange(m_SearchFavorites.Select(PopupSearchField.Suggestion.Favorite));
-            m_FilteredItems.AddRange(m_Items);
-        }
-        m_SearchSuggestions.Sort();
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.UI.Editor.PrefabPickerAdapter+&lt;&gt;c</code>  </li>
-<li><code>Game.UI.Editor.PrefabPickerAdapter+&lt;&gt;c__DisplayClass39_0</code>  </li>
-<li><code>Game.UI.Editor.PrefabPickerAdapter+&lt;&gt;c__DisplayClass41_0</code>  </li>
-<li><code>Game.UI.Editor.PrefabPickerAdapter+&lt;&gt;c__DisplayClass41_1</code>  </li>
-</ul>
 
 
 

@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87056,6 +87148,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -99562,18 +99677,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -99598,9 +99713,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -117923,6 +118038,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117950,18 +118087,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -117986,9 +118123,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118011,467 +118148,173 @@
 
 
 <h1 id="gameuieditorwaterpanelsystem">Game.UI.Editor.WaterPanelSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.UI.Editor</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.UI.Editor.EditorPanelSystemBase</code><br />
-<strong>Implements:</strong> <code>Game.UI.Editor.IEditorPanel</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class WaterPanelSystem : Game.UI.Editor.EditorPanelSystemBase, Game.UI.Editor.IEditorPanel
-{
-    private Game.EndFrameBarrier m_EndFrameBarrier;
-    private Game.Tools.ToolSystem m_ToolSystem;
-    private Game.Tools.WaterToolSystem m_WaterToolSystem;
-    private Game.Simulation.WaterSystem m_WaterSystem;
-    private Game.Simulation.TerrainSystem m_TerrainSystem;
-    private Unity.Entities.EntityQuery m_WaterSourceQuery;
-    private Unity.Entities.EntityQuery m_UpdatedSourceQuery;
-    private Unity.Entities.EntityArchetype m_WaterSourceArchetype;
-    private Game.UI.Editor.WaterPanelSystem+WaterConfig m_Config;
-    private static readonly System.Int32[] kWaterSpeedValues;
-
-    public WaterPanelSystem();
-
-    private System.Void AddBorderSource(Unity.Entities.EntityCommandBuffer buffer, Unity.Entities.Entity entity, Game.UI.Editor.WaterPanelSystem+WaterConfig+BorderWaterSource source, System.Int32 constantDepth, Game.Simulation.TerrainHeightData&amp; terrainHeightData);
-    private System.Void AddSource(Unity.Entities.EntityCommandBuffer buffer, Unity.Entities.Entity entity, Game.UI.Editor.WaterPanelSystem+WaterConfig+WaterSource source, System.Int32 constantDepth, System.Single&amp; amount, Game.Simulation.TerrainHeightData&amp; terrainHeightData);
-    private System.Void ApplyWaterSources();
-    private Game.UI.Widgets.IWidget[] BuildWaterSpeedToggles();
-    public System.Void FetchWaterSources();
-    private Unity.Entities.Entity GetSource(Unity.Entities.EntityCommandBuffer buffer, Unity.Collections.NativeArray&lt;Unity.Entities.Entity&gt; sources, System.Int32&amp; sourceCount);
-    protected virtual System.Boolean OnCancel();
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnGameLoaded(Colossal.Serialization.Entities.Context serializationContext);
-    protected virtual System.Void OnStartRunning();
-    protected virtual System.Void OnStopRunning();
-    protected virtual System.Void OnUpdate();
-    protected virtual System.Void OnValueChanged(Game.UI.Widgets.IWidget widget);
-}
-</code></pre>
+<p><strong>Assembly:</strong> Assembly-CSharp (typical for Cities: Skylines 2 mods)<br />
+<strong>Namespace:</strong> Game.UI.Editor</p>
+<p><strong>Type:</strong> class WaterPanelSystem</p>
+<p><strong>Base:</strong> EditorPanelSystemBase</p>
+<p><strong>Summary:</strong><br />
+WaterPanelSystem implements the in-editor UI for configuring water sources and water simulation settings in the editor mode. It builds the editor widgets for constant-rate sources, constant-level sources and border (river/sea) sources, reads existing WaterSource entities from the ECS world into an editable config, and writes/configures ECS water source entities when the user changes values. The system also exposes water simulation speed toggles and manages tool activation (switching to the WaterToolSystem when the player uses keyboard &amp; mouse). It uses an EndFrameBarrier to issue EntityCommandBuffer operations when applying changes.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.EndFrameBarrier m_EndFrameBarrier</code>  </li>
+<li>
+<p><code>private EndFrameBarrier m_EndFrameBarrier</code><br />
+Used to create an EntityCommandBuffer for deferred entity operations (adding/updating/removing water source entities) at end-of-frame.</p>
+</li>
+<li>
+<p><code>private ToolSystem m_ToolSystem</code><br />
+Reference to the global ToolSystem; used to query/change the active tool (activate/deactivate the water tool and prefab tools).</p>
+</li>
+<li>
+<p><code>private WaterToolSystem m_WaterToolSystem</code><br />
+Reference to the water editing tool system used for direct water editing in the editor.</p>
+</li>
+<li>
+<p><code>private WaterSystem m_WaterSystem</code><br />
+Reference to the simulation WaterSystem which holds settings such as WaterSimSpeed and calculation helpers (e.g., CalculateSourceMultiplier).</p>
+</li>
+<li>
+<p><code>private TerrainSystem m_TerrainSystem</code><br />
+Reference to terrain services (sampling heights, bounds, and position offsets) used when initializing/placing water sources.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_WaterSourceQuery</code><br />
+Query for existing water source entities (reads Game.Simulation.WaterSourceData and Game.Objects.Transform, excludes prefab/Deleted/Temp). Used to fetch existing water sources into the editor UI.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_UpdatedSourceQuery</code><br />
+Query that detects updated/deleted WaterSourceData components (All=WaterSourceData, Any=Updated/Deleted, None=PrefabRef/Temp). Used to auto-refresh the UI when world water sources change.</p>
+</li>
+<li>
+<p><code>private EntityArchetype m_WaterSourceArchetype</code><br />
+Archetype used when creating new water source entities (contains WaterSourceData and Transform components).</p>
+</li>
+<li>
+<p><code>private WaterConfig m_Config = new WaterConfig()</code><br />
+Local editable configuration backing the UI. Contains lists of ConstantRateWaterSource, ConstantLevelWaterSource and BorderWaterSource instances that are edited by the UI.</p>
+</li>
+<li>
+<p><code>private static readonly int[] kWaterSpeedValues = new int[7] { 0, 1, 8, 16, 32, 64, 128 }</code><br />
+Available water simulation speeds shown as toggles in the UI. Each toggle maps to WaterSystem.WaterSimSpeed.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.EndFrameBarrier m_EndFrameBarrier;
-</code></pre>
+<hr />
+<h2 id="properties">Properties</h2>
 <ul>
-<li><code>private Game.Tools.ToolSystem m_ToolSystem</code>  </li>
+<li>(No public properties defined on this type; the system relies on fields and inherited behavior.)</li>
 </ul>
-<pre><code class="language-csharp">private Game.Tools.ToolSystem m_ToolSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Tools.WaterToolSystem m_WaterToolSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Tools.WaterToolSystem m_WaterToolSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.WaterSystem m_WaterSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.WaterSystem m_WaterSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.TerrainSystem m_TerrainSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.TerrainSystem m_TerrainSystem;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_WaterSourceQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_WaterSourceQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_UpdatedSourceQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_UpdatedSourceQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityArchetype m_WaterSourceArchetype</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityArchetype m_WaterSourceArchetype;
-</code></pre>
-<ul>
-<li><code>private Game.UI.Editor.WaterPanelSystem+WaterConfig m_Config</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.UI.Editor.WaterPanelSystem+WaterConfig m_Config;
-</code></pre>
-<ul>
-<li><code>private static readonly System.Int32[] kWaterSpeedValues</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static readonly System.Int32[] kWaterSpeedValues;
-</code></pre>
+<hr />
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public WaterPanelSystem()</code>  </li>
+<li><code>public WaterPanelSystem()</code><br />
+Default constructor. The system is marked with [Preserve] in lifecycle methods to ensure calls are kept by code stripping. Initialization of fields and full setup is performed in OnCreate.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public WaterPanelSystem()
-    {
-    }
-</code></pre>
+<hr />
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private AddBorderSource(Unity.Entities.EntityCommandBuffer buffer, Unity.Entities.Entity entity, Game.UI.Editor.WaterPanelSystem+WaterConfig+BorderWaterSource source, System.Int32 constantDepth, Game.Simulation.TerrainHeightData&amp; terrainHeightData) : System.Void</code>  </li>
+<li>
+<p><code>protected override void OnCreate()</code> : System.Void<br />
+Lifecycle method. Resolves required systems (EndFrameBarrier, ToolSystem, WaterToolSystem, WaterSystem, TerrainSystem), creates entity queries and archetype, builds the editor UI widgets (an EditorGenerator is used to build the WaterConfig UI) and sets up the water simulation speed toggles. This method constructs the children widget tree for the panel.</p>
+</li>
+<li>
+<p><code>private IWidget[] BuildWaterSpeedToggles()</code> : IWidget[]<br />
+Creates a ToggleField widget for each value in kWaterSpeedValues. Each toggle shows a "Nx" label (e.g., "8x") and uses a DelegateAccessor to get/set WaterSystem.WaterSimSpeed. Selecting a toggle sets the WaterSimSpeed to the corresponding value.</p>
+</li>
+<li>
+<p><code>protected override void OnGameLoaded(Context serializationContext)</code> : System.Void<br />
+Called when a game is loaded in the editor. Invokes FetchWaterSources() to populate the editor UI with current world water sources.</p>
+</li>
+<li>
+<p><code>protected override void OnStartRunning()</code> : System.Void<br />
+When the editor panel becomes active, if the current input scheme is KeyboardAndMouse, sets the active tool to the WaterToolSystem so the user can edit water with mouse input.</p>
+</li>
+<li>
+<p><code>protected override void OnUpdate()</code> : System.Void<br />
+Checks m_UpdatedSourceQuery and, if not empty, calls FetchWaterSources() to refresh the UI when water sources change in the world.</p>
+</li>
+<li>
+<p><code>protected override void OnStopRunning()</code> : System.Void<br />
+When the panel is closed or the system stops running, deactivates the water tool (if it is the active tool) and resets WaterSystem.WaterSimSpeed back to 1.</p>
+</li>
+<li>
+<p><code>protected override bool OnCancel()</code> : System.Boolean<br />
+Handles cancel/back action. If the water tool is active, deactivates it and returns false to consume the cancel; otherwise falls back to base.OnCancel().</p>
+</li>
+<li>
+<p><code>protected override void OnValueChanged(IWidget widget)</code> : System.Void<br />
+Called when any bound UI value changes; triggers ApplyWaterSources() to write the modified config back into ECS entities.</p>
+</li>
+<li>
+<p><code>public void FetchWaterSources()</code> : System.Void<br />
+Reads existing water source entities from the world and populates m_Config lists. Uses m_WaterSourceQuery to obtain arrays of Game.Simulation.WaterSourceData and Game.Objects.Transform, then converts entities into editable WaterConfig.* entries. The mapping from WaterSourceData.m_ConstantDepth is:</p>
+</li>
+<li>0 =&gt; ConstantRateWaterSource (m_Amount =&gt; m_Rate)</li>
+<li>1 =&gt; ConstantLevelWaterSource (m_Amount =&gt; m_Height)</li>
+<li>2 =&gt; Border river (BorderWaterSource; m_Multiplier =&gt; m_FloodHeight)</li>
+<li>
+<p>3 =&gt; Border sea (BorderWaterSource)
+NativeArrays are allocated with Allocator.TempJob and disposed in a finally block.</p>
+</li>
+<li>
+<p><code>private void ApplyWaterSources()</code> : System.Void<br />
+Applies the edited m_Config lists back to the world. Creates an EntityCommandBuffer from m_EndFrameBarrier and enumerates existing source entities (m_WaterSourceQuery); for each configured source it either updates an existing entity or creates a new one (GetSource). After processing configured items, any remaining entities are marked Deleted. Uses m_TerrainSystem.GetHeightData() for height calculations.</p>
+</li>
+<li>
+<p><code>private Entity GetSource(EntityCommandBuffer buffer, NativeArray&lt;Entity&gt; sources, ref int sourceCount)</code> : Entity<br />
+Helper that returns an existing source entity from the sources array if available (incrementing sourceCount) or creates a new entity from m_WaterSourceArchetype using the EntityCommandBuffer.</p>
+</li>
+<li>
+<p><code>private void AddSource(EntityCommandBuffer buffer, Entity entity, WaterConfig.WaterSource source, int constantDepth, ref float amount, ref TerrainHeightData terrainHeightData)</code> : System.Void<br />
+Generic routine for adding/updating a non-border water source (constant-rate or constant-level). If the source is not initialized, it will:</p>
+</li>
+<li>Use the camera pivot as initial position</li>
+<li>Clamp the position to the terrain bounds (so the source is on the map)</li>
+<li>
+<p>Set default radius and amount depending on constantDepth (0: rate, 1: level)
+It then computes Game.Simulation.WaterSourceData including calling WaterSystem.CalculateSourceMultiplier, and sets the entity's WaterSourceData and Transform components using the buffer.</p>
+</li>
+<li>
+<p><code>private void AddBorderSource(EntityCommandBuffer buffer, Entity entity, WaterConfig.BorderWaterSource source, int constantDepth, ref TerrainHeightData terrainHeightData)</code> : System.Void<br />
+Similar to AddSource but for border sources (river/sea). Special initialization logic ensures the source is placed near or outside the map edge depending on radius and then sets m_Height, m_Radius and m_Multiplier properly. Writes WaterSourceData and Transform to the entity.</p>
+</li>
+<li>
+<p>(Nested types) WaterConfig and contained classes:</p>
+</li>
+<li>WaterConfig holds editable lists for ConstantRateWaterSource, ConstantLevelWaterSource, BorderWaterSource.</li>
+<li>WaterSource (base) contains m_Initialized, m_Position (float2), m_Radius and m_Pollution.</li>
+<li>ConstantRateWaterSource has m_Rate.</li>
+<li>ConstantLevelWaterSource has m_Height.</li>
+<li>BorderWaterSource (inherits ConstantLevelWaterSource) adds m_FloodHeight (NonSerialized inspector field).</li>
+<li>WaterSourcePositionFactory implements IFieldBuilderFactory and creates a small widget column with a Float2InputField and a "Locate" Button which centers the editor camera on the chosen float2 position. The Locate method sets CameraUpdateSystem.activeCameraController.pivot = new Vector3(x,0,y).</li>
 </ul>
-<pre><code class="language-csharp">private void AddBorderSource(EntityCommandBuffer buffer, Entity entity, WaterConfig.BorderWaterSource source, int constantDepth, ref TerrainHeightData terrainHeightData)
+<hr />
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Typical patterns used in this system are already implemented in the class.
+// Example: override OnCreate to set up references and build UI (simplified form).
+
+[Preserve]
+protected override void OnCreate()
+{
+    base.OnCreate();
+
+    // Resolve systems
+    m_EndFrameBarrier = World.GetOrCreateSystemManaged&lt;EndFrameBarrier&gt;();
+    m_WaterSystem = World.GetOrCreateSystemManaged&lt;WaterSystem&gt;();
+    m_TerrainSystem = World.GetOrCreateSystemManaged&lt;TerrainSystem&gt;();
+
+    // Build UI (EditorGenerator usage is inside the actual implementation)
+    title = &quot;Editor.WATER&quot;;
+    children = new IWidget[]
     {
-        if (!source.m_Initialized)
-        {
-            CameraUpdateSystem existingSystemManaged = World.DefaultGameObjectInjectionWorld.GetExistingSystemManaged&lt;CameraUpdateSystem&gt;();
-            float3 @float = existingSystemManaged.activeCameraController.pivot;
-            source.m_Initialized = true;
-            source.m_Position = @float.xz;
-            Bounds3 bounds = TerrainUtils.GetBounds(ref terrainHeightData);
-            Bounds3 bounds2 = MathUtils.Expand(bounds, 0f - source.m_Radius);
-            if (!MathUtils.Intersect(MathUtils.Expand(bounds, source.m_Radius).xz, source.m_Position))
-            {
-                source.m_Position = MathUtils.Clamp(source.m_Position, bounds.xz);
-                @float.xz = source.m_Position;
-                existingSystemManaged.activeCameraController.pivot = @float;
-            }
-            else if (MathUtils.Intersect(bounds2.xz, source.m_Position))
-            {
-                float2 float2 = source.m_Position - bounds2.min.xz;
-                float2 float3 = bounds2.max.xz - source.m_Position;
-                float2 trueValue = math.select(bounds.min.xz, bounds.max.xz, float3 &lt; float2);
-                float2 = math.min(float2, float3);
-                source.m_Position = math.select(source.m_Position, trueValue, float2.xy &lt; float2.yx);
-                @float.xz = source.m_Position;
-                existingSystemManaged.activeCameraController.pivot = @float;
-            }
-            source.m_Height = TerrainUtils.SampleHeight(ref terrainHeightData, new float3(source.m_Position.x, 0f, source.m_Position.y));
-            source.m_Height -= m_TerrainSystem.positionOffset.y;
-            if (constantDepth == 2)
-            {
-                source.m_Radius = 50f;
-                source.m_Height += 30f;
-            }
-            else
-            {
-                source.m_Radius = 5000f;
-                source.m_Height += 100f;
-            }
-        }
-        buffer.SetComponent(entity, new Game.Simulation.WaterSourceData
-        {
-            m_Amount = source.m_Height,
-            m_ConstantDepth = constantDepth,
-            m_Radius = source.m_Radius,
-            m_Multiplier = source.m_FloodHeight,
-            m_Polluted = source.m_Pollution
-        });
-        buffer.SetComponent(entity, new Game.Objects.Transform
-        {
-            m_Position = new float3(source.m_Position.x, 0f, source.m_Position.y),
-            m_Rotation = quaternion.identity
-        });
-    }
+        // ... create scrollable editor sections and toggles ...
+    };
+}
 </code></pre>
-<ul>
-<li><code>private AddSource(Unity.Entities.EntityCommandBuffer buffer, Unity.Entities.Entity entity, Game.UI.Editor.WaterPanelSystem+WaterConfig+WaterSource source, System.Int32 constantDepth, System.Single&amp; amount, Game.Simulation.TerrainHeightData&amp; terrainHeightData) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void AddSource(EntityCommandBuffer buffer, Entity entity, WaterConfig.WaterSource source, int constantDepth, ref float amount, ref TerrainHeightData terrainHeightData)
-    {
-        if (!source.m_Initialized)
-        {
-            CameraUpdateSystem existingSystemManaged = World.DefaultGameObjectInjectionWorld.GetExistingSystemManaged&lt;CameraUpdateSystem&gt;();
-            float3 @float = existingSystemManaged.activeCameraController.pivot;
-            source.m_Initialized = true;
-            source.m_Position = @float.xz;
-            Bounds3 bounds = MathUtils.Expand(TerrainUtils.GetBounds(ref terrainHeightData), 0f - source.m_Radius);
-            if (!MathUtils.Intersect(bounds.xz, source.m_Position))
-            {
-                source.m_Position = MathUtils.Clamp(source.m_Position, bounds.xz);
-                @float.xz = source.m_Position;
-                existingSystemManaged.activeCameraController.pivot = @float;
-            }
-            if (constantDepth == 0)
-            {
-                source.m_Radius = 30f;
-                amount = 20f;
-            }
-            else
-            {
-                source.m_Radius = 40f;
-                amount = TerrainUtils.SampleHeight(ref terrainHeightData, new float3(source.m_Position.x, 0f, source.m_Position.y));
-                amount += 25f - m_TerrainSystem.positionOffset.y;
-            }
-        }
-        float3 float2 = new float3(source.m_Position.x, 0f, source.m_Position.y);
-        Game.Simulation.WaterSourceData waterSourceData = new Game.Simulation.WaterSourceData
-        {
-            m_Amount = amount,
-            m_ConstantDepth = constantDepth,
-            m_Radius = source.m_Radius,
-            m_Polluted = source.m_Pollution
-        };
-        waterSourceData.m_Multiplier = WaterSystem.CalculateSourceMultiplier(waterSourceData, float2);
-        buffer.SetComponent(entity, waterSourceData);
-        buffer.SetComponent(entity, new Game.Objects.Transform
-        {
-            m_Position = float2,
-            m_Rotation = quaternion.identity
-        });
-    }
-</code></pre>
-<ul>
-<li><code>private ApplyWaterSources() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void ApplyWaterSources()
-    {
-        EntityCommandBuffer buffer = m_EndFrameBarrier.CreateCommandBuffer();
-        NativeArray&lt;Entity&gt; sources = m_WaterSourceQuery.ToEntityArray(Allocator.Temp);
-        int sourceCount = 0;
-        TerrainHeightData terrainHeightData = m_TerrainSystem.GetHeightData();
-        foreach (WaterConfig.ConstantRateWaterSource item in m_Config.m_ConstantRateWaterSources)
-        {
-            AddSource(buffer, GetSource(buffer, sources, ref sourceCount), item, 0, ref item.m_Rate, ref terrainHeightData);
-        }
-        foreach (WaterConfig.ConstantLevelWaterSource item2 in m_Config.m_ConstantLevelWaterSources)
-        {
-            AddSource(buffer, GetSource(buffer, sources, ref sourceCount), item2, 1, ref item2.m_Height, ref terrainHeightData);
-        }
-        foreach (WaterConfig.BorderWaterSource item3 in m_Config.m_BorderRiverWaterSources)
-        {
-            AddBorderSource(buffer, GetSource(buffer, sources, ref sourceCount), item3, 2, ref terrainHeightData);
-        }
-        foreach (WaterConfig.BorderWaterSource item4 in m_Config.m_BorderSeaWaterSources)
-        {
-            AddBorderSource(buffer, GetSource(buffer, sources, ref sourceCount), item4, 3, ref terrainHeightData);
-        }
-        while (sourceCount &lt; sources.Length)
-        {
-            buffer.AddComponent(sources[sourceCount++], default(Deleted));
-        }
-        sources.Dispose();
-    }
-</code></pre>
-<ul>
-<li><code>private BuildWaterSpeedToggles() : Game.UI.Widgets.IWidget[]</code>  </li>
-</ul>
-<pre><code class="language-csharp">private IWidget[] BuildWaterSpeedToggles()
-    {
-        IWidget[] array = new IWidget[kWaterSpeedValues.Length];
-        for (int i = 0; i &lt; kWaterSpeedValues.Length; i++)
-        {
-            int speed = kWaterSpeedValues[i];
-            array[i] = new ToggleField
-            {
-                displayName = $&quot;{speed}x&quot;,
-                accessor = new DelegateAccessor&lt;bool&gt;(() =&gt; m_WaterSystem.WaterSimSpeed == speed, delegate(bool val)
-                {
-                    if (val)
-                    {
-                        m_WaterSystem.WaterSimSpeed = speed;
-                    }
-                })
-            };
-        }
-        return array;
-    }
-</code></pre>
-<ul>
-<li><code>public FetchWaterSources() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void FetchWaterSources()
-    {
-        m_Config.m_ConstantRateWaterSources.Clear();
-        m_Config.m_ConstantLevelWaterSources.Clear();
-        m_Config.m_BorderRiverWaterSources.Clear();
-        m_Config.m_BorderSeaWaterSources.Clear();
-        NativeArray&lt;Game.Simulation.WaterSourceData&gt; nativeArray = m_WaterSourceQuery.ToComponentDataArray&lt;Game.Simulation.WaterSourceData&gt;(Allocator.TempJob);
-        NativeArray&lt;Game.Objects.Transform&gt; nativeArray2 = m_WaterSourceQuery.ToComponentDataArray&lt;Game.Objects.Transform&gt;(Allocator.TempJob);
-        try
-        {
-            for (int i = 0; i &lt; nativeArray.Length; i++)
-            {
-                switch (nativeArray[i].m_ConstantDepth)
-                {
-                case 0:
-                    m_Config.m_ConstantRateWaterSources.Add(new WaterConfig.ConstantRateWaterSource
-                    {
-                        m_Initialized = true,
-                        m_Rate = nativeArray[i].m_Amount,
-                        m_Position = nativeArray2[i].m_Position.xz,
-                        m_Radius = nativeArray[i].m_Radius,
-                        m_Pollution = nativeArray[i].m_Polluted
-                    });
-                    break;
-                case 1:
-                    m_Config.m_ConstantLevelWaterSources.Add(new WaterConfig.ConstantLevelWaterSource
-                    {
-                        m_Initialized = true,
-                        m_Height = nativeArray[i].m_Amount,
-                        m_Position = nativeArray2[i].m_Position.xz,
-                        m_Radius = nativeArray[i].m_Radius,
-                        m_Pollution = nativeArray[i].m_Polluted
-                    });
-                    break;
-                case 2:
-                    m_Config.m_BorderRiverWaterSources.Add(new WaterConfig.BorderWaterSource
-                    {
-                        m_Initialized = true,
-                        m_FloodHeight = nativeArray[i].m_Multiplier,
-                        m_Height = nativeArray[i].m_Amount,
-                        m_Position = nativeArray2[i].m_Position.xz,
-                        m_Radius = nativeArray[i].m_Radius,
-                        m_Pollution = nativeArray[i].m_Polluted
-                    });
-                    break;
-                case 3:
-                    m_Config.m_BorderSeaWaterSources.Add(new WaterConfig.BorderWaterSource
-                    {
-                        m_Initialized = true,
-                        m_FloodHeight = nativeArray[i].m_Multiplier,
-                        m_Height = nativeArray[i].m_Amount,
-                        m_Position = nativeArray2[i].m_Position.xz,
-                        m_Radius = nativeArray[i].m_Radius,
-                        m_Pollution = nativeArray[i].m_Polluted
-                    });
-                    break;
-                }
-            }
-        }
-        finally
-        {
-            nativeArray.Dispose();
-            nativeArray2.Dispose();
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private GetSource(Unity.Entities.EntityCommandBuffer buffer, Unity.Collections.NativeArray&lt;Unity.Entities.Entity&gt; sources, System.Int32&amp; sourceCount) : Unity.Entities.Entity</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Entity GetSource(EntityCommandBuffer buffer, NativeArray&lt;Entity&gt; sources, ref int sourceCount)
-    {
-        if (sourceCount &lt; sources.Length)
-        {
-            return sources[sourceCount++];
-        }
-        return buffer.CreateEntity(m_WaterSourceArchetype);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCancel() : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override bool OnCancel()
-    {
-        if (m_ToolSystem.activeTool == m_WaterToolSystem)
-        {
-            m_ToolSystem.ActivatePrefabTool(null);
-            return false;
-        }
-        return base.OnCancel();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_EndFrameBarrier = base.World.GetOrCreateSystemManaged&lt;EndFrameBarrier&gt;();
-        m_ToolSystem = base.World.GetOrCreateSystemManaged&lt;ToolSystem&gt;();
-        m_WaterToolSystem = base.World.GetOrCreateSystemManaged&lt;WaterToolSystem&gt;();
-        m_WaterSystem = base.World.GetOrCreateSystemManaged&lt;WaterSystem&gt;();
-        m_TerrainSystem = base.World.GetOrCreateSystemManaged&lt;TerrainSystem&gt;();
-        m_WaterSourceQuery = GetEntityQuery(ComponentType.ReadOnly&lt;Game.Simulation.WaterSourceData&gt;(), ComponentType.ReadOnly&lt;Game.Objects.Transform&gt;(), ComponentType.Exclude&lt;PrefabRef&gt;(), ComponentType.Exclude&lt;Deleted&gt;(), ComponentType.Exclude&lt;Temp&gt;());
-        m_UpdatedSourceQuery = GetEntityQuery(new EntityQueryDesc
-        {
-            All = new ComponentType[1] { ComponentType.ReadOnly&lt;Game.Simulation.WaterSourceData&gt;() },
-            Any = new ComponentType[2]
-            {
-                ComponentType.ReadOnly&lt;Updated&gt;(),
-                ComponentType.ReadOnly&lt;Deleted&gt;()
-            },
-            None = new ComponentType[2]
-            {
-                ComponentType.ReadOnly&lt;PrefabRef&gt;(),
-                ComponentType.ReadOnly&lt;Temp&gt;()
-            }
-        });
-        m_WaterSourceArchetype = base.EntityManager.CreateArchetype(ComponentType.ReadWrite&lt;Game.Simulation.WaterSourceData&gt;(), ComponentType.ReadWrite&lt;Game.Objects.Transform&gt;());
-        EditorGenerator editorGenerator = new EditorGenerator();
-        title = &quot;Editor.WATER&quot;;
-        children = new IWidget[1] { Scrollable.WithChildren(new IWidget[2]
-        {
-            new EditorSection
-            {
-                displayName = &quot;Editor.WATER_SETTINGS&quot;,
-                tooltip = &quot;Editor.WATER_SETTINGS_TOOLTIP&quot;,
-                expanded = true,
-                children = editorGenerator.BuildMembers(new ObjectAccessor&lt;WaterConfig&gt;(m_Config), 0, &quot;WaterSettings&quot;).ToArray()
-            },
-            new EditorSection
-            {
-                displayName = &quot;Editor.WATER_SIMULATION_SPEED&quot;,
-                tooltip = &quot;Editor.WATER_SIMULATION_SPEED_TOOLTIP&quot;,
-                children = BuildWaterSpeedToggles()
-            }
-        }) };
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnGameLoaded(Colossal.Serialization.Entities.Context serializationContext) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnGameLoaded(Context serializationContext)
-    {
-        base.OnGameLoaded(serializationContext);
-        FetchWaterSources();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnStartRunning() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnStartRunning()
-    {
-        base.OnStartRunning();
-        if (InputManager.instance.activeControlScheme == InputManager.ControlScheme.KeyboardAndMouse)
-        {
-            m_ToolSystem.activeTool = m_WaterToolSystem;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnStopRunning() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnStopRunning()
-    {
-        if (m_ToolSystem.activeTool == m_WaterToolSystem)
-        {
-            m_ToolSystem.ActivatePrefabTool(null);
-        }
-        m_WaterSystem.WaterSimSpeed = 1;
-        base.OnStopRunning();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        if (!m_UpdatedSourceQuery.IsEmptyIgnoreFilter)
-        {
-            FetchWaterSources();
-        }
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnValueChanged(Game.UI.Widgets.IWidget widget) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnValueChanged(IWidget widget)
-    {
-        ApplyWaterSources();
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.UI.Editor.WaterPanelSystem+WaterConfig</code>  </li>
-<li><code>Game.UI.Editor.WaterPanelSystem+&lt;&gt;c__DisplayClass11_0</code>  </li>
-</ul>
+<p>Notes and tips:
+- The system maps m_ConstantDepth values of existing WaterSourceData to editor types (0: rate, 1: level, 2: border river, 3: border sea).
+- When ApplyWaterSources uses an EndFrameBarrier-created EntityCommandBuffer, changes are committed at the end of the frame to avoid structural changes during system update.
+- FetchWaterSources uses Allocator.TempJob for component array copies—these arrays are disposed in a finally block to avoid leaks.
+- The UI includes toggles for water simulation speeds: 0x (probably paused), 1x (real-time), 8x, 16x, 32x, 64x, 128x. Selecting one sets WaterSystem.WaterSimSpeed.</p>
 
 
 

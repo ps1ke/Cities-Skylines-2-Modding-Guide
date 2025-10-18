@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75481,6 +75550,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Settings/InputHintsType/" class="md-nav__link">
         
   
@@ -77787,18 +77879,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -77823,9 +77915,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -87145,6 +87237,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -117921,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117948,18 +118085,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -117984,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118009,197 +118146,163 @@
 
 
 <h1 id="gamesimulationaccidentvehiclesystem">Game.Simulation.AccidentVehicleSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Simulation</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class AccidentVehicleSystem : Game.GameSystemBase
-{
-    private Game.Simulation.SimulationSystem m_SimulationSystem;
-    private Game.Net.SearchSystem m_NetSearchSystem;
-    private Game.Notifications.IconCommandSystem m_IconCommandSystem;
-    private Game.EndFrameBarrier m_EndFrameBarrier;
-    private Unity.Entities.EntityQuery m_VehicleQuery;
-    private Unity.Entities.EntityQuery m_ConfigQuery;
-    private Unity.Entities.EntityArchetype m_AddAccidentSiteArchetype;
-    private Unity.Entities.EntityArchetype m_EventIgniteArchetype;
-    private Unity.Entities.EntityArchetype m_AddImpactArchetype;
-    private Game.Simulation.AccidentVehicleSystem+TypeHandle __TypeHandle;
-    private static const System.UInt32 UPDATE_INTERVAL;
-
-    public AccidentVehicleSystem();
-
-    private System.Void __AssignQueries(Unity.Entities.SystemState&amp; state);
-    public virtual System.Int32 GetUpdateInterval(Game.SystemUpdatePhase phase);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnCreateForCompiler();
-    protected virtual System.Void OnUpdate();
-}
-</code></pre>
+<p><strong>Assembly:</strong> Assembly-CSharp<br />
+<strong>Namespace:</strong> Game.Simulation</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> GameSystemBase</p>
+<p><strong>Summary:</strong><br />
+AccidentVehicleSystem is a simulation system that manages vehicles involved in traffic accidents. It runs on a fixed update interval and processes vehicles that have the <code>InvolvedInAccident</code> component. The system is responsible for:
+- Stopping vehicles involved in accidents and marking them as stopped.
+- Attempting to restart or delete vehicles based on conditions (damage, destroyed, controller availability, aging).
+- Creating and assigning AccidentSite entities (traffic accident targets) when appropriate.
+- Triggering fire ignition on vehicles depending on prefab fire data and damage.
+- Creating injury/impact events for residents inside affected vehicles.
+- Updating pathfinding state for lanes blocked by accidents and scheduling required ECS commands through an EndFrameBarrier command buffer and IconCommandSystem.</p>
+<p>The system schedules an inner Burst-compiled job (AccidentVehicleJob) that processes matching archetype chunks in parallel. It also interacts with the NetSearchSystem to find suitable road edges for accident sites, and with IconCommandSystem to add/remove map icons for accident notifications.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.Simulation.SimulationSystem m_SimulationSystem</code>  </li>
+<li>
+<p><code>private const uint UPDATE_INTERVAL = 64u</code><br />
+Holds the update interval in simulation frames (64). The system overrides GetUpdateInterval to return this interval so it doesn't run every simulation frame.</p>
+</li>
+<li>
+<p><code>private SimulationSystem m_SimulationSystem</code><br />
+Reference to the SimulationSystem used to obtain the current simulation frame index for time-based checks (e.g., when to clear accidents).</p>
+</li>
+<li>
+<p><code>private Game.Net.SearchSystem m_NetSearchSystem</code><br />
+Reference to the NetSearchSystem used to query the net search tree for finding suitable accident site edges.</p>
+</li>
+<li>
+<p><code>private IconCommandSystem m_IconCommandSystem</code><br />
+Reference to IconCommandSystem used to add and remove notification icons for vehicles (major/fatal problems).</p>
+</li>
+<li>
+<p><code>private EndFrameBarrier m_EndFrameBarrier</code><br />
+Barrier system used to create a command buffer for applying structural/entity changes at the end of the frame/job producer's lifetime.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_VehicleQuery</code><br />
+EntityQuery selecting vehicles that contain <code>InvolvedInAccident</code> and <code>Vehicle</code> (and exclude <code>Deleted</code>/<code>Temp</code>). Required for system update.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_ConfigQuery</code><br />
+EntityQuery to read <code>PoliceConfigurationData</code> singleton (used to determine notification prefabs and settings).</p>
+</li>
+<li>
+<p><code>private EntityArchetype m_AddAccidentSiteArchetype</code><br />
+Archetype used to create <code>AddAccidentSite</code> events (Game.Common.Event + AddAccidentSite components).</p>
+</li>
+<li>
+<p><code>private EntityArchetype m_EventIgniteArchetype</code><br />
+Archetype used to create <code>Ignite</code> events for starting fires on entities.</p>
+</li>
+<li>
+<p><code>private EntityArchetype m_AddImpactArchetype</code><br />
+Archetype used to create <code>Impact</code> events (injuries) targeting residents.</p>
+</li>
+<li>
+<p><code>private TypeHandle __TypeHandle</code><br />
+Generated helper that caches and assigns required Entity/Component type handles and lookups used by the scheduled job.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.Simulation.SimulationSystem m_SimulationSystem;
-</code></pre>
+<hr />
+<h2 id="properties">Properties</h2>
 <ul>
-<li><code>private Game.Net.SearchSystem m_NetSearchSystem</code>  </li>
+<li>(none)<br />
+This system does not expose public properties; it uses private fields and schedules a job that uses component lookups and handles.</li>
 </ul>
-<pre><code class="language-csharp">private Game.Net.SearchSystem m_NetSearchSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Notifications.IconCommandSystem m_IconCommandSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Notifications.IconCommandSystem m_IconCommandSystem;
-</code></pre>
-<ul>
-<li><code>private Game.EndFrameBarrier m_EndFrameBarrier</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.EndFrameBarrier m_EndFrameBarrier;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_VehicleQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_VehicleQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_ConfigQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_ConfigQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityArchetype m_AddAccidentSiteArchetype</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityArchetype m_AddAccidentSiteArchetype;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityArchetype m_EventIgniteArchetype</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityArchetype m_EventIgniteArchetype;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityArchetype m_AddImpactArchetype</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityArchetype m_AddImpactArchetype;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.AccidentVehicleSystem+TypeHandle __TypeHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.AccidentVehicleSystem+TypeHandle __TypeHandle;
-</code></pre>
-<ul>
-<li><code>private static const System.UInt32 UPDATE_INTERVAL</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static const System.UInt32 UPDATE_INTERVAL;
-</code></pre>
+<hr />
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public AccidentVehicleSystem()</code>  </li>
+<li><code>public AccidentVehicleSystem()</code><br />
+Default constructor. The system is created by the ECS world; initialization of references to other systems and entity queries is done in <code>OnCreate()</code>.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public AccidentVehicleSystem()
-    {
-    }
-</code></pre>
+<hr />
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private __AssignQueries(Unity.Entities.SystemState&amp; state) : System.Void</code>  </li>
+<li>
+<p><code>public override int GetUpdateInterval(SystemUpdatePhase phase)</code><br />
+Returns the update interval (64). This controls how often the system runs (every 64 simulation frames).</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnCreate()</code><br />
+Initializes system references and entity archetypes:</p>
+</li>
+<li>Gets/creates SimulationSystem, NetSearchSystem, IconCommandSystem, EndFrameBarrier.</li>
+<li>Builds entity queries for vehicles with <code>InvolvedInAccident</code>.</li>
+<li>Creates event archetypes (AddAccidentSite, Ignite, Impact).</li>
+<li>
+<p>Calls <code>RequireForUpdate(m_VehicleQuery)</code> to ensure the system only runs when there are relevant vehicles.</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnUpdate()</code><br />
+Schedules a Burst-compiled <code>AccidentVehicleJob</code> in parallel to process vehicles selected by <code>m_VehicleQuery</code>. The method:</p>
+</li>
+<li>Reads the <code>PoliceConfigurationData</code> singleton.</li>
+<li>Builds and assigns all component/lookup handles into the job.</li>
+<li>Requests the net search tree (read-only) from NetSearchSystem and includes its dependency.</li>
+<li>Creates command buffers (EndFrameBarrier as parallel writer and IconCommandSystem writer).</li>
+<li>
+<p>Schedules the job with combined dependencies, registers the job with systems that produced or read shared resources (net search tree reader, icon command buffer writer), and stores the returned JobHandle in <code>base.Dependency</code>.</p>
+</li>
+<li>
+<p><code>protected override void OnCreateForCompiler()</code><br />
+Generated helper used by the compiled class to assign queries and type handles for the ECS runtime. Calls <code>__AssignQueries</code> and TypeHandle.__AssignHandles.</p>
+</li>
+<li>
+<p><code>private void __AssignQueries(ref SystemState state)</code><br />
+Compiler-generated stub used to initialize queries. In source it contains a placeholder <code>new EntityQueryBuilder(Allocator.Temp).Dispose();</code>.</p>
+</li>
+<li>
+<p>(Inner) <code>private struct AccidentVehicleJob : IJobChunk</code><br />
+Burst-compiled job that does the chunk-by-chunk processing for involved vehicles. Key behavior:</p>
+</li>
+<li>Reads many component types and lookups (Transform, Moving, Damaged, Destroyed, OnFire, InvolvedInAccident, Controller, BlockedLane buffer, Passenger buffer, LayoutElement buffer, CarLane/Curve/Road/EdgeGeometry/AccidentSite/PrefabRef/FireData lookups, TargetElement buffer lookup).</li>
+<li>Uses a RandomSeed and current simulation frame to make probabilistic decisions (e.g., fire ignition, severity of impacts).</li>
+<li>For moving vehicles it waits until velocity/angular velocity drop below a dynamic threshold before “stopping” the vehicle and creating notifications/accident sites.</li>
+<li>If vehicle is destroyed, marks icons as fatal or major and creates impact/injury events for passengers (residents).</li>
+<li>If vehicle should be removed (ex: fallen below world, timed-out, cleared), calls <code>VehicleUtils.DeleteVehicle</code> via the command buffer.</li>
+<li>For lanes blocked by accident it requests <code>PathfindUpdated</code> components to update traffic pathfinding.</li>
 </ul>
-<pre><code class="language-csharp">private void __AssignQueries(ref SystemState state)
-    {
-        new EntityQueryBuilder(Allocator.Temp).Dispose();
-    }
-</code></pre>
+<p>Notable submethods inside the job:
+  - <code>Execute(in ArchetypeChunk chunk, int unfilteredChunkIndex, bool useEnabledMask, in v128 chunkEnabledMask)</code> — main chunk processing entry point.
+  - <code>AddInjuries(int jobIndex, InvolvedInAccident involvedInAccident, DynamicBuffer&lt;Passenger&gt; passengers, ref Random random)</code> — creates <code>Impact</code> event entities targeting resident passengers with randomized severities.
+  - <code>IsSecured(InvolvedInAccident involvedInAccident)</code> — checks if the accident's accident site is secured or old enough to be considered cleared.
+  - <code>IgniteFire(int jobIndex, Entity entity, Entity _event, FireData fireData)</code> — creates an <code>Ignite</code> event to start a fire on a vehicle.
+  - <code>StopVehicle(int jobIndex, Entity entity, DynamicBuffer&lt;BlockedLane&gt; blockedLanes)</code> — remove movement components and add <code>Stopped</code>/<code>Updated</code>; mark lanes as pathfind-updated.
+  - <code>StartVehicle(int jobIndex, Entity entity, DynamicBuffer&lt;BlockedLane&gt; blockedLanes)</code> — reverse of StopVehicle; re-add movement/interpolation buffers and mark lanes for pathfinding updates.
+  - <code>ClearAccident(int jobIndex, Entity entity)</code> — removes <code>InvolvedInAccident</code> and <code>OutOfControl</code> components and removes related icons.
+  - <code>FindAccidentSite(Entity _event)</code> — checks the event target elements for a linked <code>AccidentSite</code> entity.
+  - <code>FindSuitableAccidentSite(float3 position)</code> — uses an <code>EdgeIterator</code> over a NetSearchTree to find the nearest suitable road edge (road with curve and not already an accident site) within 30 units and returns the edge entity.
+  - <code>AddAccidentSite(int jobIndex, ref InvolvedInAccident involvedInAccident, Entity target)</code> — creates an <code>AddAccidentSite</code> event for the given target entity.</p>
 <ul>
-<li><code>public virtual GetUpdateInterval(Game.SystemUpdatePhase phase) : System.Int32</code>  </li>
+<li>
+<p>The job uses an internal <code>EdgeIterator</code> that implements quad-tree iteration to find a nearby road edge eligible for creating an <code>AccidentSite</code>. The iterator tests Curve/EdgeGeometry/Road components and computes distance to a Bezier curve to pick the best edge.</p>
+</li>
+<li>
+<p><code>private struct TypeHandle</code><br />
+Compiler-generated helper that stores Entity/Component type handles and lookup objects used by the job. It has:</p>
+</li>
+<li>Read-only fields for EntityTypeHandle, ComponentTypeHandle<T> and ComponentLookup<T> for all needed components.</li>
+<li><code>__AssignHandles(ref SystemState state)</code> method which gets those handles from the runtime <code>state</code>.</li>
 </ul>
-<pre><code class="language-csharp">public override int GetUpdateInterval(SystemUpdatePhase phase)
-    {
-        return 64;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
+<hr />
+<h2 id="usage-example">Usage Example</h2>
 <pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_SimulationSystem = base.World.GetOrCreateSystemManaged&lt;SimulationSystem&gt;();
-        m_NetSearchSystem = base.World.GetOrCreateSystemManaged&lt;Game.Net.SearchSystem&gt;();
-        m_IconCommandSystem = base.World.GetOrCreateSystemManaged&lt;IconCommandSystem&gt;();
-        m_EndFrameBarrier = base.World.GetOrCreateSystemManaged&lt;EndFrameBarrier&gt;();
-        m_VehicleQuery = GetEntityQuery(ComponentType.ReadWrite&lt;InvolvedInAccident&gt;(), ComponentType.ReadOnly&lt;Vehicle&gt;(), ComponentType.Exclude&lt;Deleted&gt;(), ComponentType.Exclude&lt;Temp&gt;());
-        m_ConfigQuery = GetEntityQuery(ComponentType.ReadOnly&lt;PoliceConfigurationData&gt;());
-        m_AddAccidentSiteArchetype = base.EntityManager.CreateArchetype(ComponentType.ReadWrite&lt;Game.Common.Event&gt;(), ComponentType.ReadWrite&lt;AddAccidentSite&gt;());
-        m_EventIgniteArchetype = base.EntityManager.CreateArchetype(ComponentType.ReadWrite&lt;Game.Common.Event&gt;(), ComponentType.ReadWrite&lt;Ignite&gt;());
-        m_AddImpactArchetype = base.EntityManager.CreateArchetype(ComponentType.ReadWrite&lt;Game.Common.Event&gt;(), ComponentType.ReadWrite&lt;Impact&gt;());
-        RequireForUpdate(m_VehicleQuery);
-    }
+protected override void OnCreate()
+{
+    base.OnCreate();
+    // Example of how the system initializes the SimulationSystem reference as in real code
+    m_SimulationSystem = base.World.GetOrCreateSystemManaged&lt;SimulationSystem&gt;();
+}
 </code></pre>
-<ul>
-<li><code>protected virtual OnCreateForCompiler() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnCreateForCompiler()
-    {
-        base.OnCreateForCompiler();
-        __AssignQueries(ref base.CheckedStateRef);
-        __TypeHandle.__AssignHandles(ref base.CheckedStateRef);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        PoliceConfigurationData singleton = m_ConfigQuery.GetSingleton&lt;PoliceConfigurationData&gt;();
-        JobHandle dependencies;
-        JobHandle jobHandle = JobChunkExtensions.ScheduleParallel(new AccidentVehicleJob
-        {
-            m_EntityType = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef),
-            m_TransformType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Objects_Transform_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_MovingType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Objects_Moving_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_DamagedType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Objects_Damaged_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_DestroyedType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Common_Destroyed_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_OnFireType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Events_OnFire_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_BlockedLaneType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Objects_BlockedLane_RO_BufferTypeHandle, ref base.CheckedStateRef),
-            m_PassengerType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Vehicles_Passenger_RO_BufferTypeHandle, ref base.CheckedStateRef),
-            m_LayoutElementType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Vehicles_LayoutElement_RO_BufferTypeHandle, ref base.CheckedStateRef),
-            m_InvolvedInAccidentType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Events_InvolvedInAccident_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_ControllerType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Vehicles_Controller_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_CarLaneData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_CarLane_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_RoadData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_Road_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_CurveData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_Curve_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_EdgeGeometryData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_EdgeGeometry_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_AccidentSiteData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Events_AccidentSite_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_ResidentData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Creatures_Resident_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabRefData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabFireData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_FireData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_TargetElements = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Events_TargetElement_RO_BufferLookup, ref base.CheckedStateRef),
-            m_RandomSeed = RandomSeed.Next(),
-            m_SimulationFrame = m_SimulationSystem.frameIndex,
-            m_PoliceConfigurationData = singleton,
-            m_AddAccidentSiteArchetype = m_AddAccidentSiteArchetype,
-            m_EventIgniteArchetype = m_EventIgniteArchetype,
-            m_AddImpactArchetype = m_AddImpactArchetype,
-            m_NetSearchTree = m_NetSearchSystem.GetNetSearchTree(readOnly: true, out dependencies),
-            m_CommandBuffer = m_EndFrameBarrier.CreateCommandBuffer().AsParallelWriter(),
-            m_IconCommandBuffer = m_IconCommandSystem.CreateCommandBuffer()
-        }, m_VehicleQuery, JobHandle.CombineDependencies(base.Dependency, dependencies));
-        m_NetSearchSystem.AddNetSearchTreeReader(jobHandle);
-        m_IconCommandSystem.AddCommandBufferWriter(jobHandle);
-        m_EndFrameBarrier.AddJobHandleForProducer(jobHandle);
-        base.Dependency = jobHandle;
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Simulation.AccidentVehicleSystem+AccidentVehicleJob</code>  </li>
-<li><code>Game.Simulation.AccidentVehicleSystem+TypeHandle</code>  </li>
-</ul>
+<p>Notes and tips for modders:
+- The core behavior is driven by the presence of <code>InvolvedInAccident</code> on vehicle entities. Adding or removing that component (and related components like <code>Destroyed</code> or <code>Damaged</code>) will influence how this system treats a vehicle.
+- AccidentSite creation uses the NetSearchTree and tries to find a suitable road edge within ~30 units of the vehicle position. If you want accidents to attach to different entities, modify how <code>TargetElement</code> buffers are populated or adjust the <code>FindSuitableAccidentSite</code> logic.
+- The system uses EndFrameBarrier to apply structural changes from the job; to add other deferred operations in parallel jobs, use the same barrier pattern.
+- The AccidentVehicleJob is Burst-compatible and schedules parallel chunk processing — avoid introducing managed references or non-Burst-friendly code inside the job.</p>
 
 
 

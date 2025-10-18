@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87056,6 +87148,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -113667,18 +113782,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -113703,9 +113818,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -117921,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117948,18 +118085,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -117984,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118009,533 +118146,197 @@
 
 
 <h1 id="gameuinamesystem">Game.UI.NameSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.UI</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code><br />
-<strong>Implements:</strong> <code>Colossal.Serialization.Entities.IDefaultSerializable</code>, <code>Colossal.Serialization.Entities.ISerializable</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class NameSystem : Game.GameSystemBase, Colossal.Serialization.Entities.IDefaultSerializable, Colossal.Serialization.Entities.ISerializable
-{
-    private Unity.Entities.EntityQuery m_DeletedQuery;
-    private Game.Prefabs.PrefabSystem m_PrefabSystem;
-    private Game.UI.InGame.PrefabUISystem m_PrefabUISystem;
-    private Game.EndFrameBarrier m_EndFrameBarrier;
-    private System.Collections.Generic.Dictionary&lt;Unity.Entities.Entity, System.String&gt; m_Names;
-
-    public NameSystem();
-
-    public System.Void BindFamilyName(Colossal.UI.Binding.IJsonWriter writer, Unity.Entities.Entity household);
-    public System.Void BindName(Colossal.UI.Binding.IJsonWriter writer, Unity.Entities.Entity entity);
-    public System.Void BindNameForVirtualKeyboard(Colossal.UI.Binding.IJsonWriter writer, Unity.Entities.Entity entity);
-    public System.Void Deserialize&lt;TReader&gt;(TReader reader);
-    private System.String GetBrandId(Unity.Entities.Entity building);
-    private Game.UI.NameSystem+Name GetCitizenName(Unity.Entities.Entity entity, Unity.Entities.Entity prefab);
-    public System.String GetDebugName(Unity.Entities.Entity entity);
-    private Game.UI.NameSystem+Name GetFamilyName(Unity.Entities.Entity household);
-    private System.String GetGenderedLastNameId(Unity.Entities.Entity household, System.Boolean male);
-    private System.String GetId(Unity.Entities.Entity entity, System.Boolean useRandomLocalization);
-    private Game.UI.NameSystem+Name GetMarkerTransportStopName(Unity.Entities.Entity stop);
-    public Game.UI.NameSystem+Name GetName(Unity.Entities.Entity entity, System.Boolean omitBrand);
-    public Game.UI.NameSystem+Name GetNameForVirtualKeyboard(Unity.Entities.Entity entity);
-    public System.String GetRenderedLabelName(Unity.Entities.Entity entity);
-    private Game.UI.NameSystem+Name GetResidentName(Unity.Entities.Entity entity, Unity.Entities.Entity prefab);
-    private Game.UI.NameSystem+Name GetRouteName(Unity.Entities.Entity route, Unity.Entities.Entity prefab);
-    private Game.UI.NameSystem+Name GetSpawnableBuildingName(Unity.Entities.Entity building, Unity.Entities.Entity zone, System.Boolean omitBrand);
-    private Game.UI.NameSystem+Name GetStaticTransportStopName(Unity.Entities.Entity stop);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnUpdate();
-    public System.Void Serialize&lt;TWriter&gt;(TWriter writer);
-    public System.Void SetCustomName(Unity.Entities.Entity entity, System.String name);
-    public System.Void SetDefaults(Colossal.Serialization.Entities.Context context);
-    public System.Boolean TryGetCustomName(Unity.Entities.Entity entity, System.String&amp; customName);
-}
-</code></pre>
+<p><strong>Assembly:</strong> Game<br />
+<strong>Namespace:</strong> Game.UI</p>
+<p><strong>Type:</strong> class NameSystem</p>
+<p><strong>Base:</strong> GameSystemBase, IDefaultSerializable, ISerializable</p>
+<p><strong>Summary:</strong><br />
+NameSystem is the central system for resolving, binding and serializing entity names in the game UI. It:
+- Maintains a runtime dictionary of custom names assigned to entities (m_Names).
+- Produces Name values (a nested struct) that represent custom, localized or formatted names for entities and UI bindings.
+- Resolves localization IDs and title IDs for prefabs using PrefabSystem and PrefabUISystem.
+- Handles name-related cleanup when entities with CustomName are deleted (via an entity query and OnUpdate).
+- Uses an EndFrameBarrier to enqueue entity commands (add/remove CustomName, mark BatchesUpdated) so changes are applied at the right time in the frame.
+- Implements serialization (Serialize/Deserialize) to persist m_Names and SetDefaults to clear them on default load.</p>
+<p>Nested types:
+- NameType (enum): Custom, Localized, Formatted — used to express how the Name should be rendered or serialized.
+- Name (struct): a small value type that can be created via Name.CustomName, Name.LocalizedName or Name.FormattedName. It can write itself to an IJsonWriter (Bind-style binding) and supports binary serialize/deserialize (IWriter/IReader).</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Unity.Entities.EntityQuery m_DeletedQuery</code>  </li>
+<li>
+<p><code>private Unity.Entities.EntityQuery m_DeletedQuery</code><br />
+Used to find entities that have a CustomName component and have become Deleted so their entries can be removed from the m_Names dictionary during OnUpdate.</p>
+</li>
+<li>
+<p><code>private PrefabSystem m_PrefabSystem</code><br />
+Cached reference to the PrefabSystem for prefab lookups, localization components, and obsolete ID fallback resolution.</p>
+</li>
+<li>
+<p><code>private PrefabUISystem m_PrefabUISystem</code><br />
+Cached reference to PrefabUISystem used to obtain title and description IDs for prefabs when a Localization component is not present.</p>
+</li>
+<li>
+<p><code>private EndFrameBarrier m_EndFrameBarrier</code><br />
+Used to create EntityCommandBuffer instances so component add/remove operations (e.g., Add/Remove CustomName, Add BatchesUpdated) are performed at the end of the frame.</p>
+</li>
+<li>
+<p><code>private System.Collections.Generic.Dictionary&lt;Unity.Entities.Entity, string&gt; m_Names</code><br />
+In-memory map from Entity -&gt; custom name string. This is serialized/deserialized by the system and is the authoritative store for custom names while the game is running.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_DeletedQuery;
-</code></pre>
+<h2 id="properties">Properties</h2>
 <ul>
-<li><code>private Game.Prefabs.PrefabSystem m_PrefabSystem</code>  </li>
+<li>This class exposes no public properties.</li>
 </ul>
-<pre><code class="language-csharp">private Game.Prefabs.PrefabSystem m_PrefabSystem;
-</code></pre>
-<ul>
-<li><code>private Game.UI.InGame.PrefabUISystem m_PrefabUISystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.UI.InGame.PrefabUISystem m_PrefabUISystem;
-</code></pre>
-<ul>
-<li><code>private Game.EndFrameBarrier m_EndFrameBarrier</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.EndFrameBarrier m_EndFrameBarrier;
-</code></pre>
-<ul>
-<li><code>private System.Collections.Generic.Dictionary&lt;Unity.Entities.Entity, System.String&gt; m_Names</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Collections.Generic.Dictionary&lt;Unity.Entities.Entity, System.String&gt; m_Names;
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public NameSystem()</code>  </li>
+<li><code>public NameSystem()</code><br />
+Default constructor. The system does its main initialization in OnCreate (typical for ECS systems).</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public NameSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>public BindFamilyName(Colossal.UI.Binding.IJsonWriter writer, Unity.Entities.Entity household) : System.Void</code>  </li>
+<li>
+<p><code>protected override void OnCreate()</code> : System.Void<br />
+Initializes internal state: sets up the m_DeletedQuery to track deleted entities with CustomName, caches PrefabSystem/PrefabUISystem/EndFrameBarrier references and constructs the m_Names dictionary.</p>
+</li>
+<li>
+<p><code>protected override void OnUpdate()</code> : System.Void<br />
+Runs every frame (system update). If there are deleted entities with CustomName, removes their entries from m_Names. Uses a temporary NativeArray from the query and disposes it; safe-guards via try/finally.</p>
+</li>
+<li>
+<p><code>public string GetDebugName(Entity entity)</code> : System.String<br />
+Returns a debug string including the prefab name (or obsolete ID / invalid prefab) and the entity index. Useful for logging and debugging.</p>
+</li>
+<li>
+<p><code>public bool TryGetCustomName(Entity entity, out string customName)</code> : System.Boolean<br />
+Attempts to get a custom name from the m_Names dictionary. Returns true and out the name if present.</p>
+</li>
+<li>
+<p><code>public void SetCustomName(Entity entity, string name)</code> : System.Void<br />
+Sets or clears an entity's custom name:</p>
+</li>
+<li>If passed Entity.Null or a blank/whitespace name, it removes the CustomName component (if present) via an EndFrameBarrier command buffer and removes the entry from m_Names.</li>
+<li>If a non-empty name is provided, it updates m_Names and enqueues AddComponent<CustomName> and AddComponent<BatchesUpdated> so rendering/UI batches are updated.</li>
+<li>
+<p>If the passed entity is a Controller, the method maps it to its controlled entity (component.m_Controller) before making changes.</p>
+</li>
+<li>
+<p><code>public string GetRenderedLabelName(Entity entity)</code> : System.String<br />
+Gets the string to render as a label: if a custom name exists, returns it; otherwise resolves the localization dictionary entry for the entity ID (via GetId) and returns either the localized value or the raw id if no localization entry exists.</p>
+</li>
+<li>
+<p><code>public void BindNameForVirtualKeyboard(IJsonWriter writer, Entity entity)</code> : System.Void<br />
+Writes the Name value suitable for the virtual keyboard UI by calling writer.Write(GetNameForVirtualKeyboard(entity)).</p>
+</li>
+<li>
+<p><code>public Name GetNameForVirtualKeyboard(Entity entity)</code> : Name<br />
+Produces a Name instance appropriate for the virtual keyboard. Special-cases transport lines to create a LocalizedName with a route-specific locale id; maps controllers to their controller entity and falls back to LocalizedName(GetId(...)).</p>
+</li>
+<li>
+<p><code>public void BindName(IJsonWriter writer, Entity entity)</code> : System.Void<br />
+Writes the Name returned by GetName(entity) to the provided IJsonWriter. Used for UI binding where the UI expects Name types.</p>
+</li>
+<li>
+<p><code>public Name GetName(Entity entity, bool omitBrand = false)</code> : Name<br />
+The primary method that resolves the name for an entity. Behavior summary:</p>
+</li>
+<li>Maps Controllers to their controlled entity.</li>
+<li>Returns custom names (Name.CustomName) if present.</li>
+<li>Handles CompanyData (returns brand name).</li>
+<li>Handles spawnable buildings: formats addresses, optionally including brand.</li>
+<li>Resolves transport stop names (marker/static stops).</li>
+<li>Resolves route names for TransportLine entities (formatted with route number).</li>
+<li>Resolves citizen/resident names with formatted localization entries (uses household, random localization, gendered localization where applicable).</li>
+<li>
+<p>For generic cases returns Name.LocalizedName(GetId(entity)).</p>
+</li>
+<li>
+<p><code>private string GetGenderedLastNameId(Entity household, bool male)</code> : System.String<br />
+Resolves a household's gendered last-name localization ID. If the household prefab uses RandomGenderedLocalization and has a RandomLocalizationIndex buffer, appends the index via LocalizationUtils.AppendIndex; otherwise returns GetId(household) or null if household is Entity.Null.</p>
+</li>
+<li>
+<p><code>public void BindFamilyName(IJsonWriter writer, Entity household)</code> : System.Void<br />
+Writes a Name for the household family name by calling GetFamilyName and writer.Write(...).</p>
+</li>
+<li>
+<p><code>private Name GetFamilyName(Entity household)</code> : Name<br />
+Returns the family name for a household. If a custom name exists on the household returns that; otherwise computes male/female composition from HouseholdCitizen buffer to determine gendered last name ID.</p>
+</li>
+<li>
+<p><code>private string GetId(Entity entity, bool useRandomLocalization = true)</code> : System.String<br />
+Resolves the localization or title ID for an entity:</p>
+</li>
+<li>If entity has a PrefabRef, resolves the referenced prefab (or zone prefab for spawnables).</li>
+<li>For BrandData/ChirperAccountData uses the entity itself as the localization source.</li>
+<li>If a Prefab has a Localization component, returns the localization ID (and if useRandomLocalization is true and a RandomLocalization buffer exists on the entity, appends the random index).</li>
+<li>Otherwise asks PrefabUISystem for titleId.</li>
+<li>
+<p>If prefab cannot be retrieved, falls back to obsolete ID name via PrefabSystem.GetObsoleteID(...).GetName().</p>
+</li>
+<li>
+<p><code>private Name GetCitizenName(Entity entity, Entity prefab)</code> : Name<br />
+Formats a citizen name using "Assets.CITIZEN_NAME_FORMAT" and FIRST_NAME / LAST_NAME arguments. Uses household data and gender to pick last name.</p>
+</li>
+<li>
+<p><code>private Name GetResidentName(Entity entity, Entity prefab)</code> : Name<br />
+Generates a resident/creature name using pseudo-random seeds stored on the entity and localization index counts on the creature prefab. Creates a formatted name using the citizen name format and chosen localized first/last names.</p>
+</li>
+<li>
+<p><code>private Name GetSpawnableBuildingName(Entity building, Entity zone, bool omitBrand = false)</code> : Name<br />
+Resolves an address-based name for a spawned building:</p>
+</li>
+<li>Uses BuildingUtils.GetAddress to get road and number.</li>
+<li>Uses custom name for road if present; otherwise GetId(road).</li>
+<li>If brand should be included (non-residential zones) and a brand is present, returns a formatted name using "Assets.NAMED_ADDRESS_NAME_FORMAT".</li>
+<li>
+<p>Otherwise falls back to "Assets.ADDRESS_NAME_FORMAT" with ROAD/NUMBER.</p>
+</li>
+<li>
+<p><code>private string GetBrandId(Entity building)</code> : System.String<br />
+Searches the building's Renter buffer for a Renter that is a company and returns the company's brand id via GetId(component.m_Brand). Returns null if none found.</p>
+</li>
+<li>
+<p><code>private Name GetStaticTransportStopName(Entity stop)</code> : Name<br />
+Formats a stop name using the stop's address (ROAD + NUMBER) if possible; otherwise returns a localized name via GetId(stop).</p>
+</li>
+<li>
+<p><code>private Name GetMarkerTransportStopName(Entity stop)</code> : Name<br />
+Traverses up to 8 Owner components to find the owner entity and returns Name.LocalizedName(GetId(ownerEntity)). Used for marker-based stops.</p>
+</li>
+<li>
+<p><code>private Name GetRouteName(Entity route, Entity prefab)</code> : Name<br />
+Creates a formatted Name for a route using the RoutePrefab.m_LocaleID combined with the prefab name and the route number (RouteNumber component).</p>
+</li>
+<li>
+<p><code>public void Serialize&lt;TWriter&gt;(TWriter writer) where TWriter : IWriter</code> : System.Void<br />
+Serializes the m_Names dictionary to the provided writer: writes the count and then each Entity key and string value. Used for saving the game state.</p>
+</li>
+<li>
+<p><code>public void Deserialize&lt;TReader&gt;(TReader reader) where TReader : IReader</code> : System.Void<br />
+Deserializes m_Names: reads the count, clears m_Names and reads each (Entity, string) pair, ignoring Entity.Null keys.</p>
+</li>
+<li>
+<p><code>public void SetDefaults(Context context)</code> : System.Void<br />
+Called to set default state for the system (clears the m_Names dictionary).</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public void BindFamilyName(IJsonWriter writer, Entity household)
-    {
-        writer.Write(GetFamilyName(household));
-    }
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Example: assign a custom name to an entity (e.g., a building entity)
+NameSystem nameSystem = World.GetOrCreateSystemManaged&lt;NameSystem&gt;();
+nameSystem.SetCustomName(buildingEntity, &quot;Bob's Bakery&quot;);
+
+// Remove a custom name (pass empty or whitespace string)
+nameSystem.SetCustomName(buildingEntity, &quot;&quot;);
+
+// Get a Name struct for UI binding
+Name nameForUI = nameSystem.GetName(buildingEntity);
 </code></pre>
-<ul>
-<li><code>public BindName(Colossal.UI.Binding.IJsonWriter writer, Unity.Entities.Entity entity) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void BindName(IJsonWriter writer, Entity entity)
-    {
-        writer.Write(GetName(entity));
-    }
-</code></pre>
-<ul>
-<li><code>public BindNameForVirtualKeyboard(Colossal.UI.Binding.IJsonWriter writer, Unity.Entities.Entity entity) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void BindNameForVirtualKeyboard(IJsonWriter writer, Entity entity)
-    {
-        writer.Write(GetNameForVirtualKeyboard(entity));
-    }
-</code></pre>
-<ul>
-<li><code>public Deserialize&lt;TReader&gt;(TReader reader) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Void Deserialize&lt;TReader&gt;(TReader reader);
-</code></pre>
-<ul>
-<li><code>private GetBrandId(Unity.Entities.Entity building) : System.String</code>  </li>
-</ul>
-<pre><code class="language-csharp">private string GetBrandId(Entity building)
-    {
-        DynamicBuffer&lt;Renter&gt; buffer = base.EntityManager.GetBuffer&lt;Renter&gt;(building, isReadOnly: true);
-        for (int i = 0; i &lt; buffer.Length; i++)
-        {
-            if (base.EntityManager.TryGetComponent&lt;CompanyData&gt;(buffer[i].m_Renter, out var component))
-            {
-                return GetId(component.m_Brand);
-            }
-        }
-        return null;
-    }
-</code></pre>
-<ul>
-<li><code>private GetCitizenName(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : Game.UI.NameSystem+Name</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Name GetCitizenName(Entity entity, Entity prefab)
-    {
-        string id = GetId(entity);
-        HouseholdMember componentData = base.EntityManager.GetComponentData&lt;HouseholdMember&gt;(entity);
-        Citizen component;
-        bool male = base.EntityManager.TryGetComponent&lt;Citizen&gt;(entity, out component) &amp;&amp; (component.m_State &amp; CitizenFlags.Male) != 0;
-        string genderedLastNameId = GetGenderedLastNameId(componentData.m_Household, male);
-        return Name.FormattedName(&quot;Assets.CITIZEN_NAME_FORMAT&quot;, &quot;FIRST_NAME&quot;, id, &quot;LAST_NAME&quot;, genderedLastNameId);
-    }
-</code></pre>
-<ul>
-<li><code>public GetDebugName(Unity.Entities.Entity entity) : System.String</code>  </li>
-</ul>
-<pre><code class="language-csharp">public string GetDebugName(Entity entity)
-    {
-        string arg = null;
-        if (base.EntityManager.TryGetComponent&lt;PrefabRef&gt;(entity, out var component))
-        {
-            arg = ((!base.EntityManager.HasComponent&lt;PrefabData&gt;(component.m_Prefab)) ? &quot;(invalid prefab)&quot; : ((!m_PrefabSystem.TryGetPrefab&lt;PrefabBase&gt;(component.m_Prefab, out var prefab)) ? m_PrefabSystem.GetObsoleteID(component.m_Prefab).GetName() : prefab.name));
-        }
-        return $&quot;{arg} {entity.Index}&quot;;
-    }
-</code></pre>
-<ul>
-<li><code>private GetFamilyName(Unity.Entities.Entity household) : Game.UI.NameSystem+Name</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Name GetFamilyName(Entity household)
-    {
-        if (TryGetCustomName(household, out var customName))
-        {
-            return Name.CustomName(customName);
-        }
-        int num = 0;
-        DynamicBuffer&lt;HouseholdCitizen&gt; buffer = base.EntityManager.GetBuffer&lt;HouseholdCitizen&gt;(household);
-        for (int i = 0; i &lt; buffer.Length; i++)
-        {
-            Entity entity = buffer[i];
-            if (base.EntityManager.TryGetComponent&lt;Citizen&gt;(entity, out var component) &amp;&amp; (component.m_State &amp; CitizenFlags.Male) != CitizenFlags.None)
-            {
-                num++;
-            }
-        }
-        return Name.LocalizedName(GetGenderedLastNameId(household, num &gt; 1));
-    }
-</code></pre>
-<ul>
-<li><code>private GetGenderedLastNameId(Unity.Entities.Entity household, System.Boolean male) : System.String</code>  </li>
-</ul>
-<pre><code class="language-csharp">private string GetGenderedLastNameId(Entity household, bool male)
-    {
-        if (household == Entity.Null)
-        {
-            return null;
-        }
-        if (base.EntityManager.TryGetComponent&lt;PrefabRef&gt;(household, out var component) &amp;&amp; m_PrefabSystem.GetPrefab&lt;PrefabBase&gt;(component).TryGet&lt;RandomGenderedLocalization&gt;(out var component2))
-        {
-            string text = (male ? component2.m_MaleID : component2.m_FemaleID);
-            if (base.EntityManager.TryGetBuffer(household, isReadOnly: true, out DynamicBuffer&lt;RandomLocalizationIndex&gt; buffer) &amp;&amp; buffer.Length &gt; 0)
-            {
-                return LocalizationUtils.AppendIndex(text, buffer[0]);
-            }
-            return text;
-        }
-        return GetId(household);
-    }
-</code></pre>
-<ul>
-<li><code>private GetId(Unity.Entities.Entity entity, System.Boolean useRandomLocalization = True) : System.String</code>  </li>
-</ul>
-<pre><code class="language-csharp">private string GetId(Entity entity, bool useRandomLocalization = true)
-    {
-        if (entity == Entity.Null)
-        {
-            return null;
-        }
-        Entity entity2 = Entity.Null;
-        if (base.EntityManager.TryGetComponent&lt;PrefabRef&gt;(entity, out var component))
-        {
-            entity2 = component.m_Prefab;
-        }
-        if (!base.EntityManager.HasComponent&lt;SignatureBuildingData&gt;(entity2) &amp;&amp; base.EntityManager.TryGetComponent&lt;SpawnableBuildingData&gt;(entity2, out var component2))
-        {
-            entity2 = component2.m_ZonePrefab;
-        }
-        if (base.EntityManager.HasComponent&lt;ChirperAccountData&gt;(entity) || base.EntityManager.HasComponent&lt;BrandData&gt;(entity))
-        {
-            entity2 = entity;
-        }
-        if (entity2 != Entity.Null)
-        {
-            if (m_PrefabSystem.TryGetPrefab&lt;PrefabBase&gt;(entity2, out var prefab))
-            {
-                if (prefab.TryGet&lt;Game.Prefabs.Localization&gt;(out var component3))
-                {
-                    if (useRandomLocalization &amp;&amp; component3 is RandomLocalization &amp;&amp; base.EntityManager.TryGetBuffer(entity, isReadOnly: true, out DynamicBuffer&lt;RandomLocalizationIndex&gt; buffer) &amp;&amp; buffer.Length &gt; 0)
-                    {
-                        return LocalizationUtils.AppendIndex(component3.m_LocalizationID, buffer[0]);
-                    }
-                    return component3.m_LocalizationID;
-                }
-                m_PrefabUISystem.GetTitleAndDescription(entity2, out var titleId, out var _);
-                return titleId;
-            }
-            return m_PrefabSystem.GetObsoleteID(entity2).GetName();
-        }
-        return string.Empty;
-    }
-</code></pre>
-<ul>
-<li><code>private GetMarkerTransportStopName(Unity.Entities.Entity stop) : Game.UI.NameSystem+Name</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Name GetMarkerTransportStopName(Entity stop)
-    {
-        Entity entity = stop;
-        for (int i = 0; i &lt; 8; i++)
-        {
-            if (!base.EntityManager.TryGetComponent&lt;Owner&gt;(entity, out var component))
-            {
-                break;
-            }
-            entity = component.m_Owner;
-        }
-        return Name.LocalizedName(GetId(entity));
-    }
-</code></pre>
-<ul>
-<li><code>public GetName(Unity.Entities.Entity entity, System.Boolean omitBrand = False) : Game.UI.NameSystem+Name</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Name GetName(Entity entity, bool omitBrand = false)
-    {
-        Entity entity2 = Entity.Null;
-        if (base.EntityManager.TryGetComponent&lt;PrefabRef&gt;(entity, out var component))
-        {
-            entity2 = component.m_Prefab;
-        }
-        if (base.EntityManager.TryGetComponent&lt;Controller&gt;(entity, out var component2))
-        {
-            entity = component2.m_Controller;
-        }
-        if (TryGetCustomName(entity, out var customName))
-        {
-            return Name.CustomName(customName);
-        }
-        if (base.EntityManager.TryGetComponent&lt;CompanyData&gt;(entity, out var component3))
-        {
-            string id = GetId(component3.m_Brand);
-            if (id == null)
-            {
-                return Name.CustomName(m_PrefabSystem.GetPrefab&lt;PrefabBase&gt;(entity2).name + &quot; brand is null!&quot;);
-            }
-            return Name.LocalizedName(id);
-        }
-        if (entity2 != Entity.Null &amp;&amp; !base.EntityManager.HasComponent&lt;SignatureBuildingData&gt;(entity2) &amp;&amp; base.EntityManager.TryGetComponent&lt;SpawnableBuildingData&gt;(entity2, out var component4))
-        {
-            return GetSpawnableBuildingName(entity, component4.m_ZonePrefab, omitBrand);
-        }
-        if (base.EntityManager.HasComponent&lt;Game.Routes.TransportStop&gt;(entity) &amp;&amp; !base.EntityManager.HasComponent&lt;Game.Objects.OutsideConnection&gt;(entity))
-        {
-            if (base.EntityManager.HasComponent&lt;Marker&gt;(entity))
-            {
-                return GetMarkerTransportStopName(entity);
-            }
-            return GetStaticTransportStopName(entity);
-        }
-        if (entity2 != Entity.Null &amp;&amp; base.EntityManager.HasComponent&lt;TransportLine&gt;(entity))
-        {
-            return GetRouteName(entity, entity2);
-        }
-        if (entity2 != Entity.Null &amp;&amp; base.EntityManager.HasComponent&lt;Citizen&gt;(entity))
-        {
-            return GetCitizenName(entity, entity2);
-        }
-        if (entity2 != Entity.Null &amp;&amp; base.EntityManager.HasComponent&lt;Game.Creatures.Resident&gt;(entity))
-        {
-            return GetResidentName(entity, entity2);
-        }
-        if (base.EntityManager.HasComponent&lt;Game.Events.TrafficAccident&gt;(entity))
-        {
-            return Name.LocalizedName(&quot;SelectedInfoPanel.TRAFFIC_ACCIDENT&quot;);
-        }
-        return Name.LocalizedName(GetId(entity));
-    }
-</code></pre>
-<ul>
-<li><code>public GetNameForVirtualKeyboard(Unity.Entities.Entity entity) : Game.UI.NameSystem+Name</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Name GetNameForVirtualKeyboard(Entity entity)
-    {
-        Entity entity2 = Entity.Null;
-        if (base.EntityManager.TryGetComponent&lt;PrefabRef&gt;(entity, out var component))
-        {
-            entity2 = component.m_Prefab;
-        }
-        if (entity2 != Entity.Null &amp;&amp; base.EntityManager.HasComponent&lt;TransportLine&gt;(entity))
-        {
-            RoutePrefab prefab = m_PrefabSystem.GetPrefab&lt;RoutePrefab&gt;(entity2);
-            return Name.LocalizedName(prefab.m_LocaleID + &quot;[&quot; + prefab.name + &quot;]&quot;);
-        }
-        if (base.EntityManager.TryGetComponent&lt;Controller&gt;(entity, out var component2))
-        {
-            entity = component2.m_Controller;
-        }
-        return Name.LocalizedName(GetId(entity, useRandomLocalization: false));
-    }
-</code></pre>
-<ul>
-<li><code>public GetRenderedLabelName(Unity.Entities.Entity entity) : System.String</code>  </li>
-</ul>
-<pre><code class="language-csharp">public string GetRenderedLabelName(Entity entity)
-    {
-        if (TryGetCustomName(entity, out var customName))
-        {
-            return customName;
-        }
-        string id = GetId(entity);
-        if (!GameManager.instance.localizationManager.activeDictionary.TryGetValue(id, out var value))
-        {
-            return id;
-        }
-        return value;
-    }
-</code></pre>
-<ul>
-<li><code>private GetResidentName(Unity.Entities.Entity entity, Unity.Entities.Entity prefab) : Game.UI.NameSystem+Name</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Name GetResidentName(Entity entity, Entity prefab)
-    {
-        base.EntityManager.TryGetComponent&lt;PseudoRandomSeed&gt;(entity, out var component);
-        base.EntityManager.TryGetComponent&lt;CreatureData&gt;(prefab, out var component2);
-        Random random = component.GetRandom(PseudoRandomSeed.kDummyName);
-        bool flag = false;
-        if (component2.m_Gender == GenderMask.Male)
-        {
-            flag = true;
-        }
-        else if (component2.m_Gender != GenderMask.Female)
-        {
-            flag = random.NextBool();
-        }
-        string text = (flag ? &quot;Assets.CITIZEN_NAME_MALE&quot; : &quot;Assets.CITIZEN_NAME_FEMALE&quot;);
-        string text2 = (flag ? &quot;Assets.CITIZEN_SURNAME_MALE&quot; : &quot;Assets.CITIZEN_SURNAME_FEMALE&quot;);
-        PrefabBase prefab2 = m_PrefabSystem.GetPrefab&lt;PrefabBase&gt;(prefab);
-        int localizationIndexCount = RandomLocalization.GetLocalizationIndexCount(prefab2, text);
-        int localizationIndexCount2 = RandomLocalization.GetLocalizationIndexCount(prefab2, text2);
-        string text3 = LocalizationUtils.AppendIndex(text, new RandomLocalizationIndex(random.NextInt(localizationIndexCount)));
-        string text4 = LocalizationUtils.AppendIndex(text2, new RandomLocalizationIndex(random.NextInt(localizationIndexCount2)));
-        return Name.FormattedName(&quot;Assets.CITIZEN_NAME_FORMAT&quot;, &quot;FIRST_NAME&quot;, text3, &quot;LAST_NAME&quot;, text4);
-    }
-</code></pre>
-<ul>
-<li><code>private GetRouteName(Unity.Entities.Entity route, Unity.Entities.Entity prefab) : Game.UI.NameSystem+Name</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Name GetRouteName(Entity route, Entity prefab)
-    {
-        RoutePrefab prefab2 = m_PrefabSystem.GetPrefab&lt;RoutePrefab&gt;(prefab);
-        RouteNumber componentData = base.EntityManager.GetComponentData&lt;RouteNumber&gt;(route);
-        return Name.FormattedName(prefab2.m_LocaleID + &quot;[&quot; + prefab2.name + &quot;]&quot;, &quot;NUMBER&quot;, componentData.m_Number.ToString());
-    }
-</code></pre>
-<ul>
-<li><code>private GetSpawnableBuildingName(Unity.Entities.Entity building, Unity.Entities.Entity zone, System.Boolean omitBrand = False) : Game.UI.NameSystem+Name</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Name GetSpawnableBuildingName(Entity building, Entity zone, bool omitBrand = false)
-    {
-        BuildingUtils.GetAddress(base.EntityManager, building, out var road, out var number);
-        if (!TryGetCustomName(road, out var customName))
-        {
-            customName = GetId(road);
-        }
-        if (customName == null)
-        {
-            return Name.LocalizedName(GetId(building));
-        }
-        if (!omitBrand &amp;&amp; base.EntityManager.TryGetComponent&lt;ZoneData&gt;(zone, out var component) &amp;&amp; component.m_AreaType != AreaType.Residential)
-        {
-            string brandId = GetBrandId(building);
-            if (brandId != null)
-            {
-                return Name.FormattedName(&quot;Assets.NAMED_ADDRESS_NAME_FORMAT&quot;, &quot;NAME&quot;, brandId, &quot;ROAD&quot;, customName, &quot;NUMBER&quot;, number.ToString());
-            }
-        }
-        return Name.FormattedName(&quot;Assets.ADDRESS_NAME_FORMAT&quot;, &quot;ROAD&quot;, customName, &quot;NUMBER&quot;, number.ToString());
-    }
-</code></pre>
-<ul>
-<li><code>private GetStaticTransportStopName(Unity.Entities.Entity stop) : Game.UI.NameSystem+Name</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Name GetStaticTransportStopName(Entity stop)
-    {
-        BuildingUtils.GetAddress(base.EntityManager, stop, out var road, out var number);
-        if (!TryGetCustomName(road, out var customName))
-        {
-            customName = GetId(road);
-        }
-        if (customName == null)
-        {
-            return Name.LocalizedName(GetId(stop));
-        }
-        return Name.FormattedName(&quot;Assets.ADDRESS_NAME_FORMAT&quot;, &quot;ROAD&quot;, customName, &quot;NUMBER&quot;, number.ToString());
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_DeletedQuery = GetEntityQuery(ComponentType.ReadOnly&lt;CustomName&gt;(), ComponentType.ReadOnly&lt;Deleted&gt;());
-        m_PrefabSystem = base.World.GetOrCreateSystemManaged&lt;PrefabSystem&gt;();
-        m_PrefabUISystem = base.World.GetOrCreateSystemManaged&lt;PrefabUISystem&gt;();
-        m_EndFrameBarrier = base.World.GetOrCreateSystemManaged&lt;EndFrameBarrier&gt;();
-        m_Names = new Dictionary&lt;Entity, string&gt;();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        if (m_DeletedQuery.IsEmptyIgnoreFilter)
-        {
-            return;
-        }
-        NativeArray&lt;Entity&gt; nativeArray = m_DeletedQuery.ToEntityArray(Allocator.TempJob);
-        try
-        {
-            for (int i = 0; i &lt; nativeArray.Length; i++)
-            {
-                if (m_Names.ContainsKey(nativeArray[i]))
-                {
-                    m_Names.Remove(nativeArray[i]);
-                }
-            }
-        }
-        finally
-        {
-            nativeArray.Dispose();
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public Serialize&lt;TWriter&gt;(TWriter writer) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Void Serialize&lt;TWriter&gt;(TWriter writer);
-</code></pre>
-<ul>
-<li><code>public SetCustomName(Unity.Entities.Entity entity, System.String name) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void SetCustomName(Entity entity, string name)
-    {
-        if (entity == Entity.Null)
-        {
-            return;
-        }
-        if (base.EntityManager.TryGetComponent&lt;Controller&gt;(entity, out var component))
-        {
-            entity = component.m_Controller;
-        }
-        if (name == string.Empty || string.IsNullOrWhiteSpace(name))
-        {
-            if (m_Names.ContainsKey(entity))
-            {
-                EntityCommandBuffer entityCommandBuffer = m_EndFrameBarrier.CreateCommandBuffer();
-                entityCommandBuffer.RemoveComponent&lt;CustomName&gt;(entity);
-                entityCommandBuffer.AddComponent&lt;BatchesUpdated&gt;(entity);
-                m_Names.Remove(entity);
-            }
-        }
-        else
-        {
-            m_Names[entity] = name;
-            EntityCommandBuffer entityCommandBuffer2 = m_EndFrameBarrier.CreateCommandBuffer();
-            entityCommandBuffer2.AddComponent&lt;CustomName&gt;(entity);
-            entityCommandBuffer2.AddComponent&lt;BatchesUpdated&gt;(entity);
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public SetDefaults(Colossal.Serialization.Entities.Context context) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void SetDefaults(Context context)
-    {
-        m_Names.Clear();
-    }
-</code></pre>
-<ul>
-<li><code>public TryGetCustomName(Unity.Entities.Entity entity, System.String&amp; customName) : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">public bool TryGetCustomName(Entity entity, out string customName)
-    {
-        return m_Names.TryGetValue(entity, out customName);
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.UI.NameSystem+NameType</code>  </li>
-<li><code>Game.UI.NameSystem+Name</code>  </li>
-</ul>
+<p>Notes and tips:
+- Use SetCustomName to create or remove custom names. The system enqueues component changes using EndFrameBarrier, so the actual ECS component changes occur at end-of-frame.
+- Use BindName / BindNameForVirtualKeyboard when writing JSON to UI writers; these will emit the appropriate Name representation (custom/localized/formatted) expected by the UI.
+- The Name struct supports both JSON binding (IJsonWriter.Write) and binary serialization (IWriter/IReader). Formatted names use key/value pairs (map) for format arguments.
+- The system relies on PrefabSystem and PrefabUISystem; if those systems are unavailable or a prefab is obsolete/missing, GetId falls back to obsolete ID names.</p>
 
 
 

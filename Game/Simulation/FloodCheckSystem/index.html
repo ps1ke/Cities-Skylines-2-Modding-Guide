@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -81904,18 +81996,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -81940,9 +82032,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -87145,6 +87237,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -117921,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117948,18 +118085,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -117984,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118009,173 +118146,163 @@
 
 
 <h1 id="gamesimulationfloodchecksystem">Game.Simulation.FloodCheckSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Simulation</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class FloodCheckSystem : Game.GameSystemBase
-{
-    private Game.Simulation.SimulationSystem m_SimulationSystem;
-    private Game.Simulation.TerrainSystem m_TerrainSystem;
-    private Game.Simulation.WaterSystem m_WaterSystem;
-    private Game.EndFrameBarrier m_EndFrameBarrier;
-    private Unity.Entities.EntityQuery m_TargetQuery;
-    private Unity.Entities.EntityQuery m_WaterLevelChangeQuery;
-    private Unity.Entities.EntityArchetype m_SubmergeArchetype;
-    private Game.Simulation.FloodCheckSystem+TypeHandle __TypeHandle;
-    private static const System.UInt32 UPDATE_INTERVAL;
-
-    public FloodCheckSystem();
-
-    private System.Void __AssignQueries(Unity.Entities.SystemState&amp; state);
-    public virtual System.Int32 GetUpdateInterval(Game.SystemUpdatePhase phase);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnCreateForCompiler();
-    protected virtual System.Void OnUpdate();
-}
-</code></pre>
+<p><strong>Assembly:</strong> Assembly-CSharp.dll<br />
+<strong>Namespace:</strong> Game.Simulation</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> GameSystemBase</p>
+<p><strong>Summary:</strong><br />
+FloodCheckSystem periodically scans placeable buildings/objects to detect if they are flooded and, when appropriate, schedules Submerge events. It runs a Burst-compiled IJobChunk (FloodCheckJob) over a target EntityQuery, samples water surface depth and terrain height, and — for objects that are not explicitly marked as submersible or floating — creates Submerge events via an EndFrameBarrier command buffer. The system also inspects active WaterLevelChange events (e.g., tsunami wave events of Sine type) to find a related flood event for more accurate submerge event attribution. The system updates every 16 simulation frames and uses TerrainSystem and WaterSystem read access to sample heights and surface data.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.Simulation.SimulationSystem m_SimulationSystem</code>  </li>
+<li>
+<p><code>private const uint UPDATE_INTERVAL = 16u</code><br />
+Describes the update interval used by the system (16 simulation frames). This value is used by GetUpdateInterval to control how often chunks are processed.</p>
+</li>
+<li>
+<p><code>private SimulationSystem m_SimulationSystem</code><br />
+Reference to the SimulationSystem (provides current frame index and general simulation timing).</p>
+</li>
+<li>
+<p><code>private TerrainSystem m_TerrainSystem</code><br />
+Reference to the TerrainSystem used to obtain terrain height data required when deciding if an object is submerged.</p>
+</li>
+<li>
+<p><code>private WaterSystem m_WaterSystem</code><br />
+Reference to the WaterSystem used to obtain water surface data and wave parameters (WaveSpeed, kMapSize, etc.).</p>
+</li>
+<li>
+<p><code>private EndFrameBarrier m_EndFrameBarrier</code><br />
+Used to create an EntityCommandBuffer. The system writes Submerge entities into this barrier so they are created at the end of the frame in a thread-safe manner.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_TargetQuery</code><br />
+Query selecting candidate objects to check for flooding (ReadOnly Building, excluding Placeholder/Flooded/Deleted/Temp).</p>
+</li>
+<li>
+<p><code>private EntityQuery m_WaterLevelChangeQuery</code><br />
+Query selecting WaterLevelChange entities (with Duration) used by FloodCheckJob.FindFloodEvent to associate submerge events to a water level change (for tsunamis/waves).</p>
+</li>
+<li>
+<p><code>private EntityArchetype m_SubmergeArchetype</code><br />
+Archetype used to create Submerge event entities (contains Game.Common.Event and Submerge components).</p>
+</li>
+<li>
+<p><code>private TypeHandle __TypeHandle</code><br />
+Generated holder for Entity/Component type handles and ComponentLookup handles used by the job; assigned in OnCreateForCompiler / internal initialization.</p>
+</li>
+<li>
+<p>(Nested type) <code>FloodCheckJob</code> (private struct)<br />
+Burst-compiled IJobChunk that performs the actual per-chunk checking. Holds component type handles &amp; lookups and a ParallelWriter command buffer. Key behaviors:</p>
+</li>
+<li>Uses a SharedComponent UpdateFrame to spread checks across frames (m_UpdateFrameIndex).</li>
+<li>Iterates transforms and prefab references; calls IsFlooded(position, out depth).</li>
+<li>Skips objects that are allowed to submerge or are floating/swaying (via ObjectGeometryData/PlaceableObjectData flags).</li>
+<li>Calls FindFloodEvent to try to associate a WaterLevelChange event (e.g., tsunami); otherwise leaves event null.</li>
+<li>Creates Submerge entities via command buffer with the target, event, and computed depth.</li>
+<li>IsFlooded: samples water surface depth and adds terrain height difference; threshold &gt; 0.5f used to consider an object flooded.</li>
+<li>
+<p>FindFloodEvent: inspects WaterLevelChange chunks, filters by Duration and Sine type, computes proximity to a theoretical wave line and timing using WaterSystem.WaveSpeed and other timing math to pick the most relevant event.</p>
+</li>
+<li>
+<p>(Nested type) <code>TypeHandle</code> (private struct)<br />
+Generated helper for obtaining type handles and ComponentLookup handles used by the FloodCheckJob. Assigned via __AssignHandles(ref SystemState).</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.Simulation.SimulationSystem m_SimulationSystem;
-</code></pre>
+<h2 id="properties">Properties</h2>
 <ul>
-<li><code>private Game.Simulation.TerrainSystem m_TerrainSystem</code>  </li>
+<li>None (no public properties on this system)</li>
 </ul>
-<pre><code class="language-csharp">private Game.Simulation.TerrainSystem m_TerrainSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.WaterSystem m_WaterSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.WaterSystem m_WaterSystem;
-</code></pre>
-<ul>
-<li><code>private Game.EndFrameBarrier m_EndFrameBarrier</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.EndFrameBarrier m_EndFrameBarrier;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_TargetQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_TargetQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_WaterLevelChangeQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_WaterLevelChangeQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityArchetype m_SubmergeArchetype</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityArchetype m_SubmergeArchetype;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.FloodCheckSystem+TypeHandle __TypeHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.FloodCheckSystem+TypeHandle __TypeHandle;
-</code></pre>
-<ul>
-<li><code>private static const System.UInt32 UPDATE_INTERVAL</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static const System.UInt32 UPDATE_INTERVAL;
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public FloodCheckSystem()</code>  </li>
+<li><code>public FloodCheckSystem()</code><br />
+Default constructor (preserved). Initialization of fields happens in OnCreate / OnCreateForCompiler.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public FloodCheckSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private __AssignQueries(Unity.Entities.SystemState&amp; state) : System.Void</code>  </li>
+<li>
+<p><code>public override int GetUpdateInterval(SystemUpdatePhase phase)</code><br />
+Returns the system update interval (16). This controls how often this system will run; consistent with UPDATE_INTERVAL.</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnCreate()</code><br />
+Initializes references and queries:</p>
+</li>
+<li>Retrieves SimulationSystem, TerrainSystem, WaterSystem, and EndFrameBarrier from the World.</li>
+<li>Constructs target (m_TargetQuery) and water level change (m_WaterLevelChangeQuery) queries.</li>
+<li>Creates the Submerge archetype used to instantiate Submerge events.</li>
+<li>
+<p>Calls RequireForUpdate(m_TargetQuery) so the system only runs when there are targets.</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnUpdate()</code><br />
+Builds and schedules the Burst-compiled FloodCheckJob:</p>
+</li>
+<li>Computes m_UpdateFrameIndex by shifting SimulationSystem.frameIndex &gt;&gt; 4 and masking (distributes load across 16 subframes).</li>
+<li>Gets type handles and ComponentLookup references (via InternalCompilerInterface wrappers around __TypeHandle).</li>
+<li>Obtains Terrain height data and Water surface data (WaterSystem.GetSurfaceData(out deps)).</li>
+<li>Builds a list of WaterLevelChange archetype chunks asynchronously (ToArchetypeChunkListAsync).</li>
+<li>Creates a parallel command buffer via EndFrameBarrier.CreateCommandBuffer().AsParallelWriter().</li>
+<li>Schedules the job in parallel over m_TargetQuery and combines dependencies appropriately.</li>
+<li>
+<p>Registers readers and producer job handles with TerrainSystem, WaterSystem, and EndFrameBarrier so the systems synchronize correctly.</p>
+</li>
+<li>
+<p><code>protected override void OnCreateForCompiler()</code><br />
+Internal helper called by generated code/path to assign queries and type handles for compilation-time generated code paths. Calls __AssignQueries and __TypeHandle.__AssignHandles.</p>
+</li>
+<li>
+<p><code>[MethodImpl(MethodImplOptions.AggressiveInlining)] private void __AssignQueries(ref SystemState state)</code><br />
+Generated placeholder for query assignment used by the compiler/backing code. Currently contains minimal logic (EntityQueryBuilder transient use).</p>
+</li>
+<li>
+<p>(Nested job methods inside FloodCheckJob)  </p>
+</li>
+<li>Execute(in ArchetypeChunk chunk, ...) — chunk processing entry that checks UpdateFrame shared component and iterates chunk entities.</li>
+<li>FindFloodEvent(Entity entity, float3 position) — finds the best matching WaterLevelChange event (tsunami/wave) based on distance from the wave front and timing; returns Entity.Null if none found.</li>
+<li>IsFlooded(float3 position, out float depth) — samples water depth and terrain height; uses 0.5f thresholds to decide flooding and returns computed depth.</li>
 </ul>
-<pre><code class="language-csharp">private void __AssignQueries(ref SystemState state)
-    {
-        new EntityQueryBuilder(Allocator.Temp).Dispose();
-    }
-</code></pre>
-<ul>
-<li><code>public virtual GetUpdateInterval(Game.SystemUpdatePhase phase) : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override int GetUpdateInterval(SystemUpdatePhase phase)
-    {
-        return 16;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
+<h2 id="usage-example">Usage Example</h2>
 <pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_SimulationSystem = base.World.GetOrCreateSystemManaged&lt;SimulationSystem&gt;();
-        m_TerrainSystem = base.World.GetOrCreateSystemManaged&lt;TerrainSystem&gt;();
-        m_WaterSystem = base.World.GetOrCreateSystemManaged&lt;WaterSystem&gt;();
-        m_EndFrameBarrier = base.World.GetOrCreateSystemManaged&lt;EndFrameBarrier&gt;();
-        m_TargetQuery = GetEntityQuery(ComponentType.ReadOnly&lt;Building&gt;(), ComponentType.Exclude&lt;Placeholder&gt;(), ComponentType.Exclude&lt;Flooded&gt;(), ComponentType.Exclude&lt;Deleted&gt;(), ComponentType.Exclude&lt;Temp&gt;());
-        m_WaterLevelChangeQuery = GetEntityQuery(ComponentType.ReadOnly&lt;WaterLevelChange&gt;(), ComponentType.ReadOnly&lt;Duration&gt;(), ComponentType.Exclude&lt;Deleted&gt;(), ComponentType.Exclude&lt;Temp&gt;());
-        m_SubmergeArchetype = base.EntityManager.CreateArchetype(ComponentType.ReadWrite&lt;Game.Common.Event&gt;(), ComponentType.ReadWrite&lt;Submerge&gt;());
-        RequireForUpdate(m_TargetQuery);
-    }
+protected override void OnCreate()
+{
+    base.OnCreate();
+
+    // Typical initialization performed by the system:
+    m_SimulationSystem = base.World.GetOrCreateSystemManaged&lt;SimulationSystem&gt;();
+    m_TerrainSystem = base.World.GetOrCreateSystemManaged&lt;TerrainSystem&gt;();
+    m_WaterSystem = base.World.GetOrCreateSystemManaged&lt;WaterSystem&gt;();
+    m_EndFrameBarrier = base.World.GetOrCreateSystemManaged&lt;EndFrameBarrier&gt;();
+
+    // Query for buildings / placeable objects that may flood
+    m_TargetQuery = GetEntityQuery(
+        ComponentType.ReadOnly&lt;Building&gt;(),
+        ComponentType.Exclude&lt;Placeholder&gt;(),
+        ComponentType.Exclude&lt;Flooded&gt;(),
+        ComponentType.Exclude&lt;Deleted&gt;(),
+        ComponentType.Exclude&lt;Temp&gt;());
+
+    // Query for water level change events (tsunamis, waves)
+    m_WaterLevelChangeQuery = GetEntityQuery(
+        ComponentType.ReadOnly&lt;WaterLevelChange&gt;(),
+        ComponentType.ReadOnly&lt;Duration&gt;(),
+        ComponentType.Exclude&lt;Deleted&gt;(),
+        ComponentType.Exclude&lt;Temp&gt;());
+
+    // Archetype for generating Submerge events
+    m_SubmergeArchetype = base.EntityManager.CreateArchetype(
+        ComponentType.ReadWrite&lt;Game.Common.Event&gt;(),
+        ComponentType.ReadWrite&lt;Submerge&gt;());
+
+    RequireForUpdate(m_TargetQuery);
+}
 </code></pre>
-<ul>
-<li><code>protected virtual OnCreateForCompiler() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnCreateForCompiler()
-    {
-        base.OnCreateForCompiler();
-        __AssignQueries(ref base.CheckedStateRef);
-        __TypeHandle.__AssignHandles(ref base.CheckedStateRef);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        uint updateFrameIndex = (m_SimulationSystem.frameIndex &gt;&gt; 4) &amp; 0xF;
-        JobHandle deps;
-        JobHandle outJobHandle;
-        FloodCheckJob jobData = new FloodCheckJob
-        {
-            m_EntityType = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef),
-            m_UpdateFrameType = InternalCompilerInterface.GetSharedComponentTypeHandle(ref __TypeHandle.__Game_Simulation_UpdateFrame_SharedComponentTypeHandle, ref base.CheckedStateRef),
-            m_WaterLevelChangeType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Events_WaterLevelChange_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_DurationType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Events_Duration_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_TransformType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Objects_Transform_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_PrefabRefType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_InDangerData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Events_InDanger_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_WaterLevelChangeData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Events_WaterLevelChange_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabWaterLevelChangeData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_WaterLevelChangeData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefaObjectGeometryData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_ObjectGeometryData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefaPlaceableObjectData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_PlaceableObjectData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_UpdateFrameIndex = updateFrameIndex,
-            m_SimulationFrame = m_SimulationSystem.frameIndex,
-            m_TerrainHeightData = m_TerrainSystem.GetHeightData(),
-            m_WaterSurfaceData = m_WaterSystem.GetSurfaceData(out deps),
-            m_WaterLevelChangeChunks = m_WaterLevelChangeQuery.ToArchetypeChunkListAsync(base.World.UpdateAllocator.ToAllocator, out outJobHandle),
-            m_SubmergeArchetype = m_SubmergeArchetype,
-            m_CommandBuffer = m_EndFrameBarrier.CreateCommandBuffer().AsParallelWriter()
-        };
-        base.Dependency = JobChunkExtensions.ScheduleParallel(jobData, m_TargetQuery, JobHandle.CombineDependencies(base.Dependency, deps, outJobHandle));
-        m_TerrainSystem.AddCPUHeightReader(base.Dependency);
-        m_WaterSystem.AddSurfaceReader(base.Dependency);
-        m_EndFrameBarrier.AddJobHandleForProducer(base.Dependency);
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Simulation.FloodCheckSystem+FloodCheckJob</code>  </li>
-<li><code>Game.Simulation.FloodCheckSystem+TypeHandle</code>  </li>
-</ul>
+<p>Notes and implementation details:
+- Flood detection uses two thresholds of 0.5f: first on sampled water depth, then after adding the terrain height delta to the object's Y position. Only if both checks exceed 0.5f is an object considered flooded and a Submerge event created.
+- Objects marked with ObjectGeometryData.CanSubmerge or PlaceableObjectData having PlacementFlags.Floating | PlacementFlags.Swaying are skipped (floating/swavging objects are not submerged by this system).
+- FindFloodEvent attempts to prefer an InDanger-associated event (if the entity already references one). Otherwise it selects the most relevant WaterLevelChange (Sine type) by computing distance to a wave line and comparing a smoothstep-based proximity score.
+- The job is scheduled in parallel using ScheduleParallel and uses an EndFrameBarrier command buffer's ParallelWriter to create Submerge entities safely from worker threads.
+- System registers readers with TerrainSystem and WaterSystem and ties produced job handle to EndFrameBarrier so cross-system dependencies are respected.</p>
 
 
 

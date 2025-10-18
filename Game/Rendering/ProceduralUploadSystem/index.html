@@ -65233,6 +65233,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69438,18 +69461,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -69474,9 +69497,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -69734,6 +69757,29 @@
   
   <span class="md-ellipsis">
     ShaderID
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
     
   </span>
   
@@ -72563,6 +72609,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75553,6 +75622,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87145,6 +87237,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -117921,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117948,18 +118085,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -117984,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118009,278 +118146,137 @@
 
 
 <h1 id="gamerenderingproceduraluploadsystem">Game.Rendering.ProceduralUploadSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Rendering</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class ProceduralUploadSystem : Game.GameSystemBase
-{
-    private Game.Rendering.ProceduralSkeletonSystem m_ProceduralSkeletonSystem;
-    private Game.Rendering.ProceduralEmissiveSystem m_ProceduralEmissiveSystem;
-    private Game.Rendering.PreCullingSystem m_PreCullingSystem;
-    private Game.Prefabs.PrefabSystem m_PrefabSystem;
-    private Game.Prefabs.RenderPrefabBase m_OverridePrefab;
-    private Colossal.Collections.NativeAccumulator&lt;Game.Rendering.ProceduralUploadSystem+UploadData&gt; m_UploadData;
-    private Unity.Jobs.JobHandle m_PrepareDeps;
-    private Unity.Entities.Entity m_OverrideEntity;
-    private Game.Rendering.LightState m_OverrideLightState;
-    private System.Int32 m_OverrideSingleLightIndex;
-    private System.Int32 m_OverrideMultiLightIndex;
-    private System.Single m_OverrideTime;
-    private Game.Rendering.ProceduralUploadSystem+TypeHandle __TypeHandle;
-
-    public ProceduralUploadSystem();
-
-    private System.Void __AssignQueries(Unity.Entities.SystemState&amp; state);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnCreateForCompiler();
-    protected virtual System.Void OnUpdate();
-    public System.Void SetOverride(Unity.Entities.Entity entity, Game.Prefabs.RenderPrefabBase prefab, System.Int32 singleLightIndex, System.Int32 multiLightIndex);
-    private System.Void UpdateOverride(Game.Rendering.ProceduralUploadSystem+UploadData&amp; emissiveData);
-}
-</code></pre>
+<p><strong>Assembly:</strong> Assembly-CSharp.dll<br />
+<strong>Namespace:</strong> Game.Rendering</p>
+<p><strong>Type:</strong> public class</p>
+<p><strong>Base:</strong> GameSystemBase</p>
+<p><strong>Summary:</strong><br />
+ProceduralUploadSystem is a game system responsible for preparing and uploading GPU data for procedural animated geometry (bones/skeletons) and emissive lights. It coordinates with ProceduralSkeletonSystem, ProceduralEmissiveSystem, PreCullingSystem and PrefabSystem to:
+- scan pre-culling results for entities that require skeleton or emissive uploads,
+- accumulate upload sizes using a NativeAccumulator (UploadData),
+- schedule parallel jobs that build CPU-side skin/light buffers and submit sparse uploads to threaded uploaders,
+- optionally apply an "override" light/emissive animation for previewing or special rendering cases.</p>
+<p>Key nested types:
+- Prepare (nested GameSystemBase) — runs before the upload job to compute upload size statistics into a NativeAccumulator<UploadData>.
+- UploadData (IAccumulable) — small accumulator struct tracking operation counts, total data size and maximum op size.
+- ProceduralPrepareJob (IJobParallelForDefer, Burst) — counts required upload operations and sizes per entity (skeleton &amp; emissive).
+- ProceduralUploadJob (IJobParallelForDefer, Burst) — builds skin matrices, light data and calls ThreadedSparseUploader.AddUpload to enqueue actual GPU transfers.
+- TypeHandle (nested) — caches ComponentLookup/BufferLookup handles required by the system.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.Rendering.ProceduralSkeletonSystem m_ProceduralSkeletonSystem</code>  </li>
+<li>
+<p><code>private ProceduralSkeletonSystem m_ProceduralSkeletonSystem</code><br />
+Holds a reference to the ProceduralSkeletonSystem used to obtain bone uploaders and motion-blur/history settings.</p>
+</li>
+<li>
+<p><code>private ProceduralEmissiveSystem m_ProceduralEmissiveSystem</code><br />
+Reference to the emissive/light system used to get the light uploader for emissive uploads.</p>
+</li>
+<li>
+<p><code>private PreCullingSystem m_PreCullingSystem</code><br />
+Reference to the pre-culling system; used to obtain culling results (NativeList<PreCullingData>) that the jobs iterate.</p>
+</li>
+<li>
+<p><code>private PrefabSystem m_PrefabSystem</code><br />
+Reference to the prefab system used for prefab-related lookups when applying overrides.</p>
+</li>
+<li>
+<p><code>private RenderPrefabBase m_OverridePrefab</code><br />
+When an override is active, this stores the prefab whose emissive/light data will be used to synthesize overridden light states.</p>
+</li>
+<li>
+<p><code>private NativeAccumulator&lt;UploadData&gt; m_UploadData</code><br />
+Accumulator used by the Prepare job to aggregate UploadData for skeletons (index 0) and emissives (index 1). Created in the Prepare step and consumed in OnUpdate.</p>
+</li>
+<li>
+<p><code>private JobHandle m_PrepareDeps</code><br />
+JobHandle for the Prepare job chain; completed before launching the actual upload job.</p>
+</li>
+<li>
+<p><code>private Entity m_OverrideEntity</code><br />
+Entity used for override mode. If set, UpdateOverride modifies its emissive/light buffers and contributes to upload sizing.</p>
+</li>
+<li>
+<p><code>private LightState m_OverrideLightState</code><br />
+Stores a cached LightState used when animating/applying the override emissive/light data.</p>
+</li>
+<li>
+<p><code>private int m_OverrideSingleLightIndex</code><br />
+Index used when selecting a single light in override mode.</p>
+</li>
+<li>
+<p><code>private int m_OverrideMultiLightIndex</code><br />
+Index used when selecting a multi-light in override mode.</p>
+</li>
+<li>
+<p><code>private float m_OverrideTime</code><br />
+Internal time accumulator used by override animation playback.</p>
+</li>
+<li>
+<p><code>private TypeHandle __TypeHandle</code><br />
+Cached lookups (ComponentLookup/BufferLookup) used by the system's jobs (assigned in OnCreateForCompiler).</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.Rendering.ProceduralSkeletonSystem m_ProceduralSkeletonSystem;
-</code></pre>
+<h2 id="properties">Properties</h2>
 <ul>
-<li><code>private Game.Rendering.ProceduralEmissiveSystem m_ProceduralEmissiveSystem</code>  </li>
+<li>(none public on this system)</li>
 </ul>
-<pre><code class="language-csharp">private Game.Rendering.ProceduralEmissiveSystem m_ProceduralEmissiveSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Rendering.PreCullingSystem m_PreCullingSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Rendering.PreCullingSystem m_PreCullingSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Prefabs.PrefabSystem m_PrefabSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Prefabs.PrefabSystem m_PrefabSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Prefabs.RenderPrefabBase m_OverridePrefab</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Prefabs.RenderPrefabBase m_OverridePrefab;
-</code></pre>
-<ul>
-<li><code>private Colossal.Collections.NativeAccumulator&lt;Game.Rendering.ProceduralUploadSystem+UploadData&gt; m_UploadData</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.Collections.NativeAccumulator&lt;Game.Rendering.ProceduralUploadSystem+UploadData&gt; m_UploadData;
-</code></pre>
-<ul>
-<li><code>private Unity.Jobs.JobHandle m_PrepareDeps</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Jobs.JobHandle m_PrepareDeps;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.Entity m_OverrideEntity</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.Entity m_OverrideEntity;
-</code></pre>
-<ul>
-<li><code>private Game.Rendering.LightState m_OverrideLightState</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Rendering.LightState m_OverrideLightState;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_OverrideSingleLightIndex</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_OverrideSingleLightIndex;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_OverrideMultiLightIndex</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_OverrideMultiLightIndex;
-</code></pre>
-<ul>
-<li><code>private System.Single m_OverrideTime</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Single m_OverrideTime;
-</code></pre>
-<ul>
-<li><code>private Game.Rendering.ProceduralUploadSystem+TypeHandle __TypeHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Rendering.ProceduralUploadSystem+TypeHandle __TypeHandle;
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public ProceduralUploadSystem()</code>  </li>
+<li><code>public ProceduralUploadSystem()</code><br />
+Default constructor; attributed with [Preserve]. The real initialization happens in OnCreate where dependent systems are acquired from the World.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public ProceduralUploadSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private __AssignQueries(Unity.Entities.SystemState&amp; state) : System.Void</code>  </li>
+<li>
+<p><code>protected override void OnCreate()</code><br />
+Initializes references to required systems: ProceduralSkeletonSystem, ProceduralEmissiveSystem, PreCullingSystem and PrefabSystem.</p>
+</li>
+<li>
+<p><code>public void SetOverride(Entity entity, RenderPrefabBase prefab, int singleLightIndex, int multiLightIndex)</code><br />
+Public API to enable or update override mode. Resets cached override light state if the entity or indices change, and stores the override parameters. This causes the system to synthesize emissive/light updates for the override entity on the next update.</p>
+</li>
+<li>
+<p><code>private unsafe void UpdateOverride(ref UploadData emissiveData)</code><br />
+When an override entity is set, this method updates the emissive and LightState buffers of that entity according to the override prefab/light selection. It marks emissives as updated and accumulates upload sizes into emissiveData so the upload job will allocate uploader capacity accordingly. Handles animation curves and multiple-light prefabs. Uses EntityManager buffer/component queries and Prefab lookups.</p>
+</li>
+<li>
+<p><code>protected override void OnUpdate()</code><br />
+Main runtime update. Steps:</p>
+</li>
+<li>Completes the Prepare job (m_PrepareDeps) that produced m_UploadData.</li>
+<li>Extracts UploadData results for skeletons and emissives and disposes the accumulator.</li>
+<li>Optionally calls UpdateOverride to modify override entity buffers and adjust emissive upload sizing.</li>
+<li>Calls ProceduralSkeletonSystem.BeginUpload and ProceduralEmissiveSystem.BeginUpload to obtain ThreadedSparseUploader instances sized from UploadData.</li>
+<li>
+<p>Builds a ProceduralUploadJob with lookups, uploaders and culling data, schedules it as a parallel job over pre-culling results, and wires uploader/job dependencies into the respective systems and pre-culling readers.</p>
+</li>
+<li>
+<p><code>protected override void OnCreateForCompiler()</code><br />
+Assigns query handles and calls __TypeHandle.__AssignHandles to bind lookup handles to the system's TypeHandle. This method is part of ECS/IL2CPP wiring.</p>
+</li>
+<li>
+<p><code>private void __AssignQueries(ref SystemState state)</code><br />
+Internal helper that creates/assigns entity queries used by the system (in this class the query is empty but kept for compiler-generated wiring).</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private void __AssignQueries(ref SystemState state)
-    {
-        new EntityQueryBuilder(Allocator.Temp).Dispose();
-    }
+<p>Notes on the nested Prepare class and jobs:
+- Prepare.OnCreate registers m_ProceduralUploadSystem reference.
+- Prepare.OnUpdate creates the NativeAccumulator<UploadData> and schedules ProceduralPrepareJob which counts required uploads (but does not perform them).
+- ProceduralPrepareJob scans PreCullingData and per-entity Skeleton and Emissive buffers to compute operation counts and total/max sizes for both skeleton and emissive sets.
+- ProceduralUploadJob performs the heavy work: assembling skin matrices (using ProceduralSkeletonSystem.GetSkinMatrices / BoneHistory updates), building per-emissive GPU light arrays via ProceduralEmissiveSystem.GetGpuLights, and calling ThreadedSparseUploader.AddUpload with pointers/sizes/offsets. It also clears the per-entry update flags (m_CurrentUpdated/m_Updated) and updates history when needed.
+- Both job structs are marked with BurstCompile and are scheduled as IJobParallelForDefer over the PreCullingData list.</p>
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Typical use from game/mod code — acquire the system and optionally set an override
+var world = World.DefaultGameObjectInjectionWorld;
+var proceduralUpload = world.GetOrCreateSystemManaged&lt;Game.Rendering.ProceduralUploadSystem&gt;();
+
+// To preview a prefab's emissive/light as an override:
+proceduralUpload.SetOverride(overrideEntity, myRenderPrefabBase, singleLightIndex: 0, multiLightIndex: -1);
+
+// The system runs automatically as part of the ECS update loop; no manual Update call is necessary.
 </code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_ProceduralSkeletonSystem = base.World.GetOrCreateSystemManaged&lt;ProceduralSkeletonSystem&gt;();
-        m_ProceduralEmissiveSystem = base.World.GetOrCreateSystemManaged&lt;ProceduralEmissiveSystem&gt;();
-        m_PreCullingSystem = base.World.GetOrCreateSystemManaged&lt;PreCullingSystem&gt;();
-        m_PrefabSystem = base.World.GetOrCreateSystemManaged&lt;PrefabSystem&gt;();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreateForCompiler() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnCreateForCompiler()
-    {
-        base.OnCreateForCompiler();
-        __AssignQueries(ref base.CheckedStateRef);
-        __TypeHandle.__AssignHandles(ref base.CheckedStateRef);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        m_PrepareDeps.Complete();
-        UploadData result = m_UploadData.GetResult();
-        UploadData emissiveData = m_UploadData.GetResult(1);
-        m_UploadData.Dispose();
-        if (m_OverrideEntity != Entity.Null)
-        {
-            UpdateOverride(ref emissiveData);
-        }
-        int historyByteOffset;
-        JobHandle dependencies;
-        ProceduralUploadJob jobData = new ProceduralUploadJob
-        {
-            m_PrefabRefData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_Bones = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Rendering_Bone_RO_BufferLookup, ref base.CheckedStateRef),
-            m_Lights = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Rendering_LightState_RO_BufferLookup, ref base.CheckedStateRef),
-            m_ProceduralBones = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Prefabs_ProceduralBone_RO_BufferLookup, ref base.CheckedStateRef),
-            m_ProceduralLights = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Prefabs_ProceduralLight_RO_BufferLookup, ref base.CheckedStateRef),
-            m_SubMeshes = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Prefabs_SubMesh_RO_BufferLookup, ref base.CheckedStateRef),
-            m_Skeletons = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Rendering_Skeleton_RW_BufferLookup, ref base.CheckedStateRef),
-            m_BoneHistories = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Rendering_BoneHistory_RW_BufferLookup, ref base.CheckedStateRef),
-            m_Emissives = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Rendering_Emissive_RW_BufferLookup, ref base.CheckedStateRef),
-            m_BoneUploader = m_ProceduralSkeletonSystem.BeginUpload(result.m_OpCount, result.m_DataSize, result.m_MaxOpSize, out historyByteOffset),
-            m_LightUploader = m_ProceduralEmissiveSystem.BeginUpload(emissiveData.m_OpCount, emissiveData.m_DataSize, emissiveData.m_MaxOpSize),
-            m_HistoryByteOffset = historyByteOffset,
-            m_MotionBlurEnabled = m_ProceduralSkeletonSystem.isMotionBlurEnabled,
-            m_ForceHistoryUpdate = m_ProceduralSkeletonSystem.forceHistoryUpdate,
-            m_CullingData = m_PreCullingSystem.GetCullingData(readOnly: true, out dependencies)
-        };
-        JobHandle jobHandle = jobData.Schedule(jobData.m_CullingData, 16, JobHandle.CombineDependencies(base.Dependency, dependencies));
-        m_ProceduralSkeletonSystem.AddUploadWriter(jobHandle);
-        m_ProceduralEmissiveSystem.AddUploadWriter(jobHandle);
-        m_PreCullingSystem.AddCullingDataReader(jobHandle);
-        base.Dependency = jobHandle;
-    }
-</code></pre>
-<ul>
-<li><code>public SetOverride(Unity.Entities.Entity entity, Game.Prefabs.RenderPrefabBase prefab, System.Int32 singleLightIndex, System.Int32 multiLightIndex) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void SetOverride(Entity entity, RenderPrefabBase prefab, int singleLightIndex, int multiLightIndex)
-    {
-        if (entity != m_OverrideEntity || singleLightIndex != m_OverrideSingleLightIndex || multiLightIndex != m_OverrideMultiLightIndex)
-        {
-            m_OverrideLightState.m_Intensity = -1f;
-            m_OverrideTime = 0f;
-        }
-        m_OverrideEntity = entity;
-        m_OverridePrefab = prefab;
-        m_OverrideSingleLightIndex = singleLightIndex;
-        m_OverrideMultiLightIndex = multiLightIndex;
-    }
-</code></pre>
-<ul>
-<li><code>private UpdateOverride(Game.Rendering.ProceduralUploadSystem+UploadData&amp; emissiveData) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private unsafe void UpdateOverride(ref UploadData emissiveData)
-    {
-        if (!base.EntityManager.TryGetBuffer(m_OverrideEntity, isReadOnly: false, out DynamicBuffer&lt;Emissive&gt; buffer) || !base.EntityManager.TryGetBuffer(m_OverrideEntity, isReadOnly: false, out DynamicBuffer&lt;LightState&gt; buffer2) || !base.EntityManager.TryGetComponent&lt;PrefabRef&gt;(m_OverrideEntity, out var component) || !base.EntityManager.TryGetBuffer(component.m_Prefab, isReadOnly: true, out DynamicBuffer&lt;SubMesh&gt; buffer3) || !m_OverridePrefab.TryGet&lt;EmissiveProperties&gt;(out var component2) || !m_PrefabSystem.TryGetEntity(m_OverridePrefab, out var entity))
-        {
-            return;
-        }
-        int num = -1;
-        if (m_OverrideMultiLightIndex &gt;= 0)
-        {
-            num = m_OverrideMultiLightIndex;
-        }
-        else
-        {
-            if (m_OverrideSingleLightIndex &lt; 0)
-            {
-                return;
-            }
-            num = m_OverrideSingleLightIndex;
-            if (component2.hasMultiLights)
-            {
-                num += component2.m_MultiLights.Count;
-            }
-        }
-        float deltaTime = UnityEngine.Time.deltaTime;
-        for (int i = 0; i &lt; buffer.Length; i++)
-        {
-            ref Emissive reference = ref buffer.ElementAt(i);
-            if (reference.m_BufferAllocation.Empty)
-            {
-                continue;
-            }
-            SubMesh subMesh = buffer3[i];
-            if (!(subMesh.m_SubMesh != entity) &amp;&amp; base.EntityManager.TryGetBuffer(subMesh.m_SubMesh, isReadOnly: true, out DynamicBuffer&lt;ProceduralLight&gt; buffer4) &amp;&amp; num &lt; buffer4.Length)
-            {
-                if (!reference.m_Updated)
-                {
-                    uint num2 = reference.m_BufferAllocation.Length * (uint)sizeof(float4);
-                    emissiveData.Accumulate(new UploadData
-                    {
-                        m_OpCount = 1,
-                        m_DataSize = num2,
-                        m_MaxOpSize = num2
-                    });
-                }
-                ProceduralLight proceduralLight = buffer4[num];
-                ref LightState reference2 = ref buffer2.ElementAt(reference.m_LightOffset + num);
-                if (m_OverrideLightState.m_Intensity &lt; 0f)
-                {
-                    m_OverrideLightState = reference2;
-                }
-                float2 target = new float2(1f, 0f);
-                if (proceduralLight.m_AnimationIndex &gt;= 0 &amp;&amp; base.EntityManager.TryGetBuffer(subMesh.m_SubMesh, isReadOnly: true, out DynamicBuffer&lt;LightAnimation&gt; buffer5))
-                {
-                    LightAnimation lightAnimation = buffer5[proceduralLight.m_AnimationIndex];
-                    m_OverrideTime += deltaTime * 60f;
-                    m_OverrideTime %= lightAnimation.m_DurationFrames;
-                    target.x *= lightAnimation.m_AnimationCurve.Evaluate(m_OverrideTime / (float)lightAnimation.m_DurationFrames);
-                }
-                ObjectInterpolateSystem.AnimateLight(proceduralLight, ref reference, ref m_OverrideLightState, deltaTime, target, instantReset: false);
-                reference2 = m_OverrideLightState;
-                reference.m_Updated = true;
-            }
-        }
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Rendering.ProceduralUploadSystem+Prepare</code>  </li>
-<li><code>Game.Rendering.ProceduralUploadSystem+UploadData</code>  </li>
-<li><code>Game.Rendering.ProceduralUploadSystem+ProceduralPrepareJob</code>  </li>
-<li><code>Game.Rendering.ProceduralUploadSystem+ProceduralUploadJob</code>  </li>
-<li><code>Game.Rendering.ProceduralUploadSystem+TypeHandle</code>  </li>
-</ul>
 
 
 

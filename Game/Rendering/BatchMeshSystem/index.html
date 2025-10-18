@@ -65233,6 +65233,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -67023,15 +67046,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -67068,9 +67082,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -69743,6 +69757,29 @@
   
   <span class="md-ellipsis">
     ShaderID
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
     
   </span>
   
@@ -72572,6 +72609,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75562,6 +75622,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87154,6 +87237,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -117930,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117955,15 +118083,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -118002,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118027,1833 +118146,331 @@
 
 
 <h1 id="gamerenderingbatchmeshsystem">Game.Rendering.BatchMeshSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Rendering</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class BatchMeshSystem : Game.GameSystemBase
-{
-    private System.UInt64 &lt;memoryBudget&gt;k__BackingField;
-    private System.Boolean &lt;strictMemoryBudget&gt;k__BackingField;
-    private System.Boolean &lt;enableMeshLoading&gt;k__BackingField;
-    private System.Boolean &lt;forceMeshUnloading&gt;k__BackingField;
-    private System.UInt64 &lt;totalSizeInMemory&gt;k__BackingField;
-    private System.Int32 &lt;loadingRemaining&gt;k__BackingField;
-    private Colossal.IO.AssetDatabase.GeometryAssetLoadingSystem m_GeometryLoadingSystem;
-    private Game.Rendering.BatchManagerSystem m_BatchManagerSystem;
-    private Game.Prefabs.PrefabSystem m_PrefabSystem;
-    private UnityEngine.Mesh m_DefaultObjectMesh;
-    private UnityEngine.Mesh m_DefaultBaseMesh;
-    private UnityEngine.Mesh m_DefaultLaneMesh;
-    private UnityEngine.Mesh m_ZoneBlockMesh;
-    private UnityEngine.Mesh m_ZoneLodMesh;
-    private UnityEngine.Mesh m_DefaultEdgeMesh;
-    private UnityEngine.Mesh m_DefaultNodeMesh;
-    private UnityEngine.Mesh m_DefaultRoundaboutMesh;
-    private System.Collections.Generic.List&lt;UnityEngine.Mesh&gt; m_GeneratedMeshes;
-    private System.Collections.Generic.List&lt;System.Int32&gt; m_FreeMeshIndices;
-    private System.Collections.Generic.HashSet&lt;Colossal.IO.AssetDatabase.GeometryAsset&gt; m_UnloadGeometryAssets;
-    private System.Collections.Generic.HashSet&lt;Colossal.IO.AssetDatabase.GeometryAsset&gt; m_LoadingGeometries;
-    private System.Collections.Generic.Dictionary&lt;Unity.Entities.Entity, Game.Rendering.BatchMeshSystem+CacheInfo&gt; m_CachingMeshes;
-    private System.Collections.Generic.Dictionary&lt;Unity.Entities.Entity, Game.Rendering.BatchMeshSystem+MeshInfo&gt; m_MeshInfos;
-    private Unity.Collections.NativeList&lt;System.Int32&gt; m_BatchPriority;
-    private Unity.Collections.NativeList&lt;Game.Rendering.MeshLoadingState&gt; m_LoadingState;
-    private Unity.Collections.NativeList&lt;Game.Rendering.BatchMeshSystem+LoadingData&gt; m_LoadingData;
-    private Unity.Collections.NativeList&lt;Game.Rendering.BatchMeshSystem+LoadingData&gt; m_UnloadingData;
-    private Unity.Collections.NativeList&lt;Unity.Entities.Entity&gt; m_GenerateMeshEntities;
-    private Colossal.Collections.NativeHeapAllocator m_ShapeAllocator;
-    private Unity.Jobs.JobHandle m_PriorityDeps;
-    private Unity.Jobs.JobHandle m_StateDeps;
-    private Unity.Jobs.JobHandle m_GenerateMeshDeps;
-    private UnityEngine.GraphicsBuffer m_ShapeBuffer;
-    private UnityEngine.Mesh+MeshDataArray m_GenerateMeshDataArray;
-    private System.Int32 m_ShapeCount;
-    private System.Int32 m_PriorityLimit;
-    private System.Boolean m_AddMeshes;
-    public static const System.String kDisableMeshLoadingKey;
-    public static const System.String kForceMeshUnloadingKey;
-    public static const System.UInt32 MAX_LOADING_COUNT;
-    public static const System.Int32 MIN_BATCH_PRIORITY;
-    public static const System.Int32 SHAPEBUFFER_ELEMENT_SIZE;
-    public static const System.UInt32 SHAPEBUFFER_MEMORY_DEFAULT;
-    public static const System.UInt32 SHAPEBUFFER_MEMORY_INCREMENT;
-    public static const System.UInt64 DEFAULT_MEMORY_BUDGET;
-    public static const System.Boolean DEFAULT_MEMORY_BUDGET_IS_STRICT;
-
-    public System.UInt64 memoryBudget { get; set; }
-    public System.Boolean strictMemoryBudget { get; set; }
-    public System.Boolean enableMeshLoading { get; set; }
-    public System.Boolean forceMeshUnloading { get; set; }
-    public System.UInt64 totalSizeInMemory { get; private set; }
-    public System.Int32 loadedMeshCount { get; }
-    public System.Int32 loadingRemaining { get; private set; }
-
-    public BatchMeshSystem();
-
-    public System.Void AddBatch(Game.Rendering.CustomBatch batch, System.Int32 batchIndex);
-    public System.Void AddBatchPriorityWriter(Unity.Jobs.JobHandle dependencies);
-    private System.Void AddCaching(Unity.Entities.Entity entity, Game.Rendering.BatchMeshSystem+CacheInfo cacheInfo);
-    public System.Void AddLoadingStateReader(Unity.Jobs.JobHandle dependencies);
-    private System.Void AddMeshes();
-    private Game.Rendering.BatchMeshSystem+ShapeAllocation[] AddShapeData(Game.Prefabs.RenderPrefab meshPrefab);
-    private System.Void BatchPropertyUpdated(Game.Rendering.CustomBatch batch);
-    private System.Void CacheMeshData(Game.Prefabs.RenderPrefab meshPrefab, Colossal.IO.AssetDatabase.GeometryAsset asset, Unity.Entities.Entity entity, Game.Prefabs.MeshType type);
-    private System.Void CacheMeshData(UnityEngine.Mesh mesh, Unity.Entities.Entity entity, Game.Prefabs.MeshType type);
-    public System.Void CompleteCaching();
-    private System.Void CompleteCaching(Unity.Entities.Entity entity);
-    private System.Void CompleteCaching(Unity.Entities.Entity entity, Game.Rendering.BatchMeshSystem+CacheInfo cacheInfo);
-    public System.Void CompleteMeshes();
-    private System.UInt64 EstimateSizeInMemory(Game.Prefabs.RenderPrefab meshPrefab);
-    private System.Void GenerateMeshes();
-    public Unity.Collections.NativeList&lt;System.Int32&gt; GetBatchPriority(Unity.Jobs.JobHandle&amp; dependencies);
-    public UnityEngine.Mesh GetDefaultMesh(Game.Prefabs.MeshType type, Game.Rendering.BatchFlags flags, Game.Rendering.GeneratedType generatedType);
-    public Unity.Collections.NativeList&lt;Game.Rendering.MeshLoadingState&gt; GetLoadingState(Unity.Jobs.JobHandle&amp; dependencies);
-    public System.Void GetShapeStats(System.UInt32&amp; allocatedSize, System.UInt32&amp; bufferSize, System.UInt32&amp; count);
-    private System.UInt64 GetSizeInMemory(Colossal.IO.AssetDatabase.GeometryAsset geometryAsset);
-    private System.Void LoadMeshes(System.UInt64&amp; loadingMemorySize, System.UInt64&amp; neededMemorySize);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnDestroy();
-    protected virtual System.Void OnUpdate();
-    public System.Void RemoveBatch(Game.Rendering.CustomBatch batch, System.Int32 batchIndex);
-    private System.Void RemoveShapeData(Game.Rendering.BatchMeshSystem+ShapeAllocation[] allocations);
-    public System.Void ReplaceMesh(Unity.Entities.Entity oldMesh, Unity.Entities.Entity newMesh);
-    private System.Void ResizeShapeBuffer();
-    public System.Void SetShapeParameters(UnityEngine.MaterialPropertyBlock customProps, Unity.Entities.Entity sharedMeshEntity, System.Int32 subMeshIndex);
-    private System.Void SetShapeParameters(Game.Rendering.CustomBatch batch, Game.Rendering.BatchMeshSystem+ShapeAllocation[] allocations);
-    private System.Void SetShapeParameters(UnityEngine.MaterialPropertyBlock customProps, Game.Rendering.BatchMeshSystem+ShapeAllocation allocation);
-    private System.Void TryCopyBuffer&lt;T&gt;(Unity.Entities.Entity source, Unity.Entities.Entity target);
-    private System.Void UncacheMeshData(Unity.Entities.Entity mesh, Game.Prefabs.MeshType type);
-    private System.Void UnloadMeshAndGeometryAssets();
-    private System.Void UnloadMeshes(System.UInt64 loadingMemorySize, System.UInt64 neededMemorySize);
-    public System.Void UpdateBatchPriorities();
-    public System.Void UpdateMeshes();
-    private System.Void UpdateMeshesForAddedInstances();
-}
-</code></pre>
+<p><strong>Assembly:</strong> Assembly-CSharp<br />
+<strong>Namespace:</strong> Game.Rendering</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> GameSystemBase</p>
+<p><strong>Summary:</strong><br />
+Manages loading, caching, generation and unloading of mesh data used by rendering batches (objects, nets, lanes, zones) in Cities: Skylines 2. Responsible for:
+- tracking per-batch loading priority and loading state,
+- requesting GeometryAsset data asynchronously,
+- caching mesh/geometry data into ECS buffers,
+- generating runtime Mesh instances for procedurally generated or base meshes,
+- providing default fallback meshes,
+- handling shape/blend-weight data in a global structured GraphicsBuffer,
+- enforcing a memory budget and optionally strict unloading rules.</p>
+<p>Intended for internal engine/mod interactions that add/remove batches, change priorities or query loading state. Exposes methods to get NativeLists used by scheduling jobs that compute priorities.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private System.UInt64 &lt;memoryBudget&gt;k__BackingField</code>  </li>
+<li>
+<p><code>private GeometryAssetLoadingSystem m_GeometryLoadingSystem</code><br />
+  Reference to the global system that performs asynchronous geometry asset loading requests.</p>
+</li>
+<li>
+<p><code>private BatchManagerSystem m_BatchManagerSystem</code><br />
+  Reference to the batch manager system used to set meshes/materials for managed batches.</p>
+</li>
+<li>
+<p><code>private PrefabSystem m_PrefabSystem</code><br />
+  Prefab system used to obtain RenderPrefab instances.</p>
+</li>
+<li>
+<p><code>private Mesh m_DefaultObjectMesh, m_DefaultBaseMesh, m_DefaultLaneMesh, m_ZoneBlockMesh, m_ZoneLodMesh, m_DefaultEdgeMesh, m_DefaultNodeMesh, m_DefaultRoundaboutMesh</code><br />
+  Cached default Mesh instances used as fallbacks when a real mesh is unloaded or not available.</p>
+</li>
+<li>
+<p><code>private List&lt;Mesh&gt; m_GeneratedMeshes</code><br />
+  Mesh objects generated at runtime (for generated base meshes, net compositions, etc).</p>
+</li>
+<li>
+<p><code>private List&lt;int&gt; m_FreeMeshIndices</code><br />
+  Pool indices for reuse of generated meshes.</p>
+</li>
+<li>
+<p><code>private HashSet&lt;GeometryAsset&gt; m_UnloadGeometryAssets</code><br />
+  GeometryAssets pending partial unload.</p>
+</li>
+<li>
+<p><code>private HashSet&lt;GeometryAsset&gt; m_LoadingGeometries</code><br />
+  GeometryAssets currently being requested/loaded.</p>
+</li>
+<li>
+<p><code>private Dictionary&lt;Entity, CacheInfo&gt; m_CachingMeshes</code><br />
+  Pending caching operations keyed by mesh entity (CacheInfo holds command buffer and JobHandle).</p>
+</li>
+<li>
+<p><code>private Dictionary&lt;Entity, MeshInfo&gt; m_MeshInfos</code><br />
+  Registered mesh metadata for entities (size in memory, generated mesh index, shape allocations, batch count, etc).</p>
+</li>
+<li>
+<p><code>private NativeList&lt;int&gt; m_BatchPriority</code><br />
+  NativeList of per-batch priority values (used by LoadingPriorityJob).</p>
+</li>
+<li>
+<p><code>private NativeList&lt;MeshLoadingState&gt; m_LoadingState</code><br />
+  NativeList of per-batch loading states (None, Pending, Loading, Copying, Complete, Obsolete, etc).</p>
+</li>
+<li>
+<p><code>private NativeList&lt;LoadingData&gt; m_LoadingData</code><br />
+  NativeList of batches queued to load (sorted by priority).</p>
+</li>
+<li>
+<p><code>private NativeList&lt;LoadingData&gt; m_UnloadingData</code><br />
+  NativeList of batches queued to unload (sorted by priority).</p>
+</li>
+<li>
+<p><code>private NativeList&lt;Entity&gt; m_GenerateMeshEntities</code><br />
+  Entities that need Mesh generation this frame (used to allocate writable mesh data).</p>
+</li>
+<li>
+<p><code>private NativeHeapAllocator m_ShapeAllocator</code><br />
+  Allocator used to store shape/blend-weight data blocks (units are 8-byte elements).</p>
+</li>
+<li>
+<p><code>private JobHandle m_PriorityDeps, m_StateDeps, m_GenerateMeshDeps</code><br />
+  Job handles used to track dependencies between scheduling of priority/state jobs and mesh generation.</p>
+</li>
+<li>
+<p><code>private GraphicsBuffer m_ShapeBuffer</code><br />
+  GPU-side structured buffer ("shapeBuffer") holding shape data (64-bit chunks).</p>
+</li>
+<li>
+<p><code>private Mesh.MeshDataArray m_GenerateMeshDataArray</code><br />
+  Temporary MeshDataArray for bulk mesh generation via Mesh.ApplyAndDisposeWritableMeshData.</p>
+</li>
+<li>
+<p><code>private int m_ShapeCount</code><br />
+  Count of shape allocations.</p>
+</li>
+<li>
+<p><code>private int m_PriorityLimit</code><br />
+  Runtime priority limit used to throttle loading when hitting memory budget.</p>
+</li>
+<li>
+<p><code>private bool m_AddMeshes</code><br />
+  Internal flag indicating there are batches ready to be "copied" into managed batches (i.e., meshes/materials to be set).</p>
+</li>
+<li>
+<p>constant fields: various strings and numeric limits (MAX_LOADING_COUNT = 30, MIN_BATCH_PRIORITY = -1000000, SHAPEBUFFER_ELEMENT_SIZE = 8, default memory budget = 1610612736, etc).</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private System.UInt64 &lt;memoryBudget&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private System.Boolean &lt;strictMemoryBudget&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean &lt;strictMemoryBudget&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private System.Boolean &lt;enableMeshLoading&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean &lt;enableMeshLoading&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private System.Boolean &lt;forceMeshUnloading&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean &lt;forceMeshUnloading&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private System.UInt64 &lt;totalSizeInMemory&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.UInt64 &lt;totalSizeInMemory&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private System.Int32 &lt;loadingRemaining&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 &lt;loadingRemaining&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private Colossal.IO.AssetDatabase.GeometryAssetLoadingSystem m_GeometryLoadingSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.IO.AssetDatabase.GeometryAssetLoadingSystem m_GeometryLoadingSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Rendering.BatchManagerSystem m_BatchManagerSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Rendering.BatchManagerSystem m_BatchManagerSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Prefabs.PrefabSystem m_PrefabSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Prefabs.PrefabSystem m_PrefabSystem;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.Mesh m_DefaultObjectMesh</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.Mesh m_DefaultObjectMesh;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.Mesh m_DefaultBaseMesh</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.Mesh m_DefaultBaseMesh;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.Mesh m_DefaultLaneMesh</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.Mesh m_DefaultLaneMesh;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.Mesh m_ZoneBlockMesh</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.Mesh m_ZoneBlockMesh;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.Mesh m_ZoneLodMesh</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.Mesh m_ZoneLodMesh;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.Mesh m_DefaultEdgeMesh</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.Mesh m_DefaultEdgeMesh;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.Mesh m_DefaultNodeMesh</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.Mesh m_DefaultNodeMesh;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.Mesh m_DefaultRoundaboutMesh</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.Mesh m_DefaultRoundaboutMesh;
-</code></pre>
-<ul>
-<li><code>private System.Collections.Generic.List&lt;UnityEngine.Mesh&gt; m_GeneratedMeshes</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Collections.Generic.List&lt;UnityEngine.Mesh&gt; m_GeneratedMeshes;
-</code></pre>
-<ul>
-<li><code>private System.Collections.Generic.List&lt;System.Int32&gt; m_FreeMeshIndices</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Collections.Generic.List&lt;System.Int32&gt; m_FreeMeshIndices;
-</code></pre>
-<ul>
-<li><code>private System.Collections.Generic.HashSet&lt;Colossal.IO.AssetDatabase.GeometryAsset&gt; m_UnloadGeometryAssets</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Collections.Generic.HashSet&lt;Colossal.IO.AssetDatabase.GeometryAsset&gt; m_UnloadGeometryAssets;
-</code></pre>
-<ul>
-<li><code>private System.Collections.Generic.HashSet&lt;Colossal.IO.AssetDatabase.GeometryAsset&gt; m_LoadingGeometries</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Collections.Generic.HashSet&lt;Colossal.IO.AssetDatabase.GeometryAsset&gt; m_LoadingGeometries;
-</code></pre>
-<ul>
-<li><code>private System.Collections.Generic.Dictionary&lt;Unity.Entities.Entity, Game.Rendering.BatchMeshSystem+CacheInfo&gt; m_CachingMeshes</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Collections.Generic.Dictionary&lt;Unity.Entities.Entity, Game.Rendering.BatchMeshSystem+CacheInfo&gt; m_CachingMeshes;
-</code></pre>
-<ul>
-<li><code>private System.Collections.Generic.Dictionary&lt;Unity.Entities.Entity, Game.Rendering.BatchMeshSystem+MeshInfo&gt; m_MeshInfos</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Collections.Generic.Dictionary&lt;Unity.Entities.Entity, Game.Rendering.BatchMeshSystem+MeshInfo&gt; m_MeshInfos;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeList&lt;System.Int32&gt; m_BatchPriority</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeList&lt;System.Int32&gt; m_BatchPriority;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeList&lt;Game.Rendering.MeshLoadingState&gt; m_LoadingState</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeList&lt;Game.Rendering.MeshLoadingState&gt; m_LoadingState;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeList&lt;Game.Rendering.BatchMeshSystem+LoadingData&gt; m_LoadingData</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeList&lt;Game.Rendering.BatchMeshSystem+LoadingData&gt; m_LoadingData;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeList&lt;Game.Rendering.BatchMeshSystem+LoadingData&gt; m_UnloadingData</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeList&lt;Game.Rendering.BatchMeshSystem+LoadingData&gt; m_UnloadingData;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeList&lt;Unity.Entities.Entity&gt; m_GenerateMeshEntities</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeList&lt;Unity.Entities.Entity&gt; m_GenerateMeshEntities;
-</code></pre>
-<ul>
-<li><code>private Colossal.Collections.NativeHeapAllocator m_ShapeAllocator</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.Collections.NativeHeapAllocator m_ShapeAllocator;
-</code></pre>
-<ul>
-<li><code>private Unity.Jobs.JobHandle m_PriorityDeps</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Jobs.JobHandle m_PriorityDeps;
-</code></pre>
-<ul>
-<li><code>private Unity.Jobs.JobHandle m_StateDeps</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Jobs.JobHandle m_StateDeps;
-</code></pre>
-<ul>
-<li><code>private Unity.Jobs.JobHandle m_GenerateMeshDeps</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Jobs.JobHandle m_GenerateMeshDeps;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.GraphicsBuffer m_ShapeBuffer</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.GraphicsBuffer m_ShapeBuffer;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.Mesh+MeshDataArray m_GenerateMeshDataArray</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.Mesh+MeshDataArray m_GenerateMeshDataArray;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_ShapeCount</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_ShapeCount;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_PriorityLimit</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_PriorityLimit;
-</code></pre>
-<ul>
-<li><code>private System.Boolean m_AddMeshes</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean m_AddMeshes;
-</code></pre>
-<ul>
-<li><code>public static const System.String kDisableMeshLoadingKey</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static const System.String kDisableMeshLoadingKey;
-</code></pre>
-<ul>
-<li><code>public static const System.String kForceMeshUnloadingKey</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static const System.String kForceMeshUnloadingKey;
-</code></pre>
-<ul>
-<li><code>public static const System.UInt32 MAX_LOADING_COUNT</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static const System.UInt32 MAX_LOADING_COUNT;
-</code></pre>
-<ul>
-<li><code>public static const System.Int32 MIN_BATCH_PRIORITY</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static const System.Int32 MIN_BATCH_PRIORITY;
-</code></pre>
-<ul>
-<li><code>public static const System.Int32 SHAPEBUFFER_ELEMENT_SIZE</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static const System.Int32 SHAPEBUFFER_ELEMENT_SIZE;
-</code></pre>
-<ul>
-<li><code>public static const System.UInt32 SHAPEBUFFER_MEMORY_DEFAULT</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static const System.UInt32 SHAPEBUFFER_MEMORY_DEFAULT;
-</code></pre>
-<ul>
-<li><code>public static const System.UInt32 SHAPEBUFFER_MEMORY_INCREMENT</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static const System.UInt32 SHAPEBUFFER_MEMORY_INCREMENT;
-</code></pre>
-<ul>
-<li><code>public static const System.UInt64 DEFAULT_MEMORY_BUDGET</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static const System.UInt64 DEFAULT_MEMORY_BUDGET;
-</code></pre>
-<ul>
-<li><code>public static const System.Boolean DEFAULT_MEMORY_BUDGET_IS_STRICT</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static const System.Boolean DEFAULT_MEMORY_BUDGET_IS_STRICT;
-</code></pre>
+<hr />
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>public System.UInt64 memoryBudget { get; set }</code>  </li>
+<li>
+<p><code>public ulong memoryBudget { get; set; }</code><br />
+  Total memory budget (bytes) used to decide when to unload meshes. Default: 1610612736 (1.5 GiB).</p>
+</li>
+<li>
+<p><code>public bool strictMemoryBudget { get; set; }</code><br />
+  If true, strict checks will prevent starting loads that would exceed the budget. Default: false.</p>
+</li>
+<li>
+<p><code>public bool enableMeshLoading { get; set; }</code><br />
+  If false, loading priority/job scheduling is disabled; prevents LoadingPriorityJob from running. Default: true.</p>
+</li>
+<li>
+<p><code>public bool forceMeshUnloading { get; set; }</code><br />
+  When true, unconditional unloading is allowed even if it would normally be avoided. Default: false.</p>
+</li>
+<li>
+<p><code>public ulong totalSizeInMemory { get; private set; }</code><br />
+  Total estimated memory used by cached mesh/geometry data (bytes).</p>
+</li>
+<li>
+<p><code>public int loadedMeshCount =&gt; m_MeshInfos.Count</code><br />
+  Number of distinct mesh entities currently tracked/loaded.</p>
+</li>
+<li>
+<p><code>public int loadingRemaining { get; private set; }</code><br />
+  Number of batches currently still queued for loading (m_LoadingData.Length at last evaluation).</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public System.UInt64 memoryBudget { get; set; }
-</code></pre>
-<ul>
-<li><code>public System.Boolean strictMemoryBudget { get; set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Boolean strictMemoryBudget { get; set; }
-</code></pre>
-<ul>
-<li><code>public System.Boolean enableMeshLoading { get; set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Boolean enableMeshLoading { get; set; }
-</code></pre>
-<ul>
-<li><code>public System.Boolean forceMeshUnloading { get; set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Boolean forceMeshUnloading { get; set; }
-</code></pre>
-<ul>
-<li><code>public System.UInt64 totalSizeInMemory { get; private set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.UInt64 totalSizeInMemory { get; private set; }
-</code></pre>
-<ul>
-<li><code>public System.Int32 loadedMeshCount { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Int32 loadedMeshCount { get; }
-</code></pre>
-<ul>
-<li><code>public System.Int32 loadingRemaining { get; private set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Int32 loadingRemaining { get; private set; }
-</code></pre>
+<hr />
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public BatchMeshSystem()</code>  </li>
+<li><code>public BatchMeshSystem()</code><br />
+  Default constructor. The system is [Preserve]-marked and does initialization in OnCreate. No runtime arguments.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public BatchMeshSystem()
-    {
-    }
-</code></pre>
+<hr />
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>public AddBatch(Game.Rendering.CustomBatch batch, System.Int32 batchIndex) : System.Void</code>  </li>
+<li>
+<p><code>protected override void OnCreate()</code><br />
+  Initializes internal systems and data structures: obtains GeometryAssetLoadingSystem, BatchManagerSystem and PrefabSystem; creates native lists, shape allocator and sets default memory settings. Should be called by the world when the system is created.</p>
+</li>
+<li>
+<p><code>protected override void OnDestroy()</code><br />
+  Cleans up meshes, generated mesh instances, pending caching operations, native lists, job handles (completes), shape buffer, and shape allocator. Ensures resources are freed when the system is removed.</p>
+</li>
+<li>
+<p><code>protected override void OnUpdate()</code><br />
+  Main update loop. Calls LoadMeshes, UnloadMeshes and GenerateMeshes each frame. Tracks loading/unloading memory accounting.</p>
+</li>
+<li>
+<p><code>public void ReplaceMesh(Entity oldMesh, Entity newMesh)</code><br />
+  Replace references from old mesh entity to new mesh entity. Copies buffer components (MeshVertex, MeshIndex, MeshNode, MeshNormal) and updates internal m_MeshInfos entry (if present). Updates ManagedBatches to replace mesh in existing batches. Completes and cleans up any pending caching for the old mesh.</p>
+</li>
+<li>
+<p><code>public Mesh GetDefaultMesh(MeshType type, BatchFlags flags, GeneratedType generatedType)</code><br />
+  Returns a default/fallback Mesh for given type/flags. Lazily creates default meshes (object, net edge/node/roundabout, lane, zone block/lod, object base).</p>
+</li>
+<li>
+<p><code>public NativeList&lt;int&gt; GetBatchPriority(out JobHandle dependencies)</code><br />
+  Returns the NativeList of batch priorities and the job handle that must be waited on (m_PriorityDeps) for correct access.</p>
+</li>
+<li>
+<p><code>public NativeList&lt;MeshLoadingState&gt; GetLoadingState(out JobHandle dependencies)</code><br />
+  Returns the NativeList of batch loading states and the job handle that must be waited on (m_StateDeps).</p>
+</li>
+<li>
+<p><code>public void AddBatchPriorityWriter(JobHandle dependencies)</code><br />
+  Register a job handle that writes to the priority list; stored in m_PriorityDeps.</p>
+</li>
+<li>
+<p><code>public void AddLoadingStateReader(JobHandle dependencies)</code><br />
+  Register a job handle that reads the loading state; stored in m_StateDeps.</p>
+</li>
+<li>
+<p><code>public void UpdateMeshes()</code><br />
+  Convenience: calls AddMeshes (to set meshes/materials on managed batches), UpdateMeshesForAddedInstances (for newly added instances) and UnloadMeshAndGeometryAssets(). Use this to force immediate mesh assignment steps.</p>
+</li>
+<li>
+<p><code>public void CompleteMeshes()</code><br />
+  Completes scheduled mesh generation jobs, constructs Mesh instances from writable mesh data and uploads them to GPU (optionally marking them non-readable). Called after GenerateMeshes scheduling to finalize generated meshes.</p>
+</li>
+<li>
+<p><code>public void UpdateBatchPriorities()</code><br />
+  Schedules LoadingPriorityJob (Burst-compiled) to update the lists m_LoadingData/m_UnloadingData and adjust priorities based on m_BatchPriority and m_LoadingState. Only runs when enableMeshLoading is true. Updates m_PriorityDeps and m_StateDeps.</p>
+</li>
+<li>
+<p><code>public void CompleteCaching()</code><br />
+  Iterates pending m_CachingMeshes and completes any caching whose JobHandle is done; plays back entity command buffers and queues geometry assets for partial unload if any. Removes completed cache entries.</p>
+</li>
+<li>
+<p><code>public void AddBatch(CustomBatch batch, int batchIndex)</code><br />
+  Register a new batch index in the internal lists; initializes m_BatchPriority and m_LoadingState at that index. Detects default/base flags to mark state as Default where appropriate.</p>
+</li>
+<li>
+<p><code>public void RemoveBatch(CustomBatch batch, int batchIndex)</code><br />
+  Removes a registered batch; updates/unregisters mesh infos and shape allocations, possibly destroys generated Mesh if last batch referencing it. Cleans up m_LoadingData/m_UnloadingData entries for that batch and resets lists at that index.</p>
+</li>
+<li>
+<p><code>public void UpdateMeshesForAddedInstances()</code><br />
+  Called to set meshes/materials for newly added instances. Iterates added instances from NativeBatchInstances and sets meshes/materials for managed batches if a loaded mesh info exists.</p>
+</li>
+<li>
+<p>(Private) LoadMeshes(ref ulong loadingMemorySize, ref ulong neededMemorySize)<br />
+  Main loader routine: iterates m_LoadingData and attempts to load/cache the referenced meshes/geometry. Requests GeometryAsset loads when needed (up to 30 concurrent), performs caching (CacheMeshData) when assets are ready, creates generated Mesh placeholders when required, and updates m_MeshInfos. Updates m_AddMeshes flag and memory accounting. Honors strictMemoryBudget when deciding to start loads.</p>
+</li>
+<li>
+<p>(Private) UnloadMeshes(ulong loadingMemorySize, ulong neededMemorySize)<br />
+  Performs unloading of meshes when memory budget would be exceeded (or when forceMeshUnloading). Iterates m_UnloadingData and replaces batch meshes with defaults, releases generated Mesh objects and shape allocations, and uncaches ECS mesh data as necessary.</p>
+</li>
+<li>
+<p>(Private) UnloadMeshAndGeometryAssets()<br />
+  Requests partial unload for any GeometryAssets queued in m_UnloadGeometryAssets.</p>
+</li>
+<li>
+<p>(Private) CacheMeshData(RenderPrefab meshPrefab, GeometryAsset asset, Entity entity, MeshType type)<br />
+  Begins an asynchronous cache operation for the given mesh entity depending on type (Object/Lane or Net). Adds a CacheInfo with an EntityCommandBuffer and JobHandle returned by helpers (ObjectMeshHelpers/NetMeshHelpers) and records it in m_CachingMeshes.</p>
+</li>
+<li>
+<p>(Private) CacheMeshData(Mesh mesh, Entity entity, MeshType type)<br />
+  Similar to above but for raw Mesh instances (non-prefab) — sets up caching helpers and stores command buffer for playback.</p>
+</li>
+<li>
+<p>(Private) UncacheMeshData(Entity mesh, MeshType type)<br />
+  Schedules uncache of ECS-mesh data via ObjectMeshHelpers/NetMeshHelpers and adds a cache entry to be completed later.</p>
+</li>
+<li>
+<p>(Private) GenerateMeshes()<br />
+  If there are m_GenerateMeshEntities, allocates writable MeshDataArray and schedules mesh generation via BatchMeshHelpers.GenerateMeshes. The job handle is stored in base.Dependency (system dependency) to integrate with ECS job system.</p>
+</li>
+<li>
+<p>(Private) AddMeshes()<br />
+  After caching/generation is done and m_AddMeshes is set, this assigns Mesh and Material to managed batches for every LoadingData entry in Copying state and marks them Complete.</p>
+</li>
+<li>
+<p>(Private) AddShapeData(RenderPrefab meshPrefab) -&gt; ShapeAllocation[]<br />
+  Reads shape (blend-weight) data from the GeometryAsset and allocates blocks from m_ShapeAllocator for each mesh in the prefab that has shape data. Writes shape data into the GPU shapeBuffer. Returns an array of ShapeAllocation for later SetShapeParameters.</p>
+</li>
+<li>
+<p>(Private) RemoveShapeData(ShapeAllocation[] allocations)<br />
+  Releases shape allocations back to m_ShapeAllocator and updates shape count.</p>
+</li>
+<li>
+<p><code>public void SetShapeParameters(MaterialPropertyBlock customProps, Entity sharedMeshEntity, int subMeshIndex)</code><br />
+  Look up stored ShapeAllocation for the mesh entity + submesh and write shape extents/stride/offset vectors into the material property block (two vectors). Used when rendering blend-shape / blend-weight requiring shapeBuffer access.</p>
+</li>
+<li>
+<p><code>public void GetShapeStats(out uint allocatedSize, out uint bufferSize, out uint count)</code><br />
+  Returns shape allocator metrics in bytes (allocated size and buffer size are returned as bytes: m_ShapeAllocator.UsedSpace * 8, Size * 8) and number of allocations.</p>
+</li>
+<li>
+<p>(Private) SetShapeParameters(CustomBatch batch, ShapeAllocation[] allocations)<br />
+  Helper to set batch.customProps and call BatchPropertyUpdated(batch) to push changes into native batch defaults.</p>
+</li>
+<li>
+<p>(Private) BatchPropertyUpdated(CustomBatch batch)<br />
+  Writes material defaults and property blocks into the managed batch system (gets property data, obtains correct optional properties, writes defaults into native batch defaults accessor.)</p>
+</li>
+<li>
+<p>(Private) ResizeShapeBuffer()<br />
+  Resizes the GPU structured buffer that backs shape data to match the NativeHeapAllocator size. Copies existing data when resizing up.</p>
+</li>
+<li>
+<p>(Private) EstimateSizeInMemory(RenderPrefab meshPrefab) -&gt; ulong<br />
+  Heuristic to estimate memory usage for a RenderPrefab (indexCount * index element size + vertexCount * per-vertex size). Used for budget estimation before geometry is fully loaded.</p>
+</li>
+<li>
+<p>(Private) GetSizeInMemory(GeometryAsset geometryAsset) -&gt; ulong<br />
+  Exact size measured from geometryAsset buffers (attrData.Length + indexData.Length).</p>
+</li>
+<li>
+<p>(Private) CompleteCaching(Entity entity), CompleteCaching(Entity, CacheInfo)<br />
+  Helpers that Complete() the cache job and playback the recorded EntityCommandBuffer; enqueue geometry asset for unloading if applicable.</p>
+</li>
+<li>
+<p>Several nested types:</p>
+</li>
+<li>LoadingData: simple (priority, batchIndex) with CompareTo to sort by descending priority.</li>
+<li>MeshInfo: stores per-entity mesh meta (prefab, shape allocations, estimated size, generated index, count of batches).</li>
+<li>CacheInfo: holds geometry asset, command buffer and dependency job handle for pending cache/un-cache operations.</li>
+<li>ShapeAllocation: describes allocation in the heap (NativeHeapBlock), stride, and extents used to set shader parameters.</li>
+<li>LoadingPriorityJob (Burst compiled IJob): updates priority/state lists each frame, moves batches between Pending/None/Obsolete/Complete and orders m_LoadingData / m_UnloadingData.</li>
 </ul>
-<pre><code class="language-csharp">public void AddBatch(CustomBatch batch, int batchIndex)
-    {
-        m_PriorityDeps.Complete();
-        while (m_BatchPriority.Length &lt;= batchIndex)
-        {
-            m_BatchPriority.Add(-1000000);
-        }
-        m_BatchPriority[batchIndex] = -1000000;
-        m_StateDeps.Complete();
-        while (m_LoadingState.Length &lt;= batchIndex)
-        {
-            m_LoadingState.Add(MeshLoadingState.None);
-        }
-        m_LoadingState[batchIndex] = MeshLoadingState.None;
-        if ((batch.sourceType &amp; (MeshType.Net | MeshType.Zone)) == 0)
-        {
-            if ((base.EntityManager.GetComponentData&lt;MeshData&gt;(batch.sourceMeshEntity).m_State &amp; MeshFlags.Default) != 0)
-            {
-                m_LoadingState[batchIndex] = MeshLoadingState.Default;
-            }
-        }
-        else if ((batch.sourceType &amp; MeshType.Net) != 0 &amp;&amp; (base.EntityManager.GetComponentData&lt;NetCompositionMeshData&gt;(batch.sourceMeshEntity).m_State &amp; MeshFlags.Default) != 0)
-        {
-            m_LoadingState[batchIndex] = MeshLoadingState.Default;
-        }
-    }
+<hr />
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Typical usage inside a mod/system initialization:
+var batchMeshSystem = World.GetOrCreateSystemManaged&lt;Game.Rendering.BatchMeshSystem&gt;();
+
+// Example: change memory budget and enable strict budget.
+batchMeshSystem.memoryBudget = 1024UL * 1024UL * 1024UL; // 1 GiB
+batchMeshSystem.strictMemoryBudget = true;
+
+// Scheduling: if you have jobs that compute priorities, write into batchMeshSystem.GetBatchPriority(...)
+// followed by calling batchMeshSystem.AddBatchPriorityWriter(myJobHandle) so the system knows about dependencies.
+
+// System OnCreate is preserved/overridden internally. Example override in a derived system:
+[Preserve]
+protected override void OnCreate()
+{
+    base.OnCreate();
+    // e.g. disable dynamic mesh loading if you want to keep everything resident (not recommended)
+    var batchMesh = World.GetOrCreateSystemManaged&lt;Game.Rendering.BatchMeshSystem&gt;();
+    batchMesh.enableMeshLoading = true;
+}
 </code></pre>
-<ul>
-<li><code>public AddBatchPriorityWriter(Unity.Jobs.JobHandle dependencies) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void AddBatchPriorityWriter(JobHandle dependencies)
-    {
-        m_PriorityDeps = dependencies;
-    }
-</code></pre>
-<ul>
-<li><code>private AddCaching(Unity.Entities.Entity entity, Game.Rendering.BatchMeshSystem+CacheInfo cacheInfo) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void AddCaching(Entity entity, CacheInfo cacheInfo)
-    {
-        CompleteCaching(entity);
-        m_CachingMeshes.Add(entity, cacheInfo);
-    }
-</code></pre>
-<ul>
-<li><code>public AddLoadingStateReader(Unity.Jobs.JobHandle dependencies) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void AddLoadingStateReader(JobHandle dependencies)
-    {
-        m_StateDeps = dependencies;
-    }
-</code></pre>
-<ul>
-<li><code>private AddMeshes() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void AddMeshes()
-    {
-        if (!m_AddMeshes)
-        {
-            return;
-        }
-        m_AddMeshes = false;
-        JobHandle dependencies;
-        NativeBatchGroups&lt;CullingData, GroupData, BatchData, InstanceData&gt; nativeBatchGroups = m_BatchManagerSystem.GetNativeBatchGroups(readOnly: false, out dependencies);
-        ManagedBatches&lt;OptionalProperties&gt; managedBatches = m_BatchManagerSystem.GetManagedBatches();
-        dependencies.Complete();
-        for (int i = 0; i &lt; m_LoadingData.Length; i++)
-        {
-            ref LoadingData reference = ref m_LoadingData.ElementAt(i);
-            ref MeshLoadingState reference2 = ref m_LoadingState.ElementAt(reference.m_BatchIndex);
-            if (reference2 != MeshLoadingState.Copying)
-            {
-                continue;
-            }
-            CustomBatch customBatch = (CustomBatch)managedBatches.GetBatch(reference.m_BatchIndex);
-            try
-            {
-                if (m_MeshInfos.TryGetValue(customBatch.sharedMeshEntity, out var value))
-                {
-                    if (customBatch.generatedType != GeneratedType.None)
-                    {
-                        if (value.m_GeneratedIndex &gt;= 0)
-                        {
-                            managedBatches.SetMesh(reference.m_BatchIndex, m_GeneratedMeshes[value.m_GeneratedIndex], customBatch.sourceSubMeshIndex, nativeBatchGroups);
-                        }
-                    }
-                    else if (value.m_Prefab != null)
-                    {
-                        int subMeshIndex;
-                        Mesh mesh = value.m_Prefab.ObtainMesh(customBatch.sourceSubMeshIndex, out subMeshIndex);
-                        managedBatches.SetMesh(reference.m_BatchIndex, mesh, subMeshIndex, nativeBatchGroups);
-                    }
-                }
-                if (customBatch.defaultMaterial != customBatch.loadedMaterial)
-                {
-                    managedBatches.SetMaterial(reference.m_BatchIndex, customBatch.loadedMaterial, nativeBatchGroups);
-                }
-            }
-            catch (Exception exception)
-            {
-                if (m_MeshInfos.TryGetValue(customBatch.sharedMeshEntity, out var value2) &amp;&amp; value2.m_Prefab != null)
-                {
-                    COSystemBase.baseLog.ErrorFormat(value2.m_Prefab, exception, &quot;Error when setting mesh for {0}&quot;, value2.m_Prefab.name);
-                }
-                else
-                {
-                    COSystemBase.baseLog.ErrorFormat(exception, &quot;Error when setting mesh for {0}&quot;, customBatch.sourceMeshEntity);
-                }
-            }
-            reference2 = MeshLoadingState.Complete;
-            m_LoadingData.RemoveAtSwapBack(i--);
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private AddShapeData(Game.Prefabs.RenderPrefab meshPrefab) : Game.Rendering.BatchMeshSystem+ShapeAllocation[]</code>  </li>
-</ul>
-<pre><code class="language-csharp">private ShapeAllocation[] AddShapeData(RenderPrefab meshPrefab)
-    {
-        GeometryAsset geometryAsset = meshPrefab.geometryAsset;
-        if (geometryAsset == null)
-        {
-            return null;
-        }
-        NativeArray&lt;byte&gt; shapeDataBuffer = geometryAsset.shapeDataBuffer;
-        if (!shapeDataBuffer.IsCreated)
-        {
-            return null;
-        }
-        NativeArray&lt;ulong&gt; data = shapeDataBuffer.Reinterpret&lt;ulong&gt;(1);
-        ShapeAllocation[] array = new ShapeAllocation[meshPrefab.meshCount];
-        for (int i = 0; i &lt; array.Length; i++)
-        {
-            int shapeDataSize = geometryAsset.GetShapeDataSize(i);
-            if (shapeDataSize != 0)
-            {
-                array[i].m_Stride = geometryAsset.GetVertexCount(i);
-                array[i].m_PositionExtent = geometryAsset.GetShapePositionExtent(i);
-                array[i].m_NormalExtent = geometryAsset.GetShapeNormalExtent(i);
-                uint num = (uint)shapeDataSize / 8u;
-                array[i].m_Allocation = m_ShapeAllocator.Allocate(num);
-                if (array[i].m_Allocation.Empty)
-                {
-                    uint num2 = 1048576u;
-                    num2 = (num2 + num - 1) / num2 * num2;
-                    m_ShapeAllocator.Resize(m_ShapeAllocator.Size + num2);
-                    array[i].m_Allocation = m_ShapeAllocator.Allocate(num);
-                }
-                m_ShapeCount++;
-            }
-        }
-        ResizeShapeBuffer();
-        for (int j = 0; j &lt; array.Length; j++)
-        {
-            int shapeStartOffset = geometryAsset.GetShapeStartOffset(j);
-            int shapeDataSize2 = geometryAsset.GetShapeDataSize(j);
-            if (shapeDataSize2 != 0)
-            {
-                m_ShapeBuffer.SetData(data, shapeStartOffset / 8, (int)array[j].m_Allocation.Begin, shapeDataSize2 / 8);
-            }
-        }
-        return array;
-    }
-</code></pre>
-<ul>
-<li><code>private BatchPropertyUpdated(Game.Rendering.CustomBatch batch) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void BatchPropertyUpdated(CustomBatch batch)
-    {
-        JobHandle dependencies;
-        NativeBatchGroups&lt;CullingData, GroupData, BatchData, InstanceData&gt; nativeBatchGroups = m_BatchManagerSystem.GetNativeBatchGroups(readOnly: false, out dependencies);
-        ManagedBatches&lt;OptionalProperties&gt; managedBatches = m_BatchManagerSystem.GetManagedBatches();
-        BatchFlags batchFlags = batch.sourceFlags;
-        if (!m_BatchManagerSystem.IsMotionVectorsEnabled())
-        {
-            batchFlags &amp;= ~BatchFlags.MotionVectors;
-        }
-        if (!m_BatchManagerSystem.IsLodFadeEnabled())
-        {
-            batchFlags &amp;= ~BatchFlags.LodFade;
-        }
-        OptionalProperties optionalProperties = new OptionalProperties(batchFlags, batch.sourceType);
-        dependencies.Complete();
-        NativeBatchProperties batchProperties = managedBatches.GetBatchProperties(batch.material.shader, optionalProperties);
-        WriteableBatchDefaultsAccessor batchDefaultsAccessor = nativeBatchGroups.GetBatchDefaultsAccessor(batch.groupIndex, batch.batchIndex);
-        if (batch.sourceSurface != null)
-        {
-            managedBatches.SetDefaults(ManagedBatchSystem.GetTemplate(batch.sourceSurface), batch.sourceSurface.floats, batch.sourceSurface.ints, batch.sourceSurface.vectors, batch.sourceSurface.colors, batch.customProps, batchProperties, batchDefaultsAccessor);
-        }
-        else
-        {
-            managedBatches.SetDefaults(batch.sourceMaterial, batch.customProps, batchProperties, batchDefaultsAccessor);
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private CacheMeshData(Game.Prefabs.RenderPrefab meshPrefab, Colossal.IO.AssetDatabase.GeometryAsset asset, Unity.Entities.Entity entity, Game.Prefabs.MeshType type) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void CacheMeshData(Mesh mesh, Entity entity, MeshType type)
-    {
-        switch (type)
-        {
-        case MeshType.Object:
-        case MeshType.Lane:
-        {
-            bool cacheNormals = false;
-            if (base.EntityManager.TryGetComponent&lt;MeshData&gt;(entity, out var component))
-            {
-                cacheNormals = (component.m_State &amp; MeshFlags.Base) != 0;
-            }
-            CacheInfo cacheInfo2 = new CacheInfo
-            {
-                m_CommandBuffer = new EntityCommandBuffer(Allocator.Persistent, PlaybackPolicy.SinglePlayback)
-            };
-            ObjectMeshHelpers.CacheMeshData(mesh, entity, cacheNormals, cacheInfo2.m_CommandBuffer);
-            AddCaching(entity, cacheInfo2);
-            break;
-        }
-        case MeshType.Net:
-        {
-            CacheInfo cacheInfo = new CacheInfo
-            {
-                m_CommandBuffer = new EntityCommandBuffer(Allocator.Persistent, PlaybackPolicy.SinglePlayback)
-            };
-            NetMeshHelpers.CacheMeshData(mesh, entity, base.EntityManager, cacheInfo.m_CommandBuffer);
-            AddCaching(entity, cacheInfo);
-            break;
-        }
-        case MeshType.Object | MeshType.Net:
-            break;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private CacheMeshData(UnityEngine.Mesh mesh, Unity.Entities.Entity entity, Game.Prefabs.MeshType type) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void CacheMeshData(Mesh mesh, Entity entity, MeshType type)
-    {
-        switch (type)
-        {
-        case MeshType.Object:
-        case MeshType.Lane:
-        {
-            bool cacheNormals = false;
-            if (base.EntityManager.TryGetComponent&lt;MeshData&gt;(entity, out var component))
-            {
-                cacheNormals = (component.m_State &amp; MeshFlags.Base) != 0;
-            }
-            CacheInfo cacheInfo2 = new CacheInfo
-            {
-                m_CommandBuffer = new EntityCommandBuffer(Allocator.Persistent, PlaybackPolicy.SinglePlayback)
-            };
-            ObjectMeshHelpers.CacheMeshData(mesh, entity, cacheNormals, cacheInfo2.m_CommandBuffer);
-            AddCaching(entity, cacheInfo2);
-            break;
-        }
-        case MeshType.Net:
-        {
-            CacheInfo cacheInfo = new CacheInfo
-            {
-                m_CommandBuffer = new EntityCommandBuffer(Allocator.Persistent, PlaybackPolicy.SinglePlayback)
-            };
-            NetMeshHelpers.CacheMeshData(mesh, entity, base.EntityManager, cacheInfo.m_CommandBuffer);
-            AddCaching(entity, cacheInfo);
-            break;
-        }
-        case MeshType.Object | MeshType.Net:
-            break;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public CompleteCaching() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void CompleteCaching(Entity entity, CacheInfo cacheInfo)
-    {
-        cacheInfo.m_Dependency.Complete();
-        if (base.EntityManager.Exists(entity))
-        {
-            cacheInfo.m_CommandBuffer.Playback(base.EntityManager);
-        }
-        cacheInfo.m_CommandBuffer.Dispose();
-        if (cacheInfo.m_GeometryAsset != null)
-        {
-            m_UnloadGeometryAssets.Add(cacheInfo.m_GeometryAsset);
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private CompleteCaching(Unity.Entities.Entity entity) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void CompleteCaching(Entity entity, CacheInfo cacheInfo)
-    {
-        cacheInfo.m_Dependency.Complete();
-        if (base.EntityManager.Exists(entity))
-        {
-            cacheInfo.m_CommandBuffer.Playback(base.EntityManager);
-        }
-        cacheInfo.m_CommandBuffer.Dispose();
-        if (cacheInfo.m_GeometryAsset != null)
-        {
-            m_UnloadGeometryAssets.Add(cacheInfo.m_GeometryAsset);
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private CompleteCaching(Unity.Entities.Entity entity, Game.Rendering.BatchMeshSystem+CacheInfo cacheInfo) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void CompleteCaching(Entity entity, CacheInfo cacheInfo)
-    {
-        cacheInfo.m_Dependency.Complete();
-        if (base.EntityManager.Exists(entity))
-        {
-            cacheInfo.m_CommandBuffer.Playback(base.EntityManager);
-        }
-        cacheInfo.m_CommandBuffer.Dispose();
-        if (cacheInfo.m_GeometryAsset != null)
-        {
-            m_UnloadGeometryAssets.Add(cacheInfo.m_GeometryAsset);
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public CompleteMeshes() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void CompleteMeshes()
-    {
-        if (!m_GenerateMeshEntities.IsCreated)
-        {
-            return;
-        }
-        Mesh[] array = new Mesh[m_GenerateMeshEntities.Length];
-        for (int i = 0; i &lt; m_GenerateMeshEntities.Length; i++)
-        {
-            Entity entity = m_GenerateMeshEntities[i];
-            if (m_MeshInfos.TryGetValue(entity, out var value))
-            {
-                Mesh mesh = m_GeneratedMeshes[value.m_GeneratedIndex];
-                Bounds bounds = default(Bounds);
-                NetCompositionMeshData component2;
-                if (base.EntityManager.TryGetComponent&lt;MeshData&gt;(entity, out var component))
-                {
-                    bounds.SetMinMax(component.m_Bounds.min, component.m_Bounds.max);
-                }
-                else if (base.EntityManager.TryGetComponent&lt;NetCompositionMeshData&gt;(entity, out component2))
-                {
-                    bounds.SetMinMax(new float3(component2.m_Width * -0.5f, component2.m_HeightRange.min, component2.m_Width * -0.5f) - 500f, new float3(component2.m_Width * 0.5f, component2.m_HeightRange.max, component2.m_Width * 0.5f) + 500f);
-                }
-                mesh.bounds = bounds;
-                array[i] = mesh;
-            }
-            else
-            {
-                array[i] = new Mesh();
-            }
-        }
-        m_GenerateMeshDeps.Complete();
-        Mesh.ApplyAndDisposeWritableMeshData(m_GenerateMeshDataArray, array, MeshUpdateFlags.DontValidateIndices | MeshUpdateFlags.DontRecalculateBounds);
-        for (int j = 0; j &lt; m_GenerateMeshEntities.Length; j++)
-        {
-            if (m_MeshInfos.ContainsKey(m_GenerateMeshEntities[j]))
-            {
-                array[j].UploadMeshData(markNoLongerReadable: true);
-            }
-            else
-            {
-                UnityEngine.Object.Destroy(array[j]);
-            }
-        }
-        m_GenerateMeshEntities.Dispose();
-    }
-</code></pre>
-<ul>
-<li><code>private EstimateSizeInMemory(Game.Prefabs.RenderPrefab meshPrefab) : System.UInt64</code>  </li>
-</ul>
-<pre><code class="language-csharp">private ulong EstimateSizeInMemory(RenderPrefab meshPrefab)
-    {
-        int indexCount = meshPrefab.indexCount;
-        int vertexCount = meshPrefab.vertexCount;
-        int num = ((vertexCount &gt; 65536) ? 4 : 2);
-        int num2 = 32;
-        return (ulong)((long)indexCount * (long)num + (long)vertexCount * (long)num2);
-    }
-</code></pre>
-<ul>
-<li><code>private GenerateMeshes() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void GenerateMeshes()
-    {
-        if (m_GenerateMeshEntities.IsCreated)
-        {
-            m_GenerateMeshDataArray = Mesh.AllocateWritableMeshData(m_GenerateMeshEntities.Length);
-            m_GenerateMeshDeps = BatchMeshHelpers.GenerateMeshes(this, m_GenerateMeshEntities, m_GenerateMeshDataArray, base.Dependency);
-            base.Dependency = m_GenerateMeshDeps;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public GetBatchPriority(Unity.Jobs.JobHandle&amp; dependencies) : Unity.Collections.NativeList&lt;System.Int32&gt;</code>  </li>
-</ul>
-<pre><code class="language-csharp">public NativeList&lt;int&gt; GetBatchPriority(out JobHandle dependencies)
-    {
-        dependencies = m_PriorityDeps;
-        return m_BatchPriority;
-    }
-</code></pre>
-<ul>
-<li><code>public GetDefaultMesh(Game.Prefabs.MeshType type, Game.Rendering.BatchFlags flags, Game.Rendering.GeneratedType generatedType) : UnityEngine.Mesh</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Mesh GetDefaultMesh(MeshType type, BatchFlags flags, GeneratedType generatedType)
-    {
-        switch (type)
-        {
-        case MeshType.Object:
-            if (generatedType == GeneratedType.ObjectBase)
-            {
-                if (m_DefaultBaseMesh == null)
-                {
-                    m_DefaultBaseMesh = ObjectMeshHelpers.CreateDefaultBaseMesh();
-                }
-                return m_DefaultBaseMesh;
-            }
-            if (m_DefaultObjectMesh == null)
-            {
-                m_DefaultObjectMesh = ObjectMeshHelpers.CreateDefaultMesh();
-            }
-            return m_DefaultObjectMesh;
-        case MeshType.Net:
-            if ((flags &amp; BatchFlags.Roundabout) != 0)
-            {
-                if (m_DefaultRoundaboutMesh == null)
-                {
-                    m_DefaultRoundaboutMesh = NetMeshHelpers.CreateDefaultRoundaboutMesh();
-                }
-                return m_DefaultRoundaboutMesh;
-            }
-            if ((flags &amp; BatchFlags.Node) != 0)
-            {
-                if (m_DefaultNodeMesh == null)
-                {
-                    m_DefaultNodeMesh = NetMeshHelpers.CreateDefaultNodeMesh();
-                }
-                return m_DefaultNodeMesh;
-            }
-            if (m_DefaultEdgeMesh == null)
-            {
-                m_DefaultEdgeMesh = NetMeshHelpers.CreateDefaultEdgeMesh();
-            }
-            return m_DefaultEdgeMesh;
-        case MeshType.Lane:
-            if (m_DefaultLaneMesh == null)
-            {
-                m_DefaultLaneMesh = NetMeshHelpers.CreateDefaultLaneMesh();
-            }
-            return m_DefaultLaneMesh;
-        case MeshType.Zone:
-            if ((flags &amp; BatchFlags.Lod) != 0)
-            {
-                if (m_ZoneLodMesh == null)
-                {
-                    m_ZoneLodMesh = ZoneMeshHelpers.CreateMesh(new int2(5, 3), 2);
-                }
-                return m_ZoneLodMesh;
-            }
-            if (m_ZoneBlockMesh == null)
-            {
-                m_ZoneBlockMesh = ZoneMeshHelpers.CreateMesh(new int2(10, 6), 1);
-            }
-            return m_ZoneBlockMesh;
-        default:
-            return null;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public GetLoadingState(Unity.Jobs.JobHandle&amp; dependencies) : Unity.Collections.NativeList&lt;Game.Rendering.MeshLoadingState&gt;</code>  </li>
-</ul>
-<pre><code class="language-csharp">public NativeList&lt;MeshLoadingState&gt; GetLoadingState(out JobHandle dependencies)
-    {
-        dependencies = m_StateDeps;
-        return m_LoadingState;
-    }
-</code></pre>
-<ul>
-<li><code>public GetShapeStats(System.UInt32&amp; allocatedSize, System.UInt32&amp; bufferSize, System.UInt32&amp; count) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void GetShapeStats(out uint allocatedSize, out uint bufferSize, out uint count)
-    {
-        allocatedSize = m_ShapeAllocator.UsedSpace * 8;
-        bufferSize = m_ShapeAllocator.Size * 8;
-        count = (uint)m_ShapeCount;
-    }
-</code></pre>
-<ul>
-<li><code>private GetSizeInMemory(Colossal.IO.AssetDatabase.GeometryAsset geometryAsset) : System.UInt64</code>  </li>
-</ul>
-<pre><code class="language-csharp">private ulong GetSizeInMemory(GeometryAsset geometryAsset)
-    {
-        return (ulong)geometryAsset.data.attrData.Length + (ulong)geometryAsset.data.indexData.Length;
-    }
-</code></pre>
-<ul>
-<li><code>private LoadMeshes(System.UInt64&amp; loadingMemorySize, System.UInt64&amp; neededMemorySize) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void LoadMeshes(ref ulong loadingMemorySize, ref ulong neededMemorySize)
-    {
-        m_PriorityLimit = 0;
-        m_StateDeps.Complete();
-        loadingRemaining = m_LoadingData.Length;
-        if (loadingRemaining == 0)
-        {
-            return;
-        }
-        ManagedBatches&lt;OptionalProperties&gt; managedBatches = m_BatchManagerSystem.GetManagedBatches();
-        int num = 0;
-        foreach (GeometryAsset item in m_LoadingGeometries)
-        {
-            if (!item.loading.m_AsyncLoadingDone)
-            {
-                num++;
-            }
-        }
-        for (int i = 0; i &lt; m_LoadingData.Length; i++)
-        {
-            ref LoadingData reference = ref m_LoadingData.ElementAt(i);
-            ref MeshLoadingState reference2 = ref m_LoadingState.ElementAt(reference.m_BatchIndex);
-            if (reference2 != MeshLoadingState.Pending &amp;&amp; reference2 != MeshLoadingState.Loading)
-            {
-                continue;
-            }
-            CustomBatch customBatch = (CustomBatch)managedBatches.GetBatch(reference.m_BatchIndex);
-            if (m_CachingMeshes.ContainsKey(customBatch.sharedMeshEntity))
-            {
-                continue;
-            }
-            if (m_MeshInfos.TryGetValue(customBatch.sharedMeshEntity, out var value))
-            {
-                value.m_BatchCount++;
-                m_MeshInfos[customBatch.sharedMeshEntity] = value;
-                reference2 = MeshLoadingState.Copying;
-                m_AddMeshes = true;
-                if ((customBatch.sourceFlags &amp; BatchFlags.BlendWeights) != 0)
-                {
-                    SetShapeParameters(customBatch, value.m_ShapeAllocations);
-                }
-                continue;
-            }
-            value.m_Prefab = null;
-            value.m_ShapeAllocations = null;
-            value.m_SizeInMemory = 0uL;
-            value.m_GeneratedIndex = -1;
-            value.m_BatchCount = 1;
-            bool flag = false;
-            bool flag2 = false;
-            string name = null;
-            RenderPrefab prefab2;
-            if (base.EntityManager.TryGetBuffer(customBatch.sharedMeshEntity, isReadOnly: true, out DynamicBuffer&lt;NetCompositionPiece&gt; buffer))
-            {
-                flag2 = true;
-                if (reference2 == MeshLoadingState.Pending)
-                {
-                    if (m_PriorityLimit &gt; reference.m_Priority)
-                    {
-                        loadingRemaining--;
-                        continue;
-                    }
-                    ulong num2 = 0uL;
-                    for (int j = 0; j &lt; buffer.Length; j++)
-                    {
-                        NetCompositionPiece netCompositionPiece = buffer[j];
-                        MeshInfo value2 = default(MeshInfo);
-                        if (base.EntityManager.HasComponent&lt;MeshVertex&gt;(netCompositionPiece.m_Piece))
-                        {
-                            if (m_MeshInfos.TryGetValue(netCompositionPiece.m_Piece, out value2))
-                            {
-                                num2 += value2.m_SizeInMemory;
-                            }
-                            continue;
-                        }
-                        if (m_MeshInfos.TryGetValue(netCompositionPiece.m_Piece, out value2))
-                        {
-                            num2 += value2.m_SizeInMemory;
-                            continue;
-                        }
-                        RenderPrefab prefab = m_PrefabSystem.GetPrefab&lt;RenderPrefab&gt;(netCompositionPiece.m_Piece);
-                        ulong num3 = EstimateSizeInMemory(prefab);
-                        num2 += num3;
-                        if (!m_CachingMeshes.ContainsKey(netCompositionPiece.m_Piece))
-                        {
-                            num2 += num3;
-                        }
-                    }
-                    if (strictMemoryBudget &amp;&amp; totalSizeInMemory + loadingMemorySize + num2 &gt; memoryBudget)
-                    {
-                        neededMemorySize += num2;
-                        m_PriorityLimit = reference.m_Priority;
-                        loadingRemaining--;
-                        continue;
-                    }
-                    reference2 = MeshLoadingState.Loading;
-                }
-                for (int k = 0; k &lt; buffer.Length; k++)
-                {
-                    NetCompositionPiece netCompositionPiece2 = buffer[k];
-                    MeshInfo value3 = default(MeshInfo);
-                    if (base.EntityManager.HasComponent&lt;MeshVertex&gt;(netCompositionPiece2.m_Piece))
-                    {
-                        if (m_MeshInfos.TryGetValue(netCompositionPiece2.m_Piece, out value3))
-                        {
-                            value.m_SizeInMemory += value3.m_SizeInMemory;
-                        }
-                        continue;
-                    }
-                    flag = true;
-                    if (m_MeshInfos.TryGetValue(netCompositionPiece2.m_Piece, out value3))
-                    {
-                        value.m_SizeInMemory += value3.m_SizeInMemory;
-                        continue;
-                    }
-                    RenderPrefab renderPrefab = (value3.m_Prefab = m_PrefabSystem.GetPrefab&lt;RenderPrefab&gt;(netCompositionPiece2.m_Piece));
-                    value3.m_SizeInMemory = EstimateSizeInMemory(renderPrefab);
-                    value3.m_GeneratedIndex = -1;
-                    value3.m_BatchCount = 0;
-                    value.m_SizeInMemory += value3.m_SizeInMemory;
-                    if (m_CachingMeshes.ContainsKey(netCompositionPiece2.m_Piece))
-                    {
-                        continue;
-                    }
-                    uint mask = 23u;
-                    GeometryAsset geometryAsset = renderPrefab.geometryAsset;
-                    if (geometryAsset != null)
-                    {
-                        if (!m_LoadingGeometries.Contains(geometryAsset))
-                        {
-                            if ((long)num &lt; 30L)
-                            {
-                                m_LoadingGeometries.Add(geometryAsset);
-                                geometryAsset.RequestDataAsync(m_GeometryLoadingSystem, mask);
-                                num++;
-                            }
-                            loadingMemorySize += value3.m_SizeInMemory;
-                            continue;
-                        }
-                        if (!geometryAsset.loading.m_AsyncLoadingDone)
-                        {
-                            loadingMemorySize += value3.m_SizeInMemory;
-                            continue;
-                        }
-                        try
-                        {
-                            CacheMeshData(renderPrefab, geometryAsset, netCompositionPiece2.m_Piece, customBatch.sourceType);
-                        }
-                        catch (Exception ex)
-                        {
-                            UnityEngine.Debug.LogError(&quot;Error when accessing mesh data (&quot; + renderPrefab.name + &quot;):\n&quot; + ex.Message, renderPrefab);
-                        }
-                        value.m_SizeInMemory -= value3.m_SizeInMemory;
-                        value3.m_SizeInMemory = GetSizeInMemory(geometryAsset);
-                        value.m_SizeInMemory += value3.m_SizeInMemory;
-                        m_LoadingGeometries.Remove(geometryAsset);
-                    }
-                    if (!m_CachingMeshes.ContainsKey(netCompositionPiece2.m_Piece) &amp;&amp; geometryAsset != null)
-                    {
-                        m_UnloadGeometryAssets.Add(geometryAsset);
-                    }
-                    totalSizeInMemory += value3.m_SizeInMemory;
-                    m_MeshInfos.Add(netCompositionPiece2.m_Piece, value3);
-                }
-                if (flag)
-                {
-                    loadingMemorySize += value.m_SizeInMemory;
-                    continue;
-                }
-                for (int l = 0; l &lt; buffer.Length; l++)
-                {
-                    NetCompositionPiece netCompositionPiece3 = buffer[l];
-                    if (m_MeshInfos.TryGetValue(netCompositionPiece3.m_Piece, out var value4))
-                    {
-                        value4.m_BatchCount++;
-                        m_MeshInfos[netCompositionPiece3.m_Piece] = value4;
-                    }
-                }
-                if (flag2)
-                {
-                    name = $&quot;Net composition {customBatch.sharedMeshEntity.Index}&quot;;
-                }
-            }
-            else if (m_PrefabSystem.TryGetPrefab&lt;RenderPrefab&gt;(customBatch.sharedMeshEntity, out prefab2) &amp;&amp; prefab2 != null)
-            {
-                value.m_Prefab = prefab2;
-                value.m_SizeInMemory = EstimateSizeInMemory(prefab2);
-                GeometryAsset geometryAsset2 = prefab2.geometryAsset;
-                MeshData componentData = base.EntityManager.GetComponentData&lt;MeshData&gt;(customBatch.sharedMeshEntity);
-                flag = !base.EntityManager.HasComponent&lt;MeshVertex&gt;(customBatch.sharedMeshEntity);
-                flag2 = (componentData.m_State &amp; MeshFlags.Base) != 0;
-                if (flag)
-                {
-                    if (geometryAsset2 != null)
-                    {
-                        if (!m_LoadingGeometries.Contains(geometryAsset2))
-                        {
-                            if (m_PriorityLimit &gt; reference.m_Priority)
-                            {
-                                loadingRemaining--;
-                            }
-                            else if (strictMemoryBudget &amp;&amp; totalSizeInMemory + loadingMemorySize + value.m_SizeInMemory &gt; memoryBudget)
-                            {
-                                neededMemorySize += value.m_SizeInMemory;
-                                m_PriorityLimit = reference.m_Priority;
-                                loadingRemaining--;
-                            }
-                            else if ((long)num &lt; 30L)
-                            {
-                                loadingMemorySize += value.m_SizeInMemory;
-                                m_LoadingGeometries.Add(geometryAsset2);
-                                geometryAsset2.RequestDataAsync(m_GeometryLoadingSystem, 16383u);
-                                reference2 = MeshLoadingState.Loading;
-                                num++;
-                            }
-                            continue;
-                        }
-                        if (!geometryAsset2.loading.m_AsyncLoadingDone)
-                        {
-                            loadingMemorySize += value.m_SizeInMemory;
-                            continue;
-                        }
-                        try
-                        {
-                            CacheMeshData(prefab2, geometryAsset2, customBatch.sharedMeshEntity, customBatch.sourceType);
-                        }
-                        catch (Exception ex2)
-                        {
-                            UnityEngine.Debug.LogError(&quot;Error when accessing mesh data (&quot; + value.m_Prefab.name + &quot;):\n&quot; + ex2.Message, value.m_Prefab);
-                        }
-                        value.m_SizeInMemory = GetSizeInMemory(geometryAsset2);
-                        m_LoadingGeometries.Remove(geometryAsset2);
-                    }
-                }
-                else if (geometryAsset2 != null)
-                {
-                    if (geometryAsset2.data.attrData.IsCreated)
-                    {
-                        value.m_SizeInMemory = GetSizeInMemory(geometryAsset2);
-                    }
-                    else
-                    {
-                        UnityEngine.Debug.Log(&quot;Geometry asset not loaded: &quot; + geometryAsset2.name);
-                    }
-                }
-                if (flag2 &amp;&amp; flag)
-                {
-                    loadingMemorySize += value.m_SizeInMemory;
-                    continue;
-                }
-                if (!m_CachingMeshes.ContainsKey(customBatch.sharedMeshEntity) &amp;&amp; geometryAsset2 != null)
-                {
-                    m_UnloadGeometryAssets.Add(geometryAsset2);
-                }
-                if (flag2 &amp;&amp; geometryAsset2 != null)
-                {
-                    name = string.Concat(&quot;Generated base (&quot; + geometryAsset2.name, &quot;)&quot;);
-                }
-            }
-            if (flag2)
-            {
-                Mesh mesh = new Mesh
-                {
-                    name = name
-                };
-                if (m_FreeMeshIndices.Count != 0)
-                {
-                    value.m_GeneratedIndex = m_FreeMeshIndices[m_FreeMeshIndices.Count - 1];
-                    m_FreeMeshIndices.RemoveAt(m_FreeMeshIndices.Count - 1);
-                    m_GeneratedMeshes[value.m_GeneratedIndex] = mesh;
-                }
-                else
-                {
-                    value.m_GeneratedIndex = m_GeneratedMeshes.Count;
-                    m_GeneratedMeshes.Add(mesh);
-                }
-                if (!m_GenerateMeshEntities.IsCreated)
-                {
-                    m_GenerateMeshEntities = new NativeList&lt;Entity&gt;(30, Allocator.TempJob);
-                }
-                m_GenerateMeshEntities.Add(customBatch.sharedMeshEntity);
-            }
-            if ((customBatch.sourceFlags &amp; BatchFlags.BlendWeights) != 0)
-            {
-                value.m_ShapeAllocations = AddShapeData(value.m_Prefab);
-                SetShapeParameters(customBatch, value.m_ShapeAllocations);
-            }
-            totalSizeInMemory += value.m_SizeInMemory;
-            m_MeshInfos.Add(customBatch.sharedMeshEntity, value);
-            reference2 = MeshLoadingState.Copying;
-            m_AddMeshes = true;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_GeometryLoadingSystem = base.World.GetOrCreateSystemManaged&lt;GeometryAssetLoadingSystem&gt;();
-        m_BatchManagerSystem = base.World.GetOrCreateSystemManaged&lt;BatchManagerSystem&gt;();
-        m_PrefabSystem = base.World.GetOrCreateSystemManaged&lt;PrefabSystem&gt;();
-        m_GeneratedMeshes = new List&lt;Mesh&gt;();
-        m_FreeMeshIndices = new List&lt;int&gt;();
-        m_UnloadGeometryAssets = new HashSet&lt;GeometryAsset&gt;();
-        m_LoadingGeometries = new HashSet&lt;GeometryAsset&gt;();
-        m_CachingMeshes = new Dictionary&lt;Entity, CacheInfo&gt;();
-        m_MeshInfos = new Dictionary&lt;Entity, MeshInfo&gt;();
-        m_BatchPriority = new NativeList&lt;int&gt;(100, Allocator.Persistent);
-        m_LoadingState = new NativeList&lt;MeshLoadingState&gt;(100, Allocator.Persistent);
-        m_LoadingData = new NativeList&lt;LoadingData&gt;(100, Allocator.Persistent);
-        m_UnloadingData = new NativeList&lt;LoadingData&gt;(100, Allocator.Persistent);
-        m_ShapeAllocator = new NativeHeapAllocator(4194304u, 1u, Allocator.Persistent);
-        m_ShapeAllocator.Allocate(1u);
-        ResizeShapeBuffer();
-        memoryBudget = 1610612736uL;
-        strictMemoryBudget = false;
-        enableMeshLoading = true;
-        forceMeshUnloading = false;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnDestroy() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnDestroy()
-    {
-        if (m_DefaultObjectMesh != null)
-        {
-            UnityEngine.Object.Destroy(m_DefaultObjectMesh);
-        }
-        if (m_DefaultBaseMesh != null)
-        {
-            UnityEngine.Object.Destroy(m_DefaultBaseMesh);
-        }
-        if (m_DefaultLaneMesh != null)
-        {
-            UnityEngine.Object.Destroy(m_DefaultLaneMesh);
-        }
-        if (m_ZoneBlockMesh != null)
-        {
-            UnityEngine.Object.Destroy(m_ZoneBlockMesh);
-        }
-        if (m_ZoneLodMesh != null)
-        {
-            UnityEngine.Object.Destroy(m_ZoneLodMesh);
-        }
-        if (m_DefaultEdgeMesh != null)
-        {
-            UnityEngine.Object.Destroy(m_DefaultEdgeMesh);
-        }
-        if (m_DefaultNodeMesh != null)
-        {
-            UnityEngine.Object.Destroy(m_DefaultNodeMesh);
-        }
-        if (m_DefaultRoundaboutMesh != null)
-        {
-            UnityEngine.Object.Destroy(m_DefaultRoundaboutMesh);
-        }
-        for (int i = 0; i &lt; m_GeneratedMeshes.Count; i++)
-        {
-            UnityEngine.Object.Destroy(m_GeneratedMeshes[i]);
-        }
-        m_GeneratedMeshes.Clear();
-        foreach (GeometryAsset item in m_LoadingGeometries)
-        {
-            item.UnloadPartial();
-        }
-        m_LoadingGeometries.Clear();
-        UnloadMeshAndGeometryAssets();
-        m_PriorityDeps.Complete();
-        m_StateDeps.Complete();
-        foreach (KeyValuePair&lt;Entity, CacheInfo&gt; item2 in m_CachingMeshes)
-        {
-            item2.Value.m_Dependency.Complete();
-            item2.Value.m_CommandBuffer.Dispose();
-            if (item2.Value.m_GeometryAsset != null)
-            {
-                item2.Value.m_GeometryAsset.UnloadPartial();
-            }
-        }
-        foreach (KeyValuePair&lt;Entity, MeshInfo&gt; item3 in m_MeshInfos)
-        {
-            if (item3.Value.m_Prefab != null)
-            {
-                for (int j = 0; j &lt; item3.Value.m_BatchCount; j++)
-                {
-                    item3.Value.m_Prefab.ReleaseMeshes();
-                }
-            }
-        }
-        if (m_ShapeBuffer != null)
-        {
-            m_ShapeBuffer.Release();
-            m_ShapeBuffer = null;
-        }
-        if (m_GenerateMeshEntities.IsCreated)
-        {
-            m_GenerateMeshDeps.Complete();
-            m_GenerateMeshEntities.Dispose();
-            m_GenerateMeshDataArray.Dispose();
-        }
-        m_BatchPriority.Dispose();
-        m_LoadingState.Dispose();
-        m_LoadingData.Dispose();
-        m_UnloadingData.Dispose();
-        m_ShapeAllocator.Dispose();
-        base.OnDestroy();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        ulong loadingMemorySize = 0uL;
-        ulong neededMemorySize = 0uL;
-        LoadMeshes(ref loadingMemorySize, ref neededMemorySize);
-        UnloadMeshes(loadingMemorySize, neededMemorySize);
-        GenerateMeshes();
-    }
-</code></pre>
-<ul>
-<li><code>public RemoveBatch(Game.Rendering.CustomBatch batch, System.Int32 batchIndex) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void RemoveBatch(CustomBatch batch, int batchIndex)
-    {
-        m_StateDeps.Complete();
-        MeshLoadingState meshLoadingState = m_LoadingState[batchIndex];
-        if ((meshLoadingState == MeshLoadingState.Copying || meshLoadingState == MeshLoadingState.Complete || meshLoadingState == MeshLoadingState.Obsolete) &amp;&amp; m_MeshInfos.TryGetValue(batch.sharedMeshEntity, out var value))
-        {
-            if (value.m_BatchCount &gt; 1)
-            {
-                value.m_BatchCount--;
-                m_MeshInfos[batch.sharedMeshEntity] = value;
-            }
-            else
-            {
-                if (value.m_GeneratedIndex &gt;= 0)
-                {
-                    UnityEngine.Object.Destroy(m_GeneratedMeshes[value.m_GeneratedIndex]);
-                    m_GeneratedMeshes[value.m_GeneratedIndex] = null;
-                    if (value.m_GeneratedIndex == m_GeneratedMeshes.Count - 1)
-                    {
-                        m_GeneratedMeshes.RemoveAt(value.m_GeneratedIndex);
-                    }
-                    else
-                    {
-                        m_FreeMeshIndices.Add(value.m_GeneratedIndex);
-                    }
-                }
-                RemoveShapeData(value.m_ShapeAllocations);
-                UncacheMeshData(batch.sharedMeshEntity, batch.sourceType);
-                totalSizeInMemory -= value.m_SizeInMemory;
-                m_MeshInfos.Remove(batch.sharedMeshEntity);
-            }
-            if (batch.generatedType == GeneratedType.None &amp;&amp; value.m_Prefab != null)
-            {
-                value.m_Prefab.ReleaseMeshes();
-            }
-        }
-        if (meshLoadingState == MeshLoadingState.Pending || meshLoadingState == MeshLoadingState.Loading || meshLoadingState == MeshLoadingState.Copying)
-        {
-            for (int i = 0; i &lt; m_LoadingData.Length; i++)
-            {
-                if (m_LoadingData.ElementAt(i).m_BatchIndex == batchIndex)
-                {
-                    m_LoadingData.RemoveAt(i);
-                    break;
-                }
-            }
-        }
-        if (meshLoadingState == MeshLoadingState.Obsolete)
-        {
-            for (int j = 0; j &lt; m_UnloadingData.Length; j++)
-            {
-                if (m_UnloadingData.ElementAt(j).m_BatchIndex == batchIndex)
-                {
-                    m_UnloadingData.RemoveAt(j);
-                    break;
-                }
-            }
-        }
-        if (batchIndex == m_LoadingState.Length - 1)
-        {
-            m_LoadingState.RemoveAt(batchIndex);
-        }
-        else
-        {
-            m_LoadingState[batchIndex] = MeshLoadingState.None;
-        }
-        m_PriorityDeps.Complete();
-        if (batchIndex == m_BatchPriority.Length - 1)
-        {
-            m_BatchPriority.RemoveAt(batchIndex);
-        }
-        else
-        {
-            m_BatchPriority[batchIndex] = -1000000;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private RemoveShapeData(Game.Rendering.BatchMeshSystem+ShapeAllocation[] allocations) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void RemoveShapeData(ShapeAllocation[] allocations)
-    {
-        if (allocations == null)
-        {
-            return;
-        }
-        for (int i = 0; i &lt; allocations.Length; i++)
-        {
-            ShapeAllocation shapeAllocation = allocations[i];
-            if (!shapeAllocation.m_Allocation.Empty)
-            {
-                m_ShapeAllocator.Release(shapeAllocation.m_Allocation);
-                m_ShapeCount--;
-            }
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public ReplaceMesh(Unity.Entities.Entity oldMesh, Unity.Entities.Entity newMesh) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void ReplaceMesh(Entity oldMesh, Entity newMesh)
-    {
-        if (m_GenerateMeshEntities.IsCreated)
-        {
-            for (int i = 0; i &lt; m_GenerateMeshEntities.Length; i++)
-            {
-                if (m_GenerateMeshEntities[i] == oldMesh)
-                {
-                    m_GenerateMeshEntities[i] = newMesh;
-                    break;
-                }
-            }
-        }
-        CompleteCaching(oldMesh);
-        TryCopyBuffer&lt;MeshVertex&gt;(oldMesh, newMesh);
-        TryCopyBuffer&lt;MeshIndex&gt;(oldMesh, newMesh);
-        TryCopyBuffer&lt;MeshNode&gt;(oldMesh, newMesh);
-        TryCopyBuffer&lt;MeshNormal&gt;(oldMesh, newMesh);
-        if (m_MeshInfos.TryGetValue(oldMesh, out var value))
-        {
-            value.m_Prefab = m_PrefabSystem.GetPrefab&lt;RenderPrefab&gt;(newMesh);
-            m_MeshInfos.Add(newMesh, value);
-            m_MeshInfos.Remove(oldMesh);
-        }
-        ManagedBatches&lt;OptionalProperties&gt; managedBatches = m_BatchManagerSystem.GetManagedBatches();
-        int batchCount = managedBatches.BatchCount;
-        for (int j = 0; j &lt; batchCount; j++)
-        {
-            ((CustomBatch)managedBatches.GetBatch(j))?.ReplaceMesh(oldMesh, newMesh);
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private ResizeShapeBuffer() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void ResizeShapeBuffer()
-    {
-        int num = ((m_ShapeBuffer != null) ? m_ShapeBuffer.count : 0);
-        int size = (int)m_ShapeAllocator.Size;
-        if (num != size)
-        {
-            GraphicsBuffer graphicsBuffer = new GraphicsBuffer(GraphicsBuffer.Target.Structured, size, 8)
-            {
-                name = &quot;Shape buffer&quot;
-            };
-            Shader.SetGlobalBuffer(&quot;shapeBuffer&quot;, graphicsBuffer);
-            if (m_ShapeBuffer != null)
-            {
-                ulong[] data = new ulong[num];
-                m_ShapeBuffer.GetData(data);
-                graphicsBuffer.SetData(data, 0, 0, num);
-                m_ShapeBuffer.Release();
-            }
-            else
-            {
-                graphicsBuffer.SetData(new ulong[1], 0, 0, 1);
-            }
-            m_ShapeBuffer = graphicsBuffer;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public SetShapeParameters(UnityEngine.MaterialPropertyBlock customProps, Unity.Entities.Entity sharedMeshEntity, System.Int32 subMeshIndex) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void SetShapeParameters(MaterialPropertyBlock customProps, ShapeAllocation allocation)
-    {
-        PropertyData propertyData = m_BatchManagerSystem.GetPropertyData(MaterialProperty.ShapeParameters1);
-        PropertyData propertyData2 = m_BatchManagerSystem.GetPropertyData(MaterialProperty.ShapeParameters2);
-        Vector4 zero = Vector4.zero;
-        Vector4 zero2 = Vector4.zero;
-        if (!allocation.m_Allocation.Empty)
-        {
-            zero.x = allocation.m_PositionExtent.x;
-            zero.y = allocation.m_PositionExtent.y;
-            zero.z = allocation.m_PositionExtent.z;
-            zero.w = math.asfloat(allocation.m_Allocation.Begin);
-            zero2.x = allocation.m_NormalExtent.x;
-            zero2.y = allocation.m_NormalExtent.y;
-            zero2.z = allocation.m_NormalExtent.z;
-            zero2.w = math.asfloat(allocation.m_Stride);
-        }
-        customProps.SetVector(propertyData.m_NameID, zero);
-        customProps.SetVector(propertyData2.m_NameID, zero2);
-    }
-</code></pre>
-<ul>
-<li><code>private SetShapeParameters(Game.Rendering.CustomBatch batch, Game.Rendering.BatchMeshSystem+ShapeAllocation[] allocations) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void SetShapeParameters(MaterialPropertyBlock customProps, ShapeAllocation allocation)
-    {
-        PropertyData propertyData = m_BatchManagerSystem.GetPropertyData(MaterialProperty.ShapeParameters1);
-        PropertyData propertyData2 = m_BatchManagerSystem.GetPropertyData(MaterialProperty.ShapeParameters2);
-        Vector4 zero = Vector4.zero;
-        Vector4 zero2 = Vector4.zero;
-        if (!allocation.m_Allocation.Empty)
-        {
-            zero.x = allocation.m_PositionExtent.x;
-            zero.y = allocation.m_PositionExtent.y;
-            zero.z = allocation.m_PositionExtent.z;
-            zero.w = math.asfloat(allocation.m_Allocation.Begin);
-            zero2.x = allocation.m_NormalExtent.x;
-            zero2.y = allocation.m_NormalExtent.y;
-            zero2.z = allocation.m_NormalExtent.z;
-            zero2.w = math.asfloat(allocation.m_Stride);
-        }
-        customProps.SetVector(propertyData.m_NameID, zero);
-        customProps.SetVector(propertyData2.m_NameID, zero2);
-    }
-</code></pre>
-<ul>
-<li><code>private SetShapeParameters(UnityEngine.MaterialPropertyBlock customProps, Game.Rendering.BatchMeshSystem+ShapeAllocation allocation) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void SetShapeParameters(MaterialPropertyBlock customProps, ShapeAllocation allocation)
-    {
-        PropertyData propertyData = m_BatchManagerSystem.GetPropertyData(MaterialProperty.ShapeParameters1);
-        PropertyData propertyData2 = m_BatchManagerSystem.GetPropertyData(MaterialProperty.ShapeParameters2);
-        Vector4 zero = Vector4.zero;
-        Vector4 zero2 = Vector4.zero;
-        if (!allocation.m_Allocation.Empty)
-        {
-            zero.x = allocation.m_PositionExtent.x;
-            zero.y = allocation.m_PositionExtent.y;
-            zero.z = allocation.m_PositionExtent.z;
-            zero.w = math.asfloat(allocation.m_Allocation.Begin);
-            zero2.x = allocation.m_NormalExtent.x;
-            zero2.y = allocation.m_NormalExtent.y;
-            zero2.z = allocation.m_NormalExtent.z;
-            zero2.w = math.asfloat(allocation.m_Stride);
-        }
-        customProps.SetVector(propertyData.m_NameID, zero);
-        customProps.SetVector(propertyData2.m_NameID, zero2);
-    }
-</code></pre>
-<ul>
-<li><code>private TryCopyBuffer&lt;T&gt;(Unity.Entities.Entity source, Unity.Entities.Entity target) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Void TryCopyBuffer&lt;T&gt;(Unity.Entities.Entity source, Unity.Entities.Entity target);
-</code></pre>
-<ul>
-<li><code>private UncacheMeshData(Unity.Entities.Entity mesh, Game.Prefabs.MeshType type) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void UncacheMeshData(Entity mesh, MeshType type)
-    {
-        switch (type)
-        {
-        case MeshType.Object:
-        case MeshType.Lane:
-        {
-            CacheInfo cacheInfo2 = new CacheInfo
-            {
-                m_CommandBuffer = new EntityCommandBuffer(Allocator.Persistent, PlaybackPolicy.SinglePlayback)
-            };
-            ObjectMeshHelpers.UncacheMeshData(mesh, cacheInfo2.m_CommandBuffer);
-            AddCaching(mesh, cacheInfo2);
-            break;
-        }
-        case MeshType.Net:
-        {
-            CacheInfo cacheInfo = new CacheInfo
-            {
-                m_CommandBuffer = new EntityCommandBuffer(Allocator.Persistent, PlaybackPolicy.SinglePlayback)
-            };
-            NetMeshHelpers.UncacheMeshData(mesh, cacheInfo.m_CommandBuffer);
-            AddCaching(mesh, cacheInfo);
-            break;
-        }
-        case MeshType.Object | MeshType.Net:
-            break;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private UnloadMeshAndGeometryAssets() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void UnloadMeshAndGeometryAssets()
-    {
-        if (m_UnloadGeometryAssets.Count == 0)
-        {
-            return;
-        }
-        foreach (GeometryAsset item in m_UnloadGeometryAssets)
-        {
-            item.UnloadPartial();
-        }
-        m_UnloadGeometryAssets.Clear();
-    }
-</code></pre>
-<ul>
-<li><code>private UnloadMeshes(System.UInt64 loadingMemorySize, System.UInt64 neededMemorySize) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void UnloadMeshes(ulong loadingMemorySize, ulong neededMemorySize)
-    {
-        if (!forceMeshUnloading &amp;&amp; totalSizeInMemory + loadingMemorySize + neededMemorySize &lt;= memoryBudget)
-        {
-            return;
-        }
-        m_StateDeps.Complete();
-        if (m_UnloadingData.Length == 0)
-        {
-            return;
-        }
-        JobHandle dependencies;
-        NativeBatchGroups&lt;CullingData, GroupData, BatchData, InstanceData&gt; nativeBatchGroups = m_BatchManagerSystem.GetNativeBatchGroups(readOnly: false, out dependencies);
-        ManagedBatches&lt;OptionalProperties&gt; managedBatches = m_BatchManagerSystem.GetManagedBatches();
-        int num = 0;
-        bool flag = false;
-        dependencies.Complete();
-        for (int i = 0; i &lt; m_UnloadingData.Length; i++)
-        {
-            ref LoadingData reference = ref m_UnloadingData.ElementAt(i);
-            ref MeshLoadingState reference2 = ref m_LoadingState.ElementAt(reference.m_BatchIndex);
-            if (reference2 != MeshLoadingState.Obsolete)
-            {
-                continue;
-            }
-            if ((!forceMeshUnloading &amp;&amp; totalSizeInMemory + loadingMemorySize + neededMemorySize &lt;= memoryBudget) || (!forceMeshUnloading &amp;&amp; totalSizeInMemory + loadingMemorySize &lt;= memoryBudget &amp;&amp; -reference.m_Priority &gt;= m_PriorityLimit))
-            {
-                break;
-            }
-            CustomBatch customBatch = (CustomBatch)managedBatches.GetBatch(reference.m_BatchIndex);
-            if (m_MeshInfos.TryGetValue(customBatch.sharedMeshEntity, out var value))
-            {
-                if (value.m_BatchCount &gt; 1)
-                {
-                    value.m_BatchCount--;
-                    m_MeshInfos[customBatch.sharedMeshEntity] = value;
-                }
-                else
-                {
-                    if ((long)num &gt;= 30L)
-                    {
-                        continue;
-                    }
-                    num++;
-                    if (base.EntityManager.TryGetBuffer(customBatch.sharedMeshEntity, isReadOnly: true, out DynamicBuffer&lt;NetCompositionPiece&gt; buffer))
-                    {
-                        for (int j = 0; j &lt; buffer.Length; j++)
-                        {
-                            NetCompositionPiece netCompositionPiece = buffer[j];
-                            if (m_MeshInfos.TryGetValue(netCompositionPiece.m_Piece, out var value2))
-                            {
-                                if (value2.m_BatchCount &gt; 1)
-                                {
-                                    value2.m_BatchCount--;
-                                    m_MeshInfos[netCompositionPiece.m_Piece] = value2;
-                                }
-                                else
-                                {
-                                    UncacheMeshData(netCompositionPiece.m_Piece, customBatch.sourceType);
-                                    totalSizeInMemory -= value2.m_SizeInMemory;
-                                    m_MeshInfos.Remove(netCompositionPiece.m_Piece);
-                                }
-                            }
-                        }
-                    }
-                    if (value.m_GeneratedIndex &gt;= 0)
-                    {
-                        UnityEngine.Object.Destroy(m_GeneratedMeshes[value.m_GeneratedIndex]);
-                        m_GeneratedMeshes[value.m_GeneratedIndex] = null;
-                        m_FreeMeshIndices.Add(value.m_GeneratedIndex);
-                    }
-                    RemoveShapeData(value.m_ShapeAllocations);
-                    UncacheMeshData(customBatch.sharedMeshEntity, customBatch.sourceType);
-                    totalSizeInMemory -= value.m_SizeInMemory;
-                    m_MeshInfos.Remove(customBatch.sharedMeshEntity);
-                }
-                managedBatches.SetMesh(reference.m_BatchIndex, GetDefaultMesh(customBatch.sourceType, customBatch.sourceFlags, customBatch.generatedType), 0, nativeBatchGroups);
-                if (customBatch.generatedType == GeneratedType.None &amp;&amp; value.m_Prefab != null)
-                {
-                    value.m_Prefab.ReleaseMeshes();
-                }
-            }
-            reference2 = MeshLoadingState.Unloading;
-            flag = true;
-        }
-        if (!flag)
-        {
-            return;
-        }
-        for (int k = 0; k &lt; m_UnloadingData.Length; k++)
-        {
-            ref LoadingData reference3 = ref m_UnloadingData.ElementAt(k);
-            ref MeshLoadingState reference4 = ref m_LoadingState.ElementAt(reference3.m_BatchIndex);
-            if (reference4 == MeshLoadingState.Unloading)
-            {
-                CustomBatch customBatch2 = (CustomBatch)managedBatches.GetBatch(reference3.m_BatchIndex);
-                if (customBatch2.defaultMaterial != customBatch2.loadedMaterial)
-                {
-                    managedBatches.SetMaterial(reference3.m_BatchIndex, customBatch2.defaultMaterial, nativeBatchGroups);
-                }
-                reference4 = MeshLoadingState.None;
-                m_UnloadingData.RemoveAtSwapBack(k--);
-            }
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public UpdateBatchPriorities() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void UpdateBatchPriorities()
-    {
-        if (enableMeshLoading)
-        {
-            m_StateDeps = (m_PriorityDeps = IJobExtensions.Schedule(new LoadingPriorityJob
-            {
-                m_PriorityLimit = m_PriorityLimit,
-                m_BatchPriority = m_BatchPriority,
-                m_LoadingState = m_LoadingState,
-                m_LoadingData = m_LoadingData,
-                m_UnloadingData = m_UnloadingData
-            }, JobHandle.CombineDependencies(m_PriorityDeps, m_StateDeps)));
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public UpdateMeshes() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void UpdateMeshes()
-    {
-        AddMeshes();
-        UpdateMeshesForAddedInstances();
-        UnloadMeshAndGeometryAssets();
-    }
-</code></pre>
-<ul>
-<li><code>private UpdateMeshesForAddedInstances() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void UpdateMeshesForAddedInstances()
-    {
-        m_StateDeps.Complete();
-        JobHandle dependencies;
-        NativeBatchGroups&lt;CullingData, GroupData, BatchData, InstanceData&gt; nativeBatchGroups = m_BatchManagerSystem.GetNativeBatchGroups(readOnly: false, out dependencies);
-        JobHandle dependencies2;
-        NativeBatchInstances&lt;CullingData, GroupData, BatchData, InstanceData&gt; nativeBatchInstances = m_BatchManagerSystem.GetNativeBatchInstances(readOnly: false, out dependencies2);
-        ManagedBatches&lt;OptionalProperties&gt; managedBatches = m_BatchManagerSystem.GetManagedBatches();
-        dependencies.Complete();
-        dependencies2.Complete();
-        AddedInstanceEnumerator addedInstances = nativeBatchInstances.GetAddedInstances();
-        int groupIndex;
-        while (addedInstances.GetNextUpdatedGroup(out groupIndex))
-        {
-            NativeBatchAccessor&lt;BatchData&gt; batchAccessor = nativeBatchGroups.GetBatchAccessor(groupIndex);
-            for (int i = 0; i &lt; batchAccessor.Length; i++)
-            {
-                int managedBatchIndex = batchAccessor.GetManagedBatchIndex(i);
-                if (managedBatchIndex &lt; 0)
-                {
-                    continue;
-                }
-                ref MeshLoadingState reference = ref m_LoadingState.ElementAt(managedBatchIndex);
-                if (reference != MeshLoadingState.None)
-                {
-                    continue;
-                }
-                CustomBatch customBatch = (CustomBatch)managedBatches.GetBatch(managedBatchIndex);
-                if (!m_MeshInfos.TryGetValue(customBatch.sharedMeshEntity, out var value))
-                {
-                    continue;
-                }
-                value.m_BatchCount++;
-                m_MeshInfos[customBatch.sharedMeshEntity] = value;
-                if ((customBatch.sourceFlags &amp; BatchFlags.BlendWeights) != 0)
-                {
-                    SetShapeParameters(customBatch, value.m_ShapeAllocations);
-                }
-                try
-                {
-                    if (customBatch.generatedType != GeneratedType.None)
-                    {
-                        if (value.m_GeneratedIndex &gt;= 0)
-                        {
-                            managedBatches.SetMesh(managedBatchIndex, m_GeneratedMeshes[value.m_GeneratedIndex], customBatch.sourceSubMeshIndex, nativeBatchGroups);
-                        }
-                    }
-                    else if (value.m_Prefab != null)
-                    {
-                        int subMeshIndex;
-                        Mesh mesh = value.m_Prefab.ObtainMesh(customBatch.sourceSubMeshIndex, out subMeshIndex);
-                        managedBatches.SetMesh(managedBatchIndex, mesh, subMeshIndex, nativeBatchGroups);
-                    }
-                    if (customBatch.defaultMaterial != customBatch.loadedMaterial)
-                    {
-                        managedBatches.SetMaterial(managedBatchIndex, customBatch.loadedMaterial, nativeBatchGroups);
-                    }
-                }
-                catch (Exception exception)
-                {
-                    if (value.m_Prefab != null)
-                    {
-                        COSystemBase.baseLog.ErrorFormat(value.m_Prefab, exception, &quot;Error when setting mesh for {0}&quot;, value.m_Prefab.name);
-                    }
-                    else
-                    {
-                        COSystemBase.baseLog.ErrorFormat(exception, &quot;Error when setting mesh for {0}&quot;, customBatch.sourceMeshEntity);
-                    }
-                }
-                reference = MeshLoadingState.Complete;
-            }
-        }
-        nativeBatchInstances.ClearAddedInstances();
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Rendering.BatchMeshSystem+LoadingData</code>  </li>
-<li><code>Game.Rendering.BatchMeshSystem+MeshInfo</code>  </li>
-<li><code>Game.Rendering.BatchMeshSystem+CacheInfo</code>  </li>
-<li><code>Game.Rendering.BatchMeshSystem+ShapeAllocation</code>  </li>
-<li><code>Game.Rendering.BatchMeshSystem+LoadingPriorityJob</code>  </li>
-</ul>
+<p>Notes and best practices:
+- When accessing the NativeList returned by GetBatchPriority/GetLoadingState you must respect the returned JobHandle (dependencies) to avoid race conditions: wait on the handle (or combine/chain dependencies) as appropriate.
+- The system schedules a Burst IJob (LoadingPriorityJob) to manage per-batch queues; set enableMeshLoading = false to disable it.
+- Generated Mesh instances are created and later finalized by calling GenerateMeshes() + CompleteMeshes(); the system coordinates these when running normally.
+- The shape buffer stores data in 8-byte (ulong) elements. Shape allocations are tracked by ShapeAllocation and referenced by material property blocks (two Vector4s written by SetShapeParameters).
+- Always allow the system to complete outstanding dependencies before destroying world/systems (OnDestroy completes JobHandles and disposes native memory).
+- Avoid manipulating internal collections (m_MeshInfos, etc.) directly; use the BatchManager/CustomBatch APIs and BatchMeshSystem public methods.</p>
+<p>If you need documentation for any specific method, nested type, or the LoadingPriorityJob behavior in more detail, tell me which part and I'll expand with parameters, return values and examples.</p>
 
 
 

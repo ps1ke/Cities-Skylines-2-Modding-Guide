@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87056,6 +87148,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -99355,18 +99470,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -99391,9 +99506,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -117923,6 +118038,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117950,18 +118087,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -117986,9 +118123,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118011,506 +118148,182 @@
 
 
 <h1 id="gameuieditorterrainpanelsystem">Game.UI.Editor.TerrainPanelSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.UI.Editor</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.UI.Editor.EditorPanelSystemBase</code><br />
-<strong>Implements:</strong> <code>Game.UI.Editor.IEditorPanel</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class TerrainPanelSystem : Game.UI.Editor.EditorPanelSystemBase, Game.UI.Editor.IEditorPanel
-{
-    private Game.Prefabs.PrefabSystem m_PrefabSystem;
-    private Game.Tools.ToolSystem m_ToolSystem;
-    private Game.Simulation.TerrainSystem m_TerrainSystem;
-    private Unity.Entities.EntityQuery m_PrefabQuery;
-    private Game.UI.Widgets.IconButtonGroup m_ToolButtonGroup;
-    private Game.UI.Widgets.IconButtonGroup m_MaterialButtonGroup;
-    private System.Collections.Generic.List&lt;Game.Prefabs.PrefabBase&gt; m_ToolPrefabs;
-    private static readonly System.String kHeightmapFolder;
-
-    public TerrainPanelSystem();
-
-    private System.Double &lt;OnCreate&gt;b__8_0();
-    private System.Void &lt;OnCreate&gt;b__8_1(System.Double val);
-    private System.Boolean &lt;OnCreate&gt;b__8_2();
-    private System.Boolean &lt;OnCreate&gt;b__8_3();
-    private System.Void DisplayHeightmapError();
-    private static System.Collections.Generic.IEnumerable&lt;Game.UI.Editor.AssetItem&gt; GetHeightmaps();
-    protected virtual System.Boolean OnCancel();
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnGameLoaded(Colossal.Serialization.Entities.Context serializationContext);
-    private System.Void OnLoadHeightmap(Colossal.Hash128 guid);
-    private System.Void OnLoadWorldHeightmap(Colossal.Hash128 guid);
-    private System.Void OnSaveHeightmap(System.String fileName, System.Nullable&lt;Colossal.Hash128&gt; overwriteGuid);
-    private System.Void OnSaveHeightmap(System.String fileName, System.Nullable&lt;Colossal.Hash128&gt; overwriteGuid, System.Boolean worldMap);
-    private System.Void OnSaveWorldHeightmap(System.String fileName, System.Nullable&lt;Colossal.Hash128&gt; overwriteGuid);
-    protected virtual System.Void OnStartRunning();
-    protected virtual System.Void OnStopRunning();
-    private System.Void RefreshTerrainProperties(Unity.Mathematics.float2 heightScaleOffset);
-    private System.Void RemoveWorldmap();
-    private System.Void ShowExportHeightmapPanel();
-    private System.Void ShowExportWorldmapPanel();
-    private System.Void ShowImportHeightmapPanel();
-    private System.Void ShowImportWorldmapPanel();
-}
-</code></pre>
+<p><strong>Assembly:</strong> Assembly-CSharp (game)<br />
+<strong>Namespace:</strong> Game.UI.Editor</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> EditorPanelSystemBase</p>
+<p><strong>Summary:</strong><br />
+TerrainPanelSystem implements the editor UI panel for terrain editing tools and heightmap/worldmap import-export in the in-game editor. It hooks into PrefabSystem to enumerate terraforming prefabs (tools and materials), into ToolSystem to activate/deactivate prefab tools, and into TerrainSystem to read/write terrain textures and properties. It also integrates with the AssetDatabase to present and save heightmap image assets (in the "Heightmaps" folder). The class builds UI sections (tool buttons, heightmap controls) and handles user actions such as importing/exporting heightmaps and worldmaps, removing worldmaps, and updating terrain properties.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.Prefabs.PrefabSystem m_PrefabSystem</code>  </li>
+<li>
+<p><code>private struct UIPriorityComparer : IComparer&lt;PrefabData&gt;</code><br />
+Used to sort PrefabData for UI ordering. It retrieves TerraformingPrefab instances from PrefabSystem and compares UI priorities exposed by a UIObject component (falls back to -1 when not available).</p>
+</li>
+<li>
+<p><code>private static readonly string kHeightmapFolder = "Heightmaps"</code><br />
+Folder name used when listing and saving heightmap assets in the AssetDatabase.</p>
+</li>
+<li>
+<p><code>private PrefabSystem m_PrefabSystem</code><br />
+Reference to the runtime PrefabSystem used to look up prefabs (TerraformingPrefab etc.).</p>
+</li>
+<li>
+<p><code>private ToolSystem m_ToolSystem</code><br />
+Reference to the ToolSystem used to activate prefab tools.</p>
+</li>
+<li>
+<p><code>private TerrainSystem m_TerrainSystem</code><br />
+Reference to the TerrainSystem used to query and replace heightmap/worldmap textures and set terrain properties.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_PrefabQuery</code><br />
+Entity query that selects entities that contain PrefabData and TerraformingData components, excluding Deleted and Temp entities. Used to enumerate available terraforming prefabs.</p>
+</li>
+<li>
+<p><code>private IconButtonGroup m_ToolButtonGroup</code><br />
+UI group that will contain icon buttons for height-targeting terraforming tools.</p>
+</li>
+<li>
+<p><code>private IconButtonGroup m_MaterialButtonGroup = new IconButtonGroup()</code><br />
+UI group that will contain icon buttons for material-targeting terraforming tools.</p>
+</li>
+<li>
+<p><code>private List&lt;PrefabBase&gt; m_ToolPrefabs = new List&lt;PrefabBase&gt;()</code><br />
+List used to track prefabs that represent editor tools/materials added to this panel; used to restore/clear state when panel starts/stops.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.Prefabs.PrefabSystem m_PrefabSystem;
-</code></pre>
+<h2 id="properties">Properties</h2>
 <ul>
-<li><code>private Game.Tools.ToolSystem m_ToolSystem</code>  </li>
+<li>(none declared public in this class)<br />
+This class doesn't declare public properties; it primarily exposes behavior through overridden lifecycle methods and private helpers.</li>
 </ul>
-<pre><code class="language-csharp">private Game.Tools.ToolSystem m_ToolSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.TerrainSystem m_TerrainSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.TerrainSystem m_TerrainSystem;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_PrefabQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_PrefabQuery;
-</code></pre>
-<ul>
-<li><code>private Game.UI.Widgets.IconButtonGroup m_ToolButtonGroup</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.UI.Widgets.IconButtonGroup m_ToolButtonGroup;
-</code></pre>
-<ul>
-<li><code>private Game.UI.Widgets.IconButtonGroup m_MaterialButtonGroup</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.UI.Widgets.IconButtonGroup m_MaterialButtonGroup;
-</code></pre>
-<ul>
-<li><code>private System.Collections.Generic.List&lt;Game.Prefabs.PrefabBase&gt; m_ToolPrefabs</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Collections.Generic.List&lt;Game.Prefabs.PrefabBase&gt; m_ToolPrefabs;
-</code></pre>
-<ul>
-<li><code>private static readonly System.String kHeightmapFolder</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static readonly System.String kHeightmapFolder;
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public TerrainPanelSystem()</code>  </li>
+<li><code>public TerrainPanelSystem()</code><br />
+Default public constructor. Marked with [Preserve] (the attribute is applied to lifecycle methods and constructor in source). Sets up nothing special; initialization is performed in OnCreate.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public TerrainPanelSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private &lt;OnCreate&gt;b__8_0() : System.Double</code>  </li>
+<li><code>protected override void OnCreate()</code><br />
+Initializes references to PrefabSystem, ToolSystem, TerrainSystem and constructs the panel UI tree. Creates an EntityQuery that filters for PrefabData + TerraformingData and excludes Deleted/Temp. Builds two EditorSection blocks:</li>
+<li>"Editor.TERRAIN_TOOLS": contains m_ToolButtonGroup (IconButtonGroup)</li>
+<li>
+<p>"Editor.HEIGHTMAPS": contains a FloatInputField (height scale), import/export buttons for heightmaps and worldmaps, and a remove worldmap button.
+The method sets the panel title and children/widgets for the UI.</p>
+</li>
+<li>
+<p><code>protected override void OnGameLoaded(Context serializationContext)</code><br />
+Runs after the game is loaded. Queries the entity world for PrefabData + TerraformingData entities using m_PrefabQuery, sorts the result using UIPriorityComparer, and constructs IconButton lists:</p>
+</li>
+<li>For prefabs with TerraformingTarget.Height: add icon to m_ToolButtonGroup.</li>
+<li>
+<p>For prefabs with TerraformingTarget.Material: add icon to m_MaterialButtonGroup.
+Each icon uses ImageSystem.GetIcon(prefab) with a fallback icon, sets a tooltip from the localized asset name, an action that toggles m_ToolSystem ActivatePrefabTool, and a selected predicate that checks the active prefab. The method populates m_ToolPrefabs with the found terraform prefabs for lifecycle cleanup.</p>
+</li>
+<li>
+<p><code>protected override void OnStartRunning()</code><br />
+Called when the panel starts running. Resets base.activeSubPanel to null so no subpanel remains active on start.</p>
+</li>
+<li>
+<p><code>protected override void OnStopRunning()</code><br />
+When the panel stops running, if the currently active prefab tool is one that belongs to this panel (m_ToolPrefabs contains it), it deactivates the prefab tool (calls m_ToolSystem.ActivatePrefabTool(null)). Then calls base.OnStopRunning().</p>
+</li>
+<li>
+<p><code>protected override bool OnCancel()</code><br />
+Handles cancel/back action. If the currently active prefab tool belongs to this panel, deactivate it and consume the cancel (return false). Otherwise defer to base.OnCancel().</p>
+</li>
+<li>
+<p><code>private void ShowImportHeightmapPanel()</code><br />
+Opens a LoadAssetPanel listing heightmap assets (GetHeightmaps()) and wires OnLoadHeightmap as the selection callback.</p>
+</li>
+<li>
+<p><code>private void ShowExportHeightmapPanel()</code><br />
+Opens a SaveAssetPanel for saving the current heightmap; uses OnSaveHeightmap as the save callback.</p>
+</li>
+<li>
+<p><code>private void ShowImportWorldmapPanel()</code><br />
+Opens a LoadAssetPanel for worldmap import; uses OnLoadWorldHeightmap as the selection callback.</p>
+</li>
+<li>
+<p><code>private void ShowExportWorldmapPanel()</code><br />
+Opens a SaveAssetPanel for saving the world heightmap; uses OnSaveWorldHeightmap as the save callback. The export and remove buttons are disabled if m_TerrainSystem.worldHeightmap is null.</p>
+</li>
+<li>
+<p><code>private void RemoveWorldmap()</code><br />
+Calls m_TerrainSystem.ReplaceWorldHeightmap(null) to clear the currently set world heightmap.</p>
+</li>
+<li>
+<p><code>private void RefreshTerrainProperties(float2 heightScaleOffset)</code><br />
+Sets the terrain properties on m_TerrainSystem by calling m_TerrainSystem.SetTerrainProperties(heightScaleOffset). Used by the FloatInputField accessor for height scaling.</p>
+</li>
+<li>
+<p><code>private static IEnumerable&lt;AssetItem&gt; GetHeightmaps()</code><br />
+Enumerates ImageAsset entries in AssetDatabase.global whose subPath starts with kHeightmapFolder. For each found ImageAsset yields an AssetItem with guid, fileName, displayName, image (asset.ToUri()) and tooltip.</p>
+</li>
+<li>
+<p><code>private void OnLoadHeightmap(Colossal.Hash128 guid)</code><br />
+Loads an ImageAsset from AssetDatabase.global by guid, reads a Texture2D (srgb true), validates it with TerrainSystem.IsValidHeightmapFormat(texture), displays an error dialog on invalid format (DisplayHeightmapError), otherwise calls m_TerrainSystem.ReplaceHeightmap(texture).</p>
+</li>
+<li>
+<p><code>private void OnLoadWorldHeightmap(Colossal.Hash128 guid)</code><br />
+Same as OnLoadHeightmap but calls m_TerrainSystem.ReplaceWorldHeightmap(texture) on success.</p>
+</li>
+<li>
+<p><code>private void DisplayHeightmapError()</code><br />
+Constructs and shows a message dialog via GameManager.instance.userInterface.appBindings.ShowMessageDialog, using localized strings: "Editor.INCORRECT_HEIGHTMAP_TITLE" and "Editor.INCORRECT_HEIGHTMAP_MESSAGE". The message is supplied substitution values for WIDTH and HEIGHT using TerrainSystem.kDefaultHeightmapWidth and TerrainSystem.kDefaultHeightmapHeight.</p>
+</li>
+<li>
+<p><code>private void OnSaveHeightmap(string fileName, Colossal.Hash128? overwriteGuid)</code><br />
+Convenience overload that delegates to OnSaveHeightmap(fileName, overwriteGuid, worldMap: false).</p>
+</li>
+<li>
+<p><code>private void OnSaveWorldHeightmap(string fileName, Colossal.Hash128? overwriteGuid)</code><br />
+Convenience overload that delegates to OnSaveHeightmap(fileName, overwriteGuid, worldMap: true).</p>
+</li>
+<li>
+<p><code>private unsafe void OnSaveHeightmap(string fileName, Colossal.Hash128? overwriteGuid, bool worldMap)</code><br />
+Saves either the current heightmap or the current world heightmap to the user AssetDatabase. Behavior:</p>
+</li>
+<li>Closes subpanel.</li>
+<li>If overwriteGuid is provided and the user asset exists, deletes existing asset to overwrite.</li>
+<li>Chooses texture = worldMap ? m_TerrainSystem.worldHeightmap : m_TerrainSystem.heightmap.</li>
+<li>Allocates a NativeArray<ushort> sized width * height (Allocator.Persistent).</li>
+<li>Uses AsyncGPUReadback.RequestIntoNativeArray(ref output, texture).WaitForCompletion() to read pixels from GPU into the NativeArray (ushort data).</li>
+<li>Calls TextureUtilities.SaveImage with the native pointer (output.GetUnsafeReadOnlyPtr()) to produce an image byte[] (PNG, bit depth 16 per channel).</li>
+<li>Creates an AssetDataPath under kHeightmapFolder and writes the bytes into a newly added ImageAsset in AssetDatabase.user (either creating or overwriting by guid).</li>
+<li>
+<p>Ensures output NativeArray is disposed in finally block.
+Note: uses unsafe pointer conversion and GPU readback; this code may block until the readback completes.</p>
+</li>
+<li>
+<p><code>private UIPriorityComparer..ctor(PrefabSystem prefabSystem)</code><br />
+Nested comparer constructor that stores PrefabSystem reference.</p>
+</li>
+<li>
+<p><code>private int UIPriorityComparer.Compare(PrefabData a, PrefabData b)</code><br />
+Compare implementation that gets TerraformingPrefab for each PrefabData, fetches UIObject component via TryGet<UIObject>, and compares component.m_Priority. If UIObject is absent on either prefab, returns -1.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private System.Double &lt;OnCreate&gt;b__8_0();
-</code></pre>
-<ul>
-<li><code>private &lt;OnCreate&gt;b__8_1(System.Double val) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Void &lt;OnCreate&gt;b__8_1(System.Double val);
-</code></pre>
-<ul>
-<li><code>private &lt;OnCreate&gt;b__8_2() : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean &lt;OnCreate&gt;b__8_2();
-</code></pre>
-<ul>
-<li><code>private &lt;OnCreate&gt;b__8_3() : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean &lt;OnCreate&gt;b__8_3();
-</code></pre>
-<ul>
-<li><code>private DisplayHeightmapError() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void DisplayHeightmapError()
-    {
-        AppBindings appBindings = GameManager.instance.userInterface.appBindings;
-        LocalizedString? localizedString = LocalizedString.Id(&quot;Editor.INCORRECT_HEIGHTMAP_TITLE&quot;);
-        Dictionary&lt;string, ILocElement&gt; dictionary = new Dictionary&lt;string, ILocElement&gt;();
-        int kDefaultHeightmapWidth = TerrainSystem.kDefaultHeightmapWidth;
-        dictionary.Add(&quot;WIDTH&quot;, LocalizedString.Value(kDefaultHeightmapWidth.ToString()));
-        kDefaultHeightmapWidth = TerrainSystem.kDefaultHeightmapHeight;
-        dictionary.Add(&quot;HEIGHT&quot;, LocalizedString.Value(kDefaultHeightmapWidth.ToString()));
-        appBindings.ShowMessageDialog(new MessageDialog(localizedString, new LocalizedString(&quot;Editor.INCORRECT_HEIGHTMAP_MESSAGE&quot;, null, dictionary), LocalizedString.Id(&quot;Common.ERROR_DIALOG_CONTINUE&quot;)), null);
-    }
-</code></pre>
-<ul>
-<li><code>private static GetHeightmaps() : System.Collections.Generic.IEnumerable&lt;Game.UI.Editor.AssetItem&gt;</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static IEnumerable&lt;AssetItem&gt; GetHeightmaps()
-    {
-        foreach (ImageAsset asset in AssetDatabase.global.GetAssets(SearchFilter&lt;ImageAsset&gt;.ByCondition((ImageAsset a) =&gt; a.GetMeta().subPath?.StartsWith(kHeightmapFolder) ?? false)))
-        {
-            yield return new AssetItem
-            {
-                guid = asset.id,
-                fileName = asset.name,
-                displayName = asset.name,
-                image = asset.ToUri(),
-                tooltip = asset.name
-            };
-        }
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCancel() : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override bool OnCancel()
-    {
-        if (m_ToolPrefabs.Contains(m_ToolSystem.activePrefab))
-        {
-            m_ToolSystem.ActivatePrefabTool(null);
-            return false;
-        }
-        return base.OnCancel();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
+<h2 id="usage-example">Usage Example</h2>
 <pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_PrefabSystem = base.World.GetOrCreateSystemManaged&lt;PrefabSystem&gt;();
-        m_ToolSystem = base.World.GetOrCreateSystemManaged&lt;ToolSystem&gt;();
-        m_TerrainSystem = base.World.GetOrCreateSystemManaged&lt;TerrainSystem&gt;();
-        m_PrefabQuery = GetEntityQuery(new EntityQueryDesc
-        {
-            All = new ComponentType[2]
-            {
-                ComponentType.ReadOnly&lt;PrefabData&gt;(),
-                ComponentType.ReadOnly&lt;TerraformingData&gt;()
-            },
-            None = new ComponentType[2]
-            {
-                ComponentType.ReadOnly&lt;Deleted&gt;(),
-                ComponentType.ReadOnly&lt;Temp&gt;()
-            }
-        });
-        title = &quot;Editor.TOOL[TerrainTool]&quot;;
-        children = new IWidget[1] { Scrollable.WithChildren(new IWidget[2]
-        {
-            new EditorSection
-            {
-                displayName = &quot;Editor.TERRAIN_TOOLS&quot;,
-                uiTag = &quot;UITagPrefab:TerrainTools&quot;,
-                tooltip = &quot;Editor.TERRAIN_TOOLS_TOOLTIP&quot;,
-                expanded = true,
-                children = new IWidget[1] { m_ToolButtonGroup = new IconButtonGroup() }
-            },
-            new EditorSection
-            {
-                displayName = &quot;Editor.HEIGHTMAPS&quot;,
-                tooltip = &quot;Editor.HEIGHTMAPS_TOOLTIP&quot;,
-                uiTag = &quot;UITagPrefab:Heightmaps&quot;,
-                expanded = true,
-                children = new IWidget[3]
-                {
-                    new FloatInputField
-                    {
-                        displayName = &quot;Editor.HEIGHT_SCALE&quot;,
-                        tooltip = &quot;Editor.HEIGHT_SCALE_TOOLTIP&quot;,
-                        uiTag = &quot;UITagPrefab:HeightScale&quot;,
-                        accessor = new DelegateAccessor&lt;double&gt;(() =&gt; m_TerrainSystem.heightScaleOffset.x, delegate(double val)
-                        {
-                            float2 heightScaleOffset = m_TerrainSystem.heightScaleOffset;
-                            heightScaleOffset.x = (float)val;
-                            RefreshTerrainProperties(heightScaleOffset);
-                        }),
-                        min = 200.0,
-                        max = 10000.0
-                    },
-                    Column.WithChildren(new Button[2]
-                    {
-                        new Button
-                        {
-                            displayName = &quot;Editor.IMPORT_HEIGHTMAP&quot;,
-                            tooltip = &quot;Editor.IMPORT_HEIGHTMAP_TOOLTIP&quot;,
-                            uiTag = &quot;UITagPrefab:ImportHeightmap&quot;,
-                            action = ShowImportHeightmapPanel
-                        },
-                        new Button
-                        {
-                            displayName = &quot;Editor.EXPORT_HEIGHTMAP&quot;,
-                            uiTag = &quot;UITagPrefab:ExportHeightmap&quot;,
-                            tooltip = &quot;Editor.EXPORT_HEIGHTMAP_TOOLTIP&quot;,
-                            action = ShowExportHeightmapPanel
-                        }
-                    }),
-                    Column.WithChildren(new Button[3]
-                    {
-                        new Button
-                        {
-                            displayName = &quot;Editor.IMPORT_WORLDMAP&quot;,
-                            tooltip = &quot;Editor.IMPORT_WORLDMAP_TOOLTIP&quot;,
-                            uiTag = &quot;UITagPrefab:ImportWorldmap&quot;,
-                            action = ShowImportWorldmapPanel
-                        },
-                        new Button
-                        {
-                            displayName = &quot;Editor.EXPORT_WORLDMAP&quot;,
-                            tooltip = &quot;Editor.EXPORT_WORLDMAP_TOOLTIP&quot;,
-                            action = ShowExportWorldmapPanel,
-                            disabled = () =&gt; m_TerrainSystem.worldHeightmap == null
-                        },
-                        new Button
-                        {
-                            displayName = &quot;Editor.REMOVE_WORLDMAP&quot;,
-                            tooltip = &quot;Editor.REMOVE_WORLDMAP_TOOLTIP&quot;,
-                            action = RemoveWorldmap,
-                            disabled = () =&gt; m_TerrainSystem.worldHeightmap == null
-                        }
-                    })
-                }
-            }
-        }) };
-    }
+protected override void OnCreate()
+{
+    base.OnCreate();
+
+    // Example: Update height scale offset X when creating the panel.
+    // (This code runs inside the panel instance.)
+    float2 current = m_TerrainSystem.heightScaleOffset;
+    current.x = 5000f; // set desired height scale X
+    RefreshTerrainProperties(current);
+}
 </code></pre>
-<ul>
-<li><code>protected virtual OnGameLoaded(Colossal.Serialization.Entities.Context serializationContext) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnGameLoaded(Context serializationContext)
-    {
-        base.OnGameLoaded(serializationContext);
-        List&lt;IconButton&gt; list = new List&lt;IconButton&gt;();
-        List&lt;IconButton&gt; list2 = new List&lt;IconButton&gt;();
-        NativeArray&lt;PrefabData&gt; array = m_PrefabQuery.ToComponentDataArray&lt;PrefabData&gt;(Allocator.Temp);
-        array.Sort(new UIPriorityComparer(m_PrefabSystem));
-        m_ToolPrefabs.Clear();
-        foreach (PrefabData item in array)
-        {
-            TerraformingPrefab prefab = m_PrefabSystem.GetPrefab&lt;TerraformingPrefab&gt;(item);
-            if (prefab.m_Target == TerraformingTarget.Height)
-            {
-                m_ToolPrefabs.Add(prefab);
-                list.Add(new IconButton
-                {
-                    icon = (ImageSystem.GetIcon(prefab) ?? &quot;Media/Editor/Terrain.svg&quot;),
-                    tooltip = LocalizedString.Id(&quot;Assets.NAME[&quot; + prefab.name + &quot;]&quot;),
-                    action = delegate
-                    {
-                        m_ToolSystem.ActivatePrefabTool((m_ToolSystem.activePrefab != prefab) ? prefab : null);
-                    },
-                    selected = () =&gt; m_ToolSystem.activePrefab == prefab
-                });
-            }
-            if (prefab.m_Target == TerraformingTarget.Material)
-            {
-                m_ToolPrefabs.Add(prefab);
-                list2.Add(new IconButton
-                {
-                    icon = (ImageSystem.GetIcon(prefab) ?? &quot;Media/Editor/Material.svg&quot;),
-                    tooltip = LocalizedString.Id(&quot;Assets.NAME[&quot; + prefab.name + &quot;]&quot;),
-                    action = delegate
-                    {
-                        m_ToolSystem.ActivatePrefabTool((m_ToolSystem.activePrefab != prefab) ? prefab : null);
-                    },
-                    selected = () =&gt; m_ToolSystem.activePrefab == prefab
-                });
-            }
-        }
-        array.Dispose();
-        m_ToolButtonGroup.children = list.ToArray();
-        m_MaterialButtonGroup.children = list2.ToArray();
-    }
-</code></pre>
-<ul>
-<li><code>private OnLoadHeightmap(Colossal.Hash128 guid) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void OnLoadHeightmap(Colossal.Hash128 guid)
-    {
-        CloseSubPanel();
-        if (!AssetDatabase.global.TryGetAsset(guid, out ImageAsset asset))
-        {
-            return;
-        }
-        using (asset)
-        {
-            Texture2D texture2D = asset.Load(srgb: true);
-            if (!TerrainSystem.IsValidHeightmapFormat(texture2D))
-            {
-                DisplayHeightmapError();
-            }
-            else
-            {
-                m_TerrainSystem.ReplaceHeightmap(texture2D);
-            }
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private OnLoadWorldHeightmap(Colossal.Hash128 guid) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void OnLoadWorldHeightmap(Colossal.Hash128 guid)
-    {
-        CloseSubPanel();
-        if (!AssetDatabase.global.TryGetAsset(guid, out ImageAsset asset))
-        {
-            return;
-        }
-        using (asset)
-        {
-            Texture2D texture2D = asset.Load(srgb: true);
-            if (!TerrainSystem.IsValidHeightmapFormat(texture2D))
-            {
-                DisplayHeightmapError();
-            }
-            else
-            {
-                m_TerrainSystem.ReplaceWorldHeightmap(texture2D);
-            }
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private OnSaveHeightmap(System.String fileName, System.Nullable&lt;Colossal.Hash128&gt; overwriteGuid) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private unsafe void OnSaveHeightmap(string fileName, Colossal.Hash128? overwriteGuid, bool worldMap)
-    {
-        CloseSubPanel();
-        bool flag = false;
-        if (overwriteGuid.HasValue &amp;&amp; AssetDatabase.user.TryGetAsset(overwriteGuid.Value, out ImageAsset assetData))
-        {
-            AssetDatabase.user.DeleteAsset(assetData);
-            flag = true;
-        }
-        Texture texture = (worldMap ? m_TerrainSystem.worldHeightmap : m_TerrainSystem.heightmap);
-        NativeArray&lt;ushort&gt; output = new NativeArray&lt;ushort&gt;(texture.width * texture.height, Allocator.Persistent);
-        AsyncGPUReadback.RequestIntoNativeArray(ref output, texture).WaitForCompletion();
-        try
-        {
-            byte[] array = TextureUtilities.SaveImage((IntPtr)output.GetUnsafeReadOnlyPtr(), output.Length * 2, texture.width, texture.height, 1, 16, NativeTextures.ImageFileFormat.PNG);
-            AssetDataPath name = AssetDataPath.Create(kHeightmapFolder, fileName);
-            using Stream stream = AssetDatabase.user.AddAsset&lt;ImageAsset&gt;(name, flag ? overwriteGuid.Value : default(Colossal.Hash128)).GetWriteStream();
-            stream.Write(array, 0, array.Length);
-        }
-        finally
-        {
-            output.Dispose();
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private OnSaveHeightmap(System.String fileName, System.Nullable&lt;Colossal.Hash128&gt; overwriteGuid, System.Boolean worldMap) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private unsafe void OnSaveHeightmap(string fileName, Colossal.Hash128? overwriteGuid, bool worldMap)
-    {
-        CloseSubPanel();
-        bool flag = false;
-        if (overwriteGuid.HasValue &amp;&amp; AssetDatabase.user.TryGetAsset(overwriteGuid.Value, out ImageAsset assetData))
-        {
-            AssetDatabase.user.DeleteAsset(assetData);
-            flag = true;
-        }
-        Texture texture = (worldMap ? m_TerrainSystem.worldHeightmap : m_TerrainSystem.heightmap);
-        NativeArray&lt;ushort&gt; output = new NativeArray&lt;ushort&gt;(texture.width * texture.height, Allocator.Persistent);
-        AsyncGPUReadback.RequestIntoNativeArray(ref output, texture).WaitForCompletion();
-        try
-        {
-            byte[] array = TextureUtilities.SaveImage((IntPtr)output.GetUnsafeReadOnlyPtr(), output.Length * 2, texture.width, texture.height, 1, 16, NativeTextures.ImageFileFormat.PNG);
-            AssetDataPath name = AssetDataPath.Create(kHeightmapFolder, fileName);
-            using Stream stream = AssetDatabase.user.AddAsset&lt;ImageAsset&gt;(name, flag ? overwriteGuid.Value : default(Colossal.Hash128)).GetWriteStream();
-            stream.Write(array, 0, array.Length);
-        }
-        finally
-        {
-            output.Dispose();
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private OnSaveWorldHeightmap(System.String fileName, System.Nullable&lt;Colossal.Hash128&gt; overwriteGuid) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void OnSaveWorldHeightmap(string fileName, Colossal.Hash128? overwriteGuid)
-    {
-        OnSaveHeightmap(fileName, overwriteGuid, worldMap: true);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnStartRunning() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnStartRunning()
-    {
-        base.OnStartRunning();
-        base.activeSubPanel = null;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnStopRunning() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnStopRunning()
-    {
-        if (m_ToolPrefabs.Contains(m_ToolSystem.activePrefab))
-        {
-            m_ToolSystem.ActivatePrefabTool(null);
-        }
-        base.OnStopRunning();
-    }
-</code></pre>
-<ul>
-<li><code>private RefreshTerrainProperties(Unity.Mathematics.float2 heightScaleOffset) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void RefreshTerrainProperties(float2 heightScaleOffset)
-    {
-        m_TerrainSystem.SetTerrainProperties(heightScaleOffset);
-    }
-</code></pre>
-<ul>
-<li><code>private RemoveWorldmap() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void RemoveWorldmap()
-    {
-        m_TerrainSystem.ReplaceWorldHeightmap(null);
-    }
-</code></pre>
-<ul>
-<li><code>private ShowExportHeightmapPanel() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void ShowExportHeightmapPanel()
-    {
-        base.activeSubPanel = new SaveAssetPanel(&quot;Editor.EXPORT_HEIGHTMAP&quot;, GetHeightmaps(), null, OnSaveHeightmap, base.CloseSubPanel);
-    }
-</code></pre>
-<ul>
-<li><code>private ShowExportWorldmapPanel() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void ShowExportWorldmapPanel()
-    {
-        base.activeSubPanel = new SaveAssetPanel(&quot;Editor.EXPORT_WORLDMAP&quot;, GetHeightmaps(), null, OnSaveWorldHeightmap, base.CloseSubPanel);
-    }
-</code></pre>
-<ul>
-<li><code>private ShowImportHeightmapPanel() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void ShowImportHeightmapPanel()
-    {
-        base.activeSubPanel = new LoadAssetPanel(&quot;Editor.IMPORT_HEIGHTMAP&quot;, GetHeightmaps(), OnLoadHeightmap, base.CloseSubPanel);
-    }
-</code></pre>
-<ul>
-<li><code>private ShowImportWorldmapPanel() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void ShowImportWorldmapPanel()
-    {
-        base.activeSubPanel = new LoadAssetPanel(&quot;Editor.IMPORT_WORLDMAP&quot;, GetHeightmaps(), OnLoadWorldHeightmap, base.CloseSubPanel);
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.UI.Editor.TerrainPanelSystem+UIPriorityComparer</code>  </li>
-<li><code>Game.UI.Editor.TerrainPanelSystem+&lt;&gt;c</code>  </li>
-<li><code>Game.UI.Editor.TerrainPanelSystem+&lt;&gt;c__DisplayClass9_0</code>  </li>
-<li><code>Game.UI.Editor.TerrainPanelSystem+&lt;GetHeightmaps&gt;d__19</code>  </li>
-</ul>
+<p>Notes and implementation considerations:
+- Heightmap import/export expects image assets with the correct dimensions/format. DisplayHeightmapError provides the expected default width/height constants to the user when an incorrect image is selected.
+- Saving heightmaps uses AsyncGPUReadback to fetch GPU texture data into a NativeArray<ushort> and then writes a 16-bit PNG via TextureUtilities.SaveImage — this is an unsafe operation and blocks until the readback completes.
+- The class depends on several game systems (PrefabSystem, ToolSystem, TerrainSystem) and on runtime asset APIs (AssetDatabase.global, AssetDatabase.user). When modding, ensure these systems are available and accessible in the target game version.
+- UI localization keys used in the panel: Editor.TOOL[TerrainTool], Editor.TERRAIN_TOOLS, Editor.HEIGHTMAPS, Editor.HEIGHT_SCALE, Editor.IMPORT_HEIGHTMAP, Editor.EXPORT_HEIGHTMAP, Editor.IMPORT_WORLDMAP, Editor.EXPORT_WORLDMAP, Editor.REMOVE_WORLDMAP, Editor.INCORRECT_HEIGHTMAP_TITLE, Editor.INCORRECT_HEIGHTMAP_MESSAGE, etc.</p>
 
 
 

@@ -64884,15 +64884,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -64923,6 +64914,15 @@
   <a href="#methods" class="md-nav__link">
     <span class="md-ellipsis">
       Methods
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
     </span>
   </a>
   
@@ -65310,6 +65310,29 @@
   
   <span class="md-ellipsis">
     InterpolatedProperties
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
     
   </span>
   
@@ -69751,6 +69774,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72563,6 +72609,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75553,6 +75622,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87145,6 +87237,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -117921,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117946,15 +118083,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -117992,6 +118120,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -118009,140 +118146,96 @@
 
 
 <h1 id="gamereflectiongetterwithdepsaccessor">Game.Reflection.GetterWithDepsAccessor</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Reflection</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>System.Object</code><br />
-<strong>Implements:</strong> <code>Game.Reflection.IValueAccessor</code>, <code>System.IEquatable&lt;Game.Reflection.GetterWithDepsAccessor&gt;</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class GetterWithDepsAccessor : Game.Reflection.IValueAccessor, System.IEquatable&lt;Game.Reflection.GetterWithDepsAccessor&gt;
-{
-    private readonly Game.Reflection.IValueAccessor m_Parent;
-    private readonly System.Reflection.MethodInfo m_Getter;
-    private readonly System.Object[] m_Parameters;
-    private readonly System.Int32 m_DepsIndex;
-
-    public System.Type valueType { get; }
-
-    public GetterWithDepsAccessor(Game.Reflection.IValueAccessor parent, System.Reflection.MethodInfo getter, System.Object[] parameters, System.Int32 depsIndex);
-
-    public System.Boolean Equals(Game.Reflection.GetterWithDepsAccessor other);
-    public virtual System.Boolean Equals(System.Object obj);
-    public virtual System.Int32 GetHashCode();
-    public System.Object GetValue();
-    public System.Void SetValue(System.Object value);
-}
-</code></pre>
+<p><strong>Assembly:</strong><br />
+Assembly-CSharp (typical for Cities: Skylines 2 mods)  </p>
+<p><strong>Namespace:</strong><br />
+Game.Reflection</p>
+<p><strong>Type:</strong><br />
+class GetterWithDepsAccessor</p>
+<p><strong>Base:</strong><br />
+IValueAccessor, IEquatable<GetterWithDepsAccessor></p>
+<p><strong>Summary:</strong><br />
+GetterWithDepsAccessor is a readonly value accessor that wraps another IValueAccessor (the parent). It invokes a MethodInfo getter on the parent value and returns the result. Optionally the accessor can be provided with an array of parameters for the method invocation and an index pointing to a Unity.Jobs.JobHandle inside that parameters array; if that index is set, the JobHandle at that index will be Completed after the getter is invoked. Equality is based on the parent accessor and the getter MethodInfo.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private readonly Game.Reflection.IValueAccessor m_Parent</code>  </li>
+<li>
+<p><code>private readonly IValueAccessor m_Parent</code><br />
+Reference to the source/accessor that provides the target object on which the getter MethodInfo will be invoked. This is required and cannot be null.</p>
+</li>
+<li>
+<p><code>private readonly MethodInfo m_Getter</code><br />
+The MethodInfo representing the getter or method to invoke on the parent value. Its ReturnType defines the accessor's valueType. Required and cannot be null.</p>
+</li>
+<li>
+<p><code>private readonly object[] m_Parameters</code><br />
+Optional array of parameters passed to MethodInfo.Invoke. May be null. If a JobHandle dependency is used, it should be placed in this array at the index specified by m_DepsIndex.</p>
+</li>
+<li>
+<p><code>private readonly int m_DepsIndex</code><br />
+Index into m_Parameters that points to a Unity.Jobs.JobHandle which should be Completed after the getter invocation. A value of -1 means "no dependency".</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private readonly Game.Reflection.IValueAccessor m_Parent;
-</code></pre>
-<ul>
-<li><code>private readonly System.Reflection.MethodInfo m_Getter</code>  </li>
-</ul>
-<pre><code class="language-csharp">private readonly System.Reflection.MethodInfo m_Getter;
-</code></pre>
-<ul>
-<li><code>private readonly System.Object[] m_Parameters</code>  </li>
-</ul>
-<pre><code class="language-csharp">private readonly System.Object[] m_Parameters;
-</code></pre>
-<ul>
-<li><code>private readonly System.Int32 m_DepsIndex</code>  </li>
-</ul>
-<pre><code class="language-csharp">private readonly System.Int32 m_DepsIndex;
-</code></pre>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>public System.Type valueType { get }</code>  </li>
+<li><code>public Type valueType { get; }</code><br />
+Exposes the return type of the configured getter (m_Getter.ReturnType). This describes the type of value that GetValue will return.</li>
 </ul>
-<pre><code class="language-csharp">public System.Type valueType { get; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public GetterWithDepsAccessor(Game.Reflection.IValueAccessor parent, System.Reflection.MethodInfo getter, System.Object[] parameters = null, System.Int32 depsIndex = -1)</code>  </li>
+<li><code>public GetterWithDepsAccessor([NotNull] IValueAccessor parent, [NotNull] MethodInfo getter, [CanBeNull] object[] parameters = null, int depsIndex = -1)</code><br />
+Creates a new GetterWithDepsAccessor.</li>
+<li>parent: the IValueAccessor that provides the instance to invoke the getter on (required).</li>
+<li>getter: the MethodInfo to invoke on the parent value (required).</li>
+<li>parameters: optional parameters to pass to MethodInfo.Invoke; may include a JobHandle.</li>
+<li>depsIndex: index into parameters of a JobHandle to Complete after invocation; -1 to disable.</li>
 </ul>
-<pre><code class="language-csharp">public GetterWithDepsAccessor([NotNull] IValueAccessor parent, [NotNull] MethodInfo getter, [CanBeNull] object[] parameters = null, int depsIndex = -1)
-    {
-        m_Parent = parent ?? throw new ArgumentNullException(&quot;parent&quot;);
-        m_Getter = getter ?? throw new ArgumentNullException(&quot;getter&quot;);
-        m_Parameters = parameters;
-        m_DepsIndex = depsIndex;
-    }
-</code></pre>
+<p>The constructor throws ArgumentNullException if parent or getter are null.</p>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>public Equals(Game.Reflection.GetterWithDepsAccessor other) : System.Boolean</code>  </li>
+<li><code>public object GetValue()</code><br />
+Invokes m_Getter on the object returned by m_Parent.GetValue(), passing m_Parameters (if any), and returns the invocation result. After the invocation, if m_DepsIndex != -1 and m_Parameters is not null, the object at m_Parameters[m_DepsIndex] is cast to Unity.Jobs.JobHandle and Completed (JobHandle.Complete()) before returning. Note that the getter is invoked before the JobHandle is Completed (the code intentionally completes the dependency after invocation).</li>
 </ul>
-<pre><code class="language-csharp">public override bool Equals(object obj)
-    {
-        if (obj == null)
-        {
-            return false;
-        }
-        if (this == obj)
-        {
-            return true;
-        }
-        if (obj.GetType() != GetType())
-        {
-            return false;
-        }
-        return Equals((GetterWithDepsAccessor)obj);
-    }
-</code></pre>
+<p>Potential exceptions:
+  - Any exceptions thrown by m_Parent.GetValue() or MethodInfo.Invoke (including TargetInvocationException) propagate to the caller.
+  - If the parent value is null and the getter is an instance method, Invoke may throw.</p>
 <ul>
-<li><code>public virtual Equals(System.Object obj) : System.Boolean</code>  </li>
+<li>
+<p><code>public void SetValue(object value)</code><br />
+Always throws InvalidOperationException("GetterWithDepsAccessor is readonly"). This accessor is read-only and does not support setting values.</p>
+</li>
+<li>
+<p><code>public bool Equals(GetterWithDepsAccessor other)</code><br />
+Implements IEquatable<T>. Two GetterWithDepsAccessor instances are considered equal if they refer to equal parent accessors and equal MethodInfo getter objects. Null and reference-equality checks are handled.</p>
+</li>
+<li>
+<p><code>public override bool Equals(object obj)</code><br />
+Standard override: returns true when obj is a GetterWithDepsAccessor and Equals(GetterWithDepsAccessor) returns true.</p>
+</li>
+<li>
+<p><code>public override int GetHashCode()</code><br />
+Hash code is computed from the parent's hash code and the getter's hash code: (m_Parent.GetHashCode() * 397) ^ m_Getter.GetHashCode().</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public override bool Equals(object obj)
-    {
-        if (obj == null)
-        {
-            return false;
-        }
-        if (this == obj)
-        {
-            return true;
-        }
-        if (obj.GetType() != GetType())
-        {
-            return false;
-        }
-        return Equals((GetterWithDepsAccessor)obj);
-    }
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Example: wrapping a parent accessor and invoking a getter with a JobHandle dependency
+IValueAccessor parentAccessor = /* an accessor that returns the object instance */;
+MethodInfo getterMethod = typeof(MyType).GetMethod(&quot;GetResult&quot;); // or another method
+// Assume GetResult signature: ResultType GetResult(JobHandle handle)
+JobHandle handle = /* some scheduled job handle */;
+object[] parameters = new object[] { handle };
+
+// depsIndex is 0 because parameters[0] is the JobHandle to Complete after invocation
+var accessor = new GetterWithDepsAccessor(parentAccessor, getterMethod, parameters, depsIndex: 0);
+
+// When calling GetValue, the getter is invoked and then the JobHandle at parameters[0] is Completed.
+// The result of the getter is returned.
+object result = accessor.GetValue();
 </code></pre>
-<ul>
-<li><code>public virtual GetHashCode() : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override int GetHashCode()
-    {
-        return (m_Parent.GetHashCode() * 397) ^ m_Getter.GetHashCode();
-    }
-</code></pre>
-<ul>
-<li><code>public GetValue() : System.Object</code>  </li>
-</ul>
-<pre><code class="language-csharp">public object GetValue()
-    {
-        object value = m_Parent.GetValue();
-        object result = m_Getter.Invoke(value, m_Parameters);
-        if (m_DepsIndex != -1 &amp;&amp; m_Parameters != null)
-        {
-            ((JobHandle)m_Parameters[m_DepsIndex]).Complete();
-        }
-        return result;
-    }
-</code></pre>
-<ul>
-<li><code>public SetValue(System.Object value) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void SetValue(object value)
-    {
-        throw new InvalidOperationException(&quot;GetterWithDepsAccessor is readonly&quot;);
-    }
-</code></pre>
+<p>Notes and tips:
+- The accessor is readonly; do not call SetValue.
+- Be careful about the order: the getter is invoked before the JobHandle is Completed in the current implementation.
+- Invocation can throw TargetInvocationException or other exceptions from the invoked method — callers should handle exceptions as appropriate.</p>
 
 
 

@@ -65233,6 +65233,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69664,6 +69687,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../Skeleton/" class="md-nav__link">
         
   
@@ -69898,15 +69944,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -69943,9 +69980,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -72572,6 +72609,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75562,6 +75622,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87154,6 +87237,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -117930,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117955,15 +118083,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -118002,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118027,307 +118146,153 @@
 
 
 <h1 id="gamerenderingterrainrendersystem">Game.Rendering.TerrainRenderSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Rendering</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code>  </p>
-<p><strong>Attributes:</strong> <code>FormerlySerializedAs</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class TerrainRenderSystem : Game.GameSystemBase
-{
-    private Game.Simulation.TerrainSystem m_TerrainSystem;
-    private Game.Rendering.TerrainMaterialSystem m_TerrainMaterialSystem;
-    private Game.Rendering.OverlayInfomodeSystem m_OverlayInfomodeSystem;
-    private Game.Simulation.SnowSystem m_SnowSystem;
-    private UnityEngine.Texture &lt;overrideOverlaymap&gt;k__BackingField;
-    private UnityEngine.Texture &lt;overlayExtramap&gt;k__BackingField;
-    private Unity.Mathematics.float4 &lt;overlayArrowMask&gt;k__BackingField;
-    private UnityEngine.Material m_CachedMaterial;
-
-    public UnityEngine.Texture overrideOverlaymap { get; set; }
-    public UnityEngine.Texture overlayExtramap { get; set; }
-    public Unity.Mathematics.float4 overlayArrowMask { get; set; }
-    private UnityEngine.Material material { private get; private set; }
-
-    public TerrainRenderSystem();
-
-    public UnityEngine.Bounds GetCascadeCullArea(System.Int32 index);
-    public UnityEngine.Bounds GetCascadeRegion(System.Int32 index);
-    public UnityEngine.Bounds GetCascadeViewport(System.Int32 index);
-    public UnityEngine.Bounds GetLastCullArea();
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnDestroy();
-    protected virtual System.Void OnUpdate();
-    private System.Void SetKeywords(UnityEngine.Material materialToUpdate);
-    private System.Void UpdateMaterial();
-}
-</code></pre>
+<p><strong>Assembly:</strong>  Game<br />
+<strong>Namespace:</strong> Game.Rendering</p>
+<p><strong>Type:</strong>  class</p>
+<p><strong>Base:</strong>  GameSystemBase</p>
+<p><strong>Summary:</strong><br />
+TerrainRenderSystem is a game system responsible for preparing and updating terrain rendering state each frame. It coordinates terrain-related systems (TerrainSystem, TerrainMaterialSystem, OverlayInfomodeSystem, SnowSystem), manages a cached Material instance used for terrain rendering, updates global shader parameters for cascaded heightmaps and virtual texturing, and applies overlay/snow textures and keywords. It also exposes helper APIs to query cascade regions, viewports and culling areas used by other rendering or culling code. The nested ShaderID class centralizes shader property IDs used by the system.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.Simulation.TerrainSystem m_TerrainSystem</code>  </li>
+<li>
+<p><code>private TerrainSystem m_TerrainSystem</code><br />
+Holds a reference to the TerrainSystem (terrain data, heightmaps, cascade info). Used to query cascade matrices, heightmap textures, height scale/offset, and to request cascade rendering.</p>
+</li>
+<li>
+<p><code>private TerrainMaterialSystem m_TerrainMaterialSystem</code><br />
+Reference to the TerrainMaterialSystem responsible for terrain material-specific updates (splat maps, material properties). Used to obtain and update textures/material parameters.</p>
+</li>
+<li>
+<p><code>private OverlayInfomodeSystem m_OverlayInfomodeSystem</code><br />
+Reference to the OverlayInfomodeSystem. Present for overlay-related coordination (info modes), although this class primarily uses overlay textures it exposes.</p>
+</li>
+<li>
+<p><code>private SnowSystem m_SnowSystem</code><br />
+Reference to the SnowSystem. Provides snow depth texture used by terrain materials.</p>
+</li>
+<li>
+<p><code>private Material m_CachedMaterial</code><br />
+A cached copy of the terrain material owned by this system. The system creates a copy of the source material (from assets or valid surface) to safely set keywords and parameters per-world. The cached material is destroyed on change or on system destroy.</p>
+</li>
+<li>
+<p><code>public Texture overrideOverlaymap { get; set; }</code><br />
+A public property allowing external code to override the terrain overlay/base color map. When set, the system will bind this texture to the material as the base color/overlay texture.</p>
+</li>
+<li>
+<p><code>public Texture overlayExtramap { get; set; }</code><br />
+A public property for an extra overlay texture. When set, the system enables the relevant shader keyword and binds this texture as _OverlayExtra.</p>
+</li>
+<li>
+<p><code>public float4 overlayArrowMask { get; set; }</code><br />
+A public property holding overlay arrow mask parameters (uses Unity.Mathematics.float4). This vector is passed to the material as _OverlayArrowMask.</p>
+</li>
+<li>
+<p><code>private Material material { get; set; }</code><br />
+Private property wrapping m_CachedMaterial. The setter safely destroys any previous cached material (using Object.DestroyImmediate) and clones a new Material from the provided value. The setter also initializes the decal layer mask shader property on the cloned material.</p>
+</li>
+<li>
+<p><code>public class ShaderID</code> (nested)<br />
+Contains static readonly int fields created by Shader.PropertyToID for all shader property names the system needs (e.g., _HeightMap, _SplatMap, _COTerrainTextureArrayLODArea, _LODArea, _TerrainScaleOffset, etc.). Using the ShaderID constants avoids repeated string lookups and centralizes IDs.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.Simulation.TerrainSystem m_TerrainSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Rendering.TerrainMaterialSystem m_TerrainMaterialSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Rendering.TerrainMaterialSystem m_TerrainMaterialSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Rendering.OverlayInfomodeSystem m_OverlayInfomodeSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Rendering.OverlayInfomodeSystem m_OverlayInfomodeSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.SnowSystem m_SnowSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.SnowSystem m_SnowSystem;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.Texture &lt;overrideOverlaymap&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.Texture &lt;overrideOverlaymap&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.Texture &lt;overlayExtramap&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.Texture &lt;overlayExtramap&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private Unity.Mathematics.float4 &lt;overlayArrowMask&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Mathematics.float4 &lt;overlayArrowMask&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.Material m_CachedMaterial</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.Material m_CachedMaterial;
-</code></pre>
+<hr />
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>public UnityEngine.Texture overrideOverlaymap { get; set }</code>  </li>
+<li>
+<p><code>public Texture overrideOverlaymap { get; set; }</code><br />
+Used to override the default overlay/base-color texture applied to terrain. If overlayExtramap is set but overrideOverlaymap is null, the system provides a white texture so the extra overlay can be sampled.</p>
+</li>
+<li>
+<p><code>public Texture overlayExtramap { get; set; }</code><br />
+If set, triggers the system to enable the OVERRIDE_OVERLAY_EXTRA shader keyword and bind the extra overlay texture to the terrain material.</p>
+</li>
+<li>
+<p><code>public float4 overlayArrowMask { get; set; }</code><br />
+A 4-component vector passed to the material for overlay arrow masking (parameter name _OverlayArrowMask).</p>
+</li>
+<li>
+<p><code>private Material material { get; private set }</code><br />
+A private property that exposes/updates the internally cached Material instance. Setting this property clones a provided material into m_CachedMaterial and sets an initial decal layer mask via _CODecalLayerMask.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public UnityEngine.Texture overrideOverlaymap { get; set; }
-</code></pre>
-<ul>
-<li><code>public UnityEngine.Texture overlayExtramap { get; set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public UnityEngine.Texture overlayExtramap { get; set; }
-</code></pre>
-<ul>
-<li><code>public Unity.Mathematics.float4 overlayArrowMask { get; set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Unity.Mathematics.float4 overlayArrowMask { get; set; }
-</code></pre>
-<ul>
-<li><code>private UnityEngine.Material material { private get; private set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.Material material { private get; private set; }
-</code></pre>
+<hr />
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public TerrainRenderSystem()</code>  </li>
+<li><code>public TerrainRenderSystem()</code><br />
+Default parameterless constructor. The class relies on OnCreate to perform initialization and acquire references to dependent systems.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public TerrainRenderSystem()
-    {
-    }
-</code></pre>
+<hr />
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>public GetCascadeCullArea(System.Int32 index) : UnityEngine.Bounds</code>  </li>
+<li>
+<p><code>protected override void OnCreate()</code><br />
+Initializes the system. Calls base.OnCreate(), requires TerrainPropertiesData for update scheduling, creates the cached terrain material from the global asset (AssetDatabase.global.resources.terrain.renderMaterial), and obtains references to TerrainSystem, TerrainMaterialSystem, OverlayInfomodeSystem and SnowSystem from the World. The method is annotated with [Preserve] to prevent code stripping.</p>
+</li>
+<li>
+<p><code>protected override void OnDestroy()</code><br />
+Cleans up the cached material when the system is destroyed. Calls CoreUtils.Destroy on m_CachedMaterial and base.OnDestroy(). Annotated with [Preserve].</p>
+</li>
+<li>
+<p><code>private void UpdateMaterial()</code><br />
+Core logic that gathers cascade info from TerrainSystem and configures global and per-material shader parameters. It:</p>
+</li>
+<li>Gets cascade matrices, LOD ranges and base LOD and sets global shader variables (_COTerrainTextureArrayLODArea, _COTerrainTextureArrayLODRange, _COTerrainTextureArrayBaseLod, _COTerrainHeightScaleOffset).</li>
+<li>Chooses a Material to update: either the system's cached material or the valid surface's material (TerrainSurface.GetValidSurface()).</li>
+<li>Calls SetKeywords to enable/disable overlay and playable-world keywords based on state.</li>
+<li>Binds textures: heightmap, splatmap, cascade texture (heightmap array), override overlay map, overlay extra map, snow depth.</li>
+<li>Passes LOD area/range and terrain scale/VT scale offsets into the material.</li>
+<li>Invokes m_TerrainMaterialSystem.UpdateMaterial(material) to let the material system apply further updates.</li>
+<li>
+<p>Assigns the material back to the valid surface so the renderer uses the updated material.</p>
+</li>
+<li>
+<p><code>protected override void OnUpdate()</code><br />
+Called each frame. Updates the material state via UpdateMaterial(). If the TerrainSystem indicates a height map render is required (heightMapRenderRequired), it calls m_TerrainSystem.RenderCascades() to render/update the cascaded heightmap textures.</p>
+</li>
+<li>
+<p><code>private void SetKeywords(Material materialToUpdate)</code><br />
+Enables or disables shader keywords on the provided material based on overlay textures and the TerrainSystem.baseLod:</p>
+</li>
+<li>If overlayExtramap is set, ensures overrideOverlaymap is at least a white texture, enables OVERRIDE_OVERLAY_EXTRA, disables OVERRIDE_OVERLAY_SIMPLE.</li>
+<li>Else if overrideOverlaymap is set, enables OVERRIDE_OVERLAY_SIMPLE, disables OVERRIDE_OVERLAY_EXTRA.</li>
+<li>Otherwise disables both overlay override keywords.</li>
+<li>
+<p>Enables or disables _PLAYABLEWORLDSELECT depending on whether TerrainSystem.baseLod is zero.</p>
+</li>
+<li>
+<p><code>public Bounds GetCascadeRegion(int index)</code><br />
+Returns an axis-aligned bounding box (UnityEngine.Bounds) representing the world region covered by a particular cascade index (derived from m_TerrainSystem.heightMapSliceArea). If index is out of range, returns an empty/default Bounds.</p>
+</li>
+<li>
+<p><code>public Bounds GetCascadeViewport(int index)</code><br />
+Computes and returns a Bounds representing the viewport area within the cascade slice that was last updated (based on heightMapViewportUpdated and heightMapSliceArea). Useful for partial updates and culling of dynamic regions. Returns default Bounds if index out of range.</p>
+</li>
+<li>
+<p><code>public Bounds GetCascadeCullArea(int index)</code><br />
+Returns the culling area for a given cascade index (constructed from m_TerrainSystem.heightMapCullArea). If index is out of range, returns default Bounds.</p>
+</li>
+<li>
+<p><code>public Bounds GetLastCullArea()</code><br />
+Returns a Bounds built from TerrainSystem.lastCullArea representing the last computed culling rectangle used for terrain.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public Bounds GetCascadeCullArea(int index)
-    {
-        Bounds result = default(Bounds);
-        if (index &gt;= 0 &amp;&amp; index &lt; m_TerrainSystem.heightMapCullArea.Length)
-        {
-            float3 @float = new float3(m_TerrainSystem.heightMapCullArea[index].x, float.MaxValue, m_TerrainSystem.heightMapCullArea[index].y);
-            result.SetMinMax(max: new float3(m_TerrainSystem.heightMapCullArea[index].z, float.MinValue, m_TerrainSystem.heightMapCullArea[index].w), min: @float);
-        }
-        return result;
-    }
-</code></pre>
-<ul>
-<li><code>public GetCascadeRegion(System.Int32 index) : UnityEngine.Bounds</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Bounds GetCascadeRegion(int index)
-    {
-        Bounds result = default(Bounds);
-        if (index &gt;= 0 &amp;&amp; index &lt; m_TerrainSystem.heightMapSliceArea.Length)
-        {
-            float3 @float = new float3(m_TerrainSystem.heightMapSliceArea[index].x, m_TerrainSystem.heightScaleOffset.x, m_TerrainSystem.heightMapSliceArea[index].y);
-            result.SetMinMax(max: new float3(m_TerrainSystem.heightMapSliceArea[index].z, 0f, m_TerrainSystem.heightMapSliceArea[index].w), min: @float);
-        }
-        return result;
-    }
-</code></pre>
-<ul>
-<li><code>public GetCascadeViewport(System.Int32 index) : UnityEngine.Bounds</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Bounds GetCascadeViewport(int index)
-    {
-        Bounds result = default(Bounds);
-        if (index &gt;= 0 &amp;&amp; index &lt; m_TerrainSystem.heightMapViewportUpdated.Length)
-        {
-            float2 xy = m_TerrainSystem.heightMapSliceArea[index].xy;
-            float2 @float = m_TerrainSystem.heightMapSliceArea[index].zw - m_TerrainSystem.heightMapSliceArea[index].xy;
-            float3 zero = float3.zero;
-            float3 zero2 = float3.zero;
-            zero.xz = xy + @float * m_TerrainSystem.heightMapViewportUpdated[index].xy;
-            zero2.xz = xy + @float * (m_TerrainSystem.heightMapViewportUpdated[index].xy + m_TerrainSystem.heightMapViewportUpdated[index].zw);
-            zero.y = 0f;
-            zero2.y = m_TerrainSystem.heightScaleOffset.x;
-            result.SetMinMax(zero, zero2);
-        }
-        return result;
-    }
-</code></pre>
-<ul>
-<li><code>public GetLastCullArea() : UnityEngine.Bounds</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Bounds GetLastCullArea()
-    {
-        Bounds result = default(Bounds);
-        float3 @float = new float3(m_TerrainSystem.lastCullArea.x, float.MaxValue, m_TerrainSystem.lastCullArea.y);
-        result.SetMinMax(max: new float3(m_TerrainSystem.lastCullArea.z, float.MinValue, m_TerrainSystem.lastCullArea.w), min: @float);
-        return result;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
+<hr />
+<h2 id="usage-example">Usage Example</h2>
 <pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        RequireForUpdate&lt;TerrainPropertiesData&gt;();
-        material = AssetDatabase.global.resources.terrain.renderMaterial;
-        m_TerrainSystem = base.World.GetOrCreateSystemManaged&lt;TerrainSystem&gt;();
-        m_TerrainMaterialSystem = base.World.GetOrCreateSystemManaged&lt;TerrainMaterialSystem&gt;();
-        m_OverlayInfomodeSystem = base.World.GetOrCreateSystemManaged&lt;OverlayInfomodeSystem&gt;();
-        m_SnowSystem = base.World.GetOrCreateSystemManaged&lt;SnowSystem&gt;();
-    }
+protected override void OnCreate()
+{
+    base.OnCreate();
+    // Acquire or override overlay textures before runtime rendering
+    this.overrideOverlaymap = myCustomOverlayTexture;
+    this.overlayExtramap = myOverlayExtraTexture; // optional
+    // The system will clone the default terrain material and apply properties each frame.
+}
 </code></pre>
-<ul>
-<li><code>protected virtual OnDestroy() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnDestroy()
-    {
-        base.OnDestroy();
-        CoreUtils.Destroy(m_CachedMaterial);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        UpdateMaterial();
-        if (m_TerrainSystem.heightMapRenderRequired)
-        {
-            m_TerrainSystem.RenderCascades();
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private SetKeywords(UnityEngine.Material materialToUpdate) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void SetKeywords(Material materialToUpdate)
-    {
-        if (overlayExtramap != null)
-        {
-            if (overrideOverlaymap == null)
-            {
-                overrideOverlaymap = Texture2D.whiteTexture;
-            }
-            materialToUpdate.EnableKeyword(&quot;OVERRIDE_OVERLAY_EXTRA&quot;);
-            materialToUpdate.DisableKeyword(&quot;OVERRIDE_OVERLAY_SIMPLE&quot;);
-        }
-        else if (overrideOverlaymap != null)
-        {
-            materialToUpdate.DisableKeyword(&quot;OVERRIDE_OVERLAY_EXTRA&quot;);
-            materialToUpdate.EnableKeyword(&quot;OVERRIDE_OVERLAY_SIMPLE&quot;);
-        }
-        else
-        {
-            materialToUpdate.DisableKeyword(&quot;OVERRIDE_OVERLAY_EXTRA&quot;);
-            materialToUpdate.DisableKeyword(&quot;OVERRIDE_OVERLAY_SIMPLE&quot;);
-        }
-        if (TerrainSystem.baseLod == 0)
-        {
-            materialToUpdate.DisableKeyword(&quot;_PLAYABLEWORLDSELECT&quot;);
-        }
-        else
-        {
-            materialToUpdate.EnableKeyword(&quot;_PLAYABLEWORLDSELECT&quot;);
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private UpdateMaterial() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void UpdateMaterial()
-    {
-        TerrainSurface validSurface = TerrainSurface.GetValidSurface();
-        m_TerrainSystem.GetCascadeInfo(out var _, out var baseLOD, out var areas, out var ranges, out var _);
-        Shader.SetGlobalMatrix(ShaderID._COTerrainTextureArrayLODArea, areas);
-        Shader.SetGlobalVector(ShaderID._COTerrainTextureArrayLODRange, ranges);
-        Shader.SetGlobalInt(ShaderID._COTerrainTextureArrayBaseLod, baseLOD);
-        Shader.SetGlobalVector(ShaderID._COTerrainHeightScaleOffset, new float4(m_TerrainSystem.heightScaleOffset.x, m_TerrainSystem.heightScaleOffset.y, 0f, 0f));
-        if (validSurface == null)
-        {
-            return;
-        }
-        Material material = ((this.material == null) ? validSurface.material : this.material);
-        if (!(material == null))
-        {
-            SetKeywords(material);
-            material.SetMatrix(ShaderID._LODArea, areas);
-            material.SetVector(ShaderID._LODRange, ranges);
-            material.SetVector(ShaderID._TerrainScaleOffset, new float4(m_TerrainSystem.heightScaleOffset.x, m_TerrainSystem.heightScaleOffset.y, 0f, 0f));
-            material.SetVector(ShaderID._VTScaleOffset, m_TerrainSystem.VTScaleOffset);
-            Texture heightmap = m_TerrainSystem.heightmap;
-            Texture texture = overrideOverlaymap;
-            Texture snowDepth = m_SnowSystem.SnowDepth;
-            Texture cascadeTexture = m_TerrainSystem.GetCascadeTexture();
-            Texture splatmap = m_TerrainMaterialSystem.splatmap;
-            if (heightmap != null)
-            {
-                material.SetTexture(ShaderID._HeightMap, heightmap);
-            }
-            if (splatmap != null)
-            {
-                material.SetTexture(ShaderID._SplatMap, splatmap);
-            }
-            if (cascadeTexture != null)
-            {
-                material.SetTexture(ShaderID._HeightMapArray, cascadeTexture);
-            }
-            if (texture != null)
-            {
-                material.SetTexture(ShaderID._BaseColorMap, texture);
-            }
-            if (overlayExtramap != null)
-            {
-                material.SetTexture(ShaderID._OverlayExtra, overlayExtramap);
-            }
-            if (snowDepth != null)
-            {
-                material.SetTexture(ShaderID._SnowMap, snowDepth);
-            }
-            material.SetVector(ShaderID._OverlayArrowMask, overlayArrowMask);
-            m_TerrainMaterialSystem.UpdateMaterial(material);
-            validSurface.material = material;
-        }
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Rendering.TerrainRenderSystem+ShaderID</code>  </li>
-</ul>
+<p>Notes and tips:
+- To change the terrain appearance per-world or per-mod, assign overrideOverlaymap and/or overlayExtramap; UpdateMaterial will bind them and enable the correct keywords.
+- If replacing the material entirely, assign a Material to the private material property via reflection or by changing the system's initialization to use a custom Material source (the property clones the provided Material).
+- The nested ShaderID class contains the string-to-ID mappings used by this system; refer to those IDs when writing shaders or setting global/material properties to ensure compatibility.</p>
 
 
 

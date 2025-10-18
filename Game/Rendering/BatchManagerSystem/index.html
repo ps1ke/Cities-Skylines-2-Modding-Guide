@@ -65233,6 +65233,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -66977,18 +67000,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -67013,9 +67036,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -69734,6 +69757,29 @@
   
   <span class="md-ellipsis">
     ShaderID
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
     
   </span>
   
@@ -72563,6 +72609,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75553,6 +75622,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87145,6 +87237,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -117921,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117948,18 +118085,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -117984,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118009,932 +118146,313 @@
 
 
 <h1 id="gamerenderingbatchmanagersystem">Game.Rendering.BatchManagerSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Rendering</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code><br />
-<strong>Implements:</strong> <code>Game.Serialization.IPreDeserialize</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class BatchManagerSystem : Game.GameSystemBase, Game.Serialization.IPreDeserialize
-{
-    private Game.Rendering.RenderingSystem m_RenderingSystem;
-    private Game.Rendering.ManagedBatchSystem m_ManagedBatchSystem;
-    private Game.Rendering.BatchDataSystem m_BatchDataSystem;
-    private Colossal.IO.AssetDatabase.VirtualTexturing.TextureStreamingSystem m_TextureStreamingSystem;
-    private Game.Prefabs.PrefabSystem m_PrefabSystem;
-    private Colossal.Rendering.NativeBatchGroups&lt;Game.Rendering.CullingData, Game.Rendering.GroupData, Game.Rendering.BatchData, Game.Rendering.InstanceData&gt; m_NativeBatchGroups;
-    private Colossal.Rendering.NativeBatchInstances&lt;Game.Rendering.CullingData, Game.Rendering.GroupData, Game.Rendering.BatchData, Game.Rendering.InstanceData&gt; m_NativeBatchInstances;
-    private Colossal.Rendering.NativeSubBatches&lt;Game.Rendering.CullingData, Game.Rendering.GroupData, Game.Rendering.BatchData, Game.Rendering.InstanceData&gt; m_NativeSubBatches;
-    private Colossal.Rendering.ManagedBatches&lt;Game.Rendering.OptionalProperties&gt; m_ManagedBatches;
-    private Unity.Collections.NativeList&lt;Game.Rendering.PropertyData&gt; m_MaterialProperties;
-    private Unity.Collections.NativeList&lt;Game.Rendering.PropertyData&gt; m_ObjectProperties;
-    private Unity.Collections.NativeList&lt;Game.Rendering.PropertyData&gt; m_NetProperties;
-    private Unity.Collections.NativeList&lt;Game.Rendering.PropertyData&gt; m_LaneProperties;
-    private Unity.Collections.NativeList&lt;Game.Rendering.PropertyData&gt; m_ZoneProperties;
-    private Unity.Collections.NativeList&lt;Unity.Entities.Entity&gt; m_MergeMeshes;
-    private Unity.Collections.NativeParallelMultiHashMap&lt;Unity.Entities.Entity, System.Int32&gt; m_MergeGroups;
-    private Unity.Entities.EntityQuery m_MeshSettingsQuery;
-    private System.Boolean m_LastMotionVectorsEnabled;
-    private System.Boolean m_LastLodFadeEnabled;
-    private System.Boolean m_PropertiesChanged;
-    private System.Boolean m_MotionVectorsChanged;
-    private System.Boolean m_LodFadeChanged;
-    private System.Boolean m_VirtualTexturingChanged;
-    private Unity.Jobs.JobHandle m_NativeBatchGroupsReadDependencies;
-    private Unity.Jobs.JobHandle m_NativeBatchGroupsWriteDependencies;
-    private Unity.Jobs.JobHandle m_NativeBatchInstancesReadDependencies;
-    private Unity.Jobs.JobHandle m_NativeBatchInstancesWriteDependencies;
-    private Unity.Jobs.JobHandle m_NativeSubBatchesReadDependencies;
-    private Unity.Jobs.JobHandle m_NativeSubBatchesWriteDependencies;
-    private Unity.Jobs.JobHandle m_MergeDependencies;
-    private Game.Rendering.BatchManagerSystem+TypeHandle __TypeHandle;
-    public static const System.UInt32 GPU_INSTANCE_MEMORY_DEFAULT;
-    public static const System.UInt32 GPU_INSTANCE_MEMORY_INCREMENT;
-    public static const System.UInt32 GPU_UPLOADER_CHUNK_SIZE;
-    public static const System.UInt32 GPU_UPLOADER_OPERATION_SIZE;
-    public static const System.Int32 MAX_GROUP_BATCH_COUNT;
-
-    public BatchManagerSystem();
-
-    private System.Void __AssignQueries(Unity.Entities.SystemState&amp; state);
-    public System.Void AddNativeBatchGroupsReader(Unity.Jobs.JobHandle jobHandle);
-    public System.Void AddNativeBatchGroupsWriter(Unity.Jobs.JobHandle jobHandle);
-    public System.Void AddNativeBatchInstancesReader(Unity.Jobs.JobHandle jobHandle);
-    public System.Void AddNativeBatchInstancesWriter(Unity.Jobs.JobHandle jobHandle);
-    public System.Void AddNativeSubBatchesReader(Unity.Jobs.JobHandle jobHandle);
-    public System.Void AddNativeSubBatchesWriter(Unity.Jobs.JobHandle jobHandle);
-    public System.Boolean CheckPropertyUpdates();
-    public Colossal.Rendering.ManagedBatches&lt;Game.Rendering.OptionalProperties&gt; GetManagedBatches();
-    public Colossal.Rendering.NativeBatchGroups&lt;Game.Rendering.CullingData, Game.Rendering.GroupData, Game.Rendering.BatchData, Game.Rendering.InstanceData&gt; GetNativeBatchGroups(System.Boolean readOnly, Unity.Jobs.JobHandle&amp; dependencies);
-    public Colossal.Rendering.NativeBatchInstances&lt;Game.Rendering.CullingData, Game.Rendering.GroupData, Game.Rendering.BatchData, Game.Rendering.InstanceData&gt; GetNativeBatchInstances(System.Boolean readOnly, Unity.Jobs.JobHandle&amp; dependencies);
-    public Colossal.Rendering.NativeSubBatches&lt;Game.Rendering.CullingData, Game.Rendering.GroupData, Game.Rendering.BatchData, Game.Rendering.InstanceData&gt; GetNativeSubBatches(System.Boolean readOnly, Unity.Jobs.JobHandle&amp; dependencies);
-    public Game.Rendering.PropertyData GetPropertyData(Game.Rendering.MaterialProperty property);
-    public Game.Rendering.PropertyData GetPropertyData(Game.Rendering.ObjectProperty property);
-    public Game.Rendering.PropertyData GetPropertyData(Game.Rendering.NetProperty property);
-    public Game.Rendering.PropertyData GetPropertyData(Game.Rendering.LaneProperty property);
-    public Game.Rendering.PropertyData GetPropertyData(Game.Rendering.ZoneProperty property);
-    public System.ValueTuple&lt;System.Int32, System.Int32&gt; GetVTTextureParamBlockID(System.Int32 stackConfigIndex);
-    private System.Void InitializeInstanceProperties&lt;T&gt;(Unity.Collections.NativeList`1[[Game.Rendering.PropertyData, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]&amp; properties, Game.Prefabs.MeshType meshType);
-    private System.Void InitializeMaterialProperties&lt;T&gt;(Unity.Collections.NativeList`1[[Game.Rendering.PropertyData, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]&amp; properties);
-    public System.Boolean IsLodFadeEnabled();
-    public System.Boolean IsMotionVectorsEnabled();
-    public System.Void MergeGroups(Unity.Entities.Entity meshEntity, System.Int32 mergeIndex);
-    private System.Void MergeGroups();
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnCreateForCompiler();
-    protected virtual System.Void OnDestroy();
-    private Unity.Jobs.JobHandle OnPerformCulling(UnityEngine.Rendering.BatchRendererGroup rendererGroup, UnityEngine.Rendering.BatchCullingContext cullingContext, UnityEngine.Rendering.BatchCullingOutput cullingOutput, System.IntPtr userContext);
-    protected virtual System.Void OnUpdate();
-    public System.Void PreDeserialize(Colossal.Serialization.Entities.Context context);
-    private System.Void RefreshProperties(System.Boolean propertiesChanged, System.Boolean motionVectorsChanged, System.Boolean lodFadeChanged, System.Boolean virtualTexturingChanged);
-    public System.Void VirtualTexturingUpdated();
-}
-</code></pre>
+<p><strong>Assembly:</strong> Assembly-CSharp<br />
+<strong>Namespace:</strong> Game.Rendering</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> GameSystemBase, IPreDeserialize</p>
+<p><strong>Summary:</strong><br />
+BatchManagerSystem is the central batching and culling manager used by the rendering pipeline. It owns native batch/group/instance containers, coordinates managed GPU/CPU upload via ManagedBatches, builds per-frame culling draw commands, handles property refreshes (material &amp; instance properties), merges batch groups, and exposes APIs for other systems/mods to query and manipulate batch data. The system schedules multiple Burst-compiled jobs for allocation, sub-batch generation, merging groups, and culling. It also integrates with the engine's BatchRendererGroup through OnPerformCulling.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.Rendering.RenderingSystem m_RenderingSystem</code>  </li>
+<li>
+<p><code>public const uint GPU_INSTANCE_MEMORY_DEFAULT</code><br />
+{{ GPU instance memory default in bytes (67108864). Used when allocating native buffers for instance data. }}</p>
+</li>
+<li>
+<p><code>public const uint GPU_INSTANCE_MEMORY_INCREMENT</code><br />
+{{ Increment used when growing GPU instance memory (16777216). }}</p>
+</li>
+<li>
+<p><code>public const uint GPU_UPLOADER_CHUNK_SIZE</code><br />
+{{ Chunk size used by the GPU uploader (2097152). }}</p>
+</li>
+<li>
+<p><code>public const uint GPU_UPLOADER_OPERATION_SIZE</code><br />
+{{ Operation size used by the GPU uploader (65536). }}</p>
+</li>
+<li>
+<p><code>public const int MAX_GROUP_BATCH_COUNT</code><br />
+{{ Maximum number of split batches per group (16). }}</p>
+</li>
+<li>
+<p><code>private RenderingSystem m_RenderingSystem</code><br />
+{{ Reference to the RenderingSystem; read flags like motionVectors and lodCrossFade and shadow culling data. }}</p>
+</li>
+<li>
+<p><code>private ManagedBatchSystem m_ManagedBatchSystem</code><br />
+{{ Used to manage textures, VT setup and ManagedBatches integration. }}</p>
+</li>
+<li>
+<p><code>private BatchDataSystem m_BatchDataSystem</code><br />
+{{ Notifies when instance properties change (calls InstancePropertiesUpdated). }}</p>
+</li>
+<li>
+<p><code>private TextureStreamingSystem m_TextureStreamingSystem</code><br />
+{{ Used for getting VT texture parameter blocks when virtual texturing is in use. }}</p>
+</li>
+<li>
+<p><code>private PrefabSystem m_PrefabSystem</code><br />
+{{ Used to query RenderPrefab and component data needed to update batch properties or VT registration. }}</p>
+</li>
+<li>
+<p><code>private NativeBatchGroups&lt;CullingData, GroupData, BatchData, InstanceData&gt; m_NativeBatchGroups</code><br />
+{{ Native container holding per-group and per-batch data. }}</p>
+</li>
+<li>
+<p><code>private NativeBatchInstances&lt;CullingData, GroupData, BatchData, InstanceData&gt; m_NativeBatchInstances</code><br />
+{{ Native container holding per-instance culling and instance-specific data. }}</p>
+</li>
+<li>
+<p><code>private NativeSubBatches&lt;CullingData, GroupData, BatchData, InstanceData&gt; m_NativeSubBatches</code><br />
+{{ Native container for sub-batch generation and renderer recreation. }}</p>
+</li>
+<li>
+<p><code>private ManagedBatches&lt;OptionalProperties&gt; m_ManagedBatches</code><br />
+{{ Managed (C#) helper for uploading material/batch properties and VT textures; used to register material/instance properties and produce native batch properties. }}</p>
+</li>
+<li>
+<p><code>private NativeList&lt;PropertyData&gt; m_MaterialProperties</code><br />
+{{ List of material property metadata (PropertyData) registered from MaterialProperty enum. }}</p>
+</li>
+<li>
+<p><code>private NativeList&lt;PropertyData&gt; m_ObjectProperties</code><br />
+{{ List of instance property metadata for object meshes. }}</p>
+</li>
+<li>
+<p><code>private NativeList&lt;PropertyData&gt; m_NetProperties</code><br />
+{{ List of instance property metadata for net meshes. }}</p>
+</li>
+<li>
+<p><code>private NativeList&lt;PropertyData&gt; m_LaneProperties</code><br />
+{{ List of instance property metadata for lane meshes. }}</p>
+</li>
+<li>
+<p><code>private NativeList&lt;PropertyData&gt; m_ZoneProperties</code><br />
+{{ List of instance property metadata for zone meshes. }}</p>
+</li>
+<li>
+<p><code>private NativeList&lt;Entity&gt; m_MergeMeshes</code><br />
+{{ Temporary list of mesh entities queued for group merge operations. }}</p>
+</li>
+<li>
+<p><code>private NativeParallelMultiHashMap&lt;Entity, int&gt; m_MergeGroups</code><br />
+{{ Mapping mesh entity -&gt; merge group indexes used when merging groups across meshes. }}</p>
+</li>
+<li>
+<p><code>private EntityQuery m_MeshSettingsQuery</code><br />
+{{ Query used to read MeshSettingsData singleton if present. }}</p>
+</li>
+<li>
+<p><code>private bool m_LastMotionVectorsEnabled</code><br />
+{{ Cache of last-known motion vectors enabled state (used to detect changes). }}</p>
+</li>
+<li>
+<p><code>private bool m_LastLodFadeEnabled</code><br />
+{{ Cache of last-known LOD crossfade state. }}</p>
+</li>
+<li>
+<p><code>private bool m_PropertiesChanged</code><br />
+{{ Flag set when global material/instance property definitions change. }}</p>
+</li>
+<li>
+<p><code>private bool m_MotionVectorsChanged</code><br />
+{{ Flag set when motion vectors toggle changed. }}</p>
+</li>
+<li>
+<p><code>private bool m_LodFadeChanged</code><br />
+{{ Flag set when LOD fade toggle changed. }}</p>
+</li>
+<li>
+<p><code>private bool m_VirtualTexturingChanged</code><br />
+{{ Flag set when virtual texturing state changed and needs refresh. }}</p>
+</li>
+<li>
+<p><code>private JobHandle m_NativeBatchGroupsReadDependencies</code><br />
+{{ Job handle tracking jobs that read from m_NativeBatchGroups (to compose dependencies). }}</p>
+</li>
+<li>
+<p><code>private JobHandle m_NativeBatchGroupsWriteDependencies</code><br />
+{{ Job handle tracking jobs that write m_NativeBatchGroups. }}</p>
+</li>
+<li>
+<p><code>private JobHandle m_NativeBatchInstancesReadDependencies</code><br />
+{{ Job handle tracking jobs reading m_NativeBatchInstances. }}</p>
+</li>
+<li>
+<p><code>private JobHandle m_NativeBatchInstancesWriteDependencies</code><br />
+{{ Job handle tracking jobs writing m_NativeBatchInstances. }}</p>
+</li>
+<li>
+<p><code>private JobHandle m_NativeSubBatchesReadDependencies</code><br />
+{{ Job handle tracking readers of m_NativeSubBatches. }}</p>
+</li>
+<li>
+<p><code>private JobHandle m_NativeSubBatchesWriteDependencies</code><br />
+{{ Job handle tracking writers of m_NativeSubBatches. }}</p>
+</li>
+<li>
+<p><code>private JobHandle m_MergeDependencies</code><br />
+{{ Job handle for outstanding merge jobs (MergeGroupsJob + cleanup). }}</p>
+</li>
+<li>
+<p><code>private TypeHandle __TypeHandle</code><br />
+{{ Generated type handle used to fetch BufferLookup handles for buffer access inside jobs. }}</p>
+</li>
+<li>
+<p>Nested/Burst job &amp; helper types (MergeGroupsJob, MergeCleanupJob, InitializeLodFadeJob, AllocateBuffersJob, GenerateSubBatchesJob, AllocateCullingJob, CullingPlanesJob, FinalizeCullingJob, BatchCullingJob, ActiveGroupData, CullingSplitData, TypeHandle)<br />
+{{ These types implement the various high-performance jobs responsible for merging batch groups, allocating buffers, generating sub-batches, and performing culling (including shadow cascades and split handling). They are Burst-compiled and operate on the native containers. See Methods summary for patterns of use. }}</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.Rendering.RenderingSystem m_RenderingSystem;
-</code></pre>
+<h2 id="properties">Properties</h2>
 <ul>
-<li><code>private Game.Rendering.ManagedBatchSystem m_ManagedBatchSystem</code>  </li>
+<li>(no public properties)<br />
+{{ The system exposes functionality via public methods (GetNativeBatchGroups, GetNativeBatchInstances, GetManagedBatches, etc.) rather than public C# properties. }}</li>
 </ul>
-<pre><code class="language-csharp">private Game.Rendering.ManagedBatchSystem m_ManagedBatchSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Rendering.BatchDataSystem m_BatchDataSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Rendering.BatchDataSystem m_BatchDataSystem;
-</code></pre>
-<ul>
-<li><code>private Colossal.IO.AssetDatabase.VirtualTexturing.TextureStreamingSystem m_TextureStreamingSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.IO.AssetDatabase.VirtualTexturing.TextureStreamingSystem m_TextureStreamingSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Prefabs.PrefabSystem m_PrefabSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Prefabs.PrefabSystem m_PrefabSystem;
-</code></pre>
-<ul>
-<li><code>private Colossal.Rendering.NativeBatchGroups&lt;Game.Rendering.CullingData, Game.Rendering.GroupData, Game.Rendering.BatchData, Game.Rendering.InstanceData&gt; m_NativeBatchGroups</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.Rendering.NativeBatchGroups&lt;Game.Rendering.CullingData, Game.Rendering.GroupData, Game.Rendering.BatchData, Game.Rendering.InstanceData&gt; m_NativeBatchGroups;
-</code></pre>
-<ul>
-<li><code>private Colossal.Rendering.NativeBatchInstances&lt;Game.Rendering.CullingData, Game.Rendering.GroupData, Game.Rendering.BatchData, Game.Rendering.InstanceData&gt; m_NativeBatchInstances</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.Rendering.NativeBatchInstances&lt;Game.Rendering.CullingData, Game.Rendering.GroupData, Game.Rendering.BatchData, Game.Rendering.InstanceData&gt; m_NativeBatchInstances;
-</code></pre>
-<ul>
-<li><code>private Colossal.Rendering.NativeSubBatches&lt;Game.Rendering.CullingData, Game.Rendering.GroupData, Game.Rendering.BatchData, Game.Rendering.InstanceData&gt; m_NativeSubBatches</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.Rendering.NativeSubBatches&lt;Game.Rendering.CullingData, Game.Rendering.GroupData, Game.Rendering.BatchData, Game.Rendering.InstanceData&gt; m_NativeSubBatches;
-</code></pre>
-<ul>
-<li><code>private Colossal.Rendering.ManagedBatches&lt;Game.Rendering.OptionalProperties&gt; m_ManagedBatches</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.Rendering.ManagedBatches&lt;Game.Rendering.OptionalProperties&gt; m_ManagedBatches;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeList&lt;Game.Rendering.PropertyData&gt; m_MaterialProperties</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeList&lt;Game.Rendering.PropertyData&gt; m_MaterialProperties;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeList&lt;Game.Rendering.PropertyData&gt; m_ObjectProperties</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeList&lt;Game.Rendering.PropertyData&gt; m_ObjectProperties;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeList&lt;Game.Rendering.PropertyData&gt; m_NetProperties</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeList&lt;Game.Rendering.PropertyData&gt; m_NetProperties;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeList&lt;Game.Rendering.PropertyData&gt; m_LaneProperties</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeList&lt;Game.Rendering.PropertyData&gt; m_LaneProperties;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeList&lt;Game.Rendering.PropertyData&gt; m_ZoneProperties</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeList&lt;Game.Rendering.PropertyData&gt; m_ZoneProperties;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeList&lt;Unity.Entities.Entity&gt; m_MergeMeshes</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeList&lt;Unity.Entities.Entity&gt; m_MergeMeshes;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeParallelMultiHashMap&lt;Unity.Entities.Entity, System.Int32&gt; m_MergeGroups</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeParallelMultiHashMap&lt;Unity.Entities.Entity, System.Int32&gt; m_MergeGroups;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_MeshSettingsQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_MeshSettingsQuery;
-</code></pre>
-<ul>
-<li><code>private System.Boolean m_LastMotionVectorsEnabled</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean m_LastMotionVectorsEnabled;
-</code></pre>
-<ul>
-<li><code>private System.Boolean m_LastLodFadeEnabled</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean m_LastLodFadeEnabled;
-</code></pre>
-<ul>
-<li><code>private System.Boolean m_PropertiesChanged</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean m_PropertiesChanged;
-</code></pre>
-<ul>
-<li><code>private System.Boolean m_MotionVectorsChanged</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean m_MotionVectorsChanged;
-</code></pre>
-<ul>
-<li><code>private System.Boolean m_LodFadeChanged</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean m_LodFadeChanged;
-</code></pre>
-<ul>
-<li><code>private System.Boolean m_VirtualTexturingChanged</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean m_VirtualTexturingChanged;
-</code></pre>
-<ul>
-<li><code>private Unity.Jobs.JobHandle m_NativeBatchGroupsReadDependencies</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Jobs.JobHandle m_NativeBatchGroupsReadDependencies;
-</code></pre>
-<ul>
-<li><code>private Unity.Jobs.JobHandle m_NativeBatchGroupsWriteDependencies</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Jobs.JobHandle m_NativeBatchGroupsWriteDependencies;
-</code></pre>
-<ul>
-<li><code>private Unity.Jobs.JobHandle m_NativeBatchInstancesReadDependencies</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Jobs.JobHandle m_NativeBatchInstancesReadDependencies;
-</code></pre>
-<ul>
-<li><code>private Unity.Jobs.JobHandle m_NativeBatchInstancesWriteDependencies</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Jobs.JobHandle m_NativeBatchInstancesWriteDependencies;
-</code></pre>
-<ul>
-<li><code>private Unity.Jobs.JobHandle m_NativeSubBatchesReadDependencies</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Jobs.JobHandle m_NativeSubBatchesReadDependencies;
-</code></pre>
-<ul>
-<li><code>private Unity.Jobs.JobHandle m_NativeSubBatchesWriteDependencies</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Jobs.JobHandle m_NativeSubBatchesWriteDependencies;
-</code></pre>
-<ul>
-<li><code>private Unity.Jobs.JobHandle m_MergeDependencies</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Jobs.JobHandle m_MergeDependencies;
-</code></pre>
-<ul>
-<li><code>private Game.Rendering.BatchManagerSystem+TypeHandle __TypeHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Rendering.BatchManagerSystem+TypeHandle __TypeHandle;
-</code></pre>
-<ul>
-<li><code>public static const System.UInt32 GPU_INSTANCE_MEMORY_DEFAULT</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static const System.UInt32 GPU_INSTANCE_MEMORY_DEFAULT;
-</code></pre>
-<ul>
-<li><code>public static const System.UInt32 GPU_INSTANCE_MEMORY_INCREMENT</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static const System.UInt32 GPU_INSTANCE_MEMORY_INCREMENT;
-</code></pre>
-<ul>
-<li><code>public static const System.UInt32 GPU_UPLOADER_CHUNK_SIZE</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static const System.UInt32 GPU_UPLOADER_CHUNK_SIZE;
-</code></pre>
-<ul>
-<li><code>public static const System.UInt32 GPU_UPLOADER_OPERATION_SIZE</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static const System.UInt32 GPU_UPLOADER_OPERATION_SIZE;
-</code></pre>
-<ul>
-<li><code>public static const System.Int32 MAX_GROUP_BATCH_COUNT</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static const System.Int32 MAX_GROUP_BATCH_COUNT;
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public BatchManagerSystem()</code>  </li>
+<li><code>public BatchManagerSystem()</code><br />
+{{ Standard parameterless constructor; initialization of native containers happens in OnCreate. Marked with [Preserve] attribute to avoid stripping. }}</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public BatchManagerSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private __AssignQueries(Unity.Entities.SystemState&amp; state) : System.Void</code>  </li>
+<li>
+<p><code>protected override void OnCreate()</code><br />
+{{ Initializes subsystems (RenderingSystem, ManagedBatchSystem, BatchDataSystem, TextureStreamingSystem, PrefabSystem), allocates native batch/group/instance/sub-batch containers, creates ManagedBatches instance, registers material &amp; instance properties, and prepares merge data structures. Called when the system is created. }}</p>
+</li>
+<li>
+<p><code>protected override void OnDestroy()</code><br />
+{{ Completes outstanding job dependencies, finalizes managed uploads, disposes ManagedBatches and all native containers and native lists, and clears job handles. Ensures a clean teardown and that all GPU uploads are finished. }}</p>
+</li>
+<li>
+<p><code>public void PreDeserialize(Context context)</code><br />
+{{ Implementation of IPreDeserialize. Completes pending jobs, ends uploads, and removes instances from native containers prior to deserialization so the native state can be reloaded safely. }}</p>
+</li>
+<li>
+<p><code>public bool CheckPropertyUpdates()</code><br />
+{{ Checks whether material/instance property-related settings have changed (motion vectors, LOD fade, virtual texturing) and returns true if any update is required (or if virtual texturing changed). Also updates internal changed flags. }}</p>
+</li>
+<li>
+<p><code>public void VirtualTexturingUpdated()</code><br />
+{{ Marks that virtual texturing configuration changed and batches need to be refreshed. }}</p>
+</li>
+<li>
+<p><code>protected override void OnUpdate()</code><br />
+{{ Main per-frame update. If properties/VT changed it calls RefreshProperties; completes merge jobs and executes MergeGroups if queued; schedules AllocateBuffersJob and GenerateSubBatchesJob and wires their job handles into the system dependency tracking. Adds writers for native containers to enforce dependency ordering. }}</p>
+</li>
+<li>
+<p><code>public NativeBatchGroups&lt;CullingData, GroupData, BatchData, InstanceData&gt; GetNativeBatchGroups(bool readOnly, out JobHandle dependencies)</code><br />
+{{ Return the native batch groups container and provide the appropriate dependencies JobHandle to respect current reader/writer job tracking. If readOnly==true returns write-dependencies (so consumer must wait writers) else returns combined read/write dependency. }}</p>
+</li>
+<li>
+<p><code>public NativeBatchInstances&lt;CullingData, GroupData, BatchData, InstanceData&gt; GetNativeBatchInstances(bool readOnly, out JobHandle dependencies)</code><br />
+{{ Return the native batch instances container and its JobHandle dependencies (same pattern as GetNativeBatchGroups). }}</p>
+</li>
+<li>
+<p><code>public NativeSubBatches&lt;CullingData, GroupData, BatchData, InstanceData&gt; GetNativeSubBatches(bool readOnly, out JobHandle dependencies)</code><br />
+{{ Return the native sub-batches container and the required dependencies handle. }}</p>
+</li>
+<li>
+<p><code>public ManagedBatches&lt;OptionalProperties&gt; GetManagedBatches()</code><br />
+{{ Returns the ManagedBatches instance so other systems/mods can register textures, properties, or access managed batch facilities. }}</p>
+</li>
+<li>
+<p><code>public bool IsMotionVectorsEnabled()</code><br />
+{{ Returns last cached motion vector enable state. }}</p>
+</li>
+<li>
+<p><code>public bool IsLodFadeEnabled()</code><br />
+{{ Returns last cached LOD crossfade enable state. }}</p>
+</li>
+<li>
+<p><code>public void AddNativeBatchGroupsReader(JobHandle jobHandle)</code><br />
+{{ Combine jobHandle into the m_NativeBatchGroupsReadDependencies. Use this when scheduling jobs that read the groups container. }}</p>
+</li>
+<li>
+<p><code>public void AddNativeBatchGroupsWriter(JobHandle jobHandle)</code><br />
+{{ Set m_NativeBatchGroupsWriteDependencies to jobHandle. Use when scheduling jobs that will write into the groups container. }}</p>
+</li>
+<li>
+<p><code>public void AddNativeBatchInstancesReader(JobHandle jobHandle)</code><br />
+{{ Combine jobHandle into m_NativeBatchInstancesReadDependencies. }}</p>
+</li>
+<li>
+<p><code>public void AddNativeBatchInstancesWriter(JobHandle jobHandle)</code><br />
+{{ Set m_NativeBatchInstancesWriteDependencies to jobHandle. }}</p>
+</li>
+<li>
+<p><code>public void AddNativeSubBatchesReader(JobHandle jobHandle)</code><br />
+{{ Combine jobHandle into m_NativeSubBatchesReadDependencies. }}</p>
+</li>
+<li>
+<p><code>public void AddNativeSubBatchesWriter(JobHandle jobHandle)</code><br />
+{{ Set m_NativeSubBatchesWriteDependencies to jobHandle. }}</p>
+</li>
+<li>
+<p><code>public void MergeGroups(Entity meshEntity, int mergeIndex)</code><br />
+{{ Queue a merge request that will be processed in the next OnUpdate MergeGroups step. Ensures previous merge dependencies are completed before enqueuing. If this meshEntity was not previously queued it is added to m_MergeMeshes; the mapping (meshEntity -&gt; mergeIndex) is stored in m_MergeGroups. }}</p>
+</li>
+<li>
+<p><code>public (int, int) GetVTTextureParamBlockID(int stackConfigIndex)</code><br />
+{{ Helper to fetch the material property block IDs used for virtual texturing texture parameter blocks. Accepts stackConfigIndex (0 or 1) and returns two property IDs. Throws if index is out of range. }}</p>
+</li>
+<li>
+<p><code>public PropertyData GetPropertyData(MaterialProperty property)</code><br />
+{{ Lookup for material property metadata from the m_MaterialProperties list. }}</p>
+</li>
+<li>
+<p><code>public PropertyData GetPropertyData(ObjectProperty property)</code><br />
+{{ Lookup for object instance property metadata. }}</p>
+</li>
+<li>
+<p><code>public PropertyData GetPropertyData(NetProperty property)</code><br />
+{{ Lookup for net instance property metadata. }}</p>
+</li>
+<li>
+<p><code>public PropertyData GetPropertyData(LaneProperty property)</code><br />
+{{ Lookup for lane instance property metadata. }}</p>
+</li>
+<li>
+<p><code>public PropertyData GetPropertyData(ZoneProperty property)</code><br />
+{{ Lookup for zone instance property metadata. }}</p>
+</li>
+<li>
+<p><code>private void RefreshProperties(bool propertiesChanged, bool motionVectorsChanged, bool lodFadeChanged, bool virtualTexturingChanged)</code><br />
+{{ Iterates all valid native batch groups and their batches, reevaluates and (re)generates batch properties using ManagedBatches where necessary, updates VT registration for batches, updates batch defaults, and optionally initializes LOD fade values for existing instances. If instance properties changed it triggers BatchDataSystem.InstancePropertiesUpdated. This method completes native dependencies before changing native data. }}</p>
+</li>
+<li>
+<p><code>private void MergeGroups()</code><br />
+{{ Performs the queued merges by starting native group &amp; instance updaters, scheduling a MergeGroupsJob (Burst) to perform per-mesh merges into target groups, schedules cleanup job to clear the merge queues, and wires job dependencies into native container dependency tracking. }}</p>
+</li>
+<li>
+<p><code>private JobHandle OnPerformCulling(BatchRendererGroup rendererGroup, BatchCullingContext cullingContext, BatchCullingOutput cullingOutput, IntPtr userContext)</code><br />
+{{ This callback is provided to the engine's BatchRendererGroup. It prepares active group data, builds culling split data &amp; plane packets, then schedules AllocateCullingJob, CullingPlanesJob (precompute split data &amp; plane packets), BatchCullingJob (parallel per-active-group culling/build draw commands), and FinalizeCullingJob (compact draw command arrays). It disposes temporaries and propagates reader dependencies for native containers. Returns a JobHandle that the renderer will wait on before using cullingOutput. }}</p>
+</li>
+<li>
+<p>Several nested Burst jobs and helpers: MergeGroupsJob, MergeCleanupJob, InitializeLodFadeJob, AllocateBuffersJob, GenerateSubBatchesJob, AllocateCullingJob, CullingPlanesJob, FinalizeCullingJob, BatchCullingJob.<br />
+{{ These are implemented as IJob / IJobParallelFor and perform all heavy-lifting on worker threads with Burst: merging groups, clearing merge lists, initializing per-instance LOD fade values, allocating property/instance buffers, generating sub-batches, preparing culling allocations, computing plane packets &amp; split masks, finalizing draw ranges, and the actual culling &amp; draw-command generation. They operate directly on the native batch/group/instance containers and often use unsafe pointers for performance. }}</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private void __AssignQueries(ref SystemState state)
-    {
-        new EntityQueryBuilder(Allocator.Temp).Dispose();
-    }
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// From another system or mod code — get the system and call some helpers.
+var batchManager = World.GetOrCreateSystemManaged&lt;Game.Rendering.BatchManagerSystem&gt;();
+
+// Queue a merge (meshEntity is an Entity that has Mesh batches, mergeIndex is the target group index)
+batchManager.MergeGroups(meshEntity, mergeIndex);
+
+// Query managed batches for registering textures or other managed operations
+var managedBatches = batchManager.GetManagedBatches();
+
+// Get VT texture parameter IDs (0 or 1)
+var (paramA, paramB) = batchManager.GetVTTextureParamBlockID(0);
+
+// Query property metadata for a material/instance property enum (example enum value)
+PropertyData matProp = batchManager.GetPropertyData((MaterialProperty)0); // replace with real enum
 </code></pre>
-<ul>
-<li><code>public AddNativeBatchGroupsReader(Unity.Jobs.JobHandle jobHandle) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void AddNativeBatchGroupsReader(JobHandle jobHandle)
-    {
-        m_NativeBatchGroupsReadDependencies = JobHandle.CombineDependencies(m_NativeBatchGroupsReadDependencies, jobHandle);
-    }
-</code></pre>
-<ul>
-<li><code>public AddNativeBatchGroupsWriter(Unity.Jobs.JobHandle jobHandle) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void AddNativeBatchGroupsWriter(JobHandle jobHandle)
-    {
-        m_NativeBatchGroupsWriteDependencies = jobHandle;
-    }
-</code></pre>
-<ul>
-<li><code>public AddNativeBatchInstancesReader(Unity.Jobs.JobHandle jobHandle) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void AddNativeBatchInstancesReader(JobHandle jobHandle)
-    {
-        m_NativeBatchInstancesReadDependencies = JobHandle.CombineDependencies(m_NativeBatchInstancesReadDependencies, jobHandle);
-    }
-</code></pre>
-<ul>
-<li><code>public AddNativeBatchInstancesWriter(Unity.Jobs.JobHandle jobHandle) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void AddNativeBatchInstancesWriter(JobHandle jobHandle)
-    {
-        m_NativeBatchInstancesWriteDependencies = jobHandle;
-    }
-</code></pre>
-<ul>
-<li><code>public AddNativeSubBatchesReader(Unity.Jobs.JobHandle jobHandle) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void AddNativeSubBatchesReader(JobHandle jobHandle)
-    {
-        m_NativeSubBatchesReadDependencies = JobHandle.CombineDependencies(m_NativeSubBatchesReadDependencies, jobHandle);
-    }
-</code></pre>
-<ul>
-<li><code>public AddNativeSubBatchesWriter(Unity.Jobs.JobHandle jobHandle) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void AddNativeSubBatchesWriter(JobHandle jobHandle)
-    {
-        m_NativeSubBatchesWriteDependencies = jobHandle;
-    }
-</code></pre>
-<ul>
-<li><code>public CheckPropertyUpdates() : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">public bool CheckPropertyUpdates()
-    {
-        bool motionVectors = m_RenderingSystem.motionVectors;
-        if (motionVectors != m_LastMotionVectorsEnabled)
-        {
-            m_LastMotionVectorsEnabled = motionVectors;
-            m_MotionVectorsChanged = true;
-        }
-        bool lodCrossFade = m_RenderingSystem.lodCrossFade;
-        if (lodCrossFade != m_LastLodFadeEnabled)
-        {
-            m_LastLodFadeEnabled = lodCrossFade;
-            m_LodFadeChanged = true;
-        }
-        if (!m_PropertiesChanged &amp;&amp; !m_MotionVectorsChanged &amp;&amp; !m_LodFadeChanged)
-        {
-            return m_VirtualTexturingChanged;
-        }
-        return true;
-    }
-</code></pre>
-<ul>
-<li><code>public GetManagedBatches() : Colossal.Rendering.ManagedBatches&lt;Game.Rendering.OptionalProperties&gt;</code>  </li>
-</ul>
-<pre><code class="language-csharp">public ManagedBatches&lt;OptionalProperties&gt; GetManagedBatches()
-    {
-        return m_ManagedBatches;
-    }
-</code></pre>
-<ul>
-<li><code>public GetNativeBatchGroups(System.Boolean readOnly, Unity.Jobs.JobHandle&amp; dependencies) : Colossal.Rendering.NativeBatchGroups&lt;Game.Rendering.CullingData, Game.Rendering.GroupData, Game.Rendering.BatchData, Game.Rendering.InstanceData&gt;</code>  </li>
-</ul>
-<pre><code class="language-csharp">public NativeBatchGroups&lt;CullingData, GroupData, BatchData, InstanceData&gt; GetNativeBatchGroups(bool readOnly, out JobHandle dependencies)
-    {
-        dependencies = (readOnly ? m_NativeBatchGroupsWriteDependencies : JobHandle.CombineDependencies(m_NativeBatchGroupsReadDependencies, m_NativeBatchGroupsWriteDependencies));
-        return m_NativeBatchGroups;
-    }
-</code></pre>
-<ul>
-<li><code>public GetNativeBatchInstances(System.Boolean readOnly, Unity.Jobs.JobHandle&amp; dependencies) : Colossal.Rendering.NativeBatchInstances&lt;Game.Rendering.CullingData, Game.Rendering.GroupData, Game.Rendering.BatchData, Game.Rendering.InstanceData&gt;</code>  </li>
-</ul>
-<pre><code class="language-csharp">public NativeBatchInstances&lt;CullingData, GroupData, BatchData, InstanceData&gt; GetNativeBatchInstances(bool readOnly, out JobHandle dependencies)
-    {
-        dependencies = (readOnly ? m_NativeBatchInstancesWriteDependencies : JobHandle.CombineDependencies(m_NativeBatchInstancesReadDependencies, m_NativeBatchInstancesWriteDependencies));
-        return m_NativeBatchInstances;
-    }
-</code></pre>
-<ul>
-<li><code>public GetNativeSubBatches(System.Boolean readOnly, Unity.Jobs.JobHandle&amp; dependencies) : Colossal.Rendering.NativeSubBatches&lt;Game.Rendering.CullingData, Game.Rendering.GroupData, Game.Rendering.BatchData, Game.Rendering.InstanceData&gt;</code>  </li>
-</ul>
-<pre><code class="language-csharp">public NativeSubBatches&lt;CullingData, GroupData, BatchData, InstanceData&gt; GetNativeSubBatches(bool readOnly, out JobHandle dependencies)
-    {
-        dependencies = (readOnly ? m_NativeSubBatchesWriteDependencies : JobHandle.CombineDependencies(m_NativeSubBatchesReadDependencies, m_NativeSubBatchesWriteDependencies));
-        return m_NativeSubBatches;
-    }
-</code></pre>
-<ul>
-<li><code>public GetPropertyData(Game.Rendering.MaterialProperty property) : Game.Rendering.PropertyData</code>  </li>
-</ul>
-<pre><code class="language-csharp">public PropertyData GetPropertyData(ZoneProperty property)
-    {
-        return m_ZoneProperties[(int)property];
-    }
-</code></pre>
-<ul>
-<li><code>public GetPropertyData(Game.Rendering.ObjectProperty property) : Game.Rendering.PropertyData</code>  </li>
-</ul>
-<pre><code class="language-csharp">public PropertyData GetPropertyData(ZoneProperty property)
-    {
-        return m_ZoneProperties[(int)property];
-    }
-</code></pre>
-<ul>
-<li><code>public GetPropertyData(Game.Rendering.NetProperty property) : Game.Rendering.PropertyData</code>  </li>
-</ul>
-<pre><code class="language-csharp">public PropertyData GetPropertyData(ZoneProperty property)
-    {
-        return m_ZoneProperties[(int)property];
-    }
-</code></pre>
-<ul>
-<li><code>public GetPropertyData(Game.Rendering.LaneProperty property) : Game.Rendering.PropertyData</code>  </li>
-</ul>
-<pre><code class="language-csharp">public PropertyData GetPropertyData(ZoneProperty property)
-    {
-        return m_ZoneProperties[(int)property];
-    }
-</code></pre>
-<ul>
-<li><code>public GetPropertyData(Game.Rendering.ZoneProperty property) : Game.Rendering.PropertyData</code>  </li>
-</ul>
-<pre><code class="language-csharp">public PropertyData GetPropertyData(ZoneProperty property)
-    {
-        return m_ZoneProperties[(int)property];
-    }
-</code></pre>
-<ul>
-<li><code>public GetVTTextureParamBlockID(System.Int32 stackConfigIndex) : System.ValueTuple&lt;System.Int32, System.Int32&gt;</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.ValueTuple&lt;System.Int32, System.Int32&gt; GetVTTextureParamBlockID(System.Int32 stackConfigIndex);
-</code></pre>
-<ul>
-<li><code>private InitializeInstanceProperties&lt;T&gt;(Unity.Collections.NativeList</code>1[[Game.Rendering.PropertyData, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]&amp; properties, Game.Prefabs.MeshType meshType) : System.Void`  </li>
-</ul>
-<pre><code class="language-csharp">private System.Void InitializeInstanceProperties&lt;T&gt;(Unity.Collections.NativeList`1[[Game.Rendering.PropertyData, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]&amp; properties, Game.Prefabs.MeshType meshType);
-</code></pre>
-<ul>
-<li><code>private InitializeMaterialProperties&lt;T&gt;(Unity.Collections.NativeList</code>1[[Game.Rendering.PropertyData, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]&amp; properties) : System.Void`  </li>
-</ul>
-<pre><code class="language-csharp">private System.Void InitializeMaterialProperties&lt;T&gt;(Unity.Collections.NativeList`1[[Game.Rendering.PropertyData, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]&amp; properties);
-</code></pre>
-<ul>
-<li><code>public IsLodFadeEnabled() : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">public bool IsLodFadeEnabled()
-    {
-        return m_LastLodFadeEnabled;
-    }
-</code></pre>
-<ul>
-<li><code>public IsMotionVectorsEnabled() : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">public bool IsMotionVectorsEnabled()
-    {
-        return m_LastMotionVectorsEnabled;
-    }
-</code></pre>
-<ul>
-<li><code>public MergeGroups(Unity.Entities.Entity meshEntity, System.Int32 mergeIndex) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void MergeGroups()
-    {
-        JobHandle dependencies;
-        NativeBatchGroups&lt;CullingData, GroupData, BatchData, InstanceData&gt; nativeBatchGroups = GetNativeBatchGroups(readOnly: false, out dependencies);
-        JobHandle dependencies2;
-        NativeBatchInstances&lt;CullingData, GroupData, BatchData, InstanceData&gt; nativeBatchInstances = GetNativeBatchInstances(readOnly: false, out dependencies2);
-        JobHandle dependencies3;
-        NativeSubBatches&lt;CullingData, GroupData, BatchData, InstanceData&gt; nativeSubBatches = GetNativeSubBatches(readOnly: false, out dependencies3);
-        NativeBatchGroups&lt;CullingData, GroupData, BatchData, InstanceData&gt;.GroupUpdater groupUpdater = nativeBatchGroups.BeginGroupUpdate(Allocator.TempJob);
-        NativeBatchInstances&lt;CullingData, GroupData, BatchData, InstanceData&gt;.InstanceUpdater instanceUpdater = nativeBatchInstances.BeginInstanceUpdate(Allocator.TempJob);
-        MergeGroupsJob jobData = new MergeGroupsJob
-        {
-            m_MeshBatches = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Rendering_MeshBatch_RW_BufferLookup, ref base.CheckedStateRef),
-            m_BatchGroups = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Prefabs_BatchGroup_RW_BufferLookup, ref base.CheckedStateRef),
-            m_MergeMeshes = m_MergeMeshes,
-            m_MergeGroups = m_MergeGroups,
-            m_BatchGroupUpdater = groupUpdater.AsParallel(int.MaxValue),
-            m_BatchInstanceUpdater = instanceUpdater.AsParallel(int.MaxValue)
-        };
-        MergeCleanupJob jobData2 = new MergeCleanupJob
-        {
-            m_MergeMeshes = m_MergeMeshes,
-            m_MergeGroups = m_MergeGroups
-        };
-        JobHandle jobHandle = IJobParallelForExtensions.Schedule(jobData, m_MergeMeshes.Length, 1, JobHandle.CombineDependencies(base.Dependency, dependencies, dependencies2));
-        JobHandle mergeDependencies = IJobExtensions.Schedule(jobData2, jobHandle);
-        JobHandle jobHandle2 = nativeBatchGroups.EndGroupUpdate(groupUpdater, jobHandle);
-        JobHandle jobHandle3 = nativeBatchInstances.EndInstanceUpdate(instanceUpdater, JobHandle.CombineDependencies(jobHandle, dependencies3), nativeSubBatches);
-        AddNativeBatchGroupsWriter(jobHandle2);
-        AddNativeBatchInstancesWriter(jobHandle3);
-        AddNativeSubBatchesWriter(jobHandle3);
-        base.Dependency = jobHandle;
-        m_MergeDependencies = mergeDependencies;
-    }
-</code></pre>
-<ul>
-<li><code>private MergeGroups() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void MergeGroups()
-    {
-        JobHandle dependencies;
-        NativeBatchGroups&lt;CullingData, GroupData, BatchData, InstanceData&gt; nativeBatchGroups = GetNativeBatchGroups(readOnly: false, out dependencies);
-        JobHandle dependencies2;
-        NativeBatchInstances&lt;CullingData, GroupData, BatchData, InstanceData&gt; nativeBatchInstances = GetNativeBatchInstances(readOnly: false, out dependencies2);
-        JobHandle dependencies3;
-        NativeSubBatches&lt;CullingData, GroupData, BatchData, InstanceData&gt; nativeSubBatches = GetNativeSubBatches(readOnly: false, out dependencies3);
-        NativeBatchGroups&lt;CullingData, GroupData, BatchData, InstanceData&gt;.GroupUpdater groupUpdater = nativeBatchGroups.BeginGroupUpdate(Allocator.TempJob);
-        NativeBatchInstances&lt;CullingData, GroupData, BatchData, InstanceData&gt;.InstanceUpdater instanceUpdater = nativeBatchInstances.BeginInstanceUpdate(Allocator.TempJob);
-        MergeGroupsJob jobData = new MergeGroupsJob
-        {
-            m_MeshBatches = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Rendering_MeshBatch_RW_BufferLookup, ref base.CheckedStateRef),
-            m_BatchGroups = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Prefabs_BatchGroup_RW_BufferLookup, ref base.CheckedStateRef),
-            m_MergeMeshes = m_MergeMeshes,
-            m_MergeGroups = m_MergeGroups,
-            m_BatchGroupUpdater = groupUpdater.AsParallel(int.MaxValue),
-            m_BatchInstanceUpdater = instanceUpdater.AsParallel(int.MaxValue)
-        };
-        MergeCleanupJob jobData2 = new MergeCleanupJob
-        {
-            m_MergeMeshes = m_MergeMeshes,
-            m_MergeGroups = m_MergeGroups
-        };
-        JobHandle jobHandle = IJobParallelForExtensions.Schedule(jobData, m_MergeMeshes.Length, 1, JobHandle.CombineDependencies(base.Dependency, dependencies, dependencies2));
-        JobHandle mergeDependencies = IJobExtensions.Schedule(jobData2, jobHandle);
-        JobHandle jobHandle2 = nativeBatchGroups.EndGroupUpdate(groupUpdater, jobHandle);
-        JobHandle jobHandle3 = nativeBatchInstances.EndInstanceUpdate(instanceUpdater, JobHandle.CombineDependencies(jobHandle, dependencies3), nativeSubBatches);
-        AddNativeBatchGroupsWriter(jobHandle2);
-        AddNativeBatchInstancesWriter(jobHandle3);
-        AddNativeSubBatchesWriter(jobHandle3);
-        base.Dependency = jobHandle;
-        m_MergeDependencies = mergeDependencies;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_RenderingSystem = base.World.GetOrCreateSystemManaged&lt;RenderingSystem&gt;();
-        m_ManagedBatchSystem = base.World.GetOrCreateSystemManaged&lt;ManagedBatchSystem&gt;();
-        m_BatchDataSystem = base.World.GetOrCreateSystemManaged&lt;BatchDataSystem&gt;();
-        m_TextureStreamingSystem = base.World.GetOrCreateSystemManaged&lt;TextureStreamingSystem&gt;();
-        m_PrefabSystem = base.World.GetOrCreateSystemManaged&lt;PrefabSystem&gt;();
-        m_NativeBatchGroups = new NativeBatchGroups&lt;CullingData, GroupData, BatchData, InstanceData&gt;(67108864u, 65536u, Allocator.Persistent);
-        m_NativeBatchInstances = new NativeBatchInstances&lt;CullingData, GroupData, BatchData, InstanceData&gt;(m_NativeBatchGroups);
-        m_NativeSubBatches = new NativeSubBatches&lt;CullingData, GroupData, BatchData, InstanceData&gt;(m_NativeBatchGroups);
-        m_ManagedBatches = ManagedBatches&lt;OptionalProperties&gt;.Create(m_NativeBatchInstances, OnPerformCulling, 2097152u, new OptionalProperties(BatchFlags.MotionVectors, MeshType.Object));
-        InitializeMaterialProperties&lt;MaterialProperty&gt;(out m_MaterialProperties);
-        InitializeInstanceProperties&lt;ObjectProperty&gt;(out m_ObjectProperties, MeshType.Object);
-        InitializeInstanceProperties&lt;NetProperty&gt;(out m_NetProperties, MeshType.Net);
-        InitializeInstanceProperties&lt;LaneProperty&gt;(out m_LaneProperties, MeshType.Lane);
-        InitializeInstanceProperties&lt;ZoneProperty&gt;(out m_ZoneProperties, MeshType.Zone);
-        m_MergeMeshes = new NativeList&lt;Entity&gt;(10, Allocator.Persistent);
-        m_MergeGroups = new NativeParallelMultiHashMap&lt;Entity, int&gt;(10, Allocator.Persistent);
-        m_MeshSettingsQuery = GetEntityQuery(ComponentType.ReadOnly&lt;MeshSettingsData&gt;());
-        m_LastMotionVectorsEnabled = m_RenderingSystem.motionVectors;
-        m_LastLodFadeEnabled = m_RenderingSystem.lodCrossFade;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreateForCompiler() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnCreateForCompiler()
-    {
-        base.OnCreateForCompiler();
-        __AssignQueries(ref base.CheckedStateRef);
-        __TypeHandle.__AssignHandles(ref base.CheckedStateRef);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnDestroy() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnDestroy()
-    {
-        m_NativeBatchGroupsReadDependencies.Complete();
-        m_NativeBatchGroupsWriteDependencies.Complete();
-        m_NativeBatchInstancesReadDependencies.Complete();
-        m_NativeBatchInstancesWriteDependencies.Complete();
-        m_NativeSubBatchesReadDependencies.Complete();
-        m_NativeSubBatchesWriteDependencies.Complete();
-        m_MergeDependencies.Complete();
-        m_ManagedBatches.EndUpload(m_NativeBatchInstances);
-        m_ManagedBatches.Dispose();
-        m_NativeSubBatches.Dispose();
-        m_NativeBatchInstances.Dispose();
-        m_NativeBatchGroups.Dispose();
-        m_MaterialProperties.Dispose();
-        m_ObjectProperties.Dispose();
-        m_NetProperties.Dispose();
-        m_LaneProperties.Dispose();
-        m_ZoneProperties.Dispose();
-        m_MergeMeshes.Dispose();
-        m_MergeGroups.Dispose();
-        base.OnDestroy();
-    }
-</code></pre>
-<ul>
-<li><code>private OnPerformCulling(UnityEngine.Rendering.BatchRendererGroup rendererGroup, UnityEngine.Rendering.BatchCullingContext cullingContext, UnityEngine.Rendering.BatchCullingOutput cullingOutput, System.IntPtr userContext) : Unity.Jobs.JobHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private JobHandle OnPerformCulling(BatchRendererGroup rendererGroup, BatchCullingContext cullingContext, BatchCullingOutput cullingOutput, IntPtr userContext)
-    {
-        JobHandle dependencies;
-        NativeBatchGroups&lt;CullingData, GroupData, BatchData, InstanceData&gt; nativeBatchGroups = GetNativeBatchGroups(readOnly: true, out dependencies);
-        JobHandle dependencies2;
-        NativeBatchInstances&lt;CullingData, GroupData, BatchData, InstanceData&gt; nativeBatchInstances = GetNativeBatchInstances(readOnly: true, out dependencies2);
-        JobHandle dependencies3;
-        NativeSubBatches&lt;CullingData, GroupData, BatchData, InstanceData&gt; nativeSubBatches = GetNativeSubBatches(readOnly: true, out dependencies3);
-        dependencies2.Complete();
-        int activeGroupCount = nativeBatchInstances.GetActiveGroupCount();
-        int maxSplitBatchCount = (cullingContext.cullingSplits.Length &lt;&lt; 1) - 1;
-        NativeArray&lt;ActiveGroupData&gt; activeGroupData = new NativeArray&lt;ActiveGroupData&gt;(activeGroupCount, Allocator.TempJob, NativeArrayOptions.UninitializedMemory);
-        NativeList&lt;CullingSplitData&gt; splitData = new NativeList&lt;CullingSplitData&gt;(cullingContext.cullingSplits.Length, Allocator.TempJob);
-        NativeList&lt;FrustumPlanes.PlanePacket4&gt; nativeList = new NativeList&lt;FrustumPlanes.PlanePacket4&gt;(FrustumPlanes.GetPacketCount(cullingContext.cullingPlanes.Length), Allocator.TempJob);
-        BatchRenderFlags batchRenderFlags = BatchRenderFlags.IsEnabled;
-        BatchRenderFlags batchRenderFlags2 = BatchRenderFlags.All;
-        if (cullingContext.viewType == BatchCullingViewType.Light)
-        {
-            batchRenderFlags |= BatchRenderFlags.CastShadows;
-        }
-        if (!IsMotionVectorsEnabled())
-        {
-            batchRenderFlags2 &amp;= ~BatchRenderFlags.MotionVectors;
-        }
-        AllocateCullingJob jobData = new AllocateCullingJob
-        {
-            m_NativeBatchGroups = nativeBatchGroups,
-            m_NativeBatchInstances = nativeBatchInstances,
-            m_RequiredFlagMask = batchRenderFlags,
-            m_MaxSplitBatchCount = maxSplitBatchCount,
-            m_CullingOutput = cullingOutput,
-            m_ActiveGroupData = activeGroupData
-        };
-        bool flag = cullingContext.projectionType == BatchCullingProjectionType.Orthographic &amp;&amp; cullingContext.viewType == BatchCullingViewType.Light &amp;&amp; cullingContext.cullingSplits.Length == 4;
-        CullingPlanesJob jobData2 = new CullingPlanesJob
-        {
-            m_CullingPlanes = cullingContext.cullingPlanes,
-            m_CullingSplits = cullingContext.cullingSplits,
-            m_ShadowCullingData = (flag ? m_RenderingSystem.GetShadowCullingData() : float3.zero),
-            m_SplitData = splitData,
-            m_PlanePackets = nativeList
-        };
-        BatchCullingJob jobData3 = new BatchCullingJob
-        {
-            m_NativeBatchGroups = nativeBatchGroups,
-            m_NativeBatchInstances = nativeBatchInstances,
-            m_NativeSubBatches = nativeSubBatches,
-            m_RequiredFlagMask = batchRenderFlags,
-            m_RenderFlagMask = batchRenderFlags2,
-            m_MaxSplitBatchCount = maxSplitBatchCount,
-            m_IsShadowCulling = (cullingContext.viewType == BatchCullingViewType.Light),
-            m_ActiveGroupData = activeGroupData,
-            m_SplitData = splitData,
-            m_CullingPlanePackets = nativeList,
-            m_CullingOutput = cullingOutput
-        };
-        FinalizeCullingJob jobData4 = new FinalizeCullingJob
-        {
-            m_CullingOutput = cullingOutput
-        };
-        JobHandle job = IJobExtensions.Schedule(jobData, dependencies);
-        JobHandle job2 = IJobExtensions.Schedule(jobData2);
-        JobHandle jobHandle = IJobParallelForExtensions.Schedule(jobData3, activeGroupCount, 1, JobHandle.CombineDependencies(job, job2, dependencies3));
-        JobHandle result = IJobExtensions.Schedule(jobData4, jobHandle);
-        splitData.Dispose(jobHandle);
-        nativeList.Dispose(jobHandle);
-        AddNativeBatchInstancesReader(jobHandle);
-        AddNativeBatchGroupsReader(jobHandle);
-        AddNativeSubBatchesReader(jobHandle);
-        return result;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        if (m_PropertiesChanged || m_MotionVectorsChanged || m_LodFadeChanged || m_VirtualTexturingChanged)
-        {
-            try
-            {
-                RefreshProperties(m_PropertiesChanged, m_MotionVectorsChanged, m_LodFadeChanged, m_VirtualTexturingChanged);
-            }
-            finally
-            {
-                m_PropertiesChanged = false;
-                m_MotionVectorsChanged = false;
-                m_LodFadeChanged = false;
-                m_VirtualTexturingChanged = false;
-            }
-        }
-        m_MergeDependencies.Complete();
-        if (m_MergeMeshes.Length != 0)
-        {
-            MergeGroups();
-        }
-        JobHandle dependencies;
-        JobHandle dependencies2;
-        AllocateBuffersJob jobData = new AllocateBuffersJob
-        {
-            m_ObjectProperties = m_ObjectProperties,
-            m_NetProperties = m_NetProperties,
-            m_LaneProperties = m_LaneProperties,
-            m_ZoneProperties = m_ZoneProperties,
-            m_NativeBatchGroups = GetNativeBatchGroups(readOnly: false, out dependencies),
-            m_NativeBatchInstances = GetNativeBatchInstances(readOnly: false, out dependencies2)
-        };
-        JobHandle dependencies3;
-        GenerateSubBatchesJob jobData2 = new GenerateSubBatchesJob
-        {
-            m_NativeSubBatches = GetNativeSubBatches(readOnly: false, out dependencies3)
-        };
-        JobHandle jobHandle = IJobExtensions.Schedule(jobData, JobHandle.CombineDependencies(dependencies, dependencies2));
-        JobHandle jobHandle2 = IJobExtensions.Schedule(jobData2, dependencies3);
-        AddNativeBatchGroupsWriter(jobHandle);
-        AddNativeBatchInstancesWriter(jobHandle);
-        AddNativeSubBatchesWriter(jobHandle2);
-    }
-</code></pre>
-<ul>
-<li><code>public PreDeserialize(Colossal.Serialization.Entities.Context context) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void PreDeserialize(Context context)
-    {
-        m_NativeBatchGroupsReadDependencies.Complete();
-        m_NativeBatchGroupsWriteDependencies.Complete();
-        m_NativeBatchInstancesReadDependencies.Complete();
-        m_NativeBatchInstancesWriteDependencies.Complete();
-        m_NativeSubBatchesReadDependencies.Complete();
-        m_NativeSubBatchesWriteDependencies.Complete();
-        m_ManagedBatches.EndUpload(m_NativeBatchInstances);
-        int groupCount = m_NativeBatchGroups.GetGroupCount();
-        for (int i = 0; i &lt; groupCount; i++)
-        {
-            if (m_NativeBatchGroups.IsValidGroup(i))
-            {
-                m_NativeBatchInstances.RemoveInstances(i, m_NativeSubBatches);
-            }
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private RefreshProperties(System.Boolean propertiesChanged, System.Boolean motionVectorsChanged, System.Boolean lodFadeChanged, System.Boolean virtualTexturingChanged) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void RefreshProperties(bool propertiesChanged, bool motionVectorsChanged, bool lodFadeChanged, bool virtualTexturingChanged)
-    {
-        JobHandle dependencies;
-        NativeBatchGroups&lt;CullingData, GroupData, BatchData, InstanceData&gt; nativeBatchGroups = GetNativeBatchGroups(readOnly: false, out dependencies);
-        JobHandle dependencies2;
-        NativeBatchInstances&lt;CullingData, GroupData, BatchData, InstanceData&gt; nativeBatchInstances = GetNativeBatchInstances(readOnly: false, out dependencies2);
-        JobHandle dependencies3;
-        NativeSubBatches&lt;CullingData, GroupData, BatchData, InstanceData&gt; nativeSubBatches = GetNativeSubBatches(readOnly: false, out dependencies3);
-        dependencies.Complete();
-        dependencies2.Complete();
-        dependencies3.Complete();
-        int groupCount = nativeBatchGroups.GetGroupCount();
-        bool flag = false;
-        Dictionary&lt;BatchPropertiesKey&lt;OptionalProperties&gt;, bool&gt; dictionary = null;
-        if (propertiesChanged)
-        {
-            dictionary = new Dictionary&lt;BatchPropertiesKey&lt;OptionalProperties&gt;, bool&gt;();
-        }
-        MeshSettingsData meshSettingsData = default(MeshSettingsData);
-        if (!m_MeshSettingsQuery.IsEmptyIgnoreFilter)
-        {
-            meshSettingsData = m_MeshSettingsQuery.GetSingleton&lt;MeshSettingsData&gt;();
-        }
-        for (int i = 0; i &lt; groupCount; i++)
-        {
-            if (!nativeBatchGroups.IsValidGroup(i))
-            {
-                continue;
-            }
-            int batchCount = nativeBatchGroups.GetBatchCount(i);
-            GroupData groupData = nativeBatchGroups.GetGroupData(i);
-            for (int j = 0; j &lt; batchCount; j++)
-            {
-                int managedBatchIndex = nativeBatchGroups.GetManagedBatchIndex(i, j);
-                if (managedBatchIndex &lt; 0)
-                {
-                    continue;
-                }
-                CustomBatch customBatch = (CustomBatch)m_ManagedBatches.GetBatch(managedBatchIndex);
-                BatchFlags batchFlags = customBatch.sourceFlags;
-                if (!IsMotionVectorsEnabled())
-                {
-                    batchFlags &amp;= ~BatchFlags.MotionVectors;
-                }
-                if (!IsLodFadeEnabled())
-                {
-                    batchFlags &amp;= ~BatchFlags.LodFade;
-                }
-                OptionalProperties optionalProperties = new OptionalProperties(batchFlags, customBatch.sourceType);
-                bool flag2 = ((customBatch.sourceFlags &amp; BatchFlags.MotionVectors) != 0 &amp;&amp; motionVectorsChanged) || ((customBatch.sourceFlags &amp; BatchFlags.LodFade) != 0 &amp;&amp; lodFadeChanged);
-                if ((customBatch.sourceType &amp; (MeshType.Net | MeshType.Zone)) == 0)
-                {
-                    RenderPrefab renderPrefab = m_PrefabSystem.GetPrefab&lt;RenderPrefab&gt;(customBatch.sourceMeshEntity);
-                    if (virtualTexturingChanged)
-                    {
-                        DecalProperties decalProperties = renderPrefab.GetComponent&lt;DecalProperties&gt;();
-                        if (decalProperties != null &amp;&amp; groupData.m_Layer == MeshLayer.Outline)
-                        {
-                            decalProperties = null;
-                        }
-                        VTAtlassingInfo[] array = customBatch.sourceSurface.VTAtlassingInfos;
-                        if (array == null)
-                        {
-                            array = customBatch.sourceSurface.PreReservedAtlassingInfos;
-                        }
-                        if (array != null)
-                        {
-                            if (decalProperties != null || renderPrefab.manualVTRequired || renderPrefab.isImpostor)
-                            {
-                                BatchData batchData = nativeBatchGroups.GetBatchData(i, j);
-                                Bounds2 bounds = MathUtils.Bounds(new float2(0f, 0f), new float2(1f, 1f));
-                                batchData.m_VTIndex0 = -1;
-                                batchData.m_VTIndex1 = -1;
-                                if (decalProperties != null)
-                                {
-                                    bounds = MathUtils.Bounds(decalProperties.m_TextureArea.min, decalProperties.m_TextureArea.max);
-                                }
-                                if (array.Length &gt;= 1 &amp;&amp; array[0].indexInStack &gt;= 0)
-                                {
-                                    batchData.m_VTIndex0 = m_ManagedBatchSystem.VTTextureRequester.RegisterTexture(0, array[0].stackGlobalIndex, array[0].indexInStack, bounds);
-                                }
-                                if (array.Length &gt;= 2 &amp;&amp; array[1].indexInStack &gt;= 0)
-                                {
-                                    batchData.m_VTIndex1 = m_ManagedBatchSystem.VTTextureRequester.RegisterTexture(1, array[1].stackGlobalIndex, array[1].indexInStack, bounds);
-                                }
-                                nativeBatchGroups.SetBatchData(i, j, batchData);
-                            }
-                            if (!renderPrefab.Has&lt;DefaultMesh&gt;())
-                            {
-                                for (int k = 0; k &lt; 2; k++)
-                                {
-                                    if (array.Length &gt; k &amp;&amp; array[k].indexInStack &gt;= 0)
-                                    {
-                                        customBatch.customProps.SetTextureParamBlock(GetVTTextureParamBlockID(k), m_TextureStreamingSystem.GetTextureParamBlock(array[k]));
-                                        flag2 = true;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    if (customBatch.generatedType == GeneratedType.ObjectBase)
-                    {
-                        BaseProperties component = renderPrefab.GetComponent&lt;BaseProperties&gt;();
-                        if (component == null &amp;&amp; (customBatch.sourceFlags &amp; BatchFlags.Lod) != 0)
-                        {
-                            renderPrefab = m_PrefabSystem.GetPrefab&lt;RenderPrefab&gt;(groupData.m_Mesh);
-                            component = renderPrefab.GetComponent&lt;BaseProperties&gt;();
-                        }
-                        renderPrefab = ((!(component != null)) ? m_PrefabSystem.GetPrefab&lt;RenderPrefab&gt;(meshSettingsData.m_DefaultBaseMesh) : component.m_BaseType);
-                    }
-                    m_ManagedBatchSystem.SetupVT(renderPrefab, customBatch.material, customBatch.sourceSubMeshIndex);
-                }
-                if (propertiesChanged)
-                {
-                    BatchPropertiesKey&lt;OptionalProperties&gt; key = new BatchPropertiesKey&lt;OptionalProperties&gt;(customBatch.material.shader, optionalProperties);
-                    if (!dictionary.TryGetValue(key, out var value))
-                    {
-                        value = m_ManagedBatches.RegenerateBatchProperties(customBatch.material.shader, optionalProperties);
-                        dictionary.Add(key, value);
-                    }
-                    flag2 = flag2 || value;
-                }
-                if (flag2)
-                {
-                    NativeBatchProperties batchProperties = m_ManagedBatches.GetBatchProperties(customBatch.material.shader, optionalProperties);
-                    nativeBatchGroups.SetBatchProperties(i, j, batchProperties);
-                    nativeSubBatches.RecreateRenderers(i, j);
-                    WriteableBatchDefaultsAccessor batchDefaultsAccessor = nativeBatchGroups.GetBatchDefaultsAccessor(i, j);
-                    if (customBatch.sourceSurface != null)
-                    {
-                        m_ManagedBatches.SetDefaults(ManagedBatchSystem.GetTemplate(customBatch.sourceSurface), customBatch.sourceSurface.floats, customBatch.sourceSurface.ints, customBatch.sourceSurface.vectors, customBatch.sourceSurface.colors, customBatch.customProps, batchProperties, batchDefaultsAccessor);
-                    }
-                    else
-                    {
-                        m_ManagedBatches.SetDefaults(customBatch.sourceMaterial, customBatch.customProps, batchProperties, batchDefaultsAccessor);
-                    }
-                    flag |= nativeBatchInstances.GetInstanceCount(i) != 0;
-                }
-            }
-        }
-        if (flag)
-        {
-            m_BatchDataSystem.InstancePropertiesUpdated();
-            if (IsLodFadeEnabled())
-            {
-                JobHandle jobHandle = IJobParallelForExtensions.Schedule(new InitializeLodFadeJob
-                {
-                    m_NativeBatchInstances = nativeBatchInstances.AsParallelInstanceWriter()
-                }, nativeBatchInstances.GetActiveGroupCount(), 1);
-                AddNativeBatchInstancesWriter(jobHandle);
-            }
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public VirtualTexturingUpdated() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void VirtualTexturingUpdated()
-    {
-        m_VirtualTexturingChanged = true;
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Rendering.BatchManagerSystem+MergeGroupsJob</code>  </li>
-<li><code>Game.Rendering.BatchManagerSystem+MergeCleanupJob</code>  </li>
-<li><code>Game.Rendering.BatchManagerSystem+InitializeLodFadeJob</code>  </li>
-<li><code>Game.Rendering.BatchManagerSystem+AllocateBuffersJob</code>  </li>
-<li><code>Game.Rendering.BatchManagerSystem+GenerateSubBatchesJob</code>  </li>
-<li><code>Game.Rendering.BatchManagerSystem+ActiveGroupData</code>  </li>
-<li><code>Game.Rendering.BatchManagerSystem+AllocateCullingJob</code>  </li>
-<li><code>Game.Rendering.BatchManagerSystem+CullingSplitData</code>  </li>
-<li><code>Game.Rendering.BatchManagerSystem+CullingPlanesJob</code>  </li>
-<li><code>Game.Rendering.BatchManagerSystem+FinalizeCullingJob</code>  </li>
-<li><code>Game.Rendering.BatchManagerSystem+BatchCullingJob</code>  </li>
-<li><code>Game.Rendering.BatchManagerSystem+TypeHandle</code>  </li>
-</ul>
+<p>Notes:
+- The system expects other systems to respect the dependency model: use the AddNative*Reader/Writer helpers when scheduling jobs that access the native containers.
+- Most heavy work runs in Burst jobs and uses native containers; avoid accessing internal native data directly from managed code unless you have completed the appropriate JobHandle dependencies.
+- Virtual texturing, motion vectors and LOD fade toggles are detected and trigger refreshing of batch properties and instance data.</p>
 
 
 

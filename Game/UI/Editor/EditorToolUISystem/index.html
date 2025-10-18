@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87073,6 +87165,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Simulation/SurfaceWater/" class="md-nav__link">
         
   
@@ -97998,15 +98113,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -98043,9 +98149,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -117932,6 +118038,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117957,15 +118085,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -118004,9 +118123,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118029,231 +118148,171 @@
 
 
 <h1 id="gameuieditoreditortooluisystem">Game.UI.Editor.EditorToolUISystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.UI.Editor</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.UI.UISystemBase</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class EditorToolUISystem : Game.UI.UISystemBase
-{
-    private Game.Tools.ToolSystem m_ToolSystem;
-    private Game.UI.Editor.EditorPanelUISystem m_EditorPanelUISystem;
-    private Game.UI.Editor.InspectorPanelSystem m_InspectorPanelSystem;
-    private Colossal.UI.Binding.GetterValueBinding&lt;Game.UI.Editor.IEditorTool[]&gt; m_ToolsBinding;
-    private Game.UI.Editor.IEditorTool[] m_Tools;
-    private System.Boolean[] m_Disabled;
-    private Game.UI.Editor.IEditorTool m_ActiveTool;
-    private Unity.Entities.Entity m_LastSelectedEntity;
-    private static const System.String kGroup;
-
-    public Game.GameMode gameMode { get; }
-    public Game.UI.Editor.IEditorTool[] tools { get; set; }
-    public Game.UI.Editor.IEditorTool activeTool { get; set; }
-
-    public EditorToolUISystem();
-
-    private Game.UI.Editor.IEditorTool[] &lt;OnCreate&gt;b__17_0();
-    private System.String &lt;OnCreate&gt;b__17_1();
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnUpdate();
-    public System.Void SelectEntity(Unity.Entities.Entity entity);
-    public System.Void SelectEntitySubMesh(Unity.Entities.Entity entity, System.Int32 subMeshIndex);
-    public System.Void SelectTool(System.String id);
-    private System.Boolean UpdateToolState();
-}
-</code></pre>
+<p><strong>Assembly:</strong> Assembly-CSharp<br />
+<strong>Namespace:</strong> Game.UI.Editor</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> UISystemBase</p>
+<p><strong>Summary:</strong><br />
+Manages the editor-mode tool UI and bindings between the in-game editor tool systems and the UI. Initializes the standard editor tools, keeps track of the currently active tool, synchronizes tool disabled states with UI bindings, and routes entity selection to the inspector panel. Interacts with ToolSystem, EditorPanelUISystem and InspectorPanelSystem to coordinate selection and active UI panel behavior.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.Tools.ToolSystem m_ToolSystem</code>  </li>
+<li>
+<p><code>private const string kGroup = "editorTool"</code><br />
+Group name used for UI bindings. The bindings created in OnCreate use this group.</p>
+</li>
+<li>
+<p><code>private ToolSystem m_ToolSystem</code><br />
+Reference to the game's ToolSystem (retrieved from the ECS world). Used to observe the currently selected entity.</p>
+</li>
+<li>
+<p><code>private EditorPanelUISystem m_EditorPanelUISystem</code><br />
+Reference to the EditorPanelUISystem (retrieved from the ECS world). Used to set which editor panel is active (e.g., inspector panel).</p>
+</li>
+<li>
+<p><code>private InspectorPanelSystem m_InspectorPanelSystem</code><br />
+Reference to the InspectorPanelSystem (retrieved from the ECS world). Used to route entity/mesh selection to the inspector.</p>
+</li>
+<li>
+<p><code>private GetterValueBinding&lt;IEditorTool[]&gt; m_ToolsBinding</code><br />
+Getter binding used to expose the tools array to the UI. Created with the "editorTool" group and "tools" key; uses an ArrayWriter<ValueWriter\<IEditorTool>> to serialize the tool list.</p>
+</li>
+<li>
+<p><code>private IEditorTool[] m_Tools</code><br />
+Currently exposed array of editor tools. The setter for the public tools property updates this field and refreshes the internal m_Disabled state array.</p>
+</li>
+<li>
+<p><code>private bool[] m_Disabled</code><br />
+Cached disabled states for each tool (mirrors IEditorTool.disabled) used to detect changes and trigger UI updates.</p>
+</li>
+<li>
+<p><code>private IEditorTool m_ActiveTool</code><br />
+Reference to the current active IEditorTool (null if none). The activeTool property setter ensures activation/deactivation is applied on the previous and new tool.</p>
+</li>
+<li>
+<p><code>private Entity m_LastSelectedEntity</code><br />
+Tracks the last entity that was selected (used to detect selection changes coming from ToolSystem).</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.Tools.ToolSystem m_ToolSystem;
-</code></pre>
-<ul>
-<li><code>private Game.UI.Editor.EditorPanelUISystem m_EditorPanelUISystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.UI.Editor.EditorPanelUISystem m_EditorPanelUISystem;
-</code></pre>
-<ul>
-<li><code>private Game.UI.Editor.InspectorPanelSystem m_InspectorPanelSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.UI.Editor.InspectorPanelSystem m_InspectorPanelSystem;
-</code></pre>
-<ul>
-<li><code>private Colossal.UI.Binding.GetterValueBinding&lt;Game.UI.Editor.IEditorTool[]&gt; m_ToolsBinding</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.UI.Binding.GetterValueBinding&lt;Game.UI.Editor.IEditorTool[]&gt; m_ToolsBinding;
-</code></pre>
-<ul>
-<li><code>private Game.UI.Editor.IEditorTool[] m_Tools</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.UI.Editor.IEditorTool[] m_Tools;
-</code></pre>
-<ul>
-<li><code>private System.Boolean[] m_Disabled</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean[] m_Disabled;
-</code></pre>
-<ul>
-<li><code>private Game.UI.Editor.IEditorTool m_ActiveTool</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.UI.Editor.IEditorTool m_ActiveTool;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.Entity m_LastSelectedEntity</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.Entity m_LastSelectedEntity;
-</code></pre>
-<ul>
-<li><code>private static const System.String kGroup</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static const System.String kGroup;
-</code></pre>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>public Game.GameMode gameMode { get }</code>  </li>
+<li>
+<p><code>public override GameMode gameMode =&gt; GameMode.Editor</code><br />
+Specifies that this UI system operates in GameMode.Editor. This is used by the UI system manager to enable/disable systems per game mode.</p>
+</li>
+<li>
+<p><code>public IEditorTool[] tools { get; set; }</code><br />
+Getter returns the current m_Tools array.<br />
+Setter replaces the tool array and initializes m_Disabled to the current disabled states of the supplied tools (m_Disabled = value.Select(t =&gt; t.disabled).ToArray()). The setter is used during OnCreate to initialize the default editor tools.</p>
+</li>
+<li>
+<p><code>[CanBeNull] public IEditorTool activeTool { get; set; }</code><br />
+The currently active tool. The setter implements logic to ensure only one tool is active at a time:</p>
+</li>
+<li>If the new value differs from the current m_ActiveTool, or if the current tool has become inactive externally, it will deactivate the previous tool (if non-null) by setting its active property to false, set m_ActiveTool, and activate the new tool (if non-null) by setting its active property to true.</li>
+<li>The property can be set to null to deactivate the current tool.</li>
 </ul>
-<pre><code class="language-csharp">public Game.GameMode gameMode { get; }
-</code></pre>
-<ul>
-<li><code>public Game.UI.Editor.IEditorTool[] tools { get; set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Game.UI.Editor.IEditorTool[] tools { get; set; }
-</code></pre>
-<ul>
-<li><code>public Game.UI.Editor.IEditorTool activeTool { get; set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Game.UI.Editor.IEditorTool activeTool { get; set; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public EditorToolUISystem()</code>  </li>
+<li><code>[Preserve] public EditorToolUISystem()</code><br />
+Default constructor. Marked with [Preserve] to prevent Unity's code stripping from removing it. Initialization that depends on the ECS world is performed in OnCreate.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public EditorToolUISystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private &lt;OnCreate&gt;b__17_0() : Game.UI.Editor.IEditorTool[]</code>  </li>
+<li><code>[Preserve] protected override void OnCreate()</code> : System.Void<br />
+Creates references to required systems and initializes the editor tool list and UI bindings. Key behaviors:</li>
+<li>Retrieves ToolSystem, EditorPanelUISystem and InspectorPanelSystem from the ECS World.</li>
+<li>Initializes the tools array with six built-in editor tools:<ul>
+<li>EditorAssetImportTool</li>
+<li>EditorTerrainTool</li>
+<li>EditorPrefabTool</li>
+<li>EditorPrefabEditorTool</li>
+<li>EditorPhotoTool</li>
+<li>EditorBulldozeTool</li>
 </ul>
-<pre><code class="language-csharp">private Game.UI.Editor.IEditorTool[] &lt;OnCreate&gt;b__17_0();
-</code></pre>
-<ul>
-<li><code>private &lt;OnCreate&gt;b__17_1() : System.String</code>  </li>
+</li>
+<li>Adds a GetterValueBinding for the tools array (group "editorTool", key "tools").</li>
+<li>Adds a GetterValueBinding for the current active tool id (group "editorTool", key "activeTool").</li>
+<li>Adds a TriggerBinding (group "editorTool", key "selectTool") that binds to SelectTool(string).</li>
+<li>
+<p>The bindings ensure the UI receives updates and can trigger tool selection.</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnUpdate()</code> : System.Void<br />
+Runs each frame while the system is active. Responsibilities:</p>
+</li>
+<li>If activeTool exists but its active flag has been turned off externally, clear activeTool (sets to null).</li>
+<li>Detects changes in selected entity coming from m_ToolSystem.selected and forwards them to SelectEntity if they differ from m_LastSelectedEntity.</li>
+<li>
+<p>Calls UpdateToolState to detect tool disabled-state changes; if any state changed, triggers the tools binding so the UI updates.</p>
+</li>
+<li>
+<p><code>public void SelectEntity(Entity entity)</code> : System.Void<br />
+Handles selection of an entity from ToolSystem or UI:</p>
+</li>
+<li>Stores the entity in m_LastSelectedEntity.</li>
+<li>Calls m_InspectorPanelSystem.SelectEntity(entity). If it returns true, the inspector panel takes over: activeTool is set to null and m_EditorPanelUISystem.activePanel is set to the inspector panel.</li>
+<li>
+<p>If SelectEntity returns false and the active panel is currently the inspector, clears the active panel (sets activePanel to null).</p>
+</li>
+<li>
+<p><code>public void SelectEntitySubMesh(Entity entity, int subMeshIndex)</code> : System.Void<br />
+Similar to SelectEntity but targets a specific sub-mesh of an entity:</p>
+</li>
+<li>Stores the entity in m_LastSelectedEntity.</li>
+<li>
+<p>Calls m_InspectorPanelSystem.SelectMesh(entity, subMeshIndex). If it returns true, the inspector panel becomes active and activeTool is cleared. Otherwise clears the active editor panel if it was the inspector.</p>
+</li>
+<li>
+<p><code>public void SelectTool([CanBeNull] string id)</code> : System.Void<br />
+Selects a tool by its id string:</p>
+</li>
+<li>Sets activeTool to tools.FirstOrDefault(t =&gt; t.id == id).</li>
+<li>
+<p>If id is null or there is no matching tool, activeTool will be set to null, which deactivates any previously active tool.</p>
+</li>
+<li>
+<p><code>private bool UpdateToolState()</code> : System.Boolean<br />
+Compares the current disabled state of each tool with the cached m_Disabled array and updates the cache:</p>
+</li>
+<li>Iterates all tools, checks each tool.disabled against m_Disabled[i].</li>
+<li>If any difference is found, updates m_Disabled[i] and marks result true.</li>
+<li>Returns true if any disabled state changed (caller uses this to trigger a UI binding update), otherwise false.</li>
 </ul>
-<pre><code class="language-csharp">private System.String &lt;OnCreate&gt;b__17_1();
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Example: customizing the tool list during OnCreate (called by the system)
+[Preserve]
+protected override void OnCreate()
+{
+    base.OnCreate();
+
+    // Obtain the UI system instance from the world (example only; actual retrieval depends on context)
+    var editorToolSystem = World.GetOrCreateSystemManaged&lt;Game.UI.Editor.EditorToolUISystem&gt;();
+
+    // Programmatically select a tool by id (will activate that tool and deactivate previous)
+    editorToolSystem.SelectTool(&quot;editor.prefab&quot;);
+
+    // Or iterate the tools to pick the first available
+    var firstTool = editorToolSystem.tools?.FirstOrDefault();
+    if (firstTool != null)
     {
-        base.OnCreate();
-        m_ToolSystem = base.World.GetOrCreateSystemManaged&lt;ToolSystem&gt;();
-        m_EditorPanelUISystem = base.World.GetOrCreateSystemManaged&lt;EditorPanelUISystem&gt;();
-        m_InspectorPanelSystem = base.World.GetOrCreateSystemManaged&lt;InspectorPanelSystem&gt;();
-        tools = new IEditorTool[6]
-        {
-            new EditorAssetImportTool(base.World),
-            new EditorTerrainTool(base.World),
-            new EditorPrefabTool(base.World),
-            new EditorPrefabEditorTool(base.World),
-            new EditorPhotoTool(base.World),
-            new EditorBulldozeTool(base.World)
-        };
-        AddUpdateBinding(m_ToolsBinding = new GetterValueBinding&lt;IEditorTool[]&gt;(&quot;editorTool&quot;, &quot;tools&quot;, () =&gt; tools, new ArrayWriter&lt;IEditorTool&gt;(new ValueWriter&lt;IEditorTool&gt;())));
-        AddUpdateBinding(new GetterValueBinding&lt;string&gt;(&quot;editorTool&quot;, &quot;activeTool&quot;, () =&gt; activeTool?.id, ValueWriters.Nullable(new StringWriter())));
-        AddBinding(new TriggerBinding&lt;string&gt;(&quot;editorTool&quot;, &quot;selectTool&quot;, SelectTool));
+        editorToolSystem.activeTool = firstTool;
     }
+
+    // Select an entity (for the inspector panel)
+    Entity someEntity = /* obtain entity */;
+    editorToolSystem.SelectEntity(someEntity);
+
+    // Add a custom tool to the UI tools list (append)
+    var list = editorToolSystem.tools?.ToList() ?? new List&lt;IEditorTool&gt;();
+    list.Add(new MyCustomEditorTool(World)); // MyCustomEditorTool : IEditorTool
+    editorToolSystem.tools = list.ToArray(); // setter will update the disabled cache
+}
 </code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        base.OnUpdate();
-        if (activeTool != null &amp;&amp; !activeTool.active)
-        {
-            activeTool = null;
-        }
-        if (m_ToolSystem.selected != m_LastSelectedEntity)
-        {
-            SelectEntity(m_ToolSystem.selected);
-        }
-        if (UpdateToolState())
-        {
-            m_ToolsBinding.TriggerUpdate();
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public SelectEntity(Unity.Entities.Entity entity) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void SelectEntity(Entity entity)
-    {
-        m_LastSelectedEntity = entity;
-        if (m_InspectorPanelSystem.SelectEntity(entity))
-        {
-            activeTool = null;
-            m_EditorPanelUISystem.activePanel = m_InspectorPanelSystem;
-        }
-        else if (m_EditorPanelUISystem.activePanel == m_InspectorPanelSystem)
-        {
-            m_EditorPanelUISystem.activePanel = null;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public SelectEntitySubMesh(Unity.Entities.Entity entity, System.Int32 subMeshIndex) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void SelectEntitySubMesh(Entity entity, int subMeshIndex)
-    {
-        m_LastSelectedEntity = entity;
-        if (m_InspectorPanelSystem.SelectMesh(entity, subMeshIndex))
-        {
-            activeTool = null;
-            m_EditorPanelUISystem.activePanel = m_InspectorPanelSystem;
-        }
-        else if (m_EditorPanelUISystem.activePanel == m_InspectorPanelSystem)
-        {
-            m_EditorPanelUISystem.activePanel = null;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public SelectTool(System.String id) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void SelectTool([CanBeNull] string id)
-    {
-        activeTool = tools.FirstOrDefault((IEditorTool t) =&gt; t.id == id);
-    }
-</code></pre>
-<ul>
-<li><code>private UpdateToolState() : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">private bool UpdateToolState()
-    {
-        bool result = false;
-        for (int i = 0; i &lt; m_Tools.Length; i++)
-        {
-            bool disabled = m_Tools[i].disabled;
-            if (disabled != m_Disabled[i])
-            {
-                m_Disabled[i] = disabled;
-                result = true;
-            }
-        }
-        return result;
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.UI.Editor.EditorToolUISystem+&lt;&gt;c</code>  </li>
-<li><code>Game.UI.Editor.EditorToolUISystem+&lt;&gt;c__DisplayClass21_0</code>  </li>
-</ul>
+<p>Notes and remarks:
+- The system relies on IEditorTool implementations to expose id, active, and disabled members; toggling active on a tool is handled by this system's activeTool property to enforce single active tool semantics.
+- Bindings created in OnCreate expose "editorTool:tools", "editorTool:activeTool" and a trigger "editorTool:selectTool" to the UI layer. UI should call the trigger with a tool id to select tools via SelectTool.
+- [Preserve] attributes are used to prevent managed code stripping; [CanBeNull] annotations indicate properties that can return or accept null.</p>
 
 
 

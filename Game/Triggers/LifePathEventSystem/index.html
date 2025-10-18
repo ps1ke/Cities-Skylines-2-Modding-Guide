@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#gametriggerslifepatheventsystem" class="md-skip">
+        <a href="#gamelifepatheventsystem" class="md-skip">
           Skip to content
         </a>
       
@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87073,6 +87165,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Simulation/SurfaceWater/" class="md-nav__link">
         
   
@@ -93818,15 +93933,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -93863,9 +93969,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -117930,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117955,15 +118083,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -118002,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118026,277 +118145,182 @@
 
 
 
-<h1 id="gametriggerslifepatheventsystem">Game.Triggers.LifePathEventSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Triggers</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class LifePathEventSystem : Game.GameSystemBase
-{
-    private System.Boolean &lt;m_DebugLifePathChirps&gt;k__BackingField;
-    private Game.Simulation.SimulationSystem m_SimulationSystem;
-    private Game.Common.ModificationEndBarrier m_ModificationBarrier;
-    private Game.Triggers.CreateChirpSystem m_CreateChirpSystem;
-    private Unity.Entities.EntityQuery m_FollowedQuery;
-    private Unity.Entities.EntityQuery m_DeletedFollowedQuery;
-    private Unity.Entities.EntityQuery m_TimeDataQuery;
-    private Unity.Entities.EntityArchetype m_EventArchetype;
-    private Unity.Collections.NativeQueue&lt;Game.Triggers.LifePathEventCreationData&gt; m_Queue;
-    private Unity.Jobs.JobHandle m_WriteDependencies;
-    private Game.Triggers.LifePathEventSystem+TypeHandle __TypeHandle;
-    public static readonly System.Int32 kMaxFollowed;
-
-    public System.Boolean m_DebugLifePathChirps { get; set; }
-
-    public LifePathEventSystem();
-
-    private System.Void __AssignQueries(Unity.Entities.SystemState&amp; state);
-    public System.Void AddQueueWriter(Unity.Jobs.JobHandle handle);
-    public System.Boolean FollowCitizen(Unity.Entities.Entity citizen);
-    public Unity.Collections.NativeQueue&lt;Game.Triggers.LifePathEventCreationData&gt; GetQueue(Unity.Jobs.JobHandle&amp; deps);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnCreateForCompiler();
-    protected virtual System.Void OnDestroy();
-    protected virtual System.Void OnGamePreload(Colossal.Serialization.Entities.Purpose purpose, Game.GameMode mode);
-    protected virtual System.Void OnUpdate();
-    public System.Boolean UnfollowCitizen(Unity.Entities.Entity citizen);
-}
-</code></pre>
+<h1 id="gamelifepatheventsystem">Game.LifePathEventSystem</h1>
+<p><strong>Assembly:</strong> Assembly-CSharp<br />
+<strong>Namespace:</strong> Game.Triggers</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> GameSystemBase</p>
+<p><strong>Summary:</strong><br />
+Manages creation and cleanup of LifePath events for followed citizens. The system consumes LifePathEventCreationData enqueued by other systems or code and either spawns LifePathEvent entities (using an event archetype) or forwards "chirp" events to the CreateChirpSystem. It also maintains a "followed" set of citizens (limited by kMaxFollowed), tracks per-citizen LifePathEntry buffers, and cleans up events when a followed citizen is deleted or unfollowed. Internally it schedules two jobs:
+- CreateLifePathEventJob: dequeues creation requests, creates LifePathEvent entities or enqueues chirps, and appends LifePathEntry to the sender's buffer.
+- CleanupLifePathEntriesJob: adds Deleted components for event entities referenced from LifePathEntry buffers when a followed entity is deleted.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private System.Boolean &lt;m_DebugLifePathChirps&gt;k__BackingField</code>  </li>
+<li>
+<p><code>public static readonly int kMaxFollowed</code><br />
+Maximum number of citizens that can be followed simultaneously (50).</p>
+</li>
+<li>
+<p><code>private SimulationSystem m_SimulationSystem</code><br />
+Reference to the SimulationSystem used to read the current simulation/frame index.</p>
+</li>
+<li>
+<p><code>private ModificationEndBarrier m_ModificationBarrier</code><br />
+Barrier used to obtain an EntityCommandBuffer for making structural changes (create/delete components/entities).</p>
+</li>
+<li>
+<p><code>private CreateChirpSystem m_CreateChirpSystem</code><br />
+Reference to the CreateChirpSystem used to forward chirp-type life path events.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_FollowedQuery</code><br />
+Query matching currently followed citizens (Followed, excluding Temp andDeleted).</p>
+</li>
+<li>
+<p><code>private EntityQuery m_DeletedFollowedQuery</code><br />
+Query matching followed citizens that are marked Deleted (used to clean up referenced events).</p>
+</li>
+<li>
+<p><code>private EntityQuery m_TimeDataQuery</code><br />
+Query to access the TimeData singleton.</p>
+</li>
+<li>
+<p><code>private EntityArchetype m_EventArchetype</code><br />
+Archetype used when creating new LifePathEvent entities.</p>
+</li>
+<li>
+<p><code>private NativeQueue&lt;LifePathEventCreationData&gt; m_Queue</code><br />
+Persistent native queue that other code/systems write LifePathEventCreationData into for this system to consume each update.</p>
+</li>
+<li>
+<p><code>private JobHandle m_WriteDependencies</code><br />
+Tracks job dependencies from writers that write to m_Queue; combined into scheduling so queue writes and reads are synchronized.</p>
+</li>
+<li>
+<p><code>private TypeHandle __TypeHandle</code><br />
+Internal container of cached type handles (buffer/component lookups) used to schedule jobs.</p>
+</li>
+<li>
+<p><code>public bool m_DebugLifePathChirps { get; set; }</code><br />
+Public property used to enable debug behavior where chirps are produced even if the sender has no LifePathEntry buffer (useful for debugging).</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private System.Boolean &lt;m_DebugLifePathChirps&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.SimulationSystem m_SimulationSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.SimulationSystem m_SimulationSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Common.ModificationEndBarrier m_ModificationBarrier</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Common.ModificationEndBarrier m_ModificationBarrier;
-</code></pre>
-<ul>
-<li><code>private Game.Triggers.CreateChirpSystem m_CreateChirpSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Triggers.CreateChirpSystem m_CreateChirpSystem;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_FollowedQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_FollowedQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_DeletedFollowedQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_DeletedFollowedQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_TimeDataQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_TimeDataQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityArchetype m_EventArchetype</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityArchetype m_EventArchetype;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeQueue&lt;Game.Triggers.LifePathEventCreationData&gt; m_Queue</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeQueue&lt;Game.Triggers.LifePathEventCreationData&gt; m_Queue;
-</code></pre>
-<ul>
-<li><code>private Unity.Jobs.JobHandle m_WriteDependencies</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Jobs.JobHandle m_WriteDependencies;
-</code></pre>
-<ul>
-<li><code>private Game.Triggers.LifePathEventSystem+TypeHandle __TypeHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Triggers.LifePathEventSystem+TypeHandle __TypeHandle;
-</code></pre>
-<ul>
-<li><code>public static readonly System.Int32 kMaxFollowed</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static readonly System.Int32 kMaxFollowed;
-</code></pre>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>public System.Boolean m_DebugLifePathChirps { get; set }</code>  </li>
+<li><code>public bool m_DebugLifePathChirps { get; set; }</code><br />
+When true, the system will produce chirps even if the sender does not have a LifePathEntry buffer. Default false. Useful for debugging chirp generation.</li>
 </ul>
-<pre><code class="language-csharp">public System.Boolean m_DebugLifePathChirps { get; set; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public LifePathEventSystem()</code>  </li>
+<li><code>public LifePathEventSystem()</code><br />
+Default constructor (preserved). System is initialized in OnCreate; constructor itself is empty besides standard system initialization.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public LifePathEventSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private __AssignQueries(Unity.Entities.SystemState&amp; state) : System.Void</code>  </li>
+<li><code>protected override void OnCreate()</code> : System.Void<br />
+Initializes internal references and queries:</li>
+<li>Gets SimulationSystem, ModificationEndBarrier, CreateChirpSystem.</li>
+<li>Creates entity queries for followed entities and time data.</li>
+<li>Creates the event archetype for LifePathEvent.</li>
+<li>Allocates the persistent NativeQueue used to receive LifePathEventCreationData.</li>
+<li>
+<p>Calls RequireForUpdate on the TimeData query and disables the system by default (Enabled = false).</p>
+</li>
+<li>
+<p><code>protected override void OnGamePreload(Colossal.Serialization.Entities.Purpose purpose, GameMode mode)</code> : System.Void<br />
+Enables or disables the system based on the current GameMode. Keeps the base preload behavior.</p>
+</li>
+<li>
+<p><code>protected override void OnDestroy()</code> : System.Void<br />
+Completes pending write dependencies and disposes the persistent NativeQueue, then calls base.OnDestroy().</p>
+</li>
+<li>
+<p><code>public NativeQueue&lt;LifePathEventCreationData&gt; GetQueue(out JobHandle deps)</code> : NativeQueue<LifePathEventCreationData><br />
+Returns the internal queue for producers to write LifePathEventCreationData into. Outputs the job handle representing current write dependencies (deps). Asserts that the system is Enabled when called.</p>
+</li>
+<li>
+<p><code>public void AddQueueWriter(JobHandle handle)</code> : System.Void<br />
+Combines an external writer JobHandle into the system's m_WriteDependencies. Use this when a producer schedules a job that writes to the returned queue to ensure proper synchronization.</p>
+</li>
+<li>
+<p><code>public bool FollowCitizen(Entity citizen)</code> : System.Boolean<br />
+Begins following a citizen entity if the current number of followed citizens is below kMaxFollowed. Adds a Followed component, adds a LifePathEntry buffer to the citizen, and marks the entity Updated. The Followed component stores a priority based on the current simulation frame and whether following started while the citizen was a child. Returns true on success, false when the follow limit has been reached.</p>
+</li>
+<li>
+<p><code>public bool UnfollowCitizen(Entity citizen)</code> : System.Boolean<br />
+Stops following a citizen. Removes the Followed component, marks any LifePathEvent entities referenced by the citizen's LifePathEntry buffer with Deleted, removes the LifePathEntry buffer, and marks the citizen Updated. Returns true if the citizen was being followed, false otherwise.</p>
+</li>
+<li>
+<p><code>protected override void OnUpdate()</code> : System.Void<br />
+Main scheduling logic run each frame:</p>
+</li>
+<li>Schedules CleanupLifePathEntriesJob (parallel IJobChunk) for followed-but-deleted citizens to mark referenced event entities as Deleted.</li>
+<li>Prepares and schedules CreateLifePathEventJob to dequeue creation requests and create events or forward chirps. The Create job:<ul>
+<li>Reads LifePathEventData prefabs via ComponentLookup.</li>
+<li>Uses BufferLookup to test for LifePathEntry buffers on senders.</li>
+<li>Creates new LifePathEvent entities for non-chirp events and appends LifePathEntry to the sender buffer.</li>
+<li>Enqueues chirps to CreateChirpSystem when the event prefab is marked as a chirp.</li>
+<li>Adds Updated to sender whenever something is processed for it.</li>
 </ul>
-<pre><code class="language-csharp">private void __AssignQueries(ref SystemState state)
+</li>
+<li>
+<p>Manages JobHandles and registers producers with the modification barrier and CreateChirpSystem; updates m_WriteDependencies.</p>
+</li>
+<li>
+<p><code>private void __AssignQueries(ref SystemState state)</code> : System.Void<br />
+Compiler helper that assigns (empty) queries on compiler path; used by OnCreateForCompiler.</p>
+</li>
+<li>
+<p><code>protected override void OnCreateForCompiler()</code> : System.Void<br />
+Compiler helper that calls __AssignQueries and assigns cached TypeHandle handles.</p>
+</li>
+<li>
+<p>Nested types (jobs):</p>
+</li>
+<li>CreateLifePathEventJob : IJob<br />
+    Dequeues LifePathEventCreationData and:<ul>
+<li>If the referenced LifePathEventData is a chirp, enqueues a ChirpCreationData into m_ChirpQueue.</li>
+<li>Otherwise, if the sender has a LifePathEntry buffer, creates a LifePathEvent entity (using m_EventArchetype), sets its LifePathEvent component with the event prefab, target, and date (computed from TimeData and simulation frame), and appends a LifePathEntry to the sender's buffer. Adds Updated to the sender in all processed cases. The job uses the m_LifePathEventDatas ComponentLookup and m_LifePathEntries BufferLookup.</li>
+</ul>
+</li>
+<li>CleanupLifePathEntriesJob : IJobChunk<br />
+    Iterates LifePathEntry buffers in chunks and, for each referenced event entity, adds a Deleted component via a parallel EntityCommandBuffer. This is used when followed citizens become Deleted so their referenced events are cleaned up.</li>
+</ul>
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Example: follow a citizen and enqueue a LifePathEvent creation from another system or authoring code.
+
+[Preserve]
+protected override void OnCreate()
+{
+    base.OnCreate();
+    // Enable system when appropriate (this system normally enables in OnGamePreload for game mode)
+    base.Enabled = true;
+}
+
+// Somewhere in mod code that has a reference to the system:
+var lifePathSystem = World.DefaultGameObjectInjectionWorld.GetExistingSystemManaged&lt;Game.Triggers.LifePathEventSystem&gt;();
+Entity someCitizen = /* obtain a citizen entity */;
+bool started = lifePathSystem.FollowCitizen(someCitizen);
+if (started)
+{
+    // Queue a life-path event to be created next update
+    JobHandle writerDeps;
+    var queue = lifePathSystem.GetQueue(out writerDeps);
+
+    // Example enqueue (make sure you construct valid entities/prefabs for these fields)
+    var creation = new LifePathEventCreationData
     {
-        new EntityQueryBuilder(Allocator.Temp).Dispose();
-    }
+        m_EventPrefab = /* prefab entity index */,
+        m_Sender = someCitizen,
+        m_Target = Entity.Null
+    };
+    queue.Enqueue(creation);
+
+    // If you enqueued from a job, call AddQueueWriter with that job's handle.
+    lifePathSystem.AddQueueWriter(writerDeps);
+}
 </code></pre>
-<ul>
-<li><code>public AddQueueWriter(Unity.Jobs.JobHandle handle) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void AddQueueWriter(JobHandle handle)
-    {
-        m_WriteDependencies = JobHandle.CombineDependencies(m_WriteDependencies, handle);
-    }
-</code></pre>
-<ul>
-<li><code>public FollowCitizen(Unity.Entities.Entity citizen) : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">public bool FollowCitizen(Entity citizen)
-    {
-        if (m_FollowedQuery.CalculateEntityCount() &lt; kMaxFollowed)
-        {
-            Citizen component;
-            bool startedFollowingAsChild = base.EntityManager.TryGetComponent&lt;Citizen&gt;(citizen, out component) &amp;&amp; component.GetAge() == CitizenAge.Child;
-            base.EntityManager.AddComponentData(citizen, new Followed
-            {
-                m_Priority = m_SimulationSystem.frameIndex,
-                m_StartedFollowingAsChild = startedFollowingAsChild
-            });
-            base.EntityManager.AddBuffer&lt;LifePathEntry&gt;(citizen);
-            base.EntityManager.AddComponent&lt;Updated&gt;(citizen);
-            return true;
-        }
-        return false;
-    }
-</code></pre>
-<ul>
-<li><code>public GetQueue(Unity.Jobs.JobHandle&amp; deps) : Unity.Collections.NativeQueue&lt;Game.Triggers.LifePathEventCreationData&gt;</code>  </li>
-</ul>
-<pre><code class="language-csharp">public NativeQueue&lt;LifePathEventCreationData&gt; GetQueue(out JobHandle deps)
-    {
-        Assert.IsTrue(base.Enabled, &quot;Can not write to queue when system isn't running&quot;);
-        deps = m_WriteDependencies;
-        return m_Queue;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_SimulationSystem = base.World.GetOrCreateSystemManaged&lt;SimulationSystem&gt;();
-        m_ModificationBarrier = base.World.GetOrCreateSystemManaged&lt;ModificationEndBarrier&gt;();
-        m_CreateChirpSystem = base.World.GetOrCreateSystemManaged&lt;CreateChirpSystem&gt;();
-        m_FollowedQuery = GetEntityQuery(ComponentType.ReadOnly&lt;Followed&gt;(), ComponentType.Exclude&lt;Temp&gt;(), ComponentType.Exclude&lt;Deleted&gt;());
-        m_DeletedFollowedQuery = GetEntityQuery(ComponentType.ReadOnly&lt;Followed&gt;(), ComponentType.ReadOnly&lt;Deleted&gt;(), ComponentType.Exclude&lt;Temp&gt;());
-        m_TimeDataQuery = GetEntityQuery(ComponentType.ReadOnly&lt;TimeData&gt;());
-        m_EventArchetype = base.EntityManager.CreateArchetype(ComponentType.ReadOnly&lt;LifePathEvent&gt;());
-        m_Queue = new NativeQueue&lt;LifePathEventCreationData&gt;(Allocator.Persistent);
-        RequireForUpdate(m_TimeDataQuery);
-        base.Enabled = false;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreateForCompiler() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnCreateForCompiler()
-    {
-        base.OnCreateForCompiler();
-        __AssignQueries(ref base.CheckedStateRef);
-        __TypeHandle.__AssignHandles(ref base.CheckedStateRef);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnDestroy() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnDestroy()
-    {
-        m_WriteDependencies.Complete();
-        m_Queue.Dispose();
-        base.OnDestroy();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnGamePreload(Colossal.Serialization.Entities.Purpose purpose, Game.GameMode mode) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnGamePreload(Colossal.Serialization.Entities.Purpose purpose, GameMode mode)
-    {
-        base.OnGamePreload(purpose, mode);
-        base.Enabled = mode.IsGame();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        CleanupLifePathEntriesJob jobData = new CleanupLifePathEntriesJob
-        {
-            m_EntryType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Triggers_LifePathEntry_RO_BufferTypeHandle, ref base.CheckedStateRef),
-            m_CommandBuffer = m_ModificationBarrier.CreateCommandBuffer().AsParallelWriter()
-        };
-        base.Dependency = JobChunkExtensions.ScheduleParallel(jobData, m_DeletedFollowedQuery, base.Dependency);
-        m_ModificationBarrier.AddJobHandleForProducer(base.Dependency);
-        JobHandle deps;
-        CreateLifePathEventJob jobData2 = new CreateLifePathEventJob
-        {
-            m_LifePathEventDatas = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_LifePathEventData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_LifePathEntries = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Triggers_LifePathEntry_RO_BufferLookup, ref base.CheckedStateRef),
-            m_CommandBuffer = m_ModificationBarrier.CreateCommandBuffer(),
-            m_EventArchetype = m_EventArchetype,
-            m_Queue = m_Queue,
-            m_ChirpQueue = m_CreateChirpSystem.GetQueue(out deps),
-            m_TimeData = m_TimeDataQuery.GetSingleton&lt;TimeData&gt;(),
-            m_SimulationFrame = m_SimulationSystem.frameIndex,
-            m_DebugLifePathChirps = m_DebugLifePathChirps
-        };
-        base.Dependency = IJobExtensions.Schedule(jobData2, JobHandle.CombineDependencies(base.Dependency, m_WriteDependencies, deps));
-        m_CreateChirpSystem.AddQueueWriter(base.Dependency);
-        m_ModificationBarrier.AddJobHandleForProducer(base.Dependency);
-        m_WriteDependencies = base.Dependency;
-    }
-</code></pre>
-<ul>
-<li><code>public UnfollowCitizen(Unity.Entities.Entity citizen) : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">public bool UnfollowCitizen(Entity citizen)
-    {
-        if (base.EntityManager.HasComponent&lt;Followed&gt;(citizen))
-        {
-            base.EntityManager.RemoveComponent&lt;Followed&gt;(citizen);
-            if (base.EntityManager.TryGetBuffer(citizen, isReadOnly: true, out DynamicBuffer&lt;LifePathEntry&gt; buffer))
-            {
-                foreach (LifePathEntry item in buffer)
-                {
-                    base.EntityManager.AddComponent&lt;Deleted&gt;(item.m_Entity);
-                }
-            }
-            base.EntityManager.RemoveComponent&lt;LifePathEntry&gt;(citizen);
-            base.EntityManager.AddComponent&lt;Updated&gt;(citizen);
-            return true;
-        }
-        return false;
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Triggers.LifePathEventSystem+CreateLifePathEventJob</code>  </li>
-<li><code>Game.Triggers.LifePathEventSystem+CleanupLifePathEntriesJob</code>  </li>
-<li><code>Game.Triggers.LifePathEventSystem+TypeHandle</code>  </li>
-</ul>
 
 
 

@@ -63889,15 +63889,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -63934,9 +63925,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -65321,6 +65312,29 @@
   
   <span class="md-ellipsis">
     InterpolatedProperties
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
     
   </span>
   
@@ -69762,6 +69776,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72574,6 +72611,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75564,6 +75624,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87156,6 +87239,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -117932,6 +118038,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117957,15 +118085,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -118004,9 +118123,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118029,178 +118148,160 @@
 
 
 <h1 id="gamepsipdxsdkpdxmodsui">Game.PSI.PdxSdk.PdxModsUI</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.PSI.PdxSdk</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>System.Object</code><br />
-<strong>Implements:</strong> <code>Colossal.PSI.PdxSdk.IPdxModsUI</code>, <code>System.IDisposable</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class PdxModsUI : Colossal.PSI.PdxSdk.IPdxModsUI, System.IDisposable
-{
-    private Colossal.PSI.PdxSdk.PdxSdkPlatform m_PdxPlatform;
-    private static Colossal.Logging.ILog log;
-    private static readonly System.String kModsUIHost;
-    private static readonly System.String kModsUIUri;
-
-    public Colossal.PSI.PdxSdk.PdxSdkPlatform platform { get; }
-    public System.String locale { get; }
-    public PDX.ModsUI.Adapters.ICohtmlViewAdapter uiViewAdapter { get; }
-    public PDX.ModsUI.Services.ILogService logger { get; }
-    public System.Boolean isActive { get; }
-
-    public PdxModsUI();
-
-    private System.Void &lt;.ctor&gt;b__8_0(Colossal.PSI.Common.IPlatformServiceIntegration psi);
-    public System.Void Destroy();
-    public System.Void Dispose();
-    public PDX.ModsUI.InputMode GetInputMode();
-    private System.Void OnActiveDeviceChanged(UnityEngine.InputSystem.InputDevice newDevice, UnityEngine.InputSystem.InputDevice oldDevice, System.Boolean schemeChanged);
-    public System.Void Show();
-    private System.Void UpdateLocale();
-}
-</code></pre>
+<p><strong>Assembly:</strong> Game<br />
+<strong>Namespace:</strong> Game.PSI.PdxSdk</p>
+<p><strong>Type:</strong> public class PdxModsUI</p>
+<p><strong>Base:</strong> IPdxModsUI, IDisposable</p>
+<p><strong>Summary:</strong><br />
+PdxModsUI is the game's integration point for Paradox Mods UI (ModsUI). It provides:
+- a platform reference (PdxSdkPlatform) and helpers to show/destroy the Mods UI,
+- properties used by the PDX SDK (locale, input mode, view adapter and logger),
+- lifecycle/event wiring to keep the Mods UI in sync with game input/device and localization changes.</p>
+<p>The class contains two important nested helper types:
+- ColossalUIViewAdapter (implements ICohtmlViewAdapter): wraps a Colossal UI UIView, manages an input barrier, exposes binding/event helpers, and forwards UI text input/caret events back to the game input system.
+- ModsUILogger (derives from LogService): routes PDX Mod UI logs into the game's Colossal log with mapping between log levels.</p>
+<p>Notes:
+- uiViewAdapter returns a new ColossalUIViewAdapter instance each time it is accessed.
+- GetInputMode() maps the game's control scheme and gamepad type to the PDX SDK InputMode enum and throws if it encounters an unknown scheme/type.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Colossal.PSI.PdxSdk.PdxSdkPlatform m_PdxPlatform</code>  </li>
+<li>
+<p><code>private static ILog log</code><br />
+Static logger for this class (Colossal.Logging.ILog). It's initialized from LogManager with the name "PdxModsUI" and configured to not show errors in the UI.</p>
+</li>
+<li>
+<p><code>private static readonly string kModsUIHost</code><br />
+Constant host name for the Mods UI host ("modsui").</p>
+</li>
+<li>
+<p><code>private static readonly string kModsUIUri</code><br />
+Constant URI constructed from the host ("assetdb://modsui/index.html"). Used when creating the Colossal UIView.</p>
+</li>
+<li>
+<p><code>private PdxSdkPlatform m_PdxPlatform</code><br />
+Back-reference to the platform integration (PdxSdkPlatform). Used to forward calls such as ShowModsUI, DestroyModsUI, ChangeModsUILanguage and UpdateInputMode.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Colossal.PSI.PdxSdk.PdxSdkPlatform m_PdxPlatform;
-</code></pre>
-<ul>
-<li><code>private static Colossal.Logging.ILog log</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static Colossal.Logging.ILog log;
-</code></pre>
-<ul>
-<li><code>private static readonly System.String kModsUIHost</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static readonly System.String kModsUIHost;
-</code></pre>
-<ul>
-<li><code>private static readonly System.String kModsUIUri</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static readonly System.String kModsUIUri;
-</code></pre>
+<hr />
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>public Colossal.PSI.PdxSdk.PdxSdkPlatform platform { get }</code>  </li>
+<li>
+<p><code>public PdxSdkPlatform platform { get; }</code><br />
+Returns the current PdxSdkPlatform instance (backed by m_PdxPlatform). May be null if not registered.</p>
+</li>
+<li>
+<p><code>public string locale { get; }</code><br />
+Returns the current active locale id converted to the PDX language format. Implementation: GameManager.instance.localizationManager.activeLocaleId.ToPdxLanguage().ToString().Replace('_','-').</p>
+</li>
+<li>
+<p><code>public ICohtmlViewAdapter uiViewAdapter { get; }</code><br />
+Creates and returns a new ColossalUIViewAdapter each call. The adapter provides view creation, binding, event registration and input/caret forwarding to the InputManager.</p>
+</li>
+<li>
+<p><code>public ILogService logger { get; }</code><br />
+Creates and returns a new ModsUILogger(LogLevel.L2_Warning) instance. This is the log service passed to the SDK.</p>
+</li>
+<li>
+<p><code>public bool isActive { get; }</code><br />
+True when m_PdxPlatform is not null and the platform reports its mods UI active (m_PdxPlatform.isModsUIActive).</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public Colossal.PSI.PdxSdk.PdxSdkPlatform platform { get; }
-</code></pre>
-<ul>
-<li><code>public System.String locale { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.String locale { get; }
-</code></pre>
-<ul>
-<li><code>public PDX.ModsUI.Adapters.ICohtmlViewAdapter uiViewAdapter { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public PDX.ModsUI.Adapters.ICohtmlViewAdapter uiViewAdapter { get; }
-</code></pre>
-<ul>
-<li><code>public PDX.ModsUI.Services.ILogService logger { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public PDX.ModsUI.Services.ILogService logger { get; }
-</code></pre>
-<ul>
-<li><code>public System.Boolean isActive { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Boolean isActive { get; }
-</code></pre>
+<hr />
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public PdxModsUI()</code>  </li>
+<li><code>public PdxModsUI()</code><br />
+Sets up event wiring and platform discovery:</li>
+<li>Subscribes to Game.Input.InputManager.instance.EventActiveDeviceChanged to track input device/scheme changes.</li>
+<li>Subscribes to GameManager.instance.localizationManager.onActiveDictionaryChanged to update the Mods UI language when locale changes.</li>
+<li>Obtains a PdxSdkPlatform via PlatformManager.instance.GetPSI<PdxSdkPlatform>("PdxSdk") and calls SetPdxModsUI(this) if available.</li>
+<li>Registers a PlatformManager.instance.onPlatformRegistered callback to pick up the platform if it is registered later and call SetPdxModsUI(this).</li>
 </ul>
-<pre><code class="language-csharp">public PdxModsUI()
-    {
-        Game.Input.InputManager.instance.EventActiveDeviceChanged += OnActiveDeviceChanged;
-        GameManager.instance.localizationManager.onActiveDictionaryChanged += UpdateLocale;
-        m_PdxPlatform = PlatformManager.instance.GetPSI&lt;PdxSdkPlatform&gt;(&quot;PdxSdk&quot;);
-        m_PdxPlatform?.SetPdxModsUI(this);
-        PlatformManager.instance.onPlatformRegistered += delegate(IPlatformServiceIntegration psi)
-        {
-            if (psi is PdxSdkPlatform pdxPlatform)
-            {
-                m_PdxPlatform = pdxPlatform;
-                m_PdxPlatform.SetPdxModsUI(this);
-            }
-        };
-    }
-</code></pre>
+<p>This ensures the PdxModsUI gets a reference to the platform when it becomes available and that it reacts to input device and locale changes.</p>
+<hr />
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private &lt;.ctor&gt;b__8_0(Colossal.PSI.Common.IPlatformServiceIntegration psi) : System.Void</code>  </li>
+<li>
+<p><code>public void Show()</code><br />
+Requests the platform to show the Mods UI: m_PdxPlatform?.ShowModsUI().</p>
+</li>
+<li>
+<p><code>public void Destroy()</code><br />
+Requests the platform to destroy/close the Mods UI: m_PdxPlatform?.DestroyModsUI().</p>
+</li>
+<li>
+<p><code>private void OnActiveDeviceChanged(InputDevice newDevice, InputDevice oldDevice, bool schemeChanged)</code><br />
+Internal event handler invoked when the active input device changes. If the control scheme changed or the active scheme is the Gamepad scheme, calls m_PdxPlatform?.UpdateInputMode() to update UI hints/input mode.</p>
+</li>
+<li>
+<p><code>private void UpdateLocale()</code><br />
+Internal handler for localization changes. Calls m_PdxPlatform?.ChangeModsUILanguage(locale) to update the Mods UI language.</p>
+</li>
+<li>
+<p><code>public void Dispose()</code><br />
+Unsubscribes from EventActiveDeviceChanged and onActiveDictionaryChanged. This cleans up event subscriptions established in the constructor.</p>
+</li>
+<li>
+<p><code>public InputMode GetInputMode()</code><br />
+Maps the game's input state to the PDX SDK InputMode enum:</p>
+</li>
+<li>KeyboardAndMouse =&gt; InputMode.KeyboardAndMouse</li>
+<li>Gamepad =&gt; maps Game.Input.InputManager.GamepadType:<ul>
+<li>Xbox =&gt; InputMode.XboxSeriesXS</li>
+<li>PS =&gt; InputMode.PS5
+  Throws an Exception for unknown control schemes or unknown gamepad types with messages:</li>
 </ul>
-<pre><code class="language-csharp">private System.Void &lt;.ctor&gt;b__8_0(Colossal.PSI.Common.IPlatformServiceIntegration psi);
-</code></pre>
+</li>
+<li>"Unknown control scheme {activeControlScheme}"</li>
+<li>"Unknown control scheme {activeControlScheme} with gamepad {finalInputHintsType}"</li>
+</ul>
+<p>Nested types behavior (overview):</p>
 <ul>
-<li><code>public Destroy() : System.Void</code>  </li>
+<li>ColossalUIViewAdapter</li>
+<li>Manages a UIView created via UIManager.defaultUISystem.CreateView(kModsUIUri, settings).</li>
+<li>Creates an InputBarrier via Game.Input.InputManager.instance.CreateGlobalBarrier("ColossalUIViewAdapter") and toggles it when Enable()/Disable() are called.</li>
+<li>Listens to UIView.Listener.ReadyForBindings, TextInputTypeChanged and CaretRectChanged and forwards changes to the InputManager (hasInputFieldFocus, caretRect).</li>
+<li>Exposes methods: Enable, Disable, Reload, BindCall, RegisterForEvent, UnbindCall, UnregisterFromEvent, TriggerEvent, AddHostLocation, RemoveHostLocation, Dispose.</li>
+<li>BindCall/RegisterForEvent throw Exception("Not ready for bindings") if the view is not ready.</li>
+<li>
+<p>ReadyForBindings event is raised when the underlying UIView signals readiness.</p>
+</li>
+<li>
+<p>ModsUILogger</p>
+</li>
+<li>Implements WriteLogEntry to map LogService log levels to the Colossal logging methods (log.Info/log.Warn/log.Error).</li>
+<li>Formats source based on callerFilePath when source is null.</li>
 </ul>
-<pre><code class="language-csharp">public void Destroy()
-    {
-        m_PdxPlatform?.DestroyModsUI();
-    }
+<hr />
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Create and show the Mods UI
+var modsUI = new PdxModsUI();
+modsUI.Show();
+
+// Create an adapter to interact with the Cohtml view (each access returns a new adapter)
+using (var adapter = (Game.PSI.PdxSdk.PdxModsUI).uiViewAdapter) {
+    // Wait for ReadyForBindings event before binding or registering calls/events
+    adapter.ReadyForBindings += () =&gt; {
+        adapter.BindCall(&quot;someCallFromJS&quot;, new Action(() =&gt; Debug.Log(&quot;Called from JS&quot;)));
+        adapter.RegisterForEvent(&quot;someEvent&quot;, new Action&lt;object&gt;((msg) =&gt; Debug.Log(&quot;Event: &quot; + msg)));
+    };
+
+    // Example: add host locations so the view can resolve assets
+    adapter.AddHostLocation(&quot;ModsUI&quot;, new List&lt;string&gt; { &quot;Assets/ModsUI&quot; });
+
+    // enable/disable the view
+    adapter.Enable();
+    // ...
+    adapter.Disable();
+}
+
+// Destroy and cleanup when done
+modsUI.Destroy();
+modsUI.Dispose();
 </code></pre>
-<ul>
-<li><code>public Dispose() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void Dispose()
-    {
-        Game.Input.InputManager.instance.EventActiveDeviceChanged -= OnActiveDeviceChanged;
-        GameManager.instance.localizationManager.onActiveDictionaryChanged -= UpdateLocale;
-    }
-</code></pre>
-<ul>
-<li><code>public GetInputMode() : PDX.ModsUI.InputMode</code>  </li>
-</ul>
-<pre><code class="language-csharp">public InputMode GetInputMode()
-    {
-        Game.Input.InputManager.ControlScheme activeControlScheme = Game.Input.InputManager.instance.activeControlScheme;
-        Game.Input.InputManager.GamepadType finalInputHintsType = SharedSettings.instance.userInterface.GetFinalInputHintsType();
-        return activeControlScheme switch
-        {
-            Game.Input.InputManager.ControlScheme.KeyboardAndMouse =&gt; InputMode.KeyboardAndMouse, 
-            Game.Input.InputManager.ControlScheme.Gamepad =&gt; finalInputHintsType switch
-            {
-                Game.Input.InputManager.GamepadType.Xbox =&gt; InputMode.XboxSeriesXS, 
-                Game.Input.InputManager.GamepadType.PS =&gt; InputMode.PS5, 
-                _ =&gt; throw new Exception($&quot;Unknown control scheme {activeControlScheme} with gamepad {finalInputHintsType}&quot;), 
-            }, 
-            _ =&gt; throw new Exception($&quot;Unknown control scheme {activeControlScheme}&quot;), 
-        };
-    }
-</code></pre>
-<ul>
-<li><code>private OnActiveDeviceChanged(UnityEngine.InputSystem.InputDevice newDevice, UnityEngine.InputSystem.InputDevice oldDevice, System.Boolean schemeChanged) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void OnActiveDeviceChanged(InputDevice newDevice, InputDevice oldDevice, bool schemeChanged)
-    {
-        if (schemeChanged || Game.Input.InputManager.instance.activeControlScheme == Game.Input.InputManager.ControlScheme.Gamepad)
-        {
-            m_PdxPlatform?.UpdateInputMode();
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public Show() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void Show()
-    {
-        m_PdxPlatform?.ShowModsUI();
-    }
-</code></pre>
-<ul>
-<li><code>private UpdateLocale() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void UpdateLocale()
-    {
-        m_PdxPlatform?.ChangeModsUILanguage(locale);
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.PSI.PdxSdk.PdxModsUI+ColossalUIViewAdapter</code>  </li>
-<li><code>Game.PSI.PdxSdk.PdxModsUI+ModsUILogger</code>  </li>
-</ul>
+<p>Notes:
+- The adapter must be ready (ReadyForBindings) before calling BindCall/RegisterForEvent; otherwise those methods will throw an exception.
+- uiViewAdapter returns a fresh ColossalUIViewAdapter; remember to Dispose the adapter to avoid leaking the underlying UIView and InputBarrier.</p>
 
 
 

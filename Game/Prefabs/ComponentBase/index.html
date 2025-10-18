@@ -39193,15 +39193,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -39232,6 +39223,15 @@
   <a href="#methods" class="md-nav__link">
     <span class="md-ellipsis">
       Methods
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
     </span>
   </a>
   
@@ -65320,6 +65320,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69751,6 +69774,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72563,6 +72609,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75553,6 +75622,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87145,6 +87237,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -117921,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117946,15 +118083,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -117992,6 +118120,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -118009,175 +118146,127 @@
 
 
 <h1 id="gameprefabscomponentbase">Game.Prefabs.ComponentBase</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Prefabs</code>  </p>
-<p><strong>Type:</strong> class abstract public  </p>
-<p><strong>Base:</strong> <code>UnityEngine.ScriptableObject</code><br />
-<strong>Implements:</strong> <code>Colossal.IO.AssetDatabase.IComponentBase</code>, <code>System.IComparable</code>  </p>
-<p><strong>Attributes:</strong> <code>Serializable</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public abstract class ComponentBase : UnityEngine.ScriptableObject, Colossal.IO.AssetDatabase.IComponentBase, System.IComparable
-{
-    public System.Boolean active;
-    private Game.Prefabs.PrefabBase &lt;prefab&gt;k__BackingField;
-    protected static Colossal.Logging.ILog baseLog;
-
-    public System.Boolean ignoreUnlockDependencies { get; }
-    public Game.Prefabs.PrefabBase prefab { get; set; }
-    public System.Collections.Generic.IEnumerable&lt;System.String&gt; modTags { get; }
-
-    protected ComponentBase();
-
-    public System.Int32 CompareTo(System.Object obj);
-    public abstract System.Void GetArchetypeComponents(System.Collections.Generic.HashSet&lt;Unity.Entities.ComponentType&gt; components);
-    public T GetComponent&lt;T&gt;();
-    public Game.Prefabs.ComponentBase GetComponentExactly(System.Type type);
-    public System.Boolean GetComponents&lt;T&gt;(System.Collections.Generic.List&lt;T&gt; list);
-    public virtual System.String GetDebugString();
-    public virtual System.Void GetDependencies(System.Collections.Generic.List&lt;Game.Prefabs.PrefabBase&gt; prefabs);
-    public abstract System.Void GetPrefabComponents(System.Collections.Generic.HashSet&lt;Unity.Entities.ComponentType&gt; components);
-    public virtual System.Void Initialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity);
-    public virtual System.Void LateInitialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity);
-    protected virtual System.Void OnDisable();
-    protected virtual System.Void OnEnable();
-}
-</code></pre>
+<p><strong>Assembly:</strong> Assembly-CSharp (typical for game/mod code)<br />
+<strong>Namespace:</strong> Game.Prefabs</p>
+<p><strong>Type:</strong> abstract class</p>
+<p><strong>Base:</strong> UnityEngine.ScriptableObject, implements IComponentBase, System.IComparable</p>
+<p><strong>Summary:</strong><br />
+Base class for prefab components used by the game's prefab system. ComponentBase is a ScriptableObject that can be attached to a PrefabBase instance (via its prefab property). It provides basic lifecycle hooks, helper methods for querying other components on the same prefab, and contracts for exposing ECS component types (via abstract methods). It also contains a static logger used by derived types.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>public System.Boolean active</code>  </li>
+<li>
+<p><code>protected static ILog baseLog</code><br />
+Static logger instance used by ComponentBase and derived classes. It is initialized in OnEnable() via LogManager.GetLogger("SceneFlow"). Because it is static, it is shared across all ComponentBase instances.</p>
+</li>
+<li>
+<p><code>public bool active = true</code><br />
+Flag indicating whether this component is active. Commonly used by systems that enumerate components to skip inactive ones.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public System.Boolean active;
-</code></pre>
-<ul>
-<li><code>private Game.Prefabs.PrefabBase &lt;prefab&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Prefabs.PrefabBase &lt;prefab&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>protected static Colossal.Logging.ILog baseLog</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected static Colossal.Logging.ILog baseLog;
-</code></pre>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>public System.Boolean ignoreUnlockDependencies { get }</code>  </li>
+<li>
+<p><code>public virtual bool ignoreUnlockDependencies { get; }</code><br />
+Virtual read-only property (defaults to false). Derived classes can override to indicate that this component ignores unlock/dependency checks.</p>
+</li>
+<li>
+<p><code>public PrefabBase prefab { get; set; }</code><br />
+Reference to the owning PrefabBase. Many helper methods on ComponentBase use this property; it must be set before calling methods that query the prefab. If prefab is null when calling such methods, a NullReferenceException is thrown.</p>
+</li>
+<li>
+<p><code>public virtual IEnumerable&lt;string&gt; modTags { get; }</code><br />
+Virtual property returning mod tags associated with this component. Default implementation returns Enumerable.Empty<string>(). Derived classes can override to advertise tags.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public System.Boolean ignoreUnlockDependencies { get; }
-</code></pre>
-<ul>
-<li><code>public Game.Prefabs.PrefabBase prefab { get; set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Game.Prefabs.PrefabBase prefab { get; set; }
-</code></pre>
-<ul>
-<li><code>public System.Collections.Generic.IEnumerable&lt;System.String&gt; modTags { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Collections.Generic.IEnumerable&lt;System.String&gt; modTags { get; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>protected ComponentBase()</code>  </li>
+<li><code>public ComponentBase()</code><br />
+Implicit default constructor. As a ScriptableObject-derived type, instances are typically created/instantiated by Unity or the prefab system. No special construction logic is present in this class.</li>
 </ul>
-<pre><code class="language-csharp">protected ComponentBase();
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>public CompareTo(System.Object obj) : System.Int32</code>  </li>
+<li>
+<p><code>public virtual string GetDebugString()</code><br />
+Returns a simple debug string for the component. Default implementation returns the component's runtime type name (GetType().Name). Can be overridden to provide more detailed debug information.</p>
+</li>
+<li>
+<p><code>protected virtual void OnEnable()</code><br />
+Unity/ScriptableObject lifecycle callback invoked when the ScriptableObject is enabled. Default implementation initializes the static baseLog by calling LogManager.GetLogger("SceneFlow").</p>
+</li>
+<li>
+<p><code>protected virtual void OnDisable()</code><br />
+Unity/ScriptableObject lifecycle callback invoked when the ScriptableObject is disabled. Default implementation does nothing; override to clean up resources.</p>
+</li>
+<li>
+<p><code>public T GetComponent&lt;T&gt;() where T : ComponentBase</code><br />
+Helper to fetch another component of type T from the same prefab. Throws NullReferenceException if prefab is null. Internally calls prefab.TryGet<T>(out var component). Returns the component or null if not present.</p>
+</li>
+<li>
+<p><code>public ComponentBase GetComponentExactly(Type type)</code><br />
+Fetches a component from the prefab whose concrete type matches the given Type (exact match). Throws NullReferenceException if prefab is null. Uses prefab.TryGetExactly(type, out component). Returns the component or null if not present.</p>
+</li>
+<li>
+<p><code>public bool GetComponents&lt;T&gt;(List&lt;T&gt; list) where T : ComponentBase</code><br />
+Populates the provided list with components of type T found on the same prefab. Throws NullReferenceException if prefab is null. Returns the result of prefab.TryGet(list) (typically true if anything was added/operation succeeded).</p>
+</li>
+<li>
+<p><code>public virtual void GetDependencies(List&lt;PrefabBase&gt; prefabs)</code><br />
+Virtual hook for collecting dependent prefabs. Default does nothing. Derived components can add dependent prefabs to the supplied list.</p>
+</li>
+<li>
+<p><code>public virtual void Initialize(EntityManager entityManager, Entity entity)</code><br />
+Virtual ECS initialization hook invoked to set up entity components. Default implementation is empty. Derived components should add their data/components to the Entity if needed.</p>
+</li>
+<li>
+<p><code>public virtual void LateInitialize(EntityManager entityManager, Entity entity)</code><br />
+Virtual late-initialization hook for ECS, invoked after Initialize. Default implementation is empty.</p>
+</li>
+<li>
+<p><code>public abstract void GetPrefabComponents(HashSet&lt;ComponentType&gt; components)</code><br />
+Abstract method that derived classes must implement to declare which ECS component types the prefab will have (used when creating archetypes or for other ECS bookkeeping).</p>
+</li>
+<li>
+<p><code>public abstract void GetArchetypeComponents(HashSet&lt;ComponentType&gt; components)</code><br />
+Abstract method that derived classes must implement to declare which ECS component types should be present on archetypes that include this component.</p>
+</li>
+<li>
+<p><code>public int CompareTo(object obj)</code><br />
+Implements IComparable. Compares this ComponentBase to another object. If obj is null returns 1. If obj is a ComponentBase, comparison is based on base.name (the ScriptableObject name). If obj is not a ComponentBase, throws ArgumentException("Object is not a ComponentBase").</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public int CompareTo(object obj)
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Example of creating a concrete component type and using the base functionality.
+[Serializable]
+public class MyComponent : ComponentBase
+{
+    protected override void OnEnable()
     {
-        if (obj == null)
-        {
-            return 1;
-        }
-        ComponentBase componentBase = obj as ComponentBase;
-        if (componentBase != null)
-        {
-            return base.name.CompareTo(componentBase.name);
-        }
-        throw new ArgumentException(&quot;Object is not a ComponentBase&quot;);
+        base.OnEnable(); // initializes baseLog
+        baseLog.Info(&quot;MyComponent enabled&quot;);
     }
-</code></pre>
-<ul>
-<li><code>public abstract GetArchetypeComponents(System.Collections.Generic.HashSet&lt;Unity.Entities.ComponentType&gt; components) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public abstract System.Void GetArchetypeComponents(System.Collections.Generic.HashSet&lt;Unity.Entities.ComponentType&gt; components);
-</code></pre>
-<ul>
-<li><code>public GetComponent&lt;T&gt;() : T</code>  </li>
-</ul>
-<pre><code class="language-csharp">public T GetComponent&lt;T&gt;();
-</code></pre>
-<ul>
-<li><code>public GetComponentExactly(System.Type type) : Game.Prefabs.ComponentBase</code>  </li>
-</ul>
-<pre><code class="language-csharp">public ComponentBase GetComponentExactly(Type type)
+
+    public override void GetPrefabComponents(HashSet&lt;ComponentType&gt; components)
     {
-        if (prefab == null)
-        {
-            throw new NullReferenceException($&quot;GetComponentExactly&lt;{type}&gt;() -&gt; prefab is null&quot;);
-        }
-        if (prefab.TryGetExactly(type, out var component))
-        {
-            return component;
-        }
-        return null;
+        // Add required ECS ComponentType(s) for this prefab
     }
-</code></pre>
-<ul>
-<li><code>public GetComponents&lt;T&gt;(System.Collections.Generic.List&lt;T&gt; list) : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Boolean GetComponents&lt;T&gt;(System.Collections.Generic.List&lt;T&gt; list);
-</code></pre>
-<ul>
-<li><code>public virtual GetDebugString() : System.String</code>  </li>
-</ul>
-<pre><code class="language-csharp">public virtual string GetDebugString()
+
+    public override void GetArchetypeComponents(HashSet&lt;ComponentType&gt; components)
     {
-        return GetType().Name;
+        // Add ECS ComponentType(s) for archetype
     }
+}
+
+// Example usage when you have a prefab reference:
+var myComponent = prefab.TryGet&lt;MyComponent&gt;(out var comp) ? comp : null;
+if (myComponent != null)
+{
+    Debug.Log(myComponent.GetDebugString());
+}
 </code></pre>
-<ul>
-<li><code>public virtual GetDependencies(System.Collections.Generic.List&lt;Game.Prefabs.PrefabBase&gt; prefabs) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public virtual void GetDependencies(List&lt;PrefabBase&gt; prefabs)
-    {
-    }
-</code></pre>
-<ul>
-<li><code>public abstract GetPrefabComponents(System.Collections.Generic.HashSet&lt;Unity.Entities.ComponentType&gt; components) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public abstract System.Void GetPrefabComponents(System.Collections.Generic.HashSet&lt;Unity.Entities.ComponentType&gt; components);
-</code></pre>
-<ul>
-<li><code>public virtual Initialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public virtual void Initialize(EntityManager entityManager, Entity entity)
-    {
-    }
-</code></pre>
-<ul>
-<li><code>public virtual LateInitialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public virtual void LateInitialize(EntityManager entityManager, Entity entity)
-    {
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnDisable() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected virtual void OnDisable()
-    {
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnEnable() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected virtual void OnEnable()
-    {
-        baseLog = LogManager.GetLogger(&quot;SceneFlow&quot;);
-    }
-</code></pre>
+<p>Notes:
+- Many methods rely on the prefab property being non-null. Callers and derived types should ensure prefab is set before invoking helpers like GetComponent or GetComponents.
+- Derived classes must implement GetPrefabComponents and GetArchetypeComponents to participate properly in the ECS/archetype creation process.</p>
 
 
 

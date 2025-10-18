@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -81306,18 +81398,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -81342,9 +81434,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -87145,6 +87237,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -117921,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117948,18 +118085,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -117984,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118009,263 +118146,160 @@
 
 
 <h1 id="gamesimulationemergencyshelteraisystem">Game.Simulation.EmergencyShelterAISystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Simulation</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class EmergencyShelterAISystem : Game.GameSystemBase
-{
-    private Unity.Entities.EntityQuery m_BuildingQuery;
-    private Unity.Entities.EntityQuery m_VehiclePrefabQuery;
-    private Unity.Entities.EntityArchetype m_EvacuationRequestArchetype;
-    private Unity.Entities.EntityArchetype m_HandleRequestArchetype;
-    private Unity.Entities.ComponentTypeSet m_ParkedToMovingRemoveTypes;
-    private Unity.Entities.ComponentTypeSet m_ParkedToMovingCarAddTypes;
-    private Game.EndFrameBarrier m_EndFrameBarrier;
-    private Game.City.CityConfigurationSystem m_CityConfigurationSystem;
-    private Game.Prefabs.TransportVehicleSelectData m_TransportVehicleSelectData;
-    private Game.Simulation.EmergencyShelterAISystem+TypeHandle __TypeHandle;
-    private Unity.Entities.EntityQuery __query_1553762682_0;
-    private Unity.Entities.EntityQuery __query_1553762682_1;
-
-    public EmergencyShelterAISystem();
-
-    private System.Void __AssignQueries(Unity.Entities.SystemState&amp; state);
-    public virtual System.Int32 GetUpdateInterval(Game.SystemUpdatePhase phase);
-    public virtual System.Int32 GetUpdateOffset(Game.SystemUpdatePhase phase);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnCreateForCompiler();
-    protected virtual System.Void OnUpdate();
-}
-</code></pre>
+<p><strong>Assembly:</strong><br />
+<strong>Namespace:</strong> Game.Simulation</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> GameSystemBase</p>
+<p><strong>Summary:</strong><br />
+EmergencyShelterAISystem manages emergency shelter buildings each simulation tick. It evaluates shelter efficiency and resource availability, manages occupants, tracks and controls owned and parked vehicles, requests evacuation vehicles when needed, and spawns/dispatches public-transport vehicles for evacuation. The system is implemented using Burst-compiled jobs (EmergencyShelterTickJob and EmergencyShelterActionJob) and uses ECS archetypes and command buffers (through an EndFrameBarrier) to create and modify entities safely from jobs. It also integrates with TransportVehicleSelectData for vehicle creation/selection and reads disaster configuration (exit probabilities based on danger level) to control evacuation behavior. Update scheduling is tuned via GetUpdateInterval (256) and GetUpdateOffset (240).</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Unity.Entities.EntityQuery m_BuildingQuery</code>  </li>
+<li>
+<p><code>private EntityQuery m_BuildingQuery</code><br />
+Query selecting emergency shelter buildings to process (requires EmergencyShelter + ServiceDispatch + PrefabRef and excludes Temp/Deleted).</p>
+</li>
+<li>
+<p><code>private EntityQuery m_VehiclePrefabQuery</code><br />
+Query used by TransportVehicleSelectData to select vehicle prefabs.</p>
+</li>
+<li>
+<p><code>private EntityArchetype m_EvacuationRequestArchetype</code><br />
+Archetype used to create EvacuationRequest entities (ServiceRequest, EvacuationRequest, RequestGroup).</p>
+</li>
+<li>
+<p><code>private EntityArchetype m_HandleRequestArchetype</code><br />
+Archetype used to create handle-request events (HandleRequest + Game.Common.Event).</p>
+</li>
+<li>
+<p><code>private ComponentTypeSet m_ParkedToMovingRemoveTypes</code><br />
+ComponentTypeSet used when converting a parked vehicle to a moving vehicle (removes ParkedCar, Stopped).</p>
+</li>
+<li>
+<p><code>private ComponentTypeSet m_ParkedToMovingCarAddTypes</code><br />
+ComponentTypeSet used when converting a parked car to moving: includes Moving, TransformFrame, InterpolatedTransform, CarNavigation, CarNavigationLane, CarCurrentLane, PathOwner, Target, Blocker, PathElement, PathInformation, ServiceDispatch, Swaying, Updated.</p>
+</li>
+<li>
+<p><code>private EndFrameBarrier m_EndFrameBarrier</code><br />
+EndFrameBarrier used to create an EntityCommandBuffer for deferred structural changes from jobs.</p>
+</li>
+<li>
+<p><code>private CityConfigurationSystem m_CityConfigurationSystem</code><br />
+Reference used when selecting/creating transport vehicles (passed into TransportVehicleSelectData).</p>
+</li>
+<li>
+<p><code>private TransportVehicleSelectData m_TransportVehicleSelectData</code><br />
+Helper for selecting/creating transport vehicle prefabs and instantiating vehicles.</p>
+</li>
+<li>
+<p><code>private TypeHandle __TypeHandle</code><br />
+Generated container for Component/Buffer/Entity handles used by jobs.</p>
+</li>
+<li>
+<p><code>private EntityQuery __query_1553762682_0</code><br />
+Query for Game.City.DangerLevel singleton (used to evaluate danger-level dependent probabilities).</p>
+</li>
+<li>
+<p><code>private EntityQuery __query_1553762682_1</code><br />
+Query for DisasterConfigurationData singleton (provides configured probabilities and other disaster parameters).</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_BuildingQuery;
-</code></pre>
+<h2 id="properties">Properties</h2>
 <ul>
-<li><code>private Unity.Entities.EntityQuery m_VehiclePrefabQuery</code>  </li>
+<li>None (the system exposes no public properties).</li>
 </ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_VehiclePrefabQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityArchetype m_EvacuationRequestArchetype</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityArchetype m_EvacuationRequestArchetype;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityArchetype m_HandleRequestArchetype</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityArchetype m_HandleRequestArchetype;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.ComponentTypeSet m_ParkedToMovingRemoveTypes</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.ComponentTypeSet m_ParkedToMovingRemoveTypes;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.ComponentTypeSet m_ParkedToMovingCarAddTypes</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.ComponentTypeSet m_ParkedToMovingCarAddTypes;
-</code></pre>
-<ul>
-<li><code>private Game.EndFrameBarrier m_EndFrameBarrier</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.EndFrameBarrier m_EndFrameBarrier;
-</code></pre>
-<ul>
-<li><code>private Game.City.CityConfigurationSystem m_CityConfigurationSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.City.CityConfigurationSystem m_CityConfigurationSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Prefabs.TransportVehicleSelectData m_TransportVehicleSelectData</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Prefabs.TransportVehicleSelectData m_TransportVehicleSelectData;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.EmergencyShelterAISystem+TypeHandle __TypeHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.EmergencyShelterAISystem+TypeHandle __TypeHandle;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery __query_1553762682_0</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery __query_1553762682_0;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery __query_1553762682_1</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery __query_1553762682_1;
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public EmergencyShelterAISystem()</code>  </li>
+<li><code>public EmergencyShelterAISystem()</code><br />
+Default constructor (empty). System initialization is done in OnCreate.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public EmergencyShelterAISystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private __AssignQueries(Unity.Entities.SystemState&amp; state) : System.Void</code>  </li>
+<li>
+<p><code>public override int GetUpdateInterval(SystemUpdatePhase phase)</code><br />
+Returns 256 — used by the system scheduler to determine how often the system updates.</p>
+</li>
+<li>
+<p><code>public override int GetUpdateOffset(SystemUpdatePhase phase)</code><br />
+Returns 240 — used by the system scheduler to offset the system's updates.</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnCreate()</code><br />
+Initializes the system: obtains EndFrameBarrier and CityConfigurationSystem, constructs TransportVehicleSelectData, builds entity queries (m_BuildingQuery and m_VehiclePrefabQuery), creates entity archetypes for evacuation/handle requests, configures the parked-&gt;moving ComponentTypeSets, and sets requirements for update (requires building query, DisasterConfigurationData and DangerLevel). This method sets up everything needed for the jobs in OnUpdate.</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnUpdate()</code><br />
+Main update function that:</p>
+</li>
+<li>Calls m_TransportVehicleSelectData.PreUpdate(...) and gets its job handle.</li>
+<li>Reads current danger level and disaster configuration singletons.</li>
+<li>Allocates a NativeQueue<EmergencyShelterAction> for inter-job actions.</li>
+<li>Prepares and schedules EmergencyShelterTickJob (Burst-compiled, scheduled parallel across buildings) with a parallel command buffer and the action queue.</li>
+<li>Schedules EmergencyShelterActionJob to dequeue and apply actions (enable/disable public transport entities).</li>
+<li>Disposes the action queue after the action job completes.</li>
+<li>
+<p>Calls m_TransportVehicleSelectData.PostUpdate(...) and adds the tick job handle as a producer to EndFrameBarrier. Sets base.Dependency to the final job handle.</p>
+</li>
+<li>
+<p><code>protected override void OnCreateForCompiler()</code><br />
+Generated helper that assigns queries and type handles for use by the compiled job code.</p>
+</li>
+<li>
+<p><code>private void __AssignQueries(ref SystemState state)</code><br />
+Internal generated function which builds the EntityQueries used to fetch DangerLevel and DisasterConfigurationData (used in OnUpdate).</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private void __AssignQueries(ref SystemState state)
-    {
-        EntityQueryBuilder entityQueryBuilder = new EntityQueryBuilder(Allocator.Temp);
-        EntityQueryBuilder entityQueryBuilder2 = entityQueryBuilder.WithAll&lt;Game.City.DangerLevel&gt;();
-        entityQueryBuilder2 = entityQueryBuilder2.WithOptions(EntityQueryOptions.IncludeSystems);
-        __query_1553762682_0 = entityQueryBuilder2.Build(ref state);
-        entityQueryBuilder.Reset();
-        entityQueryBuilder2 = entityQueryBuilder.WithAll&lt;DisasterConfigurationData&gt;();
-        entityQueryBuilder2 = entityQueryBuilder2.WithOptions(EntityQueryOptions.IncludeSystems);
-        __query_1553762682_1 = entityQueryBuilder2.Build(ref state);
-        entityQueryBuilder.Reset();
-        entityQueryBuilder.Dispose();
-    }
-</code></pre>
+<p>Nested types / Jobs (high level):</p>
 <ul>
-<li><code>public virtual GetUpdateInterval(Game.SystemUpdatePhase phase) : System.Int32</code>  </li>
+<li>EmergencyShelterTickJob (BurstCompile, IJobChunk)  </li>
+<li>Responsibilities:<ul>
+<li>Iterates chunks of EmergencyShelter buildings and runs Tick per building.</li>
+<li>Reads prefab data and installed upgrades to compute the shelter's performance (capacity, vehicle capacity).</li>
+<li>Computes efficiency factors, immediate efficiency and resource availability, and sets building ServiceUsage.</li>
+<li>Processes occupant buffers: removes TravelPurpose from occupants who can leave based on probabilities and whether the building is operable.</li>
+<li>Manages owned vehicles and parked vehicles, updates vehicle disabled state through an action queue (enqueue SetDisabled actions if needed).</li>
+<li>Handles ServiceDispatch entries: for EvacuationRequest entries, calls SpawnVehicle to spawn or reassign vehicles and attach requests; cleans up dispatch list entries.</li>
+<li>Ensures parked vehicles beyond capacity are deleted.</li>
+<li>Requests an EvacuationRequest (via RequestTargetIfNeeded) if the shelter has available vehicles and doesn't already have a target request.</li>
+<li>Updates EmergencyShelter flags (HasAvailableVehicles, HasShelterSpace).</li>
 </ul>
-<pre><code class="language-csharp">public override int GetUpdateInterval(SystemUpdatePhase phase)
-    {
-        return 256;
-    }
-</code></pre>
+</li>
+<li>
+<p>Helper methods inside the job:</p>
 <ul>
-<li><code>public virtual GetUpdateOffset(Game.SystemUpdatePhase phase) : System.Int32</code>  </li>
+<li>Tick(...) — per-building main logic (called from Execute).</li>
+<li>RequestTargetIfNeeded(...) — create EvacuationRequest entities when needed.</li>
+<li>SpawnVehicle(...) — spawn or convert a parked/moving vehicle to handle a given evacuation request, set owner, target, attach dispatch buffer, copy path if provided, create HandleRequest events to track completion.</li>
+<li>IsCitizenInDanger/IsBuildingOrCompanyInDanger/IsInDanger — helpers to check if a given citizen/building/entity has an InDanger component (used to decide whether citizens can leave a shelter early).</li>
 </ul>
-<pre><code class="language-csharp">public override int GetUpdateOffset(SystemUpdatePhase phase)
-    {
-        return 240;
-    }
+</li>
+<li>
+<p>EmergencyShelterActionJob (BurstCompile, IJob)  </p>
+</li>
+<li>Dequeues EmergencyShelterAction items and applies them to Game.Vehicles.PublicTransport components (sets or clears Disabled and AbandonRoute flags). This job runs after the tick job to do component writes that are not done via the command buffer.</li>
+</ul>
+<p>Notes about behavior and configuration:
+- Exit probabilities: m_DangerLevelExitProbability and m_InoperableExitProbability are evaluated from DisasterConfigurationData (m_EmergencyShelterDangerLevelExitProbability and m_InoperableEmergencyShelterExitProbability). These control random chances for occupants to leave a shelter early based on danger/operability.
+- Vehicle handling: vehicle capacity is derived from EmergencyShelterData and building efficiency; vehicles can be created via TransportVehicleSelectData (CreateVehicle) with TransportType.Bus and PublicTransportPurpose.Evacuation, or a parked vehicle can be reactivated (Parked-&gt;Moving conversion).
+- All structural entity changes from the parallel job are done through EndFrameBarrier command buffers (m_EndFrameBarrier.CreateCommandBuffer().AsParallelWriter()).</p>
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// The system initializes itself in OnCreate. Example of creating an evacuation request
+// (similar to how the system creates one via m_EvacuationRequestArchetype):
+Entity request = EntityManager.CreateEntity(
+    ComponentType.ReadWrite&lt;ServiceRequest&gt;(),
+    ComponentType.ReadWrite&lt;EvacuationRequest&gt;(),
+    ComponentType.ReadWrite&lt;RequestGroup&gt;());
+
+EntityManager.SetComponentData(request, new ServiceRequest(reversed: true));
+EntityManager.SetComponentData(request, new EvacuationRequest(targetBuildingEntity, availableVehicleCount));
+EntityManager.SetComponentData(request, new RequestGroup(4u));
 </code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_EndFrameBarrier = base.World.GetOrCreateSystemManaged&lt;EndFrameBarrier&gt;();
-        m_CityConfigurationSystem = base.World.GetOrCreateSystemManaged&lt;CityConfigurationSystem&gt;();
-        m_TransportVehicleSelectData = new TransportVehicleSelectData(this);
-        m_BuildingQuery = GetEntityQuery(ComponentType.ReadOnly&lt;Game.Buildings.EmergencyShelter&gt;(), ComponentType.ReadOnly&lt;ServiceDispatch&gt;(), ComponentType.ReadOnly&lt;PrefabRef&gt;(), ComponentType.Exclude&lt;Temp&gt;(), ComponentType.Exclude&lt;Deleted&gt;());
-        m_VehiclePrefabQuery = GetEntityQuery(TransportVehicleSelectData.GetEntityQueryDesc());
-        m_EvacuationRequestArchetype = base.EntityManager.CreateArchetype(ComponentType.ReadWrite&lt;ServiceRequest&gt;(), ComponentType.ReadWrite&lt;EvacuationRequest&gt;(), ComponentType.ReadWrite&lt;RequestGroup&gt;());
-        m_HandleRequestArchetype = base.EntityManager.CreateArchetype(ComponentType.ReadWrite&lt;HandleRequest&gt;(), ComponentType.ReadWrite&lt;Game.Common.Event&gt;());
-        m_ParkedToMovingRemoveTypes = new ComponentTypeSet(ComponentType.ReadWrite&lt;ParkedCar&gt;(), ComponentType.ReadWrite&lt;Stopped&gt;());
-        m_ParkedToMovingCarAddTypes = new ComponentTypeSet(new ComponentType[14]
-        {
-            ComponentType.ReadWrite&lt;Moving&gt;(),
-            ComponentType.ReadWrite&lt;TransformFrame&gt;(),
-            ComponentType.ReadWrite&lt;InterpolatedTransform&gt;(),
-            ComponentType.ReadWrite&lt;CarNavigation&gt;(),
-            ComponentType.ReadWrite&lt;CarNavigationLane&gt;(),
-            ComponentType.ReadWrite&lt;CarCurrentLane&gt;(),
-            ComponentType.ReadWrite&lt;PathOwner&gt;(),
-            ComponentType.ReadWrite&lt;Target&gt;(),
-            ComponentType.ReadWrite&lt;Blocker&gt;(),
-            ComponentType.ReadWrite&lt;PathElement&gt;(),
-            ComponentType.ReadWrite&lt;PathInformation&gt;(),
-            ComponentType.ReadWrite&lt;ServiceDispatch&gt;(),
-            ComponentType.ReadWrite&lt;Swaying&gt;(),
-            ComponentType.ReadWrite&lt;Updated&gt;()
-        });
-        RequireForUpdate(m_BuildingQuery);
-        RequireForUpdate&lt;DisasterConfigurationData&gt;();
-        RequireForUpdate&lt;Game.City.DangerLevel&gt;();
-        Assert.IsTrue(condition: true);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreateForCompiler() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnCreateForCompiler()
-    {
-        base.OnCreateForCompiler();
-        __AssignQueries(ref base.CheckedStateRef);
-        __TypeHandle.__AssignHandles(ref base.CheckedStateRef);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        m_TransportVehicleSelectData.PreUpdate(this, m_CityConfigurationSystem, m_VehiclePrefabQuery, Allocator.TempJob, out var jobHandle);
-        float dangerLevel = __query_1553762682_0.GetSingleton&lt;Game.City.DangerLevel&gt;().m_DangerLevel;
-        DisasterConfigurationData singleton = __query_1553762682_1.GetSingleton&lt;DisasterConfigurationData&gt;();
-        NativeQueue&lt;EmergencyShelterAction&gt; actionQueue = new NativeQueue&lt;EmergencyShelterAction&gt;(Allocator.TempJob);
-        EmergencyShelterTickJob jobData = new EmergencyShelterTickJob
-        {
-            m_EntityType = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef),
-            m_TransformType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Objects_Transform_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_PrefabRefType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_InstalledUpgradeType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Buildings_InstalledUpgrade_RO_BufferTypeHandle, ref base.CheckedStateRef),
-            m_OwnedVehicleType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Vehicles_OwnedVehicle_RO_BufferTypeHandle, ref base.CheckedStateRef),
-            m_ResourceConsumerType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Buildings_ResourceConsumer_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_EmergencyShelterType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Buildings_EmergencyShelter_RW_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_EfficiencyType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Buildings_Efficiency_RW_BufferTypeHandle, ref base.CheckedStateRef),
-            m_ServiceUsageType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Buildings_ServiceUsage_RW_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_ServiceDispatchType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Simulation_ServiceDispatch_RW_BufferTypeHandle, ref base.CheckedStateRef),
-            m_OccupantType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Buildings_Occupant_RW_BufferTypeHandle, ref base.CheckedStateRef),
-            m_EntityLookup = InternalCompilerInterface.GetEntityStorageInfoLookup(ref __TypeHandle.__EntityStorageInfoLookup, ref base.CheckedStateRef),
-            m_EvacuationRequestData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Simulation_EvacuationRequest_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_ServiceRequestData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Simulation_ServiceRequest_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PathInformationData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Pathfind_PathInformation_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_SpawnLocationData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Objects_SpawnLocation_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PublicTransportData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Vehicles_PublicTransport_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_ParkedCarData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Vehicles_ParkedCar_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_ParkingLaneData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_ParkingLane_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabRefData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabEmergencyShelterData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_EmergencyShelterData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabPublicTransportVehicleData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_PublicTransportVehicleData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PathElements = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Pathfind_PathElement_RO_BufferLookup, ref base.CheckedStateRef),
-            m_TravelPurposeData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Citizens_TravelPurpose_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_WorkerData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Citizens_Worker_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_StudentData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Citizens_Student_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_HouseholdMemberData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Citizens_HouseholdMember_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_TouristHouseholdData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Citizens_TouristHousehold_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_HomelessHouseholdData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Citizens_HomelessHousehold_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PropertyRenterData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Buildings_PropertyRenter_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_InDangerData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Events_InDanger_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_TransportVehicleSelectData = m_TransportVehicleSelectData,
-            m_RandomSeed = RandomSeed.Next(),
-            m_EvacuationRequestArchetype = m_EvacuationRequestArchetype,
-            m_HandleRequestArchetype = m_HandleRequestArchetype,
-            m_ParkedToMovingRemoveTypes = m_ParkedToMovingRemoveTypes,
-            m_ParkedToMovingCarAddTypes = m_ParkedToMovingCarAddTypes,
-            m_DangerLevelExitProbability = singleton.m_EmergencyShelterDangerLevelExitProbability.Evaluate(dangerLevel),
-            m_InoperableExitProbability = singleton.m_InoperableEmergencyShelterExitProbability,
-            m_CommandBuffer = m_EndFrameBarrier.CreateCommandBuffer().AsParallelWriter(),
-            m_ActionQueue = actionQueue.AsParallelWriter()
-        };
-        EmergencyShelterActionJob jobData2 = new EmergencyShelterActionJob
-        {
-            m_PublicTransportData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Vehicles_PublicTransport_RW_ComponentLookup, ref base.CheckedStateRef),
-            m_ActionQueue = actionQueue
-        };
-        JobHandle jobHandle2 = JobChunkExtensions.ScheduleParallel(jobData, m_BuildingQuery, JobHandle.CombineDependencies(base.Dependency, jobHandle));
-        JobHandle jobHandle3 = IJobExtensions.Schedule(jobData2, jobHandle2);
-        actionQueue.Dispose(jobHandle3);
-        m_TransportVehicleSelectData.PostUpdate(jobHandle2);
-        m_EndFrameBarrier.AddJobHandleForProducer(jobHandle2);
-        base.Dependency = jobHandle3;
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Simulation.EmergencyShelterAISystem+EmergencyShelterAction</code>  </li>
-<li><code>Game.Simulation.EmergencyShelterAISystem+EmergencyShelterTickJob</code>  </li>
-<li><code>Game.Simulation.EmergencyShelterAISystem+EmergencyShelterActionJob</code>  </li>
-<li><code>Game.Simulation.EmergencyShelterAISystem+TypeHandle</code>  </li>
-</ul>
+<p>{{ Additional information:
+- This system is performance-oriented: it uses Burst, chunk-based jobs and parallel command buffers to process many buildings efficiently.
+- If you mod EmergencyShelterData, DisasterConfigurationData, or the PublicTransport vehicle prefabs, this system will use those updated values automatically (through component lookups and the TransportVehicleSelectData helper).
+- To change the timing of updates, you can modify GetUpdateInterval/GetUpdateOffset, but altering those can affect simulation balance — default values are 256 and 240 (as in the original implementation).
+- When debugging, note that many changes are applied via command buffers at end-frame; inspecting intermediate ECS state during job execution will not show those deferred structural changes until they are played back.
+}}</p>
 
 
 

@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87056,6 +87148,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -100827,15 +100942,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -100872,9 +100978,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -117932,6 +118038,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117957,15 +118085,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -118004,9 +118123,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118029,534 +118148,261 @@
 
 
 <h1 id="gameuiingamecityinfouisystem">Game.UI.InGame.CityInfoUISystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.UI.InGame</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.UI.UISystemBase</code><br />
-<strong>Implements:</strong> <code>Colossal.Serialization.Entities.IDefaultSerializable</code>, <code>Colossal.Serialization.Entities.ISerializable</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class CityInfoUISystem : Game.UI.UISystemBase, Colossal.Serialization.Entities.IDefaultSerializable, Colossal.Serialization.Entities.ISerializable
-{
-    private Game.Simulation.SimulationSystem m_SimulationSystem;
-    private Game.Simulation.ResidentialDemandSystem m_ResidentialDemandSystem;
-    private Game.Simulation.CommercialDemandSystem m_CommercialDemandSystem;
-    private Game.Simulation.IndustrialDemandSystem m_IndustrialDemandSystem;
-    private Game.Simulation.CitySystem m_CitySystem;
-    private Game.Simulation.CitizenHappinessSystem m_CitizenHappinessSystem;
-    private Colossal.UI.Binding.RawValueBinding m_ResidentialLowFactors;
-    private Colossal.UI.Binding.RawValueBinding m_ResidentialMediumFactors;
-    private Colossal.UI.Binding.RawValueBinding m_ResidentialHighFactors;
-    private Colossal.UI.Binding.RawValueBinding m_CommercialFactors;
-    private Colossal.UI.Binding.RawValueBinding m_IndustrialFactors;
-    private Colossal.UI.Binding.RawValueBinding m_OfficeFactors;
-    private Colossal.UI.Binding.RawValueBinding m_HappinessFactors;
-    private System.Single m_ResidentialLowDemand;
-    private System.Single m_ResidentialMediumDemand;
-    private System.Single m_ResidentialHighDemand;
-    private System.Single m_CommercialDemand;
-    private System.Single m_IndustrialDemand;
-    private System.Single m_OfficeDemand;
-    private System.UInt32 m_LastFrameIndex;
-    private System.Int32 m_AvgHappiness;
-    private Game.UI.UIUpdateState m_UpdateState;
-    private Game.UI.InGame.CityInfoUISystem+TypeHandle __TypeHandle;
-    public static const System.String kGroup;
-
-    private System.Single m_ResidentialLowDemandBindingValue { private get; }
-    private System.Single m_ResidentialMediumDemandBindingValue { private get; }
-    private System.Single m_ResidentialHighDemandBindingValue { private get; }
-    private System.Single m_CommercialDemandBindingValue { private get; }
-    private System.Single m_IndustrialDemandBindingValue { private get; }
-    private System.Single m_OfficeDemandBindingValue { private get; }
-
-    public CityInfoUISystem();
-
-    private System.Void __AssignQueries(Unity.Entities.SystemState&amp; state);
-    private System.Single &lt;OnCreate&gt;b__35_0();
-    private System.Single &lt;OnCreate&gt;b__35_1();
-    private System.Single &lt;OnCreate&gt;b__35_2();
-    private System.Single &lt;OnCreate&gt;b__35_3();
-    private System.Single &lt;OnCreate&gt;b__35_4();
-    private System.Single &lt;OnCreate&gt;b__35_5();
-    private System.Int32 &lt;OnCreate&gt;b__35_6();
-    private static System.Single AdvanceSmoothDemand(System.Single current, System.Int32 target, System.UInt32 delta);
-    public System.Void Deserialize&lt;TReader&gt;(TReader reader);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnCreateForCompiler();
-    protected virtual System.Void OnGameLoaded(Colossal.Serialization.Entities.Context serializationContext);
-    protected virtual System.Void OnUpdate();
-    public System.Void RequestUpdate();
-    public System.Void Serialize&lt;TWriter&gt;(TWriter writer);
-    public System.Void SetDefaults(Colossal.Serialization.Entities.Context context);
-    private System.Void WriteCommercialFactors(Colossal.UI.Binding.IJsonWriter writer);
-    private System.Void WriteDemandFactors(Colossal.UI.Binding.IJsonWriter writer, Unity.Collections.NativeArray&lt;System.Int32&gt; factors, Unity.Jobs.JobHandle deps);
-    private System.Void WriteHappinessFactors(Colossal.UI.Binding.IJsonWriter writer);
-    private System.Void WriteIndustrialFactors(Colossal.UI.Binding.IJsonWriter writer);
-    private System.Void WriteOfficeFactors(Colossal.UI.Binding.IJsonWriter writer);
-    private System.Void WriteResidentialHighFactors(Colossal.UI.Binding.IJsonWriter writer);
-    private System.Void WriteResidentialLowFactors(Colossal.UI.Binding.IJsonWriter writer);
-    private System.Void WriteResidentialMediumFactors(Colossal.UI.Binding.IJsonWriter writer);
-}
-</code></pre>
+<p><strong>Assembly:</strong><br />
+<strong>Namespace:</strong> Game.UI.InGame</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> UISystemBase, IDefaultSerializable, ISerializable</p>
+<p><strong>Summary:</strong><br />
+CityInfoUISystem provides UI bindings for the in-game "City Info" panel (group "cityInfo"). It reads demand and happiness data from various simulation systems, smooths demand values for UI presentation, and exposes demand/factor arrays (as JSON) for the UI. It also handles serialization of its internal smoothing state so UI values persist across saves/loads.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.Simulation.SimulationSystem m_SimulationSystem</code>  </li>
+<li>
+<p><code>private struct TypeHandle</code><br />
+A small compiler-generated helper struct used to cache ComponentLookup handles used by this system (currently stores a read-only ComponentLookup<Locked>). Contains a method to assign the handles from a SystemState.</p>
+</li>
+<li>
+<p><code>public const string kGroup</code><br />
+Constant "cityInfo" — the UI binding group name used when registering bindings.</p>
+</li>
+<li>
+<p><code>private SimulationSystem m_SimulationSystem</code><br />
+Reference to the SimulationSystem used to query the current frame index.</p>
+</li>
+<li>
+<p><code>private ResidentialDemandSystem m_ResidentialDemandSystem</code><br />
+Reference to the system that provides residential demand and density-specific demand factors.</p>
+</li>
+<li>
+<p><code>private CommercialDemandSystem m_CommercialDemandSystem</code><br />
+Reference to the commercial demand system.</p>
+</li>
+<li>
+<p><code>private IndustrialDemandSystem m_IndustrialDemandSystem</code><br />
+Reference to the industrial demand system (including industrial, storage and office demand data).</p>
+</li>
+<li>
+<p><code>private CitySystem m_CitySystem</code><br />
+Reference to the CitySystem; used to locate the city entity for population/happiness data.</p>
+</li>
+<li>
+<p><code>private CitizenHappinessSystem m_CitizenHappinessSystem</code><br />
+Reference to the system that calculates happiness factors and values.</p>
+</li>
+<li>
+<p><code>private RawValueBinding m_ResidentialLowFactors</code><br />
+RawValueBinding instance for writing low-density residential demand factors to the UI (as JSON).</p>
+</li>
+<li>
+<p><code>private RawValueBinding m_ResidentialMediumFactors</code><br />
+RawValueBinding instance for medium-density residential demand factors.</p>
+</li>
+<li>
+<p><code>private RawValueBinding m_ResidentialHighFactors</code><br />
+RawValueBinding instance for high-density residential demand factors.</p>
+</li>
+<li>
+<p><code>private RawValueBinding m_CommercialFactors</code><br />
+RawValueBinding instance for commercial demand factors.</p>
+</li>
+<li>
+<p><code>private RawValueBinding m_IndustrialFactors</code><br />
+RawValueBinding instance for industrial demand factors.</p>
+</li>
+<li>
+<p><code>private RawValueBinding m_OfficeFactors</code><br />
+RawValueBinding instance for office demand factors.</p>
+</li>
+<li>
+<p><code>private RawValueBinding m_HappinessFactors</code><br />
+RawValueBinding instance for happiness factors.</p>
+</li>
+<li>
+<p><code>private float m_ResidentialLowDemand</code><br />
+Smoothed value (0..1) representing low-density residential demand used for UI display.</p>
+</li>
+<li>
+<p><code>private float m_ResidentialMediumDemand</code><br />
+Smoothed value for medium-density residential demand.</p>
+</li>
+<li>
+<p><code>private float m_ResidentialHighDemand</code><br />
+Smoothed value for high-density residential demand.</p>
+</li>
+<li>
+<p><code>private float m_CommercialDemand</code><br />
+Smoothed commercial demand value.</p>
+</li>
+<li>
+<p><code>private float m_IndustrialDemand</code><br />
+Smoothed industrial demand value.</p>
+</li>
+<li>
+<p><code>private float m_OfficeDemand</code><br />
+Smoothed office demand value.</p>
+</li>
+<li>
+<p><code>private uint m_LastFrameIndex</code><br />
+Frame index last time the system updated smoothing; used to advance smoothing only when simulation frame changes.</p>
+</li>
+<li>
+<p><code>private int m_AvgHappiness</code><br />
+Cached average citizen happiness (integer) used by UI binding.</p>
+</li>
+<li>
+<p><code>private UIUpdateState m_UpdateState</code><br />
+Helper that tracks when raw bindings should be updated; used to batch/limit expensive updates to UI JSON bindings.</p>
+</li>
+<li>
+<p><code>private TypeHandle __TypeHandle</code><br />
+Instance of the compiler-generated TypeHandle struct used to hold component lookups required for computing happiness factors.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.Simulation.SimulationSystem m_SimulationSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.ResidentialDemandSystem m_ResidentialDemandSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.ResidentialDemandSystem m_ResidentialDemandSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.CommercialDemandSystem m_CommercialDemandSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.CommercialDemandSystem m_CommercialDemandSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.IndustrialDemandSystem m_IndustrialDemandSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.IndustrialDemandSystem m_IndustrialDemandSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.CitySystem m_CitySystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.CitySystem m_CitySystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.CitizenHappinessSystem m_CitizenHappinessSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.CitizenHappinessSystem m_CitizenHappinessSystem;
-</code></pre>
-<ul>
-<li><code>private Colossal.UI.Binding.RawValueBinding m_ResidentialLowFactors</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.UI.Binding.RawValueBinding m_ResidentialLowFactors;
-</code></pre>
-<ul>
-<li><code>private Colossal.UI.Binding.RawValueBinding m_ResidentialMediumFactors</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.UI.Binding.RawValueBinding m_ResidentialMediumFactors;
-</code></pre>
-<ul>
-<li><code>private Colossal.UI.Binding.RawValueBinding m_ResidentialHighFactors</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.UI.Binding.RawValueBinding m_ResidentialHighFactors;
-</code></pre>
-<ul>
-<li><code>private Colossal.UI.Binding.RawValueBinding m_CommercialFactors</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.UI.Binding.RawValueBinding m_CommercialFactors;
-</code></pre>
-<ul>
-<li><code>private Colossal.UI.Binding.RawValueBinding m_IndustrialFactors</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.UI.Binding.RawValueBinding m_IndustrialFactors;
-</code></pre>
-<ul>
-<li><code>private Colossal.UI.Binding.RawValueBinding m_OfficeFactors</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.UI.Binding.RawValueBinding m_OfficeFactors;
-</code></pre>
-<ul>
-<li><code>private Colossal.UI.Binding.RawValueBinding m_HappinessFactors</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.UI.Binding.RawValueBinding m_HappinessFactors;
-</code></pre>
-<ul>
-<li><code>private System.Single m_ResidentialLowDemand</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Single m_ResidentialLowDemand;
-</code></pre>
-<ul>
-<li><code>private System.Single m_ResidentialMediumDemand</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Single m_ResidentialMediumDemand;
-</code></pre>
-<ul>
-<li><code>private System.Single m_ResidentialHighDemand</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Single m_ResidentialHighDemand;
-</code></pre>
-<ul>
-<li><code>private System.Single m_CommercialDemand</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Single m_CommercialDemand;
-</code></pre>
-<ul>
-<li><code>private System.Single m_IndustrialDemand</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Single m_IndustrialDemand;
-</code></pre>
-<ul>
-<li><code>private System.Single m_OfficeDemand</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Single m_OfficeDemand;
-</code></pre>
-<ul>
-<li><code>private System.UInt32 m_LastFrameIndex</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.UInt32 m_LastFrameIndex;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_AvgHappiness</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_AvgHappiness;
-</code></pre>
-<ul>
-<li><code>private Game.UI.UIUpdateState m_UpdateState</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.UI.UIUpdateState m_UpdateState;
-</code></pre>
-<ul>
-<li><code>private Game.UI.InGame.CityInfoUISystem+TypeHandle __TypeHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.UI.InGame.CityInfoUISystem+TypeHandle __TypeHandle;
-</code></pre>
-<ul>
-<li><code>public static const System.String kGroup</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static const System.String kGroup;
-</code></pre>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>private System.Single m_ResidentialLowDemandBindingValue { private get }</code>  </li>
+<li>
+<p><code>private float m_ResidentialLowDemandBindingValue { get; }</code><br />
+Returns m_ResidentialLowDemand snapped to 0.001 increments via MathUtils.Snap — value exposed to bindings.</p>
+</li>
+<li>
+<p><code>private float m_ResidentialMediumDemandBindingValue { get; }</code><br />
+Returns m_ResidentialMediumDemand snapped to 0.001.</p>
+</li>
+<li>
+<p><code>private float m_ResidentialHighDemandBindingValue { get; }</code><br />
+Returns m_ResidentialHighDemand snapped to 0.001.</p>
+</li>
+<li>
+<p><code>private float m_CommercialDemandBindingValue { get; }</code><br />
+Returns m_CommercialDemand snapped to 0.001.</p>
+</li>
+<li>
+<p><code>private float m_IndustrialDemandBindingValue { get; }</code><br />
+Returns m_IndustrialDemand snapped to 0.001.</p>
+</li>
+<li>
+<p><code>private float m_OfficeDemandBindingValue { get; }</code><br />
+Returns m_OfficeDemand snapped to 0.001.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private System.Single m_ResidentialLowDemandBindingValue { private get; }
-</code></pre>
-<ul>
-<li><code>private System.Single m_ResidentialMediumDemandBindingValue { private get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Single m_ResidentialMediumDemandBindingValue { private get; }
-</code></pre>
-<ul>
-<li><code>private System.Single m_ResidentialHighDemandBindingValue { private get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Single m_ResidentialHighDemandBindingValue { private get; }
-</code></pre>
-<ul>
-<li><code>private System.Single m_CommercialDemandBindingValue { private get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Single m_CommercialDemandBindingValue { private get; }
-</code></pre>
-<ul>
-<li><code>private System.Single m_IndustrialDemandBindingValue { private get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Single m_IndustrialDemandBindingValue { private get; }
-</code></pre>
-<ul>
-<li><code>private System.Single m_OfficeDemandBindingValue { private get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Single m_OfficeDemandBindingValue { private get; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public CityInfoUISystem()</code>  </li>
+<li><code>public CityInfoUISystem()</code><br />
+Default constructor; marked with [Preserve] attribute in the source. Standard managed system construction; most initialization happens in OnCreate.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public CityInfoUISystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private __AssignQueries(Unity.Entities.SystemState&amp; state) : System.Void</code>  </li>
+<li>
+<p><code>[Preserve] protected override void OnCreate()</code><br />
+Initializes system references (simulation and demand/happiness/city systems), registers UI getter bindings (for demand and happiness) and RawValueBindings (for factor arrays), and initializes the UIUpdateState. Called when the system is created.</p>
+</li>
+<li>
+<p><code>protected override void OnGameLoaded(Context serializationContext)</code><br />
+Called after a game is loaded — forces a UI update (m_UpdateState.ForceUpdate) so bindings reflect loaded state immediately.</p>
+</li>
+<li>
+<p><code>public void Serialize&lt;TWriter&gt;(TWriter writer) where TWriter : IWriter</code><br />
+Writes the current smoothing state and average happiness to the provided writer. Serializes: residential low/medium/high, commercial, industrial, office demands, last frame index, and avg happiness (depending on version).</p>
+</li>
+<li>
+<p><code>public void Deserialize&lt;TReader&gt;(TReader reader) where TReader : IReader</code><br />
+Reads saved smoothing state. Handles version differences:</p>
+</li>
+<li>If save version &gt;= residentialDemandSplitUI, reads separate low/medium/high residential values.</li>
+<li>Otherwise reads a single residential demand and splits it evenly across densities.</li>
+<li>Reads commercial, industrial, office demands, last frame index.</li>
+<li>
+<p>Reads average happiness if version &gt;= populationComponent.</p>
+</li>
+<li>
+<p><code>public void SetDefaults(Context context)</code><br />
+Sets smoothing fields and last frame index to default zeros. Used to initialize state for new games or when resetting.</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnUpdate()</code><br />
+Main update method:</p>
+</li>
+<li>Advances smoothing of demand values when simulation frame has progressed, using AdvanceSmoothDemand.</li>
+<li>Updates m_AvgHappiness by reading Population component if present; otherwise defaults to 50.</li>
+<li>
+<p>Advances UIUpdateState and, when it indicates, updates RawValueBindings so JSON factor arrays are refreshed.</p>
+</li>
+<li>
+<p><code>private static float AdvanceSmoothDemand(float current, int target, uint delta)</code><br />
+Smoothing helper that moves the current smoothed value toward target/100 with different up/down speeds per simulation delta (clamped). Formula uses small step sizes to create a smooth UI change.</p>
+</li>
+<li>
+<p><code>public void RequestUpdate()</code><br />
+Forces UI update (calls m_UpdateState.ForceUpdate()). Useful when external code wants to immediately refresh factor arrays in the UI.</p>
+</li>
+<li>
+<p><code>private void WriteResidentialLowFactors(IJsonWriter writer)</code><br />
+Fetches low-density residential demand factors from the ResidentialDemandSystem (returns a NativeArray<int> and JobHandle), then writes them via WriteDemandFactors.</p>
+</li>
+<li>
+<p><code>private void WriteResidentialMediumFactors(IJsonWriter writer)</code><br />
+Fetches medium-density residential demand factors and writes them.</p>
+</li>
+<li>
+<p><code>private void WriteResidentialHighFactors(IJsonWriter writer)</code><br />
+Fetches high-density residential demand factors and writes them.</p>
+</li>
+<li>
+<p><code>private void WriteCommercialFactors(IJsonWriter writer)</code><br />
+Fetches commercial demand factors and writes them.</p>
+</li>
+<li>
+<p><code>private void WriteIndustrialFactors(IJsonWriter writer)</code><br />
+Fetches industrial demand factors and writes them.</p>
+</li>
+<li>
+<p><code>private void WriteOfficeFactors(IJsonWriter writer)</code><br />
+Fetches office demand factors and writes them.</p>
+</li>
+<li>
+<p><code>private void WriteDemandFactors(IJsonWriter writer, NativeArray&lt;int&gt; factors, JobHandle deps)</code><br />
+Common helper that:</p>
+</li>
+<li>Completes the provided JobHandle (deps.Complete()) to ensure factor data is ready.</li>
+<li>Converts the NativeArray<int> into a NativeList<FactorInfo> via FactorInfo.FromFactorArray(…, Allocator.Temp).</li>
+<li>Sorts the list and writes up to the top N factors (N determined by the writer call), using FactorInfo.WriteDemandFactor to generate output JSON objects.</li>
+<li>
+<p>Disposes of the temporary list in a finally block.</p>
+</li>
+<li>
+<p><code>private void WriteHappinessFactors(IJsonWriter writer)</code><br />
+Collects happiness factors:</p>
+</li>
+<li>Builds a NativeList<FactorInfo> (capacity 25).</li>
+<li>Queries for HappinessFactorParameterData; if present, gets the singleton buffer and uses CitizenHappinessSystem.GetHappinessFactor for each factor index.</li>
+<li>Adds non-zero factors to the list, sorts, then writes up to 10 top happiness factors via FactorInfo.WriteHappinessFactor.</li>
+<li>Disposes the temporary list in a finally block.</li>
+<li>
+<p>Uses internal component lookup for Locked via the compiler-assigned __TypeHandle.</p>
+</li>
+<li>
+<p><code>[MethodImpl(MethodImplOptions.AggressiveInlining)] private void __AssignQueries(ref SystemState state)</code><br />
+Compiler-generated method that creates and disposes an EntityQueryBuilder — placeholder for query initialization.</p>
+</li>
+<li>
+<p><code>protected override void OnCreateForCompiler()</code><br />
+Called by generated code paths; calls __AssignQueries and assigns component lookup handles (via __TypeHandle.__AssignHandles).</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private void __AssignQueries(ref SystemState state)
-    {
-        new EntityQueryBuilder(Allocator.Temp).Dispose();
-    }
-</code></pre>
-<ul>
-<li><code>private &lt;OnCreate&gt;b__35_0() : System.Single</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Single &lt;OnCreate&gt;b__35_0();
-</code></pre>
-<ul>
-<li><code>private &lt;OnCreate&gt;b__35_1() : System.Single</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Single &lt;OnCreate&gt;b__35_1();
-</code></pre>
-<ul>
-<li><code>private &lt;OnCreate&gt;b__35_2() : System.Single</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Single &lt;OnCreate&gt;b__35_2();
-</code></pre>
-<ul>
-<li><code>private &lt;OnCreate&gt;b__35_3() : System.Single</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Single &lt;OnCreate&gt;b__35_3();
-</code></pre>
-<ul>
-<li><code>private &lt;OnCreate&gt;b__35_4() : System.Single</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Single &lt;OnCreate&gt;b__35_4();
-</code></pre>
-<ul>
-<li><code>private &lt;OnCreate&gt;b__35_5() : System.Single</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Single &lt;OnCreate&gt;b__35_5();
-</code></pre>
-<ul>
-<li><code>private &lt;OnCreate&gt;b__35_6() : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 &lt;OnCreate&gt;b__35_6();
-</code></pre>
-<ul>
-<li><code>private static AdvanceSmoothDemand(System.Single current, System.Int32 target, System.UInt32 delta) : System.Single</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static float AdvanceSmoothDemand(float current, int target, uint delta)
-    {
-        return math.clamp((float)target / 100f, current - 0.000625f * (float)delta, current + 0.000125f * (float)delta);
-    }
-</code></pre>
-<ul>
-<li><code>public Deserialize&lt;TReader&gt;(TReader reader) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Void Deserialize&lt;TReader&gt;(TReader reader);
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
+<h2 id="usage-example">Usage Example</h2>
 <pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_SimulationSystem = base.World.GetOrCreateSystemManaged&lt;SimulationSystem&gt;();
-        m_ResidentialDemandSystem = base.World.GetOrCreateSystemManaged&lt;ResidentialDemandSystem&gt;();
-        m_CommercialDemandSystem = base.World.GetOrCreateSystemManaged&lt;CommercialDemandSystem&gt;();
-        m_IndustrialDemandSystem = base.World.GetOrCreateSystemManaged&lt;IndustrialDemandSystem&gt;();
-        m_CitySystem = base.World.GetOrCreateSystemManaged&lt;CitySystem&gt;();
-        m_CitizenHappinessSystem = base.World.GetOrCreateSystemManaged&lt;CitizenHappinessSystem&gt;();
-        AddUpdateBinding(new GetterValueBinding&lt;float&gt;(&quot;cityInfo&quot;, &quot;residentialLowDemand&quot;, () =&gt; m_ResidentialLowDemandBindingValue));
-        AddUpdateBinding(new GetterValueBinding&lt;float&gt;(&quot;cityInfo&quot;, &quot;residentialMediumDemand&quot;, () =&gt; m_ResidentialMediumDemandBindingValue));
-        AddUpdateBinding(new GetterValueBinding&lt;float&gt;(&quot;cityInfo&quot;, &quot;residentialHighDemand&quot;, () =&gt; m_ResidentialHighDemandBindingValue));
-        AddUpdateBinding(new GetterValueBinding&lt;float&gt;(&quot;cityInfo&quot;, &quot;commercialDemand&quot;, () =&gt; m_CommercialDemandBindingValue));
-        AddUpdateBinding(new GetterValueBinding&lt;float&gt;(&quot;cityInfo&quot;, &quot;industrialDemand&quot;, () =&gt; m_IndustrialDemandBindingValue));
-        AddUpdateBinding(new GetterValueBinding&lt;float&gt;(&quot;cityInfo&quot;, &quot;officeDemand&quot;, () =&gt; m_OfficeDemandBindingValue));
-        AddUpdateBinding(new GetterValueBinding&lt;int&gt;(&quot;cityInfo&quot;, &quot;happiness&quot;, () =&gt; m_AvgHappiness));
-        AddBinding(m_ResidentialLowFactors = new RawValueBinding(&quot;cityInfo&quot;, &quot;residentialLowFactors&quot;, WriteResidentialLowFactors));
-        AddBinding(m_ResidentialMediumFactors = new RawValueBinding(&quot;cityInfo&quot;, &quot;residentialMediumFactors&quot;, WriteResidentialMediumFactors));
-        AddBinding(m_ResidentialHighFactors = new RawValueBinding(&quot;cityInfo&quot;, &quot;residentialHighFactors&quot;, WriteResidentialHighFactors));
-        AddBinding(m_CommercialFactors = new RawValueBinding(&quot;cityInfo&quot;, &quot;commercialFactors&quot;, WriteCommercialFactors));
-        AddBinding(m_IndustrialFactors = new RawValueBinding(&quot;cityInfo&quot;, &quot;industrialFactors&quot;, WriteIndustrialFactors));
-        AddBinding(m_OfficeFactors = new RawValueBinding(&quot;cityInfo&quot;, &quot;officeFactors&quot;, WriteOfficeFactors));
-        AddBinding(m_HappinessFactors = new RawValueBinding(&quot;cityInfo&quot;, &quot;happinessFactors&quot;, WriteHappinessFactors));
-        m_UpdateState = UIUpdateState.Create(base.World, 256);
-    }
+protected override void OnCreate()
+{
+    base.OnCreate();
+    // Force an immediate UI update after the game loads / when the system is created.
+    RequestUpdate();
+}
 </code></pre>
-<ul>
-<li><code>protected virtual OnCreateForCompiler() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnCreateForCompiler()
-    {
-        base.OnCreateForCompiler();
-        __AssignQueries(ref base.CheckedStateRef);
-        __TypeHandle.__AssignHandles(ref base.CheckedStateRef);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnGameLoaded(Colossal.Serialization.Entities.Context serializationContext) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnGameLoaded(Context serializationContext)
-    {
-        m_UpdateState.ForceUpdate();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        base.OnUpdate();
-        uint num = m_SimulationSystem.frameIndex - m_LastFrameIndex;
-        if (num != 0)
-        {
-            m_LastFrameIndex = m_SimulationSystem.frameIndex;
-            m_ResidentialLowDemand = AdvanceSmoothDemand(m_ResidentialLowDemand, m_ResidentialDemandSystem.buildingDemand.x, num);
-            m_ResidentialMediumDemand = AdvanceSmoothDemand(m_ResidentialMediumDemand, m_ResidentialDemandSystem.buildingDemand.y, num);
-            m_ResidentialHighDemand = AdvanceSmoothDemand(m_ResidentialHighDemand, m_ResidentialDemandSystem.buildingDemand.z, num);
-            m_CommercialDemand = AdvanceSmoothDemand(m_CommercialDemand, m_CommercialDemandSystem.buildingDemand, num);
-            int target = math.max(m_IndustrialDemandSystem.industrialBuildingDemand, m_IndustrialDemandSystem.storageBuildingDemand);
-            m_IndustrialDemand = AdvanceSmoothDemand(m_IndustrialDemand, target, num);
-            m_OfficeDemand = AdvanceSmoothDemand(m_OfficeDemand, m_IndustrialDemandSystem.officeBuildingDemand, num);
-            if (base.EntityManager.HasComponent&lt;Population&gt;(m_CitySystem.City))
-            {
-                m_AvgHappiness = base.EntityManager.GetComponentData&lt;Population&gt;(m_CitySystem.City).m_AverageHappiness;
-            }
-            else
-            {
-                m_AvgHappiness = 50;
-            }
-        }
-        if (m_UpdateState.Advance())
-        {
-            m_ResidentialLowFactors.Update();
-            m_ResidentialMediumFactors.Update();
-            m_ResidentialHighFactors.Update();
-            m_CommercialFactors.Update();
-            m_IndustrialFactors.Update();
-            m_OfficeFactors.Update();
-            m_HappinessFactors.Update();
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public RequestUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void RequestUpdate()
-    {
-        m_UpdateState.ForceUpdate();
-    }
-</code></pre>
-<ul>
-<li><code>public Serialize&lt;TWriter&gt;(TWriter writer) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Void Serialize&lt;TWriter&gt;(TWriter writer);
-</code></pre>
-<ul>
-<li><code>public SetDefaults(Colossal.Serialization.Entities.Context context) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void SetDefaults(Context context)
-    {
-        m_ResidentialLowDemand = 0f;
-        m_ResidentialMediumDemand = 0f;
-        m_ResidentialHighDemand = 0f;
-        m_CommercialDemand = 0f;
-        m_IndustrialDemand = 0f;
-        m_OfficeDemand = 0f;
-        m_LastFrameIndex = 0u;
-    }
-</code></pre>
-<ul>
-<li><code>private WriteCommercialFactors(Colossal.UI.Binding.IJsonWriter writer) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void WriteCommercialFactors(IJsonWriter writer)
-    {
-        JobHandle deps;
-        NativeArray&lt;int&gt; demandFactors = m_CommercialDemandSystem.GetDemandFactors(out deps);
-        WriteDemandFactors(writer, demandFactors, deps);
-    }
-</code></pre>
-<ul>
-<li><code>private WriteDemandFactors(Colossal.UI.Binding.IJsonWriter writer, Unity.Collections.NativeArray&lt;System.Int32&gt; factors, Unity.Jobs.JobHandle deps) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void WriteDemandFactors(IJsonWriter writer, NativeArray&lt;int&gt; factors, JobHandle deps)
-    {
-        deps.Complete();
-        NativeList&lt;FactorInfo&gt; list = FactorInfo.FromFactorArray(factors, Allocator.Temp);
-        list.Sort();
-        try
-        {
-            int num = math.min(5, list.Length);
-            writer.ArrayBegin(num);
-            for (int i = 0; i &lt; num; i++)
-            {
-                list[i].WriteDemandFactor(writer);
-            }
-            writer.ArrayEnd();
-        }
-        finally
-        {
-            list.Dispose();
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private WriteHappinessFactors(Colossal.UI.Binding.IJsonWriter writer) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void WriteHappinessFactors(IJsonWriter writer)
-    {
-        NativeList&lt;FactorInfo&gt; list = new NativeList&lt;FactorInfo&gt;(25, Allocator.Temp);
-        EntityQuery entityQuery = GetEntityQuery(ComponentType.ReadOnly&lt;HappinessFactorParameterData&gt;());
-        if (!entityQuery.IsEmptyIgnoreFilter)
-        {
-            Entity singletonEntity = entityQuery.GetSingletonEntity();
-            DynamicBuffer&lt;HappinessFactorParameterData&gt; buffer = base.EntityManager.GetBuffer&lt;HappinessFactorParameterData&gt;(singletonEntity, isReadOnly: true);
-            ComponentLookup&lt;Locked&gt; locked = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_Locked_RO_ComponentLookup, ref base.CheckedStateRef);
-            for (int i = 0; i &lt; 25; i++)
-            {
-                int num = Mathf.RoundToInt(m_CitizenHappinessSystem.GetHappinessFactor((CitizenHappinessSystem.HappinessFactor)i, buffer, ref locked).x);
-                if (num != 0)
-                {
-                    list.Add(new FactorInfo(i, num));
-                }
-            }
-        }
-        list.Sort();
-        try
-        {
-            int num2 = math.min(10, list.Length);
-            writer.ArrayBegin(num2);
-            for (int j = 0; j &lt; num2; j++)
-            {
-                list[j].WriteHappinessFactor(writer);
-            }
-            writer.ArrayEnd();
-        }
-        finally
-        {
-            list.Dispose();
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private WriteIndustrialFactors(Colossal.UI.Binding.IJsonWriter writer) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void WriteIndustrialFactors(IJsonWriter writer)
-    {
-        JobHandle deps;
-        NativeArray&lt;int&gt; industrialDemandFactors = m_IndustrialDemandSystem.GetIndustrialDemandFactors(out deps);
-        WriteDemandFactors(writer, industrialDemandFactors, deps);
-    }
-</code></pre>
-<ul>
-<li><code>private WriteOfficeFactors(Colossal.UI.Binding.IJsonWriter writer) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void WriteOfficeFactors(IJsonWriter writer)
-    {
-        JobHandle deps;
-        NativeArray&lt;int&gt; officeDemandFactors = m_IndustrialDemandSystem.GetOfficeDemandFactors(out deps);
-        WriteDemandFactors(writer, officeDemandFactors, deps);
-    }
-</code></pre>
-<ul>
-<li><code>private WriteResidentialHighFactors(Colossal.UI.Binding.IJsonWriter writer) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void WriteResidentialHighFactors(IJsonWriter writer)
-    {
-        JobHandle deps;
-        NativeArray&lt;int&gt; highDensityDemandFactors = m_ResidentialDemandSystem.GetHighDensityDemandFactors(out deps);
-        WriteDemandFactors(writer, highDensityDemandFactors, deps);
-    }
-</code></pre>
-<ul>
-<li><code>private WriteResidentialLowFactors(Colossal.UI.Binding.IJsonWriter writer) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void WriteResidentialLowFactors(IJsonWriter writer)
-    {
-        JobHandle deps;
-        NativeArray&lt;int&gt; lowDensityDemandFactors = m_ResidentialDemandSystem.GetLowDensityDemandFactors(out deps);
-        WriteDemandFactors(writer, lowDensityDemandFactors, deps);
-    }
-</code></pre>
-<ul>
-<li><code>private WriteResidentialMediumFactors(Colossal.UI.Binding.IJsonWriter writer) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void WriteResidentialMediumFactors(IJsonWriter writer)
-    {
-        JobHandle deps;
-        NativeArray&lt;int&gt; mediumDensityDemandFactors = m_ResidentialDemandSystem.GetMediumDensityDemandFactors(out deps);
-        WriteDemandFactors(writer, mediumDensityDemandFactors, deps);
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.UI.InGame.CityInfoUISystem+TypeHandle</code>  </li>
-</ul>
+<p>Notes and implementation details:
+- Demand values are stored and updated as smoothed floats in 0..1 range (targets are integers divided by 100).
+- RawValueBindings produce JSON arrays for the UI and are updated via UIUpdateState to limit frequency of potentially expensive queries.
+- The Write*Factors methods may complete Unity JobHandles and allocate temporary Native containers; they ensure proper disposal in finally blocks.
+- Serialization respects internal game version differences so older saves map correctly to the split-residential-demand UI introduced in later versions.</p>
 
 
 

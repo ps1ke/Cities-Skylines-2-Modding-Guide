@@ -53890,15 +53890,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -53935,9 +53926,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -65329,6 +65320,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69760,6 +69774,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72572,6 +72609,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75562,6 +75622,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87154,6 +87237,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -117930,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117955,15 +118083,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -118002,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118027,262 +118146,153 @@
 
 
 <h1 id="gameprefabsresourcesystem">Game.Prefabs.ResourceSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Prefabs</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class ResourceSystem : Game.GameSystemBase
-{
-    private Unity.Entities.EntityQuery m_PrefabGroup;
-    private Unity.Entities.EntityQuery m_InfoGroup;
-    private Game.Prefabs.PrefabSystem m_PrefabSystem;
-    private Unity.Collections.NativeArray&lt;Unity.Entities.Entity&gt; m_ResourcePrefabs;
-    private Unity.Collections.NativeArray&lt;Unity.Entities.Entity&gt; m_ResourceInfos;
-    private Unity.Jobs.JobHandle m_PrefabsReaders;
-    private System.Int32 m_BaseConsumptionSum;
-    private Game.Prefabs.ResourceSystem+TypeHandle __TypeHandle;
-
-    public System.Int32 BaseConsumptionSum { get; }
-
-    public ResourceSystem();
-
-    private System.Void __AssignQueries(Unity.Entities.SystemState&amp; state);
-    public System.Void AddPrefabsReader(Unity.Jobs.JobHandle handle);
-    public Unity.Entities.Entity GetPrefab(Game.Economy.Resource resource);
-    public Game.Prefabs.ResourcePrefabs GetPrefabs();
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnCreateForCompiler();
-    protected virtual System.Void OnDestroy();
-    protected virtual System.Void OnUpdate();
-}
-</code></pre>
+<p><strong>Assembly:</strong> Game<br />
+<strong>Namespace:</strong> Game.Prefabs</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> GameSystemBase</p>
+<p><strong>Summary:</strong><br />
+ResourceSystem is an ECS system responsible for initializing and tracking resource prefabs and resource info entities. It reads ResourcePrefab data from the PrefabSystem and writes their properties into ResourceData components on prefab entities, creates corresponding ResourceInfo entities, tracks an array of resource prefab Entities and resource info Entities indexed by resource type, accumulates a base consumption sum for use by household/consumption logic, and exposes helper methods to query prefabs and register job dependencies for safe reading of the prefab arrays. The system also handles lifecycle (allocation and disposal) of internal NativeArray storage and synchronizes with job handles used by other systems.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Unity.Entities.EntityQuery m_PrefabGroup</code>  </li>
+<li>
+<p><code>private EntityQuery m_PrefabGroup</code><br />
+Stores the query matching created prefab entities that have PrefabData and ResourceData. Used to iterate prefab archetype chunks and initialize ResourceData from ResourcePrefab.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_InfoGroup</code><br />
+Query matching Created + ResourceInfo entities. Used to discover existing ResourceInfo entities and ensure m_ResourceInfos is up-to-date.</p>
+</li>
+<li>
+<p><code>private PrefabSystem m_PrefabSystem</code><br />
+Reference to the PrefabSystem (fetched from the World) used to lookup concrete ResourcePrefab data for a given PrefabData.</p>
+</li>
+<li>
+<p><code>private NativeArray&lt;Entity&gt; m_ResourcePrefabs</code><br />
+Persistent NativeArray sized to EconomyUtils.ResourceCount that stores the Entity for each resource's prefab (indexed by resource index). Allocated with Allocator.Persistent in OnCreate and disposed in OnDestroy.</p>
+</li>
+<li>
+<p><code>private NativeArray&lt;Entity&gt; m_ResourceInfos</code><br />
+Persistent NativeArray sized to EconomyUtils.ResourceCount that stores the Entity for each resource's ResourceInfo. Allocated with Allocator.Persistent in OnCreate and disposed in OnDestroy.</p>
+</li>
+<li>
+<p><code>private JobHandle m_PrefabsReaders</code><br />
+Aggregated JobHandle of jobs that read the prefab arrays. The system completes this handle before writing to arrays and allows other jobs to register themselves as readers via AddPrefabsReader to ensure proper dependency chaining.</p>
+</li>
+<li>
+<p><code>private int m_BaseConsumptionSum</code><br />
+Cached integer representing the computed sum of base consumption weights used by household behavior. Exposed via the BaseConsumptionSum property.</p>
+</li>
+<li>
+<p><code>private TypeHandle __TypeHandle</code><br />
+Internal compiler-generated struct containing EntityTypeHandle and ComponentTypeHandle instances used for chunk access. It is assigned via __AssignHandles(ref SystemState) in OnCreateForCompiler.</p>
+</li>
+<li>
+<p><code>private struct TypeHandle</code><br />
+Contains:</p>
+</li>
+<li><code>EntityTypeHandle __Unity_Entities_Entity_TypeHandle</code> (ReadOnly)</li>
+<li><code>ComponentTypeHandle&lt;PrefabData&gt; __Game_Prefabs_PrefabData_RO_ComponentTypeHandle</code> (ReadOnly)</li>
+<li><code>ComponentTypeHandle&lt;ResourceData&gt; __Game_Prefabs_ResourceData_RW_ComponentTypeHandle</code> (Read/Write)</li>
+<li><code>ComponentTypeHandle&lt;ResourceInfo&gt; __Game_Economy_ResourceInfo_RO_ComponentTypeHandle</code> (ReadOnly)</li>
+<li><code>void __AssignHandles(ref SystemState state)</code> — assigns all handles from the provided SystemState (called during system creation/compilation path).</li>
 </ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_PrefabGroup;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_InfoGroup</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_InfoGroup;
-</code></pre>
-<ul>
-<li><code>private Game.Prefabs.PrefabSystem m_PrefabSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Prefabs.PrefabSystem m_PrefabSystem;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeArray&lt;Unity.Entities.Entity&gt; m_ResourcePrefabs</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeArray&lt;Unity.Entities.Entity&gt; m_ResourcePrefabs;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeArray&lt;Unity.Entities.Entity&gt; m_ResourceInfos</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeArray&lt;Unity.Entities.Entity&gt; m_ResourceInfos;
-</code></pre>
-<ul>
-<li><code>private Unity.Jobs.JobHandle m_PrefabsReaders</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Jobs.JobHandle m_PrefabsReaders;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_BaseConsumptionSum</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_BaseConsumptionSum;
-</code></pre>
-<ul>
-<li><code>private Game.Prefabs.ResourceSystem+TypeHandle __TypeHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Prefabs.ResourceSystem+TypeHandle __TypeHandle;
-</code></pre>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>public System.Int32 BaseConsumptionSum { get }</code>  </li>
+<li><code>public int BaseConsumptionSum { get; }</code><br />
+Read-only property that returns the computed base consumption sum (m_BaseConsumptionSum). This value is updated during OnUpdate after initializing ResourceData for all resource prefabs and calculating a weighted sum used by household behavior logic.</li>
 </ul>
-<pre><code class="language-csharp">public System.Int32 BaseConsumptionSum { get; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public ResourceSystem()</code>  </li>
+<li><code>public ResourceSystem()</code><br />
+Default parameterless constructor. The system performs initialization work in OnCreate rather than the constructor.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public ResourceSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private __AssignQueries(Unity.Entities.SystemState&amp; state) : System.Void</code>  </li>
+<li><code>[Preserve] protected override void OnCreate()</code><br />
+Initializes the system:</li>
+<li>Retrieves the PrefabSystem from the World.</li>
+<li>Creates two EntityQuery instances:<ul>
+<li>m_PrefabGroup: matches Created + PrefabData + ResourceData (prefab entities to initialize).</li>
+<li>m_InfoGroup: matches Created + ResourceInfo.</li>
 </ul>
-<pre><code class="language-csharp">private void __AssignQueries(ref SystemState state)
-    {
-        new EntityQueryBuilder(Allocator.Temp).Dispose();
-    }
-</code></pre>
-<ul>
-<li><code>public AddPrefabsReader(Unity.Jobs.JobHandle handle) : System.Void</code>  </li>
+</li>
+<li>Allocates m_ResourcePrefabs and m_ResourceInfos as persistent NativeArrays sized to EconomyUtils.ResourceCount.</li>
+<li>
+<p>Prepares other internal state. The TypeHandle assignment is performed in OnCreateForCompiler (compiler path method).</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnDestroy()</code><br />
+Tears down the system:</p>
+</li>
+<li>Completes any outstanding m_PrefabsReaders to ensure no jobs are still using the prefab arrays.</li>
+<li>Disposes m_ResourcePrefabs and m_ResourceInfos.</li>
+<li>
+<p>Calls base.OnDestroy().</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnUpdate()</code><br />
+Main update logic:</p>
+</li>
+<li>Completes m_PrefabsReaders and resets it.</li>
+<li>If there are prefab entities in m_PrefabGroup:<ul>
+<li>Iterates chunks, reads PrefabData and ResourceData components and the corresponding ResourcePrefab via m_PrefabSystem.</li>
+<li>Copies many fields from ResourcePrefab into ResourceData (flags such as m_IsMaterial, m_IsProduceable, weights, price, base consumption, age weights, car consumption, temperature requirements, needed work per unit, etc).</li>
+<li>Accumulates a weighted base consumption value using HouseholdBehaviorSystem.GetWeight and stores the rounded integer into m_BaseConsumptionSum.</li>
+<li>For each resource prefab encountered, if the resource index slot in m_ResourcePrefabs is empty, sets it and creates a corresponding ResourceInfo entity via an EntityCommandBuffer; fills the ResourceInfo and adds Created.</li>
+<li>Plays back the ECB to apply created ResourceInfo entities to the EntityManager.</li>
 </ul>
-<pre><code class="language-csharp">public void AddPrefabsReader(JobHandle handle)
-    {
-        m_PrefabsReaders = JobHandle.CombineDependencies(m_PrefabsReaders, handle);
-    }
-</code></pre>
-<ul>
-<li><code>public GetPrefab(Game.Economy.Resource resource) : Unity.Entities.Entity</code>  </li>
+</li>
+<li>If there are ResourceInfo entities in m_InfoGroup:<ul>
+<li>Iterates chunks of ResourceInfo entities and ensures m_ResourceInfos entries reflect any externally created ResourceInfo entities (keeps array synchronized even if ResourceInfo entities were created elsewhere).</li>
 </ul>
-<pre><code class="language-csharp">public Entity GetPrefab(Resource resource)
-    {
-        return m_ResourcePrefabs[EconomyUtils.GetResourceIndex(resource)];
-    }
-</code></pre>
-<ul>
-<li><code>public GetPrefabs() : Game.Prefabs.ResourcePrefabs</code>  </li>
+</li>
+<li>
+<p>Disposes native chunk arrays used for iteration.</p>
+</li>
+<li>
+<p><code>public ResourcePrefabs GetPrefabs()</code><br />
+Returns a ResourcePrefabs wrapper constructed with m_ResourcePrefabs (likely a small struct exposing the NativeArray safely), allowing other systems to access the prefab array (read-only semantics should be followed externally).</p>
+</li>
+<li>
+<p><code>public void AddPrefabsReader(JobHandle handle)</code><br />
+Combines the provided handle with m_PrefabsReaders via JobHandle.CombineDependencies. Used by background jobs that read the prefab arrays to register themselves so the system knows to complete those jobs before writing.</p>
+</li>
+<li>
+<p><code>public Entity GetPrefab(Resource resource)</code><br />
+Returns the Entity for the prefab corresponding to the provided Resource enum/value by indexing m_ResourcePrefabs with EconomyUtils.GetResourceIndex(resource). If not initialized, the array entry may be Entity.Null.</p>
+</li>
+<li>
+<p><code>[MethodImpl(MethodImplOptions.AggressiveInlining)] private void __AssignQueries(ref SystemState state)</code><br />
+Compiler/IL-generated placeholder used during the codegen path; the implementation in the decompiled source only contains a temporary EntityQueryBuilder disposal. The real handle assignments are done in __TypeHandle.__AssignHandles and OnCreateForCompiler.</p>
+</li>
+<li>
+<p><code>protected override void OnCreateForCompiler()</code><br />
+Compiler helper that calls __AssignQueries and __TypeHandle.__AssignHandles(ref base.CheckedStateRef). Ensures type handles are assigned in the compiled path.</p>
+</li>
+<li>
+<p><code>private void TypeHandle.__AssignHandles(ref SystemState state)</code><br />
+Assigns all EntityTypeHandle and ComponentTypeHandle fields from the provided SystemState; used by InternalCompilerInterface.GetXXXTypeHandle helpers in OnUpdate.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public ResourcePrefabs GetPrefabs()
-    {
-        return new ResourcePrefabs(m_ResourcePrefabs);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
+<h2 id="usage-example">Usage Example</h2>
 <pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_PrefabSystem = base.World.GetOrCreateSystemManaged&lt;PrefabSystem&gt;();
-        m_PrefabGroup = GetEntityQuery(new EntityQueryDesc
-        {
-            All = new ComponentType[3]
-            {
-                ComponentType.ReadOnly&lt;Created&gt;(),
-                ComponentType.ReadOnly&lt;PrefabData&gt;(),
-                ComponentType.ReadOnly&lt;ResourceData&gt;()
-            }
-        });
-        m_InfoGroup = GetEntityQuery(ComponentType.ReadOnly&lt;Created&gt;(), ComponentType.ReadOnly&lt;ResourceInfo&gt;());
-        m_ResourcePrefabs = new NativeArray&lt;Entity&gt;(EconomyUtils.ResourceCount, Allocator.Persistent);
-        m_ResourceInfos = new NativeArray&lt;Entity&gt;(EconomyUtils.ResourceCount, Allocator.Persistent);
-    }
+protected override void OnCreate()
+{
+    base.OnCreate();
+
+    // Example: after this system runs, read the computed base consumption sum:
+    // (In practice you would read this from another system after ResourceSystem.OnUpdate has executed)
+    int baseConsumption = BaseConsumptionSum;
+
+    // Example: obtain a prefab entity for a resource (Resource is the game's resource enum)
+    // JobHandle handle = default; // some job handle that reads prefab arrays
+    // AddPrefabsReader(handle);   // register the job as a reader so this system will wait before writing
+
+    // Example usage retrieving a specific resource prefab (Resource enum must be in scope)
+    // Entity waterPrefab = GetPrefab(Resource.Water);
+}
 </code></pre>
-<ul>
-<li><code>protected virtual OnCreateForCompiler() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnCreateForCompiler()
-    {
-        base.OnCreateForCompiler();
-        __AssignQueries(ref base.CheckedStateRef);
-        __TypeHandle.__AssignHandles(ref base.CheckedStateRef);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnDestroy() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnDestroy()
-    {
-        m_PrefabsReaders.Complete();
-        m_ResourcePrefabs.Dispose();
-        m_ResourceInfos.Dispose();
-        base.OnDestroy();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        m_PrefabsReaders.Complete();
-        m_PrefabsReaders = default(JobHandle);
-        if (!m_PrefabGroup.IsEmptyIgnoreFilter)
-        {
-            EntityCommandBuffer entityCommandBuffer = new EntityCommandBuffer(Allocator.Temp);
-            NativeArray&lt;ArchetypeChunk&gt; nativeArray = m_PrefabGroup.ToArchetypeChunkArray(Allocator.TempJob);
-            EntityTypeHandle entityTypeHandle = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef);
-            ComponentTypeHandle&lt;PrefabData&gt; typeHandle = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_PrefabData_RO_ComponentTypeHandle, ref base.CheckedStateRef);
-            ComponentTypeHandle&lt;ResourceData&gt; typeHandle2 = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_ResourceData_RW_ComponentTypeHandle, ref base.CheckedStateRef);
-            float num = 0f;
-            for (int i = 0; i &lt; nativeArray.Length; i++)
-            {
-                ArchetypeChunk archetypeChunk = nativeArray[i];
-                NativeArray&lt;Entity&gt; nativeArray2 = archetypeChunk.GetNativeArray(entityTypeHandle);
-                NativeArray&lt;PrefabData&gt; nativeArray3 = archetypeChunk.GetNativeArray(ref typeHandle);
-                NativeArray&lt;ResourceData&gt; nativeArray4 = archetypeChunk.GetNativeArray(ref typeHandle2);
-                for (int j = 0; j &lt; nativeArray4.Length; j++)
-                {
-                    Entity value = nativeArray2[j];
-                    ResourcePrefab prefab = m_PrefabSystem.GetPrefab&lt;ResourcePrefab&gt;(nativeArray3[j]);
-                    ResourceData resourceData = nativeArray4[j];
-                    resourceData.m_IsMaterial = prefab.m_IsMaterial;
-                    resourceData.m_IsProduceable = prefab.m_IsProduceable;
-                    resourceData.m_IsTradable = prefab.m_IsTradable;
-                    resourceData.m_IsLeisure = prefab.m_IsLeisure;
-                    resourceData.m_Weight = prefab.m_Weight;
-                    resourceData.m_Price = prefab.m_InitialPrice;
-                    resourceData.m_WealthModifier = prefab.m_WealthModifier;
-                    resourceData.m_BaseConsumption = prefab.m_BaseConsumption;
-                    resourceData.m_ChildWeight = prefab.m_ChildWeight;
-                    resourceData.m_TeenWeight = prefab.m_TeenWeight;
-                    resourceData.m_AdultWeight = prefab.m_AdultWeight;
-                    resourceData.m_ElderlyWeight = prefab.m_ElderlyWeight;
-                    resourceData.m_CarConsumption = prefab.m_CarConsumption;
-                    resourceData.m_RequireTemperature = prefab.m_RequireTemperature;
-                    resourceData.m_RequiredTemperature = prefab.m_RequiredTemperature;
-                    resourceData.m_RequireNaturalResource = prefab.m_RequireNaturalResource;
-                    resourceData.m_NeededWorkPerUnit = prefab.m_NeededWorkPerUnit;
-                    nativeArray4[j] = resourceData;
-                    num += math.lerp(HouseholdBehaviorSystem.GetWeight(200, resourceData, 1, leisureIncluded: false), HouseholdBehaviorSystem.GetWeight(200, resourceData, 0, leisureIncluded: false), 0.2f);
-                    int index = (int)(prefab.m_Resource - 1);
-                    if (m_ResourcePrefabs[index] == Entity.Null)
-                    {
-                        m_ResourcePrefabs[index] = value;
-                        m_ResourceInfos[index] = entityCommandBuffer.CreateEntity();
-                        entityCommandBuffer.AddComponent(m_ResourceInfos[index], new ResourceInfo
-                        {
-                            m_Resource = EconomyUtils.GetResource(prefab.m_Resource)
-                        });
-                        entityCommandBuffer.AddComponent(m_ResourceInfos[index], default(Created));
-                    }
-                }
-            }
-            entityCommandBuffer.Playback(base.EntityManager);
-            entityCommandBuffer.Dispose();
-            m_BaseConsumptionSum = Mathf.RoundToInt(num);
-            nativeArray.Dispose();
-        }
-        if (m_InfoGroup.IsEmptyIgnoreFilter)
-        {
-            return;
-        }
-        NativeArray&lt;ArchetypeChunk&gt; nativeArray5 = m_InfoGroup.ToArchetypeChunkArray(Allocator.TempJob);
-        EntityTypeHandle entityTypeHandle2 = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef);
-        ComponentTypeHandle&lt;ResourceInfo&gt; typeHandle3 = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Economy_ResourceInfo_RO_ComponentTypeHandle, ref base.CheckedStateRef);
-        for (int k = 0; k &lt; nativeArray5.Length; k++)
-        {
-            ArchetypeChunk archetypeChunk2 = nativeArray5[k];
-            NativeArray&lt;Entity&gt; nativeArray6 = archetypeChunk2.GetNativeArray(entityTypeHandle2);
-            NativeArray&lt;ResourceInfo&gt; nativeArray7 = archetypeChunk2.GetNativeArray(ref typeHandle3);
-            for (int l = 0; l &lt; nativeArray6.Length; l++)
-            {
-                int resourceIndex = EconomyUtils.GetResourceIndex(nativeArray7[l].m_Resource);
-                if (resourceIndex &gt;= 0 &amp;&amp; m_ResourceInfos[resourceIndex] != nativeArray6[l])
-                {
-                    m_ResourceInfos[resourceIndex] = nativeArray6[l];
-                }
-            }
-        }
-        nativeArray5.Dispose();
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Prefabs.ResourceSystem+TypeHandle</code>  </li>
-</ul>
 
 
 

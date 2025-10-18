@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87056,6 +87148,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -114012,18 +114127,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -114042,6 +114157,15 @@
   <a href="#methods" class="md-nav__link">
     <span class="md-ellipsis">
       Methods
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
     </span>
   </a>
   
@@ -117912,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117939,18 +118085,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -117974,6 +118120,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -117991,56 +118146,71 @@
 
 
 <h1 id="gameuiuiupdatesystem">Game.UI.UIUpdateSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.UI</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class UIUpdateSystem : Game.GameSystemBase
-{
-    private Game.UpdateSystem m_UpdateSystem;
-
-    public UIUpdateSystem();
-
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnUpdate();
-}
-</code></pre>
+<p><strong>Assembly:</strong><br />
+<strong>Namespace:</strong> Game.UI</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> GameSystemBase</p>
+<p><strong>Summary:</strong><br />
+A small game system responsible for executing the UI update phase. On each frame update it delegates to the central UpdateSystem with the SystemUpdatePhase.UIUpdate phase so that UI-related subsystems and components run their update logic in the correct phase. The class is marked with Preserve attributes on its lifecycle methods/constructor to avoid removal by IL2CPP/code stripping in release builds.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.UpdateSystem m_UpdateSystem</code>  </li>
+<li><code>private UpdateSystem m_UpdateSystem</code><br />
+Holds a reference to the game's UpdateSystem instance. This is resolved in OnCreate via World.GetOrCreateSystemManaged<UpdateSystem>() so the UIUpdateSystem can forward UI-phase updates to the central update dispatcher.</li>
 </ul>
-<pre><code class="language-csharp">private Game.UpdateSystem m_UpdateSystem;
-</code></pre>
+<h2 id="properties">Properties</h2>
+<p>This type does not expose any public properties.</p>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public UIUpdateSystem()</code>  </li>
+<li><code>public UIUpdateSystem()</code><br />
+Default parameterless constructor. Decorated with [Preserve] to ensure the constructor and type are kept by code-stripping/linking tools (IL2CPP). No custom initialization is performed here; initialization is done in OnCreate.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public UIUpdateSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
+<li>
+<p><code>protected override void OnCreate() : System.Void</code><br />
+Called when the system is created. Calls base.OnCreate() and retrieves (or creates) the UpdateSystem instance from the World:<br />
+m_UpdateSystem = base.World.GetOrCreateSystemManaged<UpdateSystem>();<br />
+The method is annotated with [Preserve] to prevent removal by the runtime linker.</p>
+</li>
+<li>
+<p><code>protected override void OnUpdate() : System.Void</code><br />
+Called every frame (or tick) for this system. It simply forwards the update call to the UpdateSystem with the UI update phase:<br />
+m_UpdateSystem.Update(SystemUpdatePhase.UIUpdate);<br />
+Also annotated with [Preserve].</p>
+</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">using UnityEngine.Scripting;
+
+namespace Game.UI;
+
+public class UIUpdateSystem : GameSystemBase
+{
+    private UpdateSystem m_UpdateSystem;
+
+    [Preserve]
     protected override void OnCreate()
     {
         base.OnCreate();
         m_UpdateSystem = base.World.GetOrCreateSystemManaged&lt;UpdateSystem&gt;();
     }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
+
+    [Preserve]
     protected override void OnUpdate()
     {
         m_UpdateSystem.Update(SystemUpdatePhase.UIUpdate);
     }
+
+    [Preserve]
+    public UIUpdateSystem()
+    {
+    }
+}
 </code></pre>
+<p>Additional notes:
+- This system acts as a simple adaptor to ensure UI-phase updates are executed; modders rarely need to modify it directly, but understanding it is useful when adding UI-related systems or hooking into the game's update phases.
+- The SystemUpdatePhase.UIUpdate enum value indicates the UI update step — use the same phase when scheduling or invoking UI-specific updates so ordering remains consistent.</p>
 
 
 

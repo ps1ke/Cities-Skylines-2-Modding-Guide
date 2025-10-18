@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#gamerenderingoverlayrendersystem" class="md-skip">
+        <a href="#gameoverlayrendersystem" class="md-skip">
           Skip to content
         </a>
       
@@ -65233,6 +65233,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69185,18 +69208,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -69221,9 +69244,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -69734,6 +69757,29 @@
   
   <span class="md-ellipsis">
     ShaderID
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
     
   </span>
   
@@ -72563,6 +72609,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75553,6 +75622,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87145,6 +87237,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -117921,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117948,18 +118085,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -117984,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118008,549 +118145,204 @@
 
 
 
-<h1 id="gamerenderingoverlayrendersystem">Game.Rendering.OverlayRenderSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Rendering</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class OverlayRenderSystem : Game.GameSystemBase
-{
-    private Game.Rendering.RenderingSystem m_RenderingSystem;
-    private Game.Simulation.TerrainSystem m_TerrainSystem;
-    private Game.Prefabs.PrefabSystem m_PrefabSystem;
-    private Unity.Entities.EntityQuery m_SettingsQuery;
-    private UnityEngine.Mesh m_BoxMesh;
-    private UnityEngine.Mesh m_QuadMesh;
-    private UnityEngine.Material m_ProjectedMaterial;
-    private UnityEngine.Material m_AbsoluteMaterial;
-    private UnityEngine.ComputeBuffer m_ArgsBuffer;
-    private UnityEngine.ComputeBuffer m_ProjectedBuffer;
-    private UnityEngine.ComputeBuffer m_AbsoluteBuffer;
-    private System.Collections.Generic.List&lt;System.UInt32&gt; m_ArgsArray;
-    private System.Int32 m_ProjectedInstanceCount;
-    private System.Int32 m_AbsoluteInstanceCount;
-    private System.Int32 m_CurveBufferID;
-    private System.Int32 m_GradientScaleID;
-    private System.Int32 m_ScaleRatioAID;
-    private System.Int32 m_FaceDilateID;
-    private Unity.Collections.NativeList&lt;Game.Rendering.OverlayRenderSystem+CurveData&gt; m_ProjectedData;
-    private Unity.Collections.NativeList&lt;Game.Rendering.OverlayRenderSystem+CurveData&gt; m_AbsoluteData;
-    private Colossal.Collections.NativeValue&lt;Game.Rendering.OverlayRenderSystem+BoundsData&gt; m_BoundsData;
-    private Unity.Jobs.JobHandle m_BufferWriters;
-    private TMPro.TextMeshPro m_TextMesh;
-
-    public OverlayRenderSystem();
-
-    public System.Void AddBufferWriter(Unity.Jobs.JobHandle handle);
-    public System.Void CopyFontAtlasParameters(UnityEngine.Material source, UnityEngine.Material target);
-    private TMPro.TMP_FontAsset CreateFont(Game.Prefabs.FontInfo info);
-    public Game.Rendering.OverlayRenderSystem+Buffer GetBuffer(Unity.Jobs.JobHandle&amp; dependencies);
-    private System.Void GetCurveBuffer(UnityEngine.ComputeBuffer&amp; buffer, System.Int32 count);
-    private System.Void GetCurveMaterial(UnityEngine.Material&amp; material, System.Boolean projected);
-    private System.Void GetMesh(UnityEngine.Mesh&amp; mesh, System.Boolean box);
-    public TMPro.TextMeshPro GetTextMesh();
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnDestroy();
-    protected virtual System.Void OnUpdate();
-    private System.Void Render(UnityEngine.Rendering.ScriptableRenderContext context, System.Collections.Generic.List&lt;UnityEngine.Camera&gt; cameras);
-}
-</code></pre>
+<h1 id="gameoverlayrendersystem">Game.OverlayRenderSystem</h1>
+<p><strong>Assembly:</strong> Assembly-CSharp<br />
+<strong>Namespace:</strong> Game.Rendering</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> GameSystemBase</p>
+<p><strong>Summary:</strong><br />
+OverlayRenderSystem collects vector overlay primitives (circles, lines, Bezier curves) submitted by game code or jobs, packs them into native buffers, converts them to GPU-friendly data (ComputeBuffers) and issues instanced indirect draws (DrawMeshInstancedIndirect) to render overlay curves and projected overlays. It also manages related resources such as meshes, materials, compute buffers, bounds aggregation and a TextMeshPro instance for overlay text rendering. The class contains nested types used to describe per-instance curve data (CurveData), aggregate bounds (BoundsData), draw style flags (StyleFlags) and a helper Buffer struct used by clients to submit geometry from main thread or jobs.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.Rendering.RenderingSystem m_RenderingSystem</code>  </li>
+<li>
+<p><code>private RenderingSystem m_RenderingSystem</code><br />
+Used to query rendering-related state (e.g. hideOverlay). Acquired during OnCreate to check whether overlays should be rendered.</p>
+</li>
+<li>
+<p><code>private TerrainSystem m_TerrainSystem</code><br />
+Used to obtain terrain height scale/offset used when fitting projected overlay boxes (used to compute Y extents).</p>
+</li>
+<li>
+<p><code>private PrefabSystem m_PrefabSystem</code><br />
+Used to access the OverlayConfigurationPrefab to create materials, font infos and curve material templates.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_SettingsQuery</code><br />
+EntityQuery used to retrieve the overlay configuration singleton prefab (OverlayConfigurationData).</p>
+</li>
+<li>
+<p><code>private Mesh m_BoxMesh</code><br />
+Cached Mesh used for projected (box-shaped) instanced draws.</p>
+</li>
+<li>
+<p><code>private Mesh m_QuadMesh</code><br />
+Cached Mesh used for absolute (flat quad) instanced draws.</p>
+</li>
+<li>
+<p><code>private Material m_ProjectedMaterial</code><br />
+Material instance used to render projected curve instances. Created from configuration prefab when first needed.</p>
+</li>
+<li>
+<p><code>private Material m_AbsoluteMaterial</code><br />
+Material instance used to render absolute-mode curve instances.</p>
+</li>
+<li>
+<p><code>private ComputeBuffer m_ArgsBuffer</code><br />
+ComputeBuffer used as an indirect args buffer for DrawMeshInstancedIndirect.</p>
+</li>
+<li>
+<p><code>private ComputeBuffer m_ProjectedBuffer</code><br />
+ComputeBuffer that stores per-instance CurveData for projected overlays.</p>
+</li>
+<li>
+<p><code>private ComputeBuffer m_AbsoluteBuffer</code><br />
+ComputeBuffer that stores per-instance CurveData for absolute overlays.</p>
+</li>
+<li>
+<p><code>private List&lt;uint&gt; m_ArgsArray</code><br />
+Temporary list used to prepare indirect draw args uploaded into m_ArgsBuffer.</p>
+</li>
+<li>
+<p><code>private int m_ProjectedInstanceCount</code><br />
+Number of projected instances prepared in the current frame.</p>
+</li>
+<li>
+<p><code>private int m_AbsoluteInstanceCount</code><br />
+Number of absolute instances prepared in the current frame.</p>
+</li>
+<li>
+<p><code>private int m_CurveBufferID</code><br />
+Shader property ID for the curve StructuredBuffer (colossal_OverlayCurveBuffer).</p>
+</li>
+<li>
+<p><code>private int m_GradientScaleID</code><br />
+Shader property ID for gradient scale used when copying font/material parameters.</p>
+</li>
+<li>
+<p><code>private int m_ScaleRatioAID</code><br />
+Shader property ID for scale ratio parameter used when copying font/material parameters.</p>
+</li>
+<li>
+<p><code>private int m_FaceDilateID</code><br />
+Shader property ID for face dilate used when creating TMP fonts (set on TMP_FontAsset material).</p>
+</li>
+<li>
+<p><code>private NativeList&lt;CurveData&gt; m_ProjectedData</code><br />
+NativeList holding CurveData for projected overlays. Allocated persistent and written by callers using Buffer.</p>
+</li>
+<li>
+<p><code>private NativeList&lt;CurveData&gt; m_AbsoluteData</code><br />
+NativeList holding CurveData for absolute overlays. Allocated persistent and written by callers using Buffer.</p>
+</li>
+<li>
+<p><code>private NativeValue&lt;BoundsData&gt; m_BoundsData</code><br />
+NativeValue used to accumulate bounds (BoundsData) for all submitted curves. Used to produce the rendering bounds for indirect draws.</p>
+</li>
+<li>
+<p><code>private JobHandle m_BufferWriters</code><br />
+Aggregate JobHandle of writers that write into the native lists; GetBuffer returns this as dependencies and AddBufferWriter allows combining additional handles.</p>
+</li>
+<li>
+<p><code>private TextMeshPro m_TextMesh</code><br />
+Cached TextMeshPro instance created on demand to provide TMP fonts for overlay text rendering; fonts are created from the OverlayConfigurationPrefab FontInfo entries.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.Rendering.RenderingSystem m_RenderingSystem;
-</code></pre>
+<h2 id="properties">Properties</h2>
 <ul>
-<li><code>private Game.Simulation.TerrainSystem m_TerrainSystem</code>  </li>
+<li>This class does not expose public properties.</li>
 </ul>
-<pre><code class="language-csharp">private Game.Simulation.TerrainSystem m_TerrainSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Prefabs.PrefabSystem m_PrefabSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Prefabs.PrefabSystem m_PrefabSystem;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_SettingsQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_SettingsQuery;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.Mesh m_BoxMesh</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.Mesh m_BoxMesh;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.Mesh m_QuadMesh</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.Mesh m_QuadMesh;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.Material m_ProjectedMaterial</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.Material m_ProjectedMaterial;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.Material m_AbsoluteMaterial</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.Material m_AbsoluteMaterial;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.ComputeBuffer m_ArgsBuffer</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.ComputeBuffer m_ArgsBuffer;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.ComputeBuffer m_ProjectedBuffer</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.ComputeBuffer m_ProjectedBuffer;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.ComputeBuffer m_AbsoluteBuffer</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.ComputeBuffer m_AbsoluteBuffer;
-</code></pre>
-<ul>
-<li><code>private System.Collections.Generic.List&lt;System.UInt32&gt; m_ArgsArray</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Collections.Generic.List&lt;System.UInt32&gt; m_ArgsArray;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_ProjectedInstanceCount</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_ProjectedInstanceCount;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_AbsoluteInstanceCount</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_AbsoluteInstanceCount;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_CurveBufferID</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_CurveBufferID;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_GradientScaleID</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_GradientScaleID;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_ScaleRatioAID</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_ScaleRatioAID;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_FaceDilateID</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_FaceDilateID;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeList&lt;Game.Rendering.OverlayRenderSystem+CurveData&gt; m_ProjectedData</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeList&lt;Game.Rendering.OverlayRenderSystem+CurveData&gt; m_ProjectedData;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeList&lt;Game.Rendering.OverlayRenderSystem+CurveData&gt; m_AbsoluteData</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeList&lt;Game.Rendering.OverlayRenderSystem+CurveData&gt; m_AbsoluteData;
-</code></pre>
-<ul>
-<li><code>private Colossal.Collections.NativeValue&lt;Game.Rendering.OverlayRenderSystem+BoundsData&gt; m_BoundsData</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.Collections.NativeValue&lt;Game.Rendering.OverlayRenderSystem+BoundsData&gt; m_BoundsData;
-</code></pre>
-<ul>
-<li><code>private Unity.Jobs.JobHandle m_BufferWriters</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Jobs.JobHandle m_BufferWriters;
-</code></pre>
-<ul>
-<li><code>private TMPro.TextMeshPro m_TextMesh</code>  </li>
-</ul>
-<pre><code class="language-csharp">private TMPro.TextMeshPro m_TextMesh;
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public OverlayRenderSystem()</code>  </li>
+<li><code>public OverlayRenderSystem()</code><br />
+Default (preserved) constructor. The system subscribes to RenderPipelineManager.beginContextRendering in OnCreate and performs resource allocation/lazy initialization as needed.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public OverlayRenderSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>public AddBufferWriter(Unity.Jobs.JobHandle handle) : System.Void</code>  </li>
+<li>
+<p><code>protected override void OnCreate()</code><br />
+Initializes references to other game systems (RenderingSystem, TerrainSystem, PrefabSystem), sets up shader property IDs and subscribes Render to RenderPipelineManager.beginContextRendering. Called by the ECS system when the system is created.</p>
+</li>
+<li>
+<p><code>protected override void OnDestroy()</code><br />
+Unsubscribes from RenderPipelineManager.beginContextRendering and releases/destroys all allocated resources: meshes, materials, compute buffers, native lists/values, and any created TMP assets. Ensures persistent native allocations are disposed to avoid leaks.</p>
+</li>
+<li>
+<p><code>public Buffer GetBuffer(out JobHandle dependencies)</code><br />
+Prepares and returns a Buffer struct that callers use to submit overlay primitives (DrawCircle, DrawLine, DrawCurve, etc.). Ensures the backing NativeList<CurveData> and NativeValue<BoundsData> are allocated (Allocator.Persistent) and returns the current m_BufferWriters as dependencies (out parameter). The Buffer holds references to the native collections and terrain Y extents used for fitting.</p>
+</li>
+<li>
+<p><code>public void AddBufferWriter(JobHandle handle)</code><br />
+Combine the supplied JobHandle with the internal m_BufferWriters (JobHandle.CombineDependencies). Call this after scheduling jobs that write into the NativeList/NativeValue returned via GetBuffer so the system waits for them before reading/uploading.</p>
+</li>
+<li>
+<p><code>public TextMeshPro GetTextMesh()</code><br />
+Lazily creates a GameObject with a TextMeshPro component (kept DontDestroyOnLoad) and constructs TMP_FontAsset instances for each FontInfo in the OverlayConfigurationPrefab. Copies fallback font assets into the primary TMP font's fallback list. The created text mesh is disabled (renderer.enabled = false) and returned for clients to configure text rendering for overlays.</p>
+</li>
+<li>
+<p><code>private TMP_FontAsset CreateFont(FontInfo info)</code><br />
+Creates a TMP_FontAsset from a FontInfo (font, sampling size, padding, atlas size) using TMP_FontAsset.CreateFontAsset and sets the face dilate on the font material to the configured face dilate property (m_FaceDilateID). Returns the created TMP_FontAsset.</p>
+</li>
+<li>
+<p><code>public void CopyFontAtlasParameters(Material source, Material target)</code><br />
+Copies font atlas related shader parameters from one material to another: multiplies gradient scale by 2f when setting on target, copies scale ratio A and mainTexture. Useful to sync TMP font/material parameters to the overlay materials.</p>
+</li>
+<li>
+<p><code>protected override void OnUpdate()</code><br />
+Completes any pending buffer writer JobHandles, resets instance counts and uploads native CurveData arrays to the corresponding ComputeBuffers. For each non-empty native list (projected/absolute), it ensures a corresponding material and ComputeBuffer exist, sets buffer data and assigns the buffer to the material. Clears the native lists after copying. If the overlay configuration query is empty, it clears lists and returns early.</p>
+</li>
+<li>
+<p><code>private void Render(ScriptableRenderContext context, List&lt;Camera&gt; cameras)</code><br />
+Render callback subscribed to RenderPipelineManager.beginContextRendering. If overlays are not hidden, builds or resizes the indirect args buffer, collects bounds (from m_BoundsData), prepares draw args (index count, instance count, etc.) for box and quad meshes and issues Graphics.DrawMeshInstancedIndirect calls for each camera of type Game or SceneView. This is where the GPU actually draws the overlay instances using the per-instance CurveData ComputeBuffer bound to the overlay material(s).</p>
+</li>
+<li>
+<p><code>private void GetMesh(ref Mesh mesh, bool box)</code><br />
+Lazy-creates the Mesh used for instanced draws. If box == true creates a 8-vertex box mesh (used for projected overlays), otherwise creates a 4-vertex quad mesh (used for absolute overlays). Initializes vertices and triangle/index arrays.</p>
+</li>
+<li>
+<p><code>private void GetCurveMaterial(ref Material material, bool projected)</code><br />
+Lazily instantiates a material from the OverlayConfigurationPrefab's m_CurveMaterial. Names it "Overlay curves" and enables the PROJECTED_MODE shader keyword when requested for projected overlays.</p>
+</li>
+<li>
+<p><code>private unsafe void GetCurveBuffer(ref ComputeBuffer buffer, int count)</code><br />
+Ensures the supplied ComputeBuffer has capacity for at least count instances, doubling capacity when reallocation is needed. If buffer is null, creates a new ComputeBuffer sized at max(64, count) with stride sizeof(CurveData) and names it "Overlay curve buffer". Uses math from Unity.Mathematics for sizing.</p>
+</li>
+<li>
+<p><code>public OverlayRenderSystem()</code><br />
+Empty preserved constructor (kept in code with [Preserve] attribute in OnCreate region). No special parameters.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public void AddBufferWriter(JobHandle handle)
-    {
-        m_BufferWriters = JobHandle.CombineDependencies(m_BufferWriters, handle);
-    }
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Example usage from other game code or a mod script:
+// - Get the overlay render system
+// - Acquire a Buffer to submit overlays
+// - Submit a circle and a dashed line and add dependencies (if any)
+
+var overlaySystem = World.DefaultGameObjectInjectionWorld.GetExistingSystemManaged&lt;Game.Rendering.OverlayRenderSystem&gt;();
+if (overlaySystem != null)
+{
+    // Acquire buffer and dependencies (jobs writing to buffer would provide a JobHandle)
+    JobHandle deps;
+    var buffer = overlaySystem.GetBuffer(out deps);
+
+    // Submit a simple circle at world position (10, 0, 20) with diameter 5
+    buffer.DrawCircle(Color.yellow, new float3(10f, 0f, 20f), 5f);
+
+    // Submit a dashed straight line between two points
+    var seg = new Line3.Segment(new float3(0f, 0f, 0f), new float3(50f, 0f, 0f));
+    buffer.DrawDashedLine(Color.cyan, seg, width: 1.5f, dashLength: 2f, gapLength: 1f);
+
+    // If any jobs wrote into the Buffer's native lists, pass their JobHandle:
+    // overlaySystem.AddBufferWriter(jobHandle);
+    // Here we just pass the dependencies returned by GetBuffer (usually JobHandle = default)
+    overlaySystem.AddBufferWriter(deps);
+}
 </code></pre>
-<ul>
-<li><code>public CopyFontAtlasParameters(UnityEngine.Material source, UnityEngine.Material target) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void CopyFontAtlasParameters(Material source, Material target)
-    {
-        target.SetFloat(m_GradientScaleID, source.GetFloat(m_GradientScaleID) * 2f);
-        target.SetFloat(m_ScaleRatioAID, source.GetFloat(m_ScaleRatioAID));
-        target.mainTexture = source.mainTexture;
-    }
-</code></pre>
-<ul>
-<li><code>private CreateFont(Game.Prefabs.FontInfo info) : TMPro.TMP_FontAsset</code>  </li>
-</ul>
-<pre><code class="language-csharp">private TMP_FontAsset CreateFont(FontInfo info)
-    {
-        TMP_FontAsset tMP_FontAsset = TMP_FontAsset.CreateFontAsset(info.m_Font, info.m_SamplingPointSize, info.m_AtlasPadding, GlyphRenderMode.SDFAA_HINTED, info.m_AtlasWidth, info.m_AtlasHeight);
-        tMP_FontAsset.material.SetFloat(m_FaceDilateID, 1f);
-        return tMP_FontAsset;
-    }
-</code></pre>
-<ul>
-<li><code>public GetBuffer(Unity.Jobs.JobHandle&amp; dependencies) : Game.Rendering.OverlayRenderSystem+Buffer</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Buffer GetBuffer(out JobHandle dependencies)
-    {
-        if (!m_ProjectedData.IsCreated)
-        {
-            m_ProjectedData = new NativeList&lt;CurveData&gt;(Allocator.Persistent);
-        }
-        if (!m_AbsoluteData.IsCreated)
-        {
-            m_AbsoluteData = new NativeList&lt;CurveData&gt;(Allocator.Persistent);
-        }
-        if (!m_BoundsData.IsCreated)
-        {
-            m_BoundsData = new NativeValue&lt;BoundsData&gt;(Allocator.Persistent);
-        }
-        dependencies = m_BufferWriters;
-        return new Buffer(m_ProjectedData, m_AbsoluteData, m_BoundsData, m_TerrainSystem.heightScaleOffset.y - 50f, m_TerrainSystem.heightScaleOffset.x + 100f);
-    }
-</code></pre>
-<ul>
-<li><code>private GetCurveBuffer(UnityEngine.ComputeBuffer&amp; buffer, System.Int32 count) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private unsafe void GetCurveBuffer(ref ComputeBuffer buffer, int count)
-    {
-        if (buffer != null &amp;&amp; buffer.count &lt; count)
-        {
-            count = math.max(buffer.count * 2, count);
-            buffer.Release();
-            buffer = null;
-        }
-        if (buffer == null)
-        {
-            buffer = new ComputeBuffer(math.max(64, count), sizeof(CurveData));
-            buffer.name = &quot;Overlay curve buffer&quot;;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private GetCurveMaterial(UnityEngine.Material&amp; material, System.Boolean projected) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void GetCurveMaterial(ref Material material, bool projected)
-    {
-        if (material == null)
-        {
-            OverlayConfigurationPrefab singletonPrefab = m_PrefabSystem.GetSingletonPrefab&lt;OverlayConfigurationPrefab&gt;(m_SettingsQuery);
-            material = new Material(singletonPrefab.m_CurveMaterial);
-            material.name = &quot;Overlay curves&quot;;
-            if (projected)
-            {
-                material.EnableKeyword(&quot;PROJECTED_MODE&quot;);
-            }
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private GetMesh(UnityEngine.Mesh&amp; mesh, System.Boolean box) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void GetMesh(ref Mesh mesh, bool box)
-    {
-        if (mesh == null)
-        {
-            mesh = new Mesh();
-            mesh.name = &quot;Overlay&quot;;
-            if (box)
-            {
-                mesh.vertices = new Vector3[8]
-                {
-                    new Vector3(-1f, 0f, -1f),
-                    new Vector3(-1f, 0f, 1f),
-                    new Vector3(1f, 0f, 1f),
-                    new Vector3(1f, 0f, -1f),
-                    new Vector3(-1f, 1f, -1f),
-                    new Vector3(-1f, 1f, 1f),
-                    new Vector3(1f, 1f, 1f),
-                    new Vector3(1f, 1f, -1f)
-                };
-                mesh.triangles = new int[36]
-                {
-                    0, 1, 5, 5, 4, 0, 3, 7, 6, 6,
-                    2, 3, 0, 3, 2, 2, 1, 0, 4, 5,
-                    6, 6, 7, 4, 0, 4, 7, 7, 3, 0,
-                    1, 2, 6, 6, 5, 1
-                };
-            }
-            else
-            {
-                mesh.vertices = new Vector3[4]
-                {
-                    new Vector3(-1f, 0f, -1f),
-                    new Vector3(-1f, 0f, 1f),
-                    new Vector3(1f, 0f, 1f),
-                    new Vector3(1f, 0f, -1f)
-                };
-                mesh.triangles = new int[12]
-                {
-                    0, 3, 2, 2, 1, 0, 0, 1, 2, 2,
-                    3, 0
-                };
-            }
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public GetTextMesh() : TMPro.TextMeshPro</code>  </li>
-</ul>
-<pre><code class="language-csharp">public TextMeshPro GetTextMesh()
-    {
-        if (m_TextMesh == null)
-        {
-            OverlayConfigurationPrefab singletonPrefab = m_PrefabSystem.GetSingletonPrefab&lt;OverlayConfigurationPrefab&gt;(m_SettingsQuery);
-            GameObject gameObject = new GameObject(&quot;TextMeshPro&quot;);
-            UnityEngine.Object.DontDestroyOnLoad(gameObject);
-            m_TextMesh = gameObject.AddComponent&lt;TextMeshPro&gt;();
-            m_TextMesh.font = CreateFont(singletonPrefab.m_FontInfos[0]);
-            m_TextMesh.font.fallbackFontAssetTable = new List&lt;TMP_FontAsset&gt;(singletonPrefab.m_FontInfos.Length - 1);
-            for (int i = 1; i &lt; singletonPrefab.m_FontInfos.Length; i++)
-            {
-                m_TextMesh.font.fallbackFontAssetTable.Add(CreateFont(singletonPrefab.m_FontInfos[i]));
-            }
-            m_TextMesh.renderer.enabled = false;
-        }
-        return m_TextMesh;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_RenderingSystem = base.World.GetOrCreateSystemManaged&lt;RenderingSystem&gt;();
-        m_TerrainSystem = base.World.GetOrCreateSystemManaged&lt;TerrainSystem&gt;();
-        m_PrefabSystem = base.World.GetOrCreateSystemManaged&lt;PrefabSystem&gt;();
-        m_SettingsQuery = GetEntityQuery(ComponentType.ReadOnly&lt;OverlayConfigurationData&gt;());
-        m_CurveBufferID = Shader.PropertyToID(&quot;colossal_OverlayCurveBuffer&quot;);
-        m_GradientScaleID = Shader.PropertyToID(&quot;_GradientScale&quot;);
-        m_ScaleRatioAID = Shader.PropertyToID(&quot;_ScaleRatioA&quot;);
-        m_FaceDilateID = Shader.PropertyToID(&quot;_FaceDilate&quot;);
-        RenderPipelineManager.beginContextRendering += Render;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnDestroy() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnDestroy()
-    {
-        RenderPipelineManager.beginContextRendering -= Render;
-        if (m_BoxMesh != null)
-        {
-            UnityEngine.Object.Destroy(m_BoxMesh);
-        }
-        if (m_QuadMesh != null)
-        {
-            UnityEngine.Object.Destroy(m_QuadMesh);
-        }
-        if (m_ProjectedMaterial != null)
-        {
-            UnityEngine.Object.Destroy(m_ProjectedMaterial);
-        }
-        if (m_AbsoluteMaterial != null)
-        {
-            UnityEngine.Object.Destroy(m_AbsoluteMaterial);
-        }
-        if (m_ArgsBuffer != null)
-        {
-            m_ArgsBuffer.Release();
-        }
-        if (m_ProjectedBuffer != null)
-        {
-            m_ProjectedBuffer.Release();
-        }
-        if (m_AbsoluteBuffer != null)
-        {
-            m_AbsoluteBuffer.Release();
-        }
-        if (m_ProjectedData.IsCreated)
-        {
-            m_ProjectedData.Dispose();
-        }
-        if (m_AbsoluteData.IsCreated)
-        {
-            m_AbsoluteData.Dispose();
-        }
-        if (m_BoundsData.IsCreated)
-        {
-            m_BoundsData.Dispose();
-        }
-        if (m_TextMesh != null)
-        {
-            for (int i = 0; i &lt; m_TextMesh.font.fallbackFontAssetTable.Count; i++)
-            {
-                UnityEngine.Object.Destroy(m_TextMesh.font.fallbackFontAssetTable[i]);
-            }
-            UnityEngine.Object.Destroy(m_TextMesh.font);
-            UnityEngine.Object.Destroy(m_TextMesh.gameObject);
-        }
-        base.OnDestroy();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        m_BufferWriters.Complete();
-        m_BufferWriters = default(JobHandle);
-        m_ProjectedInstanceCount = 0;
-        m_AbsoluteInstanceCount = 0;
-        if ((!m_ProjectedData.IsCreated || m_ProjectedData.Length == 0) &amp;&amp; (!m_AbsoluteData.IsCreated || m_AbsoluteData.Length == 0))
-        {
-            return;
-        }
-        if (m_SettingsQuery.IsEmptyIgnoreFilter)
-        {
-            if (m_ProjectedData.IsCreated)
-            {
-                m_ProjectedData.Clear();
-            }
-            if (m_AbsoluteData.IsCreated)
-            {
-                m_AbsoluteData.Clear();
-            }
-            return;
-        }
-        if (m_ProjectedData.IsCreated &amp;&amp; m_ProjectedData.Length != 0)
-        {
-            m_ProjectedInstanceCount = m_ProjectedData.Length;
-            GetCurveMaterial(ref m_ProjectedMaterial, projected: true);
-            GetCurveBuffer(ref m_ProjectedBuffer, m_ProjectedInstanceCount);
-            m_ProjectedBuffer.SetData(m_ProjectedData.AsArray(), 0, 0, m_ProjectedInstanceCount);
-            m_ProjectedMaterial.SetBuffer(m_CurveBufferID, m_ProjectedBuffer);
-            m_ProjectedData.Clear();
-        }
-        if (m_AbsoluteData.IsCreated &amp;&amp; m_AbsoluteData.Length != 0)
-        {
-            m_AbsoluteInstanceCount = m_AbsoluteData.Length;
-            GetCurveMaterial(ref m_AbsoluteMaterial, projected: false);
-            GetCurveBuffer(ref m_AbsoluteBuffer, m_AbsoluteInstanceCount);
-            m_AbsoluteBuffer.SetData(m_AbsoluteData.AsArray(), 0, 0, m_AbsoluteInstanceCount);
-            m_AbsoluteMaterial.SetBuffer(m_CurveBufferID, m_AbsoluteBuffer);
-            m_AbsoluteData.Clear();
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private Render(UnityEngine.Rendering.ScriptableRenderContext context, System.Collections.Generic.List&lt;UnityEngine.Camera&gt; cameras) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void Render(ScriptableRenderContext context, List&lt;Camera&gt; cameras)
-    {
-        try
-        {
-            if (m_RenderingSystem.hideOverlay)
-            {
-                return;
-            }
-            int num = 0;
-            if (m_ProjectedInstanceCount != 0)
-            {
-                num += 5;
-            }
-            if (m_AbsoluteInstanceCount != 0)
-            {
-                num += 5;
-            }
-            if (num == 0)
-            {
-                return;
-            }
-            if (m_ArgsBuffer != null &amp;&amp; m_ArgsBuffer.count &lt; num)
-            {
-                m_ArgsBuffer.Release();
-                m_ArgsBuffer = null;
-            }
-            if (m_ArgsBuffer == null)
-            {
-                m_ArgsBuffer = new ComputeBuffer(num, 4, ComputeBufferType.DrawIndirect);
-                m_ArgsBuffer.name = &quot;Overlay args buffer&quot;;
-            }
-            if (m_ArgsArray == null)
-            {
-                m_ArgsArray = new List&lt;uint&gt;();
-            }
-            m_ArgsArray.Clear();
-            Bounds bounds = RenderingUtils.ToBounds(m_BoundsData.value.m_CurveBounds);
-            int num2 = 0;
-            int num3 = 0;
-            if (m_ProjectedInstanceCount != 0)
-            {
-                GetMesh(ref m_BoxMesh, box: true);
-                GetCurveMaterial(ref m_ProjectedMaterial, projected: true);
-                num2 = m_ArgsArray.Count;
-                m_ArgsArray.Add(m_BoxMesh.GetIndexCount(0));
-                m_ArgsArray.Add((uint)m_ProjectedInstanceCount);
-                m_ArgsArray.Add(m_BoxMesh.GetIndexStart(0));
-                m_ArgsArray.Add(m_BoxMesh.GetBaseVertex(0));
-                m_ArgsArray.Add(0u);
-            }
-            if (m_AbsoluteInstanceCount != 0)
-            {
-                GetMesh(ref m_QuadMesh, box: false);
-                GetCurveMaterial(ref m_AbsoluteMaterial, projected: false);
-                num3 = m_ArgsArray.Count;
-                m_ArgsArray.Add(m_QuadMesh.GetIndexCount(0));
-                m_ArgsArray.Add((uint)m_AbsoluteInstanceCount);
-                m_ArgsArray.Add(m_QuadMesh.GetIndexStart(0));
-                m_ArgsArray.Add(m_QuadMesh.GetBaseVertex(0));
-                m_ArgsArray.Add(0u);
-            }
-            foreach (Camera camera in cameras)
-            {
-                if (camera.cameraType == CameraType.Game || camera.cameraType == CameraType.SceneView)
-                {
-                    if (m_ProjectedInstanceCount != 0)
-                    {
-                        Graphics.DrawMeshInstancedIndirect(m_BoxMesh, 0, m_ProjectedMaterial, bounds, m_ArgsBuffer, num2 * 4, null, ShadowCastingMode.Off, receiveShadows: false, 0, camera);
-                    }
-                    if (m_AbsoluteInstanceCount != 0)
-                    {
-                        Graphics.DrawMeshInstancedIndirect(m_QuadMesh, 0, m_AbsoluteMaterial, bounds, m_ArgsBuffer, num3 * 4, null, ShadowCastingMode.Off, receiveShadows: false, 0, camera);
-                    }
-                }
-            }
-            m_ArgsBuffer.SetData(m_ArgsArray, 0, 0, m_ArgsArray.Count);
-        }
-        finally
-        {
-        }
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Rendering.OverlayRenderSystem+CurveData</code>  </li>
-<li><code>Game.Rendering.OverlayRenderSystem+BoundsData</code>  </li>
-<li><code>Game.Rendering.OverlayRenderSystem+StyleFlags</code>  </li>
-<li><code>Game.Rendering.OverlayRenderSystem+Buffer</code>  </li>
-</ul>
+<p>Notes and tips:
+- Use GetBuffer(out JobHandle) to obtain a Buffer for submitting overlays. If you schedule jobs that write into the NativeList/NativeValue in Buffer, combine their JobHandles with overlaySystem.AddBufferWriter so OnUpdate will wait for completion before uploading GPU data.
+- The Buffer struct exposes convenience methods: DrawCircle, DrawLine, DrawCurve, DrawDashedLine, DrawDashedCurve. These fill NativeList<CurveData> and update m_BoundsData.
+- The system renders using DrawMeshInstancedIndirect; ensure bounds in m_BoundsData are valid (the Buffer helpers update them) so the system draws within correct bounds.
+- Text rendering uses a lazily created TextMeshPro instance; fonts are generated from OverlayConfigurationPrefab entries. If you need text overlays, use GetTextMesh() and configure it.</p>
 
 
 

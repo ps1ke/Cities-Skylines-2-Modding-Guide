@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87075,6 +87167,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../SurfaceWater/" class="md-nav__link">
         
   
@@ -88965,18 +89080,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -89001,9 +89116,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -117921,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117948,18 +118085,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -117984,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118009,160 +118146,156 @@
 
 
 <h1 id="gamesimulationwaterdangersystem">Game.Simulation.WaterDangerSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Simulation</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class WaterDangerSystem : Game.GameSystemBase
-{
-    private Game.Simulation.SimulationSystem m_SimulationSystem;
-    private Game.Simulation.CitySystem m_CitySystem;
-    private Game.Objects.SearchSystem m_ObjectSearchSystem;
-    private Game.EndFrameBarrier m_EndFrameBarrier;
-    private Unity.Entities.EntityQuery m_WaterLevelChangeQuery;
-    private Unity.Entities.EntityArchetype m_EndangerArchetype;
-    private Game.Simulation.WaterDangerSystem+TypeHandle __TypeHandle;
-    private static const System.UInt32 UPDATE_INTERVAL;
-
-    public WaterDangerSystem();
-
-    private System.Void __AssignQueries(Unity.Entities.SystemState&amp; state);
-    public virtual System.Int32 GetUpdateInterval(Game.SystemUpdatePhase phase);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnCreateForCompiler();
-    protected virtual System.Void OnUpdate();
-}
-</code></pre>
+<p><strong>Assembly:</strong> Game<br />
+<strong>Namespace:</strong> Game.Simulation</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> GameSystemBase</p>
+<p><strong>Summary:</strong><br />
+System that detects and marks static objects (primarily buildings) endangered by water level change events (e.g., tsunami/flood-like events). Runs a Burst-compiled IJobChunk (WaterDangerJob) on a fixed interval (64 simulation frames) that:
+- Queries active WaterLevelChange event entities and their durations.
+- Computes prediction distances based on wave speed, event direction and city modifiers (warning time).
+- Searches the game's static-object quad-tree for buildings within the danger cone/line using a spatial iterator (EndangeredStaticObjectIterator).
+- Creates Endanger event entities (Event + Endanger archetype) for endangered targets and updates per-event DangerLevel component on the event entity.
+The job is scheduled in parallel and uses the SearchSystem's static object search tree and the EndFrameBarrier command buffer to produce Endanger entities safely for later consumption.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.Simulation.SimulationSystem m_SimulationSystem</code>  </li>
+<li>
+<p><code>private const uint UPDATE_INTERVAL = 64u</code><br />
+  Interval (in simulation frames) at which the system runs / updates (returns 64 from GetUpdateInterval).</p>
+</li>
+<li>
+<p><code>private SimulationSystem m_SimulationSystem</code><br />
+  Reference to the SimulationSystem to read the current simulation frame (frameIndex).</p>
+</li>
+<li>
+<p><code>private CitySystem m_CitySystem</code><br />
+  Reference to the CitySystem used to obtain the city's Entity (for city modifiers, etc).</p>
+</li>
+<li>
+<p><code>private SearchSystem m_ObjectSearchSystem</code><br />
+  Reference to the SearchSystem used to obtain the static-object NativeQuadTree for spatial queries.</p>
+</li>
+<li>
+<p><code>private EndFrameBarrier m_EndFrameBarrier</code><br />
+  Barrier used to create a parallel EntityCommandBuffer for producing Endanger event entities safely to be played back at end frame.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_WaterLevelChangeQuery</code><br />
+  Query used to find active WaterLevelChange event entities (excludes Deleted and Temp).</p>
+</li>
+<li>
+<p><code>private EntityArchetype m_EndangerArchetype</code><br />
+  Archetype for created Endanger event entities. Constructed as (Game.Common.Event, Endanger).</p>
+</li>
+<li>
+<p><code>private TypeHandle __TypeHandle</code><br />
+  Internal container for Entity/component type handles used while scheduling the chunk job. Assigned in OnCreateForCompiler.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.Simulation.SimulationSystem m_SimulationSystem;
-</code></pre>
+<h2 id="properties">Properties</h2>
 <ul>
-<li><code>private Game.Simulation.CitySystem m_CitySystem</code>  </li>
+<li>None. (The system uses private fields and schedules a job; component read/write access is performed inside WaterDangerJob.)</li>
 </ul>
-<pre><code class="language-csharp">private Game.Simulation.CitySystem m_CitySystem;
-</code></pre>
-<ul>
-<li><code>private Game.Objects.SearchSystem m_ObjectSearchSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Objects.SearchSystem m_ObjectSearchSystem;
-</code></pre>
-<ul>
-<li><code>private Game.EndFrameBarrier m_EndFrameBarrier</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.EndFrameBarrier m_EndFrameBarrier;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_WaterLevelChangeQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_WaterLevelChangeQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityArchetype m_EndangerArchetype</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityArchetype m_EndangerArchetype;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.WaterDangerSystem+TypeHandle __TypeHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.WaterDangerSystem+TypeHandle __TypeHandle;
-</code></pre>
-<ul>
-<li><code>private static const System.UInt32 UPDATE_INTERVAL</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static const System.UInt32 UPDATE_INTERVAL;
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public WaterDangerSystem()</code>  </li>
+<li><code>public WaterDangerSystem()</code><br />
+  Default constructor (calls base GameSystemBase constructor). The system sets up required queries and systems in OnCreate.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public WaterDangerSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private __AssignQueries(Unity.Entities.SystemState&amp; state) : System.Void</code>  </li>
+<li>
+<p><code>public override int GetUpdateInterval(SystemUpdatePhase phase)</code><br />
+  Returns the update interval for the system. This implementation returns 64 (the value of UPDATE_INTERVAL), so the system runs every 64 simulation frames.</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnCreate()</code><br />
+  Initializes references to SimulationSystem, CitySystem, SearchSystem and EndFrameBarrier; creates the water-level-change EntityQuery; creates the Endanger archetype; and calls RequireForUpdate(m_WaterLevelChangeQuery) so the system only updates when WaterLevelChange entities exist.</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnUpdate()</code><br />
+  Builds and schedules the Burst-compiled WaterDangerJob in parallel across WaterLevelChange event entities. It:</p>
+</li>
+<li>Prepares type handles and component lookups.</li>
+<li>Retrieves a read-only static-object NativeQuadTree from SearchSystem (and collects a dependency JobHandle).</li>
+<li>Schedules the job via JobChunkExtensions.ScheduleParallel and sets up dependencies.</li>
+<li>
+<p>Registers the job as a reader of the static tree and with the EndFrameBarrier (to ensure the command buffer playback respects job completion).</p>
+</li>
+<li>
+<p><code>protected override void OnCreateForCompiler()</code><br />
+  Compiler helper that assigns internal queries and type handles via __AssignQueries and __TypeHandle.__AssignHandles. Called by the ECS codegen/runtime.</p>
+</li>
+<li>
+<p><code>private void __AssignQueries(ref SystemState state)</code><br />
+  Internal helper used by OnCreateForCompiler to assign queries (empty here, placeholder for generated code patterns).</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private void __AssignQueries(ref SystemState state)
-    {
-        new EntityQueryBuilder(Allocator.Temp).Dispose();
-    }
-</code></pre>
+<p>Inner types (summary of important nested logic)
+- <code>private struct WaterDangerJob : IJobChunk</code><br />
+  Burst-compiled chunk job that processes WaterLevelChange entities. For each WaterLevelChange event in the chunk it:
+  - Reads PrefabRef, Duration, WaterLevelChange components.
+  - Looks up WaterLevelChangeData from the event's prefab.
+  - If the event is active/impending and has danger flags, it computes prediction distances and uses the static object quad-tree to find buildings inside the threat area.
+  - Updates the event's DangerLevel component (to indicate whether danger is currently active) and creates Endanger entities for individual endangered objects (via EndFrameBarrier's parallel command buffer).</p>
+<p>Important methods inside WaterDangerJob:
+  - <code>Execute(in ArchetypeChunk chunk, int unfilteredChunkIndex, bool useEnabledMask, in v128 chunkEnabledMask)</code><br />
+    Main IJobChunk entry point; iterates components in the chunk and either schedules endangered object searches or updates DangerLevel values.</p>
 <ul>
-<li><code>public virtual GetUpdateInterval(Game.SystemUpdatePhase phase) : System.Int32</code>  </li>
+<li>
+<p><code>FindEndangeredObjects(int jobIndex, Entity eventEntity, Duration duration, WaterLevelChange waterLevelChange, WaterLevelChangeData waterLevelChangeData)</code><br />
+    Computes the prediction window, wave distances (using WaterSystem.WaveSpeed), warning time modifiers (city modifiers), forms a start line for the approaching wave, constructs an EndangeredStaticObjectIterator, and runs the quad-tree iteration to produce Endanger entities.</p>
+</li>
+<li>
+<p><code>private static Bounds1 GetDistanceBounds(Bounds2 bounds, Line2 line)</code><br />
+    Utility that computes min/max distances from a rectangular bounds to a line, accounting for intersection (returns distance bounds; if the line intersects the rectangle the min is floored to 0).</p>
+</li>
+<li>
+<p><code>private struct EndangeredStaticObjectIterator : INativeQuadTreeIterator&lt;Entity, QuadTreeBoundsXZ&gt;, IUnsafeQuadTreeIterator&lt;Entity, QuadTreeBoundsXZ&gt;</code><br />
+  Iterator used by the native quad-tree to test and handle static objects that intersect the danger prediction. For each candidate:</p>
+</li>
+<li>Checks vertical level vs danger height.</li>
+<li>Ensures the building component exists on the candidate.</li>
+<li>Modifies DangerFlags for emergency shelters (Evacuate -&gt; StayIndoors for shelters).</li>
+<li>Checks existing InDanger component to avoid producing duplicate/less severe Endanger events.</li>
+<li>
+<p>Creates an Endanger entity through the parallel EntityCommandBuffer with computed EndFrame and flags.</p>
+</li>
+<li>
+<p><code>private struct TypeHandle</code><br />
+  Helper for storing EntityTypeHandle / ComponentTypeHandle / ComponentLookup / BufferLookup for use in the chunk job. __AssignHandles(...) fills these from a SystemState; used to prepare the job's handles.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public override int GetUpdateInterval(SystemUpdatePhase phase)
-    {
-        return 64;
-    }
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Example: create a WaterLevelChange event entity so WaterDangerSystem will process it.
+// NOTE: this is illustrative — actual prefab references and values need to match game data.
+
+EntityManager em = World.DefaultGameObjectInjectionWorld.EntityManager;
+
+// Create an event entity with the components the system expects:
+Entity waterEvent = em.CreateEntity(
+    typeof(PrefabRef),
+    typeof(WaterLevelChange),
+    typeof(Duration),
+    typeof(Game.Events.DangerLevel)
+);
+
+// Assign a prefab ref (must point to a WaterLevelChange prefab entity)
+em.SetComponentData(waterEvent, new PrefabRef { m_Prefab = someWaterLevelChangePrefabEntity });
+
+// Configure direction and danger height for the wave:
+em.SetComponentData(waterEvent, new WaterLevelChange {
+    m_Direction = new float2(1f, 0f),   // example direction
+    m_DangerHeight = 5.0f
+});
+
+// Set start/end frames for the event (frames in simulation)
+uint now = (uint)World.DefaultGameObjectInjectionWorld.GetOrCreateSystemManaged&lt;SimulationSystem&gt;().frameIndex;
+em.SetComponentData(waterEvent, new Duration { m_StartFrame = now + 60u, m_EndFrame = now + 3600u });
+
+// The WaterDangerSystem (running every 64 frames) will evaluate this event, compute danger zones,
+// update its DangerLevel and emit Endanger entities for affected buildings.
 </code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_SimulationSystem = base.World.GetOrCreateSystemManaged&lt;SimulationSystem&gt;();
-        m_CitySystem = base.World.GetOrCreateSystemManaged&lt;CitySystem&gt;();
-        m_ObjectSearchSystem = base.World.GetOrCreateSystemManaged&lt;SearchSystem&gt;();
-        m_EndFrameBarrier = base.World.GetOrCreateSystemManaged&lt;EndFrameBarrier&gt;();
-        m_WaterLevelChangeQuery = GetEntityQuery(ComponentType.ReadOnly&lt;WaterLevelChange&gt;(), ComponentType.Exclude&lt;Deleted&gt;(), ComponentType.Exclude&lt;Temp&gt;());
-        m_EndangerArchetype = base.EntityManager.CreateArchetype(ComponentType.ReadWrite&lt;Game.Common.Event&gt;(), ComponentType.ReadWrite&lt;Endanger&gt;());
-        RequireForUpdate(m_WaterLevelChangeQuery);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreateForCompiler() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnCreateForCompiler()
-    {
-        base.OnCreateForCompiler();
-        __AssignQueries(ref base.CheckedStateRef);
-        __TypeHandle.__AssignHandles(ref base.CheckedStateRef);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        JobHandle dependencies;
-        JobHandle jobHandle = JobChunkExtensions.ScheduleParallel(new WaterDangerJob
-        {
-            m_EntityType = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef),
-            m_PrefabRefType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_WaterLevelChangeType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Events_WaterLevelChange_RW_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_DurationType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Events_Duration_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_DangerLevelType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Events_DangerLevel_RW_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_InDangerData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Events_InDanger_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_BuildingData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Buildings_Building_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_EmergencyShelterData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Buildings_EmergencyShelter_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabWaterLevelChangeData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_WaterLevelChangeData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_CityModifiers = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_City_CityModifier_RO_BufferLookup, ref base.CheckedStateRef),
-            m_SimulationFrame = m_SimulationSystem.frameIndex,
-            m_City = m_CitySystem.City,
-            m_EndangerArchetype = m_EndangerArchetype,
-            m_StaticObjectSearchTree = m_ObjectSearchSystem.GetStaticSearchTree(readOnly: true, out dependencies),
-            m_CommandBuffer = m_EndFrameBarrier.CreateCommandBuffer().AsParallelWriter()
-        }, m_WaterLevelChangeQuery, JobHandle.CombineDependencies(base.Dependency, dependencies));
-        m_ObjectSearchSystem.AddStaticSearchTreeReader(jobHandle);
-        m_EndFrameBarrier.AddJobHandleForProducer(jobHandle);
-        base.Dependency = jobHandle;
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Simulation.WaterDangerSystem+WaterDangerJob</code>  </li>
-<li><code>Game.Simulation.WaterDangerSystem+TypeHandle</code>  </li>
-</ul>
 
 
 

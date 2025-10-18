@@ -64102,15 +64102,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -64141,6 +64132,15 @@
   <a href="#methods" class="md-nav__link">
     <span class="md-ellipsis">
       Methods
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
     </span>
   </a>
   
@@ -65310,6 +65310,29 @@
   
   <span class="md-ellipsis">
     InterpolatedProperties
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
     
   </span>
   
@@ -69751,6 +69774,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72563,6 +72609,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75553,6 +75622,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87145,6 +87237,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -117921,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117946,15 +118083,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -117992,6 +118120,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -118009,523 +118146,233 @@
 
 
 <h1 id="gamepsirichpresenceupdatesystem">Game.PSI.RichPresenceUpdateSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.PSI</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class RichPresenceUpdateSystem : Game.GameSystemBase
-{
-    private System.DateTime m_StartTime;
-    private System.DateTime m_LastRichUpdate;
-    private System.DateTime m_LastCycleUpdate;
-    private Game.Rendering.PhotoModeRenderSystem m_PhotoModeRenderSystem;
-    private Game.Tools.ToolSystem m_ToolSystem;
-    private Game.City.CityConfigurationSystem m_CityConfigurationSystem;
-    private Game.Simulation.CitySystem m_CitySystem;
-    private Game.Simulation.ClimateSystem m_ClimateSystem;
-    private Game.UI.InGame.TimeUISystem m_TimeUISystem;
-    private Game.UI.InGame.ClimateUISystem m_ClimateUISystem;
-    private Unity.Entities.EntityQuery m_MilestoneLevelQuery;
-    private System.Int32 m_StateIndex;
-    private Colossal.PSI.Discord.DiscordRichPresence m_DiscordRichPresence;
-    private System.String[] m_DiscordState;
-    private static readonly System.String[] kHappinessEmoji;
-    private static readonly System.String[] kHealthEmoji;
-    private static readonly System.String[] kAltHealthEmoji;
-    private static readonly System.String[] kAltHealth2Emoji;
-    private static readonly System.String[] kRomanNumbers;
-    private static const System.Int32 kUpdateRate;
-    private static const System.Int32 kStateCycleInterval;
-
-    private Colossal.PSI.Discord.DiscordRichPresence discordRichPresence { private get; }
-
-    public RichPresenceUpdateSystem();
-
-    private System.String &lt;RegisterKeys&gt;b__36_0();
-    private System.String &lt;RegisterKeys&gt;b__36_1();
-    private System.String &lt;RegisterKeys&gt;b__36_2();
-    private System.String &lt;RegisterKeys&gt;b__36_3();
-    private System.String &lt;RegisterKeys&gt;b__36_4();
-    private System.String &lt;RegisterKeys&gt;b__36_5();
-    private System.String &lt;RegisterKeys&gt;b__36_6();
-    private System.String &lt;RegisterKeys&gt;b__36_7();
-    private System.String &lt;RegisterKeys&gt;b__36_8();
-    private System.Int32 GetAchievedMilestone();
-    private System.String GetActionKey();
-    private System.Int32 GetAverageHappiness();
-    private System.Int32 GetAverageHealth();
-    private static System.Int32 GetHappinessIndex(System.Single happiness);
-    private static System.Int32 GetHealthIndex(System.Single health);
-    private Game.Rendering.LightingSystem+State GetLightingState();
-    private System.String GetMilestoneKey(System.Int32 i);
-    private System.String GetMilestoneNumber(System.Int32 i);
-    private System.Int32 GetPopulationCount();
-    private System.String GetWeatherIconKey();
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnGameLoaded(Colossal.Serialization.Entities.Context serializationContext);
-    protected virtual System.Void OnUpdate();
-    private System.Void RegisterKeys();
-    private System.Void UpdateEditorRichPresence();
-    private System.Void UpdateGameRichPresence();
-}
-</code></pre>
+<p><strong>Assembly:</strong> Assembly-CSharp<br />
+<strong>Namespace:</strong> Game.PSI</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> GameSystemBase</p>
+<p><strong>Summary:</strong><br />
+Provides Discord Rich Presence integration for Cities: Skylines 2. This system collects city/game state (population, money, happiness, health, milestone, weather, time of day, current tool/interaction, photo mode) and periodically updates a DiscordRichPresence PSI. Updates are throttled (every 5 seconds) and a shown sub-state cycles every 10 seconds. It also registers a set of localized rich-presence keys (e.g. "#StatusInGame_Population") with PlatformManager so other parts of the platform can resolve short status strings. The system depends on various game subsystems (CitySystem, ClimateSystem, TimeUISystem, etc.) and uses a lazy reference to the DiscordRichPresence PSI.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private System.DateTime m_StartTime</code>  </li>
+<li>
+<p><code>private const int kUpdateRate</code><br />
+Throttling interval in seconds between rich-presence updates (constant value 5).</p>
+</li>
+<li>
+<p><code>private const int kStateCycleInterval</code><br />
+Interval in seconds used to advance the displayed state cycle (constant value 10).</p>
+</li>
+<li>
+<p><code>private DateTime m_StartTime</code><br />
+Capture time used as the "start time" for the presence (set on game load).</p>
+</li>
+<li>
+<p><code>private DateTime m_LastRichUpdate</code><br />
+Timestamp of the last time a rich-presence update was performed (used for throttling).</p>
+</li>
+<li>
+<p><code>private DateTime m_LastCycleUpdate</code><br />
+Timestamp of the last time the visible state index was cycled.</p>
+</li>
+<li>
+<p><code>private PhotoModeRenderSystem m_PhotoModeRenderSystem</code><br />
+Reference to the photo-mode rendering system (checked to determine if the player is in Photo Mode).</p>
+</li>
+<li>
+<p><code>private ToolSystem m_ToolSystem</code><br />
+Reference to the tool system (used to determine active tool / infoview state).</p>
+</li>
+<li>
+<p><code>private CityConfigurationSystem m_CityConfigurationSystem</code><br />
+Reference to the city configuration system (used e.g. to include city name in some keys).</p>
+</li>
+<li>
+<p><code>private CitySystem m_CitySystem</code><br />
+Reference to the city system (used to obtain money, city entity, etc).</p>
+</li>
+<li>
+<p><code>private ClimateSystem m_ClimateSystem</code><br />
+Reference to the climate/weather system (used to pick weather icon and temperature).</p>
+</li>
+<li>
+<p><code>private TimeUISystem m_TimeUISystem</code><br />
+Reference to the time UI system (used to determine lighting state/day/night).</p>
+</li>
+<li>
+<p><code>private ClimateUISystem m_ClimateUISystem</code><br />
+Reference to the climate UI system (present but not heavily used in this class).</p>
+</li>
+<li>
+<p><code>private EntityQuery m_MilestoneLevelQuery</code><br />
+EntityQuery used to obtain the singleton MilestoneLevel component and determine achieved milestone.</p>
+</li>
+<li>
+<p><code>private int m_StateIndex</code><br />
+Index used to cycle which detail line is shown in Discord presence.</p>
+</li>
+<li>
+<p><code>private DiscordRichPresence m_DiscordRichPresence</code><br />
+Cached reference to the DiscordRichPresence PSI obtained from PlatformManager (lazy-initialized by the discordRichPresence property).</p>
+</li>
+<li>
+<p><code>private string[] m_DiscordState</code><br />
+Array of state keys (rich-presence keys) that are cycled through (e.g. population, money, happiness...). Set on game load depending on game mode.</p>
+</li>
+<li>
+<p><code>private static readonly string[] kHappinessEmoji</code><br />
+Mapping table for happiness levels to emojis (5 levels).</p>
+</li>
+<li>
+<p><code>private static readonly string[] kHealthEmoji</code><br />
+Mapping table for health levels to heart emojis (3 levels).</p>
+</li>
+<li>
+<p><code>private static readonly string[] kAltHealthEmoji</code><br />
+Alternate set of heart/emoji markers for health (3 levels) — present but not used directly in current code paths.</p>
+</li>
+<li>
+<p><code>private static readonly string[] kAltHealth2Emoji</code><br />
+Second alternate set of emojis for health/status (3 levels) — present but not used directly in current code paths.</p>
+</li>
+<li>
+<p><code>private static readonly string[] kRomanNumbers</code><br />
+Roman numeral strings for milestone labels (I..XX). Used to build milestone text.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private System.DateTime m_StartTime;
-</code></pre>
-<ul>
-<li><code>private System.DateTime m_LastRichUpdate</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.DateTime m_LastRichUpdate;
-</code></pre>
-<ul>
-<li><code>private System.DateTime m_LastCycleUpdate</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.DateTime m_LastCycleUpdate;
-</code></pre>
-<ul>
-<li><code>private Game.Rendering.PhotoModeRenderSystem m_PhotoModeRenderSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Rendering.PhotoModeRenderSystem m_PhotoModeRenderSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Tools.ToolSystem m_ToolSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Tools.ToolSystem m_ToolSystem;
-</code></pre>
-<ul>
-<li><code>private Game.City.CityConfigurationSystem m_CityConfigurationSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.City.CityConfigurationSystem m_CityConfigurationSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.CitySystem m_CitySystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.CitySystem m_CitySystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.ClimateSystem m_ClimateSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.ClimateSystem m_ClimateSystem;
-</code></pre>
-<ul>
-<li><code>private Game.UI.InGame.TimeUISystem m_TimeUISystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.UI.InGame.TimeUISystem m_TimeUISystem;
-</code></pre>
-<ul>
-<li><code>private Game.UI.InGame.ClimateUISystem m_ClimateUISystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.UI.InGame.ClimateUISystem m_ClimateUISystem;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_MilestoneLevelQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_MilestoneLevelQuery;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_StateIndex</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_StateIndex;
-</code></pre>
-<ul>
-<li><code>private Colossal.PSI.Discord.DiscordRichPresence m_DiscordRichPresence</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.PSI.Discord.DiscordRichPresence m_DiscordRichPresence;
-</code></pre>
-<ul>
-<li><code>private System.String[] m_DiscordState</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.String[] m_DiscordState;
-</code></pre>
-<ul>
-<li><code>private static readonly System.String[] kHappinessEmoji</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static readonly System.String[] kHappinessEmoji;
-</code></pre>
-<ul>
-<li><code>private static readonly System.String[] kHealthEmoji</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static readonly System.String[] kHealthEmoji;
-</code></pre>
-<ul>
-<li><code>private static readonly System.String[] kAltHealthEmoji</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static readonly System.String[] kAltHealthEmoji;
-</code></pre>
-<ul>
-<li><code>private static readonly System.String[] kAltHealth2Emoji</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static readonly System.String[] kAltHealth2Emoji;
-</code></pre>
-<ul>
-<li><code>private static readonly System.String[] kRomanNumbers</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static readonly System.String[] kRomanNumbers;
-</code></pre>
-<ul>
-<li><code>private static const System.Int32 kUpdateRate</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static const System.Int32 kUpdateRate;
-</code></pre>
-<ul>
-<li><code>private static const System.Int32 kStateCycleInterval</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static const System.Int32 kStateCycleInterval;
-</code></pre>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>private Colossal.PSI.Discord.DiscordRichPresence discordRichPresence { private get }</code>  </li>
+<li><code>private DiscordRichPresence discordRichPresence { get; }</code><br />
+Lazy getter that returns the cached DiscordRichPresence PSI instance or retrieves it from PlatformManager.instance.GetPSI<DiscordRichPresence>("Discord") and caches it. Use this to send SetRichPresence calls without repeatedly performing the PSI lookup.</li>
 </ul>
-<pre><code class="language-csharp">private Colossal.PSI.Discord.DiscordRichPresence discordRichPresence { private get; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public RichPresenceUpdateSystem()</code>  </li>
+<li><code>public RichPresenceUpdateSystem()</code><br />
+Default constructor. The system relies on the Unity/ECS world to perform initialization in OnCreate and OnGameLoaded.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public RichPresenceUpdateSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private &lt;RegisterKeys&gt;b__36_0() : System.String</code>  </li>
+<li>
+<p><code>private static int GetHappinessIndex(float happiness)</code><br />
+Maps an average happiness (0..100) to an index 0..4 used to select an emoji from kHappinessEmoji. Thresholds: &gt;70 -&gt; 4, &gt;55 -&gt; 3, &gt;40 -&gt; 2, &gt;25 -&gt; 1, else 0.</p>
+</li>
+<li>
+<p><code>private static int GetHealthIndex(float health)</code><br />
+Maps average health (0..100) to an index 0..2 used to select an emoji from health arrays. Thresholds: &gt;75 -&gt; 2, &gt;35 -&gt; 1, else 0.</p>
+</li>
+<li>
+<p><code>protected override void OnGameLoaded(Context serializationContext)</code><br />
+Called when a game is loaded. Records m_StartTime and initializes m_DiscordState depending on whether the game mode is actual gameplay or editor. Sets up which rich-presence keys are cycled for in-game mode. If in editor it leaves the editor mode handling to be shown as "Authoring UGC..." via UpdateEditorRichPresence.</p>
+</li>
+<li>
+<p><code>protected override void OnCreate()</code><br />
+System initialization: calls base.OnCreate(), obtains references to required systems via base.World.GetOrCreateSystemManaged<T>(), sets up the milestone EntityQuery, and calls RegisterKeys() to register platform rich-presence keys/lambdas.</p>
+</li>
+<li>
+<p><code>protected override void OnUpdate()</code><br />
+Main periodic driver. Uses DateTime.Now and:</p>
+</li>
+<li>Returns early if less than kUpdateRate (5s) since m_LastRichUpdate.</li>
+<li>If game mode is Game or Editor, cycles m_StateIndex every kStateCycleInterval (10s).</li>
+<li>Calls UpdateGameRichPresence() when in gameplay, or UpdateEditorRichPresence() when in editor.</li>
+<li>
+<p>Wraps logic in try/catch and logs exceptions via COSystemBase.baseLog.Warn.</p>
+</li>
+<li>
+<p><code>private int GetAverageHealth()</code><br />
+Returns the city's average health by reading the Population component on the city entity from the default World if available; otherwise returns 0.</p>
+</li>
+<li>
+<p><code>private string GetMilestoneNumber(int i)</code><br />
+Converts an integer milestone index to a Roman numeral string using kRomanNumbers (returns null when i == 0).</p>
+</li>
+<li>
+<p><code>private string GetMilestoneKey(int i)</code><br />
+Returns a key name for milestone assets/icon lookup in the form "milestone{i}". Used as the large image key when setting Discord presence.</p>
+</li>
+<li>
+<p><code>private int GetAchievedMilestone()</code><br />
+Reads the singleton MilestoneLevel via m_MilestoneLevelQuery; returns 0 if the query is empty, otherwise returns m_AchievedMilestone.</p>
+</li>
+<li>
+<p><code>private int GetAverageHappiness()</code><br />
+Returns the city's average happiness by reading the Population component on the city entity; returns 0 if unavailable.</p>
+</li>
+<li>
+<p><code>private int GetPopulationCount()</code><br />
+Returns the city population from the Population component on the city entity, or 0 if it is not available.</p>
+</li>
+<li>
+<p><code>private string GetWeatherIconKey()</code><br />
+Determines a combined weather + lighting key string used as a small image key for presence. Logic:</p>
+</li>
+<li>Base key is climate classification name lowercased.</li>
+<li>If precipitation &gt; 0.3, prefers "rain" or "snow".</li>
+<li>If stormy classification + precipitation &gt; 0.9 selects "hail" or "stormy".</li>
+<li>
+<p>Appends lighting state (day/night) determined via GetLightingState() to generate a final key like "rainnight" or "clearday".
+  Returns that string for use by DiscordRichPresence.</p>
+</li>
+<li>
+<p><code>private LightingSystem.State GetLightingState()</code><br />
+Maps TimeUISystem.GetLightingState() to a simplified day/night mapping: treats Sunset and Dusk as Night, Dawn and Sunrise as Day, otherwise returns the lighting state unchanged.</p>
+</li>
+<li>
+<p><code>private void RegisterKeys()</code><br />
+Registers a set of rich-presence keys with PlatformManager.instance.RegisterRichPresenceKey. Each key is associated with a lambda that returns a short string describing the particular stat or action, e.g.:</p>
+</li>
+<li>"#StatusInGame_Building" =&gt; "Building {cityName}"</li>
+<li>"#StatusInGame_Population" =&gt; "Population: {count}"</li>
+<li>"#StatusInGame_Money" =&gt; "Money: {amount}¢"</li>
+<li>"#StatusInGame_Happiness" =&gt; "Happiness: {emoji}"</li>
+<li>"#StatusInGame_Health" =&gt; "Health: {emoji}"</li>
+<li>
+<p>"#StatusInGame_Milestone" =&gt; "Milestone {RomanNumeral}"
+These keys are used as the smaller/secondary text lines cycled in the presence.</p>
+</li>
+<li>
+<p><code>private string GetActionKey()</code><br />
+Choose an action key describing the player's current activity:</p>
+</li>
+<li>If Photo Mode is enabled -&gt; "#StatusInGame_CapturingMemories"</li>
+<li>If an infoview is active -&gt; "#StatusInGame_Inspecting"</li>
+<li>If active tool is a BulldozeToolSystem -&gt; "#StatusInGame_Bulldozing"</li>
+<li>
+<p>Otherwise -&gt; "#StatusInGame_Building"</p>
+</li>
+<li>
+<p><code>private void UpdateEditorRichPresence()</code><br />
+Sets a simple editor presence via discordRichPresence.SetRichPresence with title "In Editor" and details "Authoring UGC..." The StartTime and image keys reflect editor mode.</p>
+</li>
+<li>
+<p><code>private void UpdateGameRichPresence()</code><br />
+Builds and sets the in-game rich presence:</p>
+</li>
+<li>Computes achieved milestone and Roman numeral.</li>
+<li>Selects which secondary state key from m_DiscordState to show based on m_StateIndex (cycles every 10s). If achievedMilestone == 0, the milestone key is excluded from the cycle.</li>
+<li>Calls discordRichPresence.SetRichPresence(actionKey, stateKey, m_StartTime, milestoneImageKey, milestoneLabel, weatherIconKey, temperatureString)</li>
+<li>Supplies a weather icon key and temperature string from climate data (rounded Celsius).</li>
 </ul>
-<pre><code class="language-csharp">private System.String &lt;RegisterKeys&gt;b__36_0();
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Example: how the system sends an update to DiscordRichPresence.
+// The system does this internally; this snippet mirrors the call used.
+var discord = PlatformManager.instance.GetPSI&lt;DiscordRichPresence&gt;(&quot;Discord&quot;);
+DateTime start = DateTime.Now;
+string actionKey = &quot;#StatusInGame_Building&quot;; // e.g. from GetActionKey()
+string stateKey = &quot;#StatusInGame_Population&quot;; // e.g. one of the registered keys
+string milestoneImageKey = &quot;milestoneIII&quot;;
+string milestoneLabel = &quot;Milestone III&quot;;
+string weatherIconKey = &quot;rainnight&quot;;
+string temp = &quot;12°C&quot;;
+
+discord.SetRichPresence(actionKey, stateKey, start, milestoneImageKey, milestoneLabel, weatherIconKey, temp);
 </code></pre>
-<ul>
-<li><code>private &lt;RegisterKeys&gt;b__36_1() : System.String</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.String &lt;RegisterKeys&gt;b__36_1();
-</code></pre>
-<ul>
-<li><code>private &lt;RegisterKeys&gt;b__36_2() : System.String</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.String &lt;RegisterKeys&gt;b__36_2();
-</code></pre>
-<ul>
-<li><code>private &lt;RegisterKeys&gt;b__36_3() : System.String</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.String &lt;RegisterKeys&gt;b__36_3();
-</code></pre>
-<ul>
-<li><code>private &lt;RegisterKeys&gt;b__36_4() : System.String</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.String &lt;RegisterKeys&gt;b__36_4();
-</code></pre>
-<ul>
-<li><code>private &lt;RegisterKeys&gt;b__36_5() : System.String</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.String &lt;RegisterKeys&gt;b__36_5();
-</code></pre>
-<ul>
-<li><code>private &lt;RegisterKeys&gt;b__36_6() : System.String</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.String &lt;RegisterKeys&gt;b__36_6();
-</code></pre>
-<ul>
-<li><code>private &lt;RegisterKeys&gt;b__36_7() : System.String</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.String &lt;RegisterKeys&gt;b__36_7();
-</code></pre>
-<ul>
-<li><code>private &lt;RegisterKeys&gt;b__36_8() : System.String</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.String &lt;RegisterKeys&gt;b__36_8();
-</code></pre>
-<ul>
-<li><code>private GetAchievedMilestone() : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">private int GetAchievedMilestone()
-    {
-        if (m_MilestoneLevelQuery.IsEmptyIgnoreFilter)
-        {
-            return 0;
-        }
-        return m_MilestoneLevelQuery.GetSingleton&lt;MilestoneLevel&gt;().m_AchievedMilestone;
-    }
-</code></pre>
-<ul>
-<li><code>private GetActionKey() : System.String</code>  </li>
-</ul>
-<pre><code class="language-csharp">private string GetActionKey()
-    {
-        if (m_PhotoModeRenderSystem.Enabled)
-        {
-            return &quot;#StatusInGame_CapturingMemories&quot;;
-        }
-        if (m_ToolSystem.activeInfoview != null)
-        {
-            return &quot;#StatusInGame_Inspecting&quot;;
-        }
-        if (m_ToolSystem.activeTool is BulldozeToolSystem)
-        {
-            return &quot;#StatusInGame_Bulldozing&quot;;
-        }
-        return &quot;#StatusInGame_Building&quot;;
-    }
-</code></pre>
-<ul>
-<li><code>private GetAverageHappiness() : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">private int GetAverageHappiness()
-    {
-        World defaultGameObjectInjectionWorld = World.DefaultGameObjectInjectionWorld;
-        int result = 0;
-        if (defaultGameObjectInjectionWorld.EntityManager.HasComponent&lt;Population&gt;(m_CitySystem.City))
-        {
-            result = defaultGameObjectInjectionWorld.EntityManager.GetComponentData&lt;Population&gt;(m_CitySystem.City).m_AverageHappiness;
-        }
-        return result;
-    }
-</code></pre>
-<ul>
-<li><code>private GetAverageHealth() : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">private int GetAverageHealth()
-    {
-        World defaultGameObjectInjectionWorld = World.DefaultGameObjectInjectionWorld;
-        int result = 0;
-        if (defaultGameObjectInjectionWorld.EntityManager.HasComponent&lt;Population&gt;(m_CitySystem.City))
-        {
-            result = defaultGameObjectInjectionWorld.EntityManager.GetComponentData&lt;Population&gt;(m_CitySystem.City).m_AverageHealth;
-        }
-        return result;
-    }
-</code></pre>
-<ul>
-<li><code>private static GetHappinessIndex(System.Single happiness) : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static int GetHappinessIndex(float happiness)
-    {
-        if (happiness &gt; 70f)
-        {
-            return 4;
-        }
-        if (happiness &gt; 55f)
-        {
-            return 3;
-        }
-        if (happiness &gt; 40f)
-        {
-            return 2;
-        }
-        if (happiness &gt; 25f)
-        {
-            return 1;
-        }
-        return 0;
-    }
-</code></pre>
-<ul>
-<li><code>private static GetHealthIndex(System.Single health) : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static int GetHealthIndex(float health)
-    {
-        if (health &gt; 75f)
-        {
-            return 2;
-        }
-        if (health &gt; 35f)
-        {
-            return 1;
-        }
-        return 0;
-    }
-</code></pre>
-<ul>
-<li><code>private GetLightingState() : Game.Rendering.LightingSystem+State</code>  </li>
-</ul>
-<pre><code class="language-csharp">private LightingSystem.State GetLightingState()
-    {
-        LightingSystem.State lightingState = m_TimeUISystem.GetLightingState();
-        switch (lightingState)
-        {
-        case LightingSystem.State.Sunset:
-        case LightingSystem.State.Dusk:
-            return LightingSystem.State.Night;
-        case LightingSystem.State.Dawn:
-        case LightingSystem.State.Sunrise:
-            return LightingSystem.State.Day;
-        default:
-            return lightingState;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private GetMilestoneKey(System.Int32 i) : System.String</code>  </li>
-</ul>
-<pre><code class="language-csharp">private string GetMilestoneKey(int i)
-    {
-        return $&quot;milestone{i}&quot;;
-    }
-</code></pre>
-<ul>
-<li><code>private GetMilestoneNumber(System.Int32 i) : System.String</code>  </li>
-</ul>
-<pre><code class="language-csharp">private string GetMilestoneNumber(int i)
-    {
-        if (i == 0)
-        {
-            return null;
-        }
-        return kRomanNumbers[i - 1];
-    }
-</code></pre>
-<ul>
-<li><code>private GetPopulationCount() : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">private int GetPopulationCount()
-    {
-        World defaultGameObjectInjectionWorld = World.DefaultGameObjectInjectionWorld;
-        int result = 0;
-        if (defaultGameObjectInjectionWorld.EntityManager.HasComponent&lt;Population&gt;(m_CitySystem.City))
-        {
-            result = defaultGameObjectInjectionWorld.EntityManager.GetComponentData&lt;Population&gt;(m_CitySystem.City).m_Population;
-        }
-        return result;
-    }
-</code></pre>
-<ul>
-<li><code>private GetWeatherIconKey() : System.String</code>  </li>
-</ul>
-<pre><code class="language-csharp">private string GetWeatherIconKey()
-    {
-        string text = m_ClimateSystem.classification.ToString().ToLowerInvariant();
-        if ((float)m_ClimateSystem.precipitation &gt; 0.3f)
-        {
-            if (m_ClimateSystem.isRaining)
-            {
-                text = &quot;rain&quot;;
-            }
-            else if (m_ClimateSystem.isSnowing)
-            {
-                text = &quot;snow&quot;;
-            }
-        }
-        if (m_ClimateSystem.classification == ClimateSystem.WeatherClassification.Stormy &amp;&amp; (float)m_ClimateSystem.precipitation &gt; 0.9f)
-        {
-            text = ((!m_ClimateSystem.isRaining) ? &quot;hail&quot; : &quot;stormy&quot;);
-        }
-        string text2 = GetLightingState().ToString().ToLowerInvariant();
-        return text + text2;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_CityConfigurationSystem = base.World.GetOrCreateSystemManaged&lt;CityConfigurationSystem&gt;();
-        m_ToolSystem = base.World.GetOrCreateSystemManaged&lt;ToolSystem&gt;();
-        m_CitySystem = base.World.GetOrCreateSystemManaged&lt;CitySystem&gt;();
-        m_ClimateSystem = base.World.GetOrCreateSystemManaged&lt;ClimateSystem&gt;();
-        m_ClimateUISystem = base.World.GetOrCreateSystemManaged&lt;ClimateUISystem&gt;();
-        m_TimeUISystem = base.World.GetOrCreateSystemManaged&lt;TimeUISystem&gt;();
-        m_PhotoModeRenderSystem = base.World.GetOrCreateSystemManaged&lt;PhotoModeRenderSystem&gt;();
-        m_MilestoneLevelQuery = GetEntityQuery(ComponentType.ReadOnly&lt;MilestoneLevel&gt;());
-        RegisterKeys();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnGameLoaded(Colossal.Serialization.Entities.Context serializationContext) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnGameLoaded(Context serializationContext)
-    {
-        m_StartTime = DateTime.Now;
-        if (GameManager.instance.gameMode.IsGame())
-        {
-            m_DiscordState = new string[5] { &quot;#StatusInGame_Population&quot;, &quot;#StatusInGame_Money&quot;, &quot;#StatusInGame_Happiness&quot;, &quot;#StatusInGame_Health&quot;, &quot;#StatusInGame_Milestone&quot; };
-        }
-        else
-        {
-            GameManager.instance.gameMode.IsEditor();
-        }
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        try
-        {
-            DateTime now = DateTime.Now;
-            if ((now - m_LastRichUpdate).TotalSeconds &lt; 5.0)
-            {
-                return;
-            }
-            GameMode gameMode = GameManager.instance.gameMode;
-            if (gameMode.IsGameOrEditor())
-            {
-                if ((now - m_LastCycleUpdate).TotalSeconds &gt; 10.0)
-                {
-                    m_StateIndex++;
-                    m_LastCycleUpdate = now;
-                }
-                if (gameMode.IsGame())
-                {
-                    UpdateGameRichPresence();
-                }
-                else if (gameMode.IsEditor())
-                {
-                    UpdateEditorRichPresence();
-                }
-            }
-            m_LastRichUpdate = now;
-        }
-        catch (Exception exception)
-        {
-            COSystemBase.baseLog.Warn(exception);
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private RegisterKeys() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void RegisterKeys()
-    {
-        PlatformManager instance = PlatformManager.instance;
-        instance.RegisterRichPresenceKey(&quot;#StatusInGame_Building&quot;, () =&gt; &quot;Building &quot; + m_CityConfigurationSystem.cityName);
-        instance.RegisterRichPresenceKey(&quot;#StatusInGame_Bulldozing&quot;, () =&gt; &quot;Bulldozing &quot; + m_CityConfigurationSystem.cityName);
-        instance.RegisterRichPresenceKey(&quot;#StatusInGame_Inspecting&quot;, () =&gt; &quot;Inspecting &quot; + m_CityConfigurationSystem.cityName);
-        instance.RegisterRichPresenceKey(&quot;#StatusInGame_CapturingMemories&quot;, () =&gt; &quot;Capturing memories in &quot; + m_CityConfigurationSystem.cityName);
-        instance.RegisterRichPresenceKey(&quot;#StatusInGame_Population&quot;, () =&gt; $&quot;Population: {GetPopulationCount()}&quot;);
-        instance.RegisterRichPresenceKey(&quot;#StatusInGame_Money&quot;, () =&gt; &quot;Money: &quot; + m_CitySystem.moneyAmount.ToString(CultureInfo.InvariantCulture) + &quot;¢&quot;);
-        instance.RegisterRichPresenceKey(&quot;#StatusInGame_Happiness&quot;, () =&gt; &quot;Happiness: &quot; + kHappinessEmoji[GetHappinessIndex(GetAverageHappiness())]);
-        instance.RegisterRichPresenceKey(&quot;#StatusInGame_Health&quot;, () =&gt; &quot;Health: &quot; + kHealthEmoji[GetHealthIndex(GetAverageHealth())]);
-        instance.RegisterRichPresenceKey(&quot;#StatusInGame_Milestone&quot;, () =&gt; &quot;Milestone &quot; + GetMilestoneNumber(GetAchievedMilestone()));
-    }
-</code></pre>
-<ul>
-<li><code>private UpdateEditorRichPresence() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void UpdateEditorRichPresence()
-    {
-        discordRichPresence.SetRichPresence(&quot;In Editor&quot;, &quot;Authoring UGC...&quot;, m_StartTime, &quot;editor&quot;, &quot;In-Game Editor&quot;);
-    }
-</code></pre>
-<ul>
-<li><code>private UpdateGameRichPresence() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void UpdateGameRichPresence()
-    {
-        int achievedMilestone = GetAchievedMilestone();
-        string milestoneNumber = GetMilestoneNumber(achievedMilestone);
-        if (m_DiscordState != null)
-        {
-            discordRichPresence.SetRichPresence(GetActionKey(), m_DiscordState[m_StateIndex % ((achievedMilestone == 0) ? (m_DiscordState.Length - 1) : m_DiscordState.Length)], m_StartTime, GetMilestoneKey(achievedMilestone), (milestoneNumber != null) ? (&quot;Milestone &quot; + milestoneNumber) : null, GetWeatherIconKey(), $&quot;{math.round(m_ClimateSystem.temperature)}°C&quot;);
-        }
-    }
-</code></pre>
+<p>Notes and implementation remarks:
+- The system is intended to run inside the ECS/World; it resolves dependent systems in OnCreate.
+- All presence updates are throttled to at most once every 5 seconds.
+- The displayed secondary stat cycles every 10 seconds via m_StateIndex.
+- Several emoji tables and alternate emoji arrays are present; current code uses only the primary kHappinessEmoji and kHealthEmoji arrays.
+- Exceptions during OnUpdate are caught and logged via COSystemBase.baseLog.Warn to avoid crashing the update loop.</p>
 
 
 

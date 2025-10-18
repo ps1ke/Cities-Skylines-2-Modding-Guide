@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#gamesimulationdispatchwatersystem" class="md-skip">
+        <a href="#gamedispatchwatersystem" class="md-skip">
           Skip to content
         </a>
       
@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -80777,15 +80869,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -80822,9 +80905,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -87154,6 +87237,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -117930,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117955,15 +118083,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -118002,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118026,211 +118145,87 @@
 
 
 
-<h1 id="gamesimulationdispatchwatersystem">Game.Simulation.DispatchWaterSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Simulation</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class DispatchWaterSystem : Game.GameSystemBase
-{
-    private Game.Simulation.WaterPipeFlowSystem m_WaterPipeFlowSystem;
-    private Game.Notifications.IconCommandSystem m_IconCommandSystem;
-    private Unity.Entities.EntityQuery m_ConsumerQuery;
-    private System.Boolean &lt;freshConsumptionDisabled&gt;k__BackingField;
-    private System.Boolean &lt;sewageConsumptionDisabled&gt;k__BackingField;
-    private Game.Simulation.DispatchWaterSystem+TypeHandle __TypeHandle;
-    private Unity.Entities.EntityQuery __query_1010455350_0;
-    private Unity.Entities.EntityQuery __query_1010455350_1;
-    public static readonly System.Int16 kAlertCooldown;
-    public static readonly System.Int16 kHealthPenaltyCooldown;
-    private static const System.Single kNotificationMaxDelay;
-
-    public System.Boolean freshConsumptionDisabled { get; set; }
-    public System.Boolean sewageConsumptionDisabled { get; set; }
-
-    public DispatchWaterSystem();
-
-    private System.Void __AssignQueries(Unity.Entities.SystemState&amp; state);
-    public virtual System.Int32 GetUpdateInterval(Game.SystemUpdatePhase phase);
-    public virtual System.Int32 GetUpdateOffset(Game.SystemUpdatePhase phase);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnCreateForCompiler();
-    protected virtual System.Void OnUpdate();
-}
-</code></pre>
+<h1 id="gamedispatchwatersystem">Game.DispatchWaterSystem</h1>
+<p><strong>Assembly:</strong> Assembly-CSharp (game assembly)<br />
+<strong>Namespace:</strong> Game.Simulation</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> GameSystemBase</p>
+<p><strong>Summary:</strong><br />
+DispatchWaterSystem is an ECS system responsible for applying water and sewage flow results from the water-pipe simulation to building WaterConsumer components. It schedules a Burst-compiled IJobChunk (DispatchWaterJob) that reads the water-pipe graph (via WaterPipeFlowSystem) and per-building connection data, computes fulfilled fresh water and sewage values, updates pollution, toggles UI notifications (through IconCommandSystem), and writes building efficiency penalties based on the configured BuildingEfficiencyParameterData. The system runs on a fixed update cadence (see GetUpdateInterval/GetUpdateOffset) and only updates when consumer buildings and the required parameter singletons are available.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.Simulation.WaterPipeFlowSystem m_WaterPipeFlowSystem</code>  </li>
+<li>
+<p><code>private WaterPipeFlowSystem m_WaterPipeFlowSystem</code><br />
+This is a cached reference to the WaterPipeFlowSystem (the system that computes the flow graph). DispatchWaterSystem reads the sink node and uses the flow data produced by this system. The DispatchWaterJob is only scheduled when m_WaterPipeFlowSystem.ready is true.</p>
+</li>
+<li>
+<p><code>private IconCommandSystem m_IconCommandSystem</code><br />
+Used to create an IconCommandBuffer that the job writes to in order to add/remove building notifications (e.g., water shortage, dirty water). The command buffer is submitted back to the IconCommandSystem so UI icons are updated safely from the job.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.Simulation.WaterPipeFlowSystem m_WaterPipeFlowSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Notifications.IconCommandSystem m_IconCommandSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Notifications.IconCommandSystem m_IconCommandSystem;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_ConsumerQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_ConsumerQuery;
-</code></pre>
-<ul>
-<li><code>private System.Boolean &lt;freshConsumptionDisabled&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean &lt;freshConsumptionDisabled&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private System.Boolean &lt;sewageConsumptionDisabled&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean &lt;sewageConsumptionDisabled&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.DispatchWaterSystem+TypeHandle __TypeHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.DispatchWaterSystem+TypeHandle __TypeHandle;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery __query_1010455350_0</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery __query_1010455350_0;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery __query_1010455350_1</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery __query_1010455350_1;
-</code></pre>
-<ul>
-<li><code>public static readonly System.Int16 kAlertCooldown</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static readonly System.Int16 kAlertCooldown;
-</code></pre>
-<ul>
-<li><code>public static readonly System.Int16 kHealthPenaltyCooldown</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static readonly System.Int16 kHealthPenaltyCooldown;
-</code></pre>
-<ul>
-<li><code>private static const System.Single kNotificationMaxDelay</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static const System.Single kNotificationMaxDelay;
-</code></pre>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>public System.Boolean freshConsumptionDisabled { get; set }</code>  </li>
+<li>
+<p><code>public bool freshConsumptionDisabled { get; set; }</code><br />
+When true, fresh water consumption is treated as fully satisfied inside the job (the job forces full fresh consumption and suppresses water shortage/disconnected flags). This is typically used for debugging or special game states where water shortages should be ignored.</p>
+</li>
+<li>
+<p><code>public bool sewageConsumptionDisabled { get; set; }</code><br />
+When true, sewage consumption is treated as fully satisfied (the job forces full sewage fulfillment and suppresses sewage-related warnings/flags).</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public System.Boolean freshConsumptionDisabled { get; set; }
-</code></pre>
-<ul>
-<li><code>public System.Boolean sewageConsumptionDisabled { get; set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Boolean sewageConsumptionDisabled { get; set; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public DispatchWaterSystem()</code>  </li>
+<li><code>public DispatchWaterSystem()</code><br />
+Default system constructor. Initialization of query handles and other runtime linking is performed in OnCreate / OnCreateForCompiler. The system is preserved for managed creation (OnCreate is decorated with [Preserve] in the class).</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public DispatchWaterSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private __AssignQueries(Unity.Entities.SystemState&amp; state) : System.Void</code>  </li>
+<li><code>protected override void OnCreate() : System.Void</code><br />
+Sets up required systems and entity queries. Specifically:</li>
+<li>Retrieves or creates the WaterPipeFlowSystem and IconCommandSystem from the world.</li>
+<li>Builds an EntityQuery to select buildings with a WaterConsumer component (excluding Destroyed, Deleted and Temp).</li>
+<li>Registers RequireForUpdate on the consumer query and on the singleton parameter data types (WaterPipeParameterData and BuildingEfficiencyParameterData) to ensure the system only runs when necessary data is present.</li>
 </ul>
-<pre><code class="language-csharp">private void __AssignQueries(ref SystemState state)
-    {
-        EntityQueryBuilder entityQueryBuilder = new EntityQueryBuilder(Allocator.Temp);
-        EntityQueryBuilder entityQueryBuilder2 = entityQueryBuilder.WithAll&lt;WaterPipeParameterData&gt;();
-        entityQueryBuilder2 = entityQueryBuilder2.WithOptions(EntityQueryOptions.IncludeSystems);
-        __query_1010455350_0 = entityQueryBuilder2.Build(ref state);
-        entityQueryBuilder.Reset();
-        entityQueryBuilder2 = entityQueryBuilder.WithAll&lt;BuildingEfficiencyParameterData&gt;();
-        entityQueryBuilder2 = entityQueryBuilder2.WithOptions(EntityQueryOptions.IncludeSystems);
-        __query_1010455350_1 = entityQueryBuilder2.Build(ref state);
-        entityQueryBuilder.Reset();
-        entityQueryBuilder.Dispose();
-    }
-</code></pre>
+<p>Additional important methods (implemented in the system):
+  - <code>protected override void OnUpdate()</code><br />
+    - If the WaterPipeFlowSystem is ready, creates and schedules the DispatchWaterJob (IJobChunk) to process all consumer buildings in parallel.
+    - The job is provided with Entity and component type handles, component lookups for water-pipe graph elements, an IconCommandBuffer, parameter singletons, the sink node from the flow system, and random seed.
+    - Adds the job dependency to the IconCommandSystem so icon commands are executed after the job.</p>
 <ul>
-<li><code>public virtual GetUpdateInterval(Game.SystemUpdatePhase phase) : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override int GetUpdateInterval(SystemUpdatePhase phase)
-    {
-        return 128;
-    }
-</code></pre>
+<li>
+<p><code>public override int GetUpdateInterval(SystemUpdatePhase phase)</code> / <code>public override int GetUpdateOffset(SystemUpdatePhase phase)</code>  </p>
 <ul>
-<li><code>public virtual GetUpdateOffset(Game.SystemUpdatePhase phase) : System.Int32</code>  </li>
+<li>These methods control the system's scheduling cadence. In the implementation the interval is 128 and the offset is 62 (so updates are spaced deterministically across frames).</li>
 </ul>
-<pre><code class="language-csharp">public override int GetUpdateOffset(SystemUpdatePhase phase)
-    {
-        return 62;
-    }
-</code></pre>
+</li>
+<li>
+<p><code>protected override void OnCreateForCompiler()</code>  </p>
 <ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
+<li>Internal helper that assigns component type/lookup handles and builds queries used by the job. This is part of the generated/boilerplate ECS wiring.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_WaterPipeFlowSystem = base.World.GetOrCreateSystemManaged&lt;WaterPipeFlowSystem&gt;();
-        m_IconCommandSystem = base.World.GetOrCreateSystemManaged&lt;IconCommandSystem&gt;();
-        m_ConsumerQuery = GetEntityQuery(ComponentType.ReadOnly&lt;Building&gt;(), ComponentType.ReadWrite&lt;WaterConsumer&gt;(), ComponentType.Exclude&lt;Destroyed&gt;(), ComponentType.Exclude&lt;Deleted&gt;(), ComponentType.Exclude&lt;Temp&gt;());
-        RequireForUpdate(m_ConsumerQuery);
-        RequireForUpdate&lt;WaterPipeParameterData&gt;();
-        RequireForUpdate&lt;BuildingEfficiencyParameterData&gt;();
-    }
+</li>
+</ul>
+<p>Internals inside the DispatchWaterJob (high-level):
+  - Reads WaterPipeBuildingConnection or falls back to building's road edge -&gt; node connection to find the flow edge to the sink node.
+  - Computes fulfilled fresh water and sewage amounts (respecting edge capacities and flows).
+  - Applies m_FreshConsumptionDisabled / m_SewageConsumptionDisabled behavior.
+  - Updates WaterConsumer fields: m_FulfilledFresh, m_FulfilledSewage, m_Pollution, and flags (WaterConnected/SewageConnected).
+  - Handles notification cooldowns (kAlertCooldown) and posts/removes IconCommandBuffer notifications for shortages and dirty water.
+  - Updates building Efficiency buffer entries to apply penalties for water shortage, pollution, and sewage backup.</p>
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Accessing the system and toggling its properties at runtime:
+var world = Unity.Entities.World.DefaultGameObjectInjectionWorld;
+var dispatchSystem = world.GetExistingSystemManaged&lt;Game.Simulation.DispatchWaterSystem&gt;();
+
+// Temporarily disable fresh water shortages (e.g., for testing)
+dispatchSystem.freshConsumptionDisabled = true;
+
+// Re-enable normal behavior later
+dispatchSystem.freshConsumptionDisabled = false;
 </code></pre>
-<ul>
-<li><code>protected virtual OnCreateForCompiler() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnCreateForCompiler()
-    {
-        base.OnCreateForCompiler();
-        __AssignQueries(ref base.CheckedStateRef);
-        __TypeHandle.__AssignHandles(ref base.CheckedStateRef);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        if (m_WaterPipeFlowSystem.ready)
-        {
-            DispatchWaterJob jobData = new DispatchWaterJob
-            {
-                m_EntityType = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef),
-                m_BuildingType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Buildings_Building_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                m_BuildingConnectionType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Simulation_WaterPipeBuildingConnection_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                m_ConsumerType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Buildings_WaterConsumer_RW_ComponentTypeHandle, ref base.CheckedStateRef),
-                m_EfficiencyType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Buildings_Efficiency_RW_BufferTypeHandle, ref base.CheckedStateRef),
-                m_NodeConnections = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Simulation_WaterPipeNodeConnection_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_FlowEdges = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Simulation_WaterPipeEdge_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_FlowConnections = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Simulation_ConnectedFlowEdge_RO_BufferLookup, ref base.CheckedStateRef),
-                m_IconCommandBuffer = m_IconCommandSystem.CreateCommandBuffer(),
-                m_Parameters = __query_1010455350_0.GetSingleton&lt;WaterPipeParameterData&gt;(),
-                m_EfficiencyParameters = __query_1010455350_1.GetSingleton&lt;BuildingEfficiencyParameterData&gt;(),
-                m_SinkNode = m_WaterPipeFlowSystem.sinkNode,
-                m_RandomSeed = RandomSeed.Next(),
-                m_FreshConsumptionDisabled = freshConsumptionDisabled,
-                m_SewageConsumptionDisabled = sewageConsumptionDisabled
-            };
-            base.Dependency = JobChunkExtensions.ScheduleParallel(jobData, m_ConsumerQuery, base.Dependency);
-            m_IconCommandSystem.AddCommandBufferWriter(base.Dependency);
-        }
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Simulation.DispatchWaterSystem+DispatchWaterJob</code>  </li>
-<li><code>Game.Simulation.DispatchWaterSystem+TypeHandle</code>  </li>
-</ul>
+<p>If you need a code example showing how to extend or hook into the system (for example to monitor when icons are added), tell me what you want to do and I can provide a tailored snippet.</p>
 
 
 

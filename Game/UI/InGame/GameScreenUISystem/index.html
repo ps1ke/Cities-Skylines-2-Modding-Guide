@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#gameuiingamegamescreenuisystem" class="md-skip">
+        <a href="#gamegamescreenuisystem" class="md-skip">
           Skip to content
         </a>
       
@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87056,6 +87148,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -102138,15 +102253,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -102183,9 +102289,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -117932,6 +118038,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117957,15 +118085,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -118004,9 +118123,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118028,152 +118147,127 @@
 
 
 
-<h1 id="gameuiingamegamescreenuisystem">Game.UI.InGame.GameScreenUISystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.UI.InGame</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.UI.UISystemBase</code><br />
-<strong>Implements:</strong> <code>Game.Serialization.IPreDeserialize</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class GameScreenUISystem : Game.UI.UISystemBase, Game.Serialization.IPreDeserialize
-{
-    private Colossal.UI.Binding.ValueBinding&lt;Game.UI.InGame.GameScreenUISystem+GameScreen&gt; m_ActiveScreenBinding;
-    private Colossal.UI.Binding.ValueBinding&lt;System.Boolean&gt; m_CanUseSaveSystem;
-    private static const System.String kSavingGameNotificationTitle;
-    private static const System.String kGroup;
-
-    public Game.UI.InGame.GameScreenUISystem+GameScreen activeScreen { get; set; }
-    public System.Boolean isMenuActive { get; }
-
-    public GameScreenUISystem();
-
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnDestroy();
-    protected virtual System.Void OnUpdate();
-    public System.Void PreDeserialize(Colossal.Serialization.Entities.Context context);
-    private System.Void SaveLoadInProgress(System.String name, System.Boolean start);
-    public System.Void SetScreen(Game.UI.InGame.GameScreenUISystem+GameScreen screen);
-}
-</code></pre>
+<h1 id="gamegamescreenuisystem">Game.GameScreenUISystem</h1>
+<p><strong>Assembly:</strong> Assembly-CSharp<br />
+<strong>Namespace:</strong> Game.UI.InGame</p>
+<p><strong>Type:</strong> public class GameScreenUISystem</p>
+<p><strong>Base:</strong> UISystemBase, IPreDeserialize</p>
+<p><strong>Summary:</strong><br />
+Manages the in-game UI screen state for Cities: Skylines 2. Provides an enum of supported game screens (Main, FreeCamera, PauseMenu, SaveGame, NewGame, LoadGame, Options), tracks and exposes the currently active screen via a ValueBinding, toggles whether the save system can be used, and handles cursor visibility / lock mode when switching screens. It also listens for game save/load progress (GameManager.instance.onGameSaveLoad) and pushes/pops localized notifications for save operations. Uses Colossal UI binding primitives (ValueBinding, TriggerBinding) to integrate with the UI data layer.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Colossal.UI.Binding.ValueBinding&lt;Game.UI.InGame.GameScreenUISystem+GameScreen&gt; m_ActiveScreenBinding</code>  </li>
+<li>
+<p><code>private const string kSavingGameNotificationTitle</code><br />
+Contains the base notification title key used when showing "saving game" notifications. Value in code: "SavingGame".</p>
+</li>
+<li>
+<p><code>private const string kGroup</code><br />
+Group name used for bindings. Value in code: "game".</p>
+</li>
+<li>
+<p><code>private ValueBinding&lt;GameScreen&gt; m_ActiveScreenBinding</code><br />
+ValueBinding that holds the currently active GameScreen. Backed by the UI binding system with key ("game","activeScreen"). Used for reading/updating the active screen and determining whether menus are active.</p>
+</li>
+<li>
+<p><code>private ValueBinding&lt;bool&gt; m_CanUseSaveSystem</code><br />
+ValueBinding used to enable/disable the save system in the UI (key: "game","canUseSaveSystem"). Updated when save/load starts and finishes.</p>
+</li>
+<li>
+<p><code>public enum GameScreen</code><br />
+Defines available UI screens:</p>
+</li>
+<li>Main = 0</li>
+<li>FreeCamera = 1</li>
+<li>PauseMenu = 10</li>
+<li>SaveGame = 11</li>
+<li>NewGame = 12</li>
+<li>LoadGame = 13</li>
+<li>Options = 14</li>
 </ul>
-<pre><code class="language-csharp">private Colossal.UI.Binding.ValueBinding&lt;Game.UI.InGame.GameScreenUISystem+GameScreen&gt; m_ActiveScreenBinding;
-</code></pre>
-<ul>
-<li><code>private Colossal.UI.Binding.ValueBinding&lt;System.Boolean&gt; m_CanUseSaveSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.UI.Binding.ValueBinding&lt;System.Boolean&gt; m_CanUseSaveSystem;
-</code></pre>
-<ul>
-<li><code>private static const System.String kSavingGameNotificationTitle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static const System.String kSavingGameNotificationTitle;
-</code></pre>
-<ul>
-<li><code>private static const System.String kGroup</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static const System.String kGroup;
-</code></pre>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>public Game.UI.InGame.GameScreenUISystem+GameScreen activeScreen { get; set }</code>  </li>
+<li>
+<p><code>public Unity.Jobs.JobHandle producerHandle { get; private set }</code><br />
+(not present in this class) — This placeholder appears in the template but is not applicable to GameScreenUISystem. The meaningful properties in this class are below.</p>
+</li>
+<li>
+<p><code>public GameScreen activeScreen { get; set; }</code><br />
+Gets or sets the current active screen via m_ActiveScreenBinding. The getter returns the binding's value; the setter updates the binding (m_ActiveScreenBinding.Update(value)), which will propagate to any bound UI elements.</p>
+</li>
+<li>
+<p><code>public bool isMenuActive { get; }</code><br />
+Read-only convenience property that returns true when activeScreen is at or above GameScreen.PauseMenu. Useful to quickly check whether any menu UI is currently active.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public Game.UI.InGame.GameScreenUISystem+GameScreen activeScreen { get; set; }
-</code></pre>
-<ul>
-<li><code>public System.Boolean isMenuActive { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Boolean isMenuActive { get; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public GameScreenUISystem()</code>  </li>
+<li><code>public GameScreenUISystem()</code><br />
+Default constructor. Marked with [Preserve] in the original source. Initialization of bindings and event subscription is done in the overridden OnCreate method rather than the ctor.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public GameScreenUISystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
+<li><code>protected override void OnCreate()</code><br />
+Initializes UI bindings and event handlers. Specifically:</li>
+<li>Calls base.OnCreate().</li>
+<li>Creates and registers m_ActiveScreenBinding as a ValueBinding<GameScreen> with group "game" and key "activeScreen", defaulting to GameScreen.Main, using EnumWriter<GameScreen>().</li>
+<li>Registers a TriggerBinding<GameScreen> ("game","setActiveScreen") that calls SetScreen when triggered (uses EnumReader<GameScreen>()).</li>
+<li>Registers m_CanUseSaveSystem as a ValueBinding<bool>("game","canUseSaveSystem", initialValue: true).</li>
+<li>
+<p>Subscribes SaveLoadInProgress to GameManager.instance.onGameSaveLoad to show/hide save notifications.</p>
+</li>
+<li>
+<p><code>protected override void OnDestroy()</code><br />
+Unsubscribes SaveLoadInProgress from GameManager.instance.onGameSaveLoad and calls base.OnDestroy().</p>
+</li>
+<li>
+<p><code>private void SaveLoadInProgress(string name, bool start)</code><br />
+Callback invoked when a game save/load begins or ends. When start == true:</p>
+</li>
+<li>Pushes a notification via NotificationSystem.Push using identifier "SavingGame" + name, localized text for the save name, and an indeterminate ProgressState.
+When start == false:</li>
+<li>
+<p>Pops the notification via NotificationSystem.Pop with ProgressState.Complete and a 1s fade-out.
+Also updates m_CanUseSaveSystem to disabled while start is true, enabled when start is false.</p>
+</li>
+<li>
+<p><code>protected override void OnUpdate()</code><br />
+Empty override in source. Place for per-frame UI updates if needed.</p>
+</li>
+<li>
+<p><code>public void PreDeserialize(Context context)</code><br />
+Implements IPreDeserialize. Called before deserialization: ensures the screen is reset to GameScreen.Main by calling SetScreen(GameScreen.Main). Useful to guarantee a known UI state before loading.</p>
+</li>
+<li>
+<p><code>public void SetScreen(GameScreen screen)</code><br />
+Switches the current UI screen and updates input/cursor state:</p>
+</li>
+<li>Shows or hides the cursor via InputManager.instance.hideCursor when screen == FreeCamera (hides cursor).</li>
+<li>Sets InputManager.instance.cursorLockMode: for Main/FreeCamera uses SharedSettings.instance.graphics.cursorMode.ToUnityCursorMode(), otherwise CursorLockMode.None.</li>
+<li>Updates m_ActiveScreenBinding with the new screen.</li>
 </ul>
+<h2 id="usage-example">Usage Example</h2>
 <pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        AddBinding(m_ActiveScreenBinding = new ValueBinding&lt;GameScreen&gt;(&quot;game&quot;, &quot;activeScreen&quot;, GameScreen.Main, new EnumWriter&lt;GameScreen&gt;()));
-        AddBinding(new TriggerBinding&lt;GameScreen&gt;(&quot;game&quot;, &quot;setActiveScreen&quot;, SetScreen, new EnumReader&lt;GameScreen&gt;()));
-        AddBinding(m_CanUseSaveSystem = new ValueBinding&lt;bool&gt;(&quot;game&quot;, &quot;canUseSaveSystem&quot;, initialValue: true));
-        GameManager.instance.onGameSaveLoad += SaveLoadInProgress;
-    }
+protected override void OnCreate()
+{
+    base.OnCreate();
+
+    // Bind active screen (defaults to Main)
+    AddBinding(m_ActiveScreenBinding = new ValueBinding&lt;GameScreen&gt;(
+        &quot;game&quot;, &quot;activeScreen&quot;, GameScreen.Main, new EnumWriter&lt;GameScreen&gt;()));
+
+    // Allow external triggers to set the active screen
+    AddBinding(new TriggerBinding&lt;GameScreen&gt;(
+        &quot;game&quot;, &quot;setActiveScreen&quot;, SetScreen, new EnumReader&lt;GameScreen&gt;()));
+
+    // Track whether save/load UI should be enabled
+    AddBinding(m_CanUseSaveSystem = new ValueBinding&lt;bool&gt;(
+        &quot;game&quot;, &quot;canUseSaveSystem&quot;, initialValue: true));
+
+    // Listen for save/load progress to show notifications and disable save UI while saving
+    GameManager.instance.onGameSaveLoad += SaveLoadInProgress;
+}
 </code></pre>
-<ul>
-<li><code>protected virtual OnDestroy() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnDestroy()
-    {
-        GameManager.instance.onGameSaveLoad -= SaveLoadInProgress;
-        base.OnDestroy();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-    }
-</code></pre>
-<ul>
-<li><code>public PreDeserialize(Colossal.Serialization.Entities.Context context) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void PreDeserialize(Context context)
-    {
-        SetScreen(GameScreen.Main);
-    }
-</code></pre>
-<ul>
-<li><code>private SaveLoadInProgress(System.String name, System.Boolean start) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void SaveLoadInProgress(string name, bool start)
-    {
-        if (start)
-        {
-            string identifier = &quot;SavingGame&quot; + name;
-            LocalizedString? text = LocalizedString.Value(name);
-            ProgressState? progressState = ProgressState.Indeterminate;
-            NotificationSystem.Push(identifier, null, text, &quot;SavingGame&quot;, null, null, progressState);
-        }
-        else
-        {
-            string identifier2 = &quot;SavingGame&quot; + name;
-            LocalizedString? text = LocalizedString.Value(name);
-            ProgressState? progressState = ProgressState.Complete;
-            NotificationSystem.Pop(identifier2, 1f, null, text, &quot;SavingGame&quot;, null, null, progressState);
-        }
-        m_CanUseSaveSystem.Update(!start);
-    }
-</code></pre>
-<ul>
-<li><code>public SetScreen(Game.UI.InGame.GameScreenUISystem+GameScreen screen) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void SetScreen(GameScreen screen)
-    {
-        InputManager.instance.hideCursor = screen == GameScreen.FreeCamera;
-        InputManager instance = InputManager.instance;
-        CursorLockMode cursorLockMode = (((uint)screen &lt;= 1u) ? SharedSettings.instance.graphics.cursorMode.ToUnityCursorMode() : CursorLockMode.None);
-        instance.cursorLockMode = cursorLockMode;
-        m_ActiveScreenBinding.Update(screen);
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.UI.InGame.GameScreenUISystem+GameScreen</code>  </li>
-</ul>
 
 
 

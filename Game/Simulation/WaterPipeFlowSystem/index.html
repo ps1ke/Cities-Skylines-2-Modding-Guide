@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87075,6 +87167,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../SurfaceWater/" class="md-nav__link">
         
   
@@ -89149,15 +89264,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -89194,9 +89300,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -117930,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117955,15 +118083,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -118002,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118027,547 +118146,264 @@
 
 
 <h1 id="gamesimulationwaterpipeflowsystem">Game.Simulation.WaterPipeFlowSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Simulation</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code><br />
-<strong>Implements:</strong> <code>Colossal.Serialization.Entities.IDefaultSerializable</code>, <code>Colossal.Serialization.Entities.ISerializable</code>, <code>Game.Serialization.IPostDeserialize</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class WaterPipeFlowSystem : Game.GameSystemBase, Colossal.Serialization.Entities.IDefaultSerializable, Colossal.Serialization.Entities.ISerializable, Game.Serialization.IPostDeserialize
-{
-    private Game.Simulation.SimulationSystem m_SimulationSystem;
-    private Unity.Entities.EntityQuery m_NodeGroup;
-    private Unity.Entities.EntityQuery m_EdgeGroup;
-    private Unity.Entities.EntityArchetype m_NodeArchetype;
-    private Unity.Entities.EntityArchetype m_EdgeArchetype;
-    private Game.Simulation.WaterPipeFlowJob+Data m_FreshData;
-    private Game.Simulation.WaterPipeFlowJob+Data m_SewageData;
-    private Unity.Collections.NativeList&lt;Game.Simulation.Flow.Connection&gt; m_Connections;
-    private Unity.Collections.NativeReference&lt;Game.Simulation.Flow.NodeIndices&gt; m_NodeIndices;
-    private Unity.Collections.NativeList&lt;System.Int32&gt; m_TradeNodes;
-    private Unity.Entities.Entity m_SourceNode;
-    private Unity.Entities.Entity m_SinkNode;
-    private Game.Simulation.WaterPipeFlowSystem+Phase m_NextPhase;
-    private Unity.Jobs.JobHandle m_DataDependency;
-    private System.Boolean &lt;ready&gt;k__BackingField;
-    private System.Boolean &lt;fluidFlowEnabled&gt;k__BackingField;
-    private Game.Simulation.WaterPipeFlowSystem+TypeHandle __TypeHandle;
-    public static const System.Int32 kUpdateInterval;
-    public static const System.Int32 kUpdateOffset;
-    public static const System.Int32 kUpdatesPerDay;
-    public static const System.Int32 kStartFrames;
-    public static const System.Int32 kAdjustFrame;
-    public static const System.Int32 kPrepareFrame;
-    public static const System.Int32 kFlowFrames;
-    public static const System.Int32 kFlowCompletionFrame;
-    public static const System.Int32 kEndFrames;
-    public static const System.Int32 kApplyFrame;
-    public static const System.Int32 kStatusFrame;
-    public static const System.Int32 kMaxEdgeCapacity;
-    private static const System.Int32 kLayerHeight;
-
-    public System.Boolean ready { get; private set; }
-    public Unity.Entities.EntityArchetype nodeArchetype { get; }
-    public Unity.Entities.EntityArchetype edgeArchetype { get; }
-    public Unity.Entities.Entity sourceNode { get; }
-    public Unity.Entities.Entity sinkNode { get; }
-    public System.Boolean fluidFlowEnabled { get; set; }
-
-    public WaterPipeFlowSystem();
-
-    private System.Void __AssignQueries(Unity.Entities.SystemState&amp; state);
-    private System.Void ApplyPhase();
-    public System.Void Deserialize&lt;TReader&gt;(TReader reader);
-    private System.Void FlowPhase();
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnCreateForCompiler();
-    protected virtual System.Void OnDestroy();
-    protected virtual System.Void OnUpdate();
-    public System.Void PostDeserialize(Colossal.Serialization.Entities.Context context);
-    private System.Void PreparePhase();
-    public System.Void Reset();
-    private Unity.Jobs.JobHandle ScheduleFlowJob(Game.Simulation.WaterPipeFlowJob+Data jobData, System.Int32 importCapacity, System.Int32 exportCapacity, System.Boolean finalFrame);
-    public System.Void Serialize&lt;TWriter&gt;(TWriter writer);
-    public System.Void SetDefaults(Colossal.Serialization.Entities.Context context);
-}
-</code></pre>
+<p><strong>Assembly:</strong> Assembly-CSharp<br />
+<strong>Namespace:</strong> Game.Simulation</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> GameSystemBase, IDefaultSerializable, ISerializable, IPostDeserialize</p>
+<p><strong>Summary:</strong><br />
+Manages the water and sewage pipe flow simulation using Unity's Entities + Jobs + Burst pipeline. The system prepares node/edge data from ECS components, builds connection lists, schedules flow solver jobs (separate data for fresh water and sewage), and applies computed flows back to WaterPipeEdge components. It is frame-scheduled across multiple phases (Prepare, Flow, Apply) to spread work over simulation frames, supports serialization/deserialization of minimal state, and maintains persistent native containers used by the flow job. The system also handles creation of helper source/sink nodes and compatibility fixes for legacy save versions.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.Simulation.SimulationSystem m_SimulationSystem</code>  </li>
+<li>
+<p><code>public const int kUpdateInterval = 128</code><br />
+Constant controlling the update interval (frames) used by the system.</p>
+</li>
+<li>
+<p><code>public const int kUpdateOffset = 64</code><br />
+Constant for update offset.</p>
+</li>
+<li>
+<p><code>public const int kUpdatesPerDay = 2048</code><br />
+Constant giving number of updates per day (game-specific).</p>
+</li>
+<li>
+<p><code>public const int kStartFrames = 2</code><br />
+Frame count constants used to schedule phases.</p>
+</li>
+<li>
+<p><code>public const int kAdjustFrame = 64</code><br />
+Frame index constants (used for scheduling).</p>
+</li>
+<li>
+<p><code>public const int kPrepareFrame = 65</code><br />
+Frame index when Prepare phase runs.</p>
+</li>
+<li>
+<p><code>public const int kFlowFrames = 124</code><br />
+Number of frames allocated to flow processing.</p>
+</li>
+<li>
+<p><code>public const int kFlowCompletionFrame = 61</code><br />
+Frame index used to determine flow completion.</p>
+</li>
+<li>
+<p><code>public const int kEndFrames = 2</code><br />
+Frame count constants used to schedule phases.</p>
+</li>
+<li>
+<p><code>public const int kApplyFrame = 62</code><br />
+Frame index when Apply phase runs.</p>
+</li>
+<li>
+<p><code>public const int kStatusFrame = 63</code><br />
+Frame index for status handling.</p>
+</li>
+<li>
+<p><code>public const int kMaxEdgeCapacity = 1073741823</code><br />
+Maximum capacity used for edges (int max-like constraint for flow jobs).</p>
+</li>
+<li>
+<p><code>private const int kLayerHeight = 20</code><br />
+Layer height passed to flow job (internal job parameter).</p>
+</li>
+<li>
+<p><code>private SimulationSystem m_SimulationSystem</code><br />
+Reference to the SimulationSystem used to read frame index and schedule phase transitions.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_NodeGroup</code><br />
+EntityQuery selecting WaterPipeNode + ConnectedFlowEdge components (nodes).</p>
+</li>
+<li>
+<p><code>private EntityQuery m_EdgeGroup</code><br />
+EntityQuery selecting WaterPipeEdge components (edges).</p>
+</li>
+<li>
+<p><code>private EntityArchetype m_NodeArchetype</code><br />
+Archetype used for creating node entities (used for source/sink).</p>
+</li>
+<li>
+<p><code>private EntityArchetype m_EdgeArchetype</code><br />
+Archetype used for creating edge entities (not commonly created here, but used for capacity/chunk info).</p>
+</li>
+<li>
+<p><code>private WaterPipeFlowJob.Data m_FreshData</code><br />
+Persistent data container for fresh (water) flow simulation, includes nodes, edges, states, layer structures.</p>
+</li>
+<li>
+<p><code>private WaterPipeFlowJob.Data m_SewageData</code><br />
+Persistent data container for sewage flow simulation.</p>
+</li>
+<li>
+<p><code>private NativeList&lt;Connection&gt; m_Connections</code><br />
+NativeList of Connection structures built during Prepare phase and consumed by flow jobs.</p>
+</li>
+<li>
+<p><code>private NativeReference&lt;NodeIndices&gt; m_NodeIndices</code><br />
+NativeReference storing source/sink indices (node indices) for the flow job.</p>
+</li>
+<li>
+<p><code>private NativeList&lt;int&gt; m_TradeNodes</code><br />
+NativeList of node indices flagged as trade nodes (special behavior in flow job).</p>
+</li>
+<li>
+<p><code>private Entity m_SourceNode</code><br />
+Entity used as an artificial source node for the flow simulation.</p>
+</li>
+<li>
+<p><code>private Entity m_SinkNode</code><br />
+Entity used as an artificial sink node for the flow simulation.</p>
+</li>
+<li>
+<p><code>private Phase m_NextPhase</code><br />
+Internal enum value tracking next scheduled phase (Prepare, Flow, Apply).</p>
+</li>
+<li>
+<p><code>private JobHandle m_DataDependency</code><br />
+JobHandle tracking outstanding job dependencies for safe scheduling and disposal.</p>
+</li>
+<li>
+<p><code>private TypeHandle __TypeHandle</code><br />
+Struct holding component/handle types used by job scheduling (cached to avoid repeated lookups).</p>
+</li>
+<li>
+<p><code>public bool ready { get; private set; }</code><br />
+Property tracking whether the system has completed a full Prepare-&gt;Flow-&gt;Apply cycle and applied flows (set in ApplyPhase).</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.Simulation.SimulationSystem m_SimulationSystem;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_NodeGroup</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_NodeGroup;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_EdgeGroup</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_EdgeGroup;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityArchetype m_NodeArchetype</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityArchetype m_NodeArchetype;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityArchetype m_EdgeArchetype</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityArchetype m_EdgeArchetype;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.WaterPipeFlowJob+Data m_FreshData</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.WaterPipeFlowJob+Data m_FreshData;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.WaterPipeFlowJob+Data m_SewageData</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.WaterPipeFlowJob+Data m_SewageData;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeList&lt;Game.Simulation.Flow.Connection&gt; m_Connections</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeList&lt;Game.Simulation.Flow.Connection&gt; m_Connections;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeReference&lt;Game.Simulation.Flow.NodeIndices&gt; m_NodeIndices</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeReference&lt;Game.Simulation.Flow.NodeIndices&gt; m_NodeIndices;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeList&lt;System.Int32&gt; m_TradeNodes</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeList&lt;System.Int32&gt; m_TradeNodes;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.Entity m_SourceNode</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.Entity m_SourceNode;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.Entity m_SinkNode</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.Entity m_SinkNode;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.WaterPipeFlowSystem+Phase m_NextPhase</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.WaterPipeFlowSystem+Phase m_NextPhase;
-</code></pre>
-<ul>
-<li><code>private Unity.Jobs.JobHandle m_DataDependency</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Jobs.JobHandle m_DataDependency;
-</code></pre>
-<ul>
-<li><code>private System.Boolean &lt;ready&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean &lt;ready&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private System.Boolean &lt;fluidFlowEnabled&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean &lt;fluidFlowEnabled&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.WaterPipeFlowSystem+TypeHandle __TypeHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.WaterPipeFlowSystem+TypeHandle __TypeHandle;
-</code></pre>
-<ul>
-<li><code>public static const System.Int32 kUpdateInterval</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static const System.Int32 kUpdateInterval;
-</code></pre>
-<ul>
-<li><code>public static const System.Int32 kUpdateOffset</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static const System.Int32 kUpdateOffset;
-</code></pre>
-<ul>
-<li><code>public static const System.Int32 kUpdatesPerDay</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static const System.Int32 kUpdatesPerDay;
-</code></pre>
-<ul>
-<li><code>public static const System.Int32 kStartFrames</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static const System.Int32 kStartFrames;
-</code></pre>
-<ul>
-<li><code>public static const System.Int32 kAdjustFrame</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static const System.Int32 kAdjustFrame;
-</code></pre>
-<ul>
-<li><code>public static const System.Int32 kPrepareFrame</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static const System.Int32 kPrepareFrame;
-</code></pre>
-<ul>
-<li><code>public static const System.Int32 kFlowFrames</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static const System.Int32 kFlowFrames;
-</code></pre>
-<ul>
-<li><code>public static const System.Int32 kFlowCompletionFrame</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static const System.Int32 kFlowCompletionFrame;
-</code></pre>
-<ul>
-<li><code>public static const System.Int32 kEndFrames</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static const System.Int32 kEndFrames;
-</code></pre>
-<ul>
-<li><code>public static const System.Int32 kApplyFrame</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static const System.Int32 kApplyFrame;
-</code></pre>
-<ul>
-<li><code>public static const System.Int32 kStatusFrame</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static const System.Int32 kStatusFrame;
-</code></pre>
-<ul>
-<li><code>public static const System.Int32 kMaxEdgeCapacity</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static const System.Int32 kMaxEdgeCapacity;
-</code></pre>
-<ul>
-<li><code>private static const System.Int32 kLayerHeight</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static const System.Int32 kLayerHeight;
-</code></pre>
+<p>(There are additional nested job structs and job-related fields inside the class used to implement per-chunk work; those are part of the implementation and scheduled by the system. See Methods for job descriptions.)</p>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>public System.Boolean ready { get; private set }</code>  </li>
+<li>
+<p><code>public bool ready { get; private set; }</code><br />
+Indicates that the system has completed the last Apply phase (true after ApplyPhase runs). Readable publicly; set privately by system.</p>
+</li>
+<li>
+<p><code>public EntityArchetype nodeArchetype =&gt; m_NodeArchetype</code><br />
+Public getter exposing the node archetype used by the system.</p>
+</li>
+<li>
+<p><code>public EntityArchetype edgeArchetype =&gt; m_EdgeArchetype</code><br />
+Public getter exposing the edge archetype used by the system.</p>
+</li>
+<li>
+<p><code>public Entity sourceNode =&gt; m_SourceNode</code><br />
+Public getter exposing the artificial source node entity (can be used by other systems).</p>
+</li>
+<li>
+<p><code>public Entity sinkNode =&gt; m_SinkNode</code><br />
+Public getter exposing the artificial sink node entity.</p>
+</li>
+<li>
+<p><code>public bool fluidFlowEnabled { get; set; } = true</code><br />
+Flag to enable/disable fluid-specific flow behavior in the flow job. Can be toggled by other code.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public System.Boolean ready { get; private set; }
-</code></pre>
-<ul>
-<li><code>public Unity.Entities.EntityArchetype nodeArchetype { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Unity.Entities.EntityArchetype nodeArchetype { get; }
-</code></pre>
-<ul>
-<li><code>public Unity.Entities.EntityArchetype edgeArchetype { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Unity.Entities.EntityArchetype edgeArchetype { get; }
-</code></pre>
-<ul>
-<li><code>public Unity.Entities.Entity sourceNode { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Unity.Entities.Entity sourceNode { get; }
-</code></pre>
-<ul>
-<li><code>public Unity.Entities.Entity sinkNode { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Unity.Entities.Entity sinkNode { get; }
-</code></pre>
-<ul>
-<li><code>public System.Boolean fluidFlowEnabled { get; set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Boolean fluidFlowEnabled { get; set; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public WaterPipeFlowSystem()</code>  </li>
+<li><code>public WaterPipeFlowSystem()</code><br />
+Default constructor. System initializes internal fields in OnCreate; constructor itself is preserved for Unity serialization. The heavy initialization (allocations of persistent native containers and entity queries) occurs in OnCreate.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public WaterPipeFlowSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private __AssignQueries(Unity.Entities.SystemState&amp; state) : System.Void</code>  </li>
+<li>
+<p><code>protected override void OnCreate()</code><br />
+Initializes system: acquires SimulationSystem, builds entity queries (nodes/edges), creates archetypes, allocates persistent WaterPipeFlowJob.Data containers for fresh and sewage flows (200000 size in this implementation), allocates connections/node indices/trade node lists. Must be paired with OnDestroy to dispose native containers.</p>
+</li>
+<li>
+<p><code>protected override void OnDestroy()</code><br />
+Completes outstanding jobs and disposes all persistent native containers (WaterPipeFlowJob.Data, m_Connections, m_NodeIndices, m_TradeNodes). Ensures no job left referencing disposed memory.</p>
+</li>
+<li>
+<p><code>public void Reset()</code><br />
+Resets internal flow state: completes data dependency, sets next phase to Prepare, reinitializes WaterPipeFlowJob.State for fresh and sewage data, and sets ready = false.</p>
+</li>
+<li>
+<p><code>protected override void OnUpdate()</code><br />
+Called every frame. Routes execution to the current m_NextPhase method: PreparePhase, FlowPhase, or ApplyPhase depending on Phase enum.</p>
+</li>
+<li>
+<p><code>private void PreparePhase()</code><br />
+When scheduled (on specific frame index: m_SimulationSystem.frameIndex % 128 == 65), prepares native data for jobs: resizes node/edge native arrays, builds connection list, schedules PrepareNetworkJob, PrepareNodesJob, PrepareEdgesJob, PrepareConnectionsJob and PopulateNodeIndicesJob. After scheduling sets m_NextPhase = Phase.Flow and stores combined m_DataDependency.</p>
+</li>
+<li>
+<p>Nested jobs involved:</p>
+<ul>
+<li>PrepareNetworkJob: resizes native node/edge lists, clears/initializes connection list and trade node list.</li>
+<li>PrepareNodesJob (IJobChunk): assigns contiguous indices to WaterPipeNode.m_Index per-chunk.</li>
+<li>PrepareEdgesJob (IJobChunk): initializes per-edge Flow.Edge data (capacities/directions) and assigns WaterPipeEdge.m_Index.</li>
+<li>PrepareConnectionsJob (IJobChunk): iterates nodes, reads ConnectedFlowEdge buffers, and populates m_Connections with Connection structs linking start/end nodes and edge indices; also flags trade nodes.</li>
+<li>PopulateNodeIndicesJob: fills NodeIndices (source/sink) based on current m_SourceNode/m_SinkNode.</li>
 </ul>
-<pre><code class="language-csharp">private void __AssignQueries(ref SystemState state)
+</li>
+<li>
+<p><code>private void FlowPhase()</code><br />
+Runs repeated flow solver jobs during flow frames. Calculates uint num = frameIndex % 128 and schedules two flow jobs (one for fresh water, one for sewage) by calling ScheduleFlowJob. The function also asserts that FlowPhase does not run on specific reserved frames and sets m_NextPhase = Phase.Apply when finalFrame flag is true (frame index 61 indicates final).</p>
+</li>
+<li>
+<p><code>private JobHandle ScheduleFlowJob(WaterPipeFlowJob.Data jobData, int importCapacity, int exportCapacity, bool finalFrame)</code><br />
+Schedules the main WaterPipeFlowJob with the given Data container and capacities, controlled by m_DataDependency. Passes references to nodes, edges, connections, node indices, trade nodes, layer data, and flow flags. Returns the scheduled JobHandle.</p>
+</li>
+<li>
+<p><code>private void ApplyPhase()</code><br />
+When scheduled (m_SimulationSystem.frameIndex % 128 == 62), schedules ApplyEdgesJob (IJobChunk) to write results from the flow job back to WaterPipeEdge components (m_FreshFlow, m_SewageFlow, and sets WaterPipeEdgeFlags based on cut element IDs). Completes and updates dependencies, sets m_NextPhase = Phase.Prepare and ready = true.</p>
+</li>
+<li>
+<p>ApplyEdgesJob: reads m_FreshEdges and m_SewageEdges results and writes final flows and flags into WaterPipeEdge components in ECS.</p>
+</li>
+<li>
+<p><code>public void Serialize&lt;TWriter&gt;(TWriter writer) where TWriter : IWriter</code><br />
+Completes outstanding jobs and writes essential state to writer: m_SourceNode, m_SinkNode, and lastTotalSteps for fresh and sewage flow states (used to resume solver progression across save/load).</p>
+</li>
+<li>
+<p><code>public void Deserialize&lt;TReader&gt;(TReader reader) where TReader : IReader</code><br />
+Completes outstanding jobs and reads state back in depending on save version. Handles compatibility with older versions (may ignore old saved source/sink values and instead recreate nodes). Reads lastTotalSteps for both fresh and sewage states when supported.</p>
+</li>
+<li>
+<p><code>public void SetDefaults(Context context)</code><br />
+Sets default values for the system when constructing a new save/context: calls Reset and sets source/sink to Entity.Null.</p>
+</li>
+<li>
+<p><code>public void PostDeserialize(Context context)</code><br />
+Called after all deserialization is done. Ensures source and sink nodes exist (creates them if both are Entity.Null). Calls Reset. Performs compatibility adjustments for very old versions: disables some consumption notifications (via DispatchWaterSystem) if save predates water pipe flow sim, and removes invalid WaterPipeNodeConnection components where the referenced node is null (legacy fix).</p>
+</li>
+<li>
+<p><code>protected override void OnCreateForCompiler()</code><br />
+Compiler-related initialization that assigns query handles and component type handles via __AssignQueries and __TypeHandle.__AssignHandles.</p>
+</li>
+<li>
+<p><code>private void __AssignQueries(ref SystemState state)</code><br />
+Internal helper to assign queries for the compiler-generated setup (empty here aside from a builder call).</p>
+</li>
+<li>
+<p>Additional internal job structs (PrepareNetworkJob, PrepareNodesJob, PrepareEdgesJob, PrepareConnectionsJob, PopulateNodeIndicesJob, ApplyEdgesJob) are declared as nested types and used to prepare, populate, and apply flow data across chunks using IJob / IJobChunk patterns with Burst compilation attributes. Each is responsible for specific per-chunk or per-array initialization used by the main WaterPipeFlowJob.</p>
+</li>
+</ul>
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Example: simple usage inside a system or mod initialization
+[Preserve]
+protected override void OnCreate()
+{
+    base.OnCreate();
+
+    // The system's OnCreate sets up queries and allocates native data.
+    // You can optionally toggle fluid flow behavior:
+    var waterSystem = World.GetExistingSystemManaged&lt;Game.Simulation.WaterPipeFlowSystem&gt;();
+    if (waterSystem != null)
     {
-        new EntityQueryBuilder(Allocator.Temp).Dispose();
+        // Disable detailed fluid flow (jobs still run but with simplified behavior)
+        waterSystem.fluidFlowEnabled = false;
+
+        // Reset simulation state (clears flow job states)
+        waterSystem.Reset();
     }
+}
 </code></pre>
-<ul>
-<li><code>private ApplyPhase() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void ApplyPhase()
-    {
-        if (m_SimulationSystem.frameIndex % 128 == 62)
-        {
-            JobHandle dataDependency = JobChunkExtensions.ScheduleParallel(new ApplyEdgesJob
-            {
-                m_FlowEdgeType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Simulation_WaterPipeEdge_RW_ComponentTypeHandle, ref base.CheckedStateRef),
-                m_FreshEdges = m_FreshData.m_Edges.AsDeferredJobArray(),
-                m_SewageEdges = m_SewageData.m_Edges.AsDeferredJobArray()
-            }, m_EdgeGroup, JobHandle.CombineDependencies(base.Dependency, m_DataDependency));
-            base.Dependency = (m_DataDependency = dataDependency);
-            m_NextPhase = Phase.Prepare;
-            ready = true;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public Deserialize&lt;TReader&gt;(TReader reader) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Void Deserialize&lt;TReader&gt;(TReader reader);
-</code></pre>
-<ul>
-<li><code>private FlowPhase() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void FlowPhase()
-    {
-        uint num = m_SimulationSystem.frameIndex % 128;
-        Assert.IsTrue(num != 64 &amp;&amp; num != 65 &amp;&amp; num != 62 &amp;&amp; num != 63);
-        bool flag = num == 61;
-        JobHandle job = ScheduleFlowJob(m_FreshData, 1073741823, 1073741823, flag);
-        JobHandle job2 = ScheduleFlowJob(m_SewageData, 1073741823, 0, flag);
-        m_DataDependency = JobHandle.CombineDependencies(job, job2);
-        if (flag)
-        {
-            m_NextPhase = Phase.Apply;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_SimulationSystem = base.World.GetOrCreateSystemManaged&lt;SimulationSystem&gt;();
-        m_NodeGroup = GetEntityQuery(ComponentType.ReadWrite&lt;WaterPipeNode&gt;(), ComponentType.ReadOnly&lt;ConnectedFlowEdge&gt;(), ComponentType.Exclude&lt;Deleted&gt;());
-        m_EdgeGroup = GetEntityQuery(ComponentType.ReadWrite&lt;WaterPipeEdge&gt;(), ComponentType.Exclude&lt;Deleted&gt;());
-        m_NodeArchetype = base.EntityManager.CreateArchetype(ComponentType.ReadOnly&lt;WaterPipeNode&gt;(), ComponentType.ReadOnly&lt;ConnectedFlowEdge&gt;());
-        m_EdgeArchetype = base.EntityManager.CreateArchetype(ComponentType.ReadOnly&lt;WaterPipeEdge&gt;());
-        m_FreshData = new WaterPipeFlowJob.Data(200000, Allocator.Persistent);
-        m_SewageData = new WaterPipeFlowJob.Data(200000, Allocator.Persistent);
-        m_Connections = new NativeList&lt;Connection&gt;(Allocator.Persistent);
-        m_NodeIndices = new NativeReference&lt;NodeIndices&gt;(Allocator.Persistent);
-        m_TradeNodes = new NativeList&lt;int&gt;(Allocator.Persistent);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreateForCompiler() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnCreateForCompiler()
-    {
-        base.OnCreateForCompiler();
-        __AssignQueries(ref base.CheckedStateRef);
-        __TypeHandle.__AssignHandles(ref base.CheckedStateRef);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnDestroy() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnDestroy()
-    {
-        m_DataDependency.Complete();
-        m_FreshData.Dispose();
-        m_SewageData.Dispose();
-        m_Connections.Dispose();
-        m_NodeIndices.Dispose();
-        m_TradeNodes.Dispose();
-        base.OnDestroy();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        if (m_NextPhase == Phase.Prepare)
-        {
-            PreparePhase();
-        }
-        else if (m_NextPhase == Phase.Flow)
-        {
-            FlowPhase();
-        }
-        else if (m_NextPhase == Phase.Apply)
-        {
-            ApplyPhase();
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public PostDeserialize(Colossal.Serialization.Entities.Context context) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void PostDeserialize(Context context)
-    {
-        if (m_SourceNode == Entity.Null &amp;&amp; m_SinkNode == Entity.Null)
-        {
-            m_SourceNode = base.EntityManager.CreateEntity(m_NodeArchetype);
-            m_SinkNode = base.EntityManager.CreateEntity(m_NodeArchetype);
-        }
-        Reset();
-        DispatchWaterSystem orCreateSystemManaged = base.World.GetOrCreateSystemManaged&lt;DispatchWaterSystem&gt;();
-        if (context.version &lt; Version.waterPipeFlowSim &amp;&amp; context.purpose == Purpose.LoadGame)
-        {
-            UnityEngine.Debug.LogWarning(&quot;Detected legacy water pipes, disabling water &amp; sewage notifications!&quot;);
-            orCreateSystemManaged.freshConsumptionDisabled = true;
-            orCreateSystemManaged.sewageConsumptionDisabled = true;
-        }
-        else
-        {
-            orCreateSystemManaged.freshConsumptionDisabled = false;
-            orCreateSystemManaged.sewageConsumptionDisabled = false;
-        }
-        if (!(context.version &lt; Version.waterPipePollution))
-        {
-            return;
-        }
-        EntityQuery entityQuery = base.EntityManager.CreateEntityQuery(ComponentType.ReadOnly&lt;WaterPipeNodeConnection&gt;());
-        try
-        {
-            NativeArray&lt;Entity&gt; nativeArray = entityQuery.ToEntityArray(Allocator.Temp);
-            NativeArray&lt;WaterPipeNodeConnection&gt; nativeArray2 = entityQuery.ToComponentDataArray&lt;WaterPipeNodeConnection&gt;(Allocator.Temp);
-            for (int i = 0; i &lt; nativeArray2.Length; i++)
-            {
-                if (nativeArray2[i].m_WaterPipeNode == Entity.Null)
-                {
-                    COSystemBase.baseLog.WarnFormat(&quot;{0} has null WaterPipeNode! Removing...&quot;, nativeArray[i]);
-                    base.EntityManager.RemoveComponent&lt;WaterPipeNodeConnection&gt;(nativeArray[i]);
-                }
-            }
-        }
-        finally
-        {
-            entityQuery.Dispose();
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private PreparePhase() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void PreparePhase()
-    {
-        if (m_SimulationSystem.frameIndex % 128 == 65)
-        {
-            int chunkCapacity = m_NodeArchetype.ChunkCapacity;
-            int chunkCapacity2 = m_EdgeArchetype.ChunkCapacity;
-            int nodeCount = chunkCapacity * m_NodeGroup.CalculateChunkCountWithoutFiltering();
-            int edgeCount = chunkCapacity2 * m_EdgeGroup.CalculateChunkCountWithoutFiltering();
-            JobHandle dependsOn = IJobExtensions.Schedule(new PrepareNetworkJob
-            {
-                m_FreshNodes = m_FreshData.m_Nodes,
-                m_SewageNodes = m_SewageData.m_Nodes,
-                m_FreshEdges = m_FreshData.m_Edges,
-                m_SewageEdges = m_SewageData.m_Edges,
-                m_Connections = m_Connections,
-                m_TradeNodes = m_TradeNodes,
-                m_NodeCount = nodeCount,
-                m_EdgeCount = edgeCount
-            }, JobHandle.CombineDependencies(base.Dependency, m_DataDependency));
-            JobHandle job = JobChunkExtensions.ScheduleParallel(new PrepareNodesJob
-            {
-                m_FlowNodeType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Simulation_WaterPipeNode_RW_ComponentTypeHandle, ref base.CheckedStateRef),
-                m_MaxChunkCapacity = chunkCapacity
-            }, m_NodeGroup, base.Dependency);
-            JobHandle job2 = JobChunkExtensions.ScheduleParallel(new PrepareEdgesJob
-            {
-                m_FlowEdgeType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Simulation_WaterPipeEdge_RW_ComponentTypeHandle, ref base.CheckedStateRef),
-                m_FreshEdges = m_FreshData.m_Edges.AsDeferredJobArray(),
-                m_SewageEdges = m_SewageData.m_Edges.AsDeferredJobArray(),
-                m_MaxChunkCapacity = chunkCapacity2
-            }, m_EdgeGroup, dependsOn);
-            JobHandle job3 = JobChunkExtensions.Schedule(new PrepareConnectionsJob
-            {
-                m_EntityType = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef),
-                m_ConnectedFlowEdgeType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Simulation_ConnectedFlowEdge_RO_BufferTypeHandle, ref base.CheckedStateRef),
-                m_TradeNodeType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Simulation_TradeNode_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                m_FlowNodes = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Simulation_WaterPipeNode_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_FlowEdges = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Simulation_WaterPipeEdge_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_FreshNodes = m_FreshData.m_Nodes.AsDeferredJobArray(),
-                m_SewageNodes = m_SewageData.m_Nodes.AsDeferredJobArray(),
-                m_Connections = m_Connections,
-                m_TradeNodes = m_TradeNodes,
-                m_MaxChunkCapacity = chunkCapacity
-            }, m_NodeGroup, JobHandle.CombineDependencies(job, job2));
-            JobHandle job4 = IJobExtensions.Schedule(new PopulateNodeIndicesJob
-            {
-                m_FlowNodes = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Simulation_WaterPipeNode_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_NodeIndices = m_NodeIndices,
-                m_SourceNode = m_SourceNode,
-                m_SinkNode = m_SinkNode
-            }, JobHandle.CombineDependencies(job, m_DataDependency));
-            base.Dependency = (m_DataDependency = JobHandle.CombineDependencies(job3, job4));
-            m_NextPhase = Phase.Flow;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public Reset() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void Reset()
-    {
-        m_DataDependency.Complete();
-        m_NextPhase = Phase.Prepare;
-        m_FreshData.m_State.Value = new WaterPipeFlowJob.State(200000);
-        m_SewageData.m_State.Value = new WaterPipeFlowJob.State(200000);
-        ready = false;
-    }
-</code></pre>
-<ul>
-<li><code>private ScheduleFlowJob(Game.Simulation.WaterPipeFlowJob+Data jobData, System.Int32 importCapacity, System.Int32 exportCapacity, System.Boolean finalFrame) : Unity.Jobs.JobHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private JobHandle ScheduleFlowJob(WaterPipeFlowJob.Data jobData, int importCapacity, int exportCapacity, bool finalFrame)
-    {
-        return IJobExtensions.Schedule(new WaterPipeFlowJob
-        {
-            m_State = jobData.m_State,
-            m_Nodes = jobData.m_Nodes.AsDeferredJobArray(),
-            m_Edges = jobData.m_Edges.AsDeferredJobArray(),
-            m_Connections = m_Connections.AsDeferredJobArray(),
-            m_NodeIndices = m_NodeIndices,
-            m_TradeNodes = m_TradeNodes.AsDeferredJobArray(),
-            m_MaxFlowState = jobData.m_MaxFlowState,
-            m_LayerStates = jobData.m_LayerStates,
-            m_LayerElements = jobData.m_LayerElements,
-            m_LayerElementRefs = jobData.m_LayerElementRefs,
-            m_FluidFlowState = jobData.m_FluidFlowState,
-            m_ImportCapacity = importCapacity,
-            m_ExportCapacity = exportCapacity,
-            m_FluidFlowEnabled = fluidFlowEnabled,
-            m_LayerHeight = 20,
-            m_FrameCount = 1,
-            m_FinalFrame = finalFrame
-        }, m_DataDependency);
-    }
-</code></pre>
-<ul>
-<li><code>public Serialize&lt;TWriter&gt;(TWriter writer) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Void Serialize&lt;TWriter&gt;(TWriter writer);
-</code></pre>
-<ul>
-<li><code>public SetDefaults(Colossal.Serialization.Entities.Context context) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void SetDefaults(Context context)
-    {
-        Reset();
-        m_SourceNode = Entity.Null;
-        m_SinkNode = Entity.Null;
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Simulation.WaterPipeFlowSystem+Phase</code>  </li>
-<li><code>Game.Simulation.WaterPipeFlowSystem+PrepareNetworkJob</code>  </li>
-<li><code>Game.Simulation.WaterPipeFlowSystem+PrepareNodesJob</code>  </li>
-<li><code>Game.Simulation.WaterPipeFlowSystem+PrepareEdgesJob</code>  </li>
-<li><code>Game.Simulation.WaterPipeFlowSystem+PrepareConnectionsJob</code>  </li>
-<li><code>Game.Simulation.WaterPipeFlowSystem+PopulateNodeIndicesJob</code>  </li>
-<li><code>Game.Simulation.WaterPipeFlowSystem+ApplyEdgesJob</code>  </li>
-<li><code>Game.Simulation.WaterPipeFlowSystem+TypeHandle</code>  </li>
-</ul>
+<p>Notes:
+- The system relies heavily on persistent Native containers (Allocator.Persistent). Always allow OnDestroy to run or call Reset/Dispose appropriately to avoid memory leaks.
+- Frame scheduling: Prepare runs at frame % 128 == 65, flow runs across frames with a final flow frame at 61, and apply runs at frame % 128 == 62. These offsets are important when interacting with other simulation systems.
+- Serialization compatibility code handles older save versions—if modifying serialization, maintain compatibility checks against Version constants used in game saves.</p>
 
 
 

@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#gameobjectssubelementdeletesystem" class="md-skip">
+        <a href="#gamesubelementdeletesystem" class="md-skip">
           Skip to content
         </a>
       
@@ -27486,18 +27486,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -27522,9 +27522,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -65320,6 +65320,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69751,6 +69774,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72563,6 +72609,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75553,6 +75622,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87145,6 +87237,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -117921,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117948,18 +118085,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -117984,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118008,151 +118145,122 @@
 
 
 
-<h1 id="gameobjectssubelementdeletesystem">Game.Objects.SubElementDeleteSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Objects</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class SubElementDeleteSystem : Game.GameSystemBase
-{
-    private Game.Tools.ToolReadyBarrier m_ModificationBarrier;
-    private Unity.Entities.EntityQuery m_DeletedQuery;
-    private Unity.Entities.EntityQuery m_CreatedQuery;
-    private Unity.Entities.ComponentTypeSet m_AppliedTypes;
-    private Game.Objects.SubElementDeleteSystem+TypeHandle __TypeHandle;
-
-    public SubElementDeleteSystem();
-
-    private System.Void __AssignQueries(Unity.Entities.SystemState&amp; state);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnCreateForCompiler();
-    protected virtual System.Void OnUpdate();
-}
-</code></pre>
+<h1 id="gamesubelementdeletesystem">Game.SubElementDeleteSystem</h1>
+<p><strong>Assembly:</strong><br />
+<strong>Namespace:</strong> Game.Objects</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> GameSystemBase</p>
+<p><strong>Summary:</strong><br />
+SubElementDeleteSystem is an ECS system that ensures sub-elements owned by other game objects are correctly removed or marked updated when their owner is deleted (or when ownership changes). It schedules two Burst-compiled parallel jobs to:
+- Walk buffers of SubArea, SubNet, SubRoute and OwnedVehicle attached to owner entities and mark their referenced entities as Deleted or Updated as appropriate.
+- Check newly created vehicles that have an Owner and immediately delete them if their Owner entity is already marked Deleted.</p>
+<p>The system uses a ToolReadyBarrier (an EntityCommandBuffer barrier) to enqueue structural changes (AddComponent/RemoveComponent) from jobs, and runs only when there are Deleted components present on entities that also have one of the sub-element buffers.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.Tools.ToolReadyBarrier m_ModificationBarrier</code>  </li>
+<li>
+<p><code>private ToolReadyBarrier m_ModificationBarrier</code><br />
+Used to create an EntityCommandBuffer.ParallelWriter to perform structural changes from jobs (AddComponent / RemoveComponent) in a thread-safe manner. The barrier ensures commands are played back at the correct point in the frame.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_DeletedQuery</code><br />
+Query that selects entities with a Deleted component and at least one of SubArea, SubNet, SubRoute or OwnedVehicle buffers; used to drive the main DeleteSubElementsJob scheduling and to RequireForUpdate the system.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_CreatedQuery</code><br />
+Query that selects newly created vehicles with Owner (Created + Vehicle + Owner). If not empty, CheckDeletedOwnersJob is scheduled to remove vehicles whose owner is deleted.</p>
+</li>
+<li>
+<p><code>private ComponentTypeSet m_AppliedTypes</code><br />
+A set of component types (Applied, Created, Updated) which the job removes from entity sub-elements when marking them deleted; used when fully deleting a sub-element so it no longer appears as applied/created/updated.</p>
+</li>
+<li>
+<p><code>private TypeHandle __TypeHandle</code><br />
+Internal bundle of type handles (EntityTypeHandle, BufferTypeHandles, ComponentLookups, etc.) cached/assigned for use within jobs to access chunk data.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.Tools.ToolReadyBarrier m_ModificationBarrier;
-</code></pre>
+<h2 id="properties">Properties</h2>
 <ul>
-<li><code>private Unity.Entities.EntityQuery m_DeletedQuery</code>  </li>
+<li>None.</li>
 </ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_DeletedQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_CreatedQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_CreatedQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.ComponentTypeSet m_AppliedTypes</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.ComponentTypeSet m_AppliedTypes;
-</code></pre>
-<ul>
-<li><code>private Game.Objects.SubElementDeleteSystem+TypeHandle __TypeHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Objects.SubElementDeleteSystem+TypeHandle __TypeHandle;
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public SubElementDeleteSystem()</code>  </li>
+<li><code>public SubElementDeleteSystem()</code><br />
+Default constructor. The system relies on Unity ECS lifecycle methods (OnCreate/OnUpdate) to initialize and schedule jobs.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public SubElementDeleteSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private __AssignQueries(Unity.Entities.SystemState&amp; state) : System.Void</code>  </li>
+<li>
+<p><code>protected override void OnCreate()</code><br />
+Initializes the system: obtains the ToolReadyBarrier from the world, sets up m_DeletedQuery (entities with Deleted and any of SubArea/SubNet/SubRoute/OwnedVehicle), the m_CreatedQuery (Created + Vehicle + Owner), prepares the m_AppliedTypes set (Applied, Created, Updated) and calls RequireForUpdate(m_DeletedQuery) so the system runs only when relevant deletions exist.</p>
+</li>
+<li>
+<p><code>protected override void OnUpdate()</code><br />
+Schedules the main DeleteSubElementsJob (Burst-compiled IJobChunk) in parallel, providing all required type handles/ComponentLookups/BufferLookups and an EntityCommandBuffer.ParallelWriter from m_ModificationBarrier. If m_CreatedQuery is not empty, it also schedules CheckDeletedOwnersJob (Burst-compiled IJobChunk) to handle newly created vehicles whose owners are deleted. Combined job handle is registered with the modification barrier via AddJobHandleForProducer.</p>
+</li>
+<li>
+<p><code>protected override void OnCreateForCompiler()</code><br />
+Internal helper called for compiler-driven initialization; assigns query and handle state used by generated code.</p>
+</li>
+<li>
+<p><code>private void __AssignQueries(ref SystemState state)</code><br />
+Internal method (empty here) intended to declare or prepare EntityQueryBuilder usage for compiler-generated systems.</p>
+</li>
+<li>
+<p>(Nested) DeleteSubElementsJob : IJobChunk (private, BurstCompile)  </p>
+</li>
+<li>Iterates owner chunks with buffers: SubArea, SubNet, SubRoute, OwnedVehicle.</li>
+<li>For SubArea buffer entries: if the referenced area entity is not already Deleted, removes applied types and adds Deleted to that area.</li>
+<li>For SubNet buffer entries:<ul>
+<li>If the sub-net entity has connected edges, inspects each edge. For edges not already Deleted/Updated and not owned by the owner entity (or owned but owner deleted), it marks edges and their connected nodes Updated (adds Updated). It determines whether the sub-net should be deleted (flag) by checking whether any edge still references this sub-net as start or end.</li>
+<li>If there are no connected edge buffers but the sub-net has an Edge component, it calls UpdateConnectedNodes to mark connected nodes/edges Updated.</li>
+<li>Finally, if the sub-net itself is not Deleted: if no remaining edges reference it, it removes applied types and adds Deleted; otherwise removes Owner and adds Updated.</li>
 </ul>
-<pre><code class="language-csharp">private void __AssignQueries(ref SystemState state)
-    {
-        new EntityQueryBuilder(Allocator.Temp).Dispose();
-    }
+</li>
+<li>For SubRoute buffer entries: adds Deleted to route entities if not already Deleted.</li>
+<li>For OwnedVehicle buffer entries: if the vehicle is not already Deleted, retrieves its LayoutElement buffer (if any) and calls VehicleUtils.DeleteVehicle via the command buffer to delete the vehicle.</li>
+<li>Uses m_DeletedData, m_UpdatedData, m_OwnerData, m_EdgeData, m_ConnectedEdges, m_LayoutElements lookups to make decisions.</li>
+<li>
+<p>Uses EntityCommandBuffer.ParallelWriter to enqueue structural changes.</p>
+</li>
+<li>
+<p>(Nested) CheckDeletedOwnersJob : IJobChunk (private, BurstCompile)  </p>
+</li>
+<li>
+<p>Iterates created vehicle entities with an Owner component. If the owner entity is already marked Deleted, it retrieves LayoutElement buffer for the vehicle and calls VehicleUtils.DeleteVehicle via command buffer, ensuring vehicles created with a deleted owner are immediately removed.</p>
+</li>
+<li>
+<p>(Nested) TypeHandle struct  </p>
+</li>
+<li>
+<p>Holds a set of EntityTypeHandle, BufferTypeHandle<T>, ComponentLookup<T>, BufferLookup<T> and ComponentTypeHandle<T> used by jobs. Has __AssignHandles(ref SystemState) to grab handles from the current state (called in OnCreateForCompiler).</p>
+</li>
+<li>
+<p><code>private void __AssignQueries(ref SystemState state)</code><br />
+Compiler helper (shown in class) — no runtime behavior here beyond a placeholder.</p>
+</li>
+</ul>
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// This system runs automatically when an entity with Deleted + SubNet/SubArea/SubRoute/OwnedVehicle exists.
+// To trigger removal of sub-elements, mark an owner entity Deleted:
+EntityManager.AddComponentData(ownerEntity, new Deleted());
+
+// After the frame, SubElementDeleteSystem will:
+//  - mark associated sub-entities (areas, nets, routes) as Deleted (or Updated if still referenced)
+//  - delete owned vehicles via VehicleUtils.DeleteVehicle using their LayoutElement buffers
 </code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_ModificationBarrier = base.World.GetOrCreateSystemManaged&lt;ToolReadyBarrier&gt;();
-        m_DeletedQuery = GetEntityQuery(new EntityQueryDesc
-        {
-            All = new ComponentType[1] { ComponentType.ReadOnly&lt;Deleted&gt;() },
-            Any = new ComponentType[4]
-            {
-                ComponentType.ReadOnly&lt;SubArea&gt;(),
-                ComponentType.ReadOnly&lt;SubNet&gt;(),
-                ComponentType.ReadOnly&lt;SubRoute&gt;(),
-                ComponentType.ReadOnly&lt;OwnedVehicle&gt;()
-            }
-        });
-        m_CreatedQuery = GetEntityQuery(ComponentType.ReadOnly&lt;Created&gt;(), ComponentType.ReadOnly&lt;Vehicle&gt;(), ComponentType.ReadOnly&lt;Owner&gt;());
-        m_AppliedTypes = new ComponentTypeSet(ComponentType.ReadWrite&lt;Applied&gt;(), ComponentType.ReadWrite&lt;Created&gt;(), ComponentType.ReadWrite&lt;Updated&gt;());
-        RequireForUpdate(m_DeletedQuery);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreateForCompiler() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnCreateForCompiler()
-    {
-        base.OnCreateForCompiler();
-        __AssignQueries(ref base.CheckedStateRef);
-        __TypeHandle.__AssignHandles(ref base.CheckedStateRef);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        JobHandle jobHandle = JobChunkExtensions.ScheduleParallel(new DeleteSubElementsJob
-        {
-            m_EntityType = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef),
-            m_SubAreaType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Areas_SubArea_RO_BufferTypeHandle, ref base.CheckedStateRef),
-            m_SubNetType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Net_SubNet_RO_BufferTypeHandle, ref base.CheckedStateRef),
-            m_SubRouteType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Routes_SubRoute_RO_BufferTypeHandle, ref base.CheckedStateRef),
-            m_OwnedVehicleType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Vehicles_OwnedVehicle_RO_BufferTypeHandle, ref base.CheckedStateRef),
-            m_DeletedData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Common_Deleted_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_UpdatedData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Common_Updated_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_OwnerData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Common_Owner_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_EdgeData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_Edge_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_ConnectedEdges = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Net_ConnectedEdge_RO_BufferLookup, ref base.CheckedStateRef),
-            m_LayoutElements = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Vehicles_LayoutElement_RO_BufferLookup, ref base.CheckedStateRef),
-            m_AppliedTypes = m_AppliedTypes,
-            m_CommandBuffer = m_ModificationBarrier.CreateCommandBuffer().AsParallelWriter()
-        }, m_DeletedQuery, base.Dependency);
-        if (!m_CreatedQuery.IsEmptyIgnoreFilter)
-        {
-            CheckDeletedOwnersJob jobData = new CheckDeletedOwnersJob
-            {
-                m_EntityType = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef),
-                m_OwnerType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Common_Owner_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                m_LayoutElementType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Vehicles_LayoutElement_RO_BufferTypeHandle, ref base.CheckedStateRef),
-                m_DeletedData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Common_Deleted_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_CommandBuffer = m_ModificationBarrier.CreateCommandBuffer().AsParallelWriter()
-            };
-            jobHandle = JobHandle.CombineDependencies(jobHandle, JobChunkExtensions.ScheduleParallel(jobData, m_CreatedQuery, base.Dependency));
-        }
-        m_ModificationBarrier.AddJobHandleForProducer(jobHandle);
-        base.Dependency = jobHandle;
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Objects.SubElementDeleteSystem+DeleteSubElementsJob</code>  </li>
-<li><code>Game.Objects.SubElementDeleteSystem+CheckDeletedOwnersJob</code>  </li>
-<li><code>Game.Objects.SubElementDeleteSystem+TypeHandle</code>  </li>
-</ul>
+<p>Notes and tips:
+- The system performs structural changes through an EntityCommandBuffer.ParallelWriter created from the ToolReadyBarrier. Do not attempt to perform structural changes directly from jobs.
+- The logic assumes components and buffer element structs:
+  - SubArea: contains m_Area (Entity)
+  - SubNet: contains m_SubNet (Entity)
+  - SubRoute: contains m_Route (Entity)
+  - OwnedVehicle: contains m_Vehicle (Entity)
+  - Owner: contains m_Owner (Entity)
+  - Edge: contains m_Start / m_End (Entity)
+  - ConnectedEdge buffer: contains m_Edge (Entity)
+  - LayoutElement buffer: used by VehicleUtils.DeleteVehicle
+- VehicleUtils.DeleteVehicle is called to handle the vehicle deletion flow; ensure that utility exists in your mod environment or provide replacement if needed.</p>
 
 
 

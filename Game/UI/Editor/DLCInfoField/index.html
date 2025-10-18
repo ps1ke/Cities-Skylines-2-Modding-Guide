@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87073,6 +87165,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Simulation/SurfaceWater/" class="md-nav__link">
         
   
@@ -97492,15 +97607,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -97531,6 +97637,15 @@
   <a href="#methods" class="md-nav__link">
     <span class="md-ellipsis">
       Methods
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
     </span>
   </a>
   
@@ -117923,6 +118038,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117948,15 +118085,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -117994,6 +118122,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -118011,79 +118148,66 @@
 
 
 <h1 id="gameuieditordlcinfofield">Game.UI.Editor.DLCInfoField</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.UI.Editor</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.UI.Widgets.Widget</code><br />
-<strong>Implements:</strong> <code>Game.UI.Widgets.IWidget</code>, <code>Colossal.UI.Binding.IJsonWritable</code>, <code>Game.UI.Widgets.IVisibleWidget</code>, <code>Game.UI.Widgets.IDisableCallback</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class DLCInfoField : Game.UI.Widgets.Widget, Game.UI.Widgets.IWidget, Colossal.UI.Binding.IJsonWritable, Game.UI.Widgets.IVisibleWidget, Game.UI.Widgets.IDisableCallback
-{
-    private Game.UI.Localization.LocalizedString m_DisplayName;
-    private Game.UI.Localization.LocalizedString m_Type;
-    private System.String m_Image;
-
-    public Game.UI.Localization.LocalizedString displayName { get; set; }
-    public Game.UI.Localization.LocalizedString type { get; set; }
-    public System.String image { get; set; }
-
-    public DLCInfoField();
-
-    protected virtual System.Void WriteProperties(Colossal.UI.Binding.IJsonWriter writer);
-}
-</code></pre>
+<p><strong>Assembly:</strong> Assembly-CSharp<br />
+<strong>Namespace:</strong> Game.UI.Editor</p>
+<p><strong>Type:</strong> public class DLCInfoField</p>
+<p><strong>Base:</strong> Widget</p>
+<p><strong>Summary:</strong><br />
+DLCInfoField is a small UI widget that holds DLC-related metadata (localized display name, type and an image identifier). It exposes properties for those values and overrides serialization to write them into a JSON writer. This widget is intended for use in editor UI code where DLC entries need to be displayed or serialized.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.UI.Localization.LocalizedString m_DisplayName</code>  </li>
+<li>
+<p><code>private LocalizedString m_DisplayName</code><br />
+Stores the localized display name for the DLC. Backing field for the displayName property.</p>
+</li>
+<li>
+<p><code>private LocalizedString m_Type</code><br />
+Stores the localized type/category string for the DLC. Backing field for the type property.</p>
+</li>
+<li>
+<p><code>private string m_Image</code><br />
+Stores the image identifier/path associated with the DLC. Backing field for the image property.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.UI.Localization.LocalizedString m_DisplayName;
-</code></pre>
-<ul>
-<li><code>private Game.UI.Localization.LocalizedString m_Type</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.UI.Localization.LocalizedString m_Type;
-</code></pre>
-<ul>
-<li><code>private System.String m_Image</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.String m_Image;
-</code></pre>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>public Game.UI.Localization.LocalizedString displayName { get; set }</code>  </li>
+<li>
+<p><code>public LocalizedString displayName { get; private set }</code><br />
+Gets or sets the localized display name. On set, the widget calls SetPropertiesChanged() to mark the widget as changed so the UI/serialization system can react.</p>
+</li>
+<li>
+<p><code>public LocalizedString type { get; private set }</code><br />
+Gets or sets the localized type/category string. On set, the widget calls SetPropertiesChanged().</p>
+</li>
+<li>
+<p><code>public string image { get; private set }</code><br />
+Gets or sets the image identifier or path for the DLC. On set, the widget calls SetPropertiesChanged().</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public Game.UI.Localization.LocalizedString displayName { get; set; }
-</code></pre>
-<ul>
-<li><code>public Game.UI.Localization.LocalizedString type { get; set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Game.UI.Localization.LocalizedString type { get; set; }
-</code></pre>
-<ul>
-<li><code>public System.String image { get; set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.String image { get; set; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public DLCInfoField()</code>  </li>
+<li><code>public DLCInfoField()</code><br />
+No explicit constructor is defined in code; the class uses the default parameterless constructor inherited from Widget. Initialization of fields should be done after construction as needed.</li>
 </ul>
-<pre><code class="language-csharp">public DLCInfoField();
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>protected virtual WriteProperties(Colossal.UI.Binding.IJsonWriter writer) : System.Void</code>  </li>
+<li><code>protected override void WriteProperties(IJsonWriter writer) : System.Void</code><br />
+Overrides Widget.WriteProperties to serialize the DLCInfoField properties into the provided IJsonWriter. It calls base.WriteProperties(writer) first, then writes three properties:</li>
+<li>"displayName" — writes the displayName value</li>
+<li>"type" — writes the type value</li>
+<li>"image" — writes the image value
+This method is used when the UI framework serializes widget state to JSON.</li>
 </ul>
-<pre><code class="language-csharp">protected override void WriteProperties(IJsonWriter writer)
-    {
-        base.WriteProperties(writer);
-        writer.PropertyName(&quot;displayName&quot;);
-        writer.Write(displayName);
-        writer.PropertyName(&quot;type&quot;);
-        writer.Write(type);
-        writer.PropertyName(&quot;image&quot;);
-        writer.Write(image);
-    }
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Create the widget and populate its fields
+var dlcField = new DLCInfoField();
+dlcField.displayName = new LocalizedString(&quot;dlc.name.example&quot;); // or however LocalizedString is constructed
+dlcField.type = new LocalizedString(&quot;dlc.type.expansion&quot;);
+dlcField.image = &quot;Textures/DLCs/example_dlc_icon&quot;;
+
+// When the UI system serializes the widget, WriteProperties will be invoked and the writer
+// will receive &quot;displayName&quot;, &quot;type&quot; and &quot;image&quot; properties for this widget.
 </code></pre>
 
 

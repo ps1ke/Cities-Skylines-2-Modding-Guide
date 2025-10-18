@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87073,6 +87165,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Simulation/SurfaceWater/" class="md-nav__link">
         
   
@@ -93128,9 +93243,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      Properties
     </span>
   </a>
   
@@ -93149,6 +93273,15 @@
   <a href="#methods" class="md-nav__link">
     <span class="md-ellipsis">
       Methods
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
     </span>
   </a>
   
@@ -117903,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117930,9 +118085,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      Properties
     </span>
   </a>
   
@@ -117956,6 +118120,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -117973,36 +118146,45 @@
 
 
 <h1 id="gametoolstoolreadybarrier">Game.Tools.ToolReadyBarrier</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Tools</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.SafeCommandBufferSystem</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class ToolReadyBarrier : Game.SafeCommandBufferSystem
-{
-    public ToolReadyBarrier();
-
-    protected virtual System.Void OnUpdate();
-}
-</code></pre>
+<p><strong>Assembly:</strong> Assembly-CSharp (game code / modding assembly)<br />
+<strong>Namespace:</strong> Game.Tools</p>
+<p><strong>Type:</strong> public class</p>
+<p><strong>Base:</strong> SafeCommandBufferSystem</p>
+<p><strong>Summary:</strong><br />
+ToolReadyBarrier is a small SafeCommandBufferSystem-derived ECS/system class used by the game to act as a synchronization/barrier point for tool readiness. It does not add state or custom data; it simply overrides OnUpdate and currently defers to the base implementation. The class and its members are annotated with attributes to prevent IL2CPP stripping and to control method inlining, which is important for runtime behavior and native builds.</p>
+<hr />
+<h2 id="fields">Fields</h2>
+<ul>
+<li>This class declares no instance or static fields.</li>
+</ul>
+<h2 id="properties">Properties</h2>
+<ul>
+<li>This class declares no properties.</li>
+</ul>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public ToolReadyBarrier()</code>  </li>
+<li><code>public ToolReadyBarrier()</code><br />
+Preserved constructor ([Preserve] attribute) so the type and its constructor are not removed by code stripping (IL2CPP/linker). The constructor performs no additional initialization beyond the base constructor.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public ToolReadyBarrier()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
+<li><code>protected override void OnUpdate()</code><br />
+Attributes:</li>
+<li>[MethodImpl(MethodImplOptions.NoInlining)] — prevents the JIT/AOT from inlining this method.</li>
+<li>[Preserve] — prevents removal by the managed code stripper.
+Behavior:</li>
+<li>Calls <code>base.OnUpdate()</code> and does not add any other logic. The override exists to provide an explicit hook point for the game to execute the base SafeCommandBufferSystem update in this named barrier. Modders can override this method in a subclass if they need to run custom logic before or after the barrier's base processing.</li>
 </ul>
+<h2 id="usage-example">Usage Example</h2>
 <pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        base.OnUpdate();
-    }
+protected override void OnUpdate()
+{
+    // Optional: run custom pre-barrier logic here.
+
+    base.OnUpdate(); // ensure the barrier/system processing runs
+
+    // Optional: run custom post-barrier logic here.
+}
 </code></pre>
 
 

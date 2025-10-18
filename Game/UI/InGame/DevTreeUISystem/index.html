@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87056,6 +87148,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -101448,18 +101563,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -101484,9 +101599,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -117923,6 +118038,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117950,18 +118087,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -117986,9 +118123,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118011,524 +118148,177 @@
 
 
 <h1 id="gameuiingamedevtreeuisystem">Game.UI.InGame.DevTreeUISystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.UI.InGame</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.UI.UISystemBase</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class DevTreeUISystem : Game.UI.UISystemBase
-{
-    private Game.Prefabs.PrefabSystem m_PrefabSystem;
-    private Game.UI.InGame.PrefabUISystem m_PrefabUISystem;
-    private Game.City.DevTreeSystem m_DevTreeSystem;
-    private Game.UI.ImageSystem m_ImageSystem;
-    private Unity.Entities.EntityQuery m_DevTreePointsQuery;
-    private Unity.Entities.EntityQuery m_DevTreeNodeQuery;
-    private Unity.Entities.EntityQuery m_UnlockedServiceQuery;
-    private Unity.Entities.EntityQuery m_ModifiedDevTreeNodeQuery;
-    private Unity.Entities.EntityQuery m_LockedDevTreeNodeQuery;
-    private Colossal.UI.Binding.GetterValueBinding&lt;System.Int32&gt; m_PointsBinding;
-    private Colossal.UI.Binding.RawValueBinding m_ServicesBinding;
-    private Colossal.UI.Binding.RawMapBinding&lt;Unity.Entities.Entity&gt; m_ServiceDetailsBinding;
-    private Colossal.UI.Binding.RawMapBinding&lt;Unity.Entities.Entity&gt; m_NodesBinding;
-    private Colossal.UI.Binding.RawMapBinding&lt;Unity.Entities.Entity&gt; m_NodeDetailsBinding;
-    private Game.UI.InGame.DevTreeUISystem+TypeHandle __TypeHandle;
-    private static const System.String kGroup;
-
-    public DevTreeUISystem();
-
-    private System.Void __AssignQueries(Unity.Entities.SystemState&amp; state);
-    private System.Void BindNodeDetails(Colossal.UI.Binding.IJsonWriter binder, Unity.Entities.Entity node);
-    private System.Void BindNodes(Colossal.UI.Binding.IJsonWriter binder, Unity.Entities.Entity service);
-    private System.Void BindServiceDetails(Colossal.UI.Binding.IJsonWriter binder, Unity.Entities.Entity service);
-    private System.Void BindServices(Colossal.UI.Binding.IJsonWriter writer);
-    private System.String GetDevTreeIcon(Game.Prefabs.DevTreeNodePrefab prefab);
-    private Unity.Collections.NativeList&lt;Game.UI.InGame.DevTreeUISystem+DevTreeNodeInfo&gt; GetDevTreeNodes(Unity.Entities.Entity service, Unity.Collections.Allocator allocator);
-    private System.Int32 GetDevTreePoints();
-    private System.Int32 GetMaxDevTreePoints();
-    private Unity.Collections.NativeList&lt;Game.UI.UIObjectInfo&gt; GetSortedDevTreeServices(Unity.Collections.Allocator allocator);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnCreateForCompiler();
-    protected virtual System.Void OnUpdate();
-    private System.Void PurchaseNode(Unity.Entities.Entity node);
-}
-</code></pre>
+<p><strong>Assembly:</strong> Assembly-CSharp<br />
+<strong>Namespace:</strong> Game.UI.InGame</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> UISystemBase</p>
+<p><strong>Summary:</strong><br />
+DevTreeUISystem is a UI system responsible for exposing the game's development tree (dev tree) to the UI layer. It creates EntityQueries to read dev tree points, nodes and services, sets up JSON bindings used by the UI (points, services, nodes, service/node details) and handles purchase requests for dev tree nodes. It uses PrefabSystem/PrefabUISystem to resolve prefab metadata and ImageSystem to provide icons/thumbnails.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.Prefabs.PrefabSystem m_PrefabSystem</code>  </li>
+<li>
+<p><code>private struct DevTreeNodeInfo</code><br />
+  Internal helper struct used to package a dev tree node's Entity, PrefabData, DevTreeNodeData and whether it is locked. Used when producing node lists for the UI.</p>
+</li>
+<li>
+<p><code>private struct TypeHandle</code><br />
+  Holds ECS type handles (EntityTypeHandle, ComponentTypeHandle<PrefabData>, ComponentTypeHandle<DevTreeNodeData>, ComponentTypeHandle<Locked>) and provides __AssignHandles to initialize them against a SystemState. Used for efficient chunk iteration in GetDevTreeNodes.</p>
+</li>
+<li>
+<p><code>private const string kGroup = "devTree"</code><br />
+  UI group name/string constant used for registering bindings and triggers.</p>
+</li>
+<li>
+<p><code>private PrefabSystem m_PrefabSystem</code><br />
+  Cached reference to PrefabSystem (used to resolve PrefabData to concrete Prefab objects like ServicePrefab and DevTreeNodePrefab).</p>
+</li>
+<li>
+<p><code>private PrefabUISystem m_PrefabUISystem</code><br />
+  Cached reference to PrefabUISystem (used to bind prefab requirements in UI output).</p>
+</li>
+<li>
+<p><code>private DevTreeSystem m_DevTreeSystem</code><br />
+  Cached reference to DevTreeSystem (used to purchase dev tree nodes).</p>
+</li>
+<li>
+<p><code>private ImageSystem m_ImageSystem</code><br />
+  Cached reference to ImageSystem (used to fetch icons and thumbnails, with fallback to placeholder icon).</p>
+</li>
+<li>
+<p><code>private EntityQuery m_DevTreePointsQuery</code><br />
+  Query for DevTreePoints component (singleton that stores current dev tree points).</p>
+</li>
+<li>
+<p><code>private EntityQuery m_DevTreeNodeQuery</code><br />
+  Query that matches entities with PrefabData + DevTreeNodeData and excludes Deleted/Temp — used to enumerate all dev tree nodes.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_UnlockedServiceQuery</code><br />
+  Query matching Unlock component to detect unlocked services (used to determine when to refresh service lists).</p>
+</li>
+<li>
+<p><code>private EntityQuery m_ModifiedDevTreeNodeQuery</code><br />
+  Query to detect created/updated/deleted DevTreeNodeData/PrefabData to refresh nodes bindings when they change.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_LockedDevTreeNodeQuery</code><br />
+  Query filtering PrefabData + DevTreeNodeData + Locked (excluding Deleted/Temp) — used to calculate max dev tree points (sum of locked node costs).</p>
+</li>
+<li>
+<p><code>private GetterValueBinding&lt;int&gt; m_PointsBinding</code><br />
+  Binding that exposes the current dev tree points integer to the UI (<code>devTree.points</code>) via GetDevTreePoints.</p>
+</li>
+<li>
+<p><code>private RawValueBinding m_ServicesBinding</code><br />
+  Binding that writes the services list JSON (<code>devTree.services</code>) via BindServices.</p>
+</li>
+<li>
+<p><code>private RawMapBinding&lt;Entity&gt; m_ServiceDetailsBinding</code><br />
+  Map binding that writes details for a selected service entity (<code>devTree.serviceDetails</code>) via BindServiceDetails.</p>
+</li>
+<li>
+<p><code>private RawMapBinding&lt;Entity&gt; m_NodesBinding</code><br />
+  Map binding that writes node lists per service (<code>devTree.nodes</code>) via BindNodes.</p>
+</li>
+<li>
+<p><code>private RawMapBinding&lt;Entity&gt; m_NodeDetailsBinding</code><br />
+  Map binding that writes details for a selected node entity (<code>devTree.nodeDetails</code>) via BindNodeDetails.</p>
+</li>
+<li>
+<p><code>private TypeHandle __TypeHandle</code><br />
+  Instance of the TypeHandle struct used to cache component type handles for chunk iteration (passed to InternalCompilerInterface in GetDevTreeNodes).</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.Prefabs.PrefabSystem m_PrefabSystem;
-</code></pre>
+<h2 id="properties">Properties</h2>
 <ul>
-<li><code>private Game.UI.InGame.PrefabUISystem m_PrefabUISystem</code>  </li>
+<li>(none publicly exposed)<br />
+  This system exposes UI data only through registered bindings/triggers; it does not expose public properties.</li>
 </ul>
-<pre><code class="language-csharp">private Game.UI.InGame.PrefabUISystem m_PrefabUISystem;
-</code></pre>
-<ul>
-<li><code>private Game.City.DevTreeSystem m_DevTreeSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.City.DevTreeSystem m_DevTreeSystem;
-</code></pre>
-<ul>
-<li><code>private Game.UI.ImageSystem m_ImageSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.UI.ImageSystem m_ImageSystem;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_DevTreePointsQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_DevTreePointsQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_DevTreeNodeQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_DevTreeNodeQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_UnlockedServiceQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_UnlockedServiceQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_ModifiedDevTreeNodeQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_ModifiedDevTreeNodeQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_LockedDevTreeNodeQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_LockedDevTreeNodeQuery;
-</code></pre>
-<ul>
-<li><code>private Colossal.UI.Binding.GetterValueBinding&lt;System.Int32&gt; m_PointsBinding</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.UI.Binding.GetterValueBinding&lt;System.Int32&gt; m_PointsBinding;
-</code></pre>
-<ul>
-<li><code>private Colossal.UI.Binding.RawValueBinding m_ServicesBinding</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.UI.Binding.RawValueBinding m_ServicesBinding;
-</code></pre>
-<ul>
-<li><code>private Colossal.UI.Binding.RawMapBinding&lt;Unity.Entities.Entity&gt; m_ServiceDetailsBinding</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.UI.Binding.RawMapBinding&lt;Unity.Entities.Entity&gt; m_ServiceDetailsBinding;
-</code></pre>
-<ul>
-<li><code>private Colossal.UI.Binding.RawMapBinding&lt;Unity.Entities.Entity&gt; m_NodesBinding</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.UI.Binding.RawMapBinding&lt;Unity.Entities.Entity&gt; m_NodesBinding;
-</code></pre>
-<ul>
-<li><code>private Colossal.UI.Binding.RawMapBinding&lt;Unity.Entities.Entity&gt; m_NodeDetailsBinding</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.UI.Binding.RawMapBinding&lt;Unity.Entities.Entity&gt; m_NodeDetailsBinding;
-</code></pre>
-<ul>
-<li><code>private Game.UI.InGame.DevTreeUISystem+TypeHandle __TypeHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.UI.InGame.DevTreeUISystem+TypeHandle __TypeHandle;
-</code></pre>
-<ul>
-<li><code>private static const System.String kGroup</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static const System.String kGroup;
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public DevTreeUISystem()</code>  </li>
+<li><code>public DevTreeUISystem()</code><br />
+  Default constructor. Initialization of systems and bindings is done in OnCreate.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public DevTreeUISystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private __AssignQueries(Unity.Entities.SystemState&amp; state) : System.Void</code>  </li>
+<li>
+<p><code>protected override void OnCreate()</code><br />
+  Initializes the system: resolves and caches subsystem references (PrefabSystem, PrefabUISystem, DevTreeSystem, ImageSystem), creates EntityQueries, adds UI bindings (points, services, serviceDetails, nodes, nodeDetails) and registers a TriggerBinding for "devTree.purchaseNode" which forwards to PurchaseNode. Called by the framework when the system is created.</p>
+</li>
+<li>
+<p><code>protected override void OnUpdate()</code><br />
+  Runs each frame: updates the points binding always; updates node and node-detail bindings when nodes changed or new unlocks occurred; updates services and service-details bindings when services unlocked. Uses queries (m_ModifiedDevTreeNodeQuery, m_UnlockedServiceQuery) to minimize unnecessary updates.</p>
+</li>
+<li>
+<p><code>private void PurchaseNode(Entity node)</code><br />
+  Handler called by the TriggerBinding when the UI requests a node purchase. Forwards call to m_DevTreeSystem.Purchase(node).</p>
+</li>
+<li>
+<p><code>private int GetDevTreePoints()</code><br />
+  Returns the current dev tree points clamped to the maximum possible points (by summing costs of locked dev tree nodes). If no DevTreePoints singleton exists returns 0.</p>
+</li>
+<li>
+<p><code>private int GetMaxDevTreePoints()</code><br />
+  Calculates the sum of costs of all currently locked dev tree nodes by reading DevTreeNodeData from m_LockedDevTreeNodeQuery. Uses a temporary NativeArray and disposes it before returning the sum.</p>
+</li>
+<li>
+<p><code>private void BindServices(IJsonWriter writer)</code><br />
+  Writes a JSON array describing the unique services that have dev tree nodes. For each service it writes entity id, name, icon (via ImageSystem), locked state and uiTag, and uses PrefabUISystem.BindPrefabRequirements to append requirement info. Obtains the sorted list via GetSortedDevTreeServices and disposes resources.</p>
+</li>
+<li>
+<p><code>private NativeList&lt;UIObjectInfo&gt; GetSortedDevTreeServices(Allocator allocator)</code><br />
+  Builds a deduplicated list of services referenced by dev tree nodes, collects PrefabData and UIObjectData.priority, sorts by priority and returns the list. Uses temporary NativeArray/NativeParallelHashSet and returns a NativeList allocated with the provided allocator.</p>
+</li>
+<li>
+<p><code>private void BindServiceDetails(IJsonWriter binder, Entity service)</code><br />
+  Writes details for a single service entity (name, icon, locked state, milestone requirement). If the service is null or doesn't have expected components, writes null.</p>
+</li>
+<li>
+<p><code>private void BindNodes(IJsonWriter binder, Entity service)</code><br />
+  Writes JSON array of nodes for a given service. For each node it writes entity, name, icon, cost, locked, position, requirements (list of required node entities) and whether the node is currently unlockable. Uses GetDevTreeNodes to gather nodes for the service.</p>
+</li>
+<li>
+<p><code>private NativeList&lt;DevTreeNodeInfo&gt; GetDevTreeNodes(Entity service, Allocator allocator)</code><br />
+  Iterates archetype chunks from m_DevTreeNodeQuery using cached component type handles (via __TypeHandle and InternalCompilerInterface) and returns a NativeList of DevTreeNodeInfo for nodes that belong to the specified service. Properly inspects EnabledMask to determine if Locked component is enabled for each chunk element.</p>
+</li>
+<li>
+<p><code>private void BindNodeDetails(IJsonWriter binder, Entity node)</code><br />
+  Writes detailed JSON for a given dev tree node (entity, name, icon, cost, locked, unlockable, requirementCount, milestoneRequirement). If node is invalid or missing components, writes null.</p>
+</li>
+<li>
+<p><code>private string GetDevTreeIcon(DevTreeNodePrefab prefab)</code><br />
+  Returns the appropriate icon path/string for a dev tree node prefab. Preference order: explicit m_IconPath, thumbnail from m_IconPrefab (via ImageSystem.GetThumbnail), otherwise ImageSystem.placeholderIcon.</p>
+</li>
+<li>
+<p><code>private void __AssignQueries(ref SystemState state)</code><br />
+  Compiler helper that may create or assign queries at compile-time. In this implementation it's effectively a placeholder that calls EntityQueryBuilder and disposes it (no-op here).</p>
+</li>
+<li>
+<p><code>protected override void OnCreateForCompiler()</code><br />
+  Compiler-targeted initialization method: calls base.OnCreateForCompiler(), __AssignQueries(ref base.CheckedStateRef) and __TypeHandle.__AssignHandles(ref base.CheckedStateRef) to prepare type handles for chunk iteration used by generated/IL2CPP code paths.</p>
+</li>
+<li>
+<p><code>TypeHandle.__AssignHandles(ref SystemState state)</code><br />
+  (nested method) Assigns the EntityTypeHandle and ComponentTypeHandles (PrefabData, DevTreeNodeData, Locked) by calling state.GetXXXTypeHandle. Used by OnCreateForCompiler to cache handles.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private void __AssignQueries(ref SystemState state)
-    {
-        new EntityQueryBuilder(Allocator.Temp).Dispose();
-    }
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Example: purchase a dev tree node from code (outside of the UI trigger).
+// This mimics what the UI TriggerBinding calls internally.
+
+using Unity.Entities;
+
+// obtain the DevTreeSystem from the active World (match how DevTreeUISystem caches it)
+var world = World.DefaultGameObjectInjectionWorld;
+var devTreeSystem = world.GetOrCreateSystemManaged&lt;Game.DevTreeSystem&gt;();
+
+// nodeEntity is the Entity representing a DevTree node you want to purchase
+devTreeSystem.Purchase(nodeEntity);
 </code></pre>
-<ul>
-<li><code>private BindNodeDetails(Colossal.UI.Binding.IJsonWriter binder, Unity.Entities.Entity node) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void BindNodeDetails(IJsonWriter binder, Entity node)
-    {
-        if (node != Entity.Null &amp;&amp; base.EntityManager.TryGetComponent&lt;DevTreeNodeData&gt;(node, out var component) &amp;&amp; base.EntityManager.TryGetComponent&lt;PrefabData&gt;(node, out var component2))
-        {
-            DevTreeNodePrefab prefab = m_PrefabSystem.GetPrefab&lt;DevTreeNodePrefab&gt;(component2);
-            bool value = base.EntityManager.HasEnabledComponent&lt;Locked&gt;(node);
-            binder.TypeBegin(&quot;devTree.NodeDetails&quot;);
-            binder.PropertyName(&quot;entity&quot;);
-            binder.Write(node);
-            binder.PropertyName(&quot;name&quot;);
-            binder.Write(prefab.name);
-            binder.PropertyName(&quot;icon&quot;);
-            binder.Write(GetDevTreeIcon(prefab));
-            binder.PropertyName(&quot;cost&quot;);
-            binder.Write(component.m_Cost);
-            binder.PropertyName(&quot;locked&quot;);
-            binder.Write(value);
-            int value2 = 0;
-            bool value3 = false;
-            if (base.EntityManager.TryGetBuffer(node, isReadOnly: true, out DynamicBuffer&lt;DevTreeNodeRequirement&gt; buffer))
-            {
-                value2 = buffer.Length;
-                value3 = buffer.Length &gt; 0;
-                for (int i = 0; i &lt; buffer.Length; i++)
-                {
-                    if (base.EntityManager.HasEnabledComponent&lt;Locked&gt;(buffer[i].m_Node))
-                    {
-                        value3 = false;
-                    }
-                }
-            }
-            binder.PropertyName(&quot;unlockable&quot;);
-            binder.Write(value3);
-            binder.PropertyName(&quot;requirementCount&quot;);
-            binder.Write(value2);
-            binder.PropertyName(&quot;milestoneRequirement&quot;);
-            binder.Write(ProgressionUtils.GetRequiredMilestone(base.EntityManager, component.m_Service));
-            binder.TypeEnd();
-        }
-        else
-        {
-            binder.WriteNull();
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private BindNodes(Colossal.UI.Binding.IJsonWriter binder, Unity.Entities.Entity service) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void BindNodes(IJsonWriter binder, Entity service)
-    {
-        if (service != Entity.Null)
-        {
-            NativeList&lt;DevTreeNodeInfo&gt; devTreeNodes = GetDevTreeNodes(service, Allocator.TempJob);
-            binder.ArrayBegin(devTreeNodes.Length);
-            for (int i = 0; i &lt; devTreeNodes.Length; i++)
-            {
-                DevTreeNodeInfo devTreeNodeInfo = devTreeNodes[i];
-                DevTreeNodePrefab prefab = m_PrefabSystem.GetPrefab&lt;DevTreeNodePrefab&gt;(devTreeNodeInfo.prefabData);
-                binder.TypeBegin(&quot;devTree.Node&quot;);
-                binder.PropertyName(&quot;entity&quot;);
-                binder.Write(devTreeNodeInfo.entity);
-                binder.PropertyName(&quot;name&quot;);
-                binder.Write(prefab.name);
-                binder.PropertyName(&quot;icon&quot;);
-                binder.Write(GetDevTreeIcon(prefab));
-                binder.PropertyName(&quot;cost&quot;);
-                binder.Write(devTreeNodeInfo.devTreeNodeData.m_Cost);
-                binder.PropertyName(&quot;locked&quot;);
-                binder.Write(devTreeNodeInfo.locked);
-                binder.PropertyName(&quot;position&quot;);
-                binder.Write(new float2(prefab.m_HorizontalPosition, prefab.m_VerticalPosition));
-                if (base.EntityManager.TryGetBuffer(devTreeNodeInfo.entity, isReadOnly: true, out DynamicBuffer&lt;DevTreeNodeRequirement&gt; buffer))
-                {
-                    bool value = buffer.Length &gt; 0;
-                    binder.PropertyName(&quot;requirements&quot;);
-                    binder.ArrayBegin(buffer.Length);
-                    for (int j = 0; j &lt; buffer.Length; j++)
-                    {
-                        binder.Write(buffer[j].m_Node);
-                        if (base.EntityManager.HasEnabledComponent&lt;Locked&gt;(buffer[j].m_Node))
-                        {
-                            value = false;
-                        }
-                    }
-                    binder.ArrayEnd();
-                    binder.PropertyName(&quot;unlockable&quot;);
-                    binder.Write(value);
-                }
-                else
-                {
-                    binder.PropertyName(&quot;requirements&quot;);
-                    binder.WriteEmptyArray();
-                    binder.PropertyName(&quot;unlockable&quot;);
-                    binder.Write(!devTreeNodeInfo.locked);
-                }
-                binder.TypeEnd();
-            }
-            binder.ArrayEnd();
-            devTreeNodes.Dispose();
-        }
-        else
-        {
-            binder.WriteEmptyArray();
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private BindServiceDetails(Colossal.UI.Binding.IJsonWriter binder, Unity.Entities.Entity service) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void BindServiceDetails(IJsonWriter binder, Entity service)
-    {
-        if (service != Entity.Null &amp;&amp; base.EntityManager.HasComponent&lt;ServiceData&gt;(service) &amp;&amp; base.EntityManager.TryGetComponent&lt;PrefabData&gt;(service, out var component))
-        {
-            ServicePrefab prefab = m_PrefabSystem.GetPrefab&lt;ServicePrefab&gt;(component);
-            binder.TypeBegin(&quot;devTree.ServiceDetails&quot;);
-            binder.PropertyName(&quot;entity&quot;);
-            binder.Write(service);
-            binder.PropertyName(&quot;name&quot;);
-            binder.Write(prefab.name);
-            binder.PropertyName(&quot;icon&quot;);
-            binder.Write(ImageSystem.GetIcon(prefab) ?? m_ImageSystem.placeholderIcon);
-            binder.PropertyName(&quot;locked&quot;);
-            binder.Write(base.EntityManager.HasEnabledComponent&lt;Locked&gt;(service));
-            binder.PropertyName(&quot;milestoneRequirement&quot;);
-            binder.Write(ProgressionUtils.GetRequiredMilestone(base.EntityManager, service));
-            binder.TypeEnd();
-        }
-        else
-        {
-            binder.WriteNull();
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private BindServices(Colossal.UI.Binding.IJsonWriter writer) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void BindServices(IJsonWriter writer)
-    {
-        NativeList&lt;UIObjectInfo&gt; sortedDevTreeServices = GetSortedDevTreeServices(Allocator.TempJob);
-        writer.ArrayBegin(sortedDevTreeServices.Length);
-        for (int i = 0; i &lt; sortedDevTreeServices.Length; i++)
-        {
-            UIObjectInfo uIObjectInfo = sortedDevTreeServices[i];
-            ServicePrefab prefab = m_PrefabSystem.GetPrefab&lt;ServicePrefab&gt;(uIObjectInfo.prefabData);
-            writer.TypeBegin(&quot;devTree.Service&quot;);
-            writer.PropertyName(&quot;entity&quot;);
-            writer.Write(uIObjectInfo.entity);
-            writer.PropertyName(&quot;name&quot;);
-            writer.Write(prefab.name);
-            writer.PropertyName(&quot;icon&quot;);
-            writer.Write(ImageSystem.GetIcon(prefab) ?? m_ImageSystem.placeholderIcon);
-            writer.PropertyName(&quot;locked&quot;);
-            writer.Write(base.EntityManager.HasEnabledComponent&lt;Locked&gt;(uIObjectInfo.entity));
-            writer.PropertyName(&quot;uiTag&quot;);
-            writer.Write(prefab.uiTag);
-            writer.PropertyName(&quot;requirements&quot;);
-            m_PrefabUISystem.BindPrefabRequirements(writer, uIObjectInfo.entity);
-            writer.TypeEnd();
-        }
-        writer.ArrayEnd();
-        sortedDevTreeServices.Dispose();
-    }
-</code></pre>
-<ul>
-<li><code>private GetDevTreeIcon(Game.Prefabs.DevTreeNodePrefab prefab) : System.String</code>  </li>
-</ul>
-<pre><code class="language-csharp">private string GetDevTreeIcon(DevTreeNodePrefab prefab)
-    {
-        if (!string.IsNullOrEmpty(prefab.m_IconPath))
-        {
-            return prefab.m_IconPath;
-        }
-        if (prefab.m_IconPrefab != null)
-        {
-            return ImageSystem.GetThumbnail(prefab.m_IconPrefab) ?? m_ImageSystem.placeholderIcon;
-        }
-        return m_ImageSystem.placeholderIcon;
-    }
-</code></pre>
-<ul>
-<li><code>private GetDevTreeNodes(Unity.Entities.Entity service, Unity.Collections.Allocator allocator) : Unity.Collections.NativeList&lt;Game.UI.InGame.DevTreeUISystem+DevTreeNodeInfo&gt;</code>  </li>
-</ul>
-<pre><code class="language-csharp">private NativeList&lt;DevTreeNodeInfo&gt; GetDevTreeNodes(Entity service, Allocator allocator)
-    {
-        NativeList&lt;DevTreeNodeInfo&gt; result = new NativeList&lt;DevTreeNodeInfo&gt;(16, allocator);
-        EntityTypeHandle entityTypeHandle = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef);
-        ComponentTypeHandle&lt;PrefabData&gt; typeHandle = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_PrefabData_RO_ComponentTypeHandle, ref base.CheckedStateRef);
-        ComponentTypeHandle&lt;DevTreeNodeData&gt; typeHandle2 = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_DevTreeNodeData_RO_ComponentTypeHandle, ref base.CheckedStateRef);
-        ComponentTypeHandle&lt;Locked&gt; typeHandle3 = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_Locked_RO_ComponentTypeHandle, ref base.CheckedStateRef);
-        NativeArray&lt;ArchetypeChunk&gt; nativeArray = m_DevTreeNodeQuery.ToArchetypeChunkArray(Allocator.TempJob);
-        try
-        {
-            for (int i = 0; i &lt; nativeArray.Length; i++)
-            {
-                ArchetypeChunk archetypeChunk = nativeArray[i];
-                NativeArray&lt;Entity&gt; nativeArray2 = archetypeChunk.GetNativeArray(entityTypeHandle);
-                NativeArray&lt;PrefabData&gt; nativeArray3 = archetypeChunk.GetNativeArray(ref typeHandle);
-                NativeArray&lt;DevTreeNodeData&gt; nativeArray4 = archetypeChunk.GetNativeArray(ref typeHandle2);
-                EnabledMask enabledMask = archetypeChunk.GetEnabledMask(ref typeHandle3);
-                for (int j = 0; j &lt; nativeArray2.Length; j++)
-                {
-                    if (nativeArray4[j].m_Service == service)
-                    {
-                        DevTreeNodeInfo value = new DevTreeNodeInfo
-                        {
-                            entity = nativeArray2[j],
-                            prefabData = nativeArray3[j],
-                            devTreeNodeData = nativeArray4[j],
-                            locked = (enabledMask.EnableBit.IsValid &amp;&amp; enabledMask[j])
-                        };
-                        result.Add(in value);
-                    }
-                }
-            }
-            return result;
-        }
-        finally
-        {
-            nativeArray.Dispose();
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private GetDevTreePoints() : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">private int GetDevTreePoints()
-    {
-        return Mathf.Min((!m_DevTreePointsQuery.IsEmptyIgnoreFilter) ? m_DevTreePointsQuery.GetSingleton&lt;DevTreePoints&gt;().m_Points : 0, GetMaxDevTreePoints());
-    }
-</code></pre>
-<ul>
-<li><code>private GetMaxDevTreePoints() : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">private int GetMaxDevTreePoints()
-    {
-        NativeArray&lt;DevTreeNodeData&gt; nativeArray = m_LockedDevTreeNodeQuery.ToComponentDataArray&lt;DevTreeNodeData&gt;(Allocator.Temp);
-        int num = 0;
-        foreach (DevTreeNodeData item in nativeArray)
-        {
-            num += item.m_Cost;
-        }
-        nativeArray.Dispose();
-        return num;
-    }
-</code></pre>
-<ul>
-<li><code>private GetSortedDevTreeServices(Unity.Collections.Allocator allocator) : Unity.Collections.NativeList&lt;Game.UI.UIObjectInfo&gt;</code>  </li>
-</ul>
-<pre><code class="language-csharp">private NativeList&lt;UIObjectInfo&gt; GetSortedDevTreeServices(Allocator allocator)
-    {
-        NativeArray&lt;DevTreeNodeData&gt; nativeArray = m_DevTreeNodeQuery.ToComponentDataArray&lt;DevTreeNodeData&gt;(Allocator.TempJob);
-        NativeParallelHashSet&lt;Entity&gt; nativeParallelHashSet = new NativeParallelHashSet&lt;Entity&gt;(16, Allocator.TempJob);
-        NativeList&lt;UIObjectInfo&gt; nativeList = new NativeList&lt;UIObjectInfo&gt;(16, allocator);
-        for (int i = 0; i &lt; nativeArray.Length; i++)
-        {
-            Entity service = nativeArray[i].m_Service;
-            if (nativeParallelHashSet.Add(service) &amp;&amp; base.EntityManager.TryGetComponent&lt;UIObjectData&gt;(service, out var component))
-            {
-                PrefabData componentData = base.EntityManager.GetComponentData&lt;PrefabData&gt;(service);
-                nativeList.Add(new UIObjectInfo(service, componentData, component.m_Priority));
-            }
-        }
-        nativeArray.Dispose();
-        nativeParallelHashSet.Dispose();
-        nativeList.Sort();
-        return nativeList;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_PrefabSystem = base.World.GetOrCreateSystemManaged&lt;PrefabSystem&gt;();
-        m_PrefabUISystem = base.World.GetOrCreateSystemManaged&lt;PrefabUISystem&gt;();
-        m_DevTreeSystem = base.World.GetOrCreateSystemManaged&lt;DevTreeSystem&gt;();
-        m_ImageSystem = base.World.GetOrCreateSystemManaged&lt;ImageSystem&gt;();
-        m_DevTreePointsQuery = GetEntityQuery(ComponentType.ReadOnly&lt;DevTreePoints&gt;());
-        m_DevTreeNodeQuery = GetEntityQuery(new EntityQueryDesc
-        {
-            All = new ComponentType[2]
-            {
-                ComponentType.ReadOnly&lt;PrefabData&gt;(),
-                ComponentType.ReadOnly&lt;DevTreeNodeData&gt;()
-            },
-            None = new ComponentType[2]
-            {
-                ComponentType.ReadOnly&lt;Deleted&gt;(),
-                ComponentType.ReadOnly&lt;Temp&gt;()
-            }
-        });
-        m_UnlockedServiceQuery = GetEntityQuery(ComponentType.ReadOnly&lt;Unlock&gt;());
-        m_ModifiedDevTreeNodeQuery = GetEntityQuery(new EntityQueryDesc
-        {
-            All = new ComponentType[2]
-            {
-                ComponentType.ReadOnly&lt;PrefabData&gt;(),
-                ComponentType.ReadOnly&lt;DevTreeNodeData&gt;()
-            },
-            Any = new ComponentType[3]
-            {
-                ComponentType.ReadOnly&lt;Created&gt;(),
-                ComponentType.ReadOnly&lt;Deleted&gt;(),
-                ComponentType.ReadOnly&lt;Updated&gt;()
-            },
-            None = new ComponentType[1] { ComponentType.ReadOnly&lt;Temp&gt;() }
-        });
-        m_LockedDevTreeNodeQuery = GetEntityQuery(new EntityQueryDesc
-        {
-            All = new ComponentType[3]
-            {
-                ComponentType.ReadOnly&lt;PrefabData&gt;(),
-                ComponentType.ReadOnly&lt;DevTreeNodeData&gt;(),
-                ComponentType.ReadOnly&lt;Locked&gt;()
-            },
-            None = new ComponentType[2]
-            {
-                ComponentType.ReadOnly&lt;Deleted&gt;(),
-                ComponentType.ReadOnly&lt;Temp&gt;()
-            }
-        });
-        AddBinding(m_PointsBinding = new GetterValueBinding&lt;int&gt;(&quot;devTree&quot;, &quot;points&quot;, GetDevTreePoints));
-        AddBinding(m_ServicesBinding = new RawValueBinding(&quot;devTree&quot;, &quot;services&quot;, BindServices));
-        AddBinding(m_ServiceDetailsBinding = new RawMapBinding&lt;Entity&gt;(&quot;devTree&quot;, &quot;serviceDetails&quot;, BindServiceDetails));
-        AddBinding(m_NodesBinding = new RawMapBinding&lt;Entity&gt;(&quot;devTree&quot;, &quot;nodes&quot;, BindNodes));
-        AddBinding(m_NodeDetailsBinding = new RawMapBinding&lt;Entity&gt;(&quot;devTree&quot;, &quot;nodeDetails&quot;, BindNodeDetails));
-        AddBinding(new TriggerBinding&lt;Entity&gt;(&quot;devTree&quot;, &quot;purchaseNode&quot;, PurchaseNode));
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreateForCompiler() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnCreateForCompiler()
-    {
-        base.OnCreateForCompiler();
-        __AssignQueries(ref base.CheckedStateRef);
-        __TypeHandle.__AssignHandles(ref base.CheckedStateRef);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        m_PointsBinding.Update();
-        if (!m_ModifiedDevTreeNodeQuery.IsEmptyIgnoreFilter || PrefabUtils.HasUnlockedPrefab&lt;DevTreeNodeData&gt;(base.EntityManager, m_UnlockedServiceQuery))
-        {
-            m_NodesBinding.UpdateAll();
-            m_NodeDetailsBinding.UpdateAll();
-        }
-        if (PrefabUtils.HasUnlockedPrefab&lt;ServiceData&gt;(base.EntityManager, m_UnlockedServiceQuery))
-        {
-            m_ServicesBinding.Update();
-            m_ServiceDetailsBinding.UpdateAll();
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private PurchaseNode(Unity.Entities.Entity node) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void PurchaseNode(Entity node)
-    {
-        m_DevTreeSystem.Purchase(node);
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.UI.InGame.DevTreeUISystem+DevTreeNodeInfo</code>  </li>
-<li><code>Game.UI.InGame.DevTreeUISystem+TypeHandle</code>  </li>
-</ul>
+<p>Notes:
+- The system is designed to minimize JSON/binding updates by checking EntityQuery change conditions (created/updated/deleted/Unlock).
+- Many internal methods allocate Native containers (NativeArray, NativeList, NativeParallelHashSet) — these are disposed after use; callers of helper methods that return NativeLists must respect the allocator and dispose when done (the system itself disposes in its flows).</p>
 
 
 

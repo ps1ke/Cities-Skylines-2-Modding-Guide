@@ -65233,6 +65233,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69645,18 +69668,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -69681,9 +69704,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -69734,6 +69757,29 @@
   
   <span class="md-ellipsis">
     ShaderID
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
     
   </span>
   
@@ -72563,6 +72609,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75553,6 +75622,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87145,6 +87237,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -117921,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117948,18 +118085,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -117984,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118009,457 +118146,178 @@
 
 
 <h1 id="gamerenderingroutebuffersystem">Game.Rendering.RouteBufferSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Rendering</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code><br />
-<strong>Implements:</strong> <code>Game.Serialization.IPreDeserialize</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class RouteBufferSystem : Game.GameSystemBase, Game.Serialization.IPreDeserialize
-{
-    private Game.Rendering.RenderingSystem m_RenderingSystem;
-    private Game.Prefabs.PrefabSystem m_PrefabSystem;
-    private Unity.Entities.EntityQuery m_UpdatedRoutesQuery;
-    private Unity.Entities.EntityQuery m_AllRoutesQuery;
-    private Unity.Entities.EntityQuery m_RouteConfigQuery;
-    private System.Collections.Generic.List&lt;Game.Rendering.RouteBufferSystem+ManagedData&gt; m_ManagedData;
-    private Unity.Collections.NativeList&lt;Game.Rendering.RouteBufferSystem+NativeData&gt; m_NativeData;
-    private System.Collections.Generic.Stack&lt;System.Int32&gt; m_FreeBufferIndices;
-    private Unity.Jobs.JobHandle m_BufferDependencies;
-    private System.Boolean m_Loaded;
-    private Game.Rendering.RouteBufferSystem+TypeHandle __TypeHandle;
-
-    public RouteBufferSystem();
-
-    private System.Void __AssignQueries(Unity.Entities.SystemState&amp; state);
-    private System.Void Clear();
-    public System.Void GetBuffer(System.Int32 index, UnityEngine.Material&amp; material, UnityEngine.ComputeBuffer&amp; segmentBuffer, System.Int32&amp; originalRenderQueue, UnityEngine.Bounds&amp; bounds, UnityEngine.Vector4&amp; size);
-    private System.Boolean GetLoaded();
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnCreateForCompiler();
-    protected virtual System.Void OnDestroy();
-    protected virtual System.Void OnUpdate();
-    public System.Void PreDeserialize(Colossal.Serialization.Entities.Context context);
-}
-</code></pre>
+<p><strong>Assembly:</strong><br />
+<strong>Namespace:</strong> Game.Rendering</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> GameSystemBase, IPreDeserialize</p>
+<p><strong>Summary:</strong><br />
+Manages GPU-side route segment buffers and materials used for rendering route paths (e.g. transit/vehicle routes). It tracks Route entities, builds per-route segment data (Bezier segments and nodes) on worker threads (Burst-compiled IJobParallelFor), and exposes ComputeBuffer + Material + bounds/size for rendering. The system uses Unity's DOTS APIs (Entity queries, BufferLookup, ComponentLookup), Burst jobs, and Native containers. It reacts to route updates and (re)allocates/updates managed ComputeBuffers and Materials for each routed prefab.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.Rendering.RenderingSystem m_RenderingSystem</code>  </li>
+<li>
+<p><code>private RenderingSystem m_RenderingSystem</code><br />
+Holds reference to the RenderingSystem (used for frame/time values when scheduling the UpdateBufferJob).</p>
+</li>
+<li>
+<p><code>private PrefabSystem m_PrefabSystem</code><br />
+Reference to the PrefabSystem used to resolve RoutePrefab instances for route entities.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_UpdatedRoutesQuery</code><br />
+Query for routes that need updating (Updated / LivePath / Deleted / PathUpdated events).</p>
+</li>
+<li>
+<p><code>private EntityQuery m_AllRoutesQuery</code><br />
+Query that matches all Route entities (used when loading to initialize buffers).</p>
+</li>
+<li>
+<p><code>private EntityQuery m_RouteConfigQuery</code><br />
+Query used to get route configuration data (e.g. fallback missing route prefab).</p>
+</li>
+<li>
+<p><code>private List&lt;ManagedData&gt; m_ManagedData</code><br />
+Managed (UnityEngine) objects per-route: Material and ComputeBuffer references. Lifetimes must be disposed manually.</p>
+</li>
+<li>
+<p><code>private NativeList&lt;NativeData&gt; m_NativeData</code><br />
+Native-side data for each route (UnsafeList of SegmentData, bounds, length, updated flag, entity reference). Used by the worker job.</p>
+</li>
+<li>
+<p><code>private Stack&lt;int&gt; m_FreeBufferIndices</code><br />
+Pool of free indices for reusing managed/native buffer slots when routes are deleted.</p>
+</li>
+<li>
+<p><code>private JobHandle m_BufferDependencies</code><br />
+JobHandle for the scheduled UpdateBufferJob. Completed before accessing managed data.</p>
+</li>
+<li>
+<p><code>private bool m_Loaded</code><br />
+Flag set by PreDeserialize to indicate initial load; used to initialize all routes on next update.</p>
+</li>
+<li>
+<p><code>private TypeHandle __TypeHandle</code><br />
+Generated structure holding component/type handles used by the system (internal DOTS boilerplate).</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.Rendering.RenderingSystem m_RenderingSystem;
-</code></pre>
+<p>Nested types (brief):</p>
 <ul>
-<li><code>private Game.Prefabs.PrefabSystem m_PrefabSystem</code>  </li>
+<li>
+<p><code>ManagedData</code> (private class)<br />
+Holds Material, ComputeBuffer, Vector4 size, original render queue and an "updated" flag. Provides Initialize(RoutePrefab) and Dispose() to create/destroy UnityEngine.Object resources.</p>
+</li>
+<li>
+<p><code>NativeData</code> (private struct)<br />
+Holds UnsafeList<SegmentData> m_SegmentData, Bounds3 m_Bounds, Entity m_Entity, float m_Length, and a bool m_Updated. Has Initialize(Entity) and Dispose().</p>
+</li>
+<li>
+<p><code>SegmentData</code> (private struct)<br />
+Layout that represents one route segment or node (float4x4 curve encoded, position, size factors, opacity, divided opacity, broken flag). This struct is copied into the ComputeBuffer for rendering.</p>
+</li>
+<li>
+<p><code>UpdateBufferJob</code> (private Burst-compiled struct)<br />
+IJobParallelFor that computes/updates SegmentData lists for each updated route (reads many ECS lookups and buffers). It creates and manipulates Native containers, combines segment pieces, computes bounds and per-segment attributes, handles shared curve deduplication, and writes into NativeData.m_SegmentData.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.Prefabs.PrefabSystem m_PrefabSystem;
-</code></pre>
+<p>Other nested helper structs: CurveKey, CurveValue, SourceKey (used inside the job to dedupe/merge segments).</p>
+<h2 id="properties">Properties</h2>
 <ul>
-<li><code>private Unity.Entities.EntityQuery m_UpdatedRoutesQuery</code>  </li>
+<li>(none public)<br />
+This system exposes no public properties. Access to per-route buffers/materials is via GetBuffer(int index, out ...).</li>
 </ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_UpdatedRoutesQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_AllRoutesQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_AllRoutesQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_RouteConfigQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_RouteConfigQuery;
-</code></pre>
-<ul>
-<li><code>private System.Collections.Generic.List&lt;Game.Rendering.RouteBufferSystem+ManagedData&gt; m_ManagedData</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Collections.Generic.List&lt;Game.Rendering.RouteBufferSystem+ManagedData&gt; m_ManagedData;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeList&lt;Game.Rendering.RouteBufferSystem+NativeData&gt; m_NativeData</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeList&lt;Game.Rendering.RouteBufferSystem+NativeData&gt; m_NativeData;
-</code></pre>
-<ul>
-<li><code>private System.Collections.Generic.Stack&lt;System.Int32&gt; m_FreeBufferIndices</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Collections.Generic.Stack&lt;System.Int32&gt; m_FreeBufferIndices;
-</code></pre>
-<ul>
-<li><code>private Unity.Jobs.JobHandle m_BufferDependencies</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Jobs.JobHandle m_BufferDependencies;
-</code></pre>
-<ul>
-<li><code>private System.Boolean m_Loaded</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean m_Loaded;
-</code></pre>
-<ul>
-<li><code>private Game.Rendering.RouteBufferSystem+TypeHandle __TypeHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Rendering.RouteBufferSystem+TypeHandle __TypeHandle;
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public RouteBufferSystem()</code>  </li>
+<li><code>public RouteBufferSystem()</code><br />
+Default constructor (preserved for runtime). Typical initialization is done in OnCreate.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public RouteBufferSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private __AssignQueries(Unity.Entities.SystemState&amp; state) : System.Void</code>  </li>
+<li>
+<p><code>protected override void OnCreate()</code><br />
+Initializes references to RenderingSystem and PrefabSystem and creates entity queries used by the system (m_UpdatedRoutesQuery, m_AllRoutesQuery, m_RouteConfigQuery). Call base.OnCreate().</p>
+</li>
+<li>
+<p><code>protected override void OnDestroy()</code><br />
+Calls Clear(), disposes native lists (m_NativeData) and completes outstanding jobs before destruction.</p>
+</li>
+<li>
+<p><code>public void PreDeserialize(Context context)</code><br />
+Implements IPreDeserialize. Called before deserialization/load to clear existing buffers and mark the system as loaded so it initializes buffers for all routes on the next update.</p>
+</li>
+<li>
+<p><code>private void Clear()</code><br />
+Disposes/cleans managed Materials and ComputeBuffers, clears free index pool, completes outstanding jobs and disposes native data lists. Safe to call on load/teardown.</p>
+</li>
+<li>
+<p><code>public unsafe void GetBuffer(int index, out Material material, out ComputeBuffer segmentBuffer, out int originalRenderQueue, out Bounds bounds, out Vector4 size)</code><br />
+Retrieves the Material and ComputeBuffer for a given buffer index. Completes the scheduled UpdateBufferJob, updates (or creates) the ComputeBuffer from the NativeData.m_SegmentData if needed, and returns bounds and the size vector. Callers must ensure they pass a valid index (RouteBufferIndex.m_Index) and that the system has finished its job dependencies.</p>
+</li>
+<li>
+<p><code>private bool GetLoaded()</code><br />
+Internal helper to flip the m_Loaded flag once (returns true the first time after PreDeserialize).</p>
+</li>
+<li>
+<p><code>protected override void OnUpdate()</code><br />
+Main update loop. Gathers route entities to initialize or mark for update, allocates or reuses ManagedData/NativeData entries, sets updated flags for routes that changed, and schedules the Burst UpdateBufferJob (IJobParallelFor) to build segment lists. Maintains m_BufferDependencies and base.Dependency accordingly.</p>
+</li>
+<li>
+<p><code>private void __AssignQueries(ref SystemState state)</code><br />
+Compiler-generated helper used in OnCreateForCompiler (DOTS boilerplate).</p>
+</li>
+<li>
+<p><code>protected override void OnCreateForCompiler()</code><br />
+Compiler helper for DOTS-generated code; sets up type handles.</p>
+</li>
+<li>
+<p>Nested: ManagedData.Initialize(RoutePrefab) / Dispose()<br />
+Create a copy of the prefab Material (so each route material is unique), set m_Size vector from prefab width/segment length, and dispose resources on deletion.</p>
+</li>
+<li>
+<p>Nested: NativeData.Initialize(Entity) / Dispose()<br />
+Initialize entity reference and dispose the UnsafeList when no longer used.</p>
+</li>
+<li>
+<p>Nested (UpdateBufferJob.Execute and helpers):</p>
+</li>
+<li>Execute(int index): For each updated NativeData element builds the list of segments (dedupes shared curves, slices curve sources, computes opacities/size factors, computes bounds and total route length).</li>
+<li>AddSegment(...): Adds or reuses a SegmentData in the UnsafeList, handles shared curve coalescing via internal NativeHashMap.</li>
+<li>GetSizeFactor(int sharedCount): Heuristic to reduce thickness when multiple routes share the same curve.</li>
+<li>AddNode(...): Add a node (waypoint) entry as a degenerate SegmentData so the renderer can draw waypoint markers.</li>
 </ul>
-<pre><code class="language-csharp">private void __AssignQueries(ref SystemState state)
+<p>Notes about multi-threading &amp; memory:
+- UpdateBufferJob uses many ReadOnly lookups and Native containers and is Burst-compiled to run in parallel. The system completes the job (m_BufferDependencies.Complete()) before any managed UnityEngine objects (ComputeBuffer / Material) are read or modified.
+- NativeData.m_SegmentData is created as an UnsafeList with Allocator.Persistent and must be disposed explicitly (Clear/OnDestroy).
+- ManagedData holds UnityEngine.Object instances; Dispose must be called on the main thread.</p>
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Typical pattern inside a rendering or UI system that wants to draw routes:
+// - Each Route entity has a RouteBufferIndex component containing an index to this system's buffers.
+// - Call GetBuffer(index, out material, out segmentBuffer, out originalRenderQueue, out bounds, out size)
+//   to obtain the data needed to issue a draw call using the provided material and ComputeBuffer.
+
+// Example: retrieving the route buffer for rendering
+int index = routeBufferIndexComponent.m_Index;
+if (index &gt;= 0)
+{
+    Material mat;
+    ComputeBuffer segBuffer;
+    int originalQueue;
+    Bounds bounds;
+    Vector4 size;
+    routeBufferSystem.GetBuffer(index, out mat, out segBuffer, out originalQueue, out bounds, out size);
+
+    if (segBuffer != null &amp;&amp; mat != null)
     {
-        new EntityQueryBuilder(Allocator.Temp).Dispose();
+        // Set shader properties and dispatch draw (pseudo-code)
+        mat.SetVector(&quot;_Size&quot;, size);
+        mat.SetBuffer(&quot;_Segments&quot;, segBuffer);
+        Graphics.DrawProcedural(mat, bounds, MeshTopology.Triangles, /*vertexCount*/ 6 * segBuffer.count);
     }
+}
 </code></pre>
-<ul>
-<li><code>private Clear() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void Clear()
-    {
-        if (m_ManagedData != null)
-        {
-            for (int i = 0; i &lt; m_ManagedData.Count; i++)
-            {
-                m_ManagedData[i].Dispose();
-            }
-            m_ManagedData.Clear();
-        }
-        if (m_FreeBufferIndices != null)
-        {
-            m_FreeBufferIndices.Clear();
-        }
-        if (m_NativeData.IsCreated)
-        {
-            m_BufferDependencies.Complete();
-            for (int j = 0; j &lt; m_NativeData.Length; j++)
-            {
-                m_NativeData.ElementAt(j).Dispose();
-            }
-            m_NativeData.Clear();
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public GetBuffer(System.Int32 index, UnityEngine.Material&amp; material, UnityEngine.ComputeBuffer&amp; segmentBuffer, System.Int32&amp; originalRenderQueue, UnityEngine.Bounds&amp; bounds, UnityEngine.Vector4&amp; size) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public unsafe void GetBuffer(int index, out Material material, out ComputeBuffer segmentBuffer, out int originalRenderQueue, out Bounds bounds, out Vector4 size)
-    {
-        material = null;
-        segmentBuffer = null;
-        originalRenderQueue = 0;
-        bounds = default(Bounds);
-        size = default(Vector4);
-        if (m_ManagedData == null || index &lt; 0 || index &gt;= m_ManagedData.Count)
-        {
-            return;
-        }
-        m_BufferDependencies.Complete();
-        ManagedData managedData = m_ManagedData[index];
-        ref NativeData reference = ref m_NativeData.ElementAt(index);
-        if (managedData.m_Updated)
-        {
-            managedData.m_Updated = false;
-            if (managedData.m_SegmentBuffer != null &amp;&amp; managedData.m_SegmentBuffer.count != reference.m_SegmentData.Length)
-            {
-                managedData.m_SegmentBuffer.Release();
-                managedData.m_SegmentBuffer = null;
-            }
-            if (reference.m_SegmentData.Length &gt; 0)
-            {
-                if (managedData.m_SegmentBuffer == null)
-                {
-                    managedData.m_SegmentBuffer = new ComputeBuffer(reference.m_SegmentData.Length, sizeof(SegmentData));
-                    managedData.m_SegmentBuffer.name = &quot;Route segment buffer (&quot; + managedData.m_Material.name + &quot;)&quot;;
-                }
-                NativeArray&lt;SegmentData&gt; data = NativeArrayUnsafeUtility.ConvertExistingDataToNativeArray&lt;SegmentData&gt;(reference.m_SegmentData.Ptr, reference.m_SegmentData.Length, Allocator.None);
-                managedData.m_SegmentBuffer.SetData(data);
-            }
-            reference.m_SegmentData.Dispose();
-        }
-        material = managedData.m_Material;
-        segmentBuffer = managedData.m_SegmentBuffer;
-        originalRenderQueue = managedData.m_OriginalRenderQueue;
-        bounds = RenderingUtils.ToBounds(reference.m_Bounds);
-        size = managedData.m_Size;
-    }
-</code></pre>
-<ul>
-<li><code>private GetLoaded() : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">private bool GetLoaded()
-    {
-        if (m_Loaded)
-        {
-            m_Loaded = false;
-            return true;
-        }
-        return false;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_RenderingSystem = base.World.GetOrCreateSystemManaged&lt;RenderingSystem&gt;();
-        m_PrefabSystem = base.World.GetOrCreateSystemManaged&lt;PrefabSystem&gt;();
-        m_UpdatedRoutesQuery = GetEntityQuery(new EntityQueryDesc
-        {
-            All = new ComponentType[1] { ComponentType.ReadOnly&lt;Route&gt;() },
-            Any = new ComponentType[3]
-            {
-                ComponentType.ReadOnly&lt;Updated&gt;(),
-                ComponentType.ReadOnly&lt;LivePath&gt;(),
-                ComponentType.ReadOnly&lt;Deleted&gt;()
-            }
-        }, new EntityQueryDesc
-        {
-            All = new ComponentType[2]
-            {
-                ComponentType.ReadOnly&lt;Game.Common.Event&gt;(),
-                ComponentType.ReadOnly&lt;PathUpdated&gt;()
-            }
-        });
-        m_AllRoutesQuery = GetEntityQuery(ComponentType.ReadOnly&lt;Route&gt;());
-        m_RouteConfigQuery = GetEntityQuery(ComponentType.ReadOnly&lt;RouteConfigurationData&gt;());
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreateForCompiler() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnCreateForCompiler()
-    {
-        base.OnCreateForCompiler();
-        __AssignQueries(ref base.CheckedStateRef);
-        __TypeHandle.__AssignHandles(ref base.CheckedStateRef);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnDestroy() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnDestroy()
-    {
-        Clear();
-        if (m_NativeData.IsCreated)
-        {
-            m_NativeData.Dispose();
-        }
-        base.OnDestroy();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        bool loaded = GetLoaded();
-        EntityQuery entityQuery = (loaded ? m_AllRoutesQuery : m_UpdatedRoutesQuery);
-        if (entityQuery.IsEmptyIgnoreFilter)
-        {
-            return;
-        }
-        RoutePrefab routePrefab = null;
-        HashSet&lt;Entity&gt; hashSet = null;
-        m_BufferDependencies.Complete();
-        NativeArray&lt;ArchetypeChunk&gt; nativeArray = entityQuery.ToArchetypeChunkArray(Allocator.TempJob);
-        try
-        {
-            EntityTypeHandle entityTypeHandle = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef);
-            ComponentTypeHandle&lt;Deleted&gt; typeHandle = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Common_Deleted_RO_ComponentTypeHandle, ref base.CheckedStateRef);
-            ComponentTypeHandle&lt;Created&gt; typeHandle2 = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Common_Created_RO_ComponentTypeHandle, ref base.CheckedStateRef);
-            ComponentTypeHandle&lt;Applied&gt; typeHandle3 = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Common_Applied_RO_ComponentTypeHandle, ref base.CheckedStateRef);
-            ComponentTypeHandle&lt;PathUpdated&gt; typeHandle4 = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Pathfind_PathUpdated_RO_ComponentTypeHandle, ref base.CheckedStateRef);
-            ComponentTypeHandle&lt;PrefabRef&gt; typeHandle5 = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentTypeHandle, ref base.CheckedStateRef);
-            ComponentTypeHandle&lt;RouteBufferIndex&gt; typeHandle6 = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Rendering_RouteBufferIndex_RW_ComponentTypeHandle, ref base.CheckedStateRef);
-            ComponentLookup&lt;Game.Routes.Segment&gt; componentLookup = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Routes_Segment_RO_ComponentLookup, ref base.CheckedStateRef);
-            ComponentLookup&lt;Owner&gt; componentLookup2 = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Common_Owner_RO_ComponentLookup, ref base.CheckedStateRef);
-            ComponentLookup&lt;Deleted&gt; componentLookup3 = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Common_Deleted_RO_ComponentLookup, ref base.CheckedStateRef);
-            for (int i = 0; i &lt; nativeArray.Length; i++)
-            {
-                ArchetypeChunk archetypeChunk = nativeArray[i];
-                NativeArray&lt;PathUpdated&gt; nativeArray2 = archetypeChunk.GetNativeArray(ref typeHandle4);
-                if (nativeArray2.Length != 0)
-                {
-                    for (int j = 0; j &lt; nativeArray2.Length; j++)
-                    {
-                        PathUpdated pathUpdated = nativeArray2[j];
-                        if (componentLookup.HasComponent(pathUpdated.m_Owner) &amp;&amp; componentLookup2.HasComponent(pathUpdated.m_Owner) &amp;&amp; !componentLookup3.HasComponent(pathUpdated.m_Owner))
-                        {
-                            if (hashSet == null)
-                            {
-                                hashSet = new HashSet&lt;Entity&gt;();
-                            }
-                            hashSet.Add(componentLookup2[pathUpdated.m_Owner].m_Owner);
-                        }
-                    }
-                }
-                else if (archetypeChunk.Has(ref typeHandle))
-                {
-                    NativeArray&lt;RouteBufferIndex&gt; nativeArray3 = archetypeChunk.GetNativeArray(ref typeHandle6);
-                    if (m_FreeBufferIndices == null)
-                    {
-                        m_FreeBufferIndices = new Stack&lt;int&gt;(nativeArray3.Length);
-                    }
-                    for (int k = 0; k &lt; nativeArray3.Length; k++)
-                    {
-                        RouteBufferIndex value = nativeArray3[k];
-                        ManagedData managedData = m_ManagedData[value.m_Index];
-                        ref NativeData reference = ref m_NativeData.ElementAt(value.m_Index);
-                        managedData.m_Updated = false;
-                        reference.m_Updated = false;
-                        m_FreeBufferIndices.Push(value.m_Index);
-                        value.m_Index = -1;
-                        nativeArray3[k] = value;
-                    }
-                }
-                else if (loaded || (archetypeChunk.Has(ref typeHandle2) &amp;&amp; !archetypeChunk.Has(ref typeHandle3)))
-                {
-                    NativeArray&lt;Entity&gt; nativeArray4 = archetypeChunk.GetNativeArray(entityTypeHandle);
-                    NativeArray&lt;RouteBufferIndex&gt; nativeArray5 = archetypeChunk.GetNativeArray(ref typeHandle6);
-                    NativeArray&lt;PrefabRef&gt; nativeArray6 = archetypeChunk.GetNativeArray(ref typeHandle5);
-                    if (m_ManagedData == null)
-                    {
-                        m_ManagedData = new List&lt;ManagedData&gt;(nativeArray5.Length);
-                    }
-                    if (!m_NativeData.IsCreated)
-                    {
-                        m_NativeData = new NativeList&lt;NativeData&gt;(nativeArray5.Length, Allocator.Persistent);
-                    }
-                    if (hashSet == null)
-                    {
-                        hashSet = new HashSet&lt;Entity&gt;();
-                    }
-                    for (int l = 0; l &lt; nativeArray5.Length; l++)
-                    {
-                        Entity entity = nativeArray4[l];
-                        RouteBufferIndex value2 = nativeArray5[l];
-                        PrefabRef refData = nativeArray6[l];
-                        if (!m_PrefabSystem.TryGetPrefab&lt;RoutePrefab&gt;(refData, out var prefab))
-                        {
-                            RouteConfigurationData singleton = m_RouteConfigQuery.GetSingleton&lt;RouteConfigurationData&gt;();
-                            if (routePrefab != null)
-                            {
-                                prefab = routePrefab;
-                            }
-                            else if (m_PrefabSystem.TryGetPrefab&lt;RoutePrefab&gt;(singleton.m_MissingRoutePrefab, out prefab))
-                            {
-                                routePrefab = prefab;
-                            }
-                        }
-                        if (m_FreeBufferIndices != null &amp;&amp; m_FreeBufferIndices.Count &gt; 0)
-                        {
-                            value2.m_Index = m_FreeBufferIndices.Pop();
-                            ManagedData managedData2 = m_ManagedData[value2.m_Index];
-                            ref NativeData reference2 = ref m_NativeData.ElementAt(value2.m_Index);
-                            managedData2.Initialize(prefab);
-                            reference2.Initialize(entity);
-                        }
-                        else
-                        {
-                            value2.m_Index = m_ManagedData.Count;
-                            ManagedData managedData3 = new ManagedData();
-                            NativeData value3 = default(NativeData);
-                            managedData3.Initialize(prefab);
-                            value3.Initialize(entity);
-                            m_ManagedData.Add(managedData3);
-                            m_NativeData.Add(in value3);
-                        }
-                        nativeArray5[l] = value2;
-                        hashSet.Add(entity);
-                    }
-                }
-                else
-                {
-                    NativeArray&lt;Entity&gt; nativeArray7 = archetypeChunk.GetNativeArray(entityTypeHandle);
-                    if (hashSet == null)
-                    {
-                        hashSet = new HashSet&lt;Entity&gt;();
-                    }
-                    for (int m = 0; m &lt; nativeArray7.Length; m++)
-                    {
-                        hashSet.Add(nativeArray7[m]);
-                    }
-                }
-            }
-        }
-        finally
-        {
-            nativeArray.Dispose();
-        }
-        if (hashSet == null)
-        {
-            return;
-        }
-        foreach (Entity item in hashSet)
-        {
-            RouteBufferIndex componentData = base.EntityManager.GetComponentData&lt;RouteBufferIndex&gt;(item);
-            if (componentData.m_Index &gt;= 0)
-            {
-                ManagedData managedData4 = m_ManagedData[componentData.m_Index];
-                ref NativeData reference3 = ref m_NativeData.ElementAt(componentData.m_Index);
-                managedData4.m_Updated = true;
-                reference3.m_Updated = true;
-                if (!reference3.m_SegmentData.IsCreated)
-                {
-                    reference3.m_SegmentData = new UnsafeList&lt;SegmentData&gt;(0, Allocator.Persistent);
-                }
-            }
-        }
-        UpdateBufferJob jobData = new UpdateBufferJob
-        {
-            m_EntityLookup = InternalCompilerInterface.GetEntityStorageInfoLookup(ref __TypeHandle.__EntityStorageInfoLookup, ref base.CheckedStateRef),
-            m_UpdateFrameType = InternalCompilerInterface.GetSharedComponentTypeHandle(ref __TypeHandle.__Game_Simulation_UpdateFrame_SharedComponentTypeHandle, ref base.CheckedStateRef),
-            m_PositionData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Routes_Position_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PathSourceData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Routes_PathSource_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_LivePathData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Routes_LivePath_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_CurveData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_Curve_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_TransformData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Objects_Transform_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_UnspawnedData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Objects_Unspawned_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_CurrentVehicleData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Creatures_CurrentVehicle_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_RouteWaypoints = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Routes_RouteWaypoint_RO_BufferLookup, ref base.CheckedStateRef),
-            m_RouteSegments = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Routes_RouteSegment_RO_BufferLookup, ref base.CheckedStateRef),
-            m_CurveElements = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Routes_CurveElement_RO_BufferLookup, ref base.CheckedStateRef),
-            m_CurveSources = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Routes_CurveSource_RO_BufferLookup, ref base.CheckedStateRef),
-            m_TransformFrames = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Objects_TransformFrame_RO_BufferLookup, ref base.CheckedStateRef),
-            m_PathElements = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Pathfind_PathElement_RO_BufferLookup, ref base.CheckedStateRef),
-            m_FrameIndex = m_RenderingSystem.frameIndex,
-            m_FrameTime = m_RenderingSystem.frameTime,
-            m_NativeData = m_NativeData
-        };
-        m_BufferDependencies = IJobParallelForExtensions.Schedule(jobData, m_NativeData.Length, 1, base.Dependency);
-        base.Dependency = m_BufferDependencies;
-    }
-</code></pre>
-<ul>
-<li><code>public PreDeserialize(Colossal.Serialization.Entities.Context context) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void PreDeserialize(Context context)
-    {
-        Clear();
-        m_Loaded = true;
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Rendering.RouteBufferSystem+ManagedData</code>  </li>
-<li><code>Game.Rendering.RouteBufferSystem+NativeData</code>  </li>
-<li><code>Game.Rendering.RouteBufferSystem+SegmentData</code>  </li>
-<li><code>Game.Rendering.RouteBufferSystem+CurveKey</code>  </li>
-<li><code>Game.Rendering.RouteBufferSystem+CurveValue</code>  </li>
-<li><code>Game.Rendering.RouteBufferSystem+SourceKey</code>  </li>
-<li><code>Game.Rendering.RouteBufferSystem+UpdateBufferJob</code>  </li>
-<li><code>Game.Rendering.RouteBufferSystem+TypeHandle</code>  </li>
-</ul>
+<p>Additional tips for modders:
+- If you modify RoutePrefab shader/material parameters or segment struct layout, ensure SegmentData struct and the shader buffer layout remain compatible.
+- Avoid accessing ManagedData (Material/ComputeBuffer) from jobs — always complete m_BufferDependencies before doing so.
+- PreDeserialize(Context) will clear existing buffers on load; if you create routes during deserialization, expect the system to reinitialize buffers on the next frame.</p>
 
 
 

@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87075,6 +87167,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../SurfaceWater/" class="md-nav__link">
         
   
@@ -88666,18 +88781,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -88702,9 +88817,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -117921,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117948,18 +118085,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -117984,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118009,158 +118146,146 @@
 
 
 <h1 id="gamesimulationutilityfeesystem">Game.Simulation.UtilityFeeSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Simulation</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class UtilityFeeSystem : Game.GameSystemBase
-{
-    private Game.Simulation.SimulationSystem m_SimulationSystem;
-    private Game.Simulation.CitySystem m_CitySystem;
-    private Game.Simulation.ServiceFeeSystem m_ServiceFeeSystem;
-    private Unity.Entities.EntityQuery m_ConsumerGroup;
-    private Game.Simulation.UtilityFeeSystem+TypeHandle __TypeHandle;
-    private static const System.Int32 kUpdatesPerDay;
-
-    public UtilityFeeSystem();
-
-    private System.Void __AssignQueries(Unity.Entities.SystemState&amp; state);
-    public virtual System.Int32 GetUpdateInterval(Game.SystemUpdatePhase phase);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnCreateForCompiler();
-    protected virtual System.Void OnUpdate();
-}
-</code></pre>
+<p><strong>Assembly:</strong> Assembly-CSharp (game runtime assembly)<br />
+<strong>Namespace:</strong> Game.Simulation</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> GameSystemBase</p>
+<p><strong>Summary:</strong><br />
+UtilityFeeSystem is a simulation system that collects utility fees (electricity, water, sewage) from buildings that have renters. It schedules a parallel IJobChunk (SellUtilitiesJob) that iterates consumer buildings each update slice, computes sold utility amounts based on fulfilled consumption, deducts money from renter resources, and enqueues aggregated fee events to the central ServiceFeeSystem. The system runs in slices (128 updates per day) and integrates with the city/service fee systems to report income.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.Simulation.SimulationSystem m_SimulationSystem</code>  </li>
+<li>
+<p><code>private const int kUpdatesPerDay = 128</code><br />
+Describes the number of update slices per "day" used by the system. Used to compute the update interval and to pick the current update frame.</p>
+</li>
+<li>
+<p><code>private SimulationSystem m_SimulationSystem</code><br />
+Reference to the SimulationSystem (used to obtain frame index and timing info).</p>
+</li>
+<li>
+<p><code>private CitySystem m_CitySystem</code><br />
+Reference to the CitySystem, used to get the city Entity (m_City) for looking up service fees.</p>
+</li>
+<li>
+<p><code>private ServiceFeeSystem m_ServiceFeeSystem</code><br />
+Reference to the ServiceFeeSystem, used to obtain a FeeQueue writer and to register the job's dependency.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_ConsumerGroup</code><br />
+EntityQuery selecting buildings with renters and either electricity or water consumers. Filters out Deleted and Temp entities.</p>
+</li>
+<li>
+<p><code>private TypeHandle __TypeHandle</code><br />
+Internal struct instance that caches ECS Type/Buffer handles (ComponentTypeHandle/BufferTypeHandle/BufferLookup) required by the SellUtilitiesJob. Populated during compiler-time setup.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.Simulation.SimulationSystem m_SimulationSystem;
-</code></pre>
+<h2 id="properties">Properties</h2>
 <ul>
-<li><code>private Game.Simulation.CitySystem m_CitySystem</code>  </li>
+<li>(no public properties declared on UtilityFeeSystem itself)<br />
+All interaction occurs via system lifecycle methods and the ServiceFeeSystem's fee queue.</li>
 </ul>
-<pre><code class="language-csharp">private Game.Simulation.CitySystem m_CitySystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.ServiceFeeSystem m_ServiceFeeSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.ServiceFeeSystem m_ServiceFeeSystem;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_ConsumerGroup</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_ConsumerGroup;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.UtilityFeeSystem+TypeHandle __TypeHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.UtilityFeeSystem+TypeHandle __TypeHandle;
-</code></pre>
-<ul>
-<li><code>private static const System.Int32 kUpdatesPerDay</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static const System.Int32 kUpdatesPerDay;
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public UtilityFeeSystem()</code>  </li>
+<li><code>public UtilityFeeSystem()</code><br />
+Default constructor. The system is initialized by the ECS/System framework; real initialization happens in OnCreate.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public UtilityFeeSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private __AssignQueries(Unity.Entities.SystemState&amp; state) : System.Void</code>  </li>
+<li>
+<p><code>public override int GetUpdateInterval(SystemUpdatePhase phase)</code><br />
+Returns the update interval for the system. This system updates every 128 frames/slices (kUpdatesPerDay). Used by the GameSystemBase scheduling to stagger updates.</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnCreate()</code><br />
+Initializes references to other systems (SimulationSystem, CitySystem, ServiceFeeSystem) and constructs the EntityQuery m_ConsumerGroup which targets Building + Renter + UpdateFrame and either ElectricityConsumer or WaterConsumer, excluding Deleted and Temp entities. This sets up the query the job uses to find consumer buildings.</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnUpdate()</code><br />
+Main scheduling method. Computes the current update frame via SimulationUtils.GetUpdateFrame(..., 128, 16), allocates and fills SellUtilitiesJob with:</p>
+</li>
+<li>buffer/component handles (via InternalCompilerInterface + cached __TypeHandle)</li>
+<li>shared UpdateFrame handle</li>
+<li>buffer lookups for Resources and ServiceFee</li>
+<li>city entity and update frame index</li>
+<li>fee queue parallel writer from ServiceFeeSystem</li>
+<li>
+<p>a RandomSeed
+It then schedules the job in parallel across m_ConsumerGroup with proper dependency chaining, and registers the fee queue writer with the ServiceFeeSystem.</p>
+</li>
+<li>
+<p><code>protected override void OnCreateForCompiler()</code><br />
+Compiler-time helper that assigns queries and TypeHandle handles. Called by the generated/compiled system bootstrap.</p>
+</li>
+<li>
+<p><code>[MethodImpl(MethodImplOptions.AggressiveInlining)] private void __AssignQueries(ref SystemState state)</code><br />
+Internal helper used during compiler-time initialization; currently creates (and disposes) an EntityQueryBuilder to force query assignment. (Generated helper; implementation is minimal here.)</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private void __AssignQueries(ref SystemState state)
-    {
-        new EntityQueryBuilder(Allocator.Temp).Dispose();
-    }
-</code></pre>
+<p>Nested types (important behavior)</p>
 <ul>
-<li><code>public virtual GetUpdateInterval(Game.SystemUpdatePhase phase) : System.Int32</code>  </li>
+<li><code>private struct SellUtilitiesJob : IJobChunk</code><br />
+Burst-compiled job that runs per archetype chunk. Responsibilities:</li>
+<li>Filters chunks by matching UpdateFrame shared component index to m_UpdateFrameIndex (so each building is processed only in its assigned slice).</li>
+<li>Reads ElectricityConsumer and WaterConsumer components (if present) and Renter buffers.</li>
+<li>Reads the city ServiceFee buffer to get per-resource fees.</li>
+<li>Uses a RandomSeed (per-chunk) for randomized rounding when subtracting money.</li>
+<li>For each entity in the chunk:<ul>
+<li>Builds a float3 of fulfilled consumption: (electricity, fresh water, sewage), normalized by 128.</li>
+<li>Computes per-renter charge = sum(consumption * fee) / renterCount.</li>
+<li>For each renter entry in the building, finds their Resources buffer and deducts money with EconomyUtils.AddResources(Resource.Money, -roundedCharge, buffer).</li>
 </ul>
-<pre><code class="language-csharp">public override int GetUpdateInterval(SystemUpdatePhase phase)
-    {
-        return 128;
-    }
-</code></pre>
+</li>
+<li>Aggregates totals across the chunk and enqueues fee events for Electricity, Water, and Sewage using the ServiceFeeSystem.FeeEvent queue (m_FeeQueue).</li>
+<li>Uses BufferLookup<Resources>.TryGetBuffer to access renter-owned resources buffers. Works in parallel with NativeQueue<ServiceFeeSystem.FeeEvent>.ParallelWriter for aggregated reporting.</li>
+</ul>
+<p>Important details:
+  - Uses InternalCompilerInterface handles provided when scheduling.
+  - Employs Burst and parallel execution; pay attention to thread-safety when modifying buffers (m_Resources is marked NativeDisableParallelForRestriction and used via BufferLookup).
+  - Randomized rounding is applied with MathUtils.RoundToIntRandom to distribute fractional charges.</p>
 <ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
+<li><code>private struct TypeHandle</code><br />
+Holds Component/Buffer/BufferLookup handles:</li>
+<li>BufferTypeHandle<Renter> (RO)</li>
+<li>ComponentTypeHandle<ElectricityConsumer> (RO)</li>
+<li>ComponentTypeHandle<WaterConsumer> (RO)</li>
+<li>BufferLookup<Resources> (RW)</li>
+<li>BufferLookup<ServiceFee> (RO)
+Includes __AssignHandles(ref SystemState) to populate handles from the system state (called in OnCreateForCompiler).</li>
 </ul>
+<h2 id="usage-example">Usage Example</h2>
 <pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
+protected override void OnCreate()
+{
+    base.OnCreate();
+    // Resolve systems and build the required EntityQuery
+    m_SimulationSystem = base.World.GetOrCreateSystemManaged&lt;SimulationSystem&gt;();
+    m_CitySystem = base.World.GetOrCreateSystemManaged&lt;CitySystem&gt;();
+    m_ServiceFeeSystem = base.World.GetOrCreateSystemManaged&lt;ServiceFeeSystem&gt;();
+
+    m_ConsumerGroup = GetEntityQuery(new EntityQueryDesc
     {
-        base.OnCreate();
-        m_SimulationSystem = base.World.GetOrCreateSystemManaged&lt;SimulationSystem&gt;();
-        m_CitySystem = base.World.GetOrCreateSystemManaged&lt;CitySystem&gt;();
-        m_ServiceFeeSystem = base.World.GetOrCreateSystemManaged&lt;ServiceFeeSystem&gt;();
-        m_ConsumerGroup = GetEntityQuery(new EntityQueryDesc
-        {
-            All = new ComponentType[3]
-            {
-                ComponentType.ReadOnly&lt;Building&gt;(),
-                ComponentType.ReadOnly&lt;Renter&gt;(),
-                ComponentType.ReadOnly&lt;UpdateFrame&gt;()
-            },
-            Any = new ComponentType[2]
-            {
-                ComponentType.ReadOnly&lt;ElectricityConsumer&gt;(),
-                ComponentType.ReadOnly&lt;WaterConsumer&gt;()
-            },
-            None = new ComponentType[2]
-            {
-                ComponentType.ReadOnly&lt;Deleted&gt;(),
-                ComponentType.ReadOnly&lt;Temp&gt;()
-            }
-        });
-    }
+        All = new ComponentType[] {
+            ComponentType.ReadOnly&lt;Building&gt;(),
+            ComponentType.ReadOnly&lt;Renter&gt;(),
+            ComponentType.ReadOnly&lt;UpdateFrame&gt;()
+        },
+        Any = new ComponentType[] {
+            ComponentType.ReadOnly&lt;ElectricityConsumer&gt;(),
+            ComponentType.ReadOnly&lt;WaterConsumer&gt;()
+        },
+        None = new ComponentType[] {
+            ComponentType.ReadOnly&lt;Deleted&gt;(),
+            ComponentType.ReadOnly&lt;Temp&gt;()
+        }
+    });
+}
 </code></pre>
-<ul>
-<li><code>protected virtual OnCreateForCompiler() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnCreateForCompiler()
-    {
-        base.OnCreateForCompiler();
-        __AssignQueries(ref base.CheckedStateRef);
-        __TypeHandle.__AssignHandles(ref base.CheckedStateRef);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        uint updateFrame = SimulationUtils.GetUpdateFrame(m_SimulationSystem.frameIndex, 128, 16);
-        JobHandle deps;
-        SellUtilitiesJob jobData = new SellUtilitiesJob
-        {
-            m_RenterType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Buildings_Renter_RO_BufferTypeHandle, ref base.CheckedStateRef),
-            m_ElectricityConsumerType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Buildings_ElectricityConsumer_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_WaterConsumerType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Buildings_WaterConsumer_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_UpdateFrameType = GetSharedComponentTypeHandle&lt;UpdateFrame&gt;(),
-            m_Resources = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Economy_Resources_RW_BufferLookup, ref base.CheckedStateRef),
-            m_Fees = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_City_ServiceFee_RO_BufferLookup, ref base.CheckedStateRef),
-            m_City = m_CitySystem.City,
-            m_UpdateFrameIndex = updateFrame,
-            m_FeeQueue = m_ServiceFeeSystem.GetFeeQueue(out deps).AsParallelWriter(),
-            m_RandomSeed = RandomSeed.Next()
-        };
-        base.Dependency = JobChunkExtensions.ScheduleParallel(jobData, m_ConsumerGroup, JobHandle.CombineDependencies(base.Dependency, deps));
-        m_ServiceFeeSystem.AddQueueWriter(base.Dependency);
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Simulation.UtilityFeeSystem+SellUtilitiesJob</code>  </li>
-<li><code>Game.Simulation.UtilityFeeSystem+TypeHandle</code>  </li>
-</ul>
+<p>Additional notes and tips for modders:
+- The system charges renters, not buildings directly. Renters must have a Resources buffer present for money deductions to succeed.
+- Fees are read from the city's ServiceFee buffer — changing city fees (ServiceFeeSystem) will affect amounts charged here.
+- Because the job runs in parallel and is Burst-compiled, avoid modifying game state outside the provided buffers/queues; use ServiceFeeSystem's queue for reporting aggregated income rather than trying to write into shared city resources directly.
+- If adding new consumer types or altering consumption fields, mirror the logic in SellUtilitiesJob: include proper ComponentTypeHandles, update the consumption -&gt; fee math, and ensure fees are enqueued for the correct PlayerResource.</p>
 
 
 

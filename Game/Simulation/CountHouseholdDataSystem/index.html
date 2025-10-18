@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#gamesimulationcounthouseholddatasystem" class="md-skip">
+        <a href="#gamecounthouseholddatasystem" class="md-skip">
           Skip to content
         </a>
       
@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -80110,15 +80202,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -80155,9 +80238,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -87154,6 +87237,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -117930,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117955,15 +118083,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -118002,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118026,490 +118145,282 @@
 
 
 
-<h1 id="gamesimulationcounthouseholddatasystem">Game.Simulation.CountHouseholdDataSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Simulation</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code><br />
-<strong>Implements:</strong> <code>Colossal.Serialization.Entities.IDefaultSerializable</code>, <code>Colossal.Serialization.Entities.ISerializable</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class CountHouseholdDataSystem : Game.GameSystemBase, Colossal.Serialization.Entities.IDefaultSerializable, Colossal.Serialization.Entities.ISerializable
-{
-    private Game.Prefabs.ResourceSystem m_ResourceSystem;
-    private Game.Simulation.CitySystem m_CitySystem;
-    private Game.EndFrameBarrier m_EndFrameBarrier;
-    private Unity.Entities.EntityQuery m_HouseholdQuery;
-    private Unity.Entities.EntityQuery m_RequirementQuery;
-    private Unity.Entities.EntityArchetype m_UnlockEventArchetype;
-    private Unity.Jobs.JobHandle m_HouseholdDataWriteDependencies;
-    private Unity.Jobs.JobHandle m_HouseholdDataReadDependencies;
-    private Colossal.Collections.NativeAccumulator&lt;Game.Simulation.CountHouseholdDataSystem+HouseholdData&gt; m_HouseholdCountData;
-    private Colossal.Collections.NativeAccumulator&lt;Game.Simulation.CountHouseholdDataSystem+HouseholdNeedData&gt; m_HouseholdNeedCountData;
-    private Game.Simulation.CountHouseholdDataSystem+HouseholdData m_LastHouseholdCountData;
-    private Unity.Collections.NativeArray&lt;System.Int32&gt; m_ResourceNeed;
-    private System.Boolean m_NeedForceCountData;
-    private Unity.Collections.NativeArray&lt;System.Int32&gt; m_EmployableByEducation;
-    private Game.Simulation.CountHouseholdDataSystem+TypeHandle __TypeHandle;
-
-    public System.Int32 MovingInHouseholdCount { get; }
-    public System.Int32 MovingInCitizenCount { get; }
-    public System.Int32 MovingAwayHouseholdCount { get; }
-    public System.Int32 CommuterHouseholdCount { get; }
-    public System.Int32 TouristCitizenCount { get; }
-    public System.Int32 HomelessHouseholdCount { get; }
-    public System.Int32 HomelessCitizenCount { get; }
-    public System.Int32 MovedInHouseholdCount { get; }
-    public System.Int32 MovedInCitizenCount { get; }
-    public System.Int32 ChildrenCount { get; }
-    public System.Int32 AdultCount { get; }
-    public System.Int32 TeenCount { get; }
-    public System.Int32 SeniorCount { get; }
-    public System.Int32 StudentCount { get; }
-    public System.Int32 UneducatedCount { get; }
-    public System.Int32 PoorlyEducatedCount { get; }
-    public System.Int32 EducatedCount { get; }
-    public System.Int32 WellEducatedCount { get; }
-    public System.Int32 HighlyEducatedCount { get; }
-    public System.Int32 WorkableCitizenCount { get; }
-    public System.Int32 CityWorkerCount { get; }
-    public System.Int32 DeadCitizenCount { get; }
-    public System.Int32 AverageCitizenHappiness { get; }
-    public System.Int32 AverageCitizenHealth { get; }
-    public System.Single UnemploymentRate { get; }
-    public System.Single HomelessnessRate { get; }
-
-    public CountHouseholdDataSystem();
-
-    private System.Void __AssignQueries(Unity.Entities.SystemState&amp; state);
-    public System.Void AddHouseholdDataReader(Unity.Jobs.JobHandle reader);
-    public System.Void Deserialize&lt;TReader&gt;(TReader reader);
-    public Unity.Collections.NativeArray&lt;System.Int32&gt; GetEmployables();
-    public Game.Simulation.CountHouseholdDataSystem+HouseholdData GetHouseholdCountData();
-    public Unity.Collections.NativeArray&lt;System.Int32&gt; GetResourceNeeds(Unity.Jobs.JobHandle&amp; deps);
-    public virtual System.Int32 GetUpdateInterval(Game.SystemUpdatePhase phase);
-    public System.Boolean IsCountDataNotReady();
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnCreateForCompiler();
-    protected virtual System.Void OnDestroy();
-    protected virtual System.Void OnUpdate();
-    public System.Void Serialize&lt;TWriter&gt;(TWriter writer);
-    public System.Void SetDefaults(Colossal.Serialization.Entities.Context context);
-}
-</code></pre>
+<h1 id="gamecounthouseholddatasystem">Game.CountHouseholdDataSystem</h1>
+<p><strong>Assembly:</strong><br />
+<strong>Namespace:</strong> Game.Simulation</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> GameSystemBase, IDefaultSerializable, ISerializable</p>
+<p><strong>Summary:</strong><br />
+CountHouseholdDataSystem is a simulation system used to aggregate household- and citizen-related statistics every update interval. It scans household entities (including special households such as commuters, tourists and homeless), accumulates resource needs per household, computes population and average citizen metrics, tracks employable citizens by education level, and triggers unlock events based on citizen-related requirements. The system uses Unity ECS jobs (burst-compatible) and NativeAccumulators to perform work in parallel and exposes the latest aggregated results for other systems and UI/debug code.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.Prefabs.ResourceSystem m_ResourceSystem</code>  </li>
+<li>
+<p><code>private ResourceSystem m_ResourceSystem</code><br />
+Holds a reference to the global resource system (used for resource-related context; not heavily used directly in this file but available for resource logic).</p>
+</li>
+<li>
+<p><code>private CitySystem m_CitySystem</code><br />
+Reference to the CitySystem to obtain the city entity used when writing Population component data.</p>
+</li>
+<li>
+<p><code>private EndFrameBarrier m_EndFrameBarrier</code><br />
+Barrier used to create command buffers for producing unlock event entities at end-of-frame.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_HouseholdQuery</code><br />
+EntityQuery that matches household entities to be processed by the CountHouseholdJob.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_RequirementQuery</code><br />
+EntityQuery that matches prefabs/requirements to be processed by the CitizenRequirementJob.</p>
+</li>
+<li>
+<p><code>private EntityArchetype m_UnlockEventArchetype</code><br />
+Archetype used for creating unlock event entities (Event + Unlock components).</p>
+</li>
+<li>
+<p><code>private JobHandle m_HouseholdDataWriteDependencies</code><br />
+JobHandle that tracks the write dependencies for household aggregate data; used by readers to know when they must wait.</p>
+</li>
+<li>
+<p><code>private JobHandle m_HouseholdDataReadDependencies</code><br />
+Accumulated read dependencies from other systems that need to be combined before finalizing results.</p>
+</li>
+<li>
+<p><code>private NativeAccumulator&lt;HouseholdData&gt; m_HouseholdCountData</code><br />
+Accumulator for aggregated HouseholdData across all chunks (parallel writer used by CountHouseholdJob).</p>
+</li>
+<li>
+<p><code>private NativeAccumulator&lt;HouseholdNeedData&gt; m_HouseholdNeedCountData</code><br />
+Accumulator for aggregated household resource needs indexed by resource (parallel writer used in job).</p>
+</li>
+<li>
+<p><code>private HouseholdData m_LastHouseholdCountData</code><br />
+Snapshot of the last aggregated HouseholdData (kept on main thread for queries/debug).</p>
+</li>
+<li>
+<p><code>private NativeArray&lt;int&gt; m_ResourceNeed</code><br />
+Array storing accumulated resource needs per resource index. Length = EconomyUtils.ResourceCount.</p>
+</li>
+<li>
+<p><code>private bool m_NeedForceCountData</code><br />
+Flag set during deserialization when saved data is too old and a forced full count is required (OnUpdate completes dependency).</p>
+</li>
+<li>
+<p><code>private NativeArray&lt;int&gt; m_EmployableByEducation</code><br />
+Array of length 5 storing number of employable citizens for each education level (0..4).</p>
+</li>
+<li>
+<p><code>private TypeHandle __TypeHandle</code><br />
+Internal container of ComponentTypeHandle/BufferTypeHandle/ComponentLookup handles used to set up job accesses.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.Prefabs.ResourceSystem m_ResourceSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.CitySystem m_CitySystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.CitySystem m_CitySystem;
-</code></pre>
-<ul>
-<li><code>private Game.EndFrameBarrier m_EndFrameBarrier</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.EndFrameBarrier m_EndFrameBarrier;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_HouseholdQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_HouseholdQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_RequirementQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_RequirementQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityArchetype m_UnlockEventArchetype</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityArchetype m_UnlockEventArchetype;
-</code></pre>
-<ul>
-<li><code>private Unity.Jobs.JobHandle m_HouseholdDataWriteDependencies</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Jobs.JobHandle m_HouseholdDataWriteDependencies;
-</code></pre>
-<ul>
-<li><code>private Unity.Jobs.JobHandle m_HouseholdDataReadDependencies</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Jobs.JobHandle m_HouseholdDataReadDependencies;
-</code></pre>
-<ul>
-<li><code>private Colossal.Collections.NativeAccumulator&lt;Game.Simulation.CountHouseholdDataSystem+HouseholdData&gt; m_HouseholdCountData</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.Collections.NativeAccumulator&lt;Game.Simulation.CountHouseholdDataSystem+HouseholdData&gt; m_HouseholdCountData;
-</code></pre>
-<ul>
-<li><code>private Colossal.Collections.NativeAccumulator&lt;Game.Simulation.CountHouseholdDataSystem+HouseholdNeedData&gt; m_HouseholdNeedCountData</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.Collections.NativeAccumulator&lt;Game.Simulation.CountHouseholdDataSystem+HouseholdNeedData&gt; m_HouseholdNeedCountData;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.CountHouseholdDataSystem+HouseholdData m_LastHouseholdCountData</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.CountHouseholdDataSystem+HouseholdData m_LastHouseholdCountData;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeArray&lt;System.Int32&gt; m_ResourceNeed</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeArray&lt;System.Int32&gt; m_ResourceNeed;
-</code></pre>
-<ul>
-<li><code>private System.Boolean m_NeedForceCountData</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean m_NeedForceCountData;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeArray&lt;System.Int32&gt; m_EmployableByEducation</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeArray&lt;System.Int32&gt; m_EmployableByEducation;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.CountHouseholdDataSystem+TypeHandle __TypeHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.CountHouseholdDataSystem+TypeHandle __TypeHandle;
-</code></pre>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>public System.Int32 MovingInHouseholdCount { get }</code>  </li>
+<li>
+<p><code>public int MovingInHouseholdCount</code><br />
+Number of households currently in a "moving in" state (value from last snapshot).</p>
+</li>
+<li>
+<p><code>public int MovingInCitizenCount</code><br />
+Number of citizens currently moving in (value from last snapshot).</p>
+</li>
+<li>
+<p><code>public int MovingAwayHouseholdCount</code><br />
+Number of households moving away (value from last snapshot).</p>
+</li>
+<li>
+<p><code>public int CommuterHouseholdCount</code><br />
+Number of commuter households (value from last snapshot).</p>
+</li>
+<li>
+<p><code>public int TouristCitizenCount</code><br />
+Number of tourist citizens currently in tourist households (value from last snapshot).</p>
+</li>
+<li>
+<p><code>public int HomelessHouseholdCount</code><br />
+Number of homeless households (value from last snapshot).</p>
+</li>
+<li>
+<p><code>public int HomelessCitizenCount</code><br />
+Number of homeless citizens (value from last snapshot).</p>
+</li>
+<li>
+<p><code>public int MovedInHouseholdCount</code><br />
+Number of households that are moved in (value from last snapshot).</p>
+</li>
+<li>
+<p><code>public int MovedInCitizenCount</code><br />
+Number of citizens that are moved in (value from last snapshot).</p>
+</li>
+<li>
+<p><code>public int ChildrenCount</code><br />
+Total child citizens (value from last snapshot).</p>
+</li>
+<li>
+<p><code>public int AdultCount</code><br />
+Total adult citizens (value from last snapshot).</p>
+</li>
+<li>
+<p><code>public int TeenCount</code><br />
+Total teen citizens (value from last snapshot).</p>
+</li>
+<li>
+<p><code>public int SeniorCount</code><br />
+Total senior (elderly) citizens (value from last snapshot).</p>
+</li>
+<li>
+<p><code>public int StudentCount</code><br />
+Total citizens flagged as students (value from last snapshot).</p>
+</li>
+<li>
+<p><code>public int UneducatedCount</code><br />
+Count of citizens at education level 0 (value from last snapshot).</p>
+</li>
+<li>
+<p><code>public int PoorlyEducatedCount</code><br />
+Count of citizens at education level 1 (value from last snapshot).</p>
+</li>
+<li>
+<p><code>public int EducatedCount</code><br />
+Count of citizens at education level 2 (value from last snapshot).</p>
+</li>
+<li>
+<p><code>public int WellEducatedCount</code><br />
+Count of citizens at education level 3 (value from last snapshot).</p>
+</li>
+<li>
+<p><code>public int HighlyEducatedCount</code><br />
+Count of citizens at education level 4 (value from last snapshot).</p>
+</li>
+<li>
+<p><code>public int WorkableCitizenCount</code><br />
+Count of citizens considered "workable" (eligible to work; excludes students, sick, dead, etc.) (value from last snapshot).</p>
+</li>
+<li>
+<p><code>public int CityWorkerCount</code><br />
+Count of citizens that are city workers (work locally, not outside connections) (value from last snapshot).</p>
+</li>
+<li>
+<p><code>public int DeadCitizenCount</code><br />
+Number of dead citizens found in households (value from last snapshot).</p>
+</li>
+<li>
+<p><code>public int AverageCitizenHappiness</code><br />
+Average happiness among moved-in citizens (derived from last snapshot; 0 if no moved-in citizens).</p>
+</li>
+<li>
+<p><code>public int AverageCitizenHealth</code><br />
+Average health among moved-in citizens (derived from last snapshot; 0 if no moved-in citizens).</p>
+</li>
+<li>
+<p><code>public float UnemploymentRate</code><br />
+Unemployment rate computed from last snapshot: percent of workable citizens without local city jobs.</p>
+</li>
+<li>
+<p><code>public float HomelessnessRate</code><br />
+Percent of moved-in citizens that are homeless (derived from last snapshot).</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public System.Int32 MovingInHouseholdCount { get; }
-</code></pre>
-<ul>
-<li><code>public System.Int32 MovingInCitizenCount { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Int32 MovingInCitizenCount { get; }
-</code></pre>
-<ul>
-<li><code>public System.Int32 MovingAwayHouseholdCount { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Int32 MovingAwayHouseholdCount { get; }
-</code></pre>
-<ul>
-<li><code>public System.Int32 CommuterHouseholdCount { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Int32 CommuterHouseholdCount { get; }
-</code></pre>
-<ul>
-<li><code>public System.Int32 TouristCitizenCount { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Int32 TouristCitizenCount { get; }
-</code></pre>
-<ul>
-<li><code>public System.Int32 HomelessHouseholdCount { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Int32 HomelessHouseholdCount { get; }
-</code></pre>
-<ul>
-<li><code>public System.Int32 HomelessCitizenCount { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Int32 HomelessCitizenCount { get; }
-</code></pre>
-<ul>
-<li><code>public System.Int32 MovedInHouseholdCount { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Int32 MovedInHouseholdCount { get; }
-</code></pre>
-<ul>
-<li><code>public System.Int32 MovedInCitizenCount { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Int32 MovedInCitizenCount { get; }
-</code></pre>
-<ul>
-<li><code>public System.Int32 ChildrenCount { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Int32 ChildrenCount { get; }
-</code></pre>
-<ul>
-<li><code>public System.Int32 AdultCount { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Int32 AdultCount { get; }
-</code></pre>
-<ul>
-<li><code>public System.Int32 TeenCount { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Int32 TeenCount { get; }
-</code></pre>
-<ul>
-<li><code>public System.Int32 SeniorCount { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Int32 SeniorCount { get; }
-</code></pre>
-<ul>
-<li><code>public System.Int32 StudentCount { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Int32 StudentCount { get; }
-</code></pre>
-<ul>
-<li><code>public System.Int32 UneducatedCount { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Int32 UneducatedCount { get; }
-</code></pre>
-<ul>
-<li><code>public System.Int32 PoorlyEducatedCount { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Int32 PoorlyEducatedCount { get; }
-</code></pre>
-<ul>
-<li><code>public System.Int32 EducatedCount { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Int32 EducatedCount { get; }
-</code></pre>
-<ul>
-<li><code>public System.Int32 WellEducatedCount { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Int32 WellEducatedCount { get; }
-</code></pre>
-<ul>
-<li><code>public System.Int32 HighlyEducatedCount { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Int32 HighlyEducatedCount { get; }
-</code></pre>
-<ul>
-<li><code>public System.Int32 WorkableCitizenCount { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Int32 WorkableCitizenCount { get; }
-</code></pre>
-<ul>
-<li><code>public System.Int32 CityWorkerCount { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Int32 CityWorkerCount { get; }
-</code></pre>
-<ul>
-<li><code>public System.Int32 DeadCitizenCount { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Int32 DeadCitizenCount { get; }
-</code></pre>
-<ul>
-<li><code>public System.Int32 AverageCitizenHappiness { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Int32 AverageCitizenHappiness { get; }
-</code></pre>
-<ul>
-<li><code>public System.Int32 AverageCitizenHealth { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Int32 AverageCitizenHealth { get; }
-</code></pre>
-<ul>
-<li><code>public System.Single UnemploymentRate { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Single UnemploymentRate { get; }
-</code></pre>
-<ul>
-<li><code>public System.Single HomelessnessRate { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Single HomelessnessRate { get; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public CountHouseholdDataSystem()</code>  </li>
+<li><code>public CountHouseholdDataSystem()</code><br />
+Default constructor (empty, required by ECS/serialization). System initialization happens in OnCreate.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public CountHouseholdDataSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private __AssignQueries(Unity.Entities.SystemState&amp; state) : System.Void</code>  </li>
+<li>
+<p><code>public override int GetUpdateInterval(SystemUpdatePhase phase)</code><br />
+Returns the system's update interval in ticks. The system uses an interval of 16 (runs every 16 ticks).</p>
+</li>
+<li>
+<p><code>public HouseholdData GetHouseholdCountData()</code><br />
+Returns the last snapshot of aggregated HouseholdData (m_LastHouseholdCountData).</p>
+</li>
+<li>
+<p><code>public NativeArray&lt;int&gt; GetResourceNeeds(out JobHandle deps)</code><br />
+Returns the NativeArray for resource needs and outputs a JobHandle (deps) representing current write dependencies. Callers must respect deps before reading the array (complete or combine appropriately).</p>
+</li>
+<li>
+<p><code>public bool IsCountDataNotReady()</code><br />
+Returns true if the system flagged that a forced full count is required (set during older-save deserialization).</p>
+</li>
+<li>
+<p><code>public NativeArray&lt;int&gt; GetEmployables()</code><br />
+Returns the array of employable-by-education counts (length 5).</p>
+</li>
+<li>
+<p><code>public void AddHouseholdDataReader(JobHandle reader)</code><br />
+Allows other systems to add their read dependency so the system can combine them before finalizing the ResultJob. Use this to register jobs that read aggregated household data.</p>
+</li>
+<li>
+<p><code>protected override void OnCreate()</code><br />
+Initializes queries, allocates NativeAccumulator and NativeArray buffers, creates archetypes and references to other systems. Also calls RequireForUpdate(m_HouseholdQuery) so the system only updates when households exist.</p>
+</li>
+<li>
+<p><code>protected override void OnDestroy()</code><br />
+Disposes NativeAccumulator and NativeArray allocations and performs cleanup.</p>
+</li>
+<li>
+<p><code>public void Serialize&lt;TWriter&gt;(TWriter writer) where TWriter : IWriter</code><br />
+Serializes the last snapshot data, resource needs, and employable counts to writer.</p>
+</li>
+<li>
+<p><code>public void Deserialize&lt;TReader&gt;(TReader reader) where TReader : IReader</code><br />
+Deserializes snapshot and arrays; handles format/version compatibility and sets m_NeedForceCountData if stored data is too old to trust.</p>
+</li>
+<li>
+<p><code>public void SetDefaults(Context context)</code><br />
+Resets the last snapshot and clears accumulators and arrays (used on new game or when context requires reinitialization).</p>
+</li>
+<li>
+<p><code>protected override void OnUpdate()</code><br />
+Main update routine:</p>
+</li>
+<li>Copies last snapshot from the current accumulators and clears accumulators for the next run.</li>
+<li>Schedules CountHouseholdJob in parallel across the household query to accumulate HouseholdData and HouseholdNeedData.</li>
+<li>Schedules ResultJob to read accumulators and write Population and fill the m_ResourceNeed and m_EmployableByEducation arrays.</li>
+<li>If a forced count is required (from deserialization), the system completes dependencies immediately.</li>
+<li>Schedules CitizenRequirementJob in parallel across requirement prefabs to update unlock progress and produce unlock events, using the EndFrameBarrier command buffer.</li>
+<li>
+<p>Adds the final dependency to EndFrameBarrier so created entities are produced safely.</p>
+</li>
+<li>
+<p><code>protected override void OnCreateForCompiler()</code><br />
+Internal setup for ECS code generation / compiler-time helpers; assigns type handles and queries.</p>
+</li>
+<li>
+<p><code>private void __AssignQueries(ref SystemState state)</code><br />
+Internal helper used by the generated OnCreateForCompiler; stubbed in source (keeps query assignment consistent for the compiler).</p>
+</li>
+<li>
+<p>Internal job structs (Burst-compiled):</p>
+</li>
+<li><code>CountHouseholdJob : IJobChunk</code> — iterates household chunks and produces per-chunk HouseholdData and per-resource HouseholdNeedData into parallel NativeAccumulators.</li>
+<li><code>ResultJob : IJob</code> — collects final results from accumulators, writes Population component and fills arrays for resource needs and employable-by-education counts.</li>
+<li><code>CitizenRequirementJob : IJobChunk</code> — evaluates CitizenRequirementData against current Population values and creates unlock events when requirements are met.</li>
 </ul>
-<pre><code class="language-csharp">private void __AssignQueries(ref SystemState state)
-    {
-        new EntityQueryBuilder(Allocator.Temp).Dispose();
-    }
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Example: reading the latest resource needs from CountHouseholdDataSystem
+var world = World.DefaultGameObjectInjectionWorld;
+var countSystem = world.GetOrCreateSystemManaged&lt;Game.Simulation.CountHouseholdDataSystem&gt;();
+
+// Ask the system for the resource needs array and get the dependency handle
+JobHandle deps;
+NativeArray&lt;int&gt; resourceNeeds = countSystem.GetResourceNeeds(out deps);
+
+// Ensure any scheduled jobs producing the data are finished before reading
+deps.Complete();
+
+// Read a resource need (index corresponds to EconomyUtils resource index)
+int foodNeedIndex = EconomyUtils.GetResourceIndex(Resource.Food);
+int foodNeed = resourceNeeds[foodNeedIndex];
+UnityEngine.Debug.Log($&quot;Food need: {foodNeed}&quot;);
 </code></pre>
-<ul>
-<li><code>public AddHouseholdDataReader(Unity.Jobs.JobHandle reader) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void AddHouseholdDataReader(JobHandle reader)
-    {
-        m_HouseholdDataReadDependencies = JobHandle.CombineDependencies(m_HouseholdDataReadDependencies, reader);
-    }
-</code></pre>
-<ul>
-<li><code>public Deserialize&lt;TReader&gt;(TReader reader) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Void Deserialize&lt;TReader&gt;(TReader reader);
-</code></pre>
-<ul>
-<li><code>public GetEmployables() : Unity.Collections.NativeArray&lt;System.Int32&gt;</code>  </li>
-</ul>
-<pre><code class="language-csharp">public NativeArray&lt;int&gt; GetEmployables()
-    {
-        return m_EmployableByEducation;
-    }
-</code></pre>
-<ul>
-<li><code>public GetHouseholdCountData() : Game.Simulation.CountHouseholdDataSystem+HouseholdData</code>  </li>
-</ul>
-<pre><code class="language-csharp">public HouseholdData GetHouseholdCountData()
-    {
-        return m_LastHouseholdCountData;
-    }
-</code></pre>
-<ul>
-<li><code>public GetResourceNeeds(Unity.Jobs.JobHandle&amp; deps) : Unity.Collections.NativeArray&lt;System.Int32&gt;</code>  </li>
-</ul>
-<pre><code class="language-csharp">public NativeArray&lt;int&gt; GetResourceNeeds(out JobHandle deps)
-    {
-        deps = m_HouseholdDataWriteDependencies;
-        return m_ResourceNeed;
-    }
-</code></pre>
-<ul>
-<li><code>public virtual GetUpdateInterval(Game.SystemUpdatePhase phase) : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override int GetUpdateInterval(SystemUpdatePhase phase)
-    {
-        return 16;
-    }
-</code></pre>
-<ul>
-<li><code>public IsCountDataNotReady() : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">public bool IsCountDataNotReady()
-    {
-        return m_NeedForceCountData;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_CitySystem = base.World.GetOrCreateSystemManaged&lt;CitySystem&gt;();
-        m_EndFrameBarrier = base.World.GetOrCreateSystemManaged&lt;EndFrameBarrier&gt;();
-        m_HouseholdQuery = GetEntityQuery(new EntityQueryDesc
-        {
-            All = new ComponentType[1] { ComponentType.ReadOnly&lt;Household&gt;() },
-            None = new ComponentType[2]
-            {
-                ComponentType.ReadOnly&lt;Deleted&gt;(),
-                ComponentType.ReadOnly&lt;Temp&gt;()
-            }
-        });
-        m_RequirementQuery = GetEntityQuery(ComponentType.ReadOnly&lt;CitizenRequirementData&gt;(), ComponentType.ReadWrite&lt;UnlockRequirementData&gt;(), ComponentType.ReadOnly&lt;Locked&gt;());
-        m_UnlockEventArchetype = base.EntityManager.CreateArchetype(ComponentType.ReadWrite&lt;Event&gt;(), ComponentType.ReadWrite&lt;Unlock&gt;());
-        m_HouseholdCountData = new NativeAccumulator&lt;HouseholdData&gt;(Allocator.Persistent);
-        m_HouseholdNeedCountData = new NativeAccumulator&lt;HouseholdNeedData&gt;(EconomyUtils.ResourceCount, Allocator.Persistent);
-        m_ResourceNeed = new NativeArray&lt;int&gt;(EconomyUtils.ResourceCount, Allocator.Persistent);
-        m_EmployableByEducation = new NativeArray&lt;int&gt;(5, Allocator.Persistent);
-        RequireForUpdate(m_HouseholdQuery);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreateForCompiler() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnCreateForCompiler()
-    {
-        base.OnCreateForCompiler();
-        __AssignQueries(ref base.CheckedStateRef);
-        __TypeHandle.__AssignHandles(ref base.CheckedStateRef);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnDestroy() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnDestroy()
-    {
-        m_HouseholdCountData.Dispose();
-        m_HouseholdNeedCountData.Dispose();
-        m_ResourceNeed.Dispose();
-        m_EmployableByEducation.Dispose();
-        base.OnDestroy();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        m_LastHouseholdCountData = m_HouseholdCountData.GetResult();
-        m_HouseholdCountData.Clear();
-        m_HouseholdNeedCountData.Clear();
-        CountHouseholdJob jobData = new CountHouseholdJob
-        {
-            m_HouseholdType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Citizens_Household_RW_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_HomelessHouseholdType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Citizens_HomelessHousehold_RW_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_HouseholdNeedType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Citizens_HouseholdNeed_RW_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_PropertyRenterType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Buildings_PropertyRenter_RW_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_ResourcesType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Economy_Resources_RW_BufferTypeHandle, ref base.CheckedStateRef),
-            m_HouseholdCitizenType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Citizens_HouseholdCitizen_RW_BufferTypeHandle, ref base.CheckedStateRef),
-            m_HealthProblems = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Citizens_HealthProblem_RW_ComponentLookup, ref base.CheckedStateRef),
-            m_Parks = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Buildings_Park_RW_ComponentLookup, ref base.CheckedStateRef),
-            m_Abandoneds = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Buildings_Abandoned_RW_ComponentLookup, ref base.CheckedStateRef),
-            m_Citizens = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Citizens_Citizen_RW_ComponentLookup, ref base.CheckedStateRef),
-            m_Students = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Citizens_Student_RW_ComponentLookup, ref base.CheckedStateRef),
-            m_Workers = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Citizens_Worker_RW_ComponentLookup, ref base.CheckedStateRef),
-            m_OutsideConnections = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Objects_OutsideConnection_RW_ComponentLookup, ref base.CheckedStateRef),
-            m_HouseholdCountData = m_HouseholdCountData.AsParallelWriter(),
-            m_HouseholdNeedCountData = m_HouseholdNeedCountData.AsParallelWriter()
-        };
-        base.Dependency = JobChunkExtensions.ScheduleParallel(jobData, m_HouseholdQuery, base.Dependency);
-        ResultJob jobData2 = new ResultJob
-        {
-            m_HouseholdData = m_HouseholdCountData,
-            m_HouseholdNeedData = m_HouseholdNeedCountData,
-            m_Populations = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_City_Population_RW_ComponentLookup, ref base.CheckedStateRef),
-            m_City = m_CitySystem.City,
-            m_ResourceNeed = m_ResourceNeed,
-            m_EmployableByEducation = m_EmployableByEducation
-        };
-        base.Dependency = IJobExtensions.Schedule(jobData2, JobHandle.CombineDependencies(base.Dependency, m_HouseholdDataReadDependencies));
-        m_HouseholdDataWriteDependencies = base.Dependency;
-        if (m_NeedForceCountData)
-        {
-            base.Dependency.Complete();
-            m_NeedForceCountData = false;
-        }
-        CitizenRequirementJob jobData3 = new CitizenRequirementJob
-        {
-            m_UnlockEventArchetype = m_UnlockEventArchetype,
-            m_CommandBuffer = m_EndFrameBarrier.CreateCommandBuffer().AsParallelWriter(),
-            m_EntityType = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef),
-            m_CitizenRequirementType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_CitizenRequirementData_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_UnlockRequirementType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_UnlockRequirementData_RW_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_Populations = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_City_Population_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_City = m_CitySystem.City
-        };
-        base.Dependency = JobChunkExtensions.ScheduleParallel(jobData3, m_RequirementQuery, base.Dependency);
-        m_EndFrameBarrier.AddJobHandleForProducer(base.Dependency);
-    }
-</code></pre>
-<ul>
-<li><code>public Serialize&lt;TWriter&gt;(TWriter writer) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Void Serialize&lt;TWriter&gt;(TWriter writer);
-</code></pre>
-<ul>
-<li><code>public SetDefaults(Colossal.Serialization.Entities.Context context) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void SetDefaults(Context context)
-    {
-        m_LastHouseholdCountData = default(HouseholdData);
-        m_HouseholdCountData.Clear();
-        m_HouseholdNeedCountData.Clear();
-        m_ResourceNeed.Fill(0);
-        m_EmployableByEducation.Fill(0);
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Simulation.CountHouseholdDataSystem+HouseholdNeedData</code>  </li>
-<li><code>Game.Simulation.CountHouseholdDataSystem+HouseholdData</code>  </li>
-<li><code>Game.Simulation.CountHouseholdDataSystem+CountHouseholdJob</code>  </li>
-<li><code>Game.Simulation.CountHouseholdDataSystem+ResultJob</code>  </li>
-<li><code>Game.Simulation.CountHouseholdDataSystem+CitizenRequirementJob</code>  </li>
-<li><code>Game.Simulation.CountHouseholdDataSystem+TypeHandle</code>  </li>
-</ul>
+<p>Notes:
+- When reading NativeArray data returned by GetResourceNeeds/GetEmployables you must respect the returned JobHandle (deps) to avoid race conditions.
+- The system exposes many debug-watchable properties (counts and rates) which are read-only and reflect the last aggregated snapshot.</p>
 
 
 

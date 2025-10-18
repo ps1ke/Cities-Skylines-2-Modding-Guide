@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87073,6 +87165,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Simulation/SurfaceWater/" class="md-nav__link">
         
   
@@ -98389,15 +98504,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -98434,9 +98540,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -117932,6 +118038,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117957,15 +118085,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -118004,9 +118123,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118029,1737 +118148,384 @@
 
 
 <h1 id="gameuieditorinspectorpanelsystem">Game.UI.Editor.InspectorPanelSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.UI.Editor</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.UI.Editor.EditorPanelSystemBase</code><br />
-<strong>Implements:</strong> <code>Game.UI.Editor.IEditorPanel</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class InspectorPanelSystem : Game.UI.Editor.EditorPanelSystemBase, Game.UI.Editor.IEditorPanel
-{
-    private Game.Prefabs.PrefabSystem m_PrefabSystem;
-    private Game.Tools.ToolSystem m_ToolSystem;
-    private Game.Tools.ObjectToolSystem m_ObjectTool;
-    private Game.Rendering.CameraUpdateSystem m_CameraUpdateSystem;
-    private Game.UI.Editor.EditorAssetUploadPanel m_AssetUploadPanel;
-    private Game.Input.ProxyAction m_MoveAction;
-    private Game.Input.ProxyAction m_CloneAction;
-    private Game.Input.ProxyAction m_AutoAlignAction;
-    private Game.Input.ProxyAction m_AutoConnectAction;
-    private Game.Input.ProxyAction m_AlignXAction;
-    private Game.Input.ProxyAction m_AlignYAction;
-    private Game.Input.ProxyAction m_AlignZAction;
-    private Game.UI.Widgets.EditorGenerator m_EditorGenerator;
-    private Game.UI.Widgets.Button[] m_MeshFooter;
-    private Game.UI.Widgets.Button[] m_InstanceFooter;
-    private Game.UI.Widgets.Button[] m_PrefabFooter;
-    private Game.UI.Widgets.Button[] m_CustomAssetFooter;
-    private Unity.Entities.Entity m_CurrentSelectedEntity;
-    private System.Object m_SelectedObject;
-    private System.Object m_ParentObject;
-    private Game.Prefabs.ObjectSubObjectInfo m_LastSubObject;
-    private Game.Prefabs.ObjectSubObjectInfo m_CurrentSubObject;
-    private Game.UI.Localization.LocalizedString m_SelectedName;
-    private Game.UI.Localization.LocalizedString m_ParentName;
-    private System.Collections.Generic.List&lt;System.Object&gt; m_SectionObjects;
-    private System.Collections.Generic.Dictionary&lt;Game.Prefabs.PrefabBase, Game.UI.Editor.InspectorPanelSystem+LocalizationFields&gt; m_WipLocalization;
-    private Colossal.PSI.PdxSdk.PdxSdkPlatform m_Platform;
-
-    private Game.UI.Editor.InspectorPanelSystem+Mode mode { private get; }
-    private System.Boolean canMoveSelected { private get; }
-    private System.Boolean canCloneSelected { private get; }
-    private System.Boolean canAlignSelected { private get; }
-
-    public InspectorPanelSystem();
-
-    private System.Void &lt;OnCreate&gt;b__32_0(Colossal.PSI.Common.IPlatformServiceIntegration psi);
-    private System.Boolean &lt;OnCreate&gt;b__32_1();
-    private System.Boolean &lt;OnCreate&gt;b__32_2();
-    private System.Boolean &lt;OnCreate&gt;b__32_3();
-    private System.Void &lt;ShowSaveAssetPanel&gt;b__75_0(System.String name, System.Nullable&lt;Colossal.Hash128&gt; overwriteGuid);
-    private System.Void &lt;ShowShareAssetPanel&gt;b__80_0(System.String name, System.Nullable&lt;Colossal.Hash128&gt; overwriteGuid);
-    private System.Void AlignX();
-    private System.Void AlignY();
-    private System.Void AlignZ();
-    private System.Void AutoAlign();
-    private System.Void AutoConnect();
-    private System.Void BuildLocalizationFields(Game.Prefabs.PrefabBase prefab, System.Collections.Generic.List&lt;Game.UI.Widgets.IWidget&gt; widgets);
-    private System.Void CloneSelected();
-    public static System.Void DisableAllFields(Game.UI.Widgets.IWidget widget);
-    private System.Boolean DisableSection(System.Object obj, System.Object parent);
-    private Game.Prefabs.PrefabBase DuplicatePrefab(Game.Prefabs.PrefabBase oldPrefab);
-    private System.Boolean FindObjectMeshInfo(Game.Prefabs.ObjectGeometryPrefab prefab, Game.Prefabs.PrefabBase meshPrefab, Game.Prefabs.ObjectMeshInfo&amp; info);
-    private static Game.Reflection.ITypedValueAccessor&lt;System.Boolean&gt; GetActiveAccessor(Game.Prefabs.ComponentBase component);
-    private System.Collections.Generic.IEnumerable&lt;Game.UI.Editor.Item&gt; GetComponentTypeItems();
-    private System.Collections.Generic.IEnumerable&lt;Game.UI.Editor.AssetItem&gt; GetCustomAssets();
-    private Game.UI.Localization.LocalizedString GetObjectName(System.Object obj);
-    private System.Collections.Generic.IEnumerable&lt;System.Object&gt; GetSectionObjects();
-    private System.Void HandleInput();
-    private System.Collections.Generic.List&lt;Game.UI.Editor.LocalizationField+LocalizationFieldEntry&gt; InitializeLocalization(Game.Prefabs.PrefabBase prefab, System.String key);
-    private static System.Boolean IsBuiltinAsset(Colossal.IO.AssetDatabase.AssetData asset);
-    private System.Boolean IsColorVariationField(Game.UI.Widgets.IWidget widget, System.Int32&amp; variationSetIndex, System.Int32&amp; colorIndex, Game.Prefabs.RenderPrefabBase&amp; mesh);
-    private System.Boolean IsEmissiveField(Game.UI.Widgets.IWidget widget, System.Int32&amp; singleLightIndex, System.Int32&amp; multiLightIndex, Game.Prefabs.RenderPrefabBase&amp; mesh);
-    private System.Void MoveSelected();
-    private System.Void MoveSubObjects(Game.Prefabs.PrefabBase prefab);
-    private System.Void OnAddComponent(System.Type type);
-    private System.Void OnColorVariationChanged(Unity.Entities.Entity entity, Game.Prefabs.RenderPrefabBase mesh, System.Int32 variationSetIndex, System.Int32 colorIndex);
-    protected virtual System.Void OnCreate();
-    private System.Void OnDuplicate();
-    private System.Void OnEmissiveChanged(Unity.Entities.Entity entity, Game.Prefabs.RenderPrefabBase mesh, System.Int32 singleLightIndex, System.Int32 multiLightIndex);
-    private System.Void OnLocate();
-    private System.Void OnSaveAsset(System.String name, System.Nullable&lt;Colossal.Hash128&gt; overwriteGuid, System.Action&lt;Colossal.IO.AssetDatabase.PrefabAsset&gt; callback);
-    private System.Void OnShareAsset(Colossal.IO.AssetDatabase.PrefabAsset asset);
-    protected virtual System.Void OnStopRunning();
-    protected virtual System.Void OnUpdate();
-    protected virtual System.Void OnValueChanged(Game.UI.Widgets.IWidget widget);
-    private System.Void RefreshContent();
-    private System.Void RefreshFooter(System.Collections.Generic.IList&lt;Game.UI.Widgets.IWidget&gt; panelChildren);
-    private System.Void RefreshSections();
-    private System.Void RefreshTitle();
-    private System.Void SaveAsset(System.String name, Colossal.IO.AssetDatabase.PrefabAsset existing, System.Action&lt;Colossal.IO.AssetDatabase.PrefabAsset&gt; callback);
-    private System.Void SaveIcons(Game.Prefabs.PrefabBase prefab, System.String name);
-    private System.Void SaveLocalization(Game.Prefabs.PrefabBase prefab, System.String name);
-    public System.Boolean SelectEntity(Unity.Entities.Entity entity);
-    private System.Void SelectInUnityEditor(UnityEngine.Object obj);
-    public System.Boolean SelectMesh(Unity.Entities.Entity entity, System.Int32 meshIndex);
-    private System.Boolean SelectObjectForEntity(Unity.Entities.Entity entity);
-    public System.Void SelectPrefab(Game.Prefabs.PrefabBase prefab);
-    private System.Void ShowAddComponentPicker();
-    private System.Void ShowSaveAssetPanel();
-    private System.Void ShowShareAssetPanel();
-    public System.Void ShowThumbnailPicker(Game.UI.Editor.LoadAssetPanel+LoadCallback callback);
-    private System.Boolean TryGetAssetItem(Colossal.IO.AssetDatabase.PrefabAsset asset, Game.UI.Editor.AssetItem&amp; item);
-    private System.Void UpdateParent(System.Boolean moveSubObjects);
-}
-</code></pre>
+<p><strong>Assembly:</strong> Assembly-CSharp<br />
+<strong>Namespace:</strong> Game.UI.Editor</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> EditorPanelSystemBase</p>
+<p><strong>Summary:</strong><br />
+InspectorPanelSystem is the in-game editor inspector used by the Cities: Skylines 2 editor mode. It builds and refreshes the inspector UI for selected prefabs, components, meshes and sub-objects, provides actions for locating/moving/cloning instances, supports adding components, saving/sharing assets, editing localization entries and thumbnail/icons, and handles related input bindings and overrides (color variations, emissive settings, etc.). The system integrates with PrefabSystem, ToolSystem and other editor subsystems to reflect and apply changes to prefab data and runtime entities.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.Prefabs.PrefabSystem m_PrefabSystem</code>  </li>
+<li>
+<p><code>private PrefabSystem m_PrefabSystem</code><br />
+Stores reference to the game's PrefabSystem (used to query, update and duplicate prefabs and map prefab entities).</p>
+</li>
+<li>
+<p><code>private ToolSystem m_ToolSystem</code><br />
+Reference to the ToolSystem (used to activate editor tools and query selected tool/entity).</p>
+</li>
+<li>
+<p><code>private ObjectToolSystem m_ObjectTool</code><br />
+Reference to the object editing tool used to move/clone/create object instances.</p>
+</li>
+<li>
+<p><code>private CameraUpdateSystem m_CameraUpdateSystem</code><br />
+Reference to camera control system used by locate action.</p>
+</li>
+<li>
+<p><code>private EditorAssetUploadPanel m_AssetUploadPanel</code><br />
+Panel used for uploading/sharing assets to the platform.</p>
+</li>
+<li>
+<p><code>private ProxyAction m_MoveAction</code><br />
+Input action wrapper for the "Move Selected" editor hotkey.</p>
+</li>
+<li>
+<p><code>private ProxyAction m_CloneAction</code><br />
+Input action wrapper for the "Clone" editor hotkey.</p>
+</li>
+<li>
+<p><code>private ProxyAction m_AutoAlignAction</code><br />
+Input action wrapper for "Auto Align" hotkey.</p>
+</li>
+<li>
+<p><code>private ProxyAction m_AutoConnectAction</code><br />
+Input action wrapper for "Auto Connect" hotkey.</p>
+</li>
+<li>
+<p><code>private ProxyAction m_AlignXAction</code><br />
+Input action wrapper for "Align X" hotkey.</p>
+</li>
+<li>
+<p><code>private ProxyAction m_AlignYAction</code><br />
+Input action wrapper for "Align Y" hotkey.</p>
+</li>
+<li>
+<p><code>private ProxyAction m_AlignZAction</code><br />
+Input action wrapper for "Align Z" hotkey.</p>
+</li>
+<li>
+<p><code>private EditorGenerator m_EditorGenerator = new EditorGenerator()</code><br />
+Generator used to construct widget lists from objects/reflection.</p>
+</li>
+<li>
+<p><code>private Button[] m_MeshFooter</code><br />
+Predefined footer button set when a mesh is selected.</p>
+</li>
+<li>
+<p><code>private Button[] m_InstanceFooter</code><br />
+Predefined footer button set used for instance mode.</p>
+</li>
+<li>
+<p><code>private Button[] m_PrefabFooter</code><br />
+Predefined footer button set used for prefabs.</p>
+</li>
+<li>
+<p><code>private Button[] m_CustomAssetFooter</code><br />
+Footer used for saving custom assets.</p>
+</li>
+<li>
+<p><code>private Entity m_CurrentSelectedEntity</code><br />
+Currently selected runtime Entity (for instance mode). Entity.Null if none.</p>
+</li>
+<li>
+<p><code>[CanBeNull] private object m_SelectedObject</code><br />
+The object currently inspected in the panel. Can be a PrefabBase, Component, ObjectMeshInfo, ObjectSubObjectInfo or other supported object.</p>
+</li>
+<li>
+<p><code>[CanBeNull] private object m_ParentObject</code><br />
+Parent object for m_SelectedObject (usually the owning PrefabBase).</p>
+</li>
+<li>
+<p><code>[CanBeNull] private ObjectSubObjectInfo m_LastSubObject</code><br />
+Previously-selected sub-object (used for align/connect operations).</p>
+</li>
+<li>
+<p><code>[CanBeNull] private ObjectSubObjectInfo m_CurrentSubObject</code><br />
+Currently-selected sub-object (used for align/connect operations).</p>
+</li>
+<li>
+<p><code>[CanBeNull] private LocalizedString m_SelectedName = null</code><br />
+Cached localized display name for m_SelectedObject used to avoid unnecessary title updates.</p>
+</li>
+<li>
+<p><code>[CanBeNull] private LocalizedString m_ParentName = null</code><br />
+Cached localized display name for m_ParentObject.</p>
+</li>
+<li>
+<p><code>private List&lt;object&gt; m_SectionObjects = new List&lt;object&gt;()</code><br />
+List of objects representing inspector sections (m_SelectedObject plus its components / mesh components).</p>
+</li>
+<li>
+<p><code>private Dictionary&lt;PrefabBase, LocalizationFields&gt; m_WipLocalization = new Dictionary&lt;PrefabBase, LocalizationFields&gt;()</code><br />
+WIP localization entries per prefab while editing before saving.</p>
+</li>
+<li>
+<p><code>private PdxSdkPlatform m_Platform</code><br />
+Platform integration reference used when sharing/uploading assets.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.Prefabs.PrefabSystem m_PrefabSystem;
-</code></pre>
+<p>(Inner types)
+- private enum Mode { Instance, Prefab }<br />
+Determines inspector mode: editing a placed instance (with entity) vs editing a prefab template.</p>
 <ul>
-<li><code>private Game.Tools.ToolSystem m_ToolSystem</code>  </li>
+<li>private struct LocalizationFields<br />
+Holds per-prefab LocalizationField instances (name and description) and a Clone method.</li>
 </ul>
-<pre><code class="language-csharp">private Game.Tools.ToolSystem m_ToolSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Tools.ObjectToolSystem m_ObjectTool</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Tools.ObjectToolSystem m_ObjectTool;
-</code></pre>
-<ul>
-<li><code>private Game.Rendering.CameraUpdateSystem m_CameraUpdateSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Rendering.CameraUpdateSystem m_CameraUpdateSystem;
-</code></pre>
-<ul>
-<li><code>private Game.UI.Editor.EditorAssetUploadPanel m_AssetUploadPanel</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.UI.Editor.EditorAssetUploadPanel m_AssetUploadPanel;
-</code></pre>
-<ul>
-<li><code>private Game.Input.ProxyAction m_MoveAction</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Input.ProxyAction m_MoveAction;
-</code></pre>
-<ul>
-<li><code>private Game.Input.ProxyAction m_CloneAction</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Input.ProxyAction m_CloneAction;
-</code></pre>
-<ul>
-<li><code>private Game.Input.ProxyAction m_AutoAlignAction</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Input.ProxyAction m_AutoAlignAction;
-</code></pre>
-<ul>
-<li><code>private Game.Input.ProxyAction m_AutoConnectAction</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Input.ProxyAction m_AutoConnectAction;
-</code></pre>
-<ul>
-<li><code>private Game.Input.ProxyAction m_AlignXAction</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Input.ProxyAction m_AlignXAction;
-</code></pre>
-<ul>
-<li><code>private Game.Input.ProxyAction m_AlignYAction</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Input.ProxyAction m_AlignYAction;
-</code></pre>
-<ul>
-<li><code>private Game.Input.ProxyAction m_AlignZAction</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Input.ProxyAction m_AlignZAction;
-</code></pre>
-<ul>
-<li><code>private Game.UI.Widgets.EditorGenerator m_EditorGenerator</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.UI.Widgets.EditorGenerator m_EditorGenerator;
-</code></pre>
-<ul>
-<li><code>private Game.UI.Widgets.Button[] m_MeshFooter</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.UI.Widgets.Button[] m_MeshFooter;
-</code></pre>
-<ul>
-<li><code>private Game.UI.Widgets.Button[] m_InstanceFooter</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.UI.Widgets.Button[] m_InstanceFooter;
-</code></pre>
-<ul>
-<li><code>private Game.UI.Widgets.Button[] m_PrefabFooter</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.UI.Widgets.Button[] m_PrefabFooter;
-</code></pre>
-<ul>
-<li><code>private Game.UI.Widgets.Button[] m_CustomAssetFooter</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.UI.Widgets.Button[] m_CustomAssetFooter;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.Entity m_CurrentSelectedEntity</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.Entity m_CurrentSelectedEntity;
-</code></pre>
-<ul>
-<li><code>private System.Object m_SelectedObject</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Object m_SelectedObject;
-</code></pre>
-<ul>
-<li><code>private System.Object m_ParentObject</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Object m_ParentObject;
-</code></pre>
-<ul>
-<li><code>private Game.Prefabs.ObjectSubObjectInfo m_LastSubObject</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Prefabs.ObjectSubObjectInfo m_LastSubObject;
-</code></pre>
-<ul>
-<li><code>private Game.Prefabs.ObjectSubObjectInfo m_CurrentSubObject</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Prefabs.ObjectSubObjectInfo m_CurrentSubObject;
-</code></pre>
-<ul>
-<li><code>private Game.UI.Localization.LocalizedString m_SelectedName</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.UI.Localization.LocalizedString m_SelectedName;
-</code></pre>
-<ul>
-<li><code>private Game.UI.Localization.LocalizedString m_ParentName</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.UI.Localization.LocalizedString m_ParentName;
-</code></pre>
-<ul>
-<li><code>private System.Collections.Generic.List&lt;System.Object&gt; m_SectionObjects</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Collections.Generic.List&lt;System.Object&gt; m_SectionObjects;
-</code></pre>
-<ul>
-<li><code>private System.Collections.Generic.Dictionary&lt;Game.Prefabs.PrefabBase, Game.UI.Editor.InspectorPanelSystem+LocalizationFields&gt; m_WipLocalization</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Collections.Generic.Dictionary&lt;Game.Prefabs.PrefabBase, Game.UI.Editor.InspectorPanelSystem+LocalizationFields&gt; m_WipLocalization;
-</code></pre>
-<ul>
-<li><code>private Colossal.PSI.PdxSdk.PdxSdkPlatform m_Platform</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.PSI.PdxSdk.PdxSdkPlatform m_Platform;
-</code></pre>
+<hr />
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>private Game.UI.Editor.InspectorPanelSystem+Mode mode { private get }</code>  </li>
+<li>
+<p><code>private Mode mode { get; }</code><br />
+Determines whether the inspector is in Instance or Prefab mode. Instance when a runtime Entity is selected or when the selected object is not a top-level PrefabBase; Prefab when a top-level PrefabBase is selected and no entity.</p>
+</li>
+<li>
+<p><code>private bool canMoveSelected { get; }</code><br />
+True when the currently selected entity can be moved (entity has PrefabRef and Object component and is the tool's selected entity).</p>
+</li>
+<li>
+<p><code>private bool canCloneSelected { get; }</code><br />
+True when the currently selected entity can be cloned (entity has PrefabRef and Object component).</p>
+</li>
+<li>
+<p><code>private bool canAlignSelected { get; }</code><br />
+True when both m_CurrentSubObject and m_LastSubObject are non-null (alignment/connect operations available).</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.UI.Editor.InspectorPanelSystem+Mode mode { private get; }
-</code></pre>
-<ul>
-<li><code>private System.Boolean canMoveSelected { private get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean canMoveSelected { private get; }
-</code></pre>
-<ul>
-<li><code>private System.Boolean canCloneSelected { private get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean canCloneSelected { private get; }
-</code></pre>
-<ul>
-<li><code>private System.Boolean canAlignSelected { private get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean canAlignSelected { private get; }
-</code></pre>
+<hr />
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public InspectorPanelSystem()</code>  </li>
+<li><code>public InspectorPanelSystem()</code><br />
+Default system constructor. Initializes the system instance. (No special parameters; initialization of many pointers happens in OnCreate.)</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public InspectorPanelSystem()
-    {
-    }
-</code></pre>
+<hr />
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private &lt;OnCreate&gt;b__32_0(Colossal.PSI.Common.IPlatformServiceIntegration psi) : System.Void</code>  </li>
+<li>
+<p><code>[Preserve] protected override void OnCreate() : System.Void</code><br />
+Sets up subsystem references, finds input actions, initializes footer button arrays and registers to platform registration events. Called when the system is created.</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnStopRunning() : System.Void</code><br />
+Cleans up active subpanel, disables input actions and resets overrides when the system stops running.</p>
+</li>
+<li>
+<p><code>protected override void OnValueChanged(IWidget widget) : System.Void</code><br />
+Called when a widget value changes. Detects color variation and emissive fields, triggers appropriate override updates, and refreshes parent prefab state.</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnUpdate() : System.Void</code><br />
+Per-frame update: refreshes panel content and handles input actions.</p>
+</li>
+<li>
+<p><code>public bool SelectEntity(Entity entity) : bool</code><br />
+Selects a runtime entity for inspection. Updates m_CurrentSelectedEntity and resolves selected object/parent and sub-object references. Returns true if selection valid.</p>
+</li>
+<li>
+<p><code>public void SelectPrefab(PrefabBase prefab) : void</code><br />
+Selects a prefab template for editing (switches to prefab mode).</p>
+</li>
+<li>
+<p><code>private bool SelectObjectForEntity(Entity entity) : bool</code><br />
+Resolves and sets m_SelectedObject/m_ParentObject for a given entity if it corresponds to a prefab object or nested sub-object. Handles editor containers, effect sources, activity locations and object sub-objects.</p>
+</li>
+<li>
+<p><code>public bool SelectMesh(Entity entity, int meshIndex) : bool</code><br />
+Selects a mesh instance (submesh) from a prefab instance and resolves the corresponding ObjectMeshInfo when available.</p>
+</li>
+<li>
+<p><code>private bool FindObjectMeshInfo(ObjectGeometryPrefab prefab, PrefabBase meshPrefab, out ObjectMeshInfo info) : bool</code><br />
+Helper to find the corresponding ObjectMeshInfo entry for a given mesh prefab.</p>
+</li>
+<li>
+<p><code>private void RefreshContent() : void</code><br />
+Refreshes title and section contents of the inspector (delegates to RefreshTitle and RefreshSections).</p>
+</li>
+<li>
+<p><code>private void RefreshTitle() : void</code><br />
+Updates panel title based on m_SelectedObject and m_ParentObject localized names (caches names to avoid redundant updates).</p>
+</li>
+<li>
+<p><code>[CanBeNull] private LocalizedString GetObjectName([CanBeNull] object obj) : LocalizedString</code><br />
+Gets a localized display name for an object (prefab label when object is PrefabBase, otherwise type name).</p>
+</li>
+<li>
+<p><code>private void RefreshSections() : void</code><br />
+Builds inspector sections for the selected object and its components (uses EditorGenerator and reflection). Adds localization fields for prefabs and sets up delete handlers / active accessors. Rebuilds children widgets and footer.</p>
+</li>
+<li>
+<p><code>private void RefreshFooter(IList&lt;IWidget&gt; panelChildren) : void</code><br />
+Appends appropriate footer button rows depending on selected object (mesh, instance mode, prefab mode) and shows custom asset save option for non-builtin prefabs.</p>
+</li>
+<li>
+<p><code>public static void DisableAllFields(IWidget widget) : void</code><br />
+Recursively disables all editable widgets within a widget tree. Used to prevent editing builtin asset fields.</p>
+</li>
+<li>
+<p><code>private IEnumerable&lt;object&gt; GetSectionObjects() : IEnumerable&lt;object&gt;</code><br />
+Enumerates objects that should appear as inspector sections: selected object, prefab components, and mesh component entries (for ObjectMeshInfo).</p>
+</li>
+<li>
+<p><code>private static ITypedValueAccessor&lt;bool&gt; GetActiveAccessor(ComponentBase component)</code><br />
+Returns an accessor allowing the editor section to toggle component.active property.</p>
+</li>
+<li>
+<p><code>private void ShowAddComponentPicker() : void</code><br />
+Opens a type picker subpanel to add a component to the selected prefab/mesh.</p>
+</li>
+<li>
+<p><code>private void OnDuplicate() : void</code><br />
+Duplicates the selected prefab template. If in instance mode, activates the prefab tool with the duplicated prefab; otherwise selects the duplicated prefab in the inspector.</p>
+</li>
+<li>
+<p><code>private void OnAddComponent(Type type) : void</code><br />
+Callback to add a component to the selected prefab/mesh when chosen from the type picker.</p>
+</li>
+<li>
+<p><code>private IEnumerable&lt;Item&gt; GetComponentTypeItems() : IEnumerable&lt;Item&gt;</code><br />
+Enumerates valid component types that can be added to the currently selected prefab/mesh (filters built-in, hidden and incompatible types).</p>
+</li>
+<li>
+<p><code>private void HandleInput() : void</code><br />
+Enables/handles configured input actions (move/clone/align/connect/align axes) each frame; invokes respective methods when actions are performed.</p>
+</li>
+<li>
+<p><code>private void MoveSelected() : void</code><br />
+Starts the object tool in move mode for the current entity and makes it the active tool.</p>
+</li>
+<li>
+<p><code>private void CloneSelected() : void</code><br />
+Prepares the object tool for creating a clone of the current object instance.</p>
+</li>
+<li>
+<p><code>private void AutoAlign() : void</code><br />
+Aligns the current sub-object to the last sub-object by choosing the axis with the smallest offset and snapping that axis.</p>
+</li>
+<li>
+<p><code>private void AutoConnect() : void</code><br />
+Attempts to automatically connect two sub-objects by using their geometry bounds and the dominant axis difference to offset positions so they butt up to each other.</p>
+</li>
+<li>
+<p><code>private void AlignX() : void</code><br />
+Snaps current sub-object X position to last sub-object X position.</p>
+</li>
+<li>
+<p><code>private void AlignY() : void</code><br />
+Snaps current sub-object Y position to last sub-object Y position.</p>
+</li>
+<li>
+<p><code>private void AlignZ() : void</code><br />
+Snaps current sub-object Z position to last sub-object Z position.</p>
+</li>
+<li>
+<p><code>private void UpdateParent(bool moveSubObjects) : void</code><br />
+Updates and marks dirty the parent prefab and/or mesh when child sub-object or mesh changes. If moveSubObjects is true, also applies movement deltas to relevant sub-object data.</p>
+</li>
+<li>
+<p><code>private void MoveSubObjects(PrefabBase prefab) : void</code><br />
+When a submesh has been moved/rotated, updates any dependent sub-objects, sub-areas, lanes, nets and effects on the parent prefab to preserve relative transforms. Handles translation-only and full transform cases properly.</p>
+</li>
+<li>
+<p><code>private void OnLocate() : void</code><br />
+Centers the camera on the selected entity's position; handles cinematic camera special case.</p>
+</li>
+<li>
+<p><code>private bool IsColorVariationField(IWidget widget, out int variationSetIndex, out int colorIndex, out RenderPrefabBase mesh) : bool</code><br />
+Detects if a widget corresponds to a color-variation ColorField and returns indices and the mesh used for override updates.</p>
+</li>
+<li>
+<p><code>private bool IsEmissiveField(IWidget widget, out int singleLightIndex, out int multiLightIndex, out RenderPrefabBase mesh) : bool</code><br />
+Detects if a widget corresponds to an emissive field (single or multi lights) and returns indices and the mesh used for procedural upload overrides.</p>
+</li>
+<li>
+<p><code>private void OnColorVariationChanged(Entity entity, RenderPrefabBase mesh, int variationSetIndex, int colorIndex) : void</code><br />
+Notifies MeshColorSystem to set an override for the given entity/mesh/color indices.</p>
+</li>
+<li>
+<p><code>private void OnEmissiveChanged(Entity entity, RenderPrefabBase mesh, int singleLightIndex, int multiLightIndex) : void</code><br />
+Notifies ProceduralUploadSystem to set emissive overrides for the given entity/mesh/light indices.</p>
+</li>
+<li>
+<p><code>private void ShowSaveAssetPanel() : void</code><br />
+Opens SaveAssetPanel pre-filled with available custom assets and the current prefab (if applicable). Callback invokes OnSaveAsset.</p>
+</li>
+<li>
+<p><code>private IEnumerable&lt;AssetItem&gt; GetCustomAssets() : IEnumerable&lt;AssetItem&gt;</code><br />
+Enumerates user assets available for save/overwrite, and includes the current builtin asset's editable copy if present.</p>
+</li>
+<li>
+<p><code>private bool TryGetAssetItem(PrefabAsset asset, out AssetItem item) : bool</code><br />
+Helper to build an AssetItem from a PrefabAsset (loads prefab, fetches thumbnail and metadata). Catches exceptions and logs failures.</p>
+</li>
+<li>
+<p><code>private void OnSaveAsset(string name, Colossal.Hash128? overwriteGuid, Action&lt;PrefabAsset&gt; callback = null) : void</code><br />
+Handles save/overwrite confirmation flow and delegates to SaveAsset.</p>
+</li>
+<li>
+<p><code>private void SaveAsset(string name, PrefabAsset existing = null, Action&lt;PrefabAsset&gt; callback = null) : void</code><br />
+Saves or overwrites a prefab asset: duplicates the prefab when saving a builtin asset, writes icons, saves prefab asset and localization (for non-builtin assets), and unlocks the platform achievement for creating an asset.</p>
+</li>
+<li>
+<p><code>private void ShowShareAssetPanel() : void</code><br />
+Opens a variant of SaveAssetPanel for sharing; when saved, OnShareAsset uploads the asset using EditorAssetUploadPanel.</p>
+</li>
+<li>
+<p><code>private void OnShareAsset(PrefabAsset asset) : void</code><br />
+Shows the upload panel for a prefab asset.</p>
+</li>
+<li>
+<p><code>private PrefabBase DuplicatePrefab(PrefabBase oldPrefab) : PrefabBase</code><br />
+Duplicates a prefab preserving any in-progress localization edits tracked in m_WipLocalization and clears the asset reference on the duplicate.</p>
+</li>
+<li>
+<p><code>public void ShowThumbnailPicker(LoadAssetPanel.LoadCallback callback) : void</code><br />
+Opens a thumbnail picker built from user images and invokes callback with selected image hash.</p>
+</li>
+<li>
+<p><code>private void SaveIcons(PrefabBase prefab, string name) : void</code><br />
+Saves non-builtin icon/image assets referenced by the prefab into the prefab asset database and rewires references to the saved images.</p>
+</li>
+<li>
+<p><code>private void BuildLocalizationFields(PrefabBase prefab, List&lt;IWidget&gt; widgets) : void</code><br />
+Ensures localization fields exist in m_WipLocalization for prefab, initializes from existing locale assets, and adds localized name/description UI groups to the widgets list.</p>
+</li>
+<li>
+<p><code>private List&lt;LocalizationField.LocalizationFieldEntry&gt; InitializeLocalization(PrefabBase prefab, string key) : List&lt;LocalizationField.LocalizationFieldEntry&gt;</code><br />
+Collects existing localized entries for a given localization key from user or global locale assets and returns them as a list.</p>
+</li>
+<li>
+<p><code>private void SaveLocalization(PrefabBase prefab, string name) : void</code><br />
+Persists edited localization entries (from m_WipLocalization) into new LocaleAsset files under the user asset database for the saved prefab. Supports additional keys for services, subservices and upgrades where applicable.</p>
+</li>
+<li>
+<p><code>[Preserve] public InspectorPanelSystem() : .ctor</code><br />
+Public constructor (present in source), typical no-op (initialization is done in OnCreate).</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private System.Void &lt;OnCreate&gt;b__32_0(Colossal.PSI.Common.IPlatformServiceIntegration psi);
-</code></pre>
-<ul>
-<li><code>private &lt;OnCreate&gt;b__32_1() : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean &lt;OnCreate&gt;b__32_1();
-</code></pre>
-<ul>
-<li><code>private &lt;OnCreate&gt;b__32_2() : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean &lt;OnCreate&gt;b__32_2();
-</code></pre>
-<ul>
-<li><code>private &lt;OnCreate&gt;b__32_3() : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean &lt;OnCreate&gt;b__32_3();
-</code></pre>
-<ul>
-<li><code>private &lt;ShowSaveAssetPanel&gt;b__75_0(System.String name, System.Nullable&lt;Colossal.Hash128&gt; overwriteGuid) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Void &lt;ShowSaveAssetPanel&gt;b__75_0(System.String name, System.Nullable&lt;Colossal.Hash128&gt; overwriteGuid);
-</code></pre>
-<ul>
-<li><code>private &lt;ShowShareAssetPanel&gt;b__80_0(System.String name, System.Nullable&lt;Colossal.Hash128&gt; overwriteGuid) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Void &lt;ShowShareAssetPanel&gt;b__80_0(System.String name, System.Nullable&lt;Colossal.Hash128&gt; overwriteGuid);
-</code></pre>
-<ul>
-<li><code>private AlignX() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void AlignX()
-    {
-        if (m_CurrentSubObject != null &amp;&amp; m_LastSubObject != null)
-        {
-            m_CurrentSubObject.m_Position.x = m_LastSubObject.m_Position.x;
-            UpdateParent(moveSubObjects: false);
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private AlignY() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void AlignY()
-    {
-        if (m_CurrentSubObject != null &amp;&amp; m_LastSubObject != null)
-        {
-            m_CurrentSubObject.m_Position.y = m_LastSubObject.m_Position.y;
-            UpdateParent(moveSubObjects: false);
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private AlignZ() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void AlignZ()
-    {
-        if (m_CurrentSubObject != null &amp;&amp; m_LastSubObject != null)
-        {
-            m_CurrentSubObject.m_Position.z = m_LastSubObject.m_Position.z;
-            UpdateParent(moveSubObjects: false);
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private AutoAlign() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void AutoAlign()
-    {
-        if (m_CurrentSubObject != null &amp;&amp; m_LastSubObject != null)
-        {
-            float num = Mathf.Abs(m_CurrentSubObject.m_Position.x - m_LastSubObject.m_Position.x);
-            float num2 = Mathf.Abs(m_CurrentSubObject.m_Position.y - m_LastSubObject.m_Position.y);
-            float num3 = Mathf.Abs(m_CurrentSubObject.m_Position.z - m_LastSubObject.m_Position.z);
-            if (num &lt; num2 || num &lt; num3)
-            {
-                m_CurrentSubObject.m_Position.x = m_LastSubObject.m_Position.x;
-            }
-            if (num2 &lt; num || num2 &lt; num3)
-            {
-                m_CurrentSubObject.m_Position.y = m_LastSubObject.m_Position.y;
-            }
-            if (num3 &lt; num || num3 &lt; num2)
-            {
-                m_CurrentSubObject.m_Position.z = m_LastSubObject.m_Position.z;
-            }
-            UpdateParent(moveSubObjects: false);
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private AutoConnect() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void AutoConnect()
-    {
-        if (m_CurrentSubObject == null || m_LastSubObject == null)
-        {
-            return;
-        }
-        Entity entity = m_PrefabSystem.GetEntity(m_LastSubObject.m_Object);
-        Entity entity2 = m_PrefabSystem.GetEntity(m_CurrentSubObject.m_Object);
-        if (base.EntityManager.TryGetComponent&lt;ObjectGeometryData&gt;(entity, out var component) &amp;&amp; base.EntityManager.TryGetComponent&lt;ObjectGeometryData&gt;(entity2, out var component2))
-        {
-            float num = Mathf.Abs(m_CurrentSubObject.m_Position.x - m_LastSubObject.m_Position.x);
-            float num2 = Mathf.Abs(m_CurrentSubObject.m_Position.y - m_LastSubObject.m_Position.y);
-            float num3 = Mathf.Abs(m_CurrentSubObject.m_Position.z - m_LastSubObject.m_Position.z);
-            Bounds3 bounds = MathUtils.Bounds(MathUtils.Box(component.m_Bounds, m_LastSubObject.m_Rotation, m_LastSubObject.m_Position));
-            Bounds3 bounds2 = MathUtils.Bounds(MathUtils.Box(component2.m_Bounds, m_CurrentSubObject.m_Rotation, m_CurrentSubObject.m_Position));
-            if (num &gt; num2 &amp;&amp; num &gt; num3)
-            {
-                if (m_CurrentSubObject.m_Position.x &gt; m_LastSubObject.m_Position.x)
-                {
-                    m_CurrentSubObject.m_Position.x += bounds.max.x - bounds2.min.x;
-                }
-                else
-                {
-                    m_CurrentSubObject.m_Position.x += bounds.min.x - bounds2.max.x;
-                }
-            }
-            else if (num2 &gt; num &amp;&amp; num2 &gt; num3)
-            {
-                if (m_CurrentSubObject.m_Position.y &gt; m_LastSubObject.m_Position.y)
-                {
-                    m_CurrentSubObject.m_Position.y += bounds.max.y - bounds2.min.y;
-                }
-                else
-                {
-                    m_CurrentSubObject.m_Position.y += bounds.min.y - bounds2.max.y;
-                }
-            }
-            else if (num3 &gt; num &amp;&amp; num3 &gt; num2)
-            {
-                if (m_CurrentSubObject.m_Position.z &gt; m_LastSubObject.m_Position.z)
-                {
-                    m_CurrentSubObject.m_Position.z += bounds.max.z - bounds2.min.z;
-                }
-                else
-                {
-                    m_CurrentSubObject.m_Position.z += bounds.min.z - bounds2.max.z;
-                }
-            }
-        }
-        UpdateParent(moveSubObjects: false);
-    }
-</code></pre>
-<ul>
-<li><code>private BuildLocalizationFields(Game.Prefabs.PrefabBase prefab, System.Collections.Generic.List&lt;Game.UI.Widgets.IWidget&gt; widgets) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void BuildLocalizationFields(PrefabBase prefab, List&lt;IWidget&gt; widgets)
-    {
-        if (!m_WipLocalization.TryGetValue(prefab, out var value))
-        {
-            value = new LocalizationFields
-            {
-                m_NameLocalization = new LocalizationField(&quot;Editor.ASSET_NAME&quot;),
-                m_DescriptionLocalization = new LocalizationField(&quot;Editor.ASSET_DESCRIPTION&quot;)
-            };
-            List&lt;LocalizationField.LocalizationFieldEntry&gt; entries = InitializeLocalization(prefab, &quot;Assets.NAME[&quot; + prefab.name + &quot;]&quot;);
-            value.m_NameLocalization.Initialize(entries);
-            List&lt;LocalizationField.LocalizationFieldEntry&gt; entries2 = InitializeLocalization(prefab, &quot;Assets.DESCRIPTION[&quot; + prefab.name + &quot;]&quot;);
-            value.m_DescriptionLocalization.Initialize(entries2);
-            m_WipLocalization[prefab] = value;
-        }
-        widgets.Add(new Game.UI.Widgets.Group
-        {
-            displayName = &quot;Localized Name&quot;,
-            children = new IWidget[1] { value.m_NameLocalization },
-            tooltip = &quot;Editor.LOCALIZED_NAME_TOOLTIP&quot;
-        });
-        widgets.Add(new Game.UI.Widgets.Group
-        {
-            displayName = &quot;Localized Description&quot;,
-            children = new IWidget[1] { value.m_DescriptionLocalization },
-            tooltip = &quot;Editor.LOCALIZED_DESCRIPTION_TOOLTIP&quot;
-        });
-    }
-</code></pre>
-<ul>
-<li><code>private CloneSelected() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void CloneSelected()
-    {
-        PrefabRef componentData = base.EntityManager.GetComponentData&lt;PrefabRef&gt;(m_CurrentSelectedEntity);
-        ObjectPrefab prefab = m_PrefabSystem.GetPrefab&lt;ObjectPrefab&gt;(componentData);
-        m_ObjectTool.mode = ObjectToolSystem.Mode.Create;
-        m_ObjectTool.prefab = prefab;
-        m_ToolSystem.activeTool = m_ObjectTool;
-        if (m_CurrentSelectedEntity == m_ToolSystem.selected)
-        {
-            m_ToolSystem.selected = Entity.Null;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public static DisableAllFields(Game.UI.Widgets.IWidget widget) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static void DisableAllFields(IWidget widget)
-    {
-        if (widget is IDisableCallback disableCallback)
-        {
-            disableCallback.disabled = () =&gt; true;
-        }
-        if (widget is IContainerWidget containerWidget)
-        {
-            {
-                foreach (IWidget child in containerWidget.children)
-                {
-                    DisableAllFields(child);
-                }
-                return;
-            }
-        }
-        if (widget is ButtonRow { children: var array })
-        {
-            for (int num = 0; num &lt; array.Length; num++)
-            {
-                DisableAllFields(array[num]);
-            }
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private DisableSection(System.Object obj, System.Object parent) : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">private bool DisableSection(object obj, object parent)
-    {
-        if (obj is ComponentBase componentBase &amp;&amp; componentBase.prefab.builtin)
-        {
-            return true;
-        }
-        if ((obj is ObjectMeshInfo || obj is ObjectSubObjectInfo) &amp;&amp; parent is ComponentBase componentBase2 &amp;&amp; componentBase2.prefab.builtin)
-        {
-            return true;
-        }
-        return false;
-    }
-</code></pre>
-<ul>
-<li><code>private DuplicatePrefab(Game.Prefabs.PrefabBase oldPrefab) : Game.Prefabs.PrefabBase</code>  </li>
-</ul>
-<pre><code class="language-csharp">private PrefabBase DuplicatePrefab(PrefabBase oldPrefab)
-    {
-        PrefabBase prefabBase = m_PrefabSystem.DuplicatePrefab(oldPrefab, oldPrefab.name);
-        if (m_WipLocalization.TryGetValue(oldPrefab, out var value))
-        {
-            m_WipLocalization.Add(prefabBase, value.Clone());
-        }
-        prefabBase.asset = null;
-        return prefabBase;
-    }
-</code></pre>
-<ul>
-<li><code>private FindObjectMeshInfo(Game.Prefabs.ObjectGeometryPrefab prefab, Game.Prefabs.PrefabBase meshPrefab, Game.Prefabs.ObjectMeshInfo&amp; info) : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">private bool FindObjectMeshInfo(ObjectGeometryPrefab prefab, PrefabBase meshPrefab, out ObjectMeshInfo info)
-    {
-        for (int i = 0; i &lt; prefab.m_Meshes.Length; i++)
-        {
-            if (prefab.m_Meshes[i].m_Mesh == meshPrefab)
-            {
-                info = prefab.m_Meshes[i];
-                return true;
-            }
-        }
-        info = null;
-        return false;
-    }
-</code></pre>
-<ul>
-<li><code>private static GetActiveAccessor(Game.Prefabs.ComponentBase component) : Game.Reflection.ITypedValueAccessor&lt;System.Boolean&gt;</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static ITypedValueAccessor&lt;bool&gt; GetActiveAccessor(ComponentBase component)
-    {
-        return new DelegateAccessor&lt;bool&gt;(() =&gt; component.active, delegate(bool value)
-        {
-            component.active = value;
-        });
-    }
-</code></pre>
-<ul>
-<li><code>private GetComponentTypeItems() : System.Collections.Generic.IEnumerable&lt;Game.UI.Editor.Item&gt;</code>  </li>
-</ul>
-<pre><code class="language-csharp">private IEnumerable&lt;Item&gt; GetComponentTypeItems()
-    {
-        object obj = m_SelectedObject;
-        if (m_SelectedObject is ObjectMeshInfo objectMeshInfo)
-        {
-            obj = objectMeshInfo.m_Mesh;
-        }
-        if (!(obj is PrefabBase selectedPrefab))
-        {
-            yield break;
-        }
-        foreach (Type item in TypePickerPanel.GetAllConcreteTypesDerivedFrom&lt;ComponentBase&gt;())
-        {
-            if (item.IsSubclassOf(typeof(PrefabBase)) || selectedPrefab.Has(item))
-            {
-                continue;
-            }
-            Type prefabType = selectedPrefab.GetType();
-            if (!(prefabType == item) &amp;&amp; item.GetCustomAttribute&lt;HideInEditorAttribute&gt;() == null)
-            {
-                ComponentMenu customAttribute = item.GetCustomAttribute&lt;ComponentMenu&gt;();
-                if (customAttribute?.requiredPrefab == null || customAttribute == null || customAttribute.requiredPrefab.Length == 0 || customAttribute.requiredPrefab.Any((Type t) =&gt; t.IsAssignableFrom(prefabType)))
-                {
-                    yield return new Item
-                    {
-                        type = item,
-                        name = WidgetReflectionUtils.NicifyVariableName(item.Name),
-                        parentDir = customAttribute?.menu
-                    };
-                }
-            }
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private GetCustomAssets() : System.Collections.Generic.IEnumerable&lt;Game.UI.Editor.AssetItem&gt;</code>  </li>
-</ul>
-<pre><code class="language-csharp">private IEnumerable&lt;AssetItem&gt; GetCustomAssets()
-    {
-        if (m_SelectedObject is PrefabBase prefabBase &amp;&amp; IsBuiltinAsset(prefabBase.asset) &amp;&amp; TryGetAssetItem(prefabBase.asset, out var item))
-        {
-            yield return item;
-        }
-        foreach (PrefabAsset asset in AssetDatabase.user.GetAssets(default(SearchFilter&lt;PrefabAsset&gt;)))
-        {
-            if (TryGetAssetItem(asset, out var item2))
-            {
-                yield return item2;
-            }
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private GetObjectName(System.Object obj) : Game.UI.Localization.LocalizedString</code>  </li>
-</ul>
-<pre><code class="language-csharp">[CanBeNull]
-    private LocalizedString GetObjectName([CanBeNull] object obj)
-    {
-        if (obj == null)
-        {
-            return null;
-        }
-        if (obj is PrefabBase prefab)
-        {
-            return EditorPrefabUtils.GetPrefabLabel(prefab);
-        }
-        return LocalizedString.Value(m_SelectedObject.GetType().Name);
-    }
-</code></pre>
-<ul>
-<li><code>private GetSectionObjects() : System.Collections.Generic.IEnumerable&lt;System.Object&gt;</code>  </li>
-</ul>
-<pre><code class="language-csharp">private IEnumerable&lt;object&gt; GetSectionObjects()
-    {
-        if (m_SelectedObject == null)
-        {
-            yield break;
-        }
-        yield return m_SelectedObject;
-        object obj = m_SelectedObject;
-        if (obj is PrefabBase prefab)
-        {
-            for (int i = 0; i &lt; prefab.components.Count; i++)
-            {
-                if (prefab.components[i].GetType().GetCustomAttribute&lt;HideInEditorAttribute&gt;() == null)
-                {
-                    yield return prefab.components[i];
-                }
-            }
-        }
-        obj = m_SelectedObject;
-        if (!(obj is ObjectMeshInfo meshInfo))
-        {
-            yield break;
-        }
-        yield return meshInfo.m_Mesh;
-        for (int i = 0; i &lt; meshInfo.m_Mesh.components.Count; i++)
-        {
-            if (meshInfo.m_Mesh.components[i].GetType().GetCustomAttribute&lt;HideInEditorAttribute&gt;() == null)
-            {
-                yield return meshInfo.m_Mesh.components[i];
-            }
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private HandleInput() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void HandleInput()
-    {
-        m_MoveAction.enabled = canMoveSelected;
-        if (m_MoveAction.WasPerformedThisFrame())
-        {
-            MoveSelected();
-        }
-        m_CloneAction.enabled = canCloneSelected;
-        if (m_CloneAction.WasPerformedThisFrame())
-        {
-            CloneSelected();
-        }
-        m_AutoAlignAction.enabled = canAlignSelected;
-        if (m_AutoAlignAction.WasPerformedThisFrame())
-        {
-            AutoAlign();
-        }
-        m_AutoConnectAction.enabled = canAlignSelected;
-        if (m_AutoConnectAction.WasPerformedThisFrame())
-        {
-            AutoConnect();
-        }
-        m_AlignXAction.enabled = canAlignSelected;
-        if (m_AlignXAction.WasPerformedThisFrame())
-        {
-            AlignX();
-        }
-        m_AlignYAction.enabled = canAlignSelected;
-        if (m_AlignYAction.WasPerformedThisFrame())
-        {
-            AlignY();
-        }
-        m_AlignZAction.enabled = canAlignSelected;
-        if (m_AlignZAction.WasPerformedThisFrame())
-        {
-            AlignZ();
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private InitializeLocalization(Game.Prefabs.PrefabBase prefab, System.String key) : System.Collections.Generic.List&lt;Game.UI.Editor.LocalizationField+LocalizationFieldEntry&gt;</code>  </li>
-</ul>
-<pre><code class="language-csharp">private List&lt;LocalizationField.LocalizationFieldEntry&gt; InitializeLocalization(PrefabBase prefab, string key)
-    {
-        List&lt;LocalizationField.LocalizationFieldEntry&gt; list = new List&lt;LocalizationField.LocalizationFieldEntry&gt;();
-        if (prefab.asset != null &amp;&amp; prefab.asset.database == AssetDatabase.user)
-        {
-            foreach (LocaleAsset localeAsset in EditorPrefabUtils.GetLocaleAssets(prefab))
-            {
-                if (localeAsset.data.entries.TryGetValue(key, out var value))
-                {
-                    list.Add(new LocalizationField.LocalizationFieldEntry
-                    {
-                        localeId = localeAsset.localeId,
-                        text = value
-                    });
-                }
-            }
-        }
-        else
-        {
-            foreach (LocaleAsset asset in AssetDatabase.global.GetAssets(default(SearchFilter&lt;LocaleAsset&gt;)))
-            {
-                if (asset.data.entries.TryGetValue(key, out var value2))
-                {
-                    list.Add(new LocalizationField.LocalizationFieldEntry
-                    {
-                        localeId = asset.localeId,
-                        text = value2
-                    });
-                }
-            }
-        }
-        return list;
-    }
-</code></pre>
-<ul>
-<li><code>private static IsBuiltinAsset(Colossal.IO.AssetDatabase.AssetData asset) : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static bool IsBuiltinAsset(AssetData asset)
-    {
-        if (asset != null &amp;&amp; asset.database != null)
-        {
-            return asset.database is AssetDatabase&lt;Colossal.IO.AssetDatabase.Game&gt;;
-        }
-        return false;
-    }
-</code></pre>
-<ul>
-<li><code>private IsColorVariationField(Game.UI.Widgets.IWidget widget, System.Int32&amp; variationSetIndex, System.Int32&amp; colorIndex, Game.Prefabs.RenderPrefabBase&amp; mesh) : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">private bool IsColorVariationField(IWidget widget, out int variationSetIndex, out int colorIndex, out RenderPrefabBase mesh)
-    {
-        variationSetIndex = -1;
-        colorIndex = -1;
-        mesh = null;
-        if (widget.path.m_Key == null || !(widget is ColorField) || !(m_SelectedObject is ObjectMeshInfo objectMeshInfo))
-        {
-            return false;
-        }
-        Match match = Regex.Match(widget.path.m_Key, &quot;^ColorProperties.m_ColorVariations\\[(\\d+)\\].m_Colors\\[(\\d+)\\]$&quot;);
-        if (match.Success &amp;&amp; int.TryParse(match.Groups[1].Value, out variationSetIndex) &amp;&amp; int.TryParse(match.Groups[2].Value, out colorIndex))
-        {
-            mesh = objectMeshInfo.m_Mesh;
-            return true;
-        }
-        return false;
-    }
-</code></pre>
-<ul>
-<li><code>private IsEmissiveField(Game.UI.Widgets.IWidget widget, System.Int32&amp; singleLightIndex, System.Int32&amp; multiLightIndex, Game.Prefabs.RenderPrefabBase&amp; mesh) : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">private bool IsEmissiveField(IWidget widget, out int singleLightIndex, out int multiLightIndex, out RenderPrefabBase mesh)
-    {
-        singleLightIndex = -1;
-        multiLightIndex = -1;
-        mesh = null;
-        if (widget.path.m_Key == null || !(m_SelectedObject is ObjectMeshInfo objectMeshInfo))
-        {
-            return false;
-        }
-        Match match = Regex.Match(widget.path.m_Key, &quot;^EmissiveProperties.m_SingleLights\\[(\\d+)\\].&quot;);
-        if (match.Success &amp;&amp; int.TryParse(match.Groups[1].Value, out singleLightIndex))
-        {
-            mesh = objectMeshInfo.m_Mesh;
-            return true;
-        }
-        match = Regex.Match(widget.path.m_Key, &quot;^EmissiveProperties.m_MultiLights\\[(\\d+)\\].&quot;);
-        if (match.Success &amp;&amp; int.TryParse(match.Groups[1].Value, out multiLightIndex))
-        {
-            mesh = objectMeshInfo.m_Mesh;
-            return true;
-        }
-        return false;
-    }
-</code></pre>
-<ul>
-<li><code>private MoveSelected() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void MoveSelected()
-    {
-        m_ObjectTool.StartMoving(m_CurrentSelectedEntity);
-        m_ToolSystem.activeTool = m_ObjectTool;
-    }
-</code></pre>
-<ul>
-<li><code>private MoveSubObjects(Game.Prefabs.PrefabBase prefab) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void MoveSubObjects(PrefabBase prefab)
-    {
-        Entity entity = m_PrefabSystem.GetEntity(prefab);
-        if (!base.EntityManager.TryGetBuffer(entity, isReadOnly: false, out DynamicBuffer&lt;SubMesh&gt; buffer) || !(prefab is ObjectGeometryPrefab { m_Meshes: not null } objectGeometryPrefab))
-        {
-            return;
-        }
-        int num = math.min(buffer.Length, objectGeometryPrefab.m_Meshes.Length);
-        for (int i = 0; i &lt; num; i++)
-        {
-            SubMesh value = buffer[i];
-            ObjectMeshInfo objectMeshInfo = objectGeometryPrefab.m_Meshes[i];
-            if (value.m_SubMesh != m_PrefabSystem.GetEntity(objectMeshInfo.m_Mesh) || (value.m_Position.Equals(objectMeshInfo.m_Position) &amp;&amp; value.m_Rotation.Equals(objectMeshInfo.m_Rotation)))
-            {
-                continue;
-            }
-            if (value.m_Rotation.Equals(objectMeshInfo.m_Rotation))
-            {
-                float3 @float = objectMeshInfo.m_Position - value.m_Position;
-                if (prefab.TryGet&lt;ObjectSubObjects&gt;(out var component) &amp;&amp; component.m_SubObjects != null)
-                {
-                    for (int j = 0; j &lt; component.m_SubObjects.Length; j++)
-                    {
-                        ObjectSubObjectInfo objectSubObjectInfo = component.m_SubObjects[j];
-                        if (objectSubObjectInfo.m_ParentMesh % 1000 == i)
-                        {
-                            objectSubObjectInfo.m_Position += @float;
-                        }
-                    }
-                }
-                if (prefab.TryGet&lt;ObjectSubAreas&gt;(out var component2) &amp;&amp; component2.m_SubAreas != null)
-                {
-                    for (int k = 0; k &lt; component2.m_SubAreas.Length; k++)
-                    {
-                        ObjectSubAreaInfo objectSubAreaInfo = component2.m_SubAreas[k];
-                        if (objectSubAreaInfo.m_NodePositions == null || objectSubAreaInfo.m_ParentMeshes == null)
-                        {
-                            continue;
-                        }
-                        int num2 = math.min(objectSubAreaInfo.m_NodePositions.Length, objectSubAreaInfo.m_ParentMeshes.Length);
-                        for (int l = 0; l &lt; num2; l++)
-                        {
-                            if (objectSubAreaInfo.m_ParentMeshes[l] == i)
-                            {
-                                objectSubAreaInfo.m_NodePositions[l] += @float;
-                            }
-                        }
-                    }
-                }
-                if (prefab.TryGet&lt;ObjectSubLanes&gt;(out var component3) &amp;&amp; component3.m_SubLanes != null)
-                {
-                    for (int m = 0; m &lt; component3.m_SubLanes.Length; m++)
-                    {
-                        ObjectSubLaneInfo objectSubLaneInfo = component3.m_SubLanes[m];
-                        bool2 x = objectSubLaneInfo.m_ParentMesh == i;
-                        if (math.all(x))
-                        {
-                            objectSubLaneInfo.m_BezierCurve += @float;
-                        }
-                        else if (x.x)
-                        {
-                            objectSubLaneInfo.m_BezierCurve.a += @float;
-                            objectSubLaneInfo.m_BezierCurve.b += @float * (2f / 3f);
-                            objectSubLaneInfo.m_BezierCurve.c += @float * (1f / 3f);
-                        }
-                        else if (x.y)
-                        {
-                            objectSubLaneInfo.m_BezierCurve.d += @float;
-                            objectSubLaneInfo.m_BezierCurve.c += @float * (2f / 3f);
-                            objectSubLaneInfo.m_BezierCurve.b += @float * (1f / 3f);
-                        }
-                    }
-                }
-                if (prefab.TryGet&lt;ObjectSubNets&gt;(out var component4) &amp;&amp; component4.m_SubNets != null)
-                {
-                    for (int n = 0; n &lt; component4.m_SubNets.Length; n++)
-                    {
-                        ObjectSubNetInfo objectSubNetInfo = component4.m_SubNets[n];
-                        bool2 x2 = objectSubNetInfo.m_ParentMesh == i;
-                        if (math.all(x2))
-                        {
-                            objectSubNetInfo.m_BezierCurve += @float;
-                        }
-                        else if (x2.x)
-                        {
-                            objectSubNetInfo.m_BezierCurve.a += @float;
-                            objectSubNetInfo.m_BezierCurve.b += @float * (2f / 3f);
-                            objectSubNetInfo.m_BezierCurve.c += @float * (1f / 3f);
-                        }
-                        else if (x2.y)
-                        {
-                            objectSubNetInfo.m_BezierCurve.d += @float;
-                            objectSubNetInfo.m_BezierCurve.c += @float * (2f / 3f);
-                            objectSubNetInfo.m_BezierCurve.b += @float * (1f / 3f);
-                        }
-                    }
-                }
-                if (prefab.TryGet&lt;EffectSource&gt;(out var component5) &amp;&amp; component5.m_Effects != null)
-                {
-                    for (int num3 = 0; num3 &lt; component5.m_Effects.Count; num3++)
-                    {
-                        EffectSource.EffectSettings effectSettings = component5.m_Effects[num3];
-                        if (effectSettings.m_ParentMesh == i)
-                        {
-                            effectSettings.m_PositionOffset += @float;
-                        }
-                    }
-                }
-            }
-            else
-            {
-                float4x4 m2 = float4x4.TRS(value.m_Position, value.m_Rotation, 1f);
-                float4x4 a = math.mul(float4x4.TRS(objectMeshInfo.m_Position, objectMeshInfo.m_Rotation, 1f), math.inverse(m2));
-                quaternion a2 = math.mul(objectMeshInfo.m_Rotation, math.inverse(value.m_Rotation));
-                if (prefab.TryGet&lt;ObjectSubObjects&gt;(out var component6) &amp;&amp; component6.m_SubObjects != null)
-                {
-                    for (int num4 = 0; num4 &lt; component6.m_SubObjects.Length; num4++)
-                    {
-                        ObjectSubObjectInfo objectSubObjectInfo2 = component6.m_SubObjects[num4];
-                        if (objectSubObjectInfo2.m_ParentMesh % 1000 == i)
-                        {
-                            objectSubObjectInfo2.m_Position = math.transform(a, objectSubObjectInfo2.m_Position);
-                            objectSubObjectInfo2.m_Rotation = math.normalize(math.mul(a2, objectSubObjectInfo2.m_Rotation));
-                        }
-                    }
-                }
-                if (prefab.TryGet&lt;ObjectSubAreas&gt;(out var component7) &amp;&amp; component7.m_SubAreas != null)
-                {
-                    for (int num5 = 0; num5 &lt; component7.m_SubAreas.Length; num5++)
-                    {
-                        ObjectSubAreaInfo objectSubAreaInfo2 = component7.m_SubAreas[num5];
-                        if (objectSubAreaInfo2.m_NodePositions == null || objectSubAreaInfo2.m_ParentMeshes == null)
-                        {
-                            continue;
-                        }
-                        int num6 = math.min(objectSubAreaInfo2.m_NodePositions.Length, objectSubAreaInfo2.m_ParentMeshes.Length);
-                        for (int num7 = 0; num7 &lt; num6; num7++)
-                        {
-                            if (objectSubAreaInfo2.m_ParentMeshes[num7] == i)
-                            {
-                                objectSubAreaInfo2.m_NodePositions[num7] = math.transform(a, objectSubAreaInfo2.m_NodePositions[num7]);
-                            }
-                        }
-                    }
-                }
-                if (prefab.TryGet&lt;ObjectSubLanes&gt;(out var component8) &amp;&amp; component8.m_SubLanes != null)
-                {
-                    for (int num8 = 0; num8 &lt; component8.m_SubLanes.Length; num8++)
-                    {
-                        ObjectSubLaneInfo objectSubLaneInfo2 = component8.m_SubLanes[num8];
-                        bool2 x3 = objectSubLaneInfo2.m_ParentMesh == i;
-                        if (math.all(x3))
-                        {
-                            objectSubLaneInfo2.m_BezierCurve.a = math.transform(a, objectSubLaneInfo2.m_BezierCurve.a);
-                            objectSubLaneInfo2.m_BezierCurve.b = math.transform(a, objectSubLaneInfo2.m_BezierCurve.b);
-                            objectSubLaneInfo2.m_BezierCurve.c = math.transform(a, objectSubLaneInfo2.m_BezierCurve.c);
-                            objectSubLaneInfo2.m_BezierCurve.d = math.transform(a, objectSubLaneInfo2.m_BezierCurve.d);
-                        }
-                        else if (x3.x)
-                        {
-                            objectSubLaneInfo2.m_BezierCurve.a = math.transform(a, objectSubLaneInfo2.m_BezierCurve.a);
-                            objectSubLaneInfo2.m_BezierCurve.b = math.lerp(objectSubLaneInfo2.m_BezierCurve.b, math.transform(a, objectSubLaneInfo2.m_BezierCurve.b), 2f / 3f);
-                            objectSubLaneInfo2.m_BezierCurve.c = math.lerp(objectSubLaneInfo2.m_BezierCurve.c, math.transform(a, objectSubLaneInfo2.m_BezierCurve.c), 1f / 3f);
-                        }
-                        else if (x3.y)
-                        {
-                            objectSubLaneInfo2.m_BezierCurve.d = math.transform(a, objectSubLaneInfo2.m_BezierCurve.d);
-                            objectSubLaneInfo2.m_BezierCurve.c = math.lerp(objectSubLaneInfo2.m_BezierCurve.c, math.transform(a, objectSubLaneInfo2.m_BezierCurve.c), 2f / 3f);
-                            objectSubLaneInfo2.m_BezierCurve.b = math.lerp(objectSubLaneInfo2.m_BezierCurve.b, math.transform(a, objectSubLaneInfo2.m_BezierCurve.b), 1f / 3f);
-                        }
-                    }
-                }
-                if (prefab.TryGet&lt;ObjectSubNets&gt;(out var component9) &amp;&amp; component9.m_SubNets != null)
-                {
-                    for (int num9 = 0; num9 &lt; component9.m_SubNets.Length; num9++)
-                    {
-                        ObjectSubNetInfo objectSubNetInfo2 = component9.m_SubNets[num9];
-                        bool2 x4 = objectSubNetInfo2.m_ParentMesh == i;
-                        if (math.all(x4))
-                        {
-                            objectSubNetInfo2.m_BezierCurve.a = math.transform(a, objectSubNetInfo2.m_BezierCurve.a);
-                            objectSubNetInfo2.m_BezierCurve.b = math.transform(a, objectSubNetInfo2.m_BezierCurve.b);
-                            objectSubNetInfo2.m_BezierCurve.c = math.transform(a, objectSubNetInfo2.m_BezierCurve.c);
-                            objectSubNetInfo2.m_BezierCurve.d = math.transform(a, objectSubNetInfo2.m_BezierCurve.d);
-                        }
-                        else if (x4.x)
-                        {
-                            objectSubNetInfo2.m_BezierCurve.a = math.transform(a, objectSubNetInfo2.m_BezierCurve.a);
-                            objectSubNetInfo2.m_BezierCurve.b = math.lerp(objectSubNetInfo2.m_BezierCurve.b, math.transform(a, objectSubNetInfo2.m_BezierCurve.b), 2f / 3f);
-                            objectSubNetInfo2.m_BezierCurve.c = math.lerp(objectSubNetInfo2.m_BezierCurve.c, math.transform(a, objectSubNetInfo2.m_BezierCurve.c), 1f / 3f);
-                        }
-                        else if (x4.y)
-                        {
-                            objectSubNetInfo2.m_BezierCurve.d = math.transform(a, objectSubNetInfo2.m_BezierCurve.d);
-                            objectSubNetInfo2.m_BezierCurve.c = math.lerp(objectSubNetInfo2.m_BezierCurve.c, math.transform(a, objectSubNetInfo2.m_BezierCurve.c), 2f / 3f);
-                            objectSubNetInfo2.m_BezierCurve.b = math.lerp(objectSubNetInfo2.m_BezierCurve.b, math.transform(a, objectSubNetInfo2.m_BezierCurve.b), 1f / 3f);
-                        }
-                    }
-                }
-                if (prefab.TryGet&lt;EffectSource&gt;(out var component10) &amp;&amp; component10.m_Effects != null)
-                {
-                    for (int num10 = 0; num10 &lt; component10.m_Effects.Count; num10++)
-                    {
-                        EffectSource.EffectSettings effectSettings2 = component10.m_Effects[num10];
-                        if (effectSettings2.m_ParentMesh == i)
-                        {
-                            effectSettings2.m_PositionOffset = math.transform(a, effectSettings2.m_PositionOffset);
-                            effectSettings2.m_Rotation = math.normalize(math.mul(a2, effectSettings2.m_Rotation));
-                        }
-                    }
-                }
-            }
-            value.m_Position = objectMeshInfo.m_Position;
-            value.m_Rotation = objectMeshInfo.m_Rotation;
-            buffer[i] = value;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private OnAddComponent(System.Type type) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void OnAddComponent(Type type)
-    {
-        CloseSubPanel();
-        PrefabBase prefabBase = null;
-        if (m_SelectedObject is PrefabBase prefabBase2)
-        {
-            prefabBase = prefabBase2;
-        }
-        else if (m_SelectedObject is ObjectMeshInfo objectMeshInfo)
-        {
-            prefabBase = objectMeshInfo.m_Mesh;
-        }
-        if (prefabBase != null &amp;&amp; !prefabBase.Has(type))
-        {
-            prefabBase.AddComponent(type);
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private OnColorVariationChanged(Unity.Entities.Entity entity, Game.Prefabs.RenderPrefabBase mesh, System.Int32 variationSetIndex, System.Int32 colorIndex) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void OnColorVariationChanged(Entity entity, RenderPrefabBase mesh, int variationSetIndex, int colorIndex)
-    {
-        base.World.GetExistingSystemManaged&lt;MeshColorSystem&gt;()?.SetOverride(entity, mesh, variationSetIndex);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
+<hr />
+<h2 id="usage-example">Usage Example</h2>
 <pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_PrefabSystem = base.World.GetOrCreateSystemManaged&lt;PrefabSystem&gt;();
-        m_ToolSystem = base.World.GetOrCreateSystemManaged&lt;ToolSystem&gt;();
-        m_ObjectTool = base.World.GetOrCreateSystemManaged&lt;ObjectToolSystem&gt;();
-        m_CameraUpdateSystem = base.World.GetOrCreateSystemManaged&lt;CameraUpdateSystem&gt;();
-        m_AssetUploadPanel = base.World.GetOrCreateSystemManaged&lt;EditorAssetUploadPanel&gt;();
-        m_MoveAction = InputManager.instance.FindAction(&quot;Editor&quot;, &quot;Move Selected&quot;);
-        m_CloneAction = InputManager.instance.FindAction(&quot;Editor&quot;, &quot;Clone&quot;);
-        m_AutoAlignAction = InputManager.instance.FindAction(&quot;Editor&quot;, &quot;Auto Align&quot;);
-        m_AutoConnectAction = InputManager.instance.FindAction(&quot;Editor&quot;, &quot;Auto Connect&quot;);
-        m_AlignXAction = InputManager.instance.FindAction(&quot;Editor&quot;, &quot;Align X&quot;);
-        m_AlignYAction = InputManager.instance.FindAction(&quot;Editor&quot;, &quot;Align Y&quot;);
-        m_AlignZAction = InputManager.instance.FindAction(&quot;Editor&quot;, &quot;Align Z&quot;);
-        m_InstanceFooter = new Button[1]
-        {
-            new Button
-            {
-                displayName = &quot;Editor.LOCATE&quot;,
-                action = OnLocate
-            }
-        };
-        m_PrefabFooter = new Button[2]
-        {
-            new Button
-            {
-                displayName = &quot;Editor.DUPLICATE_TEMPLATE&quot;,
-                action = OnDuplicate,
-                tooltip = &quot;Editor.DUPLICATE_TEMPLATE_TOOLTIP&quot;
-            },
-            new Button
-            {
-                displayName = &quot;Editor.ADD_COMPONENT&quot;,
-                tooltip = &quot;Editor.ADD_COMPONENT_TOOLTIP&quot;,
-                action = ShowAddComponentPicker,
-                disabled = () =&gt; DisableSection(m_SelectedObject, m_ParentObject)
-            }
-        };
-        m_MeshFooter = new Button[1]
-        {
-            new Button
-            {
-                displayName = &quot;Editor.ADD_COMPONENT&quot;,
-                tooltip = &quot;Editor.ADD_COMPONENT_TOOLTIP&quot;,
-                action = ShowAddComponentPicker,
-                disabled = () =&gt; DisableSection(m_SelectedObject, m_ParentObject)
-            }
-        };
-        m_CustomAssetFooter = new Button[1]
-        {
-            new Button
-            {
-                displayName = &quot;Editor.SAVE_ASSET&quot;,
-                tooltip = &quot;Editor.SAVE_ASSET_TOOLTIP&quot;,
-                action = ShowSaveAssetPanel,
-                disabled = () =&gt; DisableSection(m_SelectedObject, m_ParentObject)
-            }
-        };
-        m_Platform = PlatformManager.instance.GetPSI&lt;PdxSdkPlatform&gt;(&quot;PdxSdk&quot;);
-        PlatformManager.instance.onPlatformRegistered += delegate(IPlatformServiceIntegration psi)
-        {
-            if (psi is PdxSdkPlatform platform)
-            {
-                m_Platform = platform;
-            }
-        };
-    }
+protected override void OnCreate()
+{
+    base.OnCreate();
+
+    // typical initialization performed by InspectorPanelSystem:
+    m_PrefabSystem = base.World.GetOrCreateSystemManaged&lt;PrefabSystem&gt;();
+    m_ToolSystem = base.World.GetOrCreateSystemManaged&lt;ToolSystem&gt;();
+    m_ObjectTool = base.World.GetOrCreateSystemManaged&lt;ObjectToolSystem&gt;();
+    m_CameraUpdateSystem = base.World.GetOrCreateSystemManaged&lt;CameraUpdateSystem&gt;();
+    m_AssetUploadPanel = base.World.GetOrCreateSystemManaged&lt;EditorAssetUploadPanel&gt;();
+
+    // find input actions used by the inspector
+    m_MoveAction = InputManager.instance.FindAction(&quot;Editor&quot;, &quot;Move Selected&quot;);
+    m_CloneAction = InputManager.instance.FindAction(&quot;Editor&quot;, &quot;Clone&quot;);
+    // ...and so on
+}
 </code></pre>
-<ul>
-<li><code>private OnDuplicate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void OnDuplicate()
-    {
-        if (m_SelectedObject is PrefabBase template)
-        {
-            PrefabBase prefab = m_PrefabSystem.DuplicatePrefab(template);
-            if (mode == Mode.Instance)
-            {
-                m_ToolSystem.ActivatePrefabTool(prefab);
-            }
-            else
-            {
-                SelectPrefab(prefab);
-            }
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private OnEmissiveChanged(Unity.Entities.Entity entity, Game.Prefabs.RenderPrefabBase mesh, System.Int32 singleLightIndex, System.Int32 multiLightIndex) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void OnEmissiveChanged(Entity entity, RenderPrefabBase mesh, int singleLightIndex, int multiLightIndex)
-    {
-        base.World.GetExistingSystemManaged&lt;ProceduralUploadSystem&gt;()?.SetOverride(entity, mesh, singleLightIndex, multiLightIndex);
-    }
-</code></pre>
-<ul>
-<li><code>private OnLocate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void OnLocate()
-    {
-        int elementIndex = -1;
-        if (m_CurrentSelectedEntity != Entity.Null &amp;&amp; SelectedInfoUISystem.TryGetPosition(m_CurrentSelectedEntity, base.EntityManager, ref elementIndex, out var _, out var position, out var _, out var _))
-        {
-            if (m_CameraUpdateSystem.activeCameraController == m_CameraUpdateSystem.cinematicCameraController)
-            {
-                Vector3 rotation2 = m_CameraUpdateSystem.cinematicCameraController.rotation;
-                rotation2.x = Mathf.Clamp(rotation2.x, 0f, 90f);
-                m_CameraUpdateSystem.cinematicCameraController.rotation = rotation2;
-                position = (Vector3)position + Quaternion.Euler(rotation2) * new Vector3(0f, 0f, -1000f);
-                m_CameraUpdateSystem.cinematicCameraController.position = position;
-            }
-            else
-            {
-                m_CameraUpdateSystem.activeCameraController.pivot = position;
-            }
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private OnSaveAsset(System.String name, System.Nullable&lt;Colossal.Hash128&gt; overwriteGuid, System.Action&lt;Colossal.IO.AssetDatabase.PrefabAsset&gt; callback = null) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void OnSaveAsset(string name, Colossal.Hash128? overwriteGuid, Action&lt;PrefabAsset&gt; callback = null)
-    {
-        CloseSubPanel();
-        if (overwriteGuid.HasValue)
-        {
-            GameManager.instance.userInterface.appBindings.ShowConfirmationDialog(new ConfirmationDialog(null, &quot;Common.DIALOG_MESSAGE[OverwriteAsset]&quot;, &quot;Common.DIALOG_ACTION[Yes]&quot;, &quot;Common.DIALOG_ACTION[No]&quot;), delegate(int ret)
-            {
-                if (ret == 0)
-                {
-                    PrefabAsset asset = AssetDatabase.global.GetAsset&lt;PrefabAsset&gt;(overwriteGuid.Value);
-                    SaveAsset(name, asset, callback);
-                }
-            });
-        }
-        else
-        {
-            SaveAsset(name, null, callback);
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private OnShareAsset(Colossal.IO.AssetDatabase.PrefabAsset asset) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void OnShareAsset(PrefabAsset asset)
-    {
-        m_AssetUploadPanel.Show(asset);
-        base.activeSubPanel = m_AssetUploadPanel;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnStopRunning() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnStopRunning()
-    {
-        base.activeSubPanel = null;
-        m_MoveAction.enabled = false;
-        m_CloneAction.enabled = false;
-        m_AutoAlignAction.enabled = false;
-        m_AutoAlignAction.enabled = false;
-        m_AutoConnectAction.enabled = false;
-        m_AlignXAction.enabled = false;
-        m_AlignYAction.enabled = false;
-        m_AlignZAction.enabled = false;
-        OnColorVariationChanged(Entity.Null, null, -1, -1);
-        OnEmissiveChanged(Entity.Null, null, -1, -1);
-        base.OnStopRunning();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        base.OnUpdate();
-        RefreshContent();
-        HandleInput();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnValueChanged(Game.UI.Widgets.IWidget widget) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnValueChanged(IWidget widget)
-    {
-        base.OnValueChanged(widget);
-        if (IsColorVariationField(widget, out var variationSetIndex, out var colorIndex, out var mesh))
-        {
-            OnColorVariationChanged(m_ToolSystem.selected, mesh, variationSetIndex, colorIndex);
-        }
-        if (IsEmissiveField(widget, out var singleLightIndex, out var multiLightIndex, out mesh))
-        {
-            OnEmissiveChanged(m_ToolSystem.selected, mesh, singleLightIndex, multiLightIndex);
-        }
-        UpdateParent(moveSubObjects: true);
-    }
-</code></pre>
-<ul>
-<li><code>private RefreshContent() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void RefreshContent()
-    {
-        RefreshTitle();
-        RefreshSections();
-    }
-</code></pre>
-<ul>
-<li><code>private RefreshFooter(System.Collections.Generic.IList&lt;Game.UI.Widgets.IWidget&gt; panelChildren) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void RefreshFooter(IList&lt;IWidget&gt; panelChildren)
-    {
-        if (m_SelectedObject is ObjectMeshInfo)
-        {
-            panelChildren.Add(ButtonRow.WithChildren(m_MeshFooter));
-            return;
-        }
-        List&lt;Button&gt; list = new List&lt;Button&gt;();
-        if (mode == Mode.Instance)
-        {
-            list.AddRange(m_InstanceFooter);
-        }
-        list.AddRange(m_PrefabFooter);
-        panelChildren.Add(ButtonRow.WithChildren(list.ToArray()));
-        if (m_SelectedObject is PrefabBase { builtin: false })
-        {
-            panelChildren.Add(ButtonRow.WithChildren(m_CustomAssetFooter));
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private RefreshSections() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void RefreshSections()
-    {
-        if (m_SectionObjects.SequenceEqual(GetSectionObjects()))
-        {
-            return;
-        }
-        m_SectionObjects.Clear();
-        m_SectionObjects.AddRange(GetSectionObjects());
-        List&lt;IWidget&gt; list = new List&lt;IWidget&gt;(m_SectionObjects.Count);
-        for (int i = 0; i &lt; m_SectionObjects.Count; i++)
-        {
-            object obj = m_SectionObjects[i];
-            string name = obj.GetType().Name;
-            List&lt;IWidget&gt; widgets = new List&lt;IWidget&gt;(m_EditorGenerator.BuildMembers(new ObjectAccessor&lt;object&gt;(obj), 0, name).ToArray());
-            PrefabBase prefabBase = obj as PrefabBase;
-            if (prefabBase != null &amp;&amp; !(prefabBase is RenderPrefabBase))
-            {
-                BuildLocalizationFields(prefabBase, widgets);
-            }
-            EditorSection editorSection = new EditorSection
-            {
-                path = new PathSegment(name),
-                displayName = LocalizedString.Value(WidgetReflectionUtils.NicifyVariableName(name)),
-                tooltip = name,
-                expanded = true,
-                children = widgets
-            };
-            if (DisableSection(obj, m_ParentObject))
-            {
-                DisableAllFields(editorSection);
-            }
-            if (prefabBase != null)
-            {
-                editorSection.primary = true;
-                editorSection.color = EditorSection.kPrefabColor;
-                editorSection.active = GetActiveAccessor(prefabBase);
-            }
-            else
-            {
-                ComponentBase component = obj as ComponentBase;
-                if ((object)component != null)
-                {
-                    editorSection.onDelete = delegate
-                    {
-                        ApplyPrefabsSystem.RemoveComponent(component.prefab, component.GetType());
-                    };
-                    editorSection.active = GetActiveAccessor(component);
-                }
-            }
-            list.Add(editorSection);
-        }
-        List&lt;IWidget&gt; list2 = new List&lt;IWidget&gt;
-        {
-            Scrollable.WithChildren(list.ToArray()),
-            new ModdingBetaBanner()
-        };
-        RefreshFooter(list2);
-        children = list2.ToArray();
-    }
-</code></pre>
-<ul>
-<li><code>private RefreshTitle() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void RefreshTitle()
-    {
-        LocalizedString objectName = GetObjectName(m_SelectedObject);
-        LocalizedString objectName2 = GetObjectName(m_ParentObject);
-        if (!objectName.Equals(m_SelectedName) || !objectName2.Equals(m_ParentName))
-        {
-            m_SelectedName = objectName;
-            m_ParentName = objectName2;
-            if (m_ParentObject != m_SelectedObject)
-            {
-                title = objectName2.value + &quot; &gt; &quot; + objectName.value;
-            }
-            else
-            {
-                title = objectName;
-            }
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private SaveAsset(System.String name, Colossal.IO.AssetDatabase.PrefabAsset existing = null, System.Action&lt;Colossal.IO.AssetDatabase.PrefabAsset&gt; callback = null) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void SaveAsset(string name, PrefabAsset existing = null, Action&lt;PrefabAsset&gt; callback = null)
-    {
-        PrefabBase prefabBase = m_SelectedObject as PrefabBase;
-        if (prefabBase.asset != null &amp;&amp; (existing == null || existing != prefabBase.asset))
-        {
-            prefabBase = DuplicatePrefab(prefabBase);
-            SelectPrefab(prefabBase);
-        }
-        PrefabAsset prefabAsset = existing;
-        if (existing != null)
-        {
-            existing.SetData(prefabBase);
-        }
-        else
-        {
-            prefabAsset = AssetDatabase.user.AddAsset(AssetDataPath.Create(&quot;StreamingData~/&quot; + name, name ?? &quot;&quot;), prefabBase);
-        }
-        SaveIcons(prefabBase, name);
-        prefabAsset.Save();
-        if (!IsBuiltinAsset(prefabAsset))
-        {
-            SaveLocalization(prefabBase, name);
-        }
-        PlatformManager.instance.UnlockAchievement(Game.Achievements.Achievements.IMadeThis);
-        callback?.Invoke(prefabAsset);
-    }
-</code></pre>
-<ul>
-<li><code>private SaveIcons(Game.Prefabs.PrefabBase prefab, System.String name) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void SaveIcons(PrefabBase prefab, string name)
-    {
-        Dictionary&lt;ImageAsset, ImageAsset&gt; dictionary = new Dictionary&lt;ImageAsset, ImageAsset&gt;();
-        foreach (EditorPrefabUtils.IconInfo icon in EditorPrefabUtils.GetIcons(prefab))
-        {
-            if (!IsBuiltinAsset(icon.m_Asset))
-            {
-                if (!dictionary.ContainsKey(icon.m_Asset))
-                {
-                    ImageAsset value = icon.m_Asset.Save(ImageAsset.FileFormat.PNG, AssetDataPath.Create(prefab.asset.subPath, icon.m_Asset.name ?? &quot;&quot;), prefab.asset.database);
-                    dictionary.Add(icon.m_Asset, value);
-                }
-                icon.m_Field.SetValue(icon.m_Component, dictionary[icon.m_Asset].ToGlobalUri());
-            }
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private SaveLocalization(Game.Prefabs.PrefabBase prefab, System.String name) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void SaveLocalization(PrefabBase prefab, string name)
-    {
-        if (!m_WipLocalization.TryGetValue(prefab, out var value))
-        {
-            return;
-        }
-        List&lt;LocaleAsset&gt; list = new List&lt;LocaleAsset&gt;();
-        list.AddRange(EditorPrefabUtils.GetLocaleAssets(prefab));
-        foreach (LocaleAsset item in list)
-        {
-            AssetDatabase.user.DeleteAsset(item);
-        }
-        LocalizationManager localizationManager = GameManager.instance.localizationManager;
-        Dictionary&lt;string, LocaleData&gt; dictionary = new Dictionary&lt;string, LocaleData&gt;();
-        value.m_NameLocalization.BuildLocaleData(&quot;Assets.NAME[&quot; + prefab.name + &quot;]&quot;, dictionary, prefab.name);
-        value.m_DescriptionLocalization.BuildLocaleData(&quot;Assets.DESCRIPTION[&quot; + prefab.name + &quot;]&quot;, dictionary);
-        if (prefab is UIAssetMenuPrefab || prefab is ServicePrefab)
-        {
-            value.m_NameLocalization.BuildLocaleData(&quot;Services.NAME[&quot; + prefab.name + &quot;]&quot;, dictionary, prefab.name);
-            value.m_DescriptionLocalization.BuildLocaleData(&quot;Services.DESCRIPTION[&quot; + prefab.name + &quot;]&quot;, dictionary);
-        }
-        if (prefab is UIAssetCategoryPrefab)
-        {
-            value.m_NameLocalization.BuildLocaleData(&quot;SubServices.NAME[&quot; + prefab.name + &quot;]&quot;, dictionary, prefab.name);
-            value.m_DescriptionLocalization.BuildLocaleData(&quot;Assets.SUB_SERVICE_DESCRIPTION[&quot; + prefab.name + &quot;]&quot;, dictionary);
-        }
-        if (prefab.Has&lt;ServiceUpgrade&gt;())
-        {
-            value.m_NameLocalization.BuildLocaleData(&quot;Assets.UPGRADE_NAME[&quot; + prefab.name + &quot;]&quot;, dictionary, prefab.name);
-            value.m_DescriptionLocalization.BuildLocaleData(&quot;Assets.UPGRADE_DESCRIPTION[&quot; + prefab.name + &quot;]&quot;, dictionary);
-        }
-        foreach (LocaleData value2 in dictionary.Values)
-        {
-            LocaleAsset localeAsset = prefab.asset.database.AddAsset&lt;LocaleAsset&gt;(AssetDataPath.Create(prefab.asset.subPath, name + &quot;_&quot; + value2.localeId));
-            localeAsset.SetData(value2, localizationManager.LocaleIdToSystemLanguage(value2.localeId), GameManager.instance.localizationManager.GetLocalizedName(value2.localeId));
-            localeAsset.Save();
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public SelectEntity(Unity.Entities.Entity entity) : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">public bool SelectEntity(Entity entity)
-    {
-        if (entity == m_CurrentSelectedEntity)
-        {
-            return entity != Entity.Null;
-        }
-        object obj = m_SelectedObject;
-        object obj2 = m_ParentObject;
-        base.activeSubPanel = null;
-        if (SelectObjectForEntity(entity))
-        {
-            m_CurrentSelectedEntity = entity;
-            if (obj2 == m_ParentObject &amp;&amp; obj is ObjectSubObjectInfo lastSubObject &amp;&amp; m_SelectedObject is ObjectSubObjectInfo currentSubObject)
-            {
-                m_LastSubObject = lastSubObject;
-                m_CurrentSubObject = currentSubObject;
-            }
-            else
-            {
-                m_LastSubObject = null;
-                m_CurrentSubObject = null;
-            }
-            return true;
-        }
-        m_CurrentSelectedEntity = Entity.Null;
-        m_LastSubObject = null;
-        m_CurrentSubObject = null;
-        return false;
-    }
-</code></pre>
-<ul>
-<li><code>private SelectInUnityEditor(UnityEngine.Object obj) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void SelectInUnityEditor(UnityEngine.Object obj)
-    {
-    }
-</code></pre>
-<ul>
-<li><code>public SelectMesh(Unity.Entities.Entity entity, System.Int32 meshIndex) : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">public bool SelectMesh(Entity entity, int meshIndex)
-    {
-        if (base.EntityManager.TryGetComponent&lt;PrefabRef&gt;(entity, out var component) &amp;&amp; m_PrefabSystem.TryGetPrefab&lt;PrefabBase&gt;(component.m_Prefab, out var prefab) &amp;&amp; base.EntityManager.TryGetBuffer(component.m_Prefab, isReadOnly: true, out DynamicBuffer&lt;SubMesh&gt; buffer) &amp;&amp; m_PrefabSystem.TryGetPrefab&lt;PrefabBase&gt;(buffer[meshIndex].m_SubMesh, out var prefab2))
-        {
-            base.activeSubPanel = null;
-            m_SelectedObject = prefab2;
-            m_ParentObject = prefab;
-            m_CurrentSelectedEntity = Entity.Null;
-            m_LastSubObject = null;
-            m_CurrentSubObject = null;
-            if (prefab is ObjectGeometryPrefab prefab3 &amp;&amp; FindObjectMeshInfo(prefab3, prefab2, out var info))
-            {
-                m_SelectedObject = info;
-            }
-            return true;
-        }
-        return false;
-    }
-</code></pre>
-<ul>
-<li><code>private SelectObjectForEntity(Unity.Entities.Entity entity) : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">private bool SelectObjectForEntity(Entity entity)
-    {
-        if (entity == Entity.Null || !base.EntityManager.HasComponent&lt;Game.Objects.Object&gt;(entity) || base.EntityManager.HasComponent&lt;Secondary&gt;(entity) || !base.EntityManager.TryGetComponent&lt;PrefabRef&gt;(entity, out var component))
-        {
-            m_SelectedObject = null;
-            m_ParentObject = null;
-            return false;
-        }
-        if (!m_PrefabSystem.TryGetPrefab&lt;PrefabBase&gt;(component, out var prefab))
-        {
-            m_SelectedObject = null;
-            m_ParentObject = null;
-            return false;
-        }
-        m_SelectedObject = prefab;
-        m_ParentObject = prefab;
-        Game.Tools.EditorContainer component9;
-        if (base.EntityManager.TryGetComponent&lt;Owner&gt;(entity, out var component2) &amp;&amp; base.EntityManager.TryGetComponent&lt;PrefabRef&gt;(component2.m_Owner, out var component3))
-        {
-            int num = -1;
-            if (base.EntityManager.TryGetComponent&lt;LocalTransformCache&gt;(entity, out var component4))
-            {
-                num = component4.m_PrefabSubIndex;
-            }
-            if (num == -1)
-            {
-                return false;
-            }
-            PrefabBase prefab2 = m_PrefabSystem.GetPrefab&lt;PrefabBase&gt;(component3);
-            ObjectSubObjects component8;
-            if (base.EntityManager.TryGetComponent&lt;Game.Tools.EditorContainer&gt;(entity, out var component5))
-            {
-                Game.Prefabs.ActivityLocation component7;
-                if (base.EntityManager.HasComponent&lt;EffectData&gt;(component5.m_Prefab) &amp;&amp; prefab2.TryGet&lt;EffectSource&gt;(out var component6) &amp;&amp; component6.m_Effects != null &amp;&amp; component6.m_Effects.Count &gt; num)
-                {
-                    prefab = m_PrefabSystem.GetPrefab&lt;PrefabBase&gt;(component5.m_Prefab);
-                    EffectSource.EffectSettings effectSettings = component6.m_Effects[num];
-                    if (effectSettings != null &amp;&amp; effectSettings.m_Effect == prefab)
-                    {
-                        m_SelectedObject = effectSettings;
-                        m_ParentObject = prefab2;
-                    }
-                }
-                else if (base.EntityManager.HasComponent&lt;ActivityLocationData&gt;(component5.m_Prefab) &amp;&amp; prefab2.TryGet&lt;Game.Prefabs.ActivityLocation&gt;(out component7) &amp;&amp; component7.m_Locations != null &amp;&amp; component7.m_Locations.Length &gt; num)
-                {
-                    prefab = m_PrefabSystem.GetPrefab&lt;PrefabBase&gt;(component5.m_Prefab);
-                    Game.Prefabs.ActivityLocation.LocationInfo locationInfo = component7.m_Locations[num];
-                    if (locationInfo != null &amp;&amp; locationInfo.m_Activity == prefab)
-                    {
-                        m_SelectedObject = locationInfo;
-                        m_ParentObject = prefab2;
-                    }
-                }
-            }
-            else if (prefab2.TryGet&lt;ObjectSubObjects&gt;(out component8) &amp;&amp; component8.m_SubObjects != null &amp;&amp; component8.m_SubObjects.Length &gt; num)
-            {
-                ObjectSubObjectInfo objectSubObjectInfo = component8.m_SubObjects[num];
-                if (objectSubObjectInfo != null &amp;&amp; objectSubObjectInfo.m_Object == prefab)
-                {
-                    m_SelectedObject = objectSubObjectInfo;
-                    m_ParentObject = prefab2;
-                }
-            }
-        }
-        else if (base.EntityManager.TryGetComponent&lt;Game.Tools.EditorContainer&gt;(entity, out component9) &amp;&amp; m_PrefabSystem.TryGetPrefab&lt;PrefabBase&gt;(component9.m_Prefab, out prefab))
-        {
-            m_SelectedObject = prefab;
-            m_ParentObject = prefab;
-        }
-        return true;
-    }
-</code></pre>
-<ul>
-<li><code>public SelectPrefab(Game.Prefabs.PrefabBase prefab) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void SelectPrefab(PrefabBase prefab)
-    {
-        m_CurrentSelectedEntity = Entity.Null;
-        m_LastSubObject = null;
-        m_CurrentSubObject = null;
-        m_SelectedObject = prefab;
-        m_ParentObject = prefab;
-    }
-</code></pre>
-<ul>
-<li><code>private ShowAddComponentPicker() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void ShowAddComponentPicker()
-    {
-        base.activeSubPanel = new TypePickerPanel(new LocalizedString(&quot;Editor.ADD_COMPONENT_NAMED&quot;, null, new Dictionary&lt;string, ILocElement&gt; { { &quot;NAME&quot;, m_SelectedName } }), &quot;Editor.COMPONENT_TYPES&quot;, GetComponentTypeItems().ToList(), OnAddComponent, base.CloseSubPanel);
-    }
-</code></pre>
-<ul>
-<li><code>private ShowSaveAssetPanel() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void ShowSaveAssetPanel()
-    {
-        Colossal.Hash128? initialSelected = ((!(m_SelectedObject is PrefabBase prefabBase)) ? ((Identifier?)null) : prefabBase.asset?.id);
-        base.activeSubPanel = new SaveAssetPanel(&quot;Editor.SAVE_ASSET&quot;, GetCustomAssets(), initialSelected, delegate(string name, Colossal.Hash128? overwriteGuid)
-        {
-            OnSaveAsset(name, overwriteGuid);
-        }, base.CloseSubPanel);
-    }
-</code></pre>
-<ul>
-<li><code>private ShowShareAssetPanel() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void ShowShareAssetPanel()
-    {
-        Colossal.Hash128? initialSelected = ((!(m_SelectedObject is PrefabBase prefabBase)) ? ((Identifier?)null) : prefabBase.asset?.id);
-        base.activeSubPanel = new SaveAssetPanel(&quot;Editor.SAVE_SHARE&quot;, GetCustomAssets(), initialSelected, delegate(string name, Colossal.Hash128? overwriteGuid)
-        {
-            OnSaveAsset(name, overwriteGuid, OnShareAsset);
-        }, base.CloseSubPanel, &quot;Editor.SAVE_SHARE&quot;);
-    }
-</code></pre>
-<ul>
-<li><code>public ShowThumbnailPicker(Game.UI.Editor.LoadAssetPanel+LoadCallback callback) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void ShowThumbnailPicker(LoadAssetPanel.LoadCallback callback)
-    {
-        base.activeSubPanel = new LoadAssetPanel(&quot;Editor.THUMBNAIL&quot;, EditorPrefabUtils.GetUserImages(), delegate(Colossal.Hash128 hash)
-        {
-            callback(hash);
-            CloseSubPanel();
-        }, base.CloseSubPanel);
-    }
-</code></pre>
-<ul>
-<li><code>private TryGetAssetItem(Colossal.IO.AssetDatabase.PrefabAsset asset, Game.UI.Editor.AssetItem&amp; item) : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">private bool TryGetAssetItem(PrefabAsset asset, out AssetItem item)
-    {
-        try
-        {
-            PrefabBase prefabBase = asset.Load() as PrefabBase;
-            if (prefabBase is RenderPrefabBase)
-            {
-                item = null;
-                return false;
-            }
-            SourceMeta meta = asset.GetMeta();
-            item = new AssetItem
-            {
-                guid = asset.id,
-                fileName = meta.fileName,
-                displayName = meta.fileName,
-                image = ((prefabBase != null) ? ImageSystem.GetThumbnail(prefabBase) : null),
-                badge = meta.remoteStorageSourceName
-            };
-            return true;
-        }
-        catch (Exception exception)
-        {
-            base.log.Error(exception);
-            item = null;
-        }
-        item = null;
-        return false;
-    }
-</code></pre>
-<ul>
-<li><code>private UpdateParent(System.Boolean moveSubObjects) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void UpdateParent(bool moveSubObjects)
-    {
-        if (m_SelectedObject is ObjectMeshInfo { m_Mesh: var mesh })
-        {
-            m_PrefabSystem.UpdatePrefab(mesh);
-            mesh.asset?.MarkDirty();
-        }
-        if (m_ParentObject is PrefabBase prefabBase)
-        {
-            if (moveSubObjects)
-            {
-                MoveSubObjects(prefabBase);
-            }
-            m_PrefabSystem.UpdatePrefab(prefabBase);
-            prefabBase.asset?.MarkDirty();
-        }
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.UI.Editor.InspectorPanelSystem+Mode</code>  </li>
-<li><code>Game.UI.Editor.InspectorPanelSystem+LocalizationFields</code>  </li>
-<li><code>Game.UI.Editor.InspectorPanelSystem+&lt;&gt;c</code>  </li>
-<li><code>Game.UI.Editor.InspectorPanelSystem+&lt;&gt;c__DisplayClass45_0</code>  </li>
-<li><code>Game.UI.Editor.InspectorPanelSystem+&lt;&gt;c__DisplayClass49_0</code>  </li>
-<li><code>Game.UI.Editor.InspectorPanelSystem+&lt;&gt;c__DisplayClass53_0</code>  </li>
-<li><code>Game.UI.Editor.InspectorPanelSystem+&lt;&gt;c__DisplayClass78_0</code>  </li>
-<li><code>Game.UI.Editor.InspectorPanelSystem+&lt;&gt;c__DisplayClass83_0</code>  </li>
-<li><code>Game.UI.Editor.InspectorPanelSystem+&lt;GetComponentTypeItems&gt;d__53</code>  </li>
-<li><code>Game.UI.Editor.InspectorPanelSystem+&lt;GetCustomAssets&gt;d__76</code>  </li>
-<li><code>Game.UI.Editor.InspectorPanelSystem+&lt;GetSectionObjects&gt;d__48</code>  </li>
-</ul>
+<p>If you want, I can also:
+- produce a smaller "quick reference" md with only public-facing methods and common usage snippets; or
+- generate XML-like signatures for all methods and fields for quick copy into API docs. Which would you prefer?</p>
 
 
 

@@ -63527,18 +63527,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -63563,9 +63563,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -65310,6 +65310,29 @@
   
   <span class="md-ellipsis">
     InterpolatedProperties
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
     
   </span>
   
@@ -69751,6 +69774,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72563,6 +72609,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75553,6 +75622,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87145,6 +87237,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -117921,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117948,18 +118085,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -117984,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118009,406 +118146,209 @@
 
 
 <h1 id="gameprefabszonesystem">Game.Prefabs.ZoneSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Prefabs</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class ZoneSystem : Game.GameSystemBase
-{
-    private Unity.Entities.EntityQuery m_CreatedQuery;
-    private Unity.Entities.EntityQuery m_PrefabQuery;
-    private Game.Prefabs.PrefabSystem m_PrefabSystem;
-    private Unity.Collections.NativeList&lt;Unity.Entities.Entity&gt; m_ZonePrefabs;
-    private System.Int32 m_ZoneFillColors;
-    private System.Int32 m_ZoneEdgeColors;
-    private System.Boolean m_IsEditorMode;
-    private System.Boolean m_UpdateColors;
-    private System.Boolean m_RemovedZones;
-    private UnityEngine.Vector4[] m_FillColorArray;
-    private UnityEngine.Vector4[] m_EdgeColorArray;
-    private Unity.Jobs.JobHandle m_PrefabsReaders;
-    private Game.Prefabs.ZoneSystem+TypeHandle __TypeHandle;
-
-    public ZoneSystem();
-
-    private System.Void __AssignQueries(Unity.Entities.SystemState&amp; state);
-    public System.Void AddPrefabsReader(Unity.Jobs.JobHandle handle);
-    private System.Int32 GetNextIndex();
-    public Unity.Entities.Entity GetPrefab(Game.Zones.ZoneType zoneType);
-    public Game.Prefabs.ZonePrefabs GetPrefabs();
-    private System.Void GetZoneColors(UnityEngine.Color color, UnityEngine.Color&amp; occupied, UnityEngine.Color&amp; selected);
-    private System.Void InitializeZonePrefabs();
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnCreateForCompiler();
-    protected virtual System.Void OnDestroy();
-    protected virtual System.Void OnGamePreload(Colossal.Serialization.Entities.Purpose purpose, Game.GameMode mode);
-    protected virtual System.Void OnUpdate();
-    private System.Void UpdateZoneColors();
-    private System.Void UpdateZoneColors(Game.Prefabs.ZonePrefab zonePrefab, Game.Prefabs.ZoneData zoneData);
-}
-</code></pre>
+<p><strong>Assembly:</strong><br />
+<strong>Namespace:</strong> Game.Prefabs</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> Game.Common.GameSystemBase</p>
+<p><strong>Summary:</strong><br />
+Manages zone prefabs and their runtime data for the zone rendering/system. ZoneSystem tracks creation and removal of zone entities, maps ZoneType indices to prefab Entities, maintains per-zone fill/edge color arrays that are uploaded to shaders, and updates color variants (occupied/selected/visible). It uses Unity.Entities queries and a NativeList to store prefab Entity references and coordinates with PrefabSystem to read ZonePrefab data. It also handles editor-mode differences (alpha/visibility) and synchronizes with job readers via a JobHandle.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Unity.Entities.EntityQuery m_CreatedQuery</code>  </li>
+<li>
+<p><code>private EntityQuery m_CreatedQuery</code><br />
+Query that detects newly created or deleted entities that have ZoneData and PrefabData (used to initialize or remove zone prefabs).</p>
+</li>
+<li>
+<p><code>private EntityQuery m_PrefabQuery</code><br />
+Query for all active zone-prefab entities (ZoneData + PrefabData, not Deleted) used for full color updates.</p>
+</li>
+<li>
+<p><code>private PrefabSystem m_PrefabSystem</code><br />
+Cached reference to the PrefabSystem used to look up ZonePrefab data from PrefabData.</p>
+</li>
+<li>
+<p><code>private NativeList&lt;Entity&gt; m_ZonePrefabs</code><br />
+A NativeList mapping zone type indices -&gt; prefab Entity. Index 0 is unused; indices correspond to ZoneType.m_Index.</p>
+</li>
+<li>
+<p><code>private int m_ZoneFillColors</code><br />
+Shader property ID for the global fill colors array ("colossal_ZoneFillColors").</p>
+</li>
+<li>
+<p><code>private int m_ZoneEdgeColors</code><br />
+Shader property ID for the global edge colors array ("colossal_ZoneEdgeColors").</p>
+</li>
+<li>
+<p><code>private bool m_IsEditorMode</code><br />
+Tracks whether the game is currently in editor mode; affects alpha/visibility of zone colors.</p>
+</li>
+<li>
+<p><code>private bool m_UpdateColors</code><br />
+Flag indicating a full color array update is required on next update.</p>
+</li>
+<li>
+<p><code>private bool m_RemovedZones</code><br />
+Flag set when zone entries are removed (used to find free indices when assigning new zone indices).</p>
+</li>
+<li>
+<p><code>private Vector4[] m_FillColorArray</code><br />
+Managed array of fill colors uploaded to the shader (length 1023 by default).</p>
+</li>
+<li>
+<p><code>private Vector4[] m_EdgeColorArray</code><br />
+Managed array of edge colors uploaded to the shader (length 1023 by default).</p>
+</li>
+<li>
+<p><code>private JobHandle m_PrefabsReaders</code><br />
+Combined JobHandle of readers that must complete before accessing prefab data. Used to synchronize with jobs that read prefabs.</p>
+</li>
+<li>
+<p><code>private TypeHandle __TypeHandle</code><br />
+Internal struct holding cached Entity/ComponentTypeHandle instances for fast chunk access (see nested TypeHandle).</p>
+</li>
+<li>
+<p><code>private struct TypeHandle</code><br />
+Contains cached ECS type handles:</p>
+</li>
+<li><code>EntityTypeHandle __Unity_Entities_Entity_TypeHandle</code></li>
+<li><code>ComponentTypeHandle&lt;Deleted&gt; __Game_Common_Deleted_RO_ComponentTypeHandle</code></li>
+<li><code>ComponentTypeHandle&lt;PrefabData&gt; __Game_Prefabs_PrefabData_RO_ComponentTypeHandle</code></li>
+<li><code>ComponentTypeHandle&lt;ZoneData&gt; __Game_Prefabs_ZoneData_RW_ComponentTypeHandle</code></li>
+<li><code>ComponentTypeHandle&lt;ZoneData&gt; __Game_Prefabs_ZoneData_RO_ComponentTypeHandle</code><br />
+  and an <code>__AssignHandles(ref SystemState state)</code> method that populates those handles from a SystemState.</li>
 </ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_CreatedQuery;
-</code></pre>
+<h2 id="properties">Properties</h2>
 <ul>
-<li><code>private Unity.Entities.EntityQuery m_PrefabQuery</code>  </li>
+<li>None (no public properties declared)</li>
 </ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_PrefabQuery;
-</code></pre>
-<ul>
-<li><code>private Game.Prefabs.PrefabSystem m_PrefabSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Prefabs.PrefabSystem m_PrefabSystem;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeList&lt;Unity.Entities.Entity&gt; m_ZonePrefabs</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeList&lt;Unity.Entities.Entity&gt; m_ZonePrefabs;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_ZoneFillColors</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_ZoneFillColors;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_ZoneEdgeColors</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_ZoneEdgeColors;
-</code></pre>
-<ul>
-<li><code>private System.Boolean m_IsEditorMode</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean m_IsEditorMode;
-</code></pre>
-<ul>
-<li><code>private System.Boolean m_UpdateColors</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean m_UpdateColors;
-</code></pre>
-<ul>
-<li><code>private System.Boolean m_RemovedZones</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean m_RemovedZones;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.Vector4[] m_FillColorArray</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.Vector4[] m_FillColorArray;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.Vector4[] m_EdgeColorArray</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.Vector4[] m_EdgeColorArray;
-</code></pre>
-<ul>
-<li><code>private Unity.Jobs.JobHandle m_PrefabsReaders</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Jobs.JobHandle m_PrefabsReaders;
-</code></pre>
-<ul>
-<li><code>private Game.Prefabs.ZoneSystem+TypeHandle __TypeHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Prefabs.ZoneSystem+TypeHandle __TypeHandle;
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public ZoneSystem()</code>  </li>
+<li><code>public ZoneSystem()</code><br />
+Default parameterless constructor (preserved). Primary initialization happens in OnCreate.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public ZoneSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private __AssignQueries(Unity.Entities.SystemState&amp; state) : System.Void</code>  </li>
+<li>
+<p><code>protected override void OnCreate()</code> : System.Void<br />
+Initializes the system: caches PrefabSystem, builds ECS queries (created/deleted and prefab queries), allocates NativeList and color arrays, and resolves shader property IDs. Called once when the system is created.</p>
+</li>
+<li>
+<p><code>protected override void OnDestroy()</code> : System.Void<br />
+Disposes resources: completes any outstanding m_PrefabsReaders, disposes m_ZonePrefabs, then calls base.OnDestroy.</p>
+</li>
+<li>
+<p><code>protected override void OnUpdate()</code> : System.Void<br />
+Main update loop:</p>
+</li>
+<li>Ensures m_PrefabsReaders is completed before reading.</li>
+<li>If m_CreatedQuery is not empty, calls InitializeZonePrefabs to process newly created or deleted zone entities.</li>
+<li>
+<p>If m_UpdateColors is set, calls UpdateZoneColors to rebuild shader color arrays.</p>
+</li>
+<li>
+<p><code>protected override void OnGamePreload(Purpose purpose, GameMode mode)</code> : System.Void<br />
+Called during preload. Detects editor-mode changes and, when toggling editor mode, completes pending readers, flips m_IsEditorMode and marks colors for update if prefabs exist.</p>
+</li>
+<li>
+<p><code>private void InitializeZonePrefabs()</code> : System.Void<br />
+Processes archetype chunks from m_CreatedQuery to:</p>
+</li>
+<li>Handle Deleted entries: clear m_ZonePrefabs mapping for removed zone indices and set m_RemovedZones.</li>
+<li>For newly created zone-prefab entities: look up ZonePrefab via PrefabSystem, initialize ZoneData fields (AreaType, ZoneType index, min/max heights, flags), assign/expand m_ZonePrefabs to store the entity at the zone type index, call UpdateZoneColors for the prefab to set shader arrays.</li>
+<li>After processing, uploads m_FillColorArray and m_EdgeColorArray to the shader via Shader.SetGlobalVectorArray.</li>
 </ul>
-<pre><code class="language-csharp">private void __AssignQueries(ref SystemState state)
-    {
-        new EntityQueryBuilder(Allocator.Temp).Dispose();
-    }
-</code></pre>
+<p>Notes: This method completes dependencies (CompleteDependency) and uses low-level chunk access via TypeHandle handles. It allocates the archetype chunk array with Allocator.TempJob.</p>
 <ul>
-<li><code>public AddPrefabsReader(Unity.Jobs.JobHandle handle) : System.Void</code>  </li>
+<li><code>private int GetNextIndex()</code> : System.Int32<br />
+Returns the next available zone type index:</li>
+<li>If m_RemovedZones is true tries to reuse the first Entity.Null slot (search starts at 1).</li>
+<li>
+<p>Otherwise returns max(1, m_ZonePrefabs.Length) (ensuring at least index 1). Resets m_RemovedZones when no null slot is found.</p>
+</li>
+<li>
+<p><code>private void UpdateZoneColors()</code> : System.Void<br />
+Rebuilds color arrays for all active zone prefabs:</p>
+</li>
+<li>Iterates m_PrefabQuery chunks, reads PrefabData and ZoneData, looks up ZonePrefab, and calls UpdateZoneColors(ZonePrefab, ZoneData) for each entry.</li>
+<li>Uploads updated arrays to shader with Shader.SetGlobalVectorArray.</li>
+<li>
+<p>Completes dependencies before reading.</p>
+</li>
+<li>
+<p><code>private void UpdateZoneColors(ZonePrefab zonePrefab, ZoneData zoneData)</code> : System.Void<br />
+Computes the fill and edge color entries for a given prefab/zone:</p>
+</li>
+<li>Extracts base colors from ZonePrefab (m_Color and m_Edge).</li>
+<li>Computes occupied/selected variants via GetZoneColors.</li>
+<li>Calculates color indices using ZoneUtils.GetColorIndex with appropriate CellFlags (Visible, Occupied, Selected).</li>
+<li>Adjusts alpha for editor mode.</li>
+<li>
+<p>Writes the resulting colors into m_FillColorArray and m_EdgeColorArray at the computed indices.</p>
+</li>
+<li>
+<p><code>private void GetZoneColors(Color color, out Color occupied, out Color selected)</code> : System.Void<br />
+Given a base color, computes two variants:</p>
+</li>
+<li>occupied: HSV with same H, reduced S (S*0.75), same V; alpha halved.</li>
+<li>
+<p>selected: HSV with increased saturation (clamped) and alpha boosted (up to interpolation toward 1.0).
+  Uses Color.RGBToHSV and Color.HSVToRGB plus math.* helpers.</p>
+</li>
+<li>
+<p><code>public ZonePrefabs GetPrefabs()</code> : ZonePrefabs<br />
+Returns a ZonePrefabs wrapper constructed from m_ZonePrefabs.AsArray() (read-only snapshot of the native list).</p>
+</li>
+<li>
+<p><code>public void AddPrefabsReader(JobHandle handle)</code> : System.Void<br />
+Combines the supplied handle with the internal m_PrefabsReaders via JobHandle.CombineDependencies. External systems should call this to register they are reading prefab data so the ZoneSystem can synchronize.</p>
+</li>
+<li>
+<p><code>public Entity GetPrefab(ZoneType zoneType)</code> : Entity<br />
+Returns the Entity associated with the given zoneType index (or Entity.Null if index out of range). Safe, bounds-checked lookup into m_ZonePrefabs.</p>
+</li>
+<li>
+<p><code>private void __AssignQueries(ref SystemState state)</code> : System.Void<br />
+Internal compiler helper that sets up queries (empty implementation here, used at compile time).</p>
+</li>
+<li>
+<p><code>protected override void OnCreateForCompiler()</code> : System.Void<br />
+Compiler helper: assigns queries and type handles for the system by calling __AssignQueries and the TypeHandle.__AssignHandles. Used by generated/compiled code paths.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public void AddPrefabsReader(JobHandle handle)
-    {
-        m_PrefabsReaders = JobHandle.CombineDependencies(m_PrefabsReaders, handle);
-    }
-</code></pre>
-<ul>
-<li><code>private GetNextIndex() : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">private int GetNextIndex()
-    {
-        if (m_RemovedZones)
-        {
-            for (int i = 1; i &lt; m_ZonePrefabs.Length; i++)
-            {
-                if (m_ZonePrefabs[i] == Entity.Null)
-                {
-                    return i;
-                }
-            }
-            m_RemovedZones = false;
-        }
-        return math.max(1, m_ZonePrefabs.Length);
-    }
-</code></pre>
-<ul>
-<li><code>public GetPrefab(Game.Zones.ZoneType zoneType) : Unity.Entities.Entity</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Entity GetPrefab(ZoneType zoneType)
-    {
-        if (zoneType.m_Index &gt;= m_ZonePrefabs.Length)
-        {
-            return Entity.Null;
-        }
-        return m_ZonePrefabs[zoneType.m_Index];
-    }
-</code></pre>
-<ul>
-<li><code>public GetPrefabs() : Game.Prefabs.ZonePrefabs</code>  </li>
-</ul>
-<pre><code class="language-csharp">public ZonePrefabs GetPrefabs()
-    {
-        return new ZonePrefabs(m_ZonePrefabs.AsArray());
-    }
-</code></pre>
-<ul>
-<li><code>private GetZoneColors(UnityEngine.Color color, UnityEngine.Color&amp; occupied, UnityEngine.Color&amp; selected) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void GetZoneColors(Color color, out Color occupied, out Color selected)
-    {
-        Color.RGBToHSV(color, out var H, out var S, out var V);
-        occupied = Color.HSVToRGB(H, S * 0.75f, V);
-        occupied.a = color.a * 0.5f;
-        selected = Color.HSVToRGB(H, math.min(1f, S * 1.25f), V);
-        selected.a = math.min(color.a * 1.5f, math.lerp(color.a, 1f, 0.5f));
-    }
-</code></pre>
-<ul>
-<li><code>private InitializeZonePrefabs() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void InitializeZonePrefabs()
-    {
-        NativeArray&lt;ArchetypeChunk&gt; nativeArray = m_CreatedQuery.ToArchetypeChunkArray(Allocator.TempJob);
-        EntityTypeHandle entityTypeHandle = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef);
-        ComponentTypeHandle&lt;Deleted&gt; typeHandle = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Common_Deleted_RO_ComponentTypeHandle, ref base.CheckedStateRef);
-        ComponentTypeHandle&lt;PrefabData&gt; typeHandle2 = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_PrefabData_RO_ComponentTypeHandle, ref base.CheckedStateRef);
-        ComponentTypeHandle&lt;ZoneData&gt; typeHandle3 = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_ZoneData_RW_ComponentTypeHandle, ref base.CheckedStateRef);
-        CompleteDependency();
-        for (int i = 0; i &lt; nativeArray.Length; i++)
-        {
-            ArchetypeChunk archetypeChunk = nativeArray[i];
-            NativeArray&lt;Entity&gt; nativeArray2 = archetypeChunk.GetNativeArray(entityTypeHandle);
-            NativeArray&lt;PrefabData&gt; nativeArray3 = archetypeChunk.GetNativeArray(ref typeHandle2);
-            NativeArray&lt;ZoneData&gt; nativeArray4 = archetypeChunk.GetNativeArray(ref typeHandle3);
-            if (archetypeChunk.Has(ref typeHandle))
-            {
-                for (int j = 0; j &lt; nativeArray4.Length; j++)
-                {
-                    Entity entity = nativeArray2[j];
-                    ZoneData zoneData = nativeArray4[j];
-                    if (zoneData.m_ZoneType.m_Index &lt; m_ZonePrefabs.Length &amp;&amp; m_ZonePrefabs[zoneData.m_ZoneType.m_Index] == entity)
-                    {
-                        m_ZonePrefabs[zoneData.m_ZoneType.m_Index] = Entity.Null;
-                        m_RemovedZones = true;
-                    }
-                }
-                continue;
-            }
-            for (int k = 0; k &lt; nativeArray4.Length; k++)
-            {
-                Entity value = nativeArray2[k];
-                ZonePrefab prefab = m_PrefabSystem.GetPrefab&lt;ZonePrefab&gt;(nativeArray3[k]);
-                ZoneData zoneData2 = nativeArray4[k];
-                zoneData2.m_AreaType = prefab.m_AreaType;
-                if (prefab.m_AreaType != AreaType.None)
-                {
-                    zoneData2.m_ZoneType = new ZoneType
-                    {
-                        m_Index = (ushort)GetNextIndex()
-                    };
-                    zoneData2.m_MinOddHeight = ushort.MaxValue;
-                    zoneData2.m_MinEvenHeight = ushort.MaxValue;
-                    zoneData2.m_MaxHeight = 0;
-                }
-                else
-                {
-                    zoneData2.m_ZoneFlags |= ZoneFlags.SupportNarrow;
-                    zoneData2.m_MinOddHeight = 1;
-                    zoneData2.m_MinEvenHeight = 1;
-                    zoneData2.m_MaxHeight = 1;
-                }
-                if (zoneData2.m_ZoneType.m_Index &lt; m_ZonePrefabs.Length)
-                {
-                    m_ZonePrefabs[zoneData2.m_ZoneType.m_Index] = value;
-                }
-                else
-                {
-                    while (zoneData2.m_ZoneType.m_Index &gt; m_ZonePrefabs.Length)
-                    {
-                        m_ZonePrefabs.Add(Entity.Null);
-                    }
-                    m_ZonePrefabs.Add(in value);
-                }
-                nativeArray4[k] = zoneData2;
-                UpdateZoneColors(prefab, zoneData2);
-            }
-        }
-        nativeArray.Dispose();
-        Shader.SetGlobalVectorArray(m_ZoneFillColors, m_FillColorArray);
-        Shader.SetGlobalVectorArray(m_ZoneEdgeColors, m_EdgeColorArray);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
+<h2 id="usage-example">Usage Example</h2>
 <pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
+protected override void OnCreate()
+{
+    base.OnCreate();
+    m_PrefabSystem = base.World.GetOrCreateSystemManaged&lt;PrefabSystem&gt;();
+    m_CreatedQuery = GetEntityQuery(new EntityQueryDesc
     {
-        base.OnCreate();
-        m_PrefabSystem = base.World.GetOrCreateSystemManaged&lt;PrefabSystem&gt;();
-        m_CreatedQuery = GetEntityQuery(new EntityQueryDesc
+        All = new ComponentType[2]
         {
-            All = new ComponentType[2]
-            {
-                ComponentType.ReadWrite&lt;ZoneData&gt;(),
-                ComponentType.ReadOnly&lt;PrefabData&gt;()
-            },
-            Any = new ComponentType[2]
-            {
-                ComponentType.ReadOnly&lt;Created&gt;(),
-                ComponentType.ReadOnly&lt;Deleted&gt;()
-            }
-        });
-        m_PrefabQuery = GetEntityQuery(ComponentType.ReadOnly&lt;ZoneData&gt;(), ComponentType.ReadOnly&lt;PrefabData&gt;(), ComponentType.Exclude&lt;Deleted&gt;());
-        m_ZonePrefabs = new NativeList&lt;Entity&gt;(Allocator.Persistent);
-        m_FillColorArray = new Vector4[1023];
-        m_EdgeColorArray = new Vector4[1023];
-        m_ZoneFillColors = Shader.PropertyToID(&quot;colossal_ZoneFillColors&quot;);
-        m_ZoneEdgeColors = Shader.PropertyToID(&quot;colossal_ZoneEdgeColors&quot;);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreateForCompiler() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnCreateForCompiler()
-    {
-        base.OnCreateForCompiler();
-        __AssignQueries(ref base.CheckedStateRef);
-        __TypeHandle.__AssignHandles(ref base.CheckedStateRef);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnDestroy() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnDestroy()
-    {
-        m_PrefabsReaders.Complete();
-        m_ZonePrefabs.Dispose();
-        base.OnDestroy();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnGamePreload(Colossal.Serialization.Entities.Purpose purpose, Game.GameMode mode) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnGamePreload(Purpose purpose, GameMode mode)
-    {
-        base.OnGamePreload(purpose, mode);
-        if (mode.IsEditor() != m_IsEditorMode)
+            ComponentType.ReadWrite&lt;ZoneData&gt;(),
+            ComponentType.ReadOnly&lt;PrefabData&gt;()
+        },
+        Any = new ComponentType[2]
         {
-            m_PrefabsReaders.Complete();
-            m_IsEditorMode = !m_IsEditorMode;
-            m_UpdateColors = m_ZonePrefabs.Length != 0;
+            ComponentType.ReadOnly&lt;Created&gt;(),
+            ComponentType.ReadOnly&lt;Deleted&gt;()
         }
-    }
+    });
+    m_PrefabQuery = GetEntityQuery(ComponentType.ReadOnly&lt;ZoneData&gt;(),
+                                   ComponentType.ReadOnly&lt;PrefabData&gt;(),
+                                   ComponentType.Exclude&lt;Deleted&gt;());
+    m_ZonePrefabs = new NativeList&lt;Entity&gt;(Allocator.Persistent);
+    m_FillColorArray = new Vector4[1023];
+    m_EdgeColorArray = new Vector4[1023];
+    m_ZoneFillColors = Shader.PropertyToID(&quot;colossal_ZoneFillColors&quot;);
+    m_ZoneEdgeColors = Shader.PropertyToID(&quot;colossal_ZoneEdgeColors&quot;);
+}
 </code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        m_PrefabsReaders.Complete();
-        m_PrefabsReaders = default(JobHandle);
-        if (!m_CreatedQuery.IsEmptyIgnoreFilter)
-        {
-            InitializeZonePrefabs();
-        }
-        if (m_UpdateColors)
-        {
-            UpdateZoneColors();
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private UpdateZoneColors() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void UpdateZoneColors(ZonePrefab zonePrefab, ZoneData zoneData)
-    {
-        Color color = zonePrefab.m_Color;
-        Color edge = zonePrefab.m_Edge;
-        GetZoneColors(color, out var occupied, out var selected);
-        GetZoneColors(edge, out var occupied2, out var selected2);
-        int colorIndex = ZoneUtils.GetColorIndex(CellFlags.Visible, zoneData.m_ZoneType);
-        int colorIndex2 = ZoneUtils.GetColorIndex(CellFlags.Visible | CellFlags.Occupied, zoneData.m_ZoneType);
-        int colorIndex3 = ZoneUtils.GetColorIndex(CellFlags.Visible | CellFlags.Selected, zoneData.m_ZoneType);
-        if (m_IsEditorMode)
-        {
-            color.a = 0f;
-            edge.a *= 0.5f;
-            occupied.a = 0f;
-            occupied2.a = 0f;
-            selected.a = 0f;
-        }
-        m_FillColorArray[colorIndex] = color;
-        m_EdgeColorArray[colorIndex] = edge;
-        m_FillColorArray[colorIndex2] = occupied;
-        m_EdgeColorArray[colorIndex2] = occupied2;
-        m_FillColorArray[colorIndex3] = selected;
-        m_EdgeColorArray[colorIndex3] = selected2;
-    }
-</code></pre>
-<ul>
-<li><code>private UpdateZoneColors(Game.Prefabs.ZonePrefab zonePrefab, Game.Prefabs.ZoneData zoneData) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void UpdateZoneColors(ZonePrefab zonePrefab, ZoneData zoneData)
-    {
-        Color color = zonePrefab.m_Color;
-        Color edge = zonePrefab.m_Edge;
-        GetZoneColors(color, out var occupied, out var selected);
-        GetZoneColors(edge, out var occupied2, out var selected2);
-        int colorIndex = ZoneUtils.GetColorIndex(CellFlags.Visible, zoneData.m_ZoneType);
-        int colorIndex2 = ZoneUtils.GetColorIndex(CellFlags.Visible | CellFlags.Occupied, zoneData.m_ZoneType);
-        int colorIndex3 = ZoneUtils.GetColorIndex(CellFlags.Visible | CellFlags.Selected, zoneData.m_ZoneType);
-        if (m_IsEditorMode)
-        {
-            color.a = 0f;
-            edge.a *= 0.5f;
-            occupied.a = 0f;
-            occupied2.a = 0f;
-            selected.a = 0f;
-        }
-        m_FillColorArray[colorIndex] = color;
-        m_EdgeColorArray[colorIndex] = edge;
-        m_FillColorArray[colorIndex2] = occupied;
-        m_EdgeColorArray[colorIndex2] = occupied2;
-        m_FillColorArray[colorIndex3] = selected;
-        m_EdgeColorArray[colorIndex3] = selected2;
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Prefabs.ZoneSystem+TypeHandle</code>  </li>
-</ul>
+<p>Notes and tips:
+- ZoneSystem uses unmanaged NativeList and must Dispose() it in OnDestroy to avoid leaks (already handled).
+- When calling GetPrefab or reading prefab-related data, ensure you respect job synchronization: use AddPrefabsReader to register readers or ensure ZoneSystem.CompleteDependency (it calls CompleteDependency internally).
+- Shader global arrays are updated via Shader.SetGlobalVectorArray; array length is fixed to 1023 in the implementation — changing that requires matching shader support.</p>
 
 
 

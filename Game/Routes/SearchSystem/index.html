@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -71439,18 +71485,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -71475,9 +71521,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -72563,6 +72609,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75553,6 +75622,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87145,6 +87237,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -117921,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117948,18 +118085,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -117984,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118009,271 +118146,147 @@
 
 
 <h1 id="gameroutessearchsystem">Game.Routes.SearchSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Routes</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code><br />
-<strong>Implements:</strong> <code>Game.Serialization.IPreDeserialize</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class SearchSystem : Game.GameSystemBase, Game.Serialization.IPreDeserialize
-{
-    private Unity.Entities.EntityQuery m_UpdatedRoutesQuery;
-    private Unity.Entities.EntityQuery m_AllRoutesQuery;
-    private Colossal.Collections.NativeQuadTree&lt;Game.Routes.RouteSearchItem, Game.Common.QuadTreeBoundsXZ&gt; m_SearchTree;
-    private Unity.Collections.NativeParallelHashMap&lt;Unity.Entities.Entity, System.Int32&gt; m_ElementCount;
-    private Unity.Jobs.JobHandle m_ReadDependencies;
-    private Unity.Jobs.JobHandle m_WriteDependencies;
-    private System.Boolean m_Loaded;
-    private Game.Routes.SearchSystem+TypeHandle __TypeHandle;
-
-    public SearchSystem();
-
-    private System.Void __AssignQueries(Unity.Entities.SystemState&amp; state);
-    public System.Void AddSearchTreeReader(Unity.Jobs.JobHandle jobHandle);
-    public System.Void AddSearchTreeWriter(Unity.Jobs.JobHandle jobHandle);
-    private System.Boolean GetLoaded();
-    public Colossal.Collections.NativeQuadTree&lt;Game.Routes.RouteSearchItem, Game.Common.QuadTreeBoundsXZ&gt; GetSearchTree(System.Boolean readOnly, Unity.Jobs.JobHandle&amp; dependencies);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnCreateForCompiler();
-    protected virtual System.Void OnDestroy();
-    protected virtual System.Void OnUpdate();
-    public System.Void PreDeserialize(Colossal.Serialization.Entities.Context context);
-}
-</code></pre>
+<p><strong>Assembly:</strong> Assembly-CSharp (game binary)<br />
+<strong>Namespace:</strong> Game.Routes</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> GameSystemBase, IPreDeserialize</p>
+<p><strong>Summary:</strong><br />
+SearchSystem maintains a spatial search index (NativeQuadTree<RouteSearchItem, QuadTreeBoundsXZ>) for route-related entities (waypoints and curve/segment elements). It listens for created/updated/deleted events on route entities and updates the quad-tree accordingly, allowing other systems/jobs to query route geometry efficiently. It also exposes methods to coordinate read/write dependency handling for concurrent jobs and resets the tree during deserialization.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Unity.Entities.EntityQuery m_UpdatedRoutesQuery</code>  </li>
+<li>
+<p><code>private EntityQuery m_UpdatedRoutesQuery</code><br />
+Holds an EntityQuery that selects route entities that have been updated/created/deleted (or path elements/segments/events that indicate changes). Used in OnUpdate to find which entities need tree updates.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_AllRoutesQuery</code><br />
+Holds an EntityQuery that selects all non-temp route entities (used when the system is in a "loaded" state to rebuild the entire tree).</p>
+</li>
+<li>
+<p><code>private NativeQuadTree&lt;RouteSearchItem, QuadTreeBoundsXZ&gt; m_SearchTree</code><br />
+The primary spatial index storing route search items and their bounds. Allocated with Allocator.Persistent in OnCreate and disposed in OnDestroy.</p>
+</li>
+<li>
+<p><code>private NativeParallelHashMap&lt;Entity, int&gt; m_ElementCount</code><br />
+Maps an entity to the count of curve/segment elements indexed for that entity. Used to track how many element entries exist for removal/update logic.</p>
+</li>
+<li>
+<p><code>private JobHandle m_ReadDependencies</code><br />
+Aggregates job handles of jobs that read the search tree. Used to coordinate safe concurrent access.</p>
+</li>
+<li>
+<p><code>private JobHandle m_WriteDependencies</code><br />
+Holds the job handle of the job that last wrote to the search tree. Used together with m_ReadDependencies to determine when the tree is safe to read or write.</p>
+</li>
+<li>
+<p><code>private bool m_Loaded</code><br />
+Flag set during PreDeserialize to indicate the next OnUpdate should treat the query as a full reload (rebuild/search-tree population).</p>
+</li>
+<li>
+<p><code>private TypeHandle __TypeHandle</code><br />
+Internal container for EntityTypeHandle / ComponentTypeHandle / BufferTypeHandle / ComponentLookup / BufferLookup instances used by the UpdateSearchTreeJob. Assigned on system creation for fast access.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_UpdatedRoutesQuery;
-</code></pre>
+<h2 id="properties">Properties</h2>
 <ul>
-<li><code>private Unity.Entities.EntityQuery m_AllRoutesQuery</code>  </li>
+<li>This class does not expose public properties.</li>
 </ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_AllRoutesQuery;
-</code></pre>
-<ul>
-<li><code>private Colossal.Collections.NativeQuadTree&lt;Game.Routes.RouteSearchItem, Game.Common.QuadTreeBoundsXZ&gt; m_SearchTree</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.Collections.NativeQuadTree&lt;Game.Routes.RouteSearchItem, Game.Common.QuadTreeBoundsXZ&gt; m_SearchTree;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeParallelHashMap&lt;Unity.Entities.Entity, System.Int32&gt; m_ElementCount</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeParallelHashMap&lt;Unity.Entities.Entity, System.Int32&gt; m_ElementCount;
-</code></pre>
-<ul>
-<li><code>private Unity.Jobs.JobHandle m_ReadDependencies</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Jobs.JobHandle m_ReadDependencies;
-</code></pre>
-<ul>
-<li><code>private Unity.Jobs.JobHandle m_WriteDependencies</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Jobs.JobHandle m_WriteDependencies;
-</code></pre>
-<ul>
-<li><code>private System.Boolean m_Loaded</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean m_Loaded;
-</code></pre>
-<ul>
-<li><code>private Game.Routes.SearchSystem+TypeHandle __TypeHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Routes.SearchSystem+TypeHandle __TypeHandle;
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public SearchSystem()</code>  </li>
+<li><code>public SearchSystem()</code><br />
+Default constructor (preserved). The real initialization occurs in the OnCreate override where queries and native collections are created.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public SearchSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private __AssignQueries(Unity.Entities.SystemState&amp; state) : System.Void</code>  </li>
+<li>
+<p><code>protected override void OnCreate()</code><br />
+Initializes entity queries used for incremental and full updates, creates the NativeQuadTree (m_SearchTree) and NativeParallelHashMap (m_ElementCount). Queries include criteria for Waypoint/Position, Segment/PathElement and events/path-updated components. Called by the ECS bootstrap.</p>
+</li>
+<li>
+<p><code>protected override void OnDestroy()</code><br />
+Disposes m_SearchTree and m_ElementCount and calls base.OnDestroy(). Ensures native containers are released when the system is destroyed.</p>
+</li>
+<li>
+<p><code>private bool GetLoaded()</code><br />
+Internal helper used in OnUpdate. If m_Loaded is true, it clears the flag and returns true (indicating that the next update should treat queries as a full load). Otherwise returns false.</p>
+</li>
+<li>
+<p><code>protected override void OnUpdate()</code><br />
+Main update loop. Chooses either the incremental (m_UpdatedRoutesQuery) or full (m_AllRoutesQuery) query depending on GetLoaded(). If the chosen query isn't empty, it constructs an UpdateSearchTreeJob with all required handles and lookups, retrieves the search tree via GetSearchTree(readOnly: false, out dependencies), schedules the job over the query (JobChunk schedule) and records the write dependency via AddSearchTreeWriter. The job updates, adds or removes entries in the quad-tree depending on entity state (created/updated/deleted/path-updated).</p>
+</li>
+<li>
+<p><code>public NativeQuadTree&lt;RouteSearchItem, QuadTreeBoundsXZ&gt; GetSearchTree(bool readOnly, out JobHandle dependencies)</code><br />
+Returns the internal quad-tree. Also outputs current combined JobHandle dependencies:</p>
+</li>
+<li>If readOnly is true, dependencies = m_WriteDependencies (so readers wait for writers).</li>
+<li>
+<p>If readOnly is false, dependencies = JobHandle.CombineDependencies(m_ReadDependencies, m_WriteDependencies) (writers must wait for prior readers/writers).
+This method is how other systems/jobs obtain a reference to the search tree and the dependencies they must respect.</p>
+</li>
+<li>
+<p><code>public void AddSearchTreeReader(JobHandle jobHandle)</code><br />
+Registers a job that reads the search tree by combining jobHandle into m_ReadDependencies. This prevents a writer from proceeding until all readers complete.</p>
+</li>
+<li>
+<p><code>public void AddSearchTreeWriter(JobHandle jobHandle)</code><br />
+Registers a writer job by setting m_WriteDependencies to jobHandle. Writers will be combined appropriately by GetSearchTree when needed.</p>
+</li>
+<li>
+<p><code>public void PreDeserialize(Context context)</code><br />
+Called before deserialization (implements IPreDeserialize). Completes any outstanding dependencies for writing the tree, clears the search tree, and sets m_Loaded = true so the next update rebuilds the tree from all route entities.</p>
+</li>
+<li>
+<p><code>private void __AssignQueries(ref SystemState state)</code><br />
+Internal/compiled helper (used by OnCreateForCompiler). Present as part of codegen; in this file it only creates/cleans an EntityQueryBuilder placeholder but should not be used directly.</p>
+</li>
+<li>
+<p><code>protected override void OnCreateForCompiler()</code><br />
+Compiler helper which calls __AssignQueries and assigns the component type handles via __TypeHandle.__AssignHandles. Used in compiled environment to satisfy generated code expectations.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private void __AssignQueries(ref SystemState state)
-    {
-        new EntityQueryBuilder(Allocator.Temp).Dispose();
-    }
-</code></pre>
+<p>Nested types / Jobs</p>
 <ul>
-<li><code>public AddSearchTreeReader(Unity.Jobs.JobHandle jobHandle) : System.Void</code>  </li>
+<li>
+<p><code>private struct TypeHandle</code><br />
+Contains precomputed EntityTypeHandle, ComponentTypeHandle<T> (read-only), BufferTypeHandle<T>, ComponentLookup<T>, and BufferLookup<T>. Has a method __AssignHandles(ref SystemState state) to populate all handles for the current SystemState.</p>
+</li>
+<li>
+<p><code>public struct UpdateSearchTreeJob : IJobChunk</code> (BurstCompile)<br />
+This is the job that performs the heavy work of adding/updating/removing entries in the native quad-tree. Important behaviors:</p>
+</li>
+<li>Fields: various ReadOnly type handles (EntityTypeHandle, ComponentTypeHandle<Position>, Created, Deleted, PrefabRef, PathUpdated, BufferTypeHandle<CurveElement>) and ComponentLookup/BufferLookup instances, plus m_Loaded flag, m_SearchTree (NativeQuadTree) and m_ElementCount (NativeParallelHashMap<Entity,int>).</li>
+<li>Execute(in ArchetypeChunk chunk, ...) inspects chunk component state:<ul>
+<li>If chunk has PathUpdated: iterates PathUpdated elements and selectively updates segments in the tree if segment present and not temp/updated/deleted.</li>
+<li>Else if m_Loaded or chunk has Created: adds entries for waypoint positions and curve elements to the tree (calculates Bounds3 via RouteUtils.CalculateBounds using RouteData).</li>
+<li>Else if chunk has Deleted: removes waypoint entry and all element entries for that entity (uses m_ElementCount to know how many to remove).</li>
+<li>Else (normal update): updates bounds for entity's waypoint and its curve elements; uses UpdateSegment helper to add/update/remove per-element entries and maintain m_ElementCount.</li>
 </ul>
-<pre><code class="language-csharp">public void AddSearchTreeReader(JobHandle jobHandle)
-    {
-        m_ReadDependencies = JobHandle.CombineDependencies(m_ReadDependencies, jobHandle);
-    }
+</li>
+<li>UpdateSegment(Entity, PrefabRef, DynamicBuffer<CurveElement>) helper updates per-element quad-tree entries for a segment; it reconciles the new element count with previous count (m_ElementCount) and adds/updates/removes entries accordingly.</li>
+<li>The IJobChunk.Execute wrapper calls the typed Execute to satisfy the interface.</li>
+</ul>
+<p>Notes about thread-safety and usage:
+- The job writes to m_SearchTree and m_ElementCount so callers must obtain the tree via GetSearchTree(readOnly:false, out deps) prior to scheduling jobs that will use it, and must register writers/readers via AddSearchTreeWriter/AddSearchTreeReader so the system can coordinate dependencies.
+- The UpdateSearchTreeJob is Burst-compiled and uses ComponentTypeHandle/BufferTypeHandle/ComponentLookup/BufferLookup for efficient chunk iteration.
+- Route bounds are computed via RouteUtils.CalculateBounds using RouteData looked up from a PrefabRef.</p>
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Example: read the search tree safely from another system or job
+var searchSystem = World.DefaultGameObjectInjectionWorld.GetExistingSystem&lt;SearchSystem&gt;();
+if (searchSystem != null)
+{
+    JobHandle deps;
+    var tree = searchSystem.GetSearchTree(readOnly: true, out deps);
+
+    // If you need immediate (synchronous) access:
+    deps.Complete();
+
+    // Now 'tree' can be queried on the main thread (or used to build job data).
+    // If you schedule a job that reads the tree, register it:
+    // searchSystem.AddSearchTreeReader(myReaderJobHandle);
+}
 </code></pre>
-<ul>
-<li><code>public AddSearchTreeWriter(Unity.Jobs.JobHandle jobHandle) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void AddSearchTreeWriter(JobHandle jobHandle)
-    {
-        m_WriteDependencies = jobHandle;
-    }
-</code></pre>
-<ul>
-<li><code>private GetLoaded() : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">private bool GetLoaded()
-    {
-        if (m_Loaded)
-        {
-            m_Loaded = false;
-            return true;
-        }
-        return false;
-    }
-</code></pre>
-<ul>
-<li><code>public GetSearchTree(System.Boolean readOnly, Unity.Jobs.JobHandle&amp; dependencies) : Colossal.Collections.NativeQuadTree&lt;Game.Routes.RouteSearchItem, Game.Common.QuadTreeBoundsXZ&gt;</code>  </li>
-</ul>
-<pre><code class="language-csharp">public NativeQuadTree&lt;RouteSearchItem, QuadTreeBoundsXZ&gt; GetSearchTree(bool readOnly, out JobHandle dependencies)
-    {
-        dependencies = (readOnly ? m_WriteDependencies : JobHandle.CombineDependencies(m_ReadDependencies, m_WriteDependencies));
-        return m_SearchTree;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_UpdatedRoutesQuery = GetEntityQuery(new EntityQueryDesc
-        {
-            All = new ComponentType[2]
-            {
-                ComponentType.ReadOnly&lt;Waypoint&gt;(),
-                ComponentType.ReadOnly&lt;Position&gt;()
-            },
-            Any = new ComponentType[2]
-            {
-                ComponentType.ReadOnly&lt;Updated&gt;(),
-                ComponentType.ReadOnly&lt;Deleted&gt;()
-            },
-            None = new ComponentType[1] { ComponentType.ReadOnly&lt;Temp&gt;() }
-        }, new EntityQueryDesc
-        {
-            All = new ComponentType[2]
-            {
-                ComponentType.ReadOnly&lt;Segment&gt;(),
-                ComponentType.ReadOnly&lt;PathElement&gt;()
-            },
-            Any = new ComponentType[2]
-            {
-                ComponentType.ReadOnly&lt;Updated&gt;(),
-                ComponentType.ReadOnly&lt;Deleted&gt;()
-            },
-            None = new ComponentType[1] { ComponentType.ReadOnly&lt;Temp&gt;() }
-        }, new EntityQueryDesc
-        {
-            All = new ComponentType[2]
-            {
-                ComponentType.ReadOnly&lt;Event&gt;(),
-                ComponentType.ReadOnly&lt;PathUpdated&gt;()
-            }
-        });
-        m_AllRoutesQuery = GetEntityQuery(new EntityQueryDesc
-        {
-            All = new ComponentType[2]
-            {
-                ComponentType.ReadOnly&lt;Waypoint&gt;(),
-                ComponentType.ReadOnly&lt;Position&gt;()
-            },
-            None = new ComponentType[1] { ComponentType.ReadOnly&lt;Temp&gt;() }
-        }, new EntityQueryDesc
-        {
-            All = new ComponentType[2]
-            {
-                ComponentType.ReadOnly&lt;Segment&gt;(),
-                ComponentType.ReadOnly&lt;PathElement&gt;()
-            },
-            None = new ComponentType[1] { ComponentType.ReadOnly&lt;Temp&gt;() }
-        });
-        m_SearchTree = new NativeQuadTree&lt;RouteSearchItem, QuadTreeBoundsXZ&gt;(1f, Allocator.Persistent);
-        m_ElementCount = new NativeParallelHashMap&lt;Entity, int&gt;(100, Allocator.Persistent);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreateForCompiler() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnCreateForCompiler()
-    {
-        base.OnCreateForCompiler();
-        __AssignQueries(ref base.CheckedStateRef);
-        __TypeHandle.__AssignHandles(ref base.CheckedStateRef);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnDestroy() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnDestroy()
-    {
-        m_SearchTree.Dispose();
-        m_ElementCount.Dispose();
-        base.OnDestroy();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        bool loaded = GetLoaded();
-        EntityQuery query = (loaded ? m_AllRoutesQuery : m_UpdatedRoutesQuery);
-        if (!query.IsEmptyIgnoreFilter)
-        {
-            JobHandle dependencies;
-            UpdateSearchTreeJob jobData = new UpdateSearchTreeJob
-            {
-                m_EntityType = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef),
-                m_PositionType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Routes_Position_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                m_CreatedType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Common_Created_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                m_DeletedType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Common_Deleted_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                m_PrefabRefType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                m_PathUpdatedType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Pathfind_PathUpdated_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                m_CurveElementType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Routes_CurveElement_RO_BufferTypeHandle, ref base.CheckedStateRef),
-                m_PrefabRefData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_PrefabRouteData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_RouteData_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_UpdatedData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Common_Updated_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_DeletedData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Common_Deleted_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_SegmentData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Routes_Segment_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_TempData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Tools_Temp_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_CurveElements = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Routes_CurveElement_RO_BufferLookup, ref base.CheckedStateRef),
-                m_Loaded = loaded,
-                m_SearchTree = GetSearchTree(readOnly: false, out dependencies),
-                m_ElementCount = m_ElementCount
-            };
-            base.Dependency = JobChunkExtensions.Schedule(jobData, query, JobHandle.CombineDependencies(base.Dependency, dependencies));
-            AddSearchTreeWriter(base.Dependency);
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public PreDeserialize(Colossal.Serialization.Entities.Context context) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void PreDeserialize(Context context)
-    {
-        JobHandle dependencies;
-        NativeQuadTree&lt;RouteSearchItem, QuadTreeBoundsXZ&gt; searchTree = GetSearchTree(readOnly: false, out dependencies);
-        dependencies.Complete();
-        searchTree.Clear();
-        m_Loaded = true;
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Routes.SearchSystem+UpdateSearchTreeJob</code>  </li>
-<li><code>Game.Routes.SearchSystem+TypeHandle</code>  </li>
-</ul>
+<p>If you need to force a full rebuild after loading/deserialization, SearchSystem.PreDeserialize is invoked by the runtime to clear the tree and mark a full reload on the next update.</p>
 
 
 

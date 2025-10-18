@@ -27969,15 +27969,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -28014,9 +28005,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -65329,6 +65320,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69760,6 +69774,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72572,6 +72609,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75562,6 +75622,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87154,6 +87237,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -117930,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117955,15 +118083,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -118002,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118027,215 +118146,162 @@
 
 
 <h1 id="gameobjectsupdatecollectsystem">Game.Objects.UpdateCollectSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Objects</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class UpdateCollectSystem : Game.GameSystemBase
-{
-    private System.Boolean &lt;isUpdated&gt;k__BackingField;
-    private Unity.Entities.EntityQuery m_ObjectQuery;
-    private Game.Objects.SearchSystem m_SearchSystem;
-    private Unity.Collections.NativeList&lt;Colossal.Mathematics.Bounds2&gt; m_UpdatedBounds;
-    private Unity.Jobs.JobHandle m_WriteDependencies;
-    private Unity.Jobs.JobHandle m_ReadDependencies;
-    private Game.Objects.UpdateCollectSystem+TypeHandle __TypeHandle;
-
-    public System.Boolean isUpdated { get; private set; }
-
-    public UpdateCollectSystem();
-
-    private System.Void __AssignQueries(Unity.Entities.SystemState&amp; state);
-    public System.Void AddBoundsReader(Unity.Jobs.JobHandle handle);
-    public Unity.Collections.NativeList&lt;Colossal.Mathematics.Bounds2&gt; GetUpdatedBounds(Unity.Jobs.JobHandle&amp; dependencies);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnCreateForCompiler();
-    protected virtual System.Void OnDestroy();
-    protected virtual System.Void OnStopRunning();
-    protected virtual System.Void OnUpdate();
-}
-</code></pre>
+<p><strong>Assembly:</strong><br />
+<strong>Namespace:</strong> Game.Objects</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> GameSystemBase</p>
+<p><strong>Summary:</strong><br />
+UpdateCollectSystem collects and exposes 2D bounds (Bounds2) of objects that were Created, Updated or Deleted during a frame. It queries object entities (Object + Static + Transform + PrefabRef) and uses a combination of a static search tree and prefab geometry to compute the bounds. Work is performed with Burst-compiled jobs (IJobChunk and IJob), using a NativeQueue to gather results on worker threads and a NativeList to store the final list of updated bounds for other systems to consume. The system also exposes dependency handles so other jobs can safely read those bounds.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private System.Boolean &lt;isUpdated&gt;k__BackingField</code>  </li>
+<li>
+<p><code>private Unity.Entities.EntityQuery m_ObjectQuery</code><br />
+Holds the entity query used to find object entities to inspect. Query All: Object, Static, Transform, PrefabRef. Any: Created, Updated, Deleted. None: Temp.</p>
+</li>
+<li>
+<p><code>private SearchSystem m_SearchSystem</code><br />
+Reference to the SearchSystem used to read the static search tree (static object bounds) for existing entities.</p>
+</li>
+<li>
+<p><code>private Unity.Collections.NativeList&lt;Bounds2&gt; m_UpdatedBounds</code><br />
+Persistent NativeList that stores the final list of updated Bounds2 produced by the system each frame. Returned to callers via GetUpdatedBounds.</p>
+</li>
+<li>
+<p><code>private Unity.Jobs.JobHandle m_WriteDependencies</code><br />
+JobHandle representing the most recent writer dependency (jobs that produced/wrote m_UpdatedBounds). Returned by GetUpdatedBounds as the dependencies that consumers must wait on.</p>
+</li>
+<li>
+<p><code>private Unity.Jobs.JobHandle m_ReadDependencies</code><br />
+Aggregated JobHandle of reader dependencies that this system should wait for before producing new data (consumers can add their read handles with AddBoundsReader).</p>
+</li>
+<li>
+<p><code>private TypeHandle __TypeHandle</code><br />
+Internal container of the various EntityTypeHandle / ComponentTypeHandle / ComponentLookup used by the jobs. Populated in __AssignHandles.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private System.Boolean &lt;isUpdated&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_ObjectQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_ObjectQuery;
-</code></pre>
-<ul>
-<li><code>private Game.Objects.SearchSystem m_SearchSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Objects.SearchSystem m_SearchSystem;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeList&lt;Colossal.Mathematics.Bounds2&gt; m_UpdatedBounds</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeList&lt;Colossal.Mathematics.Bounds2&gt; m_UpdatedBounds;
-</code></pre>
-<ul>
-<li><code>private Unity.Jobs.JobHandle m_WriteDependencies</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Jobs.JobHandle m_WriteDependencies;
-</code></pre>
-<ul>
-<li><code>private Unity.Jobs.JobHandle m_ReadDependencies</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Jobs.JobHandle m_ReadDependencies;
-</code></pre>
-<ul>
-<li><code>private Game.Objects.UpdateCollectSystem+TypeHandle __TypeHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Objects.UpdateCollectSystem+TypeHandle __TypeHandle;
-</code></pre>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>public System.Boolean isUpdated { get; private set }</code>  </li>
+<li><code>public bool isUpdated { get; private set; }</code><br />
+True while the system has been updated this frame (set to true at start of OnUpdate). Cleared to false in OnStopRunning. Can be used to quickly check whether the system collected any bounds this runtime frame.</li>
 </ul>
-<pre><code class="language-csharp">public System.Boolean isUpdated { get; private set; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public UpdateCollectSystem()</code>  </li>
+<li><code>public UpdateCollectSystem()</code><br />
+Default constructor (empty). System initialization is performed in OnCreate.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public UpdateCollectSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private __AssignQueries(Unity.Entities.SystemState&amp; state) : System.Void</code>  </li>
+<li>
+<p><code>protected override void OnCreate()</code> : System.Void<br />
+Initializes the system: acquires a reference to SearchSystem, creates the entity query for objects, allocates m_UpdatedBounds (Allocator.Persistent), and calls RequireForUpdate(m_ObjectQuery) so the system runs only when matching entities exist.</p>
+</li>
+<li>
+<p><code>protected override void OnDestroy()</code> : System.Void<br />
+Disposes m_UpdatedBounds and calls base.OnDestroy().</p>
+</li>
+<li>
+<p><code>protected override void OnStopRunning()</code> : System.Void<br />
+Completes outstanding write/read dependencies, clears m_UpdatedBounds, sets isUpdated = false, and calls base.OnStopRunning().</p>
+</li>
+<li>
+<p><code>protected override void OnUpdate()</code> : System.Void<br />
+Main runtime logic:</p>
+</li>
+<li>Sets isUpdated = true.</li>
+<li>Creates a NativeQueue<Bounds2> (TempJob) for workers to enqueue computed bounds.</li>
+<li>Prepares and schedules a Burst-compiled IJobChunk (CollectUpdatedObjectBoundsJob) that:<ul>
+<li>For Created entities: computes bounds from prefab geometry (ObjectGeometryData + ObjectUtils.CalculateBounds) and enqueues them.</li>
+<li>For Deleted entities: looks up existing bounds in the SearchSystem tree and enqueues them.</li>
+<li>For Updated entities: attempts to read both existing bounds (from search tree) and recomputed bounds (from prefab geometry), then either enqueues the merged bounds or both parts depending on overlap/size logic.</li>
+<li>Uses m_SearchSystem.GetStaticSearchTree(readOnly: true, out dependencies) to obtain the static tree and producer dependencies.</li>
 </ul>
-<pre><code class="language-csharp">private void __AssignQueries(ref SystemState state)
-    {
-        new EntityQueryBuilder(Allocator.Temp).Dispose();
-    }
-</code></pre>
+</li>
+<li>Schedules a DequeueBoundsJob (IJob) that transfers queued Bounds2 from the NativeQueue into the persistent m_UpdatedBounds NativeList.</li>
+<li>Disposes the queue with the combined dependency of the Dequeue job.</li>
+<li>Adds the Collect job as a static search tree reader (m_SearchSystem.AddStaticSearchTreeReader(jobHandle)) so readers are tracked.</li>
+<li>
+<p>Updates m_WriteDependencies and base.Dependency to chain further work correctly.</p>
+</li>
+<li>
+<p><code>public NativeList&lt;Bounds2&gt; GetUpdatedBounds(out Unity.Jobs.JobHandle dependencies)</code> : NativeList<Bounds2><br />
+Returns the NativeList containing the updated bounds and outputs the JobHandle (m_WriteDependencies) that consumers must complete before reading the list.</p>
+</li>
+<li>
+<p><code>public void AddBoundsReader(Unity.Jobs.JobHandle handle)</code> : System.Void<br />
+Allows external code to add a read dependency that this system will combine into m_ReadDependencies. This ensures the system waits for provided readers before modifying or producing new data.</p>
+</li>
+<li>
+<p><code>protected override void OnCreateForCompiler()</code> : System.Void<br />
+Compiler helper used to assign queries and type handles (calls __AssignQueries and __TypeHandle.__AssignHandles). Present for generated/compiled compatibility.</p>
+</li>
+<li>
+<p><code>private void __AssignQueries(ref Unity.Entities.SystemState state)</code> : System.Void<br />
+Internal method used by the compiler flow. In this class it creates an EntityQueryBuilder (temporary) and disposes it; real handles are assigned in __AssignHandles.</p>
+</li>
+</ul>
+<p>Nested/Burst jobs (high level):</p>
 <ul>
-<li><code>public AddBoundsReader(Unity.Jobs.JobHandle handle) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void AddBoundsReader(JobHandle handle)
-    {
-        m_ReadDependencies = JobHandle.CombineDependencies(m_ReadDependencies, handle);
-    }
-</code></pre>
+<li>CollectUpdatedObjectBoundsJob : IJobChunk (BurstCompile)  </li>
+<li>Read-only handles: EntityTypeHandle, Transform, PrefabRef, Created, Deleted, ComponentLookup<ObjectGeometryData>.</li>
+<li>Read-only NativeQuadTree<Entity, QuadTreeBoundsXZ> m_SearchTree (retrieved from SearchSystem).</li>
+<li>NativeQueue<Bounds2>.ParallelWriter m_ResultQueue used to push results from worker threads.</li>
+<li>
+<p>Logic:</p>
 <ul>
-<li><code>public GetUpdatedBounds(Unity.Jobs.JobHandle&amp; dependencies) : Unity.Collections.NativeList&lt;Colossal.Mathematics.Bounds2&gt;</code>  </li>
+<li>If chunk has Created: iterate PrefabRef+Transform, compute geometry bounds from ObjectGeometryData (if present) and enqueue their xz bounds.</li>
+<li>Else if chunk has Deleted: iterate Entities, lookup existing bounds in m_SearchTree and enqueue stored xz bounds.</li>
+<li>Else (Updated): for each entity try to get existing bounds from m_SearchTree and compute new prefab geometry bounds if available; combine them:</li>
+<li>If both exist: compute union and if the union's size is less than sum of parts (i.e., overlapping) enqueue the union; otherwise enqueue both separately.</li>
+<li>If only existing or only computed bounds exist, enqueue the one present.</li>
 </ul>
-<pre><code class="language-csharp">public NativeList&lt;Bounds2&gt; GetUpdatedBounds(out JobHandle dependencies)
-    {
-        dependencies = m_WriteDependencies;
-        return m_UpdatedBounds;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
+</li>
+<li>
+<p>DequeueBoundsJob : IJob (BurstCompile)  </p>
+</li>
+<li>Pulls all entries from a NativeQueue<Bounds2> and writes them into a NativeList<Bounds2> (m_UpdatedBounds). Uses ResizeUninitialized(count) then populates the list.</li>
 </ul>
+<p>Notes and implementation details:
+- Uses BurstCompile on the jobs for performance.
+- Uses NativeQueue.AsParallelWriter to allow the IJobChunk to enqueue from worker threads.
+- Prefab geometry is obtained via ComponentLookup<ObjectGeometryData> and ObjectUtils.CalculateBounds which returns a Bounds3; only the XZ projection (Bounds2) is stored/used by this system.
+- The SearchSystem provides a static search tree containing previously indexed object bounds; the system uses that tree to read existing bounds for Deleted/Updated handling.
+- Memory ownership: m_UpdatedBounds is allocated with Allocator.Persistent and must be disposed in OnDestroy. The temporary queue is Allocator.TempJob and disposed via queue.Dispose(jobHandle).
+- Synchronization: callers must use the JobHandle returned by GetUpdatedBounds to ensure the list is ready for reading, or call AddBoundsReader to add their read jobs into the system's read dependency chain.</p>
+<h2 id="usage-example">Usage Example</h2>
 <pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
+protected override void OnCreate()
+{
+    base.OnCreate();
+    m_SearchSystem = base.World.GetOrCreateSystemManaged&lt;SearchSystem&gt;();
+    m_ObjectQuery = GetEntityQuery(new EntityQueryDesc
     {
-        base.OnCreate();
-        m_SearchSystem = base.World.GetOrCreateSystemManaged&lt;SearchSystem&gt;();
-        m_ObjectQuery = GetEntityQuery(new EntityQueryDesc
+        All = new ComponentType[4]
         {
-            All = new ComponentType[4]
-            {
-                ComponentType.ReadOnly&lt;Object&gt;(),
-                ComponentType.ReadOnly&lt;Static&gt;(),
-                ComponentType.ReadOnly&lt;Transform&gt;(),
-                ComponentType.ReadOnly&lt;PrefabRef&gt;()
-            },
-            Any = new ComponentType[3]
-            {
-                ComponentType.ReadOnly&lt;Created&gt;(),
-                ComponentType.ReadOnly&lt;Updated&gt;(),
-                ComponentType.ReadOnly&lt;Deleted&gt;()
-            },
-            None = new ComponentType[1] { ComponentType.ReadOnly&lt;Temp&gt;() }
-        });
-        m_UpdatedBounds = new NativeList&lt;Bounds2&gt;(Allocator.Persistent);
-        RequireForUpdate(m_ObjectQuery);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreateForCompiler() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnCreateForCompiler()
-    {
-        base.OnCreateForCompiler();
-        __AssignQueries(ref base.CheckedStateRef);
-        __TypeHandle.__AssignHandles(ref base.CheckedStateRef);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnDestroy() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnDestroy()
-    {
-        m_UpdatedBounds.Dispose();
-        base.OnDestroy();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnStopRunning() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnStopRunning()
-    {
-        m_WriteDependencies.Complete();
-        m_ReadDependencies.Complete();
-        m_UpdatedBounds.Clear();
-        isUpdated = false;
-        base.OnStopRunning();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        isUpdated = true;
-        NativeQueue&lt;Bounds2&gt; queue = new NativeQueue&lt;Bounds2&gt;(Allocator.TempJob);
-        JobHandle dependencies;
-        CollectUpdatedObjectBoundsJob jobData = new CollectUpdatedObjectBoundsJob
+            ComponentType.ReadOnly&lt;Object&gt;(),
+            ComponentType.ReadOnly&lt;Static&gt;(),
+            ComponentType.ReadOnly&lt;Transform&gt;(),
+            ComponentType.ReadOnly&lt;PrefabRef&gt;()
+        },
+        Any = new ComponentType[3]
         {
-            m_EntityType = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef),
-            m_TransformType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Objects_Transform_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_PrefabRefType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_CreatedType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Common_Created_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_DeletedType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Common_Deleted_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_PrefabObjectGeometryData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_ObjectGeometryData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_SearchTree = m_SearchSystem.GetStaticSearchTree(readOnly: true, out dependencies),
-            m_ResultQueue = queue.AsParallelWriter()
-        };
-        DequeueBoundsJob jobData2 = new DequeueBoundsJob
-        {
-            m_Queue = queue,
-            m_ResultList = m_UpdatedBounds
-        };
-        JobHandle jobHandle = JobChunkExtensions.ScheduleParallel(jobData, m_ObjectQuery, JobHandle.CombineDependencies(base.Dependency, dependencies));
-        JobHandle jobHandle2 = IJobExtensions.Schedule(jobData2, JobHandle.CombineDependencies(jobHandle, m_ReadDependencies));
-        queue.Dispose(jobHandle2);
-        m_SearchSystem.AddStaticSearchTreeReader(jobHandle);
-        m_WriteDependencies = jobHandle2;
-        m_ReadDependencies = default(JobHandle);
-        base.Dependency = jobHandle;
-    }
+            ComponentType.ReadOnly&lt;Created&gt;(),
+            ComponentType.ReadOnly&lt;Updated&gt;(),
+            ComponentType.ReadOnly&lt;Deleted&gt;()
+        },
+        None = new ComponentType[1] { ComponentType.ReadOnly&lt;Temp&gt;() }
+    });
+    m_UpdatedBounds = new NativeList&lt;Bounds2&gt;(Allocator.Persistent);
+    RequireForUpdate(m_ObjectQuery);
+}
 </code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Objects.UpdateCollectSystem+CollectUpdatedObjectBoundsJob</code>  </li>
-<li><code>Game.Objects.UpdateCollectSystem+DequeueBoundsJob</code>  </li>
-<li><code>Game.Objects.UpdateCollectSystem+TypeHandle</code>  </li>
-</ul>
+<p>Additional quick example (reading updated bounds safely):</p>
+<pre><code class="language-csharp">// Somewhere after UpdateCollectSystem runs:
+var updatedBounds = updateCollectSystem.GetUpdatedBounds(out JobHandle produceDeps);
+// If scheduling a job that reads updatedBounds, combine its handle and then call:
+// updateCollectSystem.AddBoundsReader(readerJobHandle);
+// Ensure to complete produceDeps before directly reading the NativeList on the main thread.
+</code></pre>
 
 
 

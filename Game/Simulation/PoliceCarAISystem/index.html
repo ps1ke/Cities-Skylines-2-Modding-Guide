@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -85078,18 +85170,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -85114,9 +85206,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -87145,6 +87237,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -117921,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117948,18 +118085,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -117984,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118009,257 +118146,202 @@
 
 
 <h1 id="gamesimulationpolicecaraisystem">Game.Simulation.PoliceCarAISystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Simulation</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class PoliceCarAISystem : Game.GameSystemBase
-{
-    private Game.EndFrameBarrier m_EndFrameBarrier;
-    private Game.Simulation.SimulationSystem m_SimulationSystem;
-    private Game.Simulation.PathfindSetupSystem m_PathfindSetupSystem;
-    private Unity.Entities.EntityQuery m_VehicleQuery;
-    private Unity.Entities.EntityArchetype m_PolicePatrolRequestArchetype;
-    private Unity.Entities.EntityArchetype m_PoliceEmergencyRequestArchetype;
-    private Unity.Entities.EntityArchetype m_HandleRequestArchetype;
-    private Unity.Entities.ComponentTypeSet m_MovingToParkedCarRemoveTypes;
-    private Unity.Entities.ComponentTypeSet m_MovingToParkedAddTypes;
-    private Game.Simulation.PoliceCarAISystem+TypeHandle __TypeHandle;
-
-    public PoliceCarAISystem();
-
-    private System.Void __AssignQueries(Unity.Entities.SystemState&amp; state);
-    public virtual System.Int32 GetUpdateInterval(Game.SystemUpdatePhase phase);
-    public virtual System.Int32 GetUpdateOffset(Game.SystemUpdatePhase phase);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnCreateForCompiler();
-    protected virtual System.Void OnUpdate();
-}
-</code></pre>
+<p><strong>Assembly:</strong><br />
+Game (assembly inferred from namespace and project layout)</p>
+<p><strong>Namespace:</strong><br />
+Game.Simulation</p>
+<p><strong>Type:</strong><br />
+class</p>
+<p><strong>Base:</strong><br />
+GameSystemBase</p>
+<p><strong>Summary:</strong><br />
+PoliceCarAISystem is the simulation system that drives police car behavior each simulation tick. It schedules a parallel chunk job (PoliceCarTickJob) to update individual police vehicle entities (pathfinding, dispatch handling, parking, crime reduction, accident securing, boarding/disembarking, etc.) and a follow-up single-threaded job (PoliceActionJob) to apply aggregated world changes (reduce crime values, add patrol requests, mark accident sites secured, bump dispatch indices). The system uses the ECS Job system, command buffers, and a NativeQueue to communicate actions from the parallel job to the single-threaded action job. It also interfaces with the pathfinding setup system and the simulation frame index.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.EndFrameBarrier m_EndFrameBarrier</code>  </li>
+<li>
+<p><code>private struct PoliceAction</code><br />
+Holds information about actions the parallel tick job wants to apply on the main world (sent via a NativeQueue). Contains an action type, a target entity, optionally the request entity, crime reduction rate, and dispatch index.</p>
+</li>
+<li>
+<p><code>private enum PoliceActionType</code><br />
+Action kinds produced by the tick job: ReduceCrime, AddPatrolRequest, SecureAccidentSite, BumpDispatchIndex.</p>
+</li>
+<li>
+<p><code>private struct PoliceCarTickJob : IJobChunk</code><br />
+Burst-compiled, parallel chunk job that performs the main per-police-car logic. Reads and writes many components (PoliceCar, Car, CarCurrentLane, PathOwner, Target, buffers such as ServiceDispatch and CarNavigationLane). Produces actions via a NativeQueue and enqueues pathfinding requests to the PathfindSetupSystem.</p>
+</li>
+<li>
+<p><code>private struct PoliceActionJob : IJob</code><br />
+Burst-compiled single-threaded job that dequeues PoliceAction items and applies component updates (CrimeProducer, AccidentSite, PolicePatrolRequest dispatch index) to the world.</p>
+</li>
+<li>
+<p><code>private struct TypeHandle</code><br />
+Container that caches Entity/Component/Buffer lookups and handles. Used during OnCreateForCompiler to assign and cache handles for faster job setup.</p>
+</li>
+<li>
+<p><code>private EndFrameBarrier m_EndFrameBarrier</code><br />
+Command buffer barrier used to create an end-of-frame parallel command buffer for jobs to record structural changes.</p>
+</li>
+<li>
+<p><code>private SimulationSystem m_SimulationSystem</code><br />
+Reference to simulation system to read the simulation frame index.</p>
+</li>
+<li>
+<p><code>private PathfindSetupSystem m_PathfindSetupSystem</code><br />
+Reference to the pathfind setup system used to enqueue pathfinding requests produced by police car agents.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_VehicleQuery</code><br />
+EntityQuery used to select police car entities (CarCurrentLane, Owner, PrefabRef, PathOwner, PoliceCar, Car, Target, etc.).</p>
+</li>
+<li>
+<p><code>private EntityArchetype m_PolicePatrolRequestArchetype</code><br />
+Archetype used to create patrol ServiceRequest entities.</p>
+</li>
+<li>
+<p><code>private EntityArchetype m_PoliceEmergencyRequestArchetype</code><br />
+Archetype used to create emergency ServiceRequest entities.</p>
+</li>
+<li>
+<p><code>private EntityArchetype m_HandleRequestArchetype</code><br />
+Archetype used to create HandleRequest event entities (when a vehicle takes responsibility for a request).</p>
+</li>
+<li>
+<p><code>private ComponentTypeSet m_MovingToParkedCarRemoveTypes</code><br />
+ComponentTypeSet listing components to remove when a car transitions from moving to parked.</p>
+</li>
+<li>
+<p><code>private ComponentTypeSet m_MovingToParkedAddTypes</code><br />
+ComponentTypeSet listing components to add when a car is parked.</p>
+</li>
+<li>
+<p><code>private TypeHandle __TypeHandle</code><br />
+Instance of the TypeHandle struct used to cache component and buffer handles.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.EndFrameBarrier m_EndFrameBarrier;
-</code></pre>
+<h2 id="properties">Properties</h2>
 <ul>
-<li><code>private Game.Simulation.SimulationSystem m_SimulationSystem</code>  </li>
+<li>None (this system exposes no public properties).</li>
 </ul>
-<pre><code class="language-csharp">private Game.Simulation.SimulationSystem m_SimulationSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.PathfindSetupSystem m_PathfindSetupSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.PathfindSetupSystem m_PathfindSetupSystem;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_VehicleQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_VehicleQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityArchetype m_PolicePatrolRequestArchetype</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityArchetype m_PolicePatrolRequestArchetype;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityArchetype m_PoliceEmergencyRequestArchetype</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityArchetype m_PoliceEmergencyRequestArchetype;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityArchetype m_HandleRequestArchetype</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityArchetype m_HandleRequestArchetype;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.ComponentTypeSet m_MovingToParkedCarRemoveTypes</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.ComponentTypeSet m_MovingToParkedCarRemoveTypes;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.ComponentTypeSet m_MovingToParkedAddTypes</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.ComponentTypeSet m_MovingToParkedAddTypes;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.PoliceCarAISystem+TypeHandle __TypeHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.PoliceCarAISystem+TypeHandle __TypeHandle;
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public PoliceCarAISystem()</code>  </li>
+<li><code>public PoliceCarAISystem()</code><br />
+Default constructor. System is created by World/System management. OnCreate override initializes subsystems and queries.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public PoliceCarAISystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private __AssignQueries(Unity.Entities.SystemState&amp; state) : System.Void</code>  </li>
+<li>
+<p><code>public override int GetUpdateInterval(SystemUpdatePhase phase)</code><br />
+Returns update interval (16). Controls coarser tick scheduling (modifiers in system scheduling).</p>
+</li>
+<li>
+<p><code>public override int GetUpdateOffset(SystemUpdatePhase phase)</code><br />
+Returns update offset (5). Used together with interval to determine when the system runs relative to the global phase.</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnCreate()</code><br />
+Initializes references:</p>
+</li>
+<li>Grabs EndFrameBarrier, SimulationSystem and PathfindSetupSystem.</li>
+<li>Creates the EntityQuery selecting police car entities (excludes Deleted/Temp/TripSource/OutOfControl).</li>
+<li>Creates archetypes for patrol and emergency requests and handle request events.</li>
+<li>Prepares ComponentTypeSets for parking transitions.</li>
+<li>
+<p>Calls RequireForUpdate(m_VehicleQuery) to only run when relevant entities exist.</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnUpdate()</code><br />
+Main runtime logic:</p>
+</li>
+<li>Creates a NativeQueue<PoliceAction> (temporary job allocator).</li>
+<li>Fills and schedules a PoliceCarTickJob (parallel) which:<ul>
+<li>Updates each vehicle: shift timers, path reset/creation, selecting next dispatch, returning to station, parking, disembarking, accident securing, crime reduction, pathfinding setup.</li>
+<li>Enqueues pathfind setups to PathfindSetupSystem via its queue writer.</li>
+<li>Enqueues PoliceAction items into the shared action queue for changes that must run on main thread.</li>
+<li>Writes structural changes to an end-of-frame command buffer (m_EndFrameBarrier).</li>
 </ul>
-<pre><code class="language-csharp">private void __AssignQueries(ref SystemState state)
-    {
-        new EntityQueryBuilder(Allocator.Temp).Dispose();
-    }
-</code></pre>
+</li>
+<li>Schedules PoliceActionJob dependent on the tick job which consumes the queue and applies component changes to CrimeProducer, AccidentSite and PolicePatrolRequest.</li>
+<li>
+<p>Disposes the queue after the action job completes, registers job handles with pathfind setup and EndFrameBarrier, and sets base.Dependency.</p>
+</li>
+<li>
+<p><code>protected override void OnCreateForCompiler()</code><br />
+Internal helper to assign queries and call __TypeHandle.__AssignHandles. Used by generated/compiled runtime patterns.</p>
+</li>
+<li>
+<p><code>private void __AssignQueries(ref SystemState state)</code><br />
+Internal (compiler) stub that ensures query builder code exists; used by OnCreateForCompiler.</p>
+</li>
+<li>
+<p>(Private inner job methods) PoliceCarTickJob members:</p>
+</li>
+<li><code>void Execute(in ArchetypeChunk chunk, int unfilteredChunkIndex, bool useEnabledMask, in v128 chunkEnabledMask)</code> — main chunk execution method reading/writing arrays and calling Tick for each entity.</li>
+<li><code>private void Tick(...)</code> — per-vehicle tick logic (very large method). Handles shift logic, crime reduction, path resets, selecting/handling dispatches, starting/stopping vehicle, parking, disembark, return to station, path creation (FindNewPath), accident securing and more.</li>
+<li>
+<p>Helper methods used by Tick:</p>
 <ul>
-<li><code>public virtual GetUpdateInterval(Game.SystemUpdatePhase phase) : System.Int32</code>  </li>
+<li>CheckParkingSpace</li>
+<li>ParkCar</li>
+<li>StartDisembarking / StopDisembarking</li>
+<li>FindNewPath</li>
+<li>SecureAccidentSite</li>
+<li>EndNavigation</li>
+<li>IsCloseEnough</li>
+<li>StopVehicle / StartVehicle</li>
+<li>CheckServiceDispatches</li>
+<li>BumpDispachIndex</li>
+<li>PreAddPatrolRequests</li>
+<li>RequestTargetIfNeeded</li>
+<li>SelectNextDispatch</li>
+<li>ReturnToStation</li>
+<li>ResetPath</li>
+<li>AddPatrolRequests</li>
+<li>TryReduceCrime (overloads) — enqueue PoliceAction to reduce crime or add patrol requests.</li>
 </ul>
-<pre><code class="language-csharp">public override int GetUpdateInterval(SystemUpdatePhase phase)
-    {
-        return 16;
-    }
+</li>
+<li>
+<p>(Private inner job) PoliceActionJob members:</p>
+</li>
+<li><code>public void Execute()</code> — dequeues PoliceAction items and applies them to the component lookups:<ul>
+<li>ReduceCrime: reduces CrimeProducer.m_Crime (clamps by available crime value).</li>
+<li>AddPatrolRequest: sets CrimeProducer.m_PatrolRequest and m_DispatchIndex.</li>
+<li>SecureAccidentSite: sets AccidentSiteFlags.Secured and m_SecuredFrame.</li>
+<li>BumpDispatchIndex: increments PolicePatrolRequest.m_DispatchIndex.</li>
+</ul>
+</li>
+</ul>
+<p>Notes about concurrency and design:
+- The parallel PoliceCarTickJob does not directly mutate shared components like CrimeProducer or AccidentSite; instead it enqueues PoliceAction items on a NativeQueue and a single-threaded PoliceActionJob applies those changes. Structural changes are recorded through an EndFrameBarrier command buffer created in OnUpdate and passed to the parallel job as a ParallelWriter.
+- Pathfinding requests are queued into PathfindSetupSystem via m_PathfindSetupSystem.GetQueue(...). This system receives JobHandle and queue writer integration in OnUpdate.
+- The system relies heavily on component lookups (ComponentLookup / BufferLookup) and PathElements buffer to append/trim paths and to evaluate dispatches.
+- PoliceCarTickJob is Burst-compiled for performance.</p>
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Example: override OnCreate to inspect or extend behavior (modders typically hook into components/events rather than subclassing systems).
+[Preserve]
+protected override void OnCreate()
+{
+    base.OnCreate();
+    // Example: get the vehicle query to read its filter
+    // m_VehicleQuery is created in the original system; you can mirror the component set to create your own query if you want to track police cars.
+    // You can also create custom ServiceRequest entities using the archetypes (created in original system) if you want custom dispatches.
+}
 </code></pre>
-<ul>
-<li><code>public virtual GetUpdateOffset(Game.SystemUpdatePhase phase) : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override int GetUpdateOffset(SystemUpdatePhase phase)
-    {
-        return 5;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_EndFrameBarrier = base.World.GetOrCreateSystemManaged&lt;EndFrameBarrier&gt;();
-        m_SimulationSystem = base.World.GetOrCreateSystemManaged&lt;SimulationSystem&gt;();
-        m_PathfindSetupSystem = base.World.GetOrCreateSystemManaged&lt;PathfindSetupSystem&gt;();
-        m_VehicleQuery = GetEntityQuery(ComponentType.ReadWrite&lt;CarCurrentLane&gt;(), ComponentType.ReadOnly&lt;Owner&gt;(), ComponentType.ReadOnly&lt;PrefabRef&gt;(), ComponentType.ReadWrite&lt;PathOwner&gt;(), ComponentType.ReadWrite&lt;Game.Vehicles.PoliceCar&gt;(), ComponentType.ReadWrite&lt;Car&gt;(), ComponentType.ReadWrite&lt;Target&gt;(), ComponentType.Exclude&lt;Deleted&gt;(), ComponentType.Exclude&lt;Temp&gt;(), ComponentType.Exclude&lt;TripSource&gt;(), ComponentType.Exclude&lt;OutOfControl&gt;());
-        m_PolicePatrolRequestArchetype = base.EntityManager.CreateArchetype(ComponentType.ReadWrite&lt;ServiceRequest&gt;(), ComponentType.ReadWrite&lt;PolicePatrolRequest&gt;(), ComponentType.ReadWrite&lt;RequestGroup&gt;());
-        m_PoliceEmergencyRequestArchetype = base.EntityManager.CreateArchetype(ComponentType.ReadWrite&lt;ServiceRequest&gt;(), ComponentType.ReadWrite&lt;PoliceEmergencyRequest&gt;(), ComponentType.ReadWrite&lt;RequestGroup&gt;());
-        m_HandleRequestArchetype = base.EntityManager.CreateArchetype(ComponentType.ReadWrite&lt;HandleRequest&gt;(), ComponentType.ReadWrite&lt;Game.Common.Event&gt;());
-        m_MovingToParkedCarRemoveTypes = new ComponentTypeSet(new ComponentType[13]
-        {
-            ComponentType.ReadWrite&lt;Moving&gt;(),
-            ComponentType.ReadWrite&lt;TransformFrame&gt;(),
-            ComponentType.ReadWrite&lt;InterpolatedTransform&gt;(),
-            ComponentType.ReadWrite&lt;Swaying&gt;(),
-            ComponentType.ReadWrite&lt;CarNavigation&gt;(),
-            ComponentType.ReadWrite&lt;CarNavigationLane&gt;(),
-            ComponentType.ReadWrite&lt;CarCurrentLane&gt;(),
-            ComponentType.ReadWrite&lt;PathOwner&gt;(),
-            ComponentType.ReadWrite&lt;Target&gt;(),
-            ComponentType.ReadWrite&lt;Blocker&gt;(),
-            ComponentType.ReadWrite&lt;PathElement&gt;(),
-            ComponentType.ReadWrite&lt;PathInformation&gt;(),
-            ComponentType.ReadWrite&lt;ServiceDispatch&gt;()
-        });
-        m_MovingToParkedAddTypes = new ComponentTypeSet(ComponentType.ReadWrite&lt;ParkedCar&gt;(), ComponentType.ReadWrite&lt;Stopped&gt;(), ComponentType.ReadWrite&lt;Updated&gt;());
-        RequireForUpdate(m_VehicleQuery);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreateForCompiler() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnCreateForCompiler()
-    {
-        base.OnCreateForCompiler();
-        __AssignQueries(ref base.CheckedStateRef);
-        __TypeHandle.__AssignHandles(ref base.CheckedStateRef);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        NativeQueue&lt;PoliceAction&gt; actionQueue = new NativeQueue&lt;PoliceAction&gt;(Allocator.TempJob);
-        PoliceCarTickJob jobData = new PoliceCarTickJob
-        {
-            m_EntityType = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef),
-            m_OwnerType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Common_Owner_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_UnspawnedType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Objects_Unspawned_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_TransformType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Objects_Transform_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_PrefabRefType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_PathInformationType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Pathfind_PathInformation_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_StoppedType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Objects_Stopped_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_PassengerType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Vehicles_Passenger_RO_BufferTypeHandle, ref base.CheckedStateRef),
-            m_PoliceCarType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Vehicles_PoliceCar_RW_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_CarType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Vehicles_Car_RW_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_CurrentLaneType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Vehicles_CarCurrentLane_RW_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_TargetType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Common_Target_RW_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_PathOwnerType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Pathfind_PathOwner_RW_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_CarNavigationLaneType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Vehicles_CarNavigationLane_RW_BufferTypeHandle, ref base.CheckedStateRef),
-            m_ServiceDispatchType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Simulation_ServiceDispatch_RW_BufferTypeHandle, ref base.CheckedStateRef),
-            m_EntityLookup = InternalCompilerInterface.GetEntityStorageInfoLookup(ref __TypeHandle.__EntityStorageInfoLookup, ref base.CheckedStateRef),
-            m_ParkedCarData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Vehicles_ParkedCar_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_OwnerData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Common_Owner_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_TransformData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Objects_Transform_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_SpawnLocationData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Objects_SpawnLocation_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_UnspawnedData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Objects_Unspawned_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PathInformationData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Pathfind_PathInformation_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_EdgeLaneData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_EdgeLane_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_CarLaneData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_CarLane_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_SlaveLaneData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_SlaveLane_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_ParkingLaneData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_ParkingLane_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_GarageLaneData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_GarageLane_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_ConnectionLaneData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_ConnectionLane_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_CurveData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_Curve_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabCarData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_CarData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabPoliceCarData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_PoliceCarData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabParkingLaneData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_ParkingLaneData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabObjectGeometryData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_ObjectGeometryData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabSpawnLocationData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_SpawnLocationData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabRefData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_ServiceRequestData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Simulation_ServiceRequest_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PolicePatrolRequestData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Simulation_PolicePatrolRequest_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PoliceEmergencyRequestData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Simulation_PoliceEmergencyRequest_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_CrimeProducerData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Buildings_CrimeProducer_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PoliceStationData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Buildings_PoliceStation_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_AccidentSiteData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Events_AccidentSite_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_InvolvedInAccidentData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Events_InvolvedInAccident_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_CurrentVehicleData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Creatures_CurrentVehicle_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_ConnectedBuildings = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Buildings_ConnectedBuilding_RO_BufferLookup, ref base.CheckedStateRef),
-            m_SubLanes = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Net_SubLane_RO_BufferLookup, ref base.CheckedStateRef),
-            m_LaneObjects = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Net_LaneObject_RO_BufferLookup, ref base.CheckedStateRef),
-            m_LaneOverlaps = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Net_LaneOverlap_RO_BufferLookup, ref base.CheckedStateRef),
-            m_TargetElements = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Events_TargetElement_RO_BufferLookup, ref base.CheckedStateRef),
-            m_PathElements = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Pathfind_PathElement_RW_BufferLookup, ref base.CheckedStateRef),
-            m_SimulationFrameIndex = m_SimulationSystem.frameIndex,
-            m_RandomSeed = RandomSeed.Next(),
-            m_PolicePatrolRequestArchetype = m_PolicePatrolRequestArchetype,
-            m_PoliceEmergencyRequestArchetype = m_PoliceEmergencyRequestArchetype,
-            m_HandleRequestArchetype = m_HandleRequestArchetype,
-            m_MovingToParkedCarRemoveTypes = m_MovingToParkedCarRemoveTypes,
-            m_MovingToParkedAddTypes = m_MovingToParkedAddTypes,
-            m_CommandBuffer = m_EndFrameBarrier.CreateCommandBuffer().AsParallelWriter(),
-            m_PathfindQueue = m_PathfindSetupSystem.GetQueue(this, 64).AsParallelWriter(),
-            m_ActionQueue = actionQueue.AsParallelWriter()
-        };
-        PoliceActionJob jobData2 = new PoliceActionJob
-        {
-            m_SimulationFrame = m_SimulationSystem.frameIndex,
-            m_PolicePatrolRequestData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Simulation_PolicePatrolRequest_RW_ComponentLookup, ref base.CheckedStateRef),
-            m_CrimeProducerData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Buildings_CrimeProducer_RW_ComponentLookup, ref base.CheckedStateRef),
-            m_AccidentSiteData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Events_AccidentSite_RW_ComponentLookup, ref base.CheckedStateRef),
-            m_ActionQueue = actionQueue
-        };
-        JobHandle jobHandle = JobChunkExtensions.ScheduleParallel(jobData, m_VehicleQuery, base.Dependency);
-        JobHandle jobHandle2 = IJobExtensions.Schedule(jobData2, jobHandle);
-        actionQueue.Dispose(jobHandle2);
-        m_PathfindSetupSystem.AddQueueWriter(jobHandle);
-        m_EndFrameBarrier.AddJobHandleForProducer(jobHandle);
-        base.Dependency = jobHandle2;
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Simulation.PoliceCarAISystem+PoliceAction</code>  </li>
-<li><code>Game.Simulation.PoliceCarAISystem+PoliceActionType</code>  </li>
-<li><code>Game.Simulation.PoliceCarAISystem+PoliceCarTickJob</code>  </li>
-<li><code>Game.Simulation.PoliceCarAISystem+PoliceActionJob</code>  </li>
-<li><code>Game.Simulation.PoliceCarAISystem+TypeHandle</code>  </li>
-</ul>
+<p>Additional hints for modders
+- To influence police behavior:
+  - Modify CrimeProducer components on buildings to change how patrol requests are created or how crime is tracked.
+  - Add or modify PolicePatrolRequest or PoliceEmergencyRequest entities (the system creates these using archetypes). You can create ServiceRequest entities with the same component layout to inject requests.
+  - Adjust PoliceCarData on prefabs (m_CrimeReductionRate, m_CriminalCapacity, m_ShiftDuration) to change vehicle capabilities.
+- To interpose on actions:
+  - The system centralizes world changes into PoliceAction entries that are executed in PoliceActionJob. A mod could replicate the pattern or schedule a dependent job that runs after PoliceActionJob (use the system's Dependency handle) to inspect or override changes.
+- Be mindful of jobs and thread-safety:
+  - Do not mutate components read by the parallel job from the main thread during its execution.
+  - Use command buffers (EndFrameBarrier.CreateCommandBuffer) or enqueue your own jobs to safely modify the world from a job.
+- Pathfinding: police cars add pathfind setups through PathfindSetupSystem. If you change pathfinding or path elements, ensure your changes are compatible with PathfindSetupSystem (queue writers and job dependencies).</p>
+<p>If you want, I can:
+- Generate a short patch showing how to create a custom PoliceEmergencyRequest entity (example code).
+- Extract and document specific inner methods (e.g., Tick or FindNewPath) in more detail for modding guidance.</p>
 
 
 

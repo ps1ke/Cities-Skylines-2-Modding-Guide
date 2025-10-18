@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -71255,18 +71301,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -71291,9 +71337,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -72563,6 +72609,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75553,6 +75622,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87145,6 +87237,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -117921,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117948,18 +118085,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -117984,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118009,417 +118146,150 @@
 
 
 <h1 id="gameroutesroutepathsystem">Game.Routes.RoutePathSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Routes</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code><br />
-<strong>Implements:</strong> <code>Colossal.Serialization.Entities.IDefaultSerializable</code>, <code>Colossal.Serialization.Entities.ISerializable</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class RoutePathSystem : Game.GameSystemBase, Colossal.Serialization.Entities.IDefaultSerializable, Colossal.Serialization.Entities.ISerializable
-{
-    private Game.Pathfind.PathfindQueueSystem m_PathfindQueueSystem;
-    private Unity.Entities.EntityQuery m_UpdatedSegmentQuery;
-    private Unity.Entities.EntityQuery m_DeletedLaneQuery;
-    private Unity.Entities.EntityQuery m_AppliedLaneQuery;
-    private Unity.Entities.EntityQuery m_SegmentQuery;
-    private Unity.Collections.NativeParallelHashSet&lt;Unity.Entities.Entity&gt; m_LazyUpdateSet;
-    private Game.Routes.RoutePathSystem+TypeHandle __TypeHandle;
-
-    public RoutePathSystem();
-
-    private System.Void __AssignQueries(Unity.Entities.SystemState&amp; state);
-    public System.Void Deserialize&lt;TReader&gt;(TReader reader);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnCreateForCompiler();
-    protected virtual System.Void OnDestroy();
-    protected virtual System.Void OnUpdate();
-    public System.Void Serialize&lt;TWriter&gt;(TWriter writer);
-    public System.Void SetDefaults(Colossal.Serialization.Entities.Context context);
-    private System.Void SetupPathfind(Unity.Entities.Entity entity, Unity.Mathematics.float3 startPos, Unity.Mathematics.float3 endPos, Game.Routes.RouteLane startLane, Game.Routes.RouteLane endLane, Game.Prefabs.RouteData route, Game.Prefabs.RouteConnectionData routeConnection, System.Boolean highPriority);
-}
-</code></pre>
+<p><strong>Assembly:</strong><br />
+Unknown (game assembly)  </p>
+<p><strong>Namespace:</strong><br />
+Game.Routes</p>
+<p><strong>Type:</strong><br />
+class (managed ECS System)</p>
+<p><strong>Base:</strong><br />
+GameSystemBase, IDefaultSerializable, ISerializable</p>
+<p><strong>Summary:</strong><br />
+RoutePathSystem is responsible for keeping route segment pathfinds up to date for routed prefabs (routes). It watches for changed/removed lanes, applied lanes (new lane types), and updated segments. When it detects relevant changes it schedules Burst jobs to quickly find which route segments need recomputing and then enqueues pathfinding actions on the PathfindQueueSystem. It also maintains a persistent lazy update set (m_LazyUpdateSet) of segments that should have a path recomputed eventually (used when immediate update isn't feasible). The system implements serialization to persist the lazy update set across saves/loads.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.Pathfind.PathfindQueueSystem m_PathfindQueueSystem</code>  </li>
+<li>
+<p><code>private PathfindQueueSystem m_PathfindQueueSystem</code><br />
+Reference to the PathfindQueueSystem used to enqueue pathfinding work.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_UpdatedSegmentQuery</code><br />
+Query for segments that have the Updated tag and a PathTargets component; used to detect segments whose path targets changed and need immediate recompute.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_DeletedLaneQuery</code><br />
+Query for entities marked Deleted and that are lanes (excluding Temp). Used to detect when a lane referenced by a segment was deleted.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_AppliedLaneQuery</code><br />
+Query for newly applied lanes (Applied and Lane). Used to detect new lane types introduced by prefabs which may change which segments need path recomputation.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_SegmentQuery</code><br />
+Query for segments that have PathElement buffer and are not Deleted. Used broadly for per-segment examinations by jobs.</p>
+</li>
+<li>
+<p><code>private NativeParallelHashSet&lt;Entity&gt; m_LazyUpdateSet</code><br />
+Persistent hashset of segment Entities that should be lazily updated (recomputed later). This set is serialized/deserialized by the system and is allocated with Allocator.Persistent.</p>
+</li>
+<li>
+<p><code>private TypeHandle __TypeHandle</code><br />
+Container of ECS type handles used by this system (auto-generated holder used to get ComponentTypeHandle/BufferTypeHandle/ComponentLookup and set them up in OnCreateForCompiler).</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.Pathfind.PathfindQueueSystem m_PathfindQueueSystem;
-</code></pre>
+<hr />
+<h2 id="properties">Properties</h2>
 <ul>
-<li><code>private Unity.Entities.EntityQuery m_UpdatedSegmentQuery</code>  </li>
+<li>None (no public properties exposed by this system)</li>
 </ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_UpdatedSegmentQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_DeletedLaneQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_DeletedLaneQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_AppliedLaneQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_AppliedLaneQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_SegmentQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_SegmentQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeParallelHashSet&lt;Unity.Entities.Entity&gt; m_LazyUpdateSet</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeParallelHashSet&lt;Unity.Entities.Entity&gt; m_LazyUpdateSet;
-</code></pre>
-<ul>
-<li><code>private Game.Routes.RoutePathSystem+TypeHandle __TypeHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Routes.RoutePathSystem+TypeHandle __TypeHandle;
-</code></pre>
+<hr />
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public RoutePathSystem()</code>  </li>
+<li><code>public RoutePathSystem()</code><br />
+Default constructor. The system is managed by the World; initialization is mainly done in OnCreate.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public RoutePathSystem()
-    {
-    }
-</code></pre>
+<hr />
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private __AssignQueries(Unity.Entities.SystemState&amp; state) : System.Void</code>  </li>
+<li><code>protected override void OnCreate()</code> : System.Void<br />
+Initializes queries, obtains PathfindQueueSystem, and allocates the m_LazyUpdateSet (NativeParallelHashSet). Sets up EntityQuery instances:</li>
+<li>m_UpdatedSegmentQuery: Updated + Segment + PathTargets</li>
+<li>m_DeletedLaneQuery: Deleted + Lane (exclude Temp)</li>
+<li>m_AppliedLaneQuery: Applied + Lane</li>
+<li>
+<p>m_SegmentQuery: Segment + PathElement (exclude Deleted)
+This method prepares the system to start scheduling jobs in OnUpdate.</p>
+</li>
+<li>
+<p><code>protected override void OnDestroy()</code> : System.Void<br />
+Disposes of m_LazyUpdateSet and calls base.OnDestroy().</p>
+</li>
+<li>
+<p><code>public void Serialize&lt;TWriter&gt;(TWriter writer) where TWriter : IWriter</code> : System.Void<br />
+Serializes the m_LazyUpdateSet to the provided writer. Writes the count then each Entity (skips Entity.Null when deserializing). Used by the game's save/load pipeline.</p>
+</li>
+<li>
+<p><code>public void Deserialize&lt;TReader&gt;(TReader reader) where TReader : IReader</code> : System.Void<br />
+Deserializes the m_LazyUpdateSet from a reader previously written by Serialize. Clears the set and re-adds entities read from the stream (skips Entity.Null entries).</p>
+</li>
+<li>
+<p><code>public void SetDefaults(Context context)</code> : System.Void<br />
+Resets state to defaults on creation/when requested by serialization system — here it clears the lazy update set.</p>
+</li>
+<li>
+<p><code>protected override void OnUpdate()</code> : System.Void<br />
+Main system update; core behavior:</p>
+</li>
+<li>Determines whether there are deletions, applied lanes, or updated segments to process and whether there are lazy updates pending.</li>
+<li>Schedules Burst jobs to find route segments that need updates:<ul>
+<li>CheckRoutePathsJob: scans PathElement buffers and enqueues segments referencing deleted targets.</li>
+<li>CheckAppliedLanesJob: inspects applied lanes/prefabs to collect RoutePathType entries that are then used to find segments whose prefab RouteConnectionData matches and thus need updates (CheckSegmentRoutes).</li>
+<li>CheckSegmentRoutes: checks segment owners' prefab route connection data against lane/path types and enqueues segments that should be updated.</li>
 </ul>
-<pre><code class="language-csharp">private void __AssignQueries(ref SystemState state)
-    {
-        new EntityQueryBuilder(Allocator.Temp).Dispose();
-    }
+</li>
+<li>Handles Updated segments directly by iterating matching archetype chunks, verifying lane endpoints and curve positions, and calling SetupPathfind for segments that changed.</li>
+<li>Drains job-produced NativeQueues to call SetupPathfind on affected segments.</li>
+<li>If some segments cannot be immediately updated, they are added to m_LazyUpdateSet for later retry; these lazy entries are drained each update (one at a time) when nothing else is pending.</li>
+<li>
+<p>Ensures proper disposal of temporary Native containers and completes job handles where necessary.</p>
+</li>
+<li>
+<p><code>private void SetupPathfind(Entity entity, float3 startPos, float3 endPos, RouteLane startLane, RouteLane endLane, RouteData route, RouteConnectionData routeConnection, bool highPriority)</code> : System.Void<br />
+Constructs PathfindParameters suitable for the route connection and route type (sets speeds, weights, flags, ignored rules, path methods) and builds a PathfindAction containing start/end PathTarget entries. Then enqueues the action on the m_PathfindQueueSystem with PathEventData containing the start/end positions. This is the method that actually triggers a pathfinding job for a route segment.</p>
+</li>
+<li>
+<p><code>private void __AssignQueries(ref SystemState state)</code> : System.Void<br />
+Auto-generated helper used in OnCreateForCompiler; currently contains no custom queries (a no-op builder in this implementation).</p>
+</li>
+<li>
+<p><code>protected override void OnCreateForCompiler()</code> : System.Void<br />
+Auto-generated entry called by the compiler; calls __AssignQueries and assigns type handles using __TypeHandle.__AssignHandles.</p>
+</li>
+<li>
+<p>(Nested/Burst jobs and helper types)</p>
+</li>
+<li>RoutePathType (struct, IEquatable<RoutePathType>)<br />
+    Small value type representing a route lane/connection type tuple: RouteConnectionType, RoadTypes, TrackTypes. Used as key entries in NativeParallelHashSet&lt;&gt; to compare route types across lanes and route connection data. Implements Equals and GetHashCode.</li>
+<li>CheckRoutePathsJob : IJobChunk (Burst compiled)<br />
+    Scans PathElement buffers on segments and enqueues owning segment Entities when any PathElement references a Deleted target.</li>
+<li>CheckAppliedLanesJob : IJobChunk (Burst compiled)<br />
+    Inspects chunks with lane prefab refs and lane type components to add RoutePathType entries to a NativeParallelHashSet<RoutePathType> reflecting what path types are present in the world currently (Car, Watercraft, Train, Tram, Subway, Pedestrian, etc.).</li>
+<li>CheckSegmentRoutes : IJobChunk (Burst compiled)<br />
+    Iterates segment chunks, reads owner prefab route connection data and checks whether the route connection type/road/track matches any entries in the path type set; enqueues segments that match for update.</li>
+<li>TypeHandle (nested struct)<br />
+    Auto-generated collection of EntityTypeHandle, BufferTypeHandle and ComponentLookup/ComponentTypeHandle instances used across jobs and OnUpdate to avoid repeated GetComponentTypeHandle/GetBufferTypeHandle calls. It has a __AssignHandles(ref SystemState) method used to initialize the contained handles.</li>
+</ul>
+<hr />
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// RoutePathSystem is an ECS system managed by the World and runs automatically.
+// You can get a reference to it if you need to inspect or trigger system-level behaviors:
+
+var routeSystem = World.DefaultGameObjectInjectionWorld
+                     .GetExistingSystemManaged&lt;Game.Routes.RoutePathSystem&gt;();
+
+// There are no public methods to force a path recompute directly other than the
+// game's ECS flow. The system serializes its lazy update set automatically on save.
+// You can, however, call SetDefaults via the system reference when implementing
+// custom serialization/initialization helpers (requires a proper Context object).
+// Example (conceptual):
+// routeSystem.SetDefaults(myContext);
 </code></pre>
-<ul>
-<li><code>public Deserialize&lt;TReader&gt;(TReader reader) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Void Deserialize&lt;TReader&gt;(TReader reader);
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_PathfindQueueSystem = base.World.GetOrCreateSystemManaged&lt;PathfindQueueSystem&gt;();
-        m_UpdatedSegmentQuery = GetEntityQuery(ComponentType.ReadOnly&lt;Updated&gt;(), ComponentType.ReadOnly&lt;Segment&gt;(), ComponentType.ReadWrite&lt;PathTargets&gt;());
-        m_DeletedLaneQuery = GetEntityQuery(ComponentType.ReadOnly&lt;Deleted&gt;(), ComponentType.ReadOnly&lt;Lane&gt;(), ComponentType.Exclude&lt;Temp&gt;());
-        m_AppliedLaneQuery = GetEntityQuery(ComponentType.ReadOnly&lt;Applied&gt;(), ComponentType.ReadOnly&lt;Lane&gt;());
-        m_SegmentQuery = GetEntityQuery(ComponentType.ReadOnly&lt;Segment&gt;(), ComponentType.ReadOnly&lt;PathElement&gt;(), ComponentType.Exclude&lt;Deleted&gt;());
-        m_LazyUpdateSet = new NativeParallelHashSet&lt;Entity&gt;(20, Allocator.Persistent);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreateForCompiler() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnCreateForCompiler()
-    {
-        base.OnCreateForCompiler();
-        __AssignQueries(ref base.CheckedStateRef);
-        __TypeHandle.__AssignHandles(ref base.CheckedStateRef);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnDestroy() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnDestroy()
-    {
-        m_LazyUpdateSet.Dispose();
-        base.OnDestroy();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        bool flag = !m_DeletedLaneQuery.IsEmptyIgnoreFilter &amp;&amp; !m_SegmentQuery.IsEmptyIgnoreFilter;
-        bool flag2 = !m_AppliedLaneQuery.IsEmptyIgnoreFilter &amp;&amp; !m_SegmentQuery.IsEmptyIgnoreFilter;
-        bool flag3 = !m_UpdatedSegmentQuery.IsEmptyIgnoreFilter;
-        if (!flag &amp;&amp; !flag2 &amp;&amp; !flag3 &amp;&amp; m_LazyUpdateSet.IsEmpty)
-        {
-            return;
-        }
-        NativeQueue&lt;Entity&gt; nativeQueue = default(NativeQueue&lt;Entity&gt;);
-        NativeQueue&lt;Entity&gt; nativeQueue2 = default(NativeQueue&lt;Entity&gt;);
-        NativeParallelHashSet&lt;Entity&gt; nativeParallelHashSet = default(NativeParallelHashSet&lt;Entity&gt;);
-        JobHandle jobHandle = default(JobHandle);
-        JobHandle jobHandle2 = default(JobHandle);
-        if (flag)
-        {
-            nativeQueue = new NativeQueue&lt;Entity&gt;(Allocator.TempJob);
-            jobHandle = JobChunkExtensions.ScheduleParallel(new CheckRoutePathsJob
-            {
-                m_EntityType = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef),
-                m_PathElementType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Pathfind_PathElement_RO_BufferTypeHandle, ref base.CheckedStateRef),
-                m_DeletedData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Common_Deleted_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_UpdateQueue = nativeQueue.AsParallelWriter()
-            }, m_SegmentQuery, base.Dependency);
-            JobHandle.ScheduleBatchedJobs();
-        }
-        if (flag2)
-        {
-            NativeParallelHashSet&lt;RoutePathType&gt; pathTypeSet = new NativeParallelHashSet&lt;RoutePathType&gt;(10, Allocator.TempJob);
-            nativeQueue2 = new NativeQueue&lt;Entity&gt;(Allocator.TempJob);
-            CheckAppliedLanesJob jobData = new CheckAppliedLanesJob
-            {
-                m_CarLaneType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Net_CarLane_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                m_TrackLaneType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Net_TrackLane_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                m_PedestrianLaneType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Net_PedestrianLane_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                m_PrefabRefType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                m_CarLaneData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_CarLaneData_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_TrackLaneData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_TrackLaneData_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_PathTypeSet = pathTypeSet
-            };
-            JobHandle jobHandle3 = JobChunkExtensions.ScheduleParallel(new CheckSegmentRoutes
-            {
-                m_EntityType = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef),
-                m_OwnerType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Common_Owner_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                m_PrefabRefData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_RouteConnectionData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_RouteConnectionData_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_PathTypeSet = pathTypeSet,
-                m_UpdateQueue = nativeQueue2.AsParallelWriter()
-            }, dependsOn: JobChunkExtensions.Schedule(jobData, m_AppliedLaneQuery, base.Dependency), query: m_SegmentQuery);
-            pathTypeSet.Dispose(jobHandle3);
-            jobHandle2 = jobHandle3;
-            JobHandle.ScheduleBatchedJobs();
-        }
-        if (flag || flag3)
-        {
-            nativeParallelHashSet = new NativeParallelHashSet&lt;Entity&gt;(10, Allocator.Temp);
-        }
-        if (flag3)
-        {
-            NativeArray&lt;ArchetypeChunk&gt; nativeArray = m_UpdatedSegmentQuery.ToArchetypeChunkArray(Allocator.TempJob);
-            EntityTypeHandle entityTypeHandle = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef);
-            ComponentTypeHandle&lt;Segment&gt; typeHandle = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Routes_Segment_RO_ComponentTypeHandle, ref base.CheckedStateRef);
-            ComponentTypeHandle&lt;Owner&gt; typeHandle2 = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Common_Owner_RO_ComponentTypeHandle, ref base.CheckedStateRef);
-            ComponentTypeHandle&lt;PathTargets&gt; typeHandle3 = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Routes_PathTargets_RW_ComponentTypeHandle, ref base.CheckedStateRef);
-            ComponentTypeHandle&lt;Temp&gt; typeHandle4 = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Tools_Temp_RO_ComponentTypeHandle, ref base.CheckedStateRef);
-            ComponentTypeHandle&lt;PrefabRef&gt; typeHandle5 = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentTypeHandle, ref base.CheckedStateRef);
-            BufferLookup&lt;RouteWaypoint&gt; bufferLookup = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Routes_RouteWaypoint_RO_BufferLookup, ref base.CheckedStateRef);
-            ComponentLookup&lt;RouteLane&gt; componentLookup = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Routes_RouteLane_RO_ComponentLookup, ref base.CheckedStateRef);
-            ComponentLookup&lt;Position&gt; componentLookup2 = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Routes_Position_RO_ComponentLookup, ref base.CheckedStateRef);
-            ComponentLookup&lt;RouteData&gt; componentLookup3 = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_RouteData_RO_ComponentLookup, ref base.CheckedStateRef);
-            ComponentLookup&lt;RouteConnectionData&gt; componentLookup4 = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_RouteConnectionData_RO_ComponentLookup, ref base.CheckedStateRef);
-            base.Dependency.Complete();
-            for (int i = 0; i &lt; nativeArray.Length; i++)
-            {
-                ArchetypeChunk archetypeChunk = nativeArray[i];
-                NativeArray&lt;Entity&gt; nativeArray2 = archetypeChunk.GetNativeArray(entityTypeHandle);
-                NativeArray&lt;Segment&gt; nativeArray3 = archetypeChunk.GetNativeArray(ref typeHandle);
-                NativeArray&lt;Owner&gt; nativeArray4 = archetypeChunk.GetNativeArray(ref typeHandle2);
-                NativeArray&lt;PathTargets&gt; nativeArray5 = archetypeChunk.GetNativeArray(ref typeHandle3);
-                NativeArray&lt;PrefabRef&gt; nativeArray6 = archetypeChunk.GetNativeArray(ref typeHandle5);
-                bool highPriority = archetypeChunk.Has(ref typeHandle4);
-                for (int j = 0; j &lt; nativeArray2.Length; j++)
-                {
-                    Entity entity = nativeArray2[j];
-                    Segment segment = nativeArray3[j];
-                    Owner owner = nativeArray4[j];
-                    PathTargets value = nativeArray5[j];
-                    PrefabRef prefabRef = nativeArray6[j];
-                    if (!bufferLookup.HasBuffer(owner.m_Owner))
-                    {
-                        continue;
-                    }
-                    DynamicBuffer&lt;RouteWaypoint&gt; dynamicBuffer = bufferLookup[owner.m_Owner];
-                    int num = segment.m_Index + 1;
-                    if (num == dynamicBuffer.Length)
-                    {
-                        num = 0;
-                    }
-                    Entity waypoint = dynamicBuffer[segment.m_Index].m_Waypoint;
-                    Entity waypoint2 = dynamicBuffer[num].m_Waypoint;
-                    if (componentLookup.HasComponent(waypoint) &amp;&amp; componentLookup.HasComponent(waypoint2))
-                    {
-                        RouteLane startLane = componentLookup[waypoint];
-                        RouteLane endLane = componentLookup[waypoint2];
-                        float2 @float = new float2(startLane.m_EndCurvePos, endLane.m_StartCurvePos);
-                        if (!(value.m_StartLane == startLane.m_EndLane) || !(value.m_EndLane == endLane.m_StartLane) || !math.all(math.abs(value.m_CurvePositions - @float) &lt; 0.001f))
-                        {
-                            value.m_StartLane = startLane.m_EndLane;
-                            value.m_EndLane = endLane.m_StartLane;
-                            value.m_CurvePositions = @float;
-                            float3 position = componentLookup2[waypoint].m_Position;
-                            float3 position2 = componentLookup2[waypoint2].m_Position;
-                            RouteData route = componentLookup3[prefabRef.m_Prefab];
-                            RouteConnectionData routeConnection = componentLookup4[prefabRef.m_Prefab];
-                            SetupPathfind(entity, position, position2, startLane, endLane, route, routeConnection, highPriority);
-                            nativeParallelHashSet.Add(entity);
-                            m_LazyUpdateSet.Remove(entity);
-                            nativeArray5[j] = value;
-                        }
-                    }
-                }
-            }
-            nativeArray.Dispose();
-        }
-        if (flag)
-        {
-            BufferLookup&lt;RouteWaypoint&gt; bufferLookup2 = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Routes_RouteWaypoint_RO_BufferLookup, ref base.CheckedStateRef);
-            ComponentLookup&lt;RouteLane&gt; componentLookup5 = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Routes_RouteLane_RO_ComponentLookup, ref base.CheckedStateRef);
-            ComponentLookup&lt;Position&gt; componentLookup6 = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Routes_Position_RO_ComponentLookup, ref base.CheckedStateRef);
-            ComponentLookup&lt;Segment&gt; componentLookup7 = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Routes_Segment_RO_ComponentLookup, ref base.CheckedStateRef);
-            ComponentLookup&lt;Owner&gt; componentLookup8 = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Common_Owner_RO_ComponentLookup, ref base.CheckedStateRef);
-            ComponentLookup&lt;PrefabRef&gt; componentLookup9 = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentLookup, ref base.CheckedStateRef);
-            ComponentLookup&lt;RouteData&gt; componentLookup10 = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_RouteData_RO_ComponentLookup, ref base.CheckedStateRef);
-            ComponentLookup&lt;RouteConnectionData&gt; componentLookup11 = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_RouteConnectionData_RO_ComponentLookup, ref base.CheckedStateRef);
-            jobHandle.Complete();
-            base.Dependency.Complete();
-            Entity item;
-            while (nativeQueue.TryDequeue(out item))
-            {
-                if (nativeParallelHashSet.Add(item))
-                {
-                    m_LazyUpdateSet.Remove(item);
-                    Segment segment2 = componentLookup7[item];
-                    Owner owner2 = componentLookup8[item];
-                    PrefabRef prefabRef2 = componentLookup9[item];
-                    DynamicBuffer&lt;RouteWaypoint&gt; dynamicBuffer2 = bufferLookup2[owner2.m_Owner];
-                    int num2 = segment2.m_Index + 1;
-                    if (num2 == dynamicBuffer2.Length)
-                    {
-                        num2 = 0;
-                    }
-                    Entity waypoint3 = dynamicBuffer2[segment2.m_Index].m_Waypoint;
-                    Entity waypoint4 = dynamicBuffer2[num2].m_Waypoint;
-                    RouteLane startLane2 = componentLookup5[waypoint3];
-                    RouteLane endLane2 = componentLookup5[waypoint4];
-                    float3 position3 = componentLookup6[waypoint3].m_Position;
-                    float3 position4 = componentLookup6[waypoint4].m_Position;
-                    RouteData route2 = componentLookup10[prefabRef2.m_Prefab];
-                    RouteConnectionData routeConnection2 = componentLookup11[prefabRef2.m_Prefab];
-                    SetupPathfind(item, position3, position4, startLane2, endLane2, route2, routeConnection2, highPriority: false);
-                }
-            }
-        }
-        if (flag2)
-        {
-            jobHandle2.Complete();
-            Entity item2;
-            while (nativeQueue2.TryDequeue(out item2))
-            {
-                if (!nativeParallelHashSet.IsCreated || !nativeParallelHashSet.Contains(item2))
-                {
-                    m_LazyUpdateSet.Add(item2);
-                }
-            }
-        }
-        if (!m_LazyUpdateSet.IsEmpty &amp;&amp; (!nativeParallelHashSet.IsCreated || nativeParallelHashSet.IsEmpty))
-        {
-            BufferLookup&lt;RouteWaypoint&gt; bufferLookup3 = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Routes_RouteWaypoint_RO_BufferLookup, ref base.CheckedStateRef);
-            ComponentLookup&lt;RouteLane&gt; componentLookup12 = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Routes_RouteLane_RO_ComponentLookup, ref base.CheckedStateRef);
-            ComponentLookup&lt;Position&gt; componentLookup13 = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Routes_Position_RO_ComponentLookup, ref base.CheckedStateRef);
-            ComponentLookup&lt;Segment&gt; componentLookup14 = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Routes_Segment_RO_ComponentLookup, ref base.CheckedStateRef);
-            ComponentLookup&lt;Owner&gt; componentLookup15 = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Common_Owner_RO_ComponentLookup, ref base.CheckedStateRef);
-            ComponentLookup&lt;Deleted&gt; componentLookup16 = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Common_Deleted_RO_ComponentLookup, ref base.CheckedStateRef);
-            ComponentLookup&lt;PrefabRef&gt; componentLookup17 = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentLookup, ref base.CheckedStateRef);
-            ComponentLookup&lt;RouteData&gt; componentLookup18 = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_RouteData_RO_ComponentLookup, ref base.CheckedStateRef);
-            ComponentLookup&lt;RouteConnectionData&gt; componentLookup19 = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_RouteConnectionData_RO_ComponentLookup, ref base.CheckedStateRef);
-            base.Dependency.Complete();
-            NativeParallelHashSet&lt;Entity&gt;.Enumerator enumerator = m_LazyUpdateSet.GetEnumerator();
-            while (enumerator.MoveNext())
-            {
-                Entity current = enumerator.Current;
-                m_LazyUpdateSet.Remove(current);
-                enumerator.Dispose();
-                enumerator = m_LazyUpdateSet.GetEnumerator();
-                if (componentLookup14.HasComponent(current) &amp;&amp; !componentLookup16.HasComponent(current))
-                {
-                    Segment segment3 = componentLookup14[current];
-                    Owner owner3 = componentLookup15[current];
-                    PrefabRef prefabRef3 = componentLookup17[current];
-                    DynamicBuffer&lt;RouteWaypoint&gt; dynamicBuffer3 = bufferLookup3[owner3.m_Owner];
-                    int num3 = segment3.m_Index + 1;
-                    if (num3 == dynamicBuffer3.Length)
-                    {
-                        num3 = 0;
-                    }
-                    Entity waypoint5 = dynamicBuffer3[segment3.m_Index].m_Waypoint;
-                    Entity waypoint6 = dynamicBuffer3[num3].m_Waypoint;
-                    RouteLane startLane3 = componentLookup12[waypoint5];
-                    RouteLane endLane3 = componentLookup12[waypoint6];
-                    float3 position5 = componentLookup13[waypoint5].m_Position;
-                    float3 position6 = componentLookup13[waypoint6].m_Position;
-                    RouteData route3 = componentLookup18[prefabRef3.m_Prefab];
-                    RouteConnectionData routeConnection3 = componentLookup19[prefabRef3.m_Prefab];
-                    SetupPathfind(current, position5, position6, startLane3, endLane3, route3, routeConnection3, highPriority: false);
-                    break;
-                }
-            }
-            enumerator.Dispose();
-        }
-        if (nativeQueue.IsCreated)
-        {
-            nativeQueue.Dispose();
-        }
-        if (nativeQueue2.IsCreated)
-        {
-            nativeQueue2.Dispose();
-        }
-        if (nativeParallelHashSet.IsCreated)
-        {
-            nativeParallelHashSet.Dispose();
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public Serialize&lt;TWriter&gt;(TWriter writer) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Void Serialize&lt;TWriter&gt;(TWriter writer);
-</code></pre>
-<ul>
-<li><code>public SetDefaults(Colossal.Serialization.Entities.Context context) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void SetDefaults(Context context)
-    {
-        m_LazyUpdateSet.Clear();
-    }
-</code></pre>
-<ul>
-<li><code>private SetupPathfind(Unity.Entities.Entity entity, Unity.Mathematics.float3 startPos, Unity.Mathematics.float3 endPos, Game.Routes.RouteLane startLane, Game.Routes.RouteLane endLane, Game.Prefabs.RouteData route, Game.Prefabs.RouteConnectionData routeConnection, System.Boolean highPriority) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void SetupPathfind(Entity entity, float3 startPos, float3 endPos, RouteLane startLane, RouteLane endLane, RouteData route, RouteConnectionData routeConnection, bool highPriority)
-    {
-        PathfindParameters parameters = new PathfindParameters
-        {
-            m_MaxSpeed = 277.77777f,
-            m_WalkSpeed = 5.555556f,
-            m_Weights = new PathfindWeights(1f, 1f, 1f, 1f),
-            m_PathfindFlags = (PathfindFlags.Stable | PathfindFlags.IgnoreFlow),
-            m_IgnoredRules = (RuleFlags.HasBlockage | RuleFlags.ForbidCombustionEngines | RuleFlags.ForbidHeavyTraffic | RuleFlags.ForbidPrivateTraffic | RuleFlags.ForbidSlowTraffic),
-            m_Methods = RouteUtils.GetPathMethods(routeConnection.m_RouteConnectionType, route.m_Type, routeConnection.m_RouteTrackType, routeConnection.m_RouteRoadType, routeConnection.m_RouteSizeClass)
-        };
-        if (routeConnection.m_RouteConnectionType != RouteConnectionType.Road || routeConnection.m_RouteRoadType != RoadTypes.Car)
-        {
-            parameters.m_IgnoredRules |= RuleFlags.ForbidTransitTraffic;
-        }
-        PathfindAction action = new PathfindAction(1, 1, Allocator.Persistent, parameters, SetupTargetType.None, SetupTargetType.None);
-        action.data.m_StartTargets[0] = new PathTarget(startLane.m_EndLane, startLane.m_EndLane, startLane.m_EndCurvePos, 0f);
-        action.data.m_EndTargets[0] = new PathTarget(endLane.m_StartLane, endLane.m_StartLane, endLane.m_StartCurvePos, 0f);
-        PathEventData eventData = new PathEventData
-        {
-            m_Position1 = startPos,
-            m_Position2 = endPos
-        };
-        m_PathfindQueueSystem.Enqueue(action, entity, default(JobHandle), uint.MaxValue, this, eventData, highPriority);
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Routes.RoutePathSystem+RoutePathType</code>  </li>
-<li><code>Game.Routes.RoutePathSystem+CheckRoutePathsJob</code>  </li>
-<li><code>Game.Routes.RoutePathSystem+CheckAppliedLanesJob</code>  </li>
-<li><code>Game.Routes.RoutePathSystem+CheckSegmentRoutes</code>  </li>
-<li><code>Game.Routes.RoutePathSystem+TypeHandle</code>  </li>
-</ul>
+<p>Notes and implementation details:
+- This system heavily uses Burst-compiled IJobChunk jobs and Native collections (NativeQueue, NativeParallelHashSet) to efficiently find affected segments on changes.
+- The m_LazyUpdateSet is persisted via ISerializable/IDefaultSerializable, so any segments marked for lazy update survive save/load.
+- PathfindParameters use IgnoreFlow and Stable flags and a fairly high run speed limit (277.77777f = 1000 km/h in m/s units used internally?) — these are tuned for route pathfinding needs.
+- The system assumes presence of many game-specific component types: RouteLane, RouteWaypoint, RouteData, RouteConnectionData, PathTargets, PathElement, Segment, Owner, PrefabRef, Deleted, etc.</p>
 
 
 

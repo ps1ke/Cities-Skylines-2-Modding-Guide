@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87073,6 +87165,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Simulation/SurfaceWater/" class="md-nav__link">
         
   
@@ -90989,15 +91104,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -91034,9 +91140,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -117930,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117955,15 +118083,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -118002,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118027,794 +118146,256 @@
 
 
 <h1 id="gametoolsbulldozetoolsystem">Game.Tools.BulldozeToolSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Tools</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.Tools.ToolBaseSystem</code><br />
-<strong>Implements:</strong> <code>System.IEquatable&lt;Game.Tools.ToolBaseSystem&gt;</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class BulldozeToolSystem : Game.Tools.ToolBaseSystem, System.IEquatable&lt;Game.Tools.ToolBaseSystem&gt;
-{
-    private Game.Tools.BulldozeToolSystem+Mode &lt;mode&gt;k__BackingField;
-    private System.Boolean &lt;underground&gt;k__BackingField;
-    private System.Boolean &lt;allowManipulation&gt;k__BackingField;
-    private System.Boolean &lt;debugBypassBulldozeConfirmation&gt;k__BackingField;
-    private Game.Prefabs.BulldozePrefab &lt;prefab&gt;k__BackingField;
-    public System.Action EventConfirmationRequested;
-    private Game.Tools.ToolOutputBarrier m_ToolOutputBarrier;
-    private Game.Audio.AudioManager m_AudioManager;
-    private Game.Achievements.AchievementTriggerSystem m_AchievementTriggerSystem;
-    private Unity.Entities.EntityQuery m_DefinitionQuery;
-    private Unity.Entities.EntityQuery m_BuildingQuery;
-    private Unity.Entities.EntityQuery m_RoadQuery;
-    private Unity.Entities.EntityQuery m_PlantQuery;
-    private Unity.Entities.EntityQuery m_SoundQuery;
-    private Game.Tools.ControlPoint m_LastRaycastPoint;
-    private Game.Tools.BulldozeToolSystem+State m_State;
-    private Unity.Collections.NativeList&lt;Game.Tools.ControlPoint&gt; m_ControlPoints;
-    private Game.Input.IProxyAction m_Bulldoze;
-    private Game.Input.IProxyAction m_BulldozeDiscard;
-    private System.Boolean m_ApplyBlocked;
-    private Game.Tools.BulldozeToolSystem+TypeHandle __TypeHandle;
-    public static const System.String kToolID;
-
-    public System.String toolID { get; }
-    public System.Int32 uiModeIndex { get; }
-    public System.Boolean allowUnderground { get; }
-    public Game.Tools.BulldozeToolSystem+Mode mode { get; set; }
-    public Game.Tools.BulldozeToolSystem+Mode actualMode { get; }
-    public System.Boolean underground { get; set; }
-    public System.Boolean allowManipulation { get; set; }
-    public System.Boolean debugBypassBulldozeConfirmation { get; set; }
-    public Game.Prefabs.BulldozePrefab prefab { get; set; }
-    private System.Collections.Generic.IEnumerable&lt;Game.Input.IProxyAction&gt; toolActions { private get; }
-
-    public BulldozeToolSystem();
-
-    private System.Void __AssignQueries(Unity.Entities.SystemState&amp; state);
-    private Unity.Jobs.JobHandle Apply(Unity.Jobs.JobHandle inputDeps);
-    public System.Void ConfirmAction(System.Boolean confirm);
-    private System.Boolean ConfirmationNeeded();
-    public virtual System.Void ElevationDown();
-    public virtual System.Void ElevationScroll();
-    public virtual System.Void ElevationUp();
-    public virtual Game.Prefabs.PrefabBase GetPrefab();
-    protected virtual System.Boolean GetRaycastResult(Game.Tools.ControlPoint&amp; controlPoint);
-    protected virtual System.Boolean GetRaycastResult(Game.Tools.ControlPoint&amp; controlPoint, System.Boolean&amp; forceUpdate);
-    public virtual System.Void GetUIModes(System.Collections.Generic.List&lt;Game.Tools.ToolMode&gt; modes);
-    public virtual System.Void InitializeRaycast();
-    private System.Boolean IsMultiSelection();
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnCreateForCompiler();
-    protected virtual System.Void OnDestroy();
-    protected virtual System.Void OnStartRunning();
-    protected virtual Unity.Jobs.JobHandle OnUpdate(Unity.Jobs.JobHandle inputDeps);
-    public virtual System.Void SetUnderground(System.Boolean underground);
-    private Unity.Jobs.JobHandle SnapControlPoints(Unity.Jobs.JobHandle inputDeps);
-    public virtual System.Boolean TrySetPrefab(Game.Prefabs.PrefabBase prefab);
-    private Unity.Jobs.JobHandle Update(Unity.Jobs.JobHandle inputDeps, System.Boolean fullUpdate);
-    private virtual System.Void UpdateActions();
-    private Unity.Jobs.JobHandle UpdateDefinitions(Unity.Jobs.JobHandle inputDeps);
-}
-</code></pre>
+<p><strong>Assembly:</strong> Game<br />
+<strong>Namespace:</strong> Game.Tools</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> ToolBaseSystem</p>
+<p><strong>Summary:</strong><br />
+BulldozeToolSystem implements the Bulldoze tool logic for Cities: Skylines 2. It handles raycasting, control-point selection, snapping, path creation for multi-edge bulldozes, and the creation of deletion "definitions" (CreationDefinition) that are later consumed to actually remove entities (edges, nodes, objects, areas, attachments, upgrades, etc.). The system supports editor vs game modes, three tool modes (MainElements, SubElements, Everything), underground toggling, multi-selection, confirmation flow when buildings would be destroyed, and schedules two main jobs (SnapJob and CreateDefinitionsJob) to prepare definitions on worker threads while using an EntityCommandBuffer to push creation requests to the simulation.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.Tools.BulldozeToolSystem+Mode &lt;mode&gt;k__BackingField</code>  </li>
+<li>
+<p><code>public const string kToolID</code><br />
+Constant identifier for the tool: "Bulldoze Tool".</p>
+</li>
+<li>
+<p><code>public Action EventConfirmationRequested</code><br />
+Event fired when bulldoze requires player confirmation (used by UI). Raised before final apply when user may destroy buildings.</p>
+</li>
+<li>
+<p><code>private ToolOutputBarrier m_ToolOutputBarrier</code><br />
+Barrier used to produce creation/deletion definition entities (CreationDefinition) safely from jobs.</p>
+</li>
+<li>
+<p><code>private AudioManager m_AudioManager</code><br />
+Reference to the audio manager used to play bulldoze sounds.</p>
+</li>
+<li>
+<p><code>private AchievementTriggerSystem m_AchievementTriggerSystem</code><br />
+Reference used to report progress for achievements (e.g., squasher progression).</p>
+</li>
+<li>
+<p><code>private EntityQuery m_DefinitionQuery</code><br />
+EntityQuery used to find existing creation definitions to destroy/update when tool state changes.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_BuildingQuery</code><br />
+EntityQuery to detect temporary building definition entities (used to decide if confirmation is needed).</p>
+</li>
+<li>
+<p><code>private EntityQuery m_RoadQuery</code><br />
+EntityQuery for temporary road (edge) definitions.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_PlantQuery</code><br />
+EntityQuery for plant/object definitions.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_SoundQuery</code><br />
+Query to access tool UX sound settings (used to play different bulldoze sounds).</p>
+</li>
+<li>
+<p><code>private ControlPoint m_LastRaycastPoint</code><br />
+Stores the previous raycast control point to detect changes and avoid redundant updates.</p>
+</li>
+<li>
+<p><code>private State m_State</code><br />
+Internal finite-state for the tool: Default, Applying, Waiting (confirmation), Confirmed, Cancelled.</p>
+</li>
+<li>
+<p><code>private NativeList&lt;ControlPoint&gt; m_ControlPoints</code><br />
+Persistent NativeList holding the current selection/control points used to produce definitions.</p>
+</li>
+<li>
+<p><code>private IProxyAction m_Bulldoze</code><br />
+Input action proxy for the bulldoze/apply action.</p>
+</li>
+<li>
+<p><code>private IProxyAction m_BulldozeDiscard</code><br />
+Input action proxy for the discard/cancel action during multi-selection.</p>
+</li>
+<li>
+<p><code>private bool m_ApplyBlocked</code><br />
+Temporary flag to block apply when a discard/cancel has just occurred.</p>
+</li>
+<li>
+<p><code>private TypeHandle __TypeHandle</code><br />
+Holds ComponentLookup/BufferLookup handles used by burst jobs (assigned in OnCreateForCompiler).</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.Tools.BulldozeToolSystem+Mode &lt;mode&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private System.Boolean &lt;underground&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean &lt;underground&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private System.Boolean &lt;allowManipulation&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean &lt;allowManipulation&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private System.Boolean &lt;debugBypassBulldozeConfirmation&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean &lt;debugBypassBulldozeConfirmation&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private Game.Prefabs.BulldozePrefab &lt;prefab&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Prefabs.BulldozePrefab &lt;prefab&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>public System.Action EventConfirmationRequested</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Action EventConfirmationRequested;
-</code></pre>
-<ul>
-<li><code>private Game.Tools.ToolOutputBarrier m_ToolOutputBarrier</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Tools.ToolOutputBarrier m_ToolOutputBarrier;
-</code></pre>
-<ul>
-<li><code>private Game.Audio.AudioManager m_AudioManager</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Audio.AudioManager m_AudioManager;
-</code></pre>
-<ul>
-<li><code>private Game.Achievements.AchievementTriggerSystem m_AchievementTriggerSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Achievements.AchievementTriggerSystem m_AchievementTriggerSystem;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_DefinitionQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_DefinitionQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_BuildingQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_BuildingQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_RoadQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_RoadQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_PlantQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_PlantQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_SoundQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_SoundQuery;
-</code></pre>
-<ul>
-<li><code>private Game.Tools.ControlPoint m_LastRaycastPoint</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Tools.ControlPoint m_LastRaycastPoint;
-</code></pre>
-<ul>
-<li><code>private Game.Tools.BulldozeToolSystem+State m_State</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Tools.BulldozeToolSystem+State m_State;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeList&lt;Game.Tools.ControlPoint&gt; m_ControlPoints</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeList&lt;Game.Tools.ControlPoint&gt; m_ControlPoints;
-</code></pre>
-<ul>
-<li><code>private Game.Input.IProxyAction m_Bulldoze</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Input.IProxyAction m_Bulldoze;
-</code></pre>
-<ul>
-<li><code>private Game.Input.IProxyAction m_BulldozeDiscard</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Input.IProxyAction m_BulldozeDiscard;
-</code></pre>
-<ul>
-<li><code>private System.Boolean m_ApplyBlocked</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean m_ApplyBlocked;
-</code></pre>
-<ul>
-<li><code>private Game.Tools.BulldozeToolSystem+TypeHandle __TypeHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Tools.BulldozeToolSystem+TypeHandle __TypeHandle;
-</code></pre>
-<ul>
-<li><code>public static const System.String kToolID</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static const System.String kToolID;
-</code></pre>
+<p>(These are the main fields — the class contains additional nested types and helper data used by the jobs and query/lookup assignment.)</p>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>public System.String toolID { get }</code>  </li>
+<li>
+<p><code>public override string toolID { get }</code><br />
+Returns the tool ID string ("Bulldoze Tool"). Used by UI/tool management.</p>
+</li>
+<li>
+<p><code>public override int uiModeIndex { get }</code><br />
+Returns the current UI mode index. It maps from actualMode to int (used for UI mode selection).</p>
+</li>
+<li>
+<p><code>public override bool allowUnderground { get }</code><br />
+Tool indicates it allows underground selection (true).</p>
+</li>
+<li>
+<p><code>public Mode mode { get; set; }</code><br />
+User-selected mode (MainElements, SubElements, Everything). In editor mode more options are available.</p>
+</li>
+<li>
+<p><code>public Mode actualMode { get; }</code><br />
+The effective mode used by the tool. If not in editor actionMode, this returns MainElements regardless of the user setting.</p>
+</li>
+<li>
+<p><code>public bool underground { get; set; }</code><br />
+Whether the tool is currently targeting underground objects.</p>
+</li>
+<li>
+<p><code>public bool allowManipulation { get; set; }</code><br />
+If set, raycast includes moving objects for manipulation.</p>
+</li>
+<li>
+<p><code>public bool debugBypassBulldozeConfirmation { get; set; }</code><br />
+Debug flag to skip confirmation checks (useful for dev/testing).</p>
+</li>
+<li>
+<p><code>public BulldozePrefab prefab { get; set; }</code><br />
+Associated prefab object for the tool (BulldozePrefab). GetPrefab/TrySetPrefab work with it.</p>
+</li>
+<li>
+<p><code>private protected override IEnumerable&lt;IProxyAction&gt; toolActions { get; }</code><br />
+Sequence of actions the tool exposes (Bulldoze and BulldozeDiscard).</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public System.String toolID { get; }
-</code></pre>
-<ul>
-<li><code>public System.Int32 uiModeIndex { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Int32 uiModeIndex { get; }
-</code></pre>
-<ul>
-<li><code>public System.Boolean allowUnderground { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Boolean allowUnderground { get; }
-</code></pre>
-<ul>
-<li><code>public Game.Tools.BulldozeToolSystem+Mode mode { get; set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Game.Tools.BulldozeToolSystem+Mode mode { get; set; }
-</code></pre>
-<ul>
-<li><code>public Game.Tools.BulldozeToolSystem+Mode actualMode { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Game.Tools.BulldozeToolSystem+Mode actualMode { get; }
-</code></pre>
-<ul>
-<li><code>public System.Boolean underground { get; set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Boolean underground { get; set; }
-</code></pre>
-<ul>
-<li><code>public System.Boolean allowManipulation { get; set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Boolean allowManipulation { get; set; }
-</code></pre>
-<ul>
-<li><code>public System.Boolean debugBypassBulldozeConfirmation { get; set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Boolean debugBypassBulldozeConfirmation { get; set; }
-</code></pre>
-<ul>
-<li><code>public Game.Prefabs.BulldozePrefab prefab { get; set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Game.Prefabs.BulldozePrefab prefab { get; set; }
-</code></pre>
-<ul>
-<li><code>private System.Collections.Generic.IEnumerable&lt;Game.Input.IProxyAction&gt; toolActions { private get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Collections.Generic.IEnumerable&lt;Game.Input.IProxyAction&gt; toolActions { private get; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public BulldozeToolSystem()</code>  </li>
+<li><code>public BulldozeToolSystem()</code><br />
+Standard public constructor. Most initialization happens in OnCreate/OnStartRunning rather than the ctor.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public BulldozeToolSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private __AssignQueries(Unity.Entities.SystemState&amp; state) : System.Void</code>  </li>
+<li>
+<p><code>[Preserve] protected override void OnCreate()</code><br />
+Initializes references and state: caches ToolOutputBarrier, AudioManager, AchievementTriggerSystem, creates the persistent m_ControlPoints list, sets up EntityQueries, and retrieves input actions for bulldoze/discard. This is the main startup logic for the tool system.</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnDestroy()</code><br />
+Disposes native containers (m_ControlPoints) and calls base.OnDestroy.</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnStartRunning()</code><br />
+Called when the system starts running: clears control points, resets last raycast point, sets initial state to Default, resets apply-blocked flag and base required flags (areas/net/stop icons).</p>
+</li>
+<li>
+<p><code>public override void GetUIModes(List&lt;ToolMode&gt; modes)</code><br />
+Populates the UI mode list. Always adds MainElements; in editor action mode also adds SubElements and Everything.</p>
+</li>
+<li>
+<p><code>private protected override void UpdateActions()</code><br />
+Updates action proxies and their enabled states depending on current tool state and selection (e.g., apply and cancel enabling).</p>
+</li>
+<li>
+<p><code>private bool IsMultiSelection()</code><br />
+Helper that returns whether the current control points constitute a multi-selection. Roads/nodes require more points for multi selection; general objects require &gt;1.</p>
+</li>
+<li>
+<p><code>public override PrefabBase GetPrefab()</code><br />
+Returns the assigned BulldozePrefab.</p>
+</li>
+<li>
+<p><code>public override bool TrySetPrefab(PrefabBase prefab)</code><br />
+Attempts to set the tool's prefab; accepts BulldozePrefab instances.</p>
+</li>
+<li>
+<p><code>public override void SetUnderground(bool underground)</code><br />
+Set underground flag.</p>
+</li>
+<li>
+<p><code>public override void ElevationUp()</code> / <code>ElevationDown()</code> / <code>ElevationScroll()</code><br />
+Convenience methods to change underground toggle.</p>
+</li>
+<li>
+<p><code>public override void InitializeRaycast()</code><br />
+Configures the tool raycast system based on current mode, underground flag, actionMode (editor vs game) and allowManipulation. Sets typeMask, netLayerMask, collisionMask, raycastFlags and areaTypeMask appropriately.</p>
+</li>
+<li>
+<p><code>[Preserve] protected override JobHandle OnUpdate(JobHandle inputDeps)</code><br />
+Main update method of the system: manages required data flags, updates actions, and runs a small state machine to switch between Default, Applying, Waiting, Confirmed, Cancelled states. Handles transition to Apply() and Update() and triggers confirmation event when needed.</p>
+</li>
+<li>
+<p><code>private bool ConfirmationNeeded()</code><br />
+Checks whether any temporary building definitions scheduled for deletion require player confirmation (non-spawnable or signature buildings). Iterates building query results to decide.</p>
+</li>
+<li>
+<p><code>public void ConfirmAction(bool confirm)</code><br />
+Callback used by UI to provide player confirmation (true accept, false cancel) when in Waiting state.</p>
+</li>
+<li>
+<p><code>private JobHandle Apply(JobHandle inputDeps)</code><br />
+Performs the apply action if allowed (GetAllowApply()). Plays sound(s) depending on what will be deleted, reports achievement progress, sets applyMode to Apply, clears control points and destroys/consumes created definitions via DestroyDefinitions. If apply is not allowed it trims multi-selection and returns to update.</p>
+</li>
+<li>
+<p><code>protected override bool GetRaycastResult(out ControlPoint controlPoint)</code><br />
+Raycast wrapper that converts Entity + RaycastHit to a ControlPoint. Handles service-upgrade owner redirection and selecting edge when node+edge hit combo occurs.</p>
+</li>
+<li>
+<p><code>protected override bool GetRaycastResult(out ControlPoint controlPoint, out bool forceUpdate)</code><br />
+Overload with forceUpdate return. Similar behavior.</p>
+</li>
+<li>
+<p><code>private JobHandle Update(JobHandle inputDeps, bool fullUpdate)</code><br />
+Handles per-frame raycast results, managing and updating m_ControlPoints, calling SnapControlPoints and UpdateDefinitions as needed, or clearing definitions when nothing hit.</p>
+</li>
+<li>
+<p><code>private JobHandle SnapControlPoints(JobHandle inputDeps)</code><br />
+Schedules SnapJob (Burst compiled) to snap control points, resolve owners, pathfinding for edges/nodes and sanitize control point list. Uses the TypeHandle component/buffer lookups for read-only access from the job.</p>
+</li>
+<li>
+<p><code>private JobHandle UpdateDefinitions(JobHandle inputDeps)</code><br />
+First destroys existing definitions, then schedules CreateDefinitionsJob (Burst compiled) which computes which entities should be bulldozed and writes CreationDefinition entities into the tool output barrier's command buffer. Adds job handle to the barrier and combines dependencies.</p>
+</li>
+<li>
+<p><code>private JobHandle DestroyDefinitions(EntityQuery defQuery, ToolOutputBarrier barrier, JobHandle deps)</code><br />
+(Provided by base/utility; used to destruct previously created CreationDefinition entities. Not shown in class body but used.)</p>
+</li>
+<li>
+<p><code>private JobHandle SnapJob.Execute()</code> (nested Burst job)<br />
+SnapJob logic: resolves outside connections, owner chains for static/upgrade service cases, handles special case path creation when start/end points are edges/nodes, and otherwise enforces same-owner constraints or removes invalid last control point. Also contains CreatePath and AddControlPoints helpers used for path construction between network nodes/edges.</p>
+</li>
+<li>
+<p><code>private JobHandle CreateDefinitionsJob.Execute()</code> (nested Burst job)<br />
+CreateDefinitionsJob logic: given snapped control points it builds the set of entities to bulldoze (edges, nodes, objects, area subareas, attached/installed upgrades), follows owner chains when needed, collects attached parents/fixed edges/subnets, and writes CreationDefinition entities using the provided EntityCommandBuffer. It also marks CreationFlags (Delete, Upgrade, Parent, Align, Hidden, Attach) to convey additional behavior to the consumer.</p>
+</li>
+<li>
+<p><code>protected override void OnCreateForCompiler()</code><br />
+Assigns query and typehandle lookups used by job scheduling (compiler helper).</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private void __AssignQueries(ref SystemState state)
-    {
-        new EntityQueryBuilder(Allocator.Temp).Dispose();
-    }
-</code></pre>
-<ul>
-<li><code>private Apply(Unity.Jobs.JobHandle inputDeps) : Unity.Jobs.JobHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private JobHandle Apply(JobHandle inputDeps)
-    {
-        if (GetAllowApply())
-        {
-            int num = m_BuildingQuery.CalculateEntityCount();
-            if (num &gt; 0 || m_RoadQuery.CalculateEntityCount() &gt; 0)
-            {
-                m_AudioManager.PlayUISound(m_SoundQuery.GetSingleton&lt;ToolUXSoundSettingsData&gt;().m_BulldozeSound);
-            }
-            else
-            {
-                m_AudioManager.PlayUISound(m_SoundQuery.GetSingleton&lt;ToolUXSoundSettingsData&gt;().m_PropPlantBulldozeSound);
-            }
-            if (num &gt; 0 &amp;&amp; m_ToolSystem.actionMode.IsGame())
-            {
-                m_AchievementTriggerSystem.m_SquasherDownerBuffer.AddProgress(num);
-            }
-            base.applyMode = ApplyMode.Apply;
-            m_LastRaycastPoint = default(ControlPoint);
-            m_ControlPoints.Clear();
-            return DestroyDefinitions(m_DefinitionQuery, m_ToolOutputBarrier, inputDeps);
-        }
-        if (m_ControlPoints.Length &gt;= 2)
-        {
-            m_ControlPoints.RemoveRange(0, m_ControlPoints.Length - 1);
-        }
-        return Update(inputDeps, fullUpdate: true);
-    }
-</code></pre>
-<ul>
-<li><code>public ConfirmAction(System.Boolean confirm) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void ConfirmAction(bool confirm)
-    {
-        if (m_State == State.Waiting)
-        {
-            m_State = (confirm ? State.Confirmed : State.Cancelled);
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private ConfirmationNeeded() : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">private bool ConfirmationNeeded()
-    {
-        NativeArray&lt;Entity&gt; nativeArray = m_BuildingQuery.ToEntityArray(Allocator.TempJob);
-        bool result = false;
-        for (int i = 0; i &lt; nativeArray.Length; i++)
-        {
-            Entity entity = nativeArray[i];
-            if ((base.EntityManager.GetComponentData&lt;Temp&gt;(entity).m_Flags &amp; TempFlags.Delete) != 0 &amp;&amp; base.EntityManager.TryGetComponent&lt;PrefabRef&gt;(entity, out var component) &amp;&amp; (!base.EntityManager.HasComponent&lt;SpawnableBuildingData&gt;(component.m_Prefab) || base.EntityManager.HasComponent&lt;SignatureBuildingData&gt;(component.m_Prefab)))
-            {
-                result = true;
-            }
-        }
-        nativeArray.Dispose();
-        return result;
-    }
-</code></pre>
-<ul>
-<li><code>public virtual ElevationDown() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override void ElevationDown()
-    {
-        underground = true;
-    }
-</code></pre>
-<ul>
-<li><code>public virtual ElevationScroll() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override void ElevationScroll()
-    {
-        underground = !underground;
-    }
-</code></pre>
-<ul>
-<li><code>public virtual ElevationUp() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override void ElevationUp()
-    {
-        underground = false;
-    }
-</code></pre>
-<ul>
-<li><code>public virtual GetPrefab() : Game.Prefabs.PrefabBase</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override PrefabBase GetPrefab()
-    {
-        return prefab;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual GetRaycastResult(Game.Tools.ControlPoint&amp; controlPoint) : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override bool GetRaycastResult(out ControlPoint controlPoint, out bool forceUpdate)
-    {
-        if (GetRaycastResult(out var entity, out var hit, out forceUpdate))
-        {
-            if (m_ToolSystem.actionMode.IsEditor() &amp;&amp; base.EntityManager.HasComponent&lt;Game.Buildings.ServiceUpgrade&gt;(entity) &amp;&amp; base.EntityManager.TryGetComponent&lt;Owner&gt;(entity, out var component))
-            {
-                controlPoint.m_OriginalEntity = component.m_Owner;
-            }
-            if (base.EntityManager.HasComponent&lt;Game.Net.Node&gt;(entity) &amp;&amp; base.EntityManager.HasComponent&lt;Edge&gt;(hit.m_HitEntity))
-            {
-                entity = hit.m_HitEntity;
-            }
-            controlPoint = new ControlPoint(entity, hit);
-            return true;
-        }
-        controlPoint = default(ControlPoint);
-        return false;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual GetRaycastResult(Game.Tools.ControlPoint&amp; controlPoint, System.Boolean&amp; forceUpdate) : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override bool GetRaycastResult(out ControlPoint controlPoint, out bool forceUpdate)
-    {
-        if (GetRaycastResult(out var entity, out var hit, out forceUpdate))
-        {
-            if (m_ToolSystem.actionMode.IsEditor() &amp;&amp; base.EntityManager.HasComponent&lt;Game.Buildings.ServiceUpgrade&gt;(entity) &amp;&amp; base.EntityManager.TryGetComponent&lt;Owner&gt;(entity, out var component))
-            {
-                controlPoint.m_OriginalEntity = component.m_Owner;
-            }
-            if (base.EntityManager.HasComponent&lt;Game.Net.Node&gt;(entity) &amp;&amp; base.EntityManager.HasComponent&lt;Edge&gt;(hit.m_HitEntity))
-            {
-                entity = hit.m_HitEntity;
-            }
-            controlPoint = new ControlPoint(entity, hit);
-            return true;
-        }
-        controlPoint = default(ControlPoint);
-        return false;
-    }
-</code></pre>
-<ul>
-<li><code>public virtual GetUIModes(System.Collections.Generic.List&lt;Game.Tools.ToolMode&gt; modes) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override void GetUIModes(List&lt;ToolMode&gt; modes)
-    {
-        modes.Add(new ToolMode(Mode.MainElements.ToString(), 0));
-        if (m_ToolSystem.actionMode.IsEditor())
-        {
-            modes.Add(new ToolMode(Mode.SubElements.ToString(), 1));
-            modes.Add(new ToolMode(Mode.Everything.ToString(), 2));
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public virtual InitializeRaycast() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override void InitializeRaycast()
-    {
-        base.InitializeRaycast();
-        m_ToolRaycastSystem.typeMask = TypeMask.StaticObjects | TypeMask.Net;
-        m_ToolRaycastSystem.netLayerMask = Layer.All;
-        m_ToolRaycastSystem.raycastFlags |= RaycastFlags.BuildingLots;
-        if (underground)
-        {
-            m_ToolRaycastSystem.collisionMask = CollisionMask.Underground;
-        }
-        else
-        {
-            m_ToolRaycastSystem.collisionMask = CollisionMask.OnGround | CollisionMask.Overground;
-        }
-        switch (actualMode)
-        {
-        case Mode.SubElements:
-            m_ToolRaycastSystem.raycastFlags |= RaycastFlags.SubElements | RaycastFlags.NoMainElements;
-            break;
-        case Mode.Everything:
-            m_ToolRaycastSystem.raycastFlags |= RaycastFlags.SubElements;
-            break;
-        }
-        if (m_ToolSystem.actionMode.IsEditor())
-        {
-            m_ToolRaycastSystem.raycastFlags |= RaycastFlags.Markers | RaycastFlags.UpgradeIsMain | RaycastFlags.EditorContainers;
-            m_ToolRaycastSystem.typeMask |= TypeMask.Areas;
-            if (underground)
-            {
-                m_ToolRaycastSystem.areaTypeMask = AreaTypeMask.Spaces;
-            }
-            else
-            {
-                m_ToolRaycastSystem.areaTypeMask = AreaTypeMask.Lots | AreaTypeMask.Spaces | AreaTypeMask.Surfaces;
-            }
-        }
-        else
-        {
-            m_ToolRaycastSystem.raycastFlags |= RaycastFlags.SubBuildings;
-            if (!underground)
-            {
-                m_ToolRaycastSystem.typeMask |= TypeMask.Areas;
-                m_ToolRaycastSystem.areaTypeMask = AreaTypeMask.Lots | AreaTypeMask.Surfaces;
-            }
-        }
-        if (allowManipulation)
-        {
-            m_ToolRaycastSystem.typeMask |= TypeMask.MovingObjects;
-        }
-        m_ToolRaycastSystem.raycastFlags |= RaycastFlags.Placeholders | RaycastFlags.Decals;
-    }
-</code></pre>
-<ul>
-<li><code>private IsMultiSelection() : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">private bool IsMultiSelection()
-    {
-        if (m_ControlPoints.Length == 0)
-        {
-            return false;
-        }
-        if (base.EntityManager.HasComponent&lt;Game.Net.Node&gt;(m_ControlPoints[0].m_OriginalEntity) || base.EntityManager.HasComponent&lt;Edge&gt;(m_ControlPoints[0].m_OriginalEntity))
-        {
-            return m_ControlPoints.Length &gt; 4;
-        }
-        return m_ControlPoints.Length &gt; 1;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
+<p>(There are numerous small helpers inside the nested jobs: CreatePath, AddControlPoints, Execute (per-entity), AddEdge, AddFixedEdges, AddEntity, AddAttachedParent, AddSubNets, HasEdgeStartOrEnd, etc. These implement the detailed logic for gathering dependent entities to bulldoze and for generating NetCourse / ObjectDefinition components on CreationDefinition entities.)</p>
+<h2 id="usage-example">Usage Example</h2>
 <pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_ToolOutputBarrier = base.World.GetOrCreateSystemManaged&lt;ToolOutputBarrier&gt;();
-        m_AudioManager = base.World.GetOrCreateSystemManaged&lt;AudioManager&gt;();
-        m_AchievementTriggerSystem = base.World.GetOrCreateSystemManaged&lt;AchievementTriggerSystem&gt;();
-        m_ControlPoints = new NativeList&lt;ControlPoint&gt;(4, Allocator.Persistent);
-        m_DefinitionQuery = GetDefinitionQuery();
-        m_BuildingQuery = GetEntityQuery(ComponentType.ReadOnly&lt;Building&gt;(), ComponentType.ReadOnly&lt;Temp&gt;(), ComponentType.Exclude&lt;Deleted&gt;());
-        m_RoadQuery = GetEntityQuery(ComponentType.ReadOnly&lt;Edge&gt;(), ComponentType.ReadOnly&lt;Temp&gt;(), ComponentType.Exclude&lt;Deleted&gt;());
-        m_PlantQuery = GetEntityQuery(ComponentType.ReadOnly&lt;Plant&gt;(), ComponentType.ReadOnly&lt;Temp&gt;(), ComponentType.Exclude&lt;Deleted&gt;());
-        m_SoundQuery = GetEntityQuery(ComponentType.ReadOnly&lt;ToolUXSoundSettingsData&gt;());
-        m_Bulldoze = InputManager.instance.toolActionCollection.GetActionState(&quot;Bulldoze&quot;, &quot;BulldozeToolSystem&quot;);
-        m_BulldozeDiscard = InputManager.instance.toolActionCollection.GetActionState(&quot;Bulldoze Discard&quot;, &quot;BulldozeToolSystem&quot;);
-    }
+protected override void OnCreate()
+{
+    base.OnCreate();
+    // Typical initialization done by the system:
+    m_ToolOutputBarrier = base.World.GetOrCreateSystemManaged&lt;ToolOutputBarrier&gt;();
+    m_AudioManager = base.World.GetOrCreateSystemManaged&lt;AudioManager&gt;();
+    m_AchievementTriggerSystem = base.World.GetOrCreateSystemManaged&lt;AchievementTriggerSystem&gt;();
+    m_ControlPoints = new NativeList&lt;ControlPoint&gt;(4, Allocator.Persistent);
+    m_DefinitionQuery = GetDefinitionQuery();
+    m_BuildingQuery = GetEntityQuery(ComponentType.ReadOnly&lt;Building&gt;(), ComponentType.ReadOnly&lt;Temp&gt;(), ComponentType.Exclude&lt;Deleted&gt;());
+    m_RoadQuery = GetEntityQuery(ComponentType.ReadOnly&lt;Edge&gt;(), ComponentType.ReadOnly&lt;Temp&gt;(), ComponentType.Exclude&lt;Deleted&gt;());
+    m_PlantQuery = GetEntityQuery(ComponentType.ReadOnly&lt;Plant&gt;(), ComponentType.ReadOnly&lt;Temp&gt;(), ComponentType.Exclude&lt;Deleted&gt;());
+    m_SoundQuery = GetEntityQuery(ComponentType.ReadOnly&lt;ToolUXSoundSettingsData&gt;());
+    m_Bulldoze = InputManager.instance.toolActionCollection.GetActionState(&quot;Bulldoze&quot;, &quot;BulldozeToolSystem&quot;);
+    m_BulldozeDiscard = InputManager.instance.toolActionCollection.GetActionState(&quot;Bulldoze Discard&quot;, &quot;BulldozeToolSystem&quot;);
+}
 </code></pre>
-<ul>
-<li><code>protected virtual OnCreateForCompiler() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnCreateForCompiler()
-    {
-        base.OnCreateForCompiler();
-        __AssignQueries(ref base.CheckedStateRef);
-        __TypeHandle.__AssignHandles(ref base.CheckedStateRef);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnDestroy() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnDestroy()
-    {
-        m_ControlPoints.Dispose();
-        base.OnDestroy();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnStartRunning() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnStartRunning()
-    {
-        base.OnStartRunning();
-        m_ControlPoints.Clear();
-        m_LastRaycastPoint = default(ControlPoint);
-        m_State = State.Default;
-        m_ApplyBlocked = false;
-        base.requireUnderground = false;
-        base.requireStopIcons = false;
-        base.requireAreas = AreaTypeMask.None;
-        base.requireNet = Layer.None;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate(Unity.Jobs.JobHandle inputDeps) : Unity.Jobs.JobHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override JobHandle OnUpdate(JobHandle inputDeps)
-    {
-        base.requireUnderground = underground;
-        base.requireStopIcons = true;
-        if (underground)
-        {
-            base.requireAreas = (m_ToolSystem.actionMode.IsEditor() ? AreaTypeMask.Spaces : AreaTypeMask.None);
-            base.requireNet = Layer.None;
-        }
-        else
-        {
-            base.requireAreas = (m_ToolSystem.actionMode.IsEditor() ? (AreaTypeMask.Lots | AreaTypeMask.Spaces | AreaTypeMask.Surfaces) : AreaTypeMask.None);
-            base.requireNet = Layer.Waterway;
-        }
-        UpdateActions();
-        if (m_State == State.Applying &amp;&amp; !base.applyAction.enabled)
-        {
-            m_State = State.Default;
-            m_ControlPoints.Clear();
-            base.applyMode = ApplyMode.Clear;
-            inputDeps = DestroyDefinitions(m_DefinitionQuery, m_ToolOutputBarrier, inputDeps);
-        }
-        switch (m_State)
-        {
-        case State.Default:
-            if (m_ApplyBlocked)
-            {
-                if (base.applyAction.WasReleasedThisFrame() || base.secondaryApplyAction.WasReleasedThisFrame())
-                {
-                    m_ApplyBlocked = false;
-                }
-                return Update(inputDeps, fullUpdate: false);
-            }
-            if (base.cancelAction.IsInProgress())
-            {
-                base.applyMode = ApplyMode.None;
-                return inputDeps;
-            }
-            if (m_ControlPoints.Length &gt; 0 &amp;&amp; base.applyAction.WasPressedThisFrame())
-            {
-                m_State = State.Applying;
-                return Update(inputDeps, fullUpdate: true);
-            }
-            return Update(inputDeps, fullUpdate: false);
-        case State.Applying:
-            if (base.cancelAction.IsInProgress())
-            {
-                m_State = State.Default;
-                m_ApplyBlocked = true;
-                if (m_ControlPoints.Length &gt;= 2)
-                {
-                    m_ControlPoints.RemoveRange(0, m_ControlPoints.Length - 1);
-                }
-                return Update(inputDeps, fullUpdate: true);
-            }
-            if (!base.applyAction.IsInProgress())
-            {
-                if (!m_BuildingQuery.IsEmptyIgnoreFilter &amp;&amp; !m_ToolSystem.actionMode.IsEditor() &amp;&amp; EventConfirmationRequested != null &amp;&amp; !debugBypassBulldozeConfirmation &amp;&amp; ConfirmationNeeded())
-                {
-                    m_State = State.Waiting;
-                    base.applyMode = ApplyMode.None;
-                    EventConfirmationRequested();
-                    return inputDeps;
-                }
-                m_State = State.Default;
-                return Apply(inputDeps);
-            }
-            return Update(inputDeps, fullUpdate: false);
-        case State.Confirmed:
-            m_State = State.Default;
-            return Apply(inputDeps);
-        case State.Cancelled:
-            m_State = State.Default;
-            if (m_ControlPoints.Length &gt;= 2)
-            {
-                m_ControlPoints.RemoveRange(0, m_ControlPoints.Length - 1);
-            }
-            return Update(inputDeps, fullUpdate: true);
-        default:
-            base.applyMode = ApplyMode.None;
-            return inputDeps;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public virtual SetUnderground(System.Boolean underground) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override void SetUnderground(bool underground)
-    {
-        this.underground = underground;
-    }
-</code></pre>
-<ul>
-<li><code>private SnapControlPoints(Unity.Jobs.JobHandle inputDeps) : Unity.Jobs.JobHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private JobHandle SnapControlPoints(JobHandle inputDeps)
-    {
-        return IJobExtensions.Schedule(new SnapJob
-        {
-            m_EditorMode = m_ToolSystem.actionMode.IsEditor(),
-            m_Mode = actualMode,
-            m_State = m_State,
-            m_OwnerData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Common_Owner_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_StaticData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Objects_Static_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_OutsideConnectionData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Objects_OutsideConnection_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_ServiceUpgradeData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Buildings_ServiceUpgrade_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_NodeData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_Node_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_EdgeData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_Edge_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_CurveData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_Curve_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabRefData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabNetData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_NetData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_ConnectedEdges = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Net_ConnectedEdge_RO_BufferLookup, ref base.CheckedStateRef),
-            m_ControlPoints = m_ControlPoints
-        }, inputDeps);
-    }
-</code></pre>
-<ul>
-<li><code>public virtual TrySetPrefab(Game.Prefabs.PrefabBase prefab) : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override bool TrySetPrefab(PrefabBase prefab)
-    {
-        if (prefab is BulldozePrefab bulldozePrefab)
-        {
-            this.prefab = bulldozePrefab;
-            return true;
-        }
-        return false;
-    }
-</code></pre>
-<ul>
-<li><code>private Update(Unity.Jobs.JobHandle inputDeps, System.Boolean fullUpdate) : Unity.Jobs.JobHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private JobHandle Update(JobHandle inputDeps, bool fullUpdate)
-    {
-        if (GetRaycastResult(out ControlPoint controlPoint, out bool forceUpdate))
-        {
-            fullUpdate = fullUpdate || forceUpdate;
-            if (m_ControlPoints.Length == 0)
-            {
-                base.applyMode = ApplyMode.Clear;
-                m_ControlPoints.Add(in controlPoint);
-                inputDeps = SnapControlPoints(inputDeps);
-                inputDeps = UpdateDefinitions(inputDeps);
-            }
-            else
-            {
-                base.applyMode = ApplyMode.None;
-                if (fullUpdate || !m_LastRaycastPoint.Equals(controlPoint))
-                {
-                    m_LastRaycastPoint = controlPoint;
-                    ControlPoint controlPoint2 = m_ControlPoints[m_ControlPoints.Length - 1];
-                    if (m_State == State.Applying &amp;&amp; controlPoint.m_OriginalEntity != m_ControlPoints[m_ControlPoints.Length - 1].m_OriginalEntity)
-                    {
-                        m_ControlPoints.Add(in controlPoint);
-                    }
-                    else
-                    {
-                        m_ControlPoints[m_ControlPoints.Length - 1] = controlPoint;
-                    }
-                    inputDeps = SnapControlPoints(inputDeps);
-                    JobHandle.ScheduleBatchedJobs();
-                    inputDeps.Complete();
-                    ControlPoint other = default(ControlPoint);
-                    if (m_ControlPoints.Length != 0)
-                    {
-                        other = m_ControlPoints[m_ControlPoints.Length - 1];
-                    }
-                    if (fullUpdate || !controlPoint2.EqualsIgnoreHit(other))
-                    {
-                        base.applyMode = ApplyMode.Clear;
-                        inputDeps = UpdateDefinitions(inputDeps);
-                    }
-                }
-            }
-        }
-        else
-        {
-            if (m_State == State.Default)
-            {
-                m_ControlPoints.Clear();
-            }
-            base.applyMode = ApplyMode.Clear;
-            inputDeps = DestroyDefinitions(m_DefinitionQuery, m_ToolOutputBarrier, inputDeps);
-        }
-        return inputDeps;
-    }
-</code></pre>
-<ul>
-<li><code>private virtual UpdateActions() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private protected override void UpdateActions()
-    {
-        using (ProxyAction.DeferStateUpdating())
-        {
-            base.applyActionOverride = m_Bulldoze;
-            base.applyAction.enabled = base.actionsEnabled &amp;&amp; m_State != State.Waiting &amp;&amp; m_ControlPoints.Length != 0;
-            base.cancelActionOverride = m_BulldozeDiscard;
-            base.cancelAction.enabled = base.actionsEnabled &amp;&amp; m_State == State.Applying &amp;&amp; IsMultiSelection();
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private UpdateDefinitions(Unity.Jobs.JobHandle inputDeps) : Unity.Jobs.JobHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private JobHandle UpdateDefinitions(JobHandle inputDeps)
-    {
-        JobHandle job = DestroyDefinitions(m_DefinitionQuery, m_ToolOutputBarrier, inputDeps);
-        JobHandle jobHandle = IJobExtensions.Schedule(new CreateDefinitionsJob
-        {
-            m_EditorMode = m_ToolSystem.actionMode.IsEditor(),
-            m_Mode = actualMode,
-            m_State = m_State,
-            m_ControlPoints = m_ControlPoints,
-            m_CachedNodes = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Tools_LocalNodeCache_RO_BufferLookup, ref base.CheckedStateRef),
-            m_SubNets = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Net_SubNet_RO_BufferLookup, ref base.CheckedStateRef),
-            m_ConnectedEdges = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Net_ConnectedEdge_RO_BufferLookup, ref base.CheckedStateRef),
-            m_SubAreas = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Areas_SubArea_RO_BufferLookup, ref base.CheckedStateRef),
-            m_AreaNodes = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Areas_Node_RO_BufferLookup, ref base.CheckedStateRef),
-            m_SubObjects = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Objects_SubObject_RO_BufferLookup, ref base.CheckedStateRef),
-            m_InstalledUpgrades = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Buildings_InstalledUpgrade_RO_BufferLookup, ref base.CheckedStateRef),
-            m_OwnerData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Common_Owner_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_LocalTransformCacheData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Tools_LocalTransformCache_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_NodeData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_Node_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_EdgeData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_Edge_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_CurveData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_Curve_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_FixedData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_Fixed_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_LotData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Areas_Lot_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_EditorContainerData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Tools_EditorContainer_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_TransformData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Objects_Transform_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_AttachedData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Objects_Attached_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_ElevationData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Objects_Elevation_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PlaceholderData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Objects_Placeholder_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_AttachmentData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Objects_Attachment_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_BuildingData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Buildings_Building_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_ServiceUpgradeData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Buildings_ServiceUpgrade_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabRefData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabNetData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_NetData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_CommandBuffer = m_ToolOutputBarrier.CreateCommandBuffer()
-        }, inputDeps);
-        m_ToolOutputBarrier.AddJobHandleForProducer(jobHandle);
-        return JobHandle.CombineDependencies(job, jobHandle);
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Tools.BulldozeToolSystem+Mode</code>  </li>
-<li><code>Game.Tools.BulldozeToolSystem+State</code>  </li>
-<li><code>Game.Tools.BulldozeToolSystem+PathEdge</code>  </li>
-<li><code>Game.Tools.BulldozeToolSystem+PathItem</code>  </li>
-<li><code>Game.Tools.BulldozeToolSystem+SnapJob</code>  </li>
-<li><code>Game.Tools.BulldozeToolSystem+CreateDefinitionsJob</code>  </li>
-<li><code>Game.Tools.BulldozeToolSystem+TypeHandle</code>  </li>
-<li><code>Game.Tools.BulldozeToolSystem+&lt;get_toolActions&gt;d__47</code>  </li>
-</ul>
+<p>Notes and tips for modders:
+- The heavy lifting is performed by two Burst jobs (SnapJob and CreateDefinitionsJob). To influence bulldoze behavior, you can hook or replace CreationDefinition consumer systems that actually perform deletes/recreates, or listen to EventConfirmationRequested to display custom UI.
+- The tool respects owner chains, fixed edges, attached parents, installed upgrades, and area sub-objects — be cautious when manipulating CreationDefinition consumers to maintain consistency.
+- Use ConfirmAction(true/false) when integrating with custom confirmation UI to resume or cancel bulldoze apply.</p>
 
 
 

@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87075,6 +87167,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../SurfaceWater/" class="md-nav__link">
         
   
@@ -87424,15 +87539,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -87469,9 +87575,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -117930,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117955,15 +118083,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -118002,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118027,204 +118146,131 @@
 
 
 <h1 id="gamesimulationtelecomcoveragesystem">Game.Simulation.TelecomCoverageSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Simulation</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.Simulation.CellMapSystem&lt;Game.Simulation.TelecomCoverage&gt;</code><br />
-<strong>Implements:</strong> <code>Colossal.Serialization.Entities.IJobSerializable</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class TelecomCoverageSystem : Game.Simulation.CellMapSystem&lt;Game.Simulation.TelecomCoverage&gt;, Colossal.Serialization.Entities.IJobSerializable
-{
-    private Game.Simulation.TerrainSystem m_TerrainSystem;
-    private Game.Simulation.CitySystem m_CitySystem;
-    private Unity.Entities.EntityQuery m_DensityQuery;
-    private Unity.Entities.EntityQuery m_FacilityQuery;
-    private Unity.Collections.NativeArray&lt;Game.Simulation.TelecomStatus&gt; m_Status;
-    private Game.Simulation.TelecomCoverageSystem+TypeHandle __TypeHandle;
-    public static const System.Int32 TEXTURE_SIZE;
-
-    public Unity.Mathematics.int2 TextureSize { get; }
-
-    public TelecomCoverageSystem();
-
-    private System.Void __AssignQueries(Unity.Entities.SystemState&amp; state);
-    public virtual System.Int32 GetUpdateInterval(Game.SystemUpdatePhase phase);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnCreateForCompiler();
-    protected virtual System.Void OnDestroy();
-    protected virtual System.Void OnUpdate();
-}
-</code></pre>
+<p><strong>Assembly:</strong> Assembly-CSharp<br />
+<strong>Namespace:</strong> Game.Simulation</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> CellMapSystem<TelecomCoverage>, IJobSerializable</p>
+<p><strong>Summary:</strong><br />
+TelecomCoverageSystem computes the city's telecom (mobile/wireless) coverage and network load on a 128x128 cell map. It gathers residential/work density from citizens and employees, iterates telecom facility entities, computes per-cell signal strength, accumulates network capacity and load, and produces both a TelecomCoverage texture/map and an aggregate TelecomStatus. The heavy per-frame work is performed in a Burst-compiled job (TelecomCoverageJob) using NativeCollections and Unity.Entities chunk queries; terrain height sampling and city modifiers are considered when calculating obstruction and capacity. The system schedules the job, manages lifetime of native arrays used for status, and integrates with the game's terrain and city systems.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.Simulation.TerrainSystem m_TerrainSystem</code>  </li>
+<li>
+<p><code>public const int TEXTURE_SIZE = 128</code><br />
+Defines the resolution (128) of the square coverage texture/map (resulting texture size = 128x128).</p>
+</li>
+<li>
+<p><code>private TerrainSystem m_TerrainSystem</code><br />
+Reference to the world's TerrainSystem used to fetch height data for obstruction and LOS (line-of-sight) calculations.</p>
+</li>
+<li>
+<p><code>private CitySystem m_CitySystem</code><br />
+Reference to the CitySystem used to access the city entity (and city-wide modifiers).</p>
+</li>
+<li>
+<p><code>private EntityQuery m_DensityQuery</code><br />
+EntityQuery used to gather archetype chunks that contain citizen density sources (household citizens and employees).</p>
+</li>
+<li>
+<p><code>private EntityQuery m_FacilityQuery</code><br />
+EntityQuery used to gather telecom facility entities (telecom buildings including transforms and prefabs; excludes temporary/deleted/service-upgrade markers).</p>
+</li>
+<li>
+<p><code>private NativeArray&lt;TelecomStatus&gt; m_Status</code><br />
+Persistent NativeArray used to store the computed TelecomStatus for the city (capacity, load, quality). Kept with Allocator.Persistent and disposed on destroy.</p>
+</li>
+<li>
+<p><code>private TypeHandle __TypeHandle</code><br />
+Internal cached type handles and lookups for component types and buffer types used by the scheduled job (for fast access to ComponentTypeHandle, BufferTypeHandle and ComponentLookup objects).</p>
+</li>
+<li>
+<p><code>private struct TelecomCoverageJob</code> (nested)<br />
+Burst-compiled IJob that performs the main computation: collects density, computes signal strengths and obstruction, distributes network capacity across cells, aggregates per-cell TelecomCoverage and overall TelecomStatus.</p>
+</li>
+<li>
+<p><code>private struct TypeHandle</code> (nested)<br />
+Container struct that stores ComponentTypeHandle / BufferTypeHandle / ComponentLookup references and exposes __AssignHandles to initialize them from SystemState.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.Simulation.TerrainSystem m_TerrainSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.CitySystem m_CitySystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.CitySystem m_CitySystem;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_DensityQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_DensityQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_FacilityQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_FacilityQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeArray&lt;Game.Simulation.TelecomStatus&gt; m_Status</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeArray&lt;Game.Simulation.TelecomStatus&gt; m_Status;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.TelecomCoverageSystem+TypeHandle __TypeHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.TelecomCoverageSystem+TypeHandle __TypeHandle;
-</code></pre>
-<ul>
-<li><code>public static const System.Int32 TEXTURE_SIZE</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static const System.Int32 TEXTURE_SIZE;
-</code></pre>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>public Unity.Mathematics.int2 TextureSize { get }</code>  </li>
+<li><code>public int2 TextureSize =&gt; new int2(128, 128)</code><br />
+Returns the coverage texture size as an int2 (width, height). Useful for consumers needing the map dimensions (maps use 128 x 128 cells).</li>
 </ul>
-<pre><code class="language-csharp">public Unity.Mathematics.int2 TextureSize { get; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public TelecomCoverageSystem()</code>  </li>
+<li><code>public TelecomCoverageSystem()</code><br />
+Default constructor. The system performs initialization in OnCreate; the constructor itself does no special work besides standard object instantiation.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public TelecomCoverageSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private __AssignQueries(Unity.Entities.SystemState&amp; state) : System.Void</code>  </li>
+<li>
+<p><code>[Preserve] protected override void OnCreate()</code><br />
+Initializes required systems (TerrainSystem, CitySystem), builds the EntityQuery objects for density and facilities, allocates m_Status (NativeArray<TelecomStatus>) and calls CreateTextures(128) to prepare the map textures. This is where the system wires up its dependencies and persistent native memory.</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnDestroy()</code><br />
+Disposes the persistent m_Status NativeArray and calls base.OnDestroy. Ensures native resources are released on system destruction.</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnUpdate()</code><br />
+Main update entry. If terrain height data is available, it:</p>
+</li>
+<li>asynchronously gets archetype chunk lists for density and facility queries,</li>
+<li>configures and schedules the TelecomCoverageJob (Burst compiled) with appropriate component handles, lookups and buffers,</li>
+<li>disposes chunk lists after scheduling,</li>
+<li>registers the job with TerrainSystem as a CPU reader (for height sampling),</li>
+<li>
+<p>registers the job as a writer for the owned map data and assigns base.Dependency to the scheduled job handle.
+The job computes the per-cell coverage map and updates m_Status.</p>
+</li>
+<li>
+<p><code>protected override void OnCreateForCompiler()</code><br />
+Compiler helper used to assign queries and type handles when systems are compiled/initialized by the runtime. Calls __AssignQueries and populates __TypeHandle by invoking __AssignHandles.</p>
+</li>
+<li>
+<p><code>private void __AssignQueries(ref SystemState state)</code><br />
+Internal method that sets up any entity queries at compile-time; used by OnCreateForCompiler. (In this implementation the method body contains a no-op EntityQueryBuilder call.)</p>
+</li>
+<li>
+<p><code>private struct TypeHandle.__AssignHandles(ref SystemState state)</code><br />
+Initializes ComponentTypeHandle, BufferTypeHandle and ComponentLookup fields used by the job from the provided SystemState. Called during system setup to cache handles for fast access.</p>
+</li>
+<li>
+<p><code>private</code> helpers inside TelecomCoverageJob (listed here because they are central to how the system works):</p>
+</li>
+<li><code>Execute()</code> — entry point for the IJob. Allocates temporary NativeArray buffers for density and facility data, collects density, calculates signal strengths for each facility, computes network capacity distribution and writes TelecomCoverage cells and TelecomStatus. Disposes temporaries at end.</li>
+<li><code>CalculateSignalStrength(...)</code> (overloads) — compute per-cell signal strengths either ignoring terrain penetration (takes terrain into account, sampling heights and obstruct slopes) or simple un-obstructed distance-based strength.</li>
+<li><code>CalculateCellSignalStrength(...)</code> — computes signal strength at one cell considering terrain obstruction slope and applies attenuation.</li>
+<li><code>CalculateNetworkUsers(...)</code> — for a facility's area, compute the number of network users that would connect (weighted by signal share).</li>
+<li><code>AddNetworkCapacity(...)</code> — distribute a facility's capacity into the facilityData cells weighted by per-cell signal contribution.</li>
+<li><code>AddSignalStrengths(...)</code> — accumulate multiple facilities' contributions into each cell (combining probabilities so that final coverage is 1 - Π(1 - s_i)).</li>
+<li><code>AddDensity(...)</code> — add population/employee counts into the densityData per-cell.</li>
+<li><code>CalculateTelecomCoverage(...)</code> — finalizes per-cell TelecomCoverage entries (encodes signal strength and load into bytes).</li>
+<li><code>CalculateTelecomQuality(...)</code> — computes a single quality metric across the map (density-weighted coverage quality).</li>
+<li><code>GetEfficiencyFactor(...)</code> — reads building efficiency (or temp/original prefab buffers) and returns an efficiency multiplier used to scale range and capacity.</li>
 </ul>
-<pre><code class="language-csharp">private void __AssignQueries(ref SystemState state)
-    {
-        new EntityQueryBuilder(Allocator.Temp).Dispose();
-    }
-</code></pre>
-<ul>
-<li><code>public virtual GetUpdateInterval(Game.SystemUpdatePhase phase) : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override int GetUpdateInterval(SystemUpdatePhase phase)
-    {
-        return 4096;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
+<p>Notes about job design:
+  - The job uses many Native containers (NativeArray, NativeList) allocated with Allocator.Temp and disposed inside Execute.
+  - It uses chunk access (ArchetypeChunk.GetNativeArray, GetBufferAccessor) with pre-captured ComponentTypeHandles and BufferTypeHandles.
+  - Terrain sampling is performed via TerrainHeightData passed into the job and TerrainSystem registered as CPU reader for safe concurrent height reads.
+  - City modifiers and installed upgrades are applied to facility stats before computing effective range/capacity.</p>
+<h2 id="usage-example">Usage Example</h2>
 <pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_TerrainSystem = base.World.GetOrCreateSystemManaged&lt;TerrainSystem&gt;();
-        m_CitySystem = base.World.GetOrCreateSystemManaged&lt;CitySystem&gt;();
-        m_DensityQuery = GetEntityQuery(new EntityQueryDesc
-        {
-            Any = new ComponentType[2]
-            {
-                ComponentType.ReadOnly&lt;HouseholdCitizen&gt;(),
-                ComponentType.ReadOnly&lt;Employee&gt;()
-            },
-            None = new ComponentType[2]
-            {
-                ComponentType.ReadOnly&lt;Temp&gt;(),
-                ComponentType.ReadOnly&lt;Deleted&gt;()
-            }
-        });
-        m_FacilityQuery = GetEntityQuery(ComponentType.ReadOnly&lt;Game.Buildings.TelecomFacility&gt;(), ComponentType.ReadOnly&lt;Transform&gt;(), ComponentType.ReadOnly&lt;PrefabRef&gt;(), ComponentType.Exclude&lt;Game.Buildings.ServiceUpgrade&gt;(), ComponentType.Exclude&lt;Temp&gt;(), ComponentType.Exclude&lt;Deleted&gt;());
-        m_Status = new NativeArray&lt;TelecomStatus&gt;(0, Allocator.Persistent);
-        CreateTextures(128);
-    }
+protected override void OnCreate()
+{
+    base.OnCreate();
+    // The TelecomCoverageSystem initializes its textures and queries in its OnCreate.
+    // You can query the texture size if you need to allocate buffers or read the map:
+    var size = this.World.GetOrCreateSystemManaged&lt;Game.Simulation.TelecomCoverageSystem&gt;().TextureSize;
+    UnityEngine.Debug.Log($&quot;Telecom coverage texture size: {size.x} x {size.y}&quot;);
+}
 </code></pre>
-<ul>
-<li><code>protected virtual OnCreateForCompiler() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnCreateForCompiler()
-    {
-        base.OnCreateForCompiler();
-        __AssignQueries(ref base.CheckedStateRef);
-        __TypeHandle.__AssignHandles(ref base.CheckedStateRef);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnDestroy() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnDestroy()
-    {
-        m_Status.Dispose();
-        base.OnDestroy();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        if (m_TerrainSystem.GetHeightData().isCreated)
-        {
-            JobHandle outJobHandle;
-            NativeList&lt;ArchetypeChunk&gt; densityChunks = m_DensityQuery.ToArchetypeChunkListAsync(Allocator.TempJob, out outJobHandle);
-            JobHandle outJobHandle2;
-            NativeList&lt;ArchetypeChunk&gt; facilityChunks = m_FacilityQuery.ToArchetypeChunkListAsync(Allocator.TempJob, out outJobHandle2);
-            JobHandle dependencies;
-            JobHandle jobHandle = IJobExtensions.Schedule(new TelecomCoverageJob
-            {
-                m_DensityChunks = densityChunks,
-                m_FacilityChunks = facilityChunks,
-                m_TerrainHeightData = m_TerrainSystem.GetHeightData(),
-                m_City = m_CitySystem.City,
-                m_Preview = false,
-                m_TelecomCoverage = GetMap(readOnly: false, out dependencies),
-                m_TelecomStatus = m_Status,
-                m_TransformType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Objects_Transform_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                m_PropertyRenterType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Buildings_PropertyRenter_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                m_TelecomFacilityType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Buildings_TelecomFacility_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                m_BuildingEfficiencyType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Buildings_Efficiency_RO_BufferTypeHandle, ref base.CheckedStateRef),
-                m_PrefabRefType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                m_TempType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Tools_Temp_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                m_InstalledUpgradeType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Buildings_InstalledUpgrade_RO_BufferTypeHandle, ref base.CheckedStateRef),
-                m_HouseholdCitizenType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Citizens_HouseholdCitizen_RO_BufferTypeHandle, ref base.CheckedStateRef),
-                m_EmployeeType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Companies_Employee_RO_BufferTypeHandle, ref base.CheckedStateRef),
-                m_TransformData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Objects_Transform_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_TelecomFacilityData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Buildings_TelecomFacility_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_BuildingEfficiencyData = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Buildings_Efficiency_RO_BufferLookup, ref base.CheckedStateRef),
-                m_PrefabRefData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_ObjectGeometryData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_ObjectGeometryData_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_PrefabTelecomFacilityData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_TelecomFacilityData_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_CityModifiers = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_City_CityModifier_RO_BufferLookup, ref base.CheckedStateRef)
-            }, JobHandle.CombineDependencies(job1: JobHandle.CombineDependencies(outJobHandle, outJobHandle2, dependencies), job0: base.Dependency));
-            densityChunks.Dispose(jobHandle);
-            facilityChunks.Dispose(jobHandle);
-            m_TerrainSystem.AddCPUHeightReader(jobHandle);
-            AddWriter(jobHandle);
-            base.Dependency = jobHandle;
-        }
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Simulation.TelecomCoverageSystem+CellDensityData</code>  </li>
-<li><code>Game.Simulation.TelecomCoverageSystem+CellFacilityData</code>  </li>
-<li><code>Game.Simulation.TelecomCoverageSystem+TelecomCoverageJob</code>  </li>
-<li><code>Game.Simulation.TelecomCoverageSystem+TypeHandle</code>  </li>
-</ul>
+<p>Additional notes for modders:
+- The system exposes the coverage map via the CellMapSystem<TelecomCoverage> base. To read the per-cell coverage data you must access the map created by the system (GetMap) or tap into the relevant ECS components if you need runtime values.
+- If you need to alter facility behavior (range, capacity), modify TelecomFacilityData on the prefab or apply CityModifier entries of type CityModifierType.TelecomCapacity.
+- Be careful when interacting with internal NativeArray fields (like m_Status) — they are private; preferred approach is to expose readonly queries or create a separate system that reads the map via the CellMapSystem API to avoid race conditions.
+- The job uses BurstCompile for performance; any changes to the job must remain compatible with Burst (avoid managed references inside the job structs).</p>
 
 
 

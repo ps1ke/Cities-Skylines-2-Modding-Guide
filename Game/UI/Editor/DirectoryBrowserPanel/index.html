@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87073,6 +87165,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Simulation/SurfaceWater/" class="md-nav__link">
         
   
@@ -97423,18 +97538,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -97459,9 +97574,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -117923,6 +118038,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117950,18 +118087,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -117986,9 +118123,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118011,354 +118148,168 @@
 
 
 <h1 id="gameuieditordirectorybrowserpanel">Game.UI.Editor.DirectoryBrowserPanel</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.UI.Editor</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.UI.Editor.DirectoryPanelBase</code><br />
-<strong>Implements:</strong> <code>Game.UI.Editor.IEditorPanel</code>, <code>Game.UI.Editor.SearchField+IAdapter</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class DirectoryBrowserPanel : Game.UI.Editor.DirectoryPanelBase, Game.UI.Editor.IEditorPanel, Game.UI.Editor.SearchField+IAdapter
-{
-    private readonly Game.UI.Editor.DirectoryBrowserPanel+SelectCallback m_SelectCallback;
-    private readonly System.Action m_OnCloseDirectoryBrowser;
-    private System.String m_SelectedDirectory;
-    private System.String m_RootDirectory;
-    private System.Boolean m_LimitDepthToRoot;
-
-    public DirectoryBrowserPanel(System.String directory, System.String root, Game.UI.Editor.DirectoryBrowserPanel+SelectCallback onSelect, System.Action onCancel);
-
-    private System.Boolean DirectoryNotSelectedOrRootSelected();
-    private System.Void ImportAssets();
-    private System.Boolean ImportNotReady();
-    private System.Void ListDrives();
-    private System.Void ListItems(System.String directory, System.Collections.Generic.List&lt;Game.UI.Editor.Item&gt; items);
-    protected virtual System.Void OnBack();
-    public virtual System.Void OnSelect(Game.UI.Editor.Item item);
-    private System.Void OnSelectDirectory();
-    protected virtual System.Void ShowSubDir(System.String dir);
-    private System.Void TraverseToDirectory(System.String directory);
-}
-</code></pre>
+<p><strong>Assembly:</strong> Assembly-CSharp (Game assembly for Cities: Skylines 2 mods)<br />
+<strong>Namespace:</strong> Game.UI.Editor</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> DirectoryPanelBase</p>
+<p><strong>Summary:</strong><br />
+DirectoryBrowserPanel is a UI panel used by the in-game editor for browsing and selecting directories on disk. It builds a hierarchical view of drives and folders, supports searching (via base search adapter), can limit navigation depth to a provided root path, and calls back when the user selects or cancels. The panel handles inaccessible directories gracefully by using EnumerationOptions.IgnoreInaccessible and logs exceptions via DirectoryPanelBase.log.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private readonly Game.UI.Editor.DirectoryBrowserPanel+SelectCallback m_SelectCallback</code>  </li>
+<li>
+<p><code>public delegate void SelectCallback(string directory)</code><br />
+Used to define the callback signature invoked when a directory is selected. The argument is the selected directory path (with trailing '/').</p>
+</li>
+<li>
+<p><code>private readonly SelectCallback m_SelectCallback</code><br />
+Callback provided in the constructor that will be invoked when the user confirms a directory selection.</p>
+</li>
+<li>
+<p><code>private readonly Action m_OnCloseDirectoryBrowser</code><br />
+Cancel callback provided in the constructor; executed when the user cancels/ closes the browser.</p>
+</li>
+<li>
+<p><code>private string m_SelectedDirectory</code><br />
+Current selected directory path (normalized with forward slashes and trailing '/'). Updated when navigating or selecting folders.</p>
+</li>
+<li>
+<p><code>private string m_RootDirectory</code><br />
+Optional root directory path used when limiting navigation depth. The constructor appends a trailing '/' to the provided root.</p>
+</li>
+<li>
+<p><code>private bool m_LimitDepthToRoot</code><br />
+When true, navigation is restricted down to m_RootDirectory; back navigation from the root is disabled.</p>
+</li>
+<li>
+<p><code>private const</code>/other inherited fields (not declared in this class)<br />
+Note: The panel uses members from DirectoryPanelBase (m_Items, m_Directories, m_Stack, m_Pages, m_PageView, etc.) to construct and manage the UI; those are not re-declared here.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private readonly Game.UI.Editor.DirectoryBrowserPanel+SelectCallback m_SelectCallback;
-</code></pre>
+<h2 id="properties">Properties</h2>
 <ul>
-<li><code>private readonly System.Action m_OnCloseDirectoryBrowser</code>  </li>
+<li>None declared on DirectoryBrowserPanel itself. (UI/state is exposed via fields and the base class API.)</li>
 </ul>
-<pre><code class="language-csharp">private readonly System.Action m_OnCloseDirectoryBrowser;
-</code></pre>
-<ul>
-<li><code>private System.String m_SelectedDirectory</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.String m_SelectedDirectory;
-</code></pre>
-<ul>
-<li><code>private System.String m_RootDirectory</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.String m_RootDirectory;
-</code></pre>
-<ul>
-<li><code>private System.Boolean m_LimitDepthToRoot</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean m_LimitDepthToRoot;
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public DirectoryBrowserPanel(System.String directory, System.String root, Game.UI.Editor.DirectoryBrowserPanel+SelectCallback onSelect, System.Action onCancel)</code>  </li>
+<li><code>public DirectoryBrowserPanel(string directory, string root, SelectCallback onSelect, Action onCancel)</code><br />
+Creates a directory browser panel.</li>
+<li>directory: initial directory to open (may be null). The constructor will walk up parent directories until it finds an existing directory if the passed value does not exist.</li>
+<li>root: optional root path to limit navigation to; if non-empty, the panel will set m_LimitDepthToRoot = true and append a trailing '/' to the root path.</li>
+<li>onSelect: callback invoked with the selected directory path when the user confirms.</li>
+<li>onCancel: callback invoked when the user cancels/closes the panel.</li>
+<li>Behavior: the constructor lists available drives (ListDrives) and attempts to traverse to the provided initial directory (TraverseToDirectory). Any ArgumentException encountered while traversing is logged.</li>
 </ul>
-<pre><code class="language-csharp">public DirectoryBrowserPanel(string directory, string root, SelectCallback onSelect, Action onCancel)
-    {
-        m_LimitDepthToRoot = !string.IsNullOrEmpty(root);
-        m_RootDirectory = root + &quot;/&quot;;
-        m_SelectCallback = onSelect;
-        m_OnCloseDirectoryBrowser = onCancel;
-        ListDrives();
-        try
-        {
-            if (directory != null)
-            {
-                while (!Directory.Exists(directory))
-                {
-                    directory = Path.GetDirectoryName(directory);
-                }
-                TraverseToDirectory(directory);
-            }
-        }
-        catch (ArgumentException exception)
-        {
-            DirectoryPanelBase.log.Error(exception);
-        }
-        m_SelectedDirectory = m_Stack.LastOrDefault()?.directoryPath;
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private DirectoryNotSelectedOrRootSelected() : System.Boolean</code>  </li>
+<li>
+<p><code>private bool ImportNotReady()</code><br />
+Stub placeholder that currently always returns true. Intended to indicate whether import operations are ready/allowed. Not used elsewhere in this class.</p>
+</li>
+<li>
+<p><code>private void ImportAssets()</code><br />
+Empty stub. Placeholder for importing assets from a selected directory.</p>
+</li>
+<li>
+<p><code>private void TraverseToDirectory(string directory)</code><br />
+Walks up from the provided directory to the filesystem root, collects each segment, and calls ShowSubDir progressively for each cumulative path (so UI pages are built from root toward the target directory). Uses DirectoryInfo and appends folder names with '/' while calling ShowSubDir.</p>
+</li>
+<li>
+<p><code>private void ListDrives()</code><br />
+Enumerates system drives via DriveInfo.GetDrives(). For each drive:</p>
+</li>
+<li>Creates a DirectoryInfo based on drive.VolumeLabel (note: uses the VolumeLabel as a parentDir identifier).</li>
+<li>Uses GetDirectories with EnumerationOptions { IgnoreInaccessible = true } to avoid exceptions for protected folders.</li>
+<li>Constructs Item objects describing each top-level directory found and calls ListItems("Editor.DRIVES", list).</li>
+<li>Calls ShowSubDir(null) after listing drives to initialize the view.</li>
+<li>
+<p>Catches and ignores IOExceptions thrown by DriveInfo/Directory enumerations.</p>
+</li>
+<li>
+<p><code>private void ListItems(string directory, List&lt;Item&gt; items)</code><br />
+Populates the panel with a mixed set of Items and synthesized directory entries:</p>
+</li>
+<li>If items is empty, returns early.</li>
+<li>Clears m_Directories and sets m_Items to the provided list.</li>
+<li>Builds and registers intermediate parent directory entries (m_Directories) from each item's parentDir by splitting on '/' and creating entries for each cumulative path segment. LocalizedString.Value is used to set display names for those synthetic directory entries.</li>
+<li>Adds synthesized directories to m_Items, sorts items, sets panel title to "Editor.OPEN_DIRECTORY", and constructs the children widgets:<ul>
+<li>SearchField (adapter = this)</li>
+<li>PageView for pages</li>
+<li>"Editor.SELECT_DIRECTORY" Button wired to OnSelectDirectory, disabled by DirectoryNotSelectedOrRootSelected</li>
+<li>"Common.CANCEL" Button wired to m_OnCloseDirectoryBrowser</li>
 </ul>
-<pre><code class="language-csharp">private bool DirectoryNotSelectedOrRootSelected()
+</li>
+<li>
+<p>The resulting children replace the panel's UI layout and controls.</p>
+</li>
+<li>
+<p><code>private bool DirectoryNotSelectedOrRootSelected()</code><br />
+Used by the Select button to determine enabled state:</p>
+</li>
+<li>Returns true (disabled) if no directory is selected.</li>
+<li>
+<p>If a directory is selected, returns true (disabled) when the selected directory equals the root directory and navigation is limited (i.e., selection of the root is prevented in that case); otherwise returns false.</p>
+</li>
+<li>
+<p><code>private void OnSelectDirectory()</code><br />
+Invokes m_SelectCallback with m_SelectedDirectory. Called when the user confirms selection via the select button.</p>
+</li>
+<li>
+<p><code>public override void OnSelect(Item item)</code><br />
+Called when the user selects an item in the UI list:</p>
+</li>
+<li>
+<p>If item is non-null, calls ShowSubDir(...) to navigate into the selected folder. Uses item.fullName (if present) with trailing '/' otherwise uses item.name + '/'.</p>
+</li>
+<li>
+<p><code>protected override void OnBack()</code><br />
+Handles page back-navigation:</p>
+</li>
+<li>If more than one page on the stack, pops the last stack entry and page, clears the selectedItem of the new last page, updates m_SelectedDirectory from the new last stack entry.</li>
+<li>If navigation is limited to root and new selected directory equals m_RootDirectory, disables the back action on the top PageLayout.</li>
+<li>
+<p>Updates m_PageView.children and currentPage accordingly.</p>
+</li>
+<li>
+<p><code>protected override void ShowSubDir(string dir)</code><br />
+Primary method for populating page contents for a directory:</p>
+</li>
+<li>If dir is null or empty, calls base.ShowSubDir(dir) and returns.</li>
+<li>Sets m_SelectedDirectory to dir, clears m_Items, enumerates immediate subdirectories using new DirectoryInfo(dir).GetDirectories("*", new EnumerationOptions { IgnoreInaccessible = true }).</li>
+<li>For each subdirectory, creates an Item describing it, sets parentDir, fullName (normalized with forward slashes), tooltip = full path, and adds it to the list.</li>
+<li>Determines whether each listed directory has children by enumerating its own GetDirectories(...) and sets item.directory accordingly. Also adds the child directories as Item entries (with parentDir set to directoryInfo.Name) so the page shows both leaf and nested entries for easier navigation.</li>
+<li>If the collected list is empty, returns early. Otherwise calls ListItems(dir, list).</li>
+<li>Catches and logs exceptions via DirectoryPanelBase.log.Error with the directory context.</li>
+<li>After calling base.ShowSubDir(dir), if navigation is limited and the selected directory equals the root directory, disables the backAction on the current PageLayout.</li>
+</ul>
+<p>Notes and implementation details:
+- Paths are normalized to use forward slashes and trailing '/' is used consistently for stored directory paths.
+- EnumerationOptions.IgnoreInaccessible is used to avoid throwing exceptions on protected/system folders; nevertheless, exceptions are caught and logged.
+- The class relies on DirectoryPanelBase for much of the UI machinery (m_PageView, m_Stack, m_Pages, base.title, base.children, etc.).</p>
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Example: open a directory browser starting at &quot;C:/Users/Example/Documents&quot;,
+// limit navigation to &quot;C:/Users/Example&quot;, and handle selection/cancel.
+void OpenDirectoryBrowser()
+{
+    string startDir = @&quot;C:/Users/Example/Documents&quot;;
+    string rootLimit = @&quot;C:/Users/Example&quot;; // pass null or empty to allow full navigation
+
+    DirectoryBrowserPanel.SelectCallback onSelect = selectedDir =&gt;
     {
-        if (m_SelectedDirectory != null)
-        {
-            return m_SelectedDirectory == m_RootDirectory;
-        }
-        return true;
-    }
-</code></pre>
-<ul>
-<li><code>private ImportAssets() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void ImportAssets()
+        Debug.Log(&quot;User selected directory: &quot; + selectedDir);
+        // selectedDir ends with a '/' and uses forward slashes.
+    };
+
+    Action onCancel = () =&gt;
     {
-    }
+        Debug.Log(&quot;Directory selection canceled.&quot;);
+    };
+
+    var panel = new DirectoryBrowserPanel(startDir, rootLimit, onSelect, onCancel);
+    // Add panel to the UI container or open it according to the editor UI flow.
+}
 </code></pre>
-<ul>
-<li><code>private ImportNotReady() : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">private bool ImportNotReady()
-    {
-        return true;
-    }
-</code></pre>
-<ul>
-<li><code>private ListDrives() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void ListDrives()
-    {
-        DriveInfo[] drives = DriveInfo.GetDrives();
-        List&lt;Item&gt; list = new List&lt;Item&gt;();
-        DriveInfo[] array = drives;
-        foreach (DriveInfo driveInfo in array)
-        {
-            DirectoryInfo directoryInfo = new DirectoryInfo(driveInfo.VolumeLabel);
-            try
-            {
-                DirectoryInfo[] directories = directoryInfo.GetDirectories(&quot;*&quot;, new EnumerationOptions
-                {
-                    IgnoreInaccessible = true
-                });
-                foreach (DirectoryInfo directoryInfo2 in directories)
-                {
-                    Item item = new Item();
-                    item.name = directoryInfo2.Name;
-                    item.tooltip = directoryInfo2.Name;
-                    item.fullName = directoryInfo2.FullName.Replace(&quot;\\&quot;, &quot;/&quot;);
-                    item.parentDir = driveInfo.VolumeLabel.Replace(&quot;\\&quot;, &quot;&quot;);
-                    item.directory = true;
-                    list.Add(item);
-                }
-            }
-            catch (IOException)
-            {
-            }
-        }
-        ListItems(&quot;Editor.DRIVES&quot;, list);
-        ShowSubDir(null);
-    }
-</code></pre>
-<ul>
-<li><code>private ListItems(System.String directory, System.Collections.Generic.List&lt;Game.UI.Editor.Item&gt; items) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void ListItems(string directory, List&lt;Item&gt; items)
-    {
-        if (items.Count == 0)
-        {
-            return;
-        }
-        m_Directories.Clear();
-        m_Items = items;
-        m_RootDirName = directory;
-        foreach (Item item in m_Items)
-        {
-            Assert.IsNotNull(item.name);
-            if (item.displayName.isEmpty)
-            {
-                item.displayName = item.name;
-            }
-            if (item.parentDir == null)
-            {
-                continue;
-            }
-            string[] array = item.parentDir.Split(new char[1] { '/' }, StringSplitOptions.RemoveEmptyEntries);
-            string text = string.Empty;
-            string text2 = null;
-            string[] array2 = array;
-            foreach (string text3 in array2)
-            {
-                text += text3;
-                text += &quot;/&quot;;
-                if (!m_Directories.ContainsKey(text))
-                {
-                    m_Directories.Add(text, new Item
-                    {
-                        displayName = LocalizedString.Value(text3),
-                        directory = true,
-                        parentDir = text2,
-                        name = text3,
-                        tooltip = text2
-                    });
-                }
-                text2 = text;
-            }
-            item.parentDir = text;
-        }
-        m_Items.AddRange(m_Directories.Values);
-        m_Items.Sort();
-        base.title = &quot;Editor.OPEN_DIRECTORY&quot;;
-        base.children = new IWidget[4]
-        {
-            new SearchField
-            {
-                adapter = this
-            },
-            m_PageView = new PageView
-            {
-                currentPage = 0,
-                children = new IWidget[0]
-            },
-            new Button
-            {
-                displayName = &quot;Editor.SELECT_DIRECTORY&quot;,
-                action = OnSelectDirectory,
-                disabled = DirectoryNotSelectedOrRootSelected
-            },
-            new Button
-            {
-                displayName = &quot;Common.CANCEL&quot;,
-                action = m_OnCloseDirectoryBrowser
-            }
-        };
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnBack() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnBack()
-    {
-        if (m_Stack.Count &gt; 1)
-        {
-            m_Stack.RemoveAt(m_Stack.Count - 1);
-            m_Stack.Last().selectedItem = null;
-            m_Pages.RemoveAt(m_Pages.Count - 1);
-            m_SelectedDirectory = m_Stack.LastOrDefault()?.directoryPath;
-            if (m_LimitDepthToRoot &amp;&amp; m_SelectedDirectory == m_RootDirectory)
-            {
-                m_Pages.Last().As&lt;PageLayout&gt;().backAction = null;
-            }
-            m_PageView.children = m_Pages.ToArray();
-            m_PageView.currentPage = m_Stack.Count - 1;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public virtual OnSelect(Game.UI.Editor.Item item) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override void OnSelect(Item item)
-    {
-        if (item != null)
-        {
-            ShowSubDir((item.fullName == null) ? (item.name + &quot;/&quot;) : (item.fullName + &quot;/&quot;));
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private OnSelectDirectory() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void OnSelectDirectory()
-    {
-        m_SelectCallback(m_SelectedDirectory);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual ShowSubDir(System.String dir) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void ShowSubDir(string dir)
-    {
-        if (!string.IsNullOrEmpty(dir))
-        {
-            m_SelectedDirectory = dir;
-            if (m_Items != null)
-            {
-                m_Items.Clear();
-            }
-            try
-            {
-                List&lt;Item&gt; list = new List&lt;Item&gt;();
-                DirectoryInfo[] directories = new DirectoryInfo(dir).GetDirectories(&quot;*&quot;, new EnumerationOptions
-                {
-                    IgnoreInaccessible = true
-                });
-                foreach (DirectoryInfo directoryInfo in directories)
-                {
-                    Item item = new Item();
-                    item.name = directoryInfo.Name;
-                    item.parentDir = dir;
-                    item.fullName = directoryInfo.FullName.Replace(&quot;\\&quot;, &quot;/&quot;);
-                    item.directory = true;
-                    item.tooltip = directoryInfo.FullName;
-                    list.Add(item);
-                    DirectoryInfo[] directories2 = directoryInfo.GetDirectories(&quot;*&quot;, new EnumerationOptions
-                    {
-                        IgnoreInaccessible = true
-                    });
-                    item.directory = directories2.Length != 0;
-                    DirectoryInfo[] array = directories2;
-                    foreach (DirectoryInfo directoryInfo2 in array)
-                    {
-                        Item item2 = new Item();
-                        item2.name = directoryInfo2.Name;
-                        item2.parentDir = directoryInfo.Name;
-                        item2.fullName = directoryInfo2.FullName.Replace(&quot;\\&quot;, &quot;/&quot;);
-                        item2.tooltip = directoryInfo2.FullName;
-                        list.Add(item2);
-                    }
-                }
-                if (list.Count == 0)
-                {
-                    return;
-                }
-                ListItems(dir, list);
-            }
-            catch (Exception exception)
-            {
-                DirectoryPanelBase.log.Error(exception, &quot;Error showing directory '&quot; + dir + &quot;'&quot;);
-            }
-        }
-        base.ShowSubDir(dir);
-        if (m_LimitDepthToRoot &amp;&amp; m_SelectedDirectory == m_RootDirectory)
-        {
-            m_Pages.Last().As&lt;PageLayout&gt;().backAction = null;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private TraverseToDirectory(System.String directory) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void TraverseToDirectory(string directory)
-    {
-        DirectoryInfo directoryInfo = new DirectoryInfo(directory);
-        List&lt;string&gt; list = new List&lt;string&gt;();
-        for (DirectoryInfo directoryInfo2 = directoryInfo; directoryInfo2 != null; directoryInfo2 = directoryInfo2.Parent)
-        {
-            string item = ((directoryInfo2.Parent == null) ? directoryInfo2.Name.TrimEnd('\\') : directoryInfo2.Name);
-            list.Add(item);
-        }
-        list.Reverse();
-        StringBuilder stringBuilder = new StringBuilder();
-        foreach (string item2 in list)
-        {
-            stringBuilder.Append(item2);
-            stringBuilder.Append('/');
-            ShowSubDir(stringBuilder.ToString());
-        }
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.UI.Editor.DirectoryBrowserPanel+SelectCallback</code>  </li>
-</ul>
+<p>If you want, I can also produce a shorter quick-reference summary listing only public behaviors and important caveats (like path normalization and root-limiting behavior).</p>
 
 
 

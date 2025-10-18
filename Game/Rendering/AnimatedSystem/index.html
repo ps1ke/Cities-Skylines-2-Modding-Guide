@@ -65233,6 +65233,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -66448,18 +66471,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -66484,9 +66507,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -69751,6 +69774,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../Skeleton/" class="md-nav__link">
         
   
@@ -72563,6 +72609,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75553,6 +75622,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87145,6 +87237,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -117921,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117948,18 +118085,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -117984,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118009,1740 +118146,232 @@
 
 
 <h1 id="gamerenderinganimatedsystem">Game.Rendering.AnimatedSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Rendering</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code><br />
-<strong>Implements:</strong> <code>Game.Serialization.IPreDeserialize</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class AnimatedSystem : Game.GameSystemBase, Game.Serialization.IPreDeserialize
-{
-    private Game.Rendering.RenderingSystem m_RenderingSystem;
-    private Game.Prefabs.PrefabSystem m_PrefabSystem;
-    private Colossal.Collections.NativeHeapAllocator m_BoneAllocator;
-    private Colossal.Collections.NativeHeapAllocator m_AnimAllocator;
-    private Colossal.Collections.NativeHeapAllocator m_IndexAllocator;
-    private Unity.Collections.NativeList&lt;Game.Rendering.MetaBufferData&gt; m_MetaBufferData;
-    private Unity.Collections.NativeList&lt;System.Int32&gt; m_FreeMetaIndices;
-    private Unity.Collections.NativeList&lt;System.Int32&gt; m_UpdatedMetaIndices;
-    private Unity.Collections.NativeList&lt;Game.Rendering.RestPoseInstance&gt; m_InstanceIndices;
-    private Unity.Collections.NativeList&lt;Game.Rendering.AnimatedInstance&gt; m_BodyInstances;
-    private Unity.Collections.NativeList&lt;Game.Rendering.AnimatedInstance&gt; m_FaceInstances;
-    private Unity.Collections.NativeList&lt;Game.Rendering.AnimatedInstance&gt; m_CorrectiveInstances;
-    private Unity.Collections.NativeList&lt;Game.Rendering.AnimatedTransition&gt; m_BodyTransitions;
-    private Unity.Collections.NativeList&lt;Game.Rendering.AnimatedTransition2&gt; m_BodyTransitions2;
-    private Unity.Collections.NativeList&lt;Game.Rendering.AnimatedTransition&gt; m_FaceTransitions;
-    private Unity.Collections.NativeList&lt;Game.Rendering.AnimatedSystem+ClipPriorityData&gt; m_ClipPriorities;
-    private Unity.Collections.NativeList&lt;Game.Rendering.AnimatedSystem+AnimationClipData&gt; m_AnimationClipData;
-    private Unity.Collections.NativeList&lt;System.Int32&gt; m_FreeAnimIndices;
-    private Unity.Collections.NativeQueue&lt;Game.Rendering.AnimatedSystem+AllocationRemove&gt; m_BoneAllocationRemoves;
-    private Unity.Collections.NativeQueue&lt;Game.Rendering.AnimatedSystem+IndexRemove&gt; m_MetaBufferRemoves;
-    private UnityEngine.ComputeBuffer m_BoneBuffer;
-    private UnityEngine.ComputeBuffer m_BoneHistoryBuffer;
-    private UnityEngine.ComputeBuffer m_LocalTRSBlendPoseBuffer;
-    private UnityEngine.ComputeBuffer m_LocalTRSBoneBuffer;
-    private UnityEngine.ComputeBuffer m_AnimInfoBuffer;
-    private UnityEngine.ComputeBuffer m_AnimBuffer;
-    private UnityEngine.ComputeBuffer m_MetaBuffer;
-    private UnityEngine.ComputeBuffer m_IndexBuffer;
-    private UnityEngine.ComputeBuffer m_InstanceBuffer;
-    private UnityEngine.ComputeBuffer m_BodyInstanceBuffer;
-    private UnityEngine.ComputeBuffer m_FaceInstanceBuffer;
-    private UnityEngine.ComputeBuffer m_CorrectiveInstanceBuffer;
-    private UnityEngine.ComputeBuffer m_BodyTransitionBuffer;
-    private UnityEngine.ComputeBuffer m_BodyTransition2Buffer;
-    private UnityEngine.ComputeBuffer m_FaceTransitionBuffer;
-    private System.Int32 m_AnimationCount;
-    private System.Int32 m_MaxBoneCount;
-    private System.Int32 m_MaxActiveBoneCount;
-    private System.Int32 m_CurrentTime;
-    private System.Boolean m_IsAllocating;
-    private System.Collections.Generic.Dictionary&lt;System.String, System.Int32&gt; m_PropIDs;
-    private UnityEngine.ComputeShader m_AnimationComputeShader;
-    private Unity.Collections.NativeQueue&lt;Game.Rendering.AnimatedSystem+AnimationFrameData&gt; m_TempAnimationQueue;
-    private Unity.Collections.NativeQueue&lt;Game.Rendering.AnimatedSystem+ClipPriorityData&gt; m_TempPriorityQueue;
-    private Unity.Jobs.JobHandle m_AllocateDeps;
-    private System.Int32 m_BlendAnimationLayer0KernelIx;
-    private System.Int32 m_BlendAnimationLayer1KernelIx;
-    private System.Int32 m_BlendAnimationLayer2KernelIx;
-    private System.Int32 m_BlendTransitionLayer0KernelIx;
-    private System.Int32 m_BlendTransition2Layer0KernelIx;
-    private System.Int32 m_BlendTransitionLayer1KernelIx;
-    private System.Int32 m_BlendRestPoseKernelIx;
-    private System.Int32 m_ConvertLocalCoordinatesKernelIx;
-    private System.Int32 m_ConvertLocalCoordinatesWithHistoryKernelIx;
-    private System.Int32 m_IndexBufferID;
-    private System.Int32 m_MetadataBufferID;
-    private System.Int32 m_MetaIndexBufferID;
-    private System.Int32 m_AnimatedInstanceBufferID;
-    private System.Int32 m_AnimatedTransitionBufferID;
-    private System.Int32 m_AnimatedTransition2BufferID;
-    private System.Int32 m_AnimationInfoBufferID;
-    private System.Int32 m_AnimationBoneBufferID;
-    private System.Int32 m_InstanceCountID;
-    private System.Int32 m_BodyInstanceCountID;
-    private System.Int32 m_BodyTransitionCountID;
-    private System.Int32 m_BodyTransition2CountID;
-    private System.Int32 m_FaceInstanceCountID;
-    private System.Int32 m_FaceTransitionCountID;
-    private System.Int32 m_CorrectiveInstanceCountID;
-    private System.Int32 m_LocalTRSBlendPoseBufferID;
-    private System.Int32 m_LocalTRSBoneBufferID;
-    private System.Int32 m_BoneBufferID;
-    private System.Int32 m_BoneHistoryBufferID;
-    private static Colossal.Logging.ILog log;
-    public static const System.UInt32 BONEBUFFER_MEMORY_DEFAULT;
-    public static const System.UInt32 BONEBUFFER_MEMORY_INCREMENT;
-    public static const System.UInt32 ANIMBUFFER_MEMORY_DEFAULT;
-    public static const System.UInt32 ANIMBUFFER_MEMORY_INCREMENT;
-    public static const System.UInt32 METABUFFER_MEMORY_DEFAULT;
-    public static const System.UInt32 METABUFFER_MEMORY_INCREMENT;
-    public static const System.UInt32 INDEXBUFFER_MEMORY_DEFAULT;
-    public static const System.UInt32 INDEXBUFFER_MEMORY_INCREMENT;
-    public static const System.UInt32 MAX_ASYNC_LOADING_COUNT;
-    private static const System.String ANIMATION_COMPUTE_SHADER_RESOURCE;
-    private static const System.String SHADER_BLEND_ANIMATION_LAYER0_KERNEL_NAME;
-    private static const System.String SHADER_BLEND_ANIMATION_LAYER1_KERNEL_NAME;
-    private static const System.String SHADER_BLEND_ANIMATION_LAYER2_KERNEL_NAME;
-    private static const System.String SHADER_BLEND_TRANSITION_LAYER0_KERNEL_NAME;
-    private static const System.String SHADER_BLEND_TRANSITION2_LAYER0_KERNEL_NAME;
-    private static const System.String SHADER_BLEND_TRANSITION_LAYER1_KERNEL_NAME;
-    private static const System.String SHADER_BLEND_REST_POSE_KERNEL_NAME;
-    private static const System.String SHADER_CONVERT_COORDINATES_KERNEL_NAME;
-    private static const System.String SHADER_CONVERT_COORDINATES_WITH_HISTORY_KERNEL_NAME;
-
-    public AnimatedSystem();
-
-    public System.Void AddAllocationWriter(Unity.Jobs.JobHandle handle);
-    public System.Void AddAnimationWriter(Unity.Jobs.JobHandle handle);
-    private Colossal.Collections.NativeHeapBlock AllocateIndexData(System.UInt32 size);
-    private System.Void CacheRestPose(Unity.Entities.Entity style, Colossal.Animations.AnimationClip restPose);
-    private System.Single FindTargetRotation(Colossal.Animations.AnimationClip animation, Unity.Collections.NativeArray&lt;Colossal.Animations.Animation+Element&gt; elements);
-    private System.Single FindTargetValue(Colossal.Animations.AnimationClip animation, Game.Prefabs.AnimationClip animationClip, Unity.Collections.NativeArray&lt;Colossal.Animations.Animation+Element&gt; elements);
-    public Game.Rendering.AnimatedSystem+AllocationData GetAllocationData(Unity.Jobs.JobHandle&amp; dependencies);
-    public Game.Rendering.AnimatedSystem+AnimationData GetAnimationData(Unity.Jobs.JobHandle&amp; dependencies);
-    public System.Void GetAnimStats(System.UInt32&amp; allocatedSize, System.UInt32&amp; bufferSize, System.UInt32&amp; count);
-    public System.Void GetBoneStats(System.UInt32&amp; allocatedSize, System.UInt32&amp; bufferSize, System.UInt32&amp; count);
-    public System.Void GetIndexStats(System.UInt32&amp; allocatedSize, System.UInt32&amp; bufferSize, System.UInt32&amp; count);
-    public System.Void GetMetaStats(System.UInt32&amp; allocatedSize, System.UInt32&amp; bufferSize, System.UInt32&amp; count);
-    public Game.Rendering.AnimatedPropID GetPropID(System.String name);
-    private System.Boolean LoadAnimation(Game.Rendering.AnimatedSystem+ClipIndex clipIndex, Colossal.Animations.AnimationClip animation);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnDestroy();
-    protected virtual System.Void OnUpdate();
-    private System.Void PlayAnimations();
-    public System.Void PreDeserialize(Colossal.Serialization.Entities.Context context);
-    private System.Void RemoveRootMotion(Colossal.Animations.AnimationClip animation, Game.Prefabs.AnimationClip animationClip, Unity.Entities.DynamicBuffer&lt;Game.Prefabs.RestPoseElement&gt; restPose, Unity.Collections.NativeArray&lt;Game.Prefabs.AnimationMotion&gt; motions, Unity.Collections.NativeArray&lt;Colossal.Animations.Animation+Element&gt; elements);
-    private System.Void ResizeAnimBuffer();
-    private System.Void ResizeAnimInfoBuffer();
-    private System.Void ResizeBoneBuffer();
-    private System.Void ResizeBoneHistoryBuffer();
-    private System.Void ResizeIndexBuffer();
-    private System.Void ResizeMetaBuffer();
-    private System.Void UnCacheRestPose(Unity.Entities.Entity style);
-    private System.Void UnloadAnimation(Game.Rendering.AnimatedSystem+ClipIndex clipIndex);
-    private System.Void UpdateAnimations();
-    private System.Void UpdateInstanceBuffer&lt;T&gt;(UnityEngine.ComputeBuffer&amp; buffer, Unity.Collections.NativeList&lt;T&gt; data, System.String name);
-    private System.Void UpdateInstances();
-    private System.Void UpdateMetaData();
-}
-</code></pre>
+<p><strong>Assembly:</strong> Game<br />
+<strong>Namespace:</strong> Game.Rendering</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> GameSystemBase, IPreDeserialize</p>
+<p><strong>Summary:</strong><br />
+AnimatedSystem is the central animation management system used by the rendering pipeline. It:
+- Manages loading/unloading of animation assets and caches (animations, rest poses, index maps).
+- Allocates and tracks GPU/CPU memory via NativeHeapAllocator instances for bones, animation elements, and index data.
+- Builds and updates compute buffers (meta, anim, index, bone, instance/transition buffers) and dispatches a compute shader that blends animation layers and converts local coordinate data (optionally with motion vectors).
+- Provides thread/job-safe writers (AllocationData / AnimationData) so other systems can enqueue allocation requests and animation frames from jobs; coordinates with job dependencies via m_AllocateDeps.
+- Contains several small Burst-compiled jobs (AddAnimationInstancesJob, UpdateAnimationPriorityJob, EndAllocationJob) and multiple nested/utility structs for frame and allocation bookkeeping.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.Rendering.RenderingSystem m_RenderingSystem</code>  </li>
+<li>
+<p><code>private RenderingSystem m_RenderingSystem</code><br />
+Holds a reference to the RenderingSystem (used to query render-time flags such as motion vectors) retrieved from the world.</p>
+</li>
+<li>
+<p><code>private PrefabSystem m_PrefabSystem</code><br />
+Reference to PrefabSystem used to read CharacterStyle/animation asset data when loading animations.</p>
+</li>
+<li>
+<p><code>private NativeHeapAllocator m_BoneAllocator</code><br />
+Allocator for bone data (BoneElement) used by compute shader bone buffers.</p>
+</li>
+<li>
+<p><code>private NativeHeapAllocator m_AnimAllocator</code><br />
+Allocator for animation element data (Colossal.Animations.Animation.Element).</p>
+</li>
+<li>
+<p><code>private NativeHeapAllocator m_IndexAllocator</code><br />
+Allocator for index buffers (hierarchy, shape, bone indices, inverse bone maps).</p>
+</li>
+<li>
+<p><code>private NativeList&lt;MetaBufferData&gt; m_MetaBufferData</code><br />
+CPU-side list of per-meta data that is uploaded to the GPU meta compute buffer.</p>
+</li>
+<li>
+<p><code>private NativeList&lt;int&gt; m_FreeMetaIndices</code><br />
+Free list for meta slot reuse.</p>
+</li>
+<li>
+<p><code>private NativeList&lt;int&gt; m_UpdatedMetaIndices</code><br />
+List of meta indices that have changed and need to be uploaded to the GPU meta buffer.</p>
+</li>
+<li>
+<p><code>private NativeList&lt;RestPoseInstance&gt; m_InstanceIndices</code><br />
+Instances to be processed by compute shader for rest-pose / instance setup.</p>
+</li>
+<li>
+<p><code>private NativeList&lt;AnimatedInstance&gt; m_BodyInstances</code><br />
+Body animation instance entries for compute shader blending.</p>
+</li>
+<li>
+<p><code>private NativeList&lt;AnimatedInstance&gt; m_FaceInstances</code><br />
+Face animation instance entries.</p>
+</li>
+<li>
+<p><code>private NativeList&lt;AnimatedInstance&gt; m_CorrectiveInstances</code><br />
+Corrective animation instances.</p>
+</li>
+<li>
+<p><code>private NativeList&lt;AnimatedTransition&gt; m_BodyTransitions</code><br />
+Single-transition body transitions.</p>
+</li>
+<li>
+<p><code>private NativeList&lt;AnimatedTransition2&gt; m_BodyTransitions2</code><br />
+Double-transition body transitions (two blend sources).</p>
+</li>
+<li>
+<p><code>private NativeQueue&lt;AllocationRemove&gt; m_BoneAllocationRemoves</code><br />
+Queued bone allocation releases (deferred until safe to release).</p>
+</li>
+<li>
+<p><code>private NativeQueue&lt;IndexRemove&gt; m_MetaBufferRemoves</code><br />
+Queued meta buffer removals (deferred).</p>
+</li>
+<li>
+<p><code>private ComputeShader m_AnimationComputeShader</code><br />
+Compute shader used to blend animations and convert coordinates. Kernel indices are cached on OnCreate.</p>
+</li>
+<li>
+<p><code>private ComputeBuffer m_BoneBuffer</code><br />
+GPU structured buffer holding current bone TRS/matrices.</p>
+</li>
+<li>
+<p><code>private ComputeBuffer m_BoneHistoryBuffer</code><br />
+History buffer for motion vectors (if enabled).</p>
+</li>
+<li>
+<p><code>private ComputeBuffer m_MetaBuffer</code><br />
+GPU buffer that stores meta data for instances.</p>
+</li>
+<li>
+<p><code>private ComputeBuffer m_AnimBuffer</code><br />
+GPU buffer with animation element data.</p>
+</li>
+<li>
+<p><code>private ComputeBuffer m_IndexBuffer</code><br />
+GPU buffer for various index tables (hierarchy, shapes, bones, inverse-bones).</p>
+</li>
+<li>
+<p><code>private Dictionary&lt;string,int&gt; m_PropIDs</code><br />
+Name-to-id mapping for animated prop IDs.</p>
+</li>
+<li>
+<p><code>private NativeQueue&lt;AnimationFrameData&gt; m_TempAnimationQueue</code><br />
+Temporary native queue used to enqueue animation frame info from jobs (created lazily).</p>
+</li>
+<li>
+<p><code>private NativeQueue&lt;ClipPriorityData&gt; m_TempPriorityQueue</code><br />
+Temporary native queue used to enqueue clip priority updates from jobs (created lazily).</p>
+</li>
+<li>
+<p><code>private JobHandle m_AllocateDeps</code><br />
+Job dependency handle that callers can supply; AnimatedSystem waits/completes this when handling allocations. Used to coordinate safe allocation/release.</p>
+</li>
+<li>
+<p><code>private bool m_IsAllocating</code><br />
+Flag indicating allocation operations are in progress (used to delay buffer resizing and GPU updates until jobs complete).</p>
+</li>
+</ul>
+<p>(There are many more private fields and kernel/property IDs used for compute shader binding; above are the most important for modders.)</p>
+<h2 id="properties">Properties</h2>
+<ul>
+<li>(No public properties exposed by this system. Interaction is done via methods returning helper structs.)</li>
 </ul>
-<pre><code class="language-csharp">private Game.Rendering.RenderingSystem m_RenderingSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Prefabs.PrefabSystem m_PrefabSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Prefabs.PrefabSystem m_PrefabSystem;
-</code></pre>
-<ul>
-<li><code>private Colossal.Collections.NativeHeapAllocator m_BoneAllocator</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.Collections.NativeHeapAllocator m_BoneAllocator;
-</code></pre>
-<ul>
-<li><code>private Colossal.Collections.NativeHeapAllocator m_AnimAllocator</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.Collections.NativeHeapAllocator m_AnimAllocator;
-</code></pre>
-<ul>
-<li><code>private Colossal.Collections.NativeHeapAllocator m_IndexAllocator</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.Collections.NativeHeapAllocator m_IndexAllocator;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeList&lt;Game.Rendering.MetaBufferData&gt; m_MetaBufferData</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeList&lt;Game.Rendering.MetaBufferData&gt; m_MetaBufferData;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeList&lt;System.Int32&gt; m_FreeMetaIndices</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeList&lt;System.Int32&gt; m_FreeMetaIndices;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeList&lt;System.Int32&gt; m_UpdatedMetaIndices</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeList&lt;System.Int32&gt; m_UpdatedMetaIndices;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeList&lt;Game.Rendering.RestPoseInstance&gt; m_InstanceIndices</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeList&lt;Game.Rendering.RestPoseInstance&gt; m_InstanceIndices;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeList&lt;Game.Rendering.AnimatedInstance&gt; m_BodyInstances</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeList&lt;Game.Rendering.AnimatedInstance&gt; m_BodyInstances;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeList&lt;Game.Rendering.AnimatedInstance&gt; m_FaceInstances</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeList&lt;Game.Rendering.AnimatedInstance&gt; m_FaceInstances;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeList&lt;Game.Rendering.AnimatedInstance&gt; m_CorrectiveInstances</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeList&lt;Game.Rendering.AnimatedInstance&gt; m_CorrectiveInstances;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeList&lt;Game.Rendering.AnimatedTransition&gt; m_BodyTransitions</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeList&lt;Game.Rendering.AnimatedTransition&gt; m_BodyTransitions;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeList&lt;Game.Rendering.AnimatedTransition2&gt; m_BodyTransitions2</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeList&lt;Game.Rendering.AnimatedTransition2&gt; m_BodyTransitions2;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeList&lt;Game.Rendering.AnimatedTransition&gt; m_FaceTransitions</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeList&lt;Game.Rendering.AnimatedTransition&gt; m_FaceTransitions;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeList&lt;Game.Rendering.AnimatedSystem+ClipPriorityData&gt; m_ClipPriorities</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeList&lt;Game.Rendering.AnimatedSystem+ClipPriorityData&gt; m_ClipPriorities;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeList&lt;Game.Rendering.AnimatedSystem+AnimationClipData&gt; m_AnimationClipData</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeList&lt;Game.Rendering.AnimatedSystem+AnimationClipData&gt; m_AnimationClipData;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeList&lt;System.Int32&gt; m_FreeAnimIndices</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeList&lt;System.Int32&gt; m_FreeAnimIndices;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeQueue&lt;Game.Rendering.AnimatedSystem+AllocationRemove&gt; m_BoneAllocationRemoves</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeQueue&lt;Game.Rendering.AnimatedSystem+AllocationRemove&gt; m_BoneAllocationRemoves;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeQueue&lt;Game.Rendering.AnimatedSystem+IndexRemove&gt; m_MetaBufferRemoves</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeQueue&lt;Game.Rendering.AnimatedSystem+IndexRemove&gt; m_MetaBufferRemoves;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.ComputeBuffer m_BoneBuffer</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.ComputeBuffer m_BoneBuffer;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.ComputeBuffer m_BoneHistoryBuffer</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.ComputeBuffer m_BoneHistoryBuffer;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.ComputeBuffer m_LocalTRSBlendPoseBuffer</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.ComputeBuffer m_LocalTRSBlendPoseBuffer;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.ComputeBuffer m_LocalTRSBoneBuffer</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.ComputeBuffer m_LocalTRSBoneBuffer;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.ComputeBuffer m_AnimInfoBuffer</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.ComputeBuffer m_AnimInfoBuffer;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.ComputeBuffer m_AnimBuffer</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.ComputeBuffer m_AnimBuffer;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.ComputeBuffer m_MetaBuffer</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.ComputeBuffer m_MetaBuffer;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.ComputeBuffer m_IndexBuffer</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.ComputeBuffer m_IndexBuffer;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.ComputeBuffer m_InstanceBuffer</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.ComputeBuffer m_InstanceBuffer;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.ComputeBuffer m_BodyInstanceBuffer</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.ComputeBuffer m_BodyInstanceBuffer;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.ComputeBuffer m_FaceInstanceBuffer</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.ComputeBuffer m_FaceInstanceBuffer;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.ComputeBuffer m_CorrectiveInstanceBuffer</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.ComputeBuffer m_CorrectiveInstanceBuffer;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.ComputeBuffer m_BodyTransitionBuffer</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.ComputeBuffer m_BodyTransitionBuffer;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.ComputeBuffer m_BodyTransition2Buffer</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.ComputeBuffer m_BodyTransition2Buffer;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.ComputeBuffer m_FaceTransitionBuffer</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.ComputeBuffer m_FaceTransitionBuffer;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_AnimationCount</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_AnimationCount;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_MaxBoneCount</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_MaxBoneCount;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_MaxActiveBoneCount</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_MaxActiveBoneCount;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_CurrentTime</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_CurrentTime;
-</code></pre>
-<ul>
-<li><code>private System.Boolean m_IsAllocating</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean m_IsAllocating;
-</code></pre>
-<ul>
-<li><code>private System.Collections.Generic.Dictionary&lt;System.String, System.Int32&gt; m_PropIDs</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Collections.Generic.Dictionary&lt;System.String, System.Int32&gt; m_PropIDs;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.ComputeShader m_AnimationComputeShader</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.ComputeShader m_AnimationComputeShader;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeQueue&lt;Game.Rendering.AnimatedSystem+AnimationFrameData&gt; m_TempAnimationQueue</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeQueue&lt;Game.Rendering.AnimatedSystem+AnimationFrameData&gt; m_TempAnimationQueue;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeQueue&lt;Game.Rendering.AnimatedSystem+ClipPriorityData&gt; m_TempPriorityQueue</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeQueue&lt;Game.Rendering.AnimatedSystem+ClipPriorityData&gt; m_TempPriorityQueue;
-</code></pre>
-<ul>
-<li><code>private Unity.Jobs.JobHandle m_AllocateDeps</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Jobs.JobHandle m_AllocateDeps;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_BlendAnimationLayer0KernelIx</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_BlendAnimationLayer0KernelIx;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_BlendAnimationLayer1KernelIx</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_BlendAnimationLayer1KernelIx;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_BlendAnimationLayer2KernelIx</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_BlendAnimationLayer2KernelIx;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_BlendTransitionLayer0KernelIx</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_BlendTransitionLayer0KernelIx;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_BlendTransition2Layer0KernelIx</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_BlendTransition2Layer0KernelIx;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_BlendTransitionLayer1KernelIx</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_BlendTransitionLayer1KernelIx;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_BlendRestPoseKernelIx</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_BlendRestPoseKernelIx;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_ConvertLocalCoordinatesKernelIx</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_ConvertLocalCoordinatesKernelIx;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_ConvertLocalCoordinatesWithHistoryKernelIx</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_ConvertLocalCoordinatesWithHistoryKernelIx;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_IndexBufferID</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_IndexBufferID;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_MetadataBufferID</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_MetadataBufferID;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_MetaIndexBufferID</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_MetaIndexBufferID;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_AnimatedInstanceBufferID</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_AnimatedInstanceBufferID;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_AnimatedTransitionBufferID</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_AnimatedTransitionBufferID;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_AnimatedTransition2BufferID</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_AnimatedTransition2BufferID;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_AnimationInfoBufferID</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_AnimationInfoBufferID;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_AnimationBoneBufferID</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_AnimationBoneBufferID;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_InstanceCountID</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_InstanceCountID;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_BodyInstanceCountID</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_BodyInstanceCountID;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_BodyTransitionCountID</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_BodyTransitionCountID;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_BodyTransition2CountID</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_BodyTransition2CountID;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_FaceInstanceCountID</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_FaceInstanceCountID;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_FaceTransitionCountID</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_FaceTransitionCountID;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_CorrectiveInstanceCountID</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_CorrectiveInstanceCountID;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_LocalTRSBlendPoseBufferID</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_LocalTRSBlendPoseBufferID;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_LocalTRSBoneBufferID</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_LocalTRSBoneBufferID;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_BoneBufferID</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_BoneBufferID;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_BoneHistoryBufferID</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_BoneHistoryBufferID;
-</code></pre>
-<ul>
-<li><code>private static Colossal.Logging.ILog log</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static Colossal.Logging.ILog log;
-</code></pre>
-<ul>
-<li><code>public static const System.UInt32 BONEBUFFER_MEMORY_DEFAULT</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static const System.UInt32 BONEBUFFER_MEMORY_DEFAULT;
-</code></pre>
-<ul>
-<li><code>public static const System.UInt32 BONEBUFFER_MEMORY_INCREMENT</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static const System.UInt32 BONEBUFFER_MEMORY_INCREMENT;
-</code></pre>
-<ul>
-<li><code>public static const System.UInt32 ANIMBUFFER_MEMORY_DEFAULT</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static const System.UInt32 ANIMBUFFER_MEMORY_DEFAULT;
-</code></pre>
-<ul>
-<li><code>public static const System.UInt32 ANIMBUFFER_MEMORY_INCREMENT</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static const System.UInt32 ANIMBUFFER_MEMORY_INCREMENT;
-</code></pre>
-<ul>
-<li><code>public static const System.UInt32 METABUFFER_MEMORY_DEFAULT</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static const System.UInt32 METABUFFER_MEMORY_DEFAULT;
-</code></pre>
-<ul>
-<li><code>public static const System.UInt32 METABUFFER_MEMORY_INCREMENT</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static const System.UInt32 METABUFFER_MEMORY_INCREMENT;
-</code></pre>
-<ul>
-<li><code>public static const System.UInt32 INDEXBUFFER_MEMORY_DEFAULT</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static const System.UInt32 INDEXBUFFER_MEMORY_DEFAULT;
-</code></pre>
-<ul>
-<li><code>public static const System.UInt32 INDEXBUFFER_MEMORY_INCREMENT</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static const System.UInt32 INDEXBUFFER_MEMORY_INCREMENT;
-</code></pre>
-<ul>
-<li><code>public static const System.UInt32 MAX_ASYNC_LOADING_COUNT</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static const System.UInt32 MAX_ASYNC_LOADING_COUNT;
-</code></pre>
-<ul>
-<li><code>private static const System.String ANIMATION_COMPUTE_SHADER_RESOURCE</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static const System.String ANIMATION_COMPUTE_SHADER_RESOURCE;
-</code></pre>
-<ul>
-<li><code>private static const System.String SHADER_BLEND_ANIMATION_LAYER0_KERNEL_NAME</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static const System.String SHADER_BLEND_ANIMATION_LAYER0_KERNEL_NAME;
-</code></pre>
-<ul>
-<li><code>private static const System.String SHADER_BLEND_ANIMATION_LAYER1_KERNEL_NAME</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static const System.String SHADER_BLEND_ANIMATION_LAYER1_KERNEL_NAME;
-</code></pre>
-<ul>
-<li><code>private static const System.String SHADER_BLEND_ANIMATION_LAYER2_KERNEL_NAME</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static const System.String SHADER_BLEND_ANIMATION_LAYER2_KERNEL_NAME;
-</code></pre>
-<ul>
-<li><code>private static const System.String SHADER_BLEND_TRANSITION_LAYER0_KERNEL_NAME</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static const System.String SHADER_BLEND_TRANSITION_LAYER0_KERNEL_NAME;
-</code></pre>
-<ul>
-<li><code>private static const System.String SHADER_BLEND_TRANSITION2_LAYER0_KERNEL_NAME</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static const System.String SHADER_BLEND_TRANSITION2_LAYER0_KERNEL_NAME;
-</code></pre>
-<ul>
-<li><code>private static const System.String SHADER_BLEND_TRANSITION_LAYER1_KERNEL_NAME</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static const System.String SHADER_BLEND_TRANSITION_LAYER1_KERNEL_NAME;
-</code></pre>
-<ul>
-<li><code>private static const System.String SHADER_BLEND_REST_POSE_KERNEL_NAME</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static const System.String SHADER_BLEND_REST_POSE_KERNEL_NAME;
-</code></pre>
-<ul>
-<li><code>private static const System.String SHADER_CONVERT_COORDINATES_KERNEL_NAME</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static const System.String SHADER_CONVERT_COORDINATES_KERNEL_NAME;
-</code></pre>
-<ul>
-<li><code>private static const System.String SHADER_CONVERT_COORDINATES_WITH_HISTORY_KERNEL_NAME</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static const System.String SHADER_CONVERT_COORDINATES_WITH_HISTORY_KERNEL_NAME;
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public AnimatedSystem()</code>  </li>
+<li><code>public AnimatedSystem()</code><br />
+Default constructor (preserved). Initialization of most runtime state is performed in OnCreate.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public AnimatedSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>public AddAllocationWriter(Unity.Jobs.JobHandle handle) : System.Void</code>  </li>
+<li>
+<p><code>protected override void OnCreate()</code><br />
+Initializes allocators, native lists/queues, loads and instantiates the animation compute shader, caches kernel indices and shader property IDs, creates initial allocations and default meta entry. This prepares the system to accept allocation and animation writers.</p>
+</li>
+<li>
+<p><code>protected override void OnDestroy()</code><br />
+Cleans up: completes any outstanding allocation jobs, disposes allocators and native lists/queues, releases all ComputeBuffers, and destroys the compute shader instance.</p>
+</li>
+<li>
+<p><code>protected override void OnUpdate()</code><br />
+Called each frame by the world. If allocations finished (m_IsAllocating), it completes dependencies, resizes buffers and updates animations/meta/instances. Then calls PlayAnimations which binds buffers and dispatches compute shader kernels to perform blending and coordinate conversion.</p>
+</li>
+<li>
+<p><code>public void PreDeserialize(Context context)</code><br />
+Implements IPreDeserialize. Clears allocators, lists, and queues prior to deserialization to ensure a consistent starting state when loading a saved game.</p>
+</li>
+<li>
+<p><code>public AllocationData GetAllocationData(out JobHandle dependencies)</code><br />
+Used by other systems to obtain a thread-safe AllocationData writer and the current dependencies handle. Callers enqueue allocation/removal requests (AllocateBones/ReleaseBones/AddMetaBufferData/RemoveMetaBufferData) from jobs and return the writer's JobHandle via AddAllocationWriter.</p>
+</li>
+<li>
+<p><code>public AnimationData GetAnimationData(out JobHandle dependencies)</code><br />
+Returns an AnimationData writer (which holds parallel writers for two native queues) to allow other systems to enqueue animation frames and clip priority updates from jobs. Also returns the current dependencies (to chain jobs) and marks the system as allocating.</p>
+</li>
+<li>
+<p><code>public void AddAllocationWriter(JobHandle handle)</code><br />
+Set/extend m_AllocateDeps with a producer job handle after scheduling jobs that used AllocationData.</p>
+</li>
+<li>
+<p><code>public void AddAnimationWriter(JobHandle handle)</code><br />
+Set/extend m_AllocateDeps with a producer job handle after scheduling jobs that used AnimationData.</p>
+</li>
+<li>
+<p><code>public AnimatedPropID GetPropID(string name)</code><br />
+Get or create a small integer ID for a named animated prop; used to reference per-prop animation data compactly.</p>
+</li>
+<li>
+<p><code>public void GetBoneStats(out uint allocatedSize, out uint bufferSize, out uint count)</code><br />
+Query memory/buffer statistics for bones. Blocks until allocation jobs complete.</p>
+</li>
+<li>
+<p><code>public void GetAnimStats(out uint allocatedSize, out uint bufferSize, out uint count)</code><br />
+Query animation allocator stats and counts.</p>
+</li>
+<li>
+<p><code>public void GetIndexStats(out uint allocatedSize, out uint bufferSize, out uint count)</code><br />
+Query index allocator stats.</p>
+</li>
+<li>
+<p><code>public void GetMetaStats(out uint allocatedSize, out uint bufferSize, out uint count)</code><br />
+Query meta buffer statistics.</p>
+</li>
+<li>
+<p>Internal/Burst jobs and helpers (not public API but useful to know):</p>
+</li>
+<li>AddAnimationInstancesJob (IJob, Burst) — dequeues AnimationFrameData and populates instance &amp; transition NativeLists for GPU.</li>
+<li>UpdateAnimationPriorityJob (IJob, Burst) — applies queued priority updates and prunes/sorts the clip priority list.</li>
+<li>EndAllocationJob (IJob, Burst) — processes deferred allocation and meta removals by time, releases memory and compacts meta lists.</li>
+<li>LoadAnimation / UnloadAnimation — manage CPU/GPU allocation when an animation is loaded/unloaded; writes anim info to GPU buffers.</li>
+<li>CacheRestPose / UnCacheRestPose — store rest pose into entity buffers.</li>
+<li>PlayAnimations — main GPU-binding routine; sets buffers and dispatches compute shader kernels.</li>
 </ul>
-<pre><code class="language-csharp">public void AddAllocationWriter(JobHandle handle)
-    {
-        m_AllocateDeps = handle;
-    }
+<h2 id="usage-example">Usage Example</h2>
+<p>Example of how a mod system could enqueue animation frames from a job / system and provide job dependencies to AnimatedSystem:</p>
+<pre><code class="language-csharp">// Example inside another system (pseudo-code):
+protected override void OnUpdate()
+{
+    var animatedSystem = World.GetOrCreateSystemManaged&lt;Game.Rendering.AnimatedSystem&gt;();
+    JobHandle deps;
+    var animationWriter = animatedSystem.GetAnimationData(out deps); // obtains a writer and current dependencies
+
+    // Schedule a job that uses animationWriter (AnimationData.SetAnimationFrame) from a job
+    var producerJob = new MyProduceAnimationJob {
+        // pass animationWriter fields or parameters needed
+    }.Schedule(deps);
+
+    // Tell AnimatedSystem about the producer job so it can wait for it
+    animatedSystem.AddAnimationWriter(producerJob);
+}
+
+// Or on the main thread, you can directly enqueue a single frame:
+var animatedSystem = world.GetOrCreateSystemManaged&lt;Game.Rendering.AnimatedSystem&gt;();
+JobHandle dummy;
+var animData = animatedSystem.GetAnimationData(out dummy);
+animData.SetAnimationFrame(characterElement, clipsBuffer, animatedComponent, new float2(0f,0f), priority: 1, reset: false);
+animatedSystem.AddAnimationWriter(default(JobHandle));
 </code></pre>
-<ul>
-<li><code>public AddAnimationWriter(Unity.Jobs.JobHandle handle) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void AddAnimationWriter(JobHandle handle)
-    {
-        m_AllocateDeps = handle;
-    }
-</code></pre>
-<ul>
-<li><code>private AllocateIndexData(System.UInt32 size) : Colossal.Collections.NativeHeapBlock</code>  </li>
-</ul>
-<pre><code class="language-csharp">private NativeHeapBlock AllocateIndexData(uint size)
-    {
-        NativeHeapBlock result = m_IndexAllocator.Allocate(size);
-        while (result.Empty)
-        {
-            uint num = 4096u;
-            num = (num + size - 1) / num * num;
-            m_IndexAllocator.Resize(m_IndexAllocator.Size + num);
-            result = m_IndexAllocator.Allocate(size);
-        }
-        return result;
-    }
-</code></pre>
-<ul>
-<li><code>private CacheRestPose(Unity.Entities.Entity style, Colossal.Animations.AnimationClip restPose) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void CacheRestPose(Entity style, Colossal.Animations.AnimationClip restPose)
-    {
-        DynamicBuffer&lt;RestPoseElement&gt; buffer = base.EntityManager.GetBuffer&lt;RestPoseElement&gt;(style);
-        buffer.ResizeUninitialized(restPose.m_Animation.elements.Length);
-        for (int i = 0; i &lt; buffer.Length; i++)
-        {
-            Colossal.Animations.Animation.ElementRaw elementRaw = AnimationEncoding.DecodeElement(restPose.m_Animation.elements[i], restPose.m_Animation.positionMin, restPose.m_Animation.positionRange);
-            buffer[i] = new RestPoseElement
-            {
-                m_Position = elementRaw.position,
-                m_Rotation = elementRaw.rotation
-            };
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private FindTargetRotation(Colossal.Animations.AnimationClip animation, Unity.Collections.NativeArray&lt;Colossal.Animations.Animation+Element&gt; elements) : System.Single</code>  </li>
-</ul>
-<pre><code class="language-csharp">private float FindTargetRotation(Colossal.Animations.AnimationClip animation, NativeArray&lt;Colossal.Animations.Animation.Element&gt; elements)
-    {
-        int num = animation.m_Animation.shapeIndices.Length;
-        int num2 = animation.m_Animation.boneIndices.Length;
-        float num3 = 0f;
-        for (int i = 0; i &lt; num2; i++)
-        {
-            Colossal.Animations.Animation.ElementRaw elementRaw = AnimationEncoding.DecodeElement(elements.ElementAt(i * num), animation.m_Animation.positionMin, animation.m_Animation.positionRange);
-            float y = MathUtils.RotationAngle(quaternion.identity, elementRaw.rotation);
-            num3 = math.max(num3, y);
-        }
-        return num3;
-    }
-</code></pre>
-<ul>
-<li><code>private FindTargetValue(Colossal.Animations.AnimationClip animation, Game.Prefabs.AnimationClip animationClip, Unity.Collections.NativeArray&lt;Colossal.Animations.Animation+Element&gt; elements) : System.Single</code>  </li>
-</ul>
-<pre><code class="language-csharp">private float FindTargetValue(Colossal.Animations.AnimationClip animation, Game.Prefabs.AnimationClip animationClip, NativeArray&lt;Colossal.Animations.Animation.Element&gt; elements)
-    {
-        if (animationClip.m_Activity == ActivityType.Driving)
-        {
-            Game.Prefabs.AnimationType type = animationClip.m_Type;
-            if ((uint)(type - 6) &lt;= 3u)
-            {
-                return FindTargetRotation(animation, elements);
-            }
-        }
-        return 0f;
-    }
-</code></pre>
-<ul>
-<li><code>public GetAllocationData(Unity.Jobs.JobHandle&amp; dependencies) : Game.Rendering.AnimatedSystem+AllocationData</code>  </li>
-</ul>
-<pre><code class="language-csharp">public AllocationData GetAllocationData(out JobHandle dependencies)
-    {
-        dependencies = m_AllocateDeps;
-        m_IsAllocating = true;
-        return new AllocationData(m_BoneAllocator, m_MetaBufferData, m_FreeMetaIndices, m_UpdatedMetaIndices, m_BoneAllocationRemoves, m_MetaBufferRemoves, m_CurrentTime);
-    }
-</code></pre>
-<ul>
-<li><code>public GetAnimationData(Unity.Jobs.JobHandle&amp; dependencies) : Game.Rendering.AnimatedSystem+AnimationData</code>  </li>
-</ul>
-<pre><code class="language-csharp">public AnimationData GetAnimationData(out JobHandle dependencies)
-    {
-        dependencies = m_AllocateDeps;
-        if (!m_TempAnimationQueue.IsCreated)
-        {
-            m_TempAnimationQueue = new NativeQueue&lt;AnimationFrameData&gt;(Allocator.TempJob);
-        }
-        if (!m_TempPriorityQueue.IsCreated)
-        {
-            m_TempPriorityQueue = new NativeQueue&lt;ClipPriorityData&gt;(Allocator.TempJob);
-        }
-        m_IsAllocating = true;
-        return new AnimationData(m_TempAnimationQueue, m_TempPriorityQueue);
-    }
-</code></pre>
-<ul>
-<li><code>public GetAnimStats(System.UInt32&amp; allocatedSize, System.UInt32&amp; bufferSize, System.UInt32&amp; count) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public unsafe void GetAnimStats(out uint allocatedSize, out uint bufferSize, out uint count)
-    {
-        m_AllocateDeps.Complete();
-        allocatedSize = m_AnimAllocator.UsedSpace * (uint)sizeof(Colossal.Animations.Animation.Element);
-        bufferSize = m_AnimAllocator.Size * (uint)sizeof(Colossal.Animations.Animation.Element);
-        count = (uint)m_AnimationCount;
-    }
-</code></pre>
-<ul>
-<li><code>public GetBoneStats(System.UInt32&amp; allocatedSize, System.UInt32&amp; bufferSize, System.UInt32&amp; count) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public unsafe void GetBoneStats(out uint allocatedSize, out uint bufferSize, out uint count)
-    {
-        m_AllocateDeps.Complete();
-        allocatedSize = m_BoneAllocator.UsedSpace * (uint)sizeof(BoneElement);
-        bufferSize = m_BoneAllocator.Size * (uint)sizeof(BoneElement);
-        if (m_RenderingSystem.motionVectors)
-        {
-            allocatedSize &lt;&lt;= 1;
-            bufferSize &lt;&lt;= 1;
-        }
-        count = (uint)(m_MetaBufferData.Length - m_FreeMetaIndices.Length - 1);
-    }
-</code></pre>
-<ul>
-<li><code>public GetIndexStats(System.UInt32&amp; allocatedSize, System.UInt32&amp; bufferSize, System.UInt32&amp; count) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void GetIndexStats(out uint allocatedSize, out uint bufferSize, out uint count)
-    {
-        m_AllocateDeps.Complete();
-        allocatedSize = m_IndexAllocator.UsedSpace * 4;
-        bufferSize = m_IndexAllocator.Size * 4;
-        count = (uint)m_AnimationCount;
-    }
-</code></pre>
-<ul>
-<li><code>public GetMetaStats(System.UInt32&amp; allocatedSize, System.UInt32&amp; bufferSize, System.UInt32&amp; count) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public unsafe void GetMetaStats(out uint allocatedSize, out uint bufferSize, out uint count)
-    {
-        m_AllocateDeps.Complete();
-        count = (uint)(m_MetaBufferData.Length - m_FreeMetaIndices.Length - 1);
-        if (m_MetaBuffer != null)
-        {
-            allocatedSize = (count + 1) * (uint)sizeof(MetaBufferData);
-            bufferSize = (uint)(m_MetaBuffer.count * sizeof(MetaBufferData));
-        }
-        else
-        {
-            allocatedSize = 0u;
-            bufferSize = 0u;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public GetPropID(System.String name) : Game.Rendering.AnimatedPropID</code>  </li>
-</ul>
-<pre><code class="language-csharp">public AnimatedPropID GetPropID(string name)
-    {
-        int value = -1;
-        if (!string.IsNullOrEmpty(name) &amp;&amp; !m_PropIDs.TryGetValue(name, out value))
-        {
-            value = m_PropIDs.Count;
-            m_PropIDs.Add(name, value);
-        }
-        return new AnimatedPropID(value);
-    }
-</code></pre>
-<ul>
-<li><code>private LoadAnimation(Game.Rendering.AnimatedSystem+ClipIndex clipIndex, Colossal.Animations.AnimationClip animation) : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">private unsafe bool LoadAnimation(ClipIndex clipIndex, Colossal.Animations.AnimationClip animation)
-    {
-        CharacterStyleData componentData = base.EntityManager.GetComponentData&lt;CharacterStyleData&gt;(clipIndex.m_Style);
-        DynamicBuffer&lt;Game.Prefabs.AnimationClip&gt; buffer = base.EntityManager.GetBuffer&lt;Game.Prefabs.AnimationClip&gt;(clipIndex.m_Style);
-        DynamicBuffer&lt;AnimationMotion&gt; buffer2 = base.EntityManager.GetBuffer&lt;AnimationMotion&gt;(clipIndex.m_Style, isReadOnly: true);
-        ref Game.Prefabs.AnimationClip reference = ref buffer.ElementAt(clipIndex.m_Index);
-        DynamicBuffer&lt;RestPoseElement&gt; buffer3 = default(DynamicBuffer&lt;RestPoseElement&gt;);
-        if (reference.m_RootMotionBone != -1 &amp;&amp; (!base.EntityManager.TryGetBuffer(clipIndex.m_Style, isReadOnly: true, out buffer3) || buffer3.Length == 0))
-        {
-            return false;
-        }
-        uint num = (uint)animation.m_Animation.elements.Length;
-        AnimationClipData value = new AnimationClipData
-        {
-            m_AnimAllocation = m_AnimAllocator.Allocate(num)
-        };
-        m_AnimationCount++;
-        int num2 = m_ClipPriorities.Length - 1;
-        while (value.m_AnimAllocation.Empty)
-        {
-            if (num2 &gt;= 0)
-            {
-                ref ClipPriorityData reference2 = ref m_ClipPriorities.ElementAt(num2--);
-                if (reference2.m_Priority &gt;= 0)
-                {
-                    num2 = -1;
-                    continue;
-                }
-                if (reference2.m_ClipIndex.Equals(clipIndex) || reference2.m_IsLoading || !reference2.m_IsLoaded)
-                {
-                    continue;
-                }
-                reference2.m_IsLoaded = false;
-                UnloadAnimation(reference2.m_ClipIndex);
-            }
-            else
-            {
-                uint num3 = 8388608u / (uint)sizeof(Colossal.Animations.Animation.Element);
-                num3 = (num3 + num - 1) / num3 * num3;
-                m_AnimAllocator.Resize(m_AnimAllocator.Size + num3);
-            }
-            value.m_AnimAllocation = m_AnimAllocator.Allocate(num);
-        }
-        if (componentData.m_RestPoseClipIndex == clipIndex.m_Index)
-        {
-            value.m_HierarchyAllocation = AllocateIndexData((uint)animation.m_BoneHierarchy.hierarchyParentIndices.Length);
-            CacheRestPose(clipIndex.m_Style, animation);
-        }
-        value.m_ShapeAllocation = AllocateIndexData((uint)componentData.m_ShapeCount);
-        value.m_BoneAllocation = AllocateIndexData((uint)animation.m_Animation.boneIndices.Length);
-        value.m_InverseBoneAllocation = AllocateIndexData((uint)componentData.m_BoneCount);
-        m_MaxBoneCount = math.max(m_MaxBoneCount, animation.m_BoneHierarchy.hierarchyParentIndices.Length);
-        m_MaxActiveBoneCount = math.max(m_MaxActiveBoneCount, animation.m_Animation.boneIndices.Length);
-        if (m_FreeAnimIndices.IsEmpty)
-        {
-            reference.m_InfoIndex = m_AnimationClipData.Length;
-            m_AnimationClipData.Add(in value);
-        }
-        else
-        {
-            reference.m_InfoIndex = m_FreeAnimIndices[m_FreeAnimIndices.Length - 1];
-            m_FreeAnimIndices.RemoveAt(m_FreeAnimIndices.Length - 1);
-            m_AnimationClipData[reference.m_InfoIndex] = value;
-        }
-        ResizeAnimInfoBuffer();
-        ResizeAnimBuffer();
-        ResizeIndexBuffer();
-        NativeArray&lt;AnimationInfoData&gt; data = new NativeArray&lt;AnimationInfoData&gt;(1, Allocator.Temp) { [0] = new AnimationInfoData
-        {
-            m_Offset = (int)value.m_AnimAllocation.Begin,
-            m_Hierarchy = (value.m_HierarchyAllocation.Empty ? (-1) : ((int)value.m_HierarchyAllocation.Begin)),
-            m_Shapes = (int)value.m_ShapeAllocation.Begin,
-            m_Bones = (int)value.m_BoneAllocation.Begin,
-            m_InverseBones = (int)value.m_InverseBoneAllocation.Begin,
-            m_ShapeCount = animation.m_Animation.shapeIndices.Length,
-            m_BoneCount = animation.m_Animation.boneIndices.Length,
-            m_Type = (int)animation.m_Animation.type,
-            m_PositionMin = animation.m_Animation.positionMin,
-            m_PositionRange = animation.m_Animation.positionRange
-        } };
-        m_AnimInfoBuffer.SetData(data, 0, reference.m_InfoIndex, 1);
-        data.Dispose();
-        NativeArray&lt;Colossal.Animations.Animation.Element&gt; nativeArray = new NativeArray&lt;Colossal.Animations.Animation.Element&gt;(animation.m_Animation.elements, Allocator.Temp);
-        if (reference.m_RootMotionBone != -1)
-        {
-            NativeArray&lt;AnimationMotion&gt; subArray = buffer2.AsNativeArray().GetSubArray(reference.m_MotionRange.x, reference.m_MotionRange.y - reference.m_MotionRange.x);
-            RemoveRootMotion(animation, reference, buffer3, subArray, nativeArray);
-        }
-        if (reference.m_Layer == Game.Prefabs.AnimationLayer.Prop &amp;&amp; reference.m_TargetValue == float.MinValue)
-        {
-            reference.m_TargetValue = FindTargetValue(animation, reference, nativeArray);
-            for (int i = 0; i &lt; buffer.Length; i++)
-            {
-                if (i != clipIndex.m_Index)
-                {
-                    ref Game.Prefabs.AnimationClip reference3 = ref buffer.ElementAt(i);
-                    if (reference3.m_PropClipIndex == clipIndex.m_Index)
-                    {
-                        reference3.m_TargetValue = reference.m_TargetValue;
-                    }
-                }
-            }
-        }
-        m_AnimBuffer.SetData(nativeArray, 0, (int)value.m_AnimAllocation.Begin, (int)num);
-        nativeArray.Dispose();
-        if (!value.m_HierarchyAllocation.Empty)
-        {
-            m_IndexBuffer.SetData(animation.m_BoneHierarchy.hierarchyParentIndices, 0, (int)value.m_HierarchyAllocation.Begin, animation.m_BoneHierarchy.hierarchyParentIndices.Length);
-        }
-        if (!value.m_ShapeAllocation.Empty)
-        {
-            NativeArray&lt;int&gt; data2 = new NativeArray&lt;int&gt;(componentData.m_ShapeCount, Allocator.Temp);
-            for (int j = 0; j &lt; data2.Length; j++)
-            {
-                data2[j] = -1;
-            }
-            for (int k = 0; k &lt; animation.m_Animation.shapeIndices.Length; k++)
-            {
-                data2[animation.m_Animation.shapeIndices[k]] = k;
-            }
-            m_IndexBuffer.SetData(data2, 0, (int)value.m_ShapeAllocation.Begin, data2.Length);
-            data2.Dispose();
-        }
-        if (!value.m_BoneAllocation.Empty)
-        {
-            m_IndexBuffer.SetData(animation.m_Animation.boneIndices, 0, (int)value.m_BoneAllocation.Begin, animation.m_Animation.boneIndices.Length);
-        }
-        if (!value.m_InverseBoneAllocation.Empty &amp;&amp; reference.m_Layer != Game.Prefabs.AnimationLayer.Prop)
-        {
-            NativeArray&lt;int&gt; data3 = new NativeArray&lt;int&gt;(componentData.m_BoneCount, Allocator.Temp);
-            for (int l = 0; l &lt; data3.Length; l++)
-            {
-                data3[l] = -1;
-            }
-            for (int m = 0; m &lt; animation.m_Animation.boneIndices.Length; m++)
-            {
-                data3[animation.m_Animation.boneIndices[m]] = m;
-            }
-            m_IndexBuffer.SetData(data3, 0, (int)value.m_InverseBoneAllocation.Begin, data3.Length);
-            data3.Dispose();
-        }
-        return true;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected unsafe override void OnCreate()
-    {
-        log = LogManager.GetLogger(&quot;Rendering&quot;);
-        base.OnCreate();
-        m_RenderingSystem = base.World.GetOrCreateSystemManaged&lt;RenderingSystem&gt;();
-        m_PrefabSystem = base.World.GetOrCreateSystemManaged&lt;PrefabSystem&gt;();
-        m_BoneAllocator = new NativeHeapAllocator(8388608u / (uint)sizeof(BoneElement), 1u, Allocator.Persistent);
-        m_AnimAllocator = new NativeHeapAllocator(33554432u / (uint)sizeof(Colossal.Animations.Animation.Element), 1u, Allocator.Persistent);
-        m_IndexAllocator = new NativeHeapAllocator(16384u, 1u, Allocator.Persistent);
-        m_MetaBufferData = new NativeList&lt;MetaBufferData&gt;(1000, Allocator.Persistent);
-        m_FreeMetaIndices = new NativeList&lt;int&gt;(10, Allocator.Persistent);
-        m_UpdatedMetaIndices = new NativeList&lt;int&gt;(10, Allocator.Persistent);
-        m_InstanceIndices = new NativeList&lt;RestPoseInstance&gt;(1000, Allocator.Persistent);
-        m_BodyInstances = new NativeList&lt;AnimatedInstance&gt;(1000, Allocator.Persistent);
-        m_FaceInstances = new NativeList&lt;AnimatedInstance&gt;(1000, Allocator.Persistent);
-        m_CorrectiveInstances = new NativeList&lt;AnimatedInstance&gt;(100, Allocator.Persistent);
-        m_BodyTransitions = new NativeList&lt;AnimatedTransition&gt;(100, Allocator.Persistent);
-        m_BodyTransitions2 = new NativeList&lt;AnimatedTransition2&gt;(100, Allocator.Persistent);
-        m_FaceTransitions = new NativeList&lt;AnimatedTransition&gt;(100, Allocator.Persistent);
-        m_ClipPriorities = new NativeList&lt;ClipPriorityData&gt;(10, Allocator.Persistent);
-        m_AnimationClipData = new NativeList&lt;AnimationClipData&gt;(10, Allocator.Persistent);
-        m_FreeAnimIndices = new NativeList&lt;int&gt;(10, Allocator.Persistent);
-        m_BoneAllocationRemoves = new NativeQueue&lt;AllocationRemove&gt;(Allocator.Persistent);
-        m_MetaBufferRemoves = new NativeQueue&lt;IndexRemove&gt;(Allocator.Persistent);
-        m_PropIDs = new Dictionary&lt;string, int&gt;();
-        m_AnimationComputeShader = UnityEngine.Object.Instantiate(Resources.Load&lt;ComputeShader&gt;(&quot;Didimo/AnimationBlendCompute&quot;));
-        m_BlendAnimationLayer0KernelIx = m_AnimationComputeShader.FindKernel(&quot;BlendAnimationLayer0&quot;);
-        m_BlendAnimationLayer1KernelIx = m_AnimationComputeShader.FindKernel(&quot;BlendAnimationLayer1&quot;);
-        m_BlendAnimationLayer2KernelIx = m_AnimationComputeShader.FindKernel(&quot;BlendAnimationLayer2&quot;);
-        m_BlendTransitionLayer0KernelIx = m_AnimationComputeShader.FindKernel(&quot;BlendTransitionLayer0&quot;);
-        m_BlendTransition2Layer0KernelIx = m_AnimationComputeShader.FindKernel(&quot;BlendTransition2Layer0&quot;);
-        m_BlendTransitionLayer1KernelIx = m_AnimationComputeShader.FindKernel(&quot;BlendTransitionLayer1&quot;);
-        m_BlendRestPoseKernelIx = m_AnimationComputeShader.FindKernel(&quot;BlendRestPose&quot;);
-        m_ConvertLocalCoordinatesKernelIx = m_AnimationComputeShader.FindKernel(&quot;ConvertLocalCoordinates&quot;);
-        m_ConvertLocalCoordinatesWithHistoryKernelIx = m_AnimationComputeShader.FindKernel(&quot;ConvertLocalCoordinatesWithHistory&quot;);
-        m_IndexBufferID = Shader.PropertyToID(&quot;IndexDataBuffer&quot;);
-        m_MetadataBufferID = Shader.PropertyToID(&quot;MetaDataBuffer&quot;);
-        m_MetaIndexBufferID = Shader.PropertyToID(&quot;MetaIndexBuffer&quot;);
-        m_AnimatedInstanceBufferID = Shader.PropertyToID(&quot;AnimatedInstanceBuffer&quot;);
-        m_AnimatedTransitionBufferID = Shader.PropertyToID(&quot;AnimatedTransitionBuffer&quot;);
-        m_AnimatedTransition2BufferID = Shader.PropertyToID(&quot;AnimatedTransition2Buffer&quot;);
-        m_AnimationInfoBufferID = Shader.PropertyToID(&quot;AnimationInfoBuffer&quot;);
-        m_AnimationBoneBufferID = Shader.PropertyToID(&quot;AnimationBoneBuffer&quot;);
-        m_InstanceCountID = Shader.PropertyToID(&quot;instanceCount&quot;);
-        m_BodyInstanceCountID = Shader.PropertyToID(&quot;bodyInstanceCount&quot;);
-        m_BodyTransitionCountID = Shader.PropertyToID(&quot;bodyTransitionCount&quot;);
-        m_BodyTransition2CountID = Shader.PropertyToID(&quot;bodyTransition2Count&quot;);
-        m_FaceInstanceCountID = Shader.PropertyToID(&quot;faceInstanceCount&quot;);
-        m_FaceTransitionCountID = Shader.PropertyToID(&quot;faceTransitionCount&quot;);
-        m_CorrectiveInstanceCountID = Shader.PropertyToID(&quot;correctiveInstanceCount&quot;);
-        m_LocalTRSBlendPoseBufferID = Shader.PropertyToID(&quot;LocalTRSBlendPoseBuffer&quot;);
-        m_LocalTRSBoneBufferID = Shader.PropertyToID(&quot;LocalTRSBoneBuffer&quot;);
-        m_BoneBufferID = Shader.PropertyToID(&quot;BoneBuffer&quot;);
-        m_BoneHistoryBufferID = Shader.PropertyToID(&quot;BoneHistoryBuffer&quot;);
-        m_BoneAllocator.Allocate(1u);
-        m_MetaBufferData.Add(default(MetaBufferData));
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnDestroy() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnDestroy()
-    {
-        if (m_IsAllocating)
-        {
-            m_AllocateDeps.Complete();
-            m_IsAllocating = false;
-        }
-        m_BoneAllocator.Dispose();
-        m_AnimAllocator.Dispose();
-        m_IndexAllocator.Dispose();
-        m_MetaBufferData.Dispose();
-        m_FreeMetaIndices.Dispose();
-        m_UpdatedMetaIndices.Dispose();
-        m_InstanceIndices.Dispose();
-        m_BodyInstances.Dispose();
-        m_FaceInstances.Dispose();
-        m_CorrectiveInstances.Dispose();
-        m_BodyTransitions.Dispose();
-        m_BodyTransitions2.Dispose();
-        m_FaceTransitions.Dispose();
-        m_ClipPriorities.Dispose();
-        m_AnimationClipData.Dispose();
-        m_FreeAnimIndices.Dispose();
-        m_BoneAllocationRemoves.Dispose();
-        m_MetaBufferRemoves.Dispose();
-        if (m_BoneBuffer != null)
-        {
-            m_BoneBuffer.Release();
-        }
-        if (m_BoneHistoryBuffer != null)
-        {
-            m_BoneHistoryBuffer.Release();
-        }
-        if (m_LocalTRSBlendPoseBuffer != null)
-        {
-            m_LocalTRSBlendPoseBuffer.Release();
-        }
-        if (m_LocalTRSBoneBuffer != null)
-        {
-            m_LocalTRSBoneBuffer.Release();
-        }
-        if (m_AnimInfoBuffer != null)
-        {
-            m_AnimInfoBuffer.Release();
-        }
-        if (m_AnimBuffer != null)
-        {
-            m_AnimBuffer.Release();
-        }
-        if (m_MetaBuffer != null)
-        {
-            m_MetaBuffer.Release();
-        }
-        if (m_IndexBuffer != null)
-        {
-            m_IndexBuffer.Release();
-        }
-        if (m_InstanceBuffer != null)
-        {
-            m_InstanceBuffer.Release();
-        }
-        if (m_BodyInstanceBuffer != null)
-        {
-            m_BodyInstanceBuffer.Release();
-        }
-        if (m_FaceInstanceBuffer != null)
-        {
-            m_FaceInstanceBuffer.Release();
-        }
-        if (m_CorrectiveInstanceBuffer != null)
-        {
-            m_CorrectiveInstanceBuffer.Release();
-        }
-        if (m_BodyTransitionBuffer != null)
-        {
-            m_BodyTransitionBuffer.Release();
-        }
-        if (m_BodyTransition2Buffer != null)
-        {
-            m_BodyTransition2Buffer.Release();
-        }
-        if (m_FaceTransitionBuffer != null)
-        {
-            m_FaceTransitionBuffer.Release();
-        }
-        UnityEngine.Object.DestroyImmediate(m_AnimationComputeShader);
-        base.OnDestroy();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        if (m_IsAllocating)
-        {
-            m_AllocateDeps.Complete();
-            m_IsAllocating = false;
-            ResizeBoneBuffer();
-            ResizeMetaBuffer();
-            UpdateAnimations();
-            UpdateMetaData();
-            UpdateInstances();
-        }
-        PlayAnimations();
-    }
-</code></pre>
-<ul>
-<li><code>private PlayAnimations() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void PlayAnimations()
-    {
-        if (m_InstanceIndices.Length != 0 &amp;&amp; m_MaxBoneCount != 0)
-        {
-            ResizeBoneHistoryBuffer();
-            m_AnimationComputeShader.SetInt(m_InstanceCountID, m_InstanceIndices.Length);
-            m_AnimationComputeShader.SetInt(m_BodyInstanceCountID, m_BodyInstances.Length);
-            m_AnimationComputeShader.SetInt(m_BodyTransitionCountID, m_BodyTransitions.Length);
-            m_AnimationComputeShader.SetInt(m_BodyTransition2CountID, m_BodyTransitions2.Length);
-            m_AnimationComputeShader.SetInt(m_FaceInstanceCountID, m_FaceInstances.Length);
-            m_AnimationComputeShader.SetInt(m_FaceTransitionCountID, m_FaceTransitions.Length);
-            m_AnimationComputeShader.SetInt(m_CorrectiveInstanceCountID, m_CorrectiveInstances.Length);
-            m_AnimationComputeShader.SetBuffer(m_BlendRestPoseKernelIx, m_MetadataBufferID, m_MetaBuffer);
-            m_AnimationComputeShader.SetBuffer(m_BlendRestPoseKernelIx, m_MetaIndexBufferID, m_InstanceBuffer);
-            m_AnimationComputeShader.SetBuffer(m_BlendRestPoseKernelIx, m_LocalTRSBoneBufferID, m_LocalTRSBoneBuffer);
-            m_AnimationComputeShader.SetBuffer(m_BlendRestPoseKernelIx, m_LocalTRSBlendPoseBufferID, m_LocalTRSBlendPoseBuffer);
-            m_AnimationComputeShader.SetBuffer(m_BlendRestPoseKernelIx, m_AnimationInfoBufferID, m_AnimInfoBuffer);
-            m_AnimationComputeShader.SetBuffer(m_BlendRestPoseKernelIx, m_AnimationBoneBufferID, m_AnimBuffer);
-            m_AnimationComputeShader.SetBuffer(m_BlendRestPoseKernelIx, m_IndexBufferID, m_IndexBuffer);
-            if (m_BodyInstances.Length != 0)
-            {
-                m_AnimationComputeShader.SetBuffer(m_BlendAnimationLayer0KernelIx, m_AnimationInfoBufferID, m_AnimInfoBuffer);
-                m_AnimationComputeShader.SetBuffer(m_BlendAnimationLayer0KernelIx, m_AnimationBoneBufferID, m_AnimBuffer);
-                m_AnimationComputeShader.SetBuffer(m_BlendAnimationLayer0KernelIx, m_MetadataBufferID, m_MetaBuffer);
-                m_AnimationComputeShader.SetBuffer(m_BlendAnimationLayer0KernelIx, m_AnimatedInstanceBufferID, m_BodyInstanceBuffer);
-                m_AnimationComputeShader.SetBuffer(m_BlendAnimationLayer0KernelIx, m_LocalTRSBoneBufferID, m_LocalTRSBoneBuffer);
-                m_AnimationComputeShader.SetBuffer(m_BlendAnimationLayer0KernelIx, m_LocalTRSBlendPoseBufferID, m_LocalTRSBlendPoseBuffer);
-                m_AnimationComputeShader.SetBuffer(m_BlendAnimationLayer0KernelIx, m_IndexBufferID, m_IndexBuffer);
-            }
-            if (m_BodyTransitions.Length != 0)
-            {
-                m_AnimationComputeShader.SetBuffer(m_BlendTransitionLayer0KernelIx, m_AnimationInfoBufferID, m_AnimInfoBuffer);
-                m_AnimationComputeShader.SetBuffer(m_BlendTransitionLayer0KernelIx, m_AnimationBoneBufferID, m_AnimBuffer);
-                m_AnimationComputeShader.SetBuffer(m_BlendTransitionLayer0KernelIx, m_MetadataBufferID, m_MetaBuffer);
-                m_AnimationComputeShader.SetBuffer(m_BlendTransitionLayer0KernelIx, m_AnimatedTransitionBufferID, m_BodyTransitionBuffer);
-                m_AnimationComputeShader.SetBuffer(m_BlendTransitionLayer0KernelIx, m_LocalTRSBoneBufferID, m_LocalTRSBoneBuffer);
-                m_AnimationComputeShader.SetBuffer(m_BlendTransitionLayer0KernelIx, m_LocalTRSBlendPoseBufferID, m_LocalTRSBlendPoseBuffer);
-                m_AnimationComputeShader.SetBuffer(m_BlendTransitionLayer0KernelIx, m_IndexBufferID, m_IndexBuffer);
-            }
-            if (m_BodyTransitions2.Length != 0)
-            {
-                m_AnimationComputeShader.SetBuffer(m_BlendTransition2Layer0KernelIx, m_AnimationInfoBufferID, m_AnimInfoBuffer);
-                m_AnimationComputeShader.SetBuffer(m_BlendTransition2Layer0KernelIx, m_AnimationBoneBufferID, m_AnimBuffer);
-                m_AnimationComputeShader.SetBuffer(m_BlendTransition2Layer0KernelIx, m_MetadataBufferID, m_MetaBuffer);
-                m_AnimationComputeShader.SetBuffer(m_BlendTransition2Layer0KernelIx, m_AnimatedTransition2BufferID, m_BodyTransition2Buffer);
-                m_AnimationComputeShader.SetBuffer(m_BlendTransition2Layer0KernelIx, m_LocalTRSBoneBufferID, m_LocalTRSBoneBuffer);
-                m_AnimationComputeShader.SetBuffer(m_BlendTransition2Layer0KernelIx, m_LocalTRSBlendPoseBufferID, m_LocalTRSBlendPoseBuffer);
-                m_AnimationComputeShader.SetBuffer(m_BlendTransition2Layer0KernelIx, m_IndexBufferID, m_IndexBuffer);
-            }
-            if (m_FaceInstances.Length != 0)
-            {
-                m_AnimationComputeShader.SetBuffer(m_BlendAnimationLayer1KernelIx, m_AnimationInfoBufferID, m_AnimInfoBuffer);
-                m_AnimationComputeShader.SetBuffer(m_BlendAnimationLayer1KernelIx, m_AnimationBoneBufferID, m_AnimBuffer);
-                m_AnimationComputeShader.SetBuffer(m_BlendAnimationLayer1KernelIx, m_MetadataBufferID, m_MetaBuffer);
-                m_AnimationComputeShader.SetBuffer(m_BlendAnimationLayer1KernelIx, m_AnimatedInstanceBufferID, m_FaceInstanceBuffer);
-                m_AnimationComputeShader.SetBuffer(m_BlendAnimationLayer1KernelIx, m_LocalTRSBoneBufferID, m_LocalTRSBoneBuffer);
-                m_AnimationComputeShader.SetBuffer(m_BlendAnimationLayer1KernelIx, m_LocalTRSBlendPoseBufferID, m_LocalTRSBlendPoseBuffer);
-                m_AnimationComputeShader.SetBuffer(m_BlendAnimationLayer1KernelIx, m_IndexBufferID, m_IndexBuffer);
-            }
-            if (m_FaceTransitions.Length != 0)
-            {
-                m_AnimationComputeShader.SetBuffer(m_BlendTransitionLayer1KernelIx, m_AnimationInfoBufferID, m_AnimInfoBuffer);
-                m_AnimationComputeShader.SetBuffer(m_BlendTransitionLayer1KernelIx, m_AnimationBoneBufferID, m_AnimBuffer);
-                m_AnimationComputeShader.SetBuffer(m_BlendTransitionLayer1KernelIx, m_MetadataBufferID, m_MetaBuffer);
-                m_AnimationComputeShader.SetBuffer(m_BlendTransitionLayer1KernelIx, m_AnimatedTransitionBufferID, m_FaceTransitionBuffer);
-                m_AnimationComputeShader.SetBuffer(m_BlendTransitionLayer1KernelIx, m_LocalTRSBoneBufferID, m_LocalTRSBoneBuffer);
-                m_AnimationComputeShader.SetBuffer(m_BlendTransitionLayer1KernelIx, m_LocalTRSBlendPoseBufferID, m_LocalTRSBlendPoseBuffer);
-                m_AnimationComputeShader.SetBuffer(m_BlendTransitionLayer1KernelIx, m_IndexBufferID, m_IndexBuffer);
-            }
-            if (m_CorrectiveInstances.Length != 0)
-            {
-                m_AnimationComputeShader.SetBuffer(m_BlendAnimationLayer2KernelIx, m_AnimationInfoBufferID, m_AnimInfoBuffer);
-                m_AnimationComputeShader.SetBuffer(m_BlendAnimationLayer2KernelIx, m_AnimationBoneBufferID, m_AnimBuffer);
-                m_AnimationComputeShader.SetBuffer(m_BlendAnimationLayer2KernelIx, m_MetadataBufferID, m_MetaBuffer);
-                m_AnimationComputeShader.SetBuffer(m_BlendAnimationLayer2KernelIx, m_AnimatedInstanceBufferID, m_CorrectiveInstanceBuffer);
-                m_AnimationComputeShader.SetBuffer(m_BlendAnimationLayer2KernelIx, m_LocalTRSBoneBufferID, m_LocalTRSBoneBuffer);
-                m_AnimationComputeShader.SetBuffer(m_BlendAnimationLayer2KernelIx, m_LocalTRSBlendPoseBufferID, m_LocalTRSBlendPoseBuffer);
-                m_AnimationComputeShader.SetBuffer(m_BlendAnimationLayer2KernelIx, m_IndexBufferID, m_IndexBuffer);
-            }
-            int kernelIndex = (m_RenderingSystem.motionVectors ? m_ConvertLocalCoordinatesWithHistoryKernelIx : m_ConvertLocalCoordinatesKernelIx);
-            m_AnimationComputeShader.SetBuffer(kernelIndex, m_MetadataBufferID, m_MetaBuffer);
-            m_AnimationComputeShader.SetBuffer(kernelIndex, m_MetaIndexBufferID, m_InstanceBuffer);
-            m_AnimationComputeShader.SetBuffer(kernelIndex, m_LocalTRSBoneBufferID, m_LocalTRSBoneBuffer);
-            m_AnimationComputeShader.SetBuffer(kernelIndex, m_LocalTRSBlendPoseBufferID, m_LocalTRSBlendPoseBuffer);
-            m_AnimationComputeShader.SetBuffer(kernelIndex, m_BoneBufferID, m_BoneBuffer);
-            m_AnimationComputeShader.SetBuffer(kernelIndex, m_IndexBufferID, m_IndexBuffer);
-            m_AnimationComputeShader.SetBuffer(kernelIndex, m_AnimationInfoBufferID, m_AnimInfoBuffer);
-            if (m_RenderingSystem.motionVectors)
-            {
-                m_AnimationComputeShader.SetBuffer(kernelIndex, m_BoneHistoryBufferID, m_BoneHistoryBuffer);
-            }
-            else
-            {
-                m_AnimationComputeShader.SetBuffer(kernelIndex, m_BoneHistoryBufferID, m_BoneBuffer);
-            }
-            m_AnimationComputeShader.GetKernelThreadGroupSizes(m_BlendRestPoseKernelIx, out var x, out var y, out var _);
-            int threadGroupsX = (m_InstanceIndices.Length + (int)x - 1) / (int)x;
-            int threadGroupsY = (m_MaxBoneCount + (int)y - 1) / (int)y;
-            int threadGroupsY2 = (m_MaxActiveBoneCount + (int)y - 1) / (int)y;
-            m_AnimationComputeShader.Dispatch(m_BlendRestPoseKernelIx, threadGroupsX, threadGroupsY, 1);
-            if (m_BodyInstances.Length != 0)
-            {
-                int threadGroupsX2 = (m_BodyInstances.Length + (int)x - 1) / (int)x;
-                m_AnimationComputeShader.Dispatch(m_BlendAnimationLayer0KernelIx, threadGroupsX2, threadGroupsY2, 1);
-            }
-            if (m_BodyTransitions.Length != 0)
-            {
-                int threadGroupsX3 = (m_BodyTransitions.Length + (int)x - 1) / (int)x;
-                m_AnimationComputeShader.Dispatch(m_BlendTransitionLayer0KernelIx, threadGroupsX3, threadGroupsY, 1);
-            }
-            if (m_BodyTransitions2.Length != 0)
-            {
-                int threadGroupsX4 = (m_BodyTransitions2.Length + (int)x - 1) / (int)x;
-                m_AnimationComputeShader.Dispatch(m_BlendTransition2Layer0KernelIx, threadGroupsX4, threadGroupsY, 1);
-            }
-            if (m_FaceInstances.Length != 0)
-            {
-                int threadGroupsX5 = (m_FaceInstances.Length + (int)x - 1) / (int)x;
-                m_AnimationComputeShader.Dispatch(m_BlendAnimationLayer1KernelIx, threadGroupsX5, threadGroupsY2, 1);
-            }
-            if (m_FaceTransitions.Length != 0)
-            {
-                int threadGroupsX6 = (m_FaceTransitions.Length + (int)x - 1) / (int)x;
-                m_AnimationComputeShader.Dispatch(m_BlendTransitionLayer1KernelIx, threadGroupsX6, threadGroupsY, 1);
-            }
-            if (m_CorrectiveInstances.Length != 0)
-            {
-                int threadGroupsX7 = (m_CorrectiveInstances.Length + (int)x - 1) / (int)x;
-                m_AnimationComputeShader.Dispatch(m_BlendAnimationLayer2KernelIx, threadGroupsX7, threadGroupsY2, 1);
-            }
-            m_AnimationComputeShader.Dispatch(kernelIndex, threadGroupsX, threadGroupsY, 1);
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public PreDeserialize(Colossal.Serialization.Entities.Context context) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void PreDeserialize(Context context)
-    {
-        if (m_IsAllocating)
-        {
-            m_AllocateDeps.Complete();
-            m_IsAllocating = false;
-        }
-        m_BoneAllocator.Clear();
-        m_MetaBufferData.Clear();
-        m_FreeMetaIndices.Clear();
-        m_UpdatedMetaIndices.Clear();
-        m_InstanceIndices.Clear();
-        m_BodyInstances.Clear();
-        m_FaceInstances.Clear();
-        m_CorrectiveInstances.Clear();
-        m_BodyTransitions.Clear();
-        m_FaceTransitions.Clear();
-        m_BoneAllocationRemoves.Clear();
-        m_MetaBufferRemoves.Clear();
-        m_BoneAllocator.Allocate(1u);
-        m_MetaBufferData.Add(default(MetaBufferData));
-    }
-</code></pre>
-<ul>
-<li><code>private RemoveRootMotion(Colossal.Animations.AnimationClip animation, Game.Prefabs.AnimationClip animationClip, Unity.Entities.DynamicBuffer&lt;Game.Prefabs.RestPoseElement&gt; restPose, Unity.Collections.NativeArray&lt;Game.Prefabs.AnimationMotion&gt; motions, Unity.Collections.NativeArray&lt;Colossal.Animations.Animation+Element&gt; elements) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void RemoveRootMotion(Colossal.Animations.AnimationClip animation, Game.Prefabs.AnimationClip animationClip, DynamicBuffer&lt;RestPoseElement&gt; restPose, NativeArray&lt;AnimationMotion&gt; motions, NativeArray&lt;Colossal.Animations.Animation.Element&gt; elements)
-    {
-        int[] inverseBoneIndices = animation.GetInverseBoneIndices();
-        int num = animation.m_Animation.shapeIndices.Length;
-        int num2 = animation.m_Animation.boneIndices.Length;
-        int num3 = num * num2;
-        int num4 = elements.Length / num3 - 1;
-        int num5 = inverseBoneIndices.Length;
-        int num6 = restPose.Length / num5;
-        for (int i = 0; i &lt;= num4; i++)
-        {
-            float t = math.select((float)i / (float)(num4 - 1), 0f, i &gt;= num4);
-            for (int j = 0; j &lt; num; j++)
-            {
-                int num7 = animation.m_Animation.shapeIndices[j];
-                AnimationMotion animationMotion = motions[num7];
-                int num8 = inverseBoneIndices[animationClip.m_RootMotionBone];
-                if (num8 &lt; 0)
-                {
-                    continue;
-                }
-                int num9 = i * num3 + num8 * num;
-                ref Colossal.Animations.Animation.Element reference = ref elements.ElementAt(num9 + j);
-                Colossal.Animations.Animation.ElementRaw input = AnimationEncoding.DecodeElement(reference, animation.m_Animation.positionMin, animation.m_Animation.positionRange);
-                quaternion quaternion = math.slerp(animationMotion.m_StartRotation, animationMotion.m_EndRotation, t);
-                float3 @float = ((animationClip.m_Playback == AnimationPlayback.Once) ? MathUtils.Position(new Bezier4x3(animationMotion.m_StartOffset, animationMotion.m_StartOffset, animationMotion.m_EndOffset, animationMotion.m_EndOffset), t) : math.lerp(animationMotion.m_StartOffset, animationMotion.m_EndOffset, t));
-                if (num7 != 0)
-                {
-                    AnimationMotion animationMotion2 = motions[0];
-                    quaternion b = math.slerp(animationMotion2.m_StartRotation, animationMotion2.m_EndRotation, t);
-                    float3 float2 = ((animationClip.m_Playback == AnimationPlayback.Once) ? MathUtils.Position(new Bezier4x3(animationMotion2.m_StartOffset, animationMotion2.m_StartOffset, animationMotion2.m_EndOffset, animationMotion2.m_EndOffset), t) : math.lerp(animationMotion2.m_StartOffset, animationMotion2.m_EndOffset, t));
-                    @float += float2;
-                    quaternion = math.mul(quaternion, b);
-                }
-                for (int num10 = animation.m_BoneHierarchy.hierarchyParentIndices[animationClip.m_RootMotionBone]; num10 != -1; num10 = animation.m_BoneHierarchy.hierarchyParentIndices[num10])
-                {
-                    num8 = inverseBoneIndices[num10];
-                    if (num8 &gt;= 0)
-                    {
-                        num9 = i * num3 + num8 * num;
-                        ref Colossal.Animations.Animation.Element reference2 = ref elements.ElementAt(num9 + j);
-                        Colossal.Animations.Animation.ElementRaw input2 = AnimationEncoding.DecodeElement(reference2, animation.m_Animation.positionMin, animation.m_Animation.positionRange);
-                        input.position = input2.position + math.mul(input2.rotation, input.position);
-                        input.rotation = math.mul((quaternion)input2.rotation, (quaternion)input.rotation).value;
-                        reference = AnimationEncoding.EncodeElement(input, animation.m_Animation.positionMin, animation.m_Animation.positionRange);
-                        input2.position = float3.zero;
-                        input2.rotation = quaternion.identity.value;
-                        reference2 = AnimationEncoding.EncodeElement(input2, animation.m_Animation.positionMin, animation.m_Animation.positionRange);
-                    }
-                    else
-                    {
-                        int num11 = num10 * num6;
-                        RestPoseElement restPoseElement = restPose[num11 + num7];
-                        restPoseElement.m_Rotation = math.inverse(restPoseElement.m_Rotation);
-                        @float = math.mul(restPoseElement.m_Rotation, @float - restPoseElement.m_Position);
-                        quaternion = math.normalize(math.mul(restPoseElement.m_Rotation, quaternion));
-                    }
-                }
-                quaternion = math.inverse(quaternion);
-                input.position = math.mul(quaternion, input.position - @float);
-                input.rotation = math.normalize(math.mul(quaternion, input.rotation)).value;
-                reference = AnimationEncoding.EncodeElement(input, animation.m_Animation.positionMin, animation.m_Animation.positionRange);
-            }
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private ResizeAnimBuffer() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private unsafe void ResizeAnimBuffer()
-    {
-        int num = ((m_AnimBuffer != null) ? m_AnimBuffer.count : 0);
-        int size = (int)m_AnimAllocator.Size;
-        if (num != size)
-        {
-            ComputeBuffer computeBuffer = new ComputeBuffer(size, sizeof(Colossal.Animations.Animation.Element), ComputeBufferType.Structured)
-            {
-                name = &quot;Animation buffer&quot;
-            };
-            int num2 = math.min(num, size);
-            if (num2 &gt; 0)
-            {
-                Colossal.Animations.Animation.Element[] data = new Colossal.Animations.Animation.Element[num2];
-                m_AnimBuffer.GetData(data, 0, 0, num2);
-                computeBuffer.SetData(data);
-            }
-            if (m_AnimBuffer != null)
-            {
-                m_AnimBuffer.Release();
-            }
-            m_AnimBuffer = computeBuffer;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private ResizeAnimInfoBuffer() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private unsafe void ResizeAnimInfoBuffer()
-    {
-        int num = ((m_AnimInfoBuffer != null) ? m_AnimInfoBuffer.count : 0);
-        int capacity = m_AnimationClipData.Capacity;
-        if (num != capacity)
-        {
-            ComputeBuffer computeBuffer = new ComputeBuffer(capacity, sizeof(AnimationInfoData), ComputeBufferType.Structured)
-            {
-                name = &quot;Animation info buffer&quot;
-            };
-            int num2 = math.min(num, capacity);
-            if (num2 &gt; 0)
-            {
-                AnimationInfoData[] data = new AnimationInfoData[num2];
-                m_AnimInfoBuffer.GetData(data, 0, 0, num2);
-                computeBuffer.SetData(data);
-            }
-            if (m_AnimInfoBuffer != null)
-            {
-                m_AnimInfoBuffer.Release();
-            }
-            m_AnimInfoBuffer = computeBuffer;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private ResizeBoneBuffer() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private unsafe void ResizeBoneBuffer()
-    {
-        int num = ((m_BoneBuffer != null) ? m_BoneBuffer.count : 0);
-        int size = (int)m_BoneAllocator.Size;
-        if (num != size)
-        {
-            ComputeBuffer computeBuffer = new ComputeBuffer(size, sizeof(BoneElement), ComputeBufferType.Structured)
-            {
-                name = &quot;Bone buffer&quot;
-            };
-            Shader.SetGlobalBuffer(&quot;boneBuffer&quot;, computeBuffer);
-            if (m_BoneHistoryBuffer == null)
-            {
-                Shader.SetGlobalBuffer(&quot;boneHistoryBuffer&quot;, computeBuffer);
-            }
-            if (m_BoneBuffer != null)
-            {
-                m_BoneBuffer.Release();
-            }
-            if (m_LocalTRSBlendPoseBuffer != null)
-            {
-                m_LocalTRSBlendPoseBuffer.Release();
-            }
-            if (m_LocalTRSBoneBuffer != null)
-            {
-                m_LocalTRSBoneBuffer.Release();
-            }
-            BoneElement[] array = new BoneElement[computeBuffer.count];
-            for (int i = 0; i &lt; array.Length; i++)
-            {
-                array[i] = new BoneElement
-                {
-                    m_Matrix = float4x4.identity
-                };
-            }
-            computeBuffer.SetData(array);
-            m_BoneBuffer = computeBuffer;
-            m_LocalTRSBlendPoseBuffer = new ComputeBuffer(size, sizeof(BoneElement), ComputeBufferType.Structured);
-            m_LocalTRSBoneBuffer = new ComputeBuffer(size, sizeof(BoneElement), ComputeBufferType.Structured);
-            m_LocalTRSBlendPoseBuffer.name = &quot;LocalTRSBlendPoseBuffer&quot;;
-            m_LocalTRSBoneBuffer.name = &quot;LocalTRSBoneBuffer&quot;;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private ResizeBoneHistoryBuffer() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private unsafe void ResizeBoneHistoryBuffer()
-    {
-        int num = ((m_BoneHistoryBuffer != null) ? m_BoneHistoryBuffer.count : 0);
-        int num2 = (int)(m_RenderingSystem.motionVectors ? m_BoneAllocator.Size : 0);
-        if (num == num2)
-        {
-            return;
-        }
-        if (num2 == 0)
-        {
-            if (m_BoneHistoryBuffer != null)
-            {
-                if (m_BoneHistoryBuffer != null)
-                {
-                    m_BoneHistoryBuffer.Release();
-                }
-                m_BoneHistoryBuffer = null;
-            }
-            if (m_BoneBuffer != null)
-            {
-                Shader.SetGlobalBuffer(&quot;boneHistoryBuffer&quot;, m_BoneBuffer);
-            }
-            return;
-        }
-        ComputeBuffer computeBuffer = new ComputeBuffer(num2, sizeof(BoneElement), ComputeBufferType.Structured)
-        {
-            name = &quot;Bone history buffer&quot;
-        };
-        Shader.SetGlobalBuffer(&quot;boneHistoryBuffer&quot;, computeBuffer);
-        if (m_BoneHistoryBuffer != null)
-        {
-            m_BoneHistoryBuffer.Release();
-        }
-        BoneElement[] array = new BoneElement[computeBuffer.count];
-        for (int i = 0; i &lt; array.Length; i++)
-        {
-            array[i] = new BoneElement
-            {
-                m_Matrix = float4x4.identity
-            };
-        }
-        computeBuffer.SetData(array);
-        m_BoneHistoryBuffer = computeBuffer;
-    }
-</code></pre>
-<ul>
-<li><code>private ResizeIndexBuffer() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void ResizeIndexBuffer()
-    {
-        int num = ((m_IndexBuffer != null) ? m_IndexBuffer.count : 0);
-        int size = (int)m_IndexAllocator.Size;
-        if (num != size)
-        {
-            ComputeBuffer computeBuffer = new ComputeBuffer(size, 4, ComputeBufferType.Structured)
-            {
-                name = &quot;Index buffer&quot;
-            };
-            int num2 = math.min(num, size);
-            if (num2 &gt; 0)
-            {
-                int[] data = new int[num2];
-                m_IndexBuffer.GetData(data, 0, 0, num2);
-                computeBuffer.SetData(data);
-            }
-            if (m_IndexBuffer != null)
-            {
-                m_IndexBuffer.Release();
-            }
-            m_IndexBuffer = computeBuffer;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private ResizeMetaBuffer() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private unsafe void ResizeMetaBuffer()
-    {
-        int num = ((m_MetaBuffer != null) ? m_MetaBuffer.count : 0);
-        int num2 = 1048576 / sizeof(MetaBufferData);
-        if (m_MetaBufferData.Length &gt; num &amp;&amp; m_MetaBufferData.Length &gt; num2)
-        {
-            num2 += ((m_MetaBufferData.Length - num2) * sizeof(MetaBufferData) + 262144 - 1) / 262144 * 262144 / sizeof(MetaBufferData);
-        }
-        else if (num &gt; num2)
-        {
-            num2 = num;
-        }
-        if (num != num2)
-        {
-            ComputeBuffer computeBuffer = new ComputeBuffer(num2, sizeof(MetaBufferData), ComputeBufferType.Structured)
-            {
-                name = &quot;Meta buffer&quot;
-            };
-            Shader.SetGlobalBuffer(&quot;metaBuffer&quot;, computeBuffer);
-            if (m_MetaBuffer != null)
-            {
-                computeBuffer.SetData(m_MetaBufferData.AsArray(), 0, 0, num);
-                m_MetaBuffer.Release();
-            }
-            else
-            {
-                computeBuffer.SetData(m_MetaBufferData.AsArray(), 0, 0, 1);
-            }
-            m_MetaBuffer = computeBuffer;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private UnCacheRestPose(Unity.Entities.Entity style) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void UnCacheRestPose(Entity style)
-    {
-        DynamicBuffer&lt;RestPoseElement&gt; buffer = base.EntityManager.GetBuffer&lt;RestPoseElement&gt;(style);
-        buffer.Clear();
-        buffer.TrimExcess();
-    }
-</code></pre>
-<ul>
-<li><code>private UnloadAnimation(Game.Rendering.AnimatedSystem+ClipIndex clipIndex) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void UnloadAnimation(ClipIndex clipIndex)
-    {
-        CharacterStyleData componentData = base.EntityManager.GetComponentData&lt;CharacterStyleData&gt;(clipIndex.m_Style);
-        ref Game.Prefabs.AnimationClip reference = ref base.EntityManager.GetBuffer&lt;Game.Prefabs.AnimationClip&gt;(clipIndex.m_Style).ElementAt(clipIndex.m_Index);
-        if (reference.m_InfoIndex &gt;= 0)
-        {
-            AnimationClipData animationClipData = m_AnimationClipData[reference.m_InfoIndex];
-            if (componentData.m_RestPoseClipIndex == clipIndex.m_Index)
-            {
-                UnCacheRestPose(clipIndex.m_Style);
-            }
-            if (!animationClipData.m_AnimAllocation.Empty)
-            {
-                m_AnimAllocator.Release(animationClipData.m_AnimAllocation);
-            }
-            if (!animationClipData.m_HierarchyAllocation.Empty)
-            {
-                m_IndexAllocator.Release(animationClipData.m_HierarchyAllocation);
-            }
-            if (!animationClipData.m_ShapeAllocation.Empty)
-            {
-                m_IndexAllocator.Release(animationClipData.m_ShapeAllocation);
-            }
-            if (!animationClipData.m_BoneAllocation.Empty)
-            {
-                m_IndexAllocator.Release(animationClipData.m_BoneAllocation);
-            }
-            if (!animationClipData.m_InverseBoneAllocation.Empty)
-            {
-                m_IndexAllocator.Release(animationClipData.m_InverseBoneAllocation);
-            }
-            if (reference.m_InfoIndex == m_AnimationClipData.Length - 1)
-            {
-                m_AnimationClipData.RemoveAt(reference.m_InfoIndex);
-            }
-            else
-            {
-                m_FreeAnimIndices.Add(in reference.m_InfoIndex);
-            }
-            reference.m_InfoIndex = -1;
-            m_AnimationCount--;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private UpdateAnimations() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void UpdateAnimations()
-    {
-        int num = 0;
-        for (int i = 0; i &lt; m_ClipPriorities.Length; i++)
-        {
-            ref ClipPriorityData reference = ref m_ClipPriorities.ElementAt(i);
-            if (reference.m_Priority &lt; 0 &amp;&amp; !reference.m_IsLoading)
-            {
-                break;
-            }
-            if (reference.m_IsLoaded)
-            {
-                continue;
-            }
-            CharacterStyle prefab = m_PrefabSystem.GetPrefab&lt;CharacterStyle&gt;(reference.m_ClipIndex.m_Style);
-            AnimationAsset animation = prefab.GetAnimation(reference.m_ClipIndex.m_Index);
-            try
-            {
-                reference.m_IsLoading = true;
-                if (animation.AsyncLoad(out var clip))
-                {
-                    if (LoadAnimation(reference.m_ClipIndex, clip))
-                    {
-                        reference.m_IsLoading = false;
-                        reference.m_IsLoaded = true;
-                        animation.Unload();
-                    }
-                    else if (reference.m_Priority &lt; 0)
-                    {
-                        reference.m_IsLoading = false;
-                        animation.Unload();
-                    }
-                }
-                else if ((long)(++num) == 10)
-                {
-                    break;
-                }
-            }
-            catch (Exception exception)
-            {
-                log.ErrorFormat(exception, &quot;Error when loading animation: {0}-&gt;{1}&quot;, prefab.name, animation.name);
-                reference.m_IsLoading = false;
-                reference.m_IsLoaded = true;
-                animation.Unload();
-            }
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private UpdateInstanceBuffer&lt;T&gt;(UnityEngine.ComputeBuffer&amp; buffer, Unity.Collections.NativeList&lt;T&gt; data, System.String name) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Void UpdateInstanceBuffer&lt;T&gt;(UnityEngine.ComputeBuffer&amp; buffer, Unity.Collections.NativeList&lt;T&gt; data, System.String name);
-</code></pre>
-<ul>
-<li><code>private UpdateInstances() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void UpdateInstances()
-    {
-        UpdateInstanceBuffer(ref m_InstanceBuffer, m_InstanceIndices, &quot;InstanceBuffer&quot;);
-        UpdateInstanceBuffer(ref m_BodyInstanceBuffer, m_BodyInstances, &quot;BodyInstanceBuffer&quot;);
-        UpdateInstanceBuffer(ref m_FaceInstanceBuffer, m_FaceInstances, &quot;FaceInstanceBuffer&quot;);
-        UpdateInstanceBuffer(ref m_CorrectiveInstanceBuffer, m_CorrectiveInstances, &quot;CorrectiveInstanceBuffer&quot;);
-        UpdateInstanceBuffer(ref m_BodyTransitionBuffer, m_BodyTransitions, &quot;BodyTransitionBuffer&quot;);
-        UpdateInstanceBuffer(ref m_BodyTransition2Buffer, m_BodyTransitions2, &quot;BodyTransitionBuffer2&quot;);
-        UpdateInstanceBuffer(ref m_FaceTransitionBuffer, m_FaceTransitions, &quot;FaceTransitionBuffer&quot;);
-    }
-</code></pre>
-<ul>
-<li><code>private UpdateMetaData() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void UpdateMetaData()
-    {
-        int num = 0;
-        while (num &lt; m_UpdatedMetaIndices.Length)
-        {
-            int num2 = m_UpdatedMetaIndices[num++];
-            int num3 = num2 + 1;
-            while (num &lt; m_UpdatedMetaIndices.Length)
-            {
-                int num4 = m_UpdatedMetaIndices[num];
-                if (num4 != num3)
-                {
-                    break;
-                }
-                num++;
-                num3 = num4 + 1;
-            }
-            m_MetaBuffer.SetData(m_MetaBufferData.AsArray(), num2, num2, num3 - num2);
-        }
-        m_UpdatedMetaIndices.Clear();
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Rendering.AnimatedSystem+Prepare</code>  </li>
-<li><code>Game.Rendering.AnimatedSystem+AddAnimationInstancesJob</code>  </li>
-<li><code>Game.Rendering.AnimatedSystem+UpdateAnimationPriorityJob</code>  </li>
-<li><code>Game.Rendering.AnimatedSystem+AnimationData</code>  </li>
-<li><code>Game.Rendering.AnimatedSystem+EndAllocationJob</code>  </li>
-<li><code>Game.Rendering.AnimatedSystem+IndexRemove</code>  </li>
-<li><code>Game.Rendering.AnimatedSystem+AllocationRemove</code>  </li>
-<li><code>Game.Rendering.AnimatedSystem+AllocationData</code>  </li>
-<li><code>Game.Rendering.AnimatedSystem+ReverseIntComparer</code>  </li>
-<li><code>Game.Rendering.AnimatedSystem+AnimationLayerData</code>  </li>
-<li><code>Game.Rendering.AnimatedSystem+AnimationLayerData2</code>  </li>
-<li><code>Game.Rendering.AnimatedSystem+AnimationFrameData</code>  </li>
-<li><code>Game.Rendering.AnimatedSystem+ClipPriorityData</code>  </li>
-<li><code>Game.Rendering.AnimatedSystem+ClipIndex</code>  </li>
-<li><code>Game.Rendering.AnimatedSystem+AnimationClipData</code>  </li>
-</ul>
+<p>Notes for modders:
+- Use GetAnimationData/GetAllocationData to safely enqueue work from jobs. Always supply the returned dependencies (via AddAnimationWriter/AddAllocationWriter) so AnimatedSystem can synchronize correctly.
+- Do not directly manipulate internal ComputeBuffers or NativeHeapAllocator instances — use the provided API (AllocationData / AnimationData) and let AnimatedSystem manage GPU uploads and buffer resizing.
+- If you need motion-vector-correct bone data, check RenderingSystem.motionVectors; AnimatedSystem automatically dispatches a different compute kernel and maintains a bone history buffer when motion vectors are enabled.</p>
 
 
 

@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -81191,18 +81283,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -81227,9 +81319,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -87145,6 +87237,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -117921,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117948,18 +118085,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -117984,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118009,173 +118146,149 @@
 
 
 <h1 id="gamesimulationelectricityroadconnectiongraphsystem">Game.Simulation.ElectricityRoadConnectionGraphSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Simulation</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class ElectricityRoadConnectionGraphSystem : Game.GameSystemBase
-{
-    private Game.Simulation.ElectricityFlowSystem m_ElectricityFlowSystem;
-    private Game.Common.ModificationBarrier5 m_ModificationBarrier;
-    private Unity.Entities.EntityQuery m_EventQuery;
-    private Unity.Collections.NativeQueue&lt;Unity.Entities.Entity&gt; m_UpdatedEdges;
-    private Unity.Jobs.JobHandle m_WriteDependencies;
-    private Game.Simulation.ElectricityRoadConnectionGraphSystem+TypeHandle __TypeHandle;
-
-    public ElectricityRoadConnectionGraphSystem();
-
-    private System.Void __AssignQueries(Unity.Entities.SystemState&amp; state);
-    public System.Void AddQueueWriter(Unity.Jobs.JobHandle handle);
-    public Unity.Collections.NativeQueue&lt;Unity.Entities.Entity&gt; GetEdgeUpdateQueue(Unity.Jobs.JobHandle&amp; deps);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnCreateForCompiler();
-    protected virtual System.Void OnDestroy();
-    protected virtual System.Void OnUpdate();
-}
-</code></pre>
+<p><strong>Assembly:</strong> Assembly-CSharp.dll (Game)<br />
+<strong>Namespace:</strong> Game.Simulation</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> GameSystemBase</p>
+<p><strong>Summary:</strong><br />
+This system maintains the electrical graph connections for road edges in the simulation. It listens for RoadConnectionUpdated events, collects the affected road-edge entities into a persistent NativeQueue, and ensures the electricity flow graph contains (or removes) a flow-edge from a road-edge node to the global sink node whenever the road edge has electricity consumers that are not connected to a building sink. The system coordinates two main units of work:</p>
+<ul>
+<li>UpdateRoadConnectionsJob (IJobChunk, scheduled parallel): scans RoadConnectionUpdated components and enqueues affected road-edge entities for later processing if the updated building is an electricity consumer and the edge is not deleted.</li>
+<li>UpdateRoadEdgesJob (IJob, single job): dequeues unique edges, examines connected buildings and consumers, and creates/updates or removes flow-edges to the sink node using a command buffer from a ModificationBarrier. It uses NativeParallelHashSet to deduplicate edges during processing.</li>
+</ul>
+<p>The system interacts with the ElectricityFlowSystem (to get sink node and edge archetype) and uses ModificationBarrier5 to safely issue structural changes. It exposes the NativeQueue<Entity> so other jobs can produce edge updates; AddQueueWriter is used to track producer job dependencies.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.Simulation.ElectricityFlowSystem m_ElectricityFlowSystem</code>  </li>
+<li>
+<p><code>private ElectricityFlowSystem m_ElectricityFlowSystem</code><br />
+Holds a reference to the ElectricityFlowSystem used to obtain the sink node and edge archetype required to create flow edges.</p>
+</li>
+<li>
+<p><code>private ModificationBarrier5 m_ModificationBarrier</code><br />
+Barrier system used to create an EntityCommandBuffer for structural changes (creating/deleting flow-edge entities) safely from jobs.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_EventQuery</code><br />
+Query that matches entities with RoadConnectionUpdated components; used to decide whether to schedule the chunk job.</p>
+</li>
+<li>
+<p><code>private NativeQueue&lt;Entity&gt; m_UpdatedEdges</code><br />
+Persistent NativeQueue (Allocator.Persistent) that stores road-edge entities that need their sink connections evaluated/updated. Producers (jobs or systems) can write to it; the system drains it in UpdateRoadEdgesJob.</p>
+</li>
+<li>
+<p><code>private JobHandle m_WriteDependencies</code><br />
+Tracks external producer JobHandle dependencies (jobs that will write into m_UpdatedEdges). Combined into the system dependency to ensure safety.</p>
+</li>
+<li>
+<p><code>private TypeHandle __TypeHandle</code><br />
+Generated container for ComponentTypeHandle / ComponentLookup / BufferLookup / etc. used to obtain the component access handles used in jobs.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.Simulation.ElectricityFlowSystem m_ElectricityFlowSystem;
-</code></pre>
+<h2 id="properties">Properties</h2>
 <ul>
-<li><code>private Game.Common.ModificationBarrier5 m_ModificationBarrier</code>  </li>
+<li>(none public)<br />
+There are no public auto-properties on this class. Interaction is via methods GetEdgeUpdateQueue and AddQueueWriter.</li>
 </ul>
-<pre><code class="language-csharp">private Game.Common.ModificationBarrier5 m_ModificationBarrier;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_EventQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_EventQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeQueue&lt;Unity.Entities.Entity&gt; m_UpdatedEdges</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeQueue&lt;Unity.Entities.Entity&gt; m_UpdatedEdges;
-</code></pre>
-<ul>
-<li><code>private Unity.Jobs.JobHandle m_WriteDependencies</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Jobs.JobHandle m_WriteDependencies;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.ElectricityRoadConnectionGraphSystem+TypeHandle __TypeHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.ElectricityRoadConnectionGraphSystem+TypeHandle __TypeHandle;
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public ElectricityRoadConnectionGraphSystem()</code>  </li>
+<li><code>public ElectricityRoadConnectionGraphSystem()</code><br />
+Default constructor. The system performs full initialization in OnCreate().</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public ElectricityRoadConnectionGraphSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private __AssignQueries(Unity.Entities.SystemState&amp; state) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void __AssignQueries(ref SystemState state)
-    {
-        new EntityQueryBuilder(Allocator.Temp).Dispose();
-    }
-</code></pre>
+<li>
+<p><code>protected override void OnCreate()</code><br />
+Initializes references to required systems (ElectricityFlowSystem and ModificationBarrier5), creates the EntityQuery for RoadConnectionUpdated and allocates the persistent NativeQueue m_UpdatedEdges.</p>
+</li>
+<li>
+<p><code>protected override void OnDestroy()</code><br />
+Disposes the persistent NativeQueue m_UpdatedEdges and calls base.OnDestroy(). Ensures native memory is freed when the system is destroyed.</p>
+</li>
+<li>
+<p><code>public NativeQueue&lt;Entity&gt; GetEdgeUpdateQueue(out JobHandle deps)</code><br />
+Returns the persistent NativeQueue<Entity> m_UpdatedEdges and outputs current producer dependencies via the out parameter deps (which is m_WriteDependencies). Useful for other systems/jobs that want to enqueue edge updates.</p>
+</li>
+<li>
+<p><code>public void AddQueueWriter(JobHandle handle)</code><br />
+Registers an external producer job handle by combining it into m_WriteDependencies. Call this after scheduling a job that writes into the queue so the system will wait on it before draining.</p>
+</li>
+<li>
+<p><code>protected override void OnUpdate()</code><br />
+Main scheduling method:</p>
+</li>
+<li>Combines internal dependencies with m_WriteDependencies to ensure exclusive access to the queue.</li>
+<li>If there are RoadConnectionUpdated events, schedules UpdateRoadConnectionsJob as a parallel JobChunk. That job enqueues affected edges into m_UpdatedEdges (using AsParallelWriter()).</li>
+<li>Schedules UpdateRoadEdgesJob (IJob) to drain the queue and reconcile flow edges to the sink. The job is given a command buffer from m_ModificationBarrier to perform creations/deletions.</li>
+<li>
+<p>Adds the producer handle to m_ModificationBarrier and stores the combined dependency into m_WriteDependencies.</p>
+</li>
+<li>
+<p><code>protected override void OnCreateForCompiler()</code><br />
+Compiler-time initialization: assigns queries and component handles using the generated __TypeHandle and helpers. Called by the DOTS/IL2CPP codegen glue.</p>
+</li>
+<li>
+<p><code>private void __AssignQueries(ref SystemState state)</code><br />
+Generated helper; currently no queries beyond the event query are created here (kept for compiler-generated wiring).</p>
+</li>
+<li>
+<p>Nested structs:</p>
+</li>
+<li>
+<p><code>UpdateRoadConnectionsJob : IJobChunk</code>  </p>
 <ul>
-<li><code>public AddQueueWriter(Unity.Jobs.JobHandle handle) : System.Void</code>  </li>
+<li>Reads RoadConnectionUpdated components and enqueues old/new edge entities when the associated building is an electricity consumer and the old edge is not deleted. Uses ComponentTypeHandle / ComponentLookup lookup handles and writes into a NativeQueue<Entity>.ParallelWriter.</li>
 </ul>
-<pre><code class="language-csharp">public void AddQueueWriter(JobHandle handle)
-    {
-        m_WriteDependencies = JobHandle.CombineDependencies(m_WriteDependencies, handle);
-    }
-</code></pre>
+</li>
+<li>
+<p><code>UpdateRoadEdgesJob : IJob</code>  </p>
 <ul>
-<li><code>public GetEdgeUpdateQueue(Unity.Jobs.JobHandle&amp; deps) : Unity.Collections.NativeQueue&lt;Unity.Entities.Entity&gt;</code>  </li>
+<li>Drains the m_UpdatedEdges queue, deduplicates using NativeParallelHashSet, examines ConnectedBuilding buffers for each road edge, sums consumption of electricity consumers that do NOT have a building sink connection, and ensures a forward flow-edge exists from the road-edge node to the sink node with the required capacity. If no such consumers exist, any existing flow-edge to the sink is removed by adding a Deleted component to the edge entity via the command buffer.</li>
+<li>Uses ElectricityGraphUtils helper methods to set/create/get flow edges.</li>
+<li>Uses ComponentLookup and BufferLookup handles for data access and an EntityCommandBuffer for structural changes.</li>
 </ul>
-<pre><code class="language-csharp">public NativeQueue&lt;Entity&gt; GetEdgeUpdateQueue(out JobHandle deps)
-    {
-        deps = m_WriteDependencies;
-        return m_UpdatedEdges;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
+</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
+<p>Notes on threading and safety:
+- UpdateRoadConnectionsJob is scheduled parallel and writes to m_UpdatedEdges via AsParallelWriter; producers from other systems should use GetEdgeUpdateQueue and schedule their writer jobs, then call AddQueueWriter with the job handle so this system waits.
+- UpdateRoadEdgesJob is scheduled as a single IJob but accesses the same queue and uses a NativeParallelHashSet to deduplicate work. Structural changes are issued via the ModificationBarrier's command buffer and deleted entities are marked through that buffer (ensures safety with the ECS structural change rules).
+- m_UpdatedEdges is persistent and must be disposed (done in OnDestroy). Producers must not access the queue after the system is destroyed.</p>
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Example: Another system schedules a job that finds edges to update and enqueues them
+public partial class ExampleProducerSystem : SystemBase
+{
+    private ElectricityRoadConnectionGraphSystem m_RoadConnSystem;
+
     protected override void OnCreate()
     {
-        base.OnCreate();
-        m_ElectricityFlowSystem = base.World.GetOrCreateSystemManaged&lt;ElectricityFlowSystem&gt;();
-        m_ModificationBarrier = base.World.GetOrCreateSystemManaged&lt;ModificationBarrier5&gt;();
-        m_EventQuery = GetEntityQuery(ComponentType.ReadOnly&lt;RoadConnectionUpdated&gt;());
-        m_UpdatedEdges = new NativeQueue&lt;Entity&gt;(Allocator.Persistent);
+        m_RoadConnSystem = World.GetOrCreateSystemManaged&lt;ElectricityRoadConnectionGraphSystem&gt;();
     }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreateForCompiler() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnCreateForCompiler()
-    {
-        base.OnCreateForCompiler();
-        __AssignQueries(ref base.CheckedStateRef);
-        __TypeHandle.__AssignHandles(ref base.CheckedStateRef);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnDestroy() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnDestroy()
-    {
-        m_UpdatedEdges.Dispose();
-        base.OnDestroy();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
+
     protected override void OnUpdate()
     {
-        base.Dependency = JobHandle.CombineDependencies(base.Dependency, m_WriteDependencies);
-        if (!m_EventQuery.IsEmptyIgnoreFilter)
+        // Acquire the queue and current dependencies
+        JobHandle deps;
+        NativeQueue&lt;Entity&gt; queue = m_RoadConnSystem.GetEdgeUpdateQueue(out deps);
+
+        // Schedule a job that writes to the queue (pseudo-job shown)
+        var writerJob = new EnqueueEdgesJob
         {
-            UpdateRoadConnectionsJob jobData = new UpdateRoadConnectionsJob
-            {
-                m_RoadConnectionUpdatedType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Buildings_RoadConnectionUpdated_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                m_ElectricityConsumers = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Buildings_ElectricityConsumer_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_Deleted = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Common_Deleted_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_UpdatedEdges = m_UpdatedEdges.AsParallelWriter()
-            };
-            base.Dependency = JobChunkExtensions.ScheduleParallel(jobData, m_EventQuery, base.Dependency);
-        }
-        UpdateRoadEdgesJob jobData2 = new UpdateRoadEdgesJob
-        {
-            m_ElectricityConsumers = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Buildings_ElectricityConsumer_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_NodeConnections = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Simulation_ElectricityNodeConnection_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_BuildingConnections = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Simulation_ElectricityBuildingConnection_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_ConnectedBuildings = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Buildings_ConnectedBuilding_RO_BufferLookup, ref base.CheckedStateRef),
-            m_FlowConnections = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Simulation_ConnectedFlowEdge_RO_BufferLookup, ref base.CheckedStateRef),
-            m_FlowEdges = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Simulation_ElectricityFlowEdge_RW_ComponentLookup, ref base.CheckedStateRef),
-            m_CommandBuffer = m_ModificationBarrier.CreateCommandBuffer(),
-            m_UpdatedEdges = m_UpdatedEdges,
-            m_SinkNode = m_ElectricityFlowSystem.sinkNode,
-            m_EdgeArchetype = m_ElectricityFlowSystem.edgeArchetype
-        };
-        base.Dependency = IJobExtensions.Schedule(jobData2, base.Dependency);
-        m_ModificationBarrier.AddJobHandleForProducer(base.Dependency);
-        m_WriteDependencies = base.Dependency;
+            EdgeQueue = queue.AsParallelWriter(),
+            // ... other lookups
+        }.ScheduleParallel(this.Dependency);
+
+        // Tell the graph system about our writer job so it waits for it
+        m_RoadConnSystem.AddQueueWriter(writerJob);
+
+        // Use writerJob as part of this system's dependency chain
+        this.Dependency = writerJob;
     }
+}
 </code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Simulation.ElectricityRoadConnectionGraphSystem+UpdateRoadConnectionsJob</code>  </li>
-<li><code>Game.Simulation.ElectricityRoadConnectionGraphSystem+UpdateRoadEdgesJob</code>  </li>
-<li><code>Game.Simulation.ElectricityRoadConnectionGraphSystem+TypeHandle</code>  </li>
-</ul>
+<p>Additional tips:
+- Always call AddQueueWriter after scheduling jobs that write into the queue to avoid race conditions.
+- Because UpdateRoadEdgesJob uses a command buffer from the ModificationBarrier, created/removed flow-edge entities will not be visible until the barrier plays back; that's intended to satisfy ECS structural-change constraints.
+- The system deduplicates edge processing each frame; enqueuing the same edge multiple times in the same frame is acceptable but redundant.</p>
 
 
 

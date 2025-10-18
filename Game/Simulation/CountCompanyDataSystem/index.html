@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -80064,18 +80156,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -80100,9 +80192,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -87145,6 +87237,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -117921,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117948,18 +118085,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -117984,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118009,441 +118146,227 @@
 
 
 <h1 id="gamesimulationcountcompanydatasystem">Game.Simulation.CountCompanyDataSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Simulation</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code><br />
-<strong>Implements:</strong> <code>Colossal.Serialization.Entities.IDefaultSerializable</code>, <code>Colossal.Serialization.Entities.ISerializable</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class CountCompanyDataSystem : Game.GameSystemBase, Colossal.Serialization.Entities.IDefaultSerializable, Colossal.Serialization.Entities.ISerializable
-{
-    private Game.Prefabs.ResourceSystem m_ResourceSystem;
-    private Unity.Collections.NativeQueue&lt;Game.Simulation.CountCompanyDataSystem+CompanyDataItem&gt; m_DataQueue;
-    private Unity.Entities.EntityQuery m_EconomyParameterQuery;
-    private Unity.Entities.EntityQuery m_DemandParameterQuery;
-    private Unity.Entities.EntityQuery m_FreeIndustrialQuery;
-    private Unity.Entities.EntityQuery m_IndustrialCompanyQuery;
-    private Unity.Entities.EntityQuery m_StorageCompanyQuery;
-    private Unity.Entities.EntityQuery m_ProcessDataQuery;
-    private Unity.Entities.EntityQuery m_CityServiceQuery;
-    private Unity.Entities.EntityQuery m_SpawnableQuery;
-    private Unity.Jobs.JobHandle m_WriteDependencies;
-    private Unity.Jobs.JobHandle m_ReadDependencies;
-    private Unity.Collections.NativeArray&lt;System.Int32&gt; m_CurrentProductionWorkers;
-    private Unity.Collections.NativeArray&lt;System.Int32&gt; m_MaxProductionWorkers;
-    private Unity.Collections.NativeArray&lt;System.Int32&gt; m_CurrentServiceWorkers;
-    private Unity.Collections.NativeArray&lt;System.Int32&gt; m_MaxServiceWorkers;
-    private Unity.Collections.NativeArray&lt;System.Int32&gt; m_Production;
-    private Unity.Collections.NativeArray&lt;System.Int32&gt; m_SalesCapacities;
-    private Unity.Collections.NativeArray&lt;System.Int32&gt; m_CurrentAvailables;
-    private Unity.Collections.NativeArray&lt;System.Int32&gt; m_TotalAvailables;
-    private Unity.Collections.NativeArray&lt;System.Int32&gt; m_Demand;
-    private Unity.Collections.NativeArray&lt;System.Int32&gt; m_ProductionCompanies;
-    private Unity.Collections.NativeArray&lt;System.Int32&gt; m_ServiceCompanies;
-    private Unity.Collections.NativeArray&lt;System.Int32&gt; m_ProductionPropertyless;
-    private Unity.Collections.NativeArray&lt;System.Int32&gt; m_ServicePropertyless;
-    private Unity.Entities.EntityQuery m_CompanyQuery;
-    private Game.Simulation.CountCompanyDataSystem+TypeHandle __TypeHandle;
-
-    public CountCompanyDataSystem();
-
-    private System.Void __AssignQueries(Unity.Entities.SystemState&amp; state);
-    public System.Void AddReader(Unity.Jobs.JobHandle reader);
-    public System.Void Deserialize&lt;TReader&gt;(TReader reader);
-    public Game.Simulation.CountCompanyDataSystem+CommercialCompanyDatas GetCommercialCompanyDatas(Unity.Jobs.JobHandle&amp; deps);
-    public Game.Simulation.CountCompanyDataSystem+IndustrialCompanyDatas GetIndustrialCompanyDatas(Unity.Jobs.JobHandle&amp; deps);
-    public Unity.Collections.NativeArray&lt;System.Int32&gt; GetProduction(Unity.Jobs.JobHandle&amp; deps);
-    public virtual System.Int32 GetUpdateInterval(Game.SystemUpdatePhase phase);
-    public virtual System.Int32 GetUpdateOffset(Game.SystemUpdatePhase phase);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnCreateForCompiler();
-    protected virtual System.Void OnDestroy();
-    protected virtual System.Void OnGameLoaded(Colossal.Serialization.Entities.Context serializationContext);
-    protected virtual System.Void OnUpdate();
-    public System.Void Serialize&lt;TWriter&gt;(TWriter writer);
-    public System.Void SetDefaults(Colossal.Serialization.Entities.Context context);
-}
-</code></pre>
+<p><strong>Assembly:</strong> Assembly-CSharp<br />
+<strong>Namespace:</strong> Game.Simulation</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> GameSystemBase, IDefaultSerializable, ISerializable</p>
+<p><strong>Summary:</strong><br />
+CountCompanyDataSystem collects and aggregates economic data for companies (production and service companies) every update interval. It scans processing companies, reads their prefabs and work/employee buffers, computes per-resource production, demand, worker counts and capacities, and aggregates those into NativeArray "resource arrays" that other systems can read. The heavy work is done in two Burst-compiled jobs: CountCompanyDataJob (per-chunk collection) and SumJob (sums queued per-chunk results into the persistent arrays). The system is serializable and exposes getters to obtain compact views of commercial and industrial aggregates along with job dependency output so callers can safely read the arrays.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.Prefabs.ResourceSystem m_ResourceSystem</code>  </li>
+<li>
+<p><code>private ResourceSystem m_ResourceSystem</code><br />
+Used to access resource prefabs and data required by the jobs (via m_ResourceSystem.GetPrefabs()).</p>
+</li>
+<li>
+<p><code>private NativeQueue&lt;CompanyDataItem&gt; m_DataQueue</code><br />
+A persistent NativeQueue used to collect per-chunk CompanyDataItem entries produced by CountCompanyDataJob; consumed by the SumJob.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_EconomyParameterQuery</code><br />
+Query used to fetch the EconomyParameterData singleton required for production calculations.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_DemandParameterQuery</code><br />
+Query required for update gating related to demand parameters.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_FreeIndustrialQuery</code><br />
+(Declared but not used explicitly in OnUpdate) likely reserved for queries related to free/unused industrial buildings.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_IndustrialCompanyQuery</code><br />
+(Declared) Query related to industrial companies (not directly used in OnUpdate in this file).</p>
+</li>
+<li>
+<p><code>private EntityQuery m_StorageCompanyQuery</code><br />
+(Declared) Query for storage companies (excluded from the company query used for processing companies).</p>
+</li>
+<li>
+<p><code>private EntityQuery m_ProcessDataQuery</code><br />
+Query that ensures IndustrialProcessData prefabs exist (required for update).</p>
+</li>
+<li>
+<p><code>private EntityQuery m_CityServiceQuery</code><br />
+(Declared) Query for city services (not directly used here).</p>
+</li>
+<li>
+<p><code>private EntityQuery m_SpawnableQuery</code><br />
+(Declared) Query for spawnable prefabs/entities.</p>
+</li>
+<li>
+<p><code>[DebugWatchDeps] private JobHandle m_WriteDependencies</code><br />
+Tracks the last scheduled write JobHandle for consumers to depend on (returned by getters).</p>
+</li>
+<li>
+<p><code>private JobHandle m_ReadDependencies</code><br />
+Accumulated read dependencies; used to combine with scheduled jobs so readers/writers are synchronized.</p>
+</li>
+<li>
+<p><code>[ResourceArray][DebugWatchValue] private NativeArray&lt;int&gt; m_CurrentProductionWorkers</code><br />
+Persistent per-resource array storing current production workers aggregated across companies.</p>
+</li>
+<li>
+<p><code>[ResourceArray][DebugWatchValue] private NativeArray&lt;int&gt; m_MaxProductionWorkers</code><br />
+Persistent per-resource array storing max production workers (capacity).</p>
+</li>
+<li>
+<p><code>[ResourceArray][DebugWatchValue] private NativeArray&lt;int&gt; m_CurrentServiceWorkers</code><br />
+Persistent per-resource array storing current service workers aggregated.</p>
+</li>
+<li>
+<p><code>[ResourceArray][DebugWatchValue] private NativeArray&lt;int&gt; m_MaxServiceWorkers</code><br />
+Persistent per-resource array storing max service worker capacity.</p>
+</li>
+<li>
+<p><code>[ResourceArray][DebugWatchValue] private NativeArray&lt;int&gt; m_Production</code><br />
+Persistent per-resource array storing aggregated production per day.</p>
+</li>
+<li>
+<p><code>[ResourceArray][DebugWatchValue] private NativeArray&lt;int&gt; m_SalesCapacities</code><br />
+Persistent per-resource array storing sales capacities (production/company capacity for selling).</p>
+</li>
+<li>
+<p><code>[ResourceArray][DebugWatchValue] private NativeArray&lt;int&gt; m_CurrentAvailables</code><br />
+Persistent per-resource array of current available service amounts (for service companies).</p>
+</li>
+<li>
+<p><code>[ResourceArray][DebugWatchValue] private NativeArray&lt;int] m_TotalAvailables</code><br />
+Persistent per-resource array of total available service capacity.</p>
+</li>
+<li>
+<p><code>[ResourceArray][DebugWatchValue] private NativeArray&lt;int&gt; m_Demand</code><br />
+Persistent per-resource array storing aggregated demand (consumption) from production processes.</p>
+</li>
+<li>
+<p><code>[ResourceArray][DebugWatchValue] private NativeArray&lt;int&gt; m_ProductionCompanies</code><br />
+Persistent per-resource array counting production companies for each resource.</p>
+</li>
+<li>
+<p><code>[ResourceArray][DebugWatchValue] private NativeArray&lt;int&gt; m_ServiceCompanies</code><br />
+Persistent per-resource array counting service companies for each resource.</p>
+</li>
+<li>
+<p><code>[ResourceArray][DebugWatchValue] private NativeArray&lt;int&gt; m_ProductionPropertyless</code><br />
+Persistent per-resource array counting production companies without a property (propertyless).</p>
+</li>
+<li>
+<p><code>[ResourceArray][DebugWatchValue] private NativeArray&lt;int] m_ServicePropertyless</code><br />
+Persistent per-resource array counting service companies without a property.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_CompanyQuery</code><br />
+EntityQuery used to select processing companies (ProcessingCompany + PrefabRef + WorkProvider + Resources) while excluding storage companies, deleted and temporary entities.</p>
+</li>
+<li>
+<p><code>private TypeHandle __TypeHandle</code><br />
+Internal struct bundling Entity/Component type handles used to schedule CountCompanyDataJob.</p>
+</li>
+<li>
+<p>(Nested private structs) <code>CompanyDataItem</code>, <code>CountCompanyDataJob</code>, <code>SumJob</code>, <code>TypeHandle</code><br />
+CompanyDataItem is the per-resource data structure enqueued by per-chunk job; CountCompanyDataJob performs per-chunk scanning and enqueues CompanyDataItem entries; SumJob dequeues and sums into the persistent NativeArrays. All are Burst-compiled where marked.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.Prefabs.ResourceSystem m_ResourceSystem;
-</code></pre>
+<hr />
+<h2 id="properties">Properties</h2>
 <ul>
-<li><code>private Unity.Collections.NativeQueue&lt;Game.Simulation.CountCompanyDataSystem+CompanyDataItem&gt; m_DataQueue</code>  </li>
+<li>None (this system exposes getters via methods rather than public properties; access is controlled through job dependency outputs).</li>
 </ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeQueue&lt;Game.Simulation.CountCompanyDataSystem+CompanyDataItem&gt; m_DataQueue;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_EconomyParameterQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_EconomyParameterQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_DemandParameterQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_DemandParameterQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_FreeIndustrialQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_FreeIndustrialQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_IndustrialCompanyQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_IndustrialCompanyQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_StorageCompanyQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_StorageCompanyQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_ProcessDataQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_ProcessDataQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_CityServiceQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_CityServiceQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_SpawnableQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_SpawnableQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Jobs.JobHandle m_WriteDependencies</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Jobs.JobHandle m_WriteDependencies;
-</code></pre>
-<ul>
-<li><code>private Unity.Jobs.JobHandle m_ReadDependencies</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Jobs.JobHandle m_ReadDependencies;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeArray&lt;System.Int32&gt; m_CurrentProductionWorkers</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeArray&lt;System.Int32&gt; m_CurrentProductionWorkers;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeArray&lt;System.Int32&gt; m_MaxProductionWorkers</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeArray&lt;System.Int32&gt; m_MaxProductionWorkers;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeArray&lt;System.Int32&gt; m_CurrentServiceWorkers</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeArray&lt;System.Int32&gt; m_CurrentServiceWorkers;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeArray&lt;System.Int32&gt; m_MaxServiceWorkers</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeArray&lt;System.Int32&gt; m_MaxServiceWorkers;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeArray&lt;System.Int32&gt; m_Production</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeArray&lt;System.Int32&gt; m_Production;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeArray&lt;System.Int32&gt; m_SalesCapacities</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeArray&lt;System.Int32&gt; m_SalesCapacities;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeArray&lt;System.Int32&gt; m_CurrentAvailables</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeArray&lt;System.Int32&gt; m_CurrentAvailables;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeArray&lt;System.Int32&gt; m_TotalAvailables</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeArray&lt;System.Int32&gt; m_TotalAvailables;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeArray&lt;System.Int32&gt; m_Demand</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeArray&lt;System.Int32&gt; m_Demand;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeArray&lt;System.Int32&gt; m_ProductionCompanies</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeArray&lt;System.Int32&gt; m_ProductionCompanies;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeArray&lt;System.Int32&gt; m_ServiceCompanies</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeArray&lt;System.Int32&gt; m_ServiceCompanies;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeArray&lt;System.Int32&gt; m_ProductionPropertyless</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeArray&lt;System.Int32&gt; m_ProductionPropertyless;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeArray&lt;System.Int32&gt; m_ServicePropertyless</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeArray&lt;System.Int32&gt; m_ServicePropertyless;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_CompanyQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_CompanyQuery;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.CountCompanyDataSystem+TypeHandle __TypeHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.CountCompanyDataSystem+TypeHandle __TypeHandle;
-</code></pre>
+<hr />
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public CountCompanyDataSystem()</code>  </li>
+<li><code>public CountCompanyDataSystem()</code><br />
+Default constructor. The system initializes persistent NativeArrays, the NativeQueue and sets up required queries in OnCreate (override) rather than in the constructor body.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public CountCompanyDataSystem()
-    {
-    }
-</code></pre>
+<hr />
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private __AssignQueries(Unity.Entities.SystemState&amp; state) : System.Void</code>  </li>
+<li>
+<p><code>public CommercialCompanyDatas GetCommercialCompanyDatas(out JobHandle deps)</code><br />
+Returns a snapshot-like struct (CommercialCompanyDatas) of NativeArray references relevant to commercial/service companies. The out parameter deps is set to the system's m_WriteDependencies so callers can depend on the last write job before reading.</p>
+</li>
+<li>
+<p><code>public IndustrialCompanyDatas GetIndustrialCompanyDatas(out JobHandle deps)</code><br />
+Returns a struct (IndustrialCompanyDatas) containing NativeArray references for industrial/production metrics. The out JobHandle deps must be used by callers to ensure safe reading (it is the system's current m_WriteDependencies).</p>
+</li>
+<li>
+<p><code>public NativeArray&lt;int&gt; GetProduction(out JobHandle deps)</code><br />
+Returns the m_Production NativeArray and sets deps to m_WriteDependencies. Use deps to synchronize reads.</p>
+</li>
+<li>
+<p><code>public override int GetUpdateInterval(SystemUpdatePhase phase)</code><br />
+Returns the update interval for this system. Implementation returns 16 (system runs every 16 frames).</p>
+</li>
+<li>
+<p><code>public override int GetUpdateOffset(SystemUpdatePhase phase)</code><br />
+Returns the update offset for this system. Implementation returns 1.</p>
+</li>
+<li>
+<p><code>public void AddReader(JobHandle reader)</code><br />
+Combine an external reader JobHandle into m_ReadDependencies so the system will wait for it when scheduling its own jobs.</p>
+</li>
+<li>
+<p><code>protected override void OnGameLoaded(Context serializationContext)</code><br />
+Called when a game is loaded; implementation resets m_Production to zero (calls Fill(0)).</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnCreate()</code><br />
+Initializes queries, persistent NativeArrays (size = EconomyUtils.ResourceCount), and the m_DataQueue. Also acquires the ResourceSystem from the world and calls RequireForUpdate for relevant queries to gate system execution.</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnDestroy()</code><br />
+Disposes all persistent NativeArrays and the NativeQueue, then calls base.OnDestroy().</p>
+</li>
+<li>
+<p><code>public void SetDefaults(Context context)</code><br />
+Resets all persistent NativeArrays to zero. Used when initializing default values for serialization contexts.</p>
+</li>
+<li>
+<p><code>public void Serialize&lt;TWriter&gt;(TWriter writer) where TWriter : IWriter</code><br />
+Writes all persistent NativeArrays to the given writer in a fixed order so state can be saved.</p>
+</li>
+<li>
+<p><code>public void Deserialize&lt;TReader&gt;(TReader reader) where TReader : IReader</code><br />
+Reads arrays back from reader into the persistent arrays. Handles one format nuance: if the reader format doesn't have the FishResource tag, it adjusts for one fewer resource index and zeroes the last resource slot.</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnUpdate()</code><br />
+Schedules the CountCompanyDataJob in parallel across m_CompanyQuery and then schedules a SumJob that consumes the queue and sums into the persistent arrays. It sets base.Dependency to the SumJob and updates m_WriteDependencies accordingly. CountCompanyDataJob is provided with component type handles and lookups (via __TypeHandle) and with m_ResourceSystem.GetPrefabs() and the economy parameters singleton.</p>
+</li>
+<li>
+<p><code>[MethodImpl(MethodImplOptions.AggressiveInlining)] private void __AssignQueries(ref SystemState state)</code><br />
+Internal/auto-generated helper used by compiler-time OnCreateForCompiler; in this file it creates a temporary EntityQueryBuilder and disposes it (placeholder for compiler pipeline).</p>
+</li>
+<li>
+<p><code>protected override void OnCreateForCompiler()</code><br />
+Auto-generated helper used in compiled builds to assign queries and component type handles into __TypeHandle.</p>
+</li>
+<li>
+<p>(Nested private) <code>CountCompanyDataJob.Execute(in ArchetypeChunk chunk, int unfilteredChunkIndex, bool useEnabledMask, in v128 chunkEnabledMask)</code><br />
+Per-chunk Burst job that: iterates entities in the chunk, checks for IndustrialProcessData on the entity's prefab, determines resource outputs, reads property/employee buffers, computes companyProductionPerDay, computes rounded consumption for inputs, accumulates per-resource temporary arrays, then enqueues a CompanyDataItem for each resource index. It allocates and disposes several temporary NativeArray<int> buffers (per resource) per Execute call.</p>
+</li>
+<li>
+<p>(Nested private) <code>SumJob.Execute()</code><br />
+Burst job that fills the persistent output arrays with zeros then dequeues CompanyDataItem entries from the m_DataQueue and accumulates their numeric fields into the corresponding persistent NativeArray indices.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private void __AssignQueries(ref SystemState state)
-    {
-        new EntityQueryBuilder(Allocator.Temp).Dispose();
-    }
+<p>Notes on threading and safety:
+- The system uses a NativeQueue with AsParallelWriter to feed per-chunk results into a single consumer job (SumJob). The SumJob runs after CountCompanyDataJob completes.
+- Callers that read the returned NativeArrays must use the out JobHandle deps to ensure they don't read while the system is still writing.</p>
+<hr />
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Example: reading commercial data safely from another system or mod code
+JobHandle deps;
+var commercial = countCompanyDataSystem.GetCommercialCompanyDatas(out deps);
+
+// Make sure to depend on the system's write job before reading the arrays
+deps.Complete();
+
+// now you can read arrays; for example, total available service for resource index 0:
+int totalAvailableResource0 = commercial.m_TotalAvailables[0];
 </code></pre>
-<ul>
-<li><code>public AddReader(Unity.Jobs.JobHandle reader) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void AddReader(JobHandle reader)
-    {
-        m_ReadDependencies = JobHandle.CombineDependencies(m_ReadDependencies, reader);
-    }
-</code></pre>
-<ul>
-<li><code>public Deserialize&lt;TReader&gt;(TReader reader) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Void Deserialize&lt;TReader&gt;(TReader reader);
-</code></pre>
-<ul>
-<li><code>public GetCommercialCompanyDatas(Unity.Jobs.JobHandle&amp; deps) : Game.Simulation.CountCompanyDataSystem+CommercialCompanyDatas</code>  </li>
-</ul>
-<pre><code class="language-csharp">public CommercialCompanyDatas GetCommercialCompanyDatas(out JobHandle deps)
-    {
-        deps = m_WriteDependencies;
-        return new CommercialCompanyDatas
-        {
-            m_CurrentAvailables = m_CurrentAvailables,
-            m_ProduceCapacity = m_SalesCapacities,
-            m_ServiceCompanies = m_ServiceCompanies,
-            m_ServicePropertyless = m_ServicePropertyless,
-            m_TotalAvailables = m_TotalAvailables,
-            m_CurrentServiceWorkers = m_CurrentServiceWorkers,
-            m_MaxServiceWorkers = m_MaxServiceWorkers
-        };
-    }
-</code></pre>
-<ul>
-<li><code>public GetIndustrialCompanyDatas(Unity.Jobs.JobHandle&amp; deps) : Game.Simulation.CountCompanyDataSystem+IndustrialCompanyDatas</code>  </li>
-</ul>
-<pre><code class="language-csharp">public IndustrialCompanyDatas GetIndustrialCompanyDatas(out JobHandle deps)
-    {
-        deps = m_WriteDependencies;
-        return new IndustrialCompanyDatas
-        {
-            m_Demand = m_Demand,
-            m_Production = m_Production,
-            m_ProductionCompanies = m_ProductionCompanies,
-            m_ProductionPropertyless = m_ProductionPropertyless,
-            m_CurrentProductionWorkers = m_CurrentProductionWorkers,
-            m_MaxProductionWorkers = m_MaxProductionWorkers
-        };
-    }
-</code></pre>
-<ul>
-<li><code>public GetProduction(Unity.Jobs.JobHandle&amp; deps) : Unity.Collections.NativeArray&lt;System.Int32&gt;</code>  </li>
-</ul>
-<pre><code class="language-csharp">public NativeArray&lt;int&gt; GetProduction(out JobHandle deps)
-    {
-        deps = m_WriteDependencies;
-        return m_Production;
-    }
-</code></pre>
-<ul>
-<li><code>public virtual GetUpdateInterval(Game.SystemUpdatePhase phase) : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override int GetUpdateInterval(SystemUpdatePhase phase)
-    {
-        return 16;
-    }
-</code></pre>
-<ul>
-<li><code>public virtual GetUpdateOffset(Game.SystemUpdatePhase phase) : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override int GetUpdateOffset(SystemUpdatePhase phase)
-    {
-        return 1;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_ResourceSystem = base.World.GetOrCreateSystemManaged&lt;ResourceSystem&gt;();
-        m_EconomyParameterQuery = GetEntityQuery(ComponentType.ReadOnly&lt;EconomyParameterData&gt;());
-        m_DemandParameterQuery = GetEntityQuery(ComponentType.ReadOnly&lt;DemandParameterData&gt;());
-        m_CompanyQuery = GetEntityQuery(ComponentType.ReadOnly&lt;Game.Companies.ProcessingCompany&gt;(), ComponentType.ReadOnly&lt;PrefabRef&gt;(), ComponentType.ReadOnly&lt;WorkProvider&gt;(), ComponentType.ReadOnly&lt;Resources&gt;(), ComponentType.Exclude&lt;Game.Companies.StorageCompany&gt;(), ComponentType.Exclude&lt;Deleted&gt;(), ComponentType.Exclude&lt;Temp&gt;());
-        m_ProcessDataQuery = GetEntityQuery(ComponentType.ReadOnly&lt;IndustrialProcessData&gt;(), ComponentType.Exclude&lt;ServiceCompanyData&gt;());
-        int resourceCount = EconomyUtils.ResourceCount;
-        m_CurrentProductionWorkers = new NativeArray&lt;int&gt;(resourceCount, Allocator.Persistent);
-        m_MaxProductionWorkers = new NativeArray&lt;int&gt;(resourceCount, Allocator.Persistent);
-        m_CurrentServiceWorkers = new NativeArray&lt;int&gt;(resourceCount, Allocator.Persistent);
-        m_MaxServiceWorkers = new NativeArray&lt;int&gt;(resourceCount, Allocator.Persistent);
-        m_Production = new NativeArray&lt;int&gt;(resourceCount, Allocator.Persistent);
-        m_SalesCapacities = new NativeArray&lt;int&gt;(resourceCount, Allocator.Persistent);
-        m_CurrentAvailables = new NativeArray&lt;int&gt;(resourceCount, Allocator.Persistent);
-        m_TotalAvailables = new NativeArray&lt;int&gt;(resourceCount, Allocator.Persistent);
-        m_Demand = new NativeArray&lt;int&gt;(resourceCount, Allocator.Persistent);
-        m_ProductionCompanies = new NativeArray&lt;int&gt;(resourceCount, Allocator.Persistent);
-        m_ServiceCompanies = new NativeArray&lt;int&gt;(resourceCount, Allocator.Persistent);
-        m_ProductionPropertyless = new NativeArray&lt;int&gt;(resourceCount, Allocator.Persistent);
-        m_ServicePropertyless = new NativeArray&lt;int&gt;(resourceCount, Allocator.Persistent);
-        m_DataQueue = new NativeQueue&lt;CompanyDataItem&gt;(Allocator.Persistent);
-        RequireForUpdate(m_CompanyQuery);
-        RequireForUpdate(m_EconomyParameterQuery);
-        RequireForUpdate(m_DemandParameterQuery);
-        RequireForUpdate(m_ProcessDataQuery);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreateForCompiler() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnCreateForCompiler()
-    {
-        base.OnCreateForCompiler();
-        __AssignQueries(ref base.CheckedStateRef);
-        __TypeHandle.__AssignHandles(ref base.CheckedStateRef);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnDestroy() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnDestroy()
-    {
-        m_CurrentProductionWorkers.Dispose();
-        m_MaxProductionWorkers.Dispose();
-        m_CurrentServiceWorkers.Dispose();
-        m_MaxServiceWorkers.Dispose();
-        m_Production.Dispose();
-        m_SalesCapacities.Dispose();
-        m_CurrentAvailables.Dispose();
-        m_TotalAvailables.Dispose();
-        m_Demand.Dispose();
-        m_ProductionCompanies.Dispose();
-        m_ServiceCompanies.Dispose();
-        m_ProductionPropertyless.Dispose();
-        m_ServicePropertyless.Dispose();
-        m_DataQueue.Dispose();
-        base.OnDestroy();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnGameLoaded(Colossal.Serialization.Entities.Context serializationContext) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnGameLoaded(Context serializationContext)
-    {
-        m_Production.Fill(0);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        JobHandle dependsOn = JobChunkExtensions.ScheduleParallel(new CountCompanyDataJob
-        {
-            m_EntityType = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef),
-            m_PrefabType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_WorkProviderType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Companies_WorkProvider_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_ServiceAvailableType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Companies_ServiceAvailable_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_IndustrialProcessDatas = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_IndustrialProcessData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PropertyRenters = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Buildings_PropertyRenter_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_Employees = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Companies_Employee_RO_BufferLookup, ref base.CheckedStateRef),
-            m_ResourcePrefabs = m_ResourceSystem.GetPrefabs(),
-            m_ResourceDatas = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_ResourceData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_Citizens = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Citizens_Citizen_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_BuildingEfficiencyBuf = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Buildings_Efficiency_RO_BufferLookup, ref base.CheckedStateRef),
-            m_ServiceCompanyDatas = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Companies_ServiceCompanyData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_EconomyParameters = m_EconomyParameterQuery.GetSingleton&lt;EconomyParameterData&gt;(),
-            m_DataQueue = m_DataQueue.AsParallelWriter()
-        }, m_CompanyQuery, JobHandle.CombineDependencies(base.Dependency, m_WriteDependencies, m_ReadDependencies));
-        SumJob jobData = new SumJob
-        {
-            m_Demand = m_Demand,
-            m_Production = m_Production,
-            m_CurrentAvailables = m_CurrentAvailables,
-            m_ProductionCompanies = m_ProductionCompanies,
-            m_ProductionPropertyless = m_ProductionPropertyless,
-            m_SalesCapacities = m_SalesCapacities,
-            m_ServiceCompanies = m_ServiceCompanies,
-            m_ServicePropertyless = m_ServicePropertyless,
-            m_TotalAvailables = m_TotalAvailables,
-            m_CurrentProductionWorkers = m_CurrentProductionWorkers,
-            m_CurrentServiceWorkers = m_CurrentServiceWorkers,
-            m_MaxProductionWorkers = m_MaxProductionWorkers,
-            m_MaxServiceWorkers = m_MaxServiceWorkers,
-            m_DataQueue = m_DataQueue
-        };
-        base.Dependency = IJobExtensions.Schedule(jobData, dependsOn);
-        m_WriteDependencies = base.Dependency;
-    }
-</code></pre>
-<ul>
-<li><code>public Serialize&lt;TWriter&gt;(TWriter writer) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Void Serialize&lt;TWriter&gt;(TWriter writer);
-</code></pre>
-<ul>
-<li><code>public SetDefaults(Colossal.Serialization.Entities.Context context) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void SetDefaults(Context context)
-    {
-        m_CurrentProductionWorkers.Fill(0);
-        m_MaxProductionWorkers.Fill(0);
-        m_CurrentServiceWorkers.Fill(0);
-        m_MaxServiceWorkers.Fill(0);
-        m_Production.Fill(0);
-        m_SalesCapacities.Fill(0);
-        m_CurrentAvailables.Fill(0);
-        m_TotalAvailables.Fill(0);
-        m_Demand.Fill(0);
-        m_ProductionCompanies.Fill(0);
-        m_ServiceCompanies.Fill(0);
-        m_ProductionPropertyless.Fill(0);
-        m_ServicePropertyless.Fill(0);
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Simulation.CountCompanyDataSystem+CommercialCompanyDatas</code>  </li>
-<li><code>Game.Simulation.CountCompanyDataSystem+IndustrialCompanyDatas</code>  </li>
-<li><code>Game.Simulation.CountCompanyDataSystem+CompanyDataItem</code>  </li>
-<li><code>Game.Simulation.CountCompanyDataSystem+SumJob</code>  </li>
-<li><code>Game.Simulation.CountCompanyDataSystem+CountCompanyDataJob</code>  </li>
-<li><code>Game.Simulation.CountCompanyDataSystem+TypeHandle</code>  </li>
-</ul>
+<p>If you need to schedule a job that reads the arrays instead of calling Complete(), pass the returned deps as a dependency to your job (JobHandle.CombineDependencies) to avoid race conditions with CountCompanyDataSystem's write jobs.</p>
 
 
 

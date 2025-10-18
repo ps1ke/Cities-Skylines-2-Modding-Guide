@@ -29648,18 +29648,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -29684,9 +29684,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -65320,6 +65320,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69751,6 +69774,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72563,6 +72609,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75553,6 +75622,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87145,6 +87237,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -117921,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117948,18 +118085,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -117984,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118009,936 +118146,300 @@
 
 
 <h1 id="gamepathfindpathfindqueuesystem">Game.Pathfind.PathfindQueueSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Pathfind</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code><br />
-<strong>Implements:</strong> <code>Game.Serialization.IPreDeserialize</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class PathfindQueueSystem : Game.GameSystemBase, Game.Serialization.IPreDeserialize
-{
-    private Game.Simulation.PathfindSetupSystem m_PathfindSetupSystem;
-    private Game.Simulation.TransportLineSystem m_TransportLineSystem;
-    private Game.Prefabs.NetInitializeSystem m_NetInitializeSystem;
-    private Game.Pathfind.PathfindQueueSystem+ActionList&lt;Game.Pathfind.CreateAction&gt; m_CreateActions;
-    private Game.Pathfind.PathfindQueueSystem+ActionList&lt;Game.Pathfind.UpdateAction&gt; m_UpdateActions;
-    private Game.Pathfind.PathfindQueueSystem+ActionList&lt;Game.Pathfind.DeleteAction&gt; m_DeleteActions;
-    private Game.Pathfind.PathfindQueueSystem+ActionList&lt;Game.Pathfind.PathfindAction&gt; m_PathfindActions;
-    private Game.Pathfind.PathfindQueueSystem+ActionList&lt;Game.Pathfind.CoverageAction&gt; m_CoverageActions;
-    private Game.Pathfind.PathfindQueueSystem+ActionList&lt;Game.Pathfind.AvailabilityAction&gt; m_AvailabilityActions;
-    private Game.Pathfind.PathfindQueueSystem+ActionList&lt;Game.Pathfind.DensityAction&gt; m_DensityActions;
-    private Game.Pathfind.PathfindQueueSystem+ActionList&lt;Game.Pathfind.TimeAction&gt; m_TimeActions;
-    private Game.Pathfind.PathfindQueueSystem+ActionList&lt;Game.Pathfind.FlowAction&gt; m_FlowActions;
-    private System.Collections.Generic.Queue&lt;Game.Pathfind.PathfindQueueSystem+ActionType&gt; m_ActionTypes;
-    private System.Collections.Generic.Queue&lt;Game.Pathfind.PathfindQueueSystem+ActionType&gt; m_HighPriorityTypes;
-    private System.Collections.Generic.Queue&lt;Game.Pathfind.PathfindQueueSystem+ActionType&gt; m_ModificationTypes;
-    private System.Collections.Generic.Queue&lt;Game.Pathfind.PathfindQueueSystem+WorkerActions&gt; m_WorkerActions;
-    private System.Collections.Generic.Queue&lt;Game.Pathfind.PathfindQueueSystem+WorkerActions&gt; m_WorkerActionPool;
-    private System.Collections.Generic.List&lt;Game.Pathfind.PathfindQueueSystem+WorkerData&gt; m_WorkerData;
-    private System.Collections.Generic.List&lt;Game.Pathfind.PathfindQueueSystem+ThreadData&gt; m_ThreadData;
-    private System.Collections.Generic.List&lt;Unity.Collections.AllocatorHelper&lt;Colossal.Collections.UnsafeLinearAllocator&gt;&gt; m_AllocatorPool;
-    private System.Int32 m_MaxThreadCount;
-    private System.Int32 m_NextWorkerIndex;
-    private System.Int32 m_LastWorkerIndex;
-    private System.Int32 m_DependencyIndex;
-    private System.Boolean m_RequireDebug;
-    private static const System.Int32 WORKER_DATA_COUNT;
-
-    public PathfindQueueSystem();
-
-    public System.Void AddDataReader(Unity.Jobs.JobHandle handle);
-    public System.Void Enqueue(Game.Pathfind.CreateAction action, Unity.Jobs.JobHandle dependencies);
-    public System.Void Enqueue(Game.Pathfind.UpdateAction action, Unity.Jobs.JobHandle dependencies);
-    public System.Void Enqueue(Game.Pathfind.DeleteAction action, Unity.Jobs.JobHandle dependencies);
-    public System.Void Enqueue(Game.Pathfind.PathfindAction action, Unity.Entities.Entity owner, Unity.Jobs.JobHandle dependencies, System.UInt32 resultFrame, System.Object system, System.Boolean highPriority);
-    public System.Void Enqueue(Game.Pathfind.PathfindAction action, Unity.Entities.Entity owner, Unity.Jobs.JobHandle dependencies, System.UInt32 resultFrame, System.Object system, Game.Pathfind.PathEventData eventData, System.Boolean highPriority);
-    public System.Void Enqueue(Game.Pathfind.CoverageAction action, Unity.Entities.Entity owner, Unity.Jobs.JobHandle dependencies, System.UInt32 resultFrame, System.Object system, System.Boolean highPriority);
-    public System.Void Enqueue(Game.Pathfind.CoverageAction action, Unity.Entities.Entity owner, Unity.Jobs.JobHandle dependencies, System.UInt32 resultFrame, System.Object system, Game.Pathfind.PathEventData eventData, System.Boolean highPriority);
-    public System.Void Enqueue(Game.Pathfind.AvailabilityAction action, Unity.Entities.Entity owner, Unity.Jobs.JobHandle dependencies, System.UInt32 resultFrame, System.Object system);
-    public System.Void Enqueue(Game.Pathfind.DensityAction action, Unity.Jobs.JobHandle dependencies);
-    public System.Void Enqueue(Game.Pathfind.TimeAction action, Unity.Jobs.JobHandle dependencies);
-    public System.Void Enqueue(Game.Pathfind.FlowAction action, Unity.Jobs.JobHandle dependencies);
-    private System.Void Enqueue&lt;T&gt;(T action, Unity.Entities.Entity owner, Unity.Jobs.JobHandle dependencies, System.UInt32 resultFrame, Game.Pathfind.PathfindQueueSystem+ActionList&lt;T&gt; list, Game.Pathfind.PathfindQueueSystem+ActionType type, System.Object system, System.Boolean highPriority, System.Boolean modification);
-    private System.Void Enqueue&lt;T&gt;(T action, Unity.Entities.Entity owner, Unity.Jobs.JobHandle dependencies, System.UInt32 resultFrame, Game.Pathfind.PathfindQueueSystem+ActionList&lt;T&gt; list, Game.Pathfind.PathfindQueueSystem+ActionType type, System.Object system, System.Boolean highPriority, Game.Pathfind.PathEventData eventData);
-    public Game.Pathfind.PathfindQueueSystem+ActionList&lt;Game.Pathfind.AvailabilityAction&gt; GetAvailabilityActions();
-    public Game.Pathfind.PathfindQueueSystem+ActionList&lt;Game.Pathfind.CoverageAction&gt; GetCoverageActions();
-    public Game.Pathfind.PathfindQueueSystem+ActionList&lt;Game.Pathfind.CreateAction&gt; GetCreateActions();
-    public Game.Pathfind.NativePathfindData GetDataContainer(Unity.Jobs.JobHandle&amp; dependencies);
-    public Game.Pathfind.PathfindQueueSystem+ActionList&lt;Game.Pathfind.DeleteAction&gt; GetDeleteActions();
-    public Game.Pathfind.PathfindQueueSystem+ActionList&lt;Game.Pathfind.DensityAction&gt; GetDensityActions();
-    public Game.Pathfind.PathfindQueueSystem+ActionList&lt;Game.Pathfind.FlowAction&gt; GetFlowActions();
-    public System.Void GetGraphMemory(System.UInt32&amp; usedMemory, System.UInt32&amp; allocatedMemory);
-    public System.Int32 GetGraphSize();
-    public Game.Pathfind.PathfindQueueSystem+ActionList&lt;Game.Pathfind.PathfindAction&gt; GetPathfindActions();
-    public System.Void GetQueryMemory(System.UInt32&amp; usedMemory, System.UInt32&amp; allocatedMemory);
-    public Game.Pathfind.PathfindQueueSystem+ActionList&lt;Game.Pathfind.TimeAction&gt; GetTimeActions();
-    public Game.Pathfind.PathfindQueueSystem+ActionList&lt;Game.Pathfind.UpdateAction&gt; GetUpdateActions();
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnDestroy();
-    protected virtual System.Void OnUpdate();
-    public System.Void PreDeserialize(Colossal.Serialization.Entities.Context context);
-    public System.Void RequireDebug();
-    private System.Void RequireWorkerActions(Game.Pathfind.PathfindQueueSystem+WorkerActions&amp; currentActions);
-    private Unity.Jobs.JobHandle ScheduleModificationJob&lt;T&gt;(T job);
-    private System.Void ScheduleWorkerJobs(Game.Pathfind.PathfindQueueSystem+WorkerActions&amp; currentActions);
-}
-</code></pre>
+<p><strong>Assembly:</strong> Assembly-CSharp<br />
+<strong>Namespace:</strong> Game.Pathfind</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> GameSystemBase, IPreDeserialize</p>
+<p><strong>Summary:</strong><br />
+PathfindQueueSystem orchestrates pathfinding and related operations (coverage, availability, density, time, flow) for the simulation. It collects requests (create/update/delete edges, pathfind queries, coverage/availability queries and several modification jobs), batches and schedules them as Unity Jobs across worker threads and per-worker path graph data (NativePathfindData). The system maintains multiple worker data containers, per-thread allocators for query work, and action queues with support for high-priority actions and modification actions. It also exposes APIs to enqueue actions, obtain data containers, and query memory usage. Nested helper types implement action lists, worker action buffers and the actual PathfindWorkerJob that executes queries in parallel.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.Simulation.PathfindSetupSystem m_PathfindSetupSystem</code>  </li>
+<li>
+<p><code>private const int WORKER_DATA_COUNT</code><br />
+Holds the constant value 2 — the number of WorkerData instances allocated by default.</p>
+</li>
+<li>
+<p><code>private PathfindSetupSystem m_PathfindSetupSystem</code><br />
+Reference to the PathfindSetupSystem used to ensure graph setup is completed before scheduling work.</p>
+</li>
+<li>
+<p><code>private TransportLineSystem m_TransportLineSystem</code><br />
+Reference used to query max transport speeds for pathfinding heuristics.</p>
+</li>
+<li>
+<p><code>private NetInitializeSystem m_NetInitializeSystem</code><br />
+Provides heuristic data and initialization information for the pathfinding subsystem.</p>
+</li>
+<li>
+<p><code>private ActionList&lt;CreateAction&gt; m_CreateActions</code><br />
+Container for create-edge actions.</p>
+</li>
+<li>
+<p><code>private ActionList&lt;UpdateAction&gt; m_UpdateActions</code><br />
+Container for update-edge actions.</p>
+</li>
+<li>
+<p><code>private ActionList&lt;DeleteAction&gt; m_DeleteActions</code><br />
+Container for delete-edge actions.</p>
+</li>
+<li>
+<p><code>private ActionList&lt;PathfindAction&gt; m_PathfindActions</code><br />
+Container for pathfinding queries.</p>
+</li>
+<li>
+<p><code>private ActionList&lt;CoverageAction&gt; m_CoverageActions</code><br />
+Container for coverage queries.</p>
+</li>
+<li>
+<p><code>private ActionList&lt;AvailabilityAction&gt; m_AvailabilityActions</code><br />
+Container for availability queries.</p>
+</li>
+<li>
+<p><code>private ActionList&lt;DensityAction&gt; m_DensityActions</code><br />
+Container for density modification actions.</p>
+</li>
+<li>
+<p><code>private ActionList&lt;TimeAction&gt; m_TimeActions</code><br />
+Container for time modification actions.</p>
+</li>
+<li>
+<p><code>private ActionList&lt;FlowAction&gt; m_FlowActions</code><br />
+Container for flow modification actions.</p>
+</li>
+<li>
+<p><code>private Queue&lt;ActionType&gt; m_ActionTypes</code><br />
+Queue of action types representing normal (non-modification, non-high-priority) actions to process.</p>
+</li>
+<li>
+<p><code>private Queue&lt;ActionType&gt; m_HighPriorityTypes</code><br />
+Queue of high-priority action types — those that should be scheduled before others.</p>
+</li>
+<li>
+<p><code>private Queue&lt;ActionType&gt; m_ModificationTypes</code><br />
+Queue of modification-type actions (graph changes, density/time/flow) that must be applied to path graph data.</p>
+</li>
+<li>
+<p><code>private Queue&lt;WorkerActions&gt; m_WorkerActions</code><br />
+Queue of WorkerActions currently pending scheduling to worker threads.</p>
+</li>
+<li>
+<p><code>private Queue&lt;WorkerActions&gt; m_WorkerActionPool</code><br />
+Pool of WorkerActions objects reused to avoid allocations.</p>
+</li>
+<li>
+<p><code>private List&lt;WorkerData&gt; m_WorkerData</code><br />
+List of per-worker WorkerData instances; each holds a NativePathfindData and per-worker read/write job handles.</p>
+</li>
+<li>
+<p><code>private List&lt;ThreadData&gt; m_ThreadData</code><br />
+List of per-thread ThreadData (job handle + allocator helper) currently in use for executing PathfindWorkerJob instances.</p>
+</li>
+<li>
+<p><code>private List&lt;AllocatorHelper&lt;UnsafeLinearAllocator&gt;&gt; m_AllocatorPool</code><br />
+Pool of allocators usable by worker threads for query allocations.</p>
+</li>
+<li>
+<p><code>private int m_MaxThreadCount</code><br />
+Maximum number of worker threads to spawn for a single batch; derived from available job workers.</p>
+</li>
+<li>
+<p><code>private int m_NextWorkerIndex</code><br />
+Index of the next WorkerData to be used when obtaining graph data for new work.</p>
+</li>
+<li>
+<p><code>private int m_LastWorkerIndex</code><br />
+Index of last worker used; used to advance m_NextWorkerIndex in round-robin fashion.</p>
+</li>
+<li>
+<p><code>private int m_DependencyIndex</code><br />
+Index used to track dependency rotation for thread data reuse.</p>
+</li>
+<li>
+<p><code>private bool m_RequireDebug</code><br />
+Flag that forces scheduling only actions that marked debug (used in OnUpdate to gate debug actions).</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.Simulation.PathfindSetupSystem m_PathfindSetupSystem;
-</code></pre>
+<p>Nested / helper types (brief):</p>
 <ul>
-<li><code>private Game.Simulation.TransportLineSystem m_TransportLineSystem</code>  </li>
+<li>
+<p><code>public struct ActionListItem&lt;T&gt;</code><br />
+Represents a queued action item including action data, owner entity, dependencies, flags, result frame and optional event data/system. Implements IDisposable to ensure dependencies complete and the action disposed.</p>
+</li>
+<li>
+<p><code>public class ActionList&lt;T&gt;</code><br />
+Holds a List of ActionListItem<T>, a next index, and a priority count. Provides Clear and Dispose.</p>
+</li>
+<li>
+<p><code>private class WorkerData</code><br />
+Per-worker container that has a NativePathfindData, and write/read JobHandles. Provides Clear and Dispose semantics.</p>
+</li>
+<li>
+<p><code>private class WorkerActions</code><br />
+Holds a NativeList<WorkerAction> (action descriptors) and a NativeReference<int> action index used by worker jobs; supports Add(ref T) to append typed action data pointers.</p>
+</li>
+<li>
+<p><code>private struct ThreadData</code><br />
+Container with JobHandle and AllocatorHelper<UnsafeLinearAllocator> for thread-local allocation and job tracking.</p>
+</li>
+<li>
+<p><code>public struct WorkerAction</code><br />
+Small struct used inside WorkerActions array: ActionType and an unsafe pointer to action data.</p>
+</li>
+<li>
+<p><code>public enum ActionType</code><br />
+Types enumerating supported actions (Create, Update, Delete, Pathfind, Coverage, Availability, Density, Time, Flow).</p>
+</li>
+<li>
+<p><code>public struct PathfindWorkerJob : IJob</code><br />
+The actual Burst-compiled worker job that executes PathfindJobs, CoverageJobs or AvailabilityJobs on action data pulled from the WorkerActions buffer.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.Simulation.TransportLineSystem m_TransportLineSystem;
-</code></pre>
+<hr />
+<h2 id="properties">Properties</h2>
 <ul>
-<li><code>private Game.Prefabs.NetInitializeSystem m_NetInitializeSystem</code>  </li>
+<li>None (this type exposes methods rather than instance properties).<br />
+You can access per-action lists via GetCreateActions/GetPathfindActions/etc methods.</li>
 </ul>
-<pre><code class="language-csharp">private Game.Prefabs.NetInitializeSystem m_NetInitializeSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Pathfind.PathfindQueueSystem+ActionList&lt;Game.Pathfind.CreateAction&gt; m_CreateActions</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Pathfind.PathfindQueueSystem+ActionList&lt;Game.Pathfind.CreateAction&gt; m_CreateActions;
-</code></pre>
-<ul>
-<li><code>private Game.Pathfind.PathfindQueueSystem+ActionList&lt;Game.Pathfind.UpdateAction&gt; m_UpdateActions</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Pathfind.PathfindQueueSystem+ActionList&lt;Game.Pathfind.UpdateAction&gt; m_UpdateActions;
-</code></pre>
-<ul>
-<li><code>private Game.Pathfind.PathfindQueueSystem+ActionList&lt;Game.Pathfind.DeleteAction&gt; m_DeleteActions</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Pathfind.PathfindQueueSystem+ActionList&lt;Game.Pathfind.DeleteAction&gt; m_DeleteActions;
-</code></pre>
-<ul>
-<li><code>private Game.Pathfind.PathfindQueueSystem+ActionList&lt;Game.Pathfind.PathfindAction&gt; m_PathfindActions</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Pathfind.PathfindQueueSystem+ActionList&lt;Game.Pathfind.PathfindAction&gt; m_PathfindActions;
-</code></pre>
-<ul>
-<li><code>private Game.Pathfind.PathfindQueueSystem+ActionList&lt;Game.Pathfind.CoverageAction&gt; m_CoverageActions</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Pathfind.PathfindQueueSystem+ActionList&lt;Game.Pathfind.CoverageAction&gt; m_CoverageActions;
-</code></pre>
-<ul>
-<li><code>private Game.Pathfind.PathfindQueueSystem+ActionList&lt;Game.Pathfind.AvailabilityAction&gt; m_AvailabilityActions</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Pathfind.PathfindQueueSystem+ActionList&lt;Game.Pathfind.AvailabilityAction&gt; m_AvailabilityActions;
-</code></pre>
-<ul>
-<li><code>private Game.Pathfind.PathfindQueueSystem+ActionList&lt;Game.Pathfind.DensityAction&gt; m_DensityActions</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Pathfind.PathfindQueueSystem+ActionList&lt;Game.Pathfind.DensityAction&gt; m_DensityActions;
-</code></pre>
-<ul>
-<li><code>private Game.Pathfind.PathfindQueueSystem+ActionList&lt;Game.Pathfind.TimeAction&gt; m_TimeActions</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Pathfind.PathfindQueueSystem+ActionList&lt;Game.Pathfind.TimeAction&gt; m_TimeActions;
-</code></pre>
-<ul>
-<li><code>private Game.Pathfind.PathfindQueueSystem+ActionList&lt;Game.Pathfind.FlowAction&gt; m_FlowActions</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Pathfind.PathfindQueueSystem+ActionList&lt;Game.Pathfind.FlowAction&gt; m_FlowActions;
-</code></pre>
-<ul>
-<li><code>private System.Collections.Generic.Queue&lt;Game.Pathfind.PathfindQueueSystem+ActionType&gt; m_ActionTypes</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Collections.Generic.Queue&lt;Game.Pathfind.PathfindQueueSystem+ActionType&gt; m_ActionTypes;
-</code></pre>
-<ul>
-<li><code>private System.Collections.Generic.Queue&lt;Game.Pathfind.PathfindQueueSystem+ActionType&gt; m_HighPriorityTypes</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Collections.Generic.Queue&lt;Game.Pathfind.PathfindQueueSystem+ActionType&gt; m_HighPriorityTypes;
-</code></pre>
-<ul>
-<li><code>private System.Collections.Generic.Queue&lt;Game.Pathfind.PathfindQueueSystem+ActionType&gt; m_ModificationTypes</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Collections.Generic.Queue&lt;Game.Pathfind.PathfindQueueSystem+ActionType&gt; m_ModificationTypes;
-</code></pre>
-<ul>
-<li><code>private System.Collections.Generic.Queue&lt;Game.Pathfind.PathfindQueueSystem+WorkerActions&gt; m_WorkerActions</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Collections.Generic.Queue&lt;Game.Pathfind.PathfindQueueSystem+WorkerActions&gt; m_WorkerActions;
-</code></pre>
-<ul>
-<li><code>private System.Collections.Generic.Queue&lt;Game.Pathfind.PathfindQueueSystem+WorkerActions&gt; m_WorkerActionPool</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Collections.Generic.Queue&lt;Game.Pathfind.PathfindQueueSystem+WorkerActions&gt; m_WorkerActionPool;
-</code></pre>
-<ul>
-<li><code>private System.Collections.Generic.List&lt;Game.Pathfind.PathfindQueueSystem+WorkerData&gt; m_WorkerData</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Collections.Generic.List&lt;Game.Pathfind.PathfindQueueSystem+WorkerData&gt; m_WorkerData;
-</code></pre>
-<ul>
-<li><code>private System.Collections.Generic.List&lt;Game.Pathfind.PathfindQueueSystem+ThreadData&gt; m_ThreadData</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Collections.Generic.List&lt;Game.Pathfind.PathfindQueueSystem+ThreadData&gt; m_ThreadData;
-</code></pre>
-<ul>
-<li><code>private System.Collections.Generic.List&lt;Unity.Collections.AllocatorHelper&lt;Colossal.Collections.UnsafeLinearAllocator&gt;&gt; m_AllocatorPool</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Collections.Generic.List&lt;Unity.Collections.AllocatorHelper&lt;Colossal.Collections.UnsafeLinearAllocator&gt;&gt; m_AllocatorPool;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_MaxThreadCount</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_MaxThreadCount;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_NextWorkerIndex</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_NextWorkerIndex;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_LastWorkerIndex</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_LastWorkerIndex;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_DependencyIndex</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_DependencyIndex;
-</code></pre>
-<ul>
-<li><code>private System.Boolean m_RequireDebug</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean m_RequireDebug;
-</code></pre>
-<ul>
-<li><code>private static const System.Int32 WORKER_DATA_COUNT</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static const System.Int32 WORKER_DATA_COUNT;
-</code></pre>
+<hr />
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public PathfindQueueSystem()</code>  </li>
+<li><code>public PathfindQueueSystem()</code><br />
+Default constructor. The system uses the OnCreate override to perform full initialization; constructor contains no custom logic aside from standard CLR instantiation.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public PathfindQueueSystem()
-    {
-    }
-</code></pre>
+<hr />
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>public AddDataReader(Unity.Jobs.JobHandle handle) : System.Void</code>  </li>
+<li>
+<p><code>protected override void OnCreate()</code><br />
+Initializes references to other systems, creates action lists, queues and pools, allocates the initial WorkerData instances (2 by default) and sets m_MaxThreadCount based on JobsUtility.JobWorkerCount. Called by the ECS world when the system is created.</p>
+</li>
+<li>
+<p><code>protected override void OnDestroy()</code><br />
+Cleans up thread data (completing jobs and disposing allocators), disposes allocator pool and all action lists, drains and disposes worker action queues/pool and WorkerData instances, then calls base.OnDestroy.</p>
+</li>
+<li>
+<p><code>public void PreDeserialize(Context context)</code><br />
+Called before deserialization: completes thread jobs, moves allocators back to the pool, clears pending action lists and queues, resets dependency index and clears worker data read/write handles.</p>
+</li>
+<li>
+<p><code>public NativePathfindData GetDataContainer(out JobHandle dependencies)</code><br />
+Returns the NativePathfindData for the current m_NextWorkerIndex and outputs the write JobHandle that represents outstanding write dependencies so callers can chain reads/writes. This is used by clients to access the path graph for reading/writing safely.</p>
+</li>
+<li>
+<p><code>public void AddDataReader(JobHandle handle)</code><br />
+Adds a read JobHandle dependency to the current worker's read handle, used to ensure the worker's ReadHandle accounts for additional readers.</p>
+</li>
+<li>
+<p><code>public void RequireDebug()</code><br />
+Marks the system to require debug flags when scheduling; used in OnUpdate to decide whether to schedule debug-marked pathfind actions.</p>
+</li>
+<li>
+<p><code>public int GetGraphSize()</code><br />
+Returns the size (node/edge capacity) of the current worker's NativePathfindData graph.</p>
+</li>
+<li>
+<p><code>public void GetGraphMemory(out uint usedMemory, out uint allocatedMemory)</code><br />
+Populates used/allocated memory usage summing all WorkerData NativePathfindData memory stats.</p>
+</li>
+<li>
+<p><code>public void GetQueryMemory(out uint usedMemory, out uint allocatedMemory)</code><br />
+Reports allocator memory usage for all thread-local allocators currently in use and stored in the allocator pool.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public void AddDataReader(JobHandle handle)
-    {
-        WorkerData workerData = m_WorkerData[m_NextWorkerIndex];
-        workerData.m_ReadHandle = JobHandle.CombineDependencies(workerData.m_ReadHandle, handle);
-    }
-</code></pre>
+<p>Enqueue API (several overloads):</p>
 <ul>
-<li><code>public Enqueue(Game.Pathfind.CreateAction action, Unity.Jobs.JobHandle dependencies) : System.Void</code>  </li>
+<li><code>public void Enqueue(CreateAction action, JobHandle dependencies)</code>  </li>
+<li><code>public void Enqueue(UpdateAction action, JobHandle dependencies)</code>  </li>
+<li><code>public void Enqueue(DeleteAction action, JobHandle dependencies)</code>  </li>
+<li><code>public void Enqueue(PathfindAction action, Entity owner, JobHandle dependencies, uint resultFrame, object system, bool highPriority = false)</code>  </li>
+<li><code>public void Enqueue(PathfindAction action, Entity owner, JobHandle dependencies, uint resultFrame, object system, PathEventData eventData, bool highPriority = false)</code>  </li>
+<li><code>public void Enqueue(CoverageAction action, Entity owner, JobHandle dependencies, uint resultFrame, object system, bool highPriority = false)</code>  </li>
+<li><code>public void Enqueue(CoverageAction action, Entity owner, JobHandle dependencies, uint resultFrame, object system, PathEventData eventData, bool highPriority = false)</code>  </li>
+<li><code>public void Enqueue(AvailabilityAction action, Entity owner, JobHandle dependencies, uint resultFrame, object system)</code>  </li>
+<li><code>public void Enqueue(DensityAction action, JobHandle dependencies)</code>  </li>
+<li><code>public void Enqueue(TimeAction action, JobHandle dependencies)</code>  </li>
+<li><code>public void Enqueue(FlowAction action, JobHandle dependencies)</code>  </li>
 </ul>
-<pre><code class="language-csharp">public void Enqueue(FlowAction action, JobHandle dependencies)
-    {
-        Enqueue(action, Entity.Null, dependencies, uint.MaxValue, m_FlowActions, ActionType.Flow, null, highPriority: false, modification: true);
-    }
-</code></pre>
+<p>These overloads place typed actions into their corresponding ActionList<T>. Each enqueued ActionListItem includes the action struct (by value), owner Entity (if applicable), dependency JobHandle, flags (initially Pending or Pending|WantsEvent), target result frame and optional PathEventData/system. High-priority or modification flags determine which internal queue the ActionType is pushed onto so scheduling order respects priority and modification constraints.</p>
 <ul>
-<li><code>public Enqueue(Game.Pathfind.UpdateAction action, Unity.Jobs.JobHandle dependencies) : System.Void</code>  </li>
+<li><code>public ActionList&lt;CreateAction&gt; GetCreateActions()</code> (and similar getters for other action lists)<br />
+Return references to the internal ActionList<T> instances for inspection by other systems.</li>
 </ul>
-<pre><code class="language-csharp">public void Enqueue(FlowAction action, JobHandle dependencies)
-    {
-        Enqueue(action, Entity.Null, dependencies, uint.MaxValue, m_FlowActions, ActionType.Flow, null, highPriority: false, modification: true);
-    }
-</code></pre>
+<p>Private scheduling helpers:</p>
 <ul>
-<li><code>public Enqueue(Game.Pathfind.DeleteAction action, Unity.Jobs.JobHandle dependencies) : System.Void</code>  </li>
+<li>
+<p><code>private void Enqueue&lt;T&gt;(T action, Entity owner, JobHandle dependencies, uint resultFrame, ActionList&lt;T&gt; list, ActionType type, object system, bool highPriority, bool modification) where T : struct, IDisposable</code><br />
+Internal shared implementation handling normal and modification enqueues (no event data).</p>
+</li>
+<li>
+<p><code>private void Enqueue&lt;T&gt;(T action, Entity owner, JobHandle dependencies, uint resultFrame, ActionList&lt;T&gt; list, ActionType type, object system, bool highPriority, PathEventData eventData) where T : struct, IDisposable</code><br />
+Internal shared implementation handling enqueues with PathEventData (WantsEvent flag set).</p>
+</li>
+<li>
+<p><code>private JobHandle ScheduleModificationJob&lt;T&gt;(T job) where T : struct, IJob, ModificationJobs.IPathfindModificationJob</code><br />
+Schedules a modification job (graph changes, density/time/flow) on all WorkerData instances. For each worker it sets the job's pathfind data, schedules the job combining existing write/read handles and updates the worker's write and read handles accordingly. Advances m_NextWorkerIndex in round-robin if needed. Returns a combined JobHandle representing the scheduled jobs across all workers.</p>
+</li>
+<li>
+<p><code>private void ScheduleWorkerJobs(ref WorkerActions currentActions)</code><br />
+Given a WorkerActions buffer (which contains a list of WorkerAction descriptors and a NativeReference<int> index), schedules PathfindWorkerJob instances across available thread slots. It computes the number of worker jobs (min(actions.Length, maxThreadCount or high priority count)), obtains/allocates thread allocators (either from pool or creates new), sets job data (random seed, pathfind data, heuristic data, transport speeds, allocator), and schedules jobs while combining dependencies appropriately. It also updates per-thread m_JobHandle and currentActions.m_ReadHandle and assigns thread data into m_ThreadData list.</p>
+</li>
+<li>
+<p><code>private void RequireWorkerActions(ref WorkerActions currentActions)</code><br />
+Ensures a WorkerActions instance is available (either dequeue from pool or create new) and enqueues it in m_WorkerActions. Called when starting to collect query actions to execute as a batch.</p>
+</li>
+<li>
+<p><code>protected override void OnUpdate()</code><br />
+Main scheduling loop invoked each frame. Steps:</p>
+</li>
+<li>Completes and reclaims finished thread allocators, compacts m_ThreadData and manages m_DependencyIndex.</li>
+<li>Completes pending worker data read/write handles if finished.</li>
+<li>Reclaims WorkerActions whose read handles are completed (clears and returns to pool).</li>
+<li>Ensures PathfindSetupSystem.CompleteSetup() is called before scheduling actions.</li>
+<li>Iteratively picks next action type to schedule (prefers high-priority, then modification, then normal) and handles each action type:<ul>
+<li>For modification actions (Create/Update/Delete/Density/Time/Flow) it completes dependencies, schedules worker jobs to flush any in-progress queries, schedules the corresponding modification job across worker data, and updates flags.</li>
+<li>For query actions (Pathfind/Coverage/Availability) it completes dependencies, ensures a WorkerActions buffer is available, appends action data pointer to current WorkerActions and marks the action scheduled. High-priority query entries decrement the corresponding priority counters.</li>
 </ul>
-<pre><code class="language-csharp">public void Enqueue(FlowAction action, JobHandle dependencies)
-    {
-        Enqueue(action, Entity.Null, dependencies, uint.MaxValue, m_FlowActions, ActionType.Flow, null, highPriority: false, modification: true);
-    }
+</li>
+<li>The loop returns early if an action's dependency isn't yet complete, ensuring consistent ordering and correctness.</li>
+<li>
+<p>Finally ensures any remaining collected currentActions are scheduled via ScheduleWorkerJobs in the finally block.</p>
+</li>
+<li>
+<p>(Nested) <code>public struct PathfindWorkerJob : IJob</code><br />
+Burst-compiled job executing a loop where multiple WorkerAction entries are consumed via atomic increment of the NativeReference<int> index. For each entry it dispatches to the appropriate static Execute method (PathfindJobs.PathfindJob.Execute, CoverageJobs.CoverageJob.Execute, AvailabilityJobs.AvailabilityJob.Execute) using the worker's NativePathfindData and a per-job allocator. After executing each action, it sets actionData.m_State to Completed using an interlocked memory barrier. It rewinds the linear allocator between actions and at the end. This is the core work performed on worker threads.</p>
+</li>
+</ul>
+<hr />
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Example: enqueueing a pathfind request from another system.
+// Assume `pathfindQueue` is a reference to the PathfindQueueSystem,
+// and `myAction` is a PathfindAction properly populated.
+// `dependencies` is a JobHandle representing any job that must complete
+// before the pathfind action can be scheduled (commonly default).
+
+PathfindAction myAction = new PathfindAction {
+    // populate fields (start, end, options, output buffers, etc.)
+};
+
+JobHandle dependencies = default; // or combine with other job handles if needed
+uint resultFrame = (uint)SimulationManager.instance.m_currentFrame; // or desired frame index
+Entity owner = Entity.Null; // or an entity representing requester
+object ownerSystem = this; // optionally pass the system requesting the pathfind
+
+// Enqueue the pathfind (not high priority)
+pathfindQueue.Enqueue(myAction, owner, dependencies, resultFrame, ownerSystem, highPriority: false);
+
+// If you need immediate access to the worker graph for custom reads:
+JobHandle graphDeps;
+NativePathfindData data = pathfindQueue.GetDataContainer(out graphDeps);
+// Use graphDeps to chain your read job against the path graph
 </code></pre>
-<ul>
-<li><code>public Enqueue(Game.Pathfind.PathfindAction action, Unity.Entities.Entity owner, Unity.Jobs.JobHandle dependencies, System.UInt32 resultFrame, System.Object system, System.Boolean highPriority = False) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void Enqueue(FlowAction action, JobHandle dependencies)
-    {
-        Enqueue(action, Entity.Null, dependencies, uint.MaxValue, m_FlowActions, ActionType.Flow, null, highPriority: false, modification: true);
-    }
-</code></pre>
-<ul>
-<li><code>public Enqueue(Game.Pathfind.PathfindAction action, Unity.Entities.Entity owner, Unity.Jobs.JobHandle dependencies, System.UInt32 resultFrame, System.Object system, Game.Pathfind.PathEventData eventData, System.Boolean highPriority = False) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void Enqueue(FlowAction action, JobHandle dependencies)
-    {
-        Enqueue(action, Entity.Null, dependencies, uint.MaxValue, m_FlowActions, ActionType.Flow, null, highPriority: false, modification: true);
-    }
-</code></pre>
-<ul>
-<li><code>public Enqueue(Game.Pathfind.CoverageAction action, Unity.Entities.Entity owner, Unity.Jobs.JobHandle dependencies, System.UInt32 resultFrame, System.Object system, System.Boolean highPriority = False) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void Enqueue(FlowAction action, JobHandle dependencies)
-    {
-        Enqueue(action, Entity.Null, dependencies, uint.MaxValue, m_FlowActions, ActionType.Flow, null, highPriority: false, modification: true);
-    }
-</code></pre>
-<ul>
-<li><code>public Enqueue(Game.Pathfind.CoverageAction action, Unity.Entities.Entity owner, Unity.Jobs.JobHandle dependencies, System.UInt32 resultFrame, System.Object system, Game.Pathfind.PathEventData eventData, System.Boolean highPriority = False) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void Enqueue(FlowAction action, JobHandle dependencies)
-    {
-        Enqueue(action, Entity.Null, dependencies, uint.MaxValue, m_FlowActions, ActionType.Flow, null, highPriority: false, modification: true);
-    }
-</code></pre>
-<ul>
-<li><code>public Enqueue(Game.Pathfind.AvailabilityAction action, Unity.Entities.Entity owner, Unity.Jobs.JobHandle dependencies, System.UInt32 resultFrame, System.Object system) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void Enqueue(FlowAction action, JobHandle dependencies)
-    {
-        Enqueue(action, Entity.Null, dependencies, uint.MaxValue, m_FlowActions, ActionType.Flow, null, highPriority: false, modification: true);
-    }
-</code></pre>
-<ul>
-<li><code>public Enqueue(Game.Pathfind.DensityAction action, Unity.Jobs.JobHandle dependencies) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void Enqueue(FlowAction action, JobHandle dependencies)
-    {
-        Enqueue(action, Entity.Null, dependencies, uint.MaxValue, m_FlowActions, ActionType.Flow, null, highPriority: false, modification: true);
-    }
-</code></pre>
-<ul>
-<li><code>public Enqueue(Game.Pathfind.TimeAction action, Unity.Jobs.JobHandle dependencies) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void Enqueue(FlowAction action, JobHandle dependencies)
-    {
-        Enqueue(action, Entity.Null, dependencies, uint.MaxValue, m_FlowActions, ActionType.Flow, null, highPriority: false, modification: true);
-    }
-</code></pre>
-<ul>
-<li><code>public Enqueue(Game.Pathfind.FlowAction action, Unity.Jobs.JobHandle dependencies) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void Enqueue(FlowAction action, JobHandle dependencies)
-    {
-        Enqueue(action, Entity.Null, dependencies, uint.MaxValue, m_FlowActions, ActionType.Flow, null, highPriority: false, modification: true);
-    }
-</code></pre>
-<ul>
-<li><code>private Enqueue&lt;T&gt;(T action, Unity.Entities.Entity owner, Unity.Jobs.JobHandle dependencies, System.UInt32 resultFrame, Game.Pathfind.PathfindQueueSystem+ActionList&lt;T&gt; list, Game.Pathfind.PathfindQueueSystem+ActionType type, System.Object system, System.Boolean highPriority, System.Boolean modification) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Void Enqueue&lt;T&gt;(T action, Unity.Entities.Entity owner, Unity.Jobs.JobHandle dependencies, System.UInt32 resultFrame, Game.Pathfind.PathfindQueueSystem+ActionList&lt;T&gt; list, Game.Pathfind.PathfindQueueSystem+ActionType type, System.Object system, System.Boolean highPriority, System.Boolean modification);
-</code></pre>
-<ul>
-<li><code>private Enqueue&lt;T&gt;(T action, Unity.Entities.Entity owner, Unity.Jobs.JobHandle dependencies, System.UInt32 resultFrame, Game.Pathfind.PathfindQueueSystem+ActionList&lt;T&gt; list, Game.Pathfind.PathfindQueueSystem+ActionType type, System.Object system, System.Boolean highPriority, Game.Pathfind.PathEventData eventData) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Void Enqueue&lt;T&gt;(T action, Unity.Entities.Entity owner, Unity.Jobs.JobHandle dependencies, System.UInt32 resultFrame, Game.Pathfind.PathfindQueueSystem+ActionList&lt;T&gt; list, Game.Pathfind.PathfindQueueSystem+ActionType type, System.Object system, System.Boolean highPriority, Game.Pathfind.PathEventData eventData);
-</code></pre>
-<ul>
-<li><code>public GetAvailabilityActions() : Game.Pathfind.PathfindQueueSystem+ActionList&lt;Game.Pathfind.AvailabilityAction&gt;</code>  </li>
-</ul>
-<pre><code class="language-csharp">public ActionList&lt;AvailabilityAction&gt; GetAvailabilityActions()
-    {
-        return m_AvailabilityActions;
-    }
-</code></pre>
-<ul>
-<li><code>public GetCoverageActions() : Game.Pathfind.PathfindQueueSystem+ActionList&lt;Game.Pathfind.CoverageAction&gt;</code>  </li>
-</ul>
-<pre><code class="language-csharp">public ActionList&lt;CoverageAction&gt; GetCoverageActions()
-    {
-        return m_CoverageActions;
-    }
-</code></pre>
-<ul>
-<li><code>public GetCreateActions() : Game.Pathfind.PathfindQueueSystem+ActionList&lt;Game.Pathfind.CreateAction&gt;</code>  </li>
-</ul>
-<pre><code class="language-csharp">public ActionList&lt;CreateAction&gt; GetCreateActions()
-    {
-        return m_CreateActions;
-    }
-</code></pre>
-<ul>
-<li><code>public GetDataContainer(Unity.Jobs.JobHandle&amp; dependencies) : Game.Pathfind.NativePathfindData</code>  </li>
-</ul>
-<pre><code class="language-csharp">public NativePathfindData GetDataContainer(out JobHandle dependencies)
-    {
-        WorkerData workerData = m_WorkerData[m_NextWorkerIndex];
-        dependencies = workerData.m_WriteHandle;
-        return workerData.m_PathfindData;
-    }
-</code></pre>
-<ul>
-<li><code>public GetDeleteActions() : Game.Pathfind.PathfindQueueSystem+ActionList&lt;Game.Pathfind.DeleteAction&gt;</code>  </li>
-</ul>
-<pre><code class="language-csharp">public ActionList&lt;DeleteAction&gt; GetDeleteActions()
-    {
-        return m_DeleteActions;
-    }
-</code></pre>
-<ul>
-<li><code>public GetDensityActions() : Game.Pathfind.PathfindQueueSystem+ActionList&lt;Game.Pathfind.DensityAction&gt;</code>  </li>
-</ul>
-<pre><code class="language-csharp">public ActionList&lt;DensityAction&gt; GetDensityActions()
-    {
-        return m_DensityActions;
-    }
-</code></pre>
-<ul>
-<li><code>public GetFlowActions() : Game.Pathfind.PathfindQueueSystem+ActionList&lt;Game.Pathfind.FlowAction&gt;</code>  </li>
-</ul>
-<pre><code class="language-csharp">public ActionList&lt;FlowAction&gt; GetFlowActions()
-    {
-        return m_FlowActions;
-    }
-</code></pre>
-<ul>
-<li><code>public GetGraphMemory(System.UInt32&amp; usedMemory, System.UInt32&amp; allocatedMemory) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void GetGraphMemory(out uint usedMemory, out uint allocatedMemory)
-    {
-        usedMemory = 0u;
-        allocatedMemory = 0u;
-        for (int i = 0; i &lt; m_WorkerData.Count; i++)
-        {
-            m_WorkerData[i].m_PathfindData.GetMemoryStats(out var used, out var allocated);
-            usedMemory += used;
-            allocatedMemory += allocated;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public GetGraphSize() : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">public int GetGraphSize()
-    {
-        return m_WorkerData[m_NextWorkerIndex].m_PathfindData.Size;
-    }
-</code></pre>
-<ul>
-<li><code>public GetPathfindActions() : Game.Pathfind.PathfindQueueSystem+ActionList&lt;Game.Pathfind.PathfindAction&gt;</code>  </li>
-</ul>
-<pre><code class="language-csharp">public ActionList&lt;PathfindAction&gt; GetPathfindActions()
-    {
-        return m_PathfindActions;
-    }
-</code></pre>
-<ul>
-<li><code>public GetQueryMemory(System.UInt32&amp; usedMemory, System.UInt32&amp; allocatedMemory) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void GetQueryMemory(out uint usedMemory, out uint allocatedMemory)
-    {
-        usedMemory = 0u;
-        allocatedMemory = 0u;
-        for (int i = 0; i &lt; m_ThreadData.Count; i++)
-        {
-            ref UnsafeLinearAllocator allocator = ref m_ThreadData[i].m_Allocator.Allocator;
-            usedMemory += allocator.Used;
-            allocatedMemory += allocator.Size;
-        }
-        for (int j = 0; j &lt; m_AllocatorPool.Count; j++)
-        {
-            ref UnsafeLinearAllocator allocator2 = ref m_AllocatorPool[j].Allocator;
-            usedMemory += allocator2.Used;
-            allocatedMemory += allocator2.Size;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public GetTimeActions() : Game.Pathfind.PathfindQueueSystem+ActionList&lt;Game.Pathfind.TimeAction&gt;</code>  </li>
-</ul>
-<pre><code class="language-csharp">public ActionList&lt;TimeAction&gt; GetTimeActions()
-    {
-        return m_TimeActions;
-    }
-</code></pre>
-<ul>
-<li><code>public GetUpdateActions() : Game.Pathfind.PathfindQueueSystem+ActionList&lt;Game.Pathfind.UpdateAction&gt;</code>  </li>
-</ul>
-<pre><code class="language-csharp">public ActionList&lt;UpdateAction&gt; GetUpdateActions()
-    {
-        return m_UpdateActions;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_PathfindSetupSystem = base.World.GetOrCreateSystemManaged&lt;PathfindSetupSystem&gt;();
-        m_TransportLineSystem = base.World.GetOrCreateSystemManaged&lt;TransportLineSystem&gt;();
-        m_NetInitializeSystem = base.World.GetOrCreateSystemManaged&lt;NetInitializeSystem&gt;();
-        m_MaxThreadCount = math.max(1, JobsUtility.JobWorkerCount / 2);
-        m_CreateActions = new ActionList&lt;CreateAction&gt;();
-        m_UpdateActions = new ActionList&lt;UpdateAction&gt;();
-        m_DeleteActions = new ActionList&lt;DeleteAction&gt;();
-        m_PathfindActions = new ActionList&lt;PathfindAction&gt;();
-        m_CoverageActions = new ActionList&lt;CoverageAction&gt;();
-        m_AvailabilityActions = new ActionList&lt;AvailabilityAction&gt;();
-        m_DensityActions = new ActionList&lt;DensityAction&gt;();
-        m_TimeActions = new ActionList&lt;TimeAction&gt;();
-        m_FlowActions = new ActionList&lt;FlowAction&gt;();
-        m_ActionTypes = new Queue&lt;ActionType&gt;();
-        m_HighPriorityTypes = new Queue&lt;ActionType&gt;();
-        m_ModificationTypes = new Queue&lt;ActionType&gt;();
-        m_WorkerActions = new Queue&lt;WorkerActions&gt;();
-        m_WorkerActionPool = new Queue&lt;WorkerActions&gt;();
-        m_WorkerData = new List&lt;WorkerData&gt;(2);
-        for (int i = 0; i &lt; 2; i++)
-        {
-            m_WorkerData.Add(new WorkerData(Allocator.Persistent));
-        }
-        m_ThreadData = new List&lt;ThreadData&gt;(m_MaxThreadCount);
-        m_AllocatorPool = new List&lt;AllocatorHelper&lt;UnsafeLinearAllocator&gt;&gt;(m_MaxThreadCount);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnDestroy() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnDestroy()
-    {
-        for (int i = 0; i &lt; m_ThreadData.Count; i++)
-        {
-            ThreadData threadData = m_ThreadData[i];
-            threadData.m_JobHandle.Complete();
-            UnsafeLinearAllocator allocator = threadData.m_Allocator.Allocator;
-            threadData.m_Allocator.Dispose();
-            allocator.Dispose();
-        }
-        for (int j = 0; j &lt; m_AllocatorPool.Count; j++)
-        {
-            UnsafeLinearAllocator allocator2 = m_AllocatorPool[j].Allocator;
-            m_AllocatorPool[j].Dispose();
-            allocator2.Dispose();
-        }
-        m_CreateActions.Dispose();
-        m_UpdateActions.Dispose();
-        m_DeleteActions.Dispose();
-        m_PathfindActions.Dispose();
-        m_CoverageActions.Dispose();
-        m_AvailabilityActions.Dispose();
-        m_DensityActions.Dispose();
-        m_TimeActions.Dispose();
-        m_FlowActions.Dispose();
-        WorkerActions result;
-        while (m_WorkerActions.TryDequeue(out result))
-        {
-            result.Dispose();
-        }
-        WorkerActions result2;
-        while (m_WorkerActionPool.TryDequeue(out result2))
-        {
-            result2.Dispose();
-        }
-        for (int k = 0; k &lt; m_WorkerData.Count; k++)
-        {
-            m_WorkerData[k].Dispose();
-        }
-        base.OnDestroy();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        bool flag = m_RequireDebug;
-        m_RequireDebug = false;
-        for (int i = 0; i &lt; m_AllocatorPool.Count; i++)
-        {
-            m_AllocatorPool[i].Allocator.Rewind(updateSize: true);
-        }
-        int num = 0;
-        for (int j = 0; j &lt; m_ThreadData.Count; j++)
-        {
-            ThreadData value = m_ThreadData[j];
-            if (value.m_JobHandle.IsCompleted)
-            {
-                value.m_JobHandle.Complete();
-                m_AllocatorPool.Add(value.m_Allocator);
-                if (num &lt; m_DependencyIndex)
-                {
-                    m_DependencyIndex--;
-                }
-            }
-            else
-            {
-                m_ThreadData[num++] = value;
-            }
-        }
-        if (num &lt; m_ThreadData.Count)
-        {
-            m_ThreadData.RemoveRange(num, m_ThreadData.Count - num);
-        }
-        for (int k = 0; k &lt; m_WorkerData.Count; k++)
-        {
-            WorkerData workerData = m_WorkerData[k];
-            if (workerData.m_WriteHandle.IsCompleted)
-            {
-                workerData.m_WriteHandle.Complete();
-            }
-            if (workerData.m_ReadHandle.IsCompleted)
-            {
-                workerData.m_ReadHandle.Complete();
-            }
-        }
-        WorkerActions result;
-        while (m_WorkerActions.TryPeek(out result) &amp;&amp; result.m_ReadHandle.IsCompleted)
-        {
-            result.Clear();
-            m_WorkerActions.Dequeue();
-            m_WorkerActionPool.Enqueue(result);
-        }
-        m_PathfindSetupSystem.CompleteSetup();
-        WorkerActions currentActions = null;
-        try
-        {
-            while (true)
-            {
-                ActionType actionType;
-                bool flag2;
-                bool flag3;
-                if (m_HighPriorityTypes.Count != 0)
-                {
-                    actionType = m_HighPriorityTypes.Peek();
-                    flag2 = true;
-                    flag3 = false;
-                }
-                else if (m_ModificationTypes.Count != 0)
-                {
-                    actionType = m_ModificationTypes.Peek();
-                    flag2 = false;
-                    flag3 = true;
-                }
-                else
-                {
-                    if (m_ActionTypes.Count == 0)
-                    {
-                        break;
-                    }
-                    actionType = m_ActionTypes.Peek();
-                    flag2 = false;
-                    flag3 = false;
-                }
-                switch (actionType)
-                {
-                case ActionType.Create:
-                {
-                    ActionListItem&lt;CreateAction&gt; value5 = m_CreateActions.m_Items[m_CreateActions.m_NextIndex];
-                    if (!value5.m_Dependencies.IsCompleted)
-                    {
-                        return;
-                    }
-                    value5.m_Dependencies.Complete();
-                    ScheduleWorkerJobs(ref currentActions);
-                    value5.m_Dependencies = ScheduleModificationJob(new ModificationJobs.CreateEdgesJob
-                    {
-                        m_Action = value5.m_Action
-                    });
-                    value5.m_Flags = (value5.m_Flags &amp; ~PathFlags.Pending) | PathFlags.Scheduled;
-                    m_CreateActions.m_Items[m_CreateActions.m_NextIndex++] = value5;
-                    break;
-                }
-                case ActionType.Update:
-                {
-                    ActionListItem&lt;UpdateAction&gt; value10 = m_UpdateActions.m_Items[m_UpdateActions.m_NextIndex];
-                    if (!value10.m_Dependencies.IsCompleted)
-                    {
-                        return;
-                    }
-                    value10.m_Dependencies.Complete();
-                    ScheduleWorkerJobs(ref currentActions);
-                    value10.m_Dependencies = ScheduleModificationJob(new ModificationJobs.UpdateEdgesJob
-                    {
-                        m_Action = value10.m_Action
-                    });
-                    value10.m_Flags = (value10.m_Flags &amp; ~PathFlags.Pending) | PathFlags.Scheduled;
-                    m_UpdateActions.m_Items[m_UpdateActions.m_NextIndex++] = value10;
-                    break;
-                }
-                case ActionType.Delete:
-                {
-                    ActionListItem&lt;DeleteAction&gt; value7 = m_DeleteActions.m_Items[m_DeleteActions.m_NextIndex];
-                    if (!value7.m_Dependencies.IsCompleted)
-                    {
-                        return;
-                    }
-                    value7.m_Dependencies.Complete();
-                    ScheduleWorkerJobs(ref currentActions);
-                    value7.m_Dependencies = ScheduleModificationJob(new ModificationJobs.DeleteEdgesJob
-                    {
-                        m_Action = value7.m_Action
-                    });
-                    value7.m_Flags = (value7.m_Flags &amp; ~PathFlags.Pending) | PathFlags.Scheduled;
-                    m_DeleteActions.m_Items[m_DeleteActions.m_NextIndex++] = value7;
-                    break;
-                }
-                case ActionType.Pathfind:
-                {
-                    ActionListItem&lt;PathfindAction&gt; value9 = m_PathfindActions.m_Items[m_PathfindActions.m_NextIndex];
-                    if (!value9.m_Dependencies.IsCompleted || (flag &amp;&amp; (value9.m_Flags &amp; PathFlags.Debug) == 0))
-                    {
-                        return;
-                    }
-                    value9.m_Dependencies.Complete();
-                    RequireWorkerActions(ref currentActions);
-                    currentActions.Add(actionType, flag2, ref value9.m_Action.data);
-                    value9.m_Flags = (value9.m_Flags &amp; ~PathFlags.Pending) | PathFlags.Scheduled;
-                    m_PathfindActions.m_Items[m_PathfindActions.m_NextIndex++] = value9;
-                    if (flag2)
-                    {
-                        m_PathfindActions.m_PriorityCount--;
-                    }
-                    break;
-                }
-                case ActionType.Coverage:
-                {
-                    ActionListItem&lt;CoverageAction&gt; value3 = m_CoverageActions.m_Items[m_CoverageActions.m_NextIndex];
-                    if (!value3.m_Dependencies.IsCompleted)
-                    {
-                        return;
-                    }
-                    value3.m_Dependencies.Complete();
-                    RequireWorkerActions(ref currentActions);
-                    currentActions.Add(actionType, flag2, ref value3.m_Action.data);
-                    value3.m_Flags = (value3.m_Flags &amp; ~PathFlags.Pending) | PathFlags.Scheduled;
-                    m_CoverageActions.m_Items[m_CoverageActions.m_NextIndex++] = value3;
-                    if (flag2)
-                    {
-                        m_CoverageActions.m_PriorityCount--;
-                    }
-                    break;
-                }
-                case ActionType.Availability:
-                {
-                    ActionListItem&lt;AvailabilityAction&gt; value8 = m_AvailabilityActions.m_Items[m_AvailabilityActions.m_NextIndex];
-                    if (!value8.m_Dependencies.IsCompleted)
-                    {
-                        return;
-                    }
-                    value8.m_Dependencies.Complete();
-                    RequireWorkerActions(ref currentActions);
-                    currentActions.Add(actionType, flag2, ref value8.m_Action.data);
-                    value8.m_Flags = (value8.m_Flags &amp; ~PathFlags.Pending) | PathFlags.Scheduled;
-                    m_AvailabilityActions.m_Items[m_AvailabilityActions.m_NextIndex++] = value8;
-                    if (flag2)
-                    {
-                        m_CoverageActions.m_PriorityCount--;
-                    }
-                    break;
-                }
-                case ActionType.Density:
-                {
-                    ActionListItem&lt;DensityAction&gt; value6 = m_DensityActions.m_Items[m_DensityActions.m_NextIndex];
-                    if (!value6.m_Dependencies.IsCompleted)
-                    {
-                        return;
-                    }
-                    value6.m_Dependencies.Complete();
-                    ScheduleWorkerJobs(ref currentActions);
-                    value6.m_Dependencies = ScheduleModificationJob(new ModificationJobs.SetDensityJob
-                    {
-                        m_Action = value6.m_Action
-                    });
-                    value6.m_Flags = (value6.m_Flags &amp; ~PathFlags.Pending) | PathFlags.Scheduled;
-                    m_DensityActions.m_Items[m_DensityActions.m_NextIndex++] = value6;
-                    break;
-                }
-                case ActionType.Time:
-                {
-                    ActionListItem&lt;TimeAction&gt; value4 = m_TimeActions.m_Items[m_TimeActions.m_NextIndex];
-                    if (!value4.m_Dependencies.IsCompleted)
-                    {
-                        return;
-                    }
-                    value4.m_Dependencies.Complete();
-                    ScheduleWorkerJobs(ref currentActions);
-                    value4.m_Dependencies = ScheduleModificationJob(new ModificationJobs.SetTimeJob
-                    {
-                        m_Action = value4.m_Action
-                    });
-                    value4.m_Flags = (value4.m_Flags &amp; ~PathFlags.Pending) | PathFlags.Scheduled;
-                    m_TimeActions.m_Items[m_TimeActions.m_NextIndex++] = value4;
-                    break;
-                }
-                case ActionType.Flow:
-                {
-                    ActionListItem&lt;FlowAction&gt; value2 = m_FlowActions.m_Items[m_FlowActions.m_NextIndex];
-                    if (!value2.m_Dependencies.IsCompleted)
-                    {
-                        return;
-                    }
-                    value2.m_Dependencies.Complete();
-                    ScheduleWorkerJobs(ref currentActions);
-                    value2.m_Dependencies = ScheduleModificationJob(new ModificationJobs.SetFlowJob
-                    {
-                        m_Action = value2.m_Action
-                    });
-                    value2.m_Flags = (value2.m_Flags &amp; ~PathFlags.Pending) | PathFlags.Scheduled;
-                    m_FlowActions.m_Items[m_FlowActions.m_NextIndex++] = value2;
-                    break;
-                }
-                }
-                if (flag2)
-                {
-                    m_HighPriorityTypes.Dequeue();
-                }
-                else if (flag3)
-                {
-                    m_ModificationTypes.Dequeue();
-                }
-                else
-                {
-                    m_ActionTypes.Dequeue();
-                }
-            }
-        }
-        finally
-        {
-            ScheduleWorkerJobs(ref currentActions);
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public PreDeserialize(Colossal.Serialization.Entities.Context context) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void PreDeserialize(Context context)
-    {
-        for (int i = 0; i &lt; m_ThreadData.Count; i++)
-        {
-            ThreadData threadData = m_ThreadData[i];
-            threadData.m_JobHandle.Complete();
-            m_AllocatorPool.Add(threadData.m_Allocator);
-        }
-        m_ThreadData.Clear();
-        m_DependencyIndex = 0;
-        m_CreateActions.Clear();
-        m_UpdateActions.Clear();
-        m_DeleteActions.Clear();
-        m_PathfindActions.Clear();
-        m_CoverageActions.Clear();
-        m_AvailabilityActions.Clear();
-        m_DensityActions.Clear();
-        m_TimeActions.Clear();
-        m_FlowActions.Clear();
-        m_ActionTypes.Clear();
-        m_HighPriorityTypes.Clear();
-        m_ModificationTypes.Clear();
-        WorkerActions result;
-        while (m_WorkerActions.TryDequeue(out result))
-        {
-            result.Clear();
-            m_WorkerActionPool.Enqueue(result);
-        }
-        for (int j = 0; j &lt; m_WorkerData.Count; j++)
-        {
-            m_WorkerData[j].Clear();
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public RequireDebug() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void RequireDebug()
-    {
-        m_RequireDebug = true;
-    }
-</code></pre>
-<ul>
-<li><code>private RequireWorkerActions(Game.Pathfind.PathfindQueueSystem+WorkerActions&amp; currentActions) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void RequireWorkerActions(ref WorkerActions currentActions)
-    {
-        if (currentActions == null)
-        {
-            if (!m_WorkerActionPool.TryDequeue(out currentActions))
-            {
-                currentActions = new WorkerActions(Allocator.Persistent);
-            }
-            m_WorkerActions.Enqueue(currentActions);
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private ScheduleModificationJob&lt;T&gt;(T job) : Unity.Jobs.JobHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Jobs.JobHandle ScheduleModificationJob&lt;T&gt;(T job);
-</code></pre>
-<ul>
-<li><code>private ScheduleWorkerJobs(Game.Pathfind.PathfindQueueSystem+WorkerActions&amp; currentActions) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void ScheduleWorkerJobs(ref WorkerActions currentActions)
-    {
-        if (currentActions == null)
-        {
-            return;
-        }
-        WorkerData workerData = m_WorkerData[m_NextWorkerIndex];
-        int num = math.min(currentActions.m_Actions.Length, math.max(m_MaxThreadCount, currentActions.m_HighPriorityCount));
-        int num2 = m_MaxThreadCount + currentActions.m_HighPriorityCount;
-        int count = m_ThreadData.Count;
-        PathfindWorkerJob jobData = new PathfindWorkerJob
-        {
-            m_RandomSeed = RandomSeed.Next(),
-            m_PathfindData = workerData.m_PathfindData,
-            m_PathfindHeuristicData = m_NetInitializeSystem.GetHeuristicData(),
-            m_Actions = currentActions.m_Actions.AsArray(),
-            m_ActionIndex = currentActions.m_ActionIndex
-        };
-        m_TransportLineSystem.GetMaxTransportSpeed(out jobData.m_MaxPassengerTransportSpeed, out jobData.m_MaxCargoTransportSpeed);
-        for (int i = 0; i &lt; num; i++)
-        {
-            JobHandle jobHandle = workerData.m_WriteHandle;
-            ThreadData threadData = default(ThreadData);
-            if (m_ThreadData.Count &gt;= num2)
-            {
-                if (m_DependencyIndex &gt;= count)
-                {
-                    m_DependencyIndex = 0;
-                }
-                threadData = m_ThreadData[m_DependencyIndex];
-                jobHandle = JobHandle.CombineDependencies(jobHandle, threadData.m_JobHandle);
-            }
-            else if (m_AllocatorPool.Count != 0)
-            {
-                threadData.m_Allocator = m_AllocatorPool[m_AllocatorPool.Count - 1];
-                m_AllocatorPool.RemoveAt(m_AllocatorPool.Count - 1);
-            }
-            else
-            {
-                threadData.m_Allocator = new AllocatorHelper&lt;UnsafeLinearAllocator&gt;(Allocator.Persistent);
-                threadData.m_Allocator.Allocator.Initialize(1048576u);
-            }
-            jobData.m_Allocator = threadData.m_Allocator;
-            threadData.m_JobHandle = IJobExtensions.Schedule(jobData, jobHandle);
-            currentActions.m_ReadHandle = JobHandle.CombineDependencies(currentActions.m_ReadHandle, threadData.m_JobHandle);
-            if (m_ThreadData.Count &gt;= num2)
-            {
-                m_ThreadData[m_DependencyIndex++] = threadData;
-            }
-            else
-            {
-                m_ThreadData.Add(threadData);
-            }
-        }
-        workerData.m_ReadHandle = JobHandle.CombineDependencies(workerData.m_ReadHandle, currentActions.m_ReadHandle);
-        currentActions = null;
-        m_LastWorkerIndex = m_NextWorkerIndex;
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Pathfind.PathfindQueueSystem+ActionListItem&lt;T&gt;</code>  </li>
-<li><code>Game.Pathfind.PathfindQueueSystem+ActionList&lt;T&gt;</code>  </li>
-<li><code>Game.Pathfind.PathfindQueueSystem+ActionType</code>  </li>
-<li><code>Game.Pathfind.PathfindQueueSystem+WorkerData</code>  </li>
-<li><code>Game.Pathfind.PathfindQueueSystem+WorkerActions</code>  </li>
-<li><code>Game.Pathfind.PathfindQueueSystem+ThreadData</code>  </li>
-<li><code>Game.Pathfind.PathfindQueueSystem+WorkerAction</code>  </li>
-<li><code>Game.Pathfind.PathfindQueueSystem+PathfindWorkerJob</code>  </li>
-</ul>
+<p>Notes and tips:
+- PathfindQueueSystem uses a pool of per-thread UnsafeLinearAllocator instances for query allocations; GetQueryMemory and GetGraphMemory help track memory usage.
+- Modification actions (create/update/delete edges, set density/time/flow) are scheduled across all worker graphs and must flush outstanding query jobs first — the system schedules them as ModificationJobs using ScheduleModificationJob internally.
+- Pathfind and coverage/availability queries are batched into WorkerActions and executed by PathfindWorkerJob on available worker threads. High-priority queries are scheduled earlier and may cause more worker threads to be used.
+- Always ensure dependent JobHandles are passed when enqueuing actions that rely on other jobs to complete.</p>
 
 
 

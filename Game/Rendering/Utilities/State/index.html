@@ -65233,6 +65233,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -66166,15 +66189,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -66211,9 +66225,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -69762,6 +69776,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Skeleton/" class="md-nav__link">
         
   
@@ -72574,6 +72611,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75564,6 +75624,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87156,6 +87239,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -117932,6 +118038,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117957,15 +118085,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -118004,9 +118123,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118029,93 +118148,111 @@
 
 
 <h1 id="gamerenderingutilitiesstate">Game.Rendering.Utilities.State</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Rendering.Utilities</code>  </p>
-<p><strong>Type:</strong> class abstract public  </p>
-<p><strong>Base:</strong> <code>System.Object</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public abstract class State
-{
-    private Game.Rendering.Utilities.StateMachine _machine;
-    private System.String &lt;Name&gt;k__BackingField;
-
-    public Game.Rendering.Utilities.StateMachine machine { get; set; }
-    public System.String Name { get; set; }
-
-    public State();
-
-    public virtual System.Void LateUpdate();
-    public virtual System.Void TransitionIn();
-    public virtual System.Void TransitionOut();
-    public virtual Game.Rendering.Utilities.State+Result Update();
-}
-</code></pre>
+<p><strong>Assembly:</strong> Assembly-CSharp<br />
+<strong>Namespace:</strong> Game.Rendering.Utilities</p>
+<p><strong>Type:</strong> abstract class</p>
+<p><strong>Base:</strong> System.Object</p>
+<p><strong>Summary:</strong><br />
+Base class representing a state used by a StateMachine in the rendering utilities. Provides a small lifecycle surface (TransitionIn, Update, LateUpdate, TransitionOut) and a nested Result/ResultType mechanism to indicate whether the state should continue, stop the machine, or transition to another State. The class also exposes a machine property that is set once by the StateMachine; attempting to set it a second time throws an exception. The Name property is a simple string label you can use for debugging or identification.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.Rendering.Utilities.StateMachine _machine</code>  </li>
+<li>
+<p><code>private StateMachine _machine</code><br />
+Holds a reference to the StateMachine that owns this State. The machine property wraps this field; after the StateMachine sets this field once, subsequent sets throw an Exception (property is effectively read-only after first set).</p>
+</li>
+<li>
+<p>(nested types) <code>public enum ResultType</code> and <code>public struct Result</code><br />
+ResultType is an enum with values Continue, Stop and Transition. Result is a small struct that contains a ResultType, an optional next State (for transitions), convenience boolean properties (isContinue, isStop, isTransition), and static factory members (Continue, Stop, TransitionTo).</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.Rendering.Utilities.StateMachine _machine;
-</code></pre>
-<ul>
-<li><code>private System.String &lt;Name&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.String &lt;Name&gt;k__BackingField;
-</code></pre>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>public Game.Rendering.Utilities.StateMachine machine { get; set }</code>  </li>
+<li>
+<p><code>public StateMachine machine { get; set; }</code><br />
+Gets the StateMachine reference for this state. The setter is guarded: if the underlying field is already non-null, setting it again throws an Exception with message "property is read only after first set". Typically the StateMachine will set this once when the state is registered/entered.</p>
+</li>
+<li>
+<p><code>public string Name { get; set; }</code><br />
+Simple get/set property for an optional name or label for the state, useful for debugging and logging.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public Game.Rendering.Utilities.StateMachine machine { get; set; }
-</code></pre>
-<ul>
-<li><code>public System.String Name { get; set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.String Name { get; set; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public State()</code>  </li>
+<li><code>public State()</code><br />
+Default constructor. No special initialization is required by the base class. Subclasses can initialize their own data.</li>
 </ul>
-<pre><code class="language-csharp">public State()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>public virtual LateUpdate() : System.Void</code>  </li>
+<li>
+<p><code>public virtual void TransitionIn()</code><br />
+Lifecycle hook invoked when the state becomes active. Default implementation is empty. Override to perform initialization or to start animations/operations on state entry.</p>
+</li>
+<li>
+<p><code>public virtual Result Update()</code><br />
+Called to update the state's logic. Default implementation returns Result.Continue. Override to perform per-frame or per-tick logic and return one of:</p>
+</li>
+<li>Result.Continue — keep running this state</li>
+<li>Result.Stop — request the machine to stop</li>
+<li>
+<p>Result.TransitionTo(someState) — transition to another state</p>
+</li>
+<li>
+<p><code>public virtual void LateUpdate()</code><br />
+Optional late-update hook. Default implementation is empty. Useful for logic that must run after regular Update.</p>
+</li>
+<li>
+<p><code>public virtual void TransitionOut()</code><br />
+Lifecycle hook invoked when the state is leaving. Default implementation clears the internal machine reference (_machine = null). Override to clean up resources; if overriding, consider calling base.TransitionOut() to clear the machine reference unless you manage it differently.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public virtual void LateUpdate()
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Example subclass demonstrating Update returning different Results.
+public class ExampleState : State
+{
+    public ExampleState()
     {
+        Name = &quot;ExampleState&quot;;
     }
-</code></pre>
-<ul>
-<li><code>public virtual TransitionIn() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public virtual void TransitionIn()
+
+    public override void TransitionIn()
     {
+        // Called when this state becomes active
+        UnityEngine.Debug.Log($&quot;{Name} entered&quot;);
     }
-</code></pre>
-<ul>
-<li><code>public virtual TransitionOut() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public virtual void TransitionOut()
+
+    public override Result Update()
     {
-        _machine = null;
-    }
-</code></pre>
-<ul>
-<li><code>public virtual Update() : Game.Rendering.Utilities.State+Result</code>  </li>
-</ul>
-<pre><code class="language-csharp">public virtual Result Update()
-    {
+        // Example logic: after some condition, transition to another state
+        if (ShouldStop())
+        {
+            return Result.Stop;
+        }
+        if (ShouldSwitchState())
+        {
+            State next = new AnotherState();
+            return Result.TransitionTo(next);
+        }
+
+        // Default: keep running this state
         return Result.Continue;
     }
+
+    public override void TransitionOut()
+    {
+        // Clean up
+        UnityEngine.Debug.Log($&quot;{Name} exiting&quot;);
+        base.TransitionOut(); // clears the machine reference
+    }
+
+    private bool ShouldStop() { /* ... */ return false; }
+    private bool ShouldSwitchState() { /* ... */ return false; }
+}
 </code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Rendering.Utilities.State+ResultType</code>  </li>
-<li><code>Game.Rendering.Utilities.State+Result</code>  </li>
-</ul>
+<p>Notes:
+- Use Result.TransitionTo(newState) to request a transition and supply the next state instance.
+- The StateMachine should set the machine property once; do not attempt to set it again from user code.
+- Name is optional but helpful for logging and diagnostics.</p>
 
 
 

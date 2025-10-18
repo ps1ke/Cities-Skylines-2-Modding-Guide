@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -80800,18 +80892,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -80830,6 +80922,15 @@
   <a href="#methods" class="md-nav__link">
     <span class="md-ellipsis">
       Methods
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
     </span>
   </a>
   
@@ -87136,6 +87237,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -117912,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117939,18 +118085,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -117974,6 +118120,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -117991,157 +118146,103 @@
 
 
 <h1 id="gamesimulationdiversitysystem">Game.Simulation.DiversitySystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Simulation</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code><br />
-<strong>Implements:</strong> <code>Game.Serialization.IPostDeserialize</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class DiversitySystem : Game.GameSystemBase, Game.Serialization.IPostDeserialize
-{
-    private Unity.Entities.EntityQuery m_AtmosphereQuery;
-    private Unity.Entities.EntityQuery m_AtmospherePrefabQuery;
-    private Unity.Entities.EntityQuery m_BiomeQuery;
-    private Unity.Entities.EntityQuery m_BiomePrefabQuery;
-    private Unity.Entities.EntityQuery m_EditorContainerQuery;
-
-    public DiversitySystem();
-
-    public System.Void ApplyAtmospherePreset(Unity.Entities.Entity atmospherePrefab);
-    public System.Void ApplyBiomePreset(Unity.Entities.Entity biomePrefab);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnUpdate();
-    public System.Void PostDeserialize(Colossal.Serialization.Entities.Context context);
-}
-</code></pre>
+<p><strong>Assembly:</strong> Assembly-CSharp<br />
+<strong>Namespace:</strong> Game.Simulation</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> GameSystemBase, IPostDeserialize</p>
+<p><strong>Summary:</strong><br />
+DiversitySystem is an ECS system responsible for ensuring that essential "diversity" singletons (Atmosphere and Biome) exist after deserialization and for applying preset prefabs to those singletons. It also contains a small post-deserialization fix that repairs invalid EditorContainer entities placed at the world origin by copying a valid owner Transform when possible. The system implements IPostDeserialize and runs its PostDeserialize logic during the deserialization phase to populate or correct components required by rendering/environment subsystems.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Unity.Entities.EntityQuery m_AtmosphereQuery</code>  </li>
+<li>
+<p><code>private EntityQuery m_AtmosphereQuery</code><br />
+Query for existing AtmosphereData singleton entities. Used to check whether an AtmosphereData component already exists in the world and to read/update its singleton.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_AtmospherePrefabQuery</code><br />
+Query to find Atmosphere prefab entities (AtmospherePrefabData). Used to pick a default prefab when no AtmosphereData singleton exists.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_BiomeQuery</code><br />
+Query for existing BiomeData singleton entities. Used similarly to m_AtmosphereQuery but for biome.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_BiomePrefabQuery</code><br />
+Query to find Biome prefab entities (BiomePrefabData). Used to pick a default biome prefab when no BiomeData singleton exists.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_EditorContainerQuery</code><br />
+Query to find editor container entities. This query includes Game.Tools.EditorContainer, Game.Objects.Transform and Owner component types and is used by PostDeserialize to locate editor containers that have invalid (zero) transforms.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_AtmosphereQuery;
-</code></pre>
+<h2 id="properties">Properties</h2>
 <ul>
-<li><code>private Unity.Entities.EntityQuery m_AtmospherePrefabQuery</code>  </li>
+<li>None. (This system exposes no public properties.)</li>
 </ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_AtmospherePrefabQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_BiomeQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_BiomeQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_BiomePrefabQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_BiomePrefabQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_EditorContainerQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_EditorContainerQuery;
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public DiversitySystem()</code>  </li>
+<li><code>public DiversitySystem()</code><br />
+Default constructor. Marked with [Preserve] to prevent code stripping; typical Unity ECS system construction behavior is used (no extra initialization happens here — initialization occurs in OnCreate).</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public DiversitySystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>public ApplyAtmospherePreset(Unity.Entities.Entity atmospherePrefab) : System.Void</code>  </li>
+<li>
+<p><code>public void ApplyAtmospherePreset(Entity atmospherePrefab)</code><br />
+Sets the AtmosphereData singleton's m_AtmospherePrefab to the provided atmospherePrefab. Internally gets the current AtmosphereData singleton, updates its m_AtmospherePrefab field, and writes it back with SetSingleton.</p>
+</li>
+<li>
+<p><code>public void ApplyBiomePreset(Entity biomePrefab)</code><br />
+Sets the BiomeData singleton's m_BiomePrefab to the provided biomePrefab in the same manner as ApplyAtmospherePreset.</p>
+</li>
+<li>
+<p><code>public void PostDeserialize(Context context)</code><br />
+Implementation of IPostDeserialize. Called after entities/components are deserialized. Behavior:</p>
+</li>
+<li>Queries for available AtmospherePrefabData and BiomePrefabData entities.</li>
+<li>Logs a warning and returns early if no prefabs of either type are found.</li>
+<li>If there is no AtmosphereData singleton present, creates a new entity and adds AtmosphereData using the first found Atmosphere prefab.</li>
+<li>If there is no BiomeData singleton present, creates a new entity and adds BiomeData using the first found Biome prefab.</li>
+<li>Scans EditorContainer entities; for any editor container whose Transform is exactly float3.zero, logs the occurrence and, if the container has an Owner whose transform exists, copies the owner's Transform component onto the editor container (fixing invalid placement).</li>
+<li>
+<p>Disposes any NativeArray instances it allocates.</p>
+</li>
+<li>
+<p><code>protected override void OnCreate()</code><br />
+System initialization. Sets up the EntityQuery fields:</p>
+</li>
+<li>m_AtmosphereQuery =&gt; ComponentType.ReadOnly<AtmosphereData>()</li>
+<li>m_AtmospherePrefabQuery =&gt; ComponentType.ReadOnly<AtmospherePrefabData>()</li>
+<li>m_BiomeQuery =&gt; ComponentType.ReadOnly<BiomeData>()</li>
+<li>m_BiomePrefabQuery =&gt; ComponentType.ReadOnly<BiomePrefabData>()</li>
+<li>
+<p>m_EditorContainerQuery =&gt; ReadOnly<Game.Tools.EditorContainer>(), ReadOnly<Game.Objects.Transform>(), ReadOnly<Owner>()
+Marked with [Preserve] to avoid stripping.</p>
+</li>
+<li>
+<p><code>protected override void OnUpdate()</code><br />
+Empty override. This system performs its work during deserialization (PostDeserialize) rather than per-frame updates.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public void ApplyAtmospherePreset(Entity atmospherePrefab)
-    {
-        AtmosphereData singleton = m_AtmosphereQuery.GetSingleton&lt;AtmosphereData&gt;();
-        singleton.m_AtmospherePrefab = atmospherePrefab;
-        m_AtmosphereQuery.SetSingleton(singleton);
-    }
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Acquire the system from the default world and apply a preset prefab entity:
+var world = Unity.Entities.World.DefaultGameObjectInjectionWorld;
+var diversitySystem = world.GetExistingSystem&lt;Game.Simulation.DiversitySystem&gt;();
+
+// Suppose you have an Entity representing an Atmosphere prefab (prefabEntity):
+if (diversitySystem != null)
+{
+    diversitySystem.ApplyAtmospherePreset(prefabEntity);
+}
+
+// During deserialization, the game's serialization pipeline will call:
+ // diversitySystem.PostDeserialize(context);
+ // which will create missing AtmosphereData/BiomeData singletons
+ // and attempt to fix invalid EditorContainer transforms.
 </code></pre>
-<ul>
-<li><code>public ApplyBiomePreset(Unity.Entities.Entity biomePrefab) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void ApplyBiomePreset(Entity biomePrefab)
-    {
-        BiomeData singleton = m_BiomeQuery.GetSingleton&lt;BiomeData&gt;();
-        singleton.m_BiomePrefab = biomePrefab;
-        m_BiomeQuery.SetSingleton(singleton);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_AtmosphereQuery = GetEntityQuery(ComponentType.ReadOnly&lt;AtmosphereData&gt;());
-        m_AtmospherePrefabQuery = GetEntityQuery(ComponentType.ReadOnly&lt;AtmospherePrefabData&gt;());
-        m_BiomeQuery = GetEntityQuery(ComponentType.ReadOnly&lt;BiomeData&gt;());
-        m_BiomePrefabQuery = GetEntityQuery(ComponentType.ReadOnly&lt;BiomePrefabData&gt;());
-        m_EditorContainerQuery = GetEntityQuery(ComponentType.ReadOnly&lt;Game.Tools.EditorContainer&gt;(), ComponentType.ReadOnly&lt;Game.Objects.Transform&gt;(), ComponentType.ReadOnly&lt;Owner&gt;());
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-    }
-</code></pre>
-<ul>
-<li><code>public PostDeserialize(Colossal.Serialization.Entities.Context context) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void PostDeserialize(Context context)
-    {
-        NativeArray&lt;Entity&gt; nativeArray = m_AtmospherePrefabQuery.ToEntityArray(Allocator.Temp);
-        if (nativeArray.Length == 0)
-        {
-            COSystemBase.baseLog.InfoFormat(&quot;WARNING: PostDeserialize({0}): no Atmosphere prefabs found&quot;, context);
-            return;
-        }
-        NativeArray&lt;Entity&gt; nativeArray2 = m_BiomePrefabQuery.ToEntityArray(Allocator.Temp);
-        if (nativeArray2.Length == 0)
-        {
-            COSystemBase.baseLog.InfoFormat(&quot;WARNING: PostDeserialize({0}): no Biome prefabs found&quot;, context);
-            return;
-        }
-        if (m_AtmosphereQuery.IsEmptyIgnoreFilter)
-        {
-            Entity prefab = nativeArray[0];
-            Entity entity = base.EntityManager.CreateEntity();
-            base.EntityManager.AddComponentData(entity, new AtmosphereData(prefab));
-        }
-        if (m_BiomeQuery.IsEmptyIgnoreFilter)
-        {
-            Entity prefab2 = nativeArray2[0];
-            Entity entity2 = base.EntityManager.CreateEntity();
-            base.EntityManager.AddComponentData(entity2, new BiomeData(prefab2));
-        }
-        if (m_EditorContainerQuery.IsEmptyIgnoreFilter)
-        {
-            return;
-        }
-        NativeArray&lt;Entity&gt; nativeArray3 = m_EditorContainerQuery.ToEntityArray(Allocator.TempJob);
-        foreach (Entity item in nativeArray3)
-        {
-            if (base.EntityManager.TryGetComponent&lt;Game.Objects.Transform&gt;(item, out var component) &amp;&amp; component.m_Position.Equals(float3.zero))
-            {
-                Entity entity3 = item;
-                UnityEngine.Debug.Log(&quot;There is invalid EditorContainer in the map:&quot; + entity3.ToString());
-                if (base.EntityManager.TryGetComponent&lt;Owner&gt;(item, out var component2) &amp;&amp; base.EntityManager.TryGetComponent&lt;Game.Objects.Transform&gt;(component2.m_Owner, out var component3))
-                {
-                    base.EntityManager.SetComponentData(item, component3);
-                }
-            }
-        }
-        nativeArray3.Dispose();
-    }
-</code></pre>
+<p>Notes:
+- Methods and the constructor are marked with [Preserve] to avoid being stripped by Unity's managed code stripping.
+- This system expects to run in the mod/game deserialization phase; directly invoking PostDeserialize is normally handled by the engine's deserialization pipeline via the IPostDeserialize interface.</p>
 
 
 

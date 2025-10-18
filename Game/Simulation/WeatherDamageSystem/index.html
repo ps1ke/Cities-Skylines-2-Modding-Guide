@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#gamesimulationweatherdamagesystem" class="md-skip">
+        <a href="#gameweatherdamagesystem" class="md-skip">
           Skip to content
         </a>
       
@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87075,6 +87167,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../SurfaceWater/" class="md-nav__link">
         
   
@@ -89632,18 +89747,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -89668,9 +89783,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -117921,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117948,18 +118085,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -117984,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118008,189 +118145,128 @@
 
 
 
-<h1 id="gamesimulationweatherdamagesystem">Game.Simulation.WeatherDamageSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Simulation</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class WeatherDamageSystem : Game.GameSystemBase
-{
-    private Game.Notifications.IconCommandSystem m_IconCommandSystem;
-    private Game.Simulation.CitySystem m_CitySystem;
-    private Game.EndFrameBarrier m_EndFrameBarrier;
-    private Unity.Entities.EntityQuery m_FacingQuery;
-    private Unity.Entities.EntityQuery m_FireConfigQuery;
-    private Unity.Entities.EntityQuery m_DisasterConfigQuery;
-    private Unity.Entities.EntityArchetype m_DamageEventArchetype;
-    private Unity.Entities.EntityArchetype m_DestroyEventArchetype;
-    private Game.Simulation.EventHelpers+StructuralIntegrityData m_StructuralIntegrityData;
-    private Game.Simulation.WeatherDamageSystem+TypeHandle __TypeHandle;
-    private static const System.UInt32 UPDATE_INTERVAL;
-
-    public WeatherDamageSystem();
-
-    private System.Void __AssignQueries(Unity.Entities.SystemState&amp; state);
-    public virtual System.Int32 GetUpdateInterval(Game.SystemUpdatePhase phase);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnCreateForCompiler();
-    protected virtual System.Void OnUpdate();
-}
-</code></pre>
+<h1 id="gameweatherdamagesystem">Game.WeatherDamageSystem</h1>
+<p><strong>Assembly:</strong> Assembly-CSharp<br />
+<strong>Namespace:</strong> Game.Simulation</p>
+<p><strong>Type:</strong> public class</p>
+<p><strong>Base:</strong> GameSystemBase</p>
+<p><strong>Summary:</strong><br />
+WeatherDamageSystem is a game simulation system that processes entities with the FacingWeather component and applies weather-related damage to objects (typically buildings). It schedules a Burst-compiled IJobChunk (WeatherDamageJob) to run in parallel over chunks of entities, calculates severity using WeatherPhenomenon data and prefab-specific WeatherPhenomenonData, factors in object structural integrity and city modifiers, and produces Damage or Destroy events as appropriate. The system also manages icon notifications via IconCommandSystem and defers structural changes through an EndFrameBarrier command buffer. It runs at a fixed update interval (64 ticks) and requires relevant configuration singletons (FireConfigurationData, DisasterConfigurationData) to operate.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.Notifications.IconCommandSystem m_IconCommandSystem</code>  </li>
+<li>
+<p><code>private const uint UPDATE_INTERVAL = 64u</code><br />
+Controls the update frequency of the system (returned by GetUpdateInterval). The system updates every 64 ticks.</p>
+</li>
+<li>
+<p><code>private IconCommandSystem m_IconCommandSystem</code><br />
+Reference to the IconCommandSystem used to enqueue icon notifications and removals related to weather damage.</p>
+</li>
+<li>
+<p><code>private CitySystem m_CitySystem</code><br />
+Reference to the CitySystem used to obtain the city entity and city-specific modifiers.</p>
+</li>
+<li>
+<p><code>private EndFrameBarrier m_EndFrameBarrier</code><br />
+Barrier system used to create an EntityCommandBuffer.ParallelWriter to create Damage/Destroy event entities and remove components safely at end of frame.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_FacingQuery</code><br />
+Query used to find entities with FacingWeather (and excluding Deleted/Temp) — the primary query that drives updates.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_FireConfigQuery</code><br />
+Query to obtain FireConfigurationData singleton used to update structural integrity data.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_DisasterConfigQuery</code><br />
+Query to obtain DisasterConfigurationData singleton used for notification prefabs and other disaster config.</p>
+</li>
+<li>
+<p><code>private EntityArchetype m_DamageEventArchetype</code><br />
+Archetype used when creating Damage event entities.</p>
+</li>
+<li>
+<p><code>private EntityArchetype m_DestroyEventArchetype</code><br />
+Archetype used when creating Destroy event entities.</p>
+</li>
+<li>
+<p><code>private EventHelpers.StructuralIntegrityData m_StructuralIntegrityData</code><br />
+Helper data for querying and computing structural integrity of prefabs (used to scale damage).</p>
+</li>
+<li>
+<p><code>private TypeHandle __TypeHandle</code><br />
+Generated helper holding various Entity/Component type handles and lookups used when scheduling the job.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.Notifications.IconCommandSystem m_IconCommandSystem;
-</code></pre>
+<h2 id="properties">Properties</h2>
 <ul>
-<li><code>private Game.Simulation.CitySystem m_CitySystem</code>  </li>
+<li>This type does not expose public properties.</li>
 </ul>
-<pre><code class="language-csharp">private Game.Simulation.CitySystem m_CitySystem;
-</code></pre>
-<ul>
-<li><code>private Game.EndFrameBarrier m_EndFrameBarrier</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.EndFrameBarrier m_EndFrameBarrier;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_FacingQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_FacingQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_FireConfigQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_FireConfigQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_DisasterConfigQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_DisasterConfigQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityArchetype m_DamageEventArchetype</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityArchetype m_DamageEventArchetype;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityArchetype m_DestroyEventArchetype</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityArchetype m_DestroyEventArchetype;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.EventHelpers+StructuralIntegrityData m_StructuralIntegrityData</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.EventHelpers+StructuralIntegrityData m_StructuralIntegrityData;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.WeatherDamageSystem+TypeHandle __TypeHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.WeatherDamageSystem+TypeHandle __TypeHandle;
-</code></pre>
-<ul>
-<li><code>private static const System.UInt32 UPDATE_INTERVAL</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static const System.UInt32 UPDATE_INTERVAL;
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public WeatherDamageSystem()</code>  </li>
+<li><code>public WeatherDamageSystem()</code><br />
+Default constructor (preserved). Initialization of runtime fields is done in OnCreate.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public WeatherDamageSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private __AssignQueries(Unity.Entities.SystemState&amp; state) : System.Void</code>  </li>
+<li>
+<p><code>public override int GetUpdateInterval(SystemUpdatePhase phase)</code><br />
+Returns 64 — this system runs every 64 ticks (value provided by UPDATE_INTERVAL). Used by the scheduling framework.</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnCreate()</code><br />
+Registers required queries, retrieves/creates references to other systems (IconCommandSystem, CitySystem, EndFrameBarrier), constructs event archetypes, and initializes the StructuralIntegrityData helper. Also calls RequireForUpdate for the queries needed for the system to run (FacingWeather, FireConfigurationData, DisasterConfigurationData).</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnUpdate()</code><br />
+Main update method. Reads FireConfigurationData and DisasterConfigurationData singletons, updates the structural integrity helper, then schedules the Burst-compiled WeatherDamageJob in parallel across the m_FacingQuery. It supplies component lookups/type handles and command buffers (EndFrameBarrier and IconCommandSystem). The produced JobHandle is registered with IconCommandSystem and EndFrameBarrier, and assigned back to base.Dependency.</p>
+</li>
+<li>
+<p><code>private void __AssignQueries(ref SystemState state)</code><br />
+Compiler-generated helper for certain query assignments used when compiling. No meaningful runtime logic beyond internal setup.</p>
+</li>
+<li>
+<p><code>protected override void OnCreateForCompiler()</code><br />
+Compiler helper invoked to assign handles and queries for the generated TypeHandle structure.</p>
+</li>
+<li>
+<p>Inner type: <code>WeatherDamageJob : IJobChunk</code> (Burst compiled)  </p>
+</li>
+<li>Iterates entities in chunks that match the m_FacingQuery (entities with FacingWeather).</li>
+<li>For each entity: reads PrefabRef, Transform, FacingWeather, (and optional Damaged/Building/Destroyed flags), computes the current severity using EventUtils.GetSeverity (if the referenced weather event entity still exists and has WeatherPhenomenon data).</li>
+<li>Converts severity into damage factor by dividing by prefab structural integrity and clamping / scaling (includes a multiplier and caps). If structural integrity is effectively infinite, it skips damage.</li>
+<li>Applies city disaster damage rate modifiers (if applicable).</li>
+<li>If the target has a Damaged buffer/component, it increments the damage and, if total damage reaches 1.0, creates a Destroy event entity and enqueues removal/addition of icons (destroy notification). If the target doesn't track accumulated damage, it creates a Damage event entity with the damage delta.</li>
+<li>Adds or removes weather-damage-specific icon notifications depending on whether severity &gt; 0.</li>
+<li>Removes FacingWeather component when severity drops to 0 (via command buffer).</li>
+<li>Uses EntityCommandBuffer.ParallelWriter for entity creation and removal and an IconCommandBuffer for icon operations.</li>
+<li>The job uses a number of component lookups and component type handles (PrefabRef, Building, Transform, Destroyed, Damaged, WeatherPhenomenon data, etc.) provided by the outer system.</li>
 </ul>
-<pre><code class="language-csharp">private void __AssignQueries(ref SystemState state)
-    {
-        new EntityQueryBuilder(Allocator.Temp).Dispose();
-    }
+<p>Notes:
+- The job is Burst-compiled and works on chunked data for performance.
+- Structural integrity values &gt;= 1e8 are treated as "immortal" for the purpose of weather damage (no damage applied).
+- Damage creation vs. direct Damaged accumulation behavior depends on whether the object type has a Damaged component.
+- Icon notifications use different priorities depending on severity (&gt;= 30 -&gt; MajorProblem; otherwise Problem). Destroy notifications use FatalProblem priority.</p>
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// The system runs automatically when present in the World.
+// Example: adding FacingWeather to an entity so WeatherDamageSystem will evaluate it.
+
+Entity weatherEvent = /* some existing weather event entity */;
+Entity buildingEntity = /* some existing building entity */;
+var facingWeather = new FacingWeather
+{
+    m_Event = weatherEvent,
+    m_Severity = 0f // initial severity; the system will compute the current severity each update
+};
+
+entityManager.AddComponentData(buildingEntity, facingWeather);
+
+// Ensure the required singletons exist (FireConfigurationData, DisasterConfigurationData)
+// The WeatherDamageSystem will be scheduled every 64 ticks and will process entities with FacingWeather.
 </code></pre>
-<ul>
-<li><code>public virtual GetUpdateInterval(Game.SystemUpdatePhase phase) : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override int GetUpdateInterval(SystemUpdatePhase phase)
-    {
-        return 64;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_IconCommandSystem = base.World.GetOrCreateSystemManaged&lt;IconCommandSystem&gt;();
-        m_CitySystem = base.World.GetOrCreateSystemManaged&lt;CitySystem&gt;();
-        m_EndFrameBarrier = base.World.GetOrCreateSystemManaged&lt;EndFrameBarrier&gt;();
-        m_FacingQuery = GetEntityQuery(ComponentType.ReadWrite&lt;FacingWeather&gt;(), ComponentType.Exclude&lt;Deleted&gt;(), ComponentType.Exclude&lt;Temp&gt;());
-        m_FireConfigQuery = GetEntityQuery(ComponentType.ReadOnly&lt;FireConfigurationData&gt;());
-        m_DisasterConfigQuery = GetEntityQuery(ComponentType.ReadOnly&lt;DisasterConfigurationData&gt;());
-        m_DamageEventArchetype = base.EntityManager.CreateArchetype(ComponentType.ReadWrite&lt;Game.Common.Event&gt;(), ComponentType.ReadWrite&lt;Damage&gt;());
-        m_DestroyEventArchetype = base.EntityManager.CreateArchetype(ComponentType.ReadWrite&lt;Game.Common.Event&gt;(), ComponentType.ReadWrite&lt;Destroy&gt;());
-        m_StructuralIntegrityData = new EventHelpers.StructuralIntegrityData(this);
-        RequireForUpdate(m_FacingQuery);
-        RequireForUpdate(m_FireConfigQuery);
-        RequireForUpdate(m_DisasterConfigQuery);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreateForCompiler() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnCreateForCompiler()
-    {
-        base.OnCreateForCompiler();
-        __AssignQueries(ref base.CheckedStateRef);
-        __TypeHandle.__AssignHandles(ref base.CheckedStateRef);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        FireConfigurationData singleton = m_FireConfigQuery.GetSingleton&lt;FireConfigurationData&gt;();
-        DisasterConfigurationData singleton2 = m_DisasterConfigQuery.GetSingleton&lt;DisasterConfigurationData&gt;();
-        m_StructuralIntegrityData.Update(this, singleton);
-        JobHandle jobHandle = JobChunkExtensions.ScheduleParallel(new WeatherDamageJob
-        {
-            m_DamageEventArchetype = m_DamageEventArchetype,
-            m_DestroyEventArchetype = m_DestroyEventArchetype,
-            m_DisasterConfigurationData = singleton2,
-            m_StructuralIntegrityData = m_StructuralIntegrityData,
-            m_City = m_CitySystem.City,
-            m_CommandBuffer = m_EndFrameBarrier.CreateCommandBuffer().AsParallelWriter(),
-            m_IconCommandBuffer = m_IconCommandSystem.CreateCommandBuffer(),
-            m_EntityType = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef),
-            m_PrefabRefType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_BuildingType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Buildings_Building_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_TransformType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Objects_Transform_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_DestroyedType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Common_Destroyed_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_FacingWeatherType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Events_FacingWeather_RW_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_DamagedType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Objects_Damaged_RW_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_WeatherPhenomenonData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Events_WeatherPhenomenon_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabRefData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PrefabWeatherPhenomenonData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_WeatherPhenomenonData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_CityModifiers = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_City_CityModifier_RO_BufferLookup, ref base.CheckedStateRef)
-        }, m_FacingQuery, base.Dependency);
-        m_IconCommandSystem.AddCommandBufferWriter(jobHandle);
-        m_EndFrameBarrier.AddJobHandleForProducer(jobHandle);
-        base.Dependency = jobHandle;
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Simulation.WeatherDamageSystem+WeatherDamageJob</code>  </li>
-<li><code>Game.Simulation.WeatherDamageSystem+TypeHandle</code>  </li>
-</ul>
+<p>If you want more detail about any specific field, the inner job, or how the structural integrity / damage math is computed, tell me which part you'd like expanded and I can add calculations and example scenarios.</p>
 
 
 

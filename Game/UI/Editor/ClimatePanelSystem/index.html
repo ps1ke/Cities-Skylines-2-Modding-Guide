@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#gameuieditorclimatepanelsystem" class="md-skip">
+        <a href="#gameclimatepanelsystem" class="md-skip">
           Skip to content
         </a>
       
@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87073,6 +87165,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Simulation/SurfaceWater/" class="md-nav__link">
         
   
@@ -97262,15 +97377,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -97307,9 +97413,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -117932,6 +118038,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117957,15 +118085,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -118004,9 +118123,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118028,395 +118147,200 @@
 
 
 
-<h1 id="gameuieditorclimatepanelsystem">Game.UI.Editor.ClimatePanelSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.UI.Editor</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.UI.Editor.EditorPanelSystemBase</code><br />
-<strong>Implements:</strong> <code>Game.UI.Editor.IEditorPanel</code>, <code>Game.UI.Editor.SeasonsField+IAdapter</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class ClimatePanelSystem : Game.UI.Editor.EditorPanelSystemBase, Game.UI.Editor.IEditorPanel, Game.UI.Editor.SeasonsField+IAdapter
-{
-    private Game.Prefabs.PrefabSystem m_PrefabSystem;
-    private Game.Simulation.ClimateSystem m_ClimateSystem;
-    private Game.Simulation.WindSimulationSystem m_WindSimulationSystem;
-    private Game.Simulation.PlanetarySystem m_PlanetarySystem;
-    private Unity.Entities.EntityQuery m_ClimateQuery;
-    private Unity.Entities.EntityQuery m_ClimateSeasonQuery;
-    private Unity.Entities.EntityQuery m_UpdatedQuery;
-    private Game.UI.Editor.SeasonsField+SeasonCurves m_SeasonsCurves;
-    private Unity.Entities.EntityQuery m_RenderQuery;
-    private Game.Tools.ToolSystem m_ToolSystem;
-    private Game.Prefabs.InfoviewPrefab m_WindInfoview;
-    private System.Double m_LastWindDirection;
-    private System.Int32 m_LastClimateHash;
-    private System.Int32 m_InfoviewCooldown;
-    private Game.UI.Editor.EditorSection m_InspectorSection;
-    private Game.UI.Widgets.EditorGenerator m_Generator;
-    private UnityEngine.Coroutine m_DelayedInfomodeReset;
-    private Game.Prefabs.InfoviewPrefab m_PreviousInfoview;
-    private Unity.Entities.EntityQuery m_AllInfoviewQuery;
-    private Unity.Entities.Entity &lt;selectedSeason&gt;k__BackingField;
-    private Game.UI.Editor.ClimatePanelSystem+TypeHandle __TypeHandle;
-
-    private Game.Prefabs.Climate.ClimatePrefab currentClimate { private get; private set; }
-    private System.Double windDirection { private get; private set; }
-    private System.Collections.Generic.IEnumerable&lt;Game.Simulation.ClimateSystem+SeasonInfo&gt; Game.UI.Editor.SeasonsField.IAdapter.seasons { private get; private set; }
-    private Game.UI.Editor.SeasonsField+SeasonCurves Game.UI.Editor.SeasonsField.IAdapter.curves { private get; private set; }
-    public Unity.Entities.Entity selectedSeason { get; set; }
-
-    public ClimatePanelSystem();
-
-    private System.Void __AssignQueries(Unity.Entities.SystemState&amp; state);
-    private Game.Prefabs.PrefabBase &lt;RebuildInspector&gt;b__28_0();
-    private System.Void &lt;RebuildInspector&gt;b__28_1(Game.Prefabs.PrefabBase prefab);
-    private System.Collections.IEnumerator DisableInfomode();
-    private System.Void Duplicate();
-    private System.Void GetWindInfoView();
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnCreateForCompiler();
-    protected virtual System.Void OnGameLoaded(Colossal.Serialization.Entities.Context serializationContext);
-    protected virtual System.Void OnValueChanged(Game.UI.Widgets.IWidget widget);
-    public System.Void RebuildCurves();
-    private System.Void RebuildInspector();
-}
-</code></pre>
+<h1 id="gameclimatepanelsystem">Game.ClimatePanelSystem</h1>
+<p><strong>Assembly:</strong> Game<br />
+<strong>Namespace:</strong> Game.UI.Editor</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> EditorPanelSystemBase</p>
+<p><strong>Summary:</strong><br />
+ClimatePanelSystem is an editor UI system that implements the climate editor panel used by the in-game editor. It ties together Prefab, Climate, WindSimulation, Planetary and Tool systems to present and edit ClimatePrefab data (seasons, temperature/precipitation/other curves, latitude/longitude, etc.). It also manages the inspector UI generation, handles built-in vs custom prefab editing (duplication), and temporarily activates a wind infoview when the user manipulates wind direction in the editor.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.Prefabs.PrefabSystem m_PrefabSystem</code>  </li>
+<li>
+<p><code>private PrefabSystem m_PrefabSystem</code><br />
+Handles access to game prefabs. Used to query and add ClimatePrefab and InfoviewPrefab instances.</p>
+</li>
+<li>
+<p><code>private ClimateSystem m_ClimateSystem</code><br />
+Reference to the ClimateSystem that stores the currently-active climate entity and climate simulation state.</p>
+</li>
+<li>
+<p><code>private WindSimulationSystem m_WindSimulationSystem</code><br />
+Provides wind simulation access (constant wind vector and methods to set wind).</p>
+</li>
+<li>
+<p><code>private PlanetarySystem m_PlanetarySystem</code><br />
+Used to set planetary parameters such as latitude and longitude based on the edited climate prefab.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_ClimateQuery</code><br />
+(Declared but not populated in this class) Intended for queries related to climate entities if needed.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_ClimateSeasonQuery</code><br />
+(Declared but not populated here) Intended for season-related entity queries.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_UpdatedQuery</code><br />
+(Declared but not populated here) Intended for queries of updated entities.</p>
+</li>
+<li>
+<p><code>private SeasonsField.SeasonCurves m_SeasonsCurves</code><br />
+Local cache of season curve arrays (temperature, precipitation, cloudiness, aurora, fog) that drive the seasons UI and editing.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_RenderQuery</code><br />
+(Declared but not populated here) Presumably for render/visualization-related entities.</p>
+</li>
+<li>
+<p><code>private ToolSystem m_ToolSystem</code><br />
+Reference to ToolSystem used to switch infoviews/infomodes when previewing wind direction.</p>
+</li>
+<li>
+<p><code>private InfoviewPrefab m_WindInfoview</code><br />
+Cached InfoviewPrefab used to temporarily display wind information (the class looks up the "AirPollution" infoview and uses it to show wind direction).</p>
+</li>
+<li>
+<p><code>private double m_LastWindDirection</code><br />
+Tracks the last wind direction value (used to detect changes).</p>
+</li>
+<li>
+<p><code>private int m_LastClimateHash</code><br />
+Cached hash of the currently loaded climate to detect changes.</p>
+</li>
+<li>
+<p><code>private int m_InfoviewCooldown</code><br />
+Cooldown counter used to control infoview toggling (internal UI handling detail).</p>
+</li>
+<li>
+<p><code>private EditorSection m_InspectorSection</code><br />
+Top-level inspector section used to place generated inspector widgets for the selected climate prefab.</p>
+</li>
+<li>
+<p><code>private EditorGenerator m_Generator</code><br />
+Helper used to generate inspector widgets for a prefab's serialized members.</p>
+</li>
+<li>
+<p><code>private Coroutine m_DelayedInfomodeReset</code><br />
+Coroutine handle used to delay reset of the previously active infoview after showing wind preview.</p>
+</li>
+<li>
+<p><code>private InfoviewPrefab m_PreviousInfoview</code><br />
+Cached previous infoview to restore after wind preview completes.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_AllInfoviewQuery</code><br />
+EntityQuery that finds all prefabs with InfoviewData; used to locate the wind infoview prefab.</p>
+</li>
+<li>
+<p><code>private TypeHandle __TypeHandle</code><br />
+Internal compiler-generated struct used to store ComponentTypeHandles for efficient archetype chunk reading in GetWindInfoView. See nested TypeHandle.</p>
+</li>
+<li>
+<p><code>private struct TypeHandle</code><br />
+Contains a ComponentTypeHandle<PrefabData> and method __AssignHandles to fill it from a SystemState. Used by compiler-generated OnCreateForCompiler / GetWindInfoView to read PrefabData arrays.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.Prefabs.PrefabSystem m_PrefabSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.ClimateSystem m_ClimateSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.ClimateSystem m_ClimateSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.WindSimulationSystem m_WindSimulationSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.WindSimulationSystem m_WindSimulationSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.PlanetarySystem m_PlanetarySystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.PlanetarySystem m_PlanetarySystem;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_ClimateQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_ClimateQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_ClimateSeasonQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_ClimateSeasonQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_UpdatedQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_UpdatedQuery;
-</code></pre>
-<ul>
-<li><code>private Game.UI.Editor.SeasonsField+SeasonCurves m_SeasonsCurves</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.UI.Editor.SeasonsField+SeasonCurves m_SeasonsCurves;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_RenderQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_RenderQuery;
-</code></pre>
-<ul>
-<li><code>private Game.Tools.ToolSystem m_ToolSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Tools.ToolSystem m_ToolSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Prefabs.InfoviewPrefab m_WindInfoview</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Prefabs.InfoviewPrefab m_WindInfoview;
-</code></pre>
-<ul>
-<li><code>private System.Double m_LastWindDirection</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Double m_LastWindDirection;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_LastClimateHash</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_LastClimateHash;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_InfoviewCooldown</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_InfoviewCooldown;
-</code></pre>
-<ul>
-<li><code>private Game.UI.Editor.EditorSection m_InspectorSection</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.UI.Editor.EditorSection m_InspectorSection;
-</code></pre>
-<ul>
-<li><code>private Game.UI.Widgets.EditorGenerator m_Generator</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.UI.Widgets.EditorGenerator m_Generator;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.Coroutine m_DelayedInfomodeReset</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.Coroutine m_DelayedInfomodeReset;
-</code></pre>
-<ul>
-<li><code>private Game.Prefabs.InfoviewPrefab m_PreviousInfoview</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Prefabs.InfoviewPrefab m_PreviousInfoview;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_AllInfoviewQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_AllInfoviewQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.Entity &lt;selectedSeason&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.Entity &lt;selectedSeason&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private Game.UI.Editor.ClimatePanelSystem+TypeHandle __TypeHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.UI.Editor.ClimatePanelSystem+TypeHandle __TypeHandle;
-</code></pre>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>private Game.Prefabs.Climate.ClimatePrefab currentClimate { private get; private set }</code>  </li>
+<li>
+<p><code>private ClimatePrefab currentClimate { get; set; }</code><br />
+Private property that resolves the ClimatePrefab for m_ClimateSystem.currentClimate (returns null if the entity does not exist). Setting this property writes the climate entity into m_ClimateSystem.currentClimate and triggers RebuildInspector().</p>
+</li>
+<li>
+<p><code>private double windDirection { get; set; }</code><br />
+Private property for reading and setting the editor wind direction. The getter computes the compass degrees from WindSimulationSystem.constantWind. The setter converts degrees to a direction vector, calls WindSimulationSystem.SetWind, switches the tool infoview to the wind infoview and activates the corresponding infomode, and starts a coroutine to restore the previous infoview after a short delay.</p>
+</li>
+<li>
+<p><code>IEnumerable&lt;ClimateSystem.SeasonInfo&gt; SeasonsField.IAdapter.seasons { get; set; }</code><br />
+Explicit interface implementation for SeasonsField.IAdapter. Gets/sets the currentClimate.m_Seasons array (converting to/from IEnumerable for the UI adapter). Used by the seasons UI widget to read/write season entries.</p>
+</li>
+<li>
+<p><code>SeasonsField.SeasonCurves SeasonsField.IAdapter.curves { get; set; }</code><br />
+Explicit interface implementation used by the seasons UI to get/set the cached season curves (temperature, precipitation, cloudiness, aurora, fog).</p>
+</li>
+<li>
+<p><code>public Entity selectedSeason { get; set; }</code><br />
+Public property exposing the currently selected season entity in the editor (used by external UI logic to track the selection).</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.Prefabs.Climate.ClimatePrefab currentClimate { private get; private set; }
-</code></pre>
-<ul>
-<li><code>private System.Double windDirection { private get; private set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Double windDirection { private get; private set; }
-</code></pre>
-<ul>
-<li><code>private System.Collections.Generic.IEnumerable&lt;Game.Simulation.ClimateSystem+SeasonInfo&gt; Game.UI.Editor.SeasonsField.IAdapter.seasons { private get; private set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Collections.Generic.IEnumerable&lt;Game.Simulation.ClimateSystem+SeasonInfo&gt; Game.UI.Editor.SeasonsField.IAdapter.seasons { private get; private set; }
-</code></pre>
-<ul>
-<li><code>private Game.UI.Editor.SeasonsField+SeasonCurves Game.UI.Editor.SeasonsField.IAdapter.curves { private get; private set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.UI.Editor.SeasonsField+SeasonCurves Game.UI.Editor.SeasonsField.IAdapter.curves { private get; private set; }
-</code></pre>
-<ul>
-<li><code>public Unity.Entities.Entity selectedSeason { get; set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Unity.Entities.Entity selectedSeason { get; set; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public ClimatePanelSystem()</code>  </li>
+<li><code>public ClimatePanelSystem()</code><br />
+Parameterless constructor. Marked with [Preserve] in the source to avoid stripping. Typical ECS managed-system constructor — initialization of fields happens in OnCreate.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public ClimatePanelSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private __AssignQueries(Unity.Entities.SystemState&amp; state) : System.Void</code>  </li>
+<li>
+<p><code>protected override void OnCreate()</code><br />
+Initializes the editor system: resolves managed systems (PrefabSystem, ClimateSystem, ToolSystem, WindSimulationSystem, PlanetarySystem), constructs the AllInfoview query, locates the wind infoview prefab via GetWindInfoView(), sets the panel title, creates an EditorGenerator and builds the top-level inspector UI structure (a scrollable EditorSection). Called by the ECS lifecycle when the system is created.</p>
+</li>
+<li>
+<p><code>protected override void OnValueChanged(IWidget widget)</code><br />
+Called when a widget value changes. If the currently selected climate is not builtin, it rebuilds the prefab's curves (climatePrefab.RebuildCurves()) and pushes latitude/longitude values into PlanetarySystem.</p>
+</li>
+<li>
+<p><code>protected override void OnGameLoaded(Context serializationContext)</code><br />
+Handles map load/new map events; if the context purpose is LoadMap or NewMap, RebuildInspector() is called to refresh UI based on loaded data.</p>
+</li>
+<li>
+<p><code>private void RebuildInspector()</code><br />
+(Internal) Regenerates the inspector UI widgets for the currentClimate. Creates a prefab picker at the top, shows a prompt and "Create custom climate" button when the selected climate is builtin (which calls Duplicate), uses EditorGenerator to build member widgets for the climate prefab, and disables editing of builtin prefab fields.</p>
+</li>
+<li>
+<p><code>private void Duplicate()</code><br />
+Creates a clone of the currently selected climate prefab via PrefabBase.Clone(), registers it with PrefabSystem.AddPrefab, and sets it as the currentClimate so the inspector updates to the newly created custom prefab.</p>
+</li>
+<li>
+<p><code>private IEnumerator DisableInfomode()</code><br />
+Coroutine that waits for 1 second then restores the previously active infoview on ToolSystem and clears the delayed reset handle. Used to temporarily show the wind infoview, then revert back.</p>
+</li>
+<li>
+<p><code>private void GetWindInfoView()</code><br />
+Scans all prefabs with InfoviewData via m_AllInfoviewQuery, reads PrefabData from archetype chunks, and finds the InfoviewPrefab whose name is "AirPollution" (used as the wind infoview in the editor). Caches it into m_WindInfoview.</p>
+</li>
+<li>
+<p><code>public void RebuildCurves()</code><br />
+Public helper that invokes RebuildCurves() on the current climate prefab and then copies its arrays into m_SeasonsCurves fields (m_Temperature, m_Precipitation, m_Cloudiness, m_Aurora, m_Fog). Used to refresh the curve cache consumed by the seasons UI.</p>
+</li>
+<li>
+<p><code>private void __AssignQueries(ref SystemState state)</code><br />
+Compiler-generated stub for entity query assignment. Currently constructs and disposes an EntityQueryBuilder(Allocator.Temp) — no runtime queries assigned in this method for this class.</p>
+</li>
+<li>
+<p><code>protected override void OnCreateForCompiler()</code><br />
+Compiler-assisted OnCreate hook that calls __AssignQueries and populates the TypeHandle component type handles. Used by the IL2CPP/Entities compiler path.</p>
+</li>
+<li>
+<p><code>[Preserve] public ClimatePanelSystem()</code><br />
+The constructor is marked Preserve to avoid stripping; the constructor itself does not perform heavy initialization — OnCreate does.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private void __AssignQueries(ref SystemState state)
-    {
-        new EntityQueryBuilder(Allocator.Temp).Dispose();
-    }
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Example: minimal setup inside the system's OnCreate override.
+// This mirrors what the system does to initialize its dependencies and the inspector.
+[Preserve]
+protected override void OnCreate()
+{
+    base.OnCreate();
+    m_PrefabSystem = World.GetOrCreateSystemManaged&lt;PrefabSystem&gt;();
+    m_ClimateSystem = World.GetOrCreateSystemManaged&lt;ClimateSystem&gt;();
+    m_ToolSystem = World.GetOrCreateSystemManaged&lt;ToolSystem&gt;();
+    m_WindSimulationSystem = World.GetOrCreateSystemManaged&lt;WindSimulationSystem&gt;();
+    m_PlanetarySystem = World.GetOrCreateSystemManaged&lt;PlanetarySystem&gt;();
+
+    // Find wind infoview and build initial inspector UI
+    m_AllInfoviewQuery = GetEntityQuery(ComponentType.ReadOnly&lt;PrefabData&gt;(), ComponentType.ReadOnly&lt;InfoviewData&gt;());
+    GetWindInfoView();
+    title = &quot;Editor.CLIMATE_SETTINGS&quot;;
+    RebuildInspector();
+}
 </code></pre>
-<ul>
-<li><code>private &lt;RebuildInspector&gt;b__28_0() : Game.Prefabs.PrefabBase</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Prefabs.PrefabBase &lt;RebuildInspector&gt;b__28_0();
-</code></pre>
-<ul>
-<li><code>private &lt;RebuildInspector&gt;b__28_1(Game.Prefabs.PrefabBase prefab) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Void &lt;RebuildInspector&gt;b__28_1(Game.Prefabs.PrefabBase prefab);
-</code></pre>
-<ul>
-<li><code>private DisableInfomode() : System.Collections.IEnumerator</code>  </li>
-</ul>
-<pre><code class="language-csharp">private IEnumerator DisableInfomode()
-    {
-        yield return new WaitForSeconds(1f);
-        m_ToolSystem.infoview = m_PreviousInfoview;
-        m_DelayedInfomodeReset = null;
-    }
-</code></pre>
-<ul>
-<li><code>private Duplicate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void Duplicate()
-    {
-        PrefabBase prefabBase = currentClimate.Clone();
-        m_PrefabSystem.AddPrefab(prefabBase);
-        currentClimate = (ClimatePrefab)prefabBase;
-    }
-</code></pre>
-<ul>
-<li><code>private GetWindInfoView() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void GetWindInfoView()
-    {
-        ComponentTypeHandle&lt;PrefabData&gt; typeHandle = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_PrefabData_RO_ComponentTypeHandle, ref base.CheckedStateRef);
-        NativeArray&lt;ArchetypeChunk&gt; nativeArray = m_AllInfoviewQuery.ToArchetypeChunkArray(Allocator.TempJob);
-        for (int i = 0; i &lt; nativeArray.Length; i++)
-        {
-            NativeArray&lt;PrefabData&gt; nativeArray2 = nativeArray[i].GetNativeArray(ref typeHandle);
-            for (int j = 0; j &lt; nativeArray2.Length; j++)
-            {
-                InfoviewPrefab prefab = m_PrefabSystem.GetPrefab&lt;InfoviewPrefab&gt;(nativeArray2[j]);
-                if (prefab.name == &quot;AirPollution&quot;)
-                {
-                    m_WindInfoview = prefab;
-                }
-            }
-        }
-        nativeArray.Dispose();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_PrefabSystem = base.World.GetOrCreateSystemManaged&lt;PrefabSystem&gt;();
-        m_ClimateSystem = base.World.GetOrCreateSystemManaged&lt;ClimateSystem&gt;();
-        m_ToolSystem = base.World.GetOrCreateSystemManaged&lt;ToolSystem&gt;();
-        m_WindSimulationSystem = base.World.GetOrCreateSystemManaged&lt;WindSimulationSystem&gt;();
-        m_PlanetarySystem = base.World.GetOrCreateSystemManaged&lt;PlanetarySystem&gt;();
-        m_AllInfoviewQuery = GetEntityQuery(ComponentType.ReadOnly&lt;PrefabData&gt;(), ComponentType.ReadOnly&lt;InfoviewData&gt;());
-        GetWindInfoView();
-        title = &quot;Editor.CLIMATE_SETTINGS&quot;;
-        m_Generator = new EditorGenerator();
-        IWidget[] array = new IWidget[1];
-        IWidget[] array2 = new IWidget[1];
-        EditorSection obj = new EditorSection
-        {
-            displayName = &quot;Editor.CLIMATE_SETTINGS&quot;,
-            tooltip = &quot;Editor.CLIMATE_SETTINGS_TOOLTIP&quot;,
-            expanded = true
-        };
-        EditorSection editorSection = obj;
-        m_InspectorSection = obj;
-        array2[0] = editorSection;
-        array[0] = Scrollable.WithChildren(array2);
-        children = array;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreateForCompiler() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnCreateForCompiler()
-    {
-        base.OnCreateForCompiler();
-        __AssignQueries(ref base.CheckedStateRef);
-        __TypeHandle.__AssignHandles(ref base.CheckedStateRef);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnGameLoaded(Colossal.Serialization.Entities.Context serializationContext) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnGameLoaded(Context serializationContext)
-    {
-        base.OnGameLoaded(serializationContext);
-        if (serializationContext.purpose == Purpose.LoadMap || serializationContext.purpose == Purpose.NewMap)
-        {
-            RebuildInspector();
-        }
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnValueChanged(Game.UI.Widgets.IWidget widget) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnValueChanged(IWidget widget)
-    {
-        base.OnValueChanged(widget);
-        ClimatePrefab climatePrefab = currentClimate;
-        if (!climatePrefab.builtin)
-        {
-            climatePrefab.RebuildCurves();
-        }
-        m_PlanetarySystem.latitude = climatePrefab.m_Latitude;
-        m_PlanetarySystem.longitude = climatePrefab.m_Longitude;
-    }
-</code></pre>
-<ul>
-<li><code>public RebuildCurves() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void RebuildCurves()
-    {
-        ClimatePrefab climatePrefab = currentClimate;
-        climatePrefab.RebuildCurves();
-        m_SeasonsCurves = default(SeasonsField.SeasonCurves);
-        m_SeasonsCurves.m_Temperature = climatePrefab.m_Temperature;
-        m_SeasonsCurves.m_Precipitation = climatePrefab.m_Precipitation;
-        m_SeasonsCurves.m_Cloudiness = climatePrefab.m_Cloudiness;
-        m_SeasonsCurves.m_Aurora = climatePrefab.m_Aurora;
-        m_SeasonsCurves.m_Fog = climatePrefab.m_Fog;
-    }
-</code></pre>
-<ul>
-<li><code>private RebuildInspector() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void RebuildInspector()
-    {
-        List&lt;IWidget&gt; list = new List&lt;IWidget&gt;
-        {
-            new PopupValueField&lt;PrefabBase&gt;
-            {
-                displayName = &quot;Editor.CLIMATE_LOAD_PREFAB&quot;,
-                tooltip = &quot;Editor.CLIMATE_LOAD_PREFAB_TOOLTIP&quot;,
-                accessor = new DelegateAccessor&lt;PrefabBase&gt;(() =&gt; currentClimate, delegate(PrefabBase prefab)
-                {
-                    currentClimate = (ClimatePrefab)prefab;
-                }),
-                popup = new PrefabPickerPopup(typeof(ClimatePrefab))
-            }
-        };
-        ClimatePrefab climatePrefab = currentClimate;
-        bool builtin = climatePrefab.builtin;
-        if (builtin)
-        {
-            list.Add(new Label
-            {
-                displayName = &quot;Editor.CREATE_CUSTOM_CLIMATE_PROMPT&quot;
-            });
-            list.Add(new Button
-            {
-                displayName = &quot;Editor.CREATE_CUSTOM_CLIMATE&quot;,
-                action = Duplicate
-            });
-        }
-        IWidget[] array = m_Generator.BuildMembers(new ObjectAccessor&lt;PrefabBase&gt;(climatePrefab), 0, &quot;Climate Settings&quot;).ToArray();
-        if (builtin)
-        {
-            IWidget[] array2 = array;
-            for (int num = 0; num &lt; array2.Length; num++)
-            {
-                InspectorPanelSystem.DisableAllFields(array2[num]);
-            }
-        }
-        list.AddRange(array);
-        m_InspectorSection.children = list;
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.UI.Editor.ClimatePanelSystem+TypeHandle</code>  </li>
-<li><code>Game.UI.Editor.ClimatePanelSystem+&lt;DisableInfomode&gt;d__30</code>  </li>
-</ul>
+<p>Notes and tips:
+- Built-in climate prefabs are protected from in-place editing in the inspector; use the "Create custom climate" button (Duplicate) to produce a modifiable copy.
+- Wind previewing temporarily switches the active infoview and infomode; this is reverted automatically after a short delay.
+- RebuildCurves synchronizes the prefab curve arrays into the SeasonsField.SeasonCurves instance used by the seasons UI.</p>
 
 
 

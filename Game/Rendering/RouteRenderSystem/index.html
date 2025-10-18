@@ -65233,6 +65233,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69668,18 +69691,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -69704,9 +69727,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -69734,6 +69757,29 @@
   
   <span class="md-ellipsis">
     ShaderID
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
     
   </span>
   
@@ -72563,6 +72609,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75553,6 +75622,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87145,6 +87237,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -117921,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117948,18 +118085,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -117984,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118009,359 +118146,185 @@
 
 
 <h1 id="gamerenderingrouterendersystem">Game.Rendering.RouteRenderSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Rendering</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class RouteRenderSystem : Game.GameSystemBase
-{
-    private Game.Tools.ToolSystem m_ToolSystem;
-    private Game.Rendering.RouteBufferSystem m_RouteBufferSystem;
-    private Unity.Entities.EntityQuery m_RouteQuery;
-    private Unity.Entities.EntityQuery m_LivePathQuery;
-    private Unity.Entities.EntityQuery m_InfomodeQuery;
-    private UnityEngine.Mesh m_Mesh;
-    private UnityEngine.ComputeBuffer m_ArgsBuffer;
-    private System.Collections.Generic.List&lt;System.UInt32&gt; m_ArgsArray;
-    private System.Int32 m_RouteSegmentBuffer;
-    private System.Int32 m_RouteColor;
-    private System.Int32 m_RouteSize;
-    private Game.Rendering.RouteRenderSystem+TypeHandle __TypeHandle;
-
-    public RouteRenderSystem();
-
-    private System.Void __AssignQueries(Unity.Entities.SystemState&amp; state);
-    private System.Void EnsureMesh();
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnCreateForCompiler();
-    protected virtual System.Void OnDestroy();
-    protected virtual System.Void OnUpdate();
-    private System.Void Render(UnityEngine.Rendering.ScriptableRenderContext context, System.Collections.Generic.List&lt;UnityEngine.Camera&gt; cameras);
-    private System.Boolean ShouldRenderRoutes();
-}
-</code></pre>
+<p><strong>Assembly:</strong> Assembly-CSharp (game code)<br />
+<strong>Namespace:</strong> Game.Rendering</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> GameSystemBase</p>
+<p><strong>Summary:</strong><br />
+RouteRenderSystem is an ECS system responsible for rendering route segments (routes and live paths) in the game world. It queries route entities, builds indirect draw arguments, binds per-route compute buffers and material parameters, and issues DrawMeshInstancedIndirect calls for Game and SceneView cameras. It subscribes to the Scriptable Render Pipeline’s begin-context rendering callback to perform rendering outside the normal ECS update loop. The system also manages a small procedural mesh used to render route segments and a ComputeBuffer for indirect draw arguments.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.Tools.ToolSystem m_ToolSystem</code>  </li>
+<li>
+<p><code>private struct TypeHandle</code><br />
+  Internal generated struct that caches EntityTypeHandle and ComponentTypeHandle<T> instances used when accessing archetype chunk data. It provides an __AssignHandles method to initialize the handles from a SystemState.</p>
+</li>
+<li>
+<p><code>private ToolSystem m_ToolSystem</code><br />
+  Reference to the ToolSystem (fetched via World.GetOrCreateSystemManaged<ToolSystem> in OnCreate). Used to access the currently selected tool and selected entity.</p>
+</li>
+<li>
+<p><code>private RouteBufferSystem m_RouteBufferSystem</code><br />
+  Reference to RouteBufferSystem used to obtain per-route data like the segment ComputeBuffer, material, original render queue, bounds and size.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_RouteQuery</code><br />
+  EntityQuery selecting route entities (Route, RouteWaypoint, RouteSegment; excludes HiddenRoute, Deleted, Hidden). Used when regular route rendering is required.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_LivePathQuery</code><br />
+  EntityQuery selecting LivePath entities (LivePath, RouteWaypoint, RouteSegment; excludes HiddenRoute, Deleted, Hidden). Used when only live path drawing is needed (e.g. tools that show only live paths).</p>
+</li>
+<li>
+<p><code>private EntityQuery m_InfomodeQuery</code><br />
+  EntityQuery that detects when an infomode requiring route overlay is active (InfomodeActive + InfoviewRouteData).</p>
+</li>
+<li>
+<p><code>private Mesh m_Mesh</code><br />
+  Procedural mesh used for rendering a single route segment instance. Built on demand in EnsureMesh().</p>
+</li>
+<li>
+<p><code>private ComputeBuffer m_ArgsBuffer</code><br />
+  GPU ComputeBuffer used for indirect draw arguments (DrawMeshInstancedIndirect). Resized/recreated to hold enough draw argument entries for all instances.</p>
+</li>
+<li>
+<p><code>private List&lt;uint&gt; m_ArgsArray</code><br />
+  CPU-side list of uints used to populate m_ArgsBuffer (indirect draw arguments per instance).</p>
+</li>
+<li>
+<p><code>private int m_RouteSegmentBuffer</code><br />
+  Shader property ID for the per-route segment ComputeBuffer (set via Shader.PropertyToID("colossal_RouteSegmentBuffer")).</p>
+</li>
+<li>
+<p><code>private int m_RouteColor</code><br />
+  Shader property ID for route color (colossal_RouteColor).</p>
+</li>
+<li>
+<p><code>private int m_RouteSize</code><br />
+  Shader property ID for route size (colossal_RouteSize).</p>
+</li>
+<li>
+<p><code>private TypeHandle __TypeHandle</code><br />
+  Instance of the generated TypeHandle struct used to cache and access ComponentTypeHandle instances.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.Tools.ToolSystem m_ToolSystem;
-</code></pre>
+<h2 id="properties">Properties</h2>
 <ul>
-<li><code>private Game.Rendering.RouteBufferSystem m_RouteBufferSystem</code>  </li>
+<li>(none)</li>
 </ul>
-<pre><code class="language-csharp">private Game.Rendering.RouteBufferSystem m_RouteBufferSystem;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_RouteQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_RouteQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_LivePathQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_LivePathQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_InfomodeQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_InfomodeQuery;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.Mesh m_Mesh</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.Mesh m_Mesh;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.ComputeBuffer m_ArgsBuffer</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.ComputeBuffer m_ArgsBuffer;
-</code></pre>
-<ul>
-<li><code>private System.Collections.Generic.List&lt;System.UInt32&gt; m_ArgsArray</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Collections.Generic.List&lt;System.UInt32&gt; m_ArgsArray;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_RouteSegmentBuffer</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_RouteSegmentBuffer;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_RouteColor</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_RouteColor;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_RouteSize</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_RouteSize;
-</code></pre>
-<ul>
-<li><code>private Game.Rendering.RouteRenderSystem+TypeHandle __TypeHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Rendering.RouteRenderSystem+TypeHandle __TypeHandle;
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public RouteRenderSystem()</code>  </li>
+<li><code>public RouteRenderSystem()</code><br />
+  Default constructor. The system uses [Preserve] attributes on lifecycle methods and relies on OnCreate to initialize runtime state.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public RouteRenderSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private __AssignQueries(Unity.Entities.SystemState&amp; state) : System.Void</code>  </li>
+<li><code>[Preserve] protected override void OnCreate()</code><br />
+  Initializes the system:</li>
+<li>Acquires references to ToolSystem and RouteBufferSystem from the World.</li>
+<li>Creates EntityQueries for routes, live paths and infomode detection.</li>
+<li>Initializes shader property IDs (m_RouteSegmentBuffer, m_RouteColor, m_RouteSize).</li>
+<li>Subscribes to RenderPipelineManager.beginContextRendering with the Render callback.
+  Notes:</li>
+<li>Initialization is done on main thread. No GPU resources are created here beyond storing property IDs.</li>
+<li>
+<p>The subscription ensures the Render method is invoked as part of the SRP rendering loop.</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnDestroy()</code><br />
+  Cleanup:</p>
+</li>
+<li>Unsubscribes from RenderPipelineManager.beginContextRendering.</li>
+<li>Destroys the procedural mesh if created (Object.Destroy).</li>
+<li>Releases the m_ArgsBuffer ComputeBuffer if allocated.</li>
+<li>
+<p>Calls base.OnDestroy().
+  Important to avoid leaking GPU resources and render callbacks.</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnUpdate()</code><br />
+  Empty override. Rendering is performed in the SRP callback (Render), so OnUpdate does not perform per-frame rendering work.</p>
+</li>
+<li>
+<p><code>private void Render(ScriptableRenderContext context, List&lt;Camera&gt; cameras)</code><br />
+  Main render routine invoked during beginContextRendering. High-level behavior:</p>
+</li>
+<li>Chooses between m_RouteQuery and m_LivePathQuery depending on ShouldRenderRoutes().</li>
+<li>Early-outs if selected query is empty.</li>
+<li>Converts the EntityQuery to an ArchetypeChunk array (Allocator.TempJob), iterates chunks and counts instances.</li>
+<li>Ensures the procedural mesh exists (EnsureMesh()).</li>
+<li>Computes total instance count and allocates/recreates m_ArgsBuffer as a ComputeBuffer of appropriate size.</li>
+<li>Calls CompleteDependency() and obtains EntityTypeHandle and ComponentTypeHandle<T> instances via InternalCompilerInterface.</li>
+<li>For each archetype chunk: gets native arrays for Entity, RouteBufferIndex, Color, Temp, and checks Highlighted presence.</li>
+<li>For each entity in the chunk:<ul>
+<li>Retrieves route buffer data from m_RouteBufferSystem.GetBuffer(index).</li>
+<li>Skips if material or segmentBuffer is null.</li>
+<li>Appends an indirect draw argument entry to m_ArgsArray (indexCount, instanceCount, indexStart, baseVertex, 0).</li>
+<li>Adjusts color alpha and size if entity is selected, highlighted, or has Temp flags (Create/Delete/Select/Modify), and bumps material.renderQueue if highlighted/selected.</li>
+<li>Binds segment ComputeBuffer and material parameters (color, size).</li>
+<li>Expands bounds by size.x and issues Graphics.DrawMeshInstancedIndirect for each camera of type Game or SceneView.</li>
 </ul>
-<pre><code class="language-csharp">private void __AssignQueries(ref SystemState state)
-    {
-        new EntityQueryBuilder(Allocator.Temp).Dispose();
-    }
-</code></pre>
-<ul>
-<li><code>private EnsureMesh() : System.Void</code>  </li>
+</li>
+<li>After processing chunks, writes m_ArgsArray data into m_ArgsBuffer via SetData.
+  Notes and caveats:</li>
+<li>The method relies on m_RouteBufferSystem to provide a ComputeBuffer of route segments and an appropriate material.</li>
+<li>Uses DrawMeshInstancedIndirect: the GPU expects valid argument buffers; m_ArgsBuffer entries hold one draw call per route material/segment buffer.</li>
+<li>
+<p>Accesses ECS data via ComponentTypeHandle and archetype chunk APIs; CompleteDependency() is used to ensure safety with scheduled jobs.</p>
+</li>
+<li>
+<p><code>private bool ShouldRenderRoutes()</code><br />
+  Returns true when routes should be rendered:</p>
+</li>
+<li>If an active tool requires route data (tool.requireRoutes != RouteType.None).</li>
+<li>
+<p>Or if m_InfomodeQuery is non-empty (an infomode requires route overlay).
+  Otherwise returns false. This controls whether m_RouteQuery or m_LivePathQuery is used.</p>
+</li>
+<li>
+<p><code>private void EnsureMesh()</code><br />
+  Builds the procedural mesh used to render a route segment if m_Mesh is null.</p>
+</li>
+<li>Creates a vertex array and uv array; constructs two strips (one along X and one along Y) subdivided into 16 segments each, producing a total of 68 vertices and 192 indices.</li>
+<li>
+<p>The mesh is named "Route segment" and has vertices, uv and triangles assigned.
+  This mesh is small and designed to be instanced for individual route segments with GPU-based segment data.</p>
+</li>
+<li>
+<p><code>[MethodImpl(MethodImplOptions.AggressiveInlining)] private void __AssignQueries(ref SystemState state)</code><br />
+  Generated helper used during compiler-generated initialization. In this implementation it constructs an EntityQueryBuilder and immediately disposes it. Not intended for external use.</p>
+</li>
+<li>
+<p><code>protected override void OnCreateForCompiler()</code><br />
+  Compiler-time helper: calls base.OnCreateForCompiler(), sets up queries and assigns component type handles via the generated TypeHandle.__AssignHandles method. This is part of the ECS AOT/codegen support.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private void EnsureMesh()
-    {
-        if (!(m_Mesh == null))
-        {
-            return;
-        }
-        Vector3[] array = new Vector3[68];
-        Vector2[] array2 = new Vector2[array.Length];
-        int[] array3 = new int[192];
-        int num = 0;
-        int num2 = 0;
-        for (int i = 0; i &lt;= 16; i++)
-        {
-            float num3 = (float)i / 16f;
-            array[num] = new Vector3(-1f, 0f, num3);
-            array2[num] = new Vector2(0f, num3);
-            num++;
-            array[num] = new Vector3(1f, 0f, num3);
-            array2[num] = new Vector2(0f, num3);
-            num++;
-            if (i != 0)
-            {
-                array3[num2++] = num - 4;
-                array3[num2++] = num - 3;
-                array3[num2++] = num - 2;
-                array3[num2++] = num - 2;
-                array3[num2++] = num - 3;
-                array3[num2++] = num - 1;
-            }
-        }
-        for (int j = 0; j &lt;= 16; j++)
-        {
-            float num4 = (float)j / 16f;
-            array[num] = new Vector3(0f, -1f, num4);
-            array2[num] = new Vector2(1f, num4);
-            num++;
-            array[num] = new Vector3(0f, 1f, num4);
-            array2[num] = new Vector2(1f, num4);
-            num++;
-            if (j != 0)
-            {
-                array3[num2++] = num - 4;
-                array3[num2++] = num - 3;
-                array3[num2++] = num - 2;
-                array3[num2++] = num - 2;
-                array3[num2++] = num - 3;
-                array3[num2++] = num - 1;
-            }
-        }
-        m_Mesh = new Mesh();
-        m_Mesh.name = &quot;Route segment&quot;;
-        m_Mesh.vertices = array;
-        m_Mesh.uv = array2;
-        m_Mesh.triangles = array3;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
+<h2 id="usage-example">Usage Example</h2>
 <pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_ToolSystem = base.World.GetOrCreateSystemManaged&lt;ToolSystem&gt;();
-        m_RouteBufferSystem = base.World.GetOrCreateSystemManaged&lt;RouteBufferSystem&gt;();
-        m_RouteQuery = GetEntityQuery(ComponentType.ReadOnly&lt;Route&gt;(), ComponentType.ReadOnly&lt;RouteWaypoint&gt;(), ComponentType.ReadOnly&lt;RouteSegment&gt;(), ComponentType.Exclude&lt;HiddenRoute&gt;(), ComponentType.Exclude&lt;Deleted&gt;(), ComponentType.Exclude&lt;Hidden&gt;());
-        m_LivePathQuery = GetEntityQuery(ComponentType.ReadOnly&lt;LivePath&gt;(), ComponentType.ReadOnly&lt;RouteWaypoint&gt;(), ComponentType.ReadOnly&lt;RouteSegment&gt;(), ComponentType.Exclude&lt;HiddenRoute&gt;(), ComponentType.Exclude&lt;Deleted&gt;(), ComponentType.Exclude&lt;Hidden&gt;());
-        m_InfomodeQuery = GetEntityQuery(ComponentType.ReadOnly&lt;InfomodeActive&gt;(), ComponentType.ReadOnly&lt;InfoviewRouteData&gt;());
-        m_RouteSegmentBuffer = Shader.PropertyToID(&quot;colossal_RouteSegmentBuffer&quot;);
-        m_RouteColor = Shader.PropertyToID(&quot;colossal_RouteColor&quot;);
-        m_RouteSize = Shader.PropertyToID(&quot;colossal_RouteSize&quot;);
-        RenderPipelineManager.beginContextRendering += Render;
-    }
+protected override void OnCreate()
+{
+    base.OnCreate();
+    // Acquire systems used by RouteRenderSystem
+    m_ToolSystem = base.World.GetOrCreateSystemManaged&lt;ToolSystem&gt;();
+    m_RouteBufferSystem = base.World.GetOrCreateSystemManaged&lt;RouteBufferSystem&gt;();
+
+    // Prepare EntityQueries, shader property IDs and subscribe to SRP rendering callback
+    m_RouteQuery = GetEntityQuery(ComponentType.ReadOnly&lt;Route&gt;(), ComponentType.ReadOnly&lt;RouteWaypoint&gt;(), ComponentType.ReadOnly&lt;RouteSegment&gt;(), ComponentType.Exclude&lt;HiddenRoute&gt;(), ComponentType.Exclude&lt;Deleted&gt;(), ComponentType.Exclude&lt;Hidden&gt;());
+    m_LivePathQuery = GetEntityQuery(ComponentType.ReadOnly&lt;LivePath&gt;(), ComponentType.ReadOnly&lt;RouteWaypoint&gt;(), ComponentType.ReadOnly&lt;RouteSegment&gt;(), ComponentType.Exclude&lt;HiddenRoute&gt;(), ComponentType.Exclude&lt;Deleted&gt;(), ComponentType.Exclude&lt;Hidden&gt;());
+    m_InfomodeQuery = GetEntityQuery(ComponentType.ReadOnly&lt;InfomodeActive&gt;(), ComponentType.ReadOnly&lt;InfoviewRouteData&gt;());
+
+    m_RouteSegmentBuffer = Shader.PropertyToID(&quot;colossal_RouteSegmentBuffer&quot;);
+    m_RouteColor = Shader.PropertyToID(&quot;colossal_RouteColor&quot;);
+    m_RouteSize = Shader.PropertyToID(&quot;colossal_RouteSize&quot;);
+
+    RenderPipelineManager.beginContextRendering += Render;
+}
 </code></pre>
-<ul>
-<li><code>protected virtual OnCreateForCompiler() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnCreateForCompiler()
-    {
-        base.OnCreateForCompiler();
-        __AssignQueries(ref base.CheckedStateRef);
-        __TypeHandle.__AssignHandles(ref base.CheckedStateRef);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnDestroy() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnDestroy()
-    {
-        RenderPipelineManager.beginContextRendering -= Render;
-        if (m_Mesh != null)
-        {
-            Object.Destroy(m_Mesh);
-        }
-        if (m_ArgsBuffer != null)
-        {
-            m_ArgsBuffer.Release();
-        }
-        base.OnDestroy();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-    }
-</code></pre>
-<ul>
-<li><code>private Render(UnityEngine.Rendering.ScriptableRenderContext context, System.Collections.Generic.List&lt;UnityEngine.Camera&gt; cameras) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void Render(ScriptableRenderContext context, List&lt;Camera&gt; cameras)
-    {
-        try
-        {
-            EntityQuery entityQuery = (ShouldRenderRoutes() ? m_RouteQuery : m_LivePathQuery);
-            if (entityQuery.IsEmptyIgnoreFilter)
-            {
-                return;
-            }
-            NativeArray&lt;ArchetypeChunk&gt; nativeArray = entityQuery.ToArchetypeChunkArray(Allocator.TempJob);
-            try
-            {
-                if (nativeArray.Length == 0)
-                {
-                    return;
-                }
-                EnsureMesh();
-                if (m_ArgsArray == null)
-                {
-                    m_ArgsArray = new List&lt;uint&gt;();
-                }
-                m_ArgsArray.Clear();
-                uint indexCount = m_Mesh.GetIndexCount(0);
-                uint indexStart = m_Mesh.GetIndexStart(0);
-                uint baseVertex = m_Mesh.GetBaseVertex(0);
-                CompleteDependency();
-                EntityTypeHandle entityTypeHandle = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef);
-                ComponentTypeHandle&lt;RouteBufferIndex&gt; typeHandle = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Rendering_RouteBufferIndex_RO_ComponentTypeHandle, ref base.CheckedStateRef);
-                ComponentTypeHandle&lt;Game.Routes.Color&gt; typeHandle2 = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Routes_Color_RO_ComponentTypeHandle, ref base.CheckedStateRef);
-                ComponentTypeHandle&lt;Highlighted&gt; typeHandle3 = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Tools_Highlighted_RO_ComponentTypeHandle, ref base.CheckedStateRef);
-                ComponentTypeHandle&lt;Temp&gt; typeHandle4 = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Tools_Temp_RO_ComponentTypeHandle, ref base.CheckedStateRef);
-                int num = 0;
-                for (int i = 0; i &lt; nativeArray.Length; i++)
-                {
-                    num += nativeArray[i].Count * 5;
-                }
-                if (m_ArgsBuffer != null &amp;&amp; m_ArgsBuffer.count &lt; num)
-                {
-                    m_ArgsBuffer.Release();
-                    m_ArgsBuffer = null;
-                }
-                if (m_ArgsBuffer == null)
-                {
-                    m_ArgsBuffer = new ComputeBuffer(num, 4, ComputeBufferType.DrawIndirect);
-                    m_ArgsBuffer.name = &quot;Route args buffer&quot;;
-                }
-                Entity selected = m_ToolSystem.selected;
-                for (int j = 0; j &lt; nativeArray.Length; j++)
-                {
-                    ArchetypeChunk archetypeChunk = nativeArray[j];
-                    NativeArray&lt;Entity&gt; nativeArray2 = archetypeChunk.GetNativeArray(entityTypeHandle);
-                    NativeArray&lt;RouteBufferIndex&gt; nativeArray3 = archetypeChunk.GetNativeArray(ref typeHandle);
-                    NativeArray&lt;Game.Routes.Color&gt; nativeArray4 = archetypeChunk.GetNativeArray(ref typeHandle2);
-                    NativeArray&lt;Temp&gt; nativeArray5 = archetypeChunk.GetNativeArray(ref typeHandle4);
-                    bool flag = archetypeChunk.Has(ref typeHandle3);
-                    for (int k = 0; k &lt; nativeArray3.Length; k++)
-                    {
-                        RouteBufferIndex routeBufferIndex = nativeArray3[k];
-                        m_RouteBufferSystem.GetBuffer(routeBufferIndex.m_Index, out var material, out var segmentBuffer, out var originalRenderQueue, out var bounds, out var size);
-                        if (material == null || segmentBuffer == null)
-                        {
-                            continue;
-                        }
-                        int count = m_ArgsArray.Count;
-                        m_ArgsArray.Add(indexCount);
-                        m_ArgsArray.Add((uint)segmentBuffer.count);
-                        m_ArgsArray.Add(indexStart);
-                        m_ArgsArray.Add(baseVertex);
-                        m_ArgsArray.Add(0u);
-                        Game.Routes.Color color = nativeArray4[k];
-                        if (nativeArray2[k] == selected || flag || (nativeArray5.Length != 0 &amp;&amp; (nativeArray5[k].m_Flags &amp; (TempFlags.Create | TempFlags.Delete | TempFlags.Select | TempFlags.Modify)) != 0))
-                        {
-                            color.m_Color.a = byte.MaxValue;
-                            size.x *= 1.3333334f;
-                            material.renderQueue = originalRenderQueue + 1;
-                        }
-                        else
-                        {
-                            color.m_Color.a = 128;
-                            material.renderQueue = originalRenderQueue;
-                        }
-                        material.SetBuffer(m_RouteSegmentBuffer, segmentBuffer);
-                        material.SetColor(m_RouteColor, color.m_Color);
-                        material.SetVector(m_RouteSize, size);
-                        bounds.Expand(size.x);
-                        foreach (Camera camera in cameras)
-                        {
-                            if (camera.cameraType == CameraType.Game || camera.cameraType == CameraType.SceneView)
-                            {
-                                Graphics.DrawMeshInstancedIndirect(m_Mesh, 0, material, bounds, m_ArgsBuffer, count * 4, null, ShadowCastingMode.Off, receiveShadows: false, 0, camera);
-                            }
-                        }
-                    }
-                }
-            }
-            finally
-            {
-                nativeArray.Dispose();
-            }
-            if (m_ArgsArray.Count &gt; 0)
-            {
-                m_ArgsBuffer.SetData(m_ArgsArray, 0, 0, m_ArgsArray.Count);
-            }
-        }
-        finally
-        {
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private ShouldRenderRoutes() : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">private bool ShouldRenderRoutes()
-    {
-        if ((m_ToolSystem.activeTool == null || m_ToolSystem.activeTool.requireRoutes == RouteType.None) &amp;&amp; m_InfomodeQuery.IsEmptyIgnoreFilter)
-        {
-            return false;
-        }
-        return true;
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Rendering.RouteRenderSystem+TypeHandle</code>  </li>
-</ul>
+<p>Notes and implementation tips:
+- This system ties ECS data to SRP rendering; be careful about threading and job dependencies. CompleteDependency() is used to synchronize with scheduled jobs before you access chunk data on the main thread.
+- The system assumes RouteBufferSystem provides a ComputeBuffer per-route that contains segment data expected by the route material shader.
+- OnDestroy must release GPU resources and unsubscribe from RenderPipelineManager to avoid leaks and crashes on domain reload.
+- If modifying or extending this system (e.g., to add new route visuals), ensure shader property names, mesh topology and argument buffer layout remain consistent with DrawMeshInstancedIndirect usage.</p>
 
 
 

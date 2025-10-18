@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#gametoolstoolsystem" class="md-skip">
+        <a href="#gametoolsystem" class="md-skip">
           Skip to content
         </a>
       
@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87073,6 +87165,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Simulation/SurfaceWater/" class="md-nav__link">
         
   
@@ -93151,15 +93266,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -93196,9 +93302,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -117930,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117955,15 +118083,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -118002,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118026,903 +118145,314 @@
 
 
 
-<h1 id="gametoolstoolsystem">Game.Tools.ToolSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Tools</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code><br />
-<strong>Implements:</strong> <code>Game.Serialization.IPreDeserialize</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class ToolSystem : Game.GameSystemBase, Game.Serialization.IPreDeserialize
-{
-    public System.Action&lt;Game.Tools.ToolBaseSystem&gt; EventToolChanged;
-    public System.Action&lt;Game.Prefabs.PrefabBase&gt; EventPrefabChanged;
-    public System.Action&lt;Game.Prefabs.InfoviewPrefab&gt; EventInfoviewChanged;
-    public System.Action EventInfomodesChanged;
-    private Game.Tools.ToolBaseSystem m_ActiveTool;
-    private Unity.Entities.Entity m_Selected;
-    private System.Int32 &lt;selectedIndex&gt;k__BackingField;
-    private Game.GameMode &lt;actionMode&gt;k__BackingField;
-    private System.Boolean &lt;ignoreErrors&gt;k__BackingField;
-    private System.Boolean &lt;fullUpdateRequired&gt;k__BackingField;
-    private Game.Tools.ToolBaseSystem m_LastTool;
-    private Game.Prefabs.InfoviewPrefab m_CurrentInfoview;
-    private Game.Prefabs.InfoviewPrefab m_LastToolInfoview;
-    private Game.Prefabs.PrefabSystem m_PrefabSystem;
-    private Game.UpdateSystem m_UpdateSystem;
-    private Game.Tools.ToolRaycastSystem m_ToolRaycastSystem;
-    private Game.Tools.DefaultToolSystem m_DefaultToolSystem;
-    private System.Collections.Generic.List&lt;Game.Tools.ToolBaseSystem&gt; m_Tools;
-    private System.Collections.Generic.List&lt;Game.Prefabs.InfomodePrefab&gt; m_LastToolInfomodes;
-    private System.Collections.Generic.Dictionary&lt;Game.Prefabs.InfoviewPrefab, System.Collections.Generic.List&lt;Game.Prefabs.InfomodeInfo&gt;&gt; m_InfomodeMap;
-    private UnityEngine.Vector4[] m_InfomodeColors;
-    private UnityEngine.Vector4[] m_InfomodeParams;
-    private System.Int32[] m_InfomodeCounts;
-    private Unity.Collections.NativeList&lt;Unity.Entities.Entity&gt; m_Infomodes;
-    private System.Single m_InfoviewTimer;
-    private System.Boolean m_FullUpdateRequired;
-    private System.Boolean m_InfoviewUpdateRequired;
-    private System.Boolean m_IsUpdating;
-    private Game.Input.InputBarrier m_ToolActionBarrier;
-    private System.Collections.Generic.Dictionary&lt;Game.Input.ProxyAction, Game.Input.InputBarrier&gt; m_MouseToolBarriers;
-    protected static const System.String kToolKeyGroup;
-    protected static const System.String kToolCancelKeyGroup;
-    protected static const System.String kToolApplyKeyAction;
-    protected static const System.String kToolCancelKeyAction;
-
-    public Game.Tools.ToolBaseSystem activeTool { get; set; }
-    public Unity.Entities.Entity selected { get; set; }
-    public System.Int32 selectedIndex { get; set; }
-    public Game.Prefabs.PrefabBase activePrefab { get; }
-    public Game.Prefabs.InfoviewPrefab infoview { get; set; }
-    public Game.Prefabs.InfoviewPrefab activeInfoview { get; }
-    public Game.GameMode actionMode { get; private set; }
-    public Game.Tools.ApplyMode applyMode { get; }
-    public System.Boolean ignoreErrors { get; set; }
-    public System.Boolean fullUpdateRequired { get; private set; }
-    public System.Collections.Generic.List&lt;Game.Tools.ToolBaseSystem&gt; tools { get; }
-
-    public ToolSystem();
-
-    private System.Void &lt;OnCreate&gt;b__64_3(Game.Input.InputManager+ControlScheme activeControlScheme);
-    private System.Void &lt;OnCreate&gt;b__64_4(System.Boolean mouseOverUI);
-    private System.Void Activate(Unity.Entities.Entity entity, Game.Prefabs.InfomodePrefab prefab, System.Int32 priority);
-    public System.Boolean ActivatePrefabTool(Game.Prefabs.PrefabBase prefab);
-    private System.Void ClearInfomodes();
-    private System.Void Deactivate(Unity.Entities.Entity entity, Game.Prefabs.InfomodePrefab prefab, Game.Prefabs.InfomodeActive infomodeActive);
-    private System.Void Deactivate(System.Int32 colorGroup, System.Int32 activeIndex);
-    public System.Collections.Generic.List&lt;Game.Prefabs.InfomodeInfo&gt; GetInfomodes(Game.Prefabs.InfoviewPrefab infoview);
-    public System.Collections.Generic.List&lt;Game.Prefabs.InfomodeInfo&gt; GetInfoviewInfomodes();
-    public System.Boolean IsInfomodeActive(Game.Prefabs.InfomodePrefab prefab);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnDestroy();
-    protected virtual System.Void OnGameLoaded(Colossal.Serialization.Entities.Context serializationContext);
-    protected virtual System.Void OnGamePreload(Colossal.Serialization.Entities.Purpose purpose, Game.GameMode mode);
-    protected virtual System.Void OnUpdate();
-    public System.Void PreDeserialize(Colossal.Serialization.Entities.Context context);
-    private System.Void RefreshInputBarrier(Game.Input.InputManager+ControlScheme activeControlScheme, System.Boolean mouseOverUI);
-    public System.Void RequireFullUpdate();
-    public System.Void SetInfomodeActive(Game.Prefabs.InfomodePrefab prefab, System.Boolean active, System.Int32 priority);
-    public System.Void SetInfomodeActive(Unity.Entities.Entity entity, System.Boolean active, System.Int32 priority);
-    private System.Void SetInfoview(Game.Prefabs.InfoviewPrefab value, System.Collections.Generic.List&lt;Game.Prefabs.InfomodePrefab&gt; infomodes);
-    private System.Boolean ShouldBlockBarrier(Game.Input.InputManager+ControlScheme activeControlScheme, System.Boolean mouseOverUI);
-    private System.Void ToolUpdate();
-    private System.Void UpdateInfoviewColors();
-}
-</code></pre>
+<h1 id="gametoolsystem">Game.ToolSystem</h1>
+<p><strong>Assembly:</strong><br />
+<strong>Namespace:</strong> Game.Tools</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> GameSystemBase, IPreDeserialize</p>
+<p><strong>Summary:</strong><br />
+ToolSystem is the central manager for runtime tool behaviour in Cities: Skylines 2. It coordinates the active tool (placement/selection/etc.), prefab-based tool activation, infoviews and infomodes (visual overlays with colors/parameters), input barriers for blocking UI/mouse actions, and raises events when tools, prefabs or infoviews change. It also integrates with the game's update pipeline (via UpdateSystem) to run tool updates and manage shader globals used to draw infoview overlays. This system is useful to modders who need to interact with or extend the tool/infoview pipeline, toggle infomodes, or respond to tool changes.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>public System.Action&lt;Game.Tools.ToolBaseSystem&gt; EventToolChanged</code>  </li>
+<li>
+<p><code>protected const string kToolKeyGroup = "tool"</code><br />
+Description: Key group name used by the input mapping for tool actions.</p>
+</li>
+<li>
+<p><code>protected const string kToolCancelKeyGroup = "tool cancel"</code><br />
+Description: Key group name used for tool-cancel actions.</p>
+</li>
+<li>
+<p><code>protected const string kToolApplyKeyAction = "tool apply"</code><br />
+Description: Action name used to apply tool actions in input mappings.</p>
+</li>
+<li>
+<p><code>protected const string kToolCancelKeyAction = "tool cancel"</code><br />
+Description: Action name used to cancel tool actions in input mappings.</p>
+</li>
+<li>
+<p><code>public Action&lt;ToolBaseSystem&gt; EventToolChanged</code><br />
+Description: Event invoked when the active tool changes. Subscribers receive the new ToolBaseSystem (can be null).</p>
+</li>
+<li>
+<p><code>public Action&lt;PrefabBase&gt; EventPrefabChanged</code><br />
+Description: Event invoked when the active prefab changes on the active tool.</p>
+</li>
+<li>
+<p><code>public Action&lt;InfoviewPrefab&gt; EventInfoviewChanged</code><br />
+Description: Event invoked when the active infoview is changed.</p>
+</li>
+<li>
+<p><code>public Action EventInfomodesChanged</code><br />
+Description: Event invoked when the set of active infomodes changes.</p>
+</li>
+<li>
+<p><code>private ToolBaseSystem m_ActiveTool</code><br />
+Description: The currently active tool instance.</p>
+</li>
+<li>
+<p><code>private Entity m_Selected</code><br />
+Description: Entity currently selected by the tool system.</p>
+</li>
+<li>
+<p><code>private ToolBaseSystem m_LastTool</code><br />
+Description: The tool that was active during the last update (used to detect tool switches and ensure proper enabling/disabling).</p>
+</li>
+<li>
+<p><code>private InfoviewPrefab m_CurrentInfoview</code><br />
+Description: Currently active InfoviewPrefab used to show infomode overlays.</p>
+</li>
+<li>
+<p><code>private InfoviewPrefab m_LastToolInfoview</code><br />
+Description: Infoview used by the last tool — used to detect infoview changes between tools.</p>
+</li>
+<li>
+<p><code>private PrefabSystem m_PrefabSystem</code><br />
+Description: Cached reference to the game's PrefabSystem for prefab/entity lookups.</p>
+</li>
+<li>
+<p><code>private UpdateSystem m_UpdateSystem</code><br />
+Description: Cached reference to the game's UpdateSystem used to perform update phases.</p>
+</li>
+<li>
+<p><code>private ToolRaycastSystem m_ToolRaycastSystem</code><br />
+Description: Cached reference to the system performing tool raycasts.</p>
+</li>
+<li>
+<p><code>private DefaultToolSystem m_DefaultToolSystem</code><br />
+Description: The fallback/default tool system instance used when no tool-specific prefab is active.</p>
+</li>
+<li>
+<p><code>private List&lt;ToolBaseSystem&gt; m_Tools</code><br />
+Description: Lazily-initialized list of registered tools.</p>
+</li>
+<li>
+<p><code>private List&lt;InfomodePrefab&gt; m_LastToolInfomodes</code><br />
+Description: Cached list of infomodes that the last tool requested; used to compare and update active infomodes.</p>
+</li>
+<li>
+<p><code>private Dictionary&lt;InfoviewPrefab, List&lt;InfomodeInfo&gt;&gt; m_InfomodeMap</code><br />
+Description: Cache mapping InfoviewPrefabs to their resolved list of InfomodeInfo objects (so buffer parsing is done once).</p>
+</li>
+<li>
+<p><code>private Vector4[] m_InfomodeColors</code><br />
+Description: Global array of colors passed to shaders for infoview rendering (managed groups of colors).</p>
+</li>
+<li>
+<p><code>private Vector4[] m_InfomodeParams</code><br />
+Description: Global array of parameter vectors (steps, speed, tiling, fill) for infomode shaders.</p>
+</li>
+<li>
+<p><code>private int[] m_InfomodeCounts</code><br />
+Description: Counters used to track how many infomodes are active per color group.</p>
+</li>
+<li>
+<p><code>private NativeList&lt;Entity&gt; m_Infomodes</code><br />
+Description: NativeList holding active Infomode entities. Allocated with Allocator.Persistent; must be disposed in OnDestroy.</p>
+</li>
+<li>
+<p><code>private float m_InfoviewTimer</code><br />
+Description: Timer used to animate infoview overlays; updated every ToolUpdate.</p>
+</li>
+<li>
+<p><code>private bool m_FullUpdateRequired</code><br />
+Description: Internal flag set during updates to request a full update on next safe point.</p>
+</li>
+<li>
+<p><code>private bool m_InfoviewUpdateRequired</code><br />
+Description: Flag indicating infoview shader arrays need recomputing.</p>
+</li>
+<li>
+<p><code>private bool m_IsUpdating</code><br />
+Description: True while the tool update is running; used to decide whether to set m_FullUpdateRequired vs fullUpdateRequired.</p>
+</li>
+<li>
+<p><code>private InputBarrier m_ToolActionBarrier</code><br />
+Description: InputBarrier used to block tool-related input actions when appropriate (e.g., game not in a playable mode).</p>
+</li>
+<li>
+<p><code>private Dictionary&lt;ProxyAction, InputBarrier&gt; m_MouseToolBarriers</code><br />
+Description: Per-mouse-action barriers used to block mouse actions when the cursor is over UI in KeyboardAndMouse scheme.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public System.Action&lt;Game.Tools.ToolBaseSystem&gt; EventToolChanged;
-</code></pre>
-<ul>
-<li><code>public System.Action&lt;Game.Prefabs.PrefabBase&gt; EventPrefabChanged</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Action&lt;Game.Prefabs.PrefabBase&gt; EventPrefabChanged;
-</code></pre>
-<ul>
-<li><code>public System.Action&lt;Game.Prefabs.InfoviewPrefab&gt; EventInfoviewChanged</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Action&lt;Game.Prefabs.InfoviewPrefab&gt; EventInfoviewChanged;
-</code></pre>
-<ul>
-<li><code>public System.Action EventInfomodesChanged</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Action EventInfomodesChanged;
-</code></pre>
-<ul>
-<li><code>private Game.Tools.ToolBaseSystem m_ActiveTool</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Tools.ToolBaseSystem m_ActiveTool;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.Entity m_Selected</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.Entity m_Selected;
-</code></pre>
-<ul>
-<li><code>private System.Int32 &lt;selectedIndex&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 &lt;selectedIndex&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private Game.GameMode &lt;actionMode&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.GameMode &lt;actionMode&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private System.Boolean &lt;ignoreErrors&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean &lt;ignoreErrors&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private System.Boolean &lt;fullUpdateRequired&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean &lt;fullUpdateRequired&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private Game.Tools.ToolBaseSystem m_LastTool</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Tools.ToolBaseSystem m_LastTool;
-</code></pre>
-<ul>
-<li><code>private Game.Prefabs.InfoviewPrefab m_CurrentInfoview</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Prefabs.InfoviewPrefab m_CurrentInfoview;
-</code></pre>
-<ul>
-<li><code>private Game.Prefabs.InfoviewPrefab m_LastToolInfoview</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Prefabs.InfoviewPrefab m_LastToolInfoview;
-</code></pre>
-<ul>
-<li><code>private Game.Prefabs.PrefabSystem m_PrefabSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Prefabs.PrefabSystem m_PrefabSystem;
-</code></pre>
-<ul>
-<li><code>private Game.UpdateSystem m_UpdateSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.UpdateSystem m_UpdateSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Tools.ToolRaycastSystem m_ToolRaycastSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Tools.ToolRaycastSystem m_ToolRaycastSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Tools.DefaultToolSystem m_DefaultToolSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Tools.DefaultToolSystem m_DefaultToolSystem;
-</code></pre>
-<ul>
-<li><code>private System.Collections.Generic.List&lt;Game.Tools.ToolBaseSystem&gt; m_Tools</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Collections.Generic.List&lt;Game.Tools.ToolBaseSystem&gt; m_Tools;
-</code></pre>
-<ul>
-<li><code>private System.Collections.Generic.List&lt;Game.Prefabs.InfomodePrefab&gt; m_LastToolInfomodes</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Collections.Generic.List&lt;Game.Prefabs.InfomodePrefab&gt; m_LastToolInfomodes;
-</code></pre>
-<ul>
-<li><code>private System.Collections.Generic.Dictionary&lt;Game.Prefabs.InfoviewPrefab, System.Collections.Generic.List&lt;Game.Prefabs.InfomodeInfo&gt;&gt; m_InfomodeMap</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Collections.Generic.Dictionary&lt;Game.Prefabs.InfoviewPrefab, System.Collections.Generic.List&lt;Game.Prefabs.InfomodeInfo&gt;&gt; m_InfomodeMap;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.Vector4[] m_InfomodeColors</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.Vector4[] m_InfomodeColors;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.Vector4[] m_InfomodeParams</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.Vector4[] m_InfomodeParams;
-</code></pre>
-<ul>
-<li><code>private System.Int32[] m_InfomodeCounts</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32[] m_InfomodeCounts;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeList&lt;Unity.Entities.Entity&gt; m_Infomodes</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeList&lt;Unity.Entities.Entity&gt; m_Infomodes;
-</code></pre>
-<ul>
-<li><code>private System.Single m_InfoviewTimer</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Single m_InfoviewTimer;
-</code></pre>
-<ul>
-<li><code>private System.Boolean m_FullUpdateRequired</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean m_FullUpdateRequired;
-</code></pre>
-<ul>
-<li><code>private System.Boolean m_InfoviewUpdateRequired</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean m_InfoviewUpdateRequired;
-</code></pre>
-<ul>
-<li><code>private System.Boolean m_IsUpdating</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean m_IsUpdating;
-</code></pre>
-<ul>
-<li><code>private Game.Input.InputBarrier m_ToolActionBarrier</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Input.InputBarrier m_ToolActionBarrier;
-</code></pre>
-<ul>
-<li><code>private System.Collections.Generic.Dictionary&lt;Game.Input.ProxyAction, Game.Input.InputBarrier&gt; m_MouseToolBarriers</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Collections.Generic.Dictionary&lt;Game.Input.ProxyAction, Game.Input.InputBarrier&gt; m_MouseToolBarriers;
-</code></pre>
-<ul>
-<li><code>protected static const System.String kToolKeyGroup</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected static const System.String kToolKeyGroup;
-</code></pre>
-<ul>
-<li><code>protected static const System.String kToolCancelKeyGroup</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected static const System.String kToolCancelKeyGroup;
-</code></pre>
-<ul>
-<li><code>protected static const System.String kToolApplyKeyAction</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected static const System.String kToolApplyKeyAction;
-</code></pre>
-<ul>
-<li><code>protected static const System.String kToolCancelKeyAction</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected static const System.String kToolCancelKeyAction;
-</code></pre>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>public Game.Tools.ToolBaseSystem activeTool { get; set }</code>  </li>
+<li>
+<p><code>public Unity.Jobs.JobHandle producerHandle { get; private set }</code><br />
+Note: This property does not exist in this class (template placeholder). (No producerHandle in ToolSystem)</p>
+</li>
+<li>
+<p><code>public ToolBaseSystem activeTool { get; set; }</code><br />
+Description: Gets or sets the current active tool. Setting invokes EventToolChanged and requests a full update when the tool changes. Setter ensures RequireFullUpdate() and event invocation.</p>
+</li>
+<li>
+<p><code>public Entity selected { get; set; }</code><br />
+Description: Currently selected Entity managed by the tool system.</p>
+</li>
+<li>
+<p><code>public int selectedIndex { get; set; }</code><br />
+Description: Public integer for tracking a selected index (usage depends on tools).</p>
+</li>
+<li>
+<p><code>[CanBeNull] public PrefabBase activePrefab</code><br />
+Description: Convenience accessor that returns the Prefab currently bound to the active tool (if any) by calling m_ActiveTool.GetPrefab(); may be null.</p>
+</li>
+<li>
+<p><code>public InfoviewPrefab infoview { get; set; }</code><br />
+Description: Setting this will call SetInfoview(value, null) if the value changes. Getter returns the current infoview field.</p>
+</li>
+<li>
+<p><code>public InfoviewPrefab activeInfoview { get; }</code><br />
+Description: Returns the current m_CurrentInfoview if it exists and is valid; otherwise returns null.</p>
+</li>
+<li>
+<p><code>public GameMode actionMode { get; private set; } = GameMode.Other</code><br />
+Description: Mode describing the context in which the ToolSystem is running (set in OnGamePreload).</p>
+</li>
+<li>
+<p><code>public ApplyMode applyMode { get; }</code><br />
+Description: Returns the apply mode from the last tool (m_LastTool.applyMode) or ApplyMode.None if there is no last tool.</p>
+</li>
+<li>
+<p><code>public bool ignoreErrors { get; set; }</code><br />
+Description: Public flag that tools may use to ignore/allow errors (settable by external code).</p>
+</li>
+<li>
+<p><code>public bool fullUpdateRequired { get; private set; }</code><br />
+Description: Public flag indicating a full update is required (set via RequireFullUpdate).</p>
+</li>
+<li>
+<p><code>public List&lt;ToolBaseSystem&gt; tools { get; }</code><br />
+Description: Lazily-initialized list of registered tools. Accessing ensures the list exists.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public Game.Tools.ToolBaseSystem activeTool { get; set; }
-</code></pre>
-<ul>
-<li><code>public Unity.Entities.Entity selected { get; set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Unity.Entities.Entity selected { get; set; }
-</code></pre>
-<ul>
-<li><code>public System.Int32 selectedIndex { get; set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Int32 selectedIndex { get; set; }
-</code></pre>
-<ul>
-<li><code>public Game.Prefabs.PrefabBase activePrefab { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Game.Prefabs.PrefabBase activePrefab { get; }
-</code></pre>
-<ul>
-<li><code>public Game.Prefabs.InfoviewPrefab infoview { get; set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Game.Prefabs.InfoviewPrefab infoview { get; set; }
-</code></pre>
-<ul>
-<li><code>public Game.Prefabs.InfoviewPrefab activeInfoview { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Game.Prefabs.InfoviewPrefab activeInfoview { get; }
-</code></pre>
-<ul>
-<li><code>public Game.GameMode actionMode { get; private set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Game.GameMode actionMode { get; private set; }
-</code></pre>
-<ul>
-<li><code>public Game.Tools.ApplyMode applyMode { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Game.Tools.ApplyMode applyMode { get; }
-</code></pre>
-<ul>
-<li><code>public System.Boolean ignoreErrors { get; set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Boolean ignoreErrors { get; set; }
-</code></pre>
-<ul>
-<li><code>public System.Boolean fullUpdateRequired { get; private set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Boolean fullUpdateRequired { get; private set; }
-</code></pre>
-<ul>
-<li><code>public System.Collections.Generic.List&lt;Game.Tools.ToolBaseSystem&gt; tools { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Collections.Generic.List&lt;Game.Tools.ToolBaseSystem&gt; tools { get; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public ToolSystem()</code>  </li>
+<li><code>public ToolSystem()</code><br />
+Description: Default constructor. The system is initialized and marked with [Preserve] on OnCreate; most heavy initialization happens in OnCreate.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public ToolSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private &lt;OnCreate&gt;b__64_3(Game.Input.InputManager+ControlScheme activeControlScheme) : System.Void</code>  </li>
+<li>
+<p><code>protected override void OnGamePreload(Purpose purpose, GameMode mode)</code><br />
+Description: Called during game preload. Sets actionMode to the provided GameMode. Useful to detect Editor vs Game contexts.</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnCreate()</code><br />
+Description: Initializes system references (PrefabSystem, UpdateSystem, ToolRaycastSystem, DefaultToolSystem), sets the default active tool, allocates internal structures (infomode arrays, NativeList), sets up input barriers for tools and mouse-tool interactions, hooks InputManager events (control scheme and mouse-over-UI changes), and initializes the shader global "colossal_InfoviewOn" to 0. This method is the main initialization point for runtime behaviour.</p>
+</li>
+<li>
+<p><code>protected override void OnGameLoaded(Context serializationContext)</code><br />
+Description: Called after game load (serialized state). Clears any active infomodes, nulls current infoview and ensures the Infoview shader global is turned off.</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnDestroy()</code><br />
+Description: Disposes persistent NativeList m_Infomodes and InputBarrier m_ToolActionBarrier, disposes mouse tool barriers, resets shader global, and performs base cleanup. Always called to prevent native memory leaks.</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnUpdate()</code><br />
+Description: Main per-frame update entry for the system. Updates the m_ToolActionBarrier.blocked state depending on game mode/loading state, sets m_IsUpdating, runs UpdateSystem phases PreTool and PostTool around ToolUpdate(), flushes the fullUpdateRequired flag, and clears m_IsUpdating.</p>
+</li>
+<li>
+<p><code>public bool ActivatePrefabTool([CanBeNull] PrefabBase prefab)</code><br />
+Description: Attempts to find a ToolBaseSystem in tools that accepts/sets the provided prefab via TrySetPrefab(prefab). If found, sets activeTool to that tool and returns true. If prefab is null or no tool accepts it, sets activeTool to the DefaultToolSystem and returns false. Useful for programmatically activating placement tools for a given prefab.</p>
+</li>
+<li>
+<p><code>private void RefreshInputBarrier(Game.Input.InputManager.ControlScheme activeControlScheme, bool mouseOverUI)</code><br />
+Description: Recomputes whether mouse-tool barriers should be blocked and updates each mouse action's InputBarrier.blocked state accordingly while respecting actions that are currently in progress.</p>
+</li>
+<li>
+<p><code>private bool ShouldBlockBarrier(Game.Input.InputManager.ControlScheme activeControlScheme, bool mouseOverUI)</code><br />
+Description: Returns true when the active control scheme is KeyboardAndMouse and the mouse is over UI (used to decide if mouse tool input should be blocked).</p>
+</li>
+<li>
+<p><code>public void RequireFullUpdate()</code><br />
+Description: Request a full update. If called while the system is updating (m_IsUpdating == true) it sets m_FullUpdateRequired which will be applied after the update; otherwise it sets the publicly visible fullUpdateRequired immediately.</p>
+</li>
+<li>
+<p><code>private void ToolUpdate()</code><br />
+Description: Core logic executed during OnUpdate. Manages infoview timer, tool enable/disable transitions, invokes UpdateSystem.ToolUpdate phase, tracks and synchronizes infoviews/infomodes between the active tool and current infoview, updates shader arrays when necessary, and ensures global shader time is set. This method contains the logic comparing m_LastTool and activeTool, calling tool enable/disable and updating infomode active states to reflect tool requests.</p>
+</li>
+<li>
+<p><code>private void SetInfoview(InfoviewPrefab value, List&lt;InfomodePrefab&gt; infomodes)</code><br />
+Description: Replace the current infoview with the provided one. Clears existing infomodes, then activates infomodes required by the new infoview (respecting supplemental/optional flags and current actionMode). Adds activated infomode entities to m_Infomodes, resets the infoview timer, flags shader update and invokes EventInfoviewChanged.</p>
+</li>
+<li>
+<p><code>private void ClearInfomodes()</code><br />
+Description: Clears all active infomodes by zeroing counters, removing the InfomodeActive component from every entity in m_Infomodes (via EntityManager.RemoveComponent), and clearing the native list. Prepares the system for a fresh set of active infomodes.</p>
+</li>
+<li>
+<p><code>private void UpdateInfoviewColors()</code><br />
+Description: Recomputes m_InfomodeColors and m_InfomodeParams arrays based on currently active infomodes. Reads InfomodePrefab color/parameter data and the InfomodeActive component to pack shader arrays, fills unused slots with defaults, sets shader globals ("colossal_InfoviewOn", "colossal_InfomodeColors", "colossal_InfomodeParams"). If no active infoview, turns off the "colossal_InfoviewOn" flag.</p>
+</li>
+<li>
+<p><code>[CanBeNull] public List&lt;InfomodeInfo&gt; GetInfomodes(InfoviewPrefab infoview)</code><br />
+Description: Returns a cached list of InfomodeInfo for the given InfoviewPrefab. If not cached, reads the DynamicBuffer<InfoviewMode> from PrefabSystem, constructs InfomodeInfo objects (resolving InfomodePrefab instances), sorts them by priority, caches and returns the list.</p>
+</li>
+<li>
+<p><code>public List&lt;InfomodeInfo&gt; GetInfoviewInfomodes()</code><br />
+Description: Convenience method returning GetInfomodes(activeInfoview).</p>
+</li>
+<li>
+<p><code>public bool IsInfomodeActive(InfomodePrefab prefab)</code><br />
+Description: Returns true if the given InfomodePrefab's entity currently has an InfomodeActive component.</p>
+</li>
+<li>
+<p><code>public void SetInfomodeActive(InfomodePrefab prefab, bool active, int priority)</code><br />
+Description: Convenience overload — resolves the prefab to Entity via PrefabSystem.GetEntity and calls SetInfomodeActive(Entity, bool, int).</p>
+</li>
+<li>
+<p><code>public void SetInfomodeActive(Entity entity, bool active, int priority)</code><br />
+Description: Activates or deactivates the infomode described by the entity. Activation ensures color-group constraints (conflicting modes get deactivated) and calls Activate to add the InfomodeActive component. Deactivation removes InfomodeActive and updates internal lists and counters. When changes occur the method sets m_InfoviewUpdateRequired and invokes EventInfomodesChanged.</p>
+</li>
+<li>
+<p><code>private void Activate(Entity entity, InfomodePrefab prefab, int priority)</code><br />
+Description: Adds an InfomodeActive component to the entity, computing primary and optional secondary indices based on color groups and incrementing counters. Assigns the component with priority and indices.</p>
+</li>
+<li>
+<p><code>private void Deactivate(Entity entity, InfomodePrefab prefab, InfomodeActive infomodeActive)</code><br />
+Description: Removes an InfomodeActive component from an infomode entity. Adjusts color-group counts by calling Deactivate(colorGroup, index) for the primary and (if present) secondary indices, then removes the component from the entity.</p>
+</li>
+<li>
+<p><code>private void Deactivate(int colorGroup, int activeIndex)</code><br />
+Description: Internal helper to compact indices when an infomode of a given color group is deactivated. Shifts indices for remaining active items to maintain contiguous indices per color group and updates InfomodeActive components accordingly.</p>
+</li>
+<li>
+<p><code>public void PreDeserialize(Context context)</code><br />
+Description: Called prior to deserialization (part of IPreDeserialize). Clears infomodes and ensures the active tool is reset to the default tool system to maintain consistent state during load.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private System.Void &lt;OnCreate&gt;b__64_3(Game.Input.InputManager+ControlScheme activeControlScheme);
-</code></pre>
-<ul>
-<li><code>private &lt;OnCreate&gt;b__64_4(System.Boolean mouseOverUI) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Void &lt;OnCreate&gt;b__64_4(System.Boolean mouseOverUI);
-</code></pre>
-<ul>
-<li><code>private Activate(Unity.Entities.Entity entity, Game.Prefabs.InfomodePrefab prefab, System.Int32 priority) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void Activate(Entity entity, InfomodePrefab prefab, int priority)
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Example: subscribe to tool changes and activate a prefab tool.
+[Preserve]
+protected override void OnCreate()
+{
+    base.OnCreate();
+    // Get the system (this code runs inside another managed system)
+    var toolSystem = World.GetOrCreateSystemManaged&lt;Game.Tools.ToolSystem&gt;();
+
+    // Listen for when the active tool changes
+    toolSystem.EventToolChanged += tool =&gt;
     {
-        int secondaryGroup;
-        int colorGroup = prefab.GetColorGroup(out secondaryGroup);
-        int index = colorGroup * 4 + ++m_InfomodeCounts[colorGroup];
-        int secondaryIndex = -1;
-        if (secondaryGroup != -1)
-        {
-            secondaryIndex = secondaryGroup * 4 + ++m_InfomodeCounts[secondaryGroup];
-        }
-        base.EntityManager.AddComponentData(entity, new InfomodeActive(priority, index, secondaryIndex));
-    }
-</code></pre>
-<ul>
-<li><code>public ActivatePrefabTool(Game.Prefabs.PrefabBase prefab) : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">public bool ActivatePrefabTool([CanBeNull] PrefabBase prefab)
+        Debug.Log($&quot;Active tool changed to: {tool?.GetType().Name ?? &quot;null&quot;}&quot;);
+    };
+
+    // Activate a placement tool for a prefab (prefab obtained from PrefabSystem)
+    var prefabSystem = World.GetOrCreateSystemManaged&lt;PrefabSystem&gt;();
+    var buildingPrefab = prefabSystem.FindPrefab&lt;PrefabBase&gt;(&quot;MyBuildingPrefab&quot;);
+    if (buildingPrefab != null)
     {
-        if (prefab != null)
-        {
-            foreach (ToolBaseSystem tool in tools)
-            {
-                if (tool.TrySetPrefab(prefab))
-                {
-                    activeTool = tool;
-                    return true;
-                }
-            }
-        }
-        activeTool = m_DefaultToolSystem;
-        return false;
+        bool activated = toolSystem.ActivatePrefabTool(buildingPrefab);
+        Debug.Log($&quot;ActivatePrefabTool returned: {activated}&quot;);
     }
+}
 </code></pre>
-<ul>
-<li><code>private ClearInfomodes() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void ClearInfomodes()
-    {
-        for (int i = 0; i &lt; m_InfomodeCounts.Length; i++)
-        {
-            m_InfomodeCounts[i] = 0;
-        }
-        base.EntityManager.RemoveComponent&lt;InfomodeActive&gt;(m_Infomodes.AsArray());
-        m_Infomodes.Clear();
-    }
-</code></pre>
-<ul>
-<li><code>private Deactivate(Unity.Entities.Entity entity, Game.Prefabs.InfomodePrefab prefab, Game.Prefabs.InfomodeActive infomodeActive) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void Deactivate(int colorGroup, int activeIndex)
-    {
-        int num = colorGroup * 4 + m_InfomodeCounts[colorGroup]--;
-        if (activeIndex &gt;= num)
-        {
-            return;
-        }
-        for (int i = 0; i &lt; m_Infomodes.Length; i++)
-        {
-            Entity entity = m_Infomodes[i];
-            InfomodeActive componentData = base.EntityManager.GetComponentData&lt;InfomodeActive&gt;(entity);
-            if (componentData.m_Index == num)
-            {
-                componentData.m_Index = activeIndex;
-                base.EntityManager.SetComponentData(entity, componentData);
-                break;
-            }
-            if (componentData.m_SecondaryIndex == num)
-            {
-                componentData.m_SecondaryIndex = activeIndex;
-                base.EntityManager.SetComponentData(entity, componentData);
-                break;
-            }
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private Deactivate(System.Int32 colorGroup, System.Int32 activeIndex) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void Deactivate(int colorGroup, int activeIndex)
-    {
-        int num = colorGroup * 4 + m_InfomodeCounts[colorGroup]--;
-        if (activeIndex &gt;= num)
-        {
-            return;
-        }
-        for (int i = 0; i &lt; m_Infomodes.Length; i++)
-        {
-            Entity entity = m_Infomodes[i];
-            InfomodeActive componentData = base.EntityManager.GetComponentData&lt;InfomodeActive&gt;(entity);
-            if (componentData.m_Index == num)
-            {
-                componentData.m_Index = activeIndex;
-                base.EntityManager.SetComponentData(entity, componentData);
-                break;
-            }
-            if (componentData.m_SecondaryIndex == num)
-            {
-                componentData.m_SecondaryIndex = activeIndex;
-                base.EntityManager.SetComponentData(entity, componentData);
-                break;
-            }
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public GetInfomodes(Game.Prefabs.InfoviewPrefab infoview) : System.Collections.Generic.List&lt;Game.Prefabs.InfomodeInfo&gt;</code>  </li>
-</ul>
-<pre><code class="language-csharp">[CanBeNull]
-    public List&lt;InfomodeInfo&gt; GetInfomodes(InfoviewPrefab infoview)
-    {
-        if (infoview == null)
-        {
-            return null;
-        }
-        if (!m_InfomodeMap.TryGetValue(infoview, out var value))
-        {
-            value = new List&lt;InfomodeInfo&gt;();
-            DynamicBuffer&lt;InfoviewMode&gt; buffer = m_PrefabSystem.GetBuffer&lt;InfoviewMode&gt;(infoview, isReadOnly: true);
-            for (int i = 0; i &lt; buffer.Length; i++)
-            {
-                InfoviewMode infoviewMode = buffer[i];
-                InfomodeInfo item = new InfomodeInfo
-                {
-                    m_Mode = m_PrefabSystem.GetPrefab&lt;InfomodePrefab&gt;(infoviewMode.m_Mode),
-                    m_Priority = infoviewMode.m_Priority,
-                    m_Supplemental = infoviewMode.m_Supplemental,
-                    m_Optional = infoviewMode.m_Optional
-                };
-                value.Add(item);
-            }
-            value.Sort();
-            m_InfomodeMap.Add(infoview, value);
-        }
-        return value;
-    }
-</code></pre>
-<ul>
-<li><code>public GetInfoviewInfomodes() : System.Collections.Generic.List&lt;Game.Prefabs.InfomodeInfo&gt;</code>  </li>
-</ul>
-<pre><code class="language-csharp">public List&lt;InfomodeInfo&gt; GetInfoviewInfomodes()
-    {
-        return GetInfomodes(activeInfoview);
-    }
-</code></pre>
-<ul>
-<li><code>public IsInfomodeActive(Game.Prefabs.InfomodePrefab prefab) : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">public bool IsInfomodeActive(InfomodePrefab prefab)
-    {
-        Entity entity = m_PrefabSystem.GetEntity(prefab);
-        return base.EntityManager.HasComponent&lt;InfomodeActive&gt;(entity);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_PrefabSystem = base.World.GetOrCreateSystemManaged&lt;PrefabSystem&gt;();
-        m_UpdateSystem = base.World.GetOrCreateSystemManaged&lt;UpdateSystem&gt;();
-        m_ToolRaycastSystem = base.World.GetOrCreateSystemManaged&lt;ToolRaycastSystem&gt;();
-        m_DefaultToolSystem = base.World.GetOrCreateSystemManaged&lt;DefaultToolSystem&gt;();
-        activeTool = m_DefaultToolSystem;
-        m_LastToolInfomodes = new List&lt;InfomodePrefab&gt;();
-        m_InfomodeMap = new Dictionary&lt;InfoviewPrefab, List&lt;InfomodeInfo&gt;&gt;();
-        m_InfomodeColors = new Vector4[303];
-        m_InfomodeParams = new Vector4[101];
-        m_InfomodeCounts = new int[3];
-        m_Infomodes = new NativeList&lt;Entity&gt;(10, Allocator.Persistent);
-        m_ToolActionBarrier = Game.Input.InputManager.instance.CreateMapBarrier(&quot;Tool&quot;, &quot;ToolSystem&quot;);
-        m_ToolActionBarrier.blocked = true;
-        m_MouseToolBarriers = Game.Input.InputManager.instance.FindActionMap(&quot;Tool&quot;).actions.Values.Where((ProxyAction a) =&gt; a.isMouseAction).ToDictionary((ProxyAction i) =&gt; i, (ProxyAction i) =&gt; new InputBarrier(&quot;Mouse Tool&quot;, i, Game.Input.InputManager.DeviceType.Mouse));
-        foreach (KeyValuePair&lt;ProxyAction, InputBarrier&gt; item in m_MouseToolBarriers)
-        {
-            var (action, _) = (KeyValuePair&lt;ProxyAction, InputBarrier&gt;)(ref item);
-            action.onInteraction += delegate(ProxyAction _, InputActionPhase phase)
-            {
-                if (phase == InputActionPhase.Canceled &amp;&amp; m_MouseToolBarriers.TryGetValue(action, out var value))
-                {
-                    value.blocked = ShouldBlockBarrier(Game.Input.InputManager.instance.activeControlScheme, Game.Input.InputManager.instance.mouseOverUI);
-                }
-            };
-        }
-        Game.Input.InputManager.instance.EventControlSchemeChanged += delegate(Game.Input.InputManager.ControlScheme activeControlScheme)
-        {
-            RefreshInputBarrier(activeControlScheme, Game.Input.InputManager.instance.mouseOverUI);
-        };
-        Game.Input.InputManager.instance.EventMouseOverUIChanged += delegate(bool mouseOverUI)
-        {
-            RefreshInputBarrier(Game.Input.InputManager.instance.activeControlScheme, mouseOverUI);
-        };
-        Shader.SetGlobalInt(&quot;colossal_InfoviewOn&quot;, 0);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnDestroy() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnDestroy()
-    {
-        m_Infomodes.Dispose();
-        Shader.SetGlobalInt(&quot;colossal_InfoviewOn&quot;, 0);
-        m_ToolActionBarrier.Dispose();
-        foreach (KeyValuePair&lt;ProxyAction, InputBarrier&gt; item in m_MouseToolBarriers)
-        {
-            item.Deconstruct(out var _, out var value);
-            value.Dispose();
-        }
-        m_MouseToolBarriers = null;
-        base.OnDestroy();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnGameLoaded(Colossal.Serialization.Entities.Context serializationContext) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnGameLoaded(Context serializationContext)
-    {
-        base.OnGameLoaded(serializationContext);
-        ClearInfomodes();
-        m_CurrentInfoview = null;
-        Shader.SetGlobalInt(&quot;colossal_InfoviewOn&quot;, 0);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnGamePreload(Colossal.Serialization.Entities.Purpose purpose, Game.GameMode mode) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnGamePreload(Purpose purpose, GameMode mode)
-    {
-        actionMode = mode;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        m_ToolActionBarrier.blocked = !GameManager.instance.gameMode.IsGameOrEditor() || GameManager.instance.isGameLoading;
-        m_IsUpdating = true;
-        m_UpdateSystem.Update(SystemUpdatePhase.PreTool);
-        ToolUpdate();
-        m_UpdateSystem.Update(SystemUpdatePhase.PostTool);
-        fullUpdateRequired = m_FullUpdateRequired;
-        m_FullUpdateRequired = false;
-        m_IsUpdating = false;
-    }
-</code></pre>
-<ul>
-<li><code>public PreDeserialize(Colossal.Serialization.Entities.Context context) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void PreDeserialize(Context context)
-    {
-        ClearInfomodes();
-        activeTool = m_DefaultToolSystem;
-    }
-</code></pre>
-<ul>
-<li><code>private RefreshInputBarrier(Game.Input.InputManager+ControlScheme activeControlScheme, System.Boolean mouseOverUI) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void RefreshInputBarrier(Game.Input.InputManager.ControlScheme activeControlScheme, bool mouseOverUI)
-    {
-        bool flag = ShouldBlockBarrier(activeControlScheme, mouseOverUI);
-        foreach (KeyValuePair&lt;ProxyAction, InputBarrier&gt; item in m_MouseToolBarriers)
-        {
-            item.Deconstruct(out var key, out var value);
-            ProxyAction proxyAction = key;
-            value.blocked = flag &amp;&amp; !proxyAction.IsInProgress();
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public RequireFullUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void RequireFullUpdate()
-    {
-        if (m_IsUpdating)
-        {
-            m_FullUpdateRequired = true;
-        }
-        else
-        {
-            fullUpdateRequired = true;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public SetInfomodeActive(Game.Prefabs.InfomodePrefab prefab, System.Boolean active, System.Int32 priority) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void SetInfomodeActive(Entity entity, bool active, int priority)
-    {
-        if (!base.EntityManager.Exists(entity))
-        {
-            return;
-        }
-        if (!active)
-        {
-            int num = m_Infomodes.IndexOf(entity);
-            if (num &gt;= 0)
-            {
-                InfomodeActive componentData = base.EntityManager.GetComponentData&lt;InfomodeActive&gt;(entity);
-                InfomodePrefab prefab = m_PrefabSystem.GetPrefab&lt;InfomodePrefab&gt;(entity);
-                Deactivate(entity, prefab, componentData);
-                m_Infomodes.RemoveAtSwapBack(num);
-                m_InfoviewUpdateRequired = true;
-                EventInfomodesChanged?.Invoke();
-            }
-        }
-        else
-        {
-            if (m_Infomodes.Contains(entity))
-            {
-                return;
-            }
-            InfomodePrefab prefab2 = m_PrefabSystem.GetPrefab&lt;InfomodePrefab&gt;(entity);
-            int secondaryGroup;
-            int colorGroup = prefab2.GetColorGroup(out secondaryGroup);
-            bool flag = false;
-            for (int i = 0; i &lt; m_Infomodes.Length; i++)
-            {
-                Entity entity2 = m_Infomodes[i];
-                InfomodePrefab prefab3 = m_PrefabSystem.GetPrefab&lt;InfomodePrefab&gt;(entity2);
-                int secondaryGroup2;
-                int colorGroup2 = prefab3.GetColorGroup(out secondaryGroup2);
-                if ((colorGroup2 == colorGroup || colorGroup2 == secondaryGroup || secondaryGroup2 == colorGroup || (secondaryGroup2 == secondaryGroup &amp;&amp; secondaryGroup2 != -1)) &amp;&amp; !prefab2.CanActivateBoth(prefab3))
-                {
-                    InfomodeActive componentData2 = base.EntityManager.GetComponentData&lt;InfomodeActive&gt;(entity2);
-                    Deactivate(entity2, prefab3, componentData2);
-                    m_Infomodes[i] = entity;
-                    flag = true;
-                    break;
-                }
-            }
-            Activate(entity, prefab2, priority);
-            if (!flag)
-            {
-                m_Infomodes.Add(in entity);
-            }
-            m_InfoviewUpdateRequired = true;
-            EventInfomodesChanged?.Invoke();
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public SetInfomodeActive(Unity.Entities.Entity entity, System.Boolean active, System.Int32 priority) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void SetInfomodeActive(Entity entity, bool active, int priority)
-    {
-        if (!base.EntityManager.Exists(entity))
-        {
-            return;
-        }
-        if (!active)
-        {
-            int num = m_Infomodes.IndexOf(entity);
-            if (num &gt;= 0)
-            {
-                InfomodeActive componentData = base.EntityManager.GetComponentData&lt;InfomodeActive&gt;(entity);
-                InfomodePrefab prefab = m_PrefabSystem.GetPrefab&lt;InfomodePrefab&gt;(entity);
-                Deactivate(entity, prefab, componentData);
-                m_Infomodes.RemoveAtSwapBack(num);
-                m_InfoviewUpdateRequired = true;
-                EventInfomodesChanged?.Invoke();
-            }
-        }
-        else
-        {
-            if (m_Infomodes.Contains(entity))
-            {
-                return;
-            }
-            InfomodePrefab prefab2 = m_PrefabSystem.GetPrefab&lt;InfomodePrefab&gt;(entity);
-            int secondaryGroup;
-            int colorGroup = prefab2.GetColorGroup(out secondaryGroup);
-            bool flag = false;
-            for (int i = 0; i &lt; m_Infomodes.Length; i++)
-            {
-                Entity entity2 = m_Infomodes[i];
-                InfomodePrefab prefab3 = m_PrefabSystem.GetPrefab&lt;InfomodePrefab&gt;(entity2);
-                int secondaryGroup2;
-                int colorGroup2 = prefab3.GetColorGroup(out secondaryGroup2);
-                if ((colorGroup2 == colorGroup || colorGroup2 == secondaryGroup || secondaryGroup2 == colorGroup || (secondaryGroup2 == secondaryGroup &amp;&amp; secondaryGroup2 != -1)) &amp;&amp; !prefab2.CanActivateBoth(prefab3))
-                {
-                    InfomodeActive componentData2 = base.EntityManager.GetComponentData&lt;InfomodeActive&gt;(entity2);
-                    Deactivate(entity2, prefab3, componentData2);
-                    m_Infomodes[i] = entity;
-                    flag = true;
-                    break;
-                }
-            }
-            Activate(entity, prefab2, priority);
-            if (!flag)
-            {
-                m_Infomodes.Add(in entity);
-            }
-            m_InfoviewUpdateRequired = true;
-            EventInfomodesChanged?.Invoke();
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private SetInfoview(Game.Prefabs.InfoviewPrefab value, System.Collections.Generic.List&lt;Game.Prefabs.InfomodePrefab&gt; infomodes) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void SetInfoview(InfoviewPrefab value, List&lt;InfomodePrefab&gt; infomodes)
-    {
-        m_CurrentInfoview = value;
-        ClearInfomodes();
-        if (activeInfoview != null)
-        {
-            List&lt;InfomodeInfo&gt; infomodes2 = GetInfomodes(value);
-            for (int i = 0; i &lt; infomodes2.Count; i++)
-            {
-                InfomodeInfo infomodeInfo = infomodes2[i];
-                if ((!infomodeInfo.m_Supplemental || (infomodes != null &amp;&amp; infomodes.Contains(infomodeInfo.m_Mode))) &amp;&amp; (!infomodeInfo.m_Optional || !actionMode.IsGame() || infomodes == null || infomodes.Contains(infomodeInfo.m_Mode)))
-                {
-                    Entity value2 = m_PrefabSystem.GetEntity(infomodeInfo.m_Mode);
-                    Activate(value2, infomodeInfo.m_Mode, infomodeInfo.m_Priority);
-                    m_Infomodes.Add(in value2);
-                }
-            }
-        }
-        m_InfoviewTimer = 0f;
-        m_InfoviewUpdateRequired = true;
-        EventInfoviewChanged?.Invoke(value);
-    }
-</code></pre>
-<ul>
-<li><code>private ShouldBlockBarrier(Game.Input.InputManager+ControlScheme activeControlScheme, System.Boolean mouseOverUI) : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">private bool ShouldBlockBarrier(Game.Input.InputManager.ControlScheme activeControlScheme, bool mouseOverUI)
-    {
-        return activeControlScheme == Game.Input.InputManager.ControlScheme.KeyboardAndMouse &amp;&amp; mouseOverUI;
-    }
-</code></pre>
-<ul>
-<li><code>private ToolUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void ToolUpdate()
-    {
-        m_InfoviewTimer += UnityEngine.Time.deltaTime;
-        m_InfoviewTimer %= 60f;
-        if (activeTool != m_LastTool)
-        {
-            if (m_LastTool != null)
-            {
-                m_LastTool.Enabled = false;
-                m_LastTool.Update();
-            }
-            m_LastTool = activeTool;
-        }
-        InfoviewPrefab infoviewPrefab = null;
-        List&lt;InfomodePrefab&gt; list = null;
-        if (m_LastTool != null)
-        {
-            m_LastTool.Enabled = true;
-        }
-        m_UpdateSystem.Update(SystemUpdatePhase.ToolUpdate);
-        if (m_LastTool != null)
-        {
-            infoviewPrefab = m_LastTool.infoview;
-            list = m_LastTool.infomodes;
-        }
-        if (infoviewPrefab != m_LastToolInfoview)
-        {
-            SetInfoview(infoviewPrefab, list);
-            m_LastToolInfoview = infoviewPrefab;
-            m_LastToolInfomodes.Clear();
-            if (list != null)
-            {
-                m_LastToolInfomodes.AddRange(list);
-            }
-        }
-        else if (infoviewPrefab != null &amp;&amp; infoviewPrefab == activeInfoview)
-        {
-            if ((list != null &amp;&amp; list.Count != 0) || m_LastToolInfomodes.Count != 0)
-            {
-                List&lt;InfomodeInfo&gt; infomodes = GetInfomodes(infoviewPrefab);
-                for (int i = 0; i &lt; infomodes.Count; i++)
-                {
-                    InfomodeInfo infomodeInfo = infomodes[i];
-                    if (infomodeInfo.m_Supplemental || (infomodeInfo.m_Optional &amp;&amp; actionMode.IsGame()))
-                    {
-                        bool num = m_LastToolInfomodes.Contains(infomodeInfo.m_Mode);
-                        bool flag = list?.Contains(infomodeInfo.m_Mode) ?? false;
-                        if (num != flag)
-                        {
-                            Entity entity = m_PrefabSystem.GetEntity(infomodeInfo.m_Mode);
-                            SetInfomodeActive(entity, flag, infomodeInfo.m_Priority);
-                        }
-                    }
-                }
-            }
-            m_LastToolInfomodes.Clear();
-            if (list != null)
-            {
-                m_LastToolInfomodes.AddRange(list);
-            }
-        }
-        if (m_InfoviewUpdateRequired)
-        {
-            m_InfoviewUpdateRequired = false;
-            UpdateInfoviewColors();
-        }
-        Shader.SetGlobalFloat(&quot;colossal_InfoviewTime&quot;, m_InfoviewTimer);
-    }
-</code></pre>
-<ul>
-<li><code>private UpdateInfoviewColors() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void UpdateInfoviewColors()
-    {
-        if (activeInfoview != null)
-        {
-            m_InfomodeColors[0] = activeInfoview.m_DefaultColor.linear;
-            m_InfomodeColors[1] = activeInfoview.m_DefaultColor.linear;
-            m_InfomodeColors[2] = activeInfoview.m_SecondaryColor.linear;
-            m_InfomodeParams[0] = new Vector4(1f, 0f, 0f, 0f);
-            for (int i = 0; i &lt; m_Infomodes.Length; i++)
-            {
-                Entity entity = m_Infomodes[i];
-                InfomodePrefab prefab = m_PrefabSystem.GetPrefab&lt;InfomodePrefab&gt;(entity);
-                InfomodeActive componentData = base.EntityManager.GetComponentData&lt;InfomodeActive&gt;(entity);
-                prefab.GetColors(out var color, out var color2, out var color3, out var steps, out var speed, out var tiling, out var fill);
-                m_InfomodeColors[componentData.m_Index * 3] = color.linear;
-                m_InfomodeColors[componentData.m_Index * 3 + 1] = color2.linear;
-                m_InfomodeColors[componentData.m_Index * 3 + 2] = color3.linear;
-                m_InfomodeParams[componentData.m_Index] = new Vector4(steps, speed, tiling, fill);
-                if (componentData.m_SecondaryIndex != -1)
-                {
-                    m_InfomodeColors[componentData.m_SecondaryIndex * 3] = color.linear;
-                    m_InfomodeColors[componentData.m_SecondaryIndex * 3 + 1] = color2.linear;
-                    m_InfomodeColors[componentData.m_SecondaryIndex * 3 + 2] = color3.linear;
-                    m_InfomodeParams[componentData.m_SecondaryIndex] = new Vector4(steps, speed, tiling, fill);
-                }
-            }
-            for (int j = 0; j &lt; m_InfomodeCounts.Length; j++)
-            {
-                for (int k = m_InfomodeCounts[j]; k &lt; 4; k++)
-                {
-                    int num = 1 + j * 4 + k;
-                    m_InfomodeColors[num * 3] = default(Vector4);
-                    m_InfomodeColors[num * 3 + 1] = default(Vector4);
-                    m_InfomodeColors[num * 3 + 2] = default(Vector4);
-                    m_InfomodeParams[num] = new Vector4(1f, 0f, 0f, 0f);
-                }
-            }
-            Shader.SetGlobalInt(&quot;colossal_InfoviewOn&quot;, 1);
-            Shader.SetGlobalVectorArray(&quot;colossal_InfomodeColors&quot;, m_InfomodeColors);
-            Shader.SetGlobalVectorArray(&quot;colossal_InfomodeParams&quot;, m_InfomodeParams);
-        }
-        else
-        {
-            Shader.SetGlobalInt(&quot;colossal_InfoviewOn&quot;, 0);
-        }
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Tools.ToolSystem+&lt;&gt;c</code>  </li>
-<li><code>Game.Tools.ToolSystem+&lt;&gt;c__DisplayClass64_0</code>  </li>
-</ul>
+<p>Notes and Modding Tips:
+- The system manages native memory (NativeList<Entity> m_Infomodes) — do not attempt to re-create/manage it externally; rely on provided APIs and events.
+- Infoview and infomode visuals depend on shader global arrays: "colossal_InfoviewOn", "colossal_InfoviewTime", "colossal_InfomodeColors", and "colossal_InfomodeParams". Use SetInfomodeActive / SetInfoview to modify shown overlays rather than setting shader globals directly.
+- Use ActivatePrefabTool to switch tools to those that expose TrySetPrefab, otherwise the DefaultToolSystem will be used.
+- Input is coordinated via InputBarrier objects; the system blocks mouse tool input when the mouse is over UI in keyboard-and-mouse mode. If you need to customize input handling, be mindful of the InputBarrier semantics and in-progress actions.</p>
 
 
 

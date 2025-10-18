@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87056,6 +87148,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -100045,15 +100160,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -100090,9 +100196,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -117932,6 +118038,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117957,15 +118085,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -118004,9 +118123,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118029,472 +118148,176 @@
 
 
 <h1 id="gameuiingameaveragehappinesssection">Game.UI.InGame.AverageHappinessSection</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.UI.InGame</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.UI.InGame.InfoSectionBase</code><br />
-<strong>Implements:</strong> <code>Game.UI.InGame.ISectionSource</code>, <code>Colossal.UI.Binding.IJsonWritable</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class AverageHappinessSection : Game.UI.InGame.InfoSectionBase, Game.UI.InGame.ISectionSource, Colossal.UI.Binding.IJsonWritable
-{
-    private Game.Simulation.GroundPollutionSystem m_GroundPollutionSystem;
-    private Game.Simulation.NoisePollutionSystem m_NoisePollutionSystem;
-    private Game.Simulation.AirPollutionSystem m_AirPollutionSystem;
-    private Game.Simulation.TelecomCoverageSystem m_TelecomCoverageSystem;
-    private Game.Simulation.TaxSystem m_TaxSystem;
-    private Game.Simulation.CitySystem m_CitySystem;
-    private Unity.Entities.EntityQuery m_DistrictBuildingQuery;
-    public Unity.Collections.NativeArray&lt;System.Int32&gt; m_Results;
-    private Game.UI.InGame.CitizenHappiness &lt;averageHappiness&gt;k__BackingField;
-    private Unity.Collections.NativeArray&lt;Unity.Mathematics.int2&gt; m_Factors;
-    private Unity.Collections.NativeList&lt;Game.UI.InGame.FactorInfo&gt; &lt;happinessFactors&gt;k__BackingField;
-    protected Unity.Entities.EntityQuery m_CitizenHappinessParameterQuery;
-    protected Unity.Entities.EntityQuery m_GarbageParameterQuery;
-    protected Unity.Entities.EntityQuery m_HappinessFactorParameterQuery;
-    protected Unity.Entities.EntityQuery m_HealthcareParameterQuery;
-    protected Unity.Entities.EntityQuery m_ParkParameterQuery;
-    protected Unity.Entities.EntityQuery m_EducationParameterQuery;
-    protected Unity.Entities.EntityQuery m_TelecomParameterQuery;
-    private Game.UI.InGame.AverageHappinessSection+TypeHandle __TypeHandle;
-    private Unity.Entities.EntityQuery __query_1244325462_0;
-
-    protected System.String group { protected get; }
-    private Game.UI.InGame.CitizenHappiness averageHappiness { private get; private set; }
-    private Unity.Collections.NativeList&lt;Game.UI.InGame.FactorInfo&gt; happinessFactors { private get; private set; }
-
-    public AverageHappinessSection();
-
-    private System.Void __AssignQueries(Unity.Entities.SystemState&amp; state);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnCreateForCompiler();
-    protected virtual System.Void OnDestroy();
-    protected virtual System.Void OnProcess();
-    protected virtual System.Void OnUpdate();
-    public virtual System.Void OnWriteProperties(Colossal.UI.Binding.IJsonWriter writer);
-    protected virtual System.Void Reset();
-    private static System.Boolean TryAddPropertyHappiness(System.Int32&amp; happiness, System.Int32&amp; citizenCount, Unity.Entities.Entity entity, Unity.Entities.ComponentLookup&lt;Game.Citizens.Household&gt; householdFromEntity, Unity.Entities.ComponentLookup&lt;Game.Citizens.Citizen&gt; citizenFromEntity, Unity.Entities.ComponentLookup&lt;Game.Citizens.HealthProblem&gt; healthProblemFromEntity, Unity.Entities.BufferLookup&lt;Game.Buildings.Renter&gt; renterFromEntity, Unity.Entities.BufferLookup&lt;Game.Citizens.HouseholdCitizen&gt; householdCitizenFromEntity);
-}
-</code></pre>
+<p><strong>Assembly:</strong> Assembly-CSharp<br />
+<strong>Namespace:</strong> Game.UI.InGame</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> InfoSectionBase</p>
+<p><strong>Summary:</strong><br />
+{{ This UI info section computes and exposes the average citizen happiness for a selected Building, Household or District. It queries game parameter singletons (citizen happiness, garbage, healthcare, park, education, telecom, tax/service fee) and uses several runtime systems (pollution, telecom coverage, tax, city) plus ECS queries and Component/Buffer lookups. The heavy lifting is done by two Burst-compiled jobs (CountHappinessJob and CountDistrictHappinessJob) which aggregate citizen counts, total happiness and factor breakdowns. The results are processed into a CitizenHappiness value and a sorted list of FactorInfo entries for presentation and serialization. }}</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.Simulation.GroundPollutionSystem m_GroundPollutionSystem</code>  </li>
+<li>
+<p><code>private GroundPollutionSystem m_GroundPollutionSystem</code><br />
+{{ Reference to the system providing ground pollution data (used as read-only map for happiness factor calculation). }}</p>
+</li>
+<li>
+<p><code>private NoisePollutionSystem m_NoisePollutionSystem</code><br />
+{{ Reference to the system providing noise pollution data (read-only). }}</p>
+</li>
+<li>
+<p><code>private AirPollutionSystem m_AirPollutionSystem</code><br />
+{{ Reference to the system providing air pollution data (read-only). }}</p>
+</li>
+<li>
+<p><code>private TelecomCoverageSystem m_TelecomCoverageSystem</code><br />
+{{ Reference to the telecom coverage system (used to get telecom coverage CellMapData for jobs). }}</p>
+</li>
+<li>
+<p><code>private TaxSystem m_TaxSystem</code><br />
+{{ Reference used to read current tax rates for happiness calculations. }}</p>
+</li>
+<li>
+<p><code>private CitySystem m_CitySystem</code><br />
+{{ Reference providing the city Entity (m_City) and service fee buffers used to compute relative fees. }}</p>
+</li>
+<li>
+<p><code>private EntityQuery m_DistrictBuildingQuery</code><br />
+{{ EntityQuery used to drive the district-mode IJobChunk scheduling (filters buildings in a district). }}</p>
+</li>
+<li>
+<p><code>public NativeArray&lt;int&gt; m_Results</code><br />
+{{ NativeArray of length 3 used by the jobs to store aggregated results: [visibleFlag, citizenCount, totalHappiness]. }}</p>
+</li>
+<li>
+<p><code>private NativeArray&lt;int2&gt; m_Factors</code><br />
+{{ NativeArray storing per-factor accumulators (count and summed effect) used by BuildingHappiness.GetResidentialBuildingHappinessFactors to collect factor contributions. }}</p>
+</li>
+<li>
+<p><code>protected EntityQuery m_CitizenHappinessParameterQuery</code><br />
+{{ Query for the CitizenHappinessParameterData singleton. }}</p>
+</li>
+<li>
+<p><code>protected EntityQuery m_GarbageParameterQuery</code><br />
+{{ Query for the GarbageParameterData singleton. }}</p>
+</li>
+<li>
+<p><code>protected EntityQuery m_HappinessFactorParameterQuery</code><br />
+{{ Query for HappinessFactorParameterData items (buffer lookup is used in jobs). }}</p>
+</li>
+<li>
+<p><code>protected EntityQuery m_HealthcareParameterQuery</code><br />
+{{ Query for HealthcareParameterData singleton. }}</p>
+</li>
+<li>
+<p><code>protected EntityQuery m_ParkParameterQuery</code><br />
+{{ Query for ParkParameterData singleton. }}</p>
+</li>
+<li>
+<p><code>protected EntityQuery m_EducationParameterQuery</code><br />
+{{ Query for EducationParameterData singleton. }}</p>
+</li>
+<li>
+<p><code>protected EntityQuery m_TelecomParameterQuery</code><br />
+{{ Query for TelecomParameterData singleton. }}</p>
+</li>
+<li>
+<p><code>private TypeHandle __TypeHandle</code><br />
+{{ Internal generated struct that stores Entity/Component/Buffer handles for efficient job binding (assigned in OnCreateForCompiler). }}</p>
+</li>
+<li>
+<p><code>private EntityQuery __query_1244325462_0</code><br />
+{{ Internal EntityQuery built for ServiceFeeParameterData (used to compute relative service fees). }}</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.Simulation.GroundPollutionSystem m_GroundPollutionSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.NoisePollutionSystem m_NoisePollutionSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.NoisePollutionSystem m_NoisePollutionSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.AirPollutionSystem m_AirPollutionSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.AirPollutionSystem m_AirPollutionSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.TelecomCoverageSystem m_TelecomCoverageSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.TelecomCoverageSystem m_TelecomCoverageSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.TaxSystem m_TaxSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.TaxSystem m_TaxSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.CitySystem m_CitySystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.CitySystem m_CitySystem;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_DistrictBuildingQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_DistrictBuildingQuery;
-</code></pre>
-<ul>
-<li><code>public Unity.Collections.NativeArray&lt;System.Int32&gt; m_Results</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Unity.Collections.NativeArray&lt;System.Int32&gt; m_Results;
-</code></pre>
-<ul>
-<li><code>private Game.UI.InGame.CitizenHappiness &lt;averageHappiness&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.UI.InGame.CitizenHappiness &lt;averageHappiness&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeArray&lt;Unity.Mathematics.int2&gt; m_Factors</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeArray&lt;Unity.Mathematics.int2&gt; m_Factors;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeList&lt;Game.UI.InGame.FactorInfo&gt; &lt;happinessFactors&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeList&lt;Game.UI.InGame.FactorInfo&gt; &lt;happinessFactors&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>protected Unity.Entities.EntityQuery m_CitizenHappinessParameterQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected Unity.Entities.EntityQuery m_CitizenHappinessParameterQuery;
-</code></pre>
-<ul>
-<li><code>protected Unity.Entities.EntityQuery m_GarbageParameterQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected Unity.Entities.EntityQuery m_GarbageParameterQuery;
-</code></pre>
-<ul>
-<li><code>protected Unity.Entities.EntityQuery m_HappinessFactorParameterQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected Unity.Entities.EntityQuery m_HappinessFactorParameterQuery;
-</code></pre>
-<ul>
-<li><code>protected Unity.Entities.EntityQuery m_HealthcareParameterQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected Unity.Entities.EntityQuery m_HealthcareParameterQuery;
-</code></pre>
-<ul>
-<li><code>protected Unity.Entities.EntityQuery m_ParkParameterQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected Unity.Entities.EntityQuery m_ParkParameterQuery;
-</code></pre>
-<ul>
-<li><code>protected Unity.Entities.EntityQuery m_EducationParameterQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected Unity.Entities.EntityQuery m_EducationParameterQuery;
-</code></pre>
-<ul>
-<li><code>protected Unity.Entities.EntityQuery m_TelecomParameterQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected Unity.Entities.EntityQuery m_TelecomParameterQuery;
-</code></pre>
-<ul>
-<li><code>private Game.UI.InGame.AverageHappinessSection+TypeHandle __TypeHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.UI.InGame.AverageHappinessSection+TypeHandle __TypeHandle;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery __query_1244325462_0</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery __query_1244325462_0;
-</code></pre>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>protected System.String group { protected get }</code>  </li>
+<li>
+<p><code>private CitizenHappiness averageHappiness { get; set; }</code><br />
+{{ Holds the computed average happiness (converted to CitizenHappiness enum/value) after processing job results in OnProcess. Used for display/serialization. }}</p>
+</li>
+<li>
+<p><code>private NativeList&lt;FactorInfo&gt; happinessFactors { get; set; }</code><br />
+{{ Collected and sorted list of factor contributions (FactorInfo) derived from m_Factors. Exposed via OnWriteProperties to the UI/json writer. }}</p>
+</li>
 </ul>
-<pre><code class="language-csharp">protected System.String group { protected get; }
-</code></pre>
-<ul>
-<li><code>private Game.UI.InGame.CitizenHappiness averageHappiness { private get; private set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.UI.InGame.CitizenHappiness averageHappiness { private get; private set; }
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeList&lt;Game.UI.InGame.FactorInfo&gt; happinessFactors { private get; private set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeList&lt;Game.UI.InGame.FactorInfo&gt; happinessFactors { private get; private set; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public AverageHappinessSection()</code>  </li>
+<li><code>public AverageHappinessSection()</code><br />
+{{ Default constructor. Most setup happens in overridden OnCreate; constructor only exists to satisfy Unity/managed construction. }}</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public AverageHappinessSection()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private __AssignQueries(Unity.Entities.SystemState&amp; state) : System.Void</code>  </li>
+<li>
+<p><code>protected override void OnCreate()</code><br />
+{{ Initializes system references (pollution/telecom/tax/city), builds queries (district/building/parameter queries), allocates persistent NativeArray m_Factors and m_Results and NativeList for happinessFactors. This is where the section obtains the systems it needs and prepares buffers for job execution. Marked [Preserve]. }}</p>
+</li>
+<li>
+<p><code>protected override void OnDestroy()</code><br />
+{{ Disposes persistent NativeArray and NativeList resources (m_Results, m_Factors, happinessFactors) and calls base.OnDestroy. Marked [Preserve]. }}</p>
+</li>
+<li>
+<p><code>protected override void Reset()</code><br />
+{{ Clears accumulators: zeroes m_Factors, resets averageHappiness to default, clears happinessFactors and zeroes m_Results. Called when the section resets state between selections or refreshes. }}</p>
+</li>
+<li>
+<p><code>protected override void OnUpdate()</code><br />
+{{ Main update that:</p>
+</li>
+<li>Reads parameter singletons (citizen happiness, garbage, healthcare, park, education, telecom, service fee).</li>
+<li>Gets pollution/coverage buffers from respective systems (blocking until data is ready).</li>
+<li>Computes relative electricity/water fees.</li>
+<li>Decides whether selectedEntity is a District/Area combination; if yes schedules CountDistrictHappinessJob via JobChunkExtensions on m_DistrictBuildingQuery; otherwise schedules CountHappinessJob for a single entity.</li>
+<li>
+<p>Jobs populate m_Results and m_Factors; the code sets base.visible based on m_Results[0].
+  This method binds many ComponentLookup/TypeHandles from the internal __TypeHandle. Marked [Preserve]. }}</p>
+</li>
+<li>
+<p><code>protected override void OnProcess()</code><br />
+{{ Called after jobs complete. It:</p>
+</li>
+<li>Reads m_Results to compute average happiness (uses CitizenUIUtils.GetCitizenHappiness on the per-citizen average).</li>
+<li>Iterates m_Factors and converts accumulated (count,sum) into rounded per-factor values, adds non-zero factors to happinessFactors and sorts them.</li>
+<li>
+<p>Adds tooltip keys depending on whether the selected entity is a Building, Household or District.
+  This prepares data for display and serialization. }}</p>
+</li>
+<li>
+<p><code>public override void OnWriteProperties(IJsonWriter writer)</code><br />
+{{ Serializes the computed averageHappiness and up to the top 10 happinessFactors into the provided JSON writer. This method is used by the UI to send section data to the frontend. }}</p>
+</li>
+<li>
+<p><code>private static bool TryAddPropertyHappiness(ref int happiness, ref int citizenCount, Entity entity, ComponentLookup&lt;Household&gt; householdFromEntity, ComponentLookup&lt;Citizen&gt; citizenFromEntity, ComponentLookup&lt;HealthProblem&gt; healthProblemFromEntity, BufferLookup&lt;Renter&gt; renterFromEntity, BufferLookup&lt;HouseholdCitizen&gt; householdCitizenFromEntity)</code><br />
+{{ Utility that attempts to walk renters-&gt;households-&gt;household citizens for a property entity and accumulate happiness/ citizenCount. Returns true if at least one household/renter was processed. It skips dead citizens via CitizenUtils.IsDead (consults HealthProblem). Used by both jobs to gather per-property citizen happiness contributions. }}</p>
+</li>
+<li>
+<p><code>private void __AssignQueries(ref SystemState state)</code><br />
+{{ Internal method that builds the __query_1244325462_0 EntityQuery (ServiceFeeParameterData) used by OnUpdate. This is part of generated/compiled glue to safely acquire queries in compiled code. }}</p>
+</li>
+<li>
+<p><code>protected override void OnCreateForCompiler()</code><br />
+{{ Internal glue invoked by compiled code to assign queries and type handles (calls __AssignQueries and __TypeHandle.__AssignHandles). Marked [Preserve] in the source. }}</p>
+</li>
+<li>
+<p>CountHappinessJob (private nested struct : IJob, BurstCompile)<br />
+{{ Burst-compiled job that runs for a single selected entity (building or household). If the entity is a residential building it invokes BuildingHappiness.GetResidentialBuildingHappinessFactors and then calls TryAddPropertyHappiness to accumulate citizens/happiness; if the selected entity is a household it iterates household citizens. Writes results into provided NativeArrays (m_Results and m_Factors). Uses many ComponentLookup/BufferLookup handles passed in during scheduling. }}</p>
+</li>
+<li>
+<p>CountDistrictHappinessJob (public nested struct : IJobChunk, BurstCompile)<br />
+{{ Burst-compiled chunk job that iterates building chunks filtered by district, checks buildings that belong to the selected district and are spawnable residential prefabs, uses TryAddPropertyHappiness to accumulate citizen counts/happiness for each building and calls BuildingHappiness.GetResidentialBuildingHappinessFactors to aggregate factors into m_Factors. Accumulates chunk results into m_Results. Designed for efficient district-wide aggregation. }}</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private void __AssignQueries(ref SystemState state)
-    {
-        EntityQueryBuilder entityQueryBuilder = new EntityQueryBuilder(Allocator.Temp);
-        EntityQueryBuilder entityQueryBuilder2 = entityQueryBuilder.WithAll&lt;ServiceFeeParameterData&gt;();
-        entityQueryBuilder2 = entityQueryBuilder2.WithOptions(EntityQueryOptions.IncludeSystems);
-        __query_1244325462_0 = entityQueryBuilder2.Build(ref state);
-        entityQueryBuilder.Reset();
-        entityQueryBuilder.Dispose();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
+<h2 id="usage-example">Usage Example</h2>
 <pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_GroundPollutionSystem = base.World.GetOrCreateSystemManaged&lt;GroundPollutionSystem&gt;();
-        m_NoisePollutionSystem = base.World.GetOrCreateSystemManaged&lt;NoisePollutionSystem&gt;();
-        m_AirPollutionSystem = base.World.GetOrCreateSystemManaged&lt;AirPollutionSystem&gt;();
-        m_TelecomCoverageSystem = base.World.GetOrCreateSystemManaged&lt;TelecomCoverageSystem&gt;();
-        m_TaxSystem = base.World.GetOrCreateSystemManaged&lt;TaxSystem&gt;();
-        m_CitySystem = base.World.GetOrCreateSystemManaged&lt;CitySystem&gt;();
-        m_DistrictBuildingQuery = GetEntityQuery(ComponentType.ReadOnly&lt;Building&gt;(), ComponentType.ReadOnly&lt;PrefabRef&gt;(), ComponentType.ReadOnly&lt;Renter&gt;(), ComponentType.ReadOnly&lt;CurrentDistrict&gt;(), ComponentType.ReadOnly&lt;ResidentialProperty&gt;(), ComponentType.Exclude&lt;Temp&gt;(), ComponentType.Exclude&lt;Deleted&gt;());
-        m_CitizenHappinessParameterQuery = GetEntityQuery(ComponentType.ReadOnly&lt;CitizenHappinessParameterData&gt;());
-        m_GarbageParameterQuery = GetEntityQuery(ComponentType.ReadOnly&lt;GarbageParameterData&gt;());
-        m_HappinessFactorParameterQuery = GetEntityQuery(ComponentType.ReadOnly&lt;HappinessFactorParameterData&gt;());
-        m_HealthcareParameterQuery = GetEntityQuery(ComponentType.ReadOnly&lt;HealthcareParameterData&gt;());
-        m_ParkParameterQuery = GetEntityQuery(ComponentType.ReadOnly&lt;ParkParameterData&gt;());
-        m_EducationParameterQuery = GetEntityQuery(ComponentType.ReadOnly&lt;EducationParameterData&gt;());
-        m_TelecomParameterQuery = GetEntityQuery(ComponentType.ReadOnly&lt;TelecomParameterData&gt;());
-        m_Factors = new NativeArray&lt;int2&gt;(28, Allocator.Persistent);
-        happinessFactors = new NativeList&lt;FactorInfo&gt;(10, Allocator.Persistent);
-        m_Results = new NativeArray&lt;int&gt;(3, Allocator.Persistent);
-    }
+protected override void OnCreate()
+{
+    base.OnCreate();
+
+    // Example: this class already initializes systems/queries and persistent buffers.
+    // If subclassing, call base.OnCreate() first so m_Factors/m_Results and system references are available.
+    // You can also override OnProcess to read computed averageHappiness/happinessFactors for custom UI logic.
+}
 </code></pre>
-<ul>
-<li><code>protected virtual OnCreateForCompiler() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnCreateForCompiler()
-    {
-        base.OnCreateForCompiler();
-        __AssignQueries(ref base.CheckedStateRef);
-        __TypeHandle.__AssignHandles(ref base.CheckedStateRef);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnDestroy() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnDestroy()
-    {
-        m_Results.Dispose();
-        m_Factors.Dispose();
-        happinessFactors.Dispose();
-        base.OnDestroy();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnProcess() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnProcess()
-    {
-        int num = m_Results[1];
-        int num2 = m_Results[2];
-        averageHappiness = CitizenUIUtils.GetCitizenHappiness(num2 / math.select(num, 1, num == 0));
-        for (int i = 0; i &lt; m_Factors.Length; i++)
-        {
-            int x = m_Factors[i].x;
-            if (x &gt; 0)
-            {
-                float num3 = math.round((float)m_Factors[i].y / (float)x);
-                if (num3 != 0f)
-                {
-                    happinessFactors.Add(new FactorInfo(i, (int)num3));
-                }
-            }
-        }
-        happinessFactors.Sort();
-        if (base.EntityManager.HasComponent&lt;Building&gt;(selectedEntity))
-        {
-            base.tooltipKeys.Add(&quot;Building&quot;);
-        }
-        else if (base.EntityManager.HasComponent&lt;Household&gt;(selectedEntity))
-        {
-            base.tooltipKeys.Add(&quot;Household&quot;);
-        }
-        else
-        {
-            base.tooltipKeys.Add(&quot;District&quot;);
-        }
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        CitizenHappinessParameterData singleton = m_CitizenHappinessParameterQuery.GetSingleton&lt;CitizenHappinessParameterData&gt;();
-        GarbageParameterData singleton2 = m_GarbageParameterQuery.GetSingleton&lt;GarbageParameterData&gt;();
-        DynamicBuffer&lt;HappinessFactorParameterData&gt; bufferAfterCompletingDependency = InternalCompilerInterface.GetBufferAfterCompletingDependency(ref __TypeHandle.__Game_Prefabs_HappinessFactorParameterData_RW_BufferLookup, ref base.CheckedStateRef, m_HappinessFactorParameterQuery.GetSingletonEntity());
-        HealthcareParameterData singleton3 = m_HealthcareParameterQuery.GetSingleton&lt;HealthcareParameterData&gt;();
-        ParkParameterData singleton4 = m_ParkParameterQuery.GetSingleton&lt;ParkParameterData&gt;();
-        EducationParameterData singleton5 = m_EducationParameterQuery.GetSingleton&lt;EducationParameterData&gt;();
-        TelecomParameterData singleton6 = m_TelecomParameterQuery.GetSingleton&lt;TelecomParameterData&gt;();
-        ServiceFeeParameterData singleton7 = __query_1244325462_0.GetSingleton&lt;ServiceFeeParameterData&gt;();
-        JobHandle dependencies;
-        NativeArray&lt;GroundPollution&gt; buffer = m_GroundPollutionSystem.GetData(readOnly: true, out dependencies).m_Buffer;
-        JobHandle dependencies2;
-        NativeArray&lt;NoisePollution&gt; buffer2 = m_NoisePollutionSystem.GetData(readOnly: true, out dependencies2).m_Buffer;
-        JobHandle dependencies3;
-        NativeArray&lt;AirPollution&gt; buffer3 = m_AirPollutionSystem.GetData(readOnly: true, out dependencies3).m_Buffer;
-        JobHandle dependencies4;
-        CellMapData&lt;TelecomCoverage&gt; data = m_TelecomCoverageSystem.GetData(readOnly: true, out dependencies4);
-        dependencies.Complete();
-        dependencies2.Complete();
-        dependencies3.Complete();
-        dependencies4.Complete();
-        NativeArray&lt;int&gt; taxRates = m_TaxSystem.GetTaxRates();
-        DynamicBuffer&lt;ServiceFee&gt; buffer4 = base.EntityManager.GetBuffer&lt;ServiceFee&gt;(m_CitySystem.City);
-        float relativeElectricityFee = ServiceFeeSystem.GetFee(PlayerResource.Electricity, buffer4) / singleton7.m_ElectricityFee.m_Default;
-        float relativeWaterFee = ServiceFeeSystem.GetFee(PlayerResource.Water, buffer4) / singleton7.m_WaterFee.m_Default;
-        if (base.EntityManager.HasComponent&lt;District&gt;(selectedEntity) &amp;&amp; base.EntityManager.HasComponent&lt;Area&gt;(selectedEntity))
-        {
-            JobChunkExtensions.Schedule(new CountDistrictHappinessJob
-            {
-                m_SelectedEntity = selectedEntity,
-                m_EntityHandle = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef),
-                m_CitizenFromEntity = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Citizens_Citizen_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_HouseholdFromEntity = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Citizens_Household_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_CurrentDistrictHandle = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Areas_CurrentDistrict_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                m_AbandonedFromEntity = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Buildings_Abandoned_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_HealthProblemFromEntity = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Citizens_HealthProblem_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_HouseholdCitizenFromEntity = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Citizens_HouseholdCitizen_RO_BufferLookup, ref base.CheckedStateRef),
-                m_RenterFromEntity = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Buildings_Renter_RO_BufferLookup, ref base.CheckedStateRef),
-                m_PrefabRefFromEntity = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_SpawnableBuildingDataFromEntity = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_SpawnableBuildingData_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_BuildingPropertyDataFromEntity = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_BuildingPropertyData_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_BuildingFromEntity = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Buildings_Building_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_ElectricityConsumerFromEntity = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Buildings_ElectricityConsumer_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_WaterConsumerFromEntity = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Buildings_WaterConsumer_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_LockedFromEntity = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_Locked_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_TransformFromEntity = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Objects_Transform_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_GarbageProducersFromEntity = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Buildings_GarbageProducer_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_CrimeProducersFromEntity = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Buildings_CrimeProducer_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_MailProducerFromEntity = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Buildings_MailProducer_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_BuildingDataFromEntity = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_BuildingData_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_CityModifierFromEntity = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_City_CityModifier_RO_BufferLookup, ref base.CheckedStateRef),
-                m_ServiceCoverageFromEntity = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Net_ServiceCoverage_RO_BufferLookup, ref base.CheckedStateRef),
-                m_CitizenHappinessParameters = singleton,
-                m_GarbageParameters = singleton2,
-                m_HealthcareParameters = singleton3,
-                m_ParkParameters = singleton4,
-                m_EducationParameters = singleton5,
-                m_TelecomParameters = singleton6,
-                m_HappinessFactorParameters = bufferAfterCompletingDependency,
-                m_TelecomCoverage = data,
-                m_PollutionMap = buffer,
-                m_NoisePollutionMap = buffer2,
-                m_AirPollutionMap = buffer3,
-                m_TaxRates = taxRates,
-                m_Factors = m_Factors,
-                m_Results = m_Results,
-                m_City = m_CitySystem.City,
-                m_RelativeElectricityFee = relativeElectricityFee,
-                m_RelativeWaterFee = relativeWaterFee
-            }, m_DistrictBuildingQuery, base.Dependency).Complete();
-            base.visible = m_Results[0] &gt; 0;
-        }
-        else
-        {
-            IJobExtensions.Schedule(new CountHappinessJob
-            {
-                m_SelectedEntity = selectedEntity,
-                m_BuildingFromEntity = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Buildings_Building_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_ResidentialPropertyFromEntity = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Buildings_ResidentialProperty_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_HouseholdFromEntity = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Citizens_Household_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_HealthProblemFromEntity = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Citizens_HealthProblem_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_PropertyRenterFromEntity = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Buildings_PropertyRenter_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_AbandonedFromEntity = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Buildings_Abandoned_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_CitizenFromEntity = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Citizens_Citizen_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_HouseholdCitizenFromEntity = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Citizens_HouseholdCitizen_RO_BufferLookup, ref base.CheckedStateRef),
-                m_RenterFromEntity = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Buildings_Renter_RO_BufferLookup, ref base.CheckedStateRef),
-                m_PrefabRefFromEntity = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_SpawnableBuildingDataFromEntity = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_SpawnableBuildingData_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_BuildingPropertyDataFromEntity = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_BuildingPropertyData_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_ElectricityConsumerFromEntity = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Buildings_ElectricityConsumer_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_WaterConsumerFromEntity = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Buildings_WaterConsumer_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_LockedFromEntity = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_Locked_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_TransformFromEntity = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Objects_Transform_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_GarbageProducersFromEntity = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Buildings_GarbageProducer_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_CrimeProducersFromEntity = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Buildings_CrimeProducer_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_MailProducerFromEntity = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Buildings_MailProducer_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_BuildingDataFromEntity = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_BuildingData_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_CityModifierFromEntity = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_City_CityModifier_RO_BufferLookup, ref base.CheckedStateRef),
-                m_ServiceCoverageFromEntity = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Net_ServiceCoverage_RO_BufferLookup, ref base.CheckedStateRef),
-                m_CitizenHappinessParameters = singleton,
-                m_GarbageParameters = singleton2,
-                m_HealthcareParameters = singleton3,
-                m_ParkParameters = singleton4,
-                m_EducationParameters = singleton5,
-                m_TelecomParameters = singleton6,
-                m_HappinessFactorParameters = bufferAfterCompletingDependency,
-                m_TelecomCoverage = data,
-                m_PollutionMap = buffer,
-                m_NoisePollutionMap = buffer2,
-                m_AirPollutionMap = buffer3,
-                m_TaxRates = taxRates,
-                m_Factors = m_Factors,
-                m_Results = m_Results,
-                m_City = m_CitySystem.City,
-                m_RelativeElectricityFee = relativeElectricityFee,
-                m_RelativeWaterFee = relativeWaterFee
-            }, base.Dependency).Complete();
-            base.visible = m_Results[0] &gt; 0;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public virtual OnWriteProperties(Colossal.UI.Binding.IJsonWriter writer) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override void OnWriteProperties(IJsonWriter writer)
-    {
-        writer.PropertyName(&quot;averageHappiness&quot;);
-        writer.Write(averageHappiness);
-        int num = math.min(10, happinessFactors.Length);
-        writer.PropertyName(&quot;happinessFactors&quot;);
-        writer.ArrayBegin(num);
-        for (int i = 0; i &lt; num; i++)
-        {
-            happinessFactors[i].WriteBuildingHappinessFactor(writer);
-        }
-        writer.ArrayEnd();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual Reset() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void Reset()
-    {
-        for (int i = 0; i &lt; m_Factors.Length; i++)
-        {
-            m_Factors[i] = 0;
-        }
-        averageHappiness = default(CitizenHappiness);
-        happinessFactors.Clear();
-        m_Results[0] = 0;
-        m_Results[1] = 0;
-        m_Results[2] = 0;
-    }
-</code></pre>
-<ul>
-<li><code>private static TryAddPropertyHappiness(System.Int32&amp; happiness, System.Int32&amp; citizenCount, Unity.Entities.Entity entity, Unity.Entities.ComponentLookup&lt;Game.Citizens.Household&gt; householdFromEntity, Unity.Entities.ComponentLookup&lt;Game.Citizens.Citizen&gt; citizenFromEntity, Unity.Entities.ComponentLookup&lt;Game.Citizens.HealthProblem&gt; healthProblemFromEntity, Unity.Entities.BufferLookup&lt;Game.Buildings.Renter&gt; renterFromEntity, Unity.Entities.BufferLookup&lt;Game.Citizens.HouseholdCitizen&gt; householdCitizenFromEntity) : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static bool TryAddPropertyHappiness(ref int happiness, ref int citizenCount, Entity entity, ComponentLookup&lt;Household&gt; householdFromEntity, ComponentLookup&lt;Citizen&gt; citizenFromEntity, ComponentLookup&lt;HealthProblem&gt; healthProblemFromEntity, BufferLookup&lt;Renter&gt; renterFromEntity, BufferLookup&lt;HouseholdCitizen&gt; householdCitizenFromEntity)
-    {
-        bool result = false;
-        if (renterFromEntity.TryGetBuffer(entity, out var bufferData))
-        {
-            for (int i = 0; i &lt; bufferData.Length; i++)
-            {
-                Entity renter = bufferData[i].m_Renter;
-                if (!householdFromEntity.HasComponent(renter) || !householdCitizenFromEntity.TryGetBuffer(renter, out var bufferData2))
-                {
-                    continue;
-                }
-                result = true;
-                for (int j = 0; j &lt; bufferData2.Length; j++)
-                {
-                    Entity citizen = bufferData2[j].m_Citizen;
-                    if (citizenFromEntity.HasComponent(citizen) &amp;&amp; !CitizenUtils.IsDead(citizen, ref healthProblemFromEntity))
-                    {
-                        happiness += citizenFromEntity[citizen].Happiness;
-                        citizenCount++;
-                    }
-                }
-            }
-        }
-        return result;
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.UI.InGame.AverageHappinessSection+Result</code>  </li>
-<li><code>Game.UI.InGame.AverageHappinessSection+CountHappinessJob</code>  </li>
-<li><code>Game.UI.InGame.AverageHappinessSection+CountDistrictHappinessJob</code>  </li>
-<li><code>Game.UI.InGame.AverageHappinessSection+TypeHandle</code>  </li>
-</ul>
 
 
 

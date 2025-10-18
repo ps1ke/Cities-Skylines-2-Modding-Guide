@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87056,6 +87148,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -100873,15 +100988,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -100912,6 +101018,15 @@
   <a href="#methods" class="md-nav__link">
     <span class="md-ellipsis">
       Methods
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
     </span>
   </a>
   
@@ -117923,6 +118038,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117948,15 +118085,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -117994,6 +118122,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -118011,184 +118148,123 @@
 
 
 <h1 id="gameuiingameclimateuisystem">Game.UI.InGame.ClimateUISystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.UI.InGame</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.UI.UISystemBase</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class ClimateUISystem : Game.UI.UISystemBase
-{
-    private Game.Simulation.ClimateSystem m_ClimateSystem;
-    private Unity.Entities.EntityQuery m_ClimateQuery;
-    private Unity.Entities.EntityQuery m_ClimateSeasonQuery;
-    private Unity.Entities.EntityQuery m_SeasonChangedQuery;
-    private Colossal.UI.Binding.GetterValueBinding&lt;System.Single&gt; m_TemperatureBinding;
-    private Colossal.UI.Binding.GetterValueBinding&lt;Game.UI.InGame.WeatherType&gt; m_WeatherBinding;
-    private Colossal.UI.Binding.GetterValueBinding&lt;System.String&gt; m_SeasonBinding;
-    private Unity.Entities.Entity m_CurrentSeason;
-    public static const System.String kGroup;
-
-    private System.Single m_TemperatureBindingValue { private get; }
-
-    public ClimateUISystem();
-
-    private System.Single &lt;OnCreate&gt;b__11_0();
-    private static Game.UI.InGame.WeatherType FromWeatherClassification(Game.Simulation.ClimateSystem+WeatherClassification classification);
-    private System.String GetCurrentSeasonNameID();
-    public Game.UI.InGame.WeatherType GetWeather();
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnUpdate();
-    private static System.Void WriteWeatherType(Colossal.UI.Binding.IJsonWriter writer, Game.UI.InGame.WeatherType type);
-}
-</code></pre>
+<p><strong>Assembly:</strong> Assembly-CSharp<br />
+<strong>Namespace:</strong> Game.UI.InGame</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> UISystemBase</p>
+<p><strong>Summary:</strong><br />
+ClimateUISystem is a UI system that exposes climate-related data (temperature, weather, and current season name) to the UI via GetterValueBinding instances. It queries the game's ClimateSystem each frame and keeps UI bindings up to date, converting the game's internal weather classification and precipitation flags into simple UI-friendly values. The system uses a small amount of smoothing/rounding for temperature and triggers season updates when the current season entity changes.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.Simulation.ClimateSystem m_ClimateSystem</code>  </li>
+<li>
+<p><code>public const string kGroup = "climate"</code><br />
+Contains the binding group name used when registering GetterValueBinding entries. UI elements use this group name to reference climate bindings.</p>
+</li>
+<li>
+<p><code>private ClimateSystem m_ClimateSystem</code><br />
+Reference to the game's ClimateSystem (retrieved from the ECS world). Used to read temperature, precipitation, classification, and current season info.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_ClimateQuery</code><br />
+EntityQuery intended for climate-related queries. (Declared but not used in the shown code; likely reserved for future ECS queries.)</p>
+</li>
+<li>
+<p><code>private EntityQuery m_ClimateSeasonQuery</code><br />
+EntityQuery intended for season-related queries. (Declared but not used in the shown code; likely reserved.)</p>
+</li>
+<li>
+<p><code>private EntityQuery m_SeasonChangedQuery</code><br />
+EntityQuery intended to detect season changes. (Declared but not used in the shown code; likely reserved.)</p>
+</li>
+<li>
+<p><code>private GetterValueBinding&lt;float&gt; m_TemperatureBinding</code><br />
+Binding that exposes the current temperature (rounded) to the UI under group "climate" and key "temperature".</p>
+</li>
+<li>
+<p><code>private GetterValueBinding&lt;WeatherType&gt; m_WeatherBinding</code><br />
+Binding that exposes the current weather to the UI under group "climate" and key "weather". Uses a delegate writer to serialize the WeatherType.</p>
+</li>
+<li>
+<p><code>private GetterValueBinding&lt;string&gt; m_SeasonBinding</code><br />
+Binding that exposes the current season name ID to the UI under group "climate" and key "seasonNameId". Uses a nullable string writer.</p>
+</li>
+<li>
+<p><code>private Entity m_CurrentSeason</code><br />
+Caches the current season Entity to detect when the season changes so the season binding can be triggered.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.Simulation.ClimateSystem m_ClimateSystem;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_ClimateQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_ClimateQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_ClimateSeasonQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_ClimateSeasonQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_SeasonChangedQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_SeasonChangedQuery;
-</code></pre>
-<ul>
-<li><code>private Colossal.UI.Binding.GetterValueBinding&lt;System.Single&gt; m_TemperatureBinding</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.UI.Binding.GetterValueBinding&lt;System.Single&gt; m_TemperatureBinding;
-</code></pre>
-<ul>
-<li><code>private Colossal.UI.Binding.GetterValueBinding&lt;Game.UI.InGame.WeatherType&gt; m_WeatherBinding</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.UI.Binding.GetterValueBinding&lt;Game.UI.InGame.WeatherType&gt; m_WeatherBinding;
-</code></pre>
-<ul>
-<li><code>private Colossal.UI.Binding.GetterValueBinding&lt;System.String&gt; m_SeasonBinding</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.UI.Binding.GetterValueBinding&lt;System.String&gt; m_SeasonBinding;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.Entity m_CurrentSeason</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.Entity m_CurrentSeason;
-</code></pre>
-<ul>
-<li><code>public static const System.String kGroup</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static const System.String kGroup;
-</code></pre>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>private System.Single m_TemperatureBindingValue { private get }</code>  </li>
+<li><code>private float m_TemperatureBindingValue { get }</code><br />
+Returns the ClimateSystem.temperature snapped to one decimal place via MathUtils.Snap(..., 0.1f). This is the value supplied to m_TemperatureBinding. The rounding helps avoid frequent tiny UI updates when temperature fluctuates very slightly.</li>
 </ul>
-<pre><code class="language-csharp">private System.Single m_TemperatureBindingValue { private get; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public ClimateUISystem()</code>  </li>
+<li><code>public ClimateUISystem()</code><br />
+Default constructor. Marked with [Preserve] (via the attribute on the class methods) so it's preserved for runtime/IL2CPP usage. No custom initialization is performed here; initialization occurs in OnCreate.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public ClimateUISystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private &lt;OnCreate&gt;b__11_0() : System.Single</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Single &lt;OnCreate&gt;b__11_0();
-</code></pre>
+<li><code>protected override void OnCreate()</code><br />
+Initializes references and registers UI bindings:</li>
+<li>Retrieves the ClimateSystem from the ECS World.</li>
+<li>
+<p>Creates and registers three GetterValueBinding instances:</p>
 <ul>
-<li><code>private static FromWeatherClassification(Game.Simulation.ClimateSystem+WeatherClassification classification) : Game.UI.InGame.WeatherType</code>  </li>
+<li>temperature — uses m_TemperatureBindingValue getter.</li>
+<li>weather — uses GetWeather() and a DelegateWriter to write WeatherType.</li>
+<li>seasonNameId — uses GetCurrentSeasonNameID() and a nullable string writer.
+  The bindings are added with group "climate" (kGroup) and the appropriate key names.</li>
 </ul>
-<pre><code class="language-csharp">private static WeatherType FromWeatherClassification(ClimateSystem.WeatherClassification classification)
-    {
-        return classification switch
-        {
-            ClimateSystem.WeatherClassification.Clear =&gt; WeatherType.Clear, 
-            ClimateSystem.WeatherClassification.Few =&gt; WeatherType.Few, 
-            ClimateSystem.WeatherClassification.Scattered =&gt; WeatherType.Scattered, 
-            ClimateSystem.WeatherClassification.Broken =&gt; WeatherType.Broken, 
-            ClimateSystem.WeatherClassification.Overcast =&gt; WeatherType.Overcast, 
-            ClimateSystem.WeatherClassification.Stormy =&gt; WeatherType.Storm, 
-            _ =&gt; WeatherType.Clear, 
-        };
-    }
-</code></pre>
-<ul>
-<li><code>private GetCurrentSeasonNameID() : System.String</code>  </li>
+</li>
+<li>
+<p><code>protected override void OnUpdate()</code><br />
+Called each update to refresh UI bindings:</p>
+</li>
+<li>Calls Update() on temperature and weather bindings.</li>
+<li>Calls Update() on season binding; if Update() returns false (no internal change) but the season entity has changed compared to the cached m_CurrentSeason, it forces an update via TriggerUpdate().</li>
+<li>
+<p>Updates m_CurrentSeason to the currentClimateSystem.currentSeason.</p>
+</li>
+<li>
+<p><code>public WeatherType GetWeather()</code><br />
+Determines the WeatherType to expose to the UI based on ClimateSystem state:</p>
+</li>
+<li>If m_ClimateSystem.isPrecipitating is true, returns Rain if isRaining, Snow if isSnowing, otherwise Clear.</li>
+<li>
+<p>If not precipitating, maps the ClimateSystem.classification to WeatherType using FromWeatherClassification().</p>
+</li>
+<li>
+<p><code>private static WeatherType FromWeatherClassification(ClimateSystem.WeatherClassification classification)</code><br />
+Maps ClimateSystem.WeatherClassification enum values to WeatherType enum values (Clear, Few, Scattered, Broken, Overcast, Storm). Defaults to WeatherType.Clear for unknown classifications.</p>
+</li>
+<li>
+<p><code>private string GetCurrentSeasonNameID()</code><br />
+Returns m_ClimateSystem.currentSeasonNameID — the season name identifier string used for UI localization/display.</p>
+</li>
+<li>
+<p><code>private static void WriteWeatherType(IJsonWriter writer, WeatherType type)</code><br />
+Serializes WeatherType to JSON by writing its integer value. Used as the DelegateWriter for the weather binding.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private string GetCurrentSeasonNameID()
-    {
-        return m_ClimateSystem.currentSeasonNameID;
-    }
-</code></pre>
-<ul>
-<li><code>public GetWeather() : Game.UI.InGame.WeatherType</code>  </li>
-</ul>
-<pre><code class="language-csharp">public WeatherType GetWeather()
-    {
-        if (m_ClimateSystem.isPrecipitating)
-        {
-            if (m_ClimateSystem.isRaining)
-            {
-                return WeatherType.Rain;
-            }
-            if (m_ClimateSystem.isSnowing)
-            {
-                return WeatherType.Snow;
-            }
-            return WeatherType.Clear;
-        }
-        return FromWeatherClassification(m_ClimateSystem.classification);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
+<h2 id="usage-example">Usage Example</h2>
 <pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_ClimateSystem = base.World.GetOrCreateSystemManaged&lt;ClimateSystem&gt;();
-        AddBinding(m_TemperatureBinding = new GetterValueBinding&lt;float&gt;(&quot;climate&quot;, &quot;temperature&quot;, () =&gt; m_TemperatureBindingValue));
-        AddBinding(m_WeatherBinding = new GetterValueBinding&lt;WeatherType&gt;(&quot;climate&quot;, &quot;weather&quot;, GetWeather, new DelegateWriter&lt;WeatherType&gt;(WriteWeatherType)));
-        AddBinding(m_SeasonBinding = new GetterValueBinding&lt;string&gt;(&quot;climate&quot;, &quot;seasonNameId&quot;, GetCurrentSeasonNameID, ValueWriters.Nullable(new StringWriter())));
-    }
+protected override void OnCreate()
+{
+    base.OnCreate();
+    // Typical initialization: get ClimateSystem and register bindings.
+    m_ClimateSystem = base.World.GetOrCreateSystemManaged&lt;ClimateSystem&gt;();
+    AddBinding(m_TemperatureBinding = new GetterValueBinding&lt;float&gt;(&quot;climate&quot;, &quot;temperature&quot;, () =&gt; MathUtils.Snap(m_ClimateSystem.temperature, 0.1f)));
+    AddBinding(m_WeatherBinding = new GetterValueBinding&lt;WeatherType&gt;(&quot;climate&quot;, &quot;weather&quot;, GetWeather, new DelegateWriter&lt;WeatherType&gt;(WriteWeatherType)));
+    AddBinding(m_SeasonBinding = new GetterValueBinding&lt;string&gt;(&quot;climate&quot;, &quot;seasonNameId&quot;, GetCurrentSeasonNameID, ValueWriters.Nullable(new StringWriter())));
+}
 </code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        m_TemperatureBinding.Update();
-        m_WeatherBinding.Update();
-        if (!m_SeasonBinding.Update() &amp;&amp; m_CurrentSeason != m_ClimateSystem.currentSeason)
-        {
-            m_SeasonBinding.TriggerUpdate();
-        }
-        m_CurrentSeason = m_ClimateSystem.currentSeason;
-    }
-</code></pre>
-<ul>
-<li><code>private static WriteWeatherType(Colossal.UI.Binding.IJsonWriter writer, Game.UI.InGame.WeatherType type) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static void WriteWeatherType(IJsonWriter writer, WeatherType type)
-    {
-        writer.Write((int)type);
-    }
-</code></pre>
+<p>Notes and modding tips:
+- GetterValueBinding objects are the bridge between game data and UI. Use AddBinding(...) to expose values and custom writers to control serialization for the UI layer.
+- The system reduces noise for temperature by snapping to 0.1 increments. If you need finer resolution, modify the snapping behavior (but be cautious of frequent UI updates).
+- Season updates are detected by comparing the season Entity; TriggerUpdate() is called to force the UI to refresh when a new season entity is observed.
+- GetWeather() prioritizes precipitation flags (isPrecipitating/isRaining/isSnowing) before falling back to the general classification.</p>
 
 
 

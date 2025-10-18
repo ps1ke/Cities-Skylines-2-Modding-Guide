@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#gamesimulationlandvaluesystem" class="md-skip">
+        <a href="#gamelandvaluesystem" class="md-skip">
           Skip to content
         </a>
       
@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -83629,15 +83721,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -83674,9 +83757,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -87154,6 +87237,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -117930,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117955,15 +118083,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -118002,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118026,290 +118145,155 @@
 
 
 
-<h1 id="gamesimulationlandvaluesystem">Game.Simulation.LandValueSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Simulation</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.Simulation.CellMapSystem&lt;Game.Simulation.LandValueCell&gt;</code><br />
-<strong>Implements:</strong> <code>Colossal.Serialization.Entities.IJobSerializable</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class LandValueSystem : Game.Simulation.CellMapSystem&lt;Game.Simulation.LandValueCell&gt;, Colossal.Serialization.Entities.IJobSerializable
-{
-    private Unity.Entities.EntityQuery m_EdgeGroup;
-    private Unity.Entities.EntityQuery m_NodeGroup;
-    private Unity.Entities.EntityQuery m_AttractivenessParameterQuery;
-    private Unity.Entities.EntityQuery m_LandValueParameterQuery;
-    private Game.Simulation.GroundPollutionSystem m_GroundPollutionSystem;
-    private Game.Simulation.AirPollutionSystem m_AirPollutionSystem;
-    private Game.Simulation.NoisePollutionSystem m_NoisePollutionSystem;
-    private Game.Simulation.AvailabilityInfoToGridSystem m_AvailabilityInfoToGridSystem;
-    private Game.Net.SearchSystem m_NetSearchSystem;
-    private Game.Simulation.TerrainAttractivenessSystem m_TerrainAttractivenessSystem;
-    private Game.Simulation.TerrainSystem m_TerrainSystem;
-    private Game.Simulation.WaterSystem m_WaterSystem;
-    private Game.Simulation.TelecomCoverageSystem m_TelecomCoverageSystem;
-    private Game.Simulation.LandValueSystem+TypeHandle __TypeHandle;
-    public static readonly System.Int32 kTextureSize;
-    public static readonly System.Int32 kUpdatesPerDay;
-
-    public Unity.Mathematics.int2 TextureSize { get; }
-
-    public LandValueSystem();
-
-    private System.Void __AssignQueries(Unity.Entities.SystemState&amp; state);
-    public static Unity.Mathematics.float3 GetCellCenter(System.Int32 index);
-    public static System.Int32 GetCellIndex(Unity.Mathematics.float3 pos);
-    public virtual System.Int32 GetUpdateInterval(Game.SystemUpdatePhase phase);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnCreateForCompiler();
-    protected virtual System.Void OnUpdate();
-}
-</code></pre>
+<h1 id="gamelandvaluesystem">Game.LandValueSystem</h1>
+<p><strong>Assembly:</strong> Assembly-CSharp<br />
+<strong>Namespace:</strong> Game.Simulation</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> CellMapSystem<LandValueCell>, IJobSerializable</p>
+<p><strong>Summary:</strong><br />
+LandValueSystem is a simulation system responsible for maintaining a 2D land-value grid (texture) and updating per-edge LandValue component data in the entity world. It combines many city factors — ground/air/noise pollution, terrain attractiveness, water pollution/depth, telecom coverage, service/resource availability and nearby net bonuses — to evaluate and smooth land value across the map. Updates are performed with Burst-compiled jobs (a parallel IJobParallelFor to update the grid and a JobChunk to update edge entities). The system exposes constants for its texture resolution and update frequency, and uses several other systems (pollution systems, terrain &amp; water, telecom, visibility/search systems) as read sources.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Unity.Entities.EntityQuery m_EdgeGroup</code>  </li>
+<li>
+<p><code>public static readonly int kTextureSize</code><br />
+Provides the resolution of the land-value texture (128). This is used when mapping world positions to cells and scheduling the parallel update job.</p>
+</li>
+<li>
+<p><code>public static readonly int kUpdatesPerDay</code><br />
+Specifies the number of updates per in-game day used to compute the update interval.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_EdgeGroup</code><br />
+EntityQuery selecting edges (Edge + LandValue + Curve) used by the EdgeUpdateJob to update entity LandValue components.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_NodeGroup</code><br />
+(Declared but unused in this compilation unit) placeholder group presumably for node-related queries if extended.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_AttractivenessParameterQuery</code><br />
+Query to fetch AttractivenessParameterData singleton used by map evaluation.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_LandValueParameterQuery</code><br />
+Query to fetch LandValueParameterData singleton holding multipliers and baseline values.</p>
+</li>
+<li>
+<p><code>private GroundPollutionSystem m_GroundPollutionSystem</code><br />
+Cached reference to the ground pollution system used to sample ground pollution map.</p>
+</li>
+<li>
+<p><code>private AirPollutionSystem m_AirPollutionSystem</code><br />
+Cached reference to the air pollution system used to sample air pollution map.</p>
+</li>
+<li>
+<p><code>private NoisePollutionSystem m_NoisePollutionSystem</code><br />
+Cached reference to the noise pollution system used to sample noise pollution map.</p>
+</li>
+<li>
+<p><code>private AvailabilityInfoToGridSystem m_AvailabilityInfoToGridSystem</code><br />
+Cached reference providing availability info per grid cell.</p>
+</li>
+<li>
+<p><code>private SearchSystem m_NetSearchSystem</code><br />
+Cached reference used to access the native quad tree with net entities (for road-related land value bonuses).</p>
+</li>
+<li>
+<p><code>private TerrainAttractivenessSystem m_TerrainAttractivenessSystem</code><br />
+Cached reference for terrain attractiveness map.</p>
+</li>
+<li>
+<p><code>private TerrainSystem m_TerrainSystem</code><br />
+Cached reference for terrain height data.</p>
+</li>
+<li>
+<p><code>private WaterSystem m_WaterSystem</code><br />
+Cached reference for water surface and pollution sampling.</p>
+</li>
+<li>
+<p><code>private TelecomCoverageSystem m_TelecomCoverageSystem</code><br />
+Cached reference for telecom coverage data per grid cell.</p>
+</li>
+<li>
+<p><code>private TypeHandle __TypeHandle</code><br />
+Internal struct holding Entity/Component/Buffer type handles used at update time.</p>
+</li>
+<li>
+<p>Nested types (defined in this class):</p>
+</li>
+<li><code>NetIterator</code> — quad-tree iterator used by the LandValueMapUpdateJob to collect nearby net/edge land-value bonuses.</li>
+<li><code>LandValueMapUpdateJob</code> (Burst compiled) — parallel job that computes the land-value grid cell values.</li>
+<li><code>EdgeUpdateJob</code> (Burst compiled) — chunk job that updates per-edge LandValue component based on service/resource buffers.</li>
 </ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_EdgeGroup;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_NodeGroup</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_NodeGroup;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_AttractivenessParameterQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_AttractivenessParameterQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_LandValueParameterQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_LandValueParameterQuery;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.GroundPollutionSystem m_GroundPollutionSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.GroundPollutionSystem m_GroundPollutionSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.AirPollutionSystem m_AirPollutionSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.AirPollutionSystem m_AirPollutionSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.NoisePollutionSystem m_NoisePollutionSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.NoisePollutionSystem m_NoisePollutionSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.AvailabilityInfoToGridSystem m_AvailabilityInfoToGridSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.AvailabilityInfoToGridSystem m_AvailabilityInfoToGridSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Net.SearchSystem m_NetSearchSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Net.SearchSystem m_NetSearchSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.TerrainAttractivenessSystem m_TerrainAttractivenessSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.TerrainAttractivenessSystem m_TerrainAttractivenessSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.TerrainSystem m_TerrainSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.TerrainSystem m_TerrainSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.WaterSystem m_WaterSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.WaterSystem m_WaterSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.TelecomCoverageSystem m_TelecomCoverageSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.TelecomCoverageSystem m_TelecomCoverageSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.LandValueSystem+TypeHandle __TypeHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.LandValueSystem+TypeHandle __TypeHandle;
-</code></pre>
-<ul>
-<li><code>public static readonly System.Int32 kTextureSize</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static readonly System.Int32 kTextureSize;
-</code></pre>
-<ul>
-<li><code>public static readonly System.Int32 kUpdatesPerDay</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static readonly System.Int32 kUpdatesPerDay;
-</code></pre>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>public Unity.Mathematics.int2 TextureSize { get }</code>  </li>
+<li><code>public int2 TextureSize { get; }</code><br />
+Returns the 2D texture resolution used by this system as an int2 (kTextureSize x kTextureSize). Useful for map consumers or for translating between cell indices and textures.</li>
 </ul>
-<pre><code class="language-csharp">public Unity.Mathematics.int2 TextureSize { get; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public LandValueSystem()</code>  </li>
+<li><code>public LandValueSystem()</code><br />
+Default parameterless constructor. The system uses OnCreate to initialize queries and cached system references.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public LandValueSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private __AssignQueries(Unity.Entities.SystemState&amp; state) : System.Void</code>  </li>
+<li>
+<p><code>public override int GetUpdateInterval(SystemUpdatePhase phase)</code><br />
+Returns the number of ticks between updates for different update phases. Computed as 262144 / kUpdatesPerDay in this implementation (the system staggers map updates across simulation frames).</p>
+</li>
+<li>
+<p><code>public static float3 GetCellCenter(int index)</code><br />
+Returns the world-space center position of a land-value cell given its index in the kTextureSize x kTextureSize grid.</p>
+</li>
+<li>
+<p><code>public static int GetCellIndex(float3 pos)</code><br />
+Maps world-space position (x,z) to the cell index in the land-value grid. Uses CellMapSystem map sizing and the kTextureSize.</p>
+</li>
+<li>
+<p><code>protected override void OnCreate()</code><br />
+Initializes the system: asserts texture-size consistency with TerrainAttractivenessSystem, creates textures, caches references to other systems (search/pollution/terrain/water/telecom/availability systems) and sets up EntityQueries (edge group and parameter queries). Also calls RequireAnyForUpdate to avoid scheduling edge jobs when no matching entities exist.</p>
+</li>
+<li>
+<p><code>protected override void OnUpdate()</code><br />
+Main update path. Schedules:</p>
+</li>
+<li>EdgeUpdateJob (JobChunk) when edge group is non-empty to update entity LandValue components from service and resource buffers.</li>
+<li>
+<p>LandValueMapUpdateJob (IJobParallelFor, Burst compiled) to compute all grid cells in parallel, reading many map sources (pollution, terrain attractiveness, telecom coverage, availability, water). The method composes and combines multiple JobHandle dependencies, registers readers/writers with referenced systems, and adds appropriate readers to producers (e.g., m_NetSearchSystem.AddNetSearchTreeReader).</p>
+</li>
+<li>
+<p><code>protected override void OnCreateForCompiler()</code><br />
+Internal initialization helper invoked by generated code paths that assigns query and type handles used by the compiled system. (This is part of the ECS codegen/convenience wiring.)</p>
+</li>
+<li>
+<p><code>private void __AssignQueries(ref SystemState state)</code><br />
+Internal helper used by OnCreateForCompiler to define entity queries. In the current implementation this method contains a placeholder call (new EntityQueryBuilder(Allocator.Temp).Dispose();) and is present to satisfy generated call sites.</p>
+</li>
+<li>
+<p>(Nested job methods)</p>
+</li>
+<li>LandValueMapUpdateJob.Execute(int index) — calculates a single cell's land value combining water depth, net-based bonuses, ground/air/noise pollution penalties, attractiveness bonuses, telecom coverage, and smoothing towards baseline.</li>
+<li>EdgeUpdateJob.Execute(in ArchetypeChunk chunk, ...) — iterates entities in a chunk, reads service/resource buffers and updates each entity's LandValue component using configured multipliers and smoothing.</li>
 </ul>
-<pre><code class="language-csharp">private void __AssignQueries(ref SystemState state)
-    {
-        new EntityQueryBuilder(Allocator.Temp).Dispose();
-    }
-</code></pre>
-<ul>
-<li><code>public static GetCellCenter(System.Int32 index) : Unity.Mathematics.float3</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static float3 GetCellCenter(int index)
-    {
-        return CellMapSystem&lt;LandValueCell&gt;.GetCellCenter(index, kTextureSize);
-    }
-</code></pre>
-<ul>
-<li><code>public static GetCellIndex(Unity.Mathematics.float3 pos) : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static int GetCellIndex(float3 pos)
-    {
-        int num = CellMapSystem&lt;LandValueCell&gt;.kMapSize / kTextureSize;
-        return Mathf.FloorToInt(((float)(CellMapSystem&lt;LandValueCell&gt;.kMapSize / 2) + pos.x) / (float)num) + Mathf.FloorToInt(((float)(CellMapSystem&lt;LandValueCell&gt;.kMapSize / 2) + pos.z) / (float)num) * kTextureSize;
-    }
-</code></pre>
-<ul>
-<li><code>public virtual GetUpdateInterval(Game.SystemUpdatePhase phase) : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override int GetUpdateInterval(SystemUpdatePhase phase)
-    {
-        return 262144 / kUpdatesPerDay;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
+<p>Notes for modders:
+- The system heavily relies on reading several map sources and component buffers. If you add readers/writers or change related systems, ensure you manage JobHandle dependencies correctly and register readers/writers as appropriate.
+- Many computations are Burst-compiled and expect data in native containers; avoid accessing UnityEngine.Object or managed state from the jobs.
+- The land-value grid uses smoothing (lerp) and threshold checks (delta &gt;= 0.1) before writing changes to limit frequent small updates.</p>
+<h2 id="usage-example">Usage Example</h2>
 <pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        Assert.IsTrue(kTextureSize == TerrainAttractivenessSystem.kTextureSize);
-        CreateTextures(kTextureSize);
-        m_NetSearchSystem = base.World.GetOrCreateSystemManaged&lt;SearchSystem&gt;();
-        m_GroundPollutionSystem = base.World.GetOrCreateSystemManaged&lt;GroundPollutionSystem&gt;();
-        m_AirPollutionSystem = base.World.GetOrCreateSystemManaged&lt;AirPollutionSystem&gt;();
-        m_NoisePollutionSystem = base.World.GetOrCreateSystemManaged&lt;NoisePollutionSystem&gt;();
-        m_TerrainAttractivenessSystem = base.World.GetOrCreateSystemManaged&lt;TerrainAttractivenessSystem&gt;();
-        m_AvailabilityInfoToGridSystem = base.World.GetOrCreateSystemManaged&lt;AvailabilityInfoToGridSystem&gt;();
-        m_TerrainSystem = base.World.GetOrCreateSystemManaged&lt;TerrainSystem&gt;();
-        m_WaterSystem = base.World.GetOrCreateSystemManaged&lt;WaterSystem&gt;();
-        m_TelecomCoverageSystem = base.World.GetOrCreateSystemManaged&lt;TelecomCoverageSystem&gt;();
-        m_AttractivenessParameterQuery = GetEntityQuery(ComponentType.ReadOnly&lt;AttractivenessParameterData&gt;());
-        m_LandValueParameterQuery = GetEntityQuery(ComponentType.ReadOnly&lt;LandValueParameterData&gt;());
-        m_EdgeGroup = GetEntityQuery(new EntityQueryDesc
-        {
-            All = new ComponentType[3]
-            {
-                ComponentType.ReadOnly&lt;Edge&gt;(),
-                ComponentType.ReadWrite&lt;LandValue&gt;(),
-                ComponentType.ReadOnly&lt;Curve&gt;()
-            },
-            Any = new ComponentType[0],
-            None = new ComponentType[2]
-            {
-                ComponentType.ReadOnly&lt;Deleted&gt;(),
-                ComponentType.ReadOnly&lt;Temp&gt;()
-            }
-        });
-        RequireAnyForUpdate(m_EdgeGroup);
-    }
+protected override void OnCreate()
+{
+    base.OnCreate();
+    // Typical usage: query a cell index and center.
+    float3 somePosition = new float3(100f, 0f, -50f);
+    int cellIndex = LandValueSystem.GetCellIndex(somePosition);
+    float3 cellCenter = LandValueSystem.GetCellCenter(cellIndex);
+
+    // You may want to store or use TextureSize to iterate the grid:
+    int2 texSize = this.TextureSize; // yields (128,128) by default.
+}
 </code></pre>
-<ul>
-<li><code>protected virtual OnCreateForCompiler() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnCreateForCompiler()
-    {
-        base.OnCreateForCompiler();
-        __AssignQueries(ref base.CheckedStateRef);
-        __TypeHandle.__AssignHandles(ref base.CheckedStateRef);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        if (!m_EdgeGroup.IsEmptyIgnoreFilter)
-        {
-            EdgeUpdateJob jobData = new EdgeUpdateJob
-            {
-                m_EntityType = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef),
-                m_EdgeType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Net_Edge_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                m_ServiceCoverageType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Net_ServiceCoverage_RO_BufferTypeHandle, ref base.CheckedStateRef),
-                m_AvailabilityType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Net_ResourceAvailability_RO_BufferTypeHandle, ref base.CheckedStateRef),
-                m_LandValues = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_LandValue_RW_ComponentLookup, ref base.CheckedStateRef),
-                m_LandValueParameterData = m_LandValueParameterQuery.GetSingleton&lt;LandValueParameterData&gt;()
-            };
-            base.Dependency = JobChunkExtensions.ScheduleParallel(jobData, m_EdgeGroup, base.Dependency);
-        }
-        JobHandle dependencies;
-        JobHandle dependencies2;
-        JobHandle dependencies3;
-        JobHandle dependencies4;
-        JobHandle dependencies5;
-        JobHandle dependencies6;
-        JobHandle dependencies7;
-        JobHandle deps;
-        LandValueMapUpdateJob jobData2 = new LandValueMapUpdateJob
-        {
-            m_NetSearchTree = m_NetSearchSystem.GetNetSearchTree(readOnly: true, out dependencies),
-            m_AttractiveMap = m_TerrainAttractivenessSystem.GetMap(readOnly: true, out dependencies2),
-            m_GroundPollutionMap = m_GroundPollutionSystem.GetMap(readOnly: true, out dependencies3),
-            m_AirPollutionMap = m_AirPollutionSystem.GetMap(readOnly: true, out dependencies4),
-            m_NoisePollutionMap = m_NoisePollutionSystem.GetMap(readOnly: true, out dependencies5),
-            m_AvailabilityInfoMap = m_AvailabilityInfoToGridSystem.GetMap(readOnly: true, out dependencies6),
-            m_TelecomCoverageMap = m_TelecomCoverageSystem.GetData(readOnly: true, out dependencies7),
-            m_LandValueMap = m_Map,
-            m_LandValueData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_LandValue_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_TerrainHeightData = m_TerrainSystem.GetHeightData(),
-            m_WaterSurfaceData = m_WaterSystem.GetSurfaceData(out deps),
-            m_EdgeGeometryData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_EdgeGeometry_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_AttractivenessParameterData = m_AttractivenessParameterQuery.GetSingleton&lt;AttractivenessParameterData&gt;(),
-            m_LandValueParameterData = m_LandValueParameterQuery.GetSingleton&lt;LandValueParameterData&gt;(),
-            m_CellSize = (float)CellMapSystem&lt;LandValueCell&gt;.kMapSize / (float)kTextureSize
-        };
-        base.Dependency = IJobParallelForExtensions.Schedule(jobData2, kTextureSize * kTextureSize, kTextureSize, JobHandle.CombineDependencies(dependencies, dependencies2, JobHandle.CombineDependencies(m_WriteDependencies, m_ReadDependencies, JobHandle.CombineDependencies(base.Dependency, deps, JobHandle.CombineDependencies(dependencies3, dependencies5, JobHandle.CombineDependencies(dependencies6, dependencies4, dependencies7))))));
-        AddWriter(base.Dependency);
-        m_NetSearchSystem.AddNetSearchTreeReader(base.Dependency);
-        m_WaterSystem.AddSurfaceReader(base.Dependency);
-        m_TerrainAttractivenessSystem.AddReader(base.Dependency);
-        m_GroundPollutionSystem.AddReader(base.Dependency);
-        m_AirPollutionSystem.AddReader(base.Dependency);
-        m_NoisePollutionSystem.AddReader(base.Dependency);
-        m_AvailabilityInfoToGridSystem.AddReader(base.Dependency);
-        m_TelecomCoverageSystem.AddReader(base.Dependency);
-        m_TerrainSystem.AddCPUHeightReader(base.Dependency);
-        base.Dependency = JobHandle.CombineDependencies(m_ReadDependencies, m_WriteDependencies, base.Dependency);
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Simulation.LandValueSystem+NetIterator</code>  </li>
-<li><code>Game.Simulation.LandValueSystem+LandValueMapUpdateJob</code>  </li>
-<li><code>Game.Simulation.LandValueSystem+EdgeUpdateJob</code>  </li>
-<li><code>Game.Simulation.LandValueSystem+TypeHandle</code>  </li>
-</ul>
 
 
 

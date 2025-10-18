@@ -29694,15 +29694,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -29742,6 +29733,15 @@
   <a href="#nested-types" class="md-nav__link">
     <span class="md-ellipsis">
       Nested types
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
     </span>
   </a>
   
@@ -65329,6 +65329,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69760,6 +69783,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72572,6 +72618,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75562,6 +75631,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87154,6 +87246,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -117930,6 +118045,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117955,15 +118092,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -118010,6 +118138,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -118027,469 +118164,209 @@
 
 
 <h1 id="gamepathfindpathfindresultsystem">Game.Pathfind.PathfindResultSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Pathfind</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code><br />
-<strong>Implements:</strong> <code>Game.Serialization.IPreDeserialize</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class PathfindResultSystem : Game.GameSystemBase, Game.Serialization.IPreDeserialize
-{
-    private Game.Pathfind.PathfindQueueSystem m_PathfindQueueSystem;
-    private Game.Simulation.PathfindSetupSystem m_PathfindSetupSystem;
-    private Game.EndFrameBarrier m_EndFrameBarrier;
-    private Unity.Entities.EntityCommandBuffer m_CommandBuffer;
-    private Unity.Entities.EntityArchetype m_PathEventArchetype;
-    private Unity.Entities.EntityArchetype m_CoverageEventArchetype;
-    private System.UInt32 m_PendingSimulationFrameIndex;
-    private System.Int32 m_PendingRequestCount;
-    private System.Collections.Generic.Dictionary&lt;Unity.Entities.Entity, System.Int32&gt; m_ResultListIndex;
-    private System.Collections.Generic.Dictionary&lt;Game.Pathfind.PathfindResultSystem+ResultKey, Game.Pathfind.PathfindResultSystem+ResultValue&gt; m_QueryStats;
-    private Unity.Collections.NativeList&lt;Game.Pathfind.PathfindJobs+ResultItem&gt; m_PathfindResultBuffer;
-    private Unity.Collections.NativeList&lt;Game.Pathfind.CoverageJobs+ResultItem&gt; m_CoverageResultBuffer;
-    private Unity.Collections.NativeList&lt;Game.Pathfind.AvailabilityJobs+ResultItem&gt; m_AvailabilityResultBuffer;
-    private Game.Pathfind.PathfindResultSystem+TypeHandle __TypeHandle;
-
-    public System.UInt32 pendingSimulationFrame { get; }
-    public System.Int32 pendingRequestCount { get; }
-    public System.Collections.Generic.Dictionary&lt;Game.Pathfind.PathfindResultSystem+ResultKey, Game.Pathfind.PathfindResultSystem+ResultValue&gt; queryStats { get; }
-
-    public PathfindResultSystem();
-
-    private System.Void __AssignQueries(Unity.Entities.SystemState&amp; state);
-    private System.Void AddQueryStats(System.Object system, Game.Pathfind.PathfindResultSystem+QueryType queryType, Game.Pathfind.SetupTargetType originType, Game.Pathfind.SetupTargetType destinationType, System.Int32 resultLength, System.Int32 graphTraversal);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnCreateForCompiler();
-    protected virtual System.Void OnDestroy();
-    protected virtual System.Void OnUpdate();
-    public System.Void PreDeserialize(Colossal.Serialization.Entities.Context context);
-    private System.Void ProcessResults(Game.Pathfind.PathfindQueueSystem+ActionList&lt;Game.Pathfind.PathfindAction&gt; list, Unity.Jobs.JobHandle&amp; outputDeps, Unity.Jobs.JobHandle inputDeps);
-    private System.Void ProcessResults(Game.Pathfind.PathfindQueueSystem+ActionList&lt;Game.Pathfind.CoverageAction&gt; list, Unity.Jobs.JobHandle&amp; outputDeps, Unity.Jobs.JobHandle inputDeps);
-    private System.Void ProcessResults(Game.Pathfind.PathfindQueueSystem+ActionList&lt;Game.Pathfind.AvailabilityAction&gt; list, Unity.Jobs.JobHandle&amp; outputDeps, Unity.Jobs.JobHandle inputDeps);
-    private System.Void ProcessResults&lt;T&gt;(Game.Pathfind.PathfindQueueSystem+ActionList&lt;T&gt; list);
-}
-</code></pre>
+<p><strong>Assembly:</strong> Game (inferred)<br />
+<strong>Namespace:</strong> Game.Pathfind</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> GameSystemBase, IPreDeserialize</p>
+<p><strong>Summary:</strong><br />
+PathfindResultSystem collects and processes completed pathfinding, coverage and availability queries produced by PathfindQueueSystem. It aggregates results into NativeLists, schedules jobs to write those results back into ECS components/buffers, emits events (PathUpdated, CoverageUpdated) via an EndFrameBarrier command buffer when requested, and accumulates basic per-system/query statistics (queries, successes, graph traversal, efficiency). The system also tracks pending request counts and the earliest simulation frame still awaiting results.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.Pathfind.PathfindQueueSystem m_PathfindQueueSystem</code>  </li>
+<li>
+<p><code>private PathfindQueueSystem m_PathfindQueueSystem</code><br />
+Reference to the PathfindQueueSystem that holds queued pathfinding/coverage/availability actions.</p>
+</li>
+<li>
+<p><code>private PathfindSetupSystem m_PathfindSetupSystem</code><br />
+Reference to the PathfindSetupSystem used to get the current pendingSimulationFrame and pending request counts.</p>
+</li>
+<li>
+<p><code>private EndFrameBarrier m_EndFrameBarrier</code><br />
+Used to create an EntityCommandBuffer to emit ECS events at end of frame.</p>
+</li>
+<li>
+<p><code>private EntityCommandBuffer m_CommandBuffer</code><br />
+Command buffer created from the EndFrameBarrier when events need to be produced.</p>
+</li>
+<li>
+<p><code>private EntityArchetype m_PathEventArchetype</code><br />
+Archetype used to create PathUpdated event entities.</p>
+</li>
+<li>
+<p><code>private EntityArchetype m_CoverageEventArchetype</code><br />
+Archetype used to create CoverageUpdated event entities.</p>
+</li>
+<li>
+<p><code>private uint m_PendingSimulationFrameIndex</code><br />
+Tracks the minimum simulation frame index among pending requests.</p>
+</li>
+<li>
+<p><code>private int m_PendingRequestCount</code><br />
+Number of requests currently pending completion.</p>
+</li>
+<li>
+<p><code>private Dictionary&lt;Entity, int&gt; m_ResultListIndex</code><br />
+Maps owner Entity to an index into the NativeList result buffers (to coalesce multiple results for the same owner).</p>
+</li>
+<li>
+<p><code>private Dictionary&lt;ResultKey, ResultValue&gt; m_QueryStats</code><br />
+Aggregates statistics keyed by ResultKey (system, query type, origin/destination types).</p>
+</li>
+<li>
+<p><code>private NativeList&lt;PathfindJobs.ResultItem&gt; m_PathfindResultBuffer</code><br />
+NativeList used to collect completed Pathfind results for job processing.</p>
+</li>
+<li>
+<p><code>private NativeList&lt;CoverageJobs.ResultItem&gt; m_CoverageResultBuffer</code><br />
+NativeList used to collect completed Coverage results for job processing.</p>
+</li>
+<li>
+<p><code>private NativeList&lt;AvailabilityJobs.ResultItem&gt; m_AvailabilityResultBuffer</code><br />
+NativeList used to collect completed Availability results for job processing.</p>
+</li>
+<li>
+<p><code>private TypeHandle __TypeHandle</code><br />
+Holds component and buffer lookups (ComponentLookup/BufferLookup) used by scheduled jobs.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.Pathfind.PathfindQueueSystem m_PathfindQueueSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.PathfindSetupSystem m_PathfindSetupSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.PathfindSetupSystem m_PathfindSetupSystem;
-</code></pre>
-<ul>
-<li><code>private Game.EndFrameBarrier m_EndFrameBarrier</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.EndFrameBarrier m_EndFrameBarrier;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityCommandBuffer m_CommandBuffer</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityCommandBuffer m_CommandBuffer;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityArchetype m_PathEventArchetype</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityArchetype m_PathEventArchetype;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityArchetype m_CoverageEventArchetype</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityArchetype m_CoverageEventArchetype;
-</code></pre>
-<ul>
-<li><code>private System.UInt32 m_PendingSimulationFrameIndex</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.UInt32 m_PendingSimulationFrameIndex;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_PendingRequestCount</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_PendingRequestCount;
-</code></pre>
-<ul>
-<li><code>private System.Collections.Generic.Dictionary&lt;Unity.Entities.Entity, System.Int32&gt; m_ResultListIndex</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Collections.Generic.Dictionary&lt;Unity.Entities.Entity, System.Int32&gt; m_ResultListIndex;
-</code></pre>
-<ul>
-<li><code>private System.Collections.Generic.Dictionary&lt;Game.Pathfind.PathfindResultSystem+ResultKey, Game.Pathfind.PathfindResultSystem+ResultValue&gt; m_QueryStats</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Collections.Generic.Dictionary&lt;Game.Pathfind.PathfindResultSystem+ResultKey, Game.Pathfind.PathfindResultSystem+ResultValue&gt; m_QueryStats;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeList&lt;Game.Pathfind.PathfindJobs+ResultItem&gt; m_PathfindResultBuffer</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeList&lt;Game.Pathfind.PathfindJobs+ResultItem&gt; m_PathfindResultBuffer;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeList&lt;Game.Pathfind.CoverageJobs+ResultItem&gt; m_CoverageResultBuffer</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeList&lt;Game.Pathfind.CoverageJobs+ResultItem&gt; m_CoverageResultBuffer;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeList&lt;Game.Pathfind.AvailabilityJobs+ResultItem&gt; m_AvailabilityResultBuffer</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeList&lt;Game.Pathfind.AvailabilityJobs+ResultItem&gt; m_AvailabilityResultBuffer;
-</code></pre>
-<ul>
-<li><code>private Game.Pathfind.PathfindResultSystem+TypeHandle __TypeHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Pathfind.PathfindResultSystem+TypeHandle __TypeHandle;
-</code></pre>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>public System.UInt32 pendingSimulationFrame { get }</code>  </li>
+<li>
+<p><code>public uint pendingSimulationFrame { get; }</code><br />
+Returns the min between this system's tracked pending frame and the PathfindSetupSystem's pendingSimulationFrame (i.e., earliest waiting simulation frame index). Useful to know whether queries are still pending for a specific simulation frame.</p>
+</li>
+<li>
+<p><code>public int pendingRequestCount { get; }</code><br />
+Total pending request count = this system's pending requests + PathfindSetupSystem.pendingRequestCount.</p>
+</li>
+<li>
+<p><code>public Dictionary&lt;ResultKey, ResultValue&gt; queryStats { get; }</code><br />
+Exposes the aggregated query statistics dictionary for external inspection or telemetry.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public System.UInt32 pendingSimulationFrame { get; }
-</code></pre>
-<ul>
-<li><code>public System.Int32 pendingRequestCount { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Int32 pendingRequestCount { get; }
-</code></pre>
-<ul>
-<li><code>public System.Collections.Generic.Dictionary&lt;Game.Pathfind.PathfindResultSystem+ResultKey, Game.Pathfind.PathfindResultSystem+ResultValue&gt; queryStats { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Collections.Generic.Dictionary&lt;Game.Pathfind.PathfindResultSystem+ResultKey, Game.Pathfind.PathfindResultSystem+ResultValue&gt; queryStats { get; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public PathfindResultSystem()</code>  </li>
+<li><code>public PathfindResultSystem()</code><br />
+Default constructor. Initialization logic is in OnCreate; this ctor does not allocate native resources.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public PathfindResultSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private __AssignQueries(Unity.Entities.SystemState&amp; state) : System.Void</code>  </li>
+<li>
+<p><code>protected override void OnCreate()</code><br />
+Initializes references to the queue/setup systems and the EndFrameBarrier, creates event archetypes, allocates dictionaries and persistent NativeLists used to buffer job inputs. Called once when the system is created.</p>
+</li>
+<li>
+<p><code>protected override void OnDestroy()</code><br />
+Disposes the persistent NativeLists and forwards to base.OnDestroy(). Ensures native memory is freed when the system is destroyed.</p>
+</li>
+<li>
+<p><code>public void PreDeserialize(Context context)</code><br />
+IPreDeserialize implementation to reset m_PendingSimulationFrameIndex, m_PendingRequestCount and clear query statistics before deserialization.</p>
+</li>
+<li>
+<p><code>protected override void OnUpdate()</code><br />
+Main per-frame update. Resets state, collects and processes completed and pending actions from PathfindQueueSystem by calling the various ProcessResults overloads, schedules jobs to apply results into ECS (combining JobHandles) and sets base.Dependency to the combined handle.</p>
+</li>
+<li>
+<p><code>private void AddQueryStats(object system, QueryType queryType, SetupTargetType originType, SetupTargetType destinationType, int resultLength, int graphTraversal)</code><br />
+Updates or inserts an entry in m_QueryStats aggregating query count, success count, normalized graph traversal, and efficiency (resultLength / graphTraversal). Called when processing completed actions.</p>
+</li>
+<li>
+<p><code>private void ProcessResults(PathfindQueueSystem.ActionList&lt;PathfindAction&gt; list, ref JobHandle outputDeps, JobHandle inputDeps)</code><br />
+Processes pathfinding actions:</p>
+</li>
+<li>Iterates list items, collects completed PathfindAction results into m_PathfindResultBuffer (coalescing per owner via m_ResultListIndex),</li>
+<li>Logs pathfinding errors,</li>
+<li>Adds query stats for Pathfind queries,</li>
+<li>If the action requested an event, creates a PathUpdated event entity using the EndFrameBarrier command buffer,</li>
+<li>For completed results schedules PathfindJobs.ProcessResultsJob with required component/buffer lookups and combines the resulting JobHandle into outputDeps,</li>
+<li>Tracks pending simulation frames and pending request count for in-flight actions,</li>
+<li>
+<p>Removes disposed/non-pending items from the action list.</p>
+</li>
+<li>
+<p><code>private void ProcessResults(PathfindQueueSystem.ActionList&lt;CoverageAction&gt; list, ref JobHandle outputDeps, JobHandle inputDeps)</code><br />
+Processes coverage actions similarly:</p>
+</li>
+<li>Collects completed coverage results into m_CoverageResultBuffer,</li>
+<li>Adds query stats for Coverage queries,</li>
+<li>Creates CoverageUpdated events when requested,</li>
+<li>Schedules CoverageJobs.ProcessResultsJob to write coverage elements back into ECS,</li>
+<li>
+<p>Updates pending counters and prunes the list.</p>
+</li>
+<li>
+<p><code>private void ProcessResults(PathfindQueueSystem.ActionList&lt;AvailabilityAction&gt; list, ref JobHandle outputDeps, JobHandle inputDeps)</code><br />
+Processes availability actions similarly:</p>
+</li>
+<li>Collects results into m_AvailabilityResultBuffer,</li>
+<li>Adds query stats for Availability queries,</li>
+<li>Schedules AvailabilityJobs.ProcessResultsJob to write availability elements into ECS,</li>
+<li>
+<p>Updates pending counters and prunes the list.</p>
+</li>
+<li>
+<p><code>private void ProcessResults&lt;T&gt;(PathfindQueueSystem.ActionList&lt;T&gt; list) where T : struct, IDisposable</code><br />
+Generic cleanup for other action lists (create, update, delete, density, time, flow):</p>
+</li>
+<li>Iterates items and if not pending and dependencies completed, completes the dependencies, disposes the item, and removes it from the list.</li>
+<li>
+<p>Otherwise retains the item for next frame.</p>
+</li>
+<li>
+<p><code>private void __AssignQueries(ref SystemState state)</code><br />
+Compiler helper used by generated/fixer code. Currently builds an empty EntityQueryBuilder (no runtime effect here).</p>
+</li>
+<li>
+<p><code>protected override void OnCreateForCompiler()</code><br />
+Compiler-time helper that calls __AssignQueries and assigns the TypeHandle component/buffer lookups via __TypeHandle.__AssignHandles.</p>
+</li>
+<li>
+<p>Nested/note: TypeHandle.__AssignHandles(ref SystemState state)<br />
+Initializes ComponentLookup and BufferLookup fields inside the TypeHandle; used when scheduling jobs to obtain correct lookups with respect to the system state.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private void __AssignQueries(ref SystemState state)
-    {
-        new EntityQueryBuilder(Allocator.Temp).Dispose();
-    }
-</code></pre>
-<ul>
-<li><code>private AddQueryStats(System.Object system, Game.Pathfind.PathfindResultSystem+QueryType queryType, Game.Pathfind.SetupTargetType originType, Game.Pathfind.SetupTargetType destinationType, System.Int32 resultLength, System.Int32 graphTraversal) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void AddQueryStats(object system, QueryType queryType, SetupTargetType originType, SetupTargetType destinationType, int resultLength, int graphTraversal)
-    {
-        ResultKey key = new ResultKey
-        {
-            m_System = system,
-            m_QueryType = queryType,
-            m_OriginType = originType,
-            m_DestinationType = destinationType
-        };
-        if (m_QueryStats.TryGetValue(key, out var value))
-        {
-            value.m_QueryCount++;
-            value.m_SuccessCount += math.min(1, resultLength);
-            value.m_GraphTraversal += (float)graphTraversal / math.max(1f, m_PathfindQueueSystem.GetGraphSize());
-            value.m_Efficiency += (float)resultLength / math.max(1f, graphTraversal);
-            m_QueryStats[key] = value;
-        }
-        else
-        {
-            m_QueryStats.Add(key, new ResultValue
-            {
-                m_QueryCount = 1,
-                m_SuccessCount = math.min(1, resultLength),
-                m_GraphTraversal = (float)graphTraversal / math.max(1f, m_PathfindQueueSystem.GetGraphSize()),
-                m_Efficiency = (float)resultLength / math.max(1f, graphTraversal)
-            });
-        }
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_PathfindQueueSystem = base.World.GetOrCreateSystemManaged&lt;PathfindQueueSystem&gt;();
-        m_PathfindSetupSystem = base.World.GetOrCreateSystemManaged&lt;PathfindSetupSystem&gt;();
-        m_EndFrameBarrier = base.World.GetOrCreateSystemManaged&lt;EndFrameBarrier&gt;();
-        m_PathEventArchetype = base.EntityManager.CreateArchetype(ComponentType.ReadWrite&lt;Event&gt;(), ComponentType.ReadWrite&lt;PathUpdated&gt;());
-        m_CoverageEventArchetype = base.EntityManager.CreateArchetype(ComponentType.ReadWrite&lt;Event&gt;(), ComponentType.ReadWrite&lt;CoverageUpdated&gt;());
-        m_ResultListIndex = new Dictionary&lt;Entity, int&gt;(10);
-        m_QueryStats = new Dictionary&lt;ResultKey, ResultValue&gt;(10);
-        m_PathfindResultBuffer = new NativeList&lt;PathfindJobs.ResultItem&gt;(10, Allocator.Persistent);
-        m_CoverageResultBuffer = new NativeList&lt;CoverageJobs.ResultItem&gt;(10, Allocator.Persistent);
-        m_AvailabilityResultBuffer = new NativeList&lt;AvailabilityJobs.ResultItem&gt;(10, Allocator.Persistent);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreateForCompiler() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnCreateForCompiler()
-    {
-        base.OnCreateForCompiler();
-        __AssignQueries(ref base.CheckedStateRef);
-        __TypeHandle.__AssignHandles(ref base.CheckedStateRef);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnDestroy() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnDestroy()
-    {
-        m_PathfindResultBuffer.Dispose();
-        m_CoverageResultBuffer.Dispose();
-        m_AvailabilityResultBuffer.Dispose();
-        base.OnDestroy();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        JobHandle outputDeps = base.Dependency;
-        m_PendingSimulationFrameIndex = uint.MaxValue;
-        m_PendingRequestCount = 0;
-        m_CommandBuffer = default(EntityCommandBuffer);
-        ProcessResults(m_PathfindQueueSystem.GetPathfindActions(), ref outputDeps, base.Dependency);
-        ProcessResults(m_PathfindQueueSystem.GetCoverageActions(), ref outputDeps, base.Dependency);
-        ProcessResults(m_PathfindQueueSystem.GetAvailabilityActions(), ref outputDeps, base.Dependency);
-        ProcessResults(m_PathfindQueueSystem.GetCreateActions());
-        ProcessResults(m_PathfindQueueSystem.GetUpdateActions());
-        ProcessResults(m_PathfindQueueSystem.GetDeleteActions());
-        ProcessResults(m_PathfindQueueSystem.GetDensityActions());
-        ProcessResults(m_PathfindQueueSystem.GetTimeActions());
-        ProcessResults(m_PathfindQueueSystem.GetFlowActions());
-        base.Dependency = outputDeps;
-    }
-</code></pre>
-<ul>
-<li><code>public PreDeserialize(Colossal.Serialization.Entities.Context context) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void PreDeserialize(Context context)
-    {
-        m_PendingSimulationFrameIndex = uint.MaxValue;
-        m_PendingRequestCount = 0;
-        m_QueryStats.Clear();
-    }
-</code></pre>
-<ul>
-<li><code>private ProcessResults(Game.Pathfind.PathfindQueueSystem+ActionList&lt;Game.Pathfind.PathfindAction&gt; list, Unity.Jobs.JobHandle&amp; outputDeps, Unity.Jobs.JobHandle inputDeps) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void ProcessResults(PathfindQueueSystem.ActionList&lt;AvailabilityAction&gt; list, ref JobHandle outputDeps, JobHandle inputDeps)
-    {
-        m_ResultListIndex.Clear();
-        m_AvailabilityResultBuffer.Clear();
-        int num = 0;
-        AvailabilityJobs.ResultItem value2 = default(AvailabilityJobs.ResultItem);
-        for (int i = 0; i &lt; list.m_Items.Count; i++)
-        {
-            PathfindQueueSystem.ActionListItem&lt;AvailabilityAction&gt; value = list.m_Items[i];
-            if ((value.m_Flags &amp; PathFlags.Scheduled) != 0)
-            {
-                if (value.m_Action.data.m_State == PathfindActionState.Completed)
-                {
-                    value.m_Flags &amp;= ~PathFlags.Scheduled;
-                    value2.m_Owner = value.m_Owner;
-                    value2.m_Results = value.m_Action.data.m_Results;
-                    if (m_ResultListIndex.TryGetValue(value.m_Owner, out var value3))
-                    {
-                        m_AvailabilityResultBuffer[value3] = value2;
-                    }
-                    else
-                    {
-                        m_ResultListIndex.Add(value.m_Owner, m_AvailabilityResultBuffer.Length);
-                        m_AvailabilityResultBuffer.Add(in value2);
-                    }
-                    AddQueryStats(value.m_System, QueryType.Availability, SetupTargetType.None, SetupTargetType.None, value2.m_Results.Length, value2.m_Results.Length);
-                }
-                else
-                {
-                    m_PendingSimulationFrameIndex = math.min(m_PendingSimulationFrameIndex, value.m_ResultFrame);
-                    m_PendingRequestCount++;
-                }
-            }
-            else
-            {
-                if ((value.m_Flags &amp; PathFlags.Pending) == 0)
-                {
-                    value.Dispose();
-                    list.m_NextIndex--;
-                    continue;
-                }
-                m_PendingSimulationFrameIndex = math.min(m_PendingSimulationFrameIndex, value.m_ResultFrame);
-                m_PendingRequestCount++;
-            }
-            list.m_Items[num++] = value;
-        }
-        if (num &lt; list.m_Items.Count)
-        {
-            list.m_Items.RemoveRange(num, list.m_Items.Count - num);
-        }
-        if (m_AvailabilityResultBuffer.Length &gt; 0)
-        {
-            JobHandle job = IJobParallelForExtensions.Schedule(new AvailabilityJobs.ProcessResultsJob
-            {
-                m_ResultItems = m_AvailabilityResultBuffer,
-                m_OwnerData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Common_Owner_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_EdgeLaneData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_EdgeLane_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_AvailabilityElements = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Pathfind_AvailabilityElement_RW_BufferLookup, ref base.CheckedStateRef)
-            }, m_AvailabilityResultBuffer.Length, 1, inputDeps);
-            outputDeps = JobHandle.CombineDependencies(outputDeps, job);
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private ProcessResults(Game.Pathfind.PathfindQueueSystem+ActionList&lt;Game.Pathfind.CoverageAction&gt; list, Unity.Jobs.JobHandle&amp; outputDeps, Unity.Jobs.JobHandle inputDeps) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void ProcessResults(PathfindQueueSystem.ActionList&lt;AvailabilityAction&gt; list, ref JobHandle outputDeps, JobHandle inputDeps)
-    {
-        m_ResultListIndex.Clear();
-        m_AvailabilityResultBuffer.Clear();
-        int num = 0;
-        AvailabilityJobs.ResultItem value2 = default(AvailabilityJobs.ResultItem);
-        for (int i = 0; i &lt; list.m_Items.Count; i++)
-        {
-            PathfindQueueSystem.ActionListItem&lt;AvailabilityAction&gt; value = list.m_Items[i];
-            if ((value.m_Flags &amp; PathFlags.Scheduled) != 0)
-            {
-                if (value.m_Action.data.m_State == PathfindActionState.Completed)
-                {
-                    value.m_Flags &amp;= ~PathFlags.Scheduled;
-                    value2.m_Owner = value.m_Owner;
-                    value2.m_Results = value.m_Action.data.m_Results;
-                    if (m_ResultListIndex.TryGetValue(value.m_Owner, out var value3))
-                    {
-                        m_AvailabilityResultBuffer[value3] = value2;
-                    }
-                    else
-                    {
-                        m_ResultListIndex.Add(value.m_Owner, m_AvailabilityResultBuffer.Length);
-                        m_AvailabilityResultBuffer.Add(in value2);
-                    }
-                    AddQueryStats(value.m_System, QueryType.Availability, SetupTargetType.None, SetupTargetType.None, value2.m_Results.Length, value2.m_Results.Length);
-                }
-                else
-                {
-                    m_PendingSimulationFrameIndex = math.min(m_PendingSimulationFrameIndex, value.m_ResultFrame);
-                    m_PendingRequestCount++;
-                }
-            }
-            else
-            {
-                if ((value.m_Flags &amp; PathFlags.Pending) == 0)
-                {
-                    value.Dispose();
-                    list.m_NextIndex--;
-                    continue;
-                }
-                m_PendingSimulationFrameIndex = math.min(m_PendingSimulationFrameIndex, value.m_ResultFrame);
-                m_PendingRequestCount++;
-            }
-            list.m_Items[num++] = value;
-        }
-        if (num &lt; list.m_Items.Count)
-        {
-            list.m_Items.RemoveRange(num, list.m_Items.Count - num);
-        }
-        if (m_AvailabilityResultBuffer.Length &gt; 0)
-        {
-            JobHandle job = IJobParallelForExtensions.Schedule(new AvailabilityJobs.ProcessResultsJob
-            {
-                m_ResultItems = m_AvailabilityResultBuffer,
-                m_OwnerData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Common_Owner_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_EdgeLaneData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_EdgeLane_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_AvailabilityElements = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Pathfind_AvailabilityElement_RW_BufferLookup, ref base.CheckedStateRef)
-            }, m_AvailabilityResultBuffer.Length, 1, inputDeps);
-            outputDeps = JobHandle.CombineDependencies(outputDeps, job);
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private ProcessResults(Game.Pathfind.PathfindQueueSystem+ActionList&lt;Game.Pathfind.AvailabilityAction&gt; list, Unity.Jobs.JobHandle&amp; outputDeps, Unity.Jobs.JobHandle inputDeps) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void ProcessResults(PathfindQueueSystem.ActionList&lt;AvailabilityAction&gt; list, ref JobHandle outputDeps, JobHandle inputDeps)
-    {
-        m_ResultListIndex.Clear();
-        m_AvailabilityResultBuffer.Clear();
-        int num = 0;
-        AvailabilityJobs.ResultItem value2 = default(AvailabilityJobs.ResultItem);
-        for (int i = 0; i &lt; list.m_Items.Count; i++)
-        {
-            PathfindQueueSystem.ActionListItem&lt;AvailabilityAction&gt; value = list.m_Items[i];
-            if ((value.m_Flags &amp; PathFlags.Scheduled) != 0)
-            {
-                if (value.m_Action.data.m_State == PathfindActionState.Completed)
-                {
-                    value.m_Flags &amp;= ~PathFlags.Scheduled;
-                    value2.m_Owner = value.m_Owner;
-                    value2.m_Results = value.m_Action.data.m_Results;
-                    if (m_ResultListIndex.TryGetValue(value.m_Owner, out var value3))
-                    {
-                        m_AvailabilityResultBuffer[value3] = value2;
-                    }
-                    else
-                    {
-                        m_ResultListIndex.Add(value.m_Owner, m_AvailabilityResultBuffer.Length);
-                        m_AvailabilityResultBuffer.Add(in value2);
-                    }
-                    AddQueryStats(value.m_System, QueryType.Availability, SetupTargetType.None, SetupTargetType.None, value2.m_Results.Length, value2.m_Results.Length);
-                }
-                else
-                {
-                    m_PendingSimulationFrameIndex = math.min(m_PendingSimulationFrameIndex, value.m_ResultFrame);
-                    m_PendingRequestCount++;
-                }
-            }
-            else
-            {
-                if ((value.m_Flags &amp; PathFlags.Pending) == 0)
-                {
-                    value.Dispose();
-                    list.m_NextIndex--;
-                    continue;
-                }
-                m_PendingSimulationFrameIndex = math.min(m_PendingSimulationFrameIndex, value.m_ResultFrame);
-                m_PendingRequestCount++;
-            }
-            list.m_Items[num++] = value;
-        }
-        if (num &lt; list.m_Items.Count)
-        {
-            list.m_Items.RemoveRange(num, list.m_Items.Count - num);
-        }
-        if (m_AvailabilityResultBuffer.Length &gt; 0)
-        {
-            JobHandle job = IJobParallelForExtensions.Schedule(new AvailabilityJobs.ProcessResultsJob
-            {
-                m_ResultItems = m_AvailabilityResultBuffer,
-                m_OwnerData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Common_Owner_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_EdgeLaneData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_EdgeLane_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_AvailabilityElements = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Pathfind_AvailabilityElement_RW_BufferLookup, ref base.CheckedStateRef)
-            }, m_AvailabilityResultBuffer.Length, 1, inputDeps);
-            outputDeps = JobHandle.CombineDependencies(outputDeps, job);
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private ProcessResults&lt;T&gt;(Game.Pathfind.PathfindQueueSystem+ActionList&lt;T&gt; list) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Void ProcessResults&lt;T&gt;(Game.Pathfind.PathfindQueueSystem+ActionList&lt;T&gt; list);
-</code></pre>
 <h2 id="nested-types">Nested types</h2>
 <ul>
-<li><code>Game.Pathfind.PathfindResultSystem+QueryType</code>  </li>
-<li><code>Game.Pathfind.PathfindResultSystem+ResultKey</code>  </li>
-<li><code>Game.Pathfind.PathfindResultSystem+ResultValue</code>  </li>
-<li><code>Game.Pathfind.PathfindResultSystem+TypeHandle</code>  </li>
+<li>
+<p><code>public enum QueryType { Pathfind, Coverage, Availability }</code><br />
+Identifies the type of query used for statistics and logging.</p>
+</li>
+<li>
+<p><code>public struct ResultKey : IEquatable&lt;ResultKey&gt;</code><br />
+Key used for m_QueryStats; composed of system object, QueryType, origin and destination SetupTargetType. Implements Equals and GetHashCode.</p>
+</li>
+<li>
+<p><code>public struct ResultValue</code><br />
+Value stored in m_QueryStats containing aggregated counters:</p>
+</li>
+<li>m_QueryCount (int)</li>
+<li>m_SuccessCount (int; number of queries that returned at least one result)</li>
+<li>m_GraphTraversal (float; normalized by graph size)</li>
+<li>
+<p>m_Efficiency (float; resultLength / graphTraversal)</p>
+</li>
+<li>
+<p><code>private struct TypeHandle</code><br />
+Contains ComponentLookup and BufferLookup fields used by scheduled jobs and the __AssignHandles method to initialize them from a SystemState.</p>
+</li>
 </ul>
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">[Preserve]
+protected override void OnCreate()
+{
+    base.OnCreate();
+    // The system sets up required references, archetypes and persistent buffers:
+    // - acquires references to PathfindQueueSystem and PathfindSetupSystem
+    // - creates EndFrameBarrier command buffer and event archetypes
+    // - allocates NativeList buffers for Pathfind/Coverage/Availability results
+}
+</code></pre>
+<p>Additional notes:
+- This system is tightly coupled with PathfindQueueSystem, PathfindSetupSystem, and job types PathfindJobs/CoverageJobs/AvailabilityJobs. It expects those jobs to produce specific ResultItem structs that it collects and forwards to ProcessResultsJob job types.
+- Event emission uses EndFrameBarrier.CreateCommandBuffer(), which ensures events are executed at the end of the frame. If many events are produced, the command buffer is lazily created only when needed.
+- The system keeps persistent NativeLists; OnDestroy must be allowed to run to avoid leaks.</p>
 
 
 

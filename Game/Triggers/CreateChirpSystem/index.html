@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87073,6 +87165,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Simulation/SurfaceWater/" class="md-nav__link">
         
   
@@ -93703,18 +93818,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -93739,9 +93854,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -117921,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117948,18 +118085,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -117984,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118009,227 +118146,163 @@
 
 
 <h1 id="gametriggerscreatechirpsystem">Game.Triggers.CreateChirpSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Triggers</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class CreateChirpSystem : Game.GameSystemBase
-{
-    private Game.Simulation.SimulationSystem m_SimulationSystem;
-    private Game.Simulation.CityStatisticsSystem m_CityStatisticsSystem;
-    private Game.Common.ModificationEndBarrier m_ModificationBarrier;
-    private Unity.Jobs.JobHandle m_WriteDependencies;
-    private Unity.Entities.EntityQuery m_PrefabQuery;
-    private Unity.Entities.EntityQuery m_ChirpQuery;
-    private Unity.Entities.EntityQuery m_CitizenQuery;
-    private Unity.Collections.NativeQueue&lt;Game.Triggers.ChirpCreationData&gt; m_Queue;
-    private Game.Triggers.CreateChirpSystem+TypeHandle __TypeHandle;
-
-    public CreateChirpSystem();
-
-    private System.Void __AssignQueries(Unity.Entities.SystemState&amp; state);
-    public System.Void AddQueueWriter(Unity.Jobs.JobHandle handle);
-    public Unity.Collections.NativeQueue&lt;Game.Triggers.ChirpCreationData&gt; GetQueue(Unity.Jobs.JobHandle&amp; deps);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnCreateForCompiler();
-    protected virtual System.Void OnDestroy();
-    protected virtual System.Void OnGamePreload(Colossal.Serialization.Entities.Purpose purpose, Game.GameMode mode);
-    protected virtual System.Void OnUpdate();
-}
-</code></pre>
+<p><strong>Assembly:</strong> Assembly-CSharp (game)<br />
+<strong>Namespace:</strong> Game.Triggers</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> GameSystemBase</p>
+<p><strong>Summary:</strong><br />
+CreateChirpSystem is a game system responsible for creating "chirp" entities (in-game social/network posts/events) in response to triggers. It collects recent chirps to avoid duplicate chirps from the same chirper prefab, consumes chirp-creation requests that are queued by other systems or jobs, and spawns chirp entities using a burst-compiled IJob (CreateChirpJob). The system uses Unity ECS patterns: entity queries, NativeQueue for cross-thread requests, NativeParallelHashMap to track recent chirps, and schedules Burst jobs for parallel processing. It also interacts with city statistics and various prefab/component lookups to configure chirp properties (likes, virality, participants, lifetime, etc.).</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.Simulation.SimulationSystem m_SimulationSystem</code>  </li>
+<li>
+<p><code>private SimulationSystem m_SimulationSystem</code><br />
+  Reference to the SimulationSystem used to read the current simulation frame (frameIndex). Used when setting creation/inactive frames and scheduling.</p>
+</li>
+<li>
+<p><code>private CityStatisticsSystem m_CityStatisticsSystem</code><br />
+  Reference to the CityStatisticsSystem used to obtain population/education statistics for like-count calculations.</p>
+</li>
+<li>
+<p><code>private ModificationEndBarrier m_ModificationBarrier</code><br />
+  Barrier system used to create an EntityCommandBuffer for structural changes (creating chirp entities, adding buffers/components).</p>
+</li>
+<li>
+<p><code>private JobHandle m_WriteDependencies</code><br />
+  Tracks job dependencies of writers that have enqueued chirp creation requests to the internal queue. Combined into scheduling to ensure correct ordering.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_PrefabQuery</code><br />
+  Query that selects chirp prefabs (ComponentType.ReadOnly<ChirpData>) — used to size temporary data structures.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_ChirpQuery</code><br />
+  Query that selects existing chirp entities (Chirp + PrefabRef, excluding Temp/Deleted) — used to collect recent chirps.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_CitizenQuery</code><br />
+  Query that selects citizen entities used to pick random senders when needed.</p>
+</li>
+<li>
+<p><code>private NativeQueue&lt;ChirpCreationData&gt; m_Queue</code><br />
+  Persistent NativeQueue storing chirp creation requests. Other systems/jobs write ChirpCreationData into this queue; CreateChirpSystem reads/dequeues and spawns chirps on update.</p>
+</li>
+<li>
+<p><code>private TypeHandle __TypeHandle</code><br />
+  Internal aggregated set of EntityTypeHandle / ComponentTypeHandle / ComponentLookup / BufferLookup used by jobs. Assigned during OnCreateForCompiler / __AssignHandles.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.Simulation.SimulationSystem m_SimulationSystem;
-</code></pre>
+<h2 id="properties">Properties</h2>
 <ul>
-<li><code>private Game.Simulation.CityStatisticsSystem m_CityStatisticsSystem</code>  </li>
+<li>(none exposed)</li>
 </ul>
-<pre><code class="language-csharp">private Game.Simulation.CityStatisticsSystem m_CityStatisticsSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Common.ModificationEndBarrier m_ModificationBarrier</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Common.ModificationEndBarrier m_ModificationBarrier;
-</code></pre>
-<ul>
-<li><code>private Unity.Jobs.JobHandle m_WriteDependencies</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Jobs.JobHandle m_WriteDependencies;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_PrefabQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_PrefabQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_ChirpQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_ChirpQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_CitizenQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_CitizenQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeQueue&lt;Game.Triggers.ChirpCreationData&gt; m_Queue</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeQueue&lt;Game.Triggers.ChirpCreationData&gt; m_Queue;
-</code></pre>
-<ul>
-<li><code>private Game.Triggers.CreateChirpSystem+TypeHandle __TypeHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Triggers.CreateChirpSystem+TypeHandle __TypeHandle;
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public CreateChirpSystem()</code>  </li>
+<li><code>public CreateChirpSystem()</code><br />
+  Default constructor. The system's managed initialization is performed in the protected OnCreate override.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public CreateChirpSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private __AssignQueries(Unity.Entities.SystemState&amp; state) : System.Void</code>  </li>
+<li>
+<p><code>protected override void OnCreate()</code><br />
+  Initializes references to required systems (SimulationSystem, CityStatisticsSystem, ModificationEndBarrier), creates entity queries (prefabs, chirps, citizens), initializes the persistent NativeQueue<ChirpCreationData>, and disables the system by default (base.Enabled = false). Called when system is created.</p>
+</li>
+<li>
+<p><code>protected override void OnGamePreload(Colossal.Serialization.Entities.Purpose purpose, GameMode mode)</code><br />
+  Enables the system when in game mode (mode.IsGame()). Called during game preload.</p>
+</li>
+<li>
+<p><code>protected override void OnDestroy()</code><br />
+  Completes outstanding write dependencies, disposes the persistent queue (m_Queue.Dispose()), and performs base cleanup. Ensures no memory leaks from the NativeQueue.</p>
+</li>
+<li>
+<p><code>public NativeQueue&lt;ChirpCreationData&gt; GetQueue(out JobHandle deps)</code><br />
+  Returns the NativeQueue used for chirp creation requests and outputs the current JobHandle dependencies that writers should depend on. Asserts the system is enabled (Assert.IsTrue(base.Enabled)). Use this when scheduling jobs that will enqueue chirp requests so you can combine dependencies correctly.</p>
+</li>
+<li>
+<p><code>public void AddQueueWriter(JobHandle handle)</code><br />
+  Adds a writer job's JobHandle to m_WriteDependencies (combined dependencies). Writers should call this after scheduling so the system knows about writer dependencies.</p>
+</li>
+<li>
+<p><code>protected override void OnUpdate()</code><br />
+  Main update logic:</p>
+</li>
+<li>Builds a temporary NativeParallelHashMap of recent chirps (one entry per chirp prefab) sized by m_PrefabQuery.CalculateEntityCount().</li>
+<li>If there are existing chirps, schedules CollectRecentChirpsJob (IJobChunk, Burst) to populate the recent chirps map with chirp-prefab -&gt; chirp-entity entries for chirps created recently (within a configured frame window).</li>
+<li>Builds a NativeList<ArchetypeChunk> of random citizen chunks for random sender selection.</li>
+<li>Prepares and schedules CreateChirpJob (IJob, Burst) which dequeues chirp creation requests from m_Queue and spawns chirp entities via an EntityCommandBuffer. CreateChirpJob uses many ComponentLookup/BufferLookup handles and city statistics to configure spawned chirps (likes, viral factor, continuous factor, inactive frame, target likes, participants).</li>
+<li>Disposes temporary collections (recentChirps, randomCitizenChunks) with the scheduled dependency.</li>
+<li>
+<p>Updates m_WriteDependencies and registers the dependency with m_ModificationBarrier (AddJobHandleForProducer).</p>
+</li>
+<li>
+<p><code>private void __AssignQueries(ref SystemState state)</code><br />
+  Internal method used by compiler-generated OnCreateForCompiler. Creates/assigns queries (presently empty in this compiled representation).</p>
+</li>
+<li>
+<p><code>protected override void OnCreateForCompiler()</code><br />
+  Compiler helper that assigns handles and queries used by the generated job structs; calls __AssignQueries and __TypeHandle.__AssignHandles.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private void __AssignQueries(ref SystemState state)
-    {
-        new EntityQueryBuilder(Allocator.Temp).Dispose();
-    }
-</code></pre>
+<p>Nested / Job Types (summaries):</p>
 <ul>
-<li><code>public AddQueueWriter(Unity.Jobs.JobHandle handle) : System.Void</code>  </li>
+<li><code>CollectRecentChirpsJob : IJobChunk</code> (BurstCompile)  </li>
+<li>Purpose: iterates chirp entities (chunks) and records recent chirps into a NativeParallelHashMap (m_RecentChirps) keyed by chirp prefab to avoid creating duplicate "chirper" chirps within a timeframe.</li>
+<li>Fields used: EntityTypeHandle, ComponentTypeHandle<PrefabRef>, ComponentTypeHandle<Chirp>, ComponentLookup<ChirpData>, NativeParallelHashMap<Entity,Entity>.ParallelWriter, m_SimulationFrame.</li>
+<li>
+<p>Logic: If a chirp's creation frame is within a configured recent window (m_CreationFrame + 18000 &gt;= m_SimulationFrame) and the chirp's prefab has ChirpData, try to add prefab-&gt;chirp entity mapping.</p>
+</li>
+<li>
+<p><code>CreateChirpJob : IJob</code> (BurstCompile)  </p>
+</li>
+<li>Purpose: dequeues ChirpCreationData requests, determines which chirp prefab to spawn (direct trigger or chirper mapping), checks for duplicates via m_RecentChirps, selects sender (possibly random) and other participants, calculates like/viral/continuous factors (possibly overridden by RandomLikeCountData), and creates chirp entities using an EntityCommandBuffer.</li>
+<li>Important behaviors:<ul>
+<li>Uses RandomSeed to pick chirp prefabs and random senders.</li>
+<li>Uses CityStatisticsSystem values (educated/uneducated population) to estimate target likes.</li>
+<li>Adds created chirp entity to recentChirps if it's a chirper-type chirp so duplicates are prevented that update tick.</li>
+<li>Appends LifePathEntry to sender's lifepath buffer when the chirp is not a chirper-chirp and sender has a lifepath buffer.</li>
+<li>Handles specialized selection logic for service/brand chirps, employees, household citizens, or completely random citizen selection (from random citizen chunks).</li>
+<li>Uses multiple ComponentLookup/BufferLookup handles provided to the job (prefab-&gt;component data, citizen component lookups, household buffers, employee buffers, etc.).</li>
 </ul>
-<pre><code class="language-csharp">public void AddQueueWriter(JobHandle handle)
-    {
-        m_WriteDependencies = JobHandle.CombineDependencies(m_WriteDependencies, handle);
-    }
+</li>
+<li>Private helper methods inside the job:<ul>
+<li>GetChirpPrefab(triggerPrefab, ref Random, out bool isChirperChirp)</li>
+<li>GetArchetype(prefab)</li>
+<li>FindSender(sender, target, prefab, ref Random)</li>
+<li>SelectRandomSender(DynamicBuffer<Employee>, ref Random)</li>
+<li>SelectRandomSender(DynamicBuffer<HouseholdCitizen>, ref Random)</li>
+<li>SelectRandomSender(ref Random) — selects a random adult citizen from the random citizen archetype chunks (tries randomized draws first, then exhaustive search).</li>
+</ul>
+</li>
+</ul>
+<p>Notes and cautions:
+- The system expects to be enabled only in game mode (OnGamePreload sets base.Enabled = mode.IsGame()).
+- GetQueue asserts that the system is enabled. Do not call GetQueue when the system is disabled.
+- Writers that enqueue into the NativeQueue must combine and register their job dependencies via AddQueueWriter so the system waits for writers before reading the queue.
+- The system disposes its persistent NativeQueue during OnDestroy; ensure writers complete before world shutdown.
+- Temporary native containers (NativeParallelHashMap, NativeList<ArchetypeChunk>) are disposed with the scheduled dependency in OnUpdate.</p>
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Example: enqueue a chirp creation request from another system/job
+var createChirpSystem = World.DefaultGameObjectInjectionWorld
+    .GetExistingSystemManaged&lt;Game.Triggers.CreateChirpSystem&gt;();
+
+// Ensure the system is enabled (game mode) before writing
+JobHandle writerDeps = default;
+var queue = createChirpSystem.GetQueue(out writerDeps);
+
+// If scheduling a job that will write to the queue, combine and add its handle:
+// createChirpSystem.AddQueueWriter(myWriterJobHandle);
+
+// For simple immediate enqueue on main thread:
+queue.Enqueue(new ChirpCreationData {
+    m_TriggerPrefab = someTriggerPrefabEntity,
+    m_Sender = senderEntity,
+    m_Target = targetEntity
+});
+
+// If you enqueued from a job, make sure to call AddQueueWriter with that job's handle:
+// createChirpSystem.AddQueueWriter(jobHandleThatWroteToQueue);
 </code></pre>
-<ul>
-<li><code>public GetQueue(Unity.Jobs.JobHandle&amp; deps) : Unity.Collections.NativeQueue&lt;Game.Triggers.ChirpCreationData&gt;</code>  </li>
-</ul>
-<pre><code class="language-csharp">public NativeQueue&lt;ChirpCreationData&gt; GetQueue(out JobHandle deps)
-    {
-        Assert.IsTrue(base.Enabled, &quot;Can not write to queue when system isn't running&quot;);
-        deps = m_WriteDependencies;
-        return m_Queue;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_SimulationSystem = base.World.GetOrCreateSystemManaged&lt;SimulationSystem&gt;();
-        m_CityStatisticsSystem = base.World.GetOrCreateSystemManaged&lt;CityStatisticsSystem&gt;();
-        m_ModificationBarrier = base.World.GetOrCreateSystemManaged&lt;ModificationEndBarrier&gt;();
-        m_PrefabQuery = GetEntityQuery(ComponentType.ReadOnly&lt;ChirpData&gt;());
-        m_ChirpQuery = GetEntityQuery(ComponentType.ReadOnly&lt;Chirp&gt;(), ComponentType.ReadOnly&lt;PrefabRef&gt;(), ComponentType.Exclude&lt;Temp&gt;(), ComponentType.Exclude&lt;Deleted&gt;());
-        m_CitizenQuery = GetEntityQuery(ComponentType.ReadOnly&lt;Citizen&gt;(), ComponentType.ReadOnly&lt;HouseholdMember&gt;(), ComponentType.Exclude&lt;Deleted&gt;());
-        m_Queue = new NativeQueue&lt;ChirpCreationData&gt;(Allocator.Persistent);
-        base.Enabled = false;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreateForCompiler() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnCreateForCompiler()
-    {
-        base.OnCreateForCompiler();
-        __AssignQueries(ref base.CheckedStateRef);
-        __TypeHandle.__AssignHandles(ref base.CheckedStateRef);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnDestroy() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnDestroy()
-    {
-        m_WriteDependencies.Complete();
-        m_Queue.Dispose();
-        base.OnDestroy();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnGamePreload(Colossal.Serialization.Entities.Purpose purpose, Game.GameMode mode) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnGamePreload(Colossal.Serialization.Entities.Purpose purpose, GameMode mode)
-    {
-        base.OnGamePreload(purpose, mode);
-        base.Enabled = mode.IsGame();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        int capacity = m_PrefabQuery.CalculateEntityCount();
-        NativeParallelHashMap&lt;Entity, Entity&gt; recentChirps = new NativeParallelHashMap&lt;Entity, Entity&gt;(capacity, Allocator.TempJob);
-        JobHandle job = default(JobHandle);
-        if (!m_ChirpQuery.IsEmptyIgnoreFilter)
-        {
-            job = JobChunkExtensions.ScheduleParallel(new CollectRecentChirpsJob
-            {
-                m_EntityType = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef),
-                m_PrefabType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                m_ChirpType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Triggers_Chirp_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                m_ChirpDatas = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_ChirpData_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_RecentChirps = recentChirps.AsParallelWriter(),
-                m_SimulationFrame = m_SimulationSystem.frameIndex
-            }, m_ChirpQuery, base.Dependency);
-        }
-        JobHandle outJobHandle;
-        NativeList&lt;ArchetypeChunk&gt; randomCitizenChunks = m_CitizenQuery.ToArchetypeChunkListAsync(Allocator.TempJob, out outJobHandle);
-        CreateChirpJob jobData = new CreateChirpJob
-        {
-            m_EntityType = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef),
-            m_TriggerChirpData = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Prefabs_TriggerChirpData_RO_BufferLookup, ref base.CheckedStateRef),
-            m_ChirpData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_ChirpData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_LifepathEventData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_LifePathEventData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_BrandChirpData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_BrandChirpData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_RandomLikeCountData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_RandomLikeCountData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_ServiceChirpDatas = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_ServiceChirpData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_Citizens = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Citizens_Citizen_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_HealthProblems = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Citizens_HealthProblem_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_HouseholdMembers = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Citizens_HouseholdMember_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_Households = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Citizens_Household_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_HomelessHouseholds = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Citizens_HomelessHousehold_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_HouseholdCitizens = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Citizens_HouseholdCitizen_RO_BufferLookup, ref base.CheckedStateRef),
-            m_Employees = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Companies_Employee_RO_BufferLookup, ref base.CheckedStateRef),
-            m_LifepathEntries = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Triggers_LifePathEntry_RO_BufferLookup, ref base.CheckedStateRef),
-            m_CommandBuffer = m_ModificationBarrier.CreateCommandBuffer(),
-            m_Queue = m_Queue,
-            m_RecentChirps = recentChirps,
-            m_RandomCitizenChunks = randomCitizenChunks,
-            m_RandomSeed = RandomSeed.Next(),
-            m_UneducatedPopulation = m_CityStatisticsSystem.GetStatisticValue(StatisticType.EducationCount) + m_CityStatisticsSystem.GetStatisticValue(StatisticType.EducationCount, 1),
-            m_EducatedPopulation = m_CityStatisticsSystem.GetStatisticValue(StatisticType.EducationCount, 2) + m_CityStatisticsSystem.GetStatisticValue(StatisticType.EducationCount, 3) + m_CityStatisticsSystem.GetStatisticValue(StatisticType.EducationCount, 4),
-            m_SimulationFrame = m_SimulationSystem.frameIndex
-        };
-        base.Dependency = IJobExtensions.Schedule(jobData, JobUtils.CombineDependencies(base.Dependency, m_WriteDependencies, outJobHandle, job));
-        recentChirps.Dispose(base.Dependency);
-        randomCitizenChunks.Dispose(base.Dependency);
-        m_WriteDependencies = base.Dependency;
-        m_ModificationBarrier.AddJobHandleForProducer(base.Dependency);
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Triggers.CreateChirpSystem+CollectRecentChirpsJob</code>  </li>
-<li><code>Game.Triggers.CreateChirpSystem+CreateChirpJob</code>  </li>
-<li><code>Game.Triggers.CreateChirpSystem+TypeHandle</code>  </li>
-</ul>
 
 
 

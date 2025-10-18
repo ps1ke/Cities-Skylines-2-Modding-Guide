@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87056,6 +87148,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -99930,15 +100045,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -99969,6 +100075,15 @@
   <a href="#methods" class="md-nav__link">
     <span class="md-ellipsis">
       Methods
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
     </span>
   </a>
   
@@ -117923,6 +118038,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117948,15 +118085,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -117994,6 +118122,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -118011,713 +118148,275 @@
 
 
 <h1 id="gameuiingameactionssection">Game.UI.InGame.ActionsSection</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.UI.InGame</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.UI.InGame.InfoSectionBase</code><br />
-<strong>Implements:</strong> <code>Game.UI.InGame.ISectionSource</code>, <code>Colossal.UI.Binding.IJsonWritable</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class ActionsSection : Game.UI.InGame.InfoSectionBase, Game.UI.InGame.ISectionSource, Colossal.UI.Binding.IJsonWritable
-{
-    private Game.Tools.ToolSystem m_ToolSystem;
-    private Game.Tools.AreaToolSystem m_AreaToolSystem;
-    private Game.Tools.DefaultToolSystem m_DefaultToolSystem;
-    private Game.Tools.ObjectToolSystem m_ObjectToolSystem;
-    private Game.Prefabs.UIInitializeSystem m_UIInitializeSystem;
-    private Game.UI.InGame.PoliciesUISystem m_PoliciesUISystem;
-    private Game.Triggers.LifePathEventSystem m_LifePathEventSystem;
-    private Game.UI.InGame.GamePanelUISystem m_GamePanelUISystem;
-    private Game.Tools.TrafficRoutesSystem m_TrafficRoutesSystem;
-    private Game.Audio.AudioManager m_AudioManager;
-    private Unity.Entities.EntityQuery m_SoundQuery;
-    private Unity.Entities.EntityQuery m_RouteConfigQuery;
-    private Game.Prefabs.PolicyPrefab m_RouteOutOfServicePolicy;
-    private Game.Prefabs.PolicyPrefab m_BuildingOutOfServicePolicy;
-    private Game.Prefabs.PolicyPrefab m_EmptyingPolicy;
-    private Game.Prefabs.AreaPrefab m_LotPrefab;
-    private System.Boolean m_EditingLot;
-    private UnityEngine.Color32[] m_TrafficRouteColors;
-    private Colossal.UI.Binding.ValueBinding&lt;System.Boolean&gt; m_MovingBinding;
-    private Colossal.UI.Binding.ValueBinding&lt;System.Boolean&gt; m_EditingLotBinding;
-    private Colossal.UI.Binding.ValueBinding&lt;System.Boolean&gt; m_TrafficRoutesVisibleBinding;
-    private Colossal.UI.Binding.ValueBinding&lt;UnityEngine.Color32[]&gt; m_TrafficRouteColorsBinding;
-    private Colossal.UI.Binding.RawValueBinding m_MoveableObjectName;
-    private System.Boolean &lt;focusable&gt;k__BackingField;
-    private System.Boolean &lt;focusing&gt;k__BackingField;
-    private System.Boolean &lt;following&gt;k__BackingField;
-    private System.Boolean &lt;followable&gt;k__BackingField;
-    private System.Boolean &lt;moveable&gt;k__BackingField;
-    private System.Boolean &lt;deletable&gt;k__BackingField;
-    private System.Boolean &lt;disabled&gt;k__BackingField;
-    private System.Boolean &lt;disableable&gt;k__BackingField;
-    private System.Boolean &lt;hasTutorial&gt;k__BackingField;
-    private System.Boolean &lt;emptying&gt;k__BackingField;
-    private System.Boolean &lt;emptiable&gt;k__BackingField;
-    private System.Boolean &lt;hasLotTool&gt;k__BackingField;
-    private System.Boolean &lt;hasTrafficRoutes&gt;k__BackingField;
-
-    protected System.String group { protected get; }
-    public System.Boolean editingLot { get; }
-    protected System.Boolean displayForDestroyedObjects { protected get; }
-    protected System.Boolean displayForOutsideConnections { protected get; }
-    protected System.Boolean displayForUnderConstruction { protected get; }
-    protected System.Boolean displayForUpgrades { protected get; }
-    private System.Boolean focusable { private get; private set; }
-    private System.Boolean focusing { private get; private set; }
-    private System.Boolean following { private get; private set; }
-    private System.Boolean followable { private get; private set; }
-    private System.Boolean moveable { private get; private set; }
-    private System.Boolean deletable { private get; private set; }
-    private System.Boolean disabled { private get; private set; }
-    private System.Boolean disableable { private get; private set; }
-    private System.Boolean hasTutorial { private get; private set; }
-    private System.Boolean emptying { private get; private set; }
-    private System.Boolean emptiable { private get; private set; }
-    private System.Boolean hasLotTool { private get; private set; }
-    private System.Boolean hasTrafficRoutes { private get; private set; }
-
-    public ActionsSection();
-
-    private System.Void BindObjectName(Colossal.UI.Binding.IJsonWriter binder);
-    protected virtual System.Void OnCreate();
-    private System.Void OnDelete();
-    private System.Void OnFocus();
-    private System.Void OnFollow();
-    protected virtual System.Void OnGameLoaded(Colossal.Serialization.Entities.Context serializationContext);
-    protected virtual System.Void OnProcess();
-    private System.Void OnToggle();
-    private System.Void OnToggleEmptying();
-    private System.Void OnToggleLotTool();
-    private System.Void OnToggleMove();
-    private System.Void OnToggleTrafficRoutes();
-    private System.Void OnToolChanged(Game.Tools.ToolBaseSystem tool);
-    protected virtual System.Void OnUpdate();
-    public virtual System.Void OnWriteProperties(Colossal.UI.Binding.IJsonWriter writer);
-    protected virtual System.Void Reset();
-}
-</code></pre>
+<p><strong>Assembly:</strong> Assembly-CSharp (game/client assembly)<br />
+<strong>Namespace:</strong> Game.UI.InGame</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> InfoSectionBase</p>
+<p><strong>Summary:</strong><br />
+ActionsSection implements the "Actions" area of the in-game selected-info UI. It inspects the currently selected prefab/entity and exposes/updates UI bindings and triggers for common actions such as focus, follow, move, delete, toggle policies (including out-of-service and emptying), editing lots, and toggling traffic route visibility. The section hooks into many core systems (tool systems, policy UI, traffic routes, audio, life path / follow, prefab/policy lookup and initialization) to implement the behavior for those actions and to update UI state (value bindings and raw bindings) each frame.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.Tools.ToolSystem m_ToolSystem</code>  </li>
+<li>
+<p><code>private ToolSystem m_ToolSystem</code><br />
+Reference to the global ToolSystem used to change and query active tools.</p>
+</li>
+<li>
+<p><code>private AreaToolSystem m_AreaToolSystem</code><br />
+Reference to the area/lot editing tool system used for editing lots.</p>
+</li>
+<li>
+<p><code>private DefaultToolSystem m_DefaultToolSystem</code><br />
+Reference to the default tool system to return to when disabling other tools.</p>
+</li>
+<li>
+<p><code>private ObjectToolSystem m_ObjectToolSystem</code><br />
+Reference to the object tool system used for moving objects.</p>
+</li>
+<li>
+<p><code>private UIInitializeSystem m_UIInitializeSystem</code><br />
+Used to access initial UI configuration data such as available policies.</p>
+</li>
+<li>
+<p><code>private PoliciesUISystem m_PoliciesUISystem</code><br />
+Used to open/set policy UI on a selected entity.</p>
+</li>
+<li>
+<p><code>private LifePathEventSystem m_LifePathEventSystem</code><br />
+Used for following/unfollowing citizens (life path functionality).</p>
+</li>
+<li>
+<p><code>private GamePanelUISystem m_GamePanelUISystem</code><br />
+Used to open game panels (e.g., LifePathPanel) when following.</p>
+</li>
+<li>
+<p><code>private TrafficRoutesSystem m_TrafficRoutesSystem</code><br />
+Used to toggle route visibility and query route visibility state.</p>
+</li>
+<li>
+<p><code>private AudioManager m_AudioManager</code><br />
+Used to play UI sounds (e.g., bulldoze/delete).</p>
+</li>
+<li>
+<p><code>private EntityQuery m_SoundQuery</code><br />
+EntityQuery to access ToolUXSoundSettingsData singleton for UI sound ids.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_RouteConfigQuery</code><br />
+EntityQuery to access RouteConfigurationData singleton for route visualization prefabs.</p>
+</li>
+<li>
+<p><code>private PolicyPrefab m_RouteOutOfServicePolicy</code><br />
+Cached PolicyPrefab reference for "Route Out of Service" policy (filled on game load).</p>
+</li>
+<li>
+<p><code>private PolicyPrefab m_BuildingOutOfServicePolicy</code><br />
+Cached PolicyPrefab reference for building out-of-service policy.</p>
+</li>
+<li>
+<p><code>private PolicyPrefab m_EmptyingPolicy</code><br />
+Cached PolicyPrefab reference for emptying policy.</p>
+</li>
+<li>
+<p><code>private AreaPrefab m_LotPrefab</code><br />
+If the selected prefab is part of an area/lot, this holds the corresponding AreaPrefab (used to enable lot editing).</p>
+</li>
+<li>
+<p><code>private bool m_EditingLot</code><br />
+Internal flag tracking whether lot editing is active for this section.</p>
+</li>
+<li>
+<p><code>private Color32[] m_TrafficRouteColors</code><br />
+Cached colors for traffic route visualizations (initialized from route config).</p>
+</li>
+<li>
+<p><code>private ValueBinding&lt;bool&gt; m_MovingBinding</code><br />
+UI binding that exposes whether the object move tool is active.</p>
+</li>
+<li>
+<p><code>private ValueBinding&lt;bool&gt; m_EditingLotBinding</code><br />
+UI binding that exposes whether the lot editing tool is active.</p>
+</li>
+<li>
+<p><code>private ValueBinding&lt;bool&gt; m_TrafficRoutesVisibleBinding</code><br />
+UI binding exposing whether traffic route visualization is currently visible.</p>
+</li>
+<li>
+<p><code>private ValueBinding&lt;Color32[]&gt; m_TrafficRouteColorsBinding</code><br />
+UI binding exposing the colors used for traffic route visualization.</p>
+</li>
+<li>
+<p><code>private RawValueBinding m_MoveableObjectName</code><br />
+Raw binding used to write the name of the object being moved (when object move tool is active).</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.Tools.ToolSystem m_ToolSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Tools.AreaToolSystem m_AreaToolSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Tools.AreaToolSystem m_AreaToolSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Tools.DefaultToolSystem m_DefaultToolSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Tools.DefaultToolSystem m_DefaultToolSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Tools.ObjectToolSystem m_ObjectToolSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Tools.ObjectToolSystem m_ObjectToolSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Prefabs.UIInitializeSystem m_UIInitializeSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Prefabs.UIInitializeSystem m_UIInitializeSystem;
-</code></pre>
-<ul>
-<li><code>private Game.UI.InGame.PoliciesUISystem m_PoliciesUISystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.UI.InGame.PoliciesUISystem m_PoliciesUISystem;
-</code></pre>
-<ul>
-<li><code>private Game.Triggers.LifePathEventSystem m_LifePathEventSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Triggers.LifePathEventSystem m_LifePathEventSystem;
-</code></pre>
-<ul>
-<li><code>private Game.UI.InGame.GamePanelUISystem m_GamePanelUISystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.UI.InGame.GamePanelUISystem m_GamePanelUISystem;
-</code></pre>
-<ul>
-<li><code>private Game.Tools.TrafficRoutesSystem m_TrafficRoutesSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Tools.TrafficRoutesSystem m_TrafficRoutesSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Audio.AudioManager m_AudioManager</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Audio.AudioManager m_AudioManager;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_SoundQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_SoundQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_RouteConfigQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_RouteConfigQuery;
-</code></pre>
-<ul>
-<li><code>private Game.Prefabs.PolicyPrefab m_RouteOutOfServicePolicy</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Prefabs.PolicyPrefab m_RouteOutOfServicePolicy;
-</code></pre>
-<ul>
-<li><code>private Game.Prefabs.PolicyPrefab m_BuildingOutOfServicePolicy</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Prefabs.PolicyPrefab m_BuildingOutOfServicePolicy;
-</code></pre>
-<ul>
-<li><code>private Game.Prefabs.PolicyPrefab m_EmptyingPolicy</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Prefabs.PolicyPrefab m_EmptyingPolicy;
-</code></pre>
-<ul>
-<li><code>private Game.Prefabs.AreaPrefab m_LotPrefab</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Prefabs.AreaPrefab m_LotPrefab;
-</code></pre>
-<ul>
-<li><code>private System.Boolean m_EditingLot</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean m_EditingLot;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.Color32[] m_TrafficRouteColors</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.Color32[] m_TrafficRouteColors;
-</code></pre>
-<ul>
-<li><code>private Colossal.UI.Binding.ValueBinding&lt;System.Boolean&gt; m_MovingBinding</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.UI.Binding.ValueBinding&lt;System.Boolean&gt; m_MovingBinding;
-</code></pre>
-<ul>
-<li><code>private Colossal.UI.Binding.ValueBinding&lt;System.Boolean&gt; m_EditingLotBinding</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.UI.Binding.ValueBinding&lt;System.Boolean&gt; m_EditingLotBinding;
-</code></pre>
-<ul>
-<li><code>private Colossal.UI.Binding.ValueBinding&lt;System.Boolean&gt; m_TrafficRoutesVisibleBinding</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.UI.Binding.ValueBinding&lt;System.Boolean&gt; m_TrafficRoutesVisibleBinding;
-</code></pre>
-<ul>
-<li><code>private Colossal.UI.Binding.ValueBinding&lt;UnityEngine.Color32[]&gt; m_TrafficRouteColorsBinding</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.UI.Binding.ValueBinding&lt;UnityEngine.Color32[]&gt; m_TrafficRouteColorsBinding;
-</code></pre>
-<ul>
-<li><code>private Colossal.UI.Binding.RawValueBinding m_MoveableObjectName</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.UI.Binding.RawValueBinding m_MoveableObjectName;
-</code></pre>
-<ul>
-<li><code>private System.Boolean &lt;focusable&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean &lt;focusable&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private System.Boolean &lt;focusing&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean &lt;focusing&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private System.Boolean &lt;following&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean &lt;following&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private System.Boolean &lt;followable&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean &lt;followable&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private System.Boolean &lt;moveable&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean &lt;moveable&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private System.Boolean &lt;deletable&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean &lt;deletable&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private System.Boolean &lt;disabled&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean &lt;disabled&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private System.Boolean &lt;disableable&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean &lt;disableable&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private System.Boolean &lt;hasTutorial&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean &lt;hasTutorial&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private System.Boolean &lt;emptying&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean &lt;emptying&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private System.Boolean &lt;emptiable&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean &lt;emptiable&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private System.Boolean &lt;hasLotTool&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean &lt;hasLotTool&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private System.Boolean &lt;hasTrafficRoutes&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean &lt;hasTrafficRoutes&gt;k__BackingField;
-</code></pre>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>protected System.String group { protected get }</code>  </li>
+<li>
+<p><code>protected override string group =&gt; "ActionsSection"</code><br />
+UI binding group identifier used for all bindings created by this section.</p>
+</li>
+<li>
+<p><code>public bool editingLot =&gt; m_EditingLot</code><br />
+Public read-only accessor exposing whether the lot editing mode is currently enabled for this section.</p>
+</li>
+<li>
+<p><code>protected override bool displayForDestroyedObjects =&gt; true</code><br />
+Indicates the section should be displayed for destroyed objects.</p>
+</li>
+<li>
+<p><code>protected override bool displayForOutsideConnections =&gt; true</code><br />
+Indicates the section should be displayed for outside connections.</p>
+</li>
+<li>
+<p><code>protected override bool displayForUnderConstruction =&gt; true</code><br />
+Indicates the section should be displayed for under-construction entities.</p>
+</li>
+<li>
+<p><code>protected override bool displayForUpgrades =&gt; true</code><br />
+Indicates the section should be displayed for upgrade entities.</p>
+</li>
+<li>
+<p><code>private bool focusable { get; set; }</code><br />
+Internal state used to drive the "focus" UI control.</p>
+</li>
+<li>
+<p><code>private bool focusing { get; set; }</code><br />
+Internal state indicating whether the selected entity is currently being focused.</p>
+</li>
+<li>
+<p><code>private bool following { get; set; }</code><br />
+Internal state used for UI follow button.</p>
+</li>
+<li>
+<p><code>private bool followable { get; set; }</code><br />
+Whether current selection can be followed (e.g., citizen).</p>
+</li>
+<li>
+<p><code>private bool moveable { get; set; }</code><br />
+Whether the current selection can be moved.</p>
+</li>
+<li>
+<p><code>private bool deletable { get; set; }</code><br />
+Whether the current selection can be deleted.</p>
+</li>
+<li>
+<p><code>private bool disabled { get; set; }</code><br />
+Whether the current selection is in a disabled/inactive state.</p>
+</li>
+<li>
+<p><code>private bool disableable { get; set; }</code><br />
+Whether the current selection supports toggling disabled/inactive state.</p>
+</li>
+<li>
+<p><code>private bool hasTutorial { get; set; }</code><br />
+Reserved/internal flag for tutorial availability (not used extensively in this class).</p>
+</li>
+<li>
+<p><code>private bool emptying { get; set; }</code><br />
+Whether the current building is currently in the "emptying" state.</p>
+</li>
+<li>
+<p><code>private bool emptiable { get; set; }</code><br />
+Whether the current selection can be set to emptying (e.g., garbage facility long term storage).</p>
+</li>
+<li>
+<p><code>private bool hasLotTool { get; set; }</code><br />
+Whether a lot editing tool is available for the current selection.</p>
+</li>
+<li>
+<p><code>private bool hasTrafficRoutes { get; set; }</code><br />
+Whether traffic routes are relevant for the current selection.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">protected System.String group { protected get; }
-</code></pre>
-<ul>
-<li><code>public System.Boolean editingLot { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Boolean editingLot { get; }
-</code></pre>
-<ul>
-<li><code>protected System.Boolean displayForDestroyedObjects { protected get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected System.Boolean displayForDestroyedObjects { protected get; }
-</code></pre>
-<ul>
-<li><code>protected System.Boolean displayForOutsideConnections { protected get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected System.Boolean displayForOutsideConnections { protected get; }
-</code></pre>
-<ul>
-<li><code>protected System.Boolean displayForUnderConstruction { protected get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected System.Boolean displayForUnderConstruction { protected get; }
-</code></pre>
-<ul>
-<li><code>protected System.Boolean displayForUpgrades { protected get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected System.Boolean displayForUpgrades { protected get; }
-</code></pre>
-<ul>
-<li><code>private System.Boolean focusable { private get; private set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean focusable { private get; private set; }
-</code></pre>
-<ul>
-<li><code>private System.Boolean focusing { private get; private set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean focusing { private get; private set; }
-</code></pre>
-<ul>
-<li><code>private System.Boolean following { private get; private set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean following { private get; private set; }
-</code></pre>
-<ul>
-<li><code>private System.Boolean followable { private get; private set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean followable { private get; private set; }
-</code></pre>
-<ul>
-<li><code>private System.Boolean moveable { private get; private set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean moveable { private get; private set; }
-</code></pre>
-<ul>
-<li><code>private System.Boolean deletable { private get; private set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean deletable { private get; private set; }
-</code></pre>
-<ul>
-<li><code>private System.Boolean disabled { private get; private set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean disabled { private get; private set; }
-</code></pre>
-<ul>
-<li><code>private System.Boolean disableable { private get; private set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean disableable { private get; private set; }
-</code></pre>
-<ul>
-<li><code>private System.Boolean hasTutorial { private get; private set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean hasTutorial { private get; private set; }
-</code></pre>
-<ul>
-<li><code>private System.Boolean emptying { private get; private set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean emptying { private get; private set; }
-</code></pre>
-<ul>
-<li><code>private System.Boolean emptiable { private get; private set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean emptiable { private get; private set; }
-</code></pre>
-<ul>
-<li><code>private System.Boolean hasLotTool { private get; private set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean hasLotTool { private get; private set; }
-</code></pre>
-<ul>
-<li><code>private System.Boolean hasTrafficRoutes { private get; private set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean hasTrafficRoutes { private get; private set; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public ActionsSection()</code>  </li>
+<li><code>public ActionsSection()</code><br />
+Default constructor. Typical initialization is done in OnCreate; the constructor itself does no special work beyond instantiation.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public ActionsSection()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private BindObjectName(Colossal.UI.Binding.IJsonWriter binder) : System.Void</code>  </li>
+<li>
+<p><code>protected override void Reset()</code><br />
+Resets all temporary per-selection boolean flags and clears the cached lot prefab. Called by the base InfoSection lifecycle to clear state before processing a new selection.</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnCreate()</code><br />
+Initializes references to many game systems via World.GetOrCreateSystemManaged&lt;...&gt;(), prepares entity queries, registers event handlers and creates UI bindings/triggers:</p>
+</li>
+<li>Hooks ToolSystem.EventToolChanged to OnToolChanged.</li>
+<li>Adds trigger bindings: "focus", "toggleMove", "follow", "delete", "toggle", "toggleEmptying", "toggleLotTool", "toggleTrafficRoutes".</li>
+<li>
+<p>Adds value/raw bindings: moving, editingLot, moveableObjectName, trafficRouteColors, trafficRoutesVisible.
+  This method is where the section wires itself into the UI binding system and the game's systems.</p>
+</li>
+<li>
+<p><code>private void OnToggleTrafficRoutes()</code><br />
+Toggles m_TrafficRoutesSystem.routesVisible and marks the info UI dirty so the UI updates.</p>
+</li>
+<li>
+<p><code>private void BindObjectName(IJsonWriter binder)</code><br />
+Raw binder callback used to supply the name of the object currently being moved. Writes the selected entity's name when the ObjectToolSystem is active and in Move mode; otherwise writes null.</p>
+</li>
+<li>
+<p><code>private void OnToolChanged(ToolBaseSystem tool)</code><br />
+Tool-change event handler. Updates internal flags and UI bindings when the active tool changes. Ensures editingLot is cleared if the tool is not the AreaToolSystem, updates moving and editingLot bindings and updates the moveable object name binding.</p>
+</li>
+<li>
+<p><code>private void OnToggleLotTool()</code><br />
+Toggles lot-editing mode: if already editing, switches back to default tool; if not editing and a lot prefab is available, sets the area tool's prefab, marks editing mode, and activates the area tool.</p>
+</li>
+<li>
+<p><code>protected override void OnGameLoaded(Context serializationContext)</code><br />
+During game load it iterates UI-initialized policy prefabs to locate and cache policy prefabs for "Route Out of Service", "Out of Service" (building), and "Empty". These prefabs are used when toggling policies from this section.</p>
+</li>
+<li>
+<p><code>private void OnToggle()</code><br />
+Handles the "toggle" trigger (used for toggling out-of-service policies). Chooses which policy to toggle depending on selection type: route out-of-service for routes/transport lines, building out-of-service for buildings and service upgrades.</p>
+</li>
+<li>
+<p><code>private void OnToggleEmptying()</code><br />
+Sets the Emptying policy on the selected info (uses cached m_EmptyingPolicy).</p>
+</li>
+<li>
+<p><code>private void OnDelete()</code><br />
+Requests the selected entity to be deleted: plays the appropriate UI sound (bulldoze for buildings, delete-entity otherwise) and adds a Deleted component to the entity via the EndFrameBarrier's command buffer.</p>
+</li>
+<li>
+<p><code>private void OnFocus()</code><br />
+Toggles camera focus on the selected entity. If not currently focusing, focus is set to the selected entity; if already focusing, focus is cleared (Entity.Null).</p>
+</li>
+<li>
+<p><code>private void OnToggleMove()</code><br />
+Starts or stops object move mode: if the selection is moveable and the object tool is already active it resets to default tool; otherwise it tells the ObjectToolSystem to start moving the selected entity and activates the object tool.</p>
+</li>
+<li>
+<p><code>private void OnFollow()</code><br />
+Handles following/unfollowing of citizens. If currently not followed, instructs LifePathEventSystem to follow the citizen and opens the LifePathPanel; if already followed, unfollows the citizen. Marks the info UI as dirty afterwards so UI updates.</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnUpdate()</code><br />
+Called each frame update by the InfoSection lifecycle. Sets the section's visible flag based on whether a valid selectedEntity exists (visible only if an entity is selected).</p>
+</li>
+<li>
+<p><code>protected override void OnProcess()</code><br />
+Main per-selection processing method. Inspects the selected entity and its prefab to compute and set all of the internal boolean flags used by the UI (focusable, focusing, moveable, followable, deletable, disabled, disableable, emptying, emptiable, hasLotTool, hasTrafficRoutes). Also detects lot prefabs from areas or attached parent areas, initializes route visualization colors once (from RouteConfigurationData), and updates traffic route visibility binding. This method contains the bulk of the selection-dependent logic used to enable/disable UI controls.</p>
+</li>
+<li>
+<p><code>public override void OnWriteProperties(IJsonWriter writer)</code><br />
+Writes the computed boolean states and other flags into the JSON writer for the UI layer (exposed properties such as focusable, moveable, deletable, disabled, hasLotTool, hasTrafficRoutes, etc.). Called by the UI binding system when serializing the section state to the UI.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private void BindObjectName(IJsonWriter binder)
-    {
-        if (m_ToolSystem.activeTool == m_ObjectToolSystem &amp;&amp; m_ObjectToolSystem.mode == ObjectToolSystem.Mode.Move)
-        {
-            m_NameSystem.BindName(binder, m_InfoUISystem.selectedEntity);
-        }
-        else
-        {
-            binder.WriteNull();
-        }
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
+<h2 id="usage-example">Usage Example</h2>
 <pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_ToolSystem = base.World.GetOrCreateSystemManaged&lt;ToolSystem&gt;();
-        m_AreaToolSystem = base.World.GetOrCreateSystemManaged&lt;AreaToolSystem&gt;();
-        m_DefaultToolSystem = base.World.GetOrCreateSystemManaged&lt;DefaultToolSystem&gt;();
-        m_ObjectToolSystem = base.World.GetOrCreateSystemManaged&lt;ObjectToolSystem&gt;();
-        m_UIInitializeSystem = base.World.GetOrCreateSystemManaged&lt;UIInitializeSystem&gt;();
-        m_PoliciesUISystem = base.World.GetOrCreateSystemManaged&lt;PoliciesUISystem&gt;();
-        m_LifePathEventSystem = base.World.GetOrCreateSystemManaged&lt;LifePathEventSystem&gt;();
-        m_GamePanelUISystem = base.World.GetOrCreateSystemManaged&lt;GamePanelUISystem&gt;();
-        m_TrafficRoutesSystem = base.World.GetOrCreateSystemManaged&lt;TrafficRoutesSystem&gt;();
-        m_AudioManager = base.World.GetOrCreateSystemManaged&lt;AudioManager&gt;();
-        m_SoundQuery = GetEntityQuery(ComponentType.ReadOnly&lt;ToolUXSoundSettingsData&gt;());
-        m_RouteConfigQuery = GetEntityQuery(ComponentType.ReadOnly&lt;RouteConfigurationData&gt;());
-        ToolSystem toolSystem = m_ToolSystem;
-        toolSystem.EventToolChanged = (Action&lt;ToolBaseSystem&gt;)Delegate.Combine(toolSystem.EventToolChanged, new Action&lt;ToolBaseSystem&gt;(OnToolChanged));
-        AddBinding(new TriggerBinding(group, &quot;focus&quot;, OnFocus));
-        AddBinding(new TriggerBinding(group, &quot;toggleMove&quot;, OnToggleMove));
-        AddBinding(new TriggerBinding(group, &quot;follow&quot;, OnFollow));
-        AddBinding(new TriggerBinding(group, &quot;delete&quot;, OnDelete));
-        AddBinding(new TriggerBinding(group, &quot;toggle&quot;, OnToggle));
-        AddBinding(new TriggerBinding(group, &quot;toggleEmptying&quot;, OnToggleEmptying));
-        AddBinding(new TriggerBinding(group, &quot;toggleLotTool&quot;, OnToggleLotTool));
-        AddBinding(new TriggerBinding(group, &quot;toggleTrafficRoutes&quot;, OnToggleTrafficRoutes));
-        AddBinding(m_MovingBinding = new ValueBinding&lt;bool&gt;(group, &quot;moving&quot;, initialValue: false));
-        AddBinding(m_EditingLotBinding = new ValueBinding&lt;bool&gt;(group, &quot;editingLot&quot;, initialValue: false));
-        AddBinding(m_MoveableObjectName = new RawValueBinding(group, &quot;moveableObjectName&quot;, BindObjectName));
-        AddBinding(m_TrafficRouteColorsBinding = new ValueBinding&lt;Color32[]&gt;(group, &quot;trafficRouteColors&quot;, m_TrafficRouteColors, new ArrayWriter&lt;Color32&gt;()));
-        AddBinding(m_TrafficRoutesVisibleBinding = new ValueBinding&lt;bool&gt;(group, &quot;trafficRoutesVisible&quot;, m_TrafficRoutesSystem.routesVisible));
-    }
-</code></pre>
-<ul>
-<li><code>private OnDelete() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void OnDelete()
-    {
-        if (base.EntityManager.Exists(selectedEntity))
-        {
-            if (base.EntityManager.HasComponent&lt;Building&gt;(selectedEntity))
-            {
-                m_AudioManager.PlayUISound(m_SoundQuery.GetSingleton&lt;ToolUXSoundSettingsData&gt;().m_BulldozeSound);
-            }
-            else
-            {
-                m_AudioManager.PlayUISound(m_SoundQuery.GetSingleton&lt;ToolUXSoundSettingsData&gt;().m_DeletetEntitySound);
-            }
-            m_EndFrameBarrier.CreateCommandBuffer().AddComponent&lt;Deleted&gt;(selectedEntity);
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private OnFocus() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void OnFocus()
-    {
-        m_InfoUISystem.Focus((!focusing) ? selectedEntity : Entity.Null);
-    }
-</code></pre>
-<ul>
-<li><code>private OnFollow() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void OnFollow()
-    {
-        if (!base.EntityManager.HasComponent&lt;Followed&gt;(selectedEntity))
-        {
-            m_LifePathEventSystem.FollowCitizen(selectedEntity);
-            m_GamePanelUISystem.ShowPanel&lt;LifePathPanel&gt;(selectedEntity);
-        }
-        else
-        {
-            m_LifePathEventSystem.UnfollowCitizen(selectedEntity);
-        }
-        m_InfoUISystem.SetDirty();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnGameLoaded(Colossal.Serialization.Entities.Context serializationContext) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnGameLoaded(Context serializationContext)
-    {
-        foreach (PolicyPrefab policy in m_UIInitializeSystem.policies)
-        {
-            switch (policy.name)
-            {
-            case &quot;Route Out of Service&quot;:
-                m_RouteOutOfServicePolicy = policy;
-                break;
-            case &quot;Out of Service&quot;:
-                m_BuildingOutOfServicePolicy = policy;
-                break;
-            case &quot;Empty&quot;:
-                m_EmptyingPolicy = policy;
-                break;
-            }
-        }
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnProcess() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnProcess()
-    {
-        focusable = !base.EntityManager.HasComponent&lt;BuildingExtensionData&gt;(selectedPrefab) &amp;&amp; (!base.EntityManager.HasComponent&lt;Household&gt;(selectedEntity) || base.EntityManager.HasComponent&lt;PropertyRenter&gt;(selectedEntity));
-        focusing = SelectedInfoUISystem.s_CameraController != null &amp;&amp; SelectedInfoUISystem.s_CameraController.controllerEnabled &amp;&amp; SelectedInfoUISystem.s_CameraController.followedEntity == selectedEntity;
-        moveable = base.EntityManager.HasComponent&lt;Game.Objects.Object&gt;(selectedEntity) &amp;&amp; base.EntityManager.HasComponent&lt;Static&gt;(selectedEntity) &amp;&amp; !base.EntityManager.HasComponent&lt;Native&gt;(selectedEntity) &amp;&amp; ((!base.EntityManager.HasComponent&lt;Building&gt;(selectedEntity)) ? (!base.EntityManager.HasComponent&lt;Owner&gt;(selectedEntity) &amp;&amp; !base.EntityManager.HasComponent&lt;Game.Objects.OutsideConnection&gt;(selectedEntity)) : (!base.EntityManager.HasComponent&lt;Game.Buildings.WaterPowered&gt;(selectedEntity) &amp;&amp; (!base.EntityManager.HasComponent&lt;Owner&gt;(selectedEntity) || base.EntityManager.HasComponent&lt;Game.Buildings.ServiceUpgrade&gt;(selectedEntity)) &amp;&amp; (!base.EntityManager.HasComponent&lt;SpawnableBuildingData&gt;(selectedPrefab) || base.EntityManager.HasComponent&lt;SignatureBuildingData&gt;(selectedPrefab))));
-        followable = base.EntityManager.HasComponent&lt;Citizen&gt;(selectedEntity);
-        following = base.EntityManager.HasComponent&lt;Followed&gt;(selectedEntity);
-        deletable = base.EntityManager.HasComponent&lt;District&gt;(selectedEntity) || base.EntityManager.HasComponent&lt;Game.Buildings.ServiceUpgrade&gt;(selectedEntity) || (base.EntityManager.HasComponent&lt;TransportLine&gt;(selectedEntity) &amp;&amp; base.EntityManager.HasComponent&lt;Route&gt;(selectedEntity));
-        disabled = (base.EntityManager.TryGetComponent&lt;Building&gt;(selectedEntity, out var component) &amp;&amp; BuildingUtils.CheckOption(component, BuildingOption.Inactive)) || (base.EntityManager.TryGetComponent&lt;Extension&gt;(selectedEntity, out var component2) &amp;&amp; (component2.m_Flags &amp; ExtensionFlags.Disabled) != ExtensionFlags.None) || (base.EntityManager.TryGetComponent&lt;Route&gt;(selectedEntity, out var component3) &amp;&amp; RouteUtils.CheckOption(component3, RouteOption.Inactive));
-        if (base.EntityManager.HasComponent&lt;Game.Buildings.ServiceUpgrade&gt;(selectedEntity))
-        {
-            disableable = true;
-            base.tooltipKeys.Add(&quot;Building&quot;);
-        }
-        else if (base.EntityManager.HasComponent&lt;Policy&gt;(selectedEntity))
-        {
-            if (base.EntityManager.HasComponent&lt;Building&gt;(selectedEntity) &amp;&amp; base.EntityManager.HasComponent&lt;CityServiceUpkeep&gt;(selectedEntity) &amp;&amp; base.EntityManager.HasComponent&lt;Efficiency&gt;(selectedEntity))
-            {
-                disableable = true;
-                base.tooltipKeys.Add(&quot;Building&quot;);
-            }
-            if (base.EntityManager.HasComponent&lt;Route&gt;(selectedEntity) &amp;&amp; base.EntityManager.HasComponent&lt;TransportLine&gt;(selectedEntity) &amp;&amp; base.EntityManager.HasComponent&lt;RouteWaypoint&gt;(selectedEntity))
-            {
-                disableable = true;
-            }
-        }
-        emptying = base.EntityManager.TryGetComponent&lt;Building&gt;(selectedEntity, out component) &amp;&amp; BuildingUtils.CheckOption(component, BuildingOption.Empty);
-        emptiable = base.EntityManager.HasComponent&lt;Policy&gt;(selectedEntity) &amp;&amp; base.EntityManager.HasComponent&lt;Building&gt;(selectedEntity) &amp;&amp; base.EntityManager.TryGetComponent&lt;GarbageFacilityData&gt;(selectedPrefab, out var component4) &amp;&amp; component4.m_LongTermStorage;
-        if (base.EntityManager.TryGetBuffer(selectedPrefab, isReadOnly: true, out DynamicBuffer&lt;Game.Prefabs.SubArea&gt; buffer) &amp;&amp; buffer.Length &gt; 0)
-        {
-            for (int i = 0; i &lt; buffer.Length; i++)
-            {
-                AreaPrefab prefab = m_PrefabSystem.GetPrefab&lt;AreaPrefab&gt;(buffer[i].m_Prefab);
-                if (prefab != null &amp;&amp; prefab.Has&lt;LotPrefab&gt;())
-                {
-                    m_LotPrefab = prefab;
-                    hasLotTool = ((LotPrefab)prefab).m_AllowEditing;
-                    break;
-                }
-            }
-        }
-        if (!hasLotTool &amp;&amp; base.EntityManager.HasComponent&lt;SpawnableBuildingData&gt;(selectedPrefab) &amp;&amp; base.EntityManager.TryGetComponent&lt;Attached&gt;(selectedEntity, out var component5) &amp;&amp; base.EntityManager.TryGetBuffer(component5.m_Parent, isReadOnly: true, out DynamicBuffer&lt;Game.Areas.SubArea&gt; buffer2) &amp;&amp; buffer2.Length &gt; 0)
-        {
-            for (int j = 0; j &lt; buffer2.Length; j++)
-            {
-                if (base.EntityManager.HasComponent&lt;Game.Areas.Lot&gt;(buffer2[j].m_Area) &amp;&amp; base.EntityManager.TryGetComponent&lt;PrefabRef&gt;(buffer2[j].m_Area, out var component6))
-                {
-                    AreaPrefab prefab2 = m_PrefabSystem.GetPrefab&lt;AreaPrefab&gt;(component6.m_Prefab);
-                    if (prefab2 != null)
-                    {
-                        m_LotPrefab = prefab2;
-                        hasLotTool = true;
-                        break;
-                    }
-                }
-            }
-        }
-        if (m_TrafficRouteColors == null)
-        {
-            RouteConfigurationData singleton = m_RouteConfigQuery.GetSingleton&lt;RouteConfigurationData&gt;();
-            m_TrafficRouteColors = new Color32[5]
-            {
-                m_PrefabSystem.GetPrefab&lt;LivePathPrefab&gt;(singleton.m_CarPathVisualization).color,
-                m_PrefabSystem.GetPrefab&lt;LivePathPrefab&gt;(singleton.m_WatercraftPathVisualization).color,
-                m_PrefabSystem.GetPrefab&lt;LivePathPrefab&gt;(singleton.m_AircraftPathVisualization).color,
-                m_PrefabSystem.GetPrefab&lt;LivePathPrefab&gt;(singleton.m_TrainPathVisualization).color,
-                m_PrefabSystem.GetPrefab&lt;LivePathPrefab&gt;(singleton.m_HumanPathVisualization).color
-            };
-            m_TrafficRouteColorsBinding.Update(m_TrafficRouteColors);
-        }
-        hasTrafficRoutes = base.EntityManager.HasComponent&lt;Building&gt;(selectedEntity) || base.EntityManager.HasComponent&lt;Aggregate&gt;(selectedEntity) || base.EntityManager.HasComponent&lt;Game.Net.Node&gt;(selectedEntity) || base.EntityManager.HasComponent&lt;Edge&gt;(selectedEntity) || base.EntityManager.HasComponent&lt;Game.Routes.TransportStop&gt;(selectedEntity) || base.EntityManager.HasComponent&lt;Game.Objects.OutsideConnection&gt;(selectedEntity) || base.EntityManager.HasComponent&lt;Human&gt;(selectedEntity) || base.EntityManager.HasComponent&lt;Vehicle&gt;(selectedEntity) || base.EntityManager.HasComponent&lt;Citizen&gt;(selectedEntity) || base.EntityManager.HasComponent&lt;Household&gt;(selectedEntity);
-        m_TrafficRoutesVisibleBinding.Update(m_TrafficRoutesSystem.routesVisible);
-    }
-</code></pre>
-<ul>
-<li><code>private OnToggle() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void OnToggle()
-    {
-        if (base.EntityManager.HasComponent&lt;Route&gt;(selectedEntity) &amp;&amp; base.EntityManager.HasComponent&lt;TransportLine&gt;(selectedEntity) &amp;&amp; base.EntityManager.HasComponent&lt;RouteWaypoint&gt;(selectedEntity))
-        {
-            m_PoliciesUISystem.SetSelectedInfoPolicy(m_PrefabSystem.GetEntity(m_RouteOutOfServicePolicy), !disabled);
-        }
-        else if ((base.EntityManager.HasComponent&lt;Building&gt;(selectedEntity) &amp;&amp; base.EntityManager.HasComponent&lt;Policy&gt;(selectedEntity) &amp;&amp; base.EntityManager.HasComponent&lt;CityServiceUpkeep&gt;(selectedEntity) &amp;&amp; base.EntityManager.HasComponent&lt;Efficiency&gt;(selectedEntity)) || base.EntityManager.HasComponent&lt;Game.Buildings.ServiceUpgrade&gt;(selectedEntity))
-        {
-            m_PoliciesUISystem.SetSelectedInfoPolicy(m_PrefabSystem.GetEntity(m_BuildingOutOfServicePolicy), !disabled);
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private OnToggleEmptying() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void OnToggleEmptying()
-    {
-        m_PoliciesUISystem.SetSelectedInfoPolicy(m_PrefabSystem.GetEntity(m_EmptyingPolicy), !emptying);
-    }
-</code></pre>
-<ul>
-<li><code>private OnToggleLotTool() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void OnToggleLotTool()
-    {
-        if (m_EditingLot)
-        {
-            m_ToolSystem.activeTool = m_DefaultToolSystem;
-        }
-        else if (m_LotPrefab != null)
-        {
-            m_EditingLot = true;
-            m_AreaToolSystem.prefab = m_LotPrefab;
-            m_ToolSystem.activeTool = m_AreaToolSystem;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private OnToggleMove() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void OnToggleMove()
-    {
-        if (moveable)
-        {
-            if (m_ToolSystem.activeTool == m_ObjectToolSystem)
-            {
-                m_ToolSystem.activeTool = m_DefaultToolSystem;
-                return;
-            }
-            m_ObjectToolSystem.StartMoving(selectedEntity);
-            m_ToolSystem.activeTool = m_ObjectToolSystem;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private OnToggleTrafficRoutes() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void OnToggleTrafficRoutes()
-    {
-        m_TrafficRoutesSystem.routesVisible = !m_TrafficRoutesSystem.routesVisible;
-        m_InfoUISystem.SetDirty();
-    }
-</code></pre>
-<ul>
-<li><code>private OnToolChanged(Game.Tools.ToolBaseSystem tool) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void OnToolChanged(ToolBaseSystem tool)
-    {
-        if (tool != m_AreaToolSystem)
-        {
-            m_EditingLot = false;
-        }
-        m_MoveableObjectName.Update();
-        m_MovingBinding.Update(tool == m_ObjectToolSystem &amp;&amp; m_ObjectToolSystem.mode == ObjectToolSystem.Mode.Move);
-        m_EditingLotBinding.Update(tool == m_AreaToolSystem &amp;&amp; hasLotTool &amp;&amp; m_EditingLot);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        base.visible = selectedEntity != Entity.Null;
-    }
-</code></pre>
-<ul>
-<li><code>public virtual OnWriteProperties(Colossal.UI.Binding.IJsonWriter writer) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override void OnWriteProperties(IJsonWriter writer)
-    {
-        writer.PropertyName(&quot;focusable&quot;);
-        writer.Write(focusable);
-        writer.PropertyName(&quot;focusing&quot;);
-        writer.Write(focusing);
-        writer.PropertyName(&quot;following&quot;);
-        writer.Write(following);
-        writer.PropertyName(&quot;followable&quot;);
-        writer.Write(followable);
-        writer.PropertyName(&quot;moveable&quot;);
-        writer.Write(moveable);
-        writer.PropertyName(&quot;deletable&quot;);
-        writer.Write(deletable);
-        writer.PropertyName(&quot;disabled&quot;);
-        writer.Write(disabled);
-        writer.PropertyName(&quot;disableable&quot;);
-        writer.Write(disableable);
-        writer.PropertyName(&quot;emptying&quot;);
-        writer.Write(emptying);
-        writer.PropertyName(&quot;emptiable&quot;);
-        writer.Write(emptiable);
-        writer.PropertyName(&quot;hasLotTool&quot;);
-        writer.Write(hasLotTool);
-        writer.PropertyName(&quot;hasTrafficRoutes&quot;);
-        writer.Write(hasTrafficRoutes);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual Reset() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void Reset()
-    {
-        focusable = false;
-        focusing = false;
-        following = false;
-        followable = false;
-        moveable = false;
-        deletable = false;
-        disabled = false;
-        disableable = false;
-        hasTutorial = false;
-        emptying = false;
-        emptiable = false;
-        hasLotTool = false;
-        hasTrafficRoutes = false;
-        m_LotPrefab = null;
-    }
+protected override void OnCreate()
+{
+    base.OnCreate();
+    // Typical initialization done by ActionsSection: grab required systems and add bindings.
+    // Example: cache the tool system and ensure tool-change handler is registered
+    m_ToolSystem = base.World.GetOrCreateSystemManaged&lt;ToolSystem&gt;();
+    // The class already adds trigger/value bindings and registers OnToolChanged in its OnCreate.
+}
 </code></pre>
 
 

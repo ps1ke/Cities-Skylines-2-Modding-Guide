@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#gamesimulationgamemodegovernmentsubsidiessystem" class="md-skip">
+        <a href="#gamegamemodegovernmentsubsidiessystem" class="md-skip">
           Skip to content
         </a>
       
@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -81973,15 +82065,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -82012,6 +82095,15 @@
   <a href="#methods" class="md-nav__link">
     <span class="md-ellipsis">
       Methods
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
     </span>
   </a>
   
@@ -87145,6 +87237,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -117921,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117946,15 +118083,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -117992,6 +118120,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -118008,163 +118145,115 @@
 
 
 
-<h1 id="gamesimulationgamemodegovernmentsubsidiessystem">Game.Simulation.GameModeGovernmentSubsidiesSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Simulation</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class GameModeGovernmentSubsidiesSystem : Game.GameSystemBase
-{
-    private System.Int32 m_LastSubsidyCoverPerDay;
-    private System.Int32 m_MonthlySubsidy;
-    private Game.Simulation.ICityServiceBudgetSystem m_CityServiceBudgetSystem;
-    private Game.Simulation.CitySystem m_CitySystem;
-    private Unity.Entities.EntityQuery m_GameModeSettingQuery;
-    public static readonly System.Int32 kUpdatesPerDay;
-
-    public System.Int32 LastSubsidyCoverPerDay { get; }
-    public System.Int32 monthlySubsidy { get; }
-
-    public GameModeGovernmentSubsidiesSystem();
-
-    public System.Boolean GetGovernmentSubsidiesEnabled();
-    public virtual System.Int32 GetUpdateInterval(Game.SystemUpdatePhase phase);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnGameLoaded(Colossal.Serialization.Entities.Context serializationContext);
-    protected virtual System.Void OnUpdate();
-}
-</code></pre>
+<h1 id="gamegamemodegovernmentsubsidiessystem">Game.GameModeGovernmentSubsidiesSystem</h1>
+<p><strong>Assembly:</strong> Assembly-CSharp<br />
+<strong>Namespace:</strong> Game.Simulation</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> GameSystemBase</p>
+<p><strong>Summary:</strong><br />
+Manages government subsidy calculations for the Government Subsidies game mode. The system reads ModeSettingData and the player's current money to determine whether government subsidies are enabled and, if so, computes a monthly subsidy amount and a per-update (per-day) subsidy cover. It depends on CityServiceBudgetSystem to get total city service expenses and on CitySystem to access the city entity and PlayerMoney. The system only runs when the relevant ModeSettingData component exists and the mode indicates subsidies are enabled.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private System.Int32 m_LastSubsidyCoverPerDay</code>  </li>
+<li>
+<p><code>public static readonly System.Int32 kUpdatesPerDay</code><br />
+Constant value (128) used to convert the monthly subsidy into a per-update (per-day) amount. The system's update interval is also computed relative to this value.</p>
+</li>
+<li>
+<p><code>private System.Int32 m_LastSubsidyCoverPerDay</code><br />
+Stores the last computed subsidy cover amount applied per update (effectively per day when combined with kUpdatesPerDay). Updated during OnUpdate when a subsidy is applicable.</p>
+</li>
+<li>
+<p><code>private System.Int32 m_MonthlySubsidy</code><br />
+Holds the computed monthly subsidy amount for the current update. Reset to 0 each OnUpdate before recalculation.</p>
+</li>
+<li>
+<p><code>private ICityServiceBudgetSystem m_CityServiceBudgetSystem</code><br />
+Reference to the CityServiceBudgetSystem used to obtain total city service expenses (used in subsidy calculation).</p>
+</li>
+<li>
+<p><code>private CitySystem m_CitySystem</code><br />
+Reference to the CitySystem used to get the city entity and the PlayerMoney component.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_GameModeSettingQuery</code><br />
+EntityQuery used to find the ModeSettingData singleton. The system requires this query for updates (RequireForUpdate is used in OnCreate).</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private System.Int32 m_LastSubsidyCoverPerDay;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_MonthlySubsidy</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_MonthlySubsidy;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.ICityServiceBudgetSystem m_CityServiceBudgetSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.ICityServiceBudgetSystem m_CityServiceBudgetSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.CitySystem m_CitySystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.CitySystem m_CitySystem;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_GameModeSettingQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_GameModeSettingQuery;
-</code></pre>
-<ul>
-<li><code>public static readonly System.Int32 kUpdatesPerDay</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static readonly System.Int32 kUpdatesPerDay;
-</code></pre>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>public System.Int32 LastSubsidyCoverPerDay { get }</code>  </li>
+<li>
+<p><code>public System.Int32 LastSubsidyCoverPerDay { get; }</code><br />
+Returns the integer per-update subsidy cover that was last computed (m_LastSubsidyCoverPerDay). This is suitable for applying a per-tick/per-day subsidy amount.</p>
+</li>
+<li>
+<p><code>public System.Int32 monthlySubsidy { get; }</code><br />
+Returns the integer monthly subsidy computed for the current update (m_MonthlySubsidy). It is reset and recomputed each OnUpdate and represents the total subsidy amount for the month based on the current city expenses and player money.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public System.Int32 LastSubsidyCoverPerDay { get; }
-</code></pre>
-<ul>
-<li><code>public System.Int32 monthlySubsidy { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Int32 monthlySubsidy { get; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public GameModeGovernmentSubsidiesSystem()</code>  </li>
+<li><code>public GameModeGovernmentSubsidiesSystem()</code><br />
+Default constructor. The system performs setup in OnCreate rather than in the constructor; the constructor is present for ECS/system instantiation and is marked with [Preserve] for AOT/serialization compatibility.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public GameModeGovernmentSubsidiesSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>public GetGovernmentSubsidiesEnabled() : System.Boolean</code>  </li>
+<li>
+<p><code>public override System.Int32 GetUpdateInterval(SystemUpdatePhase phase)</code><br />
+Returns the system update interval as 262144 / kUpdatesPerDay. This determines how frequently the system's OnUpdate is invoked relative to the game's update ticks. The divisor using kUpdatesPerDay ties update frequency to the per-day logic.</p>
+</li>
+<li>
+<p><code>public System.Boolean GetGovernmentSubsidiesEnabled()</code><br />
+Returns the system's Enabled flag (base.Enabled). The flag is set in OnGameLoaded based on ModeSettingData (whether subsidies are enabled for the current game mode).</p>
+</li>
+<li>
+<p><code>protected override void OnCreate()</code><br />
+Initializes system references and query requirements:</p>
+</li>
+<li>Gets CityServiceBudgetSystem and CitySystem via World.GetOrCreateSystemManaged.</li>
+<li>
+<p>Creates an EntityQuery for ModeSettingData and calls RequireForUpdate with it so the system only runs if the ModeSettingData singleton exists.</p>
+</li>
+<li>
+<p><code>protected override void OnGameLoaded(Context serializationContext)</code><br />
+Called when a save/game is loaded. Resets m_MonthlySubsidy to 0 and reads ModeSettingData (if present). Sets base.Enabled to true only if ModeSettingData.m_Enable and ModeSettingData.m_EnableGovernmentSubsidies are both true; otherwise disables the system.</p>
+</li>
+<li>
+<p><code>protected override void OnUpdate()</code><br />
+Main logic to compute subsidies. Behavior:</p>
+</li>
+<li>Resets m_MonthlySubsidy to 0.</li>
+<li>Returns early if ModeSettingData is missing or if there is no city entity.</li>
+<li>Reads ModeSettingData singleton and PlayerMoney from the city entity.</li>
+<li>If player money is below ModeSettingData.m_MoneyCoverThreshold.x, calculates a coverage fraction:<ul>
+<li>num = thresholdMax - thresholdMin (m_MoneyCoverThreshold.x - m_MoneyCoverThreshold.y)</li>
+<li>coverageFraction = clamp(1 - (money - thresholdMin) / num, 0, 1) * (m_MaxMoneyCoverPercentage / 100f)</li>
+<li>monthlySubsidy = abs((int)(coverageFraction * totalExpenses)) where totalExpenses is obtained from the CityServiceBudgetSystem.</li>
+<li>m_LastSubsidyCoverPerDay = monthlySubsidy / kUpdatesPerDay</li>
 </ul>
-<pre><code class="language-csharp">public bool GetGovernmentSubsidiesEnabled()
-    {
-        return base.Enabled;
-    }
-</code></pre>
-<ul>
-<li><code>public virtual GetUpdateInterval(Game.SystemUpdatePhase phase) : System.Int32</code>  </li>
+</li>
+<li>If player money is above threshold, subsidies are not applied (monthlySubsidy remains 0).</li>
 </ul>
-<pre><code class="language-csharp">public override int GetUpdateInterval(SystemUpdatePhase phase)
+<p>Notes on the computation:
+  - The subsidy scales linearly between the two threshold values (m_MoneyCoverThreshold.y and m_MoneyCoverThreshold.x).
+  - m_MaxMoneyCoverPercentage (from ModeSettingData) caps the maximum portion of total expenses the government will cover.
+  - Absolute value and integer cast convert the computed float to an integer monthly subsidy.</p>
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Example: reading current subsidy values from another system (e.g., in another GameSystemBase)
+protected override void OnUpdate()
+{
+    var subsidySystem = World.GetExistingSystemManaged&lt;GameModeGovernmentSubsidiesSystem&gt;();
+    if (subsidySystem != null &amp;&amp; subsidySystem.GetGovernmentSubsidiesEnabled())
     {
-        return 262144 / kUpdatesPerDay;
+        int monthly = subsidySystem.monthlySubsidy;
+        int perDay = subsidySystem.LastSubsidyCoverPerDay;
+        // Use monthly and perDay values, for example log, display or apply them as needed.
     }
+}
 </code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_CityServiceBudgetSystem = base.World.GetOrCreateSystemManaged&lt;CityServiceBudgetSystem&gt;();
-        m_CitySystem = base.World.GetOrCreateSystemManaged&lt;CitySystem&gt;();
-        m_GameModeSettingQuery = base.EntityManager.CreateEntityQuery(ComponentType.ReadOnly&lt;ModeSettingData&gt;());
-        RequireForUpdate(m_GameModeSettingQuery);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnGameLoaded(Colossal.Serialization.Entities.Context serializationContext) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnGameLoaded(Context serializationContext)
-    {
-        base.OnGameLoaded(serializationContext);
-        m_MonthlySubsidy = 0;
-        if (m_GameModeSettingQuery.IsEmptyIgnoreFilter)
-        {
-            base.Enabled = false;
-            return;
-        }
-        ModeSettingData singleton = m_GameModeSettingQuery.GetSingleton&lt;ModeSettingData&gt;();
-        if (singleton.m_Enable &amp;&amp; singleton.m_EnableGovernmentSubsidies)
-        {
-            base.Enabled = true;
-        }
-        else
-        {
-            base.Enabled = false;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        m_MonthlySubsidy = 0;
-        if (m_GameModeSettingQuery.IsEmptyIgnoreFilter || m_CitySystem.City == Entity.Null)
-        {
-            return;
-        }
-        ModeSettingData singleton = m_GameModeSettingQuery.GetSingleton&lt;ModeSettingData&gt;();
-        PlayerMoney componentData = base.EntityManager.GetComponentData&lt;PlayerMoney&gt;(m_CitySystem.City);
-        if (componentData.money &lt; singleton.m_MoneyCoverThreshold.x)
-        {
-            float num = singleton.m_MoneyCoverThreshold.x - singleton.m_MoneyCoverThreshold.y;
-            float num2 = math.clamp(1f - (float)(componentData.money - singleton.m_MoneyCoverThreshold.y) / num, 0f, 1f) * ((float)singleton.m_MaxMoneyCoverPercentage / 100f);
-            if (num2 &gt; 0f)
-            {
-                m_MonthlySubsidy = math.abs((int)(num2 * (float)m_CityServiceBudgetSystem.GetTotalExpenses()));
-                m_LastSubsidyCoverPerDay = m_MonthlySubsidy / kUpdatesPerDay;
-            }
-        }
-    }
-</code></pre>
+<p>Additional notes:
+- The system depends on the ModeSettingData component and PlayerMoney component; if these are missing the system is effectively inactive.
+- The system is designed to be data-driven: changing ModeSettingData values (thresholds, max cover percentage, enable flags) will alter subsidy behavior without code changes.</p>
 
 
 

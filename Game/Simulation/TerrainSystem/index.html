@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#gamesimulationterrainsystem" class="md-skip">
+        <a href="#gameterrainsystem" class="md-skip">
           Skip to content
         </a>
       
@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87075,6 +87167,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../SurfaceWater/" class="md-nav__link">
         
   
@@ -87608,15 +87723,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -87653,9 +87759,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -117930,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117955,15 +118083,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -118002,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118026,3391 +118145,238 @@
 
 
 
-<h1 id="gamesimulationterrainsystem">Game.Simulation.TerrainSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Simulation</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code><br />
-<strong>Implements:</strong> <code>Colossal.Serialization.Entities.IDefaultSerializable</code>, <code>Colossal.Serialization.Entities.ISerializable</code>  </p>
-<p><strong>Attributes:</strong> <code>FormerlySerializedAs</code>, <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class TerrainSystem : Game.GameSystemBase, Colossal.Serialization.Entities.IDefaultSerializable, Colossal.Serialization.Entities.ISerializable
-{
-    private Colossal.Rendering.AsyncGPUReadbackHelper m_AsyncGPUReadback;
-    private Unity.Collections.NativeArray&lt;System.UInt16&gt; m_CPUHeights;
-    private Unity.Jobs.JobHandle m_CPUHeightReaders;
-    private UnityEngine.RenderTexture m_Heightmap;
-    private UnityEngine.RenderTexture m_HeightmapCascade;
-    private UnityEngine.RenderTexture m_HeightmapDepth;
-    private UnityEngine.RenderTexture m_WorldMapEditable;
-    private UnityEngine.Vector4 m_MapOffsetScale;
-    private System.Boolean m_HeightMapChanged;
-    private Unity.Mathematics.int4 m_LastPreviewWrite;
-    private Unity.Mathematics.int4 m_LastWorldPreviewWrite;
-    private Unity.Mathematics.int4 m_LastWrite;
-    private Unity.Mathematics.int4 m_LastWorldWrite;
-    private Unity.Mathematics.int4 m_LastRequest;
-    private System.Int32 m_FailCount;
-    private UnityEngine.Vector4 m_WorldOffsetScale;
-    private System.Boolean m_NewMap;
-    private System.Boolean m_NewMapThisFrame;
-    private System.Boolean m_Loaded;
-    private System.Boolean m_HeightsReadyAfterLoading;
-    private System.Boolean m_UpdateOutOfDate;
-    private UnityEngine.ComputeShader m_AdjustTerrainCS;
-    private System.Int32 m_ShiftTerrainKernal;
-    private System.Int32 m_BlurHorzKernal;
-    private System.Int32 m_BlurVertKernal;
-    private System.Int32 m_SmoothTerrainKernal;
-    private System.Int32 m_LevelTerrainKernal;
-    private System.Int32 m_SlopeTerrainKernal;
-    private UnityEngine.Rendering.CommandBuffer m_CommandBuffer;
-    private UnityEngine.Rendering.CommandBuffer m_CascadeCB;
-    private UnityEngine.Material m_TerrainBlit;
-    private UnityEngine.Material m_ClipMaterial;
-    private Unity.Entities.EntityQuery m_BrushQuery;
-    private Unity.Mathematics.float2 &lt;heightScaleOffset&gt;k__BackingField;
-    private Colossal.IO.AssetDatabase.TextureAsset &lt;worldMapAsset&gt;k__BackingField;
-    private UnityEngine.Texture &lt;worldHeightmap&gt;k__BackingField;
-    private Unity.Mathematics.float2 &lt;playableArea&gt;k__BackingField;
-    private Unity.Mathematics.float2 &lt;playableOffset&gt;k__BackingField;
-    private Unity.Mathematics.float2 &lt;worldSize&gt;k__BackingField;
-    private Unity.Mathematics.float2 &lt;worldOffset&gt;k__BackingField;
-    private Unity.Mathematics.float2 &lt;worldHeightMinMax&gt;k__BackingField;
-    private Unity.Collections.NativeList&lt;Game.Buildings.BuildingUtils+LotInfo&gt; m_BuildingCullList;
-    private Unity.Collections.NativeList&lt;Game.Simulation.TerrainSystem+LaneSection&gt; m_LaneCullList;
-    private Unity.Collections.NativeList&lt;Game.Simulation.TerrainSystem+AreaTriangle&gt; m_TriangleCullList;
-    private Unity.Collections.NativeList&lt;Game.Simulation.TerrainSystem+AreaEdge&gt; m_EdgeCullList;
-    private Unity.Jobs.JobHandle m_BuildingCull;
-    private Unity.Jobs.JobHandle m_LaneCull;
-    private Unity.Jobs.JobHandle m_AreaCull;
-    private Unity.Jobs.JobHandle m_ClipMapCull;
-    private Unity.Jobs.JobHandle m_CullFinished;
-    private Unity.Collections.NativeParallelHashMap&lt;Unity.Entities.Entity, Unity.Entities.Entity&gt; m_BuildingUpgrade;
-    private Unity.Jobs.JobHandle m_BuildingUpgradeDependencies;
-    private System.Boolean &lt;heightMapRenderRequired&gt;k__BackingField;
-    private System.Boolean[] &lt;heightMapSliceUpdated&gt;k__BackingField;
-    private Unity.Mathematics.float4[] &lt;heightMapViewport&gt;k__BackingField;
-    private Unity.Mathematics.float4[] &lt;heightMapViewportUpdated&gt;k__BackingField;
-    private Unity.Mathematics.float4[] &lt;heightMapCullArea&gt;k__BackingField;
-    private System.Boolean &lt;freezeCascadeUpdates&gt;k__BackingField;
-    private System.Boolean[] &lt;heightMapSliceUpdatedLast&gt;k__BackingField;
-    private Unity.Mathematics.float4 m_LastCullArea;
-    private Unity.Mathematics.float4[] m_CascadeRanges;
-    private UnityEngine.Vector4[] m_ShaderCascadeRanges;
-    private Unity.Mathematics.float4 m_UpdateArea;
-    private Unity.Mathematics.float4 m_TerrainChangeArea;
-    private System.Boolean m_CascadeReset;
-    private System.Boolean m_RoadUpdate;
-    private System.Boolean m_AreaUpdate;
-    private System.Boolean m_TerrainChange;
-    private Unity.Entities.EntityQuery m_BuildingsChanged;
-    private Unity.Entities.EntityQuery m_BuildingGroup;
-    private Unity.Entities.EntityQuery m_RoadsChanged;
-    private Unity.Entities.EntityQuery m_RoadsGroup;
-    private Unity.Entities.EntityQuery m_EditorLotQuery;
-    private Unity.Entities.EntityQuery m_AreasChanged;
-    private Unity.Entities.EntityQuery m_AreasQuery;
-    private System.Collections.Generic.List&lt;Game.Simulation.TerrainSystem+CascadeCullInfo&gt; m_CascadeCulling;
-    private Game.Rendering.Utilities.ManagedStructuredBuffers&lt;Game.Simulation.TerrainSystem+BuildingLotDraw&gt; m_BuildingInstanceData;
-    private Game.Rendering.Utilities.ManagedStructuredBuffers&lt;Game.Simulation.TerrainSystem+LaneDraw&gt; m_LaneInstanceData;
-    private Game.Rendering.Utilities.ManagedStructuredBuffers&lt;Game.Simulation.TerrainSystem+AreaTriangle&gt; m_TriangleInstanceData;
-    private Game.Rendering.Utilities.ManagedStructuredBuffers&lt;Game.Simulation.TerrainSystem+AreaEdge&gt; m_EdgeInstanceData;
-    private UnityEngine.Material m_MasterBuildingLotMaterial;
-    private UnityEngine.Material m_MasterLaneMaterial;
-    private UnityEngine.Material m_MasterAreaMaterial;
-    private UnityEngine.Mesh m_LaneMesh;
-    private Game.Tools.ToolSystem m_ToolSystem;
-    private Game.Rendering.CameraUpdateSystem m_CameraUpdateSystem;
-    private Game.Simulation.GroundHeightSystem m_GroundHeightSystem;
-    private Game.Rendering.RenderingSystem m_RenderingSystem;
-    private Game.Simulation.WaterSystem m_WaterSystem;
-    private Unity.Collections.NativeList&lt;Game.Simulation.TerrainSystem+ClipMapDraw&gt; m_ClipMapList;
-    private Game.Rendering.Utilities.ManagedStructuredBuffers&lt;Game.Simulation.TerrainSystem+ClipMapDraw&gt; m_ClipMapBuffer;
-    private UnityEngine.ComputeBuffer m_CurrentClipMap;
-    private UnityEngine.Mesh m_ClipMesh;
-    private UnityEngine.Mesh m_AreaClipMesh;
-    private UnityEngine.Mesh+MeshDataArray m_AreaClipMeshData;
-    private System.Boolean m_HasAreaClipMeshData;
-    private Unity.Jobs.JobHandle m_AreaClipMeshDataDeps;
-    private Game.Simulation.TerrainSystem+TerrainMinMaxMap m_TerrainMinMax;
-    private Game.Simulation.TerrainSystem+TypeHandle __TypeHandle;
-    public static readonly System.Int32 kDefaultHeightmapWidth;
-    public static readonly System.Int32 kDefaultHeightmapHeight;
-    private static readonly Unity.Mathematics.float2 kDefaultMapSize;
-    private static readonly Unity.Mathematics.float2 kDefaultMapOffset;
-    private static readonly Unity.Mathematics.float2 kDefaultWorldSize;
-    private static readonly Unity.Mathematics.float2 kDefaultWorldOffset;
-    private static readonly Unity.Mathematics.float2 kDefaultHeightScaleOffset;
-    private static System.Int32 &lt;baseLod&gt;k__BackingField;
-    private static const System.Single kShiftTerrainAmount;
-    private static const System.Single kSoftenTerrainAmount;
-    private static const System.Single kSlopeAndLevelTerrainAmount;
-    public static const System.Int32 kCascadeMax;
-
-    public UnityEngine.Vector4 VTScaleOffset { get; }
-    public System.Boolean NewMap { get; }
-    public UnityEngine.Texture heightmap { get; }
-    public UnityEngine.Vector4 mapOffsetScale { get; }
-    public Unity.Mathematics.float2 heightScaleOffset { get; set; }
-    public Colossal.IO.AssetDatabase.TextureAsset worldMapAsset { get; set; }
-    public UnityEngine.Texture worldHeightmap { get; set; }
-    public Unity.Mathematics.float2 playableArea { get; private set; }
-    public Unity.Mathematics.float2 playableOffset { get; private set; }
-    public Unity.Mathematics.float2 worldSize { get; private set; }
-    public Unity.Mathematics.float2 worldOffset { get; private set; }
-    public Unity.Mathematics.float2 worldHeightMinMax { get; private set; }
-    public Unity.Mathematics.float3 positionOffset { get; }
-    public System.Boolean heightMapRenderRequired { get; private set; }
-    public System.Boolean[] heightMapSliceUpdated { get; private set; }
-    public Unity.Mathematics.float4[] heightMapViewport { get; private set; }
-    public Unity.Mathematics.float4[] heightMapViewportUpdated { get; private set; }
-    public Unity.Mathematics.float4[] heightMapSliceArea { get; }
-    public Unity.Mathematics.float4[] heightMapCullArea { get; private set; }
-    public System.Boolean freezeCascadeUpdates { get; set; }
-    public System.Boolean[] heightMapSliceUpdatedLast { get; private set; }
-    public Unity.Mathematics.float4 lastCullArea { get; }
-    public static System.Int32 baseLod { get; private set; }
-    private UnityEngine.ComputeBuffer clipMapBuffer { private get; }
-    private System.Int32 clipMapInstances { private get; }
-    public UnityEngine.Mesh areaClipMesh { get; private set; }
-
-    public TerrainSystem();
-
-    private System.Void __AssignQueries(Unity.Entities.SystemState&amp; state);
-    private System.Void &lt;UpdateGPUTerrain&gt;b__227_0(UnityEngine.Experimental.Rendering.RenderGraphModule.RenderGraphContext ctx, UnityEngine.Rendering.HighDefinition.HDCamera hdCamera);
-    public System.Void AddCPUHeightReader(Unity.Jobs.JobHandle handle);
-    public System.Void ApplyBrush(Game.Prefabs.TerraformingType type, Colossal.Mathematics.Bounds2 area, Game.Tools.Brush brush, UnityEngine.Texture texture);
-    private System.Void ApplyToTerrain(UnityEngine.RenderTexture target, UnityEngine.RenderTexture source, System.Single delta, Game.Prefabs.TerraformingType type, Colossal.Mathematics.Bounds2 area, Game.Tools.Brush brush, UnityEngine.Texture texture, System.Boolean worldMap);
-    public System.Boolean CalculateBuildingCullArea(Game.Objects.Transform transform, Unity.Entities.Entity prefab, Unity.Entities.ComponentLookup&lt;Game.Prefabs.ObjectGeometryData&gt; geometryData, Unity.Mathematics.float4&amp; area);
-    public System.Void Clear();
-    private Unity.Mathematics.float4 ClipViewport(Unity.Mathematics.float4 Viewport);
-    private UnityEngine.Texture2D CreateDefaultHeightmap(System.Int32 width, System.Int32 height);
-    private System.Void CreateRoadMeshes();
-    private System.Void CullCascade(System.Int32 cascadeIndex, Unity.Mathematics.float4 area, Unity.Mathematics.float4 viewport, System.Int32 laneCount);
-    public System.Void CullClipMapForView(Game.Rendering.Viewer viewer);
-    private System.Void CullForCascades(Unity.Mathematics.float4 area, System.Boolean heightMapRenderRequired, System.Boolean roadsChanged, System.Boolean terrainAreasChanged, System.Boolean clipAreasChanged, System.Int32&amp; laneCount);
-    public System.Void Deserialize&lt;TReader&gt;(TReader reader);
-    private static UnityEngine.Texture2D DeserializeHeightmap&lt;TReader&gt;(TReader reader, System.String name, Unity.Collections.NativeArray`1[[System.UInt16, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]&amp; unfiltered, System.Boolean makeNoLongerReadable);
-    private System.Void DestroyWorldMap();
-    private System.Void DrawHeightAdjustments(UnityEngine.Rendering.CommandBuffer&amp; cmdBuffer, System.Int32 cascade, Unity.Mathematics.float4 area, Unity.Mathematics.float4 viewport, UnityEngine.Rendering.RenderTargetBinding binding, Unity.Collections.NativeArray`1[[Game.Simulation.TerrainSystem+BuildingLotDraw, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]&amp; lots, Unity.Collections.NativeArray`1[[Game.Simulation.TerrainSystem+LaneDraw, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]&amp; lanes, Unity.Collections.NativeArray`1[[Game.Simulation.TerrainSystem+AreaTriangle, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]&amp; triangles, Unity.Collections.NativeArray`1[[Game.Simulation.TerrainSystem+AreaEdge, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]&amp; edges, UnityEngine.Material&amp; lotMaterial, UnityEngine.Material&amp; laneMaterial, UnityEngine.Material&amp; areaMaterial);
-    private System.Void EnsureCPUHeights(System.Int32 length);
-    private System.Void FinalizeTerrainData(UnityEngine.Texture2D map, UnityEngine.Texture2D worldMap, Unity.Mathematics.float2 heightScaleOffset, Unity.Mathematics.float2 inMapCorner, Unity.Mathematics.float2 inMapSize, Unity.Mathematics.float2 inWorldCorner, Unity.Mathematics.float2 inWorldSize, Unity.Mathematics.float2 inWorldHeightMinMax);
-    public Unity.Collections.NativeParallelHashMap&lt;Unity.Entities.Entity, Unity.Entities.Entity&gt; GetBuildingUpgradeWriter(System.Int32 ExpectedAmount);
-    public System.Void GetCascadeInfo(System.Int32&amp; LODCount, System.Int32&amp; baseLOD, Unity.Mathematics.float4x4&amp; areas, Unity.Mathematics.float4&amp; ranges, Unity.Mathematics.float4&amp; size);
-    public UnityEngine.Texture GetCascadeTexture();
-    public Game.Simulation.TerrainHeightData GetHeightData(System.Boolean waitForPending);
-    public System.Void GetLastMinMaxUpdate(Unity.Mathematics.float3&amp; min, Unity.Mathematics.float3&amp; max);
-    public Unity.Collections.NativeList&lt;Game.Simulation.TerrainSystem+LaneSection&gt; GetRoads();
-    private System.Single GetTerrainAdjustmentSpeed(Game.Prefabs.TerraformingType type);
-    public UnityEngine.Bounds GetTerrainBounds();
-    public System.Boolean GetTerrainBrushUpdate(Unity.Mathematics.float4&amp; viewport);
-    public System.Void HandleNewMap();
-    private System.Void InitializeTerrainData(UnityEngine.Texture2D inMap, UnityEngine.Texture2D worldMap, Unity.Mathematics.float2 heightScaleOffset, Unity.Mathematics.float2 inMapCorner, Unity.Mathematics.float2 inMapSize, Unity.Mathematics.float2 inWorldCorner, Unity.Mathematics.float2 inWorldSize, Unity.Mathematics.float2 inWorldHeightMinMax);
-    public static System.Boolean IsValidHeightmapFormat(UnityEngine.Texture2D tex);
-    private System.Void LoadTerrain();
-    public System.Void OnBuildingMoved(Unity.Entities.Entity entity);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnCreateForCompiler();
-    protected virtual System.Void OnDestroy();
-    private System.Void OnHeightsChanged();
-    protected virtual System.Void OnUpdate();
-    private System.Boolean Overlap(Unity.Mathematics.float4&amp; A, Unity.Mathematics.float4&amp; B);
-    public System.Void PreviewBrush(Game.Prefabs.TerraformingType type, Colossal.Mathematics.Bounds2 area, Game.Tools.Brush brush, UnityEngine.Texture texture);
-    private System.Void RenderCascade(System.Int32 cascadeIndex, Unity.Mathematics.float4 area, Unity.Mathematics.float4 viewport, UnityEngine.Rendering.CommandBuffer&amp; cmdBuffer);
-    public System.Void RenderCascades();
-    private System.Void RenderWorldMapToCascade(Unity.Mathematics.float4 area, Unity.Mathematics.float4 viewport, UnityEngine.Rendering.CommandBuffer&amp; cmdBuffer);
-    public System.Void ReplaceHeightmap(UnityEngine.Texture2D inMap);
-    public System.Void ReplaceWorldHeightmap(UnityEngine.Texture2D inMap);
-    private System.Void SaveBitmap(Unity.Collections.NativeArray&lt;System.UInt16&gt; buffer, System.Int32 width, System.Int32 height);
-    public System.Void Serialize&lt;TWriter&gt;(TWriter writer);
-    private static System.Void SerializeHeightmap&lt;TWriter&gt;(TWriter writer, UnityEngine.Texture heightmap);
-    public System.Void SetBuildingUpgradeWriterDependency(Unity.Jobs.JobHandle handle);
-    private static System.Void SetDefaultHeights(UnityEngine.Texture2D targetHeightmap);
-    public System.Void SetDefaults(Colossal.Serialization.Entities.Context context);
-    private System.Void SetHeightmap(UnityEngine.Texture2D map);
-    public System.Void SetTerrainProperties(Unity.Mathematics.float2 heightScaleOffset);
-    private System.Void SetWorldHeightmap(UnityEngine.Texture2D map, System.Boolean isEditor);
-    public System.Void TerrainHeightsReadyAfterLoading();
-    private static UnityEngine.Texture2D ToR16(UnityEngine.Texture2D textureRGBA64);
-    public System.Void TriggerAsyncChange();
-    private System.Void UpdateCascades(System.Boolean isLoaded, System.Boolean heightsReadyAfterLoading);
-    private System.Void UpdateGPUReadback();
-    private System.Void UpdateGPUTerrain();
-    public System.Void UpdateMinMax(Game.Tools.Brush brush, Colossal.Mathematics.Bounds2 area);
-    private System.Void WriteCPUHeights(Unity.Collections.NativeArray&lt;System.UInt16&gt; buffer);
-    private System.Void WriteCPUHeights(Unity.Collections.NativeArray&lt;System.UInt16&gt; buffer, Unity.Mathematics.int4 offsets);
-}
-</code></pre>
+<h1 id="gameterrainsystem">Game.TerrainSystem</h1>
+<p><strong>Assembly:</strong> Game<br />
+<strong>Namespace:</strong> Game.Simulation</p>
+<p><strong>Type:</strong> public class</p>
+<p><strong>Base:</strong> GameSystemBase, IDefaultSerializable, ISerializable</p>
+<p><strong>Summary:</strong><br />
+TerrainSystem is the central system that manages terrain height data and in-game terrain editing for Cities: Skylines 2. It owns and updates GPU height textures (heightmap and cascaded arrays), handles world vs playable-area heightmaps, performs asynchronous GPU readbacks to produce CPU-side height data, runs jobs that cull buildings/roads/areas for terrain adjustments, and executes GPU compute shaders to apply brushes (shift, level, slope, soften). The system exposes APIs to serialize/deserialize heightmaps, replace maps at runtime, request/carry out brush applications, and query terrain/cascade metadata for rendering or mod use. It also contains internal utilities for min/max height maps used for fast bounds queries.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Colossal.Rendering.AsyncGPUReadbackHelper m_AsyncGPUReadback</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.Rendering.AsyncGPUReadbackHelper m_AsyncGPUReadback;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeArray&lt;System.UInt16&gt; m_CPUHeights</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeArray&lt;System.UInt16&gt; m_CPUHeights;
-</code></pre>
-<ul>
-<li><code>private Unity.Jobs.JobHandle m_CPUHeightReaders</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Jobs.JobHandle m_CPUHeightReaders;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.RenderTexture m_Heightmap</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.RenderTexture m_Heightmap;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.RenderTexture m_HeightmapCascade</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.RenderTexture m_HeightmapCascade;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.RenderTexture m_HeightmapDepth</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.RenderTexture m_HeightmapDepth;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.RenderTexture m_WorldMapEditable</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.RenderTexture m_WorldMapEditable;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.Vector4 m_MapOffsetScale</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.Vector4 m_MapOffsetScale;
-</code></pre>
-<ul>
-<li><code>private System.Boolean m_HeightMapChanged</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean m_HeightMapChanged;
-</code></pre>
-<ul>
-<li><code>private Unity.Mathematics.int4 m_LastPreviewWrite</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Mathematics.int4 m_LastPreviewWrite;
-</code></pre>
-<ul>
-<li><code>private Unity.Mathematics.int4 m_LastWorldPreviewWrite</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Mathematics.int4 m_LastWorldPreviewWrite;
-</code></pre>
-<ul>
-<li><code>private Unity.Mathematics.int4 m_LastWrite</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Mathematics.int4 m_LastWrite;
-</code></pre>
-<ul>
-<li><code>private Unity.Mathematics.int4 m_LastWorldWrite</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Mathematics.int4 m_LastWorldWrite;
-</code></pre>
-<ul>
-<li><code>private Unity.Mathematics.int4 m_LastRequest</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Mathematics.int4 m_LastRequest;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_FailCount</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_FailCount;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.Vector4 m_WorldOffsetScale</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.Vector4 m_WorldOffsetScale;
-</code></pre>
-<ul>
-<li><code>private System.Boolean m_NewMap</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean m_NewMap;
-</code></pre>
-<ul>
-<li><code>private System.Boolean m_NewMapThisFrame</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean m_NewMapThisFrame;
-</code></pre>
-<ul>
-<li><code>private System.Boolean m_Loaded</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean m_Loaded;
-</code></pre>
-<ul>
-<li><code>private System.Boolean m_HeightsReadyAfterLoading</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean m_HeightsReadyAfterLoading;
-</code></pre>
-<ul>
-<li><code>private System.Boolean m_UpdateOutOfDate</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean m_UpdateOutOfDate;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.ComputeShader m_AdjustTerrainCS</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.ComputeShader m_AdjustTerrainCS;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_ShiftTerrainKernal</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_ShiftTerrainKernal;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_BlurHorzKernal</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_BlurHorzKernal;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_BlurVertKernal</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_BlurVertKernal;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_SmoothTerrainKernal</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_SmoothTerrainKernal;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_LevelTerrainKernal</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_LevelTerrainKernal;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_SlopeTerrainKernal</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_SlopeTerrainKernal;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.Rendering.CommandBuffer m_CommandBuffer</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.Rendering.CommandBuffer m_CommandBuffer;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.Rendering.CommandBuffer m_CascadeCB</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.Rendering.CommandBuffer m_CascadeCB;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.Material m_TerrainBlit</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.Material m_TerrainBlit;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.Material m_ClipMaterial</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.Material m_ClipMaterial;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_BrushQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_BrushQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Mathematics.float2 &lt;heightScaleOffset&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Mathematics.float2 &lt;heightScaleOffset&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private Colossal.IO.AssetDatabase.TextureAsset &lt;worldMapAsset&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Colossal.IO.AssetDatabase.TextureAsset &lt;worldMapAsset&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.Texture &lt;worldHeightmap&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.Texture &lt;worldHeightmap&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private Unity.Mathematics.float2 &lt;playableArea&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Mathematics.float2 &lt;playableArea&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private Unity.Mathematics.float2 &lt;playableOffset&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Mathematics.float2 &lt;playableOffset&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private Unity.Mathematics.float2 &lt;worldSize&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Mathematics.float2 &lt;worldSize&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private Unity.Mathematics.float2 &lt;worldOffset&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Mathematics.float2 &lt;worldOffset&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private Unity.Mathematics.float2 &lt;worldHeightMinMax&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Mathematics.float2 &lt;worldHeightMinMax&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeList&lt;Game.Buildings.BuildingUtils+LotInfo&gt; m_BuildingCullList</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeList&lt;Game.Buildings.BuildingUtils+LotInfo&gt; m_BuildingCullList;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeList&lt;Game.Simulation.TerrainSystem+LaneSection&gt; m_LaneCullList</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeList&lt;Game.Simulation.TerrainSystem+LaneSection&gt; m_LaneCullList;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeList&lt;Game.Simulation.TerrainSystem+AreaTriangle&gt; m_TriangleCullList</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeList&lt;Game.Simulation.TerrainSystem+AreaTriangle&gt; m_TriangleCullList;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeList&lt;Game.Simulation.TerrainSystem+AreaEdge&gt; m_EdgeCullList</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeList&lt;Game.Simulation.TerrainSystem+AreaEdge&gt; m_EdgeCullList;
-</code></pre>
-<ul>
-<li><code>private Unity.Jobs.JobHandle m_BuildingCull</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Jobs.JobHandle m_BuildingCull;
-</code></pre>
-<ul>
-<li><code>private Unity.Jobs.JobHandle m_LaneCull</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Jobs.JobHandle m_LaneCull;
-</code></pre>
-<ul>
-<li><code>private Unity.Jobs.JobHandle m_AreaCull</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Jobs.JobHandle m_AreaCull;
-</code></pre>
-<ul>
-<li><code>private Unity.Jobs.JobHandle m_ClipMapCull</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Jobs.JobHandle m_ClipMapCull;
-</code></pre>
-<ul>
-<li><code>private Unity.Jobs.JobHandle m_CullFinished</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Jobs.JobHandle m_CullFinished;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeParallelHashMap&lt;Unity.Entities.Entity, Unity.Entities.Entity&gt; m_BuildingUpgrade</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeParallelHashMap&lt;Unity.Entities.Entity, Unity.Entities.Entity&gt; m_BuildingUpgrade;
-</code></pre>
-<ul>
-<li><code>private Unity.Jobs.JobHandle m_BuildingUpgradeDependencies</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Jobs.JobHandle m_BuildingUpgradeDependencies;
-</code></pre>
-<ul>
-<li><code>private System.Boolean &lt;heightMapRenderRequired&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean &lt;heightMapRenderRequired&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private System.Boolean[] &lt;heightMapSliceUpdated&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean[] &lt;heightMapSliceUpdated&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private Unity.Mathematics.float4[] &lt;heightMapViewport&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Mathematics.float4[] &lt;heightMapViewport&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private Unity.Mathematics.float4[] &lt;heightMapViewportUpdated&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Mathematics.float4[] &lt;heightMapViewportUpdated&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private Unity.Mathematics.float4[] &lt;heightMapCullArea&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Mathematics.float4[] &lt;heightMapCullArea&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private System.Boolean &lt;freezeCascadeUpdates&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean &lt;freezeCascadeUpdates&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private System.Boolean[] &lt;heightMapSliceUpdatedLast&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean[] &lt;heightMapSliceUpdatedLast&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private Unity.Mathematics.float4 m_LastCullArea</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Mathematics.float4 m_LastCullArea;
-</code></pre>
-<ul>
-<li><code>private Unity.Mathematics.float4[] m_CascadeRanges</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Mathematics.float4[] m_CascadeRanges;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.Vector4[] m_ShaderCascadeRanges</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.Vector4[] m_ShaderCascadeRanges;
-</code></pre>
-<ul>
-<li><code>private Unity.Mathematics.float4 m_UpdateArea</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Mathematics.float4 m_UpdateArea;
-</code></pre>
-<ul>
-<li><code>private Unity.Mathematics.float4 m_TerrainChangeArea</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Mathematics.float4 m_TerrainChangeArea;
-</code></pre>
-<ul>
-<li><code>private System.Boolean m_CascadeReset</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean m_CascadeReset;
-</code></pre>
-<ul>
-<li><code>private System.Boolean m_RoadUpdate</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean m_RoadUpdate;
-</code></pre>
-<ul>
-<li><code>private System.Boolean m_AreaUpdate</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean m_AreaUpdate;
-</code></pre>
-<ul>
-<li><code>private System.Boolean m_TerrainChange</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean m_TerrainChange;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_BuildingsChanged</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_BuildingsChanged;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_BuildingGroup</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_BuildingGroup;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_RoadsChanged</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_RoadsChanged;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_RoadsGroup</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_RoadsGroup;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_EditorLotQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_EditorLotQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_AreasChanged</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_AreasChanged;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_AreasQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_AreasQuery;
-</code></pre>
-<ul>
-<li><code>private System.Collections.Generic.List&lt;Game.Simulation.TerrainSystem+CascadeCullInfo&gt; m_CascadeCulling</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Collections.Generic.List&lt;Game.Simulation.TerrainSystem+CascadeCullInfo&gt; m_CascadeCulling;
-</code></pre>
-<ul>
-<li><code>private Game.Rendering.Utilities.ManagedStructuredBuffers&lt;Game.Simulation.TerrainSystem+BuildingLotDraw&gt; m_BuildingInstanceData</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Rendering.Utilities.ManagedStructuredBuffers&lt;Game.Simulation.TerrainSystem+BuildingLotDraw&gt; m_BuildingInstanceData;
-</code></pre>
-<ul>
-<li><code>private Game.Rendering.Utilities.ManagedStructuredBuffers&lt;Game.Simulation.TerrainSystem+LaneDraw&gt; m_LaneInstanceData</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Rendering.Utilities.ManagedStructuredBuffers&lt;Game.Simulation.TerrainSystem+LaneDraw&gt; m_LaneInstanceData;
-</code></pre>
-<ul>
-<li><code>private Game.Rendering.Utilities.ManagedStructuredBuffers&lt;Game.Simulation.TerrainSystem+AreaTriangle&gt; m_TriangleInstanceData</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Rendering.Utilities.ManagedStructuredBuffers&lt;Game.Simulation.TerrainSystem+AreaTriangle&gt; m_TriangleInstanceData;
-</code></pre>
-<ul>
-<li><code>private Game.Rendering.Utilities.ManagedStructuredBuffers&lt;Game.Simulation.TerrainSystem+AreaEdge&gt; m_EdgeInstanceData</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Rendering.Utilities.ManagedStructuredBuffers&lt;Game.Simulation.TerrainSystem+AreaEdge&gt; m_EdgeInstanceData;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.Material m_MasterBuildingLotMaterial</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.Material m_MasterBuildingLotMaterial;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.Material m_MasterLaneMaterial</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.Material m_MasterLaneMaterial;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.Material m_MasterAreaMaterial</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.Material m_MasterAreaMaterial;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.Mesh m_LaneMesh</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.Mesh m_LaneMesh;
-</code></pre>
-<ul>
-<li><code>private Game.Tools.ToolSystem m_ToolSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Tools.ToolSystem m_ToolSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Rendering.CameraUpdateSystem m_CameraUpdateSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Rendering.CameraUpdateSystem m_CameraUpdateSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.GroundHeightSystem m_GroundHeightSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.GroundHeightSystem m_GroundHeightSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Rendering.RenderingSystem m_RenderingSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Rendering.RenderingSystem m_RenderingSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.WaterSystem m_WaterSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.WaterSystem m_WaterSystem;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeList&lt;Game.Simulation.TerrainSystem+ClipMapDraw&gt; m_ClipMapList</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeList&lt;Game.Simulation.TerrainSystem+ClipMapDraw&gt; m_ClipMapList;
-</code></pre>
-<ul>
-<li><code>private Game.Rendering.Utilities.ManagedStructuredBuffers&lt;Game.Simulation.TerrainSystem+ClipMapDraw&gt; m_ClipMapBuffer</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Rendering.Utilities.ManagedStructuredBuffers&lt;Game.Simulation.TerrainSystem+ClipMapDraw&gt; m_ClipMapBuffer;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.ComputeBuffer m_CurrentClipMap</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.ComputeBuffer m_CurrentClipMap;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.Mesh m_ClipMesh</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.Mesh m_ClipMesh;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.Mesh m_AreaClipMesh</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.Mesh m_AreaClipMesh;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.Mesh+MeshDataArray m_AreaClipMeshData</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.Mesh+MeshDataArray m_AreaClipMeshData;
-</code></pre>
-<ul>
-<li><code>private System.Boolean m_HasAreaClipMeshData</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean m_HasAreaClipMeshData;
-</code></pre>
-<ul>
-<li><code>private Unity.Jobs.JobHandle m_AreaClipMeshDataDeps</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Jobs.JobHandle m_AreaClipMeshDataDeps;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.TerrainSystem+TerrainMinMaxMap m_TerrainMinMax</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.TerrainSystem+TerrainMinMaxMap m_TerrainMinMax;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.TerrainSystem+TypeHandle __TypeHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.TerrainSystem+TypeHandle __TypeHandle;
-</code></pre>
-<ul>
-<li><code>public static readonly System.Int32 kDefaultHeightmapWidth</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static readonly System.Int32 kDefaultHeightmapWidth;
-</code></pre>
-<ul>
-<li><code>public static readonly System.Int32 kDefaultHeightmapHeight</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static readonly System.Int32 kDefaultHeightmapHeight;
-</code></pre>
-<ul>
-<li><code>private static readonly Unity.Mathematics.float2 kDefaultMapSize</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static readonly Unity.Mathematics.float2 kDefaultMapSize;
-</code></pre>
-<ul>
-<li><code>private static readonly Unity.Mathematics.float2 kDefaultMapOffset</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static readonly Unity.Mathematics.float2 kDefaultMapOffset;
-</code></pre>
-<ul>
-<li><code>private static readonly Unity.Mathematics.float2 kDefaultWorldSize</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static readonly Unity.Mathematics.float2 kDefaultWorldSize;
-</code></pre>
-<ul>
-<li><code>private static readonly Unity.Mathematics.float2 kDefaultWorldOffset</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static readonly Unity.Mathematics.float2 kDefaultWorldOffset;
-</code></pre>
-<ul>
-<li><code>private static readonly Unity.Mathematics.float2 kDefaultHeightScaleOffset</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static readonly Unity.Mathematics.float2 kDefaultHeightScaleOffset;
-</code></pre>
-<ul>
-<li><code>private static System.Int32 &lt;baseLod&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static System.Int32 &lt;baseLod&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private static const System.Single kShiftTerrainAmount</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static const System.Single kShiftTerrainAmount;
-</code></pre>
-<ul>
-<li><code>private static const System.Single kSoftenTerrainAmount</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static const System.Single kSoftenTerrainAmount;
-</code></pre>
-<ul>
-<li><code>private static const System.Single kSlopeAndLevelTerrainAmount</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static const System.Single kSlopeAndLevelTerrainAmount;
-</code></pre>
-<ul>
-<li><code>public static const System.Int32 kCascadeMax</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static const System.Int32 kCascadeMax;
-</code></pre>
+<li>
+<p><code>private RenderTexture m_Heightmap</code><br />
+Stores the editable/playable-area GPU heightmap (R16) used when applying brush changes and when composing cascade textures.</p>
+</li>
+<li>
+<p><code>private RenderTexture m_HeightmapCascade</code><br />
+A Texture2DArray (4 layers) used by terrain rendering (cascade texture). Updated from m_Heightmap and world heightmap as needed.</p>
+</li>
+<li>
+<p><code>private RenderTexture m_WorldMapEditable</code><br />
+If the world heightmap is editable (in-editor), this holds the editable RenderTexture; otherwise worldHeightmap references a plain Texture2D asset.</p>
+</li>
+<li>
+<p><code>private NativeArray&lt;ushort&gt; m_CPUHeights</code><br />
+CPU-side height buffer (ushort) used to feed systems that need direct access to heights (e.g., GroundHeightSystem). Kept up-to-date using AsyncGPUReadback.</p>
+</li>
+<li>
+<p><code>private TerrainMinMaxMap m_TerrainMinMax</code><br />
+Helper object that builds a min/max map (downsampled) of terrain heights used for quick min/max queries on regions. Uses compute shaders and async GPU readback.</p>
+</li>
+<li>
+<p><code>private CommandBuffer m_CommandBuffer</code><br />
+CommandBuffer reused for compute-dispatch and copy operations when adjusting terrain with brushes.</p>
+</li>
+<li>
+<p><code>private ComputeShader m_AdjustTerrainCS</code><br />
+Compute shader used for terrain adjustment kernels (shift, blur, smooth, slope, level).</p>
+</li>
+<li>
+<p><code>private NativeList&lt;LaneSection&gt; m_LaneCullList</code><br />
+NativeList populated by culling jobs containing lane/road sections that require terrain modification (flatten/clip).</p>
+</li>
+</ul>
+<p>(There are many more internal fields — GPU buffers, Material instances, job handles, lists for culling and rendering — used for cascade rendering and asynchronous processing.)</p>
+<hr />
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>public UnityEngine.Vector4 VTScaleOffset { get }</code>  </li>
+<li>
+<p><code>public Vector4 VTScaleOffset { get; }</code><br />
+Returns a Vector4 that packs world/cascade scale/offset values used by shaders.</p>
+</li>
+<li>
+<p><code>public bool NewMap { get; }</code><br />
+True for the frame a new heightmap was created/loaded.</p>
+</li>
+<li>
+<p><code>public Texture heightmap { get; }</code><br />
+Public getter for the currently active playable-area heightmap RenderTexture.</p>
+</li>
+<li>
+<p><code>public Vector4 mapOffsetScale { get; }</code><br />
+Map offset/scale used to transform world coordinates into heightmap UVs.</p>
+</li>
+<li>
+<p><code>public float2 heightScaleOffset { get; set; }</code><br />
+Height scale (range) and height offset used when converting stored ushort heights into world heights.</p>
+</li>
+<li>
+<p><code>public TextureAsset worldMapAsset { get; set; }</code><br />
+If the world heightmap is loaded as an asset, reference to it (used for unloading / reloading).</p>
+</li>
+<li>
+<p><code>public Texture worldHeightmap { get; set; }</code><br />
+Reference to the world-level heightmap texture (may point to m_WorldMapEditable when in-editor).</p>
+</li>
+<li>
+<p><code>public float2 playableArea { get; private set; }</code><br />
+Size of the playable map area in world units.</p>
+</li>
+<li>
+<p><code>public float2 playableOffset { get; private set; }</code><br />
+Offset (corner) of the playable map area in world units.</p>
+</li>
+<li>
+<p><code>public float2 worldSize { get; private set; }</code><br />
+World map size (if a world map is used that differs from playable).</p>
+</li>
+<li>
+<p><code>public float2 worldOffset { get; private set; }</code><br />
+World map offset (corner) in world units.</p>
+</li>
+<li>
+<p><code>public bool heightMapRenderRequired { get; private set; }</code><br />
+Indicates whether a cascade update / render is required this frame.</p>
+</li>
+<li>
+<p><code>public float4[] heightMapSliceArea { get; }</code><br />
+Array of cascade ranges (min/max for each cascade slice).</p>
+</li>
+<li>
+<p><code>public static int baseLod { get; private set; }</code><br />
+Base LOD used for cascades (0 or 1 depending on whether world map size differs from playable).</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public UnityEngine.Vector4 VTScaleOffset { get; }
-</code></pre>
-<ul>
-<li><code>public System.Boolean NewMap { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Boolean NewMap { get; }
-</code></pre>
-<ul>
-<li><code>public UnityEngine.Texture heightmap { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public UnityEngine.Texture heightmap { get; }
-</code></pre>
-<ul>
-<li><code>public UnityEngine.Vector4 mapOffsetScale { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public UnityEngine.Vector4 mapOffsetScale { get; }
-</code></pre>
-<ul>
-<li><code>public Unity.Mathematics.float2 heightScaleOffset { get; set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Unity.Mathematics.float2 heightScaleOffset { get; set; }
-</code></pre>
-<ul>
-<li><code>public Colossal.IO.AssetDatabase.TextureAsset worldMapAsset { get; set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Colossal.IO.AssetDatabase.TextureAsset worldMapAsset { get; set; }
-</code></pre>
-<ul>
-<li><code>public UnityEngine.Texture worldHeightmap { get; set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public UnityEngine.Texture worldHeightmap { get; set; }
-</code></pre>
-<ul>
-<li><code>public Unity.Mathematics.float2 playableArea { get; private set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Unity.Mathematics.float2 playableArea { get; private set; }
-</code></pre>
-<ul>
-<li><code>public Unity.Mathematics.float2 playableOffset { get; private set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Unity.Mathematics.float2 playableOffset { get; private set; }
-</code></pre>
-<ul>
-<li><code>public Unity.Mathematics.float2 worldSize { get; private set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Unity.Mathematics.float2 worldSize { get; private set; }
-</code></pre>
-<ul>
-<li><code>public Unity.Mathematics.float2 worldOffset { get; private set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Unity.Mathematics.float2 worldOffset { get; private set; }
-</code></pre>
-<ul>
-<li><code>public Unity.Mathematics.float2 worldHeightMinMax { get; private set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Unity.Mathematics.float2 worldHeightMinMax { get; private set; }
-</code></pre>
-<ul>
-<li><code>public Unity.Mathematics.float3 positionOffset { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Unity.Mathematics.float3 positionOffset { get; }
-</code></pre>
-<ul>
-<li><code>public System.Boolean heightMapRenderRequired { get; private set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Boolean heightMapRenderRequired { get; private set; }
-</code></pre>
-<ul>
-<li><code>public System.Boolean[] heightMapSliceUpdated { get; private set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Boolean[] heightMapSliceUpdated { get; private set; }
-</code></pre>
-<ul>
-<li><code>public Unity.Mathematics.float4[] heightMapViewport { get; private set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Unity.Mathematics.float4[] heightMapViewport { get; private set; }
-</code></pre>
-<ul>
-<li><code>public Unity.Mathematics.float4[] heightMapViewportUpdated { get; private set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Unity.Mathematics.float4[] heightMapViewportUpdated { get; private set; }
-</code></pre>
-<ul>
-<li><code>public Unity.Mathematics.float4[] heightMapSliceArea { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Unity.Mathematics.float4[] heightMapSliceArea { get; }
-</code></pre>
-<ul>
-<li><code>public Unity.Mathematics.float4[] heightMapCullArea { get; private set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Unity.Mathematics.float4[] heightMapCullArea { get; private set; }
-</code></pre>
-<ul>
-<li><code>public System.Boolean freezeCascadeUpdates { get; set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Boolean freezeCascadeUpdates { get; set; }
-</code></pre>
-<ul>
-<li><code>public System.Boolean[] heightMapSliceUpdatedLast { get; private set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Boolean[] heightMapSliceUpdatedLast { get; private set; }
-</code></pre>
-<ul>
-<li><code>public Unity.Mathematics.float4 lastCullArea { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Unity.Mathematics.float4 lastCullArea { get; }
-</code></pre>
-<ul>
-<li><code>public static System.Int32 baseLod { get; private set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static System.Int32 baseLod { get; private set; }
-</code></pre>
-<ul>
-<li><code>private UnityEngine.ComputeBuffer clipMapBuffer { private get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.ComputeBuffer clipMapBuffer { private get; }
-</code></pre>
-<ul>
-<li><code>private System.Int32 clipMapInstances { private get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 clipMapInstances { private get; }
-</code></pre>
-<ul>
-<li><code>public UnityEngine.Mesh areaClipMesh { get; private set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public UnityEngine.Mesh areaClipMesh { get; private set; }
-</code></pre>
+<p>(Several other arrays/properties exist for per-cascade viewport and update bookkeeping.)</p>
+<hr />
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public TerrainSystem()</code>  </li>
+<li><code>public TerrainSystem()</code><br />
+Default system constructor; actual initialization occurs in OnCreate. The system constructs many internal resources (NativeLists, CommandBuffers, compute shader kernels, Materials, buffers) during OnCreate.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public TerrainSystem()
-    {
-    }
-</code></pre>
+<hr />
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private __AssignQueries(Unity.Entities.SystemState&amp; state) : System.Void</code>  </li>
+<li>
+<p><code>protected override void OnCreate()</code><br />
+Initializes compute kernels, native containers, materials, buffers and queries. Sets up cascade data structures and default terrain state. Loads compute shaders and creates CommandBuffers and RenderTextures when necessary.</p>
+</li>
+<li>
+<p><code>protected override void OnDestroy()</code><br />
+Cleans up GPU resources, disposes NativeContainers, completes outstanding jobs, and destroys materials/meshes.</p>
+</li>
+<li>
+<p><code>protected override void OnUpdate()</code><br />
+Runs each frame: completes CPU height reader jobs, updates cascade state, handles async GPU readback updates and triggers GPU terrain updates (RenderCascades).</p>
+</li>
+<li>
+<p><code>public void Serialize&lt;TWriter&gt;(TWriter writer) where TWriter : IWriter</code><br />
+Serializes the world heightmap and playable heightmap to a writer (used when saving); writes heightScaleOffset, playable/world offsets and sizes, and min/max world height.</p>
+</li>
+<li>
+<p><code>public void Deserialize&lt;TReader&gt;(TReader reader) where TReader : IReader</code><br />
+Deserializes saved heightmaps and initializes terrain data. Supports version checks.</p>
+</li>
+<li>
+<p><code>public void ReplaceHeightmap(Texture2D inMap)</code><br />
+Replace the playable heightmap with the provided Texture2D (converts to R16 if needed) and reinitializes cascade textures accordingly.</p>
+</li>
+<li>
+<p><code>public void ReplaceWorldHeightmap(Texture2D inMap)</code><br />
+Replaces the world heightmap (world-level map). Converts to R16 if needed. If editing, creates editable rendertexture.</p>
+</li>
+<li>
+<p><code>private void InitializeTerrainData(Texture2D inMap, Texture2D worldMap, float2 heightScaleOffset, float2 inMapCorner, float2 inMapSize, float2 inWorldCorner, float2 inWorldSize, float2 inWorldHeightMinMax)</code><br />
+Internal helper that sets up m_Heightmap, m_HeightmapCascade, cascade ranges, shader globals and registers CPU height readers.</p>
+</li>
+<li>
+<p><code>public TerrainHeightData GetHeightData(bool waitForPending = false)</code><br />
+Returns a TerrainHeightData wrapper with CPU-side height buffer and scale/offset metadata. Optional wait to ensure pending readbacks complete.</p>
+</li>
+<li>
+<p><code>public void ApplyBrush(TerraformingType type, Bounds2 area, Brush brush, Texture texture)</code><br />
+Apply an actual terrain brush operation (Shift/Level/Slope/Soften). This applies to both the playable heightmap and an editable world heightmap (if present) and triggers min/max updates and async GPU readback.</p>
+</li>
+<li>
+<p><code>public void PreviewBrush(TerraformingType type, Bounds2 area, Brush brush, Texture texture)</code><br />
+Intended for preview (no permanent application) — currently a placeholder / no-op in this listing.</p>
+</li>
+<li>
+<p><code>public void TriggerAsyncChange()</code><br />
+Starts or updates an async GPU readback to transfer modified heightmap region into m_CPUHeights for CPU-consumers. Handles out-of-date logic.</p>
+</li>
+<li>
+<p><code>private void UpdateGPUReadback()</code><br />
+Internal: polls/advances AsyncGPUReadbackHelper state and writes CPU heights when readback completes.</p>
+</li>
+<li>
+<p><code>private void UpdateCascades(bool isLoaded, bool heightsReadyAfterLoading)</code><br />
+Determines which cascades require update, computes per-cascade viewports, schedules culling jobs for buildings/roads/areas and prepares data for RenderCascades.</p>
+</li>
+<li>
+<p><code>public void RenderCascades()</code><br />
+If updates are required, issues GPU commands (via CommandBuffer) to render each cascade slice, draw procedural height adjustments for building lots, roads and areas, and finally copy results to the cascade texture array. Also triggers async readback.</p>
+</li>
+<li>
+<p><code>private void CullForCascades(float4 area, bool heightMapRenderRequired, bool roadsChanged, bool terrainAreasChanged, bool clipAreasChanged, out int laneCount)</code><br />
+Schedules ECS jobs to cull building lots, roads, areas and generate lists of drawing primitives to be used when applying terrain modifications in each cascade.</p>
+</li>
+<li>
+<p><code>public NativeList&lt;LaneSection&gt; GetRoads()</code><br />
+Return an up-to-date list (NativeList) of lane/road sections that were collected by cull jobs (completes lane cull job before returning).</p>
+</li>
+<li>
+<p><code>public bool GetTerrainBrushUpdate(out float4 viewport)</code><br />
+If a brush change occurred, provides a normalized viewport of the changed area in cascade coordinates and resets the internal flag.</p>
+</li>
+<li>
+<p><code>public bool CalculateBuildingCullArea(Game.Objects.Transform transform, Entity prefab, ComponentLookup&lt;ObjectGeometryData&gt; geometryData, out float4 area)</code><br />
+Helper that computes world-space area (xy min, zw max) affected by a building's smoothing extent and returns true if geometry was available.</p>
+</li>
+<li>
+<p><code>public void OnBuildingMoved(Entity entity)</code><br />
+Called when a building entity moved; calculates and enqueues the affected area for height updates.</p>
+</li>
+<li>
+<p><code>public void GetLastMinMaxUpdate(out float3 min, out float3 max)</code><br />
+Read last min/max update area (world-space corners and min/max heights) produced by TerrainMinMaxMap.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private void __AssignQueries(ref SystemState state)
-    {
-        new EntityQueryBuilder(Allocator.Temp).Dispose();
-    }
+<p>(There are many internal job structs and helpers for culling and procedural drawing — modders typically use the public APIs above.)</p>
+<hr />
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Acquire the TerrainSystem from the world (example in a mod's system or utility)
+var terrain = base.World.GetOrCreateSystemManaged&lt;Game.Simulation.TerrainSystem&gt;();
+
+// Replace the playable heightmap (must be R16 or will be converted internally)
+Texture2D myR16Heightmap = /* load or create a R16 height texture */;
+terrain.ReplaceHeightmap(myR16Heightmap);
+
+// Apply a simple shift brush (assumes you have a Brush struct and texture)
+Brush myBrush = new Brush {
+    m_Position = new float3(1000f, 0f, 1000f), // world position
+    m_Size = 300f,
+    m_Strength = 1f,
+    m_Angle = 0f,
+    m_Start = new float3(),
+    m_Target = new float3(0f),
+};
+Bounds2 area = new Bounds2(new float2(850f, 850f), new float2(1150f, 1150f)); // world XY bounds
+Texture brushTex = /* a texture representing brush shape */;
+
+// Apply brush immediately
+terrain.ApplyBrush(TerraformingType.Shift, area, myBrush, brushTex);
+
+// Query CPU-side height data (wait for pending readback if you need the latest)
+var heightData = terrain.GetHeightData(waitForPending: true);
+// Use heightData to sample heights on CPU...
 </code></pre>
-<ul>
-<li><code>private &lt;UpdateGPUTerrain&gt;b__227_0(UnityEngine.Experimental.Rendering.RenderGraphModule.RenderGraphContext ctx, UnityEngine.Rendering.HighDefinition.HDCamera hdCamera) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Void &lt;UpdateGPUTerrain&gt;b__227_0(UnityEngine.Experimental.Rendering.RenderGraphModule.RenderGraphContext ctx, UnityEngine.Rendering.HighDefinition.HDCamera hdCamera);
-</code></pre>
-<ul>
-<li><code>public AddCPUHeightReader(Unity.Jobs.JobHandle handle) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void AddCPUHeightReader(JobHandle handle)
-    {
-        m_CPUHeightReaders = JobHandle.CombineDependencies(m_CPUHeightReaders, handle);
-    }
-</code></pre>
-<ul>
-<li><code>public ApplyBrush(Game.Prefabs.TerraformingType type, Colossal.Mathematics.Bounds2 area, Game.Tools.Brush brush, UnityEngine.Texture texture) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void ApplyBrush(TerraformingType type, Bounds2 area, Brush brush, Texture texture)
-    {
-        m_WaterSystem.TerrainWillChangeFromBrush(area);
-        ApplyToTerrain(m_Heightmap, null, UnityEngine.Time.unscaledDeltaTime, type, area, brush, texture, worldMap: false);
-        ApplyToTerrain(m_WorldMapEditable, null, UnityEngine.Time.unscaledDeltaTime, type, area, brush, texture, worldMap: true);
-        UpdateMinMax(brush, area);
-        TriggerAsyncChange();
-    }
-</code></pre>
-<ul>
-<li><code>private ApplyToTerrain(UnityEngine.RenderTexture target, UnityEngine.RenderTexture source, System.Single delta, Game.Prefabs.TerraformingType type, Colossal.Mathematics.Bounds2 area, Game.Tools.Brush brush, UnityEngine.Texture texture, System.Boolean worldMap) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void ApplyToTerrain(RenderTexture target, RenderTexture source, float delta, TerraformingType type, Bounds2 area, Brush brush, Texture texture, bool worldMap)
-    {
-        if (target == null || !target.IsCreated())
-        {
-            return;
-        }
-        if (delta == 0f || brush.m_Strength == 0f)
-        {
-            if (worldMap &amp;&amp; source != null &amp;&amp; m_LastWorldPreviewWrite.z != 0)
-            {
-                m_CommandBuffer.Clear();
-                m_CommandBuffer.CopyTexture(source, 0, 0, m_LastWorldPreviewWrite.x, m_LastWorldPreviewWrite.y, m_LastWorldPreviewWrite.z, m_LastWorldPreviewWrite.w, target, 0, 0, m_LastWorldPreviewWrite.x, m_LastWorldPreviewWrite.y);
-                Graphics.ExecuteCommandBuffer(m_CommandBuffer);
-                m_LastWorldPreviewWrite = Unity.Mathematics.int4.zero;
-            }
-            if (!worldMap &amp;&amp; source != null &amp;&amp; m_LastPreviewWrite.z != 0)
-            {
-                m_CommandBuffer.Clear();
-                m_CommandBuffer.CopyTexture(source, 0, 0, m_LastPreviewWrite.x, m_LastPreviewWrite.y, m_LastPreviewWrite.z, m_LastPreviewWrite.w, target, 0, 0, m_LastPreviewWrite.x, m_LastPreviewWrite.y);
-                Graphics.ExecuteCommandBuffer(m_CommandBuffer);
-                m_LastPreviewWrite = Unity.Mathematics.int4.zero;
-            }
-            return;
-        }
-        float x = delta * brush.m_Strength * GetTerrainAdjustmentSpeed(type) / heightScaleOffset.x;
-        float2 @float = (worldMap ? worldSize : playableArea);
-        float2 float2 = (worldMap ? worldOffset : playableOffset);
-        float num = math.max(@float.x, @float.y);
-        float2 float3 = (brush.m_Position.xz - float2) / @float;
-        m_GroundHeightSystem.GetUpdateBuffer().Add(in area);
-        if (math.lengthsq(m_UpdateArea) &gt; 0f)
-        {
-            m_UpdateArea.xy = math.min(m_UpdateArea.xy, area.min);
-            m_UpdateArea.zw = math.max(m_UpdateArea.zw, area.max);
-        }
-        else
-        {
-            m_UpdateArea = new float4(area.min, area.max);
-        }
-        if (!m_TerrainChange)
-        {
-            m_TerrainChange = true;
-            m_TerrainChangeArea = new float4(area.min, area.max);
-        }
-        else
-        {
-            m_TerrainChangeArea.xy = math.min(m_TerrainChangeArea.xy, area.min);
-            m_TerrainChangeArea.zw = math.max(m_TerrainChangeArea.zw, area.max);
-        }
-        area.min -= float2;
-        area.max -= float2;
-        area.min /= @float;
-        area.max /= @float;
-        int4 @int = new int4((int)math.max(math.floor(area.min.x * (float)target.width), 0f), (int)math.max(math.floor(area.min.y * (float)target.height), 0f), (int)math.min(math.ceil(area.max.x * (float)target.width), target.width - 1), (int)math.min(math.ceil(area.max.y * (float)target.height), target.height - 1));
-        Vector4 val = new Vector4(float3.x, float3.y, brush.m_Size / num * 0.5f, brush.m_Angle);
-        int num2 = @int.z - @int.x + 1;
-        int num3 = @int.w - @int.y + 1;
-        int threadGroupsX = (num2 + 7) / 8;
-        int threadGroupsY = (num3 + 7) / 8;
-        m_CommandBuffer.Clear();
-        int4 int2 = new int4(math.max(@int.x - 2, 0), math.max(@int.y - 2, 0), num2 + 4, num3 + 4);
-        if (int2.x + int2.z &lt; 0 || int2.x &gt; target.width || int2.y + int2.w &lt; 0 || int2.y &gt; target.height || num2 &lt;= 0 || num3 &lt;= 0)
-        {
-            return;
-        }
-        if (int2.x + int2.z &gt; target.width)
-        {
-            int2.z = target.width - int2.x;
-        }
-        if (int2.y + int2.w &gt; target.height)
-        {
-            int2.w = target.height - int2.y;
-        }
-        if (source != null)
-        {
-            if (worldMap)
-            {
-                if (m_LastWorldPreviewWrite.z == 0)
-                {
-                    m_CommandBuffer.CopyTexture(source, target);
-                }
-                else
-                {
-                    m_CommandBuffer.CopyTexture(source, 0, 0, m_LastWorldPreviewWrite.x, m_LastWorldPreviewWrite.y, m_LastWorldPreviewWrite.z, m_LastWorldPreviewWrite.w, target, 0, 0, m_LastWorldPreviewWrite.x, m_LastWorldPreviewWrite.y);
-                }
-                m_LastWorldPreviewWrite = int2;
-            }
-            else
-            {
-                if (m_LastPreviewWrite.z == 0)
-                {
-                    m_CommandBuffer.CopyTexture(source, target);
-                }
-                else
-                {
-                    m_CommandBuffer.CopyTexture(source, 0, 0, m_LastPreviewWrite.x, m_LastPreviewWrite.y, m_LastPreviewWrite.z, m_LastPreviewWrite.w, target, 0, 0, m_LastPreviewWrite.x, m_LastPreviewWrite.y);
-                    float4 float4 = new float4((float)m_LastPreviewWrite.x * (1f / (float)target.width), (float)m_LastPreviewWrite.y * (1f / (float)target.width), (float)m_LastPreviewWrite.z * (1f / (float)target.width), (float)m_LastPreviewWrite.w * (1f / (float)target.width));
-                    float4 float5 = new float4(float2 + float4.xy * @float, float2 + (float4.xy + float4.zw) * @float);
-                    m_UpdateArea.xy = math.min(m_UpdateArea.xy, float5.xy);
-                    m_UpdateArea.zw = math.max(m_UpdateArea.zw, float5.zw);
-                }
-                m_LastPreviewWrite = int2;
-            }
-        }
-        else if (worldMap)
-        {
-            if (m_LastWorldWrite.z == 0)
-            {
-                m_LastWorldWrite = int2;
-            }
-            else
-            {
-                int2 int3 = new int2(math.min(m_LastWorldWrite.x, int2.x), math.min(m_LastWorldWrite.y, int2.y));
-                int2 int4 = new int2(math.max(m_LastWorldWrite.x + m_LastWorldWrite.z, int2.x + int2.z), math.max(m_LastWorldWrite.y + m_LastWorldWrite.w, int2.y + int2.w));
-                m_LastWorldWrite.xy = int3;
-                m_LastWorldWrite.zw = int4 - int3;
-            }
-        }
-        else if (m_LastWrite.z == 0)
-        {
-            m_LastWrite = int2;
-        }
-        else
-        {
-            int2 int5 = new int2(math.min(m_LastWrite.x, int2.x), math.min(m_LastWrite.y, int2.y));
-            int2 int6 = new int2(math.max(m_LastWrite.x + m_LastWrite.z, int2.x + int2.z), math.max(m_LastWrite.y + m_LastWrite.w, int2.y + int2.w));
-            m_LastWrite.xy = int5;
-            m_LastWrite.zw = int6 - int5;
-        }
-        m_CommandBuffer.SetComputeVectorParam(m_AdjustTerrainCS, ShaderID._CenterSizeRotation, val);
-        m_CommandBuffer.SetComputeVectorParam(m_AdjustTerrainCS, ShaderID._Dims, new Vector4(num, target.width, target.height, 0f));
-        int num4 = 0;
-        Vector4 val2 = new Vector4(x, 0f, 0f, 0f);
-        Vector4 val3 = Vector4.zero;
-        switch (type)
-        {
-        case TerraformingType.Shift:
-            num4 = m_ShiftTerrainKernal;
-            break;
-        case TerraformingType.Level:
-            num4 = m_LevelTerrainKernal;
-            val2.y = (brush.m_Target.y - positionOffset.y) / heightScaleOffset.x;
-            break;
-        case TerraformingType.Slope:
-        {
-            num4 = m_SlopeTerrainKernal;
-            float3 float6 = brush.m_Target - brush.m_Start;
-            val2.y = (brush.m_Target.y - positionOffset.y) / heightScaleOffset.x;
-            val2.z = (brush.m_Start.y - positionOffset.y) / heightScaleOffset.x;
-            val2.w = float6.y / heightScaleOffset.x;
-            float4 zero = float4.zero;
-            zero.xy = math.normalize(float6.xz);
-            zero.z = 0f - math.dot((brush.m_Start.xz - float2) / @float, zero.xy);
-            zero.w = math.length(float6.xz) / num;
-            val3 = zero;
-            break;
-        }
-        case TerraformingType.Soften:
-        {
-            RenderTextureDescriptor desc = new RenderTextureDescriptor
-            {
-                autoGenerateMips = false,
-                bindMS = false,
-                depthBufferBits = 0,
-                dimension = TextureDimension.Tex2D,
-                enableRandomWrite = true,
-                graphicsFormat = GraphicsFormat.R16_UNorm,
-                memoryless = RenderTextureMemoryless.None,
-                height = num3 + 8,
-                width = num2 + 8,
-                volumeDepth = 1,
-                mipCount = 1,
-                msaaSamples = 1,
-                sRGB = false,
-                useDynamicScale = false,
-                useMipMap = false
-            };
-            m_CommandBuffer.GetTemporaryRT(ShaderID._AvgTerrainHeightsTemp, desc);
-            m_CommandBuffer.GetTemporaryRT(ShaderID._BlurTempHorz, desc);
-            num4 = m_SmoothTerrainKernal;
-            val2.y = desc.width;
-            val2.z = desc.height;
-            val3.x = 4f;
-            val3.y = 4f;
-            m_CommandBuffer.SetComputeTextureParam(m_AdjustTerrainCS, m_BlurHorzKernal, ShaderID._Heightmap, target);
-            m_CommandBuffer.SetComputeVectorParam(m_AdjustTerrainCS, ShaderID._BrushData, val2);
-            m_CommandBuffer.SetComputeVectorParam(m_AdjustTerrainCS, ShaderID._Range, new Vector4(@int.x - 4, @int.y - 4, @int.z + 4, @int.w + 4));
-            int threadGroupsX2 = (num2 + 15) / 8;
-            int threadGroupsY2 = num3 + 8;
-            m_CommandBuffer.DispatchCompute(m_AdjustTerrainCS, m_BlurHorzKernal, threadGroupsX2, threadGroupsY2, 1);
-            int threadGroupsX3 = num2 + 8;
-            int threadGroupsY3 = (num3 + 15) / 8;
-            m_CommandBuffer.DispatchCompute(m_AdjustTerrainCS, m_BlurVertKernal, threadGroupsX3, threadGroupsY3, 1);
-            break;
-        }
-        default:
-            num4 = m_ShiftTerrainKernal;
-            break;
-        }
-        int num5 = 2;
-        float4 float7 = ((worldHeightmap != null &amp;&amp; !m_ToolSystem.actionMode.IsEditor()) ? new float4(num5, num5, target.width - num5, target.height - num5) : new float4(-1f, -1f, target.width + 1, target.height + 1));
-        float val4 = 10f / heightScaleOffset.x;
-        m_CommandBuffer.SetComputeTextureParam(m_AdjustTerrainCS, num4, ShaderID._Heightmap, target);
-        m_CommandBuffer.SetComputeTextureParam(m_AdjustTerrainCS, num4, ShaderID._BrushTexture, texture);
-        m_CommandBuffer.SetComputeTextureParam(m_AdjustTerrainCS, num4, ShaderID._WorldTexture, (worldHeightmap != null) ? worldHeightmap : Texture2D.whiteTexture);
-        m_CommandBuffer.SetComputeTextureParam(m_AdjustTerrainCS, num4, ShaderID._WaterTexture, m_WaterSystem.WaterTexture);
-        m_CommandBuffer.SetComputeVectorParam(m_AdjustTerrainCS, ShaderID._HeightScaleOffset, new float4(heightScaleOffset.x, heightScaleOffset.y, 0f, 0f));
-        m_CommandBuffer.SetComputeVectorParam(m_AdjustTerrainCS, ShaderID._Range, new Vector4(@int.x, @int.y, @int.z, @int.w));
-        m_CommandBuffer.SetComputeVectorParam(m_AdjustTerrainCS, ShaderID._BrushData, val2);
-        m_CommandBuffer.SetComputeVectorParam(m_AdjustTerrainCS, ShaderID._BrushData2, val3);
-        m_CommandBuffer.SetComputeVectorParam(m_AdjustTerrainCS, ShaderID._ClampArea, float7);
-        m_CommandBuffer.SetComputeVectorParam(m_AdjustTerrainCS, ShaderID._WorldOffsetScale, m_WorldOffsetScale);
-        m_CommandBuffer.SetComputeFloatParam(m_AdjustTerrainCS, ShaderID._EdgeMaxDifference, val4);
-        m_CommandBuffer.DispatchCompute(m_AdjustTerrainCS, num4, threadGroupsX, threadGroupsY, 1);
-        if (type == TerraformingType.Soften)
-        {
-            m_CommandBuffer.ReleaseTemporaryRT(ShaderID._AvgTerrainHeightsTemp);
-            m_CommandBuffer.ReleaseTemporaryRT(ShaderID._BlurTempHorz);
-        }
-        Graphics.ExecuteCommandBuffer(m_CommandBuffer);
-    }
-</code></pre>
-<ul>
-<li><code>public CalculateBuildingCullArea(Game.Objects.Transform transform, Unity.Entities.Entity prefab, Unity.Entities.ComponentLookup&lt;Game.Prefabs.ObjectGeometryData&gt; geometryData, Unity.Mathematics.float4&amp; area) : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">public bool CalculateBuildingCullArea(Game.Objects.Transform transform, Entity prefab, ComponentLookup&lt;ObjectGeometryData&gt; geometryData, out float4 area)
-    {
-        area = float4.zero;
-        if (geometryData.TryGetComponent(prefab, out var componentData))
-        {
-            Bounds3 bounds = ObjectUtils.CalculateBounds(transform.m_Position, transform.m_Rotation, componentData);
-            bounds = MathUtils.Expand(bounds, ObjectUtils.GetTerrainSmoothingWidth(componentData) - 8f);
-            area.xy = bounds.min.xz;
-            area.zw = bounds.max.xz;
-            return true;
-        }
-        return false;
-    }
-</code></pre>
-<ul>
-<li><code>public Clear() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void Clear()
-    {
-        CoreUtils.Destroy(m_Heightmap);
-    }
-</code></pre>
-<ul>
-<li><code>private ClipViewport(Unity.Mathematics.float4 Viewport) : Unity.Mathematics.float4</code>  </li>
-</ul>
-<pre><code class="language-csharp">private float4 ClipViewport(float4 Viewport)
-    {
-        if (Viewport.x &lt; 0f)
-        {
-            Viewport.z = math.max(Viewport.z + Viewport.x, 0f);
-            Viewport.x = 0f;
-        }
-        else if (Viewport.x &gt; 1f)
-        {
-            Viewport.x = 1f;
-            Viewport.z = 0f;
-        }
-        if (Viewport.x + Viewport.z &gt; 1f)
-        {
-            Viewport.z = math.max(1f - Viewport.x, 0f);
-        }
-        if (Viewport.y &lt; 0f)
-        {
-            Viewport.w = math.max(Viewport.w + Viewport.y, 0f);
-            Viewport.y = 0f;
-        }
-        else if (Viewport.y &gt; 1f)
-        {
-            Viewport.y = 1f;
-            Viewport.w = 0f;
-        }
-        if (Viewport.y + Viewport.w &gt; 1f)
-        {
-            Viewport.w = math.max(1f - Viewport.y, 0f);
-        }
-        return Viewport;
-    }
-</code></pre>
-<ul>
-<li><code>private CreateDefaultHeightmap(System.Int32 width, System.Int32 height) : UnityEngine.Texture2D</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Texture2D CreateDefaultHeightmap(int width, int height)
-    {
-        Texture2D obj = new Texture2D(width, height, GraphicsFormat.R16_UNorm, TextureCreationFlags.DontInitializePixels | TextureCreationFlags.DontUploadUponCreate)
-        {
-            hideFlags = HideFlags.HideAndDontSave,
-            name = &quot;DefaultHeightmap&quot;,
-            filterMode = FilterMode.Bilinear,
-            wrapMode = TextureWrapMode.Clamp
-        };
-        SetDefaultHeights(obj);
-        return obj;
-    }
-</code></pre>
-<ul>
-<li><code>private CreateRoadMeshes() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void CreateRoadMeshes()
-    {
-        m_LaneMesh = new Mesh
-        {
-            name = &quot;Lane Mesh&quot;
-        };
-        int num = 1;
-        int num2 = 8;
-        int num3 = (num + 1) * (num2 + 1);
-        int num4 = num * num2 * 2 * 3;
-        Vector3[] array = new Vector3[num3];
-        Vector2[] array2 = new Vector2[num3];
-        int[] array3 = new int[num4];
-        for (int i = 0; i &lt;= num2; i++)
-        {
-            for (int j = 0; j &lt;= num; j++)
-            {
-                array[j + (num + 1) * i] = new Vector3((float)j / (float)num, 0f, (float)i / (float)num2);
-                array2[j + (num + 1) * i] = new Vector2(array[j + (num + 1) * i].x, array[j + (num + 1) * i].z);
-            }
-        }
-        int num5 = num + 1;
-        int num6 = 0;
-        for (int k = 0; k &lt; num2; k++)
-        {
-            for (int l = 0; l &lt; num; l++)
-            {
-                array3[num6++] = l + num5 * (k + 1);
-                array3[num6++] = l + 1 + num5 * (k + 1);
-                array3[num6++] = l + 1 + num5 * k;
-                array3[num6++] = l + num5 * (k + 1);
-                array3[num6++] = l + 1 + num5 * k;
-                array3[num6++] = l + num5 * k;
-            }
-        }
-        m_LaneMesh.vertices = array;
-        m_LaneMesh.uv = array2;
-        m_LaneMesh.subMeshCount = 1;
-        m_LaneMesh.SetTriangles(array3, 0);
-        m_LaneMesh.UploadMeshData(markNoLongerReadable: true);
-        m_ClipMesh = new Mesh
-        {
-            name = &quot;Clip Mesh&quot;
-        };
-        int num7 = num3;
-        num3 *= 2;
-        num4 = num4 * 2 + num2 * 2 * 3 * 2 + num * 2 * 3 * 2;
-        array = new Vector3[num3];
-        array2 = new Vector2[num3];
-        array3 = new int[num4];
-        for (int m = 0; m &lt;= num2; m++)
-        {
-            for (int n = 0; n &lt;= num; n++)
-            {
-                array[n + (num + 1) * m] = new Vector3((float)n / (float)num, 1f, (float)m / (float)num2);
-                array2[n + (num + 1) * m] = new Vector2(array[n + (num + 1) * m].x, array[n + (num + 1) * m].z);
-                array[num7 + n + (num + 1) * m] = array[n + (num + 1) * m];
-                array[num7 + n + (num + 1) * m].y = 0f;
-                array2[num7 + n + (num + 1) * m] = array2[n + (num + 1) * m];
-            }
-        }
-        num5 = num + 1;
-        num6 = 0;
-        for (int num8 = 0; num8 &lt; num2; num8++)
-        {
-            for (int num9 = 0; num9 &lt; num; num9++)
-            {
-                array3[num6++] = num9 + num5 * (num8 + 1);
-                array3[num6++] = num9 + 1 + num5 * (num8 + 1);
-                array3[num6++] = num9 + 1 + num5 * num8;
-                array3[num6++] = num9 + num5 * (num8 + 1);
-                array3[num6++] = num9 + 1 + num5 * num8;
-                array3[num6++] = num9 + num5 * num8;
-            }
-        }
-        for (int num10 = 0; num10 &lt; num2; num10++)
-        {
-            for (int num11 = 0; num11 &lt; num; num11++)
-            {
-                array3[num6++] = num7 + (num11 + 1 + num5 * (num10 + 1));
-                array3[num6++] = num7 + (num11 + num5 * (num10 + 1));
-                array3[num6++] = num7 + (num11 + 1 + num5 * num10);
-                array3[num6++] = num7 + (num11 + 1 + num5 * num10);
-                array3[num6++] = num7 + (num11 + num5 * (num10 + 1));
-                array3[num6++] = num7 + (num11 + num5 * num10);
-            }
-        }
-        int num12 = 0;
-        for (int num13 = 0; num13 &lt; num2; num13++)
-        {
-            array3[num6++] = num12 + num5 * (num13 + 1);
-            array3[num6++] = num12 + num5 * num13;
-            array3[num6++] = num7 + num12 + num5 * num13;
-            array3[num6++] = num7 + num12 + num5 * num13;
-            array3[num6++] = num7 + num12 + num5 * (num13 + 1);
-            array3[num6++] = num12 + num5 * (num13 + 1);
-        }
-        num12 = num;
-        for (int num14 = 0; num14 &lt; num2; num14++)
-        {
-            array3[num6++] = num12 + num5 * num14;
-            array3[num6++] = num12 + num5 * (num14 + 1);
-            array3[num6++] = num7 + num12 + num5 * num14;
-            array3[num6++] = num7 + num12 + num5 * (num14 + 1);
-            array3[num6++] = num7 + num12 + num5 * num14;
-            array3[num6++] = num12 + num5 * (num14 + 1);
-        }
-        for (int num15 = 0; num15 &lt; num; num15++)
-        {
-            array3[num6++] = num15;
-            array3[num6++] = num15 + num7;
-            array3[num6++] = num15 + num7 + 1;
-            array3[num6++] = num15 + num7 + 1;
-            array3[num6++] = num15 + 1;
-            array3[num6++] = num15;
-        }
-        for (int num16 = 1; num16 &lt;= num; num16++)
-        {
-            array3[num6++] = num3 - num16;
-            array3[num6++] = num3 - num16 - 1;
-            array3[num6++] = num3 - num16 - num7 - 1;
-            array3[num6++] = num3 - num16 - num7 - 1;
-            array3[num6++] = num3 - num16 - num7;
-            array3[num6++] = num3 - num16;
-        }
-        m_ClipMesh.vertices = array;
-        m_ClipMesh.uv = array2;
-        m_ClipMesh.subMeshCount = 1;
-        m_ClipMesh.SetTriangles(array3, 0);
-        m_ClipMesh.UploadMeshData(markNoLongerReadable: true);
-    }
-</code></pre>
-<ul>
-<li><code>private CullCascade(System.Int32 cascadeIndex, Unity.Mathematics.float4 area, Unity.Mathematics.float4 viewport, System.Int32 laneCount) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void CullCascade(int cascadeIndex, float4 area, float4 viewport, int laneCount)
-    {
-        if (viewport.z == 0f || viewport.w == 0f)
-        {
-            UnityEngine.Debug.LogError(&quot;Invalid Viewport&quot;);
-        }
-        CascadeCullInfo cascadeCullInfo = m_CascadeCulling[cascadeIndex];
-        cascadeCullInfo.m_BuildingHandle.Complete();
-        cascadeCullInfo.m_BuildingRenderList = new NativeList&lt;BuildingLotDraw&gt;(Allocator.TempJob);
-        float2 xy = area.xy;
-        float2 @float = area.zw - area.xy;
-        area = new float4(xy.x + @float.x * viewport.x, xy.y + @float.y * viewport.y, xy.x + @float.x * (viewport.x + viewport.z), xy.y + @float.y * (viewport.y + viewport.w));
-        area += new float4(-10f, -10f, 10f, 10f);
-        heightMapCullArea[cascadeIndex] = area;
-        NativeQueue&lt;BuildingLotDraw&gt; queue = new NativeQueue&lt;BuildingLotDraw&gt;(Allocator.TempJob);
-        CullBuildingsCascadeJob jobData = new CullBuildingsCascadeJob
-        {
-            m_LotsToCull = m_BuildingCullList,
-            m_Area = area,
-            Result = queue.AsParallelWriter()
-        };
-        DequeBuildingDrawsJob jobData2 = new DequeBuildingDrawsJob
-        {
-            m_Queue = queue,
-            m_List = cascadeCullInfo.m_BuildingRenderList
-        };
-        JobHandle dependsOn = jobData.Schedule(m_BuildingCullList, 128, m_BuildingCull);
-        cascadeCullInfo.m_BuildingHandle = IJobExtensions.Schedule(jobData2, dependsOn);
-        queue.Dispose(cascadeCullInfo.m_BuildingHandle);
-        cascadeCullInfo.m_LaneHandle.Complete();
-        cascadeCullInfo.m_LaneRenderList = new NativeList&lt;LaneDraw&gt;(laneCount, Allocator.TempJob);
-        CullRoadsCacscadeJob jobData3 = new CullRoadsCacscadeJob
-        {
-            m_RoadsToCull = m_LaneCullList,
-            m_Area = area,
-            m_Scale = 1f / heightScaleOffset.x,
-            Result = cascadeCullInfo.m_LaneRenderList.AsParallelWriter()
-        };
-        cascadeCullInfo.m_LaneHandle = jobData3.Schedule(m_LaneCullList, 128, m_LaneCull);
-        cascadeCullInfo.m_AreaHandle.Complete();
-        cascadeCullInfo.m_TriangleRenderList = new NativeList&lt;AreaTriangle&gt;(Allocator.TempJob);
-        cascadeCullInfo.m_EdgeRenderList = new NativeList&lt;AreaEdge&gt;(Allocator.TempJob);
-        CullTrianglesJob jobData4 = new CullTrianglesJob
-        {
-            m_Triangles = m_TriangleCullList,
-            m_Area = area,
-            Result = cascadeCullInfo.m_TriangleRenderList
-        };
-        CullEdgesJob jobData5 = new CullEdgesJob
-        {
-            m_Edges = m_EdgeCullList,
-            m_Area = area,
-            Result = cascadeCullInfo.m_EdgeRenderList
-        };
-        JobHandle job = IJobExtensions.Schedule(jobData4, m_AreaCull);
-        JobHandle job2 = IJobExtensions.Schedule(jobData5, m_AreaCull);
-        cascadeCullInfo.m_AreaHandle = JobHandle.CombineDependencies(job, job2);
-        m_CullFinished = JobHandle.CombineDependencies(m_CullFinished, JobHandle.CombineDependencies(cascadeCullInfo.m_BuildingHandle, cascadeCullInfo.m_LaneHandle, cascadeCullInfo.m_AreaHandle));
-    }
-</code></pre>
-<ul>
-<li><code>public CullClipMapForView(Game.Rendering.Viewer viewer) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void CullClipMapForView(Viewer viewer)
-    {
-    }
-</code></pre>
-<ul>
-<li><code>private CullForCascades(Unity.Mathematics.float4 area, System.Boolean heightMapRenderRequired, System.Boolean roadsChanged, System.Boolean terrainAreasChanged, System.Boolean clipAreasChanged, System.Int32&amp; laneCount) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void CullForCascades(float4 area, bool heightMapRenderRequired, bool roadsChanged, bool terrainAreasChanged, bool clipAreasChanged, out int laneCount)
-    {
-        m_CullFinished.Complete();
-        if (roadsChanged)
-        {
-            m_ClipMapCull.Complete();
-            m_LaneCullList.Clear();
-            m_ClipMapList.Clear();
-            laneCount = m_RoadsGroup.CalculateEntityCountWithoutFiltering() * 6;
-            if (laneCount &gt; m_LaneCullList.Capacity)
-            {
-                m_LaneCullList.Capacity = laneCount + math.max(laneCount / 4, 250);
-                m_ClipMapList.Capacity = m_LaneCullList.Capacity;
-            }
-        }
-        else
-        {
-            laneCount = m_LaneCullList.Length;
-        }
-        if (heightMapRenderRequired)
-        {
-            NativeQueue&lt;BuildingUtils.LotInfo&gt; queue = new NativeQueue&lt;BuildingUtils.LotInfo&gt;(Allocator.TempJob);
-            CullBuildingLotsJob jobData = new CullBuildingLotsJob
-            {
-                m_LotHandle = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Buildings_Lot_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                m_TransformHandle = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Objects_Transform_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                m_ElevationHandle = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Objects_Elevation_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                m_StackHandle = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Objects_Stack_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                m_PrefabRefHandle = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                m_InstalledUpgradeHandle = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Buildings_InstalledUpgrade_RO_BufferTypeHandle, ref base.CheckedStateRef),
-                m_TransformData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Objects_Transform_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_PrefabRefData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_PrefabBuildingData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_BuildingData_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_PrefabBuildingExtensionData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_BuildingExtensionData_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_PrefabAssetStampData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_AssetStampData_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_OverrideTerraform = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_BuildingTerraformData_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_ObjectGeometryData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_ObjectGeometryData_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_AdditionalLots = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Prefabs_AdditionalBuildingTerraformElement_RO_BufferLookup, ref base.CheckedStateRef),
-                m_Area = area,
-                Result = queue.AsParallelWriter()
-            };
-            DequeBuildingLotsJob jobData2 = new DequeBuildingLotsJob
-            {
-                m_Queue = queue,
-                m_List = m_BuildingCullList
-            };
-            JobHandle dependsOn = JobChunkExtensions.ScheduleParallel(jobData, m_BuildingGroup, base.Dependency);
-            m_BuildingCull = IJobExtensions.Schedule(jobData2, dependsOn);
-            m_CullFinished = m_BuildingCull;
-            queue.Dispose(m_BuildingCull);
-        }
-        if (roadsChanged)
-        {
-            CullRoadsJob jobData3 = new CullRoadsJob
-            {
-                m_EntityHandle = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef),
-                m_CompositionData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_Composition_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_EdgeGeometryData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_EdgeGeometry_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_StartNodeGeometryData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_StartNodeGeometry_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_EndNodeGeometryData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_EndNodeGeometry_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_NodeData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_Node_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_NodeGeometryData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_NodeGeometry_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_OrphanData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_Orphan_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_PrefabCompositionData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_NetCompositionData_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_TerrainCompositionData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_TerrainComposition_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_PrefabRefData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_NetData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_NetData_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_NetGeometryData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_NetGeometryData_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_Area = m_CascadeRanges[baseLod],
-                Result = m_LaneCullList.AsParallelWriter()
-            };
-            m_LaneCull = JobChunkExtensions.ScheduleParallel(jobData3, m_RoadsGroup, base.Dependency);
-            m_CullFinished = JobHandle.CombineDependencies(m_CullFinished, m_LaneCull);
-            GenerateClipDataJob jobData4 = new GenerateClipDataJob
-            {
-                m_RoadsToCull = m_LaneCullList,
-                Result = m_ClipMapList.AsParallelWriter()
-            };
-            m_CurrentClipMap = null;
-            m_ClipMapCull = jobData4.Schedule(m_LaneCullList, 128, m_LaneCull);
-            m_CullFinished = JobHandle.CombineDependencies(m_CullFinished, m_ClipMapCull);
-        }
-        if (terrainAreasChanged)
-        {
-            NativeQueue&lt;AreaTriangle&gt; queue2 = new NativeQueue&lt;AreaTriangle&gt;(Allocator.TempJob);
-            NativeQueue&lt;AreaEdge&gt; queue3 = new NativeQueue&lt;AreaEdge&gt;(Allocator.TempJob);
-            CullAreasJob jobData5 = new CullAreasJob
-            {
-                m_ClipType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Areas_Clip_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                m_AreaType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Areas_Area_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                m_PrefabRefType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                m_GeometryType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Areas_Geometry_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                m_StorageType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Areas_Storage_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                m_NodeType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Areas_Node_RO_BufferTypeHandle, ref base.CheckedStateRef),
-                m_TriangleType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Areas_Triangle_RO_BufferTypeHandle, ref base.CheckedStateRef),
-                m_PrefabTerrainAreaData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_TerrainAreaData_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_PrefabStorageAreaData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_StorageAreaData_RO_ComponentLookup, ref base.CheckedStateRef),
-                m_Area = m_CascadeRanges[baseLod],
-                m_Triangles = queue2.AsParallelWriter(),
-                m_Edges = queue3.AsParallelWriter()
-            };
-            DequeTrianglesJob jobData6 = new DequeTrianglesJob
-            {
-                m_Queue = queue2,
-                m_List = m_TriangleCullList
-            };
-            DequeEdgesJob jobData7 = new DequeEdgesJob
-            {
-                m_Queue = queue3,
-                m_List = m_EdgeCullList
-            };
-            JobHandle dependsOn2 = JobChunkExtensions.ScheduleParallel(jobData5, m_AreasQuery, base.Dependency);
-            JobHandle job = IJobExtensions.Schedule(jobData6, dependsOn2);
-            JobHandle job2 = IJobExtensions.Schedule(jobData7, dependsOn2);
-            m_AreaCull = JobHandle.CombineDependencies(job, job2);
-            m_CullFinished = JobHandle.CombineDependencies(m_CullFinished, m_AreaCull);
-            queue2.Dispose(m_AreaCull);
-            queue3.Dispose(m_AreaCull);
-        }
-        if (clipAreasChanged)
-        {
-            if (!m_HasAreaClipMeshData)
-            {
-                m_HasAreaClipMeshData = true;
-                m_AreaClipMeshData = Mesh.AllocateWritableMeshData(1);
-            }
-            JobHandle outJobHandle;
-            GenerateAreaClipMeshJob jobData8 = new GenerateAreaClipMeshJob
-            {
-                m_Chunks = m_AreasQuery.ToArchetypeChunkListAsync(Allocator.TempJob, out outJobHandle),
-                m_ClipType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Areas_Clip_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                m_AreaType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Areas_Area_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-                m_NodeType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Areas_Node_RO_BufferTypeHandle, ref base.CheckedStateRef),
-                m_TriangleType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Areas_Triangle_RO_BufferTypeHandle, ref base.CheckedStateRef),
-                m_MeshData = m_AreaClipMeshData
-            };
-            m_AreaClipMeshDataDeps = IJobExtensions.Schedule(jobData8, JobHandle.CombineDependencies(base.Dependency, outJobHandle));
-            jobData8.m_Chunks.Dispose(m_AreaClipMeshDataDeps);
-            m_CullFinished = JobHandle.CombineDependencies(m_CullFinished, m_AreaClipMeshDataDeps);
-        }
-        base.Dependency = m_CullFinished;
-    }
-</code></pre>
-<ul>
-<li><code>public Deserialize&lt;TReader&gt;(TReader reader) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Void Deserialize&lt;TReader&gt;(TReader reader);
-</code></pre>
-<ul>
-<li><code>private static DeserializeHeightmap&lt;TReader&gt;(TReader reader, System.String name, Unity.Collections.NativeArray</code>1[[System.UInt16, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]&amp; unfiltered, System.Boolean makeNoLongerReadable) : UnityEngine.Texture2D`  </li>
-</ul>
-<pre><code class="language-csharp">private static UnityEngine.Texture2D DeserializeHeightmap&lt;TReader&gt;(TReader reader, System.String name, Unity.Collections.NativeArray`1[[System.UInt16, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]&amp; unfiltered, System.Boolean makeNoLongerReadable);
-</code></pre>
-<ul>
-<li><code>private DestroyWorldMap() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void DestroyWorldMap()
-    {
-        if (worldHeightmap != null)
-        {
-            if (worldHeightmap is RenderTexture renderTexture)
-            {
-                renderTexture.Release();
-            }
-            UnityEngine.Object.Destroy(worldHeightmap);
-            worldHeightmap = null;
-        }
-        if (m_WorldMapEditable != null)
-        {
-            m_WorldMapEditable.Release();
-            UnityEngine.Object.Destroy(m_WorldMapEditable);
-            m_WorldMapEditable = null;
-        }
-        if (worldMapAsset != null)
-        {
-            worldMapAsset.Unload();
-            worldMapAsset = null;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private DrawHeightAdjustments(UnityEngine.Rendering.CommandBuffer&amp; cmdBuffer, System.Int32 cascade, Unity.Mathematics.float4 area, Unity.Mathematics.float4 viewport, UnityEngine.Rendering.RenderTargetBinding binding, Unity.Collections.NativeArray</code>1[[Game.Simulation.TerrainSystem+BuildingLotDraw, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]&amp; lots, Unity.Collections.NativeArray<code>1[[Game.Simulation.TerrainSystem+LaneDraw, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]&amp; lanes, Unity.Collections.NativeArray</code>1[[Game.Simulation.TerrainSystem+AreaTriangle, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]&amp; triangles, Unity.Collections.NativeArray<code>1[[Game.Simulation.TerrainSystem+AreaEdge, Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]&amp; edges, UnityEngine.Material&amp; lotMaterial, UnityEngine.Material&amp; laneMaterial, UnityEngine.Material&amp; areaMaterial) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void DrawHeightAdjustments(ref CommandBuffer cmdBuffer, int cascade, float4 area, float4 viewport, RenderTargetBinding binding, ref NativeArray&lt;BuildingLotDraw&gt; lots, ref NativeArray&lt;LaneDraw&gt; lanes, ref NativeArray&lt;AreaTriangle&gt; triangles, ref NativeArray&lt;AreaEdge&gt; edges, ref Material lotMaterial, ref Material laneMaterial, ref Material areaMaterial)
-    {
-        float4 @float = new float4(-area.xy, 1f / (area.zw - area.xy));
-        Rect scissor = new Rect(viewport.x * (float)m_HeightmapCascade.width, viewport.y * (float)m_HeightmapCascade.height, viewport.z * (float)m_HeightmapCascade.width, viewport.w * (float)m_HeightmapCascade.height);
-        if (lots.Length &gt; 0)
-        {
-            ComputeBuffer computeBuffer = m_BuildingInstanceData.Request(lots.Length);
-            computeBuffer.SetData(lots);
-            computeBuffer.name = $&quot;BuildingLot Buffer Cascade{cascade}&quot;;
-            lotMaterial.SetVector(ShaderID._TerrainScaleOffsetID, new Vector4(heightScaleOffset.x, heightScaleOffset.y, 0f, 0f));
-            lotMaterial.SetVector(ShaderID._MapOffsetScaleID, m_MapOffsetScale);
-            lotMaterial.SetVector(ShaderID._CascadeOffsetScale, @float);
-            lotMaterial.SetTexture(ShaderID._HeightmapID, heightmap);
-            lotMaterial.SetBuffer(ShaderID._BuildingLotID, computeBuffer);
-        }
-        if (lanes.Length &gt; 0)
-        {
-            ComputeBuffer computeBuffer2 = m_LaneInstanceData.Request(lanes.Length);
-            computeBuffer2.SetData(lanes);
-            computeBuffer2.name = $&quot;Lane Buffer Cascade{cascade}&quot;;
-            laneMaterial.SetVector(ShaderID._TerrainScaleOffsetID, new Vector4(heightScaleOffset.x, heightScaleOffset.y, 0f, 0f));
-            laneMaterial.SetVector(ShaderID._MapOffsetScaleID, m_MapOffsetScale);
-            laneMaterial.SetVector(ShaderID._CascadeOffsetScale, @float);
-            laneMaterial.SetTexture(ShaderID._HeightmapID, heightmap);
-            laneMaterial.SetBuffer(ShaderID._LanesID, computeBuffer2);
-        }
-        if (triangles.Length &gt; 0 || edges.Length &gt; 0)
-        {
-            ComputeBuffer computeBuffer3 = m_TriangleInstanceData.Request(triangles.Length);
-            computeBuffer3.SetData(triangles);
-            computeBuffer3.name = $&quot;Triangle Buffer Cascade{cascade}&quot;;
-            ComputeBuffer computeBuffer4 = m_EdgeInstanceData.Request(edges.Length);
-            computeBuffer4.SetData(edges);
-            computeBuffer4.name = $&quot;Edge Buffer Cascade{cascade}&quot;;
-            areaMaterial.SetVector(ShaderID._TerrainScaleOffsetID, new Vector4(heightScaleOffset.x, heightScaleOffset.y, 0f, 0f));
-            areaMaterial.SetVector(ShaderID._MapOffsetScaleID, m_MapOffsetScale);
-            areaMaterial.SetVector(ShaderID._CascadeOffsetScale, @float);
-            areaMaterial.SetTexture(ShaderID._HeightmapID, heightmap);
-            areaMaterial.SetBuffer(ShaderID._TrianglesID, computeBuffer3);
-            areaMaterial.SetBuffer(ShaderID._EdgesID, computeBuffer4);
-        }
-        if (lots.Length &gt; 0)
-        {
-            cmdBuffer.DrawProcedural(Matrix4x4.identity, lotMaterial, 1, MeshTopology.Triangles, 6, lots.Length);
-        }
-        if (lanes.Length &gt; 0)
-        {
-            cmdBuffer.DrawMeshInstancedProcedural(m_LaneMesh, 0, laneMaterial, 1, lanes.Length);
-        }
-        int num = Shader.PropertyToID(&quot;_CascadeMinHeights&quot;);
-        cmdBuffer.GetTemporaryRT(num, m_HeightmapCascade.width, m_HeightmapCascade.height, 0, FilterMode.Point, m_HeightmapCascade.graphicsFormat);
-        int num2 = math.max(0, Mathf.FloorToInt(scissor.xMin));
-        int num3 = math.max(0, Mathf.FloorToInt(scissor.yMin));
-        int srcWidth = math.min(m_HeightmapCascade.width, Mathf.CeilToInt(scissor.xMax)) - num2;
-        int srcHeight = math.min(m_HeightmapCascade.height, Mathf.CeilToInt(scissor.yMax)) - num3;
-        cmdBuffer.CopyTexture(m_HeightmapCascade, cascade, 0, num2, num3, srcWidth, srcHeight, num, 0, 0, num2, num3);
-        cmdBuffer.SetRenderTarget(binding, 0, CubemapFace.Unknown, cascade);
-        cmdBuffer.EnableScissorRect(scissor);
-        if (triangles.Length &gt; 0)
-        {
-            cmdBuffer.DrawProcedural(Matrix4x4.identity, areaMaterial, 0, MeshTopology.Triangles, 3, triangles.Length);
-        }
-        if (edges.Length &gt; 0)
-        {
-            cmdBuffer.DrawProcedural(Matrix4x4.identity, areaMaterial, 1, MeshTopology.Triangles, 6, edges.Length);
-        }
-        if (lots.Length &gt; 0)
-        {
-            cmdBuffer.DrawProcedural(Matrix4x4.identity, lotMaterial, 0, MeshTopology.Triangles, 6, lots.Length);
-        }
-        if (lanes.Length &gt; 0)
-        {
-            cmdBuffer.DrawMeshInstancedProcedural(m_LaneMesh, 0, laneMaterial, 0, lanes.Length);
-        }
-        cmdBuffer.ReleaseTemporaryRT(num);
-        if (lots.Length &gt; 0)
-        {
-            cmdBuffer.DrawProcedural(Matrix4x4.identity, lotMaterial, 2, MeshTopology.Triangles, 6, lots.Length);
-        }
-        if (lanes.Length &gt; 0)
-        {
-            cmdBuffer.DrawMeshInstancedProcedural(m_LaneMesh, 0, laneMaterial, 2, lanes.Length);
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private EnsureCPUHeights(System.Int32 length) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void EnsureCPUHeights(int length)
-    {
-        if (m_CPUHeights.IsCreated)
-        {
-            if (m_CPUHeights.Length != length)
-            {
-                m_CPUHeights.Dispose();
-                m_CPUHeights = new NativeArray&lt;ushort&gt;(length, Allocator.Persistent);
-            }
-        }
-        else
-        {
-            m_CPUHeights = new NativeArray&lt;ushort&gt;(length, Allocator.Persistent);
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private FinalizeTerrainData(UnityEngine.Texture2D map, UnityEngine.Texture2D worldMap, Unity.Mathematics.float2 heightScaleOffset, Unity.Mathematics.float2 inMapCorner, Unity.Mathematics.float2 inMapSize, Unity.Mathematics.float2 inWorldCorner, Unity.Mathematics.float2 inWorldSize, Unity.Mathematics.float2 inWorldHeightMinMax) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void FinalizeTerrainData(Texture2D map, Texture2D worldMap, float2 heightScaleOffset, float2 inMapCorner, float2 inMapSize, float2 inWorldCorner, float2 inWorldSize, float2 inWorldHeightMinMax)
-    {
-        this.heightScaleOffset = heightScaleOffset;
-        if (math.all(inWorldSize == inMapSize) || worldHeightmap == null)
-        {
-            baseLod = 0;
-            playableArea = inMapSize;
-            worldSize = inMapSize;
-            playableOffset = inMapCorner;
-            worldOffset = inMapCorner;
-        }
-        else
-        {
-            baseLod = 1;
-            playableArea = inMapSize;
-            worldSize = inWorldSize;
-            playableOffset = inMapCorner;
-            worldOffset = inWorldCorner;
-        }
-        m_NewMap = true;
-        m_NewMapThisFrame = true;
-        m_CascadeReset = true;
-        worldHeightMinMax = inWorldHeightMinMax;
-        m_WorldOffsetScale = new float4((playableOffset - worldOffset) / worldSize, playableArea / worldSize);
-        float3 @float = new float3(playableArea.x, heightScaleOffset.x, playableArea.y);
-        float3 xyz = 1f / @float;
-        float3 xyz2 = -positionOffset;
-        m_MapOffsetScale = new Vector4(0f - positionOffset.x, 0f - positionOffset.z, 1f / @float.x, 1f / @float.z);
-        if (m_HeightmapCascade == null || m_HeightmapCascade.width != heightmap.width || m_HeightmapCascade.height != heightmap.height)
-        {
-            if (m_HeightmapCascade != null)
-            {
-                m_HeightmapCascade.Release();
-                UnityEngine.Object.Destroy(m_HeightmapCascade);
-                m_HeightmapCascade = null;
-            }
-            m_HeightmapCascade = new RenderTexture(heightmap.width, heightmap.height, 0, GraphicsFormat.R16_UNorm)
-            {
-                hideFlags = HideFlags.HideAndDontSave,
-                enableRandomWrite = false,
-                name = &quot;TerrainHeightsCascade&quot;,
-                filterMode = FilterMode.Bilinear,
-                wrapMode = TextureWrapMode.Clamp,
-                dimension = TextureDimension.Tex2DArray,
-                volumeDepth = 4
-            };
-            m_HeightmapCascade.Create();
-        }
-        if (m_HeightmapDepth == null || m_HeightmapDepth.width != heightmap.width || m_HeightmapDepth.height != heightmap.height)
-        {
-            if (m_HeightmapDepth != null)
-            {
-                m_HeightmapDepth.Release();
-                UnityEngine.Object.Destroy(m_HeightmapDepth);
-                m_HeightmapDepth = null;
-            }
-            m_HeightmapDepth = new RenderTexture(heightmap.width, heightmap.height, 16, RenderTextureFormat.Depth, RenderTextureReadWrite.Linear)
-            {
-                name = &quot;HeightmapDepth&quot;
-            };
-            m_HeightmapDepth.Create();
-        }
-        if (map != null)
-        {
-            Graphics.CopyTexture(map, 0, 0, m_HeightmapCascade, baseLod, 0);
-        }
-        m_CascadeRanges = new float4[4];
-        m_ShaderCascadeRanges = new Vector4[4];
-        for (int i = 0; i &lt; 4; i++)
-        {
-            m_CascadeRanges[i] = new float4(0f, 0f, 0f, 0f);
-        }
-        m_CascadeRanges[baseLod] = new float4(playableOffset, playableOffset + playableArea);
-        if (baseLod &gt; 0)
-        {
-            m_CascadeRanges[0] = new float4(worldOffset, worldOffset + worldSize);
-            if (worldMap != null)
-            {
-                Graphics.CopyTexture(worldMap, 0, 0, m_HeightmapCascade, 0, 0);
-            }
-        }
-        m_UpdateArea = new float4(m_CascadeRanges[baseLod]);
-        Shader.SetGlobalTexture(&quot;colossal_TerrainTexture&quot;, m_Heightmap);
-        Shader.SetGlobalVector(&quot;colossal_TerrainScale&quot;, new float4(xyz, 0f));
-        Shader.SetGlobalVector(&quot;colossal_TerrainOffset&quot;, new float4(xyz2, 0f));
-        Shader.SetGlobalVector(&quot;colossal_TerrainCascadeLimit&quot;, new float4(0.5f / (float)m_HeightmapCascade.width, 0.5f / (float)m_HeightmapCascade.height, 0f, 0f));
-        Shader.SetGlobalTexture(&quot;colossal_TerrainTextureArray&quot;, m_HeightmapCascade);
-        Shader.SetGlobalInt(&quot;colossal_TerrainTextureArrayBaseLod&quot;, baseLod);
-        if (map != null)
-        {
-            m_CPUHeightReaders.Complete();
-            m_CPUHeightReaders = default(JobHandle);
-            WriteCPUHeights(map.GetRawTextureData&lt;ushort&gt;());
-        }
-        m_TerrainMinMax.Init((worldHeightmap != null) ? 1024 : 512, (worldHeightmap != null) ? worldHeightmap.width : m_Heightmap.width);
-        m_TerrainMinMax.UpdateMap(this, m_Heightmap, worldHeightmap);
-    }
-</code></pre>
-<ul>
-<li><code>public GetBuildingUpgradeWriter(System.Int32 ExpectedAmount) : Unity.Collections.NativeParallelHashMap&lt;Unity.Entities.Entity, Unity.Entities.Entity&gt;</code>  </li>
-</ul>
-<pre><code class="language-csharp">public NativeParallelHashMap&lt;Entity, Entity&gt;.ParallelWriter GetBuildingUpgradeWriter(int ExpectedAmount)
-    {
-        m_BuildingUpgradeDependencies.Complete();
-        if (ExpectedAmount &gt; m_BuildingUpgrade.Capacity)
-        {
-            m_BuildingUpgrade.Capacity = ExpectedAmount;
-        }
-        return m_BuildingUpgrade.AsParallelWriter();
-    }
-</code></pre>
-<ul>
-<li><code>public GetCascadeInfo(System.Int32&amp; LODCount, System.Int32&amp; baseLOD, Unity.Mathematics.float4x4&amp; areas, Unity.Mathematics.float4&amp; ranges, Unity.Mathematics.float4&amp; size) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void GetCascadeInfo(out int LODCount, out int baseLOD, out float4x4 areas, out float4 ranges, out float4 size)
-    {
-        LODCount = 4;
-        baseLOD = baseLod;
-        if (m_CascadeRanges != null)
-        {
-            areas = new float4x4(m_CascadeRanges[0].x, m_CascadeRanges[0].y, m_CascadeRanges[0].z, m_CascadeRanges[0].w, m_CascadeRanges[1].x, m_CascadeRanges[1].y, m_CascadeRanges[1].z, m_CascadeRanges[1].w, m_CascadeRanges[2].x, m_CascadeRanges[2].y, m_CascadeRanges[2].z, m_CascadeRanges[2].w, m_CascadeRanges[3].x, m_CascadeRanges[3].y, m_CascadeRanges[3].z, m_CascadeRanges[3].w);
-            ranges = new float4(math.min(m_CascadeRanges[0].z - m_CascadeRanges[0].x, m_CascadeRanges[0].w - m_CascadeRanges[0].y) * 0.75f, math.min(m_CascadeRanges[1].z - m_CascadeRanges[1].x, m_CascadeRanges[1].w - m_CascadeRanges[1].y) * 0.75f, math.min(m_CascadeRanges[2].z - m_CascadeRanges[2].x, m_CascadeRanges[2].w - m_CascadeRanges[2].y) * 0.75f, math.min(m_CascadeRanges[3].z - m_CascadeRanges[3].x, m_CascadeRanges[3].w - m_CascadeRanges[3].y) * 0.75f);
-            size = new float4(math.max(m_CascadeRanges[0].z - m_CascadeRanges[0].x, m_CascadeRanges[0].w - m_CascadeRanges[0].y), math.max(m_CascadeRanges[1].z - m_CascadeRanges[1].x, m_CascadeRanges[1].w - m_CascadeRanges[1].y), math.max(m_CascadeRanges[2].z - m_CascadeRanges[2].x, m_CascadeRanges[2].w - m_CascadeRanges[2].y), math.max(m_CascadeRanges[3].z - m_CascadeRanges[3].x, m_CascadeRanges[3].w - m_CascadeRanges[3].y));
-        }
-        else
-        {
-            areas = default(float4x4);
-            ranges = default(float4);
-            size = default(float4);
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public GetCascadeTexture() : UnityEngine.Texture</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Texture GetCascadeTexture()
-    {
-        return m_HeightmapCascade;
-    }
-</code></pre>
-<ul>
-<li><code>public GetHeightData(System.Boolean waitForPending = False) : Game.Simulation.TerrainHeightData</code>  </li>
-</ul>
-<pre><code class="language-csharp">public TerrainHeightData GetHeightData(bool waitForPending = false)
-    {
-        if (waitForPending &amp;&amp; m_HeightMapChanged)
-        {
-            m_AsyncGPUReadback.WaitForCompletion();
-            m_CPUHeightReaders.Complete();
-            m_CPUHeightReaders = default(JobHandle);
-            UpdateGPUReadback();
-        }
-        int3 resolution = ((m_CPUHeights.IsCreated &amp;&amp; !(m_HeightmapCascade == null) &amp;&amp; m_CPUHeights.Length == m_HeightmapCascade.width * m_HeightmapCascade.height) ? new int3(m_HeightmapCascade.width, 65536, m_HeightmapCascade.height) : new int3(2, 2, 2));
-        float3 @float = new float3(14336f, math.max(1f, heightScaleOffset.x), 14336f);
-        float3 scale = new float3(resolution.x, resolution.y - 1, resolution.z) / @float;
-        float3 offset = -positionOffset;
-        offset.xz -= 0.5f / scale.xz;
-        return new TerrainHeightData(m_CPUHeights, resolution, scale, offset);
-    }
-</code></pre>
-<ul>
-<li><code>public GetLastMinMaxUpdate(Unity.Mathematics.float3&amp; min, Unity.Mathematics.float3&amp; max) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void GetLastMinMaxUpdate(out float3 min, out float3 max)
-    {
-        int4 updateArea = m_TerrainMinMax.UpdateArea;
-        float2 minMax = m_TerrainMinMax.GetMinMax(updateArea);
-        float4 @float = new float4((float)updateArea.x / (float)m_TerrainMinMax.size, (float)updateArea.y / (float)m_TerrainMinMax.size, (float)(updateArea.x + updateArea.z) / (float)m_TerrainMinMax.size, (float)(updateArea.y + updateArea.w) / (float)m_TerrainMinMax.size);
-        @float *= worldSize.xyxy;
-        @float += worldOffset.xyxy;
-        min = new float3(@float.x, minMax.x, @float.y);
-        max = new float3(@float.z, minMax.y, @float.w);
-    }
-</code></pre>
-<ul>
-<li><code>public GetRoads() : Unity.Collections.NativeList&lt;Game.Simulation.TerrainSystem+LaneSection&gt;</code>  </li>
-</ul>
-<pre><code class="language-csharp">public NativeList&lt;LaneSection&gt; GetRoads()
-    {
-        m_LaneCull.Complete();
-        return m_LaneCullList;
-    }
-</code></pre>
-<ul>
-<li><code>private GetTerrainAdjustmentSpeed(Game.Prefabs.TerraformingType type) : System.Single</code>  </li>
-</ul>
-<pre><code class="language-csharp">private float GetTerrainAdjustmentSpeed(TerraformingType type)
-    {
-        return type switch
-        {
-            TerraformingType.Soften =&gt; 1000f, 
-            TerraformingType.Shift =&gt; 2000f, 
-            _ =&gt; 4000f, 
-        };
-    }
-</code></pre>
-<ul>
-<li><code>public GetTerrainBounds() : UnityEngine.Bounds</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Bounds GetTerrainBounds()
-    {
-        float3 @float = new float3(0f, (0f - heightScaleOffset.y) * 0.5f, 0f);
-        return new Bounds(size: new float3(14336f, heightScaleOffset.x, 14336f), center: @float);
-    }
-</code></pre>
-<ul>
-<li><code>public GetTerrainBrushUpdate(Unity.Mathematics.float4&amp; viewport) : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">public bool GetTerrainBrushUpdate(out float4 viewport)
-    {
-        viewport = m_TerrainChangeArea;
-        if (m_TerrainChange)
-        {
-            m_TerrainChange = false;
-            viewport = new float4(m_TerrainChangeArea.x - m_CascadeRanges[baseLod].x, m_TerrainChangeArea.y - m_CascadeRanges[baseLod].y, m_TerrainChangeArea.z - m_CascadeRanges[baseLod].x, m_TerrainChangeArea.w - m_CascadeRanges[baseLod].y);
-            viewport /= new float4(m_CascadeRanges[baseLod].z - m_CascadeRanges[baseLod].x, m_CascadeRanges[baseLod].w - m_CascadeRanges[baseLod].y, m_CascadeRanges[baseLod].z - m_CascadeRanges[baseLod].x, m_CascadeRanges[baseLod].w - m_CascadeRanges[baseLod].y);
-            viewport.zw -= viewport.xy;
-            viewport = ClipViewport(viewport);
-            m_TerrainChangeArea = viewport;
-            return true;
-        }
-        return false;
-    }
-</code></pre>
-<ul>
-<li><code>public HandleNewMap() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void HandleNewMap()
-    {
-        m_NewMap = false;
-    }
-</code></pre>
-<ul>
-<li><code>private InitializeTerrainData(UnityEngine.Texture2D inMap, UnityEngine.Texture2D worldMap, Unity.Mathematics.float2 heightScaleOffset, Unity.Mathematics.float2 inMapCorner, Unity.Mathematics.float2 inMapSize, Unity.Mathematics.float2 inWorldCorner, Unity.Mathematics.float2 inWorldSize, Unity.Mathematics.float2 inWorldHeightMinMax) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void InitializeTerrainData(Texture2D inMap, Texture2D worldMap, float2 heightScaleOffset, float2 inMapCorner, float2 inMapSize, float2 inWorldCorner, float2 inWorldSize, float2 inWorldHeightMinMax)
-    {
-        Texture2D texture2D = ((inMap != null) ? inMap : CreateDefaultHeightmap((worldMap != null) ? worldMap.width : kDefaultHeightmapWidth, (worldMap != null) ? worldMap.height : kDefaultHeightmapHeight));
-        SetHeightmap(texture2D);
-        SetWorldHeightmap(worldMap, m_ToolSystem.actionMode.IsEditor());
-        FinalizeTerrainData(texture2D, worldMap, heightScaleOffset, inMapCorner, inMapSize, inWorldCorner, inWorldSize, inWorldHeightMinMax);
-        if (texture2D != inMap)
-        {
-            UnityEngine.Object.Destroy(texture2D);
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public static IsValidHeightmapFormat(UnityEngine.Texture2D tex) : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static bool IsValidHeightmapFormat(Texture2D tex)
-    {
-        if (tex.width == kDefaultHeightmapWidth &amp;&amp; tex.height == kDefaultHeightmapHeight)
-        {
-            if (tex.graphicsFormat != GraphicsFormat.R16_UNorm)
-            {
-                return tex.graphicsFormat == GraphicsFormat.R16G16B16A16_UNorm;
-            }
-            return true;
-        }
-        return false;
-    }
-</code></pre>
-<ul>
-<li><code>private LoadTerrain() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void LoadTerrain()
-    {
-        InitializeTerrainData(null, null, kDefaultHeightScaleOffset, kDefaultMapOffset, kDefaultMapSize, kDefaultWorldOffset, kDefaultWorldSize, float2.zero);
-    }
-</code></pre>
-<ul>
-<li><code>public OnBuildingMoved(Unity.Entities.Entity entity) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void OnBuildingMoved(Entity entity)
-    {
-        ComponentLookup&lt;Game.Objects.Transform&gt; componentLookup = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Objects_Transform_RO_ComponentLookup, ref base.CheckedStateRef);
-        ComponentLookup&lt;PrefabRef&gt; componentLookup2 = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentLookup, ref base.CheckedStateRef);
-        ComponentLookup&lt;ObjectGeometryData&gt; componentLookup3 = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_ObjectGeometryData_RO_ComponentLookup, ref base.CheckedStateRef);
-        CompleteDependency();
-        float4 area = float4.zero;
-        if (!componentLookup2.HasComponent(entity) || !componentLookup.HasComponent(entity))
-        {
-            return;
-        }
-        PrefabRef prefabRef = componentLookup2[entity];
-        Game.Objects.Transform transform = componentLookup[entity];
-        if (CalculateBuildingCullArea(transform, prefabRef.m_Prefab, componentLookup3, out area))
-        {
-            m_GroundHeightSystem.GetUpdateBuffer().Add(new Bounds2(area.xy, area.zw));
-            if (math.lengthsq(m_UpdateArea) &gt; 0f)
-            {
-                m_UpdateArea.xy = math.min(m_UpdateArea.xy, area.xy);
-                m_UpdateArea.zw = math.max(m_UpdateArea.zw, area.zw);
-            }
-            else
-            {
-                m_UpdateArea = area;
-            }
-            m_UpdateArea += new float4(-10f, -10f, 10f, 10f);
-        }
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_LastCullArea = float4.zero;
-        freezeCascadeUpdates = false;
-        m_CPUHeights = new NativeArray&lt;ushort&gt;(4, Allocator.Persistent);
-        m_AdjustTerrainCS = Resources.Load&lt;ComputeShader&gt;(&quot;AdjustTerrain&quot;);
-        m_ShiftTerrainKernal = m_AdjustTerrainCS.FindKernel(&quot;ShiftTerrain&quot;);
-        m_BlurHorzKernal = m_AdjustTerrainCS.FindKernel(&quot;HorzBlur&quot;);
-        m_BlurVertKernal = m_AdjustTerrainCS.FindKernel(&quot;VertBlur&quot;);
-        m_SmoothTerrainKernal = m_AdjustTerrainCS.FindKernel(&quot;SmoothTerrain&quot;);
-        m_LevelTerrainKernal = m_AdjustTerrainCS.FindKernel(&quot;LevelTerrain&quot;);
-        m_SlopeTerrainKernal = m_AdjustTerrainCS.FindKernel(&quot;SlopeTerrain&quot;);
-        m_BuildingUpgrade = new NativeParallelHashMap&lt;Entity, Entity&gt;(1024, Allocator.Persistent);
-        m_CommandBuffer = new CommandBuffer();
-        m_CommandBuffer.name = &quot;TerrainAdjust&quot;;
-        m_CascadeCB = new CommandBuffer();
-        m_CascadeCB.name = &quot;Terrain Cascade&quot;;
-        Shader shader = Resources.Load&lt;Shader&gt;(&quot;BuildingLot&quot;);
-        m_MasterBuildingLotMaterial = new Material(shader);
-        Shader shader2 = Resources.Load&lt;Shader&gt;(&quot;Lane&quot;);
-        m_MasterLaneMaterial = new Material(shader2);
-        Shader shader3 = Resources.Load&lt;Shader&gt;(&quot;Area&quot;);
-        m_MasterAreaMaterial = new Material(shader3);
-        m_TerrainBlit = CoreUtils.CreateEngineMaterial(Resources.Load&lt;Shader&gt;(&quot;TerrainCascadeBlit&quot;));
-        m_ClipMaterial = CoreUtils.CreateEngineMaterial(Resources.Load&lt;Shader&gt;(&quot;RoadClip&quot;));
-        m_TerrainMinMax = new TerrainMinMaxMap();
-        m_MapOffsetScale = new Vector4(0f, 0f, 1f, 1f);
-        m_UpdateArea = float4.zero;
-        m_TerrainChangeArea = float4.zero;
-        m_TerrainChange = false;
-        m_BuildingCullList = new NativeList&lt;BuildingUtils.LotInfo&gt;(1000, Allocator.Persistent);
-        m_LaneCullList = new NativeList&lt;LaneSection&gt;(1000, Allocator.Persistent);
-        m_TriangleCullList = new NativeList&lt;AreaTriangle&gt;(100, Allocator.Persistent);
-        m_EdgeCullList = new NativeList&lt;AreaEdge&gt;(100, Allocator.Persistent);
-        m_ClipMapList = new NativeList&lt;ClipMapDraw&gt;(1000, Allocator.Persistent);
-        m_CascadeCulling = new List&lt;CascadeCullInfo&gt;(4);
-        for (int i = 0; i &lt; 4; i++)
-        {
-            m_CascadeCulling.Add(new CascadeCullInfo(m_MasterBuildingLotMaterial, m_MasterLaneMaterial, m_MasterAreaMaterial));
-        }
-        m_BuildingInstanceData = new ManagedStructuredBuffers&lt;BuildingLotDraw&gt;(10000);
-        m_LaneInstanceData = new ManagedStructuredBuffers&lt;LaneDraw&gt;(10000);
-        m_TriangleInstanceData = new ManagedStructuredBuffers&lt;AreaTriangle&gt;(1000);
-        m_EdgeInstanceData = new ManagedStructuredBuffers&lt;AreaEdge&gt;(1000);
-        m_LastPreviewWrite = int4.zero;
-        m_LastWorldPreviewWrite = int4.zero;
-        m_LastWorldWrite = int4.zero;
-        m_LastWrite = int4.zero;
-        m_LastRequest = int4.zero;
-        m_FailCount = 0;
-        baseLod = 0;
-        m_NewMap = true;
-        m_NewMapThisFrame = true;
-        m_CascadeReset = true;
-        m_RoadUpdate = false;
-        m_AreaUpdate = false;
-        m_ClipMapBuffer = new ManagedStructuredBuffers&lt;ClipMapDraw&gt;(10000);
-        m_CurrentClipMap = null;
-        heightMapRenderRequired = false;
-        heightMapSliceUpdated = new bool[4];
-        heightMapSliceUpdatedLast = new bool[4];
-        heightMapViewport = new float4[4];
-        heightMapViewportUpdated = new float4[4];
-        heightMapCullArea = new float4[4];
-        m_BrushQuery = GetEntityQuery(ComponentType.ReadOnly&lt;Brush&gt;(), ComponentType.Exclude&lt;Hidden&gt;(), ComponentType.Exclude&lt;Deleted&gt;());
-        m_BuildingsChanged = GetEntityQuery(new EntityQueryDesc
-        {
-            All = new ComponentType[2]
-            {
-                ComponentType.ReadOnly&lt;Created&gt;(),
-                ComponentType.ReadOnly&lt;Game.Objects.Object&gt;()
-            },
-            Any = new ComponentType[3]
-            {
-                ComponentType.ReadOnly&lt;Game.Buildings.Lot&gt;(),
-                ComponentType.ReadOnly&lt;AssetStamp&gt;(),
-                ComponentType.ReadOnly&lt;Pillar&gt;()
-            },
-            None = new ComponentType[1] { ComponentType.ReadOnly&lt;Temp&gt;() }
-        }, new EntityQueryDesc
-        {
-            All = new ComponentType[2]
-            {
-                ComponentType.ReadOnly&lt;Deleted&gt;(),
-                ComponentType.ReadOnly&lt;Game.Objects.Object&gt;()
-            },
-            Any = new ComponentType[3]
-            {
-                ComponentType.ReadOnly&lt;Game.Buildings.Lot&gt;(),
-                ComponentType.ReadOnly&lt;AssetStamp&gt;(),
-                ComponentType.ReadOnly&lt;Pillar&gt;()
-            },
-            None = new ComponentType[1] { ComponentType.ReadOnly&lt;Temp&gt;() }
-        }, new EntityQueryDesc
-        {
-            All = new ComponentType[2]
-            {
-                ComponentType.ReadOnly&lt;Updated&gt;(),
-                ComponentType.ReadOnly&lt;Game.Objects.Object&gt;()
-            },
-            Any = new ComponentType[3]
-            {
-                ComponentType.ReadOnly&lt;Game.Buildings.Lot&gt;(),
-                ComponentType.ReadOnly&lt;AssetStamp&gt;(),
-                ComponentType.ReadOnly&lt;Pillar&gt;()
-            },
-            None = new ComponentType[1] { ComponentType.ReadOnly&lt;Temp&gt;() }
-        });
-        m_BuildingGroup = GetEntityQuery(new EntityQueryDesc
-        {
-            All = new ComponentType[1] { ComponentType.ReadOnly&lt;Game.Objects.Object&gt;() },
-            Any = new ComponentType[3]
-            {
-                ComponentType.ReadOnly&lt;Game.Buildings.Lot&gt;(),
-                ComponentType.ReadOnly&lt;AssetStamp&gt;(),
-                ComponentType.ReadOnly&lt;Pillar&gt;()
-            },
-            None = new ComponentType[2]
-            {
-                ComponentType.ReadOnly&lt;Deleted&gt;(),
-                ComponentType.ReadOnly&lt;Temp&gt;()
-            }
-        });
-        m_RoadsChanged = GetEntityQuery(new EntityQueryDesc
-        {
-            All = new ComponentType[1] { ComponentType.ReadOnly&lt;EdgeGeometry&gt;() },
-            Any = new ComponentType[3]
-            {
-                ComponentType.ReadOnly&lt;Created&gt;(),
-                ComponentType.ReadOnly&lt;Updated&gt;(),
-                ComponentType.ReadOnly&lt;Deleted&gt;()
-            },
-            None = new ComponentType[1] { ComponentType.ReadOnly&lt;Temp&gt;() }
-        }, new EntityQueryDesc
-        {
-            All = new ComponentType[1] { ComponentType.ReadOnly&lt;NodeGeometry&gt;() },
-            Any = new ComponentType[3]
-            {
-                ComponentType.ReadOnly&lt;Created&gt;(),
-                ComponentType.ReadOnly&lt;Updated&gt;(),
-                ComponentType.ReadOnly&lt;Deleted&gt;()
-            },
-            None = new ComponentType[1] { ComponentType.ReadOnly&lt;Temp&gt;() }
-        });
-        m_RoadsGroup = GetEntityQuery(new EntityQueryDesc
-        {
-            Any = new ComponentType[2]
-            {
-                ComponentType.ReadOnly&lt;EdgeGeometry&gt;(),
-                ComponentType.ReadOnly&lt;NodeGeometry&gt;()
-            },
-            None = new ComponentType[2]
-            {
-                ComponentType.ReadOnly&lt;Deleted&gt;(),
-                ComponentType.ReadOnly&lt;Temp&gt;()
-            }
-        });
-        m_AreasChanged = GetEntityQuery(new EntityQueryDesc
-        {
-            All = new ComponentType[1] { ComponentType.ReadOnly&lt;Clip&gt;() },
-            Any = new ComponentType[3]
-            {
-                ComponentType.ReadOnly&lt;Created&gt;(),
-                ComponentType.ReadOnly&lt;Updated&gt;(),
-                ComponentType.ReadOnly&lt;Deleted&gt;()
-            },
-            None = new ComponentType[1] { ComponentType.ReadOnly&lt;Temp&gt;() }
-        }, new EntityQueryDesc
-        {
-            All = new ComponentType[1] { ComponentType.ReadOnly&lt;Game.Areas.Terrain&gt;() },
-            Any = new ComponentType[3]
-            {
-                ComponentType.ReadOnly&lt;Created&gt;(),
-                ComponentType.ReadOnly&lt;Updated&gt;(),
-                ComponentType.ReadOnly&lt;Deleted&gt;()
-            },
-            None = new ComponentType[1] { ComponentType.ReadOnly&lt;Temp&gt;() }
-        });
-        m_AreasQuery = GetEntityQuery(new EntityQueryDesc
-        {
-            Any = new ComponentType[2]
-            {
-                ComponentType.ReadOnly&lt;Clip&gt;(),
-                ComponentType.ReadOnly&lt;Game.Areas.Terrain&gt;()
-            },
-            None = new ComponentType[2]
-            {
-                ComponentType.ReadOnly&lt;Deleted&gt;(),
-                ComponentType.ReadOnly&lt;Temp&gt;()
-            }
-        });
-        m_EditorLotQuery = GetEntityQuery(new EntityQueryDesc
-        {
-            All = new ComponentType[3]
-            {
-                ComponentType.ReadOnly&lt;Game.Buildings.Lot&gt;(),
-                ComponentType.ReadOnly&lt;Game.Objects.Transform&gt;(),
-                ComponentType.ReadOnly&lt;PrefabRef&gt;()
-            },
-            Any = new ComponentType[3]
-            {
-                ComponentType.ReadOnly&lt;Temp&gt;(),
-                ComponentType.ReadOnly&lt;Error&gt;(),
-                ComponentType.ReadOnly&lt;Warning&gt;()
-            },
-            None = new ComponentType[2]
-            {
-                ComponentType.ReadOnly&lt;Hidden&gt;(),
-                ComponentType.ReadOnly&lt;Deleted&gt;()
-            }
-        }, new EntityQueryDesc
-        {
-            All = new ComponentType[3]
-            {
-                ComponentType.ReadOnly&lt;AssetStamp&gt;(),
-                ComponentType.ReadOnly&lt;Game.Objects.Transform&gt;(),
-                ComponentType.ReadOnly&lt;PrefabRef&gt;()
-            },
-            Any = new ComponentType[3]
-            {
-                ComponentType.ReadOnly&lt;Temp&gt;(),
-                ComponentType.ReadOnly&lt;Error&gt;(),
-                ComponentType.ReadOnly&lt;Warning&gt;()
-            },
-            None = new ComponentType[2]
-            {
-                ComponentType.ReadOnly&lt;Hidden&gt;(),
-                ComponentType.ReadOnly&lt;Deleted&gt;()
-            }
-        });
-        m_ToolSystem = base.World.GetOrCreateSystemManaged&lt;ToolSystem&gt;();
-        m_CameraUpdateSystem = base.World.GetOrCreateSystemManaged&lt;CameraUpdateSystem&gt;();
-        m_GroundHeightSystem = base.World.GetOrCreateSystemManaged&lt;GroundHeightSystem&gt;();
-        m_RenderingSystem = base.World.GetOrCreateSystemManaged&lt;RenderingSystem&gt;();
-        m_WaterSystem = base.World.GetOrCreateSystemManaged&lt;WaterSystem&gt;();
-        CreateRoadMeshes();
-        m_Heightmap = null;
-        m_HeightmapCascade = null;
-        m_HeightmapDepth = null;
-        m_WorldMapEditable = null;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreateForCompiler() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnCreateForCompiler()
-    {
-        base.OnCreateForCompiler();
-        __AssignQueries(ref base.CheckedStateRef);
-        __TypeHandle.__AssignHandles(ref base.CheckedStateRef);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnDestroy() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnDestroy()
-    {
-        CoreUtils.Destroy(m_TerrainBlit);
-        CoreUtils.Destroy(m_ClipMaterial);
-        if (m_CPUHeights.IsCreated)
-        {
-            m_CPUHeights.Dispose();
-        }
-        CoreUtils.Destroy(m_Heightmap);
-        CoreUtils.Destroy(m_HeightmapCascade);
-        CoreUtils.Destroy(m_WorldMapEditable);
-        worldMapAsset?.Unload();
-        CoreUtils.Destroy(m_HeightmapDepth);
-        if (m_BuildingCullList.IsCreated)
-        {
-            m_CullFinished.Complete();
-            m_BuildingCullList.Dispose();
-        }
-        if (m_LaneCullList.IsCreated)
-        {
-            m_CullFinished.Complete();
-            m_LaneCullList.Dispose();
-        }
-        if (m_TriangleCullList.IsCreated)
-        {
-            m_CullFinished.Complete();
-            m_TriangleCullList.Dispose();
-        }
-        if (m_EdgeCullList.IsCreated)
-        {
-            m_CullFinished.Complete();
-            m_EdgeCullList.Dispose();
-        }
-        if (m_ClipMapList.IsCreated)
-        {
-            m_ClipMapCull.Complete();
-            m_ClipMapList.Dispose();
-        }
-        if (m_BuildingInstanceData != null)
-        {
-            m_BuildingInstanceData.Dispose();
-            m_BuildingInstanceData = null;
-        }
-        if (m_LaneInstanceData != null)
-        {
-            m_LaneInstanceData.Dispose();
-            m_LaneInstanceData = null;
-        }
-        if (m_TriangleInstanceData != null)
-        {
-            m_TriangleInstanceData.Dispose();
-            m_TriangleInstanceData = null;
-        }
-        if (m_EdgeInstanceData != null)
-        {
-            m_EdgeInstanceData.Dispose();
-            m_EdgeInstanceData = null;
-        }
-        if (m_ClipMapBuffer != null)
-        {
-            m_ClipMapBuffer.Dispose();
-            m_ClipMapBuffer = null;
-        }
-        for (int i = 0; i &lt; 4; i++)
-        {
-            if (!m_CascadeCulling[i].m_BuildingHandle.IsCompleted)
-            {
-                m_CascadeCulling[i].m_BuildingHandle.Complete();
-            }
-            if (m_CascadeCulling[i].m_BuildingRenderList.IsCreated)
-            {
-                m_CascadeCulling[i].m_BuildingRenderList.Dispose();
-            }
-            if (!m_CascadeCulling[i].m_LaneHandle.IsCompleted)
-            {
-                m_CascadeCulling[i].m_LaneHandle.Complete();
-            }
-            if (m_CascadeCulling[i].m_LaneRenderList.IsCreated)
-            {
-                m_CascadeCulling[i].m_LaneRenderList.Dispose();
-            }
-            if (!m_CascadeCulling[i].m_AreaHandle.IsCompleted)
-            {
-                m_CascadeCulling[i].m_AreaHandle.Complete();
-            }
-            if (m_CascadeCulling[i].m_TriangleRenderList.IsCreated)
-            {
-                m_CascadeCulling[i].m_TriangleRenderList.Dispose();
-            }
-            if (m_CascadeCulling[i].m_EdgeRenderList.IsCreated)
-            {
-                m_CascadeCulling[i].m_EdgeRenderList.Dispose();
-            }
-        }
-        if (m_BuildingUpgrade.IsCreated)
-        {
-            m_BuildingUpgradeDependencies.Complete();
-            m_BuildingUpgrade.Dispose();
-        }
-        m_CascadeCB.Dispose();
-        m_CommandBuffer.Dispose();
-        m_TerrainMinMax.Dispose();
-        base.OnDestroy();
-    }
-</code></pre>
-<ul>
-<li><code>private OnHeightsChanged() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void OnHeightsChanged()
-    {
-        m_LastRequest = m_LastWrite;
-        m_LastWrite = int4.zero;
-        if (m_LastRequest.z == 0 || m_LastRequest.w == 0)
-        {
-            m_LastRequest = new int4(0, 0, m_HeightmapCascade.width, m_HeightmapCascade.height);
-        }
-        m_GroundHeightSystem.BeforeReadHeights();
-        m_AsyncGPUReadback.Request(m_HeightmapCascade, 0, m_LastRequest.x, m_LastRequest.z, m_LastRequest.y, m_LastRequest.w, baseLod, 1);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        m_NewMapThisFrame = m_NewMap;
-        if (!(m_Heightmap == null))
-        {
-            m_CPUHeightReaders.Complete();
-            m_CPUHeightReaders = default(JobHandle);
-            if (!freezeCascadeUpdates)
-            {
-                UpdateCascades(m_Loaded, m_HeightsReadyAfterLoading);
-                m_Loaded = false;
-                m_HeightsReadyAfterLoading = false;
-            }
-            UpdateGPUReadback();
-            UpdateGPUTerrain();
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private Overlap(Unity.Mathematics.float4&amp; A, Unity.Mathematics.float4&amp; B) : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">private bool Overlap(ref float4 A, ref float4 B)
-    {
-        if (A.x &gt; B.z || B.x &gt; A.z || A.z &lt; B.x || B.z &lt; A.x || A.y &gt; B.w || B.y &gt; A.w || A.w &lt; B.y || B.w &lt; A.y)
-        {
-            return false;
-        }
-        return true;
-    }
-</code></pre>
-<ul>
-<li><code>public PreviewBrush(Game.Prefabs.TerraformingType type, Colossal.Mathematics.Bounds2 area, Game.Tools.Brush brush, UnityEngine.Texture texture) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void PreviewBrush(TerraformingType type, Bounds2 area, Brush brush, Texture texture)
-    {
-    }
-</code></pre>
-<ul>
-<li><code>private RenderCascade(System.Int32 cascadeIndex, Unity.Mathematics.float4 area, Unity.Mathematics.float4 viewport, UnityEngine.Rendering.CommandBuffer&amp; cmdBuffer) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void RenderCascade(int cascadeIndex, float4 area, float4 viewport, ref CommandBuffer cmdBuffer)
-    {
-        bool flag = true;
-        bool flag2 = viewport.x == 0f &amp;&amp; viewport.y == 0f &amp;&amp; viewport.z == 1f &amp;&amp; viewport.w == 1f;
-        Rect scissor = new Rect(viewport.x * (float)m_HeightmapCascade.width, viewport.y * (float)m_HeightmapCascade.height, viewport.z * (float)m_HeightmapCascade.width, viewport.w * (float)m_HeightmapCascade.height);
-        RenderTargetBinding binding = new RenderTargetBinding(m_HeightmapCascade, (flag2 &amp;&amp; flag) ? RenderBufferLoadAction.DontCare : RenderBufferLoadAction.Load, RenderBufferStoreAction.Store, m_HeightmapDepth, RenderBufferLoadAction.DontCare, RenderBufferStoreAction.DontCare);
-        cmdBuffer.SetRenderTarget(binding, 0, CubemapFace.Unknown, cascadeIndex);
-        cmdBuffer.ClearRenderTarget(clearDepth: true, clearColor: false, UnityEngine.Color.black, 1f);
-        cmdBuffer.EnableScissorRect(scissor);
-        if (flag)
-        {
-            float num = ((cascadeIndex &lt; baseLod) ? math.pow(2f, -(cascadeIndex - baseLod)) : (1f / math.pow(2f, cascadeIndex - baseLod)));
-            float2 @float = new Vector2(num, num);
-            float2 float2 = (area.xy - playableOffset) / playableArea;
-            if (cascadeIndex == baseLod || baseLod == 0)
-            {
-                cmdBuffer.Blit(heightmap, BuiltinRenderTextureType.CurrentActive, @float, float2);
-            }
-            else
-            {
-                cmdBuffer.SetGlobalVector(&quot;_CascadeHeightmapOffsetScale&quot;, new float4(float2, @float));
-                @float = (area.zw - area.xy) / worldSize;
-                float2 = (area.xy - worldOffset) / worldSize;
-                cmdBuffer.SetGlobalVector(&quot;_CascadeWorldOffsetScale&quot;, new float4(float2, @float));
-                cmdBuffer.Blit(heightmap, BuiltinRenderTextureType.CurrentActive, m_TerrainBlit);
-            }
-        }
-        Matrix4x4 proj = Matrix4x4.Ortho(area.x, area.z, area.w, area.y, heightScaleOffset.x + heightScaleOffset.y, heightScaleOffset.y);
-        proj.m02 *= -1f;
-        proj.m12 *= -1f;
-        proj.m22 *= -1f;
-        proj.m32 *= -1f;
-        cmdBuffer.SetViewProjectionMatrices(GL.GetGPUProjectionMatrix(proj, renderIntoTexture: true), Matrix4x4.identity);
-        CascadeCullInfo cascadeCullInfo = m_CascadeCulling[cascadeIndex];
-        cascadeCullInfo.m_BuildingHandle.Complete();
-        cascadeCullInfo.m_LaneHandle.Complete();
-        cascadeCullInfo.m_AreaHandle.Complete();
-        if (cascadeCullInfo.m_BuildingRenderList.IsCreated || cascadeCullInfo.m_LaneRenderList.IsCreated || cascadeCullInfo.m_TriangleRenderList.IsCreated || cascadeCullInfo.m_EdgeRenderList.IsCreated)
-        {
-            NativeArray&lt;BuildingLotDraw&gt; lots = default(NativeArray&lt;BuildingLotDraw&gt;);
-            NativeArray&lt;LaneDraw&gt; lanes = default(NativeArray&lt;LaneDraw&gt;);
-            NativeArray&lt;AreaTriangle&gt; triangles = default(NativeArray&lt;AreaTriangle&gt;);
-            NativeArray&lt;AreaEdge&gt; edges = default(NativeArray&lt;AreaEdge&gt;);
-            if (cascadeCullInfo.m_BuildingRenderList.IsCreated)
-            {
-                lots = cascadeCullInfo.m_BuildingRenderList.AsArray();
-            }
-            if (cascadeCullInfo.m_LaneRenderList.IsCreated)
-            {
-                lanes = cascadeCullInfo.m_LaneRenderList.AsArray();
-            }
-            if (cascadeCullInfo.m_TriangleRenderList.IsCreated)
-            {
-                triangles = cascadeCullInfo.m_TriangleRenderList.AsArray();
-            }
-            if (cascadeCullInfo.m_EdgeRenderList.IsCreated)
-            {
-                edges = cascadeCullInfo.m_EdgeRenderList.AsArray();
-            }
-            DrawHeightAdjustments(ref cmdBuffer, cascadeIndex, area, viewport, binding, ref lots, ref lanes, ref triangles, ref edges, ref cascadeCullInfo.m_LotMaterial, ref cascadeCullInfo.m_LaneMaterial, ref cascadeCullInfo.m_AreaMaterial);
-            if (cascadeCullInfo.m_BuildingRenderList.IsCreated)
-            {
-                cascadeCullInfo.m_BuildingRenderList.Dispose();
-            }
-            if (cascadeCullInfo.m_LaneRenderList.IsCreated)
-            {
-                cascadeCullInfo.m_LaneRenderList.Dispose();
-            }
-            if (cascadeCullInfo.m_TriangleRenderList.IsCreated)
-            {
-                cascadeCullInfo.m_TriangleRenderList.Dispose();
-            }
-            if (cascadeCullInfo.m_EdgeRenderList.IsCreated)
-            {
-                cascadeCullInfo.m_EdgeRenderList.Dispose();
-            }
-        }
-        cmdBuffer.DisableScissorRect();
-    }
-</code></pre>
-<ul>
-<li><code>public RenderCascades() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void RenderCascades()
-    {
-        if (heightMapRenderRequired)
-        {
-            m_GroundHeightSystem.BeforeUpdateHeights();
-            m_CascadeCB.Clear();
-            m_BuildingInstanceData.StartFrame();
-            m_LaneInstanceData.StartFrame();
-            m_TriangleInstanceData.StartFrame();
-            m_EdgeInstanceData.StartFrame();
-            if (baseLod != 0)
-            {
-                Texture value = ((m_WorldMapEditable != null) ? m_WorldMapEditable : worldHeightmap);
-                m_TerrainBlit.SetTexture(&quot;_WorldMap&quot;, value);
-            }
-            for (int num = 3; num &gt;= baseLod; num--)
-            {
-                if (heightMapSliceUpdated[num])
-                {
-                    RenderCascade(num, m_CascadeRanges[num], heightMapViewport[num], ref m_CascadeCB);
-                }
-            }
-            if (baseLod &gt; 0 &amp;&amp; heightMapSliceUpdated[0])
-            {
-                int4 lastWorldWrite = new int4((int)(heightMapViewport[0].x * (float)m_HeightmapCascade.width), (int)(heightMapViewport[0].y * (float)m_HeightmapCascade.height), (int)(heightMapViewport[0].z * (float)m_HeightmapCascade.width), (int)(heightMapViewport[0].w * (float)m_HeightmapCascade.height));
-                if (m_LastWorldWrite.z == 0)
-                {
-                    m_LastWorldWrite = lastWorldWrite;
-                }
-                else
-                {
-                    int2 @int = new int2(math.min(m_LastWorldWrite.x, lastWorldWrite.x), math.min(m_LastWorldWrite.y, lastWorldWrite.y));
-                    int2 int2 = new int2(math.max(m_LastWorldWrite.x + m_LastWorldWrite.z, lastWorldWrite.x + lastWorldWrite.z), math.max(m_LastWorldWrite.y + m_LastWorldWrite.w, lastWorldWrite.y + lastWorldWrite.w));
-                    m_LastWorldWrite.xy = @int;
-                    m_LastWorldWrite.zw = int2 - @int;
-                }
-                RenderWorldMapToCascade(m_CascadeRanges[0], heightMapViewport[0], ref m_CascadeCB);
-            }
-            m_BuildingInstanceData.EndFrame();
-            m_LaneInstanceData.EndFrame();
-            m_TriangleInstanceData.EndFrame();
-            m_EdgeInstanceData.EndFrame();
-            Graphics.ExecuteCommandBuffer(m_CascadeCB);
-            if (heightMapSliceUpdated[baseLod])
-            {
-                int4 lastWrite = new int4((int)(heightMapViewport[baseLod].x * (float)m_HeightmapCascade.width), (int)(heightMapViewport[baseLod].y * (float)m_HeightmapCascade.height), (int)(heightMapViewport[baseLod].z * (float)m_HeightmapCascade.width), (int)(heightMapViewport[baseLod].w * (float)m_HeightmapCascade.height));
-                if (m_LastWrite.z == 0)
-                {
-                    m_LastWrite = lastWrite;
-                }
-                else
-                {
-                    int2 int3 = new int2(math.min(m_LastWrite.x, lastWrite.x), math.min(m_LastWrite.y, lastWrite.y));
-                    int2 int4 = new int2(math.max(m_LastWrite.x + m_LastWrite.z, lastWrite.x + lastWrite.z), math.max(m_LastWrite.y + m_LastWrite.w, lastWrite.y + lastWrite.w));
-                    m_LastWrite.xy = int3;
-                    m_LastWrite.zw = int4 - int3;
-                }
-                TriggerAsyncChange();
-            }
-        }
-        m_CascadeReset = false;
-    }
-</code></pre>
-<ul>
-<li><code>private RenderWorldMapToCascade(Unity.Mathematics.float4 area, Unity.Mathematics.float4 viewport, UnityEngine.Rendering.CommandBuffer&amp; cmdBuffer) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void RenderWorldMapToCascade(float4 area, float4 viewport, ref CommandBuffer cmdBuffer)
-    {
-        if (m_WorldMapEditable != null)
-        {
-            bool flag = viewport.x == 0f &amp;&amp; viewport.y == 0f &amp;&amp; viewport.z == 1f &amp;&amp; viewport.w == 1f;
-            Texture source = m_WorldMapEditable;
-            Rect scissor = new Rect(viewport.x * (float)m_HeightmapCascade.width, viewport.y * (float)m_HeightmapCascade.height, viewport.z * (float)m_HeightmapCascade.width, viewport.w * (float)m_HeightmapCascade.height);
-            RenderTargetBinding binding = new RenderTargetBinding(m_HeightmapCascade, flag ? RenderBufferLoadAction.DontCare : RenderBufferLoadAction.Load, RenderBufferStoreAction.Store, m_HeightmapDepth, RenderBufferLoadAction.DontCare, RenderBufferStoreAction.DontCare);
-            cmdBuffer.SetRenderTarget(binding, 0, CubemapFace.Unknown, 0);
-            cmdBuffer.ClearRenderTarget(clearDepth: true, clearColor: false, UnityEngine.Color.black, 1f);
-            cmdBuffer.EnableScissorRect(scissor);
-            Vector2 scale = new Vector2(1f, 1f);
-            Vector2 offset = new Vector2
-            {
-                x = (area.x - worldOffset.x) / worldSize.x,
-                y = (area.y - worldOffset.y) / worldSize.y
-            };
-            cmdBuffer.Blit(source, BuiltinRenderTextureType.CurrentActive, scale, offset);
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public ReplaceHeightmap(UnityEngine.Texture2D inMap) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void ReplaceHeightmap(Texture2D inMap)
-    {
-        Texture2D texture2D = ((inMap != null) ? inMap : CreateDefaultHeightmap((worldHeightmap != null) ? worldHeightmap.width : kDefaultHeightmapWidth, (worldHeightmap != null) ? worldHeightmap.height : kDefaultHeightmapHeight));
-        Texture2D texture2D2 = ToR16(texture2D);
-        SetHeightmap(texture2D2);
-        FinalizeTerrainData(texture2D2, null, heightScaleOffset, kDefaultMapOffset, kDefaultMapSize, kDefaultWorldOffset, kDefaultWorldSize, worldHeightMinMax);
-        if (texture2D2 != texture2D)
-        {
-            UnityEngine.Object.Destroy(texture2D2);
-        }
-        if (texture2D != inMap)
-        {
-            UnityEngine.Object.Destroy(texture2D);
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public ReplaceWorldHeightmap(UnityEngine.Texture2D inMap) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void ReplaceWorldHeightmap(Texture2D inMap)
-    {
-        Texture2D texture2D = ToR16(inMap);
-        SetWorldHeightmap(texture2D, m_ToolSystem.actionMode.IsEditor());
-        FinalizeTerrainData(null, texture2D, heightScaleOffset, kDefaultMapOffset, kDefaultMapSize, kDefaultWorldOffset, kDefaultWorldSize, float2.zero);
-        if (texture2D != inMap &amp;&amp; texture2D != worldHeightmap)
-        {
-            UnityEngine.Object.Destroy(texture2D);
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private SaveBitmap(Unity.Collections.NativeArray&lt;System.UInt16&gt; buffer, System.Int32 width, System.Int32 height) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void SaveBitmap(NativeArray&lt;ushort&gt; buffer, int width, int height)
-    {
-        using System.IO.BinaryWriter binaryWriter = new System.IO.BinaryWriter(File.OpenWrite(&quot;heightmapResult.raw&quot;));
-        for (int i = 0; i &lt; height; i++)
-        {
-            for (int j = 0; j &lt; width; j++)
-            {
-                binaryWriter.Write(buffer[j + i * width]);
-            }
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public Serialize&lt;TWriter&gt;(TWriter writer) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Void Serialize&lt;TWriter&gt;(TWriter writer);
-</code></pre>
-<ul>
-<li><code>private static SerializeHeightmap&lt;TWriter&gt;(TWriter writer, UnityEngine.Texture heightmap) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static System.Void SerializeHeightmap&lt;TWriter&gt;(TWriter writer, UnityEngine.Texture heightmap);
-</code></pre>
-<ul>
-<li><code>public SetBuildingUpgradeWriterDependency(Unity.Jobs.JobHandle handle) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void SetBuildingUpgradeWriterDependency(JobHandle handle)
-    {
-        m_BuildingUpgradeDependencies = handle;
-    }
-</code></pre>
-<ul>
-<li><code>private static SetDefaultHeights(UnityEngine.Texture2D targetHeightmap) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static void SetDefaultHeights(Texture2D targetHeightmap)
-    {
-        NativeArray&lt;ushort&gt; rawTextureData = targetHeightmap.GetRawTextureData&lt;ushort&gt;();
-        ushort value = 8191;
-        for (int i = 0; i &lt; rawTextureData.Length; i++)
-        {
-            rawTextureData[i] = value;
-        }
-        targetHeightmap.Apply(updateMipmaps: false, makeNoLongerReadable: false);
-    }
-</code></pre>
-<ul>
-<li><code>public SetDefaults(Colossal.Serialization.Entities.Context context) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void SetDefaults(Context context)
-    {
-        m_Loaded = true;
-        LoadTerrain();
-    }
-</code></pre>
-<ul>
-<li><code>private SetHeightmap(UnityEngine.Texture2D map) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void SetHeightmap(Texture2D map)
-    {
-        if (m_Heightmap == null || m_Heightmap.width != map.width || m_Heightmap.height != map.height)
-        {
-            if (m_Heightmap != null)
-            {
-                m_Heightmap.Release();
-                UnityEngine.Object.Destroy(m_Heightmap);
-            }
-            m_Heightmap = new RenderTexture(map.width, map.height, 0, GraphicsFormat.R16_UNorm)
-            {
-                hideFlags = HideFlags.HideAndDontSave,
-                enableRandomWrite = true,
-                name = &quot;TerrainHeights&quot;,
-                filterMode = FilterMode.Bilinear,
-                wrapMode = TextureWrapMode.Clamp
-            };
-            m_Heightmap.Create();
-        }
-        Graphics.CopyTexture(map, m_Heightmap);
-        if (worldHeightmap != null &amp;&amp; (worldHeightmap.width != m_Heightmap.width || worldHeightmap.height != m_Heightmap.height))
-        {
-            DestroyWorldMap();
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public SetTerrainProperties(Unity.Mathematics.float2 heightScaleOffset) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void SetTerrainProperties(float2 heightScaleOffset)
-    {
-        FinalizeTerrainData(null, null, heightScaleOffset, playableOffset, playableArea, worldOffset, worldSize, worldHeightMinMax);
-    }
-</code></pre>
-<ul>
-<li><code>private SetWorldHeightmap(UnityEngine.Texture2D map, System.Boolean isEditor) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void SetWorldHeightmap(Texture2D map, bool isEditor)
-    {
-        if (map == null || map.width != m_Heightmap.width || map.height != m_Heightmap.height)
-        {
-            DestroyWorldMap();
-        }
-        else if (isEditor)
-        {
-            if (m_WorldMapEditable == null || worldHeightmap != m_WorldMapEditable || m_WorldMapEditable.width != map.width || m_WorldMapEditable.height != map.height)
-            {
-                DestroyWorldMap();
-                m_WorldMapEditable = new RenderTexture(map.width, map.height, 0, GraphicsFormat.R16_UNorm)
-                {
-                    hideFlags = HideFlags.HideAndDontSave,
-                    enableRandomWrite = true,
-                    name = &quot;TerrainWorldHeights&quot;,
-                    filterMode = FilterMode.Bilinear,
-                    wrapMode = TextureWrapMode.Clamp
-                };
-                m_WorldMapEditable.Create();
-                worldHeightmap = m_WorldMapEditable;
-            }
-            Graphics.CopyTexture(map, m_WorldMapEditable);
-        }
-        else
-        {
-            if (map != worldHeightmap &amp;&amp; (m_WorldMapEditable != null || worldHeightmap != null))
-            {
-                DestroyWorldMap();
-            }
-            worldHeightmap = map;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public TerrainHeightsReadyAfterLoading() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void TerrainHeightsReadyAfterLoading()
-    {
-        m_HeightsReadyAfterLoading = true;
-    }
-</code></pre>
-<ul>
-<li><code>private static ToR16(UnityEngine.Texture2D textureRGBA64) : UnityEngine.Texture2D</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static Texture2D ToR16(Texture2D textureRGBA64)
-    {
-        if (textureRGBA64 != null &amp;&amp; textureRGBA64.graphicsFormat != GraphicsFormat.R16_UNorm)
-        {
-            NativeArray&lt;ushort&gt; rawTextureData = textureRGBA64.GetRawTextureData&lt;ushort&gt;();
-            NativeArray&lt;ushort&gt; data = new NativeArray&lt;ushort&gt;(textureRGBA64.width * textureRGBA64.height, Allocator.Temp);
-            for (int i = 0; i &lt; data.Length; i++)
-            {
-                data[i] = rawTextureData[i * 4];
-            }
-            Texture2D texture2D = new Texture2D(textureRGBA64.width, textureRGBA64.height, GraphicsFormat.R16_UNorm, TextureCreationFlags.DontInitializePixels | TextureCreationFlags.DontUploadUponCreate);
-            texture2D.SetPixelData(data, 0);
-            texture2D.Apply();
-            return texture2D;
-        }
-        return textureRGBA64;
-    }
-</code></pre>
-<ul>
-<li><code>public TriggerAsyncChange() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void TriggerAsyncChange()
-    {
-        m_UpdateOutOfDate = m_AsyncGPUReadback.isPending;
-        m_HeightMapChanged = true;
-        if (!m_UpdateOutOfDate)
-        {
-            OnHeightsChanged();
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private UpdateCascades(System.Boolean isLoaded, System.Boolean heightsReadyAfterLoading) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void UpdateCascades(bool isLoaded, bool heightsReadyAfterLoading)
-    {
-        float3 position = m_CameraUpdateSystem.position;
-        float4 @float = new float4(0);
-        float4 A = m_UpdateArea;
-        heightMapRenderRequired = math.lengthsq(A) &gt; 0f;
-        m_UpdateArea = float4.zero;
-        m_RoadUpdate = m_CascadeReset;
-        m_AreaUpdate = m_CascadeReset;
-        if (m_CascadeReset)
-        {
-            heightMapRenderRequired = true;
-            A = m_CascadeRanges[baseLod];
-        }
-        NativeList&lt;Bounds2&gt; updateBuffer = m_GroundHeightSystem.GetUpdateBuffer();
-        bool flag = isLoaded || !m_BuildingsChanged.IsEmptyIgnoreFilter;
-        if (flag || (m_ToolSystem.actionMode.IsEditor() &amp;&amp; !m_EditorLotQuery.IsEmpty))
-        {
-            ComponentTypeHandle&lt;Game.Objects.Transform&gt; typeHandle = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Objects_Transform_RO_ComponentTypeHandle, ref base.CheckedStateRef);
-            ComponentTypeHandle&lt;PrefabRef&gt; typeHandle2 = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentTypeHandle, ref base.CheckedStateRef);
-            ComponentTypeHandle&lt;Updated&gt; typeHandle3 = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Common_Updated_RO_ComponentTypeHandle, ref base.CheckedStateRef);
-            EntityTypeHandle entityTypeHandle = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef);
-            ComponentLookup&lt;ObjectGeometryData&gt; componentLookup = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_ObjectGeometryData_RO_ComponentLookup, ref base.CheckedStateRef);
-            float4 area;
-            if (flag)
-            {
-                m_BuildingUpgradeDependencies.Complete();
-                m_BuildingUpgradeDependencies = default(JobHandle);
-                NativeArray&lt;ArchetypeChunk&gt; nativeArray = (isLoaded ? m_BuildingGroup : m_BuildingsChanged).ToArchetypeChunkArray(Allocator.Temp);
-                CompleteDependency();
-                for (int i = 0; i &lt; nativeArray.Length; i++)
-                {
-                    NativeArray&lt;Entity&gt; nativeArray2 = nativeArray[i].GetNativeArray(entityTypeHandle);
-                    NativeArray&lt;Game.Objects.Transform&gt; nativeArray3 = nativeArray[i].GetNativeArray(ref typeHandle);
-                    NativeArray&lt;PrefabRef&gt; nativeArray4 = nativeArray[i].GetNativeArray(ref typeHandle2);
-                    bool flag2 = nativeArray[i].Has(ref typeHandle3);
-                    if (isLoaded)
-                    {
-                        heightMapRenderRequired = true;
-                        m_WaterSystem.TerrainWillChange();
-                        A = m_CascadeRanges[baseLod];
-                        break;
-                    }
-                    for (int j = 0; j &lt; nativeArray3.Length; j++)
-                    {
-                        PrefabRef prefabRef = nativeArray4[j];
-                        if (CalculateBuildingCullArea(nativeArray3[j], prefabRef.m_Prefab, componentLookup, out area))
-                        {
-                            updateBuffer.Add(new Bounds2(area.xy, area.zw));
-                            m_WaterSystem.TerrainWillChange();
-                            if (!heightMapRenderRequired)
-                            {
-                                heightMapRenderRequired = true;
-                                A = area;
-                            }
-                            else
-                            {
-                                A.xy = math.min(A.xy, area.xy);
-                                A.zw = math.max(A.zw, area.zw);
-                            }
-                        }
-                        if (!flag2 || !m_BuildingUpgrade.TryGetValue(nativeArray2[j], out var item))
-                        {
-                            continue;
-                        }
-                        if (item != prefabRef.m_Prefab &amp;&amp; CalculateBuildingCullArea(nativeArray3[j], item, componentLookup, out area))
-                        {
-                            if (!heightMapRenderRequired)
-                            {
-                                heightMapRenderRequired = true;
-                                A = area;
-                            }
-                            else
-                            {
-                                A.xy = math.min(A.xy, area.xy);
-                                A.zw = math.max(A.zw, area.zw);
-                            }
-                        }
-                        m_BuildingUpgrade.Remove(nativeArray2[j]);
-                    }
-                }
-                nativeArray.Dispose();
-            }
-            if (m_ToolSystem.actionMode.IsEditor() &amp;&amp; !m_EditorLotQuery.IsEmpty)
-            {
-                NativeArray&lt;ArchetypeChunk&gt; nativeArray5 = m_EditorLotQuery.ToArchetypeChunkArray(Allocator.Temp);
-                CompleteDependency();
-                for (int k = 0; k &lt; nativeArray5.Length; k++)
-                {
-                    NativeArray&lt;Game.Objects.Transform&gt; nativeArray6 = nativeArray5[k].GetNativeArray(ref typeHandle);
-                    NativeArray&lt;PrefabRef&gt; nativeArray7 = nativeArray5[k].GetNativeArray(ref typeHandle2);
-                    for (int l = 0; l &lt; nativeArray6.Length; l++)
-                    {
-                        PrefabRef prefabRef2 = nativeArray7[l];
-                        if (CalculateBuildingCullArea(nativeArray6[l], prefabRef2.m_Prefab, componentLookup, out area))
-                        {
-                            m_WaterSystem.TerrainWillChange();
-                            if (!heightMapRenderRequired)
-                            {
-                                heightMapRenderRequired = true;
-                                A = area;
-                            }
-                            else
-                            {
-                                A.xy = math.min(A.xy, area.xy);
-                                A.zw = math.max(A.zw, area.zw);
-                            }
-                        }
-                    }
-                }
-                nativeArray5.Dispose();
-            }
-            m_BuildingUpgrade.Clear();
-        }
-        if (isLoaded || !m_RoadsChanged.IsEmptyIgnoreFilter)
-        {
-            NativeArray&lt;ArchetypeChunk&gt; nativeArray8 = (isLoaded ? m_RoadsGroup : m_RoadsChanged).ToArchetypeChunkArray(Allocator.Temp);
-            EntityTypeHandle entityTypeHandle2 = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef);
-            ComponentTypeHandle&lt;PrefabRef&gt; typeHandle4 = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentTypeHandle, ref base.CheckedStateRef);
-            ComponentLookup&lt;NetData&gt; componentLookup2 = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_NetData_RO_ComponentLookup, ref base.CheckedStateRef);
-            ComponentLookup&lt;NetGeometryData&gt; componentLookup3 = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_NetGeometryData_RO_ComponentLookup, ref base.CheckedStateRef);
-            ComponentLookup&lt;Composition&gt; componentLookup4 = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_Composition_RO_ComponentLookup, ref base.CheckedStateRef);
-            ComponentLookup&lt;Orphan&gt; componentLookup5 = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_Orphan_RO_ComponentLookup, ref base.CheckedStateRef);
-            ComponentLookup&lt;NodeGeometry&gt; componentLookup6 = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_NodeGeometry_RO_ComponentLookup, ref base.CheckedStateRef);
-            ComponentLookup&lt;EdgeGeometry&gt; componentLookup7 = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_EdgeGeometry_RO_ComponentLookup, ref base.CheckedStateRef);
-            ComponentLookup&lt;StartNodeGeometry&gt; componentLookup8 = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_StartNodeGeometry_RO_ComponentLookup, ref base.CheckedStateRef);
-            ComponentLookup&lt;EndNodeGeometry&gt; componentLookup9 = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Net_EndNodeGeometry_RO_ComponentLookup, ref base.CheckedStateRef);
-            CompleteDependency();
-            for (int m = 0; m &lt; nativeArray8.Length; m++)
-            {
-                NativeArray&lt;Entity&gt; nativeArray9 = nativeArray8[m].GetNativeArray(entityTypeHandle2);
-                NativeArray&lt;PrefabRef&gt; nativeArray10 = nativeArray8[m].GetNativeArray(ref typeHandle4);
-                if (isLoaded)
-                {
-                    heightMapRenderRequired = true;
-                    A = m_CascadeRanges[baseLod];
-                    m_WaterSystem.TerrainWillChange();
-                    break;
-                }
-                for (int n = 0; n &lt; nativeArray9.Length; n++)
-                {
-                    Entity entity = nativeArray9[n];
-                    if (!componentLookup3.TryGetComponent(nativeArray10[n].m_Prefab, out var componentData) || (componentData.m_Flags &amp; (Game.Net.GeometryFlags.FlattenTerrain | Game.Net.GeometryFlags.ClipTerrain)) == 0)
-                    {
-                        continue;
-                    }
-                    m_RoadUpdate = true;
-                    if ((componentData.m_Flags &amp; Game.Net.GeometryFlags.FlattenTerrain) == 0)
-                    {
-                        continue;
-                    }
-                    Bounds3 bounds = new Bounds3(float.MaxValue, float.MinValue);
-                    if (componentLookup4.HasComponent(entity))
-                    {
-                        EdgeGeometry edgeGeometry = componentLookup7[entity];
-                        StartNodeGeometry startNodeGeometry = componentLookup8[entity];
-                        EndNodeGeometry endNodeGeometry = componentLookup9[entity];
-                        if (math.any(edgeGeometry.m_Start.m_Length + edgeGeometry.m_End.m_Length &gt; 0.1f))
-                        {
-                            bounds |= edgeGeometry.m_Bounds;
-                        }
-                        if (math.any(startNodeGeometry.m_Geometry.m_Left.m_Length &gt; 0.05f) | math.any(startNodeGeometry.m_Geometry.m_Right.m_Length &gt; 0.05f))
-                        {
-                            bounds |= startNodeGeometry.m_Geometry.m_Bounds;
-                        }
-                        if (math.any(endNodeGeometry.m_Geometry.m_Left.m_Length &gt; 0.05f) | math.any(endNodeGeometry.m_Geometry.m_Right.m_Length &gt; 0.05f))
-                        {
-                            bounds |= endNodeGeometry.m_Geometry.m_Bounds;
-                        }
-                    }
-                    else if (componentLookup5.HasComponent(entity))
-                    {
-                        bounds |= componentLookup6[entity].m_Bounds;
-                    }
-                    if (bounds.min.x &lt;= bounds.max.x)
-                    {
-                        NetData netData = componentLookup2[nativeArray10[n].m_Prefab];
-                        bounds = MathUtils.Expand(bounds, NetUtils.GetTerrainSmoothingWidth(netData) - 8f);
-                        updateBuffer.Add(bounds.xz);
-                        m_WaterSystem.TerrainWillChange();
-                        if (!heightMapRenderRequired)
-                        {
-                            heightMapRenderRequired = true;
-                            A = new float4(bounds.min.xz, bounds.max.xz);
-                        }
-                        else
-                        {
-                            A.xy = math.min(A.xy, bounds.min.xz);
-                            A.zw = math.max(A.zw, bounds.max.xz);
-                        }
-                    }
-                }
-            }
-            nativeArray8.Dispose();
-        }
-        bool num = isLoaded || !m_AreasChanged.IsEmptyIgnoreFilter;
-        bool flag3 = isLoaded || heightsReadyAfterLoading;
-        if (num)
-        {
-            NativeArray&lt;ArchetypeChunk&gt; nativeArray11 = (isLoaded ? m_AreasQuery : m_AreasChanged).ToArchetypeChunkArray(Allocator.Temp);
-            ComponentTypeHandle&lt;Game.Areas.Terrain&gt; typeHandle5 = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Areas_Terrain_RO_ComponentTypeHandle, ref base.CheckedStateRef);
-            ComponentTypeHandle&lt;Clip&gt; typeHandle6 = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Areas_Clip_RO_ComponentTypeHandle, ref base.CheckedStateRef);
-            ComponentTypeHandle&lt;Geometry&gt; typeHandle7 = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Areas_Geometry_RO_ComponentTypeHandle, ref base.CheckedStateRef);
-            CompleteDependency();
-            for (int num2 = 0; num2 &lt; nativeArray11.Length; num2++)
-            {
-                flag3 |= nativeArray11[num2].Has(ref typeHandle6);
-                if (!nativeArray11[num2].Has(ref typeHandle5))
-                {
-                    continue;
-                }
-                m_AreaUpdate = true;
-                NativeArray&lt;Geometry&gt; nativeArray12 = nativeArray11[num2].GetNativeArray(ref typeHandle7);
-                if (isLoaded)
-                {
-                    heightMapRenderRequired = true;
-                    A = m_CascadeRanges[baseLod];
-                    break;
-                }
-                for (int num3 = 0; num3 &lt; nativeArray12.Length; num3++)
-                {
-                    Bounds3 bounds2 = nativeArray12[num3].m_Bounds;
-                    if (bounds2.min.x &lt;= bounds2.max.x)
-                    {
-                        updateBuffer.Add(bounds2.xz);
-                        if (!heightMapRenderRequired)
-                        {
-                            heightMapRenderRequired = true;
-                            A = new float4(bounds2.min.xz, bounds2.max.xz);
-                        }
-                        else
-                        {
-                            A.xy = math.min(A.xy, bounds2.min.xz);
-                            A.zw = math.max(A.zw, bounds2.max.xz);
-                        }
-                    }
-                }
-            }
-            nativeArray11.Dispose();
-        }
-        if (heightMapRenderRequired)
-        {
-            A += new float4(-10f, -10f, 10f, 10f);
-        }
-        float4 area2 = A;
-        for (int num4 = 0; num4 &lt;= baseLod; num4++)
-        {
-            if (heightMapRenderRequired)
-            {
-                heightMapViewport[num4] = new float4(A.x - m_CascadeRanges[num4].x, A.y - m_CascadeRanges[num4].y, A.z - m_CascadeRanges[num4].x, A.w - m_CascadeRanges[num4].y);
-                heightMapViewport[num4] /= new float4(m_CascadeRanges[num4].z - m_CascadeRanges[num4].x, m_CascadeRanges[num4].w - m_CascadeRanges[num4].y, m_CascadeRanges[num4].z - m_CascadeRanges[num4].x, m_CascadeRanges[num4].w - m_CascadeRanges[num4].y);
-                heightMapViewport[num4].zw -= heightMapViewport[num4].xy;
-                heightMapViewport[num4] = ClipViewport(heightMapViewport[num4]);
-                heightMapSliceUpdated[num4] = heightMapViewport[num4].w &gt; 0f &amp;&amp; heightMapViewport[num4].z &gt; 0f;
-                area2.xy = math.min(area2.xy, m_CascadeRanges[num4].xy + heightMapViewport[num4].xy * (m_CascadeRanges[num4].zw - m_CascadeRanges[num4].xy));
-                area2.zw = math.max(area2.zw, m_CascadeRanges[num4].xy + (heightMapViewport[num4].xy + heightMapViewport[num4].zw) * (m_CascadeRanges[num4].zw - m_CascadeRanges[num4].xy));
-            }
-            else
-            {
-                heightMapViewport[num4] = float4.zero;
-                heightMapSliceUpdated[num4] = false;
-            }
-        }
-        for (int num5 = baseLod + 1; num5 &lt; 4; num5++)
-        {
-            float2 float2 = m_CascadeRanges[baseLod].zw - m_CascadeRanges[baseLod].xy;
-            float2 /= math.pow(2f, num5 - baseLod);
-            float num6 = math.min(float2.x, float2.y) / 4f;
-            @float.xy = position.xz - float2 * 0.5f;
-            @float.zw = position.xz + float2 * 0.5f;
-            if (@float.x &lt; m_CascadeRanges[0].x)
-            {
-                float num7 = m_CascadeRanges[0].x - @float.x;
-                @float.x += num7;
-                @float.z += num7;
-            }
-            if (@float.y &lt; m_CascadeRanges[0].y)
-            {
-                float num8 = m_CascadeRanges[0].y - @float.y;
-                @float.y += num8;
-                @float.w += num8;
-            }
-            if (@float.z &gt; m_CascadeRanges[0].z)
-            {
-                float num9 = m_CascadeRanges[0].z - @float.z;
-                @float.x += num9;
-                @float.z += num9;
-            }
-            if (@float.w &gt; m_CascadeRanges[0].w)
-            {
-                float num10 = m_CascadeRanges[0].w - @float.w;
-                @float.y += num10;
-                @float.w += num10;
-            }
-            float2 float3 = math.abs(@float.xy - new float2(m_CascadeRanges[num5].x, m_CascadeRanges[num5].y));
-            if (math.lengthsq(m_CascadeRanges[num5]) == 0f || float3.x &gt; num6 || float3.y &gt; num6)
-            {
-                heightMapSliceUpdated[num5] = true;
-                heightMapViewport[num5] = new float4(0f, 0f, 1f, 1f);
-                m_CascadeRanges[num5] = @float;
-                if (heightMapRenderRequired)
-                {
-                    A.xy = math.min(A.xy, m_CascadeRanges[num5].xy);
-                    A.zw = math.max(A.zw, m_CascadeRanges[num5].zw);
-                    area2.xy = math.min(area2.xy, m_CascadeRanges[num5].xy);
-                    area2.zw = math.max(area2.zw, m_CascadeRanges[num5].zw);
-                }
-                else
-                {
-                    heightMapRenderRequired = true;
-                    A = m_CascadeRanges[num5];
-                    area2 = A;
-                }
-            }
-            else if (math.lengthsq(A) &gt; 0f &amp;&amp; Overlap(ref A, ref m_CascadeRanges[num5]))
-            {
-                heightMapViewport[num5] = new float4(math.clamp(A.x, m_CascadeRanges[num5].x, m_CascadeRanges[num5].z) - m_CascadeRanges[num5].x, math.clamp(A.y, m_CascadeRanges[num5].y, m_CascadeRanges[num5].w) - m_CascadeRanges[num5].y, math.clamp(A.z, m_CascadeRanges[num5].x, m_CascadeRanges[num5].z) - m_CascadeRanges[num5].x, math.clamp(A.w, m_CascadeRanges[num5].y, m_CascadeRanges[num5].w) - m_CascadeRanges[num5].y);
-                heightMapViewport[num5] /= new float4(m_CascadeRanges[num5].z - m_CascadeRanges[num5].x, m_CascadeRanges[num5].w - m_CascadeRanges[num5].y, m_CascadeRanges[num5].z - m_CascadeRanges[num5].x, m_CascadeRanges[num5].w - m_CascadeRanges[num5].y);
-                heightMapViewport[num5].zw -= heightMapViewport[num5].xy;
-                heightMapViewport[num5] = ClipViewport(heightMapViewport[num5]);
-                heightMapSliceUpdated[num5] = heightMapViewport[num5].w &gt; 0f &amp;&amp; heightMapViewport[num5].z &gt; 0f;
-                area2.xy = math.min(area2.xy, m_CascadeRanges[num5].xy + heightMapViewport[num5].xy * (m_CascadeRanges[num5].zw - m_CascadeRanges[num5].xy));
-                area2.zw = math.max(area2.zw, m_CascadeRanges[num5].xy + (heightMapViewport[num5].xy + heightMapViewport[num5].zw) * (m_CascadeRanges[num5].zw - m_CascadeRanges[num5].xy));
-            }
-            else
-            {
-                heightMapSliceUpdated[num5] = false;
-                heightMapViewport[num5] = float4.zero;
-            }
-        }
-        if (heightMapRenderRequired || m_RoadUpdate || flag3)
-        {
-            if (heightMapRenderRequired)
-            {
-                area2 += new float4(-10f, -10f, 10f, 10f);
-                m_LastCullArea = area2;
-                heightMapSliceUpdatedLast = heightMapSliceUpdated;
-                heightMapViewportUpdated = heightMapViewport;
-            }
-            CullForCascades(area2, heightMapRenderRequired, m_RoadUpdate, m_AreaUpdate, flag3, out var laneCount);
-            if (heightMapRenderRequired)
-            {
-                for (int num11 = 3; num11 &gt;= baseLod; num11--)
-                {
-                    if (heightMapSliceUpdated[num11])
-                    {
-                        CullCascade(num11, m_CascadeRanges[num11], heightMapViewport[num11], laneCount);
-                    }
-                    else
-                    {
-                        heightMapCullArea[num11] = float4.zero;
-                    }
-                }
-            }
-            JobHandle.ScheduleBatchedJobs();
-        }
-        for (int num12 = 0; num12 &lt; 4; num12++)
-        {
-            float4 float4 = m_CascadeRanges[num12];
-            float4.zw = 1f / math.max(0.001f, float4.zw - float4.xy);
-            float4.xy *= float4.zw;
-            m_ShaderCascadeRanges[num12] = float4;
-        }
-        Shader.SetGlobalVectorArray(ShaderID._CascadeRangesID, m_ShaderCascadeRanges);
-        m_CascadeReset = false;
-    }
-</code></pre>
-<ul>
-<li><code>private UpdateGPUReadback() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void UpdateGPUReadback()
-    {
-        m_TerrainMinMax.Update();
-        if (m_AsyncGPUReadback.isPending)
-        {
-            if (!m_AsyncGPUReadback.hasError)
-            {
-                if (m_AsyncGPUReadback.done)
-                {
-                    NativeArray&lt;ushort&gt; data = m_AsyncGPUReadback.GetData&lt;ushort&gt;();
-                    WriteCPUHeights(data, m_LastRequest);
-                    if (m_UpdateOutOfDate)
-                    {
-                        m_UpdateOutOfDate = false;
-                        OnHeightsChanged();
-                    }
-                    else
-                    {
-                        m_HeightMapChanged = false;
-                    }
-                    m_FailCount = 0;
-                }
-                m_AsyncGPUReadback.IncrementFrame();
-            }
-            else if (++m_FailCount &lt; 10)
-            {
-                m_GroundHeightSystem.BeforeReadHeights();
-                m_AsyncGPUReadback.Request(m_HeightmapCascade, 0, m_LastRequest.x, m_LastRequest.z, m_LastRequest.y, m_LastRequest.w, baseLod, 1);
-            }
-            else
-            {
-                COSystemBase.baseLog.Error(&quot;m_AsyncGPUReadback.hasError&quot;);
-                m_LastRequest = new int4(0, 0, m_HeightmapCascade.width, m_HeightmapCascade.height);
-                m_GroundHeightSystem.BeforeReadHeights();
-                m_AsyncGPUReadback.Request(m_HeightmapCascade, 0, 0, m_HeightmapCascade.width, 0, m_HeightmapCascade.height, baseLod, 1);
-            }
-        }
-        else
-        {
-            m_HeightMapChanged = false;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private UpdateGPUTerrain() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void UpdateGPUTerrain()
-    {
-        TerrainSurface validSurface = TerrainSurface.GetValidSurface();
-        if (!(validSurface != null))
-        {
-            return;
-        }
-        validSurface.UsesCascade = true;
-        GetCascadeInfo(out var _, out validSurface.BaseLOD, out var areas, out var ranges, out var size);
-        validSurface.CascadeArea = areas;
-        validSurface.CascadeRanges = ranges;
-        validSurface.CascadeSizes = size;
-        validSurface.CascadeTexture = m_HeightmapCascade;
-        validSurface.TerrainHeightOffset = heightScaleOffset.y;
-        validSurface.TerrainHeightScale = heightScaleOffset.x;
-        if (validSurface.RenderClipAreas != null)
-        {
-            return;
-        }
-        validSurface.RenderClipAreas = delegate(RenderGraphContext ctx, HDCamera hdCamera)
-        {
-            Camera camera = hdCamera.camera;
-            bool flag = false;
-            float w = math.tan(math.radians(camera.fieldOfView) * 0.5f) * 0.002f;
-            m_ClipMaterial.SetBuffer(ShaderID._RoadData, clipMapBuffer);
-            m_ClipMaterial.SetVector(ShaderID._ClipOffset, new float4(camera.transform.position, w));
-            if (clipMapInstances &gt; 0)
-            {
-                ctx.cmd.DrawMeshInstancedProcedural(m_ClipMesh, 0, m_ClipMaterial, 0, clipMapInstances);
-            }
-            if (m_RenderingSystem.hideOverlay || m_ToolSystem.activeTool == null || (m_ToolSystem.activeTool.requireAreas &amp; AreaTypeMask.Surfaces) == 0)
-            {
-                ctx.cmd.DrawMesh(areaClipMesh, Matrix4x4.identity, m_ClipMaterial, 0, 2);
-            }
-            ctx.cmd.DrawProcedural(Matrix4x4.identity, m_ClipMaterial, flag ? 4 : 3, MeshTopology.Triangles, 3, 1);
-        };
-    }
-</code></pre>
-<ul>
-<li><code>public UpdateMinMax(Game.Tools.Brush brush, Colossal.Mathematics.Bounds2 area) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void UpdateMinMax(Brush brush, Bounds2 area)
-    {
-        if (worldHeightmap != null)
-        {
-            area.min -= worldOffset;
-            area.max -= worldOffset;
-            area.min /= worldSize;
-            area.max /= worldSize;
-        }
-        else
-        {
-            area.min -= playableOffset;
-            area.max -= playableOffset;
-            area.min /= playableArea;
-            area.max /= playableArea;
-        }
-        int4 area2 = new int4((int)math.max(math.floor(area.min.x * (float)m_Heightmap.width) - 1f, 0f), (int)math.max(math.floor(area.min.y * (float)m_Heightmap.height) - 1f, 0f), (int)math.min(math.ceil(area.max.x * (float)m_Heightmap.width) + 1f, m_Heightmap.width - 1), (int)math.min(math.ceil(area.max.y * (float)m_Heightmap.height) + 1f, m_Heightmap.height - 1));
-        area2.zw -= area2.xy;
-        area2.zw = math.clamp(area2.zw, new int2(m_Heightmap.width / m_TerrainMinMax.size, m_Heightmap.height / m_TerrainMinMax.size), new int2(m_Heightmap.width, m_Heightmap.height));
-        m_TerrainMinMax.RequestUpdate(this, m_Heightmap, worldHeightmap, area2);
-    }
-</code></pre>
-<ul>
-<li><code>private WriteCPUHeights(Unity.Collections.NativeArray&lt;System.UInt16&gt; buffer) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void WriteCPUHeights(NativeArray&lt;ushort&gt; buffer, int4 offsets)
-    {
-        for (int i = 0; i &lt; offsets.w; i++)
-        {
-            int dstIndex = (offsets.y + i) * m_HeightmapCascade.width + offsets.x;
-            NativeArray&lt;ushort&gt;.Copy(buffer, i * offsets.z, m_CPUHeights, dstIndex, offsets.z);
-        }
-        m_GroundHeightSystem.AfterReadHeights();
-    }
-</code></pre>
-<ul>
-<li><code>private WriteCPUHeights(Unity.Collections.NativeArray&lt;System.UInt16&gt; buffer, Unity.Mathematics.int4 offsets) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void WriteCPUHeights(NativeArray&lt;ushort&gt; buffer, int4 offsets)
-    {
-        for (int i = 0; i &lt; offsets.w; i++)
-        {
-            int dstIndex = (offsets.y + i) * m_HeightmapCascade.width + offsets.x;
-            NativeArray&lt;ushort&gt;.Copy(buffer, i * offsets.z, m_CPUHeights, dstIndex, offsets.z);
-        }
-        m_GroundHeightSystem.AfterReadHeights();
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Simulation.TerrainSystem+ShaderID</code>  </li>
-<li><code>Game.Simulation.TerrainSystem+BuildingLotDraw</code>  </li>
-<li><code>Game.Simulation.TerrainSystem+LaneSection</code>  </li>
-<li><code>Game.Simulation.TerrainSystem+LaneDraw</code>  </li>
-<li><code>Game.Simulation.TerrainSystem+AreaTriangle</code>  </li>
-<li><code>Game.Simulation.TerrainSystem+AreaEdge</code>  </li>
-<li><code>Game.Simulation.TerrainSystem+LaneFlags</code>  </li>
-<li><code>Game.Simulation.TerrainSystem+CascadeCullInfo</code>  </li>
-<li><code>Game.Simulation.TerrainSystem+ClipMapDraw</code>  </li>
-<li><code>Game.Simulation.TerrainSystem+TerrainMinMaxMap</code>  </li>
-<li><code>Game.Simulation.TerrainSystem+TerrainDesc</code>  </li>
-<li><code>Game.Simulation.TerrainSystem+CullBuildingLotsJob</code>  </li>
-<li><code>Game.Simulation.TerrainSystem+DequeBuildingLotsJob</code>  </li>
-<li><code>Game.Simulation.TerrainSystem+CullRoadsJob</code>  </li>
-<li><code>Game.Simulation.TerrainSystem+DequeBuildingDrawsJob</code>  </li>
-<li><code>Game.Simulation.TerrainSystem+CullBuildingsCascadeJob</code>  </li>
-<li><code>Game.Simulation.TerrainSystem+CullTrianglesJob</code>  </li>
-<li><code>Game.Simulation.TerrainSystem+CullEdgesJob</code>  </li>
-<li><code>Game.Simulation.TerrainSystem+GenerateClipDataJob</code>  </li>
-<li><code>Game.Simulation.TerrainSystem+CullAreasJob</code>  </li>
-<li><code>Game.Simulation.TerrainSystem+DequeTrianglesJob</code>  </li>
-<li><code>Game.Simulation.TerrainSystem+DequeEdgesJob</code>  </li>
-<li><code>Game.Simulation.TerrainSystem+GenerateAreaClipMeshJob</code>  </li>
-<li><code>Game.Simulation.TerrainSystem+CullRoadsCacscadeJob</code>  </li>
-<li><code>Game.Simulation.TerrainSystem+TypeHandle</code>  </li>
-</ul>
+<p>Notes for modders:
+- Height textures used by TerrainSystem are R16 (GraphicsFormat.R16_UNorm). If you provide an RGBA texture, the system may convert it.
+- Modifying the worldHeightmap vs playable heightmap: world heightmap may be non-editable at runtime unless an editable RenderTexture (m_WorldMapEditable) is created (editor mode).
+- Many of the lower-level APIs rely on Unity Collections / Jobs / Entities constructs and Native containers. Be careful to respect lifetime and job completion when interacting with these internals.</p>
 
 
 

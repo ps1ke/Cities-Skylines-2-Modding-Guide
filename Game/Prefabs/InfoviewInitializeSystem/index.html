@@ -44713,15 +44713,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -44758,9 +44749,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -65329,6 +65320,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69760,6 +69774,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72572,6 +72609,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75562,6 +75622,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87154,6 +87237,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -117930,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117955,15 +118083,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -118002,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118027,383 +118146,199 @@
 
 
 <h1 id="gameprefabsinfoviewinitializesystem">Game.Prefabs.InfoviewInitializeSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Prefabs</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class InfoviewInitializeSystem : Game.GameSystemBase
-{
-    private Unity.Entities.EntityQuery m_NewInfoviewQuery;
-    private Unity.Entities.EntityQuery m_AllInfoviewQuery;
-    private Unity.Entities.EntityQuery m_AllInfomodeQuery;
-    private Unity.Entities.EntityQuery m_NewPlaceableQuery;
-    private Unity.Entities.EntityQuery m_AllPlaceableQuery;
-    private Game.Prefabs.PrefabSystem m_PrefabSystem;
-    private Game.Prefabs.ResourceSystem m_ResourceSystem;
-    private Game.Prefabs.InfoviewInitializeSystem+TypeHandle __TypeHandle;
-    private static const System.Int32 TYPE_PRIORITY;
-    private static const System.Int32 PRIMARY_REQUIREMENT_PRIORITY;
-    private static const System.Int32 SECONDARY_REQUIREMENT_PRIORITY;
-    private static const System.Int32 PRIMARY_EFFECT_PRIORITY;
-    private static const System.Int32 SECONDARY_EFFECT_PRIORITY;
-
-    public System.Collections.Generic.IEnumerable&lt;Game.Prefabs.InfoviewPrefab&gt; infoviews { get; }
-    public System.Collections.Generic.IEnumerable&lt;Game.Prefabs.InfomodePrefab&gt; infomodes { get; }
-
-    public InfoviewInitializeSystem();
-
-    private System.Void __AssignQueries(Unity.Entities.SystemState&amp; state);
-    private Unity.Jobs.JobHandle FindInfoviews(Unity.Jobs.JobHandle inputDeps, Unity.Entities.EntityQuery infoviewQuery, Unity.Entities.EntityQuery infomodeQuery, Unity.Entities.EntityQuery objectQuery);
-    private Unity.Jobs.JobHandle InitializeInfoviews(Unity.Jobs.JobHandle inputDeps, Unity.Entities.EntityQuery infoviewGroup, Unity.Entities.EntityQuery infomodeGroup);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnCreateForCompiler();
-    protected virtual System.Void OnUpdate();
-}
-</code></pre>
+<p><strong>Assembly:</strong> Assembly-CSharp<br />
+<strong>Namespace:</strong> Game.Prefabs</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> GameSystemBase</p>
+<p><strong>Summary:</strong><br />
+InfoviewInitializeSystem is a GameSystem that prepares and assigns infoview (information view / heatmap / status) modes to placeable prefabs. It builds mappings between Infomode groups and Infoview prefabs, computes scores for available infomodes against placeable objects (zones, buildings, roads, pipelines, etc.), and populates each placeable prefab's PlaceableInfoviewItem buffer with the best matching infoview and any supplemental modes. Work is performed using Unity ECS jobs (burst-compatible) to run efficiently on chunks: FindInfoviewJob, FindSubInfoviewJob and AssignInfoviewJob. The system also exposes enumerable accessors to all registered Infoview and Infomode prefabs.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Unity.Entities.EntityQuery m_NewInfoviewQuery</code>  </li>
+<li>
+<p><code>private EntityQuery m_NewInfoviewQuery</code><br />
+Tracks newly created infoview prefab entities (PrefabData + InfoviewData + Created) so the system can initialize their InfoviewMode buffers.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_AllInfoviewQuery</code><br />
+Query matching all infoview prefabs (PrefabData + InfoviewData). Used when finding best infoviews for placeable objects.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_AllInfomodeQuery</code><br />
+Query matching all infomode prefabs (PrefabData + InfomodeData, excluding InfomodeGroup). Used to compute scores for specific infomode entities.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_NewPlaceableQuery</code><br />
+Query matching newly created placeable prefabs with PlaceableInfoviewItem buffer (PrefabData + PlaceableInfoviewItem + Created) so their assigned infoviews can be computed.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_AllPlaceableQuery</code><br />
+Query matching all placeable prefabs that have PlaceableInfoviewItem buffers. Used to populate the buffers with selected infoview(s).</p>
+</li>
+<li>
+<p><code>private PrefabSystem m_PrefabSystem</code><br />
+Reference to the PrefabSystem (managed) used to resolve PrefabData -&gt; typed prefab classes and to map mode/prefab references to Entities.</p>
+</li>
+<li>
+<p><code>private ResourceSystem m_ResourceSystem</code><br />
+Reference to the ResourceSystem (managed) used when checking resource-related subareas and extractor/prefab requirements.</p>
+</li>
+<li>
+<p><code>private TypeHandle __TypeHandle</code><br />
+Internal struct containing Component/Buffer/Entity type handles used to create and schedule job data. Populated during OnCreateForCompiler.</p>
+</li>
+<li>
+<p><code>private const int TYPE_PRIORITY = 1000000</code><br />
+Priority constant used when computing scores (present as literal constants in the class).</p>
+</li>
+<li>
+<p><code>private const int PRIMARY_REQUIREMENT_PRIORITY = 10000</code><br />
+Priority constant used for primary requirements/effects.</p>
+</li>
+<li>
+<p><code>private const int SECONDARY_REQUIREMENT_PRIORITY = 10000</code><br />
+Priority constant used for secondary requirements.</p>
+</li>
+<li>
+<p><code>private const int PRIMARY_EFFECT_PRIORITY = 10000</code><br />
+Priority constant used for primary effects.</p>
+</li>
+<li>
+<p><code>private const int SECONDARY_EFFECT_PRIORITY = 100</code><br />
+Priority constant used for secondary effects.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_NewInfoviewQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_AllInfoviewQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_AllInfoviewQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_AllInfomodeQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_AllInfomodeQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_NewPlaceableQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_NewPlaceableQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_AllPlaceableQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_AllPlaceableQuery;
-</code></pre>
-<ul>
-<li><code>private Game.Prefabs.PrefabSystem m_PrefabSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Prefabs.PrefabSystem m_PrefabSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Prefabs.ResourceSystem m_ResourceSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Prefabs.ResourceSystem m_ResourceSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Prefabs.InfoviewInitializeSystem+TypeHandle __TypeHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Prefabs.InfoviewInitializeSystem+TypeHandle __TypeHandle;
-</code></pre>
-<ul>
-<li><code>private static const System.Int32 TYPE_PRIORITY</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static const System.Int32 TYPE_PRIORITY;
-</code></pre>
-<ul>
-<li><code>private static const System.Int32 PRIMARY_REQUIREMENT_PRIORITY</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static const System.Int32 PRIMARY_REQUIREMENT_PRIORITY;
-</code></pre>
-<ul>
-<li><code>private static const System.Int32 SECONDARY_REQUIREMENT_PRIORITY</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static const System.Int32 SECONDARY_REQUIREMENT_PRIORITY;
-</code></pre>
-<ul>
-<li><code>private static const System.Int32 PRIMARY_EFFECT_PRIORITY</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static const System.Int32 PRIMARY_EFFECT_PRIORITY;
-</code></pre>
-<ul>
-<li><code>private static const System.Int32 SECONDARY_EFFECT_PRIORITY</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static const System.Int32 SECONDARY_EFFECT_PRIORITY;
-</code></pre>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>public System.Collections.Generic.IEnumerable&lt;Game.Prefabs.InfoviewPrefab&gt; infoviews { get }</code>  </li>
+<li>
+<p><code>public IEnumerable&lt;InfoviewPrefab&gt; infoviews { get; }</code><br />
+Returns an enumerable over all registered Infoview prefabs. Iterates the m_AllInfoviewQuery chunks, resolves each PrefabData with PrefabSystem.GetPrefab<InfoviewPrefab>(). Useful for inspecting or iterating over available infoview types in managed code.</p>
+</li>
+<li>
+<p><code>public IEnumerable&lt;InfomodePrefab&gt; infomodes { get; }</code><br />
+Returns an enumerable over all registered Infomode prefabs. Iterates the m_AllInfomodeQuery chunks and resolves each PrefabData with PrefabSystem.GetPrefab<InfomodePrefab>(). Useful for mods that need to examine or extend available modes.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public System.Collections.Generic.IEnumerable&lt;Game.Prefabs.InfoviewPrefab&gt; infoviews { get; }
-</code></pre>
-<ul>
-<li><code>public System.Collections.Generic.IEnumerable&lt;Game.Prefabs.InfomodePrefab&gt; infomodes { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Collections.Generic.IEnumerable&lt;Game.Prefabs.InfomodePrefab&gt; infomodes { get; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public InfoviewInitializeSystem()</code>  </li>
+<li><code>public InfoviewInitializeSystem()</code><br />
+Default constructor. The system initializes its queries and type handles in OnCreate / OnCreateForCompiler. The constructor itself does not perform heavy setup.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public InfoviewInitializeSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private __AssignQueries(Unity.Entities.SystemState&amp; state) : System.Void</code>  </li>
+<li><code>protected override void OnCreate()</code><br />
+Called when the system is created. It acquires references to PrefabSystem and ResourceSystem and sets up EntityQueries:</li>
+<li>m_NewInfoviewQuery: PrefabData + InfoviewData + Created</li>
+<li>m_AllInfoviewQuery: PrefabData + InfoviewData</li>
+<li>m_AllInfomodeQuery: PrefabData + InfomodeData (exclude InfomodeGroup)</li>
+<li>m_NewPlaceableQuery: PrefabData + PlaceableInfoviewItem + Created</li>
+<li>m_AllPlaceableQuery: PrefabData + PlaceableInfoviewItem</li>
 </ul>
-<pre><code class="language-csharp">private void __AssignQueries(ref SystemState state)
-    {
-        new EntityQueryBuilder(Allocator.Temp).Dispose();
-    }
-</code></pre>
+<p>These queries are later used to initialize infoview mode lists and to compute assignments.</p>
 <ul>
-<li><code>private FindInfoviews(Unity.Jobs.JobHandle inputDeps, Unity.Entities.EntityQuery infoviewQuery, Unity.Entities.EntityQuery infomodeQuery, Unity.Entities.EntityQuery objectQuery) : Unity.Jobs.JobHandle</code>  </li>
+<li><code>protected override void OnUpdate()</code><br />
+Main update loop. If there are newly created infoview prefabs, it:</li>
+<li>Calls InitializeInfoviews(...) to populate InfoviewMode buffers for infoview prefabs (combines infomode groups into the infoview).</li>
+<li>
+<p>Calls FindInfoviews(...) to compute and assign best infoview(s) to placeable prefabs.
+  If there are newly created placeable prefabs but no new infoviews, it schedules FindInfoviews for just the new placeables.</p>
+</li>
+<li>
+<p><code>private JobHandle InitializeInfoviews(JobHandle inputDeps, EntityQuery infoviewGroup, EntityQuery infomodeGroup)</code><br />
+Synchronous part (job dependencies Completed before CPU work) that:</p>
+</li>
+<li>Builds a NativeParallelMultiHashMap mapping InfomodeGroup entity -&gt; member infomode entities and priorities (InfoModeData).</li>
+<li>Iterates all infoview prefabs and, for each InfomodeInfo entry on the Infoview prefab, expands group memberships into concrete InfoviewMode entries added to the Infoview prefab's InfoviewMode buffer.</li>
+<li>Computes combined priorities as: infomodeInfo.m_Priority * 1_000_000 + infomodeInfo.m_Mode.m_Priority * 1000 + groupPriority (if from group).</li>
+<li>Uses PrefabSystem to resolve prefabs and entities.</li>
 </ul>
-<pre><code class="language-csharp">private JobHandle FindInfoviews(JobHandle inputDeps, EntityQuery infoviewQuery, EntityQuery infomodeQuery, EntityQuery objectQuery)
-    {
-        NativeQueue&lt;InfoviewBufferData&gt; infoViewBuffer = new NativeQueue&lt;InfoviewBufferData&gt;(Allocator.TempJob);
-        JobHandle outJobHandle;
-        NativeList&lt;ArchetypeChunk&gt; infoviewChunks = infoviewQuery.ToArchetypeChunkListAsync(Allocator.TempJob, out outJobHandle);
-        JobHandle outJobHandle2;
-        NativeList&lt;ArchetypeChunk&gt; infomodeChunks = infomodeQuery.ToArchetypeChunkListAsync(Allocator.TempJob, out outJobHandle2);
-        FindInfoviewJob jobData = new FindInfoviewJob
-        {
-            m_InfoviewChunks = infoviewChunks,
-            m_InfomodeChunks = infomodeChunks,
-            m_EntityType = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef),
-            m_CoverageType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_CoverageData_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_HospitalType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_HospitalData_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_PowerPlantType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_PowerPlantData_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_TransformerType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_TransformerData_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_BatteryType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_BatteryData_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_WaterPumpingStationType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_WaterPumpingStationData_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_WaterTowerType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_WaterTowerData_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_SewageOutletType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_SewageOutletData_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_TransportDepotType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_TransportDepotData_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_TransportStationType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_TransportStationData_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_GarbageFacilityType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_GarbageFacilityData_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_FireStationType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_FireStationData_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_PoliceStationType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_PoliceStationData_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_MaintenanceDepotType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_MaintenanceDepotData_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_PostFacilityDataType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_PostFacilityData_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_TelecomFacilityDataType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_TelecomFacilityData_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_SchoolDataType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_SchoolData_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_ParkDataType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_ParkData_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_EmergencyShelterDataType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_EmergencyShelterData_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_DisasterFacilityDataType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_DisasterFacilityData_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_FirewatchTowerDataType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_FirewatchTowerData_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_DeathcareFacilityDataType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_DeathcareFacilityData_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_PrisonDataType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_PrisonData_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_AdminBuildingDataType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_AdminBuildingData_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_WelfareOfficeDataType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_WelfareOfficeData_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_ResearchFacilityDataType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_ResearchFacilityData_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_ParkingFacilityDataType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_ParkingFacilityData_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_PowerLineType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_PowerLineData_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_PipelineType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_PipelineData_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_ElectricityConnectionType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_ElectricityConnectionData_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_WaterPipeConnectionType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_WaterPipeConnectionData_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_ResourceConnectionType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_ResourceConnectionData_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_ZoneType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_ZoneData_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_TransportStopType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_TransportStopData_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_RouteType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_RouteData_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_TransportLineType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_TransportLineData_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_ExtractorAreaType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_ExtractorAreaData_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_TerraformingType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_TerraformingData_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_WindPoweredType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_WindPoweredData_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_WaterPoweredType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_WaterPoweredData_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_GroundWaterPoweredType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_GroundWaterPoweredData_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_PollutionType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_PollutionData_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_SpawnableBuildingType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_SpawnableBuildingData_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_BuildingPropertyType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_BuildingPropertyData_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_ServiceUpgradeType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_ServiceUpgradeData_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_InfoviewModeType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Prefabs_InfoviewMode_RO_BufferTypeHandle, ref base.CheckedStateRef),
-            m_InfoviewCoverageType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_InfoviewCoverageData_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_InfoviewAvailabilityType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_InfoviewAvailabilityData_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_InfoviewBuildingType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_InfoviewBuildingData_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_InfoviewVehicleType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_InfoviewVehicleData_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_InfoviewTransportStopType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_InfoviewTransportStopData_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_InfoviewRouteType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_InfoviewRouteData_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_InfoviewHeatmapType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_InfoviewHeatmapData_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_InfoviewObjectStatusType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_InfoviewObjectStatusData_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_InfoviewNetStatusType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_InfoviewNetStatusData_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_PlaceableInfoviewType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Prefabs_PlaceableInfoviewItem_RW_BufferTypeHandle, ref base.CheckedStateRef)
-        };
-        FindSubInfoviewJob jobData2 = new FindSubInfoviewJob
-        {
-            m_EntityType = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef),
-            m_SpawnableBuildingType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_SpawnableBuildingData_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_BuildingPropertyType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_BuildingPropertyData_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_PlaceableInfoviewType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Prefabs_PlaceableInfoviewItem_RO_BufferTypeHandle, ref base.CheckedStateRef),
-            m_SubAreaType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Prefabs_SubArea_RO_BufferTypeHandle, ref base.CheckedStateRef),
-            m_BuildingUpgradeElementType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Prefabs_BuildingUpgradeElement_RO_BufferTypeHandle, ref base.CheckedStateRef),
-            m_LotData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_LotData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_ResourceData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_ResourceData_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_PlaceableInfoviewData = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Prefabs_PlaceableInfoviewItem_RO_BufferLookup, ref base.CheckedStateRef),
-            m_InfoviewModes = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Prefabs_InfoviewMode_RO_BufferLookup, ref base.CheckedStateRef),
-            m_SubAreas = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Prefabs_SubArea_RO_BufferLookup, ref base.CheckedStateRef),
-            m_ResourcePrefabs = m_ResourceSystem.GetPrefabs(),
-            m_InfoViewBuffer = infoViewBuffer.AsParallelWriter()
-        };
-        AssignInfoviewJob jobData3 = new AssignInfoviewJob
-        {
-            m_InfoViewBuffer = infoViewBuffer,
-            m_PlaceableInfoviewData = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Prefabs_PlaceableInfoviewItem_RW_BufferLookup, ref base.CheckedStateRef)
-        };
-        JobHandle jobHandle = JobChunkExtensions.ScheduleParallel(jobData, objectQuery, JobHandle.CombineDependencies(inputDeps, outJobHandle, outJobHandle2));
-        JobHandle dependsOn = JobChunkExtensions.ScheduleParallel(jobData2, objectQuery, jobHandle);
-        JobHandle jobHandle2 = IJobExtensions.Schedule(jobData3, dependsOn);
-        infoViewBuffer.Dispose(jobHandle2);
-        infoviewChunks.Dispose(jobHandle);
-        infomodeChunks.Dispose(jobHandle);
-        return jobHandle2;
-    }
-</code></pre>
+<p>This method returns a JobHandle (no follow-up job currently scheduled from it inside the method body).</p>
 <ul>
-<li><code>private InitializeInfoviews(Unity.Jobs.JobHandle inputDeps, Unity.Entities.EntityQuery infoviewGroup, Unity.Entities.EntityQuery infomodeGroup) : Unity.Jobs.JobHandle</code>  </li>
+<li><code>private JobHandle FindInfoviews(JobHandle inputDeps, EntityQuery infoviewQuery, EntityQuery infomodeQuery, EntityQuery objectQuery)</code><br />
+Main work pipeline to select best infoviews for placeable objects. Sets up:</li>
+<li>NativeQueue<InfoviewBufferData> to pass assignment pairs from sub-search job into assign job.</li>
+<li>Creates two chunk lists for infoviews and infomodes (async).</li>
+<li>Schedules FindInfoviewJob as a parallel JobChunk across objectQuery (the placeable objects or the new placeables depending).<ul>
+<li>FindInfoviewJob inspects chunk component signatures (lots of component type handles for buildings, zones, pipelines, etc.), computes a searchData bitmask/priority structure per-object and calculates scores per infomode entity using CalculateInfomodeScores. It then finds the best Infoview (via GetBestInfoView) and writes PlaceableInfoviewItem entries into the placeable's buffer.</li>
 </ul>
-<pre><code class="language-csharp">private JobHandle InitializeInfoviews(JobHandle inputDeps, EntityQuery infoviewGroup, EntityQuery infomodeGroup)
-    {
-        NativeArray&lt;ArchetypeChunk&gt; nativeArray = infoviewGroup.ToArchetypeChunkArray(Allocator.TempJob);
-        NativeArray&lt;ArchetypeChunk&gt; nativeArray2 = infomodeGroup.ToArchetypeChunkArray(Allocator.TempJob);
-        NativeParallelMultiHashMap&lt;Entity, InfoModeData&gt; nativeParallelMultiHashMap = new NativeParallelMultiHashMap&lt;Entity, InfoModeData&gt;(100, Allocator.TempJob);
-        try
-        {
-            EntityTypeHandle entityTypeHandle = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef);
-            ComponentTypeHandle&lt;PrefabData&gt; typeHandle = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_PrefabData_RO_ComponentTypeHandle, ref base.CheckedStateRef);
-            BufferTypeHandle&lt;InfoviewMode&gt; bufferTypeHandle = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Prefabs_InfoviewMode_RW_BufferTypeHandle, ref base.CheckedStateRef);
-            ComponentLookup&lt;InfomodeGroup&gt; componentLookup = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Prefabs_InfomodeGroup_RO_ComponentLookup, ref base.CheckedStateRef);
-            inputDeps.Complete();
-            for (int i = 0; i &lt; nativeArray2.Length; i++)
-            {
-                ArchetypeChunk archetypeChunk = nativeArray2[i];
-                NativeArray&lt;Entity&gt; nativeArray3 = archetypeChunk.GetNativeArray(entityTypeHandle);
-                NativeArray&lt;PrefabData&gt; nativeArray4 = archetypeChunk.GetNativeArray(ref typeHandle);
-                for (int j = 0; j &lt; nativeArray4.Length; j++)
-                {
-                    Entity mode = nativeArray3[j];
-                    PrefabData prefabData = nativeArray4[j];
-                    InfomodeBasePrefab prefab = m_PrefabSystem.GetPrefab&lt;InfomodeBasePrefab&gt;(prefabData);
-                    if (prefab.m_IncludeInGroups != null)
-                    {
-                        for (int k = 0; k &lt; prefab.m_IncludeInGroups.Length; k++)
-                        {
-                            Entity entity = m_PrefabSystem.GetEntity(prefab.m_IncludeInGroups[k]);
-                            nativeParallelMultiHashMap.Add(entity, new InfoModeData
-                            {
-                                m_Mode = mode,
-                                m_Priority = prefab.m_Priority
-                            });
-                        }
-                    }
-                }
-            }
-            for (int l = 0; l &lt; nativeArray.Length; l++)
-            {
-                ArchetypeChunk archetypeChunk2 = nativeArray[l];
-                NativeArray&lt;PrefabData&gt; nativeArray5 = archetypeChunk2.GetNativeArray(ref typeHandle);
-                BufferAccessor&lt;InfoviewMode&gt; bufferAccessor = archetypeChunk2.GetBufferAccessor(ref bufferTypeHandle);
-                for (int m = 0; m &lt; bufferAccessor.Length; m++)
-                {
-                    PrefabData prefabData2 = nativeArray5[m];
-                    DynamicBuffer&lt;InfoviewMode&gt; dynamicBuffer = bufferAccessor[m];
-                    InfoviewPrefab prefab2 = m_PrefabSystem.GetPrefab&lt;InfoviewPrefab&gt;(prefabData2);
-                    if (prefab2.m_Infomodes == null)
-                    {
-                        continue;
-                    }
-                    for (int n = 0; n &lt; prefab2.m_Infomodes.Length; n++)
-                    {
-                        InfomodeInfo infomodeInfo = prefab2.m_Infomodes[n];
-                        Entity entity2 = m_PrefabSystem.GetEntity(infomodeInfo.m_Mode);
-                        if (componentLookup.HasComponent(entity2))
-                        {
-                            if (nativeParallelMultiHashMap.TryGetFirstValue(entity2, out var item, out var it))
-                            {
-                                do
-                                {
-                                    int priority = infomodeInfo.m_Priority * 1000000 + infomodeInfo.m_Mode.m_Priority * 1000 + item.m_Priority;
-                                    dynamicBuffer.Add(new InfoviewMode(item.m_Mode, priority, infomodeInfo.m_Supplemental, infomodeInfo.m_Optional));
-                                }
-                                while (nativeParallelMultiHashMap.TryGetNextValue(out item, ref it));
-                            }
-                        }
-                        else
-                        {
-                            int priority2 = infomodeInfo.m_Priority * 1000000 + infomodeInfo.m_Mode.m_Priority;
-                            dynamicBuffer.Add(new InfoviewMode(entity2, priority2, infomodeInfo.m_Supplemental, infomodeInfo.m_Optional));
-                        }
-                    }
-                }
-            }
-        }
-        finally
-        {
-            nativeArray.Dispose();
-            nativeArray2.Dispose();
-            nativeParallelMultiHashMap.Dispose();
-        }
-        return default(JobHandle);
-    }
-</code></pre>
+</li>
+<li>Schedules FindSubInfoviewJob to check for placeables that should inherit an infoview from a sub-prefab or zone/lot subarea; enqueues assignment pairs into the NativeQueue.</li>
+<li>Schedules AssignInfoviewJob which dequeues pairs and copies the placeable infoview buffers from source to target.</li>
+<li>
+<p>Disposes native containers with proper dependencies and returns a combined JobHandle.</p>
+</li>
+<li>
+<p>Nested/Burst jobs:</p>
+</li>
+<li>
+<p><code>FindInfoviewJob : IJobChunk</code><br />
+    Complex job that:</p>
 <ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
+<li>Builds an InfoviewSearchData struct capturing what to search for (service coverage, building types, net types, zone types, pollution/water types, priorities, etc.).</li>
+<li>For each object in an archetype chunk it populates searchData based on chunk components and buffer contents, then:<ul>
+<li>Calls CalculateInfomodeScores() to evaluate every infomode entity across m_InfomodeChunks and fill a NativeParallelHashMap<Entity,int> of scores.</li>
+<li>Calls GetBestInfoView() which iterates m_InfoviewChunks' InfoviewMode buffers to compute combined scores for Infoview prefabs and choose the best one (and supplemental modes).</li>
+<li>Fills the placeable object's PlaceableInfoviewItem buffer with the best results.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
+</li>
+<li>Helper static mapping functions included: GetMapFeature, GetTerraformingTarget, GetMaintenanceType, GetPollutionType, GetWaterType.</li>
+</ul>
+</li>
+<li>
+<p><code>FindSubInfoviewJob : IJobChunk</code><br />
+    Examines spawnable-building/subarea/upgrade buffers to determine if a placeable should instead use an infoview from a referenced zone/sub-prefab. Enqueues InfoviewBufferData entries when assignments must be copied from a source prefab to a target.</p>
+</li>
+<li>
+<p><code>AssignInfoviewJob : IJob</code><br />
+    Consumes the NativeQueue of InfoviewBufferData and copies the PlaceableInfoviewItem buffer from the source entity to the target entity.</p>
+</li>
+<li>
+<p>Utility helpers inside FindInfoviewJob:</p>
+</li>
+<li>CalculateInfomodeScores(InfoviewSearchData, NativeParallelHashMap<Entity,int>)<br />
+    Iterates infomode chunks and, based on the searchData flags and priorities, scores infomode Entities by their component data (InfoviewBuildingData, InfoviewVehicleData, InfoviewHeatmapData, InfoviewCoverageData, etc.). Uses AddInfomodeScore to keep the maximum score per infomode entity.</li>
+<li>
+<p>GetBestInfoView(InfoviewSearchData, NativeParallelHashMap<Entity,int>, NativeList<InfoModeData> supplementalModes, out int bestScore)<br />
+    Iterates infoviewChunks and their InfoviewMode buffers. For each infoview prefab (entity) it sums the scores of included infomodes, applying supplemental/optional rules, keeps the best-scoring Infoview, and gathers any supplemental modes to return with the best result.</p>
+</li>
+<li>
+<p><code>protected override void OnCreateForCompiler()</code><br />
+Internal helper used by the compiled system to assign type handles and queries at construction-time via __AssignQueries and __TypeHandle.__AssignHandles.</p>
+</li>
+<li>
+<p>Static mapping functions (public in the job struct):</p>
+</li>
+<li><code>public static MapFeature GetMapFeature(HeatmapData heatmapType)</code>  </li>
+<li><code>public static TerraformingTarget GetTerraformingTarget(HeatmapData heatmapType)</code>  </li>
+<li><code>public static MapFeature GetMapFeature(ObjectStatusType statusType)</code>  </li>
+<li><code>public static MaintenanceType GetMaintenanceType(BuildingType buildingType)</code>  </li>
+<li><code>public static PollutionType GetPollutionType(HeatmapData heatmapType)</code>  </li>
+<li><code>public static WaterType GetWaterType(HeatmapData heatmapType)</code>  </li>
+</ul>
+<p>These map heatmap/object/status enums to the system's internal filter enums used when scoring modes.</p>
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Example: Iterate all registered infoview prefabs from another managed system or mod hook
+var world = World.DefaultGameObjectInjectionWorld; // or use the game's world reference
+var infoviewSystem = world.GetExistingSystemManaged&lt;Game.Prefabs.InfoviewInitializeSystem&gt;();
+if (infoviewSystem != null)
+{
+    foreach (var ivPrefab in infoviewSystem.infoviews)
     {
-        base.OnCreate();
-        m_PrefabSystem = base.World.GetOrCreateSystemManaged&lt;PrefabSystem&gt;();
-        m_ResourceSystem = base.World.GetOrCreateSystemManaged&lt;ResourceSystem&gt;();
-        m_NewInfoviewQuery = GetEntityQuery(ComponentType.ReadOnly&lt;PrefabData&gt;(), ComponentType.ReadOnly&lt;InfoviewData&gt;(), ComponentType.ReadOnly&lt;Created&gt;());
-        m_AllInfoviewQuery = GetEntityQuery(ComponentType.ReadOnly&lt;PrefabData&gt;(), ComponentType.ReadOnly&lt;InfoviewData&gt;());
-        m_AllInfomodeQuery = GetEntityQuery(ComponentType.ReadOnly&lt;PrefabData&gt;(), ComponentType.ReadOnly&lt;InfomodeData&gt;(), ComponentType.Exclude&lt;InfomodeGroup&gt;());
-        m_NewPlaceableQuery = GetEntityQuery(ComponentType.ReadOnly&lt;PrefabData&gt;(), ComponentType.ReadWrite&lt;PlaceableInfoviewItem&gt;(), ComponentType.ReadOnly&lt;Created&gt;());
-        m_AllPlaceableQuery = GetEntityQuery(ComponentType.ReadOnly&lt;PrefabData&gt;(), ComponentType.ReadWrite&lt;PlaceableInfoviewItem&gt;());
+        // inspect ivPrefab, log name or adjust mod behaviour
+        Debug.Log($&quot;Infoview prefab: {ivPrefab.name}&quot;);
     }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreateForCompiler() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnCreateForCompiler()
+
+    foreach (var imPrefab in infoviewSystem.infomodes)
     {
-        base.OnCreateForCompiler();
-        __AssignQueries(ref base.CheckedStateRef);
-        __TypeHandle.__AssignHandles(ref base.CheckedStateRef);
+        Debug.Log($&quot;Infomode prefab: {imPrefab.name}&quot;);
     }
+}
 </code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        if (!m_NewInfoviewQuery.IsEmptyIgnoreFilter)
-        {
-            base.Dependency = InitializeInfoviews(base.Dependency, m_NewInfoviewQuery, m_AllInfomodeQuery);
-            base.Dependency = FindInfoviews(base.Dependency, m_AllInfoviewQuery, m_AllInfomodeQuery, m_AllPlaceableQuery);
-        }
-        else if (!m_NewPlaceableQuery.IsEmptyIgnoreFilter)
-        {
-            base.Dependency = FindInfoviews(base.Dependency, m_AllInfoviewQuery, m_AllInfomodeQuery, m_NewPlaceableQuery);
-        }
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Prefabs.InfoviewInitializeSystem+InfoModeData</code>  </li>
-<li><code>Game.Prefabs.InfoviewInitializeSystem+FindInfoviewJob</code>  </li>
-<li><code>Game.Prefabs.InfoviewInitializeSystem+PollutionType</code>  </li>
-<li><code>Game.Prefabs.InfoviewInitializeSystem+WaterType</code>  </li>
-<li><code>Game.Prefabs.InfoviewInitializeSystem+InfoviewBufferData</code>  </li>
-<li><code>Game.Prefabs.InfoviewInitializeSystem+FindSubInfoviewJob</code>  </li>
-<li><code>Game.Prefabs.InfoviewInitializeSystem+AssignInfoviewJob</code>  </li>
-<li><code>Game.Prefabs.InfoviewInitializeSystem+TypeHandle</code>  </li>
-<li><code>Game.Prefabs.InfoviewInitializeSystem+&lt;get___infomodes_F6CD08E&gt;d__30</code>  </li>
-<li><code>Game.Prefabs.InfoviewInitializeSystem+&lt;get___infoviews_5966D7E4&gt;d__28</code>  </li>
-<li><code>Game.Prefabs.InfoviewInitializeSystem+&lt;get_infomodes&gt;d__11</code>  </li>
-<li><code>Game.Prefabs.InfoviewInitializeSystem+&lt;get_infoviews&gt;d__9</code>  </li>
-</ul>
+<p>Notes and tips:
+- This system relies heavily on ECS buffers and prefab components (InfoviewMode, PlaceableInfoviewItem, InfoviewBuildingData, etc.). When authoring new Infoview/Infomode prefabs, ensure correct component types and priorities are configured on the prefab assets so they participate in scoring.
+- Priority encoding: Infoview selection composes priorities using multiples (mode group priority, mode priority, infomode priority) so designers can express coarse vs. fine-grained weighting.
+- The heavy computation runs inside burst-compiled jobs; keep any custom additions to component data and job-compatible types to maintain performance.
+- If you add new heatmap/object types, update the mapping helper functions (GetMapFeature/GetPollutionType/GetWaterType/GetTerraformingTarget) so they are considered during scoring.</p>
 
 
 

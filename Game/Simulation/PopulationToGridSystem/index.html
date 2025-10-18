@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -85285,15 +85377,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -85330,9 +85413,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -87154,6 +87237,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -117930,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117955,15 +118083,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -118002,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118027,159 +118146,109 @@
 
 
 <h1 id="gamesimulationpopulationtogridsystem">Game.Simulation.PopulationToGridSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Simulation</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.Simulation.CellMapSystem&lt;Game.Simulation.PopulationCell&gt;</code><br />
-<strong>Implements:</strong> <code>Colossal.Serialization.Entities.IJobSerializable</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class PopulationToGridSystem : Game.Simulation.CellMapSystem&lt;Game.Simulation.PopulationCell&gt;, Colossal.Serialization.Entities.IJobSerializable
-{
-    private Unity.Entities.EntityQuery m_ResidentialPropertyQuery;
-    private Game.Simulation.PopulationToGridSystem+TypeHandle __TypeHandle;
-    public static readonly System.Int32 kTextureSize;
-    public static readonly System.Int32 kUpdatesPerDay;
-
-    public Unity.Mathematics.int2 TextureSize { get; }
-
-    public PopulationToGridSystem();
-
-    private System.Void __AssignQueries(Unity.Entities.SystemState&amp; state);
-    public static Unity.Mathematics.float3 GetCellCenter(System.Int32 index);
-    public static Game.Simulation.PopulationCell GetPopulation(Unity.Mathematics.float3 position, Unity.Collections.NativeArray&lt;Game.Simulation.PopulationCell&gt; populationMap);
-    public virtual System.Int32 GetUpdateInterval(Game.SystemUpdatePhase phase);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnCreateForCompiler();
-    protected virtual System.Void OnUpdate();
-}
-</code></pre>
+<p><strong>Assembly:</strong><br />
+Game (assembly for Cities: Skylines 2 runtime systems)</p>
+<p><strong>Namespace:</strong><br />
+Game.Simulation</p>
+<p><strong>Type:</strong><br />
+public class PopulationToGridSystem</p>
+<p><strong>Base:</strong><br />
+CellMapSystem<PopulationCell>, IJobSerializable</p>
+<p><strong>Summary:</strong><br />
+PopulationToGridSystem builds a population density grid by iterating residential properties (entities with ResidentialProperty + Renter + Transform) and summing household citizen counts into a fixed-size 2D cell map. It runs as a scheduled job (Burst-compiled inner job) that populates a NativeArray<PopulationCell> sized kTextureSize × kTextureSize. The system is optimized for Unity's DOTS: it uses EntityQuery to collect residential property entities, BufferLookup / ComponentLookup handles for buffers and components, and schedules a IJob (PopulationToGridJob) that writes into the system's map. The system exposes helpers to convert between world positions and cell indices and to sample interpolated population from the grid.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Unity.Entities.EntityQuery m_ResidentialPropertyQuery</code>  </li>
+<li>
+<p><code>public static readonly int kTextureSize</code><br />
+kTextureSize = 64. The grid resolution (width and height) used by this system. The map is kTextureSize × kTextureSize cells.</p>
+</li>
+<li>
+<p><code>public static readonly int kUpdatesPerDay</code><br />
+kUpdatesPerDay = 32. Used to compute the update interval in GetUpdateInterval; determines how many times per in-game day the map is refreshed.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_ResidentialPropertyQuery</code><br />
+EntityQuery used to select residential-property entities for processing. The query includes ResidentialProperty, Renter, and Transform and excludes Destroyed, Deleted, and Temp.</p>
+</li>
+<li>
+<p><code>private TypeHandle __TypeHandle</code><br />
+Internal container for ComponentLookup/BufferLookup handles used by the job (Renter buffer, HouseholdCitizen buffer, Transform component). Assigned during OnCreateForCompiler.</p>
+</li>
+<li>
+<p>(Nested) <code>PopulationToGridJob</code> (private, BurstCompile)<br />
+IJob implementation run by the system. Reads the entity list, reads Renter and Transform data and HouseholdCitizen buffers, and aggregates population counts into the NativeArray<PopulationCell> map. Clears the map at start of Execute and then accumulates per-residential-entity citizen counts into the corresponding cell.</p>
+</li>
+<li>
+<p>(Nested) <code>TypeHandle</code> (private)<br />
+Struct that stores BufferLookup<Renter>, BufferLookup<HouseholdCitizen>, and ComponentLookup<Transform> and provides __AssignHandles to initialize them from a SystemState.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_ResidentialPropertyQuery;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.PopulationToGridSystem+TypeHandle __TypeHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.PopulationToGridSystem+TypeHandle __TypeHandle;
-</code></pre>
-<ul>
-<li><code>public static readonly System.Int32 kTextureSize</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static readonly System.Int32 kTextureSize;
-</code></pre>
-<ul>
-<li><code>public static readonly System.Int32 kUpdatesPerDay</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static readonly System.Int32 kUpdatesPerDay;
-</code></pre>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>public Unity.Mathematics.int2 TextureSize { get }</code>  </li>
+<li><code>public int2 TextureSize { get; }</code><br />
+Returns a vector (kTextureSize, kTextureSize). Convenience property exposing the grid dimensions.</li>
 </ul>
-<pre><code class="language-csharp">public Unity.Mathematics.int2 TextureSize { get; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public PopulationToGridSystem()</code>  </li>
+<li><code>public PopulationToGridSystem()</code><br />
+Default constructor. The system also relies on OnCreate to initialize textures and the residential property query.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public PopulationToGridSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private __AssignQueries(Unity.Entities.SystemState&amp; state) : System.Void</code>  </li>
+<li>
+<p><code>public override int GetUpdateInterval(SystemUpdatePhase phase) : int</code><br />
+Returns the update interval in ticks (frames/units used by the engine) based on kUpdatesPerDay. Implementation: return 262144 / kUpdatesPerDay.</p>
+</li>
+<li>
+<p><code>public static float3 GetCellCenter(int index) : float3</code><br />
+Helper that returns the world-space center of the cell at the given linear index. Delegates to CellMapSystem<PopulationCell>.GetCellCenter with kTextureSize.</p>
+</li>
+<li>
+<p><code>public static PopulationCell GetPopulation(float3 position, NativeArray&lt;PopulationCell&gt; populationMap) : PopulationCell</code><br />
+Samples population for an arbitrary world position. This computes the cell for the position and performs bilinear interpolation between neighboring cell population values to return a PopulationCell with an interpolated m_Population. Returns a default PopulationCell if position is outside the grid.</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnCreate()</code><br />
+Initializes the system: calls base.OnCreate(), creates textures for the map using CreateTextures(kTextureSize) and sets up m_ResidentialPropertyQuery to select ResidentialProperty + Renter + Transform and exclude Destroyed/Deleted/Temp. Also prepares internal handles in OnCreateForCompiler.</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnUpdate()</code><br />
+Schedules the PopulationToGridJob. It:</p>
+</li>
+<li>Converts the residential property query into a NativeList<Entity> asynchronously.</li>
+<li>Constructs PopulationToGridJob with references to the entity list, the internal m_Map (NativeArray<PopulationCell>), and BufferLookup/ComponentLookup obtained via InternalCompilerInterface.GetBufferLookup / GetComponentLookup using __TypeHandle and the checked state reference.</li>
+<li>
+<p>Schedules the job combining async entity list handle and read/write dependencies, assigns the resulting JobHandle to base.Dependency, and registers the system as a writer (AddWriter).</p>
+</li>
+<li>
+<p><code>[MethodImpl(MethodImplOptions.AggressiveInlining)] private void __AssignQueries(ref SystemState state)</code><br />
+Compiler helper (generated pattern). Here it performs an EntityQueryBuilder temporary creation and disposal. Called from OnCreateForCompiler.</p>
+</li>
+<li>
+<p><code>protected override void OnCreateForCompiler()</code><br />
+Compiler-time setup: calls base.OnCreateForCompiler(), assigns queries via __AssignQueries and initializes __TypeHandle via __AssignHandles. Typically used by generated code paths to wire up lookups.</p>
+</li>
+<li>
+<p><code>[Preserve] public</code> and other attributes on nested job/struct methods<br />
+PopulationToGridJob.Execute does the main work: zeroes the map and iterates residential entities to accumulate population counts into appropriate cells. TypeHandle.__AssignHandles initializes the component/buffer lookups from the SystemState.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private void __AssignQueries(ref SystemState state)
-    {
-        new EntityQueryBuilder(Allocator.Temp).Dispose();
-    }
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Example: sampling population at a world position using the static API.
+// 'populationMap' should be the NativeArray&lt;PopulationCell&gt; exposed/owned by the running system.
+// In game code you need to obtain that array from the system instance; shown here as a placeholder.
+
+float3 worldPos = new float3(100f, 0f, 250f);
+NativeArray&lt;PopulationCell&gt; populationMap = /* obtain from PopulationToGridSystem instance (m_Map) */;
+PopulationCell sampled = PopulationToGridSystem.GetPopulation(worldPos, populationMap);
+float populationAtPos = sampled.m_Population;
 </code></pre>
-<ul>
-<li><code>public static GetCellCenter(System.Int32 index) : Unity.Mathematics.float3</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static float3 GetCellCenter(int index)
-    {
-        return CellMapSystem&lt;PopulationCell&gt;.GetCellCenter(index, kTextureSize);
-    }
-</code></pre>
-<ul>
-<li><code>public static GetPopulation(Unity.Mathematics.float3 position, Unity.Collections.NativeArray&lt;Game.Simulation.PopulationCell&gt; populationMap) : Game.Simulation.PopulationCell</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static PopulationCell GetPopulation(float3 position, NativeArray&lt;PopulationCell&gt; populationMap)
-    {
-        PopulationCell result = default(PopulationCell);
-        int2 cell = CellMapSystem&lt;PopulationCell&gt;.GetCell(position, CellMapSystem&lt;PopulationCell&gt;.kMapSize, kTextureSize);
-        float2 cellCoords = CellMapSystem&lt;PopulationCell&gt;.GetCellCoords(position, CellMapSystem&lt;PopulationCell&gt;.kMapSize, kTextureSize);
-        if (cell.x &lt; 0 || cell.x &gt;= kTextureSize || cell.y &lt; 0 || cell.y &gt;= kTextureSize)
-        {
-            return result;
-        }
-        float population = populationMap[cell.x + kTextureSize * cell.y].m_Population;
-        float end = ((cell.x &lt; kTextureSize - 1) ? populationMap[cell.x + 1 + kTextureSize * cell.y].m_Population : 0f);
-        float start = ((cell.y &lt; kTextureSize - 1) ? populationMap[cell.x + kTextureSize * (cell.y + 1)].m_Population : 0f);
-        float end2 = ((cell.x &lt; kTextureSize - 1 &amp;&amp; cell.y &lt; kTextureSize - 1) ? populationMap[cell.x + 1 + kTextureSize * (cell.y + 1)].m_Population : 0f);
-        result.m_Population = math.lerp(math.lerp(population, end, cellCoords.x - (float)cell.x), math.lerp(start, end2, cellCoords.x - (float)cell.x), cellCoords.y - (float)cell.y);
-        return result;
-    }
-</code></pre>
-<ul>
-<li><code>public virtual GetUpdateInterval(Game.SystemUpdatePhase phase) : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override int GetUpdateInterval(SystemUpdatePhase phase)
-    {
-        return 262144 / kUpdatesPerDay;
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        CreateTextures(kTextureSize);
-        m_ResidentialPropertyQuery = GetEntityQuery(ComponentType.ReadOnly&lt;ResidentialProperty&gt;(), ComponentType.ReadOnly&lt;Renter&gt;(), ComponentType.ReadOnly&lt;Transform&gt;(), ComponentType.Exclude&lt;Destroyed&gt;(), ComponentType.Exclude&lt;Deleted&gt;(), ComponentType.Exclude&lt;Temp&gt;());
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreateForCompiler() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnCreateForCompiler()
-    {
-        base.OnCreateForCompiler();
-        __AssignQueries(ref base.CheckedStateRef);
-        __TypeHandle.__AssignHandles(ref base.CheckedStateRef);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        JobHandle outJobHandle;
-        PopulationToGridJob jobData = new PopulationToGridJob
-        {
-            m_Entities = m_ResidentialPropertyQuery.ToEntityListAsync(base.World.UpdateAllocator.ToAllocator, out outJobHandle),
-            m_PopulationMap = m_Map,
-            m_Renters = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Buildings_Renter_RO_BufferLookup, ref base.CheckedStateRef),
-            m_HouseholdCitizens = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_Citizens_HouseholdCitizen_RO_BufferLookup, ref base.CheckedStateRef),
-            m_Transforms = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Objects_Transform_RO_ComponentLookup, ref base.CheckedStateRef)
-        };
-        base.Dependency = IJobExtensions.Schedule(jobData, JobUtils.CombineDependencies(outJobHandle, m_WriteDependencies, m_ReadDependencies, base.Dependency));
-        AddWriter(base.Dependency);
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Simulation.PopulationToGridSystem+PopulationToGridJob</code>  </li>
-<li><code>Game.Simulation.PopulationToGridSystem+TypeHandle</code>  </li>
-</ul>
+<p>Notes / Implementation details:
+- The actual per-frame or scheduled update logic is implemented in a Burst-compiled IJob (PopulationToGridJob) for performance.
+- BufferLookup and ComponentLookup are obtained through an internal compiler interface using a stored TypeHandle; this matches typical DOTS generated code patterns.
+- The system uses fixed-size grid (kTextureSize = 64) and interpolates population values for arbitrary positions.
+- The EntityQuery filters out temporary, destroyed or deleted entities to avoid counting invalid entities.</p>
 
 
 

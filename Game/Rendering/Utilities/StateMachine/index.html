@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#gamerenderingutilitiesstatemachine" class="md-skip">
+        <a href="#gameendframebarrier" class="md-skip">
           Skip to content
         </a>
       
@@ -65233,6 +65233,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -66189,15 +66212,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -66228,6 +66242,15 @@
   <a href="#methods" class="md-nav__link">
     <span class="md-ellipsis">
       Methods
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
     </span>
   </a>
   
@@ -69753,6 +69776,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Skeleton/" class="md-nav__link">
         
   
@@ -72565,6 +72611,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75555,6 +75624,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87147,6 +87239,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -117923,6 +118038,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117948,15 +118085,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -117994,6 +118122,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -118010,177 +118147,120 @@
 
 
 
-<h1 id="gamerenderingutilitiesstatemachine">Game.Rendering.Utilities.StateMachine</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Rendering.Utilities</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>System.Object</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class StateMachine
-{
-    public System.Action onStarted;
-    public System.Action onStopped;
-    public System.Action&lt;Game.Rendering.Utilities.State&gt; onTransitioned;
-    private System.String m_name;
-    private Game.Rendering.Utilities.State _currentState;
-
-    public System.String name { get; }
-    public System.Boolean isStarted { get; }
-
-    public StateMachine(System.String name);
-
-    public System.String GetCurrentStateName();
-    public System.Boolean IsIn&lt;T&gt;();
-    public System.Void LateUpdate();
-    public virtual System.Void Start(Game.Rendering.Utilities.State initialState);
-    public virtual System.Void Stop();
-    private System.Void TransitionTo(Game.Rendering.Utilities.State state);
-    public System.Void Update();
-}
-</code></pre>
+<h1 id="gameendframebarrier">Game.EndFrameBarrier</h1>
+<p><strong>Assembly:</strong>  Assembly-CSharp</p>
+<p><strong>Namespace:</strong> Game.Rendering.Utilities</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> System.Object</p>
+<p><strong>Summary:</strong><br />
+StateMachine is a small runtime state machine for managing State instances (a separate State type is expected by the game/mod framework). It holds a single active State, provides lifecycle transitions (TransitionIn/TransitionOut), and exposes Action callbacks for start, stop and transitions. The machine supports Update/LateUpdate-driven progression and will immediately process a transition when one is requested.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>public System.Action onStarted</code>  </li>
+<li>
+<p><code>public Action onStarted</code><br />
+Callback invoked when the machine is started (after the initial state transition has occurred).</p>
+</li>
+<li>
+<p><code>public Action onStopped</code><br />
+Callback invoked when the machine is stopped (after the current state has been transitioned out).</p>
+</li>
+<li>
+<p><code>public Action&lt;State&gt; onTransitioned</code><br />
+Callback invoked whenever the machine transitions to a new state. The new active State is passed as the argument.</p>
+</li>
+<li>
+<p><code>private string m_name</code><br />
+Optional name given to the state machine instance (set via constructor). Exposed via the public <code>name</code> property.</p>
+</li>
+<li>
+<p><code>private State _currentState</code><br />
+Reference to the currently active State instance or null when the machine is not started.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public System.Action onStarted;
-</code></pre>
-<ul>
-<li><code>public System.Action onStopped</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Action onStopped;
-</code></pre>
-<ul>
-<li><code>public System.Action&lt;Game.Rendering.Utilities.State&gt; onTransitioned</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Action&lt;Game.Rendering.Utilities.State&gt; onTransitioned;
-</code></pre>
-<ul>
-<li><code>private System.String m_name</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.String m_name;
-</code></pre>
-<ul>
-<li><code>private Game.Rendering.Utilities.State _currentState</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Rendering.Utilities.State _currentState;
-</code></pre>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>public System.String name { get }</code>  </li>
+<li>
+<p><code>public string name { get; }</code><br />
+Read-only property exposing the optional name assigned to the machine.</p>
+</li>
+<li>
+<p><code>public bool isStarted { get; }</code><br />
+True when the machine has an active (non-null) current state.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public System.String name { get; }
-</code></pre>
-<ul>
-<li><code>public System.Boolean isStarted { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Boolean isStarted { get; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public StateMachine(System.String name = null)</code>  </li>
+<li><code>public StateMachine(string name = null)</code><br />
+Creates a new StateMachine instance. Optionally accepts a name used for identification/debugging.</li>
 </ul>
-<pre><code class="language-csharp">public StateMachine(string name = null)
-    {
-        m_name = name;
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>public GetCurrentStateName() : System.String</code>  </li>
+<li>
+<p><code>public virtual void Start(State initialState)</code><br />
+Starts the state machine with the supplied initialState. If the machine is not already started and initialState is non-null, the machine transitions into that state, invokes its TransitionIn, and then invokes the <code>onStarted</code> callback. If the machine is already started an Exception ("already started") is thrown.</p>
+</li>
+<li>
+<p><code>public virtual void Stop()</code><br />
+Stops the state machine. If a current state exists it is asked to TransitionOut, then the current state reference is cleared and the <code>onStopped</code> callback is invoked. Safe to call when not started (no-op).</p>
+</li>
+<li>
+<p><code>public void Update()</code><br />
+If started, calls the current state's Update() and inspects the returned State.Result. Behavior varies by ResultType:</p>
+</li>
+<li>Stop: calls Stop() on the machine.</li>
+<li>Transition: transitions to the provided <code>next</code> state.</li>
+<li>
+<p>Continue: does nothing (remains in current state).
+The machine processes transitions immediately (TransitionTo is invoked from here when requested).</p>
+</li>
+<li>
+<p><code>public void LateUpdate()</code><br />
+If started, delegates to the current state's LateUpdate().</p>
+</li>
+<li>
+<p><code>public string GetCurrentStateName()</code><br />
+Returns the current state's Name (if set and non-empty), otherwise calls ToString() on the state. Returns "none" when there is no current state.</p>
+</li>
+<li>
+<p><code>public bool IsIn&lt;T&gt;() where T : State</code><br />
+Returns true if the current state is of type T.</p>
+</li>
+<li>
+<p><code>private void TransitionTo(State state)</code><br />
+Performs the internal transition: calls TransitionOut() on the previous state (if any), sets <code>_currentState</code> to the new state, assigns this machine to the state's <code>machine</code> field, calls the new state's TransitionIn(), fires <code>onTransitioned</code> with the new state, and immediately calls Update() to process any immediate result from the new state's Update().</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public string GetCurrentStateName()
+<p>Notes:
+- The State type is not defined in this file; it is expected to provide TransitionIn(), TransitionOut(), Update() returning a State.Result (with ResultType Stop/Transition/Continue and possibly a next State), LateUpdate(), and a Name property and a <code>machine</code> field/setter used by TransitionTo.
+- The class uses Action callbacks for lightweight eventing. Some calls in the original code invoke an extension method Fire() on the Action (e.g., onStarted.Fire()). Ensure your environment provides that extension (or call the Action directly after null-check) when reusing this code.</p>
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Example assumes a State base class exists with the expected members.
+public class MyState : State
+{
+    public override void TransitionIn() { /* entry logic */ }
+    public override void TransitionOut() { /* exit logic */ }
+    public override Result Update()
     {
-        if (_currentState != null)
-        {
-            if (!string.IsNullOrEmpty(_currentState.Name))
-            {
-                return _currentState.Name;
-            }
-            return _currentState.ToString();
-        }
-        return &quot;none&quot;;
+        // return new Result(ResultType.Continue) etc.
     }
-</code></pre>
-<ul>
-<li><code>public IsIn&lt;T&gt;() : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Boolean IsIn&lt;T&gt;();
-</code></pre>
-<ul>
-<li><code>public LateUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void LateUpdate()
-    {
-        if (isStarted)
-        {
-            _currentState.LateUpdate();
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public virtual Start(Game.Rendering.Utilities.State initialState) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public virtual void Start(State initialState)
-    {
-        if (!isStarted &amp;&amp; initialState != null)
-        {
-            TransitionTo(initialState);
-            onStarted.Fire();
-            return;
-        }
-        throw new Exception(&quot;already started&quot;);
-    }
-</code></pre>
-<ul>
-<li><code>public virtual Stop() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public virtual void Stop()
-    {
-        if (isStarted)
-        {
-            if (_currentState != null)
-            {
-                _currentState.TransitionOut();
-                _currentState = null;
-            }
-            onStopped.Fire();
-        }
-    }
-</code></pre>
-<ul>
-<li><code>private TransitionTo(Game.Rendering.Utilities.State state) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void TransitionTo(State state)
-    {
-        _currentState?.TransitionOut();
-        _currentState = state;
-        _currentState.machine = this;
-        _currentState.TransitionIn();
-        onTransitioned.Fire(_currentState);
-        Update();
-    }
-</code></pre>
-<ul>
-<li><code>public Update() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void Update()
-    {
-        if (isStarted)
-        {
-            State.Result result = _currentState.Update();
-            switch (result.type)
-            {
-            case State.ResultType.Stop:
-                Stop();
-                break;
-            case State.ResultType.Transition:
-                TransitionTo(result.next);
-                break;
-            case State.ResultType.Continue:
-                break;
-            }
-        }
-    }
+    public override void LateUpdate() { /* late frame logic */ }
+}
+
+// Create and use the state machine:
+var sm = new StateMachine(&quot;ExampleMachine&quot;);
+sm.onStarted += () =&gt; Debug.Log(&quot;State machine started&quot;);
+sm.onStopped += () =&gt; Debug.Log(&quot;State machine stopped&quot;);
+sm.onTransitioned += s =&gt; Debug.Log(&quot;Transitioned to: &quot; + s.Name);
+
+var initial = new MyState();
+sm.Start(initial);
+
+// In your update loop:
+sm.Update();
+sm.LateUpdate();
+
+// Transition from within a state's Update by returning a Result with ResultType.Transition and a next State
 </code></pre>
 
 

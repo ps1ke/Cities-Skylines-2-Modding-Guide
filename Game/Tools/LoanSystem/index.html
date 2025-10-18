@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87073,6 +87165,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Simulation/SurfaceWater/" class="md-nav__link">
         
   
@@ -92116,15 +92231,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -92161,9 +92267,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -117930,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117955,15 +118083,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -118002,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118027,235 +118146,144 @@
 
 
 <h1 id="gametoolsloansystem">Game.Tools.LoanSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Tools</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code><br />
-<strong>Implements:</strong> <code>Game.Tools.ILoanSystem</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class LoanSystem : Game.GameSystemBase, Game.Tools.ILoanSystem
-{
-    private Game.Simulation.CitySystem m_CitySystem;
-    private Game.Simulation.SimulationSystem m_SimulationSystem;
-    private Unity.Collections.NativeQueue&lt;Game.Tools.LoanAction&gt; m_ActionQueue;
-    private Unity.Jobs.JobHandle m_ActionQueueWriters;
-    private Unity.Entities.EntityQuery m_EconomyParametersQuery;
-    private Game.Tools.LoanSystem+TypeHandle __TypeHandle;
-
-    public Game.Tools.LoanInfo CurrentLoan { get; }
-    public System.Int32 Creditworthiness { get; }
-
-    public LoanSystem();
-
-    private System.Void __AssignQueries(Unity.Entities.SystemState&amp; state);
-    public Game.Tools.LoanInfo CalculateLoan(System.Int32 amount);
-    public static Game.Tools.LoanInfo CalculateLoan(System.Int32 amount, System.Int32 creditworthiness, Unity.Entities.DynamicBuffer&lt;Game.City.CityModifier&gt; modifiers, Unity.Mathematics.float2 interestRange);
-    public System.Void ChangeLoan(System.Int32 amount);
-    private System.Int32 ClampLoanAmount(System.Int32 amount);
-    public static System.Single GetTargetInterest(System.Int32 loanAmount, System.Int32 creditworthiness, Unity.Entities.DynamicBuffer&lt;Game.City.CityModifier&gt; cityEffects, Unity.Mathematics.float2 interestRange);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnCreateForCompiler();
-    protected virtual System.Void OnDestroy();
-    protected virtual System.Void OnUpdate();
-    public Game.Tools.LoanInfo RequestLoanOffer(System.Int32 amount);
-}
-</code></pre>
+<p><strong>Assembly:</strong><br />
+<strong>Namespace:</strong> Game.Tools</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> GameSystemBase, ILoanSystem</p>
+<p><strong>Summary:</strong><br />
+LoanSystem manages the city's loan state and provides APIs to request loan offers and change the city's loan. It enqueues loan-change requests into a NativeQueue and applies them on the simulation thread via a scheduled IJob (LoanActionJob). Loan interest and payments are calculated from economy parameters, city modifiers and the city's creditworthiness. The system is designed to be thread-friendly by using ComponentLookup and JobHandle synchronization for job scheduling and completion.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.Simulation.CitySystem m_CitySystem</code>  </li>
+<li>
+<p><code>private CitySystem m_CitySystem</code><br />
+Holds a reference to the CitySystem used to obtain the city entity (m_CitySystem.City) for reading/writing city-level components (Loan, PlayerMoney, CityModifier buffer).</p>
+</li>
+<li>
+<p><code>private SimulationSystem m_SimulationSystem</code><br />
+Reference to the SimulationSystem used to obtain the current simulation frame index (m_SimulationSystem.frameIndex) for timestamping loan modifications.</p>
+</li>
+<li>
+<p><code>private NativeQueue&lt;LoanAction&gt; m_ActionQueue</code><br />
+Persistent NativeQueue used to enqueue loan change requests (LoanAction). These queued actions are consumed in a scheduled job (LoanActionJob) on update.</p>
+</li>
+<li>
+<p><code>private JobHandle m_ActionQueueWriters</code><br />
+JobHandle tracking writers/scheduling dependencies for the action queue. Used to synchronize before enqueuing or scheduling jobs.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_EconomyParametersQuery</code><br />
+EntityQuery used to read economy parameters (EconomyParameterData) such as loan interest min/max range.</p>
+</li>
+<li>
+<p><code>private TypeHandle __TypeHandle</code><br />
+Compiler-generated container holding ComponentLookup handles (Loan, PlayerMoney). Assigned in OnCreateForCompiler to be used for job component access through InternalCompilerInterface.</p>
+</li>
+<li>
+<p>(nested) <code>private struct LoanActionJob</code> (not listed as a field but important)<br />
+Defines an IJob that dequeues LoanAction entries and applies them to the city entity, adjusting PlayerMoney and Loan components atomically inside the job.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.Simulation.CitySystem m_CitySystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.SimulationSystem m_SimulationSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.SimulationSystem m_SimulationSystem;
-</code></pre>
-<ul>
-<li><code>private Unity.Collections.NativeQueue&lt;Game.Tools.LoanAction&gt; m_ActionQueue</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Collections.NativeQueue&lt;Game.Tools.LoanAction&gt; m_ActionQueue;
-</code></pre>
-<ul>
-<li><code>private Unity.Jobs.JobHandle m_ActionQueueWriters</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Jobs.JobHandle m_ActionQueueWriters;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_EconomyParametersQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_EconomyParametersQuery;
-</code></pre>
-<ul>
-<li><code>private Game.Tools.LoanSystem+TypeHandle __TypeHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Tools.LoanSystem+TypeHandle __TypeHandle;
-</code></pre>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>public Game.Tools.LoanInfo CurrentLoan { get }</code>  </li>
+<li>
+<p><code>public LoanInfo CurrentLoan { get; }</code><br />
+Returns the current loan information (LoanInfo) for the city by reading the Loan component on the city entity and converting m_Amount to a detailed LoanInfo via CalculateLoan. If no Loan component exists, returns default(LoanInfo).</p>
+</li>
+<li>
+<p><code>public int Creditworthiness { get; }</code><br />
+Gets the city's current creditworthiness by reading the Creditworthiness component on the city entity (Creditworthiness.m_Amount). Used to limit/clamp loan amounts and to compute interest.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public Game.Tools.LoanInfo CurrentLoan { get; }
-</code></pre>
-<ul>
-<li><code>public System.Int32 Creditworthiness { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Int32 Creditworthiness { get; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public LoanSystem()</code>  </li>
+<li><code>public LoanSystem()</code><br />
+Default constructor. The system initializes resources in OnCreate (sets up queries, system references and the native queue).</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public LoanSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private __AssignQueries(Unity.Entities.SystemState&amp; state) : System.Void</code>  </li>
+<li>
+<p><code>protected override void OnCreate()</code><br />
+Initializes the system: creates the economy parameters EntityQuery, acquires CitySystem and SimulationSystem references, and creates the persistent NativeQueue<LoanAction>.</p>
+</li>
+<li>
+<p><code>protected override void OnDestroy()</code><br />
+Disposes of persistent resources (disposes the m_ActionQueue) and performs any necessary cleanup.</p>
+</li>
+<li>
+<p><code>protected override void OnUpdate()</code><br />
+If the action queue is not empty, builds and schedules a LoanActionJob that consumes the queue and applies loan changes to the city's components. Combines m_ActionQueueWriters with the system Dependency to ensure proper synchronization.</p>
+</li>
+<li>
+<p><code>public LoanInfo RequestLoanOffer(int amount)</code><br />
+Returns a loan offer (LoanInfo) for the requested amount after clamping it with ClampLoanAmount — useful for UI previews without modifying game state.</p>
+</li>
+<li>
+<p><code>public void ChangeLoan(int amount)</code><br />
+Enqueues a loan change action. Completes m_ActionQueueWriters to ensure all writers are synchronized before enqueuing, then enqueues a LoanAction with the clamped amount. The change will be applied by the scheduled LoanActionJob during OnUpdate.</p>
+</li>
+<li>
+<p><code>private int ClampLoanAmount(int amount)</code><br />
+Clamps the requested loan amount between a lower bound and the city's Creditworthiness. The lower bound prevents lowering the loan below what would be forced by available cash (it uses current PlayerMoney and the current loan amount). Ensures requested amounts are valid.</p>
+</li>
+<li>
+<p><code>public LoanInfo CalculateLoan(int amount)</code><br />
+Instance helper that reads economy parameters and city modifiers and delegates to the static CalculateLoan(amount, creditworthiness, modifiers, interestRange).</p>
+</li>
+<li>
+<p><code>public static LoanInfo CalculateLoan(int amount, int creditworthiness, DynamicBuffer&lt;CityModifier&gt; modifiers, float2 interestRange)</code><br />
+Static calculation that, given an amount, creditworthiness, city modifiers and interest min/max range, computes LoanInfo (amount, daily interest rate, daily payment). If amount &lt;= 0 returns default(LoanInfo).</p>
+</li>
+<li>
+<p><code>public static float GetTargetInterest(int loanAmount, int creditworthiness, DynamicBuffer&lt;CityModifier&gt; cityEffects, float2 interestRange)</code><br />
+Computes the target daily interest rate (as a fraction) based on a lerp of interestRange using the ratio loanAmount/creditworthiness, applies city modifiers of type LoanInterest, and returns a minimum of 0. The returned value is 0.01 * percentage value (e.g. 1% =&gt; 0.01f).</p>
+</li>
+<li>
+<p><code>private void __AssignQueries(ref SystemState state)</code><br />
+Compiler-helper used to set up entity queries (presently a no-op other than creating/disposing a temporary EntityQueryBuilder). Called by OnCreateForCompiler.</p>
+</li>
+<li>
+<p><code>protected override void OnCreateForCompiler()</code><br />
+Compiler-time setup method that calls __AssignQueries and assigns component lookup handles via __TypeHandle.__AssignHandles.</p>
+</li>
+<li>
+<p>(nested) <code>private struct TypeHandle</code><br />
+Contains ComponentLookup fields for Loan and PlayerMoney and provides __AssignHandles to initialize them from SystemState. Used by jobs via InternalCompilerInterface.GetComponentLookup.</p>
+</li>
+<li>
+<p>(nested) <code>private struct LoanActionJob.Execute() : System.Void</code><br />
+Job execution loop: while dequeuing LoanAction entries, it:</p>
+</li>
+<li>Reads PlayerMoney and current Loan from the city entity.</li>
+<li>Adjusts PlayerMoney by adding (newAmount - oldLoanAmount).</li>
+<li>Writes updated PlayerMoney back to the city entity.</li>
+<li>Writes a new Loan component with m_Amount set to newAmount and m_LastModified set to the current simulation frame index.
+This effectively applies the loan change atomically from the job.</li>
 </ul>
-<pre><code class="language-csharp">private void __AssignQueries(ref SystemState state)
-    {
-        new EntityQueryBuilder(Allocator.Temp).Dispose();
-    }
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Example: Request an offer and apply a loan change from a MonoBehaviour or other script.
+[Preserve]
+void ExampleUsage()
+{
+    // Acquire the managed World and LoanSystem instance (example API; adjust to your mod context)
+    var loanSystem = Unity.Entities.World.DefaultGameObjectInjectionWorld
+                        .GetExistingSystemManaged&lt;Game.Tools.LoanSystem&gt;();
+
+    if (loanSystem == null) return;
+
+    // Request a preview offer for a 50,000 loan
+    var offer = loanSystem.RequestLoanOffer(50000);
+    Debug.Log($&quot;Offer: amount={offer.m_Amount}, dailyInterest={offer.m_DailyInterestRate}, dailyPayment={offer.m_DailyPayment}&quot;);
+
+    // Apply the loan change (this enqueues the action; it will be applied by the system job)
+    loanSystem.ChangeLoan(50000);
+}
 </code></pre>
-<ul>
-<li><code>public CalculateLoan(System.Int32 amount) : Game.Tools.LoanInfo</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static LoanInfo CalculateLoan(int amount, int creditworthiness, DynamicBuffer&lt;CityModifier&gt; modifiers, float2 interestRange)
-    {
-        if (amount &gt; 0)
-        {
-            float targetInterest = GetTargetInterest(amount, creditworthiness, modifiers, interestRange);
-            return new LoanInfo
-            {
-                m_Amount = amount,
-                m_DailyInterestRate = targetInterest,
-                m_DailyPayment = Mathf.RoundToInt((float)amount * targetInterest)
-            };
-        }
-        return default(LoanInfo);
-    }
-</code></pre>
-<ul>
-<li><code>public static CalculateLoan(System.Int32 amount, System.Int32 creditworthiness, Unity.Entities.DynamicBuffer&lt;Game.City.CityModifier&gt; modifiers, Unity.Mathematics.float2 interestRange) : Game.Tools.LoanInfo</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static LoanInfo CalculateLoan(int amount, int creditworthiness, DynamicBuffer&lt;CityModifier&gt; modifiers, float2 interestRange)
-    {
-        if (amount &gt; 0)
-        {
-            float targetInterest = GetTargetInterest(amount, creditworthiness, modifiers, interestRange);
-            return new LoanInfo
-            {
-                m_Amount = amount,
-                m_DailyInterestRate = targetInterest,
-                m_DailyPayment = Mathf.RoundToInt((float)amount * targetInterest)
-            };
-        }
-        return default(LoanInfo);
-    }
-</code></pre>
-<ul>
-<li><code>public ChangeLoan(System.Int32 amount) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void ChangeLoan(int amount)
-    {
-        m_ActionQueueWriters.Complete();
-        m_ActionQueue.Enqueue(new LoanAction
-        {
-            m_Amount = ClampLoanAmount(amount)
-        });
-    }
-</code></pre>
-<ul>
-<li><code>private ClampLoanAmount(System.Int32 amount) : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">private int ClampLoanAmount(int amount)
-    {
-        PlayerMoney componentData = base.EntityManager.GetComponentData&lt;PlayerMoney&gt;(m_CitySystem.City);
-        int lowerBound = math.max(0, CurrentLoan.m_Amount - math.max(0, componentData.money));
-        return math.clamp(amount, lowerBound, Creditworthiness);
-    }
-</code></pre>
-<ul>
-<li><code>public static GetTargetInterest(System.Int32 loanAmount, System.Int32 creditworthiness, Unity.Entities.DynamicBuffer&lt;Game.City.CityModifier&gt; cityEffects, Unity.Mathematics.float2 interestRange) : System.Single</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static float GetTargetInterest(int loanAmount, int creditworthiness, DynamicBuffer&lt;CityModifier&gt; cityEffects, float2 interestRange)
-    {
-        float value = 100f * math.lerp(interestRange.x, interestRange.y, math.saturate((float)loanAmount / math.max(1f, creditworthiness)));
-        CityUtils.ApplyModifier(ref value, cityEffects, CityModifierType.LoanInterest);
-        return math.max(0f, 0.01f * value);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_EconomyParametersQuery = base.EntityManager.CreateEntityQuery(ComponentType.ReadOnly&lt;EconomyParameterData&gt;());
-        m_CitySystem = base.World.GetOrCreateSystemManaged&lt;CitySystem&gt;();
-        m_SimulationSystem = base.World.GetOrCreateSystemManaged&lt;SimulationSystem&gt;();
-        m_ActionQueue = new NativeQueue&lt;LoanAction&gt;(Allocator.Persistent);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreateForCompiler() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnCreateForCompiler()
-    {
-        base.OnCreateForCompiler();
-        __AssignQueries(ref base.CheckedStateRef);
-        __TypeHandle.__AssignHandles(ref base.CheckedStateRef);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnDestroy() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnDestroy()
-    {
-        base.OnDestroy();
-        m_ActionQueue.Dispose();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        if (!m_ActionQueue.IsEmpty())
-        {
-            LoanActionJob jobData = new LoanActionJob
-            {
-                m_City = m_CitySystem.City,
-                m_SimulationFrameIndex = m_SimulationSystem.frameIndex,
-                m_ActionQueue = m_ActionQueue,
-                m_Loans = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Simulation_Loan_RW_ComponentLookup, ref base.CheckedStateRef),
-                m_Money = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_City_PlayerMoney_RW_ComponentLookup, ref base.CheckedStateRef)
-            };
-            base.Dependency = IJobExtensions.Schedule(jobData, JobHandle.CombineDependencies(m_ActionQueueWriters, base.Dependency));
-            m_ActionQueueWriters = base.Dependency;
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public RequestLoanOffer(System.Int32 amount) : Game.Tools.LoanInfo</code>  </li>
-</ul>
-<pre><code class="language-csharp">public LoanInfo RequestLoanOffer(int amount)
-    {
-        return CalculateLoan(ClampLoanAmount(amount));
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Tools.LoanSystem+LoanActionJob</code>  </li>
-<li><code>Game.Tools.LoanSystem+TypeHandle</code>  </li>
-</ul>
+<p>{{ Additional notes:
+- Threading: LoanSystem uses a persistent NativeQueue and schedules an IJob (LoanActionJob) to consume and apply queued loan changes. Synchronization is handled via JobHandle (m_ActionQueueWriters and base.Dependency). Callers invoking ChangeLoan ensure safe ordering by the system completing the writer handle before enqueueing.
+- Calculations: Interest is derived from economy parameters (EconomyParameterData.m_LoanMinMaxInterestRate) and modified by city modifiers (CityModifierType.LoanInterest). Daily payment is rounded using Mathf.RoundToInt(amount * dailyInterestRate).
+- Integration: LoanSystem depends on CitySystem and SimulationSystem. It reads/writes city-level components (Loan, PlayerMoney, Creditworthiness, CityModifier buffer) via ECS ComponentLookup/GetComponentData/GetBuffer.
+}}</p>
 
 
 

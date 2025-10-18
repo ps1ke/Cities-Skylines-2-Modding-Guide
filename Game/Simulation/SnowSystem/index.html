@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -86757,15 +86849,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -86802,9 +86885,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -87154,6 +87237,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -117930,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117955,15 +118083,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -118002,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118027,712 +118146,373 @@
 
 
 <h1 id="gamesimulationsnowsystem">Game.Simulation.SnowSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Simulation</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code><br />
-<strong>Implements:</strong> <code>Colossal.Serialization.Entities.IDefaultSerializable</code>, <code>Colossal.Serialization.Entities.ISerializable</code>, <code>Game.Serialization.IPostDeserialize</code>  </p>
-<p><strong>Attributes:</strong> <code>FormerlySerializedAs</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class SnowSystem : Game.GameSystemBase, Colossal.Serialization.Entities.IDefaultSerializable, Colossal.Serialization.Entities.ISerializable, Game.Serialization.IPostDeserialize
-{
-    private UnityEngine.RenderTexture m_snowHeightBackdropTextureFinal;
-    private UnityEngine.ComputeBuffer m_snowBackdropBuffer;
-    private UnityEngine.ComputeBuffer m_MinHeights;
-    private System.Int32 &lt;SnowSimSpeed&gt;k__BackingField;
-    private UnityEngine.RenderTexture[] m_SnowHeights;
-    private UnityEngine.Rendering.CommandBuffer m_CommandBuffer;
-    private UnityEngine.ComputeShader m_SnowUpdateShader;
-    private UnityEngine.ComputeShader &lt;m_SnowTransferShader&gt;k__BackingField;
-    private UnityEngine.ComputeShader &lt;m_DynamicHeightShader&gt;k__BackingField;
-    private System.Int32 m_TransferKernel;
-    private System.Int32 m_AddKernel;
-    private System.Int32 m_ResetKernel;
-    private System.Int32 m_LoadKernel;
-    private System.Int32 m_LoadOldFormatKernel;
-    private System.Int32 m_UpdateBackdropSnowHeightTextureKernel;
-    private System.Int32 m_ClearBackdropSnowHeightTextureKernel;
-    private System.Int32 m_FinalizeBackdropSnowHeightTextureKernel;
-    private System.Int32 m_ID_SnowDepth;
-    private System.Int32 m_ID_OldSnowDepth;
-    private System.Int32 m_ID_Timestep;
-    private System.Int32 m_ID_AddMultiplier;
-    private System.Int32 m_ID_MeltMultiplier;
-    private System.Int32 m_ID_AddWaterMultiplier;
-    private System.Int32 m_ID_ElapseWaterMultiplier;
-    private System.Int32 m_ID_Temperature;
-    private System.Int32 m_ID_Rain;
-    private System.Int32 m_ID_Wind;
-    private System.Int32 m_ID_Time;
-    private System.Int32 m_ID_SnowScale;
-    private System.Int32 m_ID_MinHeights;
-    private System.Int32 m_ID_SnowHeightBackdropBuffer;
-    private System.Int32 m_ID_SnowHeightBackdropFinal;
-    private System.Int32 m_ID_SnowBackdropUpdateLerpFactor;
-    private System.Int32 m_ID_SnowHeightBackdropBufferSize;
-    private Game.Simulation.TerrainSystem m_TerrainSystem;
-    private Game.Simulation.SimulationSystem m_SimulationSystem;
-    private Game.Simulation.TimeSystem m_TimeSystem;
-    private Game.Simulation.ClimateSystem m_ClimateSystem;
-    private Game.Simulation.WindSimulationSystem m_WindSimulationSystem;
-    private Game.Simulation.WaterSystem m_WaterSystem;
-    private System.Int32 &lt;Write&gt;k__BackingField;
-    private System.Boolean &lt;IsAsync&gt;k__BackingField;
-    private static Colossal.Logging.ILog log;
-    private static const System.Int32 kTexSize;
-    private static const System.Int32 kGroupSizeAddSnow;
-    private static const System.Int32 kNumGroupAddSnow;
-    private static const System.Single kTimeStep;
-    private static const System.Single kSnowHeightScale;
-    private static const System.Single kSnowMeltScale;
-    private static const System.Single m_SnowAddConstant;
-    private static const System.Single m_WaterAddConstant;
-    private static const System.Int32 kSnowHeightBackdropTextureSize;
-    private static const System.Single kSnowBackdropUpdateLerpFactor;
-
-    public UnityEngine.RenderTexture SnowHeightBackdropTexture { get; }
-    public System.Int32 SnowSimSpeed { get; set; }
-    public Unity.Mathematics.int2 TextureSize { get; }
-    public System.Boolean Loaded { get; }
-    private UnityEngine.ComputeShader m_SnowTransferShader { private get; set; }
-    private UnityEngine.ComputeShader m_DynamicHeightShader { private get; set; }
-    private Unity.Mathematics.float4 SnowScaleVector { private get; }
-    private System.Int32 Write { private get; private set; }
-    private System.Int32 Read { private get; }
-    public UnityEngine.RenderTexture SnowDepth { get; }
-    public System.Boolean IsAsync { get; set; }
-
-    public SnowSystem();
-
-    private System.Void AddSnow(UnityEngine.Rendering.CommandBuffer cmd);
-    private UnityEngine.RenderTexture CreateTexture(System.String name);
-    public System.Void DebugReset();
-    public System.Void Deserialize&lt;TReader&gt;(TReader reader);
-    private System.Void FlipSnow();
-    private System.Single GetSnowiness();
-    public virtual System.Int32 GetUpdateInterval(Game.SystemUpdatePhase phase);
-    private System.Void InitShader();
-    private System.Void InitTextures();
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnDestroy();
-    protected virtual System.Void OnUpdate();
-    public System.Void PostDeserialize(Colossal.Serialization.Entities.Context context);
-    public System.Void Serialize&lt;TWriter&gt;(TWriter writer);
-    public System.Void SetDefaults(Colossal.Serialization.Entities.Context context);
-    private System.Void SnowTransfer(UnityEngine.Rendering.CommandBuffer cmd);
-    public System.Void UpdateDynamicHeights();
-    private System.Void UpdateSnowBackdropTexture(UnityEngine.Rendering.CommandBuffer cmd, System.Single lerpFactor);
-}
-</code></pre>
+<p><strong>Assembly:</strong> Game<br />
+<strong>Namespace:</strong> Game.Simulation</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> GameSystemBase, IDefaultSerializable, ISerializable, IPostDeserialize</p>
+<p><strong>Summary:</strong><br />
+SnowSystem implements the GPU-driven snow simulation used by the game. It stores snow depth in two 1024×1024 RenderTextures (ping‑pong), updates snow accumulation, melting and transfer using ComputeShaders, maintains a 1×1024 backdrop height texture for distant rendering, and integrates with TerrainSystem, ClimateSystem, WaterSystem, WindSimulationSystem and TimeSystem. It also provides (de)serialization logic to save/load snow data to/from the save file. The class is optimized to run most heavy work on the GPU via command buffers and compute kernels, and exposes controls such as SnowSimSpeed for update frequency.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private UnityEngine.RenderTexture m_snowHeightBackdropTextureFinal</code>  </li>
+<li>
+<p><code>public struct ushort2</code><br />
+  Small nested struct with two ushorts (x, y). Used to represent 16‑bit packed snow data when serializing / deserializing legacy formats.</p>
+</li>
+<li>
+<p><code>private static ILog log</code><br />
+  Logger used for warnings/errors during serialization and runtime.</p>
+</li>
+<li>
+<p><code>private const int kTexSize</code><br />
+  Constant texture size (1024). Size used for snow textures.</p>
+</li>
+<li>
+<p><code>private const int kGroupSizeAddSnow</code><br />
+  Compute group size constant used when dispatching Add kernel (16).</p>
+</li>
+<li>
+<p><code>private const int kNumGroupAddSnow</code><br />
+  Number of groups for Add kernel (64).</p>
+</li>
+<li>
+<p><code>private const float kTimeStep</code><br />
+  Simulation timestep constant (0.2f) used for snow update kernels.</p>
+</li>
+<li>
+<p><code>private const float kSnowHeightScale</code><br />
+  Scale for snow height (8f) used when mapping older formats.</p>
+</li>
+<li>
+<p><code>private const float kSnowMeltScale</code><br />
+  Melt scaling constant.</p>
+</li>
+<li>
+<p><code>private const float m_SnowAddConstant</code><br />
+  Constant used as the base add multiplier (1E-05f).</p>
+</li>
+<li>
+<p><code>private const float m_WaterAddConstant</code><br />
+  Constant used for water influence (0.1f).</p>
+</li>
+<li>
+<p><code>private const int kSnowHeightBackdropTextureSize</code><br />
+  Backdrop texture length (1024).</p>
+</li>
+<li>
+<p><code>private const float kSnowBackdropUpdateLerpFactor</code><br />
+  Default lerp factor used when updating backdrop (0.1f).</p>
+</li>
+<li>
+<p><code>private RenderTexture m_snowHeightBackdropTextureFinal</code><br />
+  The 1×1024 final backdrop texture containing prefiltered snow heights used for distant rendering.</p>
+</li>
+<li>
+<p><code>private ComputeBuffer m_snowBackdropBuffer</code><br />
+  GPU compute buffer used during backdrop height computation/finalization.</p>
+</li>
+<li>
+<p><code>private ComputeBuffer m_MinHeights</code><br />
+  Compute buffer that stores minimum heights for blocks/tiles used by backdrop generation.</p>
+</li>
+<li>
+<p><code>private RenderTexture[] m_SnowHeights</code><br />
+  Ping‑pong array of two 1024×1024 RenderTextures storing snow depth (R16G16_UNorm).</p>
+</li>
+<li>
+<p><code>private CommandBuffer m_CommandBuffer</code><br />
+  Single CommandBuffer used to batch compute dispatches and texture updates.</p>
+</li>
+<li>
+<p><code>private ComputeShader m_SnowUpdateShader</code><br />
+  Main compute shader used for snow reset/load/add/transfer/backdrop kernels.</p>
+</li>
+<li>
+<p><code>private int m_TransferKernel</code><br />
+  Kernel index for "Transfer" compute kernel.</p>
+</li>
+<li>
+<p><code>private int m_AddKernel</code><br />
+  Kernel index for "Add" compute kernel (accumulation &amp; melting).</p>
+</li>
+<li>
+<p><code>private int m_ResetKernel</code><br />
+  Kernel index for "Reset" kernel.</p>
+</li>
+<li>
+<p><code>private int m_LoadKernel</code><br />
+  Kernel index for "Load" kernel (16‑bit format).</p>
+</li>
+<li>
+<p><code>private int m_LoadOldFormatKernel</code><br />
+  Kernel index for loading older float4 formats.</p>
+</li>
+<li>
+<p><code>private int m_UpdateBackdropSnowHeightTextureKernel</code><br />
+  Kernel index used for computing backdrop min heights.</p>
+</li>
+<li>
+<p><code>private int m_ClearBackdropSnowHeightTextureKernel</code><br />
+  Kernel index used to clear the backdrop buffer.</p>
+</li>
+<li>
+<p><code>private int m_FinalizeBackdropSnowHeightTextureKernel</code><br />
+  Kernel index used to finalize the backdrop 1×1024 texture.</p>
+</li>
+<li>
+<p><code>private int m_ID_SnowDepth</code><br />
+  Shader property ID mapped to result snow depth texture.</p>
+</li>
+<li>
+<p><code>private int m_ID_OldSnowDepth</code><br />
+  Shader property ID mapped to previous (read) snow depth texture.</p>
+</li>
+<li>
+<p><code>private int m_ID_Timestep</code><br />
+  Shader property ID for timestep.</p>
+</li>
+<li>
+<p><code>private int m_ID_AddMultiplier</code><br />
+  Shader property ID for add multiplier.</p>
+</li>
+<li>
+<p><code>private int m_ID_MeltMultiplier</code><br />
+  Shader property ID for melt multiplier.</p>
+</li>
+<li>
+<p><code>private int m_ID_AddWaterMultiplier</code><br />
+  Shader property ID for added water multiplier.</p>
+</li>
+<li>
+<p><code>private int m_ID_ElapseWaterMultiplier</code><br />
+  Shader property ID for water elapse multiplier.</p>
+</li>
+<li>
+<p><code>private int m_ID_Temperature</code><br />
+  Shader property ID for temperature.</p>
+</li>
+<li>
+<p><code>private int m_ID_Rain</code><br />
+  Shader property ID for precipitation.</p>
+</li>
+<li>
+<p><code>private int m_ID_Wind</code><br />
+  Shader property ID for wind vector.</p>
+</li>
+<li>
+<p><code>private int m_ID_Time</code><br />
+  Shader property ID for normalized simulation time.</p>
+</li>
+<li>
+<p><code>private int m_ID_SnowScale</code><br />
+  Shader property ID for snow scale vector.</p>
+</li>
+<li>
+<p><code>private int m_ID_MinHeights</code><br />
+  Shader property ID for the min heights compute buffer.</p>
+</li>
+<li>
+<p><code>private int m_ID_SnowHeightBackdropBuffer</code><br />
+  Shader property ID for the backdrop buffer.</p>
+</li>
+<li>
+<p><code>private int m_ID_SnowHeightBackdropFinal</code><br />
+  Shader property ID for the final backdrop texture.</p>
+</li>
+<li>
+<p><code>private int m_ID_SnowBackdropUpdateLerpFactor</code><br />
+  Shader property ID for the backdrop lerp factor.</p>
+</li>
+<li>
+<p><code>private int m_ID_SnowHeightBackdropBufferSize</code><br />
+  Shader property ID for the backdrop buffer size (1024).</p>
+</li>
+<li>
+<p><code>private TerrainSystem m_TerrainSystem</code><br />
+  Reference to TerrainSystem (heightmap, height scale).</p>
+</li>
+<li>
+<p><code>private SimulationSystem m_SimulationSystem</code><br />
+  Reference to the simulation system.</p>
+</li>
+<li>
+<p><code>private TimeSystem m_TimeSystem</code><br />
+  Reference to TimeSystem for normalized time/date.</p>
+</li>
+<li>
+<p><code>private ClimateSystem m_ClimateSystem</code><br />
+  Reference to ClimateSystem (temperature, precipitation, base heights).</p>
+</li>
+<li>
+<p><code>private WindSimulationSystem m_WindSimulationSystem</code><br />
+  Reference to wind simulation for constant wind vector.</p>
+</li>
+<li>
+<p><code>private WaterSystem m_WaterSystem</code><br />
+  Reference to WaterSystem (water texture).</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private UnityEngine.RenderTexture m_snowHeightBackdropTextureFinal;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.ComputeBuffer m_snowBackdropBuffer</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.ComputeBuffer m_snowBackdropBuffer;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.ComputeBuffer m_MinHeights</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.ComputeBuffer m_MinHeights;
-</code></pre>
-<ul>
-<li><code>private System.Int32 &lt;SnowSimSpeed&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 &lt;SnowSimSpeed&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.RenderTexture[] m_SnowHeights</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.RenderTexture[] m_SnowHeights;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.Rendering.CommandBuffer m_CommandBuffer</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.Rendering.CommandBuffer m_CommandBuffer;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.ComputeShader m_SnowUpdateShader</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.ComputeShader m_SnowUpdateShader;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.ComputeShader &lt;m_SnowTransferShader&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.ComputeShader &lt;m_SnowTransferShader&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private UnityEngine.ComputeShader &lt;m_DynamicHeightShader&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.ComputeShader &lt;m_DynamicHeightShader&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_TransferKernel</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_TransferKernel;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_AddKernel</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_AddKernel;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_ResetKernel</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_ResetKernel;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_LoadKernel</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_LoadKernel;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_LoadOldFormatKernel</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_LoadOldFormatKernel;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_UpdateBackdropSnowHeightTextureKernel</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_UpdateBackdropSnowHeightTextureKernel;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_ClearBackdropSnowHeightTextureKernel</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_ClearBackdropSnowHeightTextureKernel;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_FinalizeBackdropSnowHeightTextureKernel</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_FinalizeBackdropSnowHeightTextureKernel;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_ID_SnowDepth</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_ID_SnowDepth;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_ID_OldSnowDepth</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_ID_OldSnowDepth;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_ID_Timestep</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_ID_Timestep;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_ID_AddMultiplier</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_ID_AddMultiplier;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_ID_MeltMultiplier</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_ID_MeltMultiplier;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_ID_AddWaterMultiplier</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_ID_AddWaterMultiplier;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_ID_ElapseWaterMultiplier</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_ID_ElapseWaterMultiplier;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_ID_Temperature</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_ID_Temperature;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_ID_Rain</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_ID_Rain;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_ID_Wind</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_ID_Wind;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_ID_Time</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_ID_Time;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_ID_SnowScale</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_ID_SnowScale;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_ID_MinHeights</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_ID_MinHeights;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_ID_SnowHeightBackdropBuffer</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_ID_SnowHeightBackdropBuffer;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_ID_SnowHeightBackdropFinal</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_ID_SnowHeightBackdropFinal;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_ID_SnowBackdropUpdateLerpFactor</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_ID_SnowBackdropUpdateLerpFactor;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_ID_SnowHeightBackdropBufferSize</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_ID_SnowHeightBackdropBufferSize;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.TerrainSystem m_TerrainSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.TerrainSystem m_TerrainSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.SimulationSystem m_SimulationSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.SimulationSystem m_SimulationSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.TimeSystem m_TimeSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.TimeSystem m_TimeSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.ClimateSystem m_ClimateSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.ClimateSystem m_ClimateSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.WindSimulationSystem m_WindSimulationSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.WindSimulationSystem m_WindSimulationSystem;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.WaterSystem m_WaterSystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.WaterSystem m_WaterSystem;
-</code></pre>
-<ul>
-<li><code>private System.Int32 &lt;Write&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 &lt;Write&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private System.Boolean &lt;IsAsync&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Boolean &lt;IsAsync&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private static Colossal.Logging.ILog log</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static Colossal.Logging.ILog log;
-</code></pre>
-<ul>
-<li><code>private static const System.Int32 kTexSize</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static const System.Int32 kTexSize;
-</code></pre>
-<ul>
-<li><code>private static const System.Int32 kGroupSizeAddSnow</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static const System.Int32 kGroupSizeAddSnow;
-</code></pre>
-<ul>
-<li><code>private static const System.Int32 kNumGroupAddSnow</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static const System.Int32 kNumGroupAddSnow;
-</code></pre>
-<ul>
-<li><code>private static const System.Single kTimeStep</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static const System.Single kTimeStep;
-</code></pre>
-<ul>
-<li><code>private static const System.Single kSnowHeightScale</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static const System.Single kSnowHeightScale;
-</code></pre>
-<ul>
-<li><code>private static const System.Single kSnowMeltScale</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static const System.Single kSnowMeltScale;
-</code></pre>
-<ul>
-<li><code>private static const System.Single m_SnowAddConstant</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static const System.Single m_SnowAddConstant;
-</code></pre>
-<ul>
-<li><code>private static const System.Single m_WaterAddConstant</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static const System.Single m_WaterAddConstant;
-</code></pre>
-<ul>
-<li><code>private static const System.Int32 kSnowHeightBackdropTextureSize</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static const System.Int32 kSnowHeightBackdropTextureSize;
-</code></pre>
-<ul>
-<li><code>private static const System.Single kSnowBackdropUpdateLerpFactor</code>  </li>
-</ul>
-<pre><code class="language-csharp">private static const System.Single kSnowBackdropUpdateLerpFactor;
-</code></pre>
+<hr />
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>public UnityEngine.RenderTexture SnowHeightBackdropTexture { get }</code>  </li>
+<li>
+<p><code>public RenderTexture SnowHeightBackdropTexture =&gt; m_snowHeightBackdropTextureFinal</code><br />
+  Readonly accessor for the final 1×1024 snow backdrop texture used by shaders for distant snow rendering.</p>
+</li>
+<li>
+<p><code>public int SnowSimSpeed { get; set; }</code><br />
+  Controls how many snow update iterations run each OnUpdate call (default set to 1 in OnCreate). Increasing this speeds the simulation at cost of GPU time.</p>
+</li>
+<li>
+<p><code>public int2 TextureSize =&gt; new int2(1024, 1024)</code><br />
+  Returns the configured snow texture size as int2.</p>
+</li>
+<li>
+<p><code>public bool Loaded =&gt; m_SnowUpdateShader != null</code><br />
+  Indicates whether the snow update shader has been initialized (i.e., system is ready).</p>
+</li>
+<li>
+<p><code>public ComputeShader m_SnowTransferShader { private get; set; }</code><br />
+  Transfer shader slot (private getter). Present for injection/configuration but primary compute work is in m_SnowUpdateShader.</p>
+</li>
+<li>
+<p><code>public ComputeShader m_DynamicHeightShader { private get; set; }</code><br />
+  Slot for dynamic height compute shader (private getter).</p>
+</li>
+<li>
+<p><code>private float4 SnowScaleVector =&gt; new float4(8f, 1f, 1f, 1f)</code><br />
+  Internal scale vector used when loading old formats or setting shader parameters.</p>
+</li>
+<li>
+<p><code>private int Write { get; set; }</code><br />
+  Index of the current write buffer (0 or 1) in m_SnowHeights used for ping‑pong.</p>
+</li>
+<li>
+<p><code>private int Read =&gt; 1 - Write</code><br />
+  Read index computed as the opposite of Write.</p>
+</li>
+<li>
+<p><code>public RenderTexture SnowDepth</code><br />
+  Returns the current read snow depth RenderTexture (null if textures not initialized).</p>
+</li>
+<li>
+<p><code>public bool IsAsync { get; set; }</code><br />
+  Flag indicating whether certain operations can run asynchronously (not used extensively in this class).</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public UnityEngine.RenderTexture SnowHeightBackdropTexture { get; }
-</code></pre>
-<ul>
-<li><code>public System.Int32 SnowSimSpeed { get; set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Int32 SnowSimSpeed { get; set; }
-</code></pre>
-<ul>
-<li><code>public Unity.Mathematics.int2 TextureSize { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Unity.Mathematics.int2 TextureSize { get; }
-</code></pre>
-<ul>
-<li><code>public System.Boolean Loaded { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Boolean Loaded { get; }
-</code></pre>
-<ul>
-<li><code>private UnityEngine.ComputeShader m_SnowTransferShader { private get; set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.ComputeShader m_SnowTransferShader { private get; set; }
-</code></pre>
-<ul>
-<li><code>private UnityEngine.ComputeShader m_DynamicHeightShader { private get; set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">private UnityEngine.ComputeShader m_DynamicHeightShader { private get; set; }
-</code></pre>
-<ul>
-<li><code>private Unity.Mathematics.float4 SnowScaleVector { private get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Mathematics.float4 SnowScaleVector { private get; }
-</code></pre>
-<ul>
-<li><code>private System.Int32 Write { private get; private set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 Write { private get; private set; }
-</code></pre>
-<ul>
-<li><code>private System.Int32 Read { private get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 Read { private get; }
-</code></pre>
-<ul>
-<li><code>public UnityEngine.RenderTexture SnowDepth { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public UnityEngine.RenderTexture SnowDepth { get; }
-</code></pre>
-<ul>
-<li><code>public System.Boolean IsAsync { get; set }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Boolean IsAsync { get; set; }
-</code></pre>
+<hr />
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public SnowSystem()</code>  </li>
+<li><code>public SnowSystem()</code><br />
+  Default constructor. Initialization is performed in the preserved override OnCreate where shaders, textures and system references are configured.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public SnowSystem()
-    {
-    }
-</code></pre>
+<hr />
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private AddSnow(UnityEngine.Rendering.CommandBuffer cmd) : System.Void</code>  </li>
+<li>
+<p><code>public override int GetUpdateInterval(SystemUpdatePhase phase)</code><br />
+  Returns update interval for system scheduling. SnowSystem returns 4 (i.e., runs on a coarser schedule).</p>
+</li>
+<li>
+<p><code>private void InitShader()</code><br />
+  Loads the snow update compute shader from AssetDatabase.global.resources.shaders.snowUpdate and caches kernel indices for Reset, Load, LoadOldFormat, Add, Transfer, UpdateBackdropSnowHeightTexture, ClearBackdropSnowHeightTexture and FinalizeBackdropSnowHeightTexture.</p>
+</li>
+<li>
+<p><code>public unsafe void Serialize&lt;TWriter&gt;(TWriter writer) where TWriter : IWriter</code><br />
+  Serializes snow data into the save: writes width/height (1024,1024) then reads back the current snow texture (GPU -&gt; NativeArray via AsyncGPUReadback) and compresses/filters it before writing to the writer. Uses 16‑bit ushort2 packing when appropriate.</p>
+</li>
+<li>
+<p><code>public void PostDeserialize(Context context)</code><br />
+  Called after deserialization. For older versions (pre-snow version) it resets both snow textures. Also sets the global "_SnowMap" shader texture to the current SnowDepth.</p>
+</li>
+<li>
+<p><code>public void DebugReset()</code><br />
+  Utility that resets both ping‑pong snow textures by dispatching the Reset kernel to both write and read textures.</p>
+</li>
+<li>
+<p><code>public unsafe void Deserialize&lt;TReader&gt;(TReader reader) where TReader : IReader</code><br />
+  Reads snow data from save. Handles different save versions:</p>
+</li>
+<li>If Version.snow16bits or newer: reads packed ushort2 array, unfilters, uploads to a ComputeBuffer, and dispatches the Load kernel to populate both ping‑pong textures and backdrop buffers.</li>
+<li>
+<p>If older: reads float4 arrays (legacy) and dispatches LoadOldFormat kernel with SnowScaleVector.
+  After loading, it sets global scale vector ("colossal_SnowScale") and prepares backdrop texture. The method also logs warnings if saved dimensions don't match expectations.</p>
+</li>
+<li>
+<p><code>public void SetDefaults(Context context)</code><br />
+  Resets snow textures to defaults (dispatches Reset kernel) and sets global "_SnowMap" texture.</p>
+</li>
+<li>
+<p><code>public void UpdateDynamicHeights()</code><br />
+  Placeholder method in current implementation (empty). Intended to update dynamic height data when present.</p>
+</li>
+<li>
+<p><code>private RenderTexture CreateTexture(string name)</code><br />
+  Helper to create a 1024×1024 RenderTexture configured as R16G16_UNorm, with random write enabled and Clamp wrap; used for snow height textures.</p>
+</li>
+<li>
+<p><code>private void InitTextures()</code><br />
+  Initializes m_SnowHeights[2], m_MinHeights buffer, m_snowBackdropBuffer and the final backdrop RenderTexture (1×1024 R32_SFloat). Called during OnCreate.</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnCreate()</code><br />
+  System setup: calls InitShader, acquires references to required systems (TerrainSystem, SimulationSystem, TimeSystem, ClimateSystem, WaterSystem, WindSimulationSystem), initializes textures and shader property IDs, creates a CommandBuffer and sets default SnowSimSpeed = 1. Also registers required data (RequireForUpdate<TerrainPropertiesData>).</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnDestroy()</code><br />
+  Disposes the CommandBuffer, destroys RenderTextures and releases compute buffers created during OnCreate/InitTextures.</p>
+</li>
+<li>
+<p><code>private void FlipSnow()</code><br />
+  Swaps Write index between 0 and 1 for ping‑ponging.</p>
+</li>
+<li>
+<p><code>private float GetSnowiness()</code><br />
+  Small helper that computes a periodic value based on normalized date (not used directly in current code path).</p>
+</li>
+<li>
+<p><code>private void AddSnow(CommandBuffer cmd)</code><br />
+  Dispatches the "Add" kernel using the command buffer. Sets multiple compute parameters (timestep, add/melt/water multipliers, temperature, rain, wind, scale, time) and binds Terrain heightmap, previous &amp; current snow textures, water texture and the min heights buffer. Dispatches kernel and flips the ping‑pong buffers.</p>
+</li>
+<li>
+<p><code>private void SnowTransfer(CommandBuffer cmd)</code><br />
+  Dispatches the "Transfer" kernel which models snow transport when conditions are right. It early‑outs when precipitation is low or temperature is above threshold. Binds old/current snow textures, terrain heightmap and wind vector and dispatches the kernel, then flips the ping‑pong buffers.</p>
+</li>
+<li>
+<p><code>private void UpdateSnowBackdropTexture(CommandBuffer cmd, float lerpFactor)</code><br />
+  Updates the 1×1024 backdrop texture: clears the backdrop buffer, accumulates min heights (using m_MinHeights), finalizes the backdrop texture using the lerpFactor, and writes into m_snowHeightBackdropTextureFinal.</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnUpdate()</code><br />
+  Runs every scheduled tick (GetUpdateInterval applied). If WaterSystem is loaded, clears CommandBuffer, runs AddSnow and SnowTransfer SnowSimSpeed times, updates the backdrop texture (with lerp 0.1), sets global "_SnowMap" to current SnowDepth, and executes the command buffer.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private void AddSnow(CommandBuffer cmd)
-    {
-        using (new ProfilingScope(cmd, ProfilingSampler.Get(ProfileId.AddSnow)))
-        {
-            cmd.SetComputeFloatParam(m_SnowUpdateShader, m_ID_Timestep, 0.2f);
-            cmd.SetComputeFloatParam(m_SnowUpdateShader, m_ID_AddMultiplier, 1E-05f);
-            cmd.SetComputeFloatParam(m_SnowUpdateShader, m_ID_MeltMultiplier, 0.00012f);
-            cmd.SetComputeFloatParam(m_SnowUpdateShader, m_ID_AddWaterMultiplier, 0.1f);
-            cmd.SetComputeFloatParam(m_SnowUpdateShader, m_ID_ElapseWaterMultiplier, 0.05f);
-            cmd.SetComputeFloatParam(m_SnowUpdateShader, m_ID_Temperature, m_ClimateSystem.temperature);
-            cmd.SetComputeFloatParam(m_SnowUpdateShader, m_ID_Rain, m_ClimateSystem.precipitation);
-            cmd.SetComputeVectorParam(m_SnowUpdateShader, m_ID_Wind, new float4(m_WindSimulationSystem.constantWind, 0f, 0f));
-            cmd.SetComputeVectorParam(m_SnowUpdateShader, m_ID_SnowScale, SnowScaleVector);
-            cmd.SetComputeFloatParam(m_SnowUpdateShader, m_ID_Time, m_TimeSystem.normalizedTime);
-            cmd.SetComputeTextureParam(m_SnowUpdateShader, m_AddKernel, &quot;_Terrain&quot;, m_TerrainSystem.heightmap);
-            cmd.SetComputeVectorParam(m_SnowUpdateShader, &quot;_HeightScale&quot;, new float4(m_TerrainSystem.heightScaleOffset, m_ClimateSystem.temperatureBaseHeight, m_ClimateSystem.snowTemperatureHeightScale));
-            cmd.SetComputeTextureParam(m_SnowUpdateShader, m_AddKernel, m_ID_OldSnowDepth, m_SnowHeights[Read]);
-            cmd.SetComputeTextureParam(m_SnowUpdateShader, m_AddKernel, m_ID_SnowDepth, m_SnowHeights[Write]);
-            cmd.SetComputeTextureParam(m_SnowUpdateShader, m_AddKernel, &quot;_Water&quot;, m_WaterSystem.WaterTexture);
-            cmd.SetComputeBufferParam(m_SnowUpdateShader, m_AddKernel, m_ID_MinHeights, m_MinHeights);
-            cmd.DispatchCompute(m_SnowUpdateShader, m_AddKernel, 64, 64, 1);
-        }
-        FlipSnow();
-    }
-</code></pre>
-<ul>
-<li><code>private CreateTexture(System.String name) : UnityEngine.RenderTexture</code>  </li>
-</ul>
-<pre><code class="language-csharp">private RenderTexture CreateTexture(string name)
-    {
-        RenderTexture renderTexture = new RenderTexture(1024, 1024, 0, GraphicsFormat.R16G16_UNorm);
-        renderTexture.name = name;
-        renderTexture.hideFlags = HideFlags.DontSave;
-        renderTexture.enableRandomWrite = true;
-        renderTexture.wrapMode = TextureWrapMode.Clamp;
-        renderTexture.filterMode = FilterMode.Bilinear;
-        renderTexture.Create();
-        return renderTexture;
-    }
-</code></pre>
-<ul>
-<li><code>public DebugReset() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void DebugReset()
-    {
-        m_SnowUpdateShader.SetTexture(m_ResetKernel, &quot;_Result&quot;, m_SnowHeights[Write]);
-        m_SnowUpdateShader.Dispatch(m_ResetKernel, 64, 64, 1);
-        m_SnowUpdateShader.SetTexture(m_ResetKernel, &quot;_Result&quot;, m_SnowHeights[Read]);
-        m_SnowUpdateShader.Dispatch(m_ResetKernel, 64, 64, 1);
-    }
-</code></pre>
-<ul>
-<li><code>public Deserialize&lt;TReader&gt;(TReader reader) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Void Deserialize&lt;TReader&gt;(TReader reader);
-</code></pre>
-<ul>
-<li><code>private FlipSnow() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void FlipSnow()
-    {
-        Write = 1 - Write;
-    }
-</code></pre>
-<ul>
-<li><code>private GetSnowiness() : System.Single</code>  </li>
-</ul>
-<pre><code class="language-csharp">private float GetSnowiness()
-    {
-        return Mathf.Sin(MathF.PI * 40f * m_TimeSystem.normalizedDate);
-    }
-</code></pre>
-<ul>
-<li><code>public virtual GetUpdateInterval(Game.SystemUpdatePhase phase) : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override int GetUpdateInterval(SystemUpdatePhase phase)
-    {
-        return 4;
-    }
-</code></pre>
-<ul>
-<li><code>private InitShader() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void InitShader()
-    {
-        m_SnowUpdateShader = AssetDatabase.global.resources.shaders.snowUpdate;
-        m_ResetKernel = m_SnowUpdateShader.FindKernel(&quot;Reset&quot;);
-        m_LoadKernel = m_SnowUpdateShader.FindKernel(&quot;Load&quot;);
-        m_LoadOldFormatKernel = m_SnowUpdateShader.FindKernel(&quot;LoadOldFormat&quot;);
-        m_AddKernel = m_SnowUpdateShader.FindKernel(&quot;Add&quot;);
-        m_TransferKernel = m_SnowUpdateShader.FindKernel(&quot;Transfer&quot;);
-        m_UpdateBackdropSnowHeightTextureKernel = m_SnowUpdateShader.FindKernel(&quot;UpdateBackdropSnowHeightTexture&quot;);
-        m_ClearBackdropSnowHeightTextureKernel = m_SnowUpdateShader.FindKernel(&quot;ClearBackdropSnowHeightTexture&quot;);
-        m_FinalizeBackdropSnowHeightTextureKernel = m_SnowUpdateShader.FindKernel(&quot;FinalizeBackdropSnowHeightTexture&quot;);
-    }
-</code></pre>
-<ul>
-<li><code>private InitTextures() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void InitTextures()
-    {
-        m_SnowHeights = new RenderTexture[2];
-        m_SnowHeights[0] = CreateTexture(&quot;SnowRT0&quot;);
-        m_SnowHeights[1] = CreateTexture(&quot;SnowRT1&quot;);
-        m_MinHeights = new ComputeBuffer(4096, UnsafeUtility.SizeOf&lt;float2&gt;(), ComputeBufferType.Default);
-        m_snowBackdropBuffer = new ComputeBuffer(1024, UnsafeUtility.SizeOf&lt;uint2&gt;(), ComputeBufferType.Default);
-        m_snowHeightBackdropTextureFinal = new RenderTexture(1024, 1, 0, GraphicsFormat.R32_SFloat)
-        {
-            name = &quot;SnowBackdropHeightTextureFinal&quot;,
-            hideFlags = HideFlags.DontSave,
-            enableRandomWrite = true,
-            wrapMode = TextureWrapMode.Clamp,
-            filterMode = FilterMode.Bilinear
-        };
-        m_snowHeightBackdropTextureFinal.Create();
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
+<hr />
+<h2 id="usage-example">Usage Example</h2>
 <pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        InitShader();
-        m_TerrainSystem = base.World.GetOrCreateSystemManaged&lt;TerrainSystem&gt;();
-        m_SimulationSystem = base.World.GetOrCreateSystemManaged&lt;SimulationSystem&gt;();
-        m_TimeSystem = base.World.GetOrCreateSystemManaged&lt;TimeSystem&gt;();
-        m_ClimateSystem = base.World.GetOrCreateSystemManaged&lt;ClimateSystem&gt;();
-        m_WaterSystem = base.World.GetOrCreateSystemManaged&lt;WaterSystem&gt;();
-        m_WindSimulationSystem = base.World.GetOrCreateSystemManaged&lt;WindSimulationSystem&gt;();
-        InitTextures();
-        m_ID_SnowDepth = Shader.PropertyToID(&quot;_Result&quot;);
-        m_ID_OldSnowDepth = Shader.PropertyToID(&quot;_Previous&quot;);
-        m_ID_Timestep = Shader.PropertyToID(&quot;_Timestep&quot;);
-        m_ID_AddMultiplier = Shader.PropertyToID(&quot;_AddMultiplier&quot;);
-        m_ID_MeltMultiplier = Shader.PropertyToID(&quot;_MeltMultiplier&quot;);
-        m_ID_AddWaterMultiplier = Shader.PropertyToID(&quot;_AddWaterMultiplier&quot;);
-        m_ID_ElapseWaterMultiplier = Shader.PropertyToID(&quot;_ElapseWaterMultiplier&quot;);
-        m_ID_Temperature = Shader.PropertyToID(&quot;_Temperature&quot;);
-        m_ID_Rain = Shader.PropertyToID(&quot;_Rain&quot;);
-        m_ID_Time = Shader.PropertyToID(&quot;_SimTime&quot;);
-        m_ID_Wind = Shader.PropertyToID(&quot;_Wind&quot;);
-        m_ID_SnowScale = Shader.PropertyToID(&quot;_SnowScale&quot;);
-        m_ID_MinHeights = Shader.PropertyToID(&quot;_MinHeights&quot;);
-        m_ID_SnowHeightBackdropBuffer = Shader.PropertyToID(&quot;_SnowHeightBackdropBuffer&quot;);
-        m_ID_SnowHeightBackdropFinal = Shader.PropertyToID(&quot;_SnowHeightBackdropTextureFinal&quot;);
-        m_ID_SnowBackdropUpdateLerpFactor = Shader.PropertyToID(&quot;_SnowBackdropUpdateLerpFactor&quot;);
-        m_ID_SnowHeightBackdropBufferSize = Shader.PropertyToID(&quot;_SnowHeightBackdropBufferSize&quot;);
-        RequireForUpdate&lt;TerrainPropertiesData&gt;();
-        m_CommandBuffer = new CommandBuffer();
-        m_CommandBuffer.name = &quot;Snowsystem&quot;;
-        SnowSimSpeed = 1;
-    }
+protected override void OnCreate()
+{
+    base.OnCreate();
+    // Initialize compute shader kernels and textures
+    InitShader();
+    InitTextures();
+
+    // Grab references to required systems
+    m_TerrainSystem = World.GetOrCreateSystemManaged&lt;TerrainSystem&gt;();
+    m_TimeSystem = World.GetOrCreateSystemManaged&lt;TimeSystem&gt;();
+    m_ClimateSystem = World.GetOrCreateSystemManaged&lt;ClimateSystem&gt;();
+    m_WaterSystem = World.GetOrCreateSystemManaged&lt;WaterSystem&gt;();
+    m_WindSimulationSystem = World.GetOrCreateSystemManaged&lt;WindSimulationSystem&gt;();
+
+    // Prepare command buffer and property IDs
+    m_CommandBuffer = new CommandBuffer { name = &quot;Snowsystem&quot; };
+    SnowSimSpeed = 1;
+}
 </code></pre>
-<ul>
-<li><code>protected virtual OnDestroy() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnDestroy()
-    {
-        m_CommandBuffer.Dispose();
-        CoreUtils.Destroy(m_SnowHeights[0]);
-        CoreUtils.Destroy(m_SnowHeights[1]);
-        m_MinHeights.Release();
-        m_snowBackdropBuffer.Release();
-        CoreUtils.Destroy(m_snowHeightBackdropTextureFinal);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        if (m_WaterSystem.Loaded)
-        {
-            m_CommandBuffer.Clear();
-            for (int i = 0; i &lt; SnowSimSpeed; i++)
-            {
-                AddSnow(m_CommandBuffer);
-                SnowTransfer(m_CommandBuffer);
-            }
-            UpdateSnowBackdropTexture(m_CommandBuffer, 0.1f);
-            Shader.SetGlobalTexture(&quot;_SnowMap&quot;, SnowDepth);
-            Graphics.ExecuteCommandBuffer(m_CommandBuffer);
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public PostDeserialize(Colossal.Serialization.Entities.Context context) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void PostDeserialize(Context context)
-    {
-        if (context.version &lt; Version.snow)
-        {
-            m_SnowUpdateShader.SetTexture(m_ResetKernel, &quot;_Result&quot;, m_SnowHeights[Write]);
-            m_SnowUpdateShader.Dispatch(m_ResetKernel, 64, 64, 1);
-            m_SnowUpdateShader.SetTexture(m_ResetKernel, &quot;_Result&quot;, m_SnowHeights[Read]);
-            m_SnowUpdateShader.Dispatch(m_ResetKernel, 64, 64, 1);
-        }
-        Shader.SetGlobalTexture(&quot;_SnowMap&quot;, SnowDepth);
-    }
-</code></pre>
-<ul>
-<li><code>public Serialize&lt;TWriter&gt;(TWriter writer) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Void Serialize&lt;TWriter&gt;(TWriter writer);
-</code></pre>
-<ul>
-<li><code>public SetDefaults(Colossal.Serialization.Entities.Context context) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void SetDefaults(Context context)
-    {
-        m_SnowUpdateShader.SetTexture(m_ResetKernel, &quot;_Result&quot;, m_SnowHeights[Write]);
-        m_SnowUpdateShader.Dispatch(m_ResetKernel, 64, 64, 1);
-        m_SnowUpdateShader.SetTexture(m_ResetKernel, &quot;_Result&quot;, m_SnowHeights[Read]);
-        m_SnowUpdateShader.Dispatch(m_ResetKernel, 64, 64, 1);
-        Shader.SetGlobalTexture(&quot;_SnowMap&quot;, SnowDepth);
-    }
-</code></pre>
-<ul>
-<li><code>private SnowTransfer(UnityEngine.Rendering.CommandBuffer cmd) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void SnowTransfer(CommandBuffer cmd)
-    {
-        using (new ProfilingScope(cmd, ProfilingSampler.Get(ProfileId.TransferSnow)))
-        {
-            if ((float)m_ClimateSystem.precipitation &lt; 0.1f || (float)m_ClimateSystem.temperature - 0.01f * (m_TerrainSystem.heightScaleOffset.x - m_ClimateSystem.temperatureBaseHeight) &gt; 0f)
-            {
-                return;
-            }
-            cmd.SetComputeVectorParam(m_SnowUpdateShader, m_ID_SnowScale, SnowScaleVector);
-            cmd.SetComputeVectorParam(m_SnowUpdateShader, &quot;_HeightScale&quot;, new float4(m_TerrainSystem.heightScaleOffset, m_ClimateSystem.temperatureBaseHeight, 0f));
-            cmd.SetComputeTextureParam(m_SnowUpdateShader, m_TransferKernel, m_ID_OldSnowDepth, m_SnowHeights[Read]);
-            cmd.SetComputeTextureParam(m_SnowUpdateShader, m_TransferKernel, m_ID_SnowDepth, m_SnowHeights[Write]);
-            cmd.SetComputeTextureParam(m_SnowUpdateShader, m_TransferKernel, &quot;_Terrain&quot;, m_TerrainSystem.heightmap);
-            cmd.SetComputeVectorParam(m_SnowUpdateShader, m_ID_Wind, new float4(m_WindSimulationSystem.constantWind, 0f, 0f));
-            cmd.DispatchCompute(m_SnowUpdateShader, m_TransferKernel, 64, 64, 1);
-        }
-        FlipSnow();
-    }
-</code></pre>
-<ul>
-<li><code>public UpdateDynamicHeights() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void UpdateDynamicHeights()
-    {
-    }
-</code></pre>
-<ul>
-<li><code>private UpdateSnowBackdropTexture(UnityEngine.Rendering.CommandBuffer cmd, System.Single lerpFactor) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void UpdateSnowBackdropTexture(CommandBuffer cmd, float lerpFactor)
-    {
-        using (new ProfilingScope(m_CommandBuffer, ProfilingSampler.Get(ProfileId.UpdateSnowHeightBackdrop)))
-        {
-            cmd.SetComputeBufferParam(m_SnowUpdateShader, m_ClearBackdropSnowHeightTextureKernel, m_ID_SnowHeightBackdropBuffer, m_snowBackdropBuffer);
-            cmd.DispatchCompute(m_SnowUpdateShader, m_ClearBackdropSnowHeightTextureKernel, 64, 1, 1);
-            cmd.SetComputeBufferParam(m_SnowUpdateShader, m_UpdateBackdropSnowHeightTextureKernel, m_ID_SnowHeightBackdropBuffer, m_snowBackdropBuffer);
-            cmd.SetComputeBufferParam(m_SnowUpdateShader, m_UpdateBackdropSnowHeightTextureKernel, m_ID_MinHeights, m_MinHeights);
-            cmd.SetComputeIntParam(m_SnowUpdateShader, m_ID_SnowHeightBackdropBufferSize, 1024);
-            cmd.DispatchCompute(m_SnowUpdateShader, m_UpdateBackdropSnowHeightTextureKernel, 256, 1, 1);
-            cmd.SetComputeBufferParam(m_SnowUpdateShader, m_FinalizeBackdropSnowHeightTextureKernel, m_ID_SnowHeightBackdropBuffer, m_snowBackdropBuffer);
-            cmd.SetComputeTextureParam(m_SnowUpdateShader, m_FinalizeBackdropSnowHeightTextureKernel, m_ID_SnowHeightBackdropFinal, m_snowHeightBackdropTextureFinal);
-            cmd.SetComputeFloatParam(m_SnowUpdateShader, m_ID_SnowBackdropUpdateLerpFactor, lerpFactor);
-            cmd.DispatchCompute(m_SnowUpdateShader, m_FinalizeBackdropSnowHeightTextureKernel, 1, 1, 1);
-        }
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Simulation.SnowSystem+ushort2</code>  </li>
-</ul>
+<p>If you want, I can also:
+- generate concise diagrams showing the ping‑pong workflow and compute kernel dispatch order,
+- extract the shader kernel names and parameters into a single quick reference,
+- or produce step‑by‑step guidance for modders to change SnowSimSpeed, add custom compute kernels, or hook into serialization.</p>
 
 
 

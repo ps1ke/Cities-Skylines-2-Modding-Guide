@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#gamesimulationtimesystem" class="md-skip">
+        <a href="#gametimesystem" class="md-skip">
           Skip to content
         </a>
       
@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87075,6 +87167,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../SurfaceWater/" class="md-nav__link">
         
   
@@ -87677,15 +87792,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -87716,6 +87822,15 @@
   <a href="#methods" class="md-nav__link">
     <span class="md-ellipsis">
       Methods
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
     </span>
   </a>
   
@@ -117921,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117946,15 +118083,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -117992,6 +118120,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -118008,349 +118145,180 @@
 
 
 
-<h1 id="gamesimulationtimesystem">Game.Simulation.TimeSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Simulation</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code><br />
-<strong>Implements:</strong> <code>Game.Simulation.ITimeSystem</code>, <code>Game.Serialization.IPostDeserialize</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class TimeSystem : Game.GameSystemBase, Game.Simulation.ITimeSystem, Game.Serialization.IPostDeserialize
-{
-    private Game.Simulation.SimulationSystem m_SimulationSystem;
-    private System.Int32 &lt;startingYear&gt;k__BackingField;
-    private System.Single m_Time;
-    private System.Single m_Date;
-    private System.Int32 m_Year;
-    private System.Int32 m_DaysPerYear;
-    private System.UInt32 m_InitialFrame;
-    private Unity.Entities.EntityQuery m_TimeSettingGroup;
-    private Unity.Entities.EntityQuery m_TimeDataQuery;
-    public static const System.Int32 kTicksPerDay;
-
-    public System.Int32 startingYear { get; set; }
-    public System.Single normalizedTime { get; }
-    public System.Single normalizedDate { get; }
-    public System.Int32 year { get; }
-    public System.Int32 daysPerYear { get; }
-
-    public TimeSystem();
-
-    private static System.DateTime CreateDateTime(System.Int32 year, System.Int32 day, System.Int32 hour, System.Int32 minute, System.Single second);
-    public System.Void DebugAdvanceTime(System.Int32 minutes);
-    public System.DateTime GetCurrentDateTime();
-    public System.DateTime GetDateTime(System.Double renderingFrame);
-    public static System.Int32 GetDay(System.UInt32 frame, Game.Common.TimeData data);
-    public System.Single GetElapsedYears(Game.Prefabs.TimeSettingsData settings, Game.Common.TimeData data);
-    public System.Single GetStartingDate(Game.Prefabs.TimeSettingsData settings, Game.Common.TimeData data);
-    protected System.Int32 GetTicks(System.UInt32 frameIndex, Game.Prefabs.TimeSettingsData settings, Game.Common.TimeData data);
-    protected System.Int32 GetTicks(Game.Prefabs.TimeSettingsData settings, Game.Common.TimeData data);
-    public System.Single GetTimeOfDay(Game.Prefabs.TimeSettingsData settings, Game.Common.TimeData data, System.Double renderingFrame);
-    protected System.Single GetTimeOfDay(Game.Prefabs.TimeSettingsData settings, Game.Common.TimeData data);
-    public System.Single GetTimeOfYear(Game.Prefabs.TimeSettingsData settings, Game.Common.TimeData data, System.Double renderingFrame);
-    protected System.Single GetTimeOfYear(Game.Prefabs.TimeSettingsData settings, Game.Common.TimeData data);
-    protected System.Double GetTimeWithOffset(Game.Prefabs.TimeSettingsData settings, Game.Common.TimeData data, System.Double renderingFrame);
-    public System.Int32 GetYear(Game.Prefabs.TimeSettingsData settings, Game.Common.TimeData data);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnUpdate();
-    public System.Void PostDeserialize(Colossal.Serialization.Entities.Context context);
-    private System.Void UpdateTime();
-}
-</code></pre>
+<h1 id="gametimesystem">Game.TimeSystem</h1>
+<p><strong>Assembly:</strong> Assembly-CSharp (typical Unity game assembly)<br />
+<strong>Namespace:</strong> Game.Simulation</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> GameSystemBase (implements ITimeSystem, IPostDeserialize)</p>
+<p><strong>Summary:</strong><br />
+TimeSystem manages the in-game simulation time and date for Cities: Skylines 2. It converts the simulation frame index (from SimulationSystem) into normalized day/time values, computes year/day offsets, and exposes helper methods to obtain DateTime values for rendering or gameplay use. The system reads time configuration from a TimeSettingsData singleton and stores persistent offsets in a TimeData entity. Key behaviors:
+- Uses a fixed tick resolution: kTicksPerDay = 262144 ticks per day.
+- Exposes normalizedTime (time of day) and normalizedDate (time of year) and the current year.
+- During deserialization it ensures a TimeData entity exists and initializes start-frame/starting year for new games.
+- Updates its cached time values each frame in UpdateTime() (called from OnUpdate).</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Game.Simulation.SimulationSystem m_SimulationSystem</code>  </li>
+<li>
+<p><code>private SimulationSystem m_SimulationSystem</code><br />
+Reference to the simulation system used to read the current simulation frame index (frame-based time source).</p>
+</li>
+<li>
+<p><code>public const int kTicksPerDay = 262144</code><br />
+Constant tick count representing one in-game day. Used throughout time calculations.</p>
+</li>
+<li>
+<p><code>private float m_Time</code><br />
+Cached normalized time-of-day [0..1) for the current simulation frame (updated in UpdateTime()).</p>
+</li>
+<li>
+<p><code>private float m_Date</code><br />
+Cached normalized time-of-year [0..1) (updated in UpdateTime()).</p>
+</li>
+<li>
+<p><code>private int m_Year = 1</code><br />
+Cached current year (initialized to 1, updated in UpdateTime()).</p>
+</li>
+<li>
+<p><code>private int m_DaysPerYear = 1</code><br />
+Cached days-per-year value. Lazily read from TimeSettingsData if zero.</p>
+</li>
+<li>
+<p><code>private uint m_InitialFrame</code><br />
+An unsigned integer intended to store an initial frame index. Present in the class but not used directly in other methods in this file.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_TimeSettingGroup</code><br />
+EntityQuery that selects the TimeSettingsData singleton used to configure days per year and other settings.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_TimeDataQuery</code><br />
+EntityQuery that selects the TimeData singleton which stores persistent time offsets and starting-frame data.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Game.Simulation.SimulationSystem m_SimulationSystem;
-</code></pre>
-<ul>
-<li><code>private System.Int32 &lt;startingYear&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 &lt;startingYear&gt;k__BackingField;
-</code></pre>
-<ul>
-<li><code>private System.Single m_Time</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Single m_Time;
-</code></pre>
-<ul>
-<li><code>private System.Single m_Date</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Single m_Date;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_Year</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_Year;
-</code></pre>
-<ul>
-<li><code>private System.Int32 m_DaysPerYear</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Int32 m_DaysPerYear;
-</code></pre>
-<ul>
-<li><code>private System.UInt32 m_InitialFrame</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.UInt32 m_InitialFrame;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_TimeSettingGroup</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_TimeSettingGroup;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityQuery m_TimeDataQuery</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_TimeDataQuery;
-</code></pre>
-<ul>
-<li><code>public static const System.Int32 kTicksPerDay</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static const System.Int32 kTicksPerDay;
-</code></pre>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>public System.Int32 startingYear { get; set }</code>  </li>
+<li>
+<p><code>public int startingYear { get; set; }</code><br />
+Public property that holds the starting year for new games. When creating a new game during PostDeserialize, this is written into the TimeData singleton.</p>
+</li>
+<li>
+<p><code>public float normalizedTime =&gt; m_Time</code><br />
+Read-only property exposing the cached normalized time-of-day (0..1). Use for UI, rendering and other time-dependent logic.</p>
+</li>
+<li>
+<p><code>public float normalizedDate =&gt; m_Date</code><br />
+Read-only property exposing the cached normalized time-of-year (0..1).</p>
+</li>
+<li>
+<p><code>public int year =&gt; m_Year</code><br />
+Read-only property exposing the cached current year.</p>
+</li>
+<li>
+<p><code>public int daysPerYear</code><br />
+Read-only property that returns the number of days per year. If m_DaysPerYear is zero the value is fetched from the TimeSettingsData singleton and clamped to at least 1.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public System.Int32 startingYear { get; set; }
-</code></pre>
-<ul>
-<li><code>public System.Single normalizedTime { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Single normalizedTime { get; }
-</code></pre>
-<ul>
-<li><code>public System.Single normalizedDate { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Single normalizedDate { get; }
-</code></pre>
-<ul>
-<li><code>public System.Int32 year { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Int32 year { get; }
-</code></pre>
-<ul>
-<li><code>public System.Int32 daysPerYear { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Int32 daysPerYear { get; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public TimeSystem()</code>  </li>
+<li><code>public TimeSystem()</code><br />
+Default constructor. Marked with [Preserve] in source to prevent stripping; no initialization beyond field defaults. The real initialization occurs in OnCreate().</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public TimeSystem()
-    {
-    }
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private static CreateDateTime(System.Int32 year, System.Int32 day, System.Int32 hour, System.Int32 minute, System.Single second) : System.DateTime</code>  </li>
+<li>
+<p><code>protected override void OnCreate()</code><br />
+Initializes the system: gets/creates the SimulationSystem, sets up EntityQuery objects (TimeSettingsData and TimeData), and requires those queries for update (RequireForUpdate). Called when the system is created.</p>
+</li>
+<li>
+<p><code>public void PostDeserialize(Context context)</code><br />
+Called after serialization/deserialization. Ensures a TimeData entity exists, initializes TimeData fields for new games (sets m_FirstFrame to the current simulation frame and m_StartingYear from startingYear), and calls UpdateTime() to populate cached time fields.</p>
+</li>
+<li>
+<p><code>protected int GetTicks(uint frameIndex, TimeSettingsData settings, TimeData data)</code><br />
+Compute total tick count relative to a TimeData.m_FirstFrame using an explicit frameIndex. Adds TimeOffset and date offset contributions. Returns ticks as an int.</p>
+</li>
+<li>
+<p><code>protected int GetTicks(TimeSettingsData settings, TimeData data)</code><br />
+Same as above but uses the current simulation frame from m_SimulationSystem.frameIndex.</p>
+</li>
+<li>
+<p><code>protected double GetTimeWithOffset(TimeSettingsData settings, TimeData data, double renderingFrame)</code><br />
+Returns a double representing the rendering frame plus time and date offsets (in ticks). Used as helper for fractional time calculations.</p>
+</li>
+<li>
+<p><code>public float GetTimeOfDay(TimeSettingsData settings, TimeData data, double renderingFrame)</code><br />
+Public helper that returns the time-of-day [0..1) for a given rendering frame (accounts for TimeData offsets).</p>
+</li>
+<li>
+<p><code>protected float GetTimeOfDay(TimeSettingsData settings, TimeData data)</code><br />
+Returns the time-of-day [0..1) for the current simulation frame.</p>
+</li>
+<li>
+<p><code>public float GetTimeOfYear(TimeSettingsData settings, TimeData data, double renderingFrame)</code><br />
+Returns normalized time-of-year [0..1) for a given rendering frame. Takes days-per-year into account.</p>
+</li>
+<li>
+<p><code>protected float GetTimeOfYear(TimeSettingsData settings, TimeData data)</code><br />
+Returns normalized time-of-year [0..1) for the current simulation frame.</p>
+</li>
+<li>
+<p><code>public float GetElapsedYears(TimeSettingsData settings, TimeData data)</code><br />
+Returns the number of elapsed years (floating-point) since TimeData.m_FirstFrame based on tick counts and days-per-year.</p>
+</li>
+<li>
+<p><code>public float GetStartingDate(TimeSettingsData settings, TimeData data)</code><br />
+Returns the starting normalized date-of-year (based on data stored in TimeData and TimeSettingsData).</p>
+</li>
+<li>
+<p><code>public int GetYear(TimeSettingsData settings, TimeData data)</code><br />
+Compute the integer year given settings and TimeData (adds data.m_StartingYear and the number of full years elapsed since m_FirstFrame).</p>
+</li>
+<li>
+<p><code>public static int GetDay(uint frame, TimeData data)</code><br />
+Static helper to get the integer day count since m_FirstFrame using a frame index and data.TimeOffset. Returns floor((frame - firstFrame)/ticksPerDay + TimeOffset).</p>
+</li>
+<li>
+<p><code>public void DebugAdvanceTime(int minutes)</code><br />
+Debug helper that advances in-game time by a number of minutes by subtracting from TimeData.m_FirstFrame (effectively fast-forwarding). Useful for testing.</p>
+</li>
+<li>
+<p><code>private static DateTime CreateDateTime(int year, int day, int hour, int minute, float second)</code><br />
+Constructs a UTC DateTime from year/day/hour/minute/second values. Applies daylight-saving-time correction (adds an hour if the resulting DateTime falls into DST). Used by GetDateTime/GetCurrentDateTime to create real DateTime instances from normalized values.</p>
+</li>
+<li>
+<p><code>public DateTime GetDateTime(double renderingFrame)</code><br />
+Returns a DateTime corresponding to a given rendering frame (fractional frame), factoring in TimeSettingsData and TimeData offsets. Converts normalized time-of-day and time-of-year into concrete year/day/hour/minute/second values.</p>
+</li>
+<li>
+<p><code>public DateTime GetCurrentDateTime()</code><br />
+Returns a DateTime built from the cached normalizedTime, normalizedDate and year. Useful for code that needs the current in-game wall-clock time.</p>
+</li>
+<li>
+<p><code>protected override void OnUpdate()</code><br />
+Called each frame by the ECS world. Calls UpdateTime() to refresh cached values.</p>
+</li>
+<li>
+<p><code>private void UpdateTime()</code><br />
+Internal method that reads the TimeSettingsData and TimeData singletons and updates m_Time, m_Date, m_Year and m_DaysPerYear fields.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private static DateTime CreateDateTime(int year, int day, int hour, int minute, float second)
-    {
-        DateTime result = new DateTime(0L, DateTimeKind.Utc).AddYears(year - 1).AddDays(day - 1).AddHours(hour)
-            .AddMinutes(minute)
-            .AddSeconds(second);
-        if (result.IsDaylightSavingTime())
-        {
-            result = result.AddHours(1.0);
-        }
-        return result;
-    }
-</code></pre>
-<ul>
-<li><code>public DebugAdvanceTime(System.Int32 minutes) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void DebugAdvanceTime(int minutes)
-    {
-        TimeData singleton = m_TimeDataQuery.GetSingleton&lt;TimeData&gt;();
-        Entity singletonEntity = m_TimeDataQuery.GetSingletonEntity();
-        singleton.m_FirstFrame -= (uint)(minutes * 262144) / 1440u;
-        base.EntityManager.SetComponentData(singletonEntity, singleton);
-    }
-</code></pre>
-<ul>
-<li><code>public GetCurrentDateTime() : System.DateTime</code>  </li>
-</ul>
-<pre><code class="language-csharp">public DateTime GetCurrentDateTime()
-    {
-        float num = normalizedTime;
-        float num2 = normalizedDate;
-        int num3 = Mathf.FloorToInt(24f * num);
-        int minute = Mathf.FloorToInt(60f * (24f * num - (float)num3));
-        int day = 1 + Mathf.FloorToInt((float)daysPerYear * num2) % daysPerYear;
-        return CreateDateTime(year, day, num3, minute, Mathf.Repeat(num, 1f));
-    }
-</code></pre>
-<ul>
-<li><code>public GetDateTime(System.Double renderingFrame) : System.DateTime</code>  </li>
-</ul>
-<pre><code class="language-csharp">public DateTime GetDateTime(double renderingFrame)
-    {
-        TimeSettingsData singleton = m_TimeSettingGroup.GetSingleton&lt;TimeSettingsData&gt;();
-        TimeData singleton2 = m_TimeDataQuery.GetSingleton&lt;TimeData&gt;();
-        float timeOfDay = GetTimeOfDay(singleton, singleton2, renderingFrame);
-        float timeOfYear = GetTimeOfYear(singleton, singleton2, renderingFrame);
-        int num = Mathf.FloorToInt(24f * timeOfDay);
-        int minute = Mathf.FloorToInt(60f * (24f * timeOfDay - (float)num));
-        int day = 1 + Mathf.FloorToInt((float)daysPerYear * timeOfYear) % daysPerYear;
-        return CreateDateTime(year, day, num, minute, Mathf.Repeat(timeOfDay, 1f));
-    }
-</code></pre>
-<ul>
-<li><code>public static GetDay(System.UInt32 frame, Game.Common.TimeData data) : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static int GetDay(uint frame, TimeData data)
-    {
-        return Mathf.FloorToInt((float)(frame - data.m_FirstFrame) / 262144f + data.TimeOffset);
-    }
-</code></pre>
-<ul>
-<li><code>public GetElapsedYears(Game.Prefabs.TimeSettingsData settings, Game.Common.TimeData data) : System.Single</code>  </li>
-</ul>
-<pre><code class="language-csharp">public float GetElapsedYears(TimeSettingsData settings, TimeData data)
-    {
-        int num = 262144 * settings.m_DaysPerYear;
-        return (float)(m_SimulationSystem.frameIndex - data.m_FirstFrame) / (float)num;
-    }
-</code></pre>
-<ul>
-<li><code>public GetStartingDate(Game.Prefabs.TimeSettingsData settings, Game.Common.TimeData data) : System.Single</code>  </li>
-</ul>
-<pre><code class="language-csharp">public float GetStartingDate(TimeSettingsData settings, TimeData data)
-    {
-        int num = 262144 * settings.m_DaysPerYear;
-        return (float)(GetTicks(data.m_FirstFrame, settings, data) % num) / (float)num;
-    }
-</code></pre>
-<ul>
-<li><code>protected GetTicks(System.UInt32 frameIndex, Game.Prefabs.TimeSettingsData settings, Game.Common.TimeData data) : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected int GetTicks(TimeSettingsData settings, TimeData data)
-    {
-        return (int)(m_SimulationSystem.frameIndex - data.m_FirstFrame) + Mathf.RoundToInt(data.TimeOffset * 262144f) + Mathf.RoundToInt(data.GetDateOffset(settings.m_DaysPerYear) * 262144f * (float)settings.m_DaysPerYear);
-    }
-</code></pre>
-<ul>
-<li><code>protected GetTicks(Game.Prefabs.TimeSettingsData settings, Game.Common.TimeData data) : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected int GetTicks(TimeSettingsData settings, TimeData data)
-    {
-        return (int)(m_SimulationSystem.frameIndex - data.m_FirstFrame) + Mathf.RoundToInt(data.TimeOffset * 262144f) + Mathf.RoundToInt(data.GetDateOffset(settings.m_DaysPerYear) * 262144f * (float)settings.m_DaysPerYear);
-    }
-</code></pre>
-<ul>
-<li><code>public GetTimeOfDay(Game.Prefabs.TimeSettingsData settings, Game.Common.TimeData data, System.Double renderingFrame) : System.Single</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected float GetTimeOfDay(TimeSettingsData settings, TimeData data)
-    {
-        return (float)(GetTicks(settings, data) % 262144) / 262144f;
-    }
-</code></pre>
-<ul>
-<li><code>protected GetTimeOfDay(Game.Prefabs.TimeSettingsData settings, Game.Common.TimeData data) : System.Single</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected float GetTimeOfDay(TimeSettingsData settings, TimeData data)
-    {
-        return (float)(GetTicks(settings, data) % 262144) / 262144f;
-    }
-</code></pre>
-<ul>
-<li><code>public GetTimeOfYear(Game.Prefabs.TimeSettingsData settings, Game.Common.TimeData data, System.Double renderingFrame) : System.Single</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected float GetTimeOfYear(TimeSettingsData settings, TimeData data)
-    {
-        int num = 262144 * settings.m_DaysPerYear;
-        return (float)(GetTicks(settings, data) % num) / (float)num;
-    }
-</code></pre>
-<ul>
-<li><code>protected GetTimeOfYear(Game.Prefabs.TimeSettingsData settings, Game.Common.TimeData data) : System.Single</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected float GetTimeOfYear(TimeSettingsData settings, TimeData data)
-    {
-        int num = 262144 * settings.m_DaysPerYear;
-        return (float)(GetTicks(settings, data) % num) / (float)num;
-    }
-</code></pre>
-<ul>
-<li><code>protected GetTimeWithOffset(Game.Prefabs.TimeSettingsData settings, Game.Common.TimeData data, System.Double renderingFrame) : System.Double</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected double GetTimeWithOffset(TimeSettingsData settings, TimeData data, double renderingFrame)
-    {
-        return renderingFrame + (double)(data.TimeOffset * 262144f) + (double)(data.GetDateOffset(settings.m_DaysPerYear) * 262144f * (float)settings.m_DaysPerYear);
-    }
-</code></pre>
-<ul>
-<li><code>public GetYear(Game.Prefabs.TimeSettingsData settings, Game.Common.TimeData data) : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">public int GetYear(TimeSettingsData settings, TimeData data)
-    {
-        int num = 262144 * settings.m_DaysPerYear;
-        return data.m_StartingYear + Mathf.FloorToInt(GetTicks(settings, data) / num);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
-</ul>
+<h2 id="usage-example">Usage Example</h2>
 <pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_SimulationSystem = base.World.GetOrCreateSystemManaged&lt;SimulationSystem&gt;();
-        m_TimeSettingGroup = GetEntityQuery(ComponentType.ReadOnly&lt;TimeSettingsData&gt;());
-        m_TimeDataQuery = GetEntityQuery(ComponentType.ReadOnly&lt;TimeData&gt;());
-        RequireForUpdate(m_TimeSettingGroup);
-        RequireForUpdate(m_TimeDataQuery);
-    }
+protected override void OnCreate()
+{
+    base.OnCreate();
+    // Example: get a reference to the TimeSystem and query current DateTime
+    var timeSystem = World.GetOrCreateSystemManaged&lt;Game.Simulation.TimeSystem&gt;();
+    DateTime current = timeSystem.GetCurrentDateTime();
+    Debug.Log($&quot;In-game date/time: {current.ToString(&quot;u&quot;)}&quot;);
+}
 </code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        UpdateTime();
-    }
-</code></pre>
-<ul>
-<li><code>public PostDeserialize(Colossal.Serialization.Entities.Context context) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public void PostDeserialize(Context context)
-    {
-        if (m_TimeDataQuery.IsEmpty)
-        {
-            Entity entity = base.EntityManager.CreateEntity();
-            TimeData componentData = default(TimeData);
-            componentData.SetDefaults(context);
-            base.EntityManager.AddComponentData(entity, componentData);
-        }
-        if (context.purpose == Purpose.NewGame)
-        {
-            TimeData singleton = m_TimeDataQuery.GetSingleton&lt;TimeData&gt;();
-            Entity singletonEntity = m_TimeDataQuery.GetSingletonEntity();
-            singleton.m_FirstFrame = m_SimulationSystem.frameIndex;
-            singleton.m_StartingYear = startingYear;
-            base.EntityManager.SetComponentData(singletonEntity, singleton);
-        }
-        UpdateTime();
-    }
-</code></pre>
-<ul>
-<li><code>private UpdateTime() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">private void UpdateTime()
-    {
-        TimeSettingsData singleton = m_TimeSettingGroup.GetSingleton&lt;TimeSettingsData&gt;();
-        TimeData singleton2 = m_TimeDataQuery.GetSingleton&lt;TimeData&gt;();
-        m_Time = GetTimeOfDay(singleton, singleton2);
-        m_Date = GetTimeOfYear(singleton, singleton2);
-        m_Year = GetYear(singleton, singleton2);
-        m_DaysPerYear = singleton.m_DaysPerYear;
-    }
-</code></pre>
+<p>Notes and tips:
+- kTicksPerDay (262144) is used as the base resolution for fractional day calculations; many methods rely on this constant.
+- TimeSettingsData.m_DaysPerYear configures the number of days in a year; ensure this singleton exists (the system requires it).
+- TimeData stores m_FirstFrame, TimeOffset, date offsets and m_StartingYear; PostDeserialize ensures it's created on load.
+- DateTime values produced by the system use UTC as a base and apply a daylight-saving hour if the computed DateTime would be in DST.</p>
 
 
 

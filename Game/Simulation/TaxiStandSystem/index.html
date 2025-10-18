@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87075,6 +87167,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../SurfaceWater/" class="md-nav__link">
         
   
@@ -87309,18 +87424,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -87345,9 +87460,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -117921,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117948,18 +118085,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Code
+      Fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fields" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Fields
+      Properties
     </span>
   </a>
   
@@ -117984,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118009,148 +118146,138 @@
 
 
 <h1 id="gamesimulationtaxistandsystem">Game.Simulation.TaxiStandSystem</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Simulation</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.GameSystemBase</code>  </p>
-<p><strong>Attributes:</strong> <code>CompilerGenerated</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class TaxiStandSystem : Game.GameSystemBase
-{
-    private Unity.Entities.EntityQuery m_StandQuery;
-    private Unity.Entities.EntityArchetype m_VehicleRequestArchetype;
-    private Game.Simulation.CitySystem m_CitySystem;
-    private Game.EndFrameBarrier m_EndFrameBarrier;
-    private Game.Simulation.TaxiStandSystem+TypeHandle __TypeHandle;
-    public static const System.UInt32 UPDATE_INTERVAL;
-
-    public TaxiStandSystem();
-
-    private System.Void __AssignQueries(Unity.Entities.SystemState&amp; state);
-    public virtual System.Int32 GetUpdateInterval(Game.SystemUpdatePhase phase);
-    protected virtual System.Void OnCreate();
-    protected virtual System.Void OnCreateForCompiler();
-    protected virtual System.Void OnUpdate();
-}
-</code></pre>
+<p><strong>Assembly:</strong><br />
+Assembly-CSharp.dll (game runtime assembly containing the ECS systems and gameplay logic)</p>
+<p><strong>Namespace:</strong><br />
+Game.Simulation</p>
+<p><strong>Type:</strong><br />
+public class TaxiStandSystem</p>
+<p><strong>Base:</strong><br />
+GameSystemBase</p>
+<p><strong>Summary:</strong><br />
+Manages Taxi Stand entities in the ECS world. This system runs on a fixed update interval (UPDATE_INTERVAL = 256) and performs the per-stand logic in a Burst-compiled IJobChunk (TaxiStandTickJob). Responsibilities include:
+- Ensuring a taxi stand has the correct number of vehicles (and requesting new vehicles when needed).
+- Maintaining dispatched taxi requests and cleaning up invalid requests.
+- Applying city-level modifiers such as paid taxi starting fees to stands.
+- Creating TaxiRequest entities (with ServiceRequest / RequestGroup) when new vehicles should be requested.
+- Using an EndFrameBarrier command buffer to create entities and add components in a thread-safe manner.</p>
+<p>The main work is performed in the nested TaxiStandTickJob which iterates archetype chunks matching the stand query and manipulates buffers/components such as RouteVehicle, DispatchedRequest, TaxiStand, WaitingPassengers and others.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Unity.Entities.EntityQuery m_StandQuery</code>  </li>
+<li>
+<p><code>public const uint UPDATE_INTERVAL</code><br />
+Constant update interval used by the system. Value: 256. The system overrides GetUpdateInterval to return this value so the system is ticked only every 256 frames (or update units), reducing work frequency.</p>
+</li>
+<li>
+<p><code>private EntityQuery m_StandQuery</code><br />
+EntityQuery used to select Taxi Stand entities the system updates. Query requirements: TaxiStand (ReadWrite), TransportStop (ReadOnly), excludes Temp and Deleted.</p>
+</li>
+<li>
+<p><code>private EntityArchetype m_VehicleRequestArchetype</code><br />
+Archetype used when creating new taxi request entities. It contains components ServiceRequest, TaxiRequest and RequestGroup.</p>
+</li>
+<li>
+<p><code>private CitySystem m_CitySystem</code><br />
+Cached reference to the CitySystem (used to get the global city Entity and city data needed for modifiers like paid taxi start fee).</p>
+</li>
+<li>
+<p><code>private EndFrameBarrier m_EndFrameBarrier</code><br />
+Reference to the EndFrameBarrier system used to get a parallel command buffer for safe structural changes from the Burst Job.</p>
+</li>
+<li>
+<p><code>private TypeHandle __TypeHandle</code><br />
+Internal container of component/buffer/entity type handles used by the system and populated in OnCreateForCompiler. It holds handles passed into the TaxiStandTickJob.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityQuery m_StandQuery;
-</code></pre>
-<ul>
-<li><code>private Unity.Entities.EntityArchetype m_VehicleRequestArchetype</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Unity.Entities.EntityArchetype m_VehicleRequestArchetype;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.CitySystem m_CitySystem</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.CitySystem m_CitySystem;
-</code></pre>
-<ul>
-<li><code>private Game.EndFrameBarrier m_EndFrameBarrier</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.EndFrameBarrier m_EndFrameBarrier;
-</code></pre>
-<ul>
-<li><code>private Game.Simulation.TaxiStandSystem+TypeHandle __TypeHandle</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.Simulation.TaxiStandSystem+TypeHandle __TypeHandle;
-</code></pre>
-<ul>
-<li><code>public static const System.UInt32 UPDATE_INTERVAL</code>  </li>
-</ul>
-<pre><code class="language-csharp">public static const System.UInt32 UPDATE_INTERVAL;
-</code></pre>
+<hr />
+<h2 id="properties">Properties</h2>
+<p>This type exposes no public properties. (All important data is exposed via methods/fields and the nested job.)</p>
+<hr />
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public TaxiStandSystem()</code>  </li>
+<li><code>public TaxiStandSystem()</code><br />
+Default constructor. The system initializes and will set up queries, archetypes and cached system references in OnCreate.</li>
 </ul>
-<pre><code class="language-csharp">[Preserve]
-    public TaxiStandSystem()
-    {
-    }
-</code></pre>
+<hr />
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>private __AssignQueries(Unity.Entities.SystemState&amp; state) : System.Void</code>  </li>
+<li>
+<p><code>public override int GetUpdateInterval(SystemUpdatePhase phase)</code><br />
+Returns the system update interval. This system returns 256 (UPDATE_INTERVAL) so it runs periodically rather than every frame.</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnCreate()</code><br />
+Initializes system state:</p>
+</li>
+<li>Obtains CitySystem and EndFrameBarrier from the world.</li>
+<li>Builds the query for taxi stands (ReadWrite TaxiStand, ReadOnly TransportStop, excluding Temp and Deleted).</li>
+<li>Creates the VehicleRequest archetype (ServiceRequest, TaxiRequest, RequestGroup).</li>
+<li>
+<p>Calls RequireForUpdate to ensure the system only runs when matching entities exist.</p>
+</li>
+<li>
+<p><code>[Preserve] protected override void OnUpdate()</code><br />
+Creates and schedules the Burst-compiled TaxiStandTickJob (IJobChunk) in parallel with all the required ComponentTypeHandles, BufferLookups and component lookups set. It attaches the job's handle to the EndFrameBarrier producer (AddJobHandleForProducer) and assigns the job handle to base.Dependency.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private void __AssignQueries(ref SystemState state)
-    {
-        new EntityQueryBuilder(Allocator.Temp).Dispose();
-    }
-</code></pre>
+<p>The job:
+  - Reads City options and applied modifiers (TaxiStartingFee) to compute and apply starting fee to each stand (and mark PathfindUpdated component when changed).
+  - Validates RouteVehicle buffers (removes entries for vehicles no longer on the route).
+  - Validates DispatchedRequest buffers (removes requests whose TaxiRequest component no longer exists).
+  - If a stand is under capacity, sets RequireVehicles flag and enqueues TaxiRequest entities (using the archetype) to request new vehicles (uses RequestGroup with a group size of 16). The job populates district data for the request by traversing the lane/owner chain using CurrentDistrict/BorderDistrict/Owner lookups.</p>
 <ul>
-<li><code>public virtual GetUpdateInterval(Game.SystemUpdatePhase phase) : System.Int32</code>  </li>
+<li>
+<p><code>protected override void OnCreateForCompiler()</code><br />
+Compiler helper that assigns Entity/Component type handles for the system via the __TypeHandle and sets up queries. Called by the generated code path in this project.</p>
+</li>
+<li>
+<p><code>private void __AssignQueries(ref SystemState state)</code><br />
+Internal helper for generated/compiled code. In this implementation it creates an empty EntityQueryBuilder and disposes it (placeholder used by code-generation paths).</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public override int GetUpdateInterval(SystemUpdatePhase phase)
-    {
-        return 256;
-    }
-</code></pre>
+<p>Nested job methods (inside TaxiStandTickJob) — key behavior implemented in the job:</p>
 <ul>
-<li><code>protected virtual OnCreate() : System.Void</code>  </li>
+<li>
+<p><code>Execute(in ArchetypeChunk chunk, int unfilteredChunkIndex, bool useEnabledMask, in v128 chunkEnabledMask)</code><br />
+Main per-chunk loop. Iterates entities in the chunk and performs the per-stand logic described above (vehicle checking, request checking, create vehicle requests, apply starting fee).</p>
+</li>
+<li>
+<p><code>CheckVehicles(Entity route, DynamicBuffer&lt;RouteVehicle&gt; vehicles, out int count)</code><br />
+Iterates the RouteVehicle buffer for a route and removes entries for vehicles that are no longer following that route. Returns the count of remaining valid vehicles.</p>
+</li>
+<li>
+<p><code>CheckRequests(ref TaxiStand taxiStand, DynamicBuffer&lt;DispatchedRequest&gt; requests)</code><br />
+Cleans up the dispatched request buffer by removing requests whose TaxiRequest entity is gone. If the taxiStand has a TaxiRequest component that is in the Dispatched state, the request is added to the buffer and the taxiStand.m_TaxiRequest is reset to Entity.Null.</p>
+</li>
+<li>
+<p><code>RequestNewVehicleIfNeeded(int jobIndex, Entity entity, Entity lane, TaxiStand taxiStand, int priority)</code><br />
+If the taxiStand does not already have a taxi request, builds a new TaxiRequest entity using the provided archetype, sets TaxiRequest data (including source stand entity, district info and priority) and RequestGroup. Uses the EndFrameBarrier command buffer (m_CommandBuffer) as a ParallelWriter to create the entity and set components.</p>
+</li>
+<li>
+<p><code>GetDistricts(Entity entity, out Entity district1, out Entity district2)</code><br />
+Helper that resolves district(s) for a given entity by checking BorderDistrict, CurrentDistrict, and walking up Owner links until district info is found. Returns Null if none is found.</p>
+</li>
 </ul>
+<hr />
+<h2 id="usage-example">Usage Example</h2>
 <pre><code class="language-csharp">[Preserve]
-    protected override void OnCreate()
-    {
-        base.OnCreate();
-        m_CitySystem = base.World.GetOrCreateSystemManaged&lt;CitySystem&gt;();
-        m_EndFrameBarrier = base.World.GetOrCreateSystemManaged&lt;EndFrameBarrier&gt;();
-        m_StandQuery = GetEntityQuery(ComponentType.ReadWrite&lt;TaxiStand&gt;(), ComponentType.ReadOnly&lt;Game.Routes.TransportStop&gt;(), ComponentType.Exclude&lt;Temp&gt;(), ComponentType.Exclude&lt;Deleted&gt;());
-        m_VehicleRequestArchetype = base.EntityManager.CreateArchetype(ComponentType.ReadWrite&lt;ServiceRequest&gt;(), ComponentType.ReadWrite&lt;TaxiRequest&gt;(), ComponentType.ReadWrite&lt;RequestGroup&gt;());
-        RequireForUpdate(m_StandQuery);
-        Assert.IsTrue(condition: true);
-    }
+protected override void OnCreate()
+{
+    base.OnCreate();
+    // Cache systems used by TaxiStandSystem (this mirrors what the system does internally).
+    m_CitySystem = World.GetOrCreateSystemManaged&lt;CitySystem&gt;();
+    m_EndFrameBarrier = World.GetOrCreateSystemManaged&lt;EndFrameBarrier&gt;();
+
+    // Typical TaxiStandSystem behavior (query/archetype setup) is handled inside the system.
+}
 </code></pre>
-<ul>
-<li><code>protected virtual OnCreateForCompiler() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected override void OnCreateForCompiler()
-    {
-        base.OnCreateForCompiler();
-        __AssignQueries(ref base.CheckedStateRef);
-        __TypeHandle.__AssignHandles(ref base.CheckedStateRef);
-    }
-</code></pre>
-<ul>
-<li><code>protected virtual OnUpdate() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">[Preserve]
-    protected override void OnUpdate()
-    {
-        JobHandle jobHandle = JobChunkExtensions.ScheduleParallel(new TaxiStandTickJob
-        {
-            m_EntityType = InternalCompilerInterface.GetEntityTypeHandle(ref __TypeHandle.__Unity_Entities_Entity_TypeHandle, ref base.CheckedStateRef),
-            m_PrefabRefType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Prefabs_PrefabRef_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_RouteLaneType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Routes_RouteLane_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_WaitingPassengersType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Routes_WaitingPassengers_RO_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_TaxiStandType = InternalCompilerInterface.GetComponentTypeHandle(ref __TypeHandle.__Game_Routes_TaxiStand_RW_ComponentTypeHandle, ref base.CheckedStateRef),
-            m_RouteVehicleType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Routes_RouteVehicle_RW_BufferTypeHandle, ref base.CheckedStateRef),
-            m_DispatchedRequestType = InternalCompilerInterface.GetBufferTypeHandle(ref __TypeHandle.__Game_Routes_DispatchedRequest_RW_BufferTypeHandle, ref base.CheckedStateRef),
-            m_TaxiRequestData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Simulation_TaxiRequest_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_CurrentRouteData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Routes_CurrentRoute_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_DispatchedData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Simulation_Dispatched_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_OwnerData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Common_Owner_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_CurrentDistrictData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Areas_CurrentDistrict_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_BorderDistrictData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_Areas_BorderDistrict_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_CityData = InternalCompilerInterface.GetComponentLookup(ref __TypeHandle.__Game_City_City_RO_ComponentLookup, ref base.CheckedStateRef),
-            m_CityModifiers = InternalCompilerInterface.GetBufferLookup(ref __TypeHandle.__Game_City_CityModifier_RO_BufferLookup, ref base.CheckedStateRef),
-            m_City = m_CitySystem.City,
-            m_TaxiRequestArchetype = m_VehicleRequestArchetype,
-            m_CommandBuffer = m_EndFrameBarrier.CreateCommandBuffer().AsParallelWriter()
-        }, m_StandQuery, base.Dependency);
-        m_EndFrameBarrier.AddJobHandleForProducer(jobHandle);
-        base.Dependency = jobHandle;
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Simulation.TaxiStandSystem+TaxiStandTickJob</code>  </li>
-<li><code>Game.Simulation.TaxiStandSystem+TypeHandle</code>  </li>
-</ul>
+<p>Notes for modders:
+- If you want to alter taxi stand behavior, consider writing a system that runs on the same update interval and either:
+  - Modifies TaxiStand components (flags, starting fee) before TaxiStandSystem runs, or
+  - Runs after TaxiStandSystem and reacts to PathfindUpdated or created TaxiRequest entities.
+- Use the same archetype components (TaxiRequest / ServiceRequest / RequestGroup) when interacting with taxi request entities to match game expectations.
+- TaxiStandTickJob is Burst-compiled and uses parallel command buffer operations; structural changes should be performed via EndFrameBarrier/command buffers for thread safety.</p>
 
 
 

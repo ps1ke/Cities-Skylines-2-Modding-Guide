@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,15 +75533,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -75509,9 +75569,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -75562,6 +75622,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87154,6 +87237,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -117930,6 +118036,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117955,15 +118083,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -118002,9 +118121,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118027,170 +118146,117 @@
 
 
 <h1 id="gamesettingsglobalqualitysettings">Game.Settings.GlobalQualitySettings</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.Settings</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.Settings.QualitySetting&lt;Game.Settings.GlobalQualitySettings&gt;</code><br />
-<strong>Implements:</strong> <code>System.IEquatable&lt;Game.Settings.Setting&gt;</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class GlobalQualitySettings : Game.Settings.QualitySetting&lt;Game.Settings.GlobalQualitySettings&gt;, System.IEquatable&lt;Game.Settings.Setting&gt;
-{
-    private System.Collections.Generic.List&lt;Game.Settings.QualitySetting&gt; m_QualitySettings;
-    protected static readonly System.Collections.Generic.Dictionary&lt;System.Type, Game.Settings.QualitySetting+Level&gt; s_DefaultsMap;
-
-    public System.Collections.Generic.List&lt;Game.Settings.QualitySetting&gt; qualitySettings { get; set; }
-    public System.Int32 countQualitySettings { get; }
-    public Game.Settings.QualitySetting lastSetting { get; }
-
-    public GlobalQualitySettings();
-
-    public System.Void AddQualitySetting&lt;T&gt;(T setting);
-    public System.Collections.Generic.IEnumerable&lt;Game.Settings.QualitySetting&gt; EnumerateQualitySettings();
-    public virtual System.Boolean Equals(System.Object obj);
-    public virtual System.Int32 GetHashCode();
-    public T GetQualitySetting&lt;T&gt;();
-    public Game.Settings.QualitySetting GetQualitySetting(System.Type type);
-    public virtual System.Void SetDefaults();
-    public virtual System.Void SetLevel(Game.Settings.QualitySetting+Level quality, System.Boolean apply);
-}
-</code></pre>
+<p><strong>Assembly:</strong><br />
+{{ Likely part of the main game assembly (Cities: Skylines 2 game code). Replace with actual assembly name if known. }}  </p>
+<p><strong>Namespace:</strong> Game.Settings</p>
+<p><strong>Type:</strong> class</p>
+<p><strong>Base:</strong> QualitySetting<GlobalQualitySettings></p>
+<p><strong>Summary:</strong><br />
+GlobalQualitySettings aggregates multiple per-subsystem QualitySetting instances into a single compound quality configuration. It maintains a list of QualitySetting objects (one per subsystem type), supports enumerating and retrieving specific subsystem settings, propagates default values for each subsystem type, and applies global quality levels by transferring values from per-level presets. It also participates in the game's settings merge/serialization behavior via attributes (MergeByType, IgnoreEquals, Exclude, SettingsUIHidden).  </p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private System.Collections.Generic.List&lt;Game.Settings.QualitySetting&gt; m_QualitySettings</code>  </li>
+<li>
+<p><code>protected static readonly System.Collections.Generic.Dictionary&lt;System.Type, Level&gt; s_DefaultsMap</code><br />
+{{ Maps each QualitySetting type to its default Level. Populated when AddQualitySetting<T> is called for a setting; used by SetDefaults to initialize each subsystem setting to its recorded default Level (without applying by default). }}</p>
+</li>
+<li>
+<p><code>private System.Collections.Generic.List&lt;QualitySetting&gt; m_QualitySettings</code><br />
+{{ Internal list that stores the contained QualitySetting instances for every subsystem (e.g., graphics subsystems). Exposed via the qualitySettings property for merge operations and UI/use (but the setter performs a selective transfer instead of replacing the list). }}</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private System.Collections.Generic.List&lt;Game.Settings.QualitySetting&gt; m_QualitySettings;
-</code></pre>
-<ul>
-<li><code>protected static readonly System.Collections.Generic.Dictionary&lt;System.Type, Game.Settings.QualitySetting+Level&gt; s_DefaultsMap</code>  </li>
-</ul>
-<pre><code class="language-csharp">protected static readonly System.Collections.Generic.Dictionary&lt;System.Type, Game.Settings.QualitySetting+Level&gt; s_DefaultsMap;
-</code></pre>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>public System.Collections.Generic.List&lt;Game.Settings.QualitySetting&gt; qualitySettings { get; set }</code>  </li>
+<li>
+<p><code>public System.Collections.Generic.List&lt;QualitySetting&gt; qualitySettings { get; set; }</code><br />
+{{ Backed by m_QualitySettings. Marked with [MergeByType] and [IgnoreEquals]. The getter returns the internal list. The setter does not replace the list; instead, it iterates the existing m_QualitySettings and, for each existing entry, searches the provided list for an entry of the same concrete type and transfers values from that provided entry (qualitySetting.TransferValuesFrom). This allows merges/loads to update existing entries by type while keeping the internal list order and instances intact. }}</p>
+</li>
+<li>
+<p><code>[Exclude] [IgnoreEquals] [SettingsUIHidden] public int countQualitySettings =&gt; m_QualitySettings.Count</code><br />
+{{ Read-only convenience property returning the number of contained QualitySetting entries. Marked to be excluded from certain settings serialization/UI. }}</p>
+</li>
+<li>
+<p><code>public QualitySetting lastSetting { get; }</code><br />
+{{ Returns the last item in m_QualitySettings (i.e., m_QualitySettings[m_QualitySettings.Count - 1]). Useful to access the most recently added subsystem QualitySetting. Assumes the list is non-empty when called. }}</p>
+</li>
 </ul>
-<pre><code class="language-csharp">public System.Collections.Generic.List&lt;Game.Settings.QualitySetting&gt; qualitySettings { get; set; }
-</code></pre>
-<ul>
-<li><code>public System.Int32 countQualitySettings { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Int32 countQualitySettings { get; }
-</code></pre>
-<ul>
-<li><code>public Game.Settings.QualitySetting lastSetting { get }</code>  </li>
-</ul>
-<pre><code class="language-csharp">public Game.Settings.QualitySetting lastSetting { get; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public GlobalQualitySettings()</code>  </li>
+<li><code>public GlobalQualitySettings()</code><br />
+{{ No explicit constructor is defined in the source; the compiler-provided default parameterless constructor is used. Initialization relies on field initializers (m_QualitySettings initialized to a new List). After construction, you typically call AddQualitySetting for each subsystem setting type to register them. }}</li>
 </ul>
-<pre><code class="language-csharp">public GlobalQualitySettings();
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>public AddQualitySetting&lt;T&gt;(T setting) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public System.Void AddQualitySetting&lt;T&gt;(T setting);
-</code></pre>
+<li>
+<p><code>public override bool Equals(object obj)</code><br />
+{{ Compares another object for equality. First, ensures obj is a GlobalQualitySettings and calls base.Equals(obj) (QualitySetting<GlobalQualitySettings>.Equals). Then compares each contained QualitySetting pairwise using their Equals implementations. Returns false if any contained setting differs. }}</p>
+</li>
+<li>
+<p><code>public override int GetHashCode()</code><br />
+{{ Computes a hash code combining base.GetHashCode() and the hash codes of all contained QualitySetting instances (enumerated via EnumerateQualitySettings). Uses a rolling combine (num = (num * 937) ^ item.GetHashCode()). }}</p>
+</li>
+<li>
+<p><code>public T GetQualitySetting&lt;T&gt;() where T : QualitySetting</code><br />
+{{ Generic retrieval helper: iterates m_QualitySettings and returns the first element whose concrete type equals typeof(T), cast to T. Returns null if not found. This matches exact types (not assignability). }}</p>
+</li>
+<li>
+<p><code>public QualitySetting GetQualitySetting(System.Type type)</code><br />
+{{ Non-generic equivalent that returns the first QualitySetting whose concrete type equals the provided type, or null if none. }}</p>
+</li>
+<li>
+<p><code>public override void SetDefaults()</code><br />
+{{ Sets each contained QualitySetting to the default Level recorded in s_DefaultsMap by calling item.SetLevel(s_DefaultsMap[item.GetType()], apply: false) for each item. Note apply: false — defaults are assigned but not applied/saved immediately; caller may apply afterwards. }}</p>
+</li>
+<li>
+<p><code>public void AddQualitySetting&lt;T&gt;(T setting) where T : QualitySetting&lt;T&gt;</code><br />
+{{ Registers a new QualitySetting instance for a concrete subsystem type T. Behavior:</p>
+</li>
+<li>If a setting of type T already exists (GetQualitySetting<T>() != null), the method returns early (no duplicates).</li>
+<li>Stores the setting's current Level into s_DefaultsMap for the type T.</li>
+<li>Appends the setting to m_QualitySettings.</li>
+<li>
+<p>For each existing global quality level entry in QualitySetting<GlobalQualitySettings>.s_SettingsMap, the method ensures that the per-level GlobalQualitySettings object contains a corresponding per-level T value:</p>
 <ul>
-<li><code>public EnumerateQualitySettings() : System.Collections.Generic.IEnumerable&lt;Game.Settings.QualitySetting&gt;</code>  </li>
+<li>If QualitySetting<T>.s_SettingsMap does not have an exact mapping for that Level, it searches downward for the nearest lower Level that has a mapping, and if none found, searches upward for the next available mapping &lt; Level.Custom.</li>
+<li>The resolved per-level T instance (value) is then appended to that per-level GlobalQualitySettings.m_QualitySettings list.
+  This wiring makes sure that for every global quality Level, the per-level GlobalQualitySettings contains appropriate subsystem-level presets for the newly added subsystem type. }}</li>
 </ul>
-<pre><code class="language-csharp">public IEnumerable&lt;QualitySetting&gt; EnumerateQualitySettings()
-    {
-        foreach (QualitySetting qualitySetting in m_QualitySettings)
-        {
-            yield return qualitySetting;
-        }
-    }
+</li>
+<li>
+<p><code>public System.Collections.Generic.IEnumerable&lt;QualitySetting&gt; EnumerateQualitySettings()</code><br />
+{{ Iterator that yields each QualitySetting in m_QualitySettings. Useful for foreach iteration without exposing the internal list for modification. }}</p>
+</li>
+<li>
+<p><code>public override void SetLevel(Level quality, bool apply = true)</code><br />
+{{ Applies a global quality Level to the grouped settings:</p>
+</li>
+<li>If quality &lt; Level.Custom, loops through m_QualitySettings and for each entry transfers values from the corresponding entry in QualitySetting<GlobalQualitySettings>.s_SettingsMap[quality].m_QualitySettings (by index).</li>
+<li>After transferring values, if apply == true, calls ApplyAndSave() (inherited) to effect and persist the changes.</li>
+<li>The method assumes the ordering of m_QualitySettings matches the ordering used in s_SettingsMap presets so index-based correspondence holds. }}</li>
+</ul>
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Example: register subsystem quality settings and apply a preset level.
+var global = new GlobalQualitySettings();
+
+// Suppose MySubsystemQualitySetting : QualitySetting&lt;MySubsystemQualitySetting&gt;
+var mySetting = new MySubsystemQualitySetting();
+global.AddQualitySetting(mySetting);
+
+// Get a specific subsystem setting
+var retrieved = global.GetQualitySetting&lt;MySubsystemQualitySetting&gt;();
+if (retrieved != null)
+{
+    // adjust the subsystem-level setting and apply globally
+    retrieved.SetLevel(Level.High, apply: false);
+}
+
+// Apply a global quality preset (e.g., Medium) to all registered subsystems and save.
+global.SetLevel(Level.Medium, apply: true);
 </code></pre>
-<ul>
-<li><code>public virtual Equals(System.Object obj) : System.Boolean</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override bool Equals(object obj)
-    {
-        if (!(obj is GlobalQualitySettings globalQualitySettings))
-        {
-            return false;
-        }
-        bool result = base.Equals(obj);
-        for (int i = 0; i &lt; m_QualitySettings.Count; i++)
-        {
-            if (!m_QualitySettings[i].Equals(globalQualitySettings.m_QualitySettings[i]))
-            {
-                return false;
-            }
-        }
-        return result;
-    }
-</code></pre>
-<ul>
-<li><code>public virtual GetHashCode() : System.Int32</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override int GetHashCode()
-    {
-        int num = base.GetHashCode();
-        foreach (QualitySetting item in EnumerateQualitySettings())
-        {
-            num = (num * 937) ^ item.GetHashCode();
-        }
-        return num;
-    }
-</code></pre>
-<ul>
-<li><code>public GetQualitySetting&lt;T&gt;() : T</code>  </li>
-</ul>
-<pre><code class="language-csharp">public T GetQualitySetting&lt;T&gt;();
-</code></pre>
-<ul>
-<li><code>public GetQualitySetting(System.Type type) : Game.Settings.QualitySetting</code>  </li>
-</ul>
-<pre><code class="language-csharp">public QualitySetting GetQualitySetting(Type type)
-    {
-        foreach (QualitySetting qualitySetting in m_QualitySettings)
-        {
-            if (qualitySetting.GetType() == type)
-            {
-                return qualitySetting;
-            }
-        }
-        return null;
-    }
-</code></pre>
-<ul>
-<li><code>public virtual SetDefaults() : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override void SetDefaults()
-    {
-        foreach (QualitySetting item in EnumerateQualitySettings())
-        {
-            item.SetLevel(s_DefaultsMap[item.GetType()], apply: false);
-        }
-    }
-</code></pre>
-<ul>
-<li><code>public virtual SetLevel(Game.Settings.QualitySetting+Level quality, System.Boolean apply = True) : System.Void</code>  </li>
-</ul>
-<pre><code class="language-csharp">public override void SetLevel(Level quality, bool apply = true)
-    {
-        if (quality &lt; Level.Custom)
-        {
-            for (int i = 0; i &lt; m_QualitySettings.Count; i++)
-            {
-                m_QualitySettings[i].TransferValuesFrom(QualitySetting&lt;GlobalQualitySettings&gt;.s_SettingsMap[quality].m_QualitySettings[i]);
-            }
-            if (apply)
-            {
-                ApplyAndSave();
-            }
-        }
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
-<ul>
-<li><code>Game.Settings.GlobalQualitySettings+&lt;&gt;c__DisplayClass3_0</code>  </li>
-<li><code>Game.Settings.GlobalQualitySettings+&lt;EnumerateQualitySettings&gt;d__11</code>  </li>
-</ul>
+<p>Notes and tips:
+- The class uses exact type equality (GetType() == typeof(T) / == provided Type) when locating settings; derived types are not matched unless their concrete type equals what is searched for.
+- Order of m_QualitySettings is important: SetLevel uses index-based correspondence against the per-Level presets stored in QualitySetting<GlobalQualitySettings>.s_SettingsMap. Ensure consistent registration order across all presets.
+- Attributes on properties (MergeByType, IgnoreEquals, Exclude, SettingsUIHidden) control the game's settings merge/serialization and UI behavior and are important when integrating with the game's settings persistence and mod merge logic.</p>
 
 
 

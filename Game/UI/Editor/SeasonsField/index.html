@@ -65231,6 +65231,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Rendering/Climate/WeatherPropertiesStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeatherPropertiesStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -69662,6 +69685,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Rendering/ShaderVariablesWind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShaderVariablesWind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Rendering/Skeleton/" class="md-nav__link">
         
   
@@ -72474,6 +72520,29 @@
   
   <span class="md-ellipsis">
     OverlayScreen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SceneFlow/OverlayScreenComparer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OverlayScreenComparer
     
   </span>
   
@@ -75464,6 +75533,29 @@
   
   <span class="md-ellipsis">
     GraphicsSettingsExtensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Settings/IgnoreEqualsAttribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoreEqualsAttribute
     
   </span>
   
@@ -87056,6 +87148,29 @@
   
   <span class="md-ellipsis">
     StudentSystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Simulation/SurfaceDataReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceDataReader
     
   </span>
   
@@ -99148,15 +99263,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       Fields
@@ -99193,9 +99299,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -117932,6 +118038,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -117957,15 +118085,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#fields" class="md-nav__link">
@@ -118004,9 +118123,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-types" class="md-nav__link">
+  <a href="#usage-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Nested types
+      Usage Example
     </span>
   </a>
   
@@ -118029,91 +118148,162 @@
 
 
 <h1 id="gameuieditorseasonsfield">Game.UI.Editor.SeasonsField</h1>
-<p><strong>Assembly:</strong> <code>Game</code><br />
-<strong>Namespace:</strong> <code>Game.UI.Editor</code>  </p>
-<p><strong>Type:</strong> class public  </p>
-<p><strong>Base:</strong> <code>Game.UI.Widgets.Widget</code><br />
-<strong>Implements:</strong> <code>Game.UI.Widgets.IWidget</code>, <code>Colossal.UI.Binding.IJsonWritable</code>, <code>Game.UI.Widgets.IVisibleWidget</code>, <code>Game.UI.Widgets.IDisableCallback</code>  </p>
-<h2 id="code">Code</h2>
-<pre><code class="language-csharp">public class SeasonsField : Game.UI.Widgets.Widget, Game.UI.Widgets.IWidget, Colossal.UI.Binding.IJsonWritable, Game.UI.Widgets.IVisibleWidget, Game.UI.Widgets.IDisableCallback
-{
-    private Unity.Entities.Entity m_SelectedSeason;
-    private System.Collections.Generic.List&lt;Game.Simulation.ClimateSystem+SeasonInfo&gt; m_Seasons;
-    private Game.UI.Editor.SeasonsField+SeasonCurves m_SeasonCurves;
-    private Game.UI.Editor.SeasonsField+IAdapter &lt;adapter&gt;k__BackingField;
-
-    public Game.UI.Editor.SeasonsField+IAdapter adapter { get; set; }
-
-    public SeasonsField();
-
-    protected virtual Game.UI.Widgets.WidgetChanges Update();
-    protected virtual System.Void WriteProperties(Colossal.UI.Binding.IJsonWriter writer);
-}
-</code></pre>
+<p><strong>Assembly:</strong><br />
+Assembly-CSharp.dll</p>
+<p><strong>Namespace:</strong><br />
+Game.UI.Editor</p>
+<p><strong>Type:</strong><br />
+class SeasonsField</p>
+<p><strong>Base:</strong><br />
+Widget</p>
+<p><strong>Summary:</strong><br />
+UI widget used by the in-game editor to present and edit seasonal data (season list and associated environment curves). SeasonsField relies on an external adapter (IAdapter) to supply and persist the current seasons (IEnumerable<ClimateSystem.SeasonInfo>) and the SeasonCurves (temperature, precipitation, cloudiness, aurora and fog AnimationCurves). The widget serializes its seasons and curves via IJsonWriter/IJsonReader and provides a Bindings factory to react to "onUpdateSeason" calls (useful for data-binding from UI). Note: the file contains a few small quirks in the nested serialization code (documented below) that mod authors should be aware of.</p>
+<hr />
 <h2 id="fields">Fields</h2>
 <ul>
-<li><code>private Unity.Entities.Entity m_SelectedSeason</code>  </li>
+<li>
+<p><code>private Entity m_SelectedSeason</code><br />
+Holds the currently selected season as an ECS Entity reference. This field is private and is used internally by the widget to track selection state.</p>
+</li>
+<li>
+<p><code>private List&lt;ClimateSystem.SeasonInfo&gt; m_Seasons = new List&lt;ClimateSystem.SeasonInfo&gt;()</code><br />
+Internal cached list of seasons populated from the adapter every Update. The adapter.seasons is copied into this list so the widget can serialize and inspect seasons.</p>
+</li>
+<li>
+<p><code>private SeasonCurves m_SeasonCurves</code><br />
+Cached SeasonCurves structure (contains AnimationCurves for temperature, precipitation, cloudiness, aurora and fog) provided by the adapter each Update and written out during serialization.</p>
+</li>
 </ul>
-<pre><code class="language-csharp">private Unity.Entities.Entity m_SelectedSeason;
-</code></pre>
-<ul>
-<li><code>private System.Collections.Generic.List&lt;Game.Simulation.ClimateSystem+SeasonInfo&gt; m_Seasons</code>  </li>
-</ul>
-<pre><code class="language-csharp">private System.Collections.Generic.List&lt;Game.Simulation.ClimateSystem+SeasonInfo&gt; m_Seasons;
-</code></pre>
-<ul>
-<li><code>private Game.UI.Editor.SeasonsField+SeasonCurves m_SeasonCurves</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.UI.Editor.SeasonsField+SeasonCurves m_SeasonCurves;
-</code></pre>
-<ul>
-<li><code>private Game.UI.Editor.SeasonsField+IAdapter &lt;adapter&gt;k__BackingField</code>  </li>
-</ul>
-<pre><code class="language-csharp">private Game.UI.Editor.SeasonsField+IAdapter &lt;adapter&gt;k__BackingField;
-</code></pre>
+<p>Additional nested types (SeasonCurves, Season, IAdapter, Bindings) are defined inside SeasonsField and contain their own fields (listed and described in the Summary / Methods section below).</p>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><code>public Game.UI.Editor.SeasonsField+IAdapter adapter { get; set }</code>  </li>
+<li><code>public IAdapter adapter { get; set; }</code><br />
+Adapter used to provide and accept seasonal data. Implement this interface to connect SeasonsField to your data/storage layer. The widget expects the adapter to provide:</li>
+<li>selectedSeason (Entity)</li>
+<li>seasons (IEnumerable<ClimateSystem.SeasonInfo>)</li>
+<li>curves (SeasonCurves)</li>
+<li>RebuildCurves() to be called after seasons or curves change so the adapter can recalculate any dependent state.</li>
 </ul>
-<pre><code class="language-csharp">public Game.UI.Editor.SeasonsField+IAdapter adapter { get; set; }
-</code></pre>
 <h2 id="constructors">Constructors</h2>
 <ul>
-<li><code>public SeasonsField()</code>  </li>
+<li><code>public SeasonsField()</code><br />
+No explicit constructor is declared in the file; the class uses the default parameterless constructor inherited from the base class.</li>
 </ul>
-<pre><code class="language-csharp">public SeasonsField();
-</code></pre>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><code>protected virtual Update() : Game.UI.Widgets.WidgetChanges</code>  </li>
+<li><code>protected override WidgetChanges Update()</code><br />
+Called by the UI system. This method:</li>
+<li>Calls base.Update()</li>
+<li>Refreshes internal caches: m_Seasons = adapter.seasons.ToList(); m_SeasonCurves = adapter.curves;</li>
+<li>Returns the combined WidgetChanges flags (base | WidgetChanges.Properties) to indicate the widget's properties need re-evaluating/rendering.</li>
 </ul>
-<pre><code class="language-csharp">protected override WidgetChanges Update()
-    {
-        WidgetChanges num = base.Update();
-        m_Seasons = adapter.seasons.ToList();
-        m_SeasonCurves = adapter.curves;
-        return num | WidgetChanges.Properties;
-    }
-</code></pre>
+<p>Usage note: The adapter must be set prior to Update being called; otherwise adapter access will throw.</p>
 <ul>
-<li><code>protected virtual WriteProperties(Colossal.UI.Binding.IJsonWriter writer) : System.Void</code>  </li>
+<li><code>protected override void WriteProperties(IJsonWriter writer)</code><br />
+Serializes widget properties to JSON. Writes two properties:</li>
+<li>"seasons" — serializes IList<ClimateSystem.SeasonInfo> from m_Seasons</li>
+<li>"curves" — serializes m_SeasonCurves</li>
 </ul>
-<pre><code class="language-csharp">protected override void WriteProperties(IJsonWriter writer)
-    {
-        base.WriteProperties(writer);
-        writer.PropertyName(&quot;seasons&quot;);
-        writer.Write((IList&lt;ClimateSystem.SeasonInfo&gt;)m_Seasons);
-        writer.PropertyName(&quot;curves&quot;);
-        writer.Write(m_SeasonCurves);
-    }
-</code></pre>
-<h2 id="nested-types">Nested types</h2>
+<p>Calls base.WriteProperties(writer) first.</p>
+<p>Nested types and their important methods:</p>
 <ul>
-<li><code>Game.UI.Editor.SeasonsField+SeasonCurves</code>  </li>
-<li><code>Game.UI.Editor.SeasonsField+Season</code>  </li>
-<li><code>Game.UI.Editor.SeasonsField+IAdapter</code>  </li>
-<li><code>Game.UI.Editor.SeasonsField+Bindings</code>  </li>
+<li>SeasonCurves (struct)  </li>
+<li>Fields:<ul>
+<li>AnimationCurve m_Temperature</li>
+<li>AnimationCurve m_Precipitation</li>
+<li>AnimationCurve m_Cloudiness</li>
+<li>AnimationCurve m_Aurora</li>
+<li>AnimationCurve m_Fog</li>
 </ul>
+</li>
+<li>
+<p>Methods:</p>
+<ul>
+<li>void Write(IJsonWriter writer) — Writes a JSON type named "SeasonsCurves" and serializes each curve (temperature, precipitation, cloudiness, aurora, fog). Note: it only writes if m_Temperature != null (so if curves are not initialized this Write is skipped).</li>
+<li>void Read(IJsonReader reader) — Reads a map and expects properties "temperature", "precipitation", "cloudiness", "aurora", and "fog" to populate the AnimationCurve fields.</li>
+</ul>
+</li>
+<li>
+<p>Season (struct)<br />
+  Represents a season description with many numeric parameters and:</p>
+</li>
+<li>Entity entity</li>
+<li>string m_Name</li>
+<li>float m_StartTime</li>
+<li>float m_TempNightDay</li>
+<li>float m_TempDeviationNightDay</li>
+<li>float m_CloudChance</li>
+<li>float m_CloudAmount</li>
+<li>float m_CloudAmountDeviation</li>
+<li>float m_PrecipitationChance</li>
+<li>float m_PrecipitationAmount</li>
+<li>float m_PrecipitationAmountDeviation</li>
+<li>float m_Turbulence</li>
+<li>float m_AuroraAmount</li>
+<li>float m_AuroraChance</li>
+</ul>
+<p>Methods:
+  - void Write(IJsonWriter writer) — Serializes fields with property names. Note: there is a likely bug in the original code: the writer calls PropertyName("cloudAmountDeviation") twice — the second time it writes m_PrecipitationChance but uses the cloudAmountDeviation property name (so precipitationChance would be serialized under the wrong property name). Keep this in mind if you rely on round-trip JSON.
+  - Equality and hashing: Equality is based solely on m_Name (IEquatable<Season>). GetHashCode combines the same m_Name hash twice in a simple expression — effectively a deterministic hash derived from the name. Two Season instances with the same m_Name are considered equal.</p>
+<ul>
+<li>IAdapter (interface)<br />
+  Adapter contract to be implemented by callers of SeasonsField. Members:</li>
+<li>Entity selectedSeason { get; set; }</li>
+<li>IEnumerable<ClimateSystem.SeasonInfo> seasons { get; set; }</li>
+<li>SeasonCurves curves { get; set; }</li>
+<li>
+<p>void RebuildCurves() — called by the widget after changes to seasons/curves so adapter can rebuild any derived data.</p>
+</li>
+<li>
+<p>Bindings (class) : IWidgetBindingFactory<br />
+  Produces data bindings used by UI binding system. Important behavior:</p>
+</li>
+<li>CreateBindings(...) returns a CallBinding configured for the "onUpdateSeason" event. When that call is invoked (from UI or data layer) it:<ul>
+<li>Finds the matching season in seasonsField.m_Seasons by comparing m_NameID on ClimateSystem.SeasonInfo</li>
+<li>Replaces the matched entry with the incoming season and records the index</li>
+<li>Updates seasonsField.adapter.seasons = seasonsField.m_Seasons and calls adapter.RebuildCurves()</li>
+<li>Calls widget.Update()</li>
+<li>Returns the index of the updated season or -1 if not found</li>
+</ul>
+</li>
+</ul>
+<p>Usage note: This binding is meant to allow other code to push changes to a specific season and let the SeasonsField update its internal state and curves accordingly.</p>
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="language-csharp">// Minimal adapter stub for connecting SeasonsField to your data
+class MySeasonsAdapter : Game.UI.Editor.SeasonsField.IAdapter
+{
+    public Entity selectedSeason { get; set; }
+    public IEnumerable&lt;ClimateSystem.SeasonInfo&gt; seasons { get; set; } = Enumerable.Empty&lt;ClimateSystem.SeasonInfo&gt;();
+    public Game.UI.Editor.SeasonsField.SeasonCurves curves { get; set; }
+
+    public void RebuildCurves()
+    {
+        // Rebuild any cached / derived data based on seasons and curves here.
+    }
+}
+
+// Example of creating and wiring up the widget:
+var seasonsField = new Game.UI.Editor.SeasonsField();
+seasonsField.adapter = new MySeasonsAdapter()
+{
+    seasons = mySeasonInfoList,    // IEnumerable&lt;ClimateSystem.SeasonInfo&gt;
+    curves = new Game.UI.Editor.SeasonsField.SeasonCurves
+    {
+        m_Temperature = new AnimationCurve(...),
+        m_Precipitation = new AnimationCurve(...),
+        m_Cloudiness = new AnimationCurve(...),
+        m_Aurora = new AnimationCurve(...),
+        m_Fog = new AnimationCurve(...)
+    }
+};
+
+// Let the UI system call Update(); or call manually if needed:
+seasonsField.Update();
+</code></pre>
+<p>Notes and tips for modders:
+- Implement IAdapter to connect SeasonsField to your model/storage. The widget reads adapter.seasons and adapter.curves every Update, and writes back by assigning adapter.seasons after changes (see Bindings).
+- Serialization: SeasonsField writes both "seasons" and "curves" using the provided IJsonWriter. The nested SeasonWrite method contains a duplicated property name entry (cloudAmountDeviation used twice) — if you implement custom JSON consumers, handle this carefully or patch the source if possible.
+- Season equality is name-based. If you rely on reference equality or other identifiers, ensure m_Name is unique or extend functionality appropriately.</p>
 
 
 
