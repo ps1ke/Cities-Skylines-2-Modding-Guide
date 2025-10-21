@@ -10,12 +10,58 @@
 
 **Attributes:** `Flags`  
 
+## Code
+
+```csharp
+public sealed enum LaneFlags : System.IComparable, System.ISpanFormattable, System.IFormattable, System.IConvertible
+{
+    public System.Int32 value__;
+    public static const Game.Simulation.TerrainSystem+LaneFlags ShiftTerrain;
+    public static const Game.Simulation.TerrainSystem+LaneFlags ClipTerrain;
+    public static const Game.Simulation.TerrainSystem+LaneFlags MiddleLeft;
+    public static const Game.Simulation.TerrainSystem+LaneFlags MiddleRight;
+    public static const Game.Simulation.TerrainSystem+LaneFlags InverseClipOffset;
+
+}
+```
+
+
 ## Fields
 
 - `public System.Int32 value__`  
+
+```csharp
+public System.Int32 value__;
+```
+
 - `public static const Game.Simulation.TerrainSystem+LaneFlags ShiftTerrain`  
+
+```csharp
+public static const Game.Simulation.TerrainSystem+LaneFlags ShiftTerrain;
+```
+
 - `public static const Game.Simulation.TerrainSystem+LaneFlags ClipTerrain`  
+
+```csharp
+public static const Game.Simulation.TerrainSystem+LaneFlags ClipTerrain;
+```
+
 - `public static const Game.Simulation.TerrainSystem+LaneFlags MiddleLeft`  
+
+```csharp
+public static const Game.Simulation.TerrainSystem+LaneFlags MiddleLeft;
+```
+
 - `public static const Game.Simulation.TerrainSystem+LaneFlags MiddleRight`  
+
+```csharp
+public static const Game.Simulation.TerrainSystem+LaneFlags MiddleRight;
+```
+
 - `public static const Game.Simulation.TerrainSystem+LaneFlags InverseClipOffset`  
+
+```csharp
+public static const Game.Simulation.TerrainSystem+LaneFlags InverseClipOffset;
+```
+
 

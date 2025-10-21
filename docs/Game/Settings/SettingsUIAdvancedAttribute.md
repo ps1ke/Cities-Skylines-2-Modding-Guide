@@ -9,7 +9,23 @@
 
 **Attributes:** `Usage`  
 
+## Code
+
+```csharp
+public class SettingsUIAdvancedAttribute : System.Attribute
+{
+    public SettingsUIAdvancedAttribute();
+
+}
+```
+
+
 ## Constructors
 
 - `public SettingsUIAdvancedAttribute()`  
+
+```csharp
+public SettingsUIAdvancedAttribute();
+```
+
 

@@ -9,7 +9,23 @@
 
 **Attributes:** `Usage`  
 
+## Code
+
+```csharp
+public class DebugWatchDepsAttribute : System.Attribute
+{
+    public DebugWatchDepsAttribute();
+
+}
+```
+
+
 ## Constructors
 
 - `public DebugWatchDepsAttribute()`  
+
+```csharp
+public DebugWatchDepsAttribute();
+```
+
 

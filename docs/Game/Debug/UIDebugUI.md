@@ -9,13 +9,35 @@
 
 **Attributes:** `DebugContainer`  
 
+## Code
+
+```csharp
+public class UIDebugUI
+{
+    public UIDebugUI();
+
+    private static System.Collections.Generic.List<UnityEngine.Rendering.DebugUI+Widget> BuildUIBindingsDebugUI();
+}
+```
+
+
 ## Constructors
 
 - `public UIDebugUI()`  
 
+```csharp
+public UIDebugUI();
+```
+
+
 ## Methods
 
 - `private static BuildUIBindingsDebugUI() : System.Collections.Generic.List<UnityEngine.Rendering.DebugUI+Widget>`  
+
+```csharp
+private static System.Collections.Generic.List<UnityEngine.Rendering.DebugUI+Widget> BuildUIBindingsDebugUI();
+```
+
 
 ## Nested types
 

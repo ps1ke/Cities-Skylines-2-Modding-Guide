@@ -7,6 +7,16 @@
 
 **Base:** `System.Object`  
 
+## Code
+
+```csharp
+public static class RaycastJobs
+{
+    // (no members)
+}
+```
+
+
 ## Nested types
 
 - `Game.Areas.RaycastJobs+FindAreaJob`  

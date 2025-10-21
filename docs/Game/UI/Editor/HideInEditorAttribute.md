@@ -7,7 +7,23 @@
 
 **Base:** `System.Attribute`  
 
+## Code
+
+```csharp
+public class HideInEditorAttribute : System.Attribute
+{
+    public HideInEditorAttribute();
+
+}
+```
+
+
 ## Constructors
 
 - `public HideInEditorAttribute()`  
+
+```csharp
+public HideInEditorAttribute();
+```
+
 

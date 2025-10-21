@@ -7,9 +7,24 @@
 
 **Base:** `System.Object`  
 
+## Code
+
+```csharp
+public static class RaycastJobs
+{
+    public static System.Single GetMinLaneRadius(System.Single fovTan, System.Single cameraDistance);
+}
+```
+
+
 ## Methods
 
 - `public static GetMinLaneRadius(System.Single fovTan, System.Single cameraDistance) : System.Single`  
+
+```csharp
+public static System.Single GetMinLaneRadius(System.Single fovTan, System.Single cameraDistance);
+```
+
 
 ## Nested types
 

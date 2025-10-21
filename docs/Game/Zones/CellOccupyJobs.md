@@ -7,6 +7,16 @@
 
 **Base:** `System.Object`  
 
+## Code
+
+```csharp
+public static class CellOccupyJobs
+{
+    // (no members)
+}
+```
+
+
 ## Nested types
 
 - `Game.Zones.CellOccupyJobs+ZoneAndOccupyCellsJob`  

@@ -10,16 +10,56 @@
 
 **Attributes:** `TestDescriptor`  
 
+## Code
+
+```csharp
+public class TestEditorScenario : Colossal.TestFramework.TestScenario, Colossal.TestFramework.ITestStep
+{
+    public TestEditorScenario();
+
+    protected virtual System.Threading.Tasks.Task OnPrepare();
+    private System.Threading.Tasks.Task StartEditorAndCycleModes();
+    private System.Threading.Tasks.Task StartEditorAndGoBackToMainMenu();
+    private System.Threading.Tasks.Task StartEditorAndLoadSaveMapAndStartGame();
+}
+```
+
+
 ## Constructors
 
 - `public TestEditorScenario()`  
 
+```csharp
+public TestEditorScenario();
+```
+
+
 ## Methods
 
 - `protected virtual OnPrepare() : System.Threading.Tasks.Task`  
+
+```csharp
+protected virtual System.Threading.Tasks.Task OnPrepare();
+```
+
 - `private StartEditorAndCycleModes() : System.Threading.Tasks.Task`  
+
+```csharp
+private System.Threading.Tasks.Task StartEditorAndCycleModes();
+```
+
 - `private StartEditorAndGoBackToMainMenu() : System.Threading.Tasks.Task`  
+
+```csharp
+private System.Threading.Tasks.Task StartEditorAndGoBackToMainMenu();
+```
+
 - `private StartEditorAndLoadSaveMapAndStartGame() : System.Threading.Tasks.Task`  
+
+```csharp
+private System.Threading.Tasks.Task StartEditorAndLoadSaveMapAndStartGame();
+```
+
 
 ## Nested types
 

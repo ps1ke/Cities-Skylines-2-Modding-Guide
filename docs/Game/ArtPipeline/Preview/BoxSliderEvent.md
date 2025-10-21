@@ -10,7 +10,23 @@
 
 **Attributes:** `Serializable`  
 
+## Code
+
+```csharp
+public class BoxSliderEvent : UnityEngine.Events.UnityEvent<System.Single, System.Single>, UnityEngine.ISerializationCallbackReceiver
+{
+    public BoxSliderEvent();
+
+}
+```
+
+
 ## Constructors
 
 - `public BoxSliderEvent()`  
+
+```csharp
+public BoxSliderEvent();
+```
+
 

@@ -10,21 +10,69 @@
 
 **Attributes:** `IsReadOnly`  
 
+## Code
+
+```csharp
+public sealed struct CitizenCondition : Colossal.UI.Binding.IJsonWritable, System.IComparable<Game.UI.InGame.CitizenCondition>
+{
+    private readonly Game.UI.InGame.CitizenConditionKey <key>k__BackingField;
+    private static readonly System.String[] kConditionPaths;
+
+    private Game.UI.InGame.CitizenConditionKey key { private get; }
+
+    public CitizenCondition(Game.UI.InGame.CitizenConditionKey key);
+
+    public System.Int32 CompareTo(Game.UI.InGame.CitizenCondition other);
+    public System.Void Write(Colossal.UI.Binding.IJsonWriter writer);
+}
+```
+
+
 ## Fields
 
 - `private readonly Game.UI.InGame.CitizenConditionKey <key>k__BackingField`  
+
+```csharp
+private readonly Game.UI.InGame.CitizenConditionKey <key>k__BackingField;
+```
+
 - `private static readonly System.String[] kConditionPaths`  
+
+```csharp
+private static readonly System.String[] kConditionPaths;
+```
+
 
 ## Properties
 
 - `private Game.UI.InGame.CitizenConditionKey key { private get }`  
 
+```csharp
+private Game.UI.InGame.CitizenConditionKey key { private get; }
+```
+
+
 ## Constructors
 
 - `public CitizenCondition(Game.UI.InGame.CitizenConditionKey key)`  
 
+```csharp
+public CitizenCondition(Game.UI.InGame.CitizenConditionKey key);
+```
+
+
 ## Methods
 
 - `public CompareTo(Game.UI.InGame.CitizenCondition other) : System.Int32`  
+
+```csharp
+public System.Int32 CompareTo(Game.UI.InGame.CitizenCondition other);
+```
+
 - `public Write(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
+
+```csharp
+public System.Void Write(Colossal.UI.Binding.IJsonWriter writer);
+```
+
 

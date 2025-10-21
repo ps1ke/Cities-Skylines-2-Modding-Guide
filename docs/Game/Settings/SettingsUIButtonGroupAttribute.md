@@ -9,11 +9,34 @@
 
 **Attributes:** `Usage`  
 
+## Code
+
+```csharp
+public class SettingsUIButtonGroupAttribute : System.Attribute
+{
+    public readonly System.String name;
+
+    public SettingsUIButtonGroupAttribute(System.String name);
+
+}
+```
+
+
 ## Fields
 
 - `public readonly System.String name`  
 
+```csharp
+public readonly System.String name;
+```
+
+
 ## Constructors
 
 - `public SettingsUIButtonGroupAttribute(System.String name)`  
+
+```csharp
+public SettingsUIButtonGroupAttribute(System.String name);
+```
+
 

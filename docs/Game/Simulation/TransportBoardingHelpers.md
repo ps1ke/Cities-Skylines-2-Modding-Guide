@@ -7,6 +7,16 @@
 
 **Base:** `System.Object`  
 
+## Code
+
+```csharp
+public static class TransportBoardingHelpers
+{
+    // (no members)
+}
+```
+
+
 ## Nested types
 
 - `Game.Simulation.TransportBoardingHelpers+BoardingLookupData`  

@@ -10,11 +10,34 @@
 
 **Attributes:** `InternalBufferCapacity`  
 
+## Code
+
+```csharp
+public sealed struct CompanyBrandElement : Unity.Entities.IBufferElementData
+{
+    public Unity.Entities.Entity m_Brand;
+
+    public CompanyBrandElement(Unity.Entities.Entity brand);
+
+}
+```
+
+
 ## Fields
 
 - `public Unity.Entities.Entity m_Brand`  
 
+```csharp
+public Unity.Entities.Entity m_Brand;
+```
+
+
 ## Constructors
 
 - `public CompanyBrandElement(Unity.Entities.Entity brand)`  
+
+```csharp
+public CompanyBrandElement(Unity.Entities.Entity brand);
+```
+
 

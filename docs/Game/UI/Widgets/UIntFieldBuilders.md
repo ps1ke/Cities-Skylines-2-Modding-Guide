@@ -8,17 +8,46 @@
 **Base:** `System.Object`  
 **Implements:** `Game.UI.Widgets.IFieldBuilderFactory`  
 
+## Code
+
+```csharp
+public class UIntFieldBuilders : Game.UI.Widgets.IFieldBuilderFactory
+{
+    private static readonly System.UInt32 kGlobalValueRange;
+
+    public UIntFieldBuilders();
+
+    public Game.UI.Widgets.FieldBuilder TryCreate(System.Type memberType, System.Object[] attributes);
+}
+```
+
+
 ## Fields
 
 - `private static readonly System.UInt32 kGlobalValueRange`  
+
+```csharp
+private static readonly System.UInt32 kGlobalValueRange;
+```
+
 
 ## Constructors
 
 - `public UIntFieldBuilders()`  
 
+```csharp
+public UIntFieldBuilders();
+```
+
+
 ## Methods
 
 - `public TryCreate(System.Type memberType, System.Object[] attributes) : Game.UI.Widgets.FieldBuilder`  
+
+```csharp
+public Game.UI.Widgets.FieldBuilder TryCreate(System.Type memberType, System.Object[] attributes);
+```
+
 
 ## Nested types
 

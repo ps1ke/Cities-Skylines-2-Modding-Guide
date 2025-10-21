@@ -7,6 +7,16 @@
 
 **Base:** `System.Object`  
 
+## Code
+
+```csharp
+public static class AnimalNavigationHelpers
+{
+    // (no members)
+}
+```
+
+
 ## Nested types
 
 - `Game.Simulation.AnimalNavigationHelpers+CurrentLaneCache`  

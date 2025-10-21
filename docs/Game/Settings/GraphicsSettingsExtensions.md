@@ -9,7 +9,22 @@
 
 **Attributes:** `Extension`  
 
+## Code
+
+```csharp
+public static class GraphicsSettingsExtensions
+{
+    public static UnityEngine.CursorLockMode ToUnityCursorMode(Game.Settings.GraphicsSettings+CursorMode mode);
+}
+```
+
+
 ## Methods
 
 - `public static ToUnityCursorMode(Game.Settings.GraphicsSettings+CursorMode mode) : UnityEngine.CursorLockMode`  
+
+```csharp
+public static UnityEngine.CursorLockMode ToUnityCursorMode(Game.Settings.GraphicsSettings+CursorMode mode);
+```
+
 

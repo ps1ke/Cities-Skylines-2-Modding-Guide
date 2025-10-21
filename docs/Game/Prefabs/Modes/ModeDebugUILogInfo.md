@@ -7,13 +7,48 @@
 
 **Base:** `System.Object`  
 
+## Code
+
+```csharp
+public class ModeDebugUILogInfo
+{
+    public System.Type m_Key;
+    public System.Object m_ValueBefore;
+    public System.Object m_ValueAfter;
+
+    public ModeDebugUILogInfo();
+
+}
+```
+
+
 ## Fields
 
 - `public System.Type m_Key`  
+
+```csharp
+public System.Type m_Key;
+```
+
 - `public System.Object m_ValueBefore`  
+
+```csharp
+public System.Object m_ValueBefore;
+```
+
 - `public System.Object m_ValueAfter`  
+
+```csharp
+public System.Object m_ValueAfter;
+```
+
 
 ## Constructors
 
 - `public ModeDebugUILogInfo()`  
+
+```csharp
+public ModeDebugUILogInfo();
+```
+
 

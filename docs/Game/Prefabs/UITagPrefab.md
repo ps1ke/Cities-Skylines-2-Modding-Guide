@@ -10,11 +10,34 @@
 
 **Attributes:** `ComponentMenu`  
 
+## Code
+
+```csharp
+public class UITagPrefab : Game.Prefabs.UITagPrefabBase, Colossal.IO.AssetDatabase.IComponentBase, System.IComparable, UnityEngine.ISerializationCallbackReceiver, Colossal.IO.AssetDatabase.IPrefabBase
+{
+    public System.String uiTag { get; }
+
+    public UITagPrefab();
+
+}
+```
+
+
 ## Properties
 
 - `public System.String uiTag { get }`  
 
+```csharp
+public System.String uiTag { get; }
+```
+
+
 ## Constructors
 
 - `public UITagPrefab()`  
+
+```csharp
+public UITagPrefab();
+```
+
 

@@ -10,19 +10,60 @@
 
 **Attributes:** `ComponentMenu`  
 
+## Code
+
+```csharp
+public class CargoTransportStationMode : Game.Prefabs.Modes.LocalModePrefab, Colossal.IO.AssetDatabase.IComponentBase, System.IComparable, UnityEngine.ISerializationCallbackReceiver, Colossal.IO.AssetDatabase.IPrefabBase
+{
+    public Game.Prefabs.Modes.CargoTransportStationMode+ModeData[] m_ModeDatas;
+
+    public CargoTransportStationMode();
+
+    public virtual System.Void ApplyModeData(Unity.Entities.EntityManager entityManager, Game.Prefabs.PrefabSystem prefabSystem);
+    public virtual System.Void RecordChanges(Unity.Entities.EntityManager entityManager, Game.Prefabs.PrefabSystem prefabSystem);
+    public virtual System.Void RestoreDefaultData(Unity.Entities.EntityManager entityManager, Game.Prefabs.PrefabSystem prefabSystem);
+}
+```
+
+
 ## Fields
 
 - `public Game.Prefabs.Modes.CargoTransportStationMode+ModeData[] m_ModeDatas`  
+
+```csharp
+public Game.Prefabs.Modes.CargoTransportStationMode+ModeData[] m_ModeDatas;
+```
+
 
 ## Constructors
 
 - `public CargoTransportStationMode()`  
 
+```csharp
+public CargoTransportStationMode();
+```
+
+
 ## Methods
 
 - `public virtual ApplyModeData(Unity.Entities.EntityManager entityManager, Game.Prefabs.PrefabSystem prefabSystem) : System.Void`  
+
+```csharp
+public virtual System.Void ApplyModeData(Unity.Entities.EntityManager entityManager, Game.Prefabs.PrefabSystem prefabSystem);
+```
+
 - `public virtual RecordChanges(Unity.Entities.EntityManager entityManager, Game.Prefabs.PrefabSystem prefabSystem) : System.Void`  
+
+```csharp
+public virtual System.Void RecordChanges(Unity.Entities.EntityManager entityManager, Game.Prefabs.PrefabSystem prefabSystem);
+```
+
 - `public virtual RestoreDefaultData(Unity.Entities.EntityManager entityManager, Game.Prefabs.PrefabSystem prefabSystem) : System.Void`  
+
+```csharp
+public virtual System.Void RestoreDefaultData(Unity.Entities.EntityManager entityManager, Game.Prefabs.PrefabSystem prefabSystem);
+```
+
 
 ## Nested types
 

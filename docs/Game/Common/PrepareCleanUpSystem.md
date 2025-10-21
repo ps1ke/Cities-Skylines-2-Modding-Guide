@@ -7,18 +7,65 @@
 
 **Base:** `Game.GameSystemBase`  
 
+## Code
+
+```csharp
+public class PrepareCleanUpSystem : Game.GameSystemBase
+{
+    private Game.Common.CleanUpSystem m_CleanUpSystem;
+    private Unity.Entities.EntityQuery m_DeletedQuery;
+    private Unity.Entities.EntityQuery m_UpdatedQuery;
+
+    public PrepareCleanUpSystem();
+
+    protected virtual System.Void OnCreate();
+    protected virtual System.Void OnUpdate();
+}
+```
+
+
 ## Fields
 
 - `private Game.Common.CleanUpSystem m_CleanUpSystem`  
+
+```csharp
+private Game.Common.CleanUpSystem m_CleanUpSystem;
+```
+
 - `private Unity.Entities.EntityQuery m_DeletedQuery`  
+
+```csharp
+private Unity.Entities.EntityQuery m_DeletedQuery;
+```
+
 - `private Unity.Entities.EntityQuery m_UpdatedQuery`  
+
+```csharp
+private Unity.Entities.EntityQuery m_UpdatedQuery;
+```
+
 
 ## Constructors
 
 - `public PrepareCleanUpSystem()`  
 
+```csharp
+public PrepareCleanUpSystem();
+```
+
+
 ## Methods
 
 - `protected virtual OnCreate() : System.Void`  
+
+```csharp
+protected virtual System.Void OnCreate();
+```
+
 - `protected virtual OnUpdate() : System.Void`  
+
+```csharp
+protected virtual System.Void OnUpdate();
+```
+
 

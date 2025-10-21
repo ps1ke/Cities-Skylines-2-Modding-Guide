@@ -7,6 +7,16 @@
 
 **Base:** `System.Object`  
 
+## Code
+
+```csharp
+public static class AvailabilityJobs
+{
+    // (no members)
+}
+```
+
+
 ## Nested types
 
 - `Game.Pathfind.AvailabilityJobs+FullNode`  

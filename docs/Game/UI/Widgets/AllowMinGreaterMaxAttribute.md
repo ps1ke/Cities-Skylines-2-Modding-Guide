@@ -9,7 +9,23 @@
 
 **Attributes:** `Usage`  
 
+## Code
+
+```csharp
+public class AllowMinGreaterMaxAttribute : UnityEngine.PropertyAttribute
+{
+    public AllowMinGreaterMaxAttribute();
+
+}
+```
+
+
 ## Constructors
 
 - `public AllowMinGreaterMaxAttribute()`  
+
+```csharp
+public AllowMinGreaterMaxAttribute();
+```
+
 

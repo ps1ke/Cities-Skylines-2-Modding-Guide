@@ -10,12 +10,41 @@
 
 **Attributes:** `InternalBufferCapacity`  
 
+## Code
+
+```csharp
+public sealed struct HotspotFrame : Unity.Entities.IBufferElementData, Colossal.Serialization.Entities.IEmptySerializable
+{
+    public Unity.Mathematics.float3 m_Position;
+    public Unity.Mathematics.float3 m_Velocity;
+
+    public HotspotFrame(Game.Events.WeatherPhenomenon weatherPhenomenon);
+
+}
+```
+
+
 ## Fields
 
 - `public Unity.Mathematics.float3 m_Position`  
+
+```csharp
+public Unity.Mathematics.float3 m_Position;
+```
+
 - `public Unity.Mathematics.float3 m_Velocity`  
+
+```csharp
+public Unity.Mathematics.float3 m_Velocity;
+```
+
 
 ## Constructors
 
 - `public HotspotFrame(Game.Events.WeatherPhenomenon weatherPhenomenon)`  
+
+```csharp
+public HotspotFrame(Game.Events.WeatherPhenomenon weatherPhenomenon);
+```
+
 

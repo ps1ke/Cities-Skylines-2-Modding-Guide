@@ -10,7 +10,23 @@
 
 **Attributes:** `InternalBufferCapacity`  
 
+## Code
+
+```csharp
+public sealed struct AudioSourceData : Unity.Entities.IBufferElementData
+{
+    public Unity.Entities.Entity m_SFXEntity;
+
+}
+```
+
+
 ## Fields
 
 - `public Unity.Entities.Entity m_SFXEntity`  
+
+```csharp
+public Unity.Entities.Entity m_SFXEntity;
+```
+
 

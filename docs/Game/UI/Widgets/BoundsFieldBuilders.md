@@ -8,13 +8,35 @@
 **Base:** `System.Object`  
 **Implements:** `Game.UI.Widgets.IFieldBuilderFactory`  
 
+## Code
+
+```csharp
+public class BoundsFieldBuilders : Game.UI.Widgets.IFieldBuilderFactory
+{
+    public BoundsFieldBuilders();
+
+    public Game.UI.Widgets.FieldBuilder TryCreate(System.Type memberType, System.Object[] attributes);
+}
+```
+
+
 ## Constructors
 
 - `public BoundsFieldBuilders()`  
 
+```csharp
+public BoundsFieldBuilders();
+```
+
+
 ## Methods
 
 - `public TryCreate(System.Type memberType, System.Object[] attributes) : Game.UI.Widgets.FieldBuilder`  
+
+```csharp
+public Game.UI.Widgets.FieldBuilder TryCreate(System.Type memberType, System.Object[] attributes);
+```
+
 
 ## Nested types
 

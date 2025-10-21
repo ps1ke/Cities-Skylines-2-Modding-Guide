@@ -7,6 +7,16 @@
 
 **Base:** `System.Object`  
 
+## Code
+
+```csharp
+public static class ModificationJobs
+{
+    // (no members)
+}
+```
+
+
 ## Nested types
 
 - `Game.Pathfind.ModificationJobs+IPathfindModificationJob`  

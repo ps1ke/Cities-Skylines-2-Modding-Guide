@@ -9,9 +9,24 @@
 
 **Attributes:** `DebugContainer`  
 
+## Code
+
+```csharp
+public static class CameraDebugUI
+{
+    private static System.Collections.Generic.List<UnityEngine.Rendering.DebugUI+Widget> BuildCameraDebugUI(Unity.Entities.World world);
+}
+```
+
+
 ## Methods
 
 - `private static BuildCameraDebugUI(Unity.Entities.World world) : System.Collections.Generic.List<UnityEngine.Rendering.DebugUI+Widget>`  
+
+```csharp
+private static System.Collections.Generic.List<UnityEngine.Rendering.DebugUI+Widget> BuildCameraDebugUI(Unity.Entities.World world);
+```
+
 
 ## Nested types
 

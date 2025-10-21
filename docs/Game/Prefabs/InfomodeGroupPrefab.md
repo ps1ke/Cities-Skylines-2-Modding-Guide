@@ -10,11 +10,33 @@
 
 **Attributes:** `ComponentMenu`  
 
+## Code
+
+```csharp
+public class InfomodeGroupPrefab : Game.Prefabs.InfomodePrefab, Colossal.IO.AssetDatabase.IComponentBase, System.IComparable, UnityEngine.ISerializationCallbackReceiver, Colossal.IO.AssetDatabase.IPrefabBase
+{
+    public InfomodeGroupPrefab();
+
+    public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+}
+```
+
+
 ## Constructors
 
 - `public InfomodeGroupPrefab()`  
 
+```csharp
+public InfomodeGroupPrefab();
+```
+
+
 ## Methods
 
 - `public virtual GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
+
+```csharp
+public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+```
+
 

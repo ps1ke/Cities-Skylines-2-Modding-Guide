@@ -9,7 +9,23 @@
 
 **Attributes:** `Usage`  
 
+## Code
+
+```csharp
+public class SettingsUIDirectoryPickerAttribute : System.Attribute
+{
+    public SettingsUIDirectoryPickerAttribute();
+
+}
+```
+
+
 ## Constructors
 
 - `public SettingsUIDirectoryPickerAttribute()`  
+
+```csharp
+public SettingsUIDirectoryPickerAttribute();
+```
+
 

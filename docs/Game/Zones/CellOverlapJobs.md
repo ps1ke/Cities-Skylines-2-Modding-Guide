@@ -7,6 +7,16 @@
 
 **Base:** `System.Object`  
 
+## Code
+
+```csharp
+public static class CellOverlapJobs
+{
+    // (no members)
+}
+```
+
+
 ## Nested types
 
 - `Game.Zones.CellOverlapJobs+CheckBlockOverlapJob`  

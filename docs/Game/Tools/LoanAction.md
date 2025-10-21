@@ -7,7 +7,23 @@
 
 **Base:** `System.ValueType`  
 
+## Code
+
+```csharp
+public sealed struct LoanAction
+{
+    public System.Int32 m_Amount;
+
+}
+```
+
+
 ## Fields
 
 - `public System.Int32 m_Amount`  
+
+```csharp
+public System.Int32 m_Amount;
+```
+
 

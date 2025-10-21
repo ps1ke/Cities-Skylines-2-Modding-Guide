@@ -7,11 +7,33 @@
 
 **Base:** `Game.SafeCommandBufferSystem`  
 
+## Code
+
+```csharp
+public class DeserializationBarrier : Game.SafeCommandBufferSystem
+{
+    public DeserializationBarrier();
+
+    protected virtual System.Void OnUpdate();
+}
+```
+
+
 ## Constructors
 
 - `public DeserializationBarrier()`  
 
+```csharp
+public DeserializationBarrier();
+```
+
+
 ## Methods
 
 - `protected virtual OnUpdate() : System.Void`  
+
+```csharp
+protected virtual System.Void OnUpdate();
+```
+
 

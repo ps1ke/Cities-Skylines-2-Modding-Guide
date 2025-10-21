@@ -7,6 +7,16 @@
 
 **Base:** `System.Object`  
 
+## Code
+
+```csharp
+public static class AircraftNavigationHelpers
+{
+    // (no members)
+}
+```
+
+
 ## Nested types
 
 - `Game.Simulation.AircraftNavigationHelpers+LaneReservation`  

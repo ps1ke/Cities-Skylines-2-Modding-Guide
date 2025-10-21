@@ -7,16 +7,51 @@
 
 **Base:** `System.ValueType`  
 
+## Code
+
+```csharp
+public sealed struct BufferedEntity
+{
+    public Unity.Entities.Entity m_Value;
+    public System.Boolean m_Stored;
+
+    public BufferedEntity(Unity.Entities.Entity value, System.Boolean stored);
+
+    public virtual System.String ToString();
+}
+```
+
+
 ## Fields
 
 - `public Unity.Entities.Entity m_Value`  
+
+```csharp
+public Unity.Entities.Entity m_Value;
+```
+
 - `public System.Boolean m_Stored`  
+
+```csharp
+public System.Boolean m_Stored;
+```
+
 
 ## Constructors
 
 - `public BufferedEntity(Unity.Entities.Entity value, System.Boolean stored)`  
 
+```csharp
+public BufferedEntity(Unity.Entities.Entity value, System.Boolean stored);
+```
+
+
 ## Methods
 
 - `public virtual ToString() : System.String`  
+
+```csharp
+public virtual System.String ToString();
+```
+
 

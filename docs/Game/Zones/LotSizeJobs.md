@@ -7,6 +7,16 @@
 
 **Base:** `System.Object`  
 
+## Code
+
+```csharp
+public static class LotSizeJobs
+{
+    // (no members)
+}
+```
+
+
 ## Nested types
 
 - `Game.Zones.LotSizeJobs+UpdateLotSizeJob`  

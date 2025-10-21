@@ -10,17 +10,58 @@
 
 **Attributes:** `ComponentMenu`  
 
+## Code
+
+```csharp
+public class VehicleMarker : Game.Prefabs.ComponentBase, Colossal.IO.AssetDatabase.IComponentBase, System.IComparable
+{
+    public Game.Prefabs.VehicleType m_VehicleType;
+
+    public VehicleMarker();
+
+    public virtual System.Void GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+    public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+    public virtual System.Void Initialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity);
+}
+```
+
+
 ## Fields
 
 - `public Game.Prefabs.VehicleType m_VehicleType`  
+
+```csharp
+public Game.Prefabs.VehicleType m_VehicleType;
+```
+
 
 ## Constructors
 
 - `public VehicleMarker()`  
 
+```csharp
+public VehicleMarker();
+```
+
+
 ## Methods
 
 - `public virtual GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
+
+```csharp
+public virtual System.Void GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+```
+
 - `public virtual GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
+
+```csharp
+public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+```
+
 - `public virtual Initialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity) : System.Void`  
+
+```csharp
+public virtual System.Void Initialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity);
+```
+
 

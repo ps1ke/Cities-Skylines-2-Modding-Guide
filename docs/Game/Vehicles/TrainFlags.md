@@ -10,12 +10,58 @@
 
 **Attributes:** `Flags`  
 
+## Code
+
+```csharp
+public sealed enum TrainFlags : System.IComparable, System.ISpanFormattable, System.IFormattable, System.IConvertible
+{
+    public System.UInt32 value__;
+    public static const Game.Vehicles.TrainFlags Reversed;
+    public static const Game.Vehicles.TrainFlags BoardingLeft;
+    public static const Game.Vehicles.TrainFlags BoardingRight;
+    public static const Game.Vehicles.TrainFlags Pantograph;
+    public static const Game.Vehicles.TrainFlags IgnoreParkedVehicle;
+
+}
+```
+
+
 ## Fields
 
 - `public System.UInt32 value__`  
+
+```csharp
+public System.UInt32 value__;
+```
+
 - `public static const Game.Vehicles.TrainFlags Reversed`  
+
+```csharp
+public static const Game.Vehicles.TrainFlags Reversed;
+```
+
 - `public static const Game.Vehicles.TrainFlags BoardingLeft`  
+
+```csharp
+public static const Game.Vehicles.TrainFlags BoardingLeft;
+```
+
 - `public static const Game.Vehicles.TrainFlags BoardingRight`  
+
+```csharp
+public static const Game.Vehicles.TrainFlags BoardingRight;
+```
+
 - `public static const Game.Vehicles.TrainFlags Pantograph`  
+
+```csharp
+public static const Game.Vehicles.TrainFlags Pantograph;
+```
+
 - `public static const Game.Vehicles.TrainFlags IgnoreParkedVehicle`  
+
+```csharp
+public static const Game.Vehicles.TrainFlags IgnoreParkedVehicle;
+```
+
 

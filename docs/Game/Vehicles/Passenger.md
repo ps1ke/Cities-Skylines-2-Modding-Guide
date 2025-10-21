@@ -10,16 +10,51 @@
 
 **Attributes:** `InternalBufferCapacity`  
 
+## Code
+
+```csharp
+public sealed struct Passenger : Unity.Entities.IBufferElementData, System.IEquatable<Game.Vehicles.Passenger>, Colossal.Serialization.Entities.IEmptySerializable
+{
+    public Unity.Entities.Entity m_Passenger;
+
+    public Passenger(Unity.Entities.Entity passenger);
+
+    public System.Boolean Equals(Game.Vehicles.Passenger other);
+    public virtual System.Int32 GetHashCode();
+}
+```
+
+
 ## Fields
 
 - `public Unity.Entities.Entity m_Passenger`  
+
+```csharp
+public Unity.Entities.Entity m_Passenger;
+```
+
 
 ## Constructors
 
 - `public Passenger(Unity.Entities.Entity passenger)`  
 
+```csharp
+public Passenger(Unity.Entities.Entity passenger);
+```
+
+
 ## Methods
 
 - `public Equals(Game.Vehicles.Passenger other) : System.Boolean`  
+
+```csharp
+public System.Boolean Equals(Game.Vehicles.Passenger other);
+```
+
 - `public virtual GetHashCode() : System.Int32`  
+
+```csharp
+public virtual System.Int32 GetHashCode();
+```
+
 

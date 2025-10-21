@@ -10,11 +10,33 @@
 
 **Attributes:** `TestDescriptor`  
 
+## Code
+
+```csharp
+public class TestModdingToolchain : Colossal.TestFramework.TestScenario, Colossal.TestFramework.ITestStep
+{
+    public TestModdingToolchain();
+
+    private System.Void TestUnityDownloadLink();
+}
+```
+
+
 ## Constructors
 
 - `public TestModdingToolchain()`  
 
+```csharp
+public TestModdingToolchain();
+```
+
+
 ## Methods
 
 - `private TestUnityDownloadLink() : System.Void`  
+
+```csharp
+private System.Void TestUnityDownloadLink();
+```
+
 

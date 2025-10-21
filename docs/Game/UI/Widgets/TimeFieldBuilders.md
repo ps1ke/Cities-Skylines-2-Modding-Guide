@@ -8,13 +8,35 @@
 **Base:** `System.Object`  
 **Implements:** `Game.UI.Widgets.IFieldBuilderFactory`  
 
+## Code
+
+```csharp
+public class TimeFieldBuilders : Game.UI.Widgets.IFieldBuilderFactory
+{
+    public TimeFieldBuilders();
+
+    public Game.UI.Widgets.FieldBuilder TryCreate(System.Type memberType, System.Object[] attributes);
+}
+```
+
+
 ## Constructors
 
 - `public TimeFieldBuilders()`  
 
+```csharp
+public TimeFieldBuilders();
+```
+
+
 ## Methods
 
 - `public TryCreate(System.Type memberType, System.Object[] attributes) : Game.UI.Widgets.FieldBuilder`  
+
+```csharp
+public Game.UI.Widgets.FieldBuilder TryCreate(System.Type memberType, System.Object[] attributes);
+```
+
 
 ## Nested types
 

@@ -9,7 +9,23 @@
 
 **Attributes:** `Usage`  
 
+## Code
+
+```csharp
+public class SettingsUIButtonAttribute : System.Attribute
+{
+    public SettingsUIButtonAttribute();
+
+}
+```
+
+
 ## Constructors
 
 - `public SettingsUIButtonAttribute()`  
+
+```csharp
+public SettingsUIButtonAttribute();
+```
+
 

@@ -9,7 +9,23 @@
 
 **Attributes:** `Usage`  
 
+## Code
+
+```csharp
+public class DebugContainerAttribute : UnityEngine.Scripting.PreserveAttribute
+{
+    public DebugContainerAttribute();
+
+}
+```
+
+
 ## Constructors
 
 - `public DebugContainerAttribute()`  
+
+```csharp
+public DebugContainerAttribute();
+```
+
 

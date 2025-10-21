@@ -9,12 +9,41 @@
 
 **Attributes:** `Serializable`  
 
+## Code
+
+```csharp
+public class ObjectPlacementTarget
+{
+    public Game.Prefabs.PrefabBase m_Target;
+    public Game.Tutorials.ObjectPlacementTriggerFlags m_Flags;
+
+    public ObjectPlacementTarget();
+
+}
+```
+
+
 ## Fields
 
 - `public Game.Prefabs.PrefabBase m_Target`  
+
+```csharp
+public Game.Prefabs.PrefabBase m_Target;
+```
+
 - `public Game.Tutorials.ObjectPlacementTriggerFlags m_Flags`  
+
+```csharp
+public Game.Tutorials.ObjectPlacementTriggerFlags m_Flags;
+```
+
 
 ## Constructors
 
 - `public ObjectPlacementTarget()`  
+
+```csharp
+public ObjectPlacementTarget();
+```
+
 

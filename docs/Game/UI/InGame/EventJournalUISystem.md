@@ -9,36 +9,174 @@
 
 **Attributes:** `CompilerGenerated`  
 
+## Code
+
+```csharp
+public class EventJournalUISystem : Game.UI.UISystemBase
+{
+    private Game.Events.IEventJournalSystem m_EventJournalSystem;
+    private Game.Prefabs.PrefabSystem m_PrefabSystem;
+    private Unity.Entities.EntityQuery m_TimeDataQuery;
+    private Colossal.UI.Binding.RawMapBinding<Unity.Entities.Entity> m_EventMap;
+    private Colossal.UI.Binding.RawValueBinding m_Events;
+    private System.Action <eventJournalOpened>k__BackingField;
+    private System.Action <eventJournalClosed>k__BackingField;
+    private static const System.String kGroup;
+    private static const System.Int32 kMaxMessages;
+
+    public System.Action eventJournalOpened { get; set; }
+    public System.Action eventJournalClosed { get; set; }
+
+    public EventJournalUISystem();
+
+    private System.Void <OnCreate>b__15_0();
+    private System.Void <OnCreate>b__15_1();
+    private System.Void <OnCreate>b__15_2(Colossal.UI.Binding.IJsonWriter binder, Unity.Entities.Entity entity);
+    private System.Void BindEvents(Colossal.UI.Binding.IJsonWriter binder);
+    private System.Void BindJournalEntry(Unity.Entities.Entity entity, Colossal.UI.Binding.IJsonWriter binder);
+    protected virtual System.Void OnCreate();
+    private System.Void OnEntryAdded();
+    private System.Void OnEventDataChanged(Unity.Entities.Entity entity);
+    protected virtual System.Void OnUpdate();
+}
+```
+
+
 ## Fields
 
 - `private Game.Events.IEventJournalSystem m_EventJournalSystem`  
+
+```csharp
+private Game.Events.IEventJournalSystem m_EventJournalSystem;
+```
+
 - `private Game.Prefabs.PrefabSystem m_PrefabSystem`  
+
+```csharp
+private Game.Prefabs.PrefabSystem m_PrefabSystem;
+```
+
 - `private Unity.Entities.EntityQuery m_TimeDataQuery`  
+
+```csharp
+private Unity.Entities.EntityQuery m_TimeDataQuery;
+```
+
 - `private Colossal.UI.Binding.RawMapBinding<Unity.Entities.Entity> m_EventMap`  
+
+```csharp
+private Colossal.UI.Binding.RawMapBinding<Unity.Entities.Entity> m_EventMap;
+```
+
 - `private Colossal.UI.Binding.RawValueBinding m_Events`  
+
+```csharp
+private Colossal.UI.Binding.RawValueBinding m_Events;
+```
+
 - `private System.Action <eventJournalOpened>k__BackingField`  
+
+```csharp
+private System.Action <eventJournalOpened>k__BackingField;
+```
+
 - `private System.Action <eventJournalClosed>k__BackingField`  
+
+```csharp
+private System.Action <eventJournalClosed>k__BackingField;
+```
+
 - `private static const System.String kGroup`  
+
+```csharp
+private static const System.String kGroup;
+```
+
 - `private static const System.Int32 kMaxMessages`  
+
+```csharp
+private static const System.Int32 kMaxMessages;
+```
+
 
 ## Properties
 
 - `public System.Action eventJournalOpened { get; set }`  
+
+```csharp
+public System.Action eventJournalOpened { get; set; }
+```
+
 - `public System.Action eventJournalClosed { get; set }`  
+
+```csharp
+public System.Action eventJournalClosed { get; set; }
+```
+
 
 ## Constructors
 
 - `public EventJournalUISystem()`  
 
+```csharp
+public EventJournalUISystem();
+```
+
+
 ## Methods
 
 - `private <OnCreate>b__15_0() : System.Void`  
+
+```csharp
+private System.Void <OnCreate>b__15_0();
+```
+
 - `private <OnCreate>b__15_1() : System.Void`  
+
+```csharp
+private System.Void <OnCreate>b__15_1();
+```
+
 - `private <OnCreate>b__15_2(Colossal.UI.Binding.IJsonWriter binder, Unity.Entities.Entity entity) : System.Void`  
+
+```csharp
+private System.Void <OnCreate>b__15_2(Colossal.UI.Binding.IJsonWriter binder, Unity.Entities.Entity entity);
+```
+
 - `private BindEvents(Colossal.UI.Binding.IJsonWriter binder) : System.Void`  
+
+```csharp
+private System.Void BindEvents(Colossal.UI.Binding.IJsonWriter binder);
+```
+
 - `private BindJournalEntry(Unity.Entities.Entity entity, Colossal.UI.Binding.IJsonWriter binder) : System.Void`  
+
+```csharp
+private System.Void BindJournalEntry(Unity.Entities.Entity entity, Colossal.UI.Binding.IJsonWriter binder);
+```
+
 - `protected virtual OnCreate() : System.Void`  
+
+```csharp
+protected virtual System.Void OnCreate();
+```
+
 - `private OnEntryAdded() : System.Void`  
+
+```csharp
+private System.Void OnEntryAdded();
+```
+
 - `private OnEventDataChanged(Unity.Entities.Entity entity) : System.Void`  
+
+```csharp
+private System.Void OnEventDataChanged(Unity.Entities.Entity entity);
+```
+
 - `protected virtual OnUpdate() : System.Void`  
+
+```csharp
+protected virtual System.Void OnUpdate();
+```
+
 

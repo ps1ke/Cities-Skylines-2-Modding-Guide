@@ -8,25 +8,85 @@
 **Base:** `Game.Prefabs.PrefabBase`  
 **Implements:** `Colossal.IO.AssetDatabase.IComponentBase`, `System.IComparable`, `UnityEngine.ISerializationCallbackReceiver`, `Colossal.IO.AssetDatabase.IPrefabBase`  
 
+## Code
+
+```csharp
+public abstract class ModePrefab : Game.Prefabs.PrefabBase, Colossal.IO.AssetDatabase.IComponentBase, System.IComparable, UnityEngine.ISerializationCallbackReceiver, Colossal.IO.AssetDatabase.IPrefabBase
+{
+    private System.Collections.Generic.Dictionary<Unity.Entities.Entity, System.Collections.Generic.List<Game.Prefabs.Modes.ModePrefab+ModeDebugUILogInfo>> <modeDebugUILogs>k__BackingField;
+
+    public System.Collections.Generic.Dictionary<Unity.Entities.Entity, System.Collections.Generic.List<Game.Prefabs.Modes.ModePrefab+ModeDebugUILogInfo>> modeDebugUILogs { get; private set; }
+
+    protected ModePrefab();
+
+    public System.Void ClearLog();
+    public virtual System.Void GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+    public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+    protected System.Void RecordLog<T>(Unity.Entities.Entity entity, T& value);
+    protected System.Void RecordLog<T>(Unity.Entities.Entity entity, DynamicBuffer`1& value);
+}
+```
+
+
 ## Fields
 
 - `private System.Collections.Generic.Dictionary<Unity.Entities.Entity, System.Collections.Generic.List<Game.Prefabs.Modes.ModePrefab+ModeDebugUILogInfo>> <modeDebugUILogs>k__BackingField`  
+
+```csharp
+private System.Collections.Generic.Dictionary<Unity.Entities.Entity, System.Collections.Generic.List<Game.Prefabs.Modes.ModePrefab+ModeDebugUILogInfo>> <modeDebugUILogs>k__BackingField;
+```
+
 
 ## Properties
 
 - `public System.Collections.Generic.Dictionary<Unity.Entities.Entity, System.Collections.Generic.List<Game.Prefabs.Modes.ModePrefab+ModeDebugUILogInfo>> modeDebugUILogs { get; private set }`  
 
+```csharp
+public System.Collections.Generic.Dictionary<Unity.Entities.Entity, System.Collections.Generic.List<Game.Prefabs.Modes.ModePrefab+ModeDebugUILogInfo>> modeDebugUILogs { get; private set; }
+```
+
+
 ## Constructors
 
 - `protected ModePrefab()`  
 
+```csharp
+protected ModePrefab();
+```
+
+
 ## Methods
 
 - `public ClearLog() : System.Void`  
+
+```csharp
+public System.Void ClearLog();
+```
+
 - `public virtual GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
+
+```csharp
+public virtual System.Void GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+```
+
 - `public virtual GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
+
+```csharp
+public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+```
+
 - `protected RecordLog<T>(Unity.Entities.Entity entity, T& value) : System.Void`  
+
+```csharp
+protected System.Void RecordLog<T>(Unity.Entities.Entity entity, T& value);
+```
+
 - `protected RecordLog<T>(Unity.Entities.Entity entity, DynamicBuffer`1& value) : System.Void`  
+
+```csharp
+protected System.Void RecordLog<T>(Unity.Entities.Entity entity, DynamicBuffer`1& value);
+```
+
 
 ## Nested types
 

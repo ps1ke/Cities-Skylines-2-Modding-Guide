@@ -10,49 +10,253 @@
 
 **Attributes:** `FileLocation`, `SettingsUIShowGroupName`, `SettingsUIGroupOrder`, `SettingsUIPageWarning`  
 
+## Code
+
+```csharp
+public class ModdingSettings : Game.Settings.Setting, System.IEquatable<Game.Settings.Setting>
+{
+    private System.Boolean <isInstalled>k__BackingField;
+    private System.String <downloadDirectory>k__BackingField;
+    public static const System.String kName;
+    public static const System.String kDisclaimer;
+    public static const System.String kMain;
+    public static const System.String kDependencies;
+
+    public System.Boolean isInstalled { get; set; }
+    public System.Boolean installModdingToolchain { set; }
+    public System.Boolean uninstallModdingToolchain { set; }
+    public System.Boolean repairModdingToolchain { set; }
+    public System.Boolean updateModdingToolchain { set; }
+    public System.Boolean showEnvVars { set; }
+    public System.Boolean showCurrentValues { set; }
+    public System.Boolean updateEnvVars { set; }
+    public System.Boolean removeEnvVars { set; }
+    private System.Boolean disableEnvVarUpdate { private get; }
+    public System.String downloadDirectory { get; set; }
+    public System.Boolean isActionDisabled { get; }
+    public System.Boolean canNotBeInstalled { get; }
+    public System.Boolean canNotBeUninstalled { get; }
+    public System.Boolean canNotBeRepaired { get; }
+    public System.Boolean canNotBeUpdated { get; }
+    public System.Boolean noNeedDownloadPath { get; }
+    public System.Boolean showWarning { get; }
+
+    public ModdingSettings();
+
+    private System.Void <set_installModdingToolchain>b__9_0(System.Boolean success);
+    private System.Void <set_repairModdingToolchain>b__13_0(System.Boolean success);
+    private System.Void <set_uninstallModdingToolchain>b__11_0(System.Boolean success);
+    private System.Void <set_updateModdingToolchain>b__15_0(System.Boolean success);
+    private Game.UI.Menu.ModdingToolchainSettingItem GetItem(Game.Modding.Toolchain.IToolchainDependency dependency, Game.UI.Menu.AutomaticSettings+SettingPageData pageData);
+    public virtual Game.UI.Menu.AutomaticSettings+SettingPageData GetPageData(System.String id, System.Boolean addPrefix);
+    public virtual System.Void SetDefaults();
+}
+```
+
+
 ## Fields
 
 - `private System.Boolean <isInstalled>k__BackingField`  
+
+```csharp
+private System.Boolean <isInstalled>k__BackingField;
+```
+
 - `private System.String <downloadDirectory>k__BackingField`  
+
+```csharp
+private System.String <downloadDirectory>k__BackingField;
+```
+
 - `public static const System.String kName`  
+
+```csharp
+public static const System.String kName;
+```
+
 - `public static const System.String kDisclaimer`  
+
+```csharp
+public static const System.String kDisclaimer;
+```
+
 - `public static const System.String kMain`  
+
+```csharp
+public static const System.String kMain;
+```
+
 - `public static const System.String kDependencies`  
+
+```csharp
+public static const System.String kDependencies;
+```
+
 
 ## Properties
 
 - `public System.Boolean isInstalled { get; set }`  
+
+```csharp
+public System.Boolean isInstalled { get; set; }
+```
+
 - `public System.Boolean installModdingToolchain { set }`  
+
+```csharp
+public System.Boolean installModdingToolchain { set; }
+```
+
 - `public System.Boolean uninstallModdingToolchain { set }`  
+
+```csharp
+public System.Boolean uninstallModdingToolchain { set; }
+```
+
 - `public System.Boolean repairModdingToolchain { set }`  
+
+```csharp
+public System.Boolean repairModdingToolchain { set; }
+```
+
 - `public System.Boolean updateModdingToolchain { set }`  
+
+```csharp
+public System.Boolean updateModdingToolchain { set; }
+```
+
 - `public System.Boolean showEnvVars { set }`  
+
+```csharp
+public System.Boolean showEnvVars { set; }
+```
+
 - `public System.Boolean showCurrentValues { set }`  
+
+```csharp
+public System.Boolean showCurrentValues { set; }
+```
+
 - `public System.Boolean updateEnvVars { set }`  
+
+```csharp
+public System.Boolean updateEnvVars { set; }
+```
+
 - `public System.Boolean removeEnvVars { set }`  
+
+```csharp
+public System.Boolean removeEnvVars { set; }
+```
+
 - `private System.Boolean disableEnvVarUpdate { private get }`  
+
+```csharp
+private System.Boolean disableEnvVarUpdate { private get; }
+```
+
 - `public System.String downloadDirectory { get; set }`  
+
+```csharp
+public System.String downloadDirectory { get; set; }
+```
+
 - `public System.Boolean isActionDisabled { get }`  
+
+```csharp
+public System.Boolean isActionDisabled { get; }
+```
+
 - `public System.Boolean canNotBeInstalled { get }`  
+
+```csharp
+public System.Boolean canNotBeInstalled { get; }
+```
+
 - `public System.Boolean canNotBeUninstalled { get }`  
+
+```csharp
+public System.Boolean canNotBeUninstalled { get; }
+```
+
 - `public System.Boolean canNotBeRepaired { get }`  
+
+```csharp
+public System.Boolean canNotBeRepaired { get; }
+```
+
 - `public System.Boolean canNotBeUpdated { get }`  
+
+```csharp
+public System.Boolean canNotBeUpdated { get; }
+```
+
 - `public System.Boolean noNeedDownloadPath { get }`  
+
+```csharp
+public System.Boolean noNeedDownloadPath { get; }
+```
+
 - `public System.Boolean showWarning { get }`  
+
+```csharp
+public System.Boolean showWarning { get; }
+```
+
 
 ## Constructors
 
 - `public ModdingSettings()`  
 
+```csharp
+public ModdingSettings();
+```
+
+
 ## Methods
 
 - `private <set_installModdingToolchain>b__9_0(System.Boolean success) : System.Void`  
+
+```csharp
+private System.Void <set_installModdingToolchain>b__9_0(System.Boolean success);
+```
+
 - `private <set_repairModdingToolchain>b__13_0(System.Boolean success) : System.Void`  
+
+```csharp
+private System.Void <set_repairModdingToolchain>b__13_0(System.Boolean success);
+```
+
 - `private <set_uninstallModdingToolchain>b__11_0(System.Boolean success) : System.Void`  
+
+```csharp
+private System.Void <set_uninstallModdingToolchain>b__11_0(System.Boolean success);
+```
+
 - `private <set_updateModdingToolchain>b__15_0(System.Boolean success) : System.Void`  
+
+```csharp
+private System.Void <set_updateModdingToolchain>b__15_0(System.Boolean success);
+```
+
 - `private GetItem(Game.Modding.Toolchain.IToolchainDependency dependency, Game.UI.Menu.AutomaticSettings+SettingPageData pageData) : Game.UI.Menu.ModdingToolchainSettingItem`  
+
+```csharp
+private Game.UI.Menu.ModdingToolchainSettingItem GetItem(Game.Modding.Toolchain.IToolchainDependency dependency, Game.UI.Menu.AutomaticSettings+SettingPageData pageData);
+```
+
 - `public virtual GetPageData(System.String id, System.Boolean addPrefix) : Game.UI.Menu.AutomaticSettings+SettingPageData`  
+
+```csharp
+public virtual Game.UI.Menu.AutomaticSettings+SettingPageData GetPageData(System.String id, System.Boolean addPrefix);
+```
+
 - `public virtual SetDefaults() : System.Void`  
+
+```csharp
+public virtual System.Void SetDefaults();
+```
+
 
 ## Nested types
 

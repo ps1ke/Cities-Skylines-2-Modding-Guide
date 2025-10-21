@@ -9,15 +9,45 @@
 
 **Attributes:** `Usage`  
 
+## Code
+
+```csharp
+public class CustomFieldAttribute : UnityEngine.PropertyAttribute
+{
+    private System.Type <Factory>k__BackingField;
+
+    public System.Type Factory { get; set; }
+
+    public CustomFieldAttribute(System.Type factory);
+
+}
+```
+
+
 ## Fields
 
 - `private System.Type <Factory>k__BackingField`  
+
+```csharp
+private System.Type <Factory>k__BackingField;
+```
+
 
 ## Properties
 
 - `public System.Type Factory { get; set }`  
 
+```csharp
+public System.Type Factory { get; set; }
+```
+
+
 ## Constructors
 
 - `public CustomFieldAttribute(System.Type factory)`  
+
+```csharp
+public CustomFieldAttribute(System.Type factory);
+```
+
 

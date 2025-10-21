@@ -10,15 +10,49 @@
 
 **Attributes:** `BurstCompile`  
 
+## Code
+
+```csharp
+public sealed struct FindUpdatedBlocksSingleIterationJob : Unity.Jobs.IJobParallelForDefer
+{
+    public Unity.Collections.NativeArray<Colossal.Mathematics.Bounds2> m_Bounds;
+    public Colossal.Collections.NativeQuadTree<Unity.Entities.Entity, Colossal.Mathematics.Bounds2> m_SearchTree;
+    public Unity.Collections.NativeQueue<Unity.Entities.Entity> m_ResultQueue;
+
+    public System.Void Execute(System.Int32 index);
+}
+```
+
+
 ## Fields
 
 - `public Unity.Collections.NativeArray<Colossal.Mathematics.Bounds2> m_Bounds`  
+
+```csharp
+public Unity.Collections.NativeArray<Colossal.Mathematics.Bounds2> m_Bounds;
+```
+
 - `public Colossal.Collections.NativeQuadTree<Unity.Entities.Entity, Colossal.Mathematics.Bounds2> m_SearchTree`  
+
+```csharp
+public Colossal.Collections.NativeQuadTree<Unity.Entities.Entity, Colossal.Mathematics.Bounds2> m_SearchTree;
+```
+
 - `public Unity.Collections.NativeQueue<Unity.Entities.Entity> m_ResultQueue`  
+
+```csharp
+public Unity.Collections.NativeQueue<Unity.Entities.Entity> m_ResultQueue;
+```
+
 
 ## Methods
 
 - `public Execute(System.Int32 index) : System.Void`  
+
+```csharp
+public System.Void Execute(System.Int32 index);
+```
+
 
 ## Nested types
 

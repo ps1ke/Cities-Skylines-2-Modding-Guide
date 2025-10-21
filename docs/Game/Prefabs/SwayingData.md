@@ -8,10 +8,44 @@
 **Base:** `System.ValueType`  
 **Implements:** `Unity.Entities.IComponentData`, `Unity.Entities.IQueryTypeParameter`  
 
+## Code
+
+```csharp
+public sealed struct SwayingData : Unity.Entities.IComponentData, Unity.Entities.IQueryTypeParameter
+{
+    public Unity.Mathematics.float3 m_VelocityFactors;
+    public Unity.Mathematics.float3 m_SpringFactors;
+    public Unity.Mathematics.float3 m_DampingFactors;
+    public Unity.Mathematics.float3 m_MaxPosition;
+
+}
+```
+
+
 ## Fields
 
 - `public Unity.Mathematics.float3 m_VelocityFactors`  
+
+```csharp
+public Unity.Mathematics.float3 m_VelocityFactors;
+```
+
 - `public Unity.Mathematics.float3 m_SpringFactors`  
+
+```csharp
+public Unity.Mathematics.float3 m_SpringFactors;
+```
+
 - `public Unity.Mathematics.float3 m_DampingFactors`  
+
+```csharp
+public Unity.Mathematics.float3 m_DampingFactors;
+```
+
 - `public Unity.Mathematics.float3 m_MaxPosition`  
+
+```csharp
+public Unity.Mathematics.float3 m_MaxPosition;
+```
+
 

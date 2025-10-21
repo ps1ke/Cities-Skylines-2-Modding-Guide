@@ -7,7 +7,23 @@
 
 **Base:** `UnityEngine.PropertyAttribute`  
 
+## Code
+
+```csharp
+public class ImpostorFramesAttribute : UnityEngine.PropertyAttribute
+{
+    public ImpostorFramesAttribute();
+
+}
+```
+
+
 ## Constructors
 
 - `public ImpostorFramesAttribute()`  
+
+```csharp
+public ImpostorFramesAttribute();
+```
+
 

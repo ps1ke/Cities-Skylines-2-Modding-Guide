@@ -8,11 +8,33 @@
 **Base:** `Game.UI.Editor.EditorPanelSystemBase`  
 **Implements:** `Game.UI.Editor.IEditorPanel`  
 
+## Code
+
+```csharp
+public class BulldozeToolPanel : Game.UI.Editor.EditorPanelSystemBase, Game.UI.Editor.IEditorPanel
+{
+    public BulldozeToolPanel();
+
+    protected virtual System.Void OnCreate();
+}
+```
+
+
 ## Constructors
 
 - `public BulldozeToolPanel()`  
 
+```csharp
+public BulldozeToolPanel();
+```
+
+
 ## Methods
 
 - `protected virtual OnCreate() : System.Void`  
+
+```csharp
+protected virtual System.Void OnCreate();
+```
+
 

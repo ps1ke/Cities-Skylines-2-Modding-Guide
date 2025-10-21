@@ -8,33 +8,141 @@
 **Base:** `System.Object`  
 **Implements:** `UnityEngine.InputSystem.LowLevel.IInputStateChangeMonitor`, `System.IDisposable`  
 
+## Code
+
+```csharp
+public class DeviceListener : UnityEngine.InputSystem.LowLevel.IInputStateChangeMonitor, System.IDisposable
+{
+    private System.Collections.Generic.List<UnityEngine.InputSystem.InputControl> m_Controls;
+    private System.Boolean m_Listening;
+    private System.Single m_RequiredDelta;
+    private System.Single m_Delta;
+    private System.Boolean m_Activated;
+    public Game.Input.DeviceListener+DeviceEvent EventDeviceActivated;
+    private UnityEngine.InputSystem.InputDevice <device>k__BackingField;
+
+    public UnityEngine.InputSystem.InputDevice device { get; private set; }
+
+    public DeviceListener(UnityEngine.InputSystem.InputDevice device, System.Single requiredDelta);
+
+    public System.Void Dispose();
+    public System.Void NotifyControlStateChanged(UnityEngine.InputSystem.InputControl control, System.Double time, UnityEngine.InputSystem.LowLevel.InputEventPtr eventPtr, System.Int64 monitorIndex);
+    public System.Void NotifyTimerExpired(UnityEngine.InputSystem.InputControl control, System.Double time, System.Int64 monitorIndex, System.Int32 timerIndex);
+    public System.Void StartListening();
+    public System.Void StopListening();
+    public System.Void Tick();
+    private System.Boolean ValidateControl(UnityEngine.InputSystem.InputControl control);
+}
+```
+
+
 ## Fields
 
 - `private System.Collections.Generic.List<UnityEngine.InputSystem.InputControl> m_Controls`  
+
+```csharp
+private System.Collections.Generic.List<UnityEngine.InputSystem.InputControl> m_Controls;
+```
+
 - `private System.Boolean m_Listening`  
+
+```csharp
+private System.Boolean m_Listening;
+```
+
 - `private System.Single m_RequiredDelta`  
+
+```csharp
+private System.Single m_RequiredDelta;
+```
+
 - `private System.Single m_Delta`  
+
+```csharp
+private System.Single m_Delta;
+```
+
 - `private System.Boolean m_Activated`  
+
+```csharp
+private System.Boolean m_Activated;
+```
+
 - `public Game.Input.DeviceListener+DeviceEvent EventDeviceActivated`  
+
+```csharp
+public Game.Input.DeviceListener+DeviceEvent EventDeviceActivated;
+```
+
 - `private UnityEngine.InputSystem.InputDevice <device>k__BackingField`  
+
+```csharp
+private UnityEngine.InputSystem.InputDevice <device>k__BackingField;
+```
+
 
 ## Properties
 
 - `public UnityEngine.InputSystem.InputDevice device { get; private set }`  
 
+```csharp
+public UnityEngine.InputSystem.InputDevice device { get; private set; }
+```
+
+
 ## Constructors
 
 - `public DeviceListener(UnityEngine.InputSystem.InputDevice device, System.Single requiredDelta)`  
 
+```csharp
+public DeviceListener(UnityEngine.InputSystem.InputDevice device, System.Single requiredDelta);
+```
+
+
 ## Methods
 
 - `public Dispose() : System.Void`  
+
+```csharp
+public System.Void Dispose();
+```
+
 - `public NotifyControlStateChanged(UnityEngine.InputSystem.InputControl control, System.Double time, UnityEngine.InputSystem.LowLevel.InputEventPtr eventPtr, System.Int64 monitorIndex) : System.Void`  
+
+```csharp
+public System.Void NotifyControlStateChanged(UnityEngine.InputSystem.InputControl control, System.Double time, UnityEngine.InputSystem.LowLevel.InputEventPtr eventPtr, System.Int64 monitorIndex);
+```
+
 - `public NotifyTimerExpired(UnityEngine.InputSystem.InputControl control, System.Double time, System.Int64 monitorIndex, System.Int32 timerIndex) : System.Void`  
+
+```csharp
+public System.Void NotifyTimerExpired(UnityEngine.InputSystem.InputControl control, System.Double time, System.Int64 monitorIndex, System.Int32 timerIndex);
+```
+
 - `public StartListening() : System.Void`  
+
+```csharp
+public System.Void StartListening();
+```
+
 - `public StopListening() : System.Void`  
+
+```csharp
+public System.Void StopListening();
+```
+
 - `public Tick() : System.Void`  
+
+```csharp
+public System.Void Tick();
+```
+
 - `private ValidateControl(UnityEngine.InputSystem.InputControl control) : System.Boolean`  
+
+```csharp
+private System.Boolean ValidateControl(UnityEngine.InputSystem.InputControl control);
+```
+
 
 ## Nested types
 

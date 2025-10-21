@@ -7,6 +7,16 @@
 
 **Base:** `System.Object`  
 
+## Code
+
+```csharp
+public static class CellCheckHelpers
+{
+    // (no members)
+}
+```
+
+
 ## Nested types
 
 - `Game.Zones.CellCheckHelpers+SortedEntity`  

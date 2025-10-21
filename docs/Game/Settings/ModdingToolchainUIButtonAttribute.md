@@ -9,7 +9,23 @@
 
 **Attributes:** `Usage`  
 
+## Code
+
+```csharp
+public class ModdingToolchainUIButtonAttribute : System.Attribute
+{
+    public ModdingToolchainUIButtonAttribute();
+
+}
+```
+
+
 ## Constructors
 
 - `public ModdingToolchainUIButtonAttribute()`  
+
+```csharp
+public ModdingToolchainUIButtonAttribute();
+```
+
 

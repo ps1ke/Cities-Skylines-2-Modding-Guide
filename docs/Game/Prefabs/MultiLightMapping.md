@@ -9,11 +9,34 @@
 
 **Attributes:** `Serializable`  
 
+## Code
+
+```csharp
+public class MultiLightMapping : Game.Prefabs.EmissiveProperties+LightProperties
+{
+    public System.Int32 layerId;
+
+    public MultiLightMapping();
+
+}
+```
+
+
 ## Fields
 
 - `public System.Int32 layerId`  
 
+```csharp
+public System.Int32 layerId;
+```
+
+
 ## Constructors
 
 - `public MultiLightMapping()`  
+
+```csharp
+public MultiLightMapping();
+```
+
 

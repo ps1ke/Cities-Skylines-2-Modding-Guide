@@ -8,7 +8,23 @@
 **Base:** `Game.Prefabs.PrefabBase`  
 **Implements:** `Colossal.IO.AssetDatabase.IComponentBase`, `System.IComparable`, `UnityEngine.ISerializationCallbackReceiver`, `Colossal.IO.AssetDatabase.IPrefabBase`  
 
+## Code
+
+```csharp
+public class GroupPrefab : Game.Prefabs.PrefabBase, Colossal.IO.AssetDatabase.IComponentBase, System.IComparable, UnityEngine.ISerializationCallbackReceiver, Colossal.IO.AssetDatabase.IPrefabBase
+{
+    public GroupPrefab();
+
+}
+```
+
+
 ## Constructors
 
 - `public GroupPrefab()`  
+
+```csharp
+public GroupPrefab();
+```
+
 

@@ -10,9 +10,37 @@
 
 **Attributes:** `Flags`  
 
+## Code
+
+```csharp
+public sealed enum ExtensionFlags : System.IComparable, System.ISpanFormattable, System.IFormattable, System.IConvertible
+{
+    public System.Byte value__;
+    public static const Game.Buildings.ExtensionFlags None;
+    public static const Game.Buildings.ExtensionFlags Disabled;
+
+}
+```
+
+
 ## Fields
 
 - `public System.Byte value__`  
+
+```csharp
+public System.Byte value__;
+```
+
 - `public static const Game.Buildings.ExtensionFlags None`  
+
+```csharp
+public static const Game.Buildings.ExtensionFlags None;
+```
+
 - `public static const Game.Buildings.ExtensionFlags Disabled`  
+
+```csharp
+public static const Game.Buildings.ExtensionFlags Disabled;
+```
+
 

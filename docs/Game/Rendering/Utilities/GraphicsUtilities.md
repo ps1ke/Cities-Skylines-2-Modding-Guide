@@ -7,7 +7,22 @@
 
 **Base:** `System.Object`  
 
+## Code
+
+```csharp
+public static class GraphicsUtilities
+{
+    public static System.Void GenerateRandomWindowsTexture();
+}
+```
+
+
 ## Methods
 
 - `public static GenerateRandomWindowsTexture() : System.Void`  
+
+```csharp
+public static System.Void GenerateRandomWindowsTexture();
+```
+
 

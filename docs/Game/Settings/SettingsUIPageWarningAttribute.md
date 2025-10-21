@@ -9,12 +9,41 @@
 
 **Attributes:** `Usage`  
 
+## Code
+
+```csharp
+public class SettingsUIPageWarningAttribute : System.Attribute
+{
+    public readonly System.Type checkType;
+    public readonly System.String checkMethod;
+
+    public SettingsUIPageWarningAttribute(System.Type checkType, System.String checkMethod);
+
+}
+```
+
+
 ## Fields
 
 - `public readonly System.Type checkType`  
+
+```csharp
+public readonly System.Type checkType;
+```
+
 - `public readonly System.String checkMethod`  
+
+```csharp
+public readonly System.String checkMethod;
+```
+
 
 ## Constructors
 
 - `public SettingsUIPageWarningAttribute(System.Type checkType, System.String checkMethod)`  
+
+```csharp
+public SettingsUIPageWarningAttribute(System.Type checkType, System.String checkMethod);
+```
+
 

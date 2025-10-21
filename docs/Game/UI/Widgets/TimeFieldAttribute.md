@@ -9,7 +9,23 @@
 
 **Attributes:** `Usage`  
 
+## Code
+
+```csharp
+public class TimeFieldAttribute : UnityEngine.PropertyAttribute
+{
+    public TimeFieldAttribute();
+
+}
+```
+
+
 ## Constructors
 
 - `public TimeFieldAttribute()`  
+
+```csharp
+public TimeFieldAttribute();
+```
+
 

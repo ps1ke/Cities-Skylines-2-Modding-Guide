@@ -8,12 +8,58 @@
 **Base:** `System.Enum`  
 **Implements:** `System.IComparable`, `System.ISpanFormattable`, `System.IFormattable`, `System.IConvertible`  
 
+## Code
+
+```csharp
+public sealed enum ArgumentUnit : System.IComparable, System.ISpanFormattable, System.IFormattable, System.IConvertible
+{
+    public System.Int32 value__;
+    public static const Game.Prefabs.Modes.GameModeRule+ArgumentUnit integer;
+    public static const Game.Prefabs.Modes.GameModeRule+ArgumentUnit percentage;
+    public static const Game.Prefabs.Modes.GameModeRule+ArgumentUnit money;
+    public static const Game.Prefabs.Modes.GameModeRule+ArgumentUnit xp;
+    public static const Game.Prefabs.Modes.GameModeRule+ArgumentUnit custom;
+
+}
+```
+
+
 ## Fields
 
 - `public System.Int32 value__`  
+
+```csharp
+public System.Int32 value__;
+```
+
 - `public static const Game.Prefabs.Modes.GameModeRule+ArgumentUnit integer`  
+
+```csharp
+public static const Game.Prefabs.Modes.GameModeRule+ArgumentUnit integer;
+```
+
 - `public static const Game.Prefabs.Modes.GameModeRule+ArgumentUnit percentage`  
+
+```csharp
+public static const Game.Prefabs.Modes.GameModeRule+ArgumentUnit percentage;
+```
+
 - `public static const Game.Prefabs.Modes.GameModeRule+ArgumentUnit money`  
+
+```csharp
+public static const Game.Prefabs.Modes.GameModeRule+ArgumentUnit money;
+```
+
 - `public static const Game.Prefabs.Modes.GameModeRule+ArgumentUnit xp`  
+
+```csharp
+public static const Game.Prefabs.Modes.GameModeRule+ArgumentUnit xp;
+```
+
 - `public static const Game.Prefabs.Modes.GameModeRule+ArgumentUnit custom`  
+
+```csharp
+public static const Game.Prefabs.Modes.GameModeRule+ArgumentUnit custom;
+```
+
 

@@ -8,3 +8,13 @@
 **Base:** `System.ValueType`  
 **Implements:** `Unity.Entities.IComponentData`, `Unity.Entities.IQueryTypeParameter`  
 
+## Code
+
+```csharp
+public sealed struct LivePath : Unity.Entities.IComponentData, Unity.Entities.IQueryTypeParameter
+{
+    // (no members)
+}
+```
+
+

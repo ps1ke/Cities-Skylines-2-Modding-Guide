@@ -9,7 +9,23 @@
 
 **Attributes:** `Usage`  
 
+## Code
+
+```csharp
+public class ResourceArrayAttribute : System.Attribute
+{
+    public ResourceArrayAttribute();
+
+}
+```
+
+
 ## Constructors
 
 - `public ResourceArrayAttribute()`  
+
+```csharp
+public ResourceArrayAttribute();
+```
+
 

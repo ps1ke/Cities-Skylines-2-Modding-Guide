@@ -8,17 +8,46 @@
 **Base:** `Game.SceneFlow.FullScreenOverlay`  
 **Implements:** `Game.SceneFlow.IScreenState`  
 
+## Code
+
+```csharp
+public class SwitchUserScreen : Game.SceneFlow.FullScreenOverlay, Game.SceneFlow.IScreenState
+{
+    protected Game.SceneFlow.OverlayScreen overlayScreen { protected get; }
+
+    public SwitchUserScreen();
+
+    public virtual System.Threading.Tasks.Task Execute(Game.SceneFlow.GameManager manager, System.Threading.CancellationToken token);
+}
+```
+
+
 ## Properties
 
 - `protected Game.SceneFlow.OverlayScreen overlayScreen { protected get }`  
+
+```csharp
+protected Game.SceneFlow.OverlayScreen overlayScreen { protected get; }
+```
+
 
 ## Constructors
 
 - `public SwitchUserScreen()`  
 
+```csharp
+public SwitchUserScreen();
+```
+
+
 ## Methods
 
 - `public virtual Execute(Game.SceneFlow.GameManager manager, System.Threading.CancellationToken token) : System.Threading.Tasks.Task`  
+
+```csharp
+public virtual System.Threading.Tasks.Task Execute(Game.SceneFlow.GameManager manager, System.Threading.CancellationToken token);
+```
+
 
 ## Nested types
 

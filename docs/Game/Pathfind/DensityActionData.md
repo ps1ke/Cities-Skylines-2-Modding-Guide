@@ -7,8 +7,30 @@
 
 **Base:** `System.ValueType`  
 
+## Code
+
+```csharp
+public sealed struct DensityActionData
+{
+    public Unity.Entities.Entity m_Owner;
+    public System.Single m_Density;
+
+}
+```
+
+
 ## Fields
 
 - `public Unity.Entities.Entity m_Owner`  
+
+```csharp
+public Unity.Entities.Entity m_Owner;
+```
+
 - `public System.Single m_Density`  
+
+```csharp
+public System.Single m_Density;
+```
+
 

@@ -7,6 +7,16 @@
 
 **Base:** `System.Object`  
 
+## Code
+
+```csharp
+public static class AirwayHelpers
+{
+    // (no members)
+}
+```
+
+
 ## Nested types
 
 - `Game.Net.AirwayHelpers+AirwayMap`  

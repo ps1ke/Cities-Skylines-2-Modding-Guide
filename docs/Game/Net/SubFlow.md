@@ -10,7 +10,23 @@
 
 **Attributes:** `InternalBufferCapacity`  
 
+## Code
+
+```csharp
+public sealed struct SubFlow : Unity.Entities.IBufferElementData, Colossal.Serialization.Entities.IEmptySerializable
+{
+    public System.SByte m_Value;
+
+}
+```
+
+
 ## Fields
 
 - `public System.SByte m_Value`  
+
+```csharp
+public System.SByte m_Value;
+```
+
 

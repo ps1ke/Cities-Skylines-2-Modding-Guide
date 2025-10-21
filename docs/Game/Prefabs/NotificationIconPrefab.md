@@ -10,22 +10,93 @@
 
 **Attributes:** `ComponentMenu`  
 
+## Code
+
+```csharp
+public class NotificationIconPrefab : Game.Prefabs.PrefabBase, Colossal.IO.AssetDatabase.IComponentBase, System.IComparable, UnityEngine.ISerializationCallbackReceiver, Colossal.IO.AssetDatabase.IPrefabBase
+{
+    public UnityEngine.Texture2D m_Icon;
+    public System.String m_Description;
+    public System.String m_TargetDescription;
+    public Colossal.Mathematics.Bounds1 m_DisplaySize;
+    public Colossal.Mathematics.Bounds1 m_PulsateAmplitude;
+
+    public NotificationIconPrefab();
+
+    public virtual System.Void GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+    public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+    public virtual System.Void LateInitialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity);
+    protected virtual System.Void RefreshArchetype(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity);
+}
+```
+
+
 ## Fields
 
 - `public UnityEngine.Texture2D m_Icon`  
+
+```csharp
+public UnityEngine.Texture2D m_Icon;
+```
+
 - `public System.String m_Description`  
+
+```csharp
+public System.String m_Description;
+```
+
 - `public System.String m_TargetDescription`  
+
+```csharp
+public System.String m_TargetDescription;
+```
+
 - `public Colossal.Mathematics.Bounds1 m_DisplaySize`  
+
+```csharp
+public Colossal.Mathematics.Bounds1 m_DisplaySize;
+```
+
 - `public Colossal.Mathematics.Bounds1 m_PulsateAmplitude`  
+
+```csharp
+public Colossal.Mathematics.Bounds1 m_PulsateAmplitude;
+```
+
 
 ## Constructors
 
 - `public NotificationIconPrefab()`  
 
+```csharp
+public NotificationIconPrefab();
+```
+
+
 ## Methods
 
 - `public virtual GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
+
+```csharp
+public virtual System.Void GetArchetypeComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+```
+
 - `public virtual GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
+
+```csharp
+public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+```
+
 - `public virtual LateInitialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity) : System.Void`  
+
+```csharp
+public virtual System.Void LateInitialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity);
+```
+
 - `protected virtual RefreshArchetype(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity) : System.Void`  
+
+```csharp
+protected virtual System.Void RefreshArchetype(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity);
+```
+
 

@@ -10,3 +10,13 @@
 
 **Attributes:** `FormerlySerializedAs`  
 
+## Code
+
+```csharp
+public sealed struct TerrainMaterialPropertiesData : Unity.Entities.IComponentData, Unity.Entities.IQueryTypeParameter
+{
+    // (no members)
+}
+```
+
+

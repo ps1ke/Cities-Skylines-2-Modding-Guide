@@ -10,11 +10,34 @@
 
 **Attributes:** `InternalBufferCapacity`  
 
+## Code
+
+```csharp
+public sealed struct ServiceUpgradeBuilding : Unity.Entities.IBufferElementData
+{
+    public Unity.Entities.Entity m_Building;
+
+    public ServiceUpgradeBuilding(Unity.Entities.Entity building);
+
+}
+```
+
+
 ## Fields
 
 - `public Unity.Entities.Entity m_Building`  
 
+```csharp
+public Unity.Entities.Entity m_Building;
+```
+
+
 ## Constructors
 
 - `public ServiceUpgradeBuilding(Unity.Entities.Entity building)`  
+
+```csharp
+public ServiceUpgradeBuilding(Unity.Entities.Entity building);
+```
+
 

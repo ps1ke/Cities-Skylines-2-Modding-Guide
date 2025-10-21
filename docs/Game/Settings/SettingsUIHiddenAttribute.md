@@ -9,7 +9,23 @@
 
 **Attributes:** `Usage`  
 
+## Code
+
+```csharp
+public class SettingsUIHiddenAttribute : System.Attribute
+{
+    public SettingsUIHiddenAttribute();
+
+}
+```
+
+
 ## Constructors
 
 - `public SettingsUIHiddenAttribute()`  
+
+```csharp
+public SettingsUIHiddenAttribute();
+```
+
 

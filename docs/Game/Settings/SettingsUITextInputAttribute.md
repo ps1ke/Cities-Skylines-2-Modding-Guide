@@ -9,7 +9,23 @@
 
 **Attributes:** `Usage`  
 
+## Code
+
+```csharp
+public class SettingsUITextInputAttribute : System.Attribute
+{
+    public SettingsUITextInputAttribute();
+
+}
+```
+
+
 ## Constructors
 
 - `public SettingsUITextInputAttribute()`  
+
+```csharp
+public SettingsUITextInputAttribute();
+```
+
 

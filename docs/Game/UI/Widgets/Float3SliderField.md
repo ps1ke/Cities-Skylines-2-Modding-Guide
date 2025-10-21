@@ -8,16 +8,51 @@
 **Base:** `Game.UI.Widgets.FloatSliderField<Unity.Mathematics.float3>`  
 **Implements:** `Game.UI.Widgets.IWidget`, `Colossal.UI.Binding.IJsonWritable`, `Game.UI.Widgets.IVisibleWidget`, `Game.UI.Widgets.IDisableCallback`, `Game.UI.Widgets.INamed`, `Game.UI.Widgets.ITooltipTarget`, `Game.UI.Widgets.IUITagProvider`, `Game.UI.Widgets.ISettable`  
 
+## Code
+
+```csharp
+public class Float3SliderField : Game.UI.Widgets.FloatSliderField<Unity.Mathematics.float3>, Game.UI.Widgets.IWidget, Colossal.UI.Binding.IJsonWritable, Game.UI.Widgets.IVisibleWidget, Game.UI.Widgets.IDisableCallback, Game.UI.Widgets.INamed, Game.UI.Widgets.ITooltipTarget, Game.UI.Widgets.IUITagProvider, Game.UI.Widgets.ISettable
+{
+    protected Unity.Mathematics.float3 defaultMin { protected get; }
+    protected Unity.Mathematics.float3 defaultMax { protected get; }
+
+    public Float3SliderField();
+
+    public virtual Unity.Mathematics.float3 ToFieldType(Unity.Mathematics.double4 value);
+}
+```
+
+
 ## Properties
 
 - `protected Unity.Mathematics.float3 defaultMin { protected get }`  
+
+```csharp
+protected Unity.Mathematics.float3 defaultMin { protected get; }
+```
+
 - `protected Unity.Mathematics.float3 defaultMax { protected get }`  
+
+```csharp
+protected Unity.Mathematics.float3 defaultMax { protected get; }
+```
+
 
 ## Constructors
 
 - `public Float3SliderField()`  
 
+```csharp
+public Float3SliderField();
+```
+
+
 ## Methods
 
 - `public virtual ToFieldType(Unity.Mathematics.double4 value) : Unity.Mathematics.float3`  
+
+```csharp
+public virtual Unity.Mathematics.float3 ToFieldType(Unity.Mathematics.double4 value);
+```
+
 

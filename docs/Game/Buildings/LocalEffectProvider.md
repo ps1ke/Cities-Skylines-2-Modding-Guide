@@ -8,3 +8,13 @@
 **Base:** `System.ValueType`  
 **Implements:** `Unity.Entities.IComponentData`, `Unity.Entities.IQueryTypeParameter`, `Colossal.Serialization.Entities.IEmptySerializable`  
 
+## Code
+
+```csharp
+public sealed struct LocalEffectProvider : Unity.Entities.IComponentData, Unity.Entities.IQueryTypeParameter, Colossal.Serialization.Entities.IEmptySerializable
+{
+    // (no members)
+}
+```
+
+

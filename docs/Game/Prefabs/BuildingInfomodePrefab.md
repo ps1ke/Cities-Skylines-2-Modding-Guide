@@ -10,20 +10,62 @@
 
 **Attributes:** `ComponentMenu`  
 
+## Code
+
+```csharp
+public class BuildingInfomodePrefab : Game.Prefabs.ColorInfomodeBasePrefab, Colossal.IO.AssetDatabase.IComponentBase, System.IComparable, UnityEngine.ISerializationCallbackReceiver, Colossal.IO.AssetDatabase.IPrefabBase, Game.Prefabs.IColorInfomode
+{
+    public Game.Prefabs.BuildingType m_Type;
+
+    public System.String infomodeTypeLocaleKey { get; }
+
+    public BuildingInfomodePrefab();
+
+    public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+    public virtual System.Void Initialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity);
+}
+```
+
+
 ## Fields
 
 - `public Game.Prefabs.BuildingType m_Type`  
+
+```csharp
+public Game.Prefabs.BuildingType m_Type;
+```
+
 
 ## Properties
 
 - `public System.String infomodeTypeLocaleKey { get }`  
 
+```csharp
+public System.String infomodeTypeLocaleKey { get; }
+```
+
+
 ## Constructors
 
 - `public BuildingInfomodePrefab()`  
 
+```csharp
+public BuildingInfomodePrefab();
+```
+
+
 ## Methods
 
 - `public virtual GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
+
+```csharp
+public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+```
+
 - `public virtual Initialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity) : System.Void`  
+
+```csharp
+public virtual System.Void Initialize(Unity.Entities.EntityManager entityManager, Unity.Entities.Entity entity);
+```
+
 

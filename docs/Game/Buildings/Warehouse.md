@@ -10,3 +10,13 @@
 
 **Attributes:** `Obsolete`  
 
+## Code
+
+```csharp
+public sealed struct Warehouse : Unity.Entities.IComponentData, Unity.Entities.IQueryTypeParameter, Colossal.Serialization.Entities.IEmptySerializable
+{
+    // (no members)
+}
+```
+
+

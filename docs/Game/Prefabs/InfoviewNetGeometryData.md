@@ -8,7 +8,23 @@
 **Base:** `System.ValueType`  
 **Implements:** `Unity.Entities.IComponentData`, `Unity.Entities.IQueryTypeParameter`  
 
+## Code
+
+```csharp
+public sealed struct InfoviewNetGeometryData : Unity.Entities.IComponentData, Unity.Entities.IQueryTypeParameter
+{
+    public Game.Prefabs.NetType m_Type;
+
+}
+```
+
+
 ## Fields
 
 - `public Game.Prefabs.NetType m_Type`  
+
+```csharp
+public Game.Prefabs.NetType m_Type;
+```
+
 

@@ -7,6 +7,16 @@
 
 **Base:** `System.Object`  
 
+## Code
+
+```csharp
+public static class WatercraftNavigationHelpers
+{
+    // (no members)
+}
+```
+
+
 ## Nested types
 
 - `Game.Simulation.WatercraftNavigationHelpers+LaneSignal`  

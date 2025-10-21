@@ -10,7 +10,23 @@
 
 **Attributes:** `InternalBufferCapacity`  
 
+## Code
+
+```csharp
+public sealed struct BrushCell : Unity.Entities.IBufferElementData
+{
+    public System.Single m_Opacity;
+
+}
+```
+
+
 ## Fields
 
 - `public System.Single m_Opacity`  
+
+```csharp
+public System.Single m_Opacity;
+```
+
 

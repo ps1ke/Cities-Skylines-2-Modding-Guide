@@ -8,3 +8,13 @@
 **Base:** `System.ValueType`  
 **Implements:** `Unity.Entities.IComponentData`, `Unity.Entities.IQueryTypeParameter`, `Colossal.Serialization.Entities.IEmptySerializable`, `Unity.Entities.IEnableableComponent`  
 
+## Code
+
+```csharp
+public sealed struct Arrived : Unity.Entities.IComponentData, Unity.Entities.IQueryTypeParameter, Colossal.Serialization.Entities.IEmptySerializable, Unity.Entities.IEnableableComponent
+{
+    // (no members)
+}
+```
+
+

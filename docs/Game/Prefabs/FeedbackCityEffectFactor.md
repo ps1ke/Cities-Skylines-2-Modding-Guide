@@ -10,7 +10,23 @@
 
 **Attributes:** `InternalBufferCapacity`  
 
+## Code
+
+```csharp
+public sealed struct FeedbackCityEffectFactor : Unity.Entities.IBufferElementData
+{
+    public System.Single m_Factor;
+
+}
+```
+
+
 ## Fields
 
 - `public System.Single m_Factor`  
+
+```csharp
+public System.Single m_Factor;
+```
+
 

@@ -8,19 +8,72 @@
 **Base:** `System.ValueType`  
 **Implements:** `System.IDisposable`  
 
+## Code
+
+```csharp
+public sealed struct AvailabilityActionData : System.IDisposable
+{
+    public Unity.Collections.UnsafeQueue<Game.Pathfind.PathTarget> m_Sources;
+    public Unity.Collections.UnsafeQueue<Game.Pathfind.AvailabilityProvider> m_Providers;
+    public Unity.Collections.LowLevel.Unsafe.UnsafeList<Game.Pathfind.AvailabilityResult> m_Results;
+    public Game.Pathfind.AvailabilityParameters m_Parameters;
+    public Game.Pathfind.PathfindActionState m_State;
+
+    public AvailabilityActionData(Unity.Collections.Allocator allocator, Game.Pathfind.AvailabilityParameters parameters);
+
+    public System.Void Dispose();
+}
+```
+
+
 ## Fields
 
 - `public Unity.Collections.UnsafeQueue<Game.Pathfind.PathTarget> m_Sources`  
+
+```csharp
+public Unity.Collections.UnsafeQueue<Game.Pathfind.PathTarget> m_Sources;
+```
+
 - `public Unity.Collections.UnsafeQueue<Game.Pathfind.AvailabilityProvider> m_Providers`  
+
+```csharp
+public Unity.Collections.UnsafeQueue<Game.Pathfind.AvailabilityProvider> m_Providers;
+```
+
 - `public Unity.Collections.LowLevel.Unsafe.UnsafeList<Game.Pathfind.AvailabilityResult> m_Results`  
+
+```csharp
+public Unity.Collections.LowLevel.Unsafe.UnsafeList<Game.Pathfind.AvailabilityResult> m_Results;
+```
+
 - `public Game.Pathfind.AvailabilityParameters m_Parameters`  
+
+```csharp
+public Game.Pathfind.AvailabilityParameters m_Parameters;
+```
+
 - `public Game.Pathfind.PathfindActionState m_State`  
+
+```csharp
+public Game.Pathfind.PathfindActionState m_State;
+```
+
 
 ## Constructors
 
 - `public AvailabilityActionData(Unity.Collections.Allocator allocator, Game.Pathfind.AvailabilityParameters parameters)`  
 
+```csharp
+public AvailabilityActionData(Unity.Collections.Allocator allocator, Game.Pathfind.AvailabilityParameters parameters);
+```
+
+
 ## Methods
 
 - `public Dispose() : System.Void`  
+
+```csharp
+public System.Void Dispose();
+```
+
 

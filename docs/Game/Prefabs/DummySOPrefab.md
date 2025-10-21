@@ -9,7 +9,23 @@
 
 **Attributes:** `CreateAssetMenu`  
 
+## Code
+
+```csharp
+public class DummySOPrefab : UnityEngine.ScriptableObject
+{
+    public DummySOPrefab();
+
+}
+```
+
+
 ## Constructors
 
 - `public DummySOPrefab()`  
+
+```csharp
+public DummySOPrefab();
+```
+
 

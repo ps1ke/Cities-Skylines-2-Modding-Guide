@@ -9,8 +9,30 @@
 
 **Attributes:** `DebuggerDisplay`  
 
+## Code
+
+```csharp
+public sealed struct DiskSpaceRequirements
+{
+    public System.String m_Path;
+    public System.Int64 m_Size;
+
+}
+```
+
+
 ## Fields
 
 - `public System.String m_Path`  
+
+```csharp
+public System.String m_Path;
+```
+
 - `public System.Int64 m_Size`  
+
+```csharp
+public System.Int64 m_Size;
+```
+
 

@@ -10,7 +10,23 @@
 
 **Attributes:** `InternalBufferCapacity`  
 
+## Code
+
+```csharp
+public sealed struct LodMesh : Unity.Entities.IBufferElementData, Colossal.Serialization.Entities.IEmptySerializable
+{
+    public Unity.Entities.Entity m_LodMesh;
+
+}
+```
+
+
 ## Fields
 
 - `public Unity.Entities.Entity m_LodMesh`  
+
+```csharp
+public Unity.Entities.Entity m_LodMesh;
+```
+
 

@@ -7,3 +7,13 @@
 
 **Implements:** `Colossal.UI.Binding.IJsonWritable`  
 
+## Code
+
+```csharp
+public abstract interface ILocElement : Colossal.UI.Binding.IJsonWritable
+{
+    // (no members)
+}
+```
+
+

@@ -8,14 +8,54 @@
 **Base:** `System.ValueType`  
 **Implements:** `System.IComparable<Game.Net.EdgeIteratorValueSorted>`  
 
+## Code
+
+```csharp
+public sealed struct EdgeIteratorValueSorted : System.IComparable<Game.Net.EdgeIteratorValueSorted>
+{
+    public Unity.Entities.Entity m_Edge;
+    public System.UInt32 m_SortIndex;
+    public System.Boolean m_End;
+    public System.Boolean m_Middle;
+
+    public System.Int32 CompareTo(Game.Net.EdgeIteratorValueSorted other);
+}
+```
+
+
 ## Fields
 
 - `public Unity.Entities.Entity m_Edge`  
+
+```csharp
+public Unity.Entities.Entity m_Edge;
+```
+
 - `public System.UInt32 m_SortIndex`  
+
+```csharp
+public System.UInt32 m_SortIndex;
+```
+
 - `public System.Boolean m_End`  
+
+```csharp
+public System.Boolean m_End;
+```
+
 - `public System.Boolean m_Middle`  
+
+```csharp
+public System.Boolean m_Middle;
+```
+
 
 ## Methods
 
 - `public CompareTo(Game.Net.EdgeIteratorValueSorted other) : System.Int32`  
+
+```csharp
+public System.Int32 CompareTo(Game.Net.EdgeIteratorValueSorted other);
+```
+
 

@@ -10,12 +10,40 @@
 
 **Attributes:** `BurstCompile`  
 
+## Code
+
+```csharp
+public sealed struct UpdateBoundsJob : Unity.Jobs.IJob
+{
+    public Unity.Collections.NativeQueue<Colossal.Mathematics.Bounds2> m_BoundsQueue;
+    public Unity.Collections.NativeList<Colossal.Mathematics.Bounds2> m_BoundsList;
+
+    public System.Void Execute();
+}
+```
+
+
 ## Fields
 
 - `public Unity.Collections.NativeQueue<Colossal.Mathematics.Bounds2> m_BoundsQueue`  
+
+```csharp
+public Unity.Collections.NativeQueue<Colossal.Mathematics.Bounds2> m_BoundsQueue;
+```
+
 - `public Unity.Collections.NativeList<Colossal.Mathematics.Bounds2> m_BoundsList`  
+
+```csharp
+public Unity.Collections.NativeList<Colossal.Mathematics.Bounds2> m_BoundsList;
+```
+
 
 ## Methods
 
 - `public Execute() : System.Void`  
+
+```csharp
+public System.Void Execute();
+```
+
 

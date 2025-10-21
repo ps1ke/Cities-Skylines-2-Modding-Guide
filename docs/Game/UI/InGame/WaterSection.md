@@ -10,28 +10,118 @@
 
 **Attributes:** `CompilerGenerated`  
 
+## Code
+
+```csharp
+public class WaterSection : Game.UI.InGame.InfoSectionBase, Game.UI.InGame.ISectionSource, Colossal.UI.Binding.IJsonWritable
+{
+    private System.Single <pollution>k__BackingField;
+    private System.Int32 <capacity>k__BackingField;
+    private System.Int32 <lastProduction>k__BackingField;
+
+    protected System.String group { protected get; }
+    private System.Single pollution { private get; private set; }
+    private System.Int32 capacity { private get; private set; }
+    private System.Int32 lastProduction { private get; private set; }
+
+    public WaterSection();
+
+    protected virtual System.Void OnProcess();
+    protected virtual System.Void OnUpdate();
+    public virtual System.Void OnWriteProperties(Colossal.UI.Binding.IJsonWriter writer);
+    protected virtual System.Void Reset();
+    private System.Boolean Visible();
+}
+```
+
+
 ## Fields
 
 - `private System.Single <pollution>k__BackingField`  
+
+```csharp
+private System.Single <pollution>k__BackingField;
+```
+
 - `private System.Int32 <capacity>k__BackingField`  
+
+```csharp
+private System.Int32 <capacity>k__BackingField;
+```
+
 - `private System.Int32 <lastProduction>k__BackingField`  
+
+```csharp
+private System.Int32 <lastProduction>k__BackingField;
+```
+
 
 ## Properties
 
 - `protected System.String group { protected get }`  
+
+```csharp
+protected System.String group { protected get; }
+```
+
 - `private System.Single pollution { private get; private set }`  
+
+```csharp
+private System.Single pollution { private get; private set; }
+```
+
 - `private System.Int32 capacity { private get; private set }`  
+
+```csharp
+private System.Int32 capacity { private get; private set; }
+```
+
 - `private System.Int32 lastProduction { private get; private set }`  
+
+```csharp
+private System.Int32 lastProduction { private get; private set; }
+```
+
 
 ## Constructors
 
 - `public WaterSection()`  
 
+```csharp
+public WaterSection();
+```
+
+
 ## Methods
 
 - `protected virtual OnProcess() : System.Void`  
+
+```csharp
+protected virtual System.Void OnProcess();
+```
+
 - `protected virtual OnUpdate() : System.Void`  
+
+```csharp
+protected virtual System.Void OnUpdate();
+```
+
 - `public virtual OnWriteProperties(Colossal.UI.Binding.IJsonWriter writer) : System.Void`  
+
+```csharp
+public virtual System.Void OnWriteProperties(Colossal.UI.Binding.IJsonWriter writer);
+```
+
 - `protected virtual Reset() : System.Void`  
+
+```csharp
+protected virtual System.Void Reset();
+```
+
 - `private Visible() : System.Boolean`  
+
+```csharp
+private System.Boolean Visible();
+```
+
 

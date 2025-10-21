@@ -10,11 +10,33 @@
 
 **Attributes:** `ComponentMenu`  
 
+## Code
+
+```csharp
+public class TrainCarPrefab : Game.Prefabs.TrainPrefab, Colossal.IO.AssetDatabase.IComponentBase, System.IComparable, UnityEngine.ISerializationCallbackReceiver, Colossal.IO.AssetDatabase.IPrefabBase
+{
+    public TrainCarPrefab();
+
+    public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+}
+```
+
+
 ## Constructors
 
 - `public TrainCarPrefab()`  
 
+```csharp
+public TrainCarPrefab();
+```
+
+
 ## Methods
 
 - `public virtual GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
+
+```csharp
+public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+```
+
 

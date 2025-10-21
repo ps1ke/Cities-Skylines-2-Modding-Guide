@@ -8,7 +8,23 @@
 **Base:** `Game.UI.Menu.ParadoxBindings+ParadoxDialog`  
 **Implements:** `Colossal.UI.Binding.IJsonWritable`  
 
+## Code
+
+```csharp
+public class LoginDialog : Game.UI.Menu.ParadoxBindings+ParadoxDialog, Colossal.UI.Binding.IJsonWritable
+{
+    public LoginDialog();
+
+}
+```
+
+
 ## Constructors
 
 - `public LoginDialog()`  
+
+```csharp
+public LoginDialog();
+```
+
 

@@ -8,13 +8,48 @@
 **Base:** `System.ValueType`  
 **Implements:** `Unity.Entities.IComponentData`, `Unity.Entities.IQueryTypeParameter`, `Colossal.Serialization.Entities.IEmptySerializable`  
 
+## Code
+
+```csharp
+public sealed struct LaneColor : Unity.Entities.IComponentData, Unity.Entities.IQueryTypeParameter, Colossal.Serialization.Entities.IEmptySerializable
+{
+    public System.Byte m_Index;
+    public System.Byte m_Value0;
+    public System.Byte m_Value1;
+
+    public LaneColor(System.Byte index, System.Byte value0, System.Byte value1);
+
+}
+```
+
+
 ## Fields
 
 - `public System.Byte m_Index`  
+
+```csharp
+public System.Byte m_Index;
+```
+
 - `public System.Byte m_Value0`  
+
+```csharp
+public System.Byte m_Value0;
+```
+
 - `public System.Byte m_Value1`  
+
+```csharp
+public System.Byte m_Value1;
+```
+
 
 ## Constructors
 
 - `public LaneColor(System.Byte index, System.Byte value0, System.Byte value1)`  
+
+```csharp
+public LaneColor(System.Byte index, System.Byte value0, System.Byte value1);
+```
+
 

@@ -7,6 +7,16 @@
 
 **Base:** `System.Object`  
 
+## Code
+
+```csharp
+public static class HumanNavigationHelpers
+{
+    // (no members)
+}
+```
+
+
 ## Nested types
 
 - `Game.Simulation.HumanNavigationHelpers+LaneSignal`  

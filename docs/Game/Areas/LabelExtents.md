@@ -10,11 +10,34 @@
 
 **Attributes:** `InternalBufferCapacity`  
 
+## Code
+
+```csharp
+public sealed struct LabelExtents : Unity.Entities.IBufferElementData, Colossal.Serialization.Entities.IEmptySerializable
+{
+    public Colossal.Mathematics.Bounds2 m_Bounds;
+
+    public LabelExtents(Unity.Mathematics.float2 min, Unity.Mathematics.float2 max);
+
+}
+```
+
+
 ## Fields
 
 - `public Colossal.Mathematics.Bounds2 m_Bounds`  
 
+```csharp
+public Colossal.Mathematics.Bounds2 m_Bounds;
+```
+
+
 ## Constructors
 
 - `public LabelExtents(Unity.Mathematics.float2 min, Unity.Mathematics.float2 max)`  
+
+```csharp
+public LabelExtents(Unity.Mathematics.float2 min, Unity.Mathematics.float2 max);
+```
+
 

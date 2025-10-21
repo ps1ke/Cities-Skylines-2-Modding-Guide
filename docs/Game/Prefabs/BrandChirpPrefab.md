@@ -10,11 +10,33 @@
 
 **Attributes:** `ComponentMenu`  
 
+## Code
+
+```csharp
+public class BrandChirpPrefab : Game.Prefabs.ChirpPrefab, Colossal.IO.AssetDatabase.IComponentBase, System.IComparable, UnityEngine.ISerializationCallbackReceiver, Colossal.IO.AssetDatabase.IPrefabBase
+{
+    public BrandChirpPrefab();
+
+    public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+}
+```
+
+
 ## Constructors
 
 - `public BrandChirpPrefab()`  
 
+```csharp
+public BrandChirpPrefab();
+```
+
+
 ## Methods
 
 - `public virtual GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components) : System.Void`  
+
+```csharp
+public virtual System.Void GetPrefabComponents(System.Collections.Generic.HashSet<Unity.Entities.ComponentType> components);
+```
+
 

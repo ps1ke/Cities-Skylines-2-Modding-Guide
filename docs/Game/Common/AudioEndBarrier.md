@@ -7,11 +7,33 @@
 
 **Base:** `Game.SafeCommandBufferSystem`  
 
+## Code
+
+```csharp
+public class AudioEndBarrier : Game.SafeCommandBufferSystem
+{
+    public AudioEndBarrier();
+
+    protected virtual System.Void OnUpdate();
+}
+```
+
+
 ## Constructors
 
 - `public AudioEndBarrier()`  
 
+```csharp
+public AudioEndBarrier();
+```
+
+
 ## Methods
 
 - `protected virtual OnUpdate() : System.Void`  
+
+```csharp
+protected virtual System.Void OnUpdate();
+```
+
 

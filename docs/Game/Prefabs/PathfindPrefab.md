@@ -10,7 +10,23 @@
 
 **Attributes:** `ComponentMenu`  
 
+## Code
+
+```csharp
+public class PathfindPrefab : Game.Prefabs.PrefabBase, Colossal.IO.AssetDatabase.IComponentBase, System.IComparable, UnityEngine.ISerializationCallbackReceiver, Colossal.IO.AssetDatabase.IPrefabBase
+{
+    public PathfindPrefab();
+
+}
+```
+
+
 ## Constructors
 
 - `public PathfindPrefab()`  
+
+```csharp
+public PathfindPrefab();
+```
+
 

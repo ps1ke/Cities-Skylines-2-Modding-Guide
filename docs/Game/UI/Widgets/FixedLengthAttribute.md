@@ -7,7 +7,23 @@
 
 **Base:** `UnityEngine.PropertyAttribute`  
 
+## Code
+
+```csharp
+public class FixedLengthAttribute : UnityEngine.PropertyAttribute
+{
+    public FixedLengthAttribute();
+
+}
+```
+
+
 ## Constructors
 
 - `public FixedLengthAttribute()`  
+
+```csharp
+public FixedLengthAttribute();
+```
+
 
